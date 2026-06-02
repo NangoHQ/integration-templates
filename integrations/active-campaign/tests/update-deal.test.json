@@ -1,0 +1,143 @@
+{
+  "input": {
+    "id": 17,
+    "title": "Updated Test Deal 17",
+    "value": 55555
+  },
+  "output": {
+    "id": "17",
+    "title": "Updated Test Deal 17",
+    "value": 55555,
+    "currency": "usd",
+    "group": "4",
+    "stage": "10",
+    "owner": "1",
+    "contact": "1",
+    "description": "",
+    "percent": "0",
+    "status": 0,
+    "cdate": "2026-05-28T05:08:16-05:00",
+    "mdate": "2026-05-28T05:10:16-05:00",
+    "nexttaskid": "0",
+    "activitycount": "4",
+    "nextdealid": "17",
+    "isDisabled": false,
+    "hash": "6e779a71"
+  },
+  "nango": {},
+  "api": {
+    "patch": {
+      "/3/deals/17": {
+        "response": {
+          "dealStages": [
+            {
+              "group": "4",
+              "title": "To Contact",
+              "color": "19CCA3",
+              "order": "1",
+              "width": "280",
+              "dealOrder": "next-action DESC",
+              "cardRegion1": "title",
+              "cardRegion2": "next-action",
+              "cardRegion3": "show-avatar",
+              "cardRegion4": "contact-fullname-acctname",
+              "cardRegion5": "value",
+              "cdate": null,
+              "udate": null,
+              "links": {
+                "group": "https://nango56865.api-us1.com/api/3/dealStages/10/group"
+              },
+              "id": "10"
+            }
+          ],
+          "deal": {
+            "hash": "6e779a71",
+            "owner": "1",
+            "contact": "1",
+            "organization": null,
+            "group": "4",
+            "stage": "10",
+            "title": "Updated Test Deal 17",
+            "description": "",
+            "percent": "0",
+            "cdate": "2026-05-28T05:08:16-05:00",
+            "mdate": "2026-05-28T05:10:16-05:00",
+            "nextdate": null,
+            "nexttaskid": "0",
+            "value": 55555,
+            "currency": "usd",
+            "status": 0,
+            "activitycount": "4",
+            "nextdealid": "17",
+            "edate": null,
+            "winProbability": null,
+            "winProbabilityMdate": null,
+            "links": {
+              "dealActivities": "https://nango56865.api-us1.com/api/3/deals/17/dealActivities",
+              "contact": "https://nango56865.api-us1.com/api/3/deals/17/contact",
+              "contactDeals": "https://nango56865.api-us1.com/api/3/deals/17/contactDeals",
+              "group": "https://nango56865.api-us1.com/api/3/deals/17/group",
+              "nextTask": "https://nango56865.api-us1.com/api/3/deals/17/nextTask",
+              "notes": "https://nango56865.api-us1.com/api/3/deals/17/notes",
+              "account": "https://nango56865.api-us1.com/api/3/deals/17/account",
+              "customerAccount": "https://nango56865.api-us1.com/api/3/deals/17/customerAccount",
+              "organization": "https://nango56865.api-us1.com/api/3/deals/17/organization",
+              "owner": "https://nango56865.api-us1.com/api/3/deals/17/owner",
+              "scoreValues": "https://nango56865.api-us1.com/api/3/deals/17/scoreValues",
+              "stage": "https://nango56865.api-us1.com/api/3/deals/17/stage",
+              "tasks": "https://nango56865.api-us1.com/api/3/deals/17/tasks",
+              "dealCustomFieldData": "https://nango56865.api-us1.com/api/3/deals/17/dealCustomFieldData"
+            },
+            "fields": [],
+            "customFieldSaveStatus": {
+              "status": "success"
+            },
+            "id": "17",
+            "isDisabled": false,
+            "nextTask": null,
+            "account": null,
+            "customerAccount": null
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 28 May 2026 10:10:17 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4997",
+          "x-ratelimit-reset": "1779963076",
+          "cache-control": "no-store, no-cache, must-revalidate,no-cache, private",
+          "expires": "Thu, 19 Nov 1981 08:52:00 GMT",
+          "pragma": "no-cache",
+          "server": "cloudflare",
+          "set-cookie": "PHPSESSID=7ef95dcef9bbb4e6f3cd3765c864ef94; path=/; secure; HttpOnly; SameSite=Lax, em_acp_globalauth_cookie=90bf8b12-492d-422a-a63e-cb1a91d69234; path=/; domain=.nango56865.api-us1.com; secure; httponly; SameSite=Lax",
+          "x-envoy-decorator-operation": "ac-hosted-current-web.activecampaign-hosted.svc.cluster.local:80/*",
+          "x-envoy-upstream-service-time": "290",
+          "x-request-id": "d8c9cc4a-e877-4e26-a97d-62b678ccc4f7",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a02c77f5fec2816e-PDX"
+        },
+        "hash": "0d950885bb982c51fb83028bd0f3b9e649ed5b47",
+        "request": {
+          "data": {
+            "deal": {
+              "title": "Updated Test Deal 17",
+              "value": 55555
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "input": {
+    "name": "Nango Agent List May 28",
+    "stringid": "nango-agent-list-may28-1748",
+    "sender_url": "https://nango.dev",
+    "sender_reminder": "You are receiving this email because you signed up on our site.",
+    "user": 1
+  },
+  "output": {
+    "id": "17",
+    "name": "Nango Agent List May 28",
+    "stringid": "nango-agent-list-may28-1748",
+    "channel": "email",
+    "cdate": "2026-05-28T04:43:43-05:00",
+    "udate": "2026-05-28T04:43:43-05:00",
+    "links": {
+      "contactGoalLists": "https://nango56865.api-us1.com/api/3/lists/17/contactGoalLists",
+      "user": "https://nango56865.api-us1.com/api/3/lists/17/user",
+      "addressLists": "https://nango56865.api-us1.com/api/3/lists/17/addressLists"
+    }
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/3/lists": {
+        "response": {
+          "list": {
+            "name": "Nango Agent List May 28",
+            "channel": "email",
+            "stringid": "nango-agent-list-may28-1748",
+            "sender_url": "https://nango.dev",
+            "sender_reminder": "You are receiving this email because you signed up on our site.",
+            "description": "",
+            "send_last_broadcast": 0,
+            "carboncopy": "",
+            "subscription_notify": "",
+            "unsubscription_notify": "",
+            "userid": 1,
+            "cdate": "2026-05-28T04:43:43-05:00",
+            "udate": "2026-05-28T04:43:43-05:00",
+            "links": {
+              "contactGoalLists": "https://nango56865.api-us1.com/api/3/lists/17/contactGoalLists",
+              "user": "https://nango56865.api-us1.com/api/3/lists/17/user",
+              "addressLists": "https://nango56865.api-us1.com/api/3/lists/17/addressLists"
+            },
+            "id": "17",
+            "user": 1
+          }
+        },
+        "status": 201,
+        "headers": {
+          "date": "Thu, 28 May 2026 09:43:44 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4992",
+          "x-ratelimit-reset": "1779961469",
+          "cache-control": "no-store, no-cache, must-revalidate,no-cache, private",
+          "expires": "Thu, 19 Nov 1981 08:52:00 GMT",
+          "pragma": "no-cache",
+          "server": "cloudflare",
+          "set-cookie": "PHPSESSID=feae540ce27f0c0191fb2ba2b3febdc9; path=/; secure; HttpOnly; SameSite=Lax, em_acp_globalauth_cookie=cdbe2d4e-d9df-46b2-aab1-49147a18d1e1; path=/; domain=.nango56865.api-us1.com; secure; httponly; SameSite=Lax, cmp652926665=52ee98e282b5fa61f8b80876386b36af; expires=Sat, 27-Jun-2026 09:43:43 GMT; Max-Age=2592000; path=/; domain=.nango56865.api-us1.com; secure; SameSite=Lax",
+          "x-envoy-decorator-operation": "ac-hosted-current-web.activecampaign-hosted.svc.cluster.local:80/*",
+          "x-envoy-upstream-service-time": "574",
+          "x-request-id": "c7e500c2-6e07-486b-9009-e065e6d38beb",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a02c510f18fde6e0-PDX"
+        },
+        "hash": "12085de0f40189a532dcd4a3f8ebf68ea8d00f35",
+        "request": {
+          "data": {
+            "list": {
+              "name": "Nango Agent List May 28",
+              "stringid": "nango-agent-list-may28-1748",
+              "sender_url": "https://nango.dev",
+              "sender_reminder": "You are receiving this email because you signed up on our site.",
+              "user": 1
+            }
+          }
+        }
+      }
+    }
+  }
+}

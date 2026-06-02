@@ -526,6 +526,2471 @@ export interface ActionOutput_1password_scim_updatescimuser {
   primary?: boolean | undefined;})[];
 };
 
+export interface Account {
+  id: string;
+  accountName?: string | undefined;
+  accountNumber?: string | undefined;
+  accountType?: string | undefined;
+  annualRevenue?: number | undefined;
+  billingCity?: string | undefined;
+  billingCode?: string | undefined;
+  billingCountry?: string | undefined;
+  billingState?: string | undefined;
+  billingStreet?: string | undefined;
+  createdByName?: string | undefined;
+  createdById?: string | undefined;
+  createdByEmail?: string | undefined;
+  createdTime?: string | undefined;
+  description?: string | undefined;
+  employees?: number | undefined;
+  fax?: string | undefined;
+  industry?: string | undefined;
+  modifiedByName?: string | undefined;
+  modifiedById?: string | undefined;
+  modifiedByEmail?: string | undefined;
+  modifiedTime: string;
+  ownerName?: string | undefined;
+  ownerId?: string | undefined;
+  ownerEmail?: string | undefined;
+  ownership?: string | undefined;
+  parentAccountName?: string | undefined;
+  parentAccountId?: string | undefined;
+  phone?: string | undefined;
+  rating?: string | undefined;
+  shippingCity?: string | undefined;
+  shippingCode?: string | undefined;
+  shippingCountry?: string | undefined;
+  shippingState?: string | undefined;
+  shippingStreet?: string | undefined;
+  sicCode?: string | undefined;
+  tickerSymbol?: string | undefined;
+  website?: string | undefined;
+};
+
+export interface Automation {
+  id: string;
+  create_time: string;
+  start_time?: string | undefined;
+  status: string;
+  emails_sent?: number | undefined;
+  title?: string | undefined;
+  from_name?: string | undefined;
+  reply_to?: string | undefined;
+  list_id?: string | undefined;
+  list_name?: string | undefined;
+  workflow_type?: string | undefined;
+};
+
+export interface Campaign {
+  id: string;
+  campaign_id: string;
+  advertiser_id: string;
+  campaign_name?: string | undefined;
+  campaign_type?: string | undefined;
+  budget?: number | undefined;
+  budget_mode?: string | undefined;
+  objective?: string | undefined;
+  objective_type?: string | undefined;
+  operation_status?: string | undefined;
+  secondary_status?: string | undefined;
+  create_time?: string | undefined;
+  modify_time?: string | undefined;
+};
+
+export interface Contact {
+  id: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  full_name?: string | undefined;
+  email?: string | undefined;
+  secondary_email?: string | undefined;
+  phone?: string | undefined;
+  mobile?: string | undefined;
+  home_phone?: string | undefined;
+  other_phone?: string | undefined;
+  title?: string | undefined;
+  department?: string | undefined;
+  account_name?: string | undefined;
+  account_id?: string | undefined;
+  owner_name?: string | undefined;
+  owner_id?: string | undefined;
+  owner_email?: string | undefined;
+  created_time: string;
+  modified_time: string;
+  mailing_street?: string | undefined;
+  mailing_city?: string | undefined;
+  mailing_state?: string | undefined;
+  mailing_zip?: string | undefined;
+  mailing_country?: string | undefined;
+  other_street?: string | undefined;
+  other_city?: string | undefined;
+  other_state?: string | undefined;
+  other_zip?: string | undefined;
+  other_country?: string | undefined;
+  description?: string | undefined;
+  twitter?: string | undefined;
+  skype_id?: string | undefined;
+  date_of_birth?: string | undefined;
+  lead_source?: string | undefined;
+  email_opt_out?: boolean | undefined;
+  fax?: string | undefined;
+  assistant?: string | undefined;
+  asst_phone?: string | undefined;
+  reporting_to_name?: string | undefined;
+  reporting_to_id?: string | undefined;
+  created_by_name?: string | undefined;
+  created_by_id?: string | undefined;
+  modified_by_name?: string | undefined;
+  modified_by_id?: string | undefined;
+};
+
+export interface CustomField {
+  id: string;
+  title?: string | undefined;
+  descript?: string | undefined;
+  type?: string | undefined;
+  isrequired?: string | undefined;
+  perstag?: string | undefined;
+  defval?: unknown | undefined;
+  show_in_list?: string | undefined;
+  rows?: string | undefined;
+  cols?: string | undefined;
+  visible?: string | undefined;
+  service?: string | undefined;
+  ordernum?: string | undefined;
+  cdate?: string | undefined;
+  udate?: string | undefined;
+  options?: unknown[] | undefined;
+  relations?: unknown[] | undefined;
+  links?: {  [key: string]: string;} | undefined;
+};
+
+export interface DealGroup {
+  id: string;
+  title?: string | undefined;
+  currency?: string | undefined;
+  autoassign?: string | undefined;
+  allgroups?: string | undefined;
+  allusers?: string | undefined;
+  cdate?: string | undefined;
+  udate?: string | undefined;
+  stages?: string[] | undefined;
+  links?: {  [key: string]: string;} | undefined;
+};
+
+export interface DealStage {
+  id: string;
+  title: string;
+  color?: string | undefined;
+  order?: string | undefined;
+  group?: string | undefined;
+  width?: string | undefined;
+  dealOrder?: string | undefined;
+  cardRegion1?: string | undefined;
+  cardRegion2?: string | undefined;
+  cardRegion3?: string | undefined;
+  cardRegion4?: string | undefined;
+  cardRegion5?: string | undefined;
+  cdate?: string | undefined;
+  udate?: string | undefined;
+};
+
+export interface Deal {
+  id: string;
+  dealName?: string | undefined;
+  stage?: string | undefined;
+  amount?: number | undefined;
+  closingDate?: string | undefined;
+  accountName?: string | undefined;
+  accountId?: string | undefined;
+  contactName?: string | undefined;
+  contactId?: string | undefined;
+  ownerName?: string | undefined;
+  ownerId?: string | undefined;
+  ownerEmail?: string | undefined;
+  createdTime: string;
+  modifiedTime: string;
+  probability?: string | number | undefined;
+  expectedRevenue?: number | undefined;
+  description?: string | undefined;
+  campaignSource?: string | undefined;
+  leadSource?: string | undefined;
+  type?: string | undefined;
+  nextStep?: string | undefined;
+};
+
+export interface List {
+  id: string;
+  name: string;
+  description?: string | undefined;
+  created_at?: string | undefined;
+  private?: boolean | undefined;
+  owner_id?: string | undefined;
+  follower_count?: number | undefined;
+  member_count?: number | undefined;
+};
+
+export interface Note {
+  id: string;
+  note_title?: string | undefined;
+  note_content?: string | undefined;
+  parent_id?: string | undefined;
+  parent_name?: string | undefined;
+  parent_module?: string | undefined;
+  owner_id?: string | undefined;
+  owner_name?: string | undefined;
+  owner_email?: string | undefined;
+  created_by_id?: string | undefined;
+  created_by_name?: string | undefined;
+  modified_by_id?: string | undefined;
+  modified_by_name?: string | undefined;
+  created_time?: string | undefined;
+  modified_time?: string | undefined;
+};
+
+export interface Tag {
+  id: string;
+  name: string;
+  type: string;
+  created_at?: number | undefined;
+  updated_at?: number | undefined;
+};
+
+export interface ActionInput_active_campaign_addcontacttolist {
+  /**
+   * List ID. Example: 3
+   */
+  listId: number;
+  /**
+   * Contact ID. Example: 1
+   */
+  contactId: number;
+  /**
+   * Subscription status. 1 = subscribe, 2 = unsubscribe.
+   */
+  status: number;
+};
+
+export interface ActionOutput_active_campaign_addcontacttolist {
+  id: string;
+  contactId: string;
+  listId: string;
+  status: number;
+  subscribedDate?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+};
+
+export interface ActionInput_active_campaign_createaccount {
+  /**
+   * Account name. Example: "Example Account"
+   */
+  name: string;
+  /**
+   * Account website URL. Example: "https://www.example.com"
+   */
+  accountUrl?: string | undefined;
+  /**
+   * User ID of the account owner. Example: 1
+   */
+  owner?: number | undefined;
+  /**
+   * Account custom field values.
+   */
+  fields?: ({  /**
+   * Field ID of the Custom Field Meta Data. Example: 9
+   */
+  customFieldId: number;
+  /**
+   * Updated field value. For currency fields, this needs to be in cents.
+   */
+  fieldValue: string | number;
+  /**
+   * Three-letter currency code for currency field types. Example: GBP
+   */
+  fieldCurrency?: string | undefined;})[];
+};
+
+export interface ActionOutput_active_campaign_createaccount {
+  id: string;
+  name: string;
+  accountUrl?: string | undefined;
+  createdTimestamp?: string | undefined;
+  updatedTimestamp?: string | undefined;
+  fields?: ({  customFieldId: number;
+  fieldValue: string | number;
+  accountId?: string | undefined;
+  fieldCurrency?: string | undefined;})[];
+};
+
+export interface ActionInput_active_campaign_createcampaign {
+  /**
+   * Campaign name. Example: "Summer Sale 2024"
+   */
+  name: string;
+  /**
+   * Campaign type. Example: "single"
+   */
+  type: string;
+  /**
+   * Whether the campaign can contain split content. Defaults to false.
+   */
+  canSplitContent?: boolean | undefined;
+};
+
+export interface ActionOutput_active_campaign_createcampaign {
+  /**
+   * Campaign ID.
+   */
+  id: string;
+  /**
+   * Campaign name.
+   */
+  name: string;
+  /**
+   * Campaign type.
+   */
+  type: string;
+  /**
+   * Whether the campaign can contain split content.
+   */
+  canSplitContent?: boolean | undefined;
+};
+
+export interface ActionInput_active_campaign_createcontact {
+  /**
+   * Contact email address. Example: "johndoe@example.com"
+   */
+  email: string;
+  /**
+   * Contact first name. Example: "John"
+   */
+  firstName?: string | undefined;
+  /**
+   * Contact last name. Example: "Doe"
+   */
+  lastName?: string | undefined;
+  /**
+   * Contact phone number. Example: "7223224241"
+   */
+  phone?: string | undefined;
+  /**
+   * Custom field values to set on the contact
+   */
+  fieldValues?: ({  /**
+   * Custom field ID. Example: "1"
+   */
+  field: string;
+  /**
+   * Custom field value. Example: "The Value"
+   */
+  value: string;})[] | undefined;
+};
+
+export interface ActionOutput_active_campaign_createcontact {
+  /**
+   * Contact ID. Example: "123"
+   */
+  id: string;
+  /**
+   * Contact email address. Example: "johndoe@example.com"
+   */
+  email: string;
+  /**
+   * Contact first name. Example: "John"
+   */
+  firstName?: string | undefined;
+  /**
+   * Contact last name. Example: "Doe"
+   */
+  lastName?: string | undefined;
+  /**
+   * Contact phone number. Example: "7223224241"
+   */
+  phone?: string | undefined;
+  /**
+   * Contact creation date. Example: "2024-01-01T00:00:00-00:00"
+   */
+  cdate?: string | undefined;
+  /**
+   * Contact update date. Example: "2024-01-01T00:00:00-00:00"
+   */
+  udate?: string | undefined;
+  /**
+   * Custom field values on the contact
+   */
+  fieldValues?: ({  field?: string | undefined;
+  value?: string | undefined;})[];
+};
+
+export interface ActionInput_active_campaign_createcustomfield {
+  /**
+   * Title of the field being created. Example: "My Custom Field"
+   */
+  title: string;
+  /**
+   * Type of the custom field.
+   */
+  type: 'dropdown' | 'hidden' | 'checkbox' | 'date' | 'text' | 'datetime' | 'textarea' | 'listbox' | 'radio' | 'number';
+  /**
+   * Description of field being created.
+   */
+  descript?: string | undefined;
+  /**
+   * The personalization tag that represents the field being created.
+   */
+  perstag?: string | undefined;
+  /**
+   * Default value of the field being created.
+   */
+  defval?: string | undefined;
+  /**
+   * Show or hide this field when using the Form Builder.
+   */
+  visible?: boolean | undefined;
+  /**
+   * Order of appearance in My Fields tab.
+   */
+  ordernum?: number | undefined;
+};
+
+export interface ActionOutput_active_campaign_createcustomfield {
+  id: string;
+  title: string;
+  type: string;
+  descript?: string | undefined;
+  perstag?: string | undefined;
+  defval?: string | undefined;
+  visible?: string | undefined;
+  ordernum?: string | number | undefined;
+  cdate?: string | undefined;
+  udate?: string | undefined;
+};
+
+export interface ActionInput_active_campaign_createdealgroup {
+  /**
+   * Pipeline title. Example: "Sales Pipeline"
+   */
+  title: string;
+  /**
+   * Default currency for new deals in this pipeline. Example: "usd"
+   */
+  currency: string;
+  /**
+   * Whether all user groups can manage this pipeline. 1 = yes, 0 = no. Default: 1
+   */
+  allgroups?: 0 | 1 | undefined;
+  /**
+   * Whether new deals are auto-assigned to all users. 1 = yes, 0 = no. Default: 0
+   */
+  allusers?: 0 | 1 | undefined;
+  /**
+   * Deal auto-assign mode. 0 = disabled, 1 = round robin, 2 = by value. Default: 1
+   */
+  autoassign?: 0 | 1 | 2 | undefined;
+  /**
+   * List of user IDs to auto-assign new deals to when auto-assign is enabled.
+   */
+  users?: string[] | undefined;
+  /**
+   * List of user group IDs allowed to manage this pipeline when allgroups is 0.
+   */
+  groups?: string[] | undefined;
+};
+
+export interface ActionOutput_active_campaign_createdealgroup {
+  id: string;
+  title: string;
+  currency: string;
+  allgroups?: number | undefined;
+  allusers?: number | undefined;
+  autoassign?: number | undefined;
+  stages?: string[] | undefined;
+  cdate?: string | undefined;
+  udate?: string | undefined;
+};
+
+export interface ActionInput_active_campaign_createdealstage {
+  /**
+   * Deal stage title. Example: "Initial Contact"
+   */
+  title: string;
+  /**
+   * Deal stage pipeline id. Example: "1"
+   */
+  group: string;
+  /**
+   * Order of the deal stage within the pipeline. Example: 1
+   */
+  order?: number | undefined;
+  /**
+   * Option and direction to sort deals in the stage. Example: "next-action DESC"
+   */
+  dealOrder?: string | undefined;
+  /**
+   * What to show in upper-left corner of Deal Cards. Example: "title"
+   */
+  cardRegion1?: string | undefined;
+  /**
+   * What to show in upper-right corner of Deal Cards. Example: "next-action"
+   */
+  cardRegion2?: string | undefined;
+  /**
+   * Whether to show the avatar in Deal Cards. Example: "show-avatar"
+   */
+  cardRegion3?: string | undefined;
+  /**
+   * What to show next to the avatar in Deal Cards. Example: "contact-fullname-orgname"
+   */
+  cardRegion4?: string | undefined;
+  /**
+   * What to show in lower-right corner of Deal Cards. Example: "value"
+   */
+  cardRegion5?: string | undefined;
+  /**
+   * Deal Stage color as 6-character HEX without hashtag. Example: "32B0FC"
+   */
+  color?: string | undefined;
+  /**
+   * Deal stage width in pixels. Example: 280
+   */
+  width?: number | undefined;
+  /**
+   * Whether to reorder stages after creation. Can be 0 or 1.
+   */
+  reorder?: 0 | 1 | undefined;
+};
+
+export interface ActionOutput_active_campaign_createdealstage {
+  id: string;
+  title: string;
+  group: string;
+  order: string | number;
+  color?: string | undefined;
+  width?: string | number | undefined;
+  cardRegion1?: string | undefined;
+  cardRegion2?: string | undefined;
+  cardRegion3?: string | undefined;
+  cardRegion4?: string | undefined;
+  cardRegion5?: string | undefined;
+  dealOrder?: string | undefined;
+  cdate?: string | undefined;
+  udate?: string | undefined;
+};
+
+export interface ActionInput_active_campaign_createdeal {
+  /**
+   * Deal title. Example: "AC Deal"
+   */
+  title: string;
+  /**
+   * Deal description. Example: "This deal is an important deal"
+   */
+  description?: string | undefined;
+  /**
+   * Deal account id. Example: "45"
+   */
+  account?: string | undefined;
+  /**
+   * Deal primary contact id. Example: "1"
+   */
+  contact: string;
+  /**
+   * Deal value in cents. Example: 45600
+   */
+  value: number;
+  /**
+   * Deal currency in 3-digit ISO format, lowercased. Example: "usd"
+   */
+  currency: string;
+  /**
+   * Deal pipeline id. Example: "1"
+   */
+  group: string;
+  /**
+   * Deal stage id. Example: "1"
+   */
+  stage: string;
+  /**
+   * Deal owner id. Example: "1"
+   */
+  owner: string;
+  /**
+   * Deal percentage. Example: 25
+   */
+  percent?: number | undefined;
+  /**
+   * Deal status. Example: 0
+   */
+  status?: number | undefined;
+  /**
+   * Deal custom field values
+   */
+  fields?: ({  /**
+   * Field ID, ID of the Custom Field Meta Data. Example: 1
+   */
+  customFieldId: number;
+  /**
+   * Updated field value. Example: "First field value"
+   */
+  fieldValue: string;
+  /**
+   * Required only for the currency field type. Example: "EUR"
+   */
+  fieldCurrency?: string | undefined;})[];
+};
+
+export interface ActionOutput_active_campaign_createdeal {
+  id: string;
+  title: string;
+  description?: string | undefined;
+  value: number;
+  currency: string;
+  contact: number;
+  owner: string;
+  group: string;
+  stage: string;
+  status: number;
+  percent?: number | undefined;
+  account?: number | undefined;
+  organization?: number | undefined;
+  fields?: ({  customFieldId: number;
+  fieldValue?: unknown | undefined;
+  fieldCurrency?: string | undefined;})[];
+};
+
+export interface ActionInput_active_campaign_createlist {
+  /**
+   * Name of the list to create. Example: "Newsletter Subscribers"
+   */
+  name: string;
+  /**
+   * URL-safe list name. Example: "newsletter-subscribers"
+   */
+  stringid: string;
+  /**
+   * The website URL this list is for. Example: "https://example.com"
+   */
+  sender_url: string;
+  /**
+   * A reminder for contacts as to why they are on this list. Example: "You subscribed via our website."
+   */
+  sender_reminder: string;
+  /**
+   * Type of channel for the list. Possible values are `email` or `sms`. Defaults to `email`.
+   */
+  channel?: string | undefined;
+  /**
+   * Whether to send the last sent campaign to a new subscriber upon subscribing.
+   */
+  send_last_broadcast?: boolean | undefined;
+  /**
+   * Comma-separated list of email addresses to copy on all mailings.
+   */
+  carboncopy?: string | undefined;
+  /**
+   * Comma-separated list of email addresses to notify when a new subscriber joins.
+   */
+  subscription_notify?: string | undefined;
+  /**
+   * Comma-separated list of email addresses to notify when a subscriber unsubscribes.
+   */
+  unsubscription_notify?: string | undefined;
+  /**
+   * User ID of the list owner.
+   */
+  user?: number | undefined;
+};
+
+export interface ActionOutput_active_campaign_createlist {
+  id: string;
+  name: string;
+  stringid: string;
+  channel?: string | undefined;
+  cdate?: string | undefined;
+  udate?: string | undefined;
+  links?: {  contactGoalLists?: string | undefined;
+  user?: string | undefined;
+  addressLists?: string | undefined;};
+};
+
+export interface ActionInput_active_campaign_createnote {
+  /**
+   * Text content of the note. Example: "Follow up with lead next week"
+   */
+  note: string;
+  /**
+   * ID of the related record. Example: 1
+   */
+  relid: number;
+  /**
+   * Type of related object. Example: "Subscriber"
+   */
+  reltype: 'Activity' | 'Deal' | 'DealTask' | 'Subscriber' | 'CustomerAccount';
+};
+
+export interface ActionOutput_active_campaign_createnote {
+  id: string;
+  note?: string | undefined;
+  reltype?: string | undefined;
+  relid?: number | undefined;
+  userid?: string | undefined;
+  user?: string | undefined;
+  cdate?: string | undefined;
+  mdate?: string | undefined;
+  owner?: {  type?: string | undefined;
+  id?: number | undefined;};
+};
+
+export interface ActionInput_active_campaign_createtag {
+  /**
+   * Tag name. Example: "My Tag"
+   */
+  tag: string;
+  /**
+   * Tag type. Example: "contact"
+   */
+  tagType?: string | undefined;
+  /**
+   * Tag description. Example: "Description"
+   */
+  description?: string | undefined;
+};
+
+export interface ActionOutput_active_campaign_createtag {
+  id: string;
+  tag: string;
+  tagType?: string | undefined;
+  description?: string | undefined;
+  cdate?: string | undefined;
+  subscriber_count?: string | undefined;
+};
+
+export interface ActionInput_active_campaign_deleteaccount {
+  /**
+   * Account ID. Example: 1
+   */
+  id: number;
+};
+
+export interface ActionOutput_active_campaign_deleteaccount {
+  success: boolean;
+  id: number;
+};
+
+export interface ActionInput_active_campaign_deletecampaign {
+  /**
+   * Campaign ID. Example: 1
+   */
+  id: number;
+};
+
+export interface ActionOutput_active_campaign_deletecampaign {
+  id: number;
+  success: boolean;
+};
+
+export interface ActionInput_active_campaign_deletecontact {
+  /**
+   * The contact ID to delete. Example: 9
+   */
+  id: number;
+};
+
+export interface ActionOutput_active_campaign_deletecontact {
+  success: boolean;
+  /**
+   * The deleted contact ID
+   */
+  id: number;
+};
+
+export interface ActionInput_active_campaign_deletecustomfield {
+  /**
+   * The ID of the custom field to delete. Example: 1
+   */
+  id: number;
+};
+
+export interface ActionOutput_active_campaign_deletecustomfield {
+  success: boolean;
+  message?: string | undefined;
+};
+
+export interface ActionInput_active_campaign_deletedealgroup {
+  /**
+   * Deal group (pipeline) ID. Example: 1
+   */
+  id: number;
+};
+
+export interface ActionOutput_active_campaign_deletedealgroup {
+  success: boolean;
+  id: number;
+};
+
+export interface ActionInput_active_campaign_deletedealstage {
+  /**
+   * Deal stage ID. Example: 1
+   */
+  id: number;
+};
+
+export interface ActionOutput_active_campaign_deletedealstage {
+  id: number;
+  success: boolean;
+};
+
+export interface ActionInput_active_campaign_deletedeal {
+  /**
+   * The deal ID to delete. Example: 11
+   */
+  id: number;
+};
+
+export interface ActionOutput_active_campaign_deletedeal {
+  success: boolean;
+  id: number;
+};
+
+export interface ActionInput_active_campaign_deletelist {
+  /**
+   * The ID of the list to delete. Example: 13
+   */
+  id: number;
+};
+
+export interface ActionOutput_active_campaign_deletelist {
+  id: number;
+  success: boolean;
+};
+
+export interface ActionInput_active_campaign_deletenote {
+  /**
+   * Note ID to delete. Example: "3"
+   */
+  id: string;
+};
+
+export interface ActionOutput_active_campaign_deletenote {
+  id: string;
+  success: boolean;
+};
+
+export interface ActionInput_active_campaign_deletetag {
+  /**
+   * Tag ID to delete. Example: "11"
+   */
+  tag_id: string;
+};
+
+export interface ActionOutput_active_campaign_deletetag {
+  success: boolean;
+};
+
+export interface ActionInput_active_campaign_getaccount {
+  /**
+   * Account ID. Example: 1
+   */
+  id: number;
+};
+
+export interface ActionOutput_active_campaign_getaccount {
+  id: string;
+  name: string;
+  accountUrl?: string | undefined;
+  createdTimestamp?: string | undefined;
+  updatedTimestamp?: string | undefined;
+  links?: unknown | undefined;
+};
+
+export interface ActionInput_active_campaign_getautomation {
+  /**
+   * Automation ID. Example: "1"
+   */
+  id: string;
+};
+
+export interface ActionOutput_active_campaign_getautomation {
+  id: string;
+  name: string;
+  cdate?: string | undefined;
+  mdate?: string | undefined;
+  userid?: string | undefined;
+  status?: string | undefined;
+  entered?: string | undefined;
+  exited?: string | undefined;
+  hidden?: string | undefined;
+  entitlements_violation?: string | undefined;
+  source?: string | undefined;
+  description?: string | undefined;
+  exit_on_unsubscribe?: string | undefined;
+  exit_on_conversion?: string | undefined;
+  multientry?: string | undefined;
+  defaultscreenshot?: string | undefined;
+  screenshot?: string | undefined;
+  links?: {  campaigns?: string | undefined;
+  contactGoals?: string | undefined;
+  contactAutomations?: string | undefined;
+  blocks?: string | undefined;
+  goals?: string | undefined;
+  sms?: string | undefined;
+  sitemessages?: string | undefined;
+  triggers?: string | undefined;};
+};
+
+export interface ActionInput_active_campaign_getcampaign {
+  /**
+   * Campaign ID. Example: "1"
+   */
+  id: string;
+};
+
+export interface ActionOutput_active_campaign_getcampaign {
+  campaign: {  type?: string | undefined;
+  userid?: string | undefined;
+  segmentid?: string | undefined;
+  bounceid?: string | undefined;
+  realcid?: string | undefined;
+  sendid?: string | undefined;
+  threadid?: string | undefined;
+  seriesid?: string | undefined;
+  formid?: string | undefined;
+  basetemplateid?: string | undefined;
+  basemessageid?: string | undefined;
+  addressid?: string | undefined;
+  source?: string | undefined;
+  name?: string | undefined;
+  cdate?: string | undefined;
+  mdate?: string | undefined;
+  sdate?: string | undefined;
+  ldate?: string | undefined;
+  send_amt?: string | undefined;
+  total_amt?: string | undefined;
+  opens?: string | undefined;
+  uniqueopens?: string | undefined;
+  linkclicks?: string | undefined;
+  uniquelinkclicks?: string | undefined;
+  subscriberclicks?: string | undefined;
+  forwards?: string | undefined;
+  uniqueforwards?: string | undefined;
+  hardbounces?: string | undefined;
+  softbounces?: string | undefined;
+  unsubscribes?: string | undefined;
+  unsubreasons?: string | undefined;
+  updates?: string | undefined;
+  socialshares?: string | undefined;
+  replies?: string | undefined;
+  uniquereplies?: string | undefined;
+  status?: string | undefined;
+  public?: string | undefined;
+  mail_transfer?: string | undefined;
+  mail_send?: string | undefined;
+  mail_cleanup?: string | undefined;
+  mailer_log_file?: string | undefined;
+  tracklinks?: string | undefined;
+  tracklinksanalytics?: string | undefined;
+  trackreads?: string | undefined;
+  trackreadsanalytics?: string | undefined;
+  analytics_campaign_name?: string | undefined;
+  tweet?: string | undefined;
+  facebook?: string | undefined;
+  survey?: string | undefined;
+  embed_images?: string | undefined;
+  htmlunsub?: string | undefined;
+  textunsub?: string | undefined;
+  htmlunsubdata?: string | undefined;
+  textunsubdata?: string | undefined;
+  recurring?: string | undefined;
+  willrecur?: string | undefined;
+  split_type?: string | undefined;
+  split_content?: string | undefined;
+  split_offset?: string | undefined;
+  split_offset_type?: string | undefined;
+  split_winner_messageid?: string | undefined;
+  split_winner_awaiting?: string | undefined;
+  responder_offset?: string | undefined;
+  responder_type?: string | undefined;
+  responder_existing?: string | undefined;
+  reminder_field?: string | undefined;
+  reminder_format?: string | undefined;
+  reminder_type?: string | undefined;
+  reminder_offset?: string | undefined;
+  reminder_offset_type?: string | undefined;
+  reminder_offset_sign?: string | undefined;
+  reminder_last_cron_run?: string | undefined;
+  activerss_interval?: string | undefined;
+  activerss_url?: string | undefined;
+  activerss_items?: string | undefined;
+  ip4?: string | undefined;
+  laststep?: string | undefined;
+  managetext?: string | undefined;
+  schedule?: string | undefined;
+  scheduleddate?: string | undefined;
+  waitpreview?: string | undefined;
+  deletestamp?: string | undefined;
+  replysys?: string | undefined;
+  created_timestamp?: string | undefined;
+  updated_timestamp?: string | undefined;
+  created_by?: string | undefined;
+  updated_by?: string | undefined;
+  ip?: string | undefined;
+  series_send_lock_time?: string | undefined;
+  can_skip_approval?: string | undefined;
+  use_quartz_scheduler?: string | undefined;
+  verified_opens?: string | undefined;
+  verified_unique_opens?: string | undefined;
+  segmentname?: string | undefined;
+  has_predictive_content?: string | undefined;
+  message_id?: string | undefined;
+  screenshot?: string | undefined;
+  campaign_message_id?: string | undefined;
+  ed_version?: string | undefined;
+  links?: {  user?: string | undefined;
+  automation?: string | undefined;
+  campaignMessage?: string | undefined;
+  campaignMessages?: string | undefined;
+  links?: string | undefined;
+  aggregateRevenues?: string | undefined;
+  segment?: string | undefined;
+  campaignLists?: string | undefined;};
+  id?: string | undefined;
+  user?: string | undefined;
+  automation?: unknown | undefined;};
+};
+
+export interface ActionInput_active_campaign_getcontact {
+  /**
+   * Contact ID. Example: 1
+   */
+  id: number;
+};
+
+export interface ActionOutput_active_campaign_getcontact {
+  contactAutomations?: ({  contact?: string | undefined;
+  seriesid?: string | undefined;
+  startid?: string | undefined;
+  status?: string | undefined;
+  adddate?: string | undefined;
+  remdate?: string | undefined;
+  timespan?: unknown | undefined;
+  lastblock?: string | undefined;
+  lastdate?: string | undefined;
+  completedElements?: string | undefined;
+  totalElements?: string | undefined;
+  completed?: number | undefined;
+  completeValue?: number | undefined;
+  links?: {  [key: string]: string;} | undefined;
+  id?: string | undefined;
+  automation?: string | undefined;})[];
+  contactLists?: ({  contact?: string | undefined;
+  list?: string | undefined;
+  form?: unknown | undefined;
+  seriesid?: string | undefined;
+  sdate?: string | undefined;
+  udate?: string | undefined;
+  status?: string | undefined;
+  responder?: string | undefined;
+  sync?: string | undefined;
+  unsubreason?: unknown | undefined;
+  campaign?: unknown | undefined;
+  message?: unknown | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  ip4Sub?: string | undefined;
+  sourceid?: string | undefined;
+  autosyncLog?: unknown | undefined;
+  ip4_last?: string | undefined;
+  ip4Unsub?: string | undefined;
+  unsubscribeAutomation?: unknown | undefined;
+  links?: {  [key: string]: string;} | undefined;
+  id?: string | undefined;
+  automation?: unknown | undefined;})[];
+  deals?: ({  owner?: string | undefined;
+  contact?: string | undefined;
+  organization?: unknown | undefined;
+  group?: unknown | undefined;
+  title?: string | undefined;
+  nexttaskid?: string | undefined;
+  currency?: string | undefined;
+  status?: string | undefined;
+  links?: {  [key: string]: string;} | undefined;
+  id?: string | undefined;
+  nextTask?: unknown | undefined;})[];
+  fieldValues?: ({  contact?: string | undefined;
+  field?: string | undefined;
+  value?: unknown | undefined;
+  cdate?: string | undefined;
+  udate?: string | undefined;
+  links?: {  [key: string]: string;} | undefined;
+  id?: string | undefined;
+  owner?: string | undefined;})[];
+  geoAddresses?: ({  ip4?: string | undefined;
+  country2?: string | undefined;
+  country?: string | undefined;
+  state?: string | undefined;
+  city?: string | undefined;
+  zip?: string | undefined;
+  area?: string | undefined;
+  lat?: string | undefined;
+  lon?: string | undefined;
+  tz?: string | undefined;
+  tstamp?: string | undefined;
+  links?: {  [key: string]: string;} | unknown[] | undefined;
+  id?: string | undefined;})[];
+  geoIps?: ({  contact?: string | undefined;
+  campaignid?: string | undefined;
+  messageid?: string | undefined;
+  geoaddrid?: string | undefined;
+  ip4?: string | undefined;
+  tstamp?: string | undefined;
+  geoAddress?: string | undefined;
+  links?: {  [key: string]: string;} | undefined;
+  id?: string | undefined;})[];
+  contact: {  cdate?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  orgid?: string | undefined;
+  orgname?: string | undefined;
+  segmentio_id?: string | undefined;
+  bounced_hard?: string | undefined;
+  bounced_soft?: string | undefined;
+  bounced_date?: string | undefined;
+  ip?: string | undefined;
+  ua?: string | undefined;
+  hash?: string | undefined;
+  socialdata_lastcheck?: string | undefined;
+  email_local?: string | undefined;
+  email_domain?: string | undefined;
+  sentcnt?: string | undefined;
+  rating_tstamp?: string | undefined;
+  gravatar?: string | undefined;
+  deleted?: string | undefined;
+  anonymized?: string | undefined;
+  adate?: string | undefined;
+  udate?: string | undefined;
+  edate?: string | undefined;
+  deleted_at?: string | undefined;
+  created_utc_timestamp?: string | undefined;
+  updated_utc_timestamp?: string | undefined;
+  created_timestamp?: string | undefined;
+  updated_timestamp?: string | undefined;
+  created_by?: string | undefined;
+  updated_by?: string | undefined;
+  email_empty?: boolean | undefined;
+  mpp_tracking?: string | undefined;
+  contactAutomations?: string[] | undefined;
+  contactLists?: string[] | undefined;
+  fieldValues?: string[] | undefined;
+  geoIps?: string[] | undefined;
+  deals?: string[] | undefined;
+  accountContacts?: string[] | undefined;
+  links?: {  [key: string]: string;} | undefined;
+  id: string;
+  organization?: unknown | undefined;};
+};
+
+export interface ActionInput_active_campaign_getcustomfield {
+  /**
+   * Custom field ID. Example: "1"
+   */
+  id: string;
+};
+
+export interface ActionOutput_active_campaign_getcustomfield {
+  field: {  title: string;
+  descript?: string | undefined;
+  type: string;
+  isrequired: string;
+  perstag: string;
+  defval?: string | undefined;
+  show_in_list: string;
+  rows: string;
+  cols: string;
+  visible: string;
+  service: string;
+  ordernum: string;
+  cdate: string;
+  udate: string;
+  created_timestamp?: string | undefined;
+  updated_timestamp?: string | undefined;
+  created_by?: string | undefined;
+  updated_by?: string | undefined;
+  options?: string[] | undefined;
+  relations?: string[] | undefined;
+  links?: {  options?: string | undefined;
+  relations?: string | undefined;};
+  id: string;};
+  fieldOptions?: ({  field: string;
+  orderid: string;
+  value: string;
+  label: string;
+  isdefault: string;
+  cdate?: string | undefined;
+  udate?: string | undefined;
+  links?: unknown | undefined;
+  id: string;})[];
+  fieldRels?: ({  field: string;
+  relid: string;
+  dorder: string;
+  cdate?: string | undefined;
+  links?: unknown | undefined;
+  id: string;})[];
+};
+
+export interface ActionInput_active_campaign_getdealgroup {
+  /**
+   * Deal group (pipeline) ID. Example: 1
+   */
+  id: string | number;
+};
+
+export interface ActionOutput_active_campaign_getdealgroup {
+  dealGroup: {  allgroups?: string | undefined;
+  allusers?: string | undefined;
+  autoassign?: string | undefined;
+  cdate?: string | undefined;
+  currency?: string | undefined;
+  id: string;
+  links?: {  dealGroupGroups?: string | undefined;
+  dealGroupUsers?: string | undefined;
+  stages?: string | undefined;};
+  stages?: string[] | undefined;
+  title?: string | undefined;
+  udate?: string | undefined;};
+  dealStages?: ({  cardRegion1?: string | undefined;
+  cardRegion2?: string | undefined;
+  cardRegion3?: string | undefined;
+  cardRegion4?: string | undefined;
+  cardRegion5?: string | undefined;
+  cdate?: string | undefined;
+  color?: string | undefined;
+  dealOrder?: string | undefined;
+  group?: string | undefined;
+  id: string;
+  links?: {  group?: string | undefined;};
+  order?: string | undefined;
+  title?: string | undefined;
+  udate?: string | undefined;
+  width?: string | undefined;})[];
+};
+
+export interface ActionInput_active_campaign_getdealstage {
+  /**
+   * Deal stage ID. Example: 1
+   */
+  id: string | number;
+};
+
+export interface ActionOutput_active_campaign_getdealstage {
+  cardRegion1?: string | undefined;
+  cardRegion2?: string | undefined;
+  cardRegion3?: string | undefined;
+  cardRegion4?: string | undefined;
+  cardRegion5?: string | undefined;
+  cdate?: string | undefined;
+  color?: string | undefined;
+  dealOrder?: string | undefined;
+  group?: string | undefined;
+  id: string;
+  links?: {  group?: string | undefined;};
+  order?: string | number | undefined;
+  title?: string | undefined;
+  udate?: string | undefined;
+  width?: string | number | undefined;
+};
+
+export interface ActionInput_active_campaign_getdeal {
+  /**
+   * The Deal id. Example: 1
+   */
+  id: number;
+};
+
+export interface ActionOutput_active_campaign_getdeal {
+  id: string;
+  isDisabled: boolean;
+  title: string;
+  owner?: string | undefined;
+  contact?: string | undefined;
+  organization?: string | undefined;
+  group?: string | undefined;
+  stage?: string | undefined;
+  description?: string | undefined;
+  percent?: string | undefined;
+  cdate?: string | undefined;
+  mdate?: string | undefined;
+  nextdate?: string | undefined;
+  nexttaskid?: string | undefined;
+  value?: string | undefined;
+  currency?: string | undefined;
+  winProbability?: number | undefined;
+  winProbabilityMdate?: string | undefined;
+  status?: string | undefined;
+  activitycount?: string | undefined;
+  nextdealid?: string | undefined;
+  edate?: string | undefined;
+  links?: {  [key: string]: string;} | undefined;
+  account?: string | undefined;
+  customerAccount?: string | undefined;
+};
+
+export interface ActionInput_active_campaign_getform {
+  /**
+   * ID of the form to retrieve. Example: "13"
+   */
+  id: string;
+};
+
+export interface ActionOutput_active_campaign_getform {
+  id: string;
+  name?: string | undefined;
+  action?: string | undefined;
+  actiondata?: {  actions?: ({  type?: string | undefined;
+  email?: string | undefined;
+  fromname?: string | undefined;
+  fromemail?: string | undefined;
+  subject?: string | undefined;})[];};
+  submit?: string | undefined;
+  submitdata?: {  url?: string | undefined;};
+  url?: string | undefined;
+  layout?: string | undefined;
+  title?: string | undefined;
+  body?: string | undefined;
+  button?: string | undefined;
+  thanks?: string | undefined;
+  style?: {  background?: string | undefined;
+  dark?: boolean | undefined;
+  fontcolor?: string | undefined;
+  layout?: string | undefined;
+  border?: {  width?: number | undefined;
+  style?: string | undefined;
+  color?: string | undefined;
+  radius?: number | undefined;};
+  width?: number | undefined;
+  ac_branding?: boolean | undefined;
+  button?: {  padding?: number | undefined;
+  background?: string | undefined;
+  fontcolor?: string | undefined;
+  border?: {  width?: number | undefined;
+  style?: string | undefined;
+  color?: string | undefined;
+  radius?: number | undefined;};};
+  customcss?: string | undefined;};
+  options?: {  blanks_overwrite?: boolean | undefined;
+  confaction?: string | undefined;};
+  cfields?: ({})[] | undefined;
+  parentformid?: string | undefined;
+  userid?: string | undefined;
+  addressid?: string | undefined;
+  cdate?: string | undefined;
+  udate?: string | undefined;
+  entries?: string | undefined;
+  aid?: unknown | undefined;
+  links?: {  address?: string | undefined;};
+  address?: unknown | undefined;
+};
+
+export interface ActionInput_active_campaign_getlist {
+  /**
+   * List ID. Example: 3
+   */
+  id: number;
+};
+
+export interface ActionOutput_active_campaign_getlist {
+  id: string;
+  stringid?: string | undefined;
+  userid?: string | undefined;
+  name?: string | undefined;
+  cdate?: string | undefined;
+  p_use_tracking?: string | undefined;
+  p_use_analytics_read?: string | undefined;
+  p_use_analytics_link?: string | undefined;
+  p_use_twitter?: string | undefined;
+  p_use_facebook?: string | undefined;
+  p_embed_image?: string | undefined;
+  p_use_captcha?: string | undefined;
+  send_last_broadcast?: string | undefined;
+  private?: string | undefined;
+  analytics_domains?: string | undefined;
+  analytics_source?: string | undefined;
+  analytics_ua?: string | undefined;
+  twitter_token?: string | undefined;
+  twitter_token_secret?: string | undefined;
+  facebook_session?: string | undefined;
+  carboncopy?: string | undefined;
+  subscription_notify?: string | undefined;
+  unsubscription_notify?: string | undefined;
+  require_name?: string | undefined;
+  get_unsubscribe_reason?: string | undefined;
+  to_name?: string | undefined;
+  optinoptout?: string | undefined;
+  sender_name?: string | undefined;
+  sender_addr1?: string | undefined;
+  sender_addr2?: string | undefined;
+  sender_city?: string | undefined;
+  sender_state?: string | undefined;
+  sender_zip?: string | undefined;
+  sender_country?: string | undefined;
+  sender_phone?: string | undefined;
+  sender_url?: string | undefined;
+  sender_reminder?: string | undefined;
+  fulladdress?: string | undefined;
+  optinmessageid?: string | undefined;
+  optoutconf?: string | undefined;
+  deletestamp?: string | undefined;
+  udate?: string | undefined;
+  links?: {  contactGoalLists?: string | undefined;
+  user?: string | undefined;
+  addressLists?: string | undefined;};
+  user?: string | undefined;
+};
+
+export interface ActionInput_active_campaign_getnote {
+  /**
+   * Note ID. Example: "1"
+   */
+  id: string;
+};
+
+export interface ActionOutput_active_campaign_getnote {
+  id: string;
+  relid?: string | undefined;
+  reltype?: string | undefined;
+  userid?: string | undefined;
+  cdate?: string | undefined;
+  mdate?: string | undefined;
+  note?: string | undefined;
+  user?: string | undefined;
+  owner?: {  [key: string]: unknown | undefined;};
+  links?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_active_campaign_gettag {
+  /**
+   * Tag ID. Example: "1"
+   */
+  id: string;
+};
+
+export interface ActionOutput_active_campaign_gettag {
+  id: string;
+  tagType?: string | undefined;
+  tag?: string | undefined;
+  description?: string | undefined;
+  cdate?: string | undefined;
+  subscriber_count?: string | undefined;
+  links?: {  contactGoalTags?: string | undefined;};
+};
+
+export interface ActionInput_active_campaign_listaccounts {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page (default 20, max 100).
+   */
+  limit?: number | undefined;
+  /**
+   * Search accounts by name.
+   */
+  search?: string | undefined;
+};
+
+export interface ActionOutput_active_campaign_listaccounts {
+  items: ({  id: string;
+  name: string;
+  accountUrl?: string | undefined;
+  createdTimestamp?: string | undefined;
+  updatedTimestamp?: string | undefined;
+  contactCount?: string | undefined;
+  dealCount?: string | undefined;
+  links?: {  [key: string]: unknown | undefined;};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_active_campaign_listautomations {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Maximum is 100.
+   */
+  limit?: number | undefined;
+  /**
+   * Search term to filter automations by name.
+   */
+  search?: string | undefined;
+};
+
+export interface ActionOutput_active_campaign_listautomations {
+  automations: ({  id: string;
+  name: string;
+  cdate?: string | undefined;
+  mdate?: string | undefined;
+  userid?: string | undefined;
+  status?: string | undefined;
+  entered?: string | undefined;
+  exited?: string | undefined;
+  hidden?: string | undefined;
+  defaultscreenshot?: string | undefined;
+  screenshot?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_active_campaign_listcampaigns {
+  /**
+   * Pagination cursor (offset). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page (max 100).
+   */
+  limit?: number | undefined;
+  /**
+   * Filter to return campaigns from the targeted automation/series.
+   */
+  seriesid?: number | undefined;
+  /**
+   * Order campaigns by send date.
+   */
+  orders_sdate?: 'ASC' | 'DESC' | undefined;
+  /**
+   * Order campaigns by last send date.
+   */
+  orders_ldate?: 'ASC' | 'DESC' | undefined;
+};
+
+export interface ActionOutput_active_campaign_listcampaigns {
+  items: ({  id: string;
+  type?: string | undefined;
+  userid?: string | undefined;
+  name?: string | undefined;
+  cdate?: string | undefined;
+  mdate?: string | undefined;
+  sdate?: string | undefined;
+  ldate?: string | undefined;
+  send_amt?: string | undefined;
+  total_amt?: string | undefined;
+  status?: string | undefined;
+  public?: string | undefined;
+  tracklinks?: string | undefined;
+  trackreads?: string | undefined;})[];
+  next_offset?: string | undefined;
+};
+
+export interface ActionInput_active_campaign_listcontacts {
+  /**
+   * Pagination cursor (offset) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Default: 20, Max: 100.
+   */
+  limit?: number | undefined;
+  /**
+   * Filter by exact email address.
+   */
+  email?: string | undefined;
+  /**
+   * Filter contacts matching the value in names, organization, phone or email.
+   */
+  search?: string | undefined;
+  /**
+   * Filter contacts associated with the given list ID.
+   */
+  listid?: string | undefined;
+  /**
+   * Filter contacts associated with the given tag ID.
+   */
+  tagid?: number | undefined;
+  /**
+   * Filter contacts by status.
+   */
+  status?: number | undefined;
+  /**
+   * Filter contacts created after this date.
+   */
+  created_after?: string | undefined;
+  /**
+   * Filter contacts created before this date.
+   */
+  created_before?: string | undefined;
+  /**
+   * Filter contacts updated after this date.
+   */
+  updated_after?: string | undefined;
+  /**
+   * Filter contacts updated before this date.
+   */
+  updated_before?: string | undefined;
+};
+
+export interface ActionOutput_active_campaign_listcontacts {
+  items: ({  id: string;
+  email: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  phone?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  organization_id?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_active_campaign_listcustomfields {
+  /**
+   * Pagination cursor (offset). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Default: 20, Max: 100.
+   */
+  limit?: number | undefined;
+  /**
+   * Filter by persistent tag. Example: CUSTOMER_GROUP
+   */
+  perstag?: string | undefined;
+};
+
+export interface ActionOutput_active_campaign_listcustomfields {
+  items: ({  id: string;
+  title: string;
+  descript?: string | undefined;
+  type?: string | undefined;
+  isrequired?: string | undefined;
+  perstag?: string | undefined;
+  defval?: string | undefined;
+  show_in_list?: string | undefined;
+  rows?: string | undefined;
+  cols?: string | undefined;
+  visible?: string | undefined;
+  service?: string | undefined;
+  ordernum?: string | undefined;
+  cdate?: string | undefined;
+  udate?: string | undefined;
+  options?: unknown[] | undefined;
+  relations?: unknown[] | undefined;
+  links?: {  options?: string | undefined;
+  relations?: string | undefined;};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_active_campaign_listdealgroups {
+  /**
+   * Filter by pipeline title (partial match)
+   */
+  title?: string | undefined;
+  /**
+   * Filter by whether pipelines have deal stages (1 or 0)
+   */
+  have_stages?: 0 | 1 | undefined;
+  /**
+   * Number of results per page (max 100)
+   */
+  limit?: number | undefined;
+  /**
+   * Starting index for pagination
+   */
+  offset?: number | undefined;
+  /**
+   * Order by pipeline title
+   */
+  orders_title?: 'ASC' | 'DESC' | undefined;
+  /**
+   * Order by number of deals
+   */
+  orders_popular?: 'ASC' | 'DESC' | undefined;
+};
+
+export interface ActionOutput_active_campaign_listdealgroups {
+  dealGroups: ({  id: string;
+  title: string;
+  currency?: string | undefined;
+  autoassign?: string | undefined;
+  allgroups?: string | undefined;
+  allusers?: string | undefined;
+  cdate?: string | undefined;
+  udate?: string | undefined;
+  stages?: string[] | undefined;
+  links?: {  [key: string]: string;} | undefined;})[];
+  dealStages?: ({  id: string;
+  title: string;
+  color?: string | undefined;
+  group?: string | undefined;
+  order?: string | undefined;
+  width?: string | undefined;
+  cardRegion1?: string | undefined;
+  cardRegion2?: string | undefined;
+  cardRegion3?: string | undefined;
+  cardRegion4?: string | undefined;
+  cardRegion5?: string | undefined;
+  dealOrder?: string | undefined;
+  cdate?: string | undefined;
+  udate?: string | undefined;
+  links?: {  [key: string]: string;} | undefined;})[];
+  meta?: {  total?: number | undefined;};
+};
+
+export interface ActionInput_active_campaign_listdealstages {
+  /**
+   * Filter by deal stage title (partial match)
+   */
+  title?: string | undefined;
+  /**
+   * Filter by pipeline ID
+   */
+  pipelineId?: string | undefined;
+  /**
+   * Number of results per page (max 100)
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor (offset) from previous response
+   */
+  cursor?: string | undefined;
+  /**
+   * Order by title, e.g. ASC or DESC
+   */
+  orderTitle?: string | undefined;
+};
+
+export interface ActionOutput_active_campaign_listdealstages {
+  dealStages: ({  cardRegion1: string;
+  cardRegion2: string;
+  cardRegion3: string;
+  cardRegion4: string;
+  cardRegion5: string;
+  cdate?: string | undefined;
+  color: string;
+  dealOrder: string;
+  group: string;
+  id: string;
+  links?: {  group: string;} | undefined;
+  order: string;
+  title: string;
+  udate?: string | undefined;
+  width: string;})[];
+  meta: {  total?: string | number | undefined;};
+  /**
+   * Pagination cursor for the next page
+   */
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_active_campaign_listdeals {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of deals to return per page. Example: 20
+   */
+  limit?: number | undefined;
+  /**
+   * Search text to use with search_field parameter.
+   */
+  search?: string | undefined;
+  /**
+   * Field to search for.
+   */
+  search_field?: string | undefined;
+  /**
+   * Filter by deal's title.
+   */
+  title?: string | undefined;
+  /**
+   * Filter by deal's stage ID.
+   */
+  stage?: number | undefined;
+  /**
+   * Filter by deal's pipeline ID.
+   */
+  group?: number | undefined;
+  /**
+   * Filter by deal's status.
+   */
+  status?: number | undefined;
+  /**
+   * Filter by deal's owner ID.
+   */
+  owner?: number | undefined;
+  /**
+   * Returns deals created greater than or equal to given date (YYYY-MM-DD).
+   */
+  created_after?: string | undefined;
+  /**
+   * Returns deals updated greater than or equal to given date (YYYY-MM-DD).
+   */
+  updated_after?: string | undefined;
+};
+
+export interface ActionOutput_active_campaign_listdeals {
+  items: ({  id: string;
+  title?: string | undefined;
+  value?: string | undefined;
+  currency?: string | undefined;
+  description?: string | undefined;
+  status?: string | undefined;
+  contact?: string | undefined;
+  group?: string | undefined;
+  stage?: string | undefined;
+  owner?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  next_date?: string | undefined;
+  next_task_id?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_active_campaign_listforms {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page (default 20, max 100).
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_active_campaign_listforms {
+  forms: ({  id: string;
+  name: string;
+  action?: string | undefined;
+  actiondata?: {  [key: string]: unknown | undefined;};
+  submitdata?: {  [key: string]: unknown | undefined;};
+  style?: {  [key: string]: unknown | undefined;};
+  options?: {  [key: string]: unknown | undefined;};
+  cfields?: ({  [key: string]: unknown | undefined;})[];
+  links?: {  [key: string]: unknown | undefined;};
+  address?: unknown | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_active_campaign_listlists {
+  /**
+   * Pagination cursor (offset) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results to return per page. Default: 20, Max: 100.
+   */
+  limit?: number | undefined;
+  /**
+   * Filter lists by name.
+   */
+  name_filter?: string | undefined;
+  /**
+   * Sort order by list name.
+   */
+  order?: 'ASC' | 'DESC' | undefined;
+};
+
+export interface ActionOutput_active_campaign_listlists {
+  items: ({  id: string;
+  stringid?: string | undefined;
+  userid?: string | undefined;
+  name?: string | undefined;
+  cdate?: string | undefined;
+  udate?: string | undefined;
+  private?: string | undefined;
+  require_name?: string | undefined;
+  to_name?: string | undefined;
+  sender_name?: string | undefined;
+  sender_addr1?: string | undefined;
+  sender_addr2?: string | undefined;
+  sender_city?: string | undefined;
+  sender_state?: string | undefined;
+  sender_zip?: string | undefined;
+  sender_country?: string | undefined;
+  sender_phone?: string | undefined;
+  sender_url?: string | undefined;
+  sender_reminder?: string | undefined;
+  optinoptout?: string | undefined;
+  deletestamp?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_active_campaign_listnotes {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Max 100.
+   */
+  limit?: number | undefined;
+  /**
+   * Search term to filter notes.
+   */
+  search?: string | undefined;
+};
+
+export interface ActionOutput_active_campaign_listnotes {
+  items: ({  id: string;
+  note: string;
+  relid: string;
+  reltype: string;
+  userid: string;
+  user: string;
+  is_draft: string;
+  cdate?: string | undefined;
+  mdate?: string | undefined;
+  owner?: {  type: string;
+  id: string;} | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_active_campaign_listtags {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results to display per page. Default: 20; max: 100.
+   */
+  limit?: number | undefined;
+  /**
+   * Filter by name of tag(s).
+   */
+  search?: string | undefined;
+};
+
+export interface ActionOutput_active_campaign_listtags {
+  tags: ({  id: string;
+  tag: string;
+  tagType: string;
+  description?: string | undefined;
+  cdate?: string | undefined;
+  subscriber_count?: string | undefined;
+  links?: {  contactGoalTags?: string | undefined;};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_active_campaign_synccontact {
+  /**
+   * Contact email address
+   */
+  email: string;
+  /**
+   * Contact first name
+   */
+  firstName?: string | undefined;
+  /**
+   * Contact last name
+   */
+  lastName?: string | undefined;
+  /**
+   * Contact phone number
+   */
+  phone?: string | undefined;
+};
+
+export interface ActionOutput_active_campaign_synccontact {
+  id: string;
+  email: string;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  phone?: string | undefined;
+};
+
+export interface ActionInput_active_campaign_tagcontact {
+  /**
+   * Contact ID. Example: 1
+   */
+  contactId: number;
+  /**
+   * Tag ID. Example: 1
+   */
+  tagId: number;
+};
+
+export interface ActionOutput_active_campaign_tagcontact {
+  id: string;
+  contactId: string;
+  tagId: string;
+  createdAt?: string | undefined;
+};
+
+export interface ActionInput_active_campaign_updateaccount {
+  /**
+   * Account ID. Example: "1"
+   */
+  id: string;
+  /**
+   * Account name
+   */
+  name?: string | undefined;
+  /**
+   * Account website URL
+   */
+  accountUrl?: string | undefined;
+  /**
+   * User ID of the account owner
+   */
+  owner?: number | undefined;
+  /**
+   * Custom field values
+   */
+  fields?: ({  customFieldId: number;
+  fieldValue: string;
+  fieldCurrency?: string | undefined;})[];
+};
+
+export interface ActionOutput_active_campaign_updateaccount {
+  id: string;
+  name?: string | undefined;
+  accountUrl?: string | undefined;
+  createdTimestamp?: string | undefined;
+  updatedTimestamp?: string | undefined;
+  links?: unknown | undefined;
+  fields?: ({  customFieldId: number;
+  fieldValue?: string | number | undefined;
+  fieldCurrency?: string | undefined;
+  accountId?: string | undefined;})[];
+};
+
+export interface ActionInput_active_campaign_updatecampaign {
+  /**
+   * Campaign ID. Example: "1"
+   */
+  id: string;
+  /**
+   * Campaign name
+   */
+  name?: string | undefined;
+  /**
+   * Campaign type
+   */
+  type?: string | undefined;
+  /**
+   * Id of selected segment. Both integer segment ids and string based segment ids are supported.
+   */
+  segmentId?: string | undefined;
+  /**
+   * Id of selected address
+   */
+  addressId?: number | undefined;
+  /**
+   * Array of selected list ids
+   */
+  listIds?: number[] | undefined;
+  /**
+   * Turn on/off reply tracking
+   */
+  replyTrackingEnabled?: boolean | undefined;
+  /**
+   * Turn on/off link tracking
+   */
+  linkTrackingEnabled?: boolean | undefined;
+  /**
+   * Turn on/off google analytics link tracking
+   */
+  googleAnalyticsLinkTrackingEnabled?: boolean | undefined;
+  /**
+   * Name of campaign in google analytics
+   */
+  googleAnalyticsCampaignName?: string | undefined;
+  /**
+   * Turn on/off read tracking
+   */
+  readTrackingEnabled?: boolean | undefined;
+  /**
+   * Should send only to existing customers
+   */
+  sendToExistingSubscribers?: boolean | undefined;
+  /**
+   * Campaign can contain split content
+   */
+  canSplitContent?: boolean | undefined;
+  /**
+   * Is campaign recurring
+   */
+  recurring?: boolean | undefined;
+  /**
+   * Determine value of responder offset in days
+   */
+  responderDaysOffset?: number | undefined;
+  /**
+   * Determine value of responder offset in hours
+   */
+  responderHoursOffset?: number | undefined;
+  /**
+   * Date of sending
+   */
+  scheduledDate?: string | undefined;
+  /**
+   * Field based on which reminder will be triggered
+   */
+  reminderField?: string | undefined;
+  /**
+   * Value of reminder offset
+   */
+  reminderOffset?: number | undefined;
+  /**
+   * Type of reminder offset
+   */
+  reminderOffsetType?: string | undefined;
+  /**
+   * Format of reminder date
+   */
+  reminderType?: string | undefined;
+  /**
+   * Interval for RSS
+   */
+  rssInterval?: number | undefined;
+  /**
+   * Type of split campaign
+   */
+  splitType?: string | undefined;
+  /**
+   * Period wait time
+   */
+  splitWinnerWaitPeriod?: number | undefined;
+  /**
+   * Determine period type
+   */
+  splitWinnerWaitPeriodType?: string | undefined;
+  /**
+   * Is campaign public
+   */
+  publicCampaignArchive?: boolean | undefined;
+};
+
+export interface ActionOutput_active_campaign_updatecampaign {
+  id: string;
+  name?: string | undefined;
+  type?: string | undefined;
+  canSplitContent?: boolean | undefined;
+  segmentId?: string | undefined;
+  scheduledDate?: string | undefined;
+  addressId?: string | undefined;
+  publicCampaignArchive?: boolean | undefined;
+  googleAnalyticsLinkTrackingEnabled?: boolean | undefined;
+  googleAnalyticsCampaignName?: string | undefined;
+  readTrackingEnabled?: boolean | undefined;
+  linkTrackingEnabled?: boolean | undefined;
+  replyTrackingEnabled?: boolean | undefined;
+  status?: string | undefined;
+  listIds?: string[] | undefined;
+};
+
+export interface ActionInput_active_campaign_updatecontact {
+  /**
+   * ID of the contact to update. Example: 1
+   */
+  id: number;
+  email?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  phone?: string | undefined;
+  fieldValues?: ({  field: string;
+  value: string;})[] | undefined;
+};
+
+export interface ActionOutput_active_campaign_updatecontact {
+  id: string;
+  email?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  phone?: string | undefined;
+};
+
+export interface ActionInput_active_campaign_updatedealgroup {
+  /**
+   * Pipeline ID. Example: "1"
+   */
+  id: string;
+  /**
+   * Pipeline title
+   */
+  title?: string | undefined;
+  /**
+   * Default currency in 3-digit ISO format, lowercased. Example: "usd"
+   */
+  currency?: string | undefined;
+  /**
+   * Auto-assign option: 0=disabled, 1=Round Robin, 2=distribute by value
+   */
+  autoassign?: number | undefined;
+  /**
+   * Whether new deals auto-assign to all users: 0 or 1
+   */
+  allusers?: number | undefined;
+  /**
+   * Whether all user groups can manage pipeline: 0 or 1
+   */
+  allgroups?: number | undefined;
+};
+
+export interface ActionOutput_active_campaign_updatedealgroup {
+  id: string;
+  title: string;
+  currency?: string | undefined;
+  autoassign?: number | undefined;
+  allusers?: number | undefined;
+  allgroups?: number | undefined;
+};
+
+export interface ActionInput_active_campaign_updatedealstage {
+  /**
+   * Deal stage ID. Example: "1"
+   */
+  id: string;
+  /**
+   * Deal stage title.
+   */
+  title?: string | undefined;
+  /**
+   * Hex color code for the stage. Example: "32B0FC"
+   */
+  color?: string | undefined;
+  /**
+   * Pipeline (deal group) ID. Example: "1"
+   */
+  group?: string | undefined;
+  /**
+   * Order of the stage within the pipeline.
+   */
+  order?: number | undefined;
+  /**
+   * Width of the stage card in pixels.
+   */
+  width?: number | undefined;
+  /**
+   * Sort order for deals in this stage. Example: "next-action DESC"
+   */
+  dealOrder?: string | undefined;
+  /**
+   * Content for card region 1.
+   */
+  cardRegion1?: string | undefined;
+  /**
+   * Content for card region 2.
+   */
+  cardRegion2?: string | undefined;
+  /**
+   * Avatar display setting. Example: "show-avatar" or "hide-avatar"
+   */
+  cardRegion3?: string | undefined;
+  /**
+   * Content for card region 4.
+   */
+  cardRegion4?: string | undefined;
+  /**
+   * Content for card region 5.
+   */
+  cardRegion5?: string | undefined;
+  /**
+   * Whether to reorder stages after update. Set to 1 to reorder.
+   */
+  reorder?: number | undefined;
+};
+
+export interface ActionOutput_active_campaign_updatedealstage {
+  id: string;
+  title?: string | undefined;
+  color?: string | undefined;
+  group?: string | undefined;
+  order?: string | undefined;
+  width?: string | undefined;
+  dealOrder?: string | undefined;
+  cardRegion1?: string | undefined;
+  cardRegion2?: string | undefined;
+  cardRegion3?: string | undefined;
+  cardRegion4?: string | undefined;
+  cardRegion5?: string | undefined;
+  cdate?: string | undefined;
+  udate?: string | undefined;
+};
+
+export interface ActionInput_active_campaign_updatedeal {
+  /**
+   * The deal ID to update. Example: 1
+   */
+  id: number;
+  /**
+   * Deal title
+   */
+  title?: string | undefined;
+  /**
+   * Deal monetary value
+   */
+  value?: number | undefined;
+  /**
+   * Currency code. Example: "usd"
+   */
+  currency?: string | undefined;
+  /**
+   * Pipeline (deal group) ID
+   */
+  group?: string | undefined;
+  /**
+   * Deal stage ID
+   */
+  stage?: string | undefined;
+  /**
+   * User ID to assign as owner
+   */
+  owner?: string | undefined;
+  /**
+   * Primary contact ID
+   */
+  contact?: string | undefined;
+  /**
+   * Account ID
+   */
+  account?: string | undefined;
+  /**
+   * Deal description
+   */
+  description?: string | undefined;
+  /**
+   * Deal completion percentage
+   */
+  percent?: string | undefined;
+  /**
+   * Deal status: 0 = Open, 1 = Won, 2 = Lost
+   */
+  status?: number | undefined;
+  /**
+   * Organization ID
+   */
+  organization?: string | undefined;
+  /**
+   * Custom field values
+   */
+  fields?: ({  customFieldId: number;
+  fieldValue?: string | number | undefined;
+  fieldCurrency?: string | undefined;})[];
+};
+
+export interface ActionOutput_active_campaign_updatedeal {
+  id: string;
+  title?: string | undefined;
+  value?: string | number | undefined;
+  currency?: string | undefined;
+  group?: string | undefined;
+  stage?: string | undefined;
+  owner?: string | undefined;
+  contact?: string | undefined;
+  account?: string | undefined;
+  description?: string | undefined;
+  percent?: string | undefined;
+  status?: string | number | undefined;
+  organization?: string | undefined;
+  cdate?: string | undefined;
+  mdate?: string | undefined;
+  nextdate?: string | undefined;
+  nexttaskid?: string | number | undefined;
+  activitycount?: string | number | undefined;
+  nextdealid?: string | undefined;
+  edate?: string | undefined;
+  winProbability?: string | number | undefined;
+  winProbabilityMdate?: string | undefined;
+  isDisabled?: boolean | undefined;
+  hash?: string | undefined;
+};
+
+export interface ActionInput_active_campaign_updatelist {
+  /**
+   * List ID. Example: "4"
+   */
+  id: string;
+  name?: string | undefined;
+  stringid?: string | undefined;
+  sender_url?: string | undefined;
+  sender_reminder?: string | undefined;
+  send_last_broadcast?: boolean | undefined;
+  carboncopy?: string | undefined;
+  subscription_notify?: string | undefined;
+  unsubscription_notify?: string | undefined;
+  user?: number | undefined;
+  channel?: string | undefined;
+};
+
+export interface ActionOutput_active_campaign_updatelist {
+  id: string;
+  name?: string | undefined;
+  stringid?: string | undefined;
+  sender_url?: string | undefined;
+  sender_reminder?: string | undefined;
+  send_last_broadcast?: boolean | undefined;
+  carboncopy?: string | undefined;
+  subscription_notify?: string | undefined;
+  unsubscription_notify?: string | undefined;
+  user?: number | undefined;
+  channel?: string | undefined;
+  cdate?: string | undefined;
+  udate?: string | undefined;
+};
+
+export interface ActionInput_active_campaign_updatenote {
+  /**
+   * Note ID. Example: "1"
+   */
+  id: string;
+  /**
+   * Note text. Example: "Updated note content"
+   */
+  note: string;
+  /**
+   * Related record ID. Example: "1"
+   */
+  relid?: string | undefined;
+  /**
+   * Related record type. Example: "Subscriber"
+   */
+  reltype?: string | undefined;
+};
+
+export interface ActionOutput_active_campaign_updatenote {
+  id: string;
+  note: string;
+  relid?: string | undefined;
+  reltype?: string | undefined;
+  userid?: string | undefined;
+  cdate?: string | undefined;
+  mdate?: string | undefined;
+  user?: string | undefined;
+  owner?: {  type?: string | undefined;
+  id?: string | undefined;};
+};
+
+export interface ActionInput_active_campaign_updatetag {
+  /**
+   * ID of the tag to update. Example: "1"
+   */
+  id: string;
+  /**
+   * Name of the tag being updated
+   */
+  tag?: string | undefined;
+  /**
+   * Tag-type of the tag being updated. Possible values: template, contact
+   */
+  tagType?: string | undefined;
+  /**
+   * Description of the tag being updated
+   */
+  description?: string | undefined;
+};
+
+export interface ActionOutput_active_campaign_updatetag {
+  tag: {  tagType?: string | undefined;
+  tag?: string | undefined;
+  description?: string | undefined;
+  cdate?: string | undefined;
+  links?: {  [key: string]: string;} | undefined;
+  id?: string | undefined;};
+};
+
 export interface StandardEmployee {
   id: string;
   firstName: string;
@@ -3360,94 +5825,6 @@ export interface ActionOutput_anthropic_listmodels {
   next_cursor?: string | undefined;
 };
 
-export interface Account {
-  id: string;
-  accountName?: string | undefined;
-  accountNumber?: string | undefined;
-  accountType?: string | undefined;
-  annualRevenue?: number | undefined;
-  billingCity?: string | undefined;
-  billingCode?: string | undefined;
-  billingCountry?: string | undefined;
-  billingState?: string | undefined;
-  billingStreet?: string | undefined;
-  createdByName?: string | undefined;
-  createdById?: string | undefined;
-  createdByEmail?: string | undefined;
-  createdTime?: string | undefined;
-  description?: string | undefined;
-  employees?: number | undefined;
-  fax?: string | undefined;
-  industry?: string | undefined;
-  modifiedByName?: string | undefined;
-  modifiedById?: string | undefined;
-  modifiedByEmail?: string | undefined;
-  modifiedTime: string;
-  ownerName?: string | undefined;
-  ownerId?: string | undefined;
-  ownerEmail?: string | undefined;
-  ownership?: string | undefined;
-  parentAccountName?: string | undefined;
-  parentAccountId?: string | undefined;
-  phone?: string | undefined;
-  rating?: string | undefined;
-  shippingCity?: string | undefined;
-  shippingCode?: string | undefined;
-  shippingCountry?: string | undefined;
-  shippingState?: string | undefined;
-  shippingStreet?: string | undefined;
-  sicCode?: string | undefined;
-  tickerSymbol?: string | undefined;
-  website?: string | undefined;
-};
-
-export interface Contact {
-  id: string;
-  first_name?: string | undefined;
-  last_name?: string | undefined;
-  full_name?: string | undefined;
-  email?: string | undefined;
-  secondary_email?: string | undefined;
-  phone?: string | undefined;
-  mobile?: string | undefined;
-  home_phone?: string | undefined;
-  other_phone?: string | undefined;
-  title?: string | undefined;
-  department?: string | undefined;
-  account_name?: string | undefined;
-  account_id?: string | undefined;
-  owner_name?: string | undefined;
-  owner_id?: string | undefined;
-  owner_email?: string | undefined;
-  created_time: string;
-  modified_time: string;
-  mailing_street?: string | undefined;
-  mailing_city?: string | undefined;
-  mailing_state?: string | undefined;
-  mailing_zip?: string | undefined;
-  mailing_country?: string | undefined;
-  other_street?: string | undefined;
-  other_city?: string | undefined;
-  other_state?: string | undefined;
-  other_zip?: string | undefined;
-  other_country?: string | undefined;
-  description?: string | undefined;
-  twitter?: string | undefined;
-  skype_id?: string | undefined;
-  date_of_birth?: string | undefined;
-  lead_source?: string | undefined;
-  email_opt_out?: boolean | undefined;
-  fax?: string | undefined;
-  assistant?: string | undefined;
-  asst_phone?: string | undefined;
-  reporting_to_name?: string | undefined;
-  reporting_to_id?: string | undefined;
-  created_by_name?: string | undefined;
-  created_by_id?: string | undefined;
-  modified_by_name?: string | undefined;
-  modified_by_id?: string | undefined;
-};
-
 export interface Opportunity {
   id: string;
   name?: string | undefined;
@@ -4879,14 +7256,6 @@ export interface Subtask {
 
 export interface SyncMetadata_asana_subtasks {
   task_ids?: string[] | undefined;
-};
-
-export interface Tag {
-  id: string;
-  name: string;
-  type: string;
-  created_at?: number | undefined;
-  updated_at?: number | undefined;
 };
 
 export interface SyncMetadata_asana_tasks {
@@ -7455,30 +9824,6 @@ export interface Company {
   industry?: string | undefined;
 };
 
-export interface Deal {
-  id: string;
-  dealName?: string | undefined;
-  stage?: string | undefined;
-  amount?: number | undefined;
-  closingDate?: string | undefined;
-  accountName?: string | undefined;
-  accountId?: string | undefined;
-  contactName?: string | undefined;
-  contactId?: string | undefined;
-  ownerName?: string | undefined;
-  ownerId?: string | undefined;
-  ownerEmail?: string | undefined;
-  createdTime: string;
-  modifiedTime: string;
-  probability?: string | number | undefined;
-  expectedRevenue?: number | undefined;
-  description?: string | undefined;
-  campaignSource?: string | undefined;
-  leadSource?: string | undefined;
-  type?: string | undefined;
-  nextStep?: string | undefined;
-};
-
 export interface ListEntry {
   id: string;
   list_id: string;
@@ -7486,17 +9831,6 @@ export interface ListEntry {
   parent_object?: string | undefined;
   created_at: string;
   entry_values?: {  [key: string]: unknown[];} | undefined;
-};
-
-export interface List {
-  id: string;
-  name: string;
-  description?: string | undefined;
-  created_at?: string | undefined;
-  private?: boolean | undefined;
-  owner_id?: string | undefined;
-  follower_count?: number | undefined;
-  member_count?: number | undefined;
 };
 
 export interface Meeting {
@@ -7511,24 +9845,6 @@ export interface Meeting {
   uuid?: string | undefined;
   host_id?: string | undefined;
   status?: string | undefined;
-};
-
-export interface Note {
-  id: string;
-  note_title?: string | undefined;
-  note_content?: string | undefined;
-  parent_id?: string | undefined;
-  parent_name?: string | undefined;
-  parent_module?: string | undefined;
-  owner_id?: string | undefined;
-  owner_name?: string | undefined;
-  owner_email?: string | undefined;
-  created_by_id?: string | undefined;
-  created_by_name?: string | undefined;
-  modified_by_id?: string | undefined;
-  modified_by_name?: string | undefined;
-  created_time?: string | undefined;
-  modified_time?: string | undefined;
 };
 
 export interface AttioObject {
@@ -40176,20 +42492,6 @@ export interface ActionOutput_linkedin_updatepost {
 export interface SyncMetadata_luma_listevents {
 };
 
-export interface Automation {
-  id: string;
-  create_time: string;
-  start_time?: string | undefined;
-  status: string;
-  emails_sent?: number | undefined;
-  title?: string | undefined;
-  from_name?: string | undefined;
-  reply_to?: string | undefined;
-  list_id?: string | undefined;
-  list_name?: string | undefined;
-  workflow_type?: string | undefined;
-};
-
 export interface Member {
   id: string;
   email_address?: string | undefined;
@@ -65280,22 +67582,6 @@ export interface AutomatedRule {
 
 export interface SyncMetadata_tiktok_ads_automatedrules {
   advertiser_id: string;
-};
-
-export interface Campaign {
-  id: string;
-  campaign_id: string;
-  advertiser_id: string;
-  campaign_name?: string | undefined;
-  campaign_type?: string | undefined;
-  budget?: number | undefined;
-  budget_mode?: string | undefined;
-  objective?: string | undefined;
-  objective_type?: string | undefined;
-  operation_status?: string | undefined;
-  secondary_status?: string | undefined;
-  create_time?: string | undefined;
-  modify_time?: string | undefined;
 };
 
 export interface SyncMetadata_tiktok_ads_campaigns {

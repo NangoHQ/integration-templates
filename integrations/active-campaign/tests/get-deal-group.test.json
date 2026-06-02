@@ -1,0 +1,128 @@
+{
+  "input": {
+    "id": 3
+  },
+  "output": {
+    "dealGroup": {
+      "allgroups": "1",
+      "allusers": "0",
+      "autoassign": "0",
+      "cdate": "2026-05-28T04:04:57-05:00",
+      "currency": "usd",
+      "id": "3",
+      "links": {
+        "dealGroupGroups": "https://nango56865.api-us1.com/api/3/dealGroups/3/dealGroupGroups",
+        "dealGroupUsers": "https://nango56865.api-us1.com/api/3/dealGroups/3/dealGroupUsers",
+        "stages": "https://nango56865.api-us1.com/api/3/dealGroups/3/stages"
+      },
+      "stages": [
+        "7"
+      ],
+      "title": "Nango Test Pipeline 1779959097648",
+      "udate": "2026-05-28T09:05:48-05:00"
+    },
+    "dealStages": [
+      {
+        "cardRegion1": "title",
+        "cardRegion2": "next-action",
+        "cardRegion3": "show-avatar",
+        "cardRegion4": "contact-fullname-acctname",
+        "cardRegion5": "value",
+        "cdate": null,
+        "color": "19CCA3",
+        "dealOrder": "next-action DESC",
+        "group": "3",
+        "id": "7",
+        "links": {
+          "group": "https://nango56865.api-us1.com/api/3/dealStages/7/group"
+        },
+        "order": "1",
+        "title": "To Contact",
+        "udate": "2026-05-28T09:05:48-05:00",
+        "width": "280"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/3/dealGroups/3": {
+        "response": {
+          "dealStages": [
+            {
+              "group": "3",
+              "title": "To Contact",
+              "color": "19CCA3",
+              "order": "1",
+              "width": "280",
+              "dealOrder": "next-action DESC",
+              "cardRegion1": "title",
+              "cardRegion2": "next-action",
+              "cardRegion3": "show-avatar",
+              "cardRegion4": "contact-fullname-acctname",
+              "cardRegion5": "value",
+              "cdate": null,
+              "udate": "2026-05-28T09:05:48-05:00",
+              "links": {
+                "group": "https://nango56865.api-us1.com/api/3/dealStages/7/group"
+              },
+              "id": "7"
+            }
+          ],
+          "dealGroup": {
+            "title": "Nango Test Pipeline 1779959097648",
+            "currency": "usd",
+            "autoassign": "0",
+            "allusers": "0",
+            "allgroups": "1",
+            "win_probability_initialize_date": null,
+            "cdate": "2026-05-28T04:04:57-05:00",
+            "udate": "2026-05-28T09:05:48-05:00",
+            "source": "",
+            "stages": [
+              "7"
+            ],
+            "links": {
+              "stages": "https://nango56865.api-us1.com/api/3/dealGroups/3/stages",
+              "dealGroupUsers": "https://nango56865.api-us1.com/api/3/dealGroups/3/dealGroupUsers",
+              "dealGroupGroups": "https://nango56865.api-us1.com/api/3/dealGroups/3/dealGroupGroups",
+              "winProbabilityFeatures": "https://nango56865.api-us1.com/api/3/dealGroups/3/winProbabilityFeatures"
+            },
+            "id": "3"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 28 May 2026 10:07:34 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4953",
+          "x-ratelimit-reset": "1779962890",
+          "cache-control": "no-store, no-cache, must-revalidate,no-cache, private",
+          "expires": "Thu, 19 Nov 1981 08:52:00 GMT",
+          "pragma": "no-cache",
+          "server": "cloudflare",
+          "set-cookie": "PHPSESSID=e5f1ebef2af5b05279ec332148e0a5da; path=/; secure; HttpOnly; SameSite=Lax, em_acp_globalauth_cookie=5ed6fc40-d23b-4e77-8fb7-f41ef9e73f5a; path=/; domain=.nango56865.api-us1.com; secure; httponly; SameSite=Lax",
+          "x-envoy-decorator-operation": "ac-hosted-current-web.activecampaign-hosted.svc.cluster.local:80/*",
+          "x-envoy-upstream-service-time": "86",
+          "x-request-id": "76e1a5e7-9296-413f-a1f8-6197d02bb411",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a02c7401ce2ac12a-PDX"
+        },
+        "hash": "2fc1eb39ed26d896d0c52a2f4ace9a8604307d59",
+        "request": {}
+      }
+    }
+  }
+}
