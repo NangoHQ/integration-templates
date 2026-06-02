@@ -1,0 +1,142 @@
+{
+  "nango": {
+    "batchSave": {
+      "KeyEvent": [
+        {
+          "id": "properties/535258304/keyEvents/14757626640",
+          "eventName": "ads_conversion_Sign_Up_1",
+          "createTime": "2026-04-30T09:23:34.261445Z",
+          "deletable": true,
+          "custom": true,
+          "countingMethod": "ONCE_PER_EVENT"
+        },
+        {
+          "id": "properties/535258304/keyEvents/14759168541",
+          "eventName": "purchase",
+          "createTime": "2026-04-30T09:23:12.843869Z",
+          "countingMethod": "ONCE_PER_EVENT"
+        },
+        {
+          "id": "properties/535258304/keyEvents/14944175741",
+          "eventName": "test_conversion_1779743418",
+          "createTime": "2026-05-25T21:11:09.696363Z",
+          "deletable": true,
+          "custom": true,
+          "countingMethod": "ONCE_PER_EVENT"
+        }
+      ]
+    },
+    "batchDelete": {
+      "KeyEvent": []
+    }
+  },
+  "api": {
+    "get": {
+      "/v1beta/accountSummaries": {
+        "response": {
+          "accountSummaries": [
+            {
+              "name": "accountSummaries/393156152",
+              "account": "accounts/393156152",
+              "displayName": "Google Ads Account",
+              "propertySummaries": [
+                {
+                  "property": "properties/535258304",
+                  "displayName": "nango.dev",
+                  "propertyType": "PROPERTY_TYPE_ORDINARY",
+                  "parent": "accounts/393156152"
+                },
+                {
+                  "property": "properties/538870792",
+                  "displayName": "Test Property 2026-05-25",
+                  "propertyType": "PROPERTY_TYPE_ORDINARY",
+                  "parent": "accounts/393156152"
+                },
+                {
+                  "property": "properties/538885024",
+                  "displayName": "Test Property 2026-05-25",
+                  "propertyType": "PROPERTY_TYPE_ORDINARY",
+                  "parent": "accounts/393156152"
+                }
+              ]
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "hash": "ba7b60f99846fd1cfc2b1512a5a6fcd87539ec52",
+        "request": {
+          "params": {
+            "pageSize": "50"
+          }
+        }
+      },
+      "/v1beta/properties/535258304/keyEvents": {
+        "response": {
+          "keyEvents": [
+            {
+              "name": "properties/535258304/keyEvents/14757626640",
+              "eventName": "ads_conversion_Sign_Up_1",
+              "createTime": "2026-04-30T09:23:34.261445Z",
+              "deletable": true,
+              "custom": true,
+              "countingMethod": "ONCE_PER_EVENT"
+            },
+            {
+              "name": "properties/535258304/keyEvents/14759168541",
+              "eventName": "purchase",
+              "createTime": "2026-04-30T09:23:12.843869Z",
+              "countingMethod": "ONCE_PER_EVENT"
+            },
+            {
+              "name": "properties/535258304/keyEvents/14944175741",
+              "eventName": "test_conversion_1779743418",
+              "createTime": "2026-05-25T21:11:09.696363Z",
+              "deletable": true,
+              "custom": true,
+              "countingMethod": "ONCE_PER_EVENT"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "hash": "ebcb661994eef38d0a33b92354312230024df19c",
+        "request": {
+          "params": {
+            "pageSize": "50"
+          }
+        }
+      },
+      "/v1beta/properties/538870792/keyEvents": {
+        "response": {},
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "hash": "928d1abb370fc218bed4b1990c9e446af3b0a202",
+        "request": {
+          "params": {
+            "pageSize": "50"
+          }
+        }
+      },
+      "/v1beta/properties/538885024/keyEvents": {
+        "response": {},
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "hash": "3a37c93fbe7075858103affab4f1c38bb7eb4071",
+        "request": {
+          "params": {
+            "pageSize": "50"
+          }
+        }
+      }
+    }
+  }
+}

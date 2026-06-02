@@ -3,13 +3,13 @@ import { afterEach, vi, expect, it, describe } from 'vitest';
 import createSync from '../syncs/scim-groups.js';
 
 describe('1password-scim scim-groups tests', () => {
-    const models = 'ScimGroup'.split(',');
+    const models = 'Group'.split(',');
 
     const createTestContext = () => {
         const nangoMock = new global.vitest.NangoSyncMock({
             dirname: __dirname,
             name: 'scim-groups',
-            Model: 'ScimGroup'
+            Model: 'Group'
         });
 
         return {
