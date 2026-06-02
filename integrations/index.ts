@@ -585,6 +585,54 @@ import './facebook/actions/list-user-pages.js';
 import './facebook/actions/subscribe-app-to-page.js';
 import './facebook/actions/unsubscribe-app-from-page.js';
 
+// -- Integration: figma
+import './figma/syncs/comments.js';
+import './figma/syncs/component-sets.js';
+import './figma/syncs/components.js';
+import './figma/syncs/files.js';
+import './figma/syncs/projects.js';
+import './figma/syncs/styles.js';
+import './figma/syncs/variables.js';
+import './figma/syncs/versions.js';
+import './figma/syncs/webhooks.js';
+import './figma/actions/create-comment-reaction.js';
+import './figma/actions/create-comment.js';
+import './figma/actions/create-dev-resources.js';
+import './figma/actions/delete-comment-reaction.js';
+import './figma/actions/delete-comment.js';
+import './figma/actions/delete-dev-resource.js';
+import './figma/actions/delete-webhook.js';
+import './figma/actions/file-nodes.js';
+import './figma/actions/get-comment.js';
+import './figma/actions/get-component.js';
+import './figma/actions/get-component-set.js';
+import './figma/actions/get-current-user.js';
+import './figma/actions/get-file-component-sets.js';
+import './figma/actions/get-file-components.js';
+import './figma/actions/get-file-node.js';
+import './figma/actions/get-file-styles.js';
+import './figma/actions/get-local-variables.js';
+import './figma/actions/get-project.js';
+import './figma/actions/get-published-variables.js';
+import './figma/actions/get-style.js';
+import './figma/actions/get-version.js';
+import './figma/actions/get-webhook.js';
+import './figma/actions/list-comment-reactions.js';
+import './figma/actions/list-comments.js';
+import './figma/actions/list-component-sets.js';
+import './figma/actions/list-components.js';
+import './figma/actions/list-dev-resources.js';
+import './figma/actions/list-file-nodes.js';
+import './figma/actions/list-files.js';
+import './figma/actions/list-projects.js';
+import './figma/actions/list-styles.js';
+import './figma/actions/list-versions.js';
+import './figma/actions/list-webhooks.js';
+import './figma/actions/render-images.js';
+import './figma/actions/update-dev-resources.js';
+import './figma/actions/update-variables.js';
+import './figma/actions/update-webhook.js';
+
 // -- Integration: fireflies
 import './fireflies/actions/add-to-live.js';
 

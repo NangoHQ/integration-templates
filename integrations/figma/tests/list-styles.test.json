@@ -1,0 +1,357 @@
+{
+  "input": {},
+  "output": {
+    "styles": [
+      {
+        "key": "0f6da13a103e47271a3c8c6d52187ca4587ae898",
+        "file_key": "UzYlOaPNPL2c7zmHCEljOs",
+        "node_id": "91:1",
+        "style_type": "FILL",
+        "thumbnail_url": "https://s3-alpha.figma.com/checkpoints/jjq/Z8r/yozB8L2HnNVGMxmJ/style_thumbnail_8.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQ4GOSFWC5PYDOGN2%2F20260524%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260524T120000Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=11e0c2fc749bfcad3eeabadb406777a7d1c80832c1318dfcda1d0db895d75904",
+        "name": "Fuschia/80",
+        "description": "",
+        "created_at": "2026-05-22T20:10:34.079Z",
+        "updated_at": "2026-05-22T20:10:34.079Z",
+        "user": {
+          "id": "1639747346696283667",
+          "handle": "nango api",
+          "img_url": "https://s3-alpha.figma.com/profile/b3c8c4ad-29dd-482a-a14e-e41f94c5157c"
+        },
+        "sort_position": "#"
+      },
+      {
+        "key": "1950a1b35ec8abd6481cc5543f078036cf2f020b",
+        "file_key": "UzYlOaPNPL2c7zmHCEljOs",
+        "node_id": "91:4",
+        "style_type": "FILL",
+        "thumbnail_url": "https://s3-alpha.figma.com/checkpoints/htV/QXn/WS64gMOZXlYyGZ7D/style_thumbnail_2.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQ4GOSFWC5PYDOGN2%2F20260524%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260524T120000Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=fb4989775ee025c1b640ce3c0a66d734c0cc5cd4d7b1d3039a0b2a20963e7b5f",
+        "name": "Iris/80",
+        "description": "",
+        "created_at": "2026-05-22T20:10:34.069Z",
+        "updated_at": "2026-05-22T20:10:34.069Z",
+        "user": {
+          "id": "1639747346696283667",
+          "handle": "nango api",
+          "img_url": "https://s3-alpha.figma.com/profile/b3c8c4ad-29dd-482a-a14e-e41f94c5157c"
+        },
+        "sort_position": "&"
+      },
+      {
+        "key": "84f25dd261be665d7fcc16fcf73ea45daa36a833",
+        "file_key": "UzYlOaPNPL2c7zmHCEljOs",
+        "node_id": "91:0",
+        "style_type": "FILL",
+        "thumbnail_url": "https://s3-alpha.figma.com/checkpoints/sTV/47E/cnBLXpDWnmZ2nVCu/style_thumbnail_1.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQ4GOSFWC5PYDOGN2%2F20260524%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260524T120000Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=b9ae1e609ca586ef3abeb464dfab64b688a392e4b7c8b798e2c9bf230b808b50",
+        "name": "Fuschia/100",
+        "description": "",
+        "created_at": "2026-05-22T20:10:34.059Z",
+        "updated_at": "2026-05-22T20:10:34.059Z",
+        "user": {
+          "id": "1639747346696283667",
+          "handle": "nango api",
+          "img_url": "https://s3-alpha.figma.com/profile/b3c8c4ad-29dd-482a-a14e-e41f94c5157c"
+        },
+        "sort_position": "\""
+      },
+      {
+        "key": "43f2f9b5e7584bddc22511b54499e50bce918fa0",
+        "file_key": "UzYlOaPNPL2c7zmHCEljOs",
+        "node_id": "116:3",
+        "style_type": "TEXT",
+        "thumbnail_url": "https://s3-alpha.figma.com/checkpoints/PmW/3mO/xLw2PhFGZIApULxx/style_thumbnail_5.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQ4GOSFWC5PYDOGN2%2F20260524%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260524T120000Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=aeeed426abfc24b70c20a75bb3ee919694caff7dba03373c5247a5a937d2aad5",
+        "name": "Header 2",
+        "description": "",
+        "created_at": "2026-05-22T20:10:34.050Z",
+        "updated_at": "2026-05-22T20:10:34.050Z",
+        "user": {
+          "id": "1639747346696283667",
+          "handle": "nango api",
+          "img_url": "https://s3-alpha.figma.com/profile/b3c8c4ad-29dd-482a-a14e-e41f94c5157c"
+        },
+        "sort_position": "!O"
+      },
+      {
+        "key": "9b07693c218d0e046e1c7de1806ef0c142a866d5",
+        "file_key": "UzYlOaPNPL2c7zmHCEljOs",
+        "node_id": "91:2",
+        "style_type": "FILL",
+        "thumbnail_url": "https://s3-alpha.figma.com/checkpoints/nWv/wZU/lqvd2Z4WGC7olmVU/style_thumbnail_6.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQ4GOSFWC5PYDOGN2%2F20260524%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260524T120000Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=20e74fc9d7a24606a42cefd5b73562b89729344fe978c2dabb1a39b8fe833e4d",
+        "name": "Fuschia/60",
+        "description": "",
+        "created_at": "2026-05-22T20:10:34.039Z",
+        "updated_at": "2026-05-22T20:10:34.039Z",
+        "user": {
+          "id": "1639747346696283667",
+          "handle": "nango api",
+          "img_url": "https://s3-alpha.figma.com/profile/b3c8c4ad-29dd-482a-a14e-e41f94c5157c"
+        },
+        "sort_position": "$"
+      },
+      {
+        "key": "c032f681b7f6d18ad62af20a96fa8f34bd26e45a",
+        "file_key": "UzYlOaPNPL2c7zmHCEljOs",
+        "node_id": "116:4",
+        "style_type": "TEXT",
+        "thumbnail_url": "https://s3-alpha.figma.com/checkpoints/vHE/IWc/YRxlCYVPryTA3Rwk/style_thumbnail_0.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQ4GOSFWC5PYDOGN2%2F20260524%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260524T120000Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=6883b9d04d077f65ac17f026f383249f525c5e51f833e656c00749d512fef3fc",
+        "name": "Body",
+        "description": "",
+        "created_at": "2026-05-22T20:10:34.024Z",
+        "updated_at": "2026-05-22T20:10:34.024Z",
+        "user": {
+          "id": "1639747346696283667",
+          "handle": "nango api",
+          "img_url": "https://s3-alpha.figma.com/profile/b3c8c4ad-29dd-482a-a14e-e41f94c5157c"
+        },
+        "sort_position": "!P"
+      },
+      {
+        "key": "ecb4c598b8152f1f6e062ade3f037aaa20e21e87",
+        "file_key": "UzYlOaPNPL2c7zmHCEljOs",
+        "node_id": "91:5",
+        "style_type": "FILL",
+        "thumbnail_url": "https://s3-alpha.figma.com/checkpoints/NiD/wj0/9TS9okoMkb6KUVG9/style_thumbnail_7.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQ4GOSFWC5PYDOGN2%2F20260524%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260524T120000Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=a4fd5ecaa6f0ce9e93f9e7b9ed1c9bf456eaaa260b73efbe366c3e8393ee6e84",
+        "name": "Iris/60",
+        "description": "",
+        "created_at": "2026-05-22T20:10:34.015Z",
+        "updated_at": "2026-05-22T20:10:34.015Z",
+        "user": {
+          "id": "1639747346696283667",
+          "handle": "nango api",
+          "img_url": "https://s3-alpha.figma.com/profile/b3c8c4ad-29dd-482a-a14e-e41f94c5157c"
+        },
+        "sort_position": "'"
+      },
+      {
+        "key": "4c0561daf48995a9b2977b717b1a646951ccc52b",
+        "file_key": "UzYlOaPNPL2c7zmHCEljOs",
+        "node_id": "91:3",
+        "style_type": "FILL",
+        "thumbnail_url": "https://s3-alpha.figma.com/checkpoints/1iU/Z8F/alNv1vwqkjin6DjM/style_thumbnail_4.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQ4GOSFWC5PYDOGN2%2F20260524%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260524T120000Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=2614e2215ce2bac76d2dd59b0c357c73bace34f2ad67cc09985a83df6cdeec91",
+        "name": "Iris/100",
+        "description": "",
+        "created_at": "2026-05-22T20:10:34.004Z",
+        "updated_at": "2026-05-22T20:10:34.004Z",
+        "user": {
+          "id": "1639747346696283667",
+          "handle": "nango api",
+          "img_url": "https://s3-alpha.figma.com/profile/b3c8c4ad-29dd-482a-a14e-e41f94c5157c"
+        },
+        "sort_position": "%"
+      },
+      {
+        "key": "69105c37ac5cb0cb164a530374e8c28cb945edb4",
+        "file_key": "UzYlOaPNPL2c7zmHCEljOs",
+        "node_id": "116:2",
+        "style_type": "TEXT",
+        "thumbnail_url": "https://s3-alpha.figma.com/checkpoints/qms/tNR/frFabxf0zEpB9RvS/style_thumbnail_3.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQ4GOSFWC5PYDOGN2%2F20260524%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260524T120000Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=3bdf0889d426fd28ac0801a9b7c3864694b9cda1982ad51e8ec76bd105021585",
+        "name": "Header 1",
+        "description": "",
+        "created_at": "2026-05-22T20:10:33.988Z",
+        "updated_at": "2026-05-22T20:10:33.988Z",
+        "user": {
+          "id": "1639747346696283667",
+          "handle": "nango api",
+          "img_url": "https://s3-alpha.figma.com/profile/b3c8c4ad-29dd-482a-a14e-e41f94c5157c"
+        },
+        "sort_position": "!"
+      }
+    ]
+  },
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "team_id": "1639747348117609063"
+    }
+  },
+  "api": {
+    "get": {
+      "/v1/teams/1639747348117609063/styles": {
+        "response": {
+          "error": false,
+          "status": 200,
+          "meta": {
+            "cursor": {},
+            "styles": [
+              {
+                "key": "0f6da13a103e47271a3c8c6d52187ca4587ae898",
+                "file_key": "UzYlOaPNPL2c7zmHCEljOs",
+                "node_id": "91:1",
+                "style_type": "FILL",
+                "thumbnail_url": "https://s3-alpha.figma.com/checkpoints/jjq/Z8r/yozB8L2HnNVGMxmJ/style_thumbnail_8.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQ4GOSFWC5PYDOGN2%2F20260524%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260524T120000Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=11e0c2fc749bfcad3eeabadb406777a7d1c80832c1318dfcda1d0db895d75904",
+                "name": "Fuschia/80",
+                "description": "",
+                "created_at": "2026-05-22T20:10:34.079Z",
+                "updated_at": "2026-05-22T20:10:34.079Z",
+                "user": {
+                  "id": "1639747346696283667",
+                  "handle": "nango api",
+                  "img_url": "https://s3-alpha.figma.com/profile/b3c8c4ad-29dd-482a-a14e-e41f94c5157c"
+                },
+                "sort_position": "#"
+              },
+              {
+                "key": "1950a1b35ec8abd6481cc5543f078036cf2f020b",
+                "file_key": "UzYlOaPNPL2c7zmHCEljOs",
+                "node_id": "91:4",
+                "style_type": "FILL",
+                "thumbnail_url": "https://s3-alpha.figma.com/checkpoints/htV/QXn/WS64gMOZXlYyGZ7D/style_thumbnail_2.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQ4GOSFWC5PYDOGN2%2F20260524%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260524T120000Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=fb4989775ee025c1b640ce3c0a66d734c0cc5cd4d7b1d3039a0b2a20963e7b5f",
+                "name": "Iris/80",
+                "description": "",
+                "created_at": "2026-05-22T20:10:34.069Z",
+                "updated_at": "2026-05-22T20:10:34.069Z",
+                "user": {
+                  "id": "1639747346696283667",
+                  "handle": "nango api",
+                  "img_url": "https://s3-alpha.figma.com/profile/b3c8c4ad-29dd-482a-a14e-e41f94c5157c"
+                },
+                "sort_position": "&"
+              },
+              {
+                "key": "84f25dd261be665d7fcc16fcf73ea45daa36a833",
+                "file_key": "UzYlOaPNPL2c7zmHCEljOs",
+                "node_id": "91:0",
+                "style_type": "FILL",
+                "thumbnail_url": "https://s3-alpha.figma.com/checkpoints/sTV/47E/cnBLXpDWnmZ2nVCu/style_thumbnail_1.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQ4GOSFWC5PYDOGN2%2F20260524%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260524T120000Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=b9ae1e609ca586ef3abeb464dfab64b688a392e4b7c8b798e2c9bf230b808b50",
+                "name": "Fuschia/100",
+                "description": "",
+                "created_at": "2026-05-22T20:10:34.059Z",
+                "updated_at": "2026-05-22T20:10:34.059Z",
+                "user": {
+                  "id": "1639747346696283667",
+                  "handle": "nango api",
+                  "img_url": "https://s3-alpha.figma.com/profile/b3c8c4ad-29dd-482a-a14e-e41f94c5157c"
+                },
+                "sort_position": "\""
+              },
+              {
+                "key": "43f2f9b5e7584bddc22511b54499e50bce918fa0",
+                "file_key": "UzYlOaPNPL2c7zmHCEljOs",
+                "node_id": "116:3",
+                "style_type": "TEXT",
+                "thumbnail_url": "https://s3-alpha.figma.com/checkpoints/PmW/3mO/xLw2PhFGZIApULxx/style_thumbnail_5.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQ4GOSFWC5PYDOGN2%2F20260524%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260524T120000Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=aeeed426abfc24b70c20a75bb3ee919694caff7dba03373c5247a5a937d2aad5",
+                "name": "Header 2",
+                "description": "",
+                "created_at": "2026-05-22T20:10:34.050Z",
+                "updated_at": "2026-05-22T20:10:34.050Z",
+                "user": {
+                  "id": "1639747346696283667",
+                  "handle": "nango api",
+                  "img_url": "https://s3-alpha.figma.com/profile/b3c8c4ad-29dd-482a-a14e-e41f94c5157c"
+                },
+                "sort_position": "!O"
+              },
+              {
+                "key": "9b07693c218d0e046e1c7de1806ef0c142a866d5",
+                "file_key": "UzYlOaPNPL2c7zmHCEljOs",
+                "node_id": "91:2",
+                "style_type": "FILL",
+                "thumbnail_url": "https://s3-alpha.figma.com/checkpoints/nWv/wZU/lqvd2Z4WGC7olmVU/style_thumbnail_6.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQ4GOSFWC5PYDOGN2%2F20260524%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260524T120000Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=20e74fc9d7a24606a42cefd5b73562b89729344fe978c2dabb1a39b8fe833e4d",
+                "name": "Fuschia/60",
+                "description": "",
+                "created_at": "2026-05-22T20:10:34.039Z",
+                "updated_at": "2026-05-22T20:10:34.039Z",
+                "user": {
+                  "id": "1639747346696283667",
+                  "handle": "nango api",
+                  "img_url": "https://s3-alpha.figma.com/profile/b3c8c4ad-29dd-482a-a14e-e41f94c5157c"
+                },
+                "sort_position": "$"
+              },
+              {
+                "key": "c032f681b7f6d18ad62af20a96fa8f34bd26e45a",
+                "file_key": "UzYlOaPNPL2c7zmHCEljOs",
+                "node_id": "116:4",
+                "style_type": "TEXT",
+                "thumbnail_url": "https://s3-alpha.figma.com/checkpoints/vHE/IWc/YRxlCYVPryTA3Rwk/style_thumbnail_0.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQ4GOSFWC5PYDOGN2%2F20260524%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260524T120000Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=6883b9d04d077f65ac17f026f383249f525c5e51f833e656c00749d512fef3fc",
+                "name": "Body",
+                "description": "",
+                "created_at": "2026-05-22T20:10:34.024Z",
+                "updated_at": "2026-05-22T20:10:34.024Z",
+                "user": {
+                  "id": "1639747346696283667",
+                  "handle": "nango api",
+                  "img_url": "https://s3-alpha.figma.com/profile/b3c8c4ad-29dd-482a-a14e-e41f94c5157c"
+                },
+                "sort_position": "!P"
+              },
+              {
+                "key": "ecb4c598b8152f1f6e062ade3f037aaa20e21e87",
+                "file_key": "UzYlOaPNPL2c7zmHCEljOs",
+                "node_id": "91:5",
+                "style_type": "FILL",
+                "thumbnail_url": "https://s3-alpha.figma.com/checkpoints/NiD/wj0/9TS9okoMkb6KUVG9/style_thumbnail_7.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQ4GOSFWC5PYDOGN2%2F20260524%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260524T120000Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=a4fd5ecaa6f0ce9e93f9e7b9ed1c9bf456eaaa260b73efbe366c3e8393ee6e84",
+                "name": "Iris/60",
+                "description": "",
+                "created_at": "2026-05-22T20:10:34.015Z",
+                "updated_at": "2026-05-22T20:10:34.015Z",
+                "user": {
+                  "id": "1639747346696283667",
+                  "handle": "nango api",
+                  "img_url": "https://s3-alpha.figma.com/profile/b3c8c4ad-29dd-482a-a14e-e41f94c5157c"
+                },
+                "sort_position": "'"
+              },
+              {
+                "key": "4c0561daf48995a9b2977b717b1a646951ccc52b",
+                "file_key": "UzYlOaPNPL2c7zmHCEljOs",
+                "node_id": "91:3",
+                "style_type": "FILL",
+                "thumbnail_url": "https://s3-alpha.figma.com/checkpoints/1iU/Z8F/alNv1vwqkjin6DjM/style_thumbnail_4.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQ4GOSFWC5PYDOGN2%2F20260524%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260524T120000Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=2614e2215ce2bac76d2dd59b0c357c73bace34f2ad67cc09985a83df6cdeec91",
+                "name": "Iris/100",
+                "description": "",
+                "created_at": "2026-05-22T20:10:34.004Z",
+                "updated_at": "2026-05-22T20:10:34.004Z",
+                "user": {
+                  "id": "1639747346696283667",
+                  "handle": "nango api",
+                  "img_url": "https://s3-alpha.figma.com/profile/b3c8c4ad-29dd-482a-a14e-e41f94c5157c"
+                },
+                "sort_position": "%"
+              },
+              {
+                "key": "69105c37ac5cb0cb164a530374e8c28cb945edb4",
+                "file_key": "UzYlOaPNPL2c7zmHCEljOs",
+                "node_id": "116:2",
+                "style_type": "TEXT",
+                "thumbnail_url": "https://s3-alpha.figma.com/checkpoints/qms/tNR/frFabxf0zEpB9RvS/style_thumbnail_3.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQ4GOSFWC5PYDOGN2%2F20260524%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260524T120000Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=3bdf0889d426fd28ac0801a9b7c3864694b9cda1982ad51e8ec76bd105021585",
+                "name": "Header 1",
+                "description": "",
+                "created_at": "2026-05-22T20:10:33.988Z",
+                "updated_at": "2026-05-22T20:10:33.988Z",
+                "user": {
+                  "id": "1639747346696283667",
+                  "handle": "nango api",
+                  "img_url": "https://s3-alpha.figma.com/profile/b3c8c4ad-29dd-482a-a14e-e41f94c5157c"
+                },
+                "sort_position": "!"
+              }
+            ]
+          },
+          "i18n": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 25 May 2026 13:13:39 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "7036",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4962",
+          "x-ratelimit-reset": "1779714861",
+          "etag": "W/\"1b7c-XOqsRlEEluRiABtCrkoVdP9tObw\""
+        },
+        "hash": "7424d9b33e6fc4f09ee8c5b1f013c54b4a3c69d5",
+        "request": {}
+      }
+    }
+  }
+}

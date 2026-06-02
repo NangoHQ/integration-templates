@@ -1,0 +1,63 @@
+{
+  "input": {
+    "file_key": "UzYlOaPNPL2c7zmHCEljOs",
+    "version_id": "2356506860085774014"
+  },
+  "output": {
+    "id": "2356506860085774014",
+    "created_at": "2026-05-22T20:10:33Z",
+    "user": {
+      "id": "1639747346696283667",
+      "handle": "nango api",
+      "img_url": "https://s3-alpha.figma.com/profile/b3c8c4ad-29dd-482a-a14e-e41f94c5157c"
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1/files/UzYlOaPNPL2c7zmHCEljOs/versions": {
+        "response": {
+          "versions": [
+            {
+              "id": "2356506860085774014",
+              "created_at": "2026-05-22T20:10:33Z",
+              "label": null,
+              "description": null,
+              "user": {
+                "handle": "nango api",
+                "img_url": "https://s3-alpha.figma.com/profile/b3c8c4ad-29dd-482a-a14e-e41f94c5157c",
+                "id": "1639747346696283667"
+              },
+              "thumbnail_url": "https://s3-alpha-sig.figma.com/thumbnails/275d14a4-e58e-4f29-9e57-139d599ea034?Expires=1780876800&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=r69tn9f2Gu~RVtW4CQf8z71A7l~Ptw1r6f9NaWWXoGANVr2L3DRq27sUKP7Ugmu3AtDkCMZMf3N--d7F50WRmfFR~6kK0E2uJFD4G-KDrqj4sls9yDfkbj64I4D1RAkxA2kpMaq07GZVdchpMTCqoIWvRl0EA96scF90WXqnaj7S5iO69ZqiesSvDXh-ja6VTHFjPaOB1xtOxEGVsoKHebWwGvZRcue6qTk5SIk3D1h~kIWrt~E8Egp75cHXi8KbuntE~FxYVk1ijgGfPXR2mhIPHRYQ7Pgw6t0RAwWZJL3tzC4p8SR2wWKt-P~LJXmhKrZ2jPbTnBFq1V3E-IyhVQ__"
+            }
+          ],
+          "pagination": {
+            "prev_page": "https://api.figma.com/v1/files/UzYlOaPNPL2c7zmHCEljOs/versions?page_size=30&column=date&secondary_column=default&before=2026-05-22 20:10:33 UTC&secondary_before=2356506860085774014"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 25 May 2026 13:11:39 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "966",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4964",
+          "x-ratelimit-reset": "1779714739",
+          "etag": "W/\"3c6-aVWYeE5JoIrjj0JUvER6S6dZ06o\""
+        },
+        "hash": "c9b479e397959a24a870337cd34e99323a2a2b5d",
+        "request": {}
+      }
+    }
+  }
+}
