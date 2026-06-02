@@ -1,0 +1,79 @@
+{
+  "input": {
+    "advertiser_id": "7644143197428744199",
+    "image_id": "ad-site-i18n-sg/20260526c740994c3140b02f4e27a602"
+  },
+  "output": {
+    "image_id": "ad-site-i18n-sg/20260526c740994c3140b02f4e27a602",
+    "file_name": "test-image.png",
+    "format": "",
+    "image_url": "https://p21-ad-sg.ibyteimg.com/obj/ad-site-i18n-sg/20260526c740994c3140b02f4e27a602",
+    "height": 1,
+    "width": 1,
+    "signature": "2cd8bde463f5d82aae0f0cec061d6b8f",
+    "size": 70,
+    "material_id": "6961645257717104641",
+    "is_carousel_usable": true,
+    "create_time": "2026-05-26T11:02:55Z",
+    "modify_time": "2026-05-26T11:02:55Z",
+    "displayable": true
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/file/image/ad/info/": {
+        "response": {
+          "code": 0,
+          "message": "OK",
+          "request_id": "20260526190315BBEC8F21B0B4EA7402C5",
+          "data": {
+            "list": [
+              {
+                "material_id": "6961645257717104641",
+                "image_id": "ad-site-i18n-sg/20260526c740994c3140b02f4e27a602",
+                "file_name": "test-image.png",
+                "create_time": "2026-05-26T11:02:55Z",
+                "size": 70,
+                "modify_time": "2026-05-26T11:02:55Z",
+                "displayable": true,
+                "format": "",
+                "signature": "2cd8bde463f5d82aae0f0cec061d6b8f",
+                "height": 1,
+                "width": 1,
+                "is_carousel_usable": true,
+                "image_url": "https://p21-ad-sg.ibyteimg.com/obj/ad-site-i18n-sg/20260526c740994c3140b02f4e27a602"
+              }
+            ]
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 26 May 2026 11:03:15 GMT",
+          "content-type": "application/json",
+          "content-length": "562",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4904",
+          "x-ratelimit-reset": "1779793423",
+          "etag": "W/\"232-A0OYxXpuv2TIDKQtPyJtt8yrYc4\""
+        },
+        "hash": "f41a85d40dcd5f27ea6c817d658703451c32cf5e",
+        "request": {
+          "params": {
+            "advertiser_id": "7644143197428744199",
+            "image_ids": "[\"ad-site-i18n-sg/20260526c740994c3140b02f4e27a602\"]"
+          }
+        }
+      }
+    }
+  }
+}

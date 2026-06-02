@@ -1,0 +1,220 @@
+{
+  "nango": {
+    "getMetadata": {
+      "advertiser_id": "7644143197428744199"
+    },
+    "batchSave": {
+      "CreativeAsset": [
+        {
+          "id": "similarity-engine-crawled-images-sg/0877987d1be23418318d595a3a297ce9",
+          "image_id": "similarity-engine-crawled-images-sg/0877987d1be23418318d595a3a297ce9",
+          "image_url": "https://p21-ad-sg.ibyteimg.com/obj/similarity-engine-crawled-images-sg/0877987d1be23418318d595a3a297ce9",
+          "file_name": "googlelogo_color_92x30dp.png",
+          "height": 60,
+          "width": 184,
+          "size": 3831,
+          "create_time": "2026-05-26T11:14:01Z",
+          "modify_time": "2026-05-26T11:14:01Z"
+        },
+        {
+          "id": "https://p16-bi-material-center-sign-sg.ibyteimg.com/tos-alisg-i-hlfvu81ju6-sg/2975e246369e4176bb822b3d171d270d~tplv-hlfvu81ju6-image.image?lk3s=f9abdb00&mc_caller=eyes.product_lib&mc_key=1761345718049623893_1&x-expires=1763596800&x-signature=Ul2diyoQlrbyqCSLyGiPYW9hd64%3D",
+          "image_id": "https://p16-bi-material-center-sign-sg.ibyteimg.com/tos-alisg-i-hlfvu81ju6-sg/2975e246369e4176bb822b3d171d270d~tplv-hlfvu81ju6-image.image?lk3s=f9abdb00&mc_caller=eyes.product_lib&mc_key=1761345718049623893_1&x-expires=1763596800&x-signature=Ul2diyoQlrbyqCSLyGiPYW9hd64%3D",
+          "image_url": "https://p16-bi-material-center-sign-sg.ibyteimg.com/tos-alisg-i-hlfvu81ju6-sg/2975e246369e4176bb822b3d171d270d~tplv-hlfvu81ju6-image.image?lk3s=f9abdb00&mc_caller=eyes.product_lib&mc_key=1761345718049623893_1&x-expires=1763596800&x-signature=Ul2diyoQlrbyqCSLyGiPYW9hd64%3D",
+          "file_name": "test-upload-2026-05-26-003.png",
+          "format": "jpeg",
+          "height": 100,
+          "width": 100,
+          "size": 1052,
+          "create_time": "2026-05-26T11:06:14Z",
+          "modify_time": "2026-05-26T11:06:13Z"
+        },
+        {
+          "id": "ad-site-i18n-sg/20260211c7c78bc9d21b3f304891adf9",
+          "image_id": "ad-site-i18n-sg/20260211c7c78bc9d21b3f304891adf9",
+          "image_url": "https://p21-ad-sg.ibyteimg.com/obj/ad-site-i18n-sg/20260211c7c78bc9d21b3f304891adf9",
+          "file_name": "test-creative-save.jpg",
+          "height": 628,
+          "width": 1200,
+          "size": 149162,
+          "create_time": "2026-05-26T11:04:39Z",
+          "modify_time": "2026-05-26T11:04:39Z"
+        },
+        {
+          "id": "ad-site-i18n-sg/20260526c740121dc0a5661640fca144",
+          "image_id": "ad-site-i18n-sg/20260526c740121dc0a5661640fca144",
+          "image_url": "https://p21-ad-sg.ibyteimg.com/obj/ad-site-i18n-sg/20260526c740121dc0a5661640fca144",
+          "file_name": "test-creative-validate.jpg",
+          "height": 628,
+          "width": 1200,
+          "size": 100397,
+          "create_time": "2026-05-26T11:04:26Z",
+          "modify_time": "2026-05-26T11:04:26Z"
+        },
+        {
+          "id": "similarity-engine-crawled-images-sg/2cd8bde463f5d82aae0f0cec061d6b8f",
+          "image_id": "similarity-engine-crawled-images-sg/2cd8bde463f5d82aae0f0cec061d6b8f",
+          "image_url": "https://p21-ad-sg.ibyteimg.com/obj/similarity-engine-crawled-images-sg/2cd8bde463f5d82aae0f0cec061d6b8f",
+          "file_name": "test-image.png",
+          "height": 1,
+          "width": 1,
+          "size": 70,
+          "create_time": "2026-05-26T11:02:55Z",
+          "modify_time": "2026-05-26T11:02:55Z"
+        },
+        {
+          "id": "ad-site-i18n-sg/20260526c7403f4cc110b42e464590fd",
+          "image_id": "ad-site-i18n-sg/20260526c7403f4cc110b42e464590fd",
+          "image_url": "https://p21-ad-sg.ibyteimg.com/obj/ad-site-i18n-sg/20260526c7403f4cc110b42e464590fd",
+          "file_name": "test-creative.jpg",
+          "height": 628,
+          "width": 1200,
+          "size": 30333,
+          "create_time": "2026-05-26T11:00:37Z",
+          "modify_time": "2026-05-26T11:00:37Z"
+        }
+      ]
+    },
+    "batchDelete": {
+      "CreativeAsset": []
+    }
+  },
+  "api": {
+    "get": {
+      "/file/image/ad/search/": {
+        "response": {
+          "code": 0,
+          "message": "OK",
+          "request_id": "2026052619143413213F4B0BCE06FEAA9B",
+          "data": {
+            "page_info": {
+              "total_number": 6,
+              "page_size": 100,
+              "page": 1,
+              "total_page": 1
+            },
+            "list": [
+              {
+                "width": 184,
+                "modify_time": "2026-05-26T11:14:01Z",
+                "height": 60,
+                "create_time": "2026-05-26T11:14:01Z",
+                "is_carousel_usable": false,
+                "displayable": false,
+                "file_name": "googlelogo_color_92x30dp.png",
+                "image_url": "https://p21-ad-sg.ibyteimg.com/obj/similarity-engine-crawled-images-sg/0877987d1be23418318d595a3a297ce9",
+                "image_id": "similarity-engine-crawled-images-sg/0877987d1be23418318d595a3a297ce9",
+                "size": 3831,
+                "material_id": "6752274742576119813",
+                "signature": "0877987d1be23418318d595a3a297ce9",
+                "format": ""
+              },
+              {
+                "width": 100,
+                "modify_time": "2026-05-26T11:06:13Z",
+                "height": 100,
+                "create_time": "2026-05-26T11:06:14Z",
+                "is_carousel_usable": false,
+                "displayable": true,
+                "file_name": "test-upload-2026-05-26-003.png",
+                "image_url": "https://p16-bi-material-center-sign-sg.ibyteimg.com/tos-alisg-i-hlfvu81ju6-sg/2975e246369e4176bb822b3d171d270d~tplv-hlfvu81ju6-image.image?lk3s=f9abdb00&mc_caller=eyes.product_lib&mc_key=1761345718049623893_1&x-expires=1763596800&x-signature=Ul2diyoQlrbyqCSLyGiPYW9hd64%3D",
+                "image_id": "https://p16-bi-material-center-sign-sg.ibyteimg.com/tos-alisg-i-hlfvu81ju6-sg/2975e246369e4176bb822b3d171d270d~tplv-hlfvu81ju6-image.image?lk3s=f9abdb00&mc_caller=eyes.product_lib&mc_key=1761345718049623893_1&x-expires=1763596800&x-signature=Ul2diyoQlrbyqCSLyGiPYW9hd64%3D",
+                "size": 1052,
+                "material_id": "7513041635014344720",
+                "signature": "03c5ecd056928ec891ad1ebfdc6fcba0",
+                "format": "jpeg"
+              },
+              {
+                "width": 1200,
+                "modify_time": "2026-05-26T11:04:39Z",
+                "height": 628,
+                "create_time": "2026-05-26T11:04:39Z",
+                "is_carousel_usable": true,
+                "displayable": true,
+                "file_name": "test-creative-save.jpg",
+                "image_url": "https://p21-ad-sg.ibyteimg.com/obj/ad-site-i18n-sg/20260211c7c78bc9d21b3f304891adf9",
+                "image_id": "ad-site-i18n-sg/20260211c7c78bc9d21b3f304891adf9",
+                "size": 149162,
+                "material_id": "7605413621602385928",
+                "signature": "bca8fcfe46c3523f9b1fc3aaad16e3a5",
+                "format": ""
+              },
+              {
+                "width": 1200,
+                "modify_time": "2026-05-26T11:04:26Z",
+                "height": 628,
+                "create_time": "2026-05-26T11:04:26Z",
+                "is_carousel_usable": true,
+                "displayable": true,
+                "file_name": "test-creative-validate.jpg",
+                "image_url": "https://p21-ad-sg.ibyteimg.com/obj/ad-site-i18n-sg/20260526c740121dc0a5661640fca144",
+                "image_id": "ad-site-i18n-sg/20260526c740121dc0a5661640fca144",
+                "size": 100397,
+                "material_id": "7644154595329359879",
+                "signature": "8abb811689210c9332bb6705dc3d91ba",
+                "format": ""
+              },
+              {
+                "width": 1,
+                "modify_time": "2026-05-26T11:02:55Z",
+                "height": 1,
+                "create_time": "2026-05-26T11:02:55Z",
+                "is_carousel_usable": false,
+                "displayable": true,
+                "file_name": "test-image.png",
+                "image_url": "https://p21-ad-sg.ibyteimg.com/obj/similarity-engine-crawled-images-sg/2cd8bde463f5d82aae0f0cec061d6b8f",
+                "image_id": "similarity-engine-crawled-images-sg/2cd8bde463f5d82aae0f0cec061d6b8f",
+                "size": 70,
+                "material_id": "6961645257717104641",
+                "signature": "2cd8bde463f5d82aae0f0cec061d6b8f",
+                "format": ""
+              },
+              {
+                "width": 1200,
+                "modify_time": "2026-05-26T11:00:37Z",
+                "height": 628,
+                "create_time": "2026-05-26T11:00:37Z",
+                "is_carousel_usable": true,
+                "displayable": true,
+                "file_name": "test-creative.jpg",
+                "image_url": "https://p21-ad-sg.ibyteimg.com/obj/ad-site-i18n-sg/20260526c7403f4cc110b42e464590fd",
+                "image_id": "ad-site-i18n-sg/20260526c7403f4cc110b42e464590fd",
+                "size": 30333,
+                "material_id": "7644153708657852437",
+                "signature": "f5cb983b9453f30df0ecab7a15b840c1",
+                "format": ""
+              }
+            ]
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 26 May 2026 11:14:34 GMT",
+          "content-type": "application/json",
+          "content-length": "3543",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4992",
+          "x-ratelimit-reset": "1779794118",
+          "etag": "W/\"dd7-Xu0EARGB+p3KBggNsBA3r4hqu/c\""
+        },
+        "hash": "7bcab77d896e8c6066bb2a9fbe0a6a3dd2195f5e",
+        "request": {
+          "params": {
+            "advertiser_id": "7644143197428744199",
+            "page": "1",
+            "page_size": "100"
+          }
+        }
+      }
+    }
+  }
+}

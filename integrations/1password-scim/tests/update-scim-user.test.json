@@ -1,34 +1,18 @@
 {
   "input": {
-    "id": "WHIVOG5WFFDGJODAWIGRVZZU5A",
-    "operations": [
-      {
-        "op": "replace",
-        "path": "displayName",
-        "value": "Updated Display Name"
-      }
-    ]
+    "id": "Z54GW3SPDZBJJPCEBMEOO2HQPE",
+    "displayName": "SCIM Test Updated"
   },
   "output": {
-    "id": "WHIVOG5WFFDGJODAWIGRVZZU5A",
-    "meta": {
-      "resourceType": "User"
-    },
-    "schemas": [
-      "urn:ietf:params:scim:schemas:core:2.0:User"
-    ],
-    "userName": "api@nango.dev",
-    "name": {
-      "formatted": "Updated Display Name",
-      "familyName": "Display Name",
-      "givenName": "Updated"
-    },
-    "displayName": "Updated Display Name",
-    "preferredLanguage": "en",
+    "id": "Z54GW3SPDZBJJPCEBMEOO2HQPE",
+    "userName": "scim-test-action@nango.dev",
+    "givenName": "SCIM",
+    "familyName": "Test Updated",
+    "displayName": "SCIM Test Updated",
     "active": true,
     "emails": [
       {
-        "value": "api@nango.dev",
+        "value": "scim-test-action@nango.dev",
         "primary": true
       }
     ]
@@ -36,36 +20,36 @@
   "nango": {},
   "api": {
     "patch": {
-      "/Users/WHIVOG5WFFDGJODAWIGRVZZU5A": {
+      "/v2/Users/Z54GW3SPDZBJJPCEBMEOO2HQPE": {
         "response": {
           "active": true,
-          "displayName": "Updated Display Name",
+          "displayName": "SCIM Test Updated",
           "emails": [
             {
               "primary": true,
-              "value": "api@nango.dev"
+              "value": "scim-test-action@nango.dev"
             }
           ],
-          "id": "WHIVOG5WFFDGJODAWIGRVZZU5A",
+          "id": "Z54GW3SPDZBJJPCEBMEOO2HQPE",
           "meta": {
             "resourceType": "User"
           },
           "name": {
-            "familyName": "Display Name",
-            "formatted": "Updated Display Name",
-            "givenName": "Updated"
+            "familyName": "Test Updated",
+            "formatted": "SCIM Test Updated",
+            "givenName": "SCIM"
           },
           "preferredLanguage": "en",
           "schemas": [
             "urn:ietf:params:scim:schemas:core:2.0:User"
           ],
-          "userName": "api@nango.dev"
+          "userName": "scim-test-action@nango.dev"
         },
         "status": 200,
         "headers": {
-          "date": "Thu, 21 May 2026 14:14:39 GMT",
+          "date": "Fri, 22 May 2026 17:57:31 GMT",
           "content-type": "application/scim+json",
-          "content-length": "373",
+          "content-length": "390",
           "connection": "keep-alive",
           "x-xss-protection": "0",
           "x-content-type-options": "nosniff",
@@ -77,11 +61,11 @@
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "5000",
-          "x-ratelimit-remaining": "4955",
-          "x-ratelimit-reset": "1779372909",
-          "etag": "W/\"175-c+qNAEVA23peEm4spNet9b0hWvs\""
+          "x-ratelimit-remaining": "4982",
+          "x-ratelimit-reset": "1779472699",
+          "etag": "W/\"186-NwfE1sQu5jc0I2jT7WogB1Taa8Q\""
         },
-        "hash": "de34886d214cdaaaed3e2e29fcb5dad84b785b25",
+        "hash": "712c4bac3a9f4269a7e6b4aa0f802715ebbb9609",
         "request": {
           "data": {
             "schemas": [
@@ -91,7 +75,7 @@
               {
                 "op": "replace",
                 "path": "displayName",
-                "value": "Updated Display Name"
+                "value": "SCIM Test Updated"
               }
             ]
           }

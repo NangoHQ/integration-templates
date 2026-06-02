@@ -1,0 +1,78 @@
+{
+  "input": {
+    "id": "4",
+    "title": "Nango Test Pipeline Updated"
+  },
+  "output": {
+    "id": "4",
+    "title": "Nango Test Pipeline Updated",
+    "currency": "usd",
+    "autoassign": 1,
+    "allusers": 1,
+    "allgroups": 1
+  },
+  "nango": {},
+  "api": {
+    "put": {
+      "/3/dealGroups/4": {
+        "response": {
+          "dealGroup": {
+            "title": "Nango Test Pipeline Updated",
+            "currency": "usd",
+            "autoassign": "1",
+            "allusers": "1",
+            "allgroups": "1",
+            "win_probability_initialize_date": null,
+            "cdate": "2026-05-28T04:05:05-05:00",
+            "udate": "2026-05-28T04:07:56-05:00",
+            "source": "",
+            "links": {
+              "stages": "https://nango56865.api-us1.com/api/3/dealGroups/4/stages",
+              "dealGroupUsers": "https://nango56865.api-us1.com/api/3/dealGroups/4/dealGroupUsers",
+              "dealGroupGroups": "https://nango56865.api-us1.com/api/3/dealGroups/4/dealGroupGroups",
+              "winProbabilityFeatures": "https://nango56865.api-us1.com/api/3/dealGroups/4/winProbabilityFeatures"
+            },
+            "id": "4"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 28 May 2026 09:07:57 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4988",
+          "x-ratelimit-reset": "1779959322",
+          "cache-control": "no-store, no-cache, must-revalidate,no-cache, private",
+          "expires": "Thu, 19 Nov 1981 08:52:00 GMT",
+          "pragma": "no-cache",
+          "server": "cloudflare",
+          "set-cookie": "PHPSESSID=9c53b8b176498df5259cad4559c8fe1a; path=/; secure; HttpOnly; SameSite=Lax, em_acp_globalauth_cookie=bfacd35d-173c-43cc-a8b0-3ecd52f34c1a; path=/; domain=.nango56865.api-us1.com; secure; httponly; SameSite=Lax",
+          "x-envoy-decorator-operation": "ac-hosted-current-web.activecampaign-hosted.svc.cluster.local:80/*",
+          "x-envoy-upstream-service-time": "95",
+          "x-request-id": "d30880b7-c3df-434b-aa13-f20118d93d9f",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a02c1ca79e9ffefe-PDX"
+        },
+        "hash": "930e1572f84a30e61db6db27659eeb20be1f34e9",
+        "request": {
+          "data": {
+            "dealGroup": {
+              "title": "Nango Test Pipeline Updated"
+            }
+          }
+        }
+      }
+    }
+  }
+}

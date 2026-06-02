@@ -1,0 +1,117 @@
+{
+  "input": {
+    "name": "Test Group 1779888792",
+    "path": "test-group-1779888792",
+    "parent_id": 133159324
+  },
+  "output": {
+    "id": 133164882,
+    "name": "Test Group 1779888792",
+    "path": "test-group-1779888792",
+    "full_path": "nangodev-group/test-group-1779888792",
+    "visibility": "private",
+    "web_url": "https://gitlab.com/groups/nangodev-group/test-group-1779888792",
+    "parent_id": 133159324
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/api/v4/groups": {
+        "response": {
+          "id": 133164882,
+          "web_url": "https://gitlab.com/groups/nangodev-group/test-group-1779888792",
+          "name": "Test Group 1779888792",
+          "path": "test-group-1779888792",
+          "description": null,
+          "visibility": "private",
+          "share_with_group_lock": false,
+          "require_two_factor_authentication": false,
+          "two_factor_grace_period": 48,
+          "project_creation_level": "developer",
+          "auto_devops_enabled": null,
+          "subgroup_creation_level": "maintainer",
+          "emails_disabled": false,
+          "emails_enabled": true,
+          "show_diff_preview_in_email": true,
+          "mentions_disabled": null,
+          "lfs_enabled": true,
+          "archived": false,
+          "math_rendering_limits_enabled": true,
+          "lock_math_rendering_limits_enabled": false,
+          "default_branch": null,
+          "default_branch_protection": 2,
+          "default_branch_protection_defaults": {
+            "allowed_to_push": [
+              {
+                "access_level": 40
+              }
+            ],
+            "allow_force_push": false,
+            "allowed_to_merge": [
+              {
+                "access_level": 40
+              }
+            ]
+          },
+          "avatar_url": null,
+          "request_access_enabled": true,
+          "full_name": "nangoDev-group / Test Group 1779888792",
+          "full_path": "nangodev-group/test-group-1779888792",
+          "created_at": "2026-05-27T13:33:19.689Z",
+          "parent_id": 133159324,
+          "organization_id": 1,
+          "shared_runners_setting": "enabled",
+          "max_artifacts_size": null,
+          "marked_for_deletion_on": null,
+          "ldap_cn": null,
+          "ldap_access": null,
+          "wiki_access_level": "enabled",
+          "duo_core_features_enabled": null,
+          "duo_features_enabled": true,
+          "lock_duo_features_enabled": false,
+          "web_based_commit_signing_enabled": false,
+          "shared_with_groups": [],
+          "shared_runners_minutes_limit": null,
+          "extra_shared_runners_minutes_limit": null,
+          "prevent_forking_outside_group": false,
+          "experiment_features_enabled": false,
+          "membership_lock": false,
+          "ip_restriction_ranges": null,
+          "allowed_email_domains_list": null,
+          "only_allow_merge_if_pipeline_succeeds": false,
+          "allow_merge_on_skipped_pipeline": false,
+          "only_allow_merge_if_all_discussions_are_resolved": false
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 27 May 2026 13:33:20 GMT",
+          "content-type": "application/json",
+          "content-length": "1748",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4805",
+          "x-ratelimit-reset": "1779888813",
+          "x-request-id": "a02564052a6acf48-PDX",
+          "etag": "W/\"6d4-mb/hmHCFooXOvA/18jMSU9qFq80\""
+        },
+        "hash": "7a025665d129a358a2ad48c0346e0fdd1ec0c0ea",
+        "request": {
+          "data": {
+            "name": "Test Group 1779888792",
+            "path": "test-group-1779888792",
+            "parent_id": 133159324
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,84 @@
+import { z } from 'zod';
+import { createAction } from 'nango';
+
+const InputSchema = z.object({
+    name: z.string().describe('Name of the new project. Example: "my-new-project"'),
+    path: z.string().optional().describe('Repository name for the new project. Generated from name if not provided.'),
+    namespace_id: z.number().optional().describe('Namespace ID for the new project. Defaults to the current user namespace.'),
+    description: z.string().optional().describe('Short project description.'),
+    visibility: z.enum(['private', 'internal', 'public']).optional().describe('Visibility level of the project.'),
+    initialize_with_readme: z.boolean().optional().describe('Whether to initialize the project with a README file.'),
+    default_branch: z.string().optional().describe('Default branch name. Requires initialize_with_readme to be true.')
+});
+
+const NamespaceSchema = z.object({
+    id: z.number(),
+    name: z.string(),
+    path: z.string(),
+    kind: z.string().optional(),
+    full_path: z.string().optional(),
+    parent_id: z.number().nullable().optional(),
+    avatar_url: z.string().nullable().optional(),
+    web_url: z.string().optional()
+});
+
+const ProjectSchema = z
+    .object({
+        id: z.number(),
+        name: z.string(),
+        name_with_namespace: z.string().optional(),
+        path: z.string(),
+        path_with_namespace: z.string().optional(),
+        description: z.string().nullable().optional(),
+        default_branch: z.string().nullable().optional(),
+        visibility: z.string().optional(),
+        ssh_url_to_repo: z.string().optional(),
+        http_url_to_repo: z.string().optional(),
+        web_url: z.string().optional(),
+        readme_url: z.string().nullable().optional(),
+        created_at: z.string().optional(),
+        last_activity_at: z.string().optional(),
+        namespace: NamespaceSchema.optional(),
+        topics: z.array(z.string()).optional(),
+        empty_repo: z.boolean().optional(),
+        archived: z.boolean().optional(),
+        creator_id: z.number().optional()
+    })
+    .passthrough();
+
+const action = createAction({
+    description: 'Create a project in GitLab.',
+    version: '1.0.0',
+    endpoint: {
+        method: 'POST',
+        path: '/actions/create-project',
+        group: 'Projects'
+    },
+    input: InputSchema,
+    output: ProjectSchema,
+    scopes: ['api'],
+
+    exec: async (nango, input): Promise<z.infer<typeof ProjectSchema>> => {
+        const response = await nango.post({
+            // https://docs.gitlab.com/api/projects/#create-project
+            endpoint: '/api/v4/projects',
+            data: {
+                name: input.name,
+                ...(input.path !== undefined && { path: input.path }),
+                ...(input.namespace_id !== undefined && { namespace_id: input.namespace_id }),
+                ...(input.description !== undefined && { description: input.description }),
+                ...(input.visibility !== undefined && { visibility: input.visibility }),
+                ...(input.initialize_with_readme !== undefined && { initialize_with_readme: input.initialize_with_readme }),
+                ...(input.default_branch !== undefined && { default_branch: input.default_branch })
+            },
+            retries: 1
+        });
+
+        const providerProject = ProjectSchema.parse(response.data);
+
+        return providerProject;
+    }
+});
+
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
+export default action;
