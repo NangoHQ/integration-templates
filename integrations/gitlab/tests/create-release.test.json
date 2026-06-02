@@ -1,0 +1,126 @@
+{
+  "input": {
+    "project_id": 82599306,
+    "tag_name": "test-release-nango-2",
+    "name": "Test Release",
+    "description": "Created via Nango dryrun",
+    "ref": "feature/test"
+  },
+  "output": {
+    "tag_name": "test-release-nango-2",
+    "description": "Created via Nango dryrun",
+    "name": "Test Release",
+    "created_at": "2026-05-27T13:33:24.293Z",
+    "released_at": "2026-05-27T13:33:24.293Z",
+    "commit_path": "/nangodev-group/nangoDev-project/-/commit/7db24468e03a7498b33621c983a12b445e0258d4",
+    "tag_path": "/nangodev-group/nangoDev-project/-/tags/test-release-nango-2"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/api/v4/projects/82599306/releases": {
+        "response": {
+          "name": "Test Release",
+          "tag_name": "test-release-nango-2",
+          "description": "Created via Nango dryrun",
+          "created_at": "2026-05-27T13:33:24.293Z",
+          "released_at": "2026-05-27T13:33:24.293Z",
+          "upcoming_release": false,
+          "author": {
+            "id": 38590808,
+            "username": "api46",
+            "public_email": null,
+            "name": "Nango Developer",
+            "state": "active",
+            "locked": false,
+            "avatar_url": "https://secure.gravatar.com/avatar/c89d19930bbb731cfec48ff1584648234d177e53d3c5641a51797a3d16ac420d?s=80&d=identicon",
+            "web_url": "https://gitlab.com/api46"
+          },
+          "commit": {
+            "id": "7db24468e03a7498b33621c983a12b445e0258d4",
+            "short_id": "7db24468",
+            "created_at": "2026-05-27T13:33:10.000+00:00",
+            "parent_ids": [
+              "a7fd4ae544fc7b021bfafd15f33c0c15df6ce2f5"
+            ],
+            "title": "Delete file via Nango action",
+            "message": "Delete file via Nango action",
+            "author_name": "Nango Developer",
+            "author_email": "api@nango.dev",
+            "authored_date": "2026-05-27T13:33:10.000+00:00",
+            "committer_name": "Nango Developer",
+            "committer_email": "api@nango.dev",
+            "committed_date": "2026-05-27T13:33:10.000+00:00",
+            "trailers": {},
+            "extended_trailers": {},
+            "web_url": "https://gitlab.com/nangodev-group/nangoDev-project/-/commit/7db24468e03a7498b33621c983a12b445e0258d4"
+          },
+          "commit_path": "/nangodev-group/nangoDev-project/-/commit/7db24468e03a7498b33621c983a12b445e0258d4",
+          "tag_path": "/nangodev-group/nangoDev-project/-/tags/test-release-nango-2",
+          "assets": {
+            "count": 4,
+            "sources": [
+              {
+                "format": "zip",
+                "url": "https://gitlab.com/nangodev-group/nangoDev-project/-/archive/test-release-nango-2/nangoDev-project-test-release-nango-2.zip"
+              },
+              {
+                "format": "tar.gz",
+                "url": "https://gitlab.com/nangodev-group/nangoDev-project/-/archive/test-release-nango-2/nangoDev-project-test-release-nango-2.tar.gz"
+              },
+              {
+                "format": "tar.bz2",
+                "url": "https://gitlab.com/nangodev-group/nangoDev-project/-/archive/test-release-nango-2/nangoDev-project-test-release-nango-2.tar.bz2"
+              },
+              {
+                "format": "tar",
+                "url": "https://gitlab.com/nangodev-group/nangoDev-project/-/archive/test-release-nango-2/nangoDev-project-test-release-nango-2.tar"
+              }
+            ],
+            "links": []
+          },
+          "evidences": [],
+          "_links": {
+            "closed_issues_url": "https://gitlab.com/nangodev-group/nangoDev-project/-/issues?release_tag=test-release-nango-2&scope=all&state=closed",
+            "closed_merge_requests_url": "https://gitlab.com/nangodev-group/nangoDev-project/-/merge_requests?release_tag=test-release-nango-2&scope=all&state=closed",
+            "edit_url": "https://gitlab.com/nangodev-group/nangoDev-project/-/releases/test-release-nango-2/edit",
+            "merged_merge_requests_url": "https://gitlab.com/nangodev-group/nangoDev-project/-/merge_requests?release_tag=test-release-nango-2&scope=all&state=merged",
+            "opened_issues_url": "https://gitlab.com/nangodev-group/nangoDev-project/-/issues?release_tag=test-release-nango-2&scope=all&state=opened",
+            "opened_merge_requests_url": "https://gitlab.com/nangodev-group/nangoDev-project/-/merge_requests?release_tag=test-release-nango-2&scope=all&state=opened",
+            "self": "https://gitlab.com/nangodev-group/nangoDev-project/-/releases/test-release-nango-2"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 27 May 2026 13:33:24 GMT",
+          "content-type": "application/json",
+          "content-length": "2976",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4785",
+          "x-ratelimit-reset": "1779888813",
+          "x-request-id": "a025641f2d5ca60a-PDX",
+          "etag": "W/\"ba0-HgYlukl3qVtztV2ux/Jax4PL3wg\""
+        },
+        "hash": "ce1ac7208c952ccc1e274819f3e13350e6bee43b",
+        "request": {
+          "data": {
+            "tag_name": "test-release-nango-2",
+            "name": "Test Release",
+            "description": "Created via Nango dryrun",
+            "ref": "feature/test"
+          }
+        }
+      }
+    }
+  }
+}

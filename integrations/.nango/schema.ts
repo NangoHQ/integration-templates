@@ -11,53 +11,51 @@
  * ! See the official zod documentation: https://zod.dev/basics?id=inferring-types
  */
 
-export interface ScimGroup {
+export interface Group {
   id: string;
-  externalId?: string | undefined;
-  displayName?: string | undefined;
-  meta?: {  resourceType?: string | undefined;
-  created?: string | undefined;
-  lastModified?: string | undefined;
-  location?: string | undefined;};
-  members?: ({  value: string;
-  display?: string | undefined;})[];
+  name: string;
+  description?: string | undefined;
+  isDefault?: boolean | undefined;
+  isDeleted?: boolean | undefined;
+  isPublic?: boolean | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  url?: string | undefined;
 };
 
 export interface ScimUser {
   id: string;
-  userName: string;
+  userName?: string | undefined;
   displayName?: string | undefined;
-  name?: {  formatted?: string | undefined;
+  name?: {  givenName?: string | undefined;
   familyName?: string | undefined;
-  givenName?: string | undefined;};
-  emails?: ({  value: string;
+  formatted?: string | undefined;};
+  emails?: ({  value?: string | undefined;
   type?: string | undefined;
   primary?: boolean | undefined;})[];
-  externalId?: string | undefined;
   active?: boolean | undefined;
-  meta?: {  created?: string | undefined;
-  lastModified?: string | undefined;
-  resourceType?: string | undefined;};
+  externalId?: string | undefined;
+  updated_at?: string | undefined;
 };
 
 export interface ActionInput_1password_scim_createscimgroup {
   /**
-   * The display name of the SCIM group. Example: "Engineering"
+   * Display name of the SCIM group. Example: "Engineering"
    */
   displayName: string;
   /**
-   * The external identifier for the group. Example: "group-123"
+   * External identifier for the group.
    */
   externalId?: string | undefined;
   /**
-   * Array of group members to assign on creation
+   * Members to add to the group at creation.
    */
   members?: ({  /**
-   * The identifier of the member. Example: "user-123"
+   * Identifier of the member. Example: "user-id-123"
    */
   value: string;
   /**
-   * The display name of the member. Example: "John Doe"
+   * Display name of the member.
    */
   display?: string | undefined;})[];
 };
@@ -77,23 +75,23 @@ export interface ActionOutput_1password_scim_createscimgroup {
 
 export interface ActionInput_1password_scim_createscimuser {
   /**
-   * SCIM userName. Example: "user@example.com"
+   * User login name, typically an email. Example: "bjensen@example.com"
    */
   userName: string;
   /**
-   * External identifier for the user.
+   * Identifier from the provisioning client. Example: "bjensen"
    */
   externalId?: string | undefined;
-  /**
-   * Display name for the user.
-   */
-  displayName?: string | undefined;
-  name?: {  formatted?: string | undefined;
+  name?: {  givenName?: string | undefined;
   familyName?: string | undefined;
-  givenName?: string | undefined;};
+  formatted?: string | undefined;};
+  displayName?: string | undefined;
   emails?: ({  value: string;
   type?: string | undefined;
   primary?: boolean | undefined;})[];
+  /**
+   * Whether the user is active.
+   */
   active?: boolean | undefined;
 };
 
@@ -102,9 +100,9 @@ export interface ActionOutput_1password_scim_createscimuser {
   userName: string;
   externalId?: string | undefined;
   displayName?: string | undefined;
-  name?: {  formatted?: string | undefined;
+  name?: {  givenName?: string | undefined;
   familyName?: string | undefined;
-  givenName?: string | undefined;};
+  formatted?: string | undefined;};
   emails?: ({  value: string;
   type?: string | undefined;
   primary?: boolean | undefined;})[];
@@ -117,7 +115,7 @@ export interface ActionOutput_1password_scim_createscimuser {
 
 export interface ActionInput_1password_scim_deletescimgroup {
   /**
-   * SCIM Group ID. Example: "group-123"
+   * SCIM Group ID. Example: "abc123"
    */
   id: string;
 };
@@ -141,33 +139,29 @@ export interface ActionOutput_1password_scim_deletescimuser {
 
 export interface ActionInput_1password_scim_getscimgroup {
   /**
-   * SCIM Group ID. Example: "e9e30dba-f08f-4109-8486-d5c6a331660a"
+   * The SCIM group ID. Example: "2819c223-7f76-453a-919d-413861904646"
    */
-  groupId: string;
+  id: string;
 };
 
 export interface ActionOutput_1password_scim_getscimgroup {
   schemas: string[];
   id: string;
   externalId?: string | undefined;
-  displayName: string;
-  members?: ({  /**
-   * The ID of the SCIM resource
-   */
-  value: string;
-  display?: string | undefined;
-  "$ref"?: string | undefined;
-  type?: string | undefined;})[];
   meta?: {  resourceType?: string | undefined;
   created?: string | undefined;
   lastModified?: string | undefined;
   location?: string | undefined;
   version?: string | undefined;};
+  displayName: string;
+  members?: ({  value: string;
+  "$ref"?: string | undefined;
+  display?: string | undefined;})[];
 };
 
 export interface ActionInput_1password_scim_getscimuser {
   /**
-   * The SCIM user ID. Example: "123"
+   * SCIM User ID. Example: "2819c223-7f76-453a-919d-413861904646"
    */
   id: string;
 };
@@ -176,12 +170,7 @@ export interface ActionOutput_1password_scim_getscimuser {
   schemas: string[];
   id: string;
   externalId?: string | undefined;
-  meta?: {  resourceType?: string | undefined;
-  created?: string | undefined;
-  lastModified?: string | undefined;
-  location?: string | undefined;
-  version?: string | undefined;};
-  userName: string;
+  userName?: string | undefined;
   name?: {  formatted?: string | undefined;
   familyName?: string | undefined;
   givenName?: string | undefined;
@@ -197,45 +186,79 @@ export interface ActionOutput_1password_scim_getscimuser {
   locale?: string | undefined;
   timezone?: string | undefined;
   active?: boolean | undefined;
-  emails?: ({  value: string;
+  emails?: ({  value?: string | undefined;
   display?: string | undefined;
   type?: string | undefined;
   primary?: boolean | undefined;})[];
-  groups?: ({  value: string;
+  phoneNumbers?: ({  value?: string | undefined;
+  display?: string | undefined;
+  type?: string | undefined;
+  primary?: boolean | undefined;})[];
+  ims?: ({  value?: string | undefined;
+  display?: string | undefined;
+  type?: string | undefined;
+  primary?: boolean | undefined;})[];
+  photos?: ({  value?: string | undefined;
+  display?: string | undefined;
+  type?: string | undefined;
+  primary?: boolean | undefined;})[];
+  addresses?: ({  formatted?: string | undefined;
+  streetAddress?: string | undefined;
+  locality?: string | undefined;
+  region?: string | undefined;
+  postalCode?: string | undefined;
+  country?: string | undefined;
+  type?: string | undefined;
+  primary?: boolean | undefined;})[];
+  groups?: ({  value?: string | undefined;
   display?: string | undefined;
   type?: string | undefined;
   "$ref"?: string | undefined;})[];
-  roles?: ({})[] | undefined;
-  entitlements?: ({})[] | undefined;
+  entitlements?: ({  value?: string | undefined;
+  display?: string | undefined;
+  type?: string | undefined;
+  primary?: boolean | undefined;})[];
+  roles?: ({  value?: string | undefined;
+  display?: string | undefined;
+  type?: string | undefined;
+  primary?: boolean | undefined;})[];
+  x509Certificates?: ({  value?: string | undefined;
+  display?: string | undefined;
+  type?: string | undefined;
+  primary?: boolean | undefined;})[];
+  meta?: {  resourceType?: string | undefined;
+  created?: string | undefined;
+  lastModified?: string | undefined;
+  version?: string | undefined;
+  location?: string | undefined;};
 };
 
 export interface ActionInput_1password_scim_getserviceproviderconfig {
 };
 
 export interface ActionOutput_1password_scim_getserviceproviderconfig {
-  schemas?: string[] | undefined;
-  id?: string | undefined;
-  meta?: {  resourceType?: string | undefined;
-  created?: string | undefined;
-  lastModified?: string | undefined;
-  location?: string | undefined;
-  version?: string | undefined;};
+  schemas: string[];
   documentationUri?: string | undefined;
-  patch?: {  supported?: boolean | undefined;};
-  bulk?: {  supported?: boolean | undefined;
-  maxOperations?: number | undefined;
-  maxPayloadSize?: number | undefined;};
-  filter?: {  supported?: boolean | undefined;
-  maxResults?: number | undefined;};
-  changePassword?: {  supported?: boolean | undefined;};
-  sort?: {  supported?: boolean | undefined;};
-  etag?: {  supported?: boolean | undefined;};
-  authenticationSchemes?: ({  name?: string | undefined;
-  description?: string | undefined;
+  patch: {  supported: boolean;};
+  bulk: {  supported: boolean;
+  maxOperations: number;
+  maxPayloadSize: number;};
+  filter: {  supported: boolean;
+  maxResults: number;};
+  changePassword: {  supported: boolean;};
+  sort: {  supported: boolean;};
+  etag: {  supported: boolean;};
+  authenticationSchemes: ({  name: string;
+  description: string;
   specUri?: string | undefined;
   documentationUri?: string | undefined;
-  type?: string | undefined;
+  type: string;
   primary?: boolean | undefined;})[];
+  meta?: {  location: string;
+  resourceType: string;
+  created?: string | undefined;
+  lastModified?: string | undefined;
+  version?: string | undefined;};
 };
 
 export interface ActionInput_1password_scim_listresourcetypes {
@@ -243,31 +266,44 @@ export interface ActionInput_1password_scim_listresourcetypes {
 
 export interface ActionOutput_1password_scim_listresourcetypes {
   schemas?: string[] | undefined;
-  totalResults?: number | undefined;
-  itemsPerPage?: number | undefined;
-  startIndex?: number | undefined;
-  Resources?: ({  schemas?: string[] | undefined;
-  id?: string | undefined;
-  name?: string | undefined;
+  totalResults: number;
+  Resources: ({  schemas?: string[] | undefined;
+  id: string;
+  name: string;
+  endpoint: string;
   description?: string | undefined;
-  endpoint?: string | undefined;
-  schema?: string | undefined;
-  schemaExtensions?: ({  schema?: string | undefined;
-  required?: boolean | undefined;})[];
+  schema: string;
+  schemaExtensions?: ({  schema: string;
+  required: boolean;})[] | undefined;
   meta?: {  resourceType?: string | undefined;
   location?: string | undefined;};})[];
+  startIndex?: number | undefined;
+  itemsPerPage?: number | undefined;
 };
 
 export interface ActionInput_1password_scim_listschemas {
 };
 
 export interface ActionOutput_1password_scim_listschemas {
-  schemas?: string[] | undefined;
-  totalResults?: number | undefined;
-  Resources?: ({  id: string;
-  name?: string | undefined;
+  schemas?: ({  id: string;
+  name: string;
   description?: string | undefined;
-  attributes?: unknown[] | undefined;})[];
+  attributes?: ({  name: string;
+  type?: string | undefined;
+  multiValued?: boolean | undefined;
+  required?: boolean | undefined;
+  mutability?: string | undefined;
+  returned?: string | undefined;
+  uniqueness?: string | undefined;
+  description?: string | undefined;
+  subAttributes?: ({  name: string;
+  type?: string | undefined;
+  multiValued?: boolean | undefined;
+  required?: boolean | undefined;
+  mutability?: string | undefined;
+  returned?: string | undefined;
+  uniqueness?: string | undefined;
+  description?: string | undefined;})[];})[];})[];
 };
 
 export interface ActionInput_1password_scim_listscimgroups {
@@ -276,40 +312,41 @@ export interface ActionInput_1password_scim_listscimgroups {
    */
   cursor?: string | undefined;
   /**
-   * SCIM filter expression. Example: 'displayName eq "Engineering"'
-   */
-  filter?: string | undefined;
-  /**
-   * Number of results per page (1-250). Defaults to 100.
+   * Number of results per page. Defaults to 100.
    */
   count?: number | undefined;
+  /**
+   * SCIM filter expression. Example: displayName co "Engineering"
+   */
+  filter?: string | undefined;
 };
 
 export interface ActionOutput_1password_scim_listscimgroups {
-  groups: ({  id: string;
-  displayName: string;
-  members?: ({  value: string;
-  display?: string | undefined;
-  type?: string | undefined;})[];
+  items: ({  schemas: string[];
+  id: string;
+  externalId?: string | undefined;
   meta?: {  resourceType?: string | undefined;
   created?: string | undefined;
   lastModified?: string | undefined;
   location?: string | undefined;
   version?: string | undefined;};
-  externalId?: string | undefined;
-  schemas?: string[] | undefined;})[];
-  next_cursor?: string | undefined;
+  displayName: string;
+  members?: ({  value?: string | undefined;
+  "$ref"?: string | undefined;
+  display?: string | undefined;
+  type?: string | undefined;})[];})[];
+  nextCursor?: string | undefined;
 };
 
 export interface ActionInput_1password_scim_listscimusers {
   /**
-   * SCIM filter query. Example: userName eq "john.doe@example.com"
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * SCIM filter expression. Example: userName eq "user@example.com"
    */
   filter?: string | undefined;
-  /**
-   * 1-based index of the first result to return.
-   */
-  start_index?: number | undefined;
   /**
    * Number of results to return per page.
    */
@@ -317,54 +354,69 @@ export interface ActionInput_1password_scim_listscimusers {
 };
 
 export interface ActionOutput_1password_scim_listscimusers {
-  users: ({  id: string;
+  items: ({  id: string;
   userName: string;
-  name?: {  familyName?: string | undefined;
-  givenName?: string | undefined;
-  formatted?: string | undefined;};
-  emails?: ({  value: string;
-  type?: string | undefined;
-  primary?: boolean | undefined;})[];
+  name?: {  formatted?: string | undefined;
+  familyName?: string | undefined;
+  givenName?: string | undefined;};
+  displayName?: string | undefined;
   active?: boolean | undefined;
-  externalId?: string | undefined;
-  meta?: {  created?: string | undefined;
-  lastModified?: string | undefined;
-  resourceType?: string | undefined;};
-  schemas?: string[] | undefined;})[];
-  total_results: number;
-  start_index?: number | undefined;
-  items_per_page?: number | undefined;
-  next_start_index?: number | undefined;
+  emails?: ({  value: string;
+  primary?: boolean | undefined;
+  type?: string | undefined;})[];})[];
+  totalResults?: number | undefined;
+  nextCursor?: string | undefined;
 };
 
 export interface ActionInput_1password_scim_patchscimgroup {
   /**
-   * The SCIM group ID to patch. Example: "group-123"
+   * SCIM Group ID. Example: "9067729b3d-f987ac4d-a175-44f0-a528-6d23c5d2ec4d"
    */
-  group_id: string;
+  id: string;
   /**
-   * SCIM PatchOp operations to apply.
+   * SCIM patch operations to apply to the group.
    */
   operations: ({  0: {  op: 'add';
+  /**
+   * Target attribute path. Example: "members" or "displayName"
+   */
   path?: string | undefined;
-  value?: unknown | undefined;};
+  value?: string | ({  /**
+   * User ID. Example: "2819c223-7f76-453a-919d-413861904646"
+   */
+  value: string;
+  display?: string | undefined;
+  "$ref"?: string | undefined;})[] | {  [key: string]: unknown | undefined;};};
   1: {  op: 'replace';
+  /**
+   * Target attribute path. Example: "members" or "displayName"
+   */
   path?: string | undefined;
-  value?: unknown | undefined;};
+  value?: string | ({  /**
+   * User ID. Example: "2819c223-7f76-453a-919d-413861904646"
+   */
+  value: string;
+  display?: string | undefined;
+  "$ref"?: string | undefined;})[] | {  [key: string]: unknown | undefined;};};
   2: {  op: 'remove';
+  /**
+   * Target attribute path. Example: "members" or "displayName"
+   */
   path: string;
-  value?: unknown | undefined;};})[];
+  value?: string | ({  /**
+   * User ID. Example: "2819c223-7f76-453a-919d-413861904646"
+   */
+  value: string;
+  display?: string | undefined;
+  "$ref"?: string | undefined;})[] | {  [key: string]: unknown | undefined;};};})[];
 };
 
 export interface ActionOutput_1password_scim_patchscimgroup {
-  schemas: string[];
   id: string;
   displayName?: string | undefined;
   members?: ({  value: string;
-  display?: string | undefined;
-  type?: string | undefined;
-  "$ref"?: string | undefined;})[];
-  meta?: {  resourceType: string;
+  display?: string | undefined;})[];
+  meta?: {  resourceType?: string | undefined;
   created?: string | undefined;
   lastModified?: string | undefined;
   location?: string | undefined;
@@ -374,11 +426,11 @@ export interface ActionOutput_1password_scim_patchscimgroup {
 
 export interface ActionInput_1password_scim_patchscimuser {
   /**
-   * The SCIM user ID to patch. Example: "2819c223-7f76-453a-919d-413861904646"
+   * SCIM User ID. Example: "2819c223-7f76-453a-919d-413861904646"
    */
   userId: string;
   /**
-   * SCIM patch operations to apply.
+   * SCIM PatchOp operations. Example: [{"op":"replace","path":"userName","value":"new@example.com"}]
    */
   operations: ({  0: {  op: 'add';
   path?: string | undefined;
@@ -392,15 +444,16 @@ export interface ActionInput_1password_scim_patchscimuser {
 };
 
 export interface ActionOutput_1password_scim_patchscimuser {
+  schemas: string[];
   id: string;
   userName?: string | undefined;
-  externalId?: string | undefined;
-  displayName?: string | undefined;
   active?: boolean | undefined;
+  displayName?: string | undefined;
+  preferredLanguage?: string | undefined;
   name?: {  formatted?: string | undefined;
   familyName?: string | undefined;
   givenName?: string | undefined;};
-  emails?: ({  value?: string | undefined;
+  emails?: ({  value: string;
   type?: string | undefined;
   primary?: boolean | undefined;})[];
   meta?: {  resourceType?: string | undefined;
@@ -412,84 +465,63 @@ export interface ActionOutput_1password_scim_patchscimuser {
 
 export interface ActionInput_1password_scim_updatescimgroup {
   /**
-   * The unique identifier of the SCIM group to update. Example: "9067729b3d-f987ac4d-a175-44f0-a528-6d23c5d2ec4d"
+   * The SCIM group ID. Example: "27i3xrasou26ukebqazeadyhua"
    */
   groupId: string;
   /**
-   * The new display name for the group.
+   * New display name for the group
    */
   displayName?: string | undefined;
   /**
-   * Array of user IDs to add as members to the group.
+   * Member add or remove operations
    */
-  addMembers?: string[] | undefined;
-  /**
-   * Array of user IDs to remove from the group.
-   */
-  removeMembers?: string[] | undefined;
+  members?: ({  op: 'add' | 'remove';
+  userId: string;
+  display?: string | undefined;})[];
 };
 
 export interface ActionOutput_1password_scim_updatescimgroup {
   id: string;
-  schemas?: string[] | undefined;
   displayName?: string | undefined;
   members?: ({  value: string;
-  display?: string | undefined;
-  "$ref"?: string | undefined;
-  type?: string | undefined;})[];
-  meta?: {  resourceType?: string | undefined;
-  created?: string | undefined;
-  lastModified?: string | undefined;
-  location?: string | undefined;
-  version?: string | undefined;};
+  display?: string | undefined;})[];
 };
 
 export interface ActionInput_1password_scim_updatescimuser {
   /**
-   * SCIM user ID. Example: "2819c223-7f76-453a-919d-413861904646"
+   * SCIM User ID. Example: "2819c223-7f76-453a-919d-413861904646"
    */
   id: string;
   /**
-   * Array of SCIM PatchOp operations to apply
+   * User email address. Example: "user@example.com"
    */
-  operations: ({  0: {  op: 'add';
-  path?: string | undefined;
-  value?: unknown | undefined;};
-  1: {  op: 'replace';
-  path?: string | undefined;
-  value?: unknown | undefined;};
-  2: {  op: 'remove';
-  path: string;
-  value?: unknown | undefined;};})[];
+  userName?: string | undefined;
+  /**
+   * First name. Example: "Jane"
+   */
+  givenName?: string | undefined;
+  /**
+   * Last name. Example: "Doe"
+   */
+  familyName?: string | undefined;
+  /**
+   * Display name. Example: "Jane Doe"
+   */
+  displayName?: string | undefined;
+  /**
+   * Whether the user is active.
+   */
+  active?: boolean | undefined;
 };
 
 export interface ActionOutput_1password_scim_updatescimuser {
   id: string;
-  externalId?: string | undefined;
-  meta?: {  resourceType?: string | undefined;
-  created?: string | undefined;
-  lastModified?: string | undefined;
-  location?: string | undefined;
-  version?: string | undefined;};
-  schemas?: string[] | undefined;
   userName?: string | undefined;
-  name?: {  formatted?: string | undefined;
-  familyName?: string | undefined;
   givenName?: string | undefined;
-  middleName?: string | undefined;
-  honorificPrefix?: string | undefined;
-  honorificSuffix?: string | undefined;};
+  familyName?: string | undefined;
   displayName?: string | undefined;
-  nickName?: string | undefined;
-  profileUrl?: string | undefined;
-  title?: string | undefined;
-  userType?: string | undefined;
-  preferredLanguage?: string | undefined;
-  locale?: string | undefined;
-  timezone?: string | undefined;
   active?: boolean | undefined;
-  emails?: ({  value?: string | undefined;
-  display?: string | undefined;
+  emails?: ({  value: string;
   type?: string | undefined;
   primary?: boolean | undefined;})[];
 };
@@ -639,18 +671,16 @@ export interface View {
 
 export interface Webhook {
   id: string;
-  type: number;
-  name?: string | undefined;
-  channel_id?: string | undefined;
-  guild_id?: string | undefined;
-  avatar?: string | undefined;
-  application_id?: string | undefined;
-  user_id?: string | undefined;
-  user_name?: string | undefined;
-  source_guild_id?: string | undefined;
-  source_guild_name?: string | undefined;
-  source_channel_id?: string | undefined;
-  source_channel_name?: string | undefined;
+  event_type: string;
+  team_id: string;
+  context: string;
+  context_id: string;
+  plan_api_id: string;
+  status: string;
+  client_id: string;
+  passcode: string;
+  endpoint: string;
+  description: string;
 };
 
 export interface SyncMetadata_airtable_webhooks {
@@ -1659,16 +1689,1120 @@ export interface ActionOutput_airtable_upsertrecords {
   createdRecords: string[];
 };
 
-export interface ActionInput_algolia_createcontacts {
-  name: string;
-  company: string;
-  email: string;
+export interface ApiKey {
+  id: string;
+  value: string;
+  createdAt: number;
+  acl: string[];
+  description?: string | undefined;
+  indexes?: string[] | undefined;
+  maxHitsPerQuery?: number | undefined;
+  maxQueriesPerIPPerHour?: number | undefined;
+  queryParameters?: string | undefined;
+  referers?: string[] | undefined;
+  validity?: number | undefined;
 };
 
-export interface ActionOutput_algolia_createcontacts {
-  createdAt: Date;
-  taskID: number;
+export interface Index {
+  id: string;
+  name: string;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  entries?: number | undefined;
+  dataSize?: number | undefined;
+  fileSize?: number | undefined;
+  lastBuildTimeS?: number | undefined;
+  numberOfPendingTasks?: number | undefined;
+  pendingTask?: boolean | undefined;
+};
+
+export interface Object {
+  id: string;
+};
+
+export interface SyncMetadata_algolia_objects {
+  indexName: string;
+};
+
+export interface Rule {
+  id: string;
   objectID: string;
+  conditions?: ({  [key: string]: unknown | undefined;})[];
+  consequence?: {  [key: string]: unknown | undefined;};
+  description?: string | undefined;
+  enabled?: boolean | undefined;
+  validity?: ({  [key: string]: unknown | undefined;})[];
+};
+
+export interface SyncMetadata_algolia_rules {
+  indexName: string;
+};
+
+export interface Synonym {
+  id: string;
+  objectID: string;
+  type: string;
+  corrections?: string[] | undefined;
+  input?: string | undefined;
+  placeholder?: string | undefined;
+  replacements?: string[] | undefined;
+  synonyms?: string[] | undefined;
+  word?: string | undefined;
+};
+
+export interface SyncMetadata_algolia_synonyms {
+  indexName: string;
+};
+
+export interface ActionInput_algolia_batchobjects {
+  /**
+   * Name of the Algolia index. Example: "algolia_movie_sample_dataset"
+   */
+  indexName: string;
+  /**
+   * Batch operations to perform on the index.
+   */
+  requests: ({  action: 'addObject' | 'updateObject' | 'partialUpdateObject' | 'partialUpdateObjectNoCreate' | 'deleteObject' | 'delete' | 'clear';
+  body: {  [key: string]: unknown | undefined;};})[];
+};
+
+export interface ActionOutput_algolia_batchobjects {
+  taskID: number;
+  objectIDs: string[];
+};
+
+export interface ActionInput_algolia_copyindex {
+  /**
+   * Name of the source index to copy. Example: "algolia_movie_sample_dataset"
+   */
+  sourceIndexName: string;
+  /**
+   * Name of the destination index. Example: "nango_test_copy_index_destination"
+   */
+  destinationIndexName: string;
+  /**
+   * Optional array of scopes to copy. If omitted, the entire index is copied.
+   */
+  scope?: ({  0: 'settings';
+  1: 'synonyms';
+  2: 'rules';})[] | undefined;
+};
+
+export interface ActionOutput_algolia_copyindex {
+  /**
+   * The Algolia task ID for the copy operation
+   */
+  taskID: number;
+  /**
+   * ISO 8601 timestamp of when the operation was performed
+   */
+  updatedAt: string;
+};
+
+export interface ActionInput_algolia_createapikey {
+  /**
+   * Permissions that determine the type of API requests this key can make. Example: ["search", "addObject"]
+   */
+  acl: string[];
+  /**
+   * Description of an API key to help you identify this API key. Example: "Used for indexing by the CLI"
+   */
+  description?: string | undefined;
+  /**
+   * Index names or patterns that this API key can access. Example: ["dev_*", "prod_en_products"]
+   */
+  indexes?: string[] | undefined;
+  /**
+   * Maximum number of results this API key can retrieve in one query.
+   */
+  maxHitsPerQuery?: number | undefined;
+  /**
+   * Maximum number of API requests allowed per IP address or user token per hour.
+   */
+  maxQueriesPerIPPerHour?: number | undefined;
+  /**
+   * Query parameters to add when making API requests with this API key. Example: "typoTolerance=strict&restrictSources=192.168.1.0/24"
+   */
+  queryParameters?: string | undefined;
+  /**
+   * Allowed HTTP referrers for this API key. Example: ["*algolia.com*"]
+   */
+  referers?: string[] | undefined;
+  /**
+   * Duration (in seconds) after which the API key expires. Example: 86400
+   */
+  validity?: number | undefined;
+};
+
+export interface ActionOutput_algolia_createapikey {
+  /**
+   * The newly created API key. Example: 13ad45b4d0a2f6ea65ecbddf6aa260f2
+   */
+  key: string;
+  /**
+   * Date and time when the API key was created, in RFC 3339 format. Example: 2023-07-04T12:49:15Z
+   */
+  createdAt: string;
+};
+
+export interface ActionInput_algolia_createobject {
+  /**
+   * Name of the Algolia index. Example: "algolia_movie_sample_dataset"
+   */
+  indexName: string;
+  /**
+   * The record to add. A schemaless object with attributes that are useful in the context of search and discovery.
+   */
+  object: {};
+  /**
+   * Optional object ID. If provided, the record is added or replaced at this ID instead of auto-generating one.
+   */
+  objectID?: string | undefined;
+};
+
+export interface ActionOutput_algolia_createobject {
+  objectID: string;
+  taskID: number;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+};
+
+export interface ActionInput_algolia_createrule {
+  /**
+   * Name of the Algolia index. Example: "algolia_movie_sample_dataset"
+   */
+  indexName: string;
+  /**
+   * Unique identifier for the rule. Example: "nango-test-rule-create"
+   */
+  objectID: string;
+  /**
+   * Conditions that trigger the rule.
+   */
+  conditions: ({  /**
+   * Query pattern that triggers the rule. Example: "smartphone"
+   */
+  pattern: string;
+  /**
+   * Which part of the search query the pattern should match. Example: "contains"
+   */
+  anchoring: string;
+  /**
+   * Whether the pattern should match plurals, synonyms, and typos.
+   */
+  alternatives?: boolean | undefined;
+  /**
+   * An additional restriction that only triggers the rule when the search has the same ruleContexts value.
+   */
+  context?: string | undefined;
+  /**
+   * Filters that trigger the rule. Example: "genre:comedy"
+   */
+  filters?: string | undefined;})[];
+  /**
+   * Effect of the rule.
+   */
+  consequence: {  /**
+   * Parameters to apply to this search.
+   */
+  params?: {  [key: string]: unknown | undefined;};
+  /**
+   * Records to pin to a specific position in the search results.
+   */
+  promote?: ({  [key: string]: unknown | undefined;})[];
+  /**
+   * Whether promoted records must also match active filters.
+   */
+  filterPromotes?: boolean | undefined;
+  /**
+   * Records to hide from the search results.
+   */
+  hide?: ({  [key: string]: unknown | undefined;})[];
+  /**
+   * Redirect to a virtual replica index.
+   */
+  redirect?: {  [key: string]: unknown | undefined;};
+  /**
+   * Custom data appended to the userData array in the response.
+   */
+  userData?: {  [key: string]: unknown | undefined;};};
+  /**
+   * Description of the rule.
+   */
+  description?: string | undefined;
+  /**
+   * Whether the rule is active.
+   */
+  enabled?: boolean | undefined;
+  /**
+   * Time periods when the rule is active.
+   */
+  validity?: ({  /**
+   * Timestamp when the rule should start to be active, measured in seconds since the Unix epoch.
+   */
+  from: number;
+  /**
+   * Timestamp when the rule should stop to be active, measured in seconds since the Unix epoch.
+   */
+  until: number;})[] | undefined;
+  /**
+   * Tags for the rule.
+   */
+  tags?: string[] | undefined;
+  /**
+   * Scope of the rule.
+   */
+  scope?: string | undefined;
+};
+
+export interface ActionOutput_algolia_createrule {
+  taskID: number;
+  updatedAt: string;
+};
+
+export interface ActionInput_algolia_createsynonym {
+  0: {  /**
+   * Algolia index name. Example: "algolia_movie_sample_dataset"
+   */
+  indexName: string;
+  /**
+   * Unique identifier for the synonym. Example: "nango-test-syn-create-1"
+   */
+  objectID: string;
+  type: 'synonym';
+  /**
+   * Equivalent terms. Example: ["tv", "television"]
+   */
+  synonyms: string[];};
+  1: {  /**
+   * Algolia index name. Example: "algolia_movie_sample_dataset"
+   */
+  indexName: string;
+  /**
+   * Unique identifier for the synonym. Example: "nango-test-syn-create-1"
+   */
+  objectID: string;
+  type: 'oneWaySynonym';
+  /**
+   * Input term. Example: "iphone"
+   */
+  input: string;
+  /**
+   * One-way synonym targets. Example: ["apple phone", "smartphone"]
+   */
+  synonyms: string[];};
+  2: {  /**
+   * Algolia index name. Example: "algolia_movie_sample_dataset"
+   */
+  indexName: string;
+  /**
+   * Unique identifier for the synonym. Example: "nango-test-syn-create-1"
+   */
+  objectID: string;
+  type: 'altCorrection1';
+  /**
+   * Word to correct. Example: "abdomen"
+   */
+  word: string;
+  /**
+   * Corrections. Example: ["stomach", "belly"]
+   */
+  corrections: string[];};
+  3: {  /**
+   * Algolia index name. Example: "algolia_movie_sample_dataset"
+   */
+  indexName: string;
+  /**
+   * Unique identifier for the synonym. Example: "nango-test-syn-create-1"
+   */
+  objectID: string;
+  type: 'altCorrection2';
+  /**
+   * Word to correct. Example: "abdomen"
+   */
+  word: string;
+  /**
+   * Corrections. Example: ["stomach", "belly"]
+   */
+  corrections: string[];};
+  4: {  /**
+   * Algolia index name. Example: "algolia_movie_sample_dataset"
+   */
+  indexName: string;
+  /**
+   * Unique identifier for the synonym. Example: "nango-test-syn-create-1"
+   */
+  objectID: string;
+  type: 'placeholder';
+  /**
+   * Placeholder token. Example: "<BRAND>"
+   */
+  placeholder: string;
+  /**
+   * Replacement words. Example: ["Apple", "Samsung"]
+   */
+  replacements: string[];};
+};
+
+export interface ActionOutput_algolia_createsynonym {
+  id?: string | undefined;
+  taskID: number;
+  updatedAt?: string | undefined;
+};
+
+export interface ActionInput_algolia_deleteapikey {
+  /**
+   * API key to delete. Example: "0f610218198809c8a7ed8c2fd8867183"
+   */
+  key: string;
+};
+
+export interface ActionOutput_algolia_deleteapikey {
+  /**
+   * Date and time when the key was deleted, in RFC 3339 format.
+   */
+  deletedAt: string;
+};
+
+export interface ActionInput_algolia_deleteindex {
+  /**
+   * Name of the Algolia index to delete. Example: "my-index"
+   */
+  indexName: string;
+};
+
+export interface ActionOutput_algolia_deleteindex {
+  taskID: number;
+  deletedAt: string;
+};
+
+export interface ActionInput_algolia_deleteobject {
+  /**
+   * Name of the Algolia index. Example: "algolia_movie_sample_dataset"
+   */
+  indexName: string;
+  /**
+   * ID of the object to delete. Example: "nango-test-obj-delete-1"
+   */
+  objectID: string;
+};
+
+export interface ActionOutput_algolia_deleteobject {
+  /**
+   * Algolia task ID for the deletion operation.
+   */
+  taskID: number;
+  /**
+   * ISO 8601 timestamp when the object was deleted.
+   */
+  deletedAt: string;
+};
+
+export interface ActionInput_algolia_deleterule {
+  /**
+   * Name of the Algolia index. Example: "algolia_movie_sample_dataset"
+   */
+  index_name: string;
+  /**
+   * Object ID of the query rule to delete. Example: "nango-test-rule-update-1"
+   */
+  object_id: string;
+};
+
+export interface ActionOutput_algolia_deleterule {
+  success: boolean;
+  object_id: string;
+  task_id?: number | undefined;
+  updated_at?: string | undefined;
+};
+
+export interface ActionInput_algolia_deletesynonym {
+  /**
+   * Algolia index name. Example: "algolia_movie_sample_dataset"
+   */
+  indexName: string;
+  /**
+   * Synonym object ID. Example: "nango-test-syn-delete-1"
+   */
+  objectID: string;
+};
+
+export interface ActionOutput_algolia_deletesynonym {
+  taskID: number;
+  deletedAt?: string | undefined;
+};
+
+export interface ActionInput_algolia_getapikey {
+  /**
+   * Algolia API key to retrieve. Example: "59d374984024673eb90738474aa4e9c2"
+   */
+  key: string;
+};
+
+export interface ActionOutput_algolia_getapikey {
+  value: string;
+  createdAt?: number | undefined;
+  acl?: string[] | undefined;
+  description?: string | undefined;
+  indexes?: string[] | undefined;
+  maxHitsPerQuery?: number | undefined;
+  maxQueriesPerIPPerHour?: number | undefined;
+  queryParameters?: string | undefined;
+  referers?: string[] | undefined;
+  validity?: number | undefined;
+};
+
+export interface ActionInput_algolia_getindex {
+  /**
+   * Name of the Algolia index to retrieve. Example: "algolia_movie_sample_dataset"
+   */
+  indexName: string;
+};
+
+export interface ActionOutput_algolia_getindex {
+  name: string;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  entries?: number | undefined;
+  dataSize?: number | undefined;
+  fileSize?: number | undefined;
+  lastBuildTimeS?: number | undefined;
+  numberOfPendingTasks?: number | undefined;
+  pendingTask?: boolean | undefined;
+};
+
+export interface ActionInput_algolia_getlogs {
+  /**
+   * Index name to filter logs. Example: "algolia_movie_sample_dataset"
+   */
+  indexName?: string | undefined;
+  /**
+   * Log type filter. Example: "all"
+   */
+  type?: 'all' | 'query' | 'build' | 'error' | undefined;
+  /**
+   * Offset for pagination. Example: 0
+   */
+  offset?: number | undefined;
+  /**
+   * Number of logs to retrieve (max 1000). Example: 10
+   */
+  length?: number | undefined;
+};
+
+export interface ActionOutput_algolia_getlogs {
+  logs: ({  timestamp?: string | undefined;
+  method?: string | undefined;
+  answer_code?: string | undefined;
+  query_body?: string | undefined;
+  answer?: string | undefined;
+  url?: string | undefined;
+  ip?: string | undefined;
+  query_headers?: string | undefined;
+  sha1?: string | undefined;
+  nb_api_calls?: string | number | undefined;
+  processing_time_ms?: string | number | undefined;
+  index?: string | undefined;
+  query_params?: string | undefined;
+  query_nb_hits?: string | number | undefined;
+  inner_queries?: ({})[] | undefined;})[];
+};
+
+export interface ActionInput_algolia_getobject {
+  /**
+   * Name of the Algolia index. Example: "algolia_movie_sample_dataset"
+   */
+  index_name: string;
+  /**
+   * Unique record identifier. Example: "nango-test-obj-get"
+   */
+  object_id: string;
+};
+
+/**
+ * The requested Algolia record.
+ */
+export interface ActionOutput_algolia_getobject {
+  /**
+   * Unique record identifier.
+   */
+  objectID: string;
+};
+
+export interface ActionInput_algolia_getrule {
+  /**
+   * Algolia index name. Example: "algolia_movie_sample_dataset"
+   */
+  indexName: string;
+  /**
+   * Unique identifier of the rule. Example: "nango-test-rule-get"
+   */
+  objectID: string;
+};
+
+export interface ActionOutput_algolia_getrule {
+  objectID: string;
+  conditions?: ({  pattern?: string | undefined;
+  anchoring?: string | undefined;
+  alternatives?: boolean | undefined;
+  context?: string | undefined;
+  filters?: string | undefined;})[];
+  consequence: {  params?: {} | undefined;
+  promote?: ({})[] | undefined;
+  filterPromotes?: boolean | undefined;
+  hide?: ({  objectID: string;})[] | undefined;
+  redirect?: {  indexName: string;} | undefined;
+  userData?: {} | undefined;};
+  description?: string | undefined;
+  enabled?: boolean | undefined;
+  validity?: ({  from?: number | undefined;
+  until?: number | undefined;})[];
+  tags?: string[] | undefined;
+  scope?: string | undefined;
+  condition?: {  pattern?: string | undefined;
+  anchoring?: string | undefined;
+  alternatives?: boolean | undefined;
+  context?: string | undefined;
+  filters?: string | undefined;};
+};
+
+export interface ActionInput_algolia_getsettings {
+  /**
+   * Algolia index name. Example: "algolia_movie_sample_dataset"
+   */
+  indexName: string;
+};
+
+export interface ActionOutput_algolia_getsettings {
+};
+
+export interface ActionInput_algolia_getsynonym {
+  /**
+   * Name of the Algolia index. Example: "algolia_movie_sample_dataset"
+   */
+  indexName: string;
+  /**
+   * Unique identifier of the synonym object. Example: "nango-test-syn-get"
+   */
+  objectID: string;
+};
+
+export interface ActionOutput_algolia_getsynonym {
+  objectID: string;
+  type: 'synonym' | 'onewaysynonym' | 'altcorrection1' | 'altcorrection2' | 'placeholder' | 'oneWaySynonym' | 'altCorrection1' | 'altCorrection2';
+  synonyms?: string[] | undefined;
+  input?: string | undefined;
+  word?: string | undefined;
+  corrections?: string[] | undefined;
+  placeholder?: string | undefined;
+  replacements?: string[] | undefined;
+};
+
+export interface ActionInput_algolia_listapikeys {
+};
+
+export interface ActionOutput_algolia_listapikeys {
+  keys: ({  value: string;
+  createdAt: number;
+  acl: string[];
+  description?: string | undefined;
+  indexes?: string[] | undefined;
+  maxHitsPerQuery?: number | undefined;
+  maxQueriesPerIPPerHour?: number | undefined;
+  queryParameters?: string | undefined;
+  referers?: string[] | undefined;
+  validity?: number | undefined;})[];
+};
+
+export interface ActionInput_algolia_listindices {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of indices to return per page.
+   */
+  hitsPerPage?: number | undefined;
+};
+
+export interface ActionOutput_algolia_listindices {
+  items: ({  name: string;
+  createdAt: string;
+  updatedAt: string;
+  entries: number;
+  dataSize: number;
+  fileSize: number;
+  lastBuildTimeS: number;
+  numberOfPendingTasks: number;
+  pendingTask: boolean;
+  primary?: string | undefined;
+  replicas?: string[] | undefined;
+  virtual?: boolean | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_algolia_listobjects {
+  /**
+   * Name of the Algolia index to browse. Example: "algolia_movie_sample_dataset"
+   */
+  indexName: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Search query string. Example: "star wars"
+   */
+  query?: string | undefined;
+  /**
+   * Browse filters. Example: "genre:Action"
+   */
+  filters?: string | undefined;
+  /**
+   * Number of objects to retrieve per page. Default: 1000. Maximum: 1000.
+   */
+  hitsPerPage?: number | undefined;
+};
+
+export interface ActionOutput_algolia_listobjects {
+  hits: ({  [key: string]: unknown | undefined;})[];
+  nbHits?: number | undefined;
+  page?: number | undefined;
+  nbPages?: number | undefined;
+  hitsPerPage?: number | undefined;
+  processingTimeMS?: number | undefined;
+  query?: string | undefined;
+  params?: string | undefined;
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_algolia_listrules {
+  /**
+   * Algolia index name. Example: "algolia_movie_sample_dataset"
+   */
+  indexName: string;
+  /**
+   * Optional text query to filter rules.
+   */
+  query?: string | undefined;
+  /**
+   * Pagination cursor (page number) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of rules per page.
+   */
+  hitsPerPage?: number | undefined;
+};
+
+export interface ActionOutput_algolia_listrules {
+  hits: ({  objectID: string;
+  description?: string | undefined;
+  enabled?: boolean | undefined;})[];
+  nbHits?: number | undefined;
+  page?: number | undefined;
+  nbPages?: number | undefined;
+  hitsPerPage?: number | undefined;
+  /**
+   * Cursor for the next page. Omit if there are no more pages.
+   */
+  nextPage?: string | undefined;
+};
+
+export interface ActionInput_algolia_listsynonyms {
+  /**
+   * Algolia index name. Example: "algolia_movie_sample_dataset"
+   */
+  indexName: string;
+  /**
+   * Optional search query for filtering synonyms.
+   */
+  query?: string | undefined;
+  /**
+   * Number of synonyms to return per page. Default: 20
+   */
+  hitsPerPage?: number | undefined;
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_algolia_listsynonyms {
+  synonyms: ({  objectID: string;
+  type: string;
+  synonyms?: string[] | undefined;
+  input?: string | undefined;
+  word?: string | undefined;
+  corrections?: string[] | undefined;
+  placeholder?: string | undefined;
+  replacements?: string[] | undefined;})[];
+  nbHits: number;
+  nextPage?: string | undefined;
+};
+
+export interface ActionInput_algolia_moveindex {
+  /**
+   * Name of the source index to move. Example: "my-source-index"
+   */
+  indexName: string;
+  /**
+   * Name of the destination index. The source index is renamed to this name, overwriting any existing index with the same name. Example: "my-destination-index"
+   */
+  destinationIndexName: string;
+};
+
+export interface ActionOutput_algolia_moveindex {
+  /**
+   * Algolia task ID for tracking the asynchronous operation.
+   */
+  taskID: number;
+  /**
+   * ISO 8601 timestamp of when the move operation was submitted.
+   */
+  updatedAt: string;
+};
+
+export interface ActionInput_algolia_partialupdateobject {
+  /**
+   * Name of the Algolia index containing the object. Example: "algolia_movie_sample_dataset"
+   */
+  indexName: string;
+  /**
+   * ID of the object to partially update. Example: "nango-test-obj-get"
+   */
+  objectID: string;
+  /**
+   * Attributes to update on the object. Only first-level attributes are supported.
+   */
+  attributes: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_algolia_partialupdateobject {
+  objectID: string;
+  updatedAt?: string | undefined;
+  taskID?: number | undefined;
+};
+
+export interface ActionInput_algolia_searchindex {
+  /**
+   * Name of the index to search. Example: "algolia_movie_sample_dataset"
+   */
+  indexName: string;
+  /**
+   * Search query string. Example: "star wars"
+   */
+  query?: string | undefined;
+  /**
+   * Page number to retrieve. Example: 0
+   */
+  page?: number | undefined;
+  /**
+   * Number of hits per page. Example: 20
+   */
+  hitsPerPage?: number | undefined;
+  /**
+   * Filter expression. Example: "genre:Action"
+   */
+  filters?: string | undefined;
+  /**
+   * Attributes to include in the response. Example: ["title","year"]
+   */
+  attributesToRetrieve?: string[] | undefined;
+  /**
+   * Facets for which to retrieve counts. Example: ["genre"]
+   */
+  facets?: string[] | undefined;
+  attributesToHighlight?: string[] | undefined;
+  attributesToSnippet?: string[] | undefined;
+  highlightPreTag?: string | undefined;
+  highlightPostTag?: string | undefined;
+  analytics?: boolean | undefined;
+  clickAnalytics?: boolean | undefined;
+};
+
+export interface ActionOutput_algolia_searchindex {
+  hits: ({  [key: string]: unknown | undefined;})[];
+  page?: number | undefined;
+  nbHits?: number | undefined;
+  nbPages?: number | undefined;
+  hitsPerPage?: number | undefined;
+  query?: string | undefined;
+  params?: string | undefined;
+  processingTimeMS?: number | undefined;
+  facets?: {  [key: string]: {  [key: string]: number;};} | undefined;
+  facets_stats?: {  [key: string]: {  avg: number;
+  max: number;
+  min: number;
+  sum: number;};} | undefined;
+};
+
+export interface ActionInput_algolia_searchmultipleindices {
+  /**
+   * Array of search requests, one per index or query. Maximum 50 requests.
+   */
+  requests: ({  /**
+   * Name of the index to search. Example: "algolia_movie_sample_dataset"
+   */
+  indexName: string;
+  /**
+   * URL-encoded search parameters string. Example: "query=star&hitsPerPage=3"
+   */
+  params?: string | undefined;})[];
+  /**
+   * Multi-query search strategy. Example: "stopIfEnoughMatches"
+   */
+  strategy?: string | undefined;
+};
+
+export interface ActionOutput_algolia_searchmultipleindices {
+  /**
+   * Search results in the same order as the requests.
+   */
+  results: ({  hits: ({  objectID: string;})[];
+  page?: number | undefined;
+  nbHits?: number | undefined;
+  nbPages?: number | undefined;
+  hitsPerPage?: number | undefined;
+  query?: string | undefined;
+  params?: string | undefined;
+  processingTimeMS?: number | undefined;
+  index?: string | undefined;})[];
+};
+
+export interface ActionInput_algolia_setsettings {
+  /**
+   * Name of the Algolia index. Example: "algolia_movie_sample_dataset"
+   */
+  indexName: string;
+  /**
+   * Index settings to apply. See https://www.algolia.com/doc/api-reference/settings-api-parameters/
+   */
+  settings: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_algolia_setsettings {
+  updatedAt?: string | undefined;
+  taskID?: number | undefined;
+};
+
+export interface ActionInput_algolia_updateapikey {
+  /**
+   * API key to update. Example: "13ad45b4d0a2f6ea65ecbddf6aa260f2"
+   */
+  key: string;
+  /**
+   * Permissions that determine the type of API requests this key can make.
+   */
+  acl: string[];
+  /**
+   * Description of an API key.
+   */
+  description?: string | undefined;
+  /**
+   * Index names or patterns that this API key can access.
+   */
+  indexes?: string[] | undefined;
+  /**
+   * Maximum number of results this API key can retrieve in one query.
+   */
+  maxHitsPerQuery?: number | undefined;
+  /**
+   * Maximum number of API requests allowed per IP address per hour.
+   */
+  maxQueriesPerIPPerHour?: number | undefined;
+  /**
+   * Query parameters to add when making API requests with this API key.
+   */
+  queryParameters?: string | undefined;
+  /**
+   * Allowed HTTP referrers for this API key.
+   */
+  referers?: string[] | undefined;
+  /**
+   * Duration (in seconds) after which the API key expires.
+   */
+  validity?: number | undefined;
+};
+
+export interface ActionOutput_algolia_updateapikey {
+  key: string;
+  updatedAt: string;
+};
+
+export interface ActionInput_algolia_updateobject {
+  /**
+   * Name of the Algolia index. Example: "algolia_movie_sample_dataset"
+   */
+  index_name: string;
+  /**
+   * ID of the object to update. Example: "nango-test-obj-update-1"
+   */
+  object_id: string;
+  /**
+   * Full object payload to replace the existing record.
+   */
+  object: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_algolia_updateobject {
+  object_id: string;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  task_id?: number | string | undefined;
+};
+
+export interface ActionInput_algolia_updaterule {
+  /**
+   * Name of the Algolia index. Example: algolia_movie_sample_dataset
+   */
+  index_name: string;
+  /**
+   * Unique identifier of the rule. Example: nango-test-rule-update-1
+   */
+  object_id: string;
+  conditions?: ({  pattern?: string | undefined;
+  anchoring?: string | undefined;
+  alternatives?: boolean | undefined;
+  context?: string | undefined;
+  filters?: string | undefined;})[];
+  consequence: {  params?: {  [key: string]: unknown | undefined;};
+  promote?: ({  [key: string]: unknown | undefined;})[];
+  hide?: ({  [key: string]: unknown | undefined;})[];
+  filterPromotes?: boolean | undefined;
+  redirect?: {  indexName: string;} | undefined;
+  userData?: {  [key: string]: unknown | undefined;};};
+  description?: string | undefined;
+  enabled?: boolean | undefined;
+  validity?: ({  from?: number | undefined;
+  until?: number | undefined;})[];
+  tags?: string[] | undefined;
+  scope?: string | undefined;
+  /**
+   * Whether changes are applied to replica indices.
+   */
+  forward_to_replicas?: boolean | undefined;
+};
+
+export interface ActionOutput_algolia_updaterule {
+  /**
+   * Unique identifier of the asynchronous task.
+   */
+  task_id: number;
+  /**
+   * Date and time when the rule was updated, in RFC 3339 format.
+   */
+  updated_at: string;
+};
+
+export interface ActionInput_algolia_updatesynonym {
+  0: {  /**
+   * Name of the Algolia index. Example: "algolia_movie_sample_dataset"
+   */
+  indexName: string;
+  /**
+   * Unique identifier of the synonym object. Example: "nango-test-syn-update-1"
+   */
+  objectID: string;
+  /**
+   * Replicate the updated synonym to all replica indices
+   */
+  forwardToReplicas?: boolean | undefined;
+  type: 'synonym';
+  /**
+   * Words or phrases considered equivalent. Example: ["tv", "television"]
+   */
+  synonyms: string[];};
+  1: {  /**
+   * Name of the Algolia index. Example: "algolia_movie_sample_dataset"
+   */
+  indexName: string;
+  /**
+   * Unique identifier of the synonym object. Example: "nango-test-syn-update-1"
+   */
+  objectID: string;
+  /**
+   * Replicate the updated synonym to all replica indices
+   */
+  forwardToReplicas?: boolean | undefined;
+  type: 'oneWaySynonym';
+  /**
+   * Word or phrase to appear in query strings. Example: "iphone"
+   */
+  input: string;
+  /**
+   * One-way synonym targets. Example: ["apple phone"]
+   */
+  synonyms: string[];};
+  2: {  /**
+   * Name of the Algolia index. Example: "algolia_movie_sample_dataset"
+   */
+  indexName: string;
+  /**
+   * Unique identifier of the synonym object. Example: "nango-test-syn-update-1"
+   */
+  objectID: string;
+  /**
+   * Replicate the updated synonym to all replica indices
+   */
+  forwardToReplicas?: boolean | undefined;
+  type: 'altCorrection1';
+  /**
+   * Word or phrase to appear in query strings. Example: "abdomen"
+   */
+  word: string;
+  /**
+   * Words to be matched in records. Example: ["stomach"]
+   */
+  corrections: string[];};
+  3: {  /**
+   * Name of the Algolia index. Example: "algolia_movie_sample_dataset"
+   */
+  indexName: string;
+  /**
+   * Unique identifier of the synonym object. Example: "nango-test-syn-update-1"
+   */
+  objectID: string;
+  /**
+   * Replicate the updated synonym to all replica indices
+   */
+  forwardToReplicas?: boolean | undefined;
+  type: 'altCorrection2';
+  /**
+   * Word or phrase to appear in query strings. Example: "abdomen"
+   */
+  word: string;
+  /**
+   * Words to be matched in records. Example: ["stomach"]
+   */
+  corrections: string[];};
+  4: {  /**
+   * Name of the Algolia index. Example: "algolia_movie_sample_dataset"
+   */
+  indexName: string;
+  /**
+   * Unique identifier of the synonym object. Example: "nango-test-syn-update-1"
+   */
+  objectID: string;
+  /**
+   * Replicate the updated synonym to all replica indices
+   */
+  forwardToReplicas?: boolean | undefined;
+  type: 'placeholder';
+  /**
+   * Placeholder token. Example: "<BRAND>"
+   */
+  placeholder: string;
+  /**
+   * Query words matching the placeholder. Example: ["Apple"]
+   */
+  replacements: string[];};
+};
+
+export interface ActionOutput_algolia_updatesynonym {
+  taskID: number;
+  updatedAt: string;
+  id: string;
 };
 
 export interface ActionInput_anrok_createephemeraltransaction {
@@ -1794,6 +2928,436 @@ export interface ActionOutput_anrok_voidtransaction {
   succeeded: ({  id: string;})[];
   failed: ({  id: string;
   validation_errors?: any | undefined;})[];
+};
+
+export interface File {
+  id: string;
+  object?: string | undefined;
+  bytes?: number | undefined;
+  created_at?: number | undefined;
+  filename?: string | undefined;
+  purpose?: string | undefined;
+  status?: string | undefined;
+  status_details?: string | undefined;
+};
+
+export interface MessageBatch {
+  id: string;
+  archived_at?: string | undefined;
+  cancel_initiated_at?: string | undefined;
+  created_at: string;
+  ended_at?: string | undefined;
+  expires_at: string;
+  processing_status: 'in_progress' | 'canceling' | 'ended';
+  request_counts: {  canceled: number;
+  errored: number;
+  expired: number;
+  processing: number;
+  succeeded: number;};
+  results_url?: string | undefined;
+  type: 'message_batch';
+};
+
+export interface Model {
+  id: string;
+  object?: string | undefined;
+  created?: number | undefined;
+  owned_by?: string | undefined;
+};
+
+export interface ActionInput_anthropic_cancelmessagebatch {
+  /**
+   * ID of the Message Batch to cancel. Example: "msgbatch_013Zva2CMHLNnXjNJJKqJ2EF"
+   */
+  message_batch_id: string;
+};
+
+export interface ActionOutput_anthropic_cancelmessagebatch {
+  id: string;
+  archived_at?: string | undefined;
+  cancel_initiated_at?: string | undefined;
+  created_at: string;
+  ended_at?: string | undefined;
+  expires_at: string;
+  processing_status: 'in_progress' | 'canceling' | 'ended';
+  request_counts: {  canceled: number;
+  errored: number;
+  expired: number;
+  processing: number;
+  succeeded: number;};
+  results_url?: string | undefined;
+  type: 'message_batch';
+};
+
+export interface ActionInput_anthropic_countmessagetokens {
+  /**
+   * The model that will count tokens. Example: "claude-sonnet-4-0"
+   */
+  model: string;
+  /**
+   * Input messages to count tokens for.
+   */
+  messages: ({  role: 'user' | 'assistant';
+  content: string | ({  [key: string]: unknown | undefined;})[];})[];
+  /**
+   * System prompt.
+   */
+  system?: string | ({  [key: string]: unknown | undefined;})[];
+  /**
+   * Thinking configuration.
+   */
+  thinking?: unknown | undefined;
+  /**
+   * Tool definitions.
+   */
+  tools?: unknown[] | undefined;
+  /**
+   * Tool choice configuration.
+   */
+  tool_choice?: unknown | undefined;
+  /**
+   * Cache control configuration.
+   */
+  cache_control?: unknown | undefined;
+  /**
+   * Output format configuration.
+   */
+  output_config?: unknown | undefined;
+};
+
+export interface ActionOutput_anthropic_countmessagetokens {
+  /**
+   * The total number of tokens across the provided list of messages, system prompt, and tools.
+   */
+  input_tokens: number;
+};
+
+export interface ActionInput_anthropic_createmessagebatch {
+  /**
+   * List of requests for prompt completion. Each is an individual request to create a Message.
+   */
+  requests: ({  /**
+   * Unique identifier for the request within the batch. Must be unique. Example: "my-request-1"
+   */
+  custom_id: string;
+  /**
+   * Messages API creation parameters for the individual request. See https://docs.anthropic.com/en/api/messages
+   */
+  params: {};})[];
+};
+
+export interface ActionOutput_anthropic_createmessagebatch {
+  id: string;
+  type: string;
+  processing_status: string;
+  request_counts: {  processing: number;
+  succeeded: number;
+  errored: number;
+  canceled: number;
+  expired: number;};
+  created_at: string;
+  expires_at: string;
+  ended_at?: string | undefined;
+  cancel_initiated_at?: string | undefined;
+  results_url?: string | undefined;
+};
+
+export interface ActionInput_anthropic_createmessage {
+  /**
+   * Anthropic model ID. Example: "claude-3-5-sonnet-20241022"
+   */
+  model: string;
+  /**
+   * Maximum tokens to generate. Example: 1024
+   */
+  max_tokens: number;
+  /**
+   * Conversation messages
+   */
+  messages: ({  role: 'user' | 'assistant';
+  content: string | ({  0: {  type: 'text';
+  text: string;};
+  1: {  type: 'image';
+  source: {  type: string;
+  media_type: string;
+  data: string;};};
+  2: {  type: 'tool_use';
+  id: string;
+  name: string;
+  input: {  [key: string]: unknown | undefined;};};
+  3: {  type: 'tool_result';
+  tool_use_id: string;
+  content?: string | ({  0: {  type: 'text';
+  text: string;};
+  1: {  type: 'image';
+  source: {  type: string;
+  media_type: string;
+  data: string;};};})[] | undefined;
+  is_error?: boolean | undefined;};})[];})[];
+  /**
+   * System prompt
+   */
+  system?: string | ({  type: 'text';
+  text: string;})[] | undefined;
+  /**
+   * Tools available to the model
+   */
+  tools?: ({  name: string;
+  description: string;
+  input_schema: {  type: 'object';
+  properties?: {  [key: string]: unknown | undefined;};
+  required?: string[] | undefined;};})[];
+  /**
+   * Tool choice configuration
+   */
+  tool_choice?: {  /**
+   * Tool choice type. Example: "auto", "any", "tool"
+   */
+  type: string;
+  /**
+   * Tool name when type is "tool". Example: "my_tool"
+   */
+  name?: string | undefined;};
+  /**
+   * Thinking configuration
+   */
+  thinking?: {  /**
+   * Thinking configuration type. Example: "enabled"
+   */
+  type: string;
+  /**
+   * Token budget for thinking. Example: 1024
+   */
+  budget_tokens: number;} | undefined;
+  /**
+   * Sampling temperature
+   */
+  temperature?: number | undefined;
+  /**
+   * Top-k sampling parameter
+   */
+  top_k?: number | undefined;
+  /**
+   * Top-p sampling parameter
+   */
+  top_p?: number | undefined;
+  /**
+   * Stop sequences
+   */
+  stop_sequences?: string[] | undefined;
+  /**
+   * Metadata key-value pairs
+   */
+  metadata?: {  [key: string]: string;} | undefined;
+};
+
+export interface ActionOutput_anthropic_createmessage {
+  id: string;
+  type: 'message';
+  role: 'assistant';
+  content: ({  0: {  type: 'text';
+  text: string;};
+  1: {  type: 'tool_use';
+  id: string;
+  name: string;
+  input: {  [key: string]: unknown | undefined;};};
+  2: {  type: 'thinking';
+  thinking: string;
+  signature?: string | undefined;};
+  3: {  type: 'redacted_thinking';
+  data: string;};})[];
+  model: string;
+  stop_reason?: string | null | undefined;
+  stop_sequence?: string | null | undefined;
+  usage: {  input_tokens: number;
+  output_tokens: number;
+  cache_creation_input_tokens?: number | undefined;
+  cache_read_input_tokens?: number | undefined;};
+};
+
+export interface ActionInput_anthropic_deletefile {
+  /**
+   * ID of the File to delete. Example: "file_011CNha8iCJcU1wXNR6q4V8w"
+   */
+  file_id: string;
+};
+
+export interface ActionOutput_anthropic_deletefile {
+  id: string;
+  type?: 'file_deleted' | undefined;
+};
+
+export interface ActionInput_anthropic_getfile {
+  /**
+   * The ID of the file to retrieve. Example: "file_01HqW8Kq0Z2Q2W8Kq0Z2Q2W8"
+   */
+  file_id: string;
+};
+
+export interface ActionOutput_anthropic_getfile {
+  id: string;
+  created_at: string;
+  filename: string;
+  mime_type: string;
+  size_bytes: number;
+  type: 'file';
+  downloadable?: boolean | undefined;
+  scope?: {  id: string;
+  type: 'session';} | undefined;
+};
+
+export interface ActionInput_anthropic_getmessagebatch {
+  /**
+   * The ID of the message batch to retrieve. Example: "msgbatch_01Ab2cDe3Fg4hIj5Kl6mNo7Pq8r"
+   */
+  message_batch_id: string;
+};
+
+export interface ActionOutput_anthropic_getmessagebatch {
+  id: string;
+  archived_at?: string | undefined;
+  cancel_initiated_at?: string | undefined;
+  created_at: string;
+  ended_at?: string | undefined;
+  expires_at: string;
+  processing_status: 'in_progress' | 'canceling' | 'ended';
+  request_counts: {  canceled: number;
+  errored: number;
+  expired: number;
+  processing: number;
+  succeeded: number;};
+  results_url?: string | undefined;
+  type: 'message_batch';
+};
+
+export interface ActionInput_anthropic_getmodel {
+  /**
+   * Model identifier or alias. Example: "claude-opus-4-6"
+   */
+  model_id: string;
+};
+
+export interface ActionOutput_anthropic_getmodel {
+  id: string;
+  capabilities: {  batch: {  supported: boolean;};
+  citations: {  supported: boolean;};
+  code_execution: {  supported: boolean;};
+  context_management: {  clear_thinking_20251015: {  supported: boolean;};
+  clear_tool_uses_20250919: {  supported: boolean;};
+  compact_20260112: {  supported: boolean;};
+  supported: boolean;};
+  effort: {  high: {  supported: boolean;};
+  low: {  supported: boolean;};
+  max: {  supported: boolean;};
+  medium: {  supported: boolean;};
+  supported: boolean;
+  xhigh?: {  supported: boolean;} | undefined;};
+  image_input: {  supported: boolean;};
+  pdf_input: {  supported: boolean;};
+  structured_outputs: {  supported: boolean;};
+  thinking: {  supported: boolean;
+  types: {  adaptive: {  supported: boolean;};
+  enabled: {  supported: boolean;};};};};
+  created_at: string;
+  display_name: string;
+  max_input_tokens: number;
+  max_tokens: number;
+  type: string;
+};
+
+export interface ActionInput_anthropic_listfiles {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of items to return per page. Defaults to 20. Ranges from 1 to 1000.
+   */
+  limit?: number | undefined;
+  /**
+   * Filter by scope ID. Only returns files associated with the specified scope (e.g., a session ID).
+   */
+  scope_id?: string | undefined;
+};
+
+export interface ActionOutput_anthropic_listfiles {
+  files: ({  id: string;
+  created_at: string;
+  filename: string;
+  mime_type: string;
+  size_bytes: number;
+  type: string;
+  downloadable?: boolean | undefined;
+  scope?: {  id: string;
+  type: string;} | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_anthropic_listmessagebatchresults {
+  /**
+   * The ID of the Message Batch to retrieve results for. Example: "msgbatch_01AbCdEfGhIjKlMnOpQrStUv"
+   */
+  message_batch_id: string;
+};
+
+export interface ActionOutput_anthropic_listmessagebatchresults {
+  results: ({  custom_id: string;
+  result: {  [key: string]: unknown | undefined;};})[];
+};
+
+export interface ActionInput_anthropic_listmessagebatches {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * ID of the object to use as a cursor for pagination. Returns the page immediately before this object.
+   */
+  before_id?: string | undefined;
+  /**
+   * Number of items to return per page. Defaults to 20. Ranges from 1 to 1000.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_anthropic_listmessagebatches {
+  items: ({  id: string;
+  archived_at?: string | undefined;
+  cancel_initiated_at?: string | undefined;
+  created_at: string;
+  ended_at?: string | undefined;
+  expires_at: string;
+  processing_status: 'in_progress' | 'canceling' | 'ended';
+  request_counts: {  canceled: number;
+  errored: number;
+  expired: number;
+  processing: number;
+  succeeded: number;};
+  results_url?: string | undefined;
+  type: 'message_batch';})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_anthropic_listmodels {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of items to return per page. Defaults to 20. Ranges from 1 to 1000.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_anthropic_listmodels {
+  items: ({  id: string;
+  capabilities: {};
+  created_at: string;
+  display_name: string;
+  max_input_tokens: number;
+  max_tokens: number;
+  type: 'model';})[];
+  next_cursor?: string | undefined;
 };
 
 export interface Account {
@@ -15064,17 +16628,6 @@ export interface ActionOutput_docusign_deleteuser {
   success: boolean;
 };
 
-export interface File {
-  id: string;
-  object?: string | undefined;
-  bytes?: number | undefined;
-  created_at?: number | undefined;
-  filename?: string | undefined;
-  purpose?: string | undefined;
-  status?: string | undefined;
-  status_details?: string | undefined;
-};
-
 export interface SyncMetadata_dropbox_files {
   rootPaths?: string[] | undefined;
 };
@@ -16928,6 +18481,1142 @@ export interface ActionOutput_facebook_unsubscribeappfrompage {
   success: boolean;
 };
 
+export interface SyncMetadata_figma_comments {
+  team_id: string;
+};
+
+export interface ComponentSet {
+  id: string;
+  key?: string | undefined;
+  file_key?: string | undefined;
+  node_id?: string | undefined;
+  thumbnail_url?: string | undefined;
+  name?: string | undefined;
+  description?: string | undefined;
+  updated_at?: string | undefined;
+  created_at?: string | undefined;
+  user?: unknown | undefined;
+  containing_frame?: unknown | undefined;
+};
+
+export interface SyncMetadata_figma_componentsets {
+  team_id: string;
+};
+
+export interface Component {
+  id: string;
+  file_key: string;
+  node_id: string;
+  thumbnail_url?: string | undefined;
+  name: string;
+  description?: string | undefined;
+  created_at: string;
+  updated_at: string;
+  user?: {  id: string;
+  handle: string;
+  img_url?: string | undefined;};
+  containing_frame?: {  nodeId?: string | undefined;
+  name?: string | undefined;
+  backgroundColor?: string | undefined;
+  pageId: string;
+  pageName: string;
+  containingStateGroup?: {  nodeId?: string | undefined;
+  name?: string | undefined;};
+  containingComponentSet?: {  nodeId?: string | undefined;
+  name?: string | undefined;};};
+};
+
+export interface SyncMetadata_figma_components {
+  team_id: string;
+};
+
+export interface SyncMetadata_figma_files {
+  project_id: string;
+};
+
+export interface SyncMetadata_figma_projects {
+  team_id: string;
+};
+
+export interface Style {
+  id: string;
+  key: string;
+  file_key: string;
+  node_id?: string | undefined;
+  style_type?: string | undefined;
+  thumbnail_url?: string | undefined;
+  name?: string | undefined;
+  description?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  sort_position?: string | undefined;
+  user_id?: string | undefined;
+  user_handle?: string | undefined;
+  user_img_url?: string | undefined;
+};
+
+export interface SyncMetadata_figma_styles {
+  team_id: string;
+};
+
+export interface Variable {
+  id: string;
+  subscribed_id: string;
+  name: string;
+  key: string;
+  variableCollectionId: string;
+  resolvedDataType: 'BOOLEAN' | 'FLOAT' | 'STRING' | 'COLOR';
+  updatedAt: string;
+  fileKey: string;
+};
+
+export interface SyncMetadata_figma_variables {
+  team_id: string;
+};
+
+export interface Version {
+  id: string;
+  file_key: string;
+  created_at: string;
+  label?: string | undefined;
+  description?: string | undefined;
+  thumbnail_url?: string | undefined;
+  user?: {  id: string;
+  handle?: string | undefined;
+  img_url?: string | undefined;};
+};
+
+export interface SyncMetadata_figma_versions {
+  file_key?: string | undefined;
+  team_id?: string | undefined;
+};
+
+export interface SyncMetadata_figma_webhooks {
+  team_id: string;
+};
+
+export interface ActionInput_figma_createcommentreaction {
+  /**
+   * The key of the file containing the comment. Example: "UzYlOaPNPL2c7zmHCEljOs"
+   */
+  file_key: string;
+  /**
+   * The ID of the comment to react to. Example: "1774450119"
+   */
+  comment_id: string;
+  /**
+   * The emoji shortcode for the reaction. Example: ":thumbsup:"
+   */
+  emoji: string;
+};
+
+export interface ActionOutput_figma_createcommentreaction {
+  status: number;
+  error: boolean;
+};
+
+export interface ActionInput_figma_createcomment {
+  /**
+   * The file key to add the comment to. Example: "UzYlOaPNPL2c7zmHCEljOs"
+   */
+  file_key: string;
+  /**
+   * The text contents of the comment to post.
+   */
+  message: string;
+  /**
+   * The ID of the comment to reply to, if any. This must be a root comment.
+   */
+  comment_id?: string | undefined;
+  /**
+   * The node ID to attach the comment to. Example: "91:1"
+   */
+  node_id?: string | undefined;
+  /**
+   * X coordinate offset within the node from the top-left corner.
+   */
+  node_offset_x?: number | undefined;
+  /**
+   * Y coordinate offset within the node from the top-left corner.
+   */
+  node_offset_y?: number | undefined;
+};
+
+export interface ActionOutput_figma_createcomment {
+  id: string;
+  client_meta?: {  x: number;
+  y: number;} | {  node_id: string;
+  node_offset: {  x: number;
+  y: number;};} | {  x: number;
+  y: number;
+  region_height: number;
+  region_width: number;
+  comment_pin_corner?: string | undefined;} | {  node_id: string;
+  node_offset: {  x: number;
+  y: number;};
+  region_height: number;
+  region_width: number;
+  comment_pin_corner?: string | undefined;};
+  file_key?: string | undefined;
+  parent_id?: string | undefined;
+  user?: {  id: string;
+  handle: string;
+  img_url?: string | undefined;};
+  created_at?: string | undefined;
+  resolved_at?: string | undefined;
+  message?: string | undefined;
+  order_id?: string | undefined;
+  reactions?: ({  user: {  id: string;
+  handle: string;
+  img_url?: string | undefined;};
+  emoji: string;
+  created_at?: string | undefined;})[];
+};
+
+export interface ActionInput_figma_createdevresources {
+  dev_resources: ({  name: string;
+  url: string;
+  file_key: string;
+  node_id: string;})[];
+};
+
+export interface ActionOutput_figma_createdevresources {
+  links_created: ({  id: string;
+  name: string;
+  url: string;
+  file_key: string;
+  node_id: string;})[];
+  errors?: ({  file_key: string;
+  node_id: string;
+  error: string;})[] | undefined;
+};
+
+export interface ActionInput_figma_deletecommentreaction {
+  /**
+   * File key of the file to delete the comment reaction from. Example: "UzYlOaPNPL2c7zmHCEljOs"
+   */
+  file_key: string;
+  /**
+   * ID of the comment to delete the reaction from. Example: "1774450119"
+   */
+  comment_id: string;
+  /**
+   * Emoji shortcode of the reaction to delete. Example: ":thumbsup:"
+   */
+  emoji: string;
+};
+
+export interface ActionOutput_figma_deletecommentreaction {
+  success: boolean;
+};
+
+export interface ActionInput_figma_deletecomment {
+  /**
+   * The key of the Figma file containing the comment. Example: "UzYlOaPNPL2c7zmHCEljOs"
+   */
+  file_key: string;
+  /**
+   * The ID of the comment to delete. Example: "1774450194"
+   */
+  comment_id: string;
+};
+
+export interface ActionOutput_figma_deletecomment {
+  success: boolean;
+};
+
+export interface ActionInput_figma_deletedevresource {
+  /**
+   * The Figma file key to delete the dev resource from. Example: "UzYlOaPNPL2c7zmHCEljOs"
+   */
+  file_key: string;
+  /**
+   * The ID of the dev resource to delete. Example: "1234567890"
+   */
+  dev_resource_id: string;
+};
+
+export interface ActionOutput_figma_deletedevresource {
+  success: boolean;
+};
+
+export interface ActionInput_figma_deletewebhook {
+  /**
+   * The ID of the webhook to delete. Example: "12345"
+   */
+  webhook_id: string;
+};
+
+export interface ActionOutput_figma_deletewebhook {
+  id: string;
+  event_type?: string | undefined;
+  context?: string | undefined;
+  context_id?: string | undefined;
+  status?: string | undefined;
+  endpoint?: string | undefined;
+  description?: string | undefined;
+};
+
+export interface FileNode {
+  id: string;
+  file_key: string;
+  file_name?: string | undefined;
+  node_id: string;
+  name?: string | undefined;
+  type: string;
+  last_modified: string;
+};
+
+export interface SyncMetadata_figma_filenodes {
+  team_id: string;
+};
+
+export interface ActionInput_figma_getcomment {
+  /**
+   * Figma file key. Example: "UzYlOaPNPL2c7zmHCEljOs"
+   */
+  file_key: string;
+  /**
+   * Comment ID. Example: "1774450119"
+   */
+  comment_id: string;
+};
+
+export interface ActionOutput_figma_getcomment {
+  id: string;
+  file_key?: string | undefined;
+  parent_id?: string | undefined;
+  user: {  id: string;
+  handle: string;
+  img_url?: string | undefined;
+  email?: string | undefined;};
+  created_at: string;
+  resolved_at?: string | undefined;
+  message: string;
+  client_meta?: {  node_id?: string | undefined;
+  node_type?: string | undefined;
+  node_offset?: {  x: number;
+  y: number;} | undefined;};
+  order_id?: string | undefined;
+};
+
+export interface ActionInput_figma_getcomponent {
+  /**
+   * The unique identifier of the component. Example: "abc123"
+   */
+  key: string;
+};
+
+export interface ActionOutput_figma_getcomponent {
+  key: string;
+  file_key: string;
+  node_id: string;
+  thumbnail_url?: string | undefined;
+  name: string;
+  description?: string | undefined;
+  created_at: string;
+  updated_at: string;
+  user: {  id: string;
+  handle: string;
+  img_url: string;};
+  containing_frame?: {  nodeId?: string | undefined;
+  name?: string | undefined;
+  backgroundColor?: string | undefined;
+  pageId?: string | undefined;
+  pageName?: string | undefined;
+  containingStateGroup?: {  nodeId?: string | undefined;
+  name?: string | undefined;};
+  containingComponentSet?: {  nodeId?: string | undefined;
+  name?: string | undefined;};};
+};
+
+export interface ActionInput_figma_getcomponentset {
+  /**
+   * The unique identifier of the component set.
+   */
+  key: string;
+};
+
+export interface ActionOutput_figma_getcomponentset {
+  key: string;
+  file_key: string;
+  node_id: string;
+  thumbnail_url?: string | undefined;
+  name: string;
+  description: string;
+  created_at: string;
+  updated_at: string;
+  user: {  id: string;
+  handle?: string | undefined;
+  img_url?: string | undefined;};
+  containing_frame?: {  nodeId?: string | undefined;
+  name?: string | undefined;
+  backgroundColor?: string | undefined;
+  pageId: string;
+  pageName: string;
+  containingStateGroup?: {  nodeId?: string | undefined;
+  name?: string | undefined;};
+  containingComponentSet?: {  nodeId?: string | undefined;
+  name?: string | undefined;};};
+};
+
+export interface ActionInput_figma_getcurrentuser {
+};
+
+export interface ActionOutput_figma_getcurrentuser {
+  id: string;
+  email: string;
+  handle: string;
+  img_url?: string | undefined;
+};
+
+export interface ActionInput_figma_getfilecomponentsets {
+  /**
+   * The unique identifier of the Figma file to retrieve component sets from. Example: "UzYlOaPNPL2c7zmHCEljOs"
+   */
+  file_key: string;
+};
+
+export interface ActionOutput_figma_getfilecomponentsets {
+  status: number;
+  error: boolean;
+  meta: {  component_sets: ({  key: string;
+  file_key: string;
+  node_id: string;
+  thumbnail_url?: string | undefined;
+  name: string;
+  description: string;
+  created_at: string;
+  updated_at: string;
+  user: {  id: string;
+  handle: string;
+  img_url: string;};
+  containing_frame?: {  nodeId?: string | undefined;
+  name?: string | undefined;
+  backgroundColor?: string | undefined;
+  pageId: string;
+  pageName: string;
+  containingStateGroup?: {  nodeId: string;
+  name: string;} | undefined;
+  containingComponentSet?: {  nodeId: string;
+  name: string;} | undefined;};})[];};
+};
+
+export interface ActionInput_figma_getfilecomponents {
+  /**
+   * The key of the Figma file to retrieve components from. Example: "UzYlOaPNPL2c7zmHCEljOs"
+   */
+  file_key: string;
+};
+
+export interface ActionOutput_figma_getfilecomponents {
+  components: ({  key: string;
+  file_key: string;
+  node_id: string;
+  thumbnail_url?: string | undefined;
+  name: string;
+  description: string;
+  created_at: string;
+  updated_at: string;
+  user: {  id: string;
+  handle: string;
+  img_url: string;};
+  containing_frame?: {  nodeId?: string | undefined;
+  name?: string | undefined;
+  backgroundColor?: string | undefined;
+  pageId: string;
+  pageName: string;};})[];
+};
+
+export interface ActionInput_figma_getfilenode {
+  /**
+   * The Figma file key. Example: "UzYlOaPNPL2c7zmHCEljOs"
+   */
+  file_key: string;
+  /**
+   * The ID of the node to retrieve. Example: "91:1"
+   */
+  node_id: string;
+};
+
+export interface ActionOutput_figma_getfilenode {
+  /**
+   * The requested node as a JSON object
+   */
+  document: {  [key: string]: unknown | undefined;};
+  /**
+   * A mapping from component IDs to component metadata
+   */
+  components: {  [key: string]: {  key: string;
+  name: string;
+  description: string;
+  componentSetId?: string | undefined;
+  documentationLinks: ({  uri: string;})[];
+  remote: boolean;};};
+  /**
+   * A mapping from component set IDs to component set metadata
+   */
+  componentSets: {  [key: string]: {  key: string;
+  name: string;
+  description: string;
+  documentationLinks: ({  uri: string;})[];
+  remote: boolean;};};
+  /**
+   * The version of the file schema that this file uses
+   */
+  schemaVersion: number;
+  /**
+   * A mapping from style IDs to style metadata
+   */
+  styles: {  [key: string]: {  key: string;
+  name: string;
+  description: string;
+  remote: boolean;
+  styleType: string;};};
+};
+
+export interface ActionInput_figma_getfilestyles {
+  /**
+   * The unique identifier of the Figma file. Example: "UzYlOaPNPL2c7zmHCEljOs"
+   */
+  file_key: string;
+};
+
+export interface ActionOutput_figma_getfilestyles {
+  status: number;
+  error: boolean;
+  meta: {  styles: ({  key: string;
+  file_key: string;
+  node_id: string;
+  style_type: 'FILL' | 'TEXT' | 'EFFECT' | 'GRID';
+  thumbnail_url?: string | undefined;
+  name: string;
+  description: string;
+  created_at: string;
+  updated_at: string;
+  user: {  id: string;
+  handle: string;
+  img_url: string;};
+  sort_position: string;})[];};
+};
+
+export interface ActionInput_figma_getlocalvariables {
+  /**
+   * The key of the Figma file. Example: "UzYlOaPNPL2c7zmHCEljOs"
+   */
+  file_key: string;
+};
+
+export interface ActionOutput_figma_getlocalvariables {
+  status: number;
+  error: boolean;
+  meta: {  variableCollections: {  [key: string]: {  id: string;
+  name: string;
+  hiddenFromPublishing?: boolean | undefined;
+  key?: string | undefined;
+  defaultModeId?: string | undefined;
+  modes?: ({  name: string;
+  modeId: string;})[] | undefined;
+  remote?: boolean | undefined;
+  variableIds?: string[] | undefined;
+  localVariableIds?: string[] | undefined;};};
+  variables: {  [key: string]: {  id: string;
+  name: string;
+  description?: string | undefined;
+  variableCollectionId?: string | undefined;
+  key?: string | undefined;
+  remote?: boolean | undefined;
+  resolvedType?: string | undefined;
+  valuesByMode?: {  [key: string]: unknown | undefined;};
+  scopes?: string[] | undefined;
+  hiddenFromPublishing?: boolean | undefined;
+  codeSyntax?: {  [key: string]: unknown | undefined;};};};};
+};
+
+export interface ActionInput_figma_getproject {
+  /**
+   * Figma team ID. Example: "1639747348117609063"
+   */
+  team_id: string;
+  /**
+   * The ID of the project to retrieve. Example: "604829489"
+   */
+  project_id: string;
+};
+
+export interface ActionOutput_figma_getproject {
+  id: string;
+  name: string;
+};
+
+export interface ActionInput_figma_getpublishedvariables {
+  /**
+   * Figma file key to retrieve published variables from. Example: "UzYlOaPNPL2c7zmHCEljOs"
+   */
+  file_key: string;
+};
+
+export interface ActionOutput_figma_getpublishedvariables {
+  status: number;
+  error: boolean;
+  meta: {  variables: {  [key: string]: {  id: string;
+  subscribed_id: string;
+  name: string;
+  key: string;
+  variableCollectionId: string;
+  resolvedDataType: 'BOOLEAN' | 'FLOAT' | 'STRING' | 'COLOR';
+  updatedAt: string;};};
+  variableCollections: {  [key: string]: {  id: string;
+  subscribed_id: string;
+  name: string;
+  key: string;
+  updatedAt: string;};};};
+};
+
+export interface ActionInput_figma_getstyle {
+  /**
+   * The unique identifier of the style. Example: "0f6da13a103e47271a3c8c6d52187ca4587ae898"
+   */
+  key: string;
+};
+
+export interface ActionOutput_figma_getstyle {
+  key: string;
+  file_key: string;
+  node_id: string;
+  style_type: 'FILL' | 'TEXT' | 'EFFECT' | 'GRID';
+  thumbnail_url?: string | undefined;
+  name: string;
+  description: string;
+  created_at: string;
+  updated_at: string;
+  user: {  id: string;
+  handle: string;
+  img_url: string;};
+  sort_position: string;
+};
+
+export interface ActionInput_figma_getversion {
+  /**
+   * The file key for the Figma file. Example: "UzYlOaPNPL2c7zmHCEljOs"
+   */
+  file_key: string;
+  /**
+   * The unique identifier for the version. Example: "2356506860085774014"
+   */
+  version_id: string;
+};
+
+export interface ActionOutput_figma_getversion {
+  id: string;
+  created_at: string;
+  label?: string | undefined;
+  description?: string | undefined;
+  user?: {  id: string;
+  handle: string;
+  img_url?: string | undefined;
+  email?: string | undefined;};
+};
+
+export interface ActionInput_figma_getwebhook {
+  /**
+   * The ID of the webhook to retrieve. Example: "123456789"
+   */
+  webhook_id: string;
+};
+
+export interface ActionOutput_figma_getwebhook {
+  id: string;
+  event_type: 'PING' | 'FILE_UPDATE' | 'FILE_VERSION_UPDATE' | 'FILE_DELETE' | 'LIBRARY_PUBLISH' | 'FILE_COMMENT' | 'DEV_MODE_STATUS_UPDATE';
+  team_id: string;
+  context: string;
+  context_id: string;
+  plan_api_id: string;
+  status: 'ACTIVE' | 'PAUSED';
+  client_id: string;
+  passcode: string;
+  endpoint: string;
+  description: string;
+};
+
+export interface ActionInput_figma_listcommentreactions {
+  /**
+   * File key or branch key. Example: "UzYlOaPNPL2c7zmHCEljOs"
+   */
+  file_key: string;
+  /**
+   * Comment ID. Example: "1774450119"
+   */
+  comment_id: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_figma_listcommentreactions {
+  reactions: ({  user: {  id: string;
+  handle: string;
+  img_url: string;};
+  emoji: string;
+  created_at: string;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_figma_listcomments {
+  /**
+   * File key to list comments from. Example: "UzYlOaPNPL2c7zmHCEljOs"
+   */
+  file_key: string;
+  /**
+   * If enabled, returns comments as markdown equivalents when applicable.
+   */
+  as_md?: boolean | undefined;
+  /**
+   * Pagination cursor. Not used by this endpoint; reserved for future compatibility.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_figma_listcomments {
+  items: ({  id: string;
+  file_key: string;
+  client_meta?: {  x: number;
+  y: number;} | {  node_id: string;
+  node_offset: {  x: number;
+  y: number;};} | {  x: number;
+  y: number;
+  region_height: number;
+  region_width: number;
+  comment_pin_corner?: string | undefined;} | {  node_id: string;
+  node_offset: {  x: number;
+  y: number;};
+  region_height: number;
+  region_width: number;
+  comment_pin_corner?: string | undefined;};
+  parent_id?: string | undefined;
+  user: {  id: string;
+  handle: string;
+  img_url: string;};
+  created_at: string;
+  resolved_at?: string | undefined;
+  message: string;
+  order_id?: string | undefined;
+  reactions: ({  user: {  id: string;
+  handle: string;
+  img_url: string;};
+  emoji: string;
+  created_at: string;})[];})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_figma_listcomponentsets {
+  /**
+   * Figma team ID. Example: "1639747348117609063"
+   */
+  team_id: string;
+  /**
+   * Pagination cursor from the previous response. Maps to the after query parameter. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of items per page. Default: 30. Maximum: 1000.
+   */
+  page_size?: number | undefined;
+};
+
+export interface ActionOutput_figma_listcomponentsets {
+  component_sets: ({  key: string;
+  file_key: string;
+  node_id: string;
+  thumbnail_url?: string | undefined;
+  name: string;
+  description?: string | undefined;
+  created_at: string;
+  updated_at: string;
+  user?: {  id: string;
+  handle: string;
+  img_url: string;
+  email?: string | undefined;};
+  containing_frame?: {  node_id?: string | undefined;
+  name?: string | undefined;
+  backgroundColor?: string | undefined;
+  pageId?: string | undefined;
+  pageName?: string | undefined;
+  containingStateGroup?: string | undefined;
+  containingComponentSet?: string | undefined;};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_figma_listcomponents {
+  /**
+   * Team ID. Example: "1639747348117609063"
+   */
+  team_id: string;
+  /**
+   * Pagination cursor from the previous response (numeric). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of items to return per page. Defaults to 30. Maximum of 1000.
+   */
+  page_size?: number | undefined;
+};
+
+export interface ActionOutput_figma_listcomponents {
+  components: ({  key: string;
+  file_key: string;
+  node_id: string;
+  thumbnail_url?: string | undefined;
+  name: string;
+  description?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  user?: {  id: string;
+  email?: string | undefined;
+  handle?: string | undefined;
+  img_url?: string | undefined;
+  name?: string | undefined;};
+  containing_frame?: {  node_id?: string | undefined;
+  name?: string | undefined;
+  page_id?: string | undefined;
+  page_name?: string | undefined;};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_figma_listdevresources {
+  /**
+   * The file to get dev resources from. This must be a main file key, not a branch key.
+   */
+  file_key: string;
+  /**
+   * Optional list of node IDs to filter dev resources by. Only dev resources attached to these nodes will be returned.
+   */
+  node_ids?: string[] | undefined;
+};
+
+export interface ActionOutput_figma_listdevresources {
+  dev_resources: ({  id: string;
+  name: string;
+  url: string;
+  file_key: string;
+  node_id: string;})[];
+};
+
+export interface ActionInput_figma_listfilenodes {
+  /**
+   * File to export JSON from. This can be a file key or branch key. Example: "UzYlOaPNPL2c7zmHCEljOs"
+   */
+  file_key: string;
+  /**
+   * Node IDs to retrieve. Example: ["91:1", "1:2"]
+   */
+  ids: string[];
+  /**
+   * A specific version ID to get. Omitting this will get the current version of the file.
+   */
+  version?: string | undefined;
+  /**
+   * Positive integer representing how deep into the node tree to traverse.
+   */
+  depth?: number | undefined;
+  /**
+   * Set to "paths" to export vector data.
+   */
+  geometry?: string | undefined;
+  /**
+   * A comma separated list of plugin IDs and/or the string "shared".
+   */
+  plugin_data?: string | undefined;
+};
+
+export interface ActionOutput_figma_listfilenodes {
+  name?: string | undefined;
+  role?: string | undefined;
+  lastModified?: string | undefined;
+  editorType?: string | undefined;
+  thumbnailUrl?: string | undefined;
+  version?: string | undefined;
+  err?: string | undefined;
+  nodes?: {  [key: string]: {  document?: unknown | undefined;
+  components?: {  [key: string]: unknown | undefined;};
+  componentSets?: {  [key: string]: unknown | undefined;};
+  schemaVersion?: number | undefined;
+  styles?: {  [key: string]: unknown | undefined;};};};
+};
+
+export interface ActionInput_figma_listfiles {
+  /**
+   * ID of the project to list files from. Example: "604829489"
+   */
+  project_id: string;
+  /**
+   * Returns branch metadata in the response for each main file with a branch inside the project.
+   */
+  branch_data?: boolean | undefined;
+};
+
+export interface ActionOutput_figma_listfiles {
+  name: string;
+  files: ({  key: string;
+  name: string;
+  thumbnail_url?: string | undefined;
+  last_modified: string;})[];
+};
+
+export interface ActionInput_figma_listprojects {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_figma_listprojects {
+  team_name: string;
+  projects: ({  id: string;
+  name: string;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_figma_liststyles {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of items to return in a paged list of results. Defaults to 30.
+   */
+  page_size?: number | undefined;
+};
+
+export interface ActionOutput_figma_liststyles {
+  styles: ({  key: string;
+  file_key: string;
+  node_id: string;
+  style_type: string;
+  thumbnail_url?: string | undefined;
+  name: string;
+  description?: string | undefined;
+  created_at: string;
+  updated_at: string;
+  user: {  id: string;
+  handle: string;
+  img_url?: string | undefined;};
+  sort_position?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_figma_listversions {
+  /**
+   * File key or branch key. Example: "UzYlOaPNPL2c7zmHCEljOs"
+   */
+  file_key: string;
+  /**
+   * Number of items per page. Max 50.
+   */
+  page_size?: number | undefined;
+  /**
+   * Pagination cursor (version ID) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_figma_listversions {
+  versions: ({  id: string;
+  created_at: string;
+  label?: string | undefined;
+  description?: string | undefined;
+  user: {  id: string;
+  handle: string;
+  img_url: string;};
+  thumbnail_url?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_figma_listwebhooks {
+  /**
+   * ID of the Figma team to list webhooks for. Example: "1639747348117609063"
+   */
+  team_id: string;
+};
+
+export interface ActionOutput_figma_listwebhooks {
+  webhooks: ({  id: string;
+  event_type: string;
+  team_id: string;
+  context: string;
+  context_id: string;
+  plan_api_id: string;
+  status: string;
+  client_id?: string | undefined;
+  passcode: string;
+  endpoint: string;
+  description?: string | undefined;})[];
+};
+
+export interface ActionInput_figma_renderimages {
+  /**
+   * The file key to render images from. Example: "UzYlOaPNPL2c7zmHCEljOs"
+   */
+  file_key: string;
+  /**
+   * Node IDs to render. Example: ["91:1"]
+   */
+  node_ids: string[];
+  /**
+   * Image scaling factor between 0.01 and 4.
+   */
+  scale?: number | undefined;
+  /**
+   * Image output format. Defaults to png.
+   */
+  format?: 'jpg' | 'png' | 'svg' | 'pdf' | undefined;
+  /**
+   * Whether text elements are rendered as outlines in SVGs. Defaults to true.
+   */
+  svg_outline_text?: boolean | undefined;
+  /**
+   * Whether to include id attributes for all SVG elements. Defaults to false.
+   */
+  svg_include_id?: boolean | undefined;
+  /**
+   * Whether to include node id attributes for all SVG elements. Defaults to false.
+   */
+  svg_include_node_id?: boolean | undefined;
+  /**
+   * Whether to simplify inside/outside strokes in SVGs. Defaults to true.
+   */
+  svg_simplify_stroke?: boolean | undefined;
+  /**
+   * Whether content that overlaps the node should be excluded. Defaults to true.
+   */
+  contents_only?: boolean | undefined;
+  /**
+   * Use full dimensions of the node regardless of cropping. Defaults to false.
+   */
+  use_absolute_bounds?: boolean | undefined;
+  /**
+   * A specific version ID to use. Omit for the current version.
+   */
+  version?: string | undefined;
+};
+
+export interface ActionOutput_figma_renderimages {
+  images: {  [key: string]: string;};
+  err?: string | undefined;
+};
+
+export interface ActionInput_figma_updatedevresources {
+  /**
+   * A list of dev resources that you want to update.
+   */
+  dev_resources: ({  /**
+   * Unique identifier of the dev resource. Example: "devres_123"
+   */
+  id: string;
+  /**
+   * The name of the dev resource.
+   */
+  name?: string | undefined;
+  /**
+   * The URL of the dev resource.
+   */
+  url?: string | undefined;})[];
+};
+
+export interface ActionOutput_figma_updatedevresources {
+  /**
+   * Ids for dev resources that were successfully updated.
+   */
+  links_updated: string[];
+  /**
+   * Errors for dev resources that could not be updated.
+   */
+  errors?: ({  id: string;
+  error: string;})[] | undefined;
+};
+
+export interface ActionInput_figma_updatevariables {
+  /**
+   * File key or branch key. Example: "UzYlOaPNPL2c7zmHCEljOs"
+   */
+  file_key: string;
+  variableCollections?: ({  action: 'CREATE' | 'UPDATE' | 'DELETE';
+  id?: string | undefined;
+  name?: string | undefined;
+  parentVariableCollectionId?: string | undefined;
+  initialModeId?: string | undefined;
+  initialModeIdToParentModeIdMapping?: {  [key: string]: string;} | undefined;
+  hiddenFromPublishing?: boolean | undefined;})[];
+  variableModes?: ({  action: 'CREATE' | 'UPDATE' | 'DELETE';
+  id?: string | undefined;
+  name?: string | undefined;
+  variableCollectionId: string;})[];
+  variables?: ({  action: 'CREATE' | 'UPDATE' | 'DELETE';
+  id?: string | undefined;
+  name?: string | undefined;
+  variableCollectionId?: string | undefined;
+  resolvedType?: 'BOOLEAN' | 'FLOAT' | 'STRING' | 'COLOR' | undefined;
+  description?: string | undefined;
+  hiddenFromPublishing?: boolean | undefined;
+  scopes?: string[] | undefined;
+  codeSyntax?: {  [key: string]: string;} | undefined;})[];
+  variableModeValues?: ({  variableId: string;
+  modeId: string;
+  value: boolean | number | string | {  r: number;
+  g: number;
+  b: number;
+  a?: number | undefined;} | {  type: 'VARIABLE_ALIAS';
+  id: string;} | null;})[];
+};
+
+export interface ActionOutput_figma_updatevariables {
+  status: number;
+  error: boolean;
+  meta?: {  tempIdToRealId?: {  [key: string]: string;} | undefined;};
+};
+
+export interface ActionInput_figma_updatewebhook {
+  /**
+   * The ID of the webhook to update. Example: "123456789"
+   */
+  webhook_id: string;
+  /**
+   * The type of event that will trigger this webhook to fire.
+   */
+  event_type?: 'PING' | 'FILE_UPDATE' | 'FILE_VERSION_UPDATE' | 'FILE_DELETE' | 'LIBRARY_PUBLISH' | 'FILE_COMMENT' | 'DEV_MODE_STATUS_UPDATE' | undefined;
+  /**
+   * The HTTP endpoint that will receive a POST request when the event triggers. Max length 2048 characters.
+   */
+  endpoint?: string | undefined;
+  /**
+   * String that will be passed back to your webhook endpoint to verify that it is being called by Figma. Max length 100 characters.
+   */
+  passcode?: string | undefined;
+  /**
+   * State to put the webhook in. The webhook cannot be put into an error state this way.
+   */
+  status?: 'ACTIVE' | 'PAUSED' | undefined;
+  /**
+   * User-provided description or name for the webhook. Max length 140 characters. Providing an empty string will delete the description.
+   */
+  description?: string | undefined;
+};
+
+export interface ActionOutput_figma_updatewebhook {
+  id: string;
+  event_type: string;
+  team_id: string;
+  context: string;
+  context_id: string;
+  plan_api_id: string;
+  status: string;
+  client_id?: string | undefined;
+  passcode: string;
+  endpoint: string;
+  description?: string | undefined;
+};
+
 export interface ActionInput_fireflies_addtolive {
   query: string;
   variables: {};
@@ -17314,50 +20003,23 @@ export interface SyncMetadata_gem_jobstages {
 export interface Job {
   id: string;
   name: string;
-  requisition_id: string;
-  confidential: boolean;
+  project_id: number;
+  pipeline_id: number;
+  ref?: string | undefined;
+  stage?: string | undefined;
   status: string;
+  failure_reason?: string | undefined;
+  tag?: boolean | undefined;
+  web_url?: string | undefined;
   created_at: string;
-  opened_at: string;
-  closed_at: string | null;
-  deleted_at: string | null;
-  updated_at: string;
-  is_template: boolean;
-  departments: ({  id: string;
-  name: string;
-  parent_id: string;
-  child_ids: string[];
-  parent_department_external_id: string;
-  child_department_external_ids: string[];
-  deleted_at: string;})[];
-  offices: ({  id: string;
-  name: string;
-  location: {  name: string;};
-  parent_id: string;
-  child_ids: string[];
-  parent_office_external_id: string;
-  child_office_external_ids: string[];
-  deleted_at: string;})[];
-  hiring_team: {  hiring_managers: ({  id: string;
-  name: string;
-  first_name: string;
-  last_name: string;
-  employee_id: string;})[] | null;
-  recruiters: ({  id: string;
-  name: string;
-  first_name: string;
-  last_name: string;
-  employee_id: string;})[] | null;
-  coordinators: ({  id: string;
-  name: string;
-  first_name: string;
-  last_name: string;
-  employee_id: string;})[] | null;
-  sourcers: ({  id: string;
-  name: string;
-  first_name: string;
-  last_name: string;
-  employee_id: string;})[] | null;};
+  started_at?: string | undefined;
+  finished_at?: string | undefined;
+  duration?: number | undefined;
+  queued_duration?: number | undefined;
+  coverage?: number | undefined;
+  allow_failure?: boolean | undefined;
+  user_id?: number | undefined;
+  runner_id?: number | undefined;
 };
 
 export interface SyncMetadata_gem_jobs {
@@ -17536,24 +20198,18 @@ export interface ActionOutput_gem_uploadresume {
 
 export interface Commit {
   id: string;
-  sha: string;
-  message: string;
+  short_id?: string | undefined;
+  title?: string | undefined;
   author_name?: string | undefined;
   author_email?: string | undefined;
-  author_date?: string | undefined;
-  author_login?: string | undefined;
+  authored_date?: string | undefined;
   committer_name?: string | undefined;
   committer_email?: string | undefined;
-  committer_date?: string | undefined;
-  committer_login?: string | undefined;
-  url?: string | undefined;
-  html_url?: string | undefined;
-  repository_owner: string;
-  repository_name: string;
-  branch: string;
-  parent_shas?: string[] | undefined;
-  verified?: boolean | undefined;
-  verification_reason?: string | undefined;
+  committed_date?: string | undefined;
+  created_at?: string | undefined;
+  message?: string | undefined;
+  parent_ids?: string[] | undefined;
+  web_url?: string | undefined;
 };
 
 export interface Issue {
@@ -17700,20 +20356,14 @@ export interface SyncMetadata_github_pullrequests {
 
 export interface Release {
   id: string;
-  repo_owner: string;
-  repo_name: string;
-  release_id: number;
-  node_id: string;
+  project_id: number;
   tag_name: string;
-  target_commitish: string;
   name?: string | undefined;
-  body?: string | undefined;
-  draft: boolean;
-  prerelease: boolean;
+  description?: string | undefined;
   created_at: string;
-  published_at?: string | undefined;
-  author_login: string;
-  author_id: number;
+  released_at: string;
+  author_id?: number | undefined;
+  commit_id?: string | undefined;
 };
 
 export interface SyncMetadata_github_releases {
@@ -20332,6 +22982,2437 @@ export interface ActionOutput_github_app_repositories {
   web_commit_signoff_required: boolean;})[];
 };
 
+export interface Branch {
+  id: string;
+  name: string;
+  project_id: string;
+  merged?: boolean | undefined;
+  protected?: boolean | undefined;
+  default?: boolean | undefined;
+  developers_can_push?: boolean | undefined;
+  developers_can_merge?: boolean | undefined;
+  can_push?: boolean | undefined;
+  web_url?: string | undefined;
+  commit_id?: string | undefined;
+  commit_short_id?: string | undefined;
+  commit_created_at?: string | undefined;
+  commit_title?: string | undefined;
+  commit_message?: string | undefined;
+  commit_author_name?: string | undefined;
+  commit_author_email?: string | undefined;
+  commit_authored_date?: string | undefined;
+  commit_committer_name?: string | undefined;
+  commit_committer_email?: string | undefined;
+  commit_committed_date?: string | undefined;
+  commit_web_url?: string | undefined;
+};
+
+export interface SyncMetadata_gitlab_commits {
+  project_id?: string | undefined;
+};
+
+export interface MergeRequest {
+  id: string;
+  iid: number;
+  project_id: number;
+  title: string;
+  description?: string | undefined;
+  state: string;
+  created_at: string;
+  updated_at: string;
+  author_id?: number | undefined;
+  author_username?: string | undefined;
+  source_branch: string;
+  target_branch: string;
+  web_url: string;
+  draft: boolean;
+  labels?: string[] | undefined;
+  merged_at?: string | undefined;
+  closed_at?: string | undefined;
+};
+
+export interface Pipeline {
+  id: string;
+  name?: string | undefined;
+  update_time: string;
+  add_time?: string | undefined;
+  is_deal_probability_enabled?: boolean | undefined;
+};
+
+export interface SyncMetadata_gitlab_pipelines {
+  project_id: string;
+};
+
+export interface ActionInput_gitlab_cancelpipeline {
+  /**
+   * Project ID or URL-encoded path. Example: 82599306
+   */
+  project_id: number | string;
+  /**
+   * Pipeline ID. Example: 46
+   */
+  pipeline_id: number;
+};
+
+export interface ActionOutput_gitlab_cancelpipeline {
+  id: number;
+  iid: number;
+  project_id: number;
+  status: string;
+  ref?: string | undefined;
+  sha?: string | undefined;
+  before_sha?: string | undefined;
+  tag?: boolean | undefined;
+  yaml_errors?: string | undefined;
+  user?: {  id: number;
+  name: string;
+  username: string;
+  state: string;
+  avatar_url?: string | undefined;
+  web_url?: string | undefined;};
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  started_at?: string | undefined;
+  finished_at?: string | undefined;
+  committed_at?: string | undefined;
+  duration?: number | undefined;
+  queued_duration?: number | undefined;
+  coverage?: number | undefined;
+  web_url?: string | undefined;
+  archived?: boolean | undefined;
+};
+
+export interface ActionInput_gitlab_createbranch {
+  /**
+   * Project ID. Example: 82599306
+   */
+  project_id: number;
+  /**
+   * Name of the new branch. Example: "feature/my-branch"
+   */
+  branch: string;
+  /**
+   * Branch name or commit SHA to create the branch from. Example: "main"
+   */
+  ref: string;
+};
+
+export interface ActionOutput_gitlab_createbranch {
+  name: string;
+  merged?: boolean | undefined;
+  protected?: boolean | undefined;
+  default?: boolean | undefined;
+  developers_can_push?: boolean | undefined;
+  developers_can_merge?: boolean | undefined;
+  can_push?: boolean | undefined;
+  web_url?: string | undefined;
+  commit?: {  id: string;
+  short_id?: string | undefined;
+  title?: string | undefined;
+  message?: string | undefined;
+  author_name?: string | undefined;
+  author_email?: string | undefined;
+  authored_date?: string | undefined;
+  committer_name?: string | undefined;
+  committer_email?: string | undefined;
+  committed_date?: string | undefined;
+  created_at?: string | undefined;
+  parent_ids?: string[] | undefined;
+  web_url?: string | undefined;};
+};
+
+export interface ActionInput_gitlab_createcommit {
+  /**
+   * The ID or URL-encoded path of the project. Example: "82599306"
+   */
+  project_id: string;
+  /**
+   * Name of the branch to commit into. Example: "feature/test"
+   */
+  branch: string;
+  /**
+   * Commit message. Example: "Add new feature"
+   */
+  commit_message: string;
+  /**
+   * Array of file actions to perform in this commit
+   */
+  actions?: ({  action: 'create' | 'delete' | 'move' | 'update' | 'chmod';
+  file_path: string;
+  content?: string | undefined;
+  encoding?: 'text' | 'base64' | undefined;
+  execute_filemode?: boolean | undefined;
+  last_commit_id?: string | undefined;
+  previous_path?: string | undefined;})[];
+  /**
+   * Name of the branch to use as the parent for the new commit
+   */
+  start_branch?: string | undefined;
+  /**
+   * Specify the commit author's email address
+   */
+  author_email?: string | undefined;
+  /**
+   * Specify the commit author's name
+   */
+  author_name?: string | undefined;
+  /**
+   * When true, creates an empty commit. Default is false
+   */
+  allow_empty?: boolean | undefined;
+  /**
+   * If true, overwrites branch with a new commit. Default is false
+   */
+  force?: boolean | undefined;
+  /**
+   * SHA of the commit to use as the parent for the new commit
+   */
+  start_sha?: string | undefined;
+  /**
+   * The project ID or URL-encoded path to use as the source
+   */
+  start_project?: string | undefined;
+  /**
+   * Include commit stats. Default is true
+   */
+  stats?: boolean | undefined;
+};
+
+export interface ActionOutput_gitlab_createcommit {
+  id: string;
+  short_id: string;
+  title: string;
+  author_name: string;
+  author_email: string;
+  committer_name?: string | undefined;
+  committer_email?: string | undefined;
+  created_at: string;
+  message: string;
+  parent_ids?: string[] | undefined;
+  committed_date?: string | undefined;
+  authored_date?: string | undefined;
+  stats?: {  additions?: number | undefined;
+  deletions?: number | undefined;
+  total?: number | undefined;};
+  status?: string | undefined;
+  web_url?: string | undefined;
+};
+
+export interface ActionInput_gitlab_createfile {
+  /**
+   * Project ID or URL-encoded path. Example: 82599306
+   */
+  project_id: number | string;
+  /**
+   * Full path to the new file. Example: "hello.txt"
+   */
+  file_path: string;
+  /**
+   * Name of the branch to create the file in. Example: "main"
+   */
+  branch: string;
+  /**
+   * Commit message for the file creation.
+   */
+  commit_message: string;
+  /**
+   * Content of the file.
+   */
+  content: string;
+  /**
+   * Commit author email address.
+   */
+  author_email?: string | undefined;
+  /**
+   * Commit author name.
+   */
+  author_name?: string | undefined;
+  /**
+   * File encoding. Defaults to "text".
+   */
+  encoding?: 'text' | 'base64' | undefined;
+  /**
+   * If true, enables the execute flag on the file.
+   */
+  execute_filemode?: boolean | undefined;
+  /**
+   * Base branch to create the new branch from.
+   */
+  start_branch?: string | undefined;
+};
+
+export interface ActionOutput_gitlab_createfile {
+  file_path: string;
+  branch: string;
+};
+
+export interface ActionInput_gitlab_creategroup {
+  /**
+   * The name of the group. Example: "My Group"
+   */
+  name: string;
+  /**
+   * The path of the group. Example: "my-group"
+   */
+  path: string;
+  /**
+   * The parent group ID for creating a nested group. Example: 133159324
+   */
+  parent_id?: number | undefined;
+  /**
+   * The group description.
+   */
+  description?: string | undefined;
+  /**
+   * The group visibility level.
+   */
+  visibility?: 'private' | 'internal' | 'public' | undefined;
+  /**
+   * Enable/disable Large File Storage (LFS) for projects in this group.
+   */
+  lfs_enabled?: boolean | undefined;
+  /**
+   * Allow users to request member access.
+   */
+  request_access_enabled?: boolean | undefined;
+};
+
+export interface ActionOutput_gitlab_creategroup {
+  id: number;
+  name: string;
+  path: string;
+  full_path: string;
+  description?: string | undefined;
+  visibility: string;
+  web_url: string;
+  parent_id?: number | undefined;
+};
+
+export interface ActionInput_gitlab_createissue {
+  /**
+   * The global ID of the project. Example: 82599306
+   */
+  project_id: number;
+  /**
+   * The title of the issue.
+   */
+  title: string;
+  /**
+   * The description of an issue.
+   */
+  description?: string | undefined;
+  /**
+   * Comma-separated label names to assign to the new issue.
+   */
+  labels?: string | undefined;
+  /**
+   * Set an issue to be confidential. Default is false.
+   */
+  confidential?: boolean | undefined;
+  /**
+   * The IDs of the users to assign the issue to.
+   */
+  assignee_ids?: number[] | undefined;
+  /**
+   * The global ID of a milestone to assign to the issue.
+   */
+  milestone_id?: number | undefined;
+  /**
+   * The due date. Format: YYYY-MM-DD.
+   */
+  due_date?: string | undefined;
+  /**
+   * The type of issue. One of issue, incident, test_case or task. Default is issue.
+   */
+  issue_type?: string | undefined;
+};
+
+export interface ActionOutput_gitlab_createissue {
+  id: number;
+  iid: number;
+  project_id: number;
+  title: string;
+  description?: string | undefined;
+  state: string;
+  created_at: string;
+  updated_at: string;
+  labels: string[];
+  web_url: string;
+  confidential?: boolean | undefined;
+};
+
+export interface ActionInput_gitlab_createmergerequest {
+  project_id: number;
+  source_branch: string;
+  target_branch: string;
+  title: string;
+  description?: string | undefined;
+  labels?: string | undefined;
+  assignee_ids?: number[] | undefined;
+  reviewer_ids?: number[] | undefined;
+  milestone_id?: number | undefined;
+  remove_source_branch?: boolean | undefined;
+  squash?: boolean | undefined;
+  allow_collaboration?: boolean | undefined;
+};
+
+export interface ActionOutput_gitlab_createmergerequest {
+  id: number;
+  iid: number;
+  project_id: number;
+  title: string;
+  description?: string | undefined;
+  state: string;
+  source_branch: string;
+  target_branch: string;
+  web_url: string;
+  created_at: string;
+  updated_at: string;
+  author?: {  id: number;
+  name: string;
+  username: string;} | undefined;
+};
+
+export interface ActionInput_gitlab_createproject {
+  /**
+   * Name of the new project. Example: "my-new-project"
+   */
+  name: string;
+  /**
+   * Repository name for the new project. Generated from name if not provided.
+   */
+  path?: string | undefined;
+  /**
+   * Namespace ID for the new project. Defaults to the current user namespace.
+   */
+  namespace_id?: number | undefined;
+  /**
+   * Short project description.
+   */
+  description?: string | undefined;
+  /**
+   * Visibility level of the project.
+   */
+  visibility?: 'private' | 'internal' | 'public' | undefined;
+  /**
+   * Whether to initialize the project with a README file.
+   */
+  initialize_with_readme?: boolean | undefined;
+  /**
+   * Default branch name. Requires initialize_with_readme to be true.
+   */
+  default_branch?: string | undefined;
+};
+
+export interface ActionOutput_gitlab_createproject {
+  id: number;
+  name: string;
+  name_with_namespace?: string | undefined;
+  path: string;
+  path_with_namespace?: string | undefined;
+  description?: string | undefined;
+  default_branch?: string | undefined;
+  visibility?: string | undefined;
+  ssh_url_to_repo?: string | undefined;
+  http_url_to_repo?: string | undefined;
+  web_url?: string | undefined;
+  readme_url?: string | undefined;
+  created_at?: string | undefined;
+  last_activity_at?: string | undefined;
+  namespace?: {  id: number;
+  name: string;
+  path: string;
+  kind?: string | undefined;
+  full_path?: string | undefined;
+  parent_id?: number | undefined;
+  avatar_url?: string | undefined;
+  web_url?: string | undefined;};
+  topics?: string[] | undefined;
+  empty_repo?: boolean | undefined;
+  archived?: boolean | undefined;
+  creator_id?: number | undefined;
+};
+
+export interface ActionInput_gitlab_createpipeline {
+  /**
+   * The ID or URL-encoded path of the project. Example: "82599306"
+   */
+  project_id: number | string;
+  /**
+   * The branch or tag to run the pipeline on. Example: "main"
+   */
+  ref: string;
+  variables?: ({  key: string;
+  variable_type?: string | undefined;
+  value: string;})[];
+  inputs?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_gitlab_createpipeline {
+  id: number;
+  iid: number;
+  project_id: number;
+  sha: string;
+  ref: string;
+  status: string;
+  before_sha?: string | undefined;
+  tag: boolean;
+  yaml_errors?: string | undefined;
+  user?: {  name: string;
+  username: string;
+  id: number;
+  state: string;
+  avatar_url?: string | undefined;
+  web_url?: string | undefined;};
+  created_at: string;
+  updated_at: string;
+  started_at?: string | undefined;
+  finished_at?: string | undefined;
+  committed_at?: string | undefined;
+  duration?: number | undefined;
+  queued_duration?: number | undefined;
+  coverage?: number | undefined;
+  web_url?: string | undefined;
+  archived?: boolean | undefined;
+};
+
+export interface ActionInput_gitlab_createrelease {
+  /**
+   * The ID or URL-encoded path of the project. Example: 82599306
+   */
+  project_id: string | number;
+  /**
+   * The Git tag the release is associated with. Example: "v1.0.0"
+   */
+  tag_name: string;
+  name?: string | undefined;
+  tag_message?: string | undefined;
+  description?: string | undefined;
+  /**
+   * Commit SHA, branch name, or tag name. Required if tag_name does not exist.
+   */
+  ref?: string | undefined;
+  milestones?: string[] | undefined;
+  assets_links?: ({  name: string;
+  url: string;
+  direct_asset_path?: string | undefined;
+  link_type?: string | undefined;})[];
+  /**
+   * ISO 8601 datetime. Example: "2019-03-15T08:00:00Z"
+   */
+  released_at?: string | undefined;
+};
+
+export interface ActionOutput_gitlab_createrelease {
+  tag_name: string;
+  description?: string | undefined;
+  name?: string | undefined;
+  created_at?: string | undefined;
+  released_at?: string | undefined;
+  commit_path?: string | undefined;
+  tag_path?: string | undefined;
+  evidence_sha?: string | undefined;
+};
+
+export interface ActionInput_gitlab_deletebranch {
+  /**
+   * Project ID or URL-encoded path. Example: "82599306"
+   */
+  project_id: number | string;
+  /**
+   * Name of the branch to delete. Example: "feature/test"
+   */
+  branch: string;
+};
+
+export interface ActionOutput_gitlab_deletebranch {
+  success: boolean;
+  project_id?: number | string | undefined;
+  branch?: string | undefined;
+};
+
+export interface ActionInput_gitlab_deletefile {
+  /**
+   * Project ID or URL-encoded path. Example: 82599306
+   */
+  project_id: number | string;
+  /**
+   * Full path to the file. Example: hello.txt
+   */
+  file_path: string;
+  /**
+   * Name of the branch to delete the file from. Example: feature/test
+   */
+  branch: string;
+  /**
+   * Commit message for the deletion.
+   */
+  commit_message: string;
+  /**
+   * Commit author email address.
+   */
+  author_email?: string | undefined;
+  /**
+   * Commit author name.
+   */
+  author_name?: string | undefined;
+  /**
+   * Last known file commit ID.
+   */
+  last_commit_id?: string | undefined;
+  /**
+   * Name of the base branch to create the branch from.
+   */
+  start_branch?: string | undefined;
+};
+
+export interface ActionOutput_gitlab_deletefile {
+  file_path?: string | undefined;
+  branch?: string | undefined;
+};
+
+export interface ActionInput_gitlab_deletegroup {
+  /**
+   * The ID or URL-encoded path of the group. Example: 123
+   */
+  group_id: number | string;
+  /**
+   * If true, immediately deletes a subgroup already marked for deletion.
+   */
+  permanently_remove?: boolean | undefined;
+  /**
+   * The full path to the subgroup. Required when permanently_remove is true.
+   */
+  full_path?: string | undefined;
+};
+
+export interface ActionOutput_gitlab_deletegroup {
+  success: boolean;
+  group_id?: number | string | undefined;
+};
+
+export interface ActionInput_gitlab_deleteissue {
+  /**
+   * The global ID or URL-encoded path of the project. Example: 82599306
+   */
+  project_id: number | string;
+  /**
+   * The internal ID of a project issue. Example: 1
+   */
+  issue_iid: number;
+};
+
+export interface ActionOutput_gitlab_deleteissue {
+  success: boolean;
+  project_id: number | string;
+  issue_iid: number;
+};
+
+export interface ActionInput_gitlab_deletemergerequest {
+  /**
+   * The ID of the project containing the merge request. Example: 82599306
+   */
+  project_id: number;
+  /**
+   * The internal ID of the merge request. Example: 1
+   */
+  merge_request_iid: number;
+};
+
+export interface ActionOutput_gitlab_deletemergerequest {
+  success: boolean;
+  id?: number | undefined;
+  iid?: number | undefined;
+  project_id?: number | undefined;
+  title?: string | undefined;
+  state?: string | undefined;
+};
+
+export interface ActionInput_gitlab_deletepipeline {
+  /**
+   * The ID or URL-encoded path of the project. Example: "82599306" or "group/project".
+   */
+  project_id: string;
+  /**
+   * The ID of the pipeline to delete. Example: 123
+   */
+  pipeline_id: number;
+};
+
+export interface ActionOutput_gitlab_deletepipeline {
+  success: boolean;
+  project_id: string;
+  pipeline_id: number;
+};
+
+export interface ActionInput_gitlab_deleteproject {
+  /**
+   * The ID or URL-encoded path of the project. Example: "82599306" or "group/project".
+   */
+  project_id: string;
+  /**
+   * If true, archive the project instead of permanently deleting it. Defaults to false.
+   */
+  archive?: boolean | undefined;
+};
+
+export interface ActionOutput_gitlab_deleteproject {
+  success: boolean;
+  project_id: string;
+  archived: boolean;
+  message?: string | undefined;
+};
+
+export interface ActionInput_gitlab_deleterelease {
+  /**
+   * The ID or URL-encoded path of the project. Example: "82599306"
+   */
+  project_id: string;
+  /**
+   * The Git tag the release is associated with. Example: "v1.0.0"
+   */
+  tag_name: string;
+};
+
+export interface ActionOutput_gitlab_deleterelease {
+  tag_name: string;
+  name?: string | undefined;
+  deleted: true;
+};
+
+export interface ActionInput_gitlab_getbranch {
+  /**
+   * Project ID or URL-encoded path. Example: 82599306
+   */
+  project_id: number | string;
+  /**
+   * Branch name. Example: feature/test
+   */
+  branch: string;
+};
+
+export interface ActionOutput_gitlab_getbranch {
+  name: string;
+  merged: boolean;
+  protected: boolean;
+  default: boolean;
+  developers_can_push: boolean;
+  developers_can_merge: boolean;
+  can_push: boolean;
+  web_url: string;
+  commit: {  id: string;
+  short_id: string;
+  created_at: string;
+  parent_ids: string[];
+  title: string;
+  message: string;
+  author_name: string;
+  author_email: string;
+  authored_date: string;
+  committer_name: string;
+  committer_email: string;
+  committed_date: string;
+  trailers: {  [key: string]: unknown | undefined;};
+  extended_trailers: {  [key: string]: unknown | undefined;};
+  web_url: string;};
+};
+
+export interface ActionInput_gitlab_getcommit {
+  /**
+   * The ID or URL-encoded path of the project. Example: 82599306
+   */
+  project_id: string | number;
+  /**
+   * The commit hash or name of a repository branch or tag. Example: abc123def456
+   */
+  sha: string;
+};
+
+export interface ActionOutput_gitlab_getcommit {
+  id: string;
+  short_id: string;
+  title: string;
+  author_name: string;
+  author_email: string;
+  committer_name: string;
+  committer_email: string;
+  created_at: string;
+  message: string;
+  committed_date: string;
+  authored_date: string;
+  parent_ids: string[];
+  last_pipeline?: {  id: number;
+  ref: string;
+  sha: string;
+  status: string;} | undefined;
+  stats?: {  additions: number;
+  deletions: number;
+  total: number;} | undefined;
+  status?: string | undefined;
+  web_url: string;
+};
+
+export interface ActionInput_gitlab_getfile {
+  /**
+   * Project ID or URL-encoded path. Example: 82599306
+   */
+  project_id: number | string;
+  /**
+   * URL-encoded full path to the file. Example: hello.txt
+   */
+  file_path: string;
+  /**
+   * Name of branch, tag, or commit. Defaults to the default branch if omitted.
+   */
+  ref?: string | undefined;
+};
+
+export interface ActionOutput_gitlab_getfile {
+  file_name: string;
+  file_path: string;
+  size: number;
+  encoding: string;
+  content: string;
+  content_sha256: string;
+  ref: string;
+  blob_id: string;
+  commit_id: string;
+  last_commit_id: string;
+  execute_filemode: boolean;
+};
+
+export interface ActionInput_gitlab_getgroup {
+  /**
+   * The ID or URL-encoded path of the group. Example: "133159324"
+   */
+  id: string | number;
+};
+
+export interface ActionOutput_gitlab_getgroup {
+  id: number;
+  name: string;
+  path: string;
+  description?: string | undefined;
+  visibility?: string | undefined;
+  avatar_url?: string | undefined;
+  web_url?: string | undefined;
+  request_access_enabled?: boolean | undefined;
+  repository_storage?: string | undefined;
+  full_name?: string | undefined;
+  full_path?: string | undefined;
+  file_template_project_id?: number | undefined;
+  parent_id?: number | undefined;
+  created_at?: string | undefined;
+};
+
+export interface ActionInput_gitlab_getissue {
+  /**
+   * The global ID or URL-encoded path of the project. Example: 82599306
+   */
+  project_id: string | number;
+  /**
+   * The internal ID of a project's issue. Example: 1
+   */
+  issue_iid: number;
+};
+
+export interface ActionOutput_gitlab_getissue {
+  id: number;
+  iid: number;
+  project_id: number;
+  title: string;
+  description?: string | undefined;
+  state: string;
+  created_at: string;
+  updated_at: string;
+  closed_at?: string | undefined;
+  closed_by?: {  id: number;
+  username: string;
+  name: string;
+  state: string;
+  avatar_url?: string | undefined;
+  web_url: string;};
+  labels: string[];
+  author: {  id: number;
+  username: string;
+  name: string;
+  state: string;
+  avatar_url?: string | undefined;
+  web_url: string;};
+  assignee?: {  id: number;
+  username: string;
+  name: string;
+  state: string;
+  avatar_url?: string | undefined;
+  web_url: string;};
+  assignees: ({  id: number;
+  username: string;
+  name: string;
+  state: string;
+  avatar_url?: string | undefined;
+  web_url: string;})[];
+  type: string;
+  upvotes: number;
+  downvotes: number;
+  merge_requests_count: number;
+  subscribed: boolean;
+  user_notes_count: number;
+  due_date?: string | undefined;
+  imported: boolean;
+  imported_from: string;
+  web_url: string;
+  references: {  short: string;
+  relative: string;
+  full: string;};
+  time_stats: {  time_estimate: number;
+  total_time_spent: number;
+  human_time_estimate?: string | undefined;
+  human_total_time_spent?: string | undefined;};
+  confidential: boolean;
+  discussion_locked?: boolean | undefined;
+  issue_type: string;
+  severity: string;
+  task_completion_status: {  count: number;
+  completed_count: number;};
+  weight?: number | undefined;
+  has_tasks: boolean;
+  _links: {  self: string;
+  notes: string;
+  award_emoji: string;
+  project: string;
+  closed_as_duplicate_of?: string | undefined;};
+  milestone?: unknown | undefined;
+};
+
+export interface ActionInput_gitlab_getjob {
+  /**
+   * Project ID. Example: 82599306
+   */
+  project_id: number;
+  /**
+   * Job ID. Example: 1
+   */
+  job_id: number;
+};
+
+export interface ActionOutput_gitlab_getjob {
+  commit?: {  author_email?: string | undefined;
+  author_name?: string | undefined;
+  created_at?: string | undefined;
+  id?: string | undefined;
+  message?: string | undefined;
+  short_id?: string | undefined;
+  title?: string | undefined;};
+  coverage?: number | undefined;
+  archived?: boolean | undefined;
+  source?: string | undefined;
+  allow_failure?: boolean | undefined;
+  created_at?: string | undefined;
+  started_at?: string | undefined;
+  finished_at?: string | undefined;
+  erased_at?: string | undefined;
+  duration?: number | undefined;
+  queued_duration?: number | undefined;
+  artifacts_file?: {  filename?: string | undefined;
+  size?: number | undefined;};
+  artifacts?: ({  file_type?: string | undefined;
+  size?: number | undefined;
+  filename?: string | undefined;
+  file_format?: string | undefined;})[];
+  artifacts_expire_at?: string | undefined;
+  tag_list?: string[] | undefined;
+  id: number;
+  name?: string | undefined;
+  pipeline?: {  id?: number | undefined;
+  project_id?: number | undefined;
+  ref?: string | undefined;
+  sha?: string | undefined;
+  status?: string | undefined;};
+  ref?: string | undefined;
+  runner?: {  id?: number | undefined;
+  description?: string | undefined;
+  ip_address?: string | undefined;
+  active?: boolean | undefined;
+  paused?: boolean | undefined;
+  is_shared?: boolean | undefined;
+  runner_type?: string | undefined;
+  name?: string | undefined;
+  online?: boolean | undefined;
+  status?: string | undefined;};
+  runner_manager?: {  id?: number | undefined;
+  system_id?: string | undefined;
+  version?: string | undefined;
+  revision?: string | undefined;
+  platform?: string | undefined;
+  architecture?: string | undefined;
+  created_at?: string | undefined;
+  contacted_at?: string | undefined;
+  ip_address?: string | undefined;
+  status?: string | undefined;};
+  stage?: string | undefined;
+  status?: string | undefined;
+  failure_reason?: string | undefined;
+  tag?: boolean | undefined;
+  web_url?: string | undefined;
+  project?: {  ci_job_token_scope_enabled?: boolean | undefined;};
+  user?: {  id?: number | undefined;
+  name?: string | undefined;
+  username?: string | undefined;
+  state?: string | undefined;
+  avatar_url?: string | undefined;
+  web_url?: string | undefined;
+  created_at?: string | undefined;
+  bio?: string | undefined;
+  location?: string | undefined;
+  public_email?: string | undefined;
+  linkedin?: string | undefined;
+  twitter?: string | undefined;
+  website_url?: string | undefined;
+  organization?: string | undefined;};
+};
+
+export interface ActionInput_gitlab_getmergerequest {
+  /**
+   * The ID or URL-encoded path of the project. Example: 82599306
+   */
+  project_id: number | string;
+  /**
+   * The internal ID of the merge request in the project. Example: 1
+   */
+  merge_request_iid: number;
+};
+
+export interface ActionOutput_gitlab_getmergerequest {
+  id: number;
+  iid: number;
+  project_id: number;
+  title: string;
+  description?: string | undefined;
+  state: string;
+  created_at: string;
+  updated_at: string;
+  target_branch: string;
+  source_branch: string;
+  upvotes: number;
+  downvotes: number;
+  author: {  id: number;
+  name: string;
+  username: string;
+  state: string;
+  avatar_url?: string | undefined;
+  web_url?: string | undefined;
+  locked?: boolean | undefined;
+  public_email?: string | undefined;};
+  assignee?: {  id: number;
+  name: string;
+  username: string;
+  state: string;
+  avatar_url?: string | undefined;
+  web_url?: string | undefined;
+  locked?: boolean | undefined;
+  public_email?: string | undefined;};
+  assignees?: ({  id: number;
+  name: string;
+  username: string;
+  state: string;
+  avatar_url?: string | undefined;
+  web_url?: string | undefined;
+  locked?: boolean | undefined;
+  public_email?: string | undefined;})[];
+  reviewers?: ({  id: number;
+  name: string;
+  username: string;
+  state: string;
+  avatar_url?: string | undefined;
+  web_url?: string | undefined;
+  locked?: boolean | undefined;
+  public_email?: string | undefined;})[];
+  source_project_id: number;
+  target_project_id: number;
+  labels?: string[] | undefined;
+  draft: boolean;
+  work_in_progress?: boolean | undefined;
+  milestone?: {  id: number;
+  iid: number;
+  project_id?: number | undefined;
+  group_id?: number | undefined;
+  title: string;
+  description?: string | undefined;
+  state: string;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  due_date?: string | undefined;
+  start_date?: string | undefined;
+  web_url?: string | undefined;};
+  merge_when_pipeline_succeeds?: boolean | undefined;
+  merge_status?: string | undefined;
+  detailed_merge_status: string;
+  sha: string;
+  merge_commit_sha?: string | undefined;
+  squash_commit_sha?: string | undefined;
+  user_notes_count: number;
+  discussion_locked?: boolean | undefined;
+  should_remove_source_branch?: boolean | undefined;
+  force_remove_source_branch?: boolean | undefined;
+  allow_collaboration?: boolean | undefined;
+  allow_maintainer_to_push?: boolean | undefined;
+  web_url: string;
+  references: {  short: string;
+  relative: string;
+  full: string;};
+  time_stats: {  time_estimate: number;
+  total_time_spent: number;
+  human_time_estimate?: string | undefined;
+  human_total_time_spent?: string | undefined;};
+  squash?: boolean | undefined;
+  squash_on_merge?: boolean | undefined;
+  task_completion_status: {  count: number;
+  completed_count: number;};
+  has_conflicts?: boolean | undefined;
+  blocking_discussions_resolved?: boolean | undefined;
+  closed_at?: string | undefined;
+  closed_by?: {  id: number;
+  name: string;
+  username: string;
+  state: string;
+  avatar_url?: string | undefined;
+  web_url?: string | undefined;
+  locked?: boolean | undefined;
+  public_email?: string | undefined;};
+  merged_at?: string | undefined;
+  merge_user?: {  id: number;
+  name: string;
+  username: string;
+  state: string;
+  avatar_url?: string | undefined;
+  web_url?: string | undefined;
+  locked?: boolean | undefined;
+  public_email?: string | undefined;};
+  merge_after?: string | undefined;
+  prepared_at?: string | undefined;
+  imported?: boolean | undefined;
+  imported_from?: string | undefined;
+};
+
+export interface ActionInput_gitlab_getpipeline {
+  /**
+   * The ID or URL-encoded path of the project. Example: 82599306
+   */
+  project_id: number | string;
+  /**
+   * The ID of the pipeline. Example: 287
+   */
+  pipeline_id: number;
+};
+
+export interface ActionOutput_gitlab_getpipeline {
+  id: number;
+  iid: number;
+  project_id: number;
+  name?: string | undefined;
+  sha: string;
+  ref: string;
+  status: string;
+  source: string;
+  created_at: string;
+  updated_at: string;
+  web_url: string;
+  before_sha: string;
+  tag: boolean;
+  yaml_errors?: string | undefined;
+  user?: {  id: number;
+  username: string;
+  name: string;
+  state: string;
+  avatar_url: string;
+  web_url: string;} | undefined;
+  started_at?: string | undefined;
+  finished_at?: string | undefined;
+  committed_at?: string | undefined;
+  duration?: number | undefined;
+  queued_duration?: number | undefined;
+  coverage?: string | undefined;
+  detailed_status?: {  icon: string;
+  text: string;
+  label: string;
+  group: string;
+  tooltip: string;
+  has_details: boolean;
+  details_path: string;
+  illustration?: string | undefined;
+  favicon?: string | undefined;};
+  archived: boolean;
+};
+
+export interface ActionInput_gitlab_getproject {
+  /**
+   * The ID or URL-encoded path of the project. Example: 82599306 or "nangodev-group/nangoDev-project"
+   */
+  project_id: number | string;
+};
+
+export interface ActionOutput_gitlab_getproject {
+  id: number;
+  description?: string | undefined;
+  description_html?: string | undefined;
+  name: string;
+  name_with_namespace?: string | undefined;
+  path?: string | undefined;
+  path_with_namespace?: string | undefined;
+  created_at?: string | undefined;
+  default_branch?: string | undefined;
+  topics?: string[] | undefined;
+  ssh_url_to_repo?: string | undefined;
+  http_url_to_repo?: string | undefined;
+  web_url?: string | undefined;
+  readme_url?: string | undefined;
+  forks_count?: number | undefined;
+  avatar_url?: string | undefined;
+  star_count?: number | undefined;
+  last_activity_at?: string | undefined;
+  visibility?: string | undefined;
+  namespace?: {  id?: number | undefined;
+  name?: string | undefined;
+  path?: string | undefined;
+  kind?: string | undefined;
+  full_path?: string | undefined;
+  parent_id?: number | undefined;
+  avatar_url?: string | undefined;
+  web_url?: string | undefined;};
+  owner?: {  id?: number | undefined;
+  name?: string | undefined;
+  created_at?: string | undefined;
+  username?: string | undefined;
+  public_email?: string | undefined;
+  state?: string | undefined;
+  locked?: boolean | undefined;
+  avatar_url?: string | undefined;
+  web_url?: string | undefined;};
+  container_registry_image_prefix?: string | undefined;
+  _links?: {  [key: string]: string;} | undefined;
+  marked_for_deletion_at?: string | undefined;
+  marked_for_deletion_on?: string | undefined;
+  packages_enabled?: boolean | undefined;
+  empty_repo?: boolean | undefined;
+  archived?: boolean | undefined;
+  resolve_outdated_diff_discussions?: boolean | undefined;
+  container_expiration_policy?: {  cadence?: string | undefined;
+  enabled?: boolean | undefined;
+  keep_n?: number | undefined;
+  older_than?: string | undefined;
+  name_regex?: string | undefined;
+  name_regex_delete?: string | undefined;
+  name_regex_keep?: string | undefined;
+  next_run_at?: string | undefined;};
+  issues_enabled?: boolean | undefined;
+  merge_requests_enabled?: boolean | undefined;
+  wiki_enabled?: boolean | undefined;
+  jobs_enabled?: boolean | undefined;
+  snippets_enabled?: boolean | undefined;
+  container_registry_enabled?: boolean | undefined;
+  service_desk_enabled?: boolean | undefined;
+  service_desk_address?: string | undefined;
+  can_create_merge_request_in?: boolean | undefined;
+  issues_access_level?: string | undefined;
+  repository_access_level?: string | undefined;
+  merge_requests_access_level?: string | undefined;
+  forking_access_level?: string | undefined;
+  wiki_access_level?: string | undefined;
+  builds_access_level?: string | undefined;
+  snippets_access_level?: string | undefined;
+  pages_access_level?: string | undefined;
+  analytics_access_level?: string | undefined;
+  container_registry_access_level?: string | undefined;
+  security_and_compliance_access_level?: string | undefined;
+  releases_access_level?: string | undefined;
+  environments_access_level?: string | undefined;
+  feature_flags_access_level?: string | undefined;
+  infrastructure_access_level?: string | undefined;
+  monitor_access_level?: string | undefined;
+  model_experiments_access_level?: string | undefined;
+  model_registry_access_level?: string | undefined;
+  package_registry_access_level?: string | undefined;
+  emails_disabled?: boolean | undefined;
+  emails_enabled?: boolean | undefined;
+  show_diff_preview_in_email?: boolean | undefined;
+  shared_runners_enabled?: boolean | undefined;
+  lfs_enabled?: boolean | undefined;
+  creator_id?: number | undefined;
+  import_url?: string | undefined;
+  import_type?: string | undefined;
+  import_status?: string | undefined;
+  import_error?: string | undefined;
+  open_issues_count?: number | undefined;
+  updated_at?: string | undefined;
+  ci_default_git_depth?: number | undefined;
+  ci_forward_deployment_enabled?: boolean | undefined;
+  ci_forward_deployment_rollback_allowed?: boolean | undefined;
+  ci_job_token_scope_enabled?: boolean | undefined;
+  ci_separated_caches?: boolean | undefined;
+  ci_allow_fork_pipelines_to_run_in_parent_project?: boolean | undefined;
+  ci_id_token_sub_claim_components?: string[] | undefined;
+  build_git_strategy?: string | undefined;
+  keep_latest_artifact?: boolean | undefined;
+  restrict_user_defined_variables?: boolean | undefined;
+  ci_pipeline_variables_minimum_override_role?: string | undefined;
+  runner_token_expiration_interval?: number | undefined;
+  group_runners_enabled?: boolean | undefined;
+  resource_group_default_process_mode?: string | undefined;
+  auto_cancel_pending_pipelines?: string | undefined;
+  build_timeout?: number | undefined;
+  auto_devops_enabled?: boolean | undefined;
+  auto_devops_deploy_strategy?: string | undefined;
+  ci_push_repository_for_job_token_allowed?: boolean | undefined;
+  runners_token?: string | undefined;
+  ci_config_path?: string | undefined;
+  public_jobs?: boolean | undefined;
+  shared_with_groups?: ({  group_id?: number | undefined;
+  group_name?: string | undefined;
+  group_full_path?: string | undefined;
+  group_access_level?: number | undefined;})[];
+  only_allow_merge_if_pipeline_succeeds?: boolean | undefined;
+  allow_merge_on_skipped_pipeline?: boolean | undefined;
+  request_access_enabled?: boolean | undefined;
+  only_allow_merge_if_all_discussions_are_resolved?: boolean | undefined;
+  remove_source_branch_after_merge?: boolean | undefined;
+  printing_merge_request_link_enabled?: boolean | undefined;
+  printing_merge_requests_link_enabled?: boolean | undefined;
+  merge_method?: string | undefined;
+  merge_request_title_regex?: string | undefined;
+  merge_request_title_regex_description?: string | undefined;
+  squash_option?: string | undefined;
+  enforce_auth_checks_on_uploads?: boolean | undefined;
+  suggestion_commit_message?: string | undefined;
+  merge_commit_template?: string | undefined;
+  mr_default_title_template?: string | undefined;
+  squash_commit_template?: string | undefined;
+  issue_branch_template?: string | undefined;
+  warn_about_potentially_unwanted_characters?: boolean | undefined;
+  autoclose_referenced_issues?: boolean | undefined;
+  max_artifacts_size?: number | undefined;
+  approvals_before_merge?: number | undefined;
+  mirror?: boolean | undefined;
+  external_authorization_classification_label?: string | undefined;
+  requirements_enabled?: boolean | undefined;
+  requirements_access_level?: string | undefined;
+  security_and_compliance_enabled?: boolean | undefined;
+  secret_push_protection_enabled?: boolean | undefined;
+  pre_receive_secret_detection_enabled?: boolean | undefined;
+  compliance_frameworks?: string[] | undefined;
+  issues_template?: string | undefined;
+  merge_requests_template?: string | undefined;
+  ci_restrict_pipeline_cancellation_role?: string | undefined;
+  merge_pipelines_enabled?: boolean | undefined;
+  merge_trains_enabled?: boolean | undefined;
+  merge_trains_skip_train_allowed?: boolean | undefined;
+  max_pipelines_per_merge_train?: number | undefined;
+  only_allow_merge_if_all_status_checks_passed?: boolean | undefined;
+  allow_pipeline_trigger_approve_deployment?: boolean | undefined;
+  prevent_merge_without_jira_issue?: boolean | undefined;
+  duo_remote_flows_enabled?: boolean | undefined;
+  duo_foundational_flows_enabled?: boolean | undefined;
+  duo_sast_fp_detection_enabled?: boolean | undefined;
+  duo_sast_vr_workflow_enabled?: boolean | undefined;
+  web_based_commit_signing_enabled?: boolean | undefined;
+  spp_repository_pipeline_access?: boolean | undefined;
+  permissions?: {  project_access?: {  access_level?: number | undefined;
+  notification_level?: number | undefined;};
+  group_access?: {  access_level?: number | undefined;
+  notification_level?: number | undefined;};};
+  license_url?: string | undefined;
+  license?: {  key?: string | undefined;
+  name?: string | undefined;
+  nickname?: string | undefined;
+  html_url?: string | undefined;
+  source_url?: string | undefined;};
+  repository_storage?: string | undefined;
+  mirror_user_id?: number | undefined;
+  mirror_trigger_builds?: boolean | undefined;
+  only_mirror_protected_branches?: boolean | undefined;
+  mirror_overwrites_diverged_branches?: boolean | undefined;
+  statistics?: {  commit_count?: number | undefined;
+  storage_size?: number | undefined;
+  repository_size?: number | undefined;
+  wiki_size?: number | undefined;
+  lfs_objects_size?: number | undefined;
+  job_artifacts_size?: number | undefined;
+  pipeline_artifacts_size?: number | undefined;
+  packages_size?: number | undefined;
+  snippets_size?: number | undefined;
+  uploads_size?: number | undefined;
+  container_registry_size?: number | undefined;};
+  forked_from_project?: {  id?: number | undefined;
+  name?: string | undefined;
+  path?: string | undefined;
+  web_url?: string | undefined;};
+  mr_default_target_self?: boolean | undefined;
+  tag_list?: string[] | undefined;
+};
+
+export interface ActionInput_gitlab_getrelease {
+  /**
+   * The ID or URL-encoded path of the project. Example: "82599306"
+   */
+  project_id: string | number;
+  /**
+   * The Git tag the release is associated with. Example: "v1.0.0"
+   */
+  tag_name: string;
+};
+
+export interface ActionOutput_gitlab_getrelease {
+  tag_name: string;
+  description?: string | undefined;
+  name?: string | undefined;
+  created_at?: string | undefined;
+  released_at?: string | undefined;
+  author?: {  id: number;
+  name?: string | undefined;
+  username?: string | undefined;
+  state?: string | undefined;
+  avatar_url?: string | undefined;
+  web_url?: string | undefined;};
+  commit?: {  id: string;
+  short_id?: string | undefined;
+  title?: string | undefined;
+  created_at?: string | undefined;
+  parent_ids?: string[] | undefined;
+  message?: string | undefined;
+  author_name?: string | undefined;
+  author_email?: string | undefined;
+  authored_date?: string | undefined;
+  committer_name?: string | undefined;
+  committer_email?: string | undefined;
+  committed_date?: string | undefined;};
+  milestones?: ({  id: number;
+  iid?: number | undefined;
+  project_id?: number | undefined;
+  title?: string | undefined;
+  description?: string | undefined;
+  state?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  due_date?: string | undefined;
+  start_date?: string | undefined;
+  web_url?: string | undefined;
+  issue_stats?: {  total?: number | undefined;
+  closed?: number | undefined;
+  opened?: number | undefined;};})[];
+  commit_path?: string | undefined;
+  tag_path?: string | undefined;
+  assets?: {  count?: number | undefined;
+  sources?: ({  format?: string | undefined;
+  url?: string | undefined;})[];
+  links?: ({  id?: number | undefined;
+  name?: string | undefined;
+  url?: string | undefined;
+  link_type?: string | undefined;
+  direct_asset_path?: string | undefined;})[];
+  evidence_file_path?: string | undefined;};
+  evidences?: ({  sha?: string | undefined;
+  filepath?: string | undefined;
+  collected_at?: string | undefined;})[];
+  evidence_sha?: string | undefined;
+  upcoming_release?: boolean | undefined;
+  historical_release?: boolean | undefined;
+  _links?: {  closed_issues_url?: string | undefined;
+  closed_merge_requests_url?: string | undefined;
+  edit_url?: string | undefined;
+  merged_merge_requests_url?: string | undefined;
+  opened_issues_url?: string | undefined;
+  opened_merge_requests_url?: string | undefined;
+  self?: string | undefined;};
+};
+
+export interface ActionInput_gitlab_listbranches {
+  /**
+   * Project ID or URL-encoded path. Example: 82599306
+   */
+  project_id: string | number;
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Default: 20, max: 100.
+   */
+  per_page?: number | undefined;
+  /**
+   * Search string to filter branches.
+   */
+  search?: string | undefined;
+  /**
+   * Regular expression to filter branch names. Cannot be used with search.
+   */
+  regex?: string | undefined;
+};
+
+export interface ActionOutput_gitlab_listbranches {
+  items: ({  name: string;
+  merged: boolean;
+  protected: boolean;
+  default: boolean;
+  developers_can_push: boolean;
+  developers_can_merge: boolean;
+  can_push: boolean;
+  web_url: string;
+  commit?: {  id: string;
+  short_id: string;
+  title: string;
+  message: string;
+  author_name?: string | undefined;
+  author_email?: string | undefined;
+  authored_date?: string | undefined;
+  committed_date?: string | undefined;
+  web_url?: string | undefined;};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_gitlab_listcommits {
+  /**
+   * The ID of the project. Example: 82599306
+   */
+  project_id: number;
+  /**
+   * The name of a repository branch or tag. If not given, the default branch is used.
+   */
+  ref_name?: string | undefined;
+  /**
+   * The file path. Example: hello.txt
+   */
+  path?: string | undefined;
+  /**
+   * Only commits after this date. Format: ISO 8601 (YYYY-MM-DDTHH:MM:SSZ).
+   */
+  since?: string | undefined;
+  /**
+   * Only commits before this date. Format: ISO 8601 (YYYY-MM-DDTHH:MM:SSZ).
+   */
+  until?: string | undefined;
+  /**
+   * Number of results per page. Default: 20, max: 100.
+   */
+  per_page?: number | undefined;
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_gitlab_listcommits {
+  commits: ({  id: string;
+  short_id?: string | undefined;
+  title?: string | undefined;
+  message?: string | undefined;
+  author_name?: string | undefined;
+  author_email?: string | undefined;
+  authored_date?: string | undefined;
+  committer_name?: string | undefined;
+  committer_email?: string | undefined;
+  committed_date?: string | undefined;
+  created_at?: string | undefined;
+  parent_ids?: string[] | undefined;
+  web_url?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_gitlab_listgroups {
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Search query to filter groups.
+   */
+  search?: string | undefined;
+  /**
+   * Limit to groups explicitly owned by the current user.
+   */
+  owned?: boolean | undefined;
+  /**
+   * Minimum access level of the authenticated user.
+   */
+  min_access_level?: number | undefined;
+  /**
+   * Limit to top level groups only.
+   */
+  top_level_only?: boolean | undefined;
+  /**
+   * Number of results to return per page.
+   */
+  per_page?: number | undefined;
+};
+
+export interface ActionOutput_gitlab_listgroups {
+  items: ({  id: number;
+  name: string;
+  path: string;
+  description?: string | undefined;
+  visibility?: string | undefined;
+  web_url?: string | undefined;
+  full_name?: string | undefined;
+  full_path?: string | undefined;
+  parent_id?: number | undefined;
+  created_at?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_gitlab_listissues {
+  /**
+   * The ID or URL-encoded path of the project. Example: "82599306"
+   */
+  project_id: string | number;
+  state?: 'opened' | 'closed' | 'all' | undefined;
+  labels?: string | undefined;
+  milestone?: string | undefined;
+  search?: string | undefined;
+  author_id?: number | undefined;
+  assignee_id?: number | undefined;
+  scope?: 'created_by_me' | 'assigned_to_me' | 'all' | undefined;
+  sort?: 'asc' | 'desc' | undefined;
+  order_by?: string | undefined;
+  created_after?: string | undefined;
+  created_before?: string | undefined;
+  updated_after?: string | undefined;
+  updated_before?: string | undefined;
+  confidential?: boolean | undefined;
+  issue_type?: 'issue' | 'incident' | 'test_case' | 'task' | undefined;
+  /**
+   * Pagination cursor (page number) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  per_page?: number | undefined;
+};
+
+export interface ActionOutput_gitlab_listissues {
+  items: ({  id: number;
+  iid: number;
+  project_id: number;
+  title: string;
+  description?: string | undefined;
+  state: string;
+  created_at: string;
+  updated_at: string;
+  closed_at?: string | undefined;
+  labels?: string[] | undefined;
+  author?: {  id: number;
+  name: string;
+  username: string;
+  state: string;
+  avatar_url?: string | undefined;
+  web_url?: string | undefined;};
+  assignees?: ({  id: number;
+  name: string;
+  username: string;
+  state: string;
+  avatar_url?: string | undefined;
+  web_url?: string | undefined;})[];
+  assignee?: {  id: number;
+  name: string;
+  username: string;
+  state: string;
+  avatar_url?: string | undefined;
+  web_url?: string | undefined;};
+  milestone?: {  id: number;
+  iid: number;
+  project_id?: number | undefined;
+  title: string;
+  description?: string | undefined;
+  state: string;
+  due_date?: string | undefined;
+  created_at: string;
+  updated_at: string;};
+  due_date?: string | undefined;
+  web_url?: string | undefined;
+  references?: {  short: string;
+  relative: string;
+  full: string;} | undefined;
+  confidential?: boolean | undefined;
+  issue_type?: string | undefined;
+  severity?: string | undefined;
+  weight?: number | undefined;
+  user_notes_count?: number | undefined;
+  merge_requests_count?: number | undefined;
+  upvotes?: number | undefined;
+  downvotes?: number | undefined;
+  has_tasks?: boolean | undefined;
+  task_status?: string | undefined;
+  task_completion_status?: {  count: number;
+  completed_count: number;} | undefined;
+  time_stats?: {  time_estimate: number;
+  total_time_spent: number;
+  human_time_estimate?: string | undefined;
+  human_total_time_spent?: string | undefined;};
+  links?: {  [key: string]: string;} | undefined;
+  subscribed?: boolean | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_gitlab_listjobs {
+  /**
+   * Project ID or URL-encoded namespace path. Example: 82599306
+   */
+  project_id: number | string;
+  /**
+   * Job status scope(s) to filter by
+   */
+  scope?: string | string[] | undefined;
+  /**
+   * Order results by a field. Example: "id"
+   */
+  order_by?: string | undefined;
+  /**
+   * Sort order. Example: "asc" or "desc"
+   */
+  sort?: string | undefined;
+  /**
+   * Pagination cursor (page number)
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Default: 20
+   */
+  per_page?: number | undefined;
+};
+
+export interface ActionOutput_gitlab_listjobs {
+  items: ({  id: number;
+  name: string;
+  status: string;
+  stage: string;
+  ref: string;
+  tag: boolean;
+  coverage?: number | undefined;
+  allow_failure: boolean;
+  created_at?: string | undefined;
+  started_at?: string | undefined;
+  finished_at?: string | undefined;
+  duration?: number | undefined;
+  queued_duration?: number | undefined;
+  web_url?: string | undefined;
+  failure_reason?: string | undefined;
+  user?: {  id: number;
+  name: string;
+  username: string;
+  avatar_url?: string | undefined;};
+  pipeline?: {  id: number;
+  project_id: number;
+  ref: string;
+  sha: string;
+  status: string;} | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_gitlab_listmergerequests {
+  /**
+   * The ID or URL-encoded path of the project. Example: 82599306
+   */
+  project_id: number | string;
+  /**
+   * Return all merge requests or just those with the given state.
+   */
+  state?: 'all' | 'opened' | 'closed' | 'locked' | 'merged' | undefined;
+  /**
+   * Return merge requests with the given target branch.
+   */
+  target_branch?: string | undefined;
+  /**
+   * Return merge requests with the given source branch.
+   */
+  source_branch?: string | undefined;
+  /**
+   * Search merge requests against their title and description.
+   */
+  search?: string | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_gitlab_listmergerequests {
+  items: ({  id: number;
+  iid: number;
+  project_id: number;
+  title: string;
+  description: string;
+  state: string;
+  created_at: string;
+  updated_at: string;
+  merged_at: string;
+  closed_at: string;
+  target_branch: string;
+  source_branch: string;
+  author: {  id: number;
+  name: string;
+  username: string;
+  state: string;
+  avatar_url?: string | undefined;
+  web_url: string;};
+  assignees?: ({  id: number;
+  name: string;
+  username: string;
+  state: string;
+  avatar_url?: string | undefined;
+  web_url: string;})[];
+  reviewers?: ({  id: number;
+  name: string;
+  username: string;
+  state: string;
+  avatar_url?: string | undefined;
+  web_url: string;})[];
+  labels?: string[] | undefined;
+  draft: boolean;
+  work_in_progress?: boolean | undefined;
+  web_url: string;
+  sha: string;
+  merge_commit_sha: string;
+  squash_commit_sha?: string | undefined;
+  source_project_id: number;
+  target_project_id: number;
+  upvotes: number;
+  downvotes: number;
+  user_notes_count: number;
+  references: {  short: string;
+  relative: string;
+  full: string;};
+  detailed_merge_status?: string | undefined;
+  merge_status?: string | undefined;
+  has_conflicts?: boolean | undefined;
+  blocking_discussions_resolved?: boolean | undefined;
+  merge_when_pipeline_succeeds?: boolean | undefined;
+  should_remove_source_branch?: boolean | undefined;
+  force_remove_source_branch?: boolean | undefined;
+  allow_collaboration?: boolean | undefined;
+  squash?: boolean | undefined;
+  squash_on_merge?: boolean | undefined;
+  imported?: boolean | undefined;
+  imported_from?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_gitlab_listpipelines {
+  /**
+   * GitLab project ID. Example: 82599306
+   */
+  project_id: number;
+  /**
+   * Pagination cursor (page number) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Default: 20, Max: 100.
+   */
+  per_page?: number | undefined;
+  /**
+   * Return pipelines with the specified name.
+   */
+  name?: string | undefined;
+  /**
+   * Field to order by: id, status, ref, updated_at, or user_id. Default: id.
+   */
+  order_by?: string | undefined;
+  /**
+   * Return pipelines for the specified branch or tag.
+   */
+  ref?: string | undefined;
+  /**
+   * Scope: running, pending, finished, branches, or tags.
+   */
+  scope?: string | undefined;
+  /**
+   * Return pipelines for the specified commit SHA.
+   */
+  sha?: string | undefined;
+  /**
+   * Sort order: asc or desc. Default: desc.
+   */
+  sort?: string | undefined;
+  /**
+   * Return pipelines with the specified source.
+   */
+  source?: string | undefined;
+  /**
+   * Status: created, waiting_for_resource, preparing, pending, running, success, failed, canceled, skipped, manual, or scheduled.
+   */
+  status?: string | undefined;
+  /**
+   * Return pipelines updated after the specified date in ISO 8601 format.
+   */
+  updated_after?: string | undefined;
+  /**
+   * Return pipelines updated before the specified date in ISO 8601 format.
+   */
+  updated_before?: string | undefined;
+  /**
+   * Return pipelines created after the specified date in ISO 8601 format.
+   */
+  created_after?: string | undefined;
+  /**
+   * Return pipelines created before the specified date in ISO 8601 format.
+   */
+  created_before?: string | undefined;
+  /**
+   * Return pipelines triggered by the specified username.
+   */
+  username?: string | undefined;
+  /**
+   * Return pipelines with invalid configurations.
+   */
+  yaml_errors?: boolean | undefined;
+};
+
+export interface ActionOutput_gitlab_listpipelines {
+  pipelines: ({  id: number;
+  iid: number;
+  project_id: number;
+  status: string;
+  source: string;
+  ref: string;
+  sha: string;
+  name?: string | undefined;
+  web_url: string;
+  created_at: string;
+  updated_at: string;})[];
+  next_page?: string | undefined;
+};
+
+export interface ActionInput_gitlab_listprojects {
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page (max 100).
+   */
+  per_page?: number | undefined;
+  /**
+   * Filter projects by name.
+   */
+  search?: string | undefined;
+  /**
+   * Limit to projects owned by the current user.
+   */
+  owned?: boolean | undefined;
+  /**
+   * Limit to projects where the current user is a member.
+   */
+  membership?: boolean | undefined;
+  /**
+   * Filter by visibility level.
+   */
+  visibility?: 'private' | 'internal' | 'public' | undefined;
+  /**
+   * Include archived projects.
+   */
+  archived?: boolean | undefined;
+};
+
+export interface ActionOutput_gitlab_listprojects {
+  items: ({  id: number;
+  name: string;
+  path: string;
+  description?: string | undefined;
+  web_url: string;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  visibility?: string | undefined;
+  default_branch?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_gitlab_listreleases {
+  /**
+   * The ID or URL-encoded path of the project. Example: "82599306" or "group%2Fproject"
+   */
+  project_id: string;
+  /**
+   * Pagination cursor (page number) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * The field to use as order. Either released_at (default) or created_at.
+   */
+  order_by?: 'released_at' | 'created_at' | undefined;
+  /**
+   * The direction of the order. Either desc (default) or asc.
+   */
+  sort?: 'asc' | 'desc' | undefined;
+  /**
+   * Number of items to list per page (default: 20, max: 100).
+   */
+  per_page?: number | undefined;
+  /**
+   * If true, a response includes HTML rendered Markdown of the release description.
+   */
+  include_html_description?: boolean | undefined;
+};
+
+export interface ActionOutput_gitlab_listreleases {
+  releases: ({  tag_name: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  created_at: string;
+  released_at: string;
+  author?: {  id: number;
+  name: string;
+  username: string;
+  state?: string | undefined;
+  avatar_url?: string | undefined;
+  web_url?: string | undefined;};
+  commit?: {  id: string;
+  short_id: string;
+  title: string;
+  created_at?: string | undefined;
+  message?: string | undefined;
+  author_name?: string | undefined;
+  author_email?: string | undefined;};
+  upcoming_release?: boolean | undefined;
+  historical_release?: boolean | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_gitlab_retryjob {
+  /**
+   * Project ID. Example: 82599306
+   */
+  project_id: number;
+  /**
+   * Job ID. Example: 12345
+   */
+  job_id: number;
+};
+
+export interface ActionOutput_gitlab_retryjob {
+  id: number;
+  status: string;
+  stage: string;
+  name: string;
+  ref: string;
+  tag: boolean;
+  coverage?: string | undefined;
+  created_at: string;
+  started_at?: string | undefined;
+  finished_at?: string | undefined;
+  duration?: number | undefined;
+  queued_duration?: number | undefined;
+  user?: {  id: number;
+  name: string;
+  username: string;
+  state: string;
+  avatar_url?: string | undefined;};
+  commit?: {  id: string;
+  short_id: string;
+  title: string;
+  message: string;
+  author_name: string;
+  authored_date: string;} | undefined;
+  pipeline?: {  id: number;
+  sha: string;
+  ref: string;
+  status: string;} | undefined;
+  web_url: string;
+};
+
+export interface ActionInput_gitlab_updatefile {
+  /**
+   * Project ID or URL-encoded path. Example: 82599306
+   */
+  project_id: number | string;
+  /**
+   * URL-encoded full path to the file. Example: hello.txt
+   */
+  file_path: string;
+  /**
+   * Name of the branch to update the file in. Example: feature/test
+   */
+  branch: string;
+  /**
+   * The file content.
+   */
+  content: string;
+  /**
+   * Commit message.
+   */
+  commit_message: string;
+  /**
+   * Commit author's email address.
+   */
+  author_email?: string | undefined;
+  /**
+   * Commit author's name.
+   */
+  author_name?: string | undefined;
+  /**
+   * Change encoding to 'base64'. Default is 'text'.
+   */
+  encoding?: 'text' | 'base64' | undefined;
+  /**
+   * If true, enables the execute flag on the file. If false, disables it.
+   */
+  execute_filemode?: boolean | undefined;
+  /**
+   * Last known file commit ID.
+   */
+  last_commit_id?: string | undefined;
+  /**
+   * Name of the base branch to create the branch from.
+   */
+  start_branch?: string | undefined;
+};
+
+export interface ActionOutput_gitlab_updatefile {
+  file_path: string;
+  branch: string;
+};
+
+export interface ActionInput_gitlab_updategroup {
+  /**
+   * The ID of the group. Example: 133159324
+   */
+  id: number;
+  /**
+   * The name of the group
+   */
+  name?: string | undefined;
+  /**
+   * The path of the group
+   */
+  path?: string | undefined;
+  /**
+   * The description of the group
+   */
+  description?: string | undefined;
+  /**
+   * The visibility level of the group
+   */
+  visibility?: 'private' | 'internal' | 'public' | undefined;
+  /**
+   * Allow users to request member access
+   */
+  request_access_enabled?: boolean | undefined;
+  /**
+   * Enable/disable Large File Storage (LFS) for the projects in this group
+   */
+  lfs_enabled?: boolean | undefined;
+  /**
+   * Determine if developers can create projects in the group
+   */
+  project_creation_level?: string | undefined;
+  /**
+   * Allowed to create subgroups
+   */
+  subgroup_creation_level?: string | undefined;
+  /**
+   * The default branch name for group's projects
+   */
+  default_branch?: string | undefined;
+  /**
+   * Enable email notifications
+   */
+  emails_enabled?: boolean | undefined;
+  /**
+   * Disable the capability of a group from getting mentioned
+   */
+  mentions_disabled?: boolean | undefined;
+  /**
+   * Prevent sharing a project with another group within this group
+   */
+  share_with_group_lock?: boolean | undefined;
+  /**
+   * Require all users in this group to set up two-factor authentication
+   */
+  require_two_factor_authentication?: boolean | undefined;
+  /**
+   * Time before Two-factor authentication is enforced (in hours)
+   */
+  two_factor_grace_period?: number | undefined;
+  /**
+   * Default to Auto DevOps pipeline for all projects within this group
+   */
+  auto_devops_enabled?: boolean | undefined;
+};
+
+export interface ActionOutput_gitlab_updategroup {
+  id: number;
+  name: string;
+  path: string;
+  description?: string | undefined;
+  visibility: string;
+  avatar_url?: string | undefined;
+  web_url: string;
+  request_access_enabled: boolean;
+  full_name: string;
+  full_path: string;
+  parent_id?: number | undefined;
+  created_at: string;
+};
+
+export interface ActionInput_gitlab_updateissue {
+  /**
+   * The ID or URL-encoded path of the project. Example: "82599306"
+   */
+  project_id: string;
+  /**
+   * The internal ID of a project issue. Example: 1
+   */
+  issue_iid: number;
+  /**
+   * The title of the issue
+   */
+  title?: string | undefined;
+  /**
+   * The description of the issue
+   */
+  description?: string | undefined;
+  /**
+   * The state event of the issue. Use "close" to close or "reopen" to reopen
+   */
+  state_event?: string | undefined;
+  /**
+   * Comma-separated label names for the issue. Set to empty string to unassign all labels
+   */
+  labels?: string | undefined;
+  /**
+   * Comma-separated label names to add to the issue
+   */
+  add_labels?: string | undefined;
+  /**
+   * Comma-separated label names to remove from the issue
+   */
+  remove_labels?: string | undefined;
+  /**
+   * Array of user IDs to assign the issue to
+   */
+  assignee_ids?: number[] | undefined;
+  /**
+   * The global ID of a milestone to assign the issue to
+   */
+  milestone_id?: number | undefined;
+  /**
+   * The due date in YYYY-MM-DD format
+   */
+  due_date?: string | undefined;
+  /**
+   * Whether the issue is confidential
+   */
+  confidential?: boolean | undefined;
+  /**
+   * Whether the issue discussion is locked
+   */
+  discussion_locked?: boolean | undefined;
+  /**
+   * The type of issue. One of issue, incident, test_case, or task
+   */
+  issue_type?: string | undefined;
+  /**
+   * The weight of the issue
+   */
+  weight?: number | undefined;
+};
+
+export interface ActionOutput_gitlab_updateissue {
+  iid: number;
+  title: string;
+  description?: string | undefined;
+  state: string;
+  labels: string[];
+  assignees: ({  id: number;
+  username: string;
+  name: string;
+  state: string;})[];
+  milestone?: {  id: number;
+  title: string;} | undefined;
+  due_date?: string | undefined;
+  confidential?: boolean | undefined;
+  discussion_locked?: boolean | undefined;
+  issue_type?: string | undefined;
+  created_at: string;
+  updated_at: string;
+  web_url: string;
+  project_id: number;
+};
+
+export interface ActionInput_gitlab_updatemergerequest {
+  /**
+   * The ID or URL-encoded path of the project. Example: 82599306
+   */
+  project_id: string | number;
+  /**
+   * The internal ID of the merge request. Example: 1
+   */
+  merge_request_iid: number;
+  add_labels?: string | undefined;
+  allow_collaboration?: boolean | undefined;
+  allow_maintainer_to_push?: boolean | undefined;
+  assignee_id?: number | undefined;
+  assignee_ids?: number[] | undefined;
+  description?: string | undefined;
+  discussion_locked?: boolean | undefined;
+  labels?: string | undefined;
+  merge_after?: string | undefined;
+  milestone_id?: number | undefined;
+  milestone?: string | undefined;
+  remove_labels?: string | undefined;
+  remove_source_branch?: boolean | undefined;
+  reviewer_ids?: number[] | undefined;
+  squash?: boolean | undefined;
+  state_event?: 'close' | 'reopen' | undefined;
+  target_branch?: string | undefined;
+  title?: string | undefined;
+};
+
+export interface ActionOutput_gitlab_updatemergerequest {
+  id: number;
+  iid: number;
+};
+
+export interface ActionInput_gitlab_updateproject {
+  /**
+   * The ID or URL-encoded path of the project. Example: 82599306
+   */
+  id: number | string;
+  /**
+   * The name of the project.
+   */
+  name?: string | undefined;
+  /**
+   * Custom repository name for the project.
+   */
+  path?: string | undefined;
+  /**
+   * Short project description.
+   */
+  description?: string | undefined;
+  /**
+   * Project visibility level.
+   */
+  visibility?: 'private' | 'internal' | 'public' | undefined;
+  /**
+   * The default branch name.
+   */
+  default_branch?: string | undefined;
+  /**
+   * List of topics for the project.
+   */
+  topics?: string[] | undefined;
+  /**
+   * Set visibility of issues.
+   */
+  issues_access_level?: 'disabled' | 'private' | 'enabled' | undefined;
+  /**
+   * Set visibility of merge requests.
+   */
+  merge_requests_access_level?: 'disabled' | 'private' | 'enabled' | undefined;
+  /**
+   * Set visibility of wiki.
+   */
+  wiki_access_level?: 'disabled' | 'private' | 'enabled' | undefined;
+  /**
+   * Set visibility of pipelines.
+   */
+  builds_access_level?: 'disabled' | 'private' | 'enabled' | undefined;
+  /**
+   * Set visibility of snippets.
+   */
+  snippets_access_level?: 'disabled' | 'private' | 'enabled' | undefined;
+  /**
+   * Set visibility of GitLab Pages.
+   */
+  pages_access_level?: 'disabled' | 'private' | 'enabled' | 'public' | undefined;
+  /**
+   * Set visibility of container registry.
+   */
+  container_registry_access_level?: 'disabled' | 'private' | 'enabled' | undefined;
+  /**
+   * Set whether merge requests can only be merged with successful jobs.
+   */
+  only_allow_merge_if_pipeline_succeeds?: boolean | undefined;
+  /**
+   * Enable deleting source branch after merge by default.
+   */
+  remove_source_branch_after_merge?: boolean | undefined;
+  /**
+   * Merge method used for the project.
+   */
+  merge_method?: 'merge' | 'rebase_merge' | 'ff' | undefined;
+  /**
+   * Squash option for merge requests.
+   */
+  squash_option?: 'never' | 'always' | 'default_on' | 'default_off' | undefined;
+  /**
+   * If true, jobs can be viewed by non-project members.
+   */
+  public_jobs?: boolean | undefined;
+  /**
+   * Enable instance runners for this project.
+   */
+  shared_runners_enabled?: boolean | undefined;
+  /**
+   * Set whether auto-closing referenced issues on default branch.
+   */
+  autoclose_referenced_issues?: boolean | undefined;
+  /**
+   * Allow users to request member access.
+   */
+  request_access_enabled?: boolean | undefined;
+  /**
+   * Enable email notifications.
+   */
+  emails_enabled?: boolean | undefined;
+};
+
+export interface ActionOutput_gitlab_updateproject {
+  id: number;
+  name: string;
+  path: string;
+  description?: string | undefined;
+  visibility?: string | undefined;
+  default_branch?: string | undefined;
+  web_url?: string | undefined;
+  topics?: string[] | undefined;
+  namespace_id?: number | undefined;
+  namespace_name?: string | undefined;
+  namespace_path?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+};
+
+export interface ActionInput_gitlab_updaterelease {
+  /**
+   * The ID or URL-encoded path of the project. Example: "82599306"
+   */
+  project_id: string;
+  /**
+   * The Git tag the release is associated with. Example: "v1.0.0"
+   */
+  tag_name: string;
+  /**
+   * The release name.
+   */
+  name?: string | undefined;
+  /**
+   * The description of the release. You can use Markdown.
+   */
+  description?: string | undefined;
+  /**
+   * The title of each milestone to associate with the release. To remove all milestones, specify [].
+   */
+  milestones?: string[] | undefined;
+  /**
+   * The date when the release is/was ready. Expected in ISO 8601 format (e.g. 2019-03-15T08:00:00Z).
+   */
+  released_at?: string | undefined;
+};
+
+export interface ActionOutput_gitlab_updaterelease {
+  tag_name: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  created_at: string;
+  released_at: string;
+};
+
 export interface GongCallTranscriptSyncOutput {
   id: string;
   transcript: ({  speaker_id: string;
@@ -20451,6 +25532,470 @@ export interface SyncMetadata_google_workspaceuseraccesstokens {
 export interface SyncMetadata_google_workspaceusers {
   orgsToSync: ({  id: string;
   path: string;})[];
+};
+
+export interface Audience {
+  id: string;
+  name?: string | undefined;
+  audience_type?: string | undefined;
+  cover_num?: number | undefined;
+  is_valid?: boolean | undefined;
+  is_expiring?: boolean | undefined;
+  is_creator?: boolean | undefined;
+  shared?: boolean | undefined;
+  calculate_type?: string | undefined;
+  create_time?: string | undefined;
+  expired_time?: string | undefined;
+};
+
+export interface KeyEvent {
+  id: string;
+  name?: string | undefined;
+  eventName?: string | undefined;
+  createTime?: string | undefined;
+  deletable?: boolean | undefined;
+  custom?: boolean | undefined;
+  countingMethod?: string | undefined;
+  defaultValue?: {  numericValue?: number | undefined;
+  currencyCode?: string | undefined;};
+};
+
+export interface DataStream {
+  id: string;
+  displayName?: string | undefined;
+  type?: string | undefined;
+  propertyId: string;
+  measurementId?: string | undefined;
+  defaultUri?: string | undefined;
+  firebaseAppId?: string | undefined;
+  packageName?: string | undefined;
+  bundleId?: string | undefined;
+  createTime?: string | undefined;
+  updateTime?: string | undefined;
+};
+
+export interface Property {
+  id: string;
+  displayName?: string | undefined;
+  propertyType?: string | undefined;
+  parent?: string | undefined;
+  createTime?: string | undefined;
+  updateTime?: string | undefined;
+  timeZone?: string | undefined;
+  currencyCode?: string | undefined;
+  industryCategory?: string | undefined;
+  serviceLevel?: string | undefined;
+};
+
+export interface ActionInput_google_analytics_archiveconversionevent {
+  /**
+   * GA4 property numeric ID. Example: "12345"
+   */
+  property_id: string;
+  /**
+   * Conversion event numeric ID. Example: "67890"
+   */
+  conversion_event_id: string;
+};
+
+export interface ActionOutput_google_analytics_archiveconversionevent {
+  success: boolean;
+  /**
+   * Resource name of the archived conversion event.
+   */
+  name: string;
+};
+
+export interface ActionInput_google_analytics_batchrunreports {
+  /**
+   * Google Analytics property ID. Example: "properties/123456789"
+   */
+  property: string;
+  requests: ({  dimensions?: ({  name: string;})[] | undefined;
+  metrics?: ({  name: string;})[] | undefined;
+  dateRanges?: ({  startDate: string;
+  endDate: string;})[] | undefined;
+  offset?: string | undefined;
+  limit?: string | undefined;
+  keepEmptyRows?: boolean | undefined;
+  returnPropertyQuota?: boolean | undefined;})[];
+};
+
+export interface ActionOutput_google_analytics_batchrunreports {
+  reports: ({  dimensionHeaders?: ({  name?: string | undefined;})[];
+  metricHeaders?: ({  name?: string | undefined;
+  type?: string | undefined;})[];
+  rows?: ({  dimensionValues?: ({  value?: string | undefined;})[];
+  metricValues?: ({  value?: string | undefined;})[];})[];
+  totals?: ({  dimensionValues?: ({  value?: string | undefined;})[];
+  metricValues?: ({  value?: string | undefined;})[];})[];
+  maximums?: ({  dimensionValues?: ({  value?: string | undefined;})[];
+  metricValues?: ({  value?: string | undefined;})[];})[];
+  minimums?: ({  dimensionValues?: ({  value?: string | undefined;})[];
+  metricValues?: ({  value?: string | undefined;})[];})[];
+  rowCount?: number | undefined;
+  metadata?: {  [key: string]: unknown | undefined;};
+  propertyQuota?: {  [key: string]: unknown | undefined;};
+  kind?: string | undefined;})[];
+  kind?: string | undefined;
+};
+
+export interface ActionInput_google_analytics_createconversionevent {
+  /**
+   * GA4 property ID. Example: "123456789"
+   */
+  propertyId: string;
+  /**
+   * The event name for this conversion event. Example: "click"
+   */
+  eventName: string;
+  /**
+   * Optional. The method by which conversions will be counted. Example: "ONCE_PER_EVENT"
+   */
+  countingMethod?: string | undefined;
+  /**
+   * Optional. Defines a default value/currency for a conversion event.
+   */
+  defaultConversionValue?: {  value: number;
+  currencyCode: string;} | undefined;
+};
+
+export interface ActionOutput_google_analytics_createconversionevent {
+  name: string;
+  eventName: string;
+  createTime?: string | undefined;
+  deletable?: boolean | undefined;
+  custom?: boolean | undefined;
+  countingMethod?: string | undefined;
+  defaultConversionValue?: {  value: number;
+  currencyCode: string;} | undefined;
+};
+
+export interface ActionInput_google_analytics_createdatastream {
+  0: {  /**
+   * GA4 property numeric ID. Example: "1234"
+   */
+  property_id: string;
+  /**
+   * Human-readable display name for the Data Stream.
+   */
+  display_name: string;
+  type: 'WEB_DATA_STREAM';
+  /**
+   * Data specific to web streams. Required when type is WEB_DATA_STREAM.
+   */
+  web_stream_data: {  /**
+   * Domain name of the web app being measured. Example: "https://www.example.com"
+   */
+  default_uri: string;};};
+  1: {  /**
+   * GA4 property numeric ID. Example: "1234"
+   */
+  property_id: string;
+  /**
+   * Human-readable display name for the Data Stream.
+   */
+  display_name: string;
+  type: 'ANDROID_APP_DATA_STREAM';
+  /**
+   * Data specific to Android app streams. Required when type is ANDROID_APP_DATA_STREAM.
+   */
+  android_app_stream_data: {  /**
+   * The package name for the app being measured. Example: "com.example.myandroidapp"
+   */
+  package_name: string;};};
+  2: {  /**
+   * GA4 property numeric ID. Example: "1234"
+   */
+  property_id: string;
+  /**
+   * Human-readable display name for the Data Stream.
+   */
+  display_name: string;
+  type: 'IOS_APP_DATA_STREAM';
+  /**
+   * Data specific to iOS app streams. Required when type is IOS_APP_DATA_STREAM.
+   */
+  ios_app_stream_data: {  /**
+   * The Apple App Store Bundle ID for the app. Example: "com.example.myiosapp"
+   */
+  bundle_id: string;};};
+  3: {  /**
+   * GA4 property numeric ID. Example: "1234"
+   */
+  property_id: string;
+  /**
+   * Human-readable display name for the Data Stream.
+   */
+  display_name: string;
+  type: 'DATA_STREAM_TYPE_UNSPECIFIED';};
+};
+
+export interface ActionOutput_google_analytics_createdatastream {
+  name?: string | undefined;
+  type?: 'DATA_STREAM_TYPE_UNSPECIFIED' | 'WEB_DATA_STREAM' | 'ANDROID_APP_DATA_STREAM' | 'IOS_APP_DATA_STREAM' | undefined;
+  displayName?: string | undefined;
+  createTime?: string | undefined;
+  updateTime?: string | undefined;
+  webStreamData?: {  measurementId?: string | undefined;
+  firebaseAppId?: string | undefined;
+  defaultUri?: string | undefined;};
+  androidAppStreamData?: {  firebaseAppId?: string | undefined;
+  packageName?: string | undefined;};
+  iosAppStreamData?: {  firebaseAppId?: string | undefined;
+  bundleId?: string | undefined;};
+};
+
+export interface ActionInput_google_analytics_createproperty {
+  /**
+   * The resource name of the account under which to create the property. Example: "accounts/12345"
+   */
+  parent: string;
+  /**
+   * Human-readable display name for the property. Max 100 UTF-16 code units.
+   */
+  displayName: string;
+  /**
+   * Reporting time zone for the property. Example: "America/Los_Angeles"
+   */
+  timeZone: string;
+  /**
+   * Currency type used in reports. Example: "USD"
+   */
+  currencyCode?: string | undefined;
+  /**
+   * Industry category for benchmarking. Example: "TECHNOLOGY"
+   */
+  industryCategory?: string | undefined;
+  /**
+   * Service level. Example: "STANDARD" or "GOOGLE_ANALYTICS_360"
+   */
+  serviceLevel?: string | undefined;
+  /**
+   * Property type. Example: "ORDINARY_PROPERTY"
+   */
+  propertyType?: string | undefined;
+};
+
+export interface ActionOutput_google_analytics_createproperty {
+  /**
+   * Resource name of the created property. Example: "properties/12345"
+   */
+  name: string;
+  /**
+   * Parent account name. Example: "accounts/12345"
+   */
+  parent: string;
+  displayName: string;
+  createTime?: string | undefined;
+  updateTime?: string | undefined;
+  timeZone?: string | undefined;
+  currencyCode?: string | undefined;
+  industryCategory?: string | undefined;
+  serviceLevel?: string | undefined;
+  propertyType?: string | undefined;
+  account?: string | undefined;
+};
+
+export interface ActionInput_google_analytics_getmetadata {
+  /**
+   * GA4 property ID. Use "0" for universal metadata. Example: "123456789"
+   */
+  propertyId: string;
+};
+
+export interface ActionOutput_google_analytics_getmetadata {
+  name: string;
+  dimensions: ({  apiName: string;
+  uiName: string;
+  description: string;
+  category: string;
+  deprecatedApiNames?: string[] | undefined;})[];
+  metrics: ({  apiName: string;
+  uiName: string;
+  description: string;
+  type: string;
+  category: string;
+  deprecatedApiNames?: string[] | undefined;})[];
+};
+
+export interface ActionInput_google_analytics_runpivotreport {
+  /**
+   * Google Analytics property numeric ID. Example: 535258304
+   */
+  property: string;
+  dimensions?: ({  [key: string]: unknown | undefined;})[];
+  metrics?: ({  [key: string]: unknown | undefined;})[];
+  dateRanges?: ({  [key: string]: unknown | undefined;})[];
+  pivots?: ({  [key: string]: unknown | undefined;})[];
+  dimensionFilter?: {  [key: string]: unknown | undefined;};
+  metricFilter?: {  [key: string]: unknown | undefined;};
+  currencyCode?: string | undefined;
+  cohortSpec?: {  [key: string]: unknown | undefined;};
+  keepEmptyRows?: boolean | undefined;
+  returnPropertyQuota?: boolean | undefined;
+  comparisons?: ({  [key: string]: unknown | undefined;})[];
+};
+
+export interface ActionOutput_google_analytics_runpivotreport {
+  pivotHeaders?: ({  [key: string]: unknown | undefined;})[];
+  dimensionHeaders?: ({  [key: string]: unknown | undefined;})[];
+  metricHeaders?: ({  [key: string]: unknown | undefined;})[];
+  rows?: ({  [key: string]: unknown | undefined;})[];
+  aggregates?: ({  [key: string]: unknown | undefined;})[];
+  metadata?: {  [key: string]: unknown | undefined;};
+  propertyQuota?: {  [key: string]: unknown | undefined;};
+  kind?: string | undefined;
+};
+
+export interface ActionInput_google_analytics_runrealtimereport {
+  /**
+   * A Google Analytics property identifier. Example: "properties/1234"
+   */
+  property: string;
+  dimensions?: ({  name?: string | undefined;})[];
+  metrics?: ({  name?: string | undefined;
+  expression?: string | undefined;
+  invisible?: boolean | undefined;})[];
+  dimensionFilter?: {} | undefined;
+  metricFilter?: {} | undefined;
+  /**
+   * The number of rows to return. If unspecified, 10,000 rows are returned.
+   */
+  limit?: string | undefined;
+  metricAggregations?: string[] | undefined;
+  orderBys?: ({})[] | undefined;
+  returnPropertyQuota?: boolean | undefined;
+  minuteRanges?: ({  name?: string | undefined;
+  startMinutesAgo?: number | undefined;
+  endMinutesAgo?: number | undefined;})[];
+};
+
+export interface ActionOutput_google_analytics_runrealtimereport {
+  dimensionHeaders?: ({  name?: string | undefined;})[];
+  metricHeaders?: ({  name?: string | undefined;
+  type?: string | undefined;})[];
+  rows?: ({  dimensionValues?: ({  value?: string | undefined;
+  oneValue?: string | undefined;})[];
+  metricValues?: ({  value?: string | undefined;})[];})[];
+  totals?: ({  dimensionValues?: ({  value?: string | undefined;
+  oneValue?: string | undefined;})[];
+  metricValues?: ({  value?: string | undefined;})[];})[];
+  maximums?: ({  dimensionValues?: ({  value?: string | undefined;
+  oneValue?: string | undefined;})[];
+  metricValues?: ({  value?: string | undefined;})[];})[];
+  minimums?: ({  dimensionValues?: ({  value?: string | undefined;
+  oneValue?: string | undefined;})[];
+  metricValues?: ({  value?: string | undefined;})[];})[];
+  rowCount?: number | undefined;
+  propertyQuota?: {} | undefined;
+  kind?: string | undefined;
+};
+
+export interface ActionInput_google_analytics_runreport {
+  /**
+   * GA4 property ID. Example: "properties/123456789" or "123456789"
+   */
+  property: string;
+  dimensions?: ({  name: string;})[] | undefined;
+  metrics?: ({  name: string;})[] | undefined;
+  dateRanges?: ({  startDate: string;
+  endDate: string;})[] | undefined;
+  dimensionFilter?: {} | undefined;
+  metricFilter?: {} | undefined;
+  ordering?: ({  dimension?: {  dimensionName: string;} | undefined;
+  metric?: {  metricName: string;} | undefined;
+  desc?: boolean | undefined;})[];
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_google_analytics_runreport {
+  dimensionHeaders?: ({  name?: string | undefined;})[];
+  metricHeaders?: ({  name?: string | undefined;
+  type?: string | undefined;})[];
+  rows?: ({  dimensionValues?: ({  value?: string | undefined;})[];
+  metricValues?: ({  value?: string | undefined;})[];})[];
+  rowCount?: number | undefined;
+  totals?: ({  dimensionValues?: ({  value?: string | undefined;})[];
+  metricValues?: ({  value?: string | undefined;})[];})[];
+  maximums?: ({  dimensionValues?: ({  value?: string | undefined;})[];
+  metricValues?: ({  value?: string | undefined;})[];})[];
+  minimums?: ({  dimensionValues?: ({  value?: string | undefined;})[];
+  metricValues?: ({  value?: string | undefined;})[];})[];
+};
+
+export interface ActionInput_google_analytics_updatedatastream {
+  /**
+   * GA4 property ID.
+   */
+  propertyId: string;
+  /**
+   * Data stream ID to update.
+   */
+  dataStreamId: string;
+  /**
+   * Human-readable display name for the Data Stream.
+   */
+  displayName?: string | undefined;
+  /**
+   * Data specific to web streams.
+   */
+  webStreamData?: {  /**
+   * Domain name of the web app being measured.
+   */
+  defaultUri?: string | undefined;};
+  /**
+   * The list of fields to be updated. If omitted, it will be computed from provided fields.
+   */
+  updateMask?: string | undefined;
+};
+
+export interface ActionOutput_google_analytics_updatedatastream {
+  name: string;
+  type?: string | undefined;
+  displayName?: string | undefined;
+  createTime?: string | undefined;
+  updateTime?: string | undefined;
+  webStreamData?: {  defaultUri?: string | undefined;
+  measurementId?: string | undefined;
+  firebaseAppId?: string | undefined;};
+  androidAppStreamData?: {  packageName?: string | undefined;
+  firebaseAppId?: string | undefined;};
+  iosAppStreamData?: {  bundleId?: string | undefined;
+  firebaseAppId?: string | undefined;};
+};
+
+export interface ActionInput_google_analytics_updateproperty {
+  /**
+   * Property resource name. Example: "properties/123456789"
+   */
+  name: string;
+  /**
+   * Human-readable display name for the property.
+   */
+  displayName?: string | undefined;
+  /**
+   * The reporting time zone for the property. Example: "America/Los_Angeles".
+   */
+  timeZone?: string | undefined;
+  /**
+   * The currency type used in reports. Example: "USD".
+   */
+  currencyCode?: string | undefined;
+  /**
+   * Industry category. Example: "TECHNOLOGY".
+   */
+  industryCategory?: string | undefined;
+};
+
+export interface ActionOutput_google_analytics_updateproperty {
+  name: string;
+  displayName?: string | undefined;
+  industryCategory?: string | undefined;
+  timeZone?: string | undefined;
+  currencyCode?: string | undefined;
+  serviceLevel?: string | undefined;
+  account?: string | undefined;
 };
 
 export interface CalendarEvent {
@@ -22493,6 +28038,1384 @@ export interface ActionOutput_google_calendar_whoami {
    * Google account email address
    */
   email: string;
+};
+
+export interface DocumentContent {
+  id: string;
+  documentId?: string | undefined;
+  title?: string | undefined;
+  revisionId?: string | undefined;
+  suggestionsViewMode?: string | undefined;
+  tabs?: unknown[] | undefined;
+  body?: unknown | undefined;
+  headers?: {  [key: string]: unknown | undefined;};
+  footers?: {  [key: string]: unknown | undefined;};
+  footnotes?: {  [key: string]: unknown | undefined;};
+  lists?: {  [key: string]: unknown | undefined;};
+  namedStyles?: unknown | undefined;
+  documentStyle?: unknown | undefined;
+  namedRanges?: {  [key: string]: unknown | undefined;};
+};
+
+export interface SyncMetadata_google_docs_documentcontentbyid {
+  documentIds: string[];
+};
+
+export interface FolderDocument {
+  id: string;
+  documentId: string;
+  title?: string | undefined;
+  revisionId?: string | undefined;
+  body?: {  [key: string]: unknown | undefined;};
+  tabs?: ({  [key: string]: unknown | undefined;})[];
+  createdTime?: string | undefined;
+  modifiedTime?: string | undefined;
+  parents?: string[] | undefined;
+  mimeType?: string | undefined;
+};
+
+export interface SyncMetadata_google_docs_documentsfromdrivefolders {
+  folderIds: string[];
+  maxResults?: number | undefined;
+};
+
+export interface DriveQueryDocument {
+  id: string;
+  name?: string | undefined;
+  title?: string | undefined;
+  modifiedTime?: string | undefined;
+  createdTime?: string | undefined;
+  revisionId?: string | undefined;
+  documentId?: string | undefined;
+  webViewLink?: string | undefined;
+  document?: {  [key: string]: unknown | undefined;};
+};
+
+export interface SyncMetadata_google_docs_documentsfromdrivequery {
+  q?: string | undefined;
+};
+
+export interface SharedDriveDocument {
+  id: string;
+  documentId: string;
+  title?: string | undefined;
+  modifiedTime?: string | undefined;
+  document?: {  [key: string]: unknown | undefined;};
+};
+
+export interface SyncMetadata_google_docs_documentsfromshareddrives {
+  sharedDriveIds: string[];
+};
+
+export interface RecentDocument {
+  id: string;
+  name: string;
+  modifiedTime: string;
+  createdTime?: string | undefined;
+  mimeType?: string | undefined;
+  title?: string | undefined;
+  revisionId?: string | undefined;
+  body?: unknown | undefined;
+};
+
+export interface SyncMetadata_google_docs_recentdocuments {
+  maxResults?: number | undefined;
+};
+
+export interface ActionInput_google_docs_adddocumenttab {
+  /**
+   * The ID of the document to add the tab to. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"
+   */
+  documentId: string;
+  /**
+   * The user-visible name of the tab.
+   */
+  title?: string | undefined;
+  /**
+   * The ID of the parent tab. Empty when the current tab is a root-level tab.
+   */
+  parentTabId?: string | undefined;
+  /**
+   * The zero-based index of the tab within the parent.
+   */
+  index?: number | undefined;
+  /**
+   * The emoji icon displayed with the tab.
+   */
+  iconEmoji?: string | undefined;
+};
+
+export interface ActionOutput_google_docs_adddocumenttab {
+  tabId: string;
+  title?: string | undefined;
+  parentTabId?: string | undefined;
+  index?: number | undefined;
+  nestingLevel?: number | undefined;
+  iconEmoji?: string | undefined;
+};
+
+export interface ActionInput_google_docs_createdocument {
+  /**
+   * Title for the new Google Doc. Example: "Meeting Notes"
+   */
+  title: string;
+};
+
+export interface ActionOutput_google_docs_createdocument {
+  documentId: string;
+  revisionId: string;
+};
+
+export interface ActionInput_google_docs_createfooter {
+  /**
+   * Google Docs document ID. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"
+   */
+  documentId: string;
+  /**
+   * Optional text to insert into the newly created footer.
+   */
+  text?: string | undefined;
+  /**
+   * Index of the section break in the document body. Defaults to 0 for the first section.
+   */
+  sectionBreakIndex?: number | undefined;
+};
+
+export interface ActionOutput_google_docs_createfooter {
+  documentId: string;
+  footerId: string;
+  textInserted?: boolean | undefined;
+};
+
+export interface ActionInput_google_docs_createfootnote {
+  /**
+   * The ID of the document to add the footnote to. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"
+   */
+  documentId: string;
+  /**
+   * The zero-based body index where the footnote reference should be inserted. Example: 10
+   */
+  index: number;
+  /**
+   * The tab ID for multi-tab documents. Omit for the first tab.
+   */
+  tabId?: string | undefined;
+  /**
+   * Optional text to insert into the newly created footnote segment.
+   */
+  footnoteText?: string | undefined;
+};
+
+export interface ActionOutput_google_docs_createfootnote {
+  documentId: string;
+  footnoteId: string;
+  footnoteText?: string | undefined;
+};
+
+export interface ActionInput_google_docs_createheader {
+  /**
+   * Google Docs document ID. Example: "1DLhzKGEHJyyDul07fu34aPrhaA5HOijCord1pNz79dQ"
+   */
+  documentId: string;
+  /**
+   * Optional text to insert into the newly created header.
+   */
+  text?: string | undefined;
+};
+
+export interface ActionOutput_google_docs_createheader {
+  documentId: string;
+  headerId: string;
+  textInserted: boolean;
+};
+
+export interface ActionInput_google_docs_createnamedrange {
+  /**
+   * Google Docs document ID. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"
+   */
+  documentId: string;
+  /**
+   * Name for the new named range. Example: "my-range"
+   */
+  name: string;
+  /**
+   * Start index of the range (inclusive).
+   */
+  startIndex: number;
+  /**
+   * End index of the range (exclusive).
+   */
+  endIndex: number;
+};
+
+export interface ActionOutput_google_docs_createnamedrange {
+  /**
+   * The ID of the newly created named range.
+   */
+  namedRangeId: string;
+};
+
+export interface ActionInput_google_docs_createparagraphbullets {
+  /**
+   * Google Docs document ID. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"
+   */
+  documentId: string;
+  /**
+   * Start index (inclusive) of the range to apply bullets to.
+   */
+  startIndex: number;
+  /**
+   * End index (exclusive) of the range to apply bullets to.
+   */
+  endIndex: number;
+  /**
+   * Bullet preset to use. Defaults to BULLET_DISC_CIRCLE_SQUARE.
+   */
+  bulletPreset?: 'BULLET_DISC_CIRCLE_SQUARE' | 'BULLET_DIAMONDX_ARROW3D_SQUARE' | 'BULLET_CHECKBOX' | 'BULLET_ARROW_DIAMOND_DISC' | 'BULLET_STAR_CIRCLE_SQUARE' | 'BULLET_ARROW3D_CIRCLE_SQUARE' | 'BULLET_LEFTTRIANGLE_DIAMOND_DISC' | 'BULLET_DIAMONDX_HOLLOWDIAMOND_SQUARE' | 'BULLET_DIAMOND_CIRCLE_SQUARE' | 'NUMBERED_DECIMAL_ALPHA_ROMAN' | 'NUMBERED_DECIMAL_ALPHA_ROMAN_PARENS' | 'NUMBERED_DECIMAL_NESTED' | 'NUMBERED_UPPERALPHA_ALPHA_ROMAN' | 'NUMBERED_UPPERROMAN_UPPERALPHA_DECIMAL' | 'NUMBERED_ZERODECIMAL_ALPHA_ROMAN' | undefined;
+};
+
+export interface ActionOutput_google_docs_createparagraphbullets {
+  documentId: string;
+  revisionId?: string | undefined;
+};
+
+export interface ActionInput_google_docs_deletecontentrange {
+  /**
+   * Google Docs document ID. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"
+   */
+  documentId: string;
+  /**
+   * Inclusive start index of the range to delete.
+   */
+  startIndex: number;
+  /**
+   * Exclusive end index of the range to delete.
+   */
+  endIndex: number;
+  /**
+   * Segment ID to delete from. Use the headerId or footerId for headers/footers; omit or use "" for the body.
+   */
+  segmentId?: string | undefined;
+};
+
+export interface ActionOutput_google_docs_deletecontentrange {
+  documentId: string;
+  replies: ({  [key: string]: unknown | undefined;})[];
+  writeControl?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_google_docs_deletedocumenttab {
+  /**
+   * Google Docs document ID. Example: "1rG_Aj6JXSnTeaHzE0CoIOAYtPdrwRKbilw54N0WQU34"
+   */
+  documentId: string;
+  /**
+   * Tab ID to delete. Example: "t.r7sklz35b6u5"
+   */
+  tabId: string;
+};
+
+export interface ActionOutput_google_docs_deletedocumenttab {
+  documentId: string;
+  tabId: string;
+};
+
+export interface ActionInput_google_docs_deletefooter {
+  /**
+   * The ID of the document to delete the footer from. Example: "1ctrF7XM2lZqmQeOBjGXi0SrUY6jgyKwYhDMq5S6omZQ"
+   */
+  documentId: string;
+  /**
+   * The ID of the footer to delete. Example: "kix.910kf3z0ydqh"
+   */
+  footerId: string;
+  /**
+   * The tab that contains the footer to delete. When omitted, applies to the first tab.
+   */
+  tabId?: string | undefined;
+};
+
+export interface ActionOutput_google_docs_deletefooter {
+  documentId: string;
+  success: boolean;
+};
+
+export interface ActionInput_google_docs_deleteheader {
+  /**
+   * Google Docs document ID. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"
+   */
+  documentId: string;
+  /**
+   * Header ID to delete. Example: "kix.oq93zh93nzrf"
+   */
+  headerId: string;
+};
+
+export interface ActionOutput_google_docs_deleteheader {
+  documentId: string;
+  headerId: string;
+  success: boolean;
+};
+
+export interface ActionInput_google_docs_deletenamedrange {
+  /**
+   * The ID of the document containing the named range. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"
+   */
+  documentId: string;
+  /**
+   * The ID of the named range to delete. Either namedRangeId or name must be provided. Example: "kix.ppfiu2m5lqas"
+   */
+  namedRangeId?: string | undefined;
+  /**
+   * The name of the named range to delete. Either namedRangeId or name must be provided. Example: "nango-test-range"
+   */
+  name?: string | undefined;
+  /**
+   * The tab ID to scope the deletion to. Example: "t.0"
+   */
+  tabId?: string | undefined;
+};
+
+export interface ActionOutput_google_docs_deletenamedrange {
+  success: boolean;
+  documentId: string;
+};
+
+export interface ActionInput_google_docs_deleteparagraphbullets {
+  /**
+   * The ID of the document to update. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"
+   */
+  documentId: string;
+  /**
+   * The range of paragraphs to remove bullets from.
+   */
+  range: {  /**
+   * The start index of the range (inclusive). Example: 153
+   */
+  startIndex: number;
+  /**
+   * The end index of the range (exclusive). Example: 199
+   */
+  endIndex: number;
+  /**
+   * The segment ID. Omit or use empty string for the body segment. Example: ""
+   */
+  segmentId?: string | undefined;};
+};
+
+export interface ActionOutput_google_docs_deleteparagraphbullets {
+  documentId: string;
+  success: boolean;
+};
+
+export interface ActionInput_google_docs_deletetablecolumn {
+  /**
+   * Google Docs document ID. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"
+   */
+  documentId: string;
+  /**
+   * The index of the table element in the document body. Example: 211
+   */
+  tableStartLocationIndex: number;
+  /**
+   * The row index of a cell in the column to delete. Example: 0
+   */
+  rowIndex: number;
+  /**
+   * The column index to delete. Example: 1
+   */
+  columnIndex: number;
+};
+
+export interface ActionOutput_google_docs_deletetablecolumn {
+  documentId: string;
+  success: boolean;
+};
+
+export interface ActionInput_google_docs_deletetablerow {
+  documentId: string;
+  tableStartIndex: number;
+  rowIndex: number;
+  columnIndex: number;
+  tabId?: string | undefined;
+  segmentId?: string | undefined;
+};
+
+export interface ActionOutput_google_docs_deletetablerow {
+  documentId?: string | undefined;
+  replies?: unknown[] | undefined;
+};
+
+export interface ActionInput_google_docs_exportdocument {
+  /**
+   * The ID of the Google Doc file to export. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"
+   */
+  fileId: string;
+  /**
+   * The target MIME type for the export.
+   */
+  mimeType: 'application/pdf' | 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' | 'text/html' | 'text/plain';
+};
+
+export interface ActionOutput_google_docs_exportdocument {
+  fileId: string;
+  mimeType: string;
+  /**
+   * The exported document encoded as a base64 string.
+   */
+  data: string;
+  /**
+   * The size of the exported data in bytes.
+   */
+  size: number;
+};
+
+export interface ActionInput_google_docs_insertinlineimage {
+  /**
+   * Google Docs document ID. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"
+   */
+  documentId: string;
+  /**
+   * Publicly accessible image URL. Example: "https://example.com/image.png"
+   */
+  imageUri: string;
+  /**
+   * Specific location in the document to insert the image.
+   */
+  location?: {  segmentId?: string | undefined;
+  index: number;};
+  /**
+   * Insert at the end of a segment.
+   */
+  endOfSegmentLocation?: {  segmentId?: string | undefined;};
+  /**
+   * Optional size for the inserted image.
+   */
+  objectSize?: {  width?: {  magnitude: number;
+  unit: string;} | undefined;
+  height?: {  magnitude: number;
+  unit: string;} | undefined;};
+};
+
+export interface ActionOutput_google_docs_insertinlineimage {
+  documentId: string;
+  inlineObjectId?: string | undefined;
+};
+
+export interface ActionInput_google_docs_insertpagebreak {
+  /**
+   * Google Docs document ID. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"
+   */
+  documentId: string;
+  /**
+   * Zero-based body index where the page break should be inserted. If omitted, the page break is inserted at the end of the document body.
+   */
+  index?: number | undefined;
+};
+
+export interface ActionOutput_google_docs_insertpagebreak {
+  documentId: string;
+  inserted: boolean;
+};
+
+export interface ActionInput_google_docs_insertsectionbreak {
+  /**
+   * Google Docs document ID. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"
+   */
+  documentId: string;
+  /**
+   * Type of section break to insert. Defaults to NEXT_PAGE.
+   */
+  sectionType?: 'NEXT_PAGE' | 'CONTINUOUS' | undefined;
+  /**
+   * Zero-based body index where the section break should be inserted. If omitted, inserts at the end of the document body.
+   */
+  index?: number | undefined;
+  /**
+   * Tab ID for multi-tab documents. When omitted, applies to the first tab.
+   */
+  tabId?: string | undefined;
+  /**
+   * Optional section style updates to apply to the newly created section. Requires index to be provided.
+   */
+  sectionStyle?: {  marginTop?: {  magnitude: number;
+  unit: string;} | undefined;
+  marginBottom?: {  magnitude: number;
+  unit: string;} | undefined;
+  marginLeft?: {  magnitude: number;
+  unit: string;} | undefined;
+  marginRight?: {  magnitude: number;
+  unit: string;} | undefined;
+  pageNumberStart?: number | undefined;
+  contentDirection?: 'LEFT_TO_RIGHT' | 'RIGHT_TO_LEFT' | undefined;};
+};
+
+export interface ActionOutput_google_docs_insertsectionbreak {
+  documentId: string;
+  revisionId?: string | undefined;
+};
+
+export interface ActionInput_google_docs_inserttablecolumn {
+  /**
+   * Google Docs document ID. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"
+   */
+  documentId: string;
+  /**
+   * The index of the table element in the document body. Example: 211
+   */
+  tableStartLocationIndex: number;
+  /**
+   * The zero-based row index of the reference cell. Example: 1
+   */
+  rowIndex: number;
+  /**
+   * The zero-based column index of the reference cell. Example: 1
+   */
+  columnIndex: number;
+  /**
+   * Whether to insert the column to the right of the reference cell. Defaults to false (insert to the left).
+   */
+  insertRight?: boolean | undefined;
+};
+
+export interface ActionOutput_google_docs_inserttablecolumn {
+  documentId: string;
+};
+
+export interface ActionInput_google_docs_inserttablerow {
+  /**
+   * Google Docs document ID. Example: "abc123"
+   */
+  documentId: string;
+  /**
+   * Index of the table element in the body. Example: 211
+   */
+  tableStartLocationIndex: number;
+  /**
+   * Row index of the reference cell. Example: 0
+   */
+  rowIndex: number;
+  /**
+   * Column index of the reference cell. Example: 0
+   */
+  columnIndex: number;
+  /**
+   * Whether to insert below the reference cell (true) or above (false).
+   */
+  insertBelow: boolean;
+  /**
+   * Segment ID for headers or footers. Omit for body.
+   */
+  segmentId?: string | undefined;
+};
+
+export interface ActionOutput_google_docs_inserttablerow {
+  documentId: string;
+  revisionId?: string | undefined;
+};
+
+export interface ActionInput_google_docs_inserttable {
+  /**
+   * Google Docs document ID. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"
+   */
+  documentId: string;
+  /**
+   * Number of rows in the table. Example: 3
+   */
+  rows: number;
+  /**
+   * Number of columns in the table. Example: 3
+   */
+  columns: number;
+  location?: {  /**
+   * The insertion index in the document body.
+   */
+  index: number;
+  /**
+   * The segment ID; empty string targets the body segment.
+   */
+  segmentId?: string | undefined;};
+  endOfSegmentLocation?: {  /**
+   * The segment ID; empty string targets the body segment.
+   */
+  segmentId?: string | undefined;};
+};
+
+export interface ActionOutput_google_docs_inserttable {
+  documentId: string;
+  rows: number;
+  columns: number;
+  tableStartLocation?: {  index: number;
+  segmentId?: string | undefined;};
+};
+
+export interface ActionInput_google_docs_inserttext {
+  /**
+   * The ID of the document to edit. Example: "abc123"
+   */
+  documentId: string;
+  /**
+   * The text to insert into the document.
+   */
+  text: string;
+  /**
+   * A specific index location. Provide either location or endOfSegmentLocation, not both.
+   */
+  location?: {  /**
+   * The zero-based index in the segment where the text will be inserted.
+   */
+  index: number;
+  /**
+   * The ID of the header, footer or footnote segment. Omit or use empty string for the body.
+   */
+  segmentId?: string | undefined;
+  /**
+   * The ID of the tab for multi-tab documents.
+   */
+  tabId?: string | undefined;};
+  /**
+   * Insert at the end of a segment. Provide either location or endOfSegmentLocation, not both.
+   */
+  endOfSegmentLocation?: {  /**
+   * The ID of the header, footer or footnote segment. Omit or use empty string for the body.
+   */
+  segmentId?: string | undefined;
+  /**
+   * The ID of the tab for multi-tab documents.
+   */
+  tabId?: string | undefined;};
+};
+
+export interface ActionOutput_google_docs_inserttext {
+  documentId?: string | undefined;
+  replies?: ({})[] | undefined;
+};
+
+export interface ActionInput_google_docs_listrevisions {
+  /**
+   * Google Docs document ID. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"
+   */
+  documentId: string;
+  /**
+   * Pagination token from the previous response. Omit for the first page.
+   */
+  pageToken?: string | undefined;
+};
+
+export interface ActionOutput_google_docs_listrevisions {
+  revisions: ({  id: string;
+  modifiedTime?: string | undefined;
+  lastModifyingUser?: {  kind?: string | undefined;
+  displayName?: string | undefined;
+  photoLink?: string | undefined;
+  me?: boolean | undefined;
+  permissionId?: string | undefined;
+  emailAddress?: string | undefined;};
+  keepForever?: boolean | undefined;
+  published?: boolean | undefined;})[];
+  nextPageToken?: string | undefined;
+};
+
+export interface ActionInput_google_docs_mergetablecells {
+  /**
+   * The ID of the document containing the table. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"
+   */
+  documentId: string;
+  /**
+   * The location of the table in the document
+   */
+  tableStartLocation: {  /**
+   * The index of the table element in the document body. Example: 211
+   */
+  index: number;
+  /**
+   * The segment ID; omit for the body segment. Example: ""
+   */
+  segmentId?: string | undefined;};
+  /**
+   * The row index of the first cell in the range (0-based). Example: 0
+   */
+  rowIndex: number;
+  /**
+   * The column index of the first cell in the range (0-based). Example: 0
+   */
+  columnIndex: number;
+  /**
+   * The number of rows in the range. Example: 1
+   */
+  rowSpan: number;
+  /**
+   * The number of columns in the range. Example: 2
+   */
+  columnSpan: number;
+};
+
+export interface ActionOutput_google_docs_mergetablecells {
+  documentId: string;
+  merged: boolean;
+};
+
+export interface ActionInput_google_docs_pintableheaderrows {
+  /**
+   * The ID of the document containing the table. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"
+   */
+  documentId: string;
+  /**
+   * The index of the table element in the document body. Example: 211
+   */
+  tableStartLocation: number;
+  /**
+   * The number of rows to pin as header rows. Use 0 to unpin. Example: 1
+   */
+  pinnedHeaderRowsCount: number;
+};
+
+export interface ActionOutput_google_docs_pintableheaderrows {
+  documentId: string;
+  revisionId?: string | undefined;
+  replies?: ({})[] | undefined;
+};
+
+export interface ActionInput_google_docs_replacealltext {
+  /**
+   * The ID of the document to modify. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"
+   */
+  documentId: string;
+  /**
+   * The text to search for, or a regex pattern if regex is true. Example: "Nango"
+   */
+  searchText: string;
+  /**
+   * The text to replace with. Example: "Hello World"
+   */
+  replacementText: string;
+  /**
+   * Whether the search is case-sensitive. Defaults to false.
+   */
+  matchCase?: boolean | undefined;
+  /**
+   * Whether searchText is a regex pattern. Defaults to false.
+   */
+  regex?: boolean | undefined;
+  /**
+   * The tab ID to scope the replacement to. If omitted, applies to all tabs.
+   */
+  tabId?: string | undefined;
+};
+
+export interface ActionOutput_google_docs_replacealltext {
+  /**
+   * The number of occurrences that were changed.
+   */
+  occurrencesChanged: number;
+  /**
+   * The ID of the modified document.
+   */
+  documentId: string;
+  /**
+   * The revision ID of the document after the update.
+   */
+  revisionId?: string | undefined;
+};
+
+export interface ActionInput_google_docs_replaceimage {
+  /**
+   * The ID of the document containing the image to replace. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"
+   */
+  documentId: string;
+  /**
+   * The ID of the existing image to replace. Example: "kix.q9j8vk2w9bbp"
+   */
+  imageObjectId: string;
+  /**
+   * Publicly accessible URI of the new image. Example: "https://example.com/image.png"
+   */
+  uri: string;
+  /**
+   * Replacement method. CENTER_CROP scales and centers the image to fill the original bounds.
+   */
+  imageReplaceMethod?: 'CENTER_CROP' | undefined;
+  /**
+   * The tab containing the image. When omitted, the first tab is used.
+   */
+  tabId?: string | undefined;
+};
+
+export interface ActionOutput_google_docs_replaceimage {
+  documentId: string;
+  replies?: ({  [key: string]: unknown | undefined;})[];
+  writeControl?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_google_docs_replacenamedrangecontent {
+  /**
+   * Google Docs document ID. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"
+   */
+  document_id: string;
+  /**
+   * Named range ID to replace content in. Example: "kix.ppfiu2m5lqas"
+   */
+  named_range_id: string;
+  /**
+   * Replacement text to insert into the named range.
+   */
+  text: string;
+};
+
+export interface ActionOutput_google_docs_replacenamedrangecontent {
+  document_id: string;
+  named_range_id: string;
+  replaced: boolean;
+  revision_id?: string | undefined;
+};
+
+export interface ActionInput_google_docs_unmergetablecells {
+  /**
+   * Google Docs document ID. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"
+   */
+  documentId: string;
+  tableRange: {  tableCellLocation: {  tableStartLocation: {  /**
+   * The zero-based index of the table element in the document body.
+   */
+  index: number;
+  /**
+   * The ID of the header, footer or footnote. Empty or omitted signifies the document body.
+   */
+  segmentId?: string | undefined;
+  /**
+   * The tab that the location is in.
+   */
+  tabId?: string | undefined;};
+  /**
+   * The zero-based row index of the starting cell.
+   */
+  rowIndex: number;
+  /**
+   * The zero-based column index of the starting cell.
+   */
+  columnIndex: number;};
+  /**
+   * The row span of the table range. Defaults to 1.
+   */
+  rowSpan?: number | undefined;
+  /**
+   * The column span of the table range. Defaults to 1.
+   */
+  columnSpan?: number | undefined;};
+};
+
+export interface ActionOutput_google_docs_unmergetablecells {
+  documentId: string;
+  replies?: ({})[] | undefined;
+  writeLocation?: {  index?: number | undefined;
+  segmentId?: string | undefined;
+  tabId?: string | undefined;};
+};
+
+export interface ActionInput_google_docs_updatedocumentstyle {
+  /**
+   * The ID of the document to update. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"
+   */
+  documentId: string;
+  /**
+   * The comma-separated field mask of document style fields to update. Example: "marginTop,marginBottom,pageSize"
+   */
+  fields: string;
+  /**
+   * The document style values to apply.
+   */
+  documentStyle: {  /**
+   * Top margin of the document.
+   */
+  marginTop?: {  /**
+   * The magnitude of the dimension. Example: 72
+   */
+  magnitude: number;
+  /**
+   * The unit of the dimension. Example: "PT"
+   */
+  unit: string;} | undefined;
+  /**
+   * Bottom margin of the document.
+   */
+  marginBottom?: {  /**
+   * The magnitude of the dimension. Example: 72
+   */
+  magnitude: number;
+  /**
+   * The unit of the dimension. Example: "PT"
+   */
+  unit: string;} | undefined;
+  /**
+   * Left margin of the document.
+   */
+  marginLeft?: {  /**
+   * The magnitude of the dimension. Example: 72
+   */
+  magnitude: number;
+  /**
+   * The unit of the dimension. Example: "PT"
+   */
+  unit: string;} | undefined;
+  /**
+   * Right margin of the document.
+   */
+  marginRight?: {  /**
+   * The magnitude of the dimension. Example: 72
+   */
+  magnitude: number;
+  /**
+   * The unit of the dimension. Example: "PT"
+   */
+  unit: string;} | undefined;
+  /**
+   * Page size of the document.
+   */
+  pageSize?: {  width: {  /**
+   * The magnitude of the dimension. Example: 72
+   */
+  magnitude: number;
+  /**
+   * The unit of the dimension. Example: "PT"
+   */
+  unit: string;};
+  height: {  /**
+   * The magnitude of the dimension. Example: 72
+   */
+  magnitude: number;
+  /**
+   * The unit of the dimension. Example: "PT"
+   */
+  unit: string;};} | undefined;
+  /**
+   * The page number from which to start counting pages.
+   */
+  pageNumberStart?: number | undefined;
+  /**
+   * The ID of the default header.
+   */
+  defaultHeaderId?: string | undefined;
+  /**
+   * The ID of the default footer.
+   */
+  defaultFooterId?: string | undefined;
+  /**
+   * The ID of the header used on even pages.
+   */
+  evenPageHeaderId?: string | undefined;
+  /**
+   * The ID of the footer used on even pages.
+   */
+  evenPageFooterId?: string | undefined;
+  /**
+   * The ID of the header used on the first page.
+   */
+  firstPageHeaderId?: string | undefined;
+  /**
+   * The ID of the footer used on the first page.
+   */
+  firstPageFooterId?: string | undefined;
+  /**
+   * Whether to use custom header and footer margins.
+   */
+  useCustomHeaderFooterMargins?: boolean | undefined;
+  /**
+   * Whether to use a different header and footer on the first page.
+   */
+  useFirstPageHeaderFooter?: boolean | undefined;
+  /**
+   * Whether to use different headers and footers on even pages.
+   */
+  useEvenPageHeaderFooter?: boolean | undefined;};
+  /**
+   * The tab that contains the style to update. When omitted, the request applies to the first tab.
+   */
+  tabId?: string | undefined;
+};
+
+export interface ActionOutput_google_docs_updatedocumentstyle {
+  documentId: string;
+  updated: boolean;
+};
+
+export interface ActionInput_google_docs_updatedocumenttabproperties {
+  /**
+   * Google Docs document ID. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"
+   */
+  documentId: string;
+  /**
+   * Tab ID to update. Example: "t.0"
+   */
+  tabId: string;
+  /**
+   * New tab title.
+   */
+  title?: string | undefined;
+  /**
+   * New parent tab ID. Set to empty string for root-level.
+   */
+  parentTabId?: string | undefined;
+  /**
+   * New zero-based index within the parent.
+   */
+  index?: number | undefined;
+  /**
+   * Emoji icon for the tab.
+   */
+  iconEmoji?: string | undefined;
+};
+
+export interface ActionOutput_google_docs_updatedocumenttabproperties {
+  documentId: string;
+  tabId: string;
+  updatedFields: string[];
+};
+
+export interface ActionInput_google_docs_updateparagraphstyle {
+  /**
+   * The ID of the document to update.
+   */
+  documentId: string;
+  range: {  /**
+   * The zero-based start index of the range in UTF-16 code units.
+   */
+  startIndex: number;
+  /**
+   * The zero-based end index of the range, exclusive.
+   */
+  endIndex: number;
+  /**
+   * The ID of the header, footer or footnote the range is in. Empty or omitted for the document body.
+   */
+  segmentId?: string | undefined;
+  /**
+   * The tab that the range is in. When omitted, applies to the first tab.
+   */
+  tabId?: string | undefined;};
+  /**
+   * A field mask of which paragraph style fields to update, e.g. "alignment,spaceAbove".
+   */
+  fields: string;
+  paragraphStyle: {  /**
+   * The named style type, e.g. NORMAL_TEXT, HEADING_1, HEADING_2, TITLE.
+   */
+  namedStyleType?: string | undefined;
+  /**
+   * The alignment, e.g. START, CENTER, END, JUSTIFIED.
+   */
+  alignment?: string | undefined;
+  lineSpacing?: number | undefined;
+  /**
+   * The content direction, e.g. LEFT_TO_RIGHT, RIGHT_TO_LEFT.
+   */
+  direction?: string | undefined;
+  /**
+   * The spacing mode, e.g. UNSPECIFIED, NEVER_COLLAPSE, COLLAPSE_LISTS.
+   */
+  spacingMode?: string | undefined;
+  spaceAbove?: {  magnitude: number;
+  unit: string;} | undefined;
+  spaceBelow?: {  magnitude: number;
+  unit: string;} | undefined;
+  indentFirstLine?: {  magnitude: number;
+  unit: string;} | undefined;
+  indentStart?: {  magnitude: number;
+  unit: string;} | undefined;
+  indentEnd?: {  magnitude: number;
+  unit: string;} | undefined;};
+};
+
+export interface ActionOutput_google_docs_updateparagraphstyle {
+  documentId: string;
+  replies: unknown[];
+};
+
+export interface ActionInput_google_docs_updatesectionstyle {
+  /**
+   * Google Docs document ID. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"
+   */
+  documentId: string;
+  /**
+   * Start index of the range overlapping the sections to style.
+   */
+  startIndex: number;
+  /**
+   * End index of the range overlapping the sections to style.
+   */
+  endIndex: number;
+  /**
+   * The section style properties to update.
+   */
+  sectionStyle: {  marginTop?: {  magnitude: number;
+  unit: string;} | undefined;
+  marginBottom?: {  magnitude: number;
+  unit: string;} | undefined;
+  marginLeft?: {  magnitude: number;
+  unit: string;} | undefined;
+  marginRight?: {  magnitude: number;
+  unit: string;} | undefined;
+  marginHeader?: {  magnitude: number;
+  unit: string;} | undefined;
+  marginFooter?: {  magnitude: number;
+  unit: string;} | undefined;
+  pageNumberStart?: number | undefined;
+  useFirstPageHeaderFooter?: boolean | undefined;
+  flipPageOrientation?: boolean | undefined;
+  columnSeparatorStyle?: string | undefined;
+  contentDirection?: string | undefined;
+  columnProperties?: ({  paddingEnd?: {  magnitude: number;
+  unit: string;} | undefined;
+  width?: {  magnitude: number;
+  unit: string;} | undefined;})[];};
+  /**
+   * Field mask specifying which fields to update. Example: "marginTop"
+   */
+  fields: string;
+};
+
+export interface ActionOutput_google_docs_updatesectionstyle {
+  documentId: string;
+  /**
+   * Number of replies returned by the batch update.
+   */
+  replyCount: number;
+};
+
+export interface ActionInput_google_docs_updatetablecellstyle {
+  /**
+   * Google Docs document ID. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"
+   */
+  documentId: string;
+  tableRange: {  tableCellLocation: {  tableStartLocation: {  /**
+   * The zero-based index of the table in the document body.
+   */
+  index: number;
+  /**
+   * The segment ID of the table location. Omit for the body segment.
+   */
+  segmentId?: string | undefined;
+  /**
+   * The tab ID for multi-tab documents. Example: "t.0".
+   */
+  tabId?: string | undefined;};
+  /**
+   * Zero-based row index of the starting cell.
+   */
+  rowIndex: number;
+  /**
+   * Zero-based column index of the starting cell.
+   */
+  columnIndex: number;};
+  /**
+   * Number of rows in the range. Defaults to 1.
+   */
+  rowSpan?: number | undefined;
+  /**
+   * Number of columns in the range. Defaults to 1.
+   */
+  columnSpan?: number | undefined;};
+  tableCellStyle: {  /**
+   * Background color of the cell.
+   */
+  backgroundColor?: {  color?: {  rgbColor?: {  red?: number | undefined;
+  green?: number | undefined;
+  blue?: number | undefined;};};};
+  /**
+   * Left border style.
+   */
+  borderLeft?: {  color?: {  color?: {  rgbColor?: {  red?: number | undefined;
+  green?: number | undefined;
+  blue?: number | undefined;};};};
+  width?: {  magnitude: number;
+  unit: string;} | undefined;
+  /**
+   * Border dash style. Example: "SOLID", "DOT", "DASH".
+   */
+  dashStyle?: string | undefined;};
+  /**
+   * Right border style.
+   */
+  borderRight?: {  color?: {  color?: {  rgbColor?: {  red?: number | undefined;
+  green?: number | undefined;
+  blue?: number | undefined;};};};
+  width?: {  magnitude: number;
+  unit: string;} | undefined;
+  /**
+   * Border dash style. Example: "SOLID", "DOT", "DASH".
+   */
+  dashStyle?: string | undefined;};
+  /**
+   * Top border style.
+   */
+  borderTop?: {  color?: {  color?: {  rgbColor?: {  red?: number | undefined;
+  green?: number | undefined;
+  blue?: number | undefined;};};};
+  width?: {  magnitude: number;
+  unit: string;} | undefined;
+  /**
+   * Border dash style. Example: "SOLID", "DOT", "DASH".
+   */
+  dashStyle?: string | undefined;};
+  /**
+   * Bottom border style.
+   */
+  borderBottom?: {  color?: {  color?: {  rgbColor?: {  red?: number | undefined;
+  green?: number | undefined;
+  blue?: number | undefined;};};};
+  width?: {  magnitude: number;
+  unit: string;} | undefined;
+  /**
+   * Border dash style. Example: "SOLID", "DOT", "DASH".
+   */
+  dashStyle?: string | undefined;};
+  /**
+   * Left padding.
+   */
+  paddingLeft?: {  magnitude: number;
+  unit: string;} | undefined;
+  /**
+   * Right padding.
+   */
+  paddingRight?: {  magnitude: number;
+  unit: string;} | undefined;
+  /**
+   * Top padding.
+   */
+  paddingTop?: {  magnitude: number;
+  unit: string;} | undefined;
+  /**
+   * Bottom padding.
+   */
+  paddingBottom?: {  magnitude: number;
+  unit: string;} | undefined;
+  /**
+   * Vertical content alignment. Example: "TOP", "MIDDLE", "BOTTOM".
+   */
+  contentAlignment?: string | undefined;};
+  /**
+   * Field mask for properties to update. Example: "backgroundColor" or "*". The root tableCellStyle is implied.
+   */
+  fields: string;
+};
+
+export interface ActionOutput_google_docs_updatetablecellstyle {
+  documentId: string;
+  replies?: unknown[] | undefined;
+};
+
+export interface ActionInput_google_docs_updatetablecolumnproperties {
+  /**
+   * Google Docs document ID. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"
+   */
+  documentId: string;
+  tableStartLocation: {  /**
+   * The zero-based index where the table starts in the document.
+   */
+  index: number;
+  /**
+   * The ID of the header, footer or footnote. Empty or omitted signifies the document body.
+   */
+  segmentId?: string | undefined;
+  /**
+   * The tab that the location is in. When omitted, applies to the first tab.
+   */
+  tabId?: string | undefined;};
+  /**
+   * Zero-based column indices whose properties should be updated. If empty, all columns are updated.
+   */
+  columnIndices: number[];
+  /**
+   * The column width in points (PT). Must be at least 5 points.
+   */
+  width: number;
+  /**
+   * The width type of the column. Defaults to FIXED_WIDTH when width is provided.
+   */
+  widthType?: 'EVENLY_DISTRIBUTED' | 'FIXED_WIDTH' | undefined;
+  /**
+   * The fields that should be updated. Defaults to "width,widthType".
+   */
+  fields?: string | undefined;
+};
+
+export interface ActionOutput_google_docs_updatetablecolumnproperties {
+  documentId: string;
+  replies?: ({})[] | undefined;
+};
+
+export interface ActionInput_google_docs_updatetablerowstyle {
+  /**
+   * The ID of the document to update. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"
+   */
+  documentId: string;
+  /**
+   * The location where the table starts in the document.
+   */
+  tableStartLocation: {  index: number;
+  tabId?: string | undefined;
+  segmentId?: string | undefined;};
+  /**
+   * Zero-based row indices to update. If omitted, all rows are updated.
+   */
+  rowIndices?: number[] | undefined;
+  /**
+   * The row style properties to apply.
+   */
+  tableRowStyle: {  minRowHeight?: {  magnitude: number;
+  unit: string;} | undefined;
+  preventOverflow?: boolean | undefined;
+  tableHeader?: boolean | undefined;};
+  /**
+   * Field mask for the row style update. Use "*" for all fields or specific fields like "minRowHeight".
+   */
+  fields: string;
+};
+
+export interface ActionOutput_google_docs_updatetablerowstyle {
+  documentId: string;
+  replies?: ({  [key: string]: unknown | undefined;})[];
+  writeControl?: {  requiredRevisionId?: string | undefined;};
+};
+
+export interface ActionInput_google_docs_updatetextstyle {
+  /**
+   * Google Docs document ID. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"
+   */
+  documentId: string;
+  /**
+   * Start index of the text range (inclusive).
+   */
+  startIndex: number;
+  /**
+   * End index of the text range (exclusive).
+   */
+  endIndex: number;
+  /**
+   * Segment ID for headers or footers. Omit for body.
+   */
+  segmentId?: string | undefined;
+  bold?: boolean | undefined;
+  italic?: boolean | undefined;
+  underline?: boolean | undefined;
+  strikethrough?: boolean | undefined;
+  foregroundColor?: {  color?: {  rgbColor?: {  red?: number | undefined;
+  green?: number | undefined;
+  blue?: number | undefined;};};};
+  backgroundColor?: {  color?: {  rgbColor?: {  red?: number | undefined;
+  green?: number | undefined;
+  blue?: number | undefined;};};};
+  link?: {  url?: string | undefined;
+  bookmarkId?: string | undefined;
+  headingId?: string | undefined;};
+  fontSize?: {  magnitude: number;
+  unit?: string | undefined;};
+  weightedFontFamily?: {  fontFamily: string;
+  weight?: number | undefined;};
+};
+
+export interface ActionOutput_google_docs_updatetextstyle {
+  documentId: string;
+  revisionId?: string | undefined;
 };
 
 export interface SyncMetadata_google_drive_documents {
@@ -30574,27 +37497,6 @@ export interface ActionOutput_lastpass_deleteuser {
 export interface SyncMetadata_lattice_users {
 };
 
-export interface ActionInput_lattice_scim_createuser {
-  firstName: string;
-  lastName: string;
-  email: string;
-};
-
-export interface ActionOutput_lattice_scim_createuser {
-  id: string;
-  email: string;
-  firstName: string;
-  lastName: string;
-};
-
-export interface ActionInput_lattice_scim_disableuser {
-  id: string;
-};
-
-export interface ActionOutput_lattice_scim_disableuser {
-  success: boolean;
-};
-
 export interface LeverOpportunity {
   id: string;
   name: string;
@@ -33004,26 +39906,6 @@ export interface ActionOutput_linkedin_updatepost {
 export interface SyncMetadata_luma_listevents {
 };
 
-export interface Audience {
-  id: string;
-  name: string;
-  date_created?: string | undefined;
-  list_rating?: number | undefined;
-  email_type_option?: boolean | undefined;
-  visibility?: string | undefined;
-  double_optin?: boolean | undefined;
-  has_welcome?: boolean | undefined;
-  marketing_permissions?: boolean | undefined;
-  permission_reminder?: string | undefined;
-  notify_on_subscribe?: string | undefined;
-  notify_on_unsubscribe?: string | undefined;
-  subscribe_url_short?: string | undefined;
-  subscribe_url_long?: string | undefined;
-  beamer_address?: string | undefined;
-  web_id?: number | undefined;
-  stats?: {  [key: string]: unknown | undefined;};
-};
-
 export interface Automation {
   id: string;
   create_time: string;
@@ -34891,18 +41773,6 @@ export interface DirectoryRole {
   displayName?: string | undefined;
   description?: string | undefined;
   roleTemplateId?: string | undefined;
-};
-
-export interface Group {
-  id: string;
-  name: string;
-  description?: string | undefined;
-  isDefault?: boolean | undefined;
-  isDeleted?: boolean | undefined;
-  isPublic?: boolean | undefined;
-  createdAt?: string | undefined;
-  updatedAt?: string | undefined;
-  url?: string | undefined;
 };
 
 export interface ServicePrincipal {
@@ -41516,13 +48386,6 @@ export interface FineTuningJob {
   error?: unknown | undefined;
 };
 
-export interface Model {
-  id: string;
-  object?: string | undefined;
-  created?: number | undefined;
-  owned_by?: string | undefined;
-};
-
 export interface VectorStore {
   id: string;
   object: string;
@@ -44007,14 +50870,6 @@ export interface Lead {
   fax?: string | undefined;
   secondaryEmail?: string | undefined;
   tags?: string[] | undefined;
-};
-
-export interface Pipeline {
-  id: string;
-  name?: string | undefined;
-  update_time: string;
-  add_time?: string | undefined;
-  is_deal_probability_enabled?: boolean | undefined;
 };
 
 export interface Stage {
@@ -54903,95 +61758,22 @@ export interface SetupIntent {
 
 export interface Subscription {
   id: string;
-  automatic_tax: {  enabled: boolean;
-  liability: boolean | string | null;
-  disabled_reason: string | null;};
-  billing_cycle_anchor: number;
-  billing_thresholds: string | null;
-  cancel_at: string | null;
-  cancel_at_period_end: boolean;
-  canceled_at: string | null;
-  cancellation_details: {  comment: string | null;
-  feedback: string | null;
-  reason: string | null;};
-  collection_method: string;
-  created: number;
-  currency: string;
-  current_period_end: number;
-  current_period_start: number;
-  customer: string;
-  days_until_due: number | null;
-  default_payment_method: string | null;
-  description: string | null;
-  discount: string | null;
-  discounts: string[] | null;
-  ended_at: string | null;
-  invoice_settings: {  issuer: {  type: string;};
-  account_tax_ids: null | string | string[];};
-  items: ({  id: string;
-  billing_thresholds: string | null;
-  created: number;
-  plan: {  id: string;
-  object: string;
-  active: boolean;
-  aggregate_usage?: any | undefined;
-  amount: number;
-  amount_decimal: string;
-  billing_scheme: string;
-  created: number;
-  currency: string;
-  discounts?: any | undefined;
-  interval: string;
-  interval_count: number;
-  livemode: boolean;
-  nickname?: any | undefined;
-  product: string;
-  tiers_mode?: any | undefined;
-  transform_usage?: any | undefined;
-  trial_period_days?: any | undefined;
-  usage_type: string;};
-  price: {  id: string;
-  object: string;
-  active: boolean;
-  billing_scheme: string;
-  created: number;
-  currency: string;
-  custom_unit_amount?: any | undefined;
-  livemode: boolean;
-  lookup_key?: any | undefined;
-  nickname?: any | undefined;
-  product: string;
-  recurring: {  aggregate_usage?: any | undefined;
-  interval: string;
-  interval_count: number;
-  trial_period_days?: any | undefined;
-  usage_type: string;};
-  tax_behavior: string;
-  tiers_mode?: any | undefined;
-  transform_quantity?: any | undefined;
-  type: string;
-  unit_amount: number;
-  unit_amount_decimal: string;};
-  quantity: number;
-  subscription: string;
-  tax_rates: string[];})[];
-  latest_invoice: string;
-  livemode: boolean;
-  next_pending_invoice_item_invoice: string | null;
-  on_behalf_of: string | null;
-  pause_collection: string | null;
-  payment_settings: {  payment_method_options: string | null;
-  payment_method_types: string | null;
-  save_default_payment_method: string;};
-  pending_invoice_item_interval: string | null;
-  pending_setup_intent: string | null;
-  schedule: string | null;
-  start_date: number;
   status: string;
-  transfer_data: string | null;
-  trial_end: string | null;
-  trial_settings: {  end_behavior: {  missing_payment_method: string;};};
-  trial_start: string | null;
+  customer: string;
+  created: number;
+  current_period_start?: number | undefined;
+  current_period_end?: number | undefined;
+  cancel_at_period_end?: boolean | undefined;
+  canceled_at?: number | undefined;
+  ended_at?: number | undefined;
+  collection_method?: string | undefined;
+  currency?: string | undefined;
+  description?: string | undefined;
+  metadata?: {  [key: string]: string;} | undefined;
+  items?: ({  id: string;
+  price_id?: string | undefined;
+  product_id?: string | undefined;
+  quantity?: number | undefined;})[];
 };
 
 export interface ActionInput_stripe_cancelpaymentintent {
@@ -57939,9 +64721,6 @@ export interface ActionOutput_stripe_voidinvoice {
   created?: number | undefined;
 };
 
-export interface SyncMetadata_stripe_app_subscriptions {
-};
-
 export interface TeamtailorCandidate {
   id: string;
   type: string;
@@ -58162,6 +64941,3629 @@ export interface ActionOutput_tiktok_accounts_listblockedwords {
   page_size?: number | undefined;
   total_number?: number | undefined;
   total_page?: number | undefined;};
+};
+
+export interface AdGroup {
+  id: string;
+  advertiser_id?: string | undefined;
+  campaign_id?: string | undefined;
+  adgroup_name?: string | undefined;
+  placement_type?: string | undefined;
+  budget?: number | undefined;
+  budget_mode?: string | undefined;
+  status?: string | undefined;
+  secondary_status?: string | undefined;
+  optimization_goal?: string | undefined;
+  bid_type?: string | undefined;
+  bid_price?: number | undefined;
+  promotion_type?: string | undefined;
+  schedule_start_time?: string | undefined;
+  schedule_end_time?: string | undefined;
+  create_time?: string | undefined;
+  modify_time?: string | undefined;
+};
+
+export interface Ad {
+  id: string;
+  ad_id?: string | undefined;
+  ad_name?: string | undefined;
+  campaign_id?: string | undefined;
+  adgroup_id?: string | undefined;
+  status?: string | undefined;
+  operation_status?: string | undefined;
+  create_time?: string | undefined;
+  modify_time?: string | undefined;
+};
+
+export interface SyncMetadata_tiktok_ads_ads {
+  advertiser_id: string;
+};
+
+export interface Advertiser {
+  id: string;
+  name?: string | undefined;
+  status?: string | undefined;
+  country?: string | undefined;
+  currency?: string | undefined;
+  timezone?: string | undefined;
+  advertiser_account_type?: string | undefined;
+  create_time?: number | undefined;
+};
+
+export interface SyncMetadata_tiktok_ads_audiences {
+  advertiser_id: string;
+};
+
+export interface AutomatedRule {
+  id: string;
+  rule_id?: string | undefined;
+  name?: string | undefined;
+  status?: string | undefined;
+  data_dimension?: string | undefined;
+  actions?: ({  [key: string]: unknown | undefined;})[];
+  apply_objects?: ({  [key: string]: unknown | undefined;})[];
+  conditions?: ({  [key: string]: unknown | undefined;})[];
+  notification?: {  [key: string]: unknown | undefined;};
+  rule_exec_info?: {  [key: string]: unknown | undefined;};
+  tzone?: string | undefined;
+};
+
+export interface SyncMetadata_tiktok_ads_automatedrules {
+  advertiser_id: string;
+};
+
+export interface Campaign {
+  id: string;
+  campaign_id: string;
+  advertiser_id: string;
+  campaign_name?: string | undefined;
+  campaign_type?: string | undefined;
+  budget?: number | undefined;
+  budget_mode?: string | undefined;
+  objective?: string | undefined;
+  objective_type?: string | undefined;
+  operation_status?: string | undefined;
+  secondary_status?: string | undefined;
+  create_time?: string | undefined;
+  modify_time?: string | undefined;
+};
+
+export interface SyncMetadata_tiktok_ads_campaigns {
+  advertiser_id: string;
+};
+
+export interface Catalog {
+  id: string;
+  catalog_id: string;
+  name?: string | undefined;
+  catalog_type?: string | undefined;
+  catalog_vertical?: string | undefined;
+  catalog_status?: string | undefined;
+  store_id?: string | undefined;
+  create_time?: string | undefined;
+  update_time?: string | undefined;
+  feeds?: ({  feed_id: string;
+  feed_name?: string | undefined;
+  update_mode?: string | undefined;
+  schedule_param?: unknown | undefined;
+  feed_status?: string | undefined;})[];
+};
+
+export interface SyncMetadata_tiktok_ads_catalogs {
+  advertiser_id: string;
+  bc_id?: string | undefined;
+};
+
+export interface CreativeAsset {
+  id: string;
+  image_id: string;
+  image_url?: string | undefined;
+  file_name?: string | undefined;
+  format?: string | undefined;
+  height?: number | undefined;
+  width?: number | undefined;
+  size?: number | undefined;
+  create_time?: string | undefined;
+  modify_time?: string | undefined;
+};
+
+export interface SyncMetadata_tiktok_ads_creativeassets {
+  advertiser_id: string;
+};
+
+export interface Pixel {
+  id: string;
+  pixel_id?: string | undefined;
+  pixel_name?: string | undefined;
+  pixel_code?: string | undefined;
+  pixel_category?: string | undefined;
+  create_time?: string | undefined;
+  activity_status?: string | undefined;
+  pixel_setup_mode?: string | undefined;
+  partner_name?: string | undefined;
+};
+
+export interface ReportRow {
+  id: string;
+  dimensions: {  [key: string]: unknown | undefined;};
+  metrics: {  [key: string]: unknown | undefined;};
+};
+
+export interface SyncMetadata_tiktok_ads_reports {
+  advertiser_id: string;
+  dimensions: string[];
+  metrics: string[];
+  data_level?: string | undefined;
+  report_type?: string | undefined;
+  service_type?: string | undefined;
+};
+
+export interface ActionInput_tiktok_ads_createadgroup {
+  /**
+   * Advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
+  /**
+   * Campaign ID to associate the ad group with. Example: "1234567890"
+   */
+  campaign_id: string;
+  /**
+   * Name of the ad group. Example: "My Ad Group"
+   */
+  adgroup_name: string;
+  /**
+   * Billing event for the ad group. Example: "CLICK"
+   */
+  billing_event: string;
+  /**
+   * Budget amount for the ad group. Example: 100
+   */
+  budget: number;
+  /**
+   * Budget mode. Example: "BUDGET_MODE_DAY"
+   */
+  budget_mode: string;
+  /**
+   * Optimization goal. Example: "CLICK"
+   */
+  optimization_goal: string;
+  /**
+   * Pacing type. Example: "PACING_MODE_SMOOTH"
+   */
+  pacing: string;
+  /**
+   * Schedule start time in ISO 8601 format. Example: "2026-05-26T00:00:00Z"
+   */
+  schedule_start_time: string;
+  /**
+   * Schedule type. Example: "SCHEDULE_START_END"
+   */
+  schedule_type: string;
+  /**
+   * List of placement IDs. Example: ["PLACEMENT_TIKTOK"]
+   */
+  placements?: string[] | undefined;
+  /**
+   * Placement type. Example: "PLACEMENT_TYPE_NORMAL"
+   */
+  placement_type?: string | undefined;
+  /**
+   * Age groups to target. Example: ["AGE_18_24", "AGE_25_34"]
+   */
+  age_groups?: string[] | undefined;
+  /**
+   * Gender targeting. Example: "GENDER_UNLIMITED"
+   */
+  gender?: string | undefined;
+  /**
+   * Language codes. Example: ["en"]
+   */
+  languages?: string[] | undefined;
+  /**
+   * Location IDs. Example: ["1224"]
+   */
+  location_ids?: string[] | undefined;
+  /**
+   * Operating systems. Example: ["ANDROID", "IOS"]
+   */
+  operating_systems?: string[] | undefined;
+  /**
+   * Bid type. Example: "BID_TYPE_NO_BID"
+   */
+  bid_type?: string | undefined;
+  /**
+   * Bid price. Example: 0.01
+   */
+  bid_price?: number | undefined;
+  /**
+   * Deep bid type.
+   */
+  deep_bid_type?: string | undefined;
+  /**
+   * Deep CPA bid.
+   */
+  deep_cpa_bid?: number | undefined;
+  /**
+   * Frequency cap.
+   */
+  frequency?: number | undefined;
+  /**
+   * Frequency schedule in days.
+   */
+  frequency_schedule?: number | undefined;
+  /**
+   * Whether comments are disabled.
+   */
+  comment_disabled?: boolean | undefined;
+  /**
+   * Whether sharing is disabled.
+   */
+  share_disabled?: boolean | undefined;
+  /**
+   * Whether video download is disabled.
+   */
+  video_download_disabled?: boolean | undefined;
+  /**
+   * Brand safety type. Example: "NO_BRAND_SAFETY"
+   */
+  brand_safety_type?: string | undefined;
+  /**
+   * Operation status. Example: "ENABLE"
+   */
+  operation_status?: string | undefined;
+  /**
+   * Whether the ad group is for HFSS products.
+   */
+  is_hfss?: boolean | undefined;
+  /**
+   * Whether to skip the learning phase.
+   */
+  skip_learning_phase?: boolean | undefined;
+  /**
+   * Pixel ID for tracking.
+   */
+  pixel_id?: string | undefined;
+  /**
+   * Custom conversion ID.
+   */
+  custom_conversion_id?: string | undefined;
+  /**
+   * App ID for app promotion.
+   */
+  app_id?: string | undefined;
+  /**
+   * Schedule end time in ISO 8601 format.
+   */
+  schedule_end_time?: string | undefined;
+  /**
+   * Audience IDs to include.
+   */
+  audience_ids?: string[] | undefined;
+  /**
+   * Audience IDs to exclude.
+   */
+  excluded_audience_ids?: string[] | undefined;
+  /**
+   * Interest category IDs.
+   */
+  interest_category_ids?: string[] | undefined;
+  /**
+   * Interest keyword IDs.
+   */
+  interest_keyword_ids?: string[] | undefined;
+  /**
+   * Promotion type. Example: "WEBSITE"
+   */
+  promotion_type?: string | undefined;
+};
+
+export interface ActionOutput_tiktok_ads_createadgroup {
+  adgroup_id?: string | undefined;
+  adgroup_name?: string | undefined;
+  campaign_id?: string | undefined;
+  advertiser_id?: string | undefined;
+  billing_event?: string | undefined;
+  budget?: number | undefined;
+  budget_mode?: string | undefined;
+  optimization_goal?: string | undefined;
+  pacing?: string | undefined;
+  schedule_start_time?: string | undefined;
+  schedule_type?: string | undefined;
+  placements?: string[] | undefined;
+  placement_type?: string | undefined;
+  age_groups?: string[] | undefined;
+  gender?: string | undefined;
+  languages?: string[] | undefined;
+  location_ids?: string[] | undefined;
+  operating_systems?: string[] | undefined;
+  bid_type?: string | undefined;
+  bid_price?: number | undefined;
+  deep_bid_type?: string | undefined;
+  deep_cpa_bid?: number | undefined;
+  frequency?: number | undefined;
+  frequency_schedule?: number | undefined;
+  comment_disabled?: boolean | undefined;
+  share_disabled?: boolean | undefined;
+  video_download_disabled?: boolean | undefined;
+  brand_safety_type?: string | undefined;
+  operation_status?: string | undefined;
+  is_hfss?: boolean | undefined;
+  skip_learning_phase?: boolean | undefined;
+  pixel_id?: string | undefined;
+  custom_conversion_id?: string | undefined;
+  app_id?: string | undefined;
+  schedule_end_time?: string | undefined;
+  audience_ids?: string[] | undefined;
+  excluded_audience_ids?: string[] | undefined;
+  interest_category_ids?: string[] | undefined;
+  interest_keyword_ids?: string[] | undefined;
+  promotion_type?: string | undefined;
+  create_time?: string | undefined;
+  modify_time?: string | undefined;
+};
+
+export interface ActionInput_tiktok_ads_createad {
+  /**
+   * Advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
+  /**
+   * Ad group ID to create the ad under. Example: "1866248800809074"
+   */
+  adgroup_id: string;
+  /**
+   * Array of creative objects for the ad.
+   */
+  creatives: ({  /**
+   * Name of the ad. Example: "Summer Sale Ad"
+   */
+  ad_name: string;
+  /**
+   * Ad format. Example: "SINGLE_IMAGE", "CAROUSEL", "SINGLE_VIDEO"
+   */
+  ad_format?: string | undefined;
+  /**
+   * Primary text for the ad. Example: "Shop our summer collection!"
+   */
+  ad_text?: string | undefined;
+  /**
+   * Multiple ad texts for dynamic creative.
+   */
+  ad_texts?: string[] | undefined;
+  /**
+   * Call to action button text. Example: "SHOP_NOW"
+   */
+  call_to_action?: string | undefined;
+  /**
+   * Landing page URL for the ad. Example: "https://example.com/sale"
+   */
+  landing_page_url?: string | undefined;
+  /**
+   * Video ID from the TikTok asset library.
+   */
+  video_id?: string | undefined;
+  /**
+   * Image IDs from the TikTok asset library.
+   */
+  image_ids?: string[] | undefined;
+  /**
+   * Identity ID for the ad. Required for certain placements.
+   */
+  identity_id?: string | undefined;
+  /**
+   * Identity type. Example: "CUSTOMIZED_USER", "AUTH_CODE", "TT_USER"
+   */
+  identity_type?: string | undefined;
+  /**
+   * Whether the creative is authorized.
+   */
+  creative_authorized?: boolean | undefined;
+  /**
+   * Operation status of the ad. Example: "ENABLE" or "DISABLE"
+   */
+  operation_status?: string | undefined;
+  /**
+   * Click tracking URL.
+   */
+  click_tracking_url?: string | undefined;
+  /**
+   * Impression tracking URL.
+   */
+  impression_tracking_url?: string | undefined;
+  /**
+   * AIGC disclosure type. Example: "NOT_DECLARED"
+   */
+  aigc_disclosure_type?: string | undefined;
+  /**
+   * Deeplink URL for app promotion.
+   */
+  deeplink?: string | undefined;
+  /**
+   * Deeplink type. Example: "NORMAL"
+   */
+  deeplink_type?: string | undefined;
+  /**
+   * Background music ID.
+   */
+  music_id?: string | undefined;
+  /**
+   * Page ID for instant form or landing page.
+   */
+  page_id?: number | undefined;
+  /**
+   * Phone number for call ads.
+   */
+  phone_number?: string | undefined;
+  /**
+   * Phone region calling code.
+   */
+  phone_region_calling_code?: string | undefined;
+  /**
+   * Phone region code.
+   */
+  phone_region_code?: string | undefined;
+  /**
+   * Catalog ID for catalog ads.
+   */
+  catalog_id?: string | undefined;
+  /**
+   * Product set ID for catalog ads.
+   */
+  product_set_id?: string | undefined;
+  /**
+   * SKU IDs for catalog ads.
+   */
+  sku_ids?: string[] | undefined;
+  /**
+   * Item group IDs for collection ads.
+   */
+  item_group_ids?: string[] | undefined;
+  /**
+   * TikTok Shop item ID.
+   */
+  tiktok_item_id?: string | undefined;
+  /**
+   * Card ID for playable ads.
+   */
+  card_id?: string | undefined;
+  /**
+   * Playable ad URL.
+   */
+  playable_url?: string | undefined;
+  /**
+   * Whether promotional music is disabled.
+   */
+  promotional_music_disabled?: boolean | undefined;
+  /**
+   * Auto disclaimer types.
+   */
+  auto_disclaimer_types?: string[] | undefined;
+  /**
+   * Creative type.
+   */
+  creative_type?: string | undefined;
+  /**
+   * Dark post status.
+   */
+  dark_post_status?: string | undefined;
+  /**
+   * UTM parameters.
+   */
+  utm_params?: ({  utm_campaign?: string | undefined;
+  utm_content?: string | undefined;
+  utm_medium?: string | undefined;
+  utm_source?: string | undefined;
+  utm_term?: string | undefined;})[];})[];
+};
+
+export interface ActionOutput_tiktok_ads_createad {
+  /**
+   * IDs of the created ads.
+   */
+  ad_ids: string[];
+  /**
+   * Number of successfully created ads.
+   */
+  success_count?: number | undefined;
+  /**
+   * Number of failed ad creations.
+   */
+  fail_count?: number | undefined;
+};
+
+export interface ActionInput_tiktok_ads_createaudience {
+  /**
+   * Advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
+  /**
+   * Audience name. Maximum of 128 characters.
+   */
+  custom_audience_name: string;
+  /**
+   * List of file paths returned by the upload endpoint.
+   */
+  file_paths: string[];
+  /**
+   * Encryption type. Example: "EMAIL_SHA256"
+   */
+  calculate_type: string;
+  /**
+   * Audience sub type. Enum: NORMAL, REACH_FREQUENCY. Default: NORMAL
+   */
+  audience_sub_type?: string | undefined;
+  /**
+   * Whether to enable audience enhancement. Default: false
+   */
+  audience_enhancement?: boolean | undefined;
+  /**
+   * Number of days to retain the audience. Value range: [1, 365].
+   */
+  retention_in_days?: number | undefined;
+};
+
+export interface ActionOutput_tiktok_ads_createaudience {
+  /**
+   * The ID of the created custom audience.
+   */
+  custom_audience_id: string;
+};
+
+export interface ActionInput_tiktok_ads_createautomatedrule {
+  /**
+   * Advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
+  /**
+   * Language. Default: "EN"
+   */
+  lang?: string | undefined;
+  rules: ({  actions: ({  action_type?: string | undefined;
+  frequency_info?: {  count?: number | undefined;
+  custom_frequency_type?: string | undefined;
+  time?: number | undefined;
+  /**
+   * Frequency type. Example: "ONCE", "CONTINUOUS"
+   */
+  type: string;};
+  /**
+   * Action subject type. Example: "BUDGET", "BID", "STATUS"
+   */
+  subject_type: string;
+  value?: {  limit?: number | undefined;
+  use_limit?: boolean | undefined;
+  value?: number | undefined;};
+  value_type?: string | undefined;})[];
+  apply_objects: ({  bind_type?: string | undefined;
+  /**
+   * Dimension to apply the rule to. Example: "CAMPAIGN", "ADGROUP", "AD"
+   */
+  dimension: string;
+  dimension_ids?: string[] | undefined;
+  /**
+   * Pre-condition type. Example: "ALL", "IN", "NOT_IN"
+   */
+  pre_condition_type: string;})[];
+  conditions: ({  calculation_type?: string | undefined;
+  match_type?: string | undefined;
+  range_type?: string | undefined;
+  /**
+   * Condition subject type. Example: "SPEND", "BUDGET", "COST_PER_RESULT"
+   */
+  subject_type: string;
+  values?: string[] | undefined;})[];
+  /**
+   * Rule name. Example: "Increase budget for high-performing campaigns"
+   */
+  name: string;
+  notification: {  email_setting?: {  email_exec_time?: string[] | undefined;
+  mute_option?: string | undefined;
+  no_result_notification?: boolean | undefined;
+  notification_period?: string | undefined;};
+  /**
+   * Notification type. Example: "SEND_NOTIFICATION", "NO_NOTIFICATION"
+   */
+  notification_type: string;};
+  rule_exec_info: {  exec_time?: string | undefined;
+  /**
+   * Execution time type. Example: "SCHEDULE", "CONTINUOUS"
+   */
+  exec_time_type: string;
+  time_period_info?: ({  date_type: string;
+  end_time: string;
+  num: number[];
+  start_time: string;})[] | undefined;};
+  /**
+   * Timezone. Example: "America/Los_Angeles", "UTC"
+   */
+  tzone?: string | undefined;})[];
+};
+
+export interface ActionOutput_tiktok_ads_createautomatedrule {
+  code?: number | undefined;
+  message?: string | undefined;
+  request_id?: string | undefined;
+  data?: {  success?: ({  [key: string]: unknown | undefined;})[];
+  failed?: ({  [key: string]: unknown | undefined;})[];};
+};
+
+export interface ActionInput_tiktok_ads_createcampaign {
+  /**
+   * Advertiser ID. Example: "123456789"
+   */
+  advertiser_id: string;
+  /**
+   * Campaign name. Example: "Summer Sale 2024"
+   */
+  campaign_name: string;
+  /**
+   * Objective type. Example: "TRAFFIC", "APP_PROMOTION", "LEAD_GENERATION"
+   */
+  objective_type: string;
+  /**
+   * App ID for app promotion campaigns.
+   */
+  app_id?: string | undefined;
+  /**
+   * App promotion type. Example: "APP_INSTALL", "APP_RETARGETING"
+   */
+  app_promotion_type?: string | undefined;
+  /**
+   * Bid type. Example: "BID_TYPE_NO_BID", "BID_TYPE_TARGET_COST"
+   */
+  bid_type?: string | undefined;
+  /**
+   * Campaign budget.
+   */
+  budget?: number | undefined;
+  /**
+   * Budget mode. Example: "BUDGET_MODE_DAY", "BUDGET_MODE_TOTAL"
+   */
+  budget_mode?: string | undefined;
+  /**
+   * Whether budget optimization is enabled.
+   */
+  budget_optimize_on?: boolean | undefined;
+  /**
+   * Campaign app profile page state.
+   */
+  campaign_app_profile_page_state?: string | undefined;
+  /**
+   * Campaign product source.
+   */
+  campaign_product_source?: string | undefined;
+  /**
+   * Campaign type. Example: "REGULAR_CAMPAIGN", "IOS14_CAMPAIGN"
+   */
+  campaign_type?: string | undefined;
+  /**
+   * Whether catalog is enabled.
+   */
+  catalog_enabled?: boolean | undefined;
+  /**
+   * Deep bid type.
+   */
+  deep_bid_type?: string | undefined;
+  /**
+   * Whether to disable SKAN campaign.
+   */
+  disable_skan_campaign?: boolean | undefined;
+  /**
+   * Internal channel.
+   */
+  internal_channel?: string | undefined;
+  /**
+   * Whether this is an advanced dedicated campaign.
+   */
+  is_advanced_dedicated_campaign?: boolean | undefined;
+  /**
+   * Whether this is a search campaign.
+   */
+  is_search_campaign?: boolean | undefined;
+  /**
+   * Operation status. Example: "ENABLE", "DISABLE". Default: "ENABLE"
+   */
+  operation_status?: string | undefined;
+  /**
+   * Optimization goal.
+   */
+  optimization_goal?: string | undefined;
+  /**
+   * Plugin partner.
+   */
+  plugin_partner?: string | undefined;
+  /**
+   * Purchase order number.
+   */
+  po_number?: string | undefined;
+  /**
+   * Postback window mode.
+   */
+  postback_window_mode?: string | undefined;
+  /**
+   * Request ID for idempotency.
+   */
+  request_id?: string | undefined;
+  /**
+   * Reach and frequency campaign type.
+   */
+  rf_campaign_type?: string | undefined;
+  /**
+   * ROAS bid value.
+   */
+  roas_bid?: number | undefined;
+  /**
+   * Whether RTA bid is enabled.
+   */
+  rta_bid_enabled?: boolean | undefined;
+  /**
+   * RTA ID.
+   */
+  rta_id?: string | undefined;
+  /**
+   * Whether RTA product selection is enabled.
+   */
+  rta_product_selection_enabled?: boolean | undefined;
+  /**
+   * Sales destination.
+   */
+  sales_destination?: string | undefined;
+  /**
+   * Special industries.
+   */
+  special_industries?: string[] | undefined;
+  /**
+   * Virtual objective type.
+   */
+  virtual_objective_type?: string | undefined;
+};
+
+export interface ActionOutput_tiktok_ads_createcampaign {
+  campaign_id?: string | undefined;
+  campaign_name?: string | undefined;
+  code: number;
+  message: string;
+  request_id?: string | undefined;
+};
+
+export interface ActionInput_tiktok_ads_createcatalogfeed {
+  /**
+   * Business Center ID. Example: "123456789"
+   */
+  bc_id: string;
+  /**
+   * Catalog ID. Example: "123456789"
+   */
+  catalog_id: string;
+  /**
+   * Name of the feed. Example: "My Product Feed"
+   */
+  feed_name: string;
+  /**
+   * Update mode. Example: "INCREMENTAL" or "OVERWRITE"
+   */
+  update_mode: string;
+  schedule_param?: {  day_of_month?: number | undefined;
+  hour?: number | undefined;
+  interval_count?: number | undefined;
+  interval_type?: string | undefined;
+  minute?: number | undefined;
+  source?: {  password?: string | undefined;
+  uri?: string | undefined;
+  username?: string | undefined;};
+  timezone?: string | undefined;};
+};
+
+export interface ActionOutput_tiktok_ads_createcatalogfeed {
+  feed_id: string;
+};
+
+export interface ActionInput_tiktok_ads_createcatalog {
+  /**
+   * Advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
+  /**
+   * Name of the catalog. Example: "My Catalog"
+   */
+  name: string;
+  /**
+   * Type of the catalog.
+   */
+  catalog_type: 'AUTO_VEHICLE' | 'AUTO_MODEL' | 'HOTEL' | 'DESTINATION' | 'FLIGHT' | 'MINI_SERIES' | 'RECRUITMENT' | 'COMIC' | 'ECOM' | 'HOME_LISTING' | 'ENTERTAINMENT';
+  /**
+   * Catalog configuration including currency and region.
+   */
+  catalog_conf: {  business_platform?: string | undefined;
+  channel?: string | undefined;
+  /**
+   * Currency code for the catalog. Example: "USD"
+   */
+  currency: string;
+  /**
+   * Region code for the catalog. Example: "US"
+   */
+  region_code: string;};
+  /**
+   * Creative asset type.
+   */
+  creative_asset_type?: string | undefined;
+};
+
+export interface ActionOutput_tiktok_ads_createcatalog {
+  catalog_id?: string | undefined;
+  code?: number | undefined;
+  message?: string | undefined;
+};
+
+export interface ActionInput_tiktok_ads_createcreativeasset {
+  /**
+   * Advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
+  /**
+   * Image upload method
+   */
+  upload_type: 'UPLOAD_BY_URL' | 'UPLOAD_BY_FILE_ID';
+  /**
+   * Image URL. Required when upload_type is UPLOAD_BY_URL
+   */
+  image_url?: string | undefined;
+  /**
+   * File ID. Required when upload_type is UPLOAD_BY_FILE_ID
+   */
+  file_id?: string | undefined;
+  /**
+   * Image name. Length limit: 1-100 characters
+   */
+  file_name?: string | undefined;
+};
+
+export interface ActionOutput_tiktok_ads_createcreativeasset {
+  image_id: string;
+  width?: number | undefined;
+  height?: number | undefined;
+  file_size?: number | undefined;
+  type?: string | undefined;
+  signature?: string | undefined;
+  preview_url?: string | undefined;
+};
+
+export interface ActionInput_tiktok_ads_creategmvmaxcampaign {
+  /**
+   * Advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
+  /**
+   * Campaign name. Example: "My GMV Max Campaign"
+   */
+  campaign_name: string;
+  /**
+   * Unique request ID for idempotency. Example: "req-123"
+   */
+  request_id: string;
+  /**
+   * Campaign start time in ISO 8601 format. Example: "2024-01-01T00:00:00Z"
+   */
+  schedule_start_time: string;
+  /**
+   * Schedule type. Example: "STARTEND" or "FROM_NOW"
+   */
+  schedule_type: string;
+  /**
+   * Shopping ads type. Example: "PRODUCT_SALE"
+   */
+  shopping_ads_type: string;
+  /**
+   * Store authorized business center ID. Example: "123456"
+   */
+  store_authorized_bc_id: string;
+  /**
+   * Store ID. Example: "123456"
+   */
+  store_id: string;
+  /**
+   * Deep bid type. Example: "ROI"
+   */
+  deep_bid_type: string;
+  /**
+   * Optimization goal. Example: "GMV_MAX"
+   */
+  optimization_goal: string;
+  affiliate_posts_enabled?: boolean | undefined;
+  auto_budget_enabled?: boolean | undefined;
+  budget?: number | undefined;
+  custom_anchor_video_list?: ({  identity_info?: {  identity_authorized_bc_id?: string | undefined;
+  identity_authorized_shop_id?: string | undefined;
+  identity_id: string;
+  identity_type: string;
+  store_id?: string | undefined;};
+  item_id?: string | undefined;
+  spu_id_list?: string[] | undefined;})[];
+  identity_list?: ({  identity_authorized_bc_id?: string | undefined;
+  identity_authorized_shop_id?: string | undefined;
+  identity_id: string;
+  identity_type: string;
+  store_id?: string | undefined;})[];
+  item_group_ids?: string[] | undefined;
+  item_list?: ({  identity_info?: {  identity_authorized_bc_id?: string | undefined;
+  identity_authorized_shop_id?: string | undefined;
+  identity_id: string;
+  identity_type: string;
+  store_id?: string | undefined;};
+  item_id?: string | undefined;
+  spu_id_list?: string[] | undefined;
+  video_info?: {  video_id: string;} | undefined;})[];
+  product_specific_type?: string | undefined;
+  product_video_specific_type?: string | undefined;
+  promotion_days?: {  auto_schedule_enabled?: boolean | undefined;
+  custom_schedule_list?: ({  end_date: string;
+  schedule_type?: string | undefined;
+  start_date: string;})[];
+  is_enabled?: boolean | undefined;
+  roas_bid_multiplier?: number | undefined;};
+  roas_bid?: number | undefined;
+  schedule_end_time?: string | undefined;
+};
+
+export interface ActionOutput_tiktok_ads_creategmvmaxcampaign {
+  campaign_id?: string | undefined;
+  campaign_name?: string | undefined;
+};
+
+export interface ActionInput_tiktok_ads_createpixel {
+  /**
+   * Advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
+  /**
+   * Pixel name. Example: "My Pixel"
+   */
+  pixel_name: string;
+  /**
+   * Partner name. Example: "Shopify"
+   */
+  partner_name?: string | undefined;
+  /**
+   * Pixel category. Example: "ECOMMERCE"
+   */
+  pixel_category?: string | undefined;
+};
+
+export interface ActionOutput_tiktok_ads_createpixel {
+  pixel_id: string;
+  pixel_code?: string | undefined;
+  pixel_name?: string | undefined;
+  status?: string | undefined;
+  pixel_category?: string | undefined;
+  partner_name?: string | undefined;
+  advertiser_id?: string | undefined;
+};
+
+export interface ActionInput_tiktok_ads_createsmartplusad {
+  /**
+   * Advertiser ID. Example: 7644143197428744199
+   */
+  advertiser_id: string;
+  /**
+   * Ad group ID. Example: 1866248998099217
+   */
+  adgroup_id: string;
+  /**
+   * Ad name
+   */
+  ad_name: string;
+  /**
+   * Operation status. Default: ENABLE
+   */
+  operation_status?: string | undefined;
+  creative_list?: ({  creative_info: {  /**
+   * Ad format. Example: SINGLE_VIDEO
+   */
+  ad_format: string;
+  aigc_disclosure_type?: string | undefined;
+  identity_authorized_bc_id?: string | undefined;
+  identity_id?: string | undefined;
+  identity_type?: string | undefined;
+  image_info?: ({  /**
+   * Image ID
+   */
+  web_uri: string;})[] | undefined;
+  music_info?: {  /**
+   * Music ID
+   */
+  music_id: string;} | undefined;
+  tiktok_item_id?: string | undefined;
+  video_info?: {  /**
+   * Video ID
+   */
+  video_id: string;
+  file_name?: string | undefined;};};})[];
+  ad_text_list?: ({  ad_text: string;})[] | undefined;
+  auto_message_list?: ({  auto_message_id: string;})[] | undefined;
+  call_to_action_list?: ({  call_to_action: string;})[] | undefined;
+  interactive_add_on_list?: ({  card_id: string;})[] | undefined;
+  page_list?: ({  page_id: string;})[] | undefined;
+  landing_page_url_list?: ({  landing_page_url?: string | undefined;})[];
+  deeplink_list?: ({  deeplink?: string | undefined;
+  deeplink_type?: string | undefined;})[];
+  ad_configuration?: {  identity_type?: string | undefined;
+  identity_id?: string | undefined;
+  dark_post_status?: string | undefined;
+  product_specific_type?: string | undefined;
+  product_set_id?: string | undefined;
+  product_ids?: string[] | undefined;
+  catalog_creative_toggle?: boolean | undefined;
+  call_to_action_id?: string | undefined;
+  end_card_cta?: string | undefined;
+  product_display_field_list?: string[] | undefined;
+  auto_disclaimer_types?: string[] | undefined;
+  fallback_type?: string | undefined;
+  phone_info?: {  phone_number?: string | undefined;
+  phone_region_calling_code?: string | undefined;
+  phone_region_code?: string | undefined;};
+  tracking_info?: {  impression_tracking_url?: string | undefined;
+  click_tracking_url?: string | undefined;
+  tracking_app_id?: string | undefined;
+  tracking_message_event_set_id?: string | undefined;};
+  utm_params?: ({  key?: string | undefined;
+  value?: string | undefined;})[];};
+};
+
+export interface ActionOutput_tiktok_ads_createsmartplusad {
+  /**
+   * The ID of the created Smart+ ad
+   */
+  smart_plus_ad_id: string;
+  advertiser_id?: string | undefined;
+  campaign_id?: string | undefined;
+  adgroup_id?: string | undefined;
+  ad_name?: string | undefined;
+  operation_status?: string | undefined;
+  create_time?: string | undefined;
+  modify_time?: string | undefined;
+};
+
+export interface ActionInput_tiktok_ads_createsmartplusadgroup {
+  /**
+   * Advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
+  /**
+   * Campaign ID. Example: "1866249031553154"
+   */
+  campaign_id: string;
+  /**
+   * Ad group name.
+   */
+  adgroup_name: string;
+  /**
+   * Billing event. Example: "CPC"
+   */
+  billing_event: string;
+  /**
+   * Optimization goal. Example: "CLICK"
+   */
+  optimization_goal: string;
+  /**
+   * Promotion type. Example: "WEBSITE"
+   */
+  promotion_type: string;
+  /**
+   * Request ID for idempotency. Example: "req-123"
+   */
+  request_id: string;
+  /**
+   * Schedule start time. Format: YYYY-MM-DD HH:MM:SS
+   */
+  schedule_start_time: string;
+  /**
+   * Schedule type. Example: "SCHEDULE_START_END"
+   */
+  schedule_type: string;
+  /**
+   * Targeting specifications.
+   */
+  targeting_spec: {  actions?: ({})[] | undefined;
+  age_groups?: string[] | undefined;
+  audience_ids?: string[] | undefined;
+  blocked_pangle_app_ids?: string[] | undefined;
+  carrier_ids?: string[] | undefined;
+  device_model_ids?: string[] | undefined;
+  device_price_ranges?: number[] | undefined;
+  excluded_audience_ids?: string[] | undefined;
+  excluded_pangle_audience_package_ids?: string[] | undefined;
+  gender?: string | undefined;
+  household_income?: string[] | undefined;
+  included_pangle_audience_package_ids?: string[] | undefined;
+  interest_category_ids?: string[] | undefined;
+  interest_keyword_ids?: string[] | undefined;
+  isp_ids?: string[] | undefined;
+  languages?: string[] | undefined;
+  location_ids?: string[] | undefined;
+  min_android_version?: string | undefined;
+  min_ios_version?: string | undefined;
+  network_types?: string[] | undefined;
+  operating_systems?: string[] | undefined;
+  purchase_intention_keyword_ids?: string[] | undefined;
+  saved_audience_id?: string | undefined;
+  smart_audience_enabled?: boolean | undefined;
+  smart_interest_behavior_enabled?: boolean | undefined;
+  spc_audience_age?: string | undefined;
+  spending_power?: string | undefined;
+  zipcode_ids?: string[] | undefined;};
+  app_id?: string | undefined;
+  bid_price?: number | undefined;
+  bid_type?: string | undefined;
+  budget?: number | undefined;
+  budget_mode?: string | undefined;
+  catalog_authorized_bc_id?: string | undefined;
+  catalog_id?: string | undefined;
+  click_attribution_window?: string | undefined;
+  comment_disabled?: boolean | undefined;
+  conversion_bid_price?: number | undefined;
+  custom_conversion_id?: string | undefined;
+  dayparting?: string | undefined;
+  deep_bid_type?: string | undefined;
+  deep_cpabid?: number | undefined;
+  deep_funnel_event_source?: string | undefined;
+  deep_funnel_event_source_id?: string | undefined;
+  deep_funnel_optimization_event?: string | undefined;
+  deep_funnel_optimization_status?: string | undefined;
+  engaged_view_attribution_window?: string | undefined;
+  identity_authorized_bc_id?: string | undefined;
+  identity_id?: string | undefined;
+  identity_type?: string | undefined;
+  message_event_set_id?: string | undefined;
+  messaging_app_account_id?: string | undefined;
+  messaging_app_type?: string | undefined;
+  min_budget?: number | undefined;
+  movie_premiere_date?: string | undefined;
+  open_api_partner?: string | undefined;
+  operation_status?: string | undefined;
+  optimization_event?: string | undefined;
+  phone_info?: {} | undefined;
+  pixel_id?: string | undefined;
+  placement_type?: string | undefined;
+  placements?: string[] | undefined;
+  product_source?: string | undefined;
+  promotion_target_type?: string | undefined;
+  promotion_website_type?: string | undefined;
+  roas_bid?: number | undefined;
+  schedule_end_time?: string | undefined;
+  share_disabled?: boolean | undefined;
+  suggestion_audience_enabled?: boolean | undefined;
+  targeting_optimization_mode?: string | undefined;
+  vbo_window?: string | undefined;
+  video_download_disabled?: boolean | undefined;
+  view_attribution_window?: string | undefined;
+  zalo_id_type?: string | undefined;
+};
+
+export interface ActionOutput_tiktok_ads_createsmartplusadgroup {
+  adgroup_id?: string | undefined;
+  code: number;
+  message: string;
+  request_id?: string | undefined;
+};
+
+export interface ActionInput_tiktok_ads_createsmartpluscampaign {
+  /**
+   * Advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
+  /**
+   * Campaign name. Example: "Smart+ Campaign"
+   */
+  campaign_name: string;
+  /**
+   * Campaign objective type. Example: "WEB_CONVERSIONS"
+   */
+  objective_type: string;
+  /**
+   * Unique request ID for idempotency. Example: "req-123"
+   */
+  request_id: string;
+  /**
+   * App ID. Example: "123456"
+   */
+  app_id?: string | undefined;
+  /**
+   * App promotion type. Example: "APP_INSTALL"
+   */
+  app_promotion_type?: string | undefined;
+  /**
+   * Bid align type. Example: "BID_ALIGN"
+   */
+  bid_align_type?: string | undefined;
+  /**
+   * Campaign budget. Example: 100
+   */
+  budget?: number | undefined;
+  /**
+   * Budget mode. Example: "BUDGET_MODE_DAY"
+   */
+  budget_mode?: string | undefined;
+  /**
+   * Whether budget optimization is enabled.
+   */
+  budget_optimize_on?: boolean | undefined;
+  /**
+   * Campaign app profile page state.
+   */
+  campaign_app_profile_page_state?: string | undefined;
+  /**
+   * Campaign type.
+   */
+  campaign_type?: string | undefined;
+  /**
+   * Whether catalog is enabled.
+   */
+  catalog_enabled?: boolean | undefined;
+  /**
+   * Catalog type.
+   */
+  catalog_type?: string | undefined;
+  /**
+   * Whether to disable SKAN campaign.
+   */
+  disable_skan_campaign?: boolean | undefined;
+  /**
+   * Whether this is an advanced dedicated campaign.
+   */
+  is_advanced_dedicated_campaign?: boolean | undefined;
+  /**
+   * Whether this is a promotional campaign.
+   */
+  is_promotional_campaign?: boolean | undefined;
+  /**
+   * Open API partner name.
+   */
+  open_api_partner?: string | undefined;
+  /**
+   * Operation status. Example: "ENABLE"
+   */
+  operation_status?: string | undefined;
+  /**
+   * Purchase order number.
+   */
+  po_number?: string | undefined;
+  /**
+   * Postback window mode.
+   */
+  postback_window_mode?: string | undefined;
+  /**
+   * Sales destination.
+   */
+  sales_destination?: string | undefined;
+  /**
+   * Special industries.
+   */
+  special_industries?: string[] | undefined;
+};
+
+export interface ActionOutput_tiktok_ads_createsmartpluscampaign {
+  campaign_id: string;
+};
+
+export interface ActionInput_tiktok_ads_deleteadgroup {
+  /**
+   * Advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
+  /**
+   * Ad group ID to delete. Example: "1234567890"
+   */
+  adgroup_id: string;
+};
+
+export interface ActionOutput_tiktok_ads_deleteadgroup {
+  adgroup_id: string;
+  request_id?: string | undefined;
+};
+
+export interface ActionInput_tiktok_ads_deletead {
+  /**
+   * The advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
+  /**
+   * The ad ID to delete. Example: "1234567890123456"
+   */
+  ad_id: string;
+};
+
+export interface ActionOutput_tiktok_ads_deletead {
+  success: boolean;
+  ad_id: string;
+  request_id?: string | undefined;
+};
+
+export interface ActionInput_tiktok_ads_deleteaudience {
+  /**
+   * Advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
+  /**
+   * Custom audience ID to delete. Example: "1234567890"
+   */
+  custom_audience_id: string;
+};
+
+export interface ActionOutput_tiktok_ads_deleteaudience {
+  success: boolean;
+  custom_audience_id: string;
+  request_id?: string | undefined;
+  message?: string | undefined;
+};
+
+export interface ActionInput_tiktok_ads_deletecampaign {
+  /**
+   * Advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
+  /**
+   * Campaign ID to delete. Example: "1234567890"
+   */
+  campaign_id: string;
+};
+
+export interface ActionOutput_tiktok_ads_deletecampaign {
+  success: boolean;
+  campaign_id: string;
+  message?: string | undefined;
+};
+
+export interface ActionInput_tiktok_ads_deletecatalogfeed {
+  /**
+   * Business Center ID. Example: "1234567890123456789"
+   */
+  bc_id: string;
+  /**
+   * Catalog ID. Example: "1234567890123456789"
+   */
+  catalog_id: string;
+  /**
+   * Feed ID. Example: "1234567890123456789"
+   */
+  feed_id: string;
+};
+
+export interface ActionOutput_tiktok_ads_deletecatalogfeed {
+  success: boolean;
+  message?: string | undefined;
+  request_id?: string | undefined;
+};
+
+export interface ActionInput_tiktok_ads_deletecatalog {
+  /**
+   * Business Center ID. Example: "123456789"
+   */
+  bc_id: string;
+  /**
+   * Catalog ID. Example: "987654321"
+   */
+  catalog_id: string;
+};
+
+export interface ActionOutput_tiktok_ads_deletecatalog {
+  catalog_id: string;
+};
+
+export interface ActionInput_tiktok_ads_deletepixel {
+  /**
+   * Advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
+  /**
+   * Pixel ID to archive. Example: "1234567890"
+   */
+  pixel_id: string;
+};
+
+export interface ActionOutput_tiktok_ads_deletepixel {
+  success: boolean;
+  pixel_id: string;
+  message?: string | undefined;
+};
+
+export interface ActionInput_tiktok_ads_getadgroup {
+  /**
+   * Advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
+  /**
+   * Ad group ID. Example: "1866248998099217"
+   */
+  adgroup_id: string;
+};
+
+export interface ActionOutput_tiktok_ads_getadgroup {
+  adgroup_id: string;
+  campaign_id: string;
+  advertiser_id: string;
+  adgroup_name?: string | undefined;
+  placement_type?: string | undefined;
+  placements?: string[] | undefined;
+  budget?: number | undefined;
+  budget_mode?: string | undefined;
+  secondary_status?: string | undefined;
+  operation_status?: string | undefined;
+  optimization_goal?: string | undefined;
+  bid_type?: string | undefined;
+  bid_price?: number | undefined;
+  promotion_type?: string | undefined;
+  schedule_type?: string | undefined;
+  schedule_start_time?: string | undefined;
+  schedule_end_time?: string | undefined;
+  create_time?: string | undefined;
+  modify_time?: string | undefined;
+  gender?: string | undefined;
+  age_groups?: string[] | undefined;
+  audience_ids?: string[] | undefined;
+  audience_type?: string | undefined;
+  pixel_id?: string | undefined;
+  app_id?: string | undefined;
+  app_download_url?: string | undefined;
+  identity_id?: string | undefined;
+  identity_type?: string | undefined;
+  comment_disabled?: boolean | undefined;
+  share_disabled?: boolean | undefined;
+  creative_material_mode?: string | undefined;
+  conversion_bid_price?: number | undefined;
+  deep_bid_type?: string | undefined;
+  auto_targeting_enabled?: boolean | undefined;
+  targeting_expansion?: {  expansion_enabled?: boolean | undefined;
+  expansion_type?: string | undefined;};
+  dayparting?: string | undefined;
+  pacing?: string | undefined;
+  roas_bid?: number | undefined;
+};
+
+export interface ActionInput_tiktok_ads_getad {
+  /**
+   * Ad ID. Example: "1680067909753890"
+   */
+  ad_id: string;
+};
+
+export interface ActionOutput_tiktok_ads_getad {
+  ad_id: string;
+  advertiser_id?: string | undefined;
+  campaign_id?: string | undefined;
+  campaign_name?: string | undefined;
+  adgroup_id?: string | undefined;
+  adgroup_name?: string | undefined;
+  ad_name?: string | undefined;
+  ad_text?: string | undefined;
+  ad_texts?: string[] | undefined;
+  ad_format?: string | undefined;
+  status?: string | undefined;
+  opt_status?: string | undefined;
+  operation_status?: string | undefined;
+  secondary_status?: string | undefined;
+  create_time?: string | undefined;
+  modify_time?: string | undefined;
+  landing_page_url?: string | undefined;
+  video_id?: string | undefined;
+  image_ids?: string[] | undefined;
+  is_aco?: boolean | undefined;
+  call_to_action?: string | undefined;
+  open_url_type?: string | undefined;
+  display_name?: string | undefined;
+};
+
+export interface ActionInput_tiktok_ads_getadvertiser {
+  /**
+   * Advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
+};
+
+export interface ActionOutput_tiktok_ads_getadvertiser {
+  advertiser_id: string;
+  name?: string | undefined;
+  status?: string | undefined;
+  currency?: string | undefined;
+  timezone?: string | undefined;
+  country?: string | undefined;
+  balance?: string | number | undefined;
+  create_time?: string | number | undefined;
+  display_timezone?: string | undefined;
+  owner_bc_id?: string | undefined;
+  company_name_editable?: boolean | undefined;
+  telephone_number?: string | undefined;
+  contacter?: string | undefined;
+  cellphone_number?: string | undefined;
+  role?: string | undefined;
+  description?: string | undefined;
+  rejection_reason?: string | undefined;
+  address?: string | undefined;
+  language?: string | undefined;
+  industry?: string | undefined;
+  license_no?: string | undefined;
+  email?: string | undefined;
+  license_url?: string | undefined;
+};
+
+export interface ActionInput_tiktok_ads_getaudience {
+  /**
+   * Audience ID. Example: "1234567890"
+   */
+  audience_id: string;
+  /**
+   * Advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
+};
+
+export interface ActionOutput_tiktok_ads_getaudience {
+  audience_id: string;
+  name?: string | undefined;
+  audience_type?: string | undefined;
+  cover_num?: number | undefined;
+  is_valid?: boolean | undefined;
+  is_expiring?: boolean | undefined;
+  is_creator?: boolean | undefined;
+  shared?: boolean | undefined;
+  calculate_type?: string | undefined;
+  create_time?: string | undefined;
+  expired_time?: string | undefined;
+  audience_history?: ({  action: string;
+  editor: string;
+  msg: string;
+  opt_time: string;
+  action_detail: string;})[] | undefined;
+};
+
+export interface ActionInput_tiktok_ads_getautomatedrule {
+  /**
+   * Advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
+  /**
+   * Automated rule ID. Example: "123456789"
+   */
+  rule_id: string;
+};
+
+export interface ActionOutput_tiktok_ads_getautomatedrule {
+  rule_id: string;
+  advertiser_id?: string | undefined;
+  name?: string | undefined;
+  status?: string | undefined;
+  data_dimension?: string | undefined;
+  actions?: ({  action_type?: string | undefined;
+  subject_type?: string | undefined;
+  value_type?: string | undefined;
+  value?: unknown | undefined;})[];
+  conditions?: ({  subject_type?: string | undefined;
+  calculation_type?: string | undefined;
+  match_type?: string | undefined;
+  range_type?: string | undefined;
+  values?: string[] | undefined;})[];
+  apply_objects?: ({  object_id?: string | undefined;
+  object_type?: string | undefined;})[];
+  notification?: {  email?: string[] | undefined;};
+  rule_exec_info?: {  exec_time_type?: string | undefined;
+  exec_time?: string | undefined;
+  time_period_info?: unknown[] | undefined;};
+  tzone?: string | undefined;
+  create_time?: string | undefined;
+  modify_time?: string | undefined;
+};
+
+export interface ActionInput_tiktok_ads_getcampaign {
+  /**
+   * The advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
+  /**
+   * The campaign ID. Example: "1234567890"
+   */
+  campaign_id: string;
+};
+
+export interface ActionOutput_tiktok_ads_getcampaign {
+  campaign_id: string;
+  campaign_name: string;
+  advertiser_id: string;
+  campaign_type?: string | undefined;
+  budget?: number | undefined;
+  budget_mode?: string | undefined;
+  objective_type?: string | undefined;
+  objective?: string | undefined;
+  secondary_status?: string | undefined;
+  operation_status?: string | undefined;
+  budget_optimize_on?: boolean | undefined;
+  bid_type?: string | undefined;
+  deep_bid_type?: string | undefined;
+  optimization_goal?: string | undefined;
+  split_test_variable?: string | undefined;
+  is_new_structure?: boolean | undefined;
+  create_time?: string | undefined;
+  modify_time?: string | undefined;
+  roas_bid?: number | undefined;
+  is_smart_performance_campaign?: boolean | undefined;
+  is_search_campaign?: boolean | undefined;
+  app_promotion_type?: string | undefined;
+  rf_campaign_type?: string | undefined;
+  disable_skan_campaign?: boolean | undefined;
+  is_advanced_dedicated_campaign?: boolean | undefined;
+  rta_id?: string | undefined;
+  rta_bid_enabled?: boolean | undefined;
+  rta_product_selection_enabled?: boolean | undefined;
+  campaign_automation_type?: string | undefined;
+  virtual_objective_type?: string | undefined;
+  sales_destination?: string | undefined;
+  catalog_enabled?: boolean | undefined;
+  special_industries?: string[] | undefined;
+  app_id?: string | undefined;
+  placement_type?: string | undefined;
+};
+
+export interface ActionInput_tiktok_ads_getcatalogfeed {
+  /**
+   * Catalog ID. Example: "123456789"
+   */
+  catalog_id: string;
+  /**
+   * Business Center ID. Example: "123456789"
+   */
+  bc_id: string;
+  /**
+   * Feed ID. If provided, returns the specific feed. Example: "987654321"
+   */
+  feed_id?: string | undefined;
+};
+
+export interface ActionOutput_tiktok_ads_getcatalogfeed {
+  feeds: ({  feed_id: string;
+  feed_name: string;
+  update_mode: string;
+  schedule_param?: {  day_of_month?: number | undefined;
+  hour?: number | undefined;
+  interval_count?: number | undefined;
+  interval_type?: string | undefined;
+  minute?: number | undefined;
+  source?: {  source_type?: string | undefined;
+  source_url?: string | undefined;};
+  timezone?: string | undefined;};
+  catalog_id?: string | undefined;
+  bc_id?: string | undefined;})[];
+};
+
+export interface ActionInput_tiktok_ads_getcatalog {
+  /**
+   * Business Center ID. Example: "7644143197428744199"
+   */
+  bc_id: string;
+  /**
+   * Catalog ID. If provided, filters to the specific catalog. Example: "1234567890"
+   */
+  catalog_id?: string | undefined;
+};
+
+export interface ActionOutput_tiktok_ads_getcatalog {
+  catalogs: ({  catalog_id: string;
+  name?: string | undefined;
+  catalog_type?: string | undefined;
+  status?: string | undefined;
+  region_code?: string | undefined;
+  currency?: string | undefined;
+  create_time?: string | undefined;
+  bc_id?: string | undefined;})[];
+  page_info?: {  page: number;
+  page_size: number;
+  total_page: number;
+  total_number: number;} | undefined;
+};
+
+export interface ActionInput_tiktok_ads_getcreativeasset {
+  /**
+   * Advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
+  /**
+   * Image ID of the creative asset. Example: "ad-site-i18n-sg/20260204c7c701257607f54b4b1d87df"
+   */
+  image_id: string;
+};
+
+export interface ActionOutput_tiktok_ads_getcreativeasset {
+  image_id: string;
+  file_name?: string | undefined;
+  format?: string | undefined;
+  image_url?: string | undefined;
+  height?: number | undefined;
+  width?: number | undefined;
+  signature?: string | undefined;
+  size?: number | undefined;
+  material_id?: string | undefined;
+  is_carousel_usable?: boolean | undefined;
+  create_time?: string | undefined;
+  modify_time?: string | undefined;
+  displayable?: boolean | undefined;
+};
+
+export interface ActionInput_tiktok_ads_getgmvmaxcampaign {
+  /**
+   * Advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
+  /**
+   * GMV Max campaign ID. Example: "1866249031553154"
+   */
+  campaign_id: string;
+};
+
+export interface ActionOutput_tiktok_ads_getgmvmaxcampaign {
+  campaign?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_tiktok_ads_getpixel {
+  /**
+   * Advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
+  /**
+   * Pixel ID. Example: "1234567890123456789"
+   */
+  pixel_id: string;
+};
+
+export interface ActionOutput_tiktok_ads_getpixel {
+  pixel_id: string;
+  pixel_code?: string | undefined;
+  pixel_name?: string | undefined;
+  pixel_category?: string | undefined;
+  pixel_setup_mode?: string | undefined;
+  partner_name?: string | undefined;
+  activity_status?: string | undefined;
+  create_time?: string | undefined;
+  advanced_matching_fields?: {  [key: string]: unknown | undefined;};
+  has_pcm_config?: unknown | undefined;
+  pixel_script?: string | undefined;
+  events?: ({  [key: string]: unknown | undefined;})[];
+  asset_ownership?: {  ownership_status?: boolean | undefined;
+  asset_relation_status?: string | undefined;
+  owner_bc_id?: string | undefined;
+  updated_at?: number | undefined;};
+};
+
+export interface ActionInput_tiktok_ads_getsmartplusad {
+  /**
+   * Advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
+  /**
+   * Filter by Smart+ ad IDs.
+   */
+  smart_plus_ad_ids?: string[] | undefined;
+  /**
+   * Filter by ad group IDs.
+   */
+  adgroup_ids?: string[] | undefined;
+  /**
+   * Filter by campaign IDs.
+   */
+  campaign_ids?: string[] | undefined;
+  /**
+   * Filter by creation start time (yyyy-mm-dd hh:mm:ss).
+   */
+  creation_filter_start_time?: string | undefined;
+  /**
+   * Filter by creation end time (yyyy-mm-dd hh:mm:ss).
+   */
+  creation_filter_end_time?: string | undefined;
+  /**
+   * Filter by modified after time (yyyy-mm-dd hh:mm:ss).
+   */
+  modified_after?: string | undefined;
+  /**
+   * Filter by objective type.
+   */
+  objective_type?: string | undefined;
+  /**
+   * Filter by optimization goal.
+   */
+  optimization_goal?: string | undefined;
+  /**
+   * Filter by primary status.
+   */
+  primary_status?: string | undefined;
+  /**
+   * Filter by secondary status.
+   */
+  secondary_status?: string | undefined;
+  /**
+   * Page number. Default: 1
+   */
+  page?: number | undefined;
+  /**
+   * Page size. Default: 10
+   */
+  page_size?: number | undefined;
+  /**
+   * Specific fields to return.
+   */
+  fields?: string[] | undefined;
+};
+
+export interface ActionOutput_tiktok_ads_getsmartplusad {
+  ads: ({})[];
+  page_info?: {  page?: number | undefined;
+  page_size?: number | undefined;
+  total_number?: number | undefined;
+  total_page?: number | undefined;};
+};
+
+export interface ActionInput_tiktok_ads_getsmartplusadgroup {
+  /**
+   * Smart+ Ad Group ID. Example: "1866248800809074"
+   */
+  adgroup_id: string;
+  /**
+   * Advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
+};
+
+export interface ActionOutput_tiktok_ads_getsmartplusadgroup {
+  adgroup_id: string;
+  campaign_id: string;
+  advertiser_id: string;
+  adgroup_name?: string | undefined;
+  placement_type?: string | undefined;
+  placements?: string[] | undefined;
+  budget?: number | undefined;
+  budget_mode?: string | undefined;
+  secondary_status?: string | undefined;
+  operation_status?: string | undefined;
+  optimization_goal?: string | undefined;
+  bid_type?: string | undefined;
+  bid_price?: number | undefined;
+  promotion_type?: string | undefined;
+  creative_material_mode?: string | undefined;
+  schedule_type?: string | undefined;
+  schedule_start_time?: string | undefined;
+  schedule_end_time?: string | undefined;
+  create_time?: string | undefined;
+  modify_time?: string | undefined;
+  pixel_id?: string | undefined;
+  app_id?: string | undefined;
+  billing_event?: string | undefined;
+  targeting_spec?: {} | undefined;
+  roas_bid?: number | undefined;
+  click_attribution_window?: string | undefined;
+  view_attribution_window?: string | undefined;
+};
+
+export interface ActionInput_tiktok_ads_getsmartpluscampaign {
+  /**
+   * Advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
+  /**
+   * Campaign ID to filter by. Example: "1866249031553154"
+   */
+  campaign_id?: string | undefined;
+  /**
+   * Page number. Defaults to 1.
+   */
+  page?: number | undefined;
+  /**
+   * Page size. Defaults to 10.
+   */
+  page_size?: number | undefined;
+};
+
+export interface ActionOutput_tiktok_ads_getsmartpluscampaign {
+  campaigns: ({  campaign_id: string;
+  campaign_name: string;
+  advertiser_id: string;
+  campaign_type?: string | undefined;
+  budget?: number | undefined;
+  budget_mode?: string | undefined;
+  objective_type?: string | undefined;
+  secondary_status?: string | undefined;
+  operation_status?: string | undefined;
+  create_time?: string | undefined;
+  modify_time?: string | undefined;
+  is_smart_performance_campaign?: boolean | undefined;
+  budget_optimize_on?: boolean | undefined;})[];
+  page_info: {  total_number: number;
+  page: number;
+  page_size: number;
+  total_page: number;};
+};
+
+export interface ActionInput_tiktok_ads_gettrendingcontent {
+  /**
+   * Advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
+  /**
+   * Discovery type. Examples: HASHTAG, VIDEO, CREATOR, SONG
+   */
+  discovery_type: string;
+  /**
+   * Country code. Default: US
+   */
+  country_code?: string | undefined;
+  /**
+   * Category name. Default: ALL
+   */
+  category_name?: string | undefined;
+  /**
+   * Date range. Default: 7DAY
+   */
+  date_range?: string | undefined;
+};
+
+export interface ActionOutput_tiktok_ads_gettrendingcontent {
+  list?: ({})[] | undefined;
+  pagination?: {  page?: number | undefined;
+  page_size?: number | undefined;
+  total?: number | undefined;};
+};
+
+export interface ActionInput_tiktok_ads_listadgroups {
+  /**
+   * Advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
+  /**
+   * Filter by campaign IDs.
+   */
+  campaign_ids?: string[] | undefined;
+  /**
+   * Filter by ad group IDs.
+   */
+  adgroup_ids?: string[] | undefined;
+  /**
+   * Filter by primary status. Example: "STATUS_NOT_DELETE"
+   */
+  primary_status?: string | undefined;
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of items per page. Default: 10, Max: 1000.
+   */
+  page_size?: number | undefined;
+};
+
+export interface ActionOutput_tiktok_ads_listadgroups {
+  items: ({  adgroup_id: string;
+  campaign_id?: string | undefined;
+  advertiser_id?: string | undefined;
+  adgroup_name?: string | undefined;
+  placement_type?: string | undefined;
+  budget?: number | undefined;
+  budget_mode?: string | undefined;
+  secondary_status?: string | undefined;
+  operation_status?: string | undefined;
+  optimization_goal?: string | undefined;
+  promotion_type?: string | undefined;
+  creative_material_mode?: string | undefined;
+  schedule_type?: string | undefined;
+  schedule_start_time?: string | undefined;
+  schedule_end_time?: string | undefined;
+  create_time?: string | undefined;
+  modify_time?: string | undefined;})[];
+  next_cursor?: string | undefined;
+  page_info?: {  page: number;
+  page_size: number;
+  total_number: number;
+  total_page: number;} | undefined;
+};
+
+export interface ActionInput_tiktok_ads_listads {
+  /**
+   * TikTok Advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of records per page. Maximum is 1000.
+   */
+  page_size?: number | undefined;
+  filtering?: {  ad_ids?: string[] | undefined;
+  ad_name?: string | undefined;
+  adgroup_ids?: string[] | undefined;
+  buying_types?: string[] | undefined;
+  campaign_ids?: string[] | undefined;
+  campaign_system_origins?: string[] | undefined;
+  creation_filter_end_time?: string | undefined;
+  creation_filter_start_time?: string | undefined;
+  creative_material_mode?: string | undefined;
+  destination?: string | undefined;
+  modified_after?: string | undefined;
+  objective_type?: string | undefined;
+  optimization_goal?: string | undefined;
+  primary_status?: string | undefined;
+  secondary_status?: string | undefined;};
+};
+
+export interface ActionOutput_tiktok_ads_listads {
+  items: ({  [key: string]: unknown | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_tiktok_ads_listadvertisers {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_tiktok_ads_listadvertisers {
+  items: ({  advertiser_id: string;
+  advertiser_name?: string | undefined;
+  status?: string | undefined;
+  create_time?: string | undefined;
+  role?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_tiktok_ads_listaudiences {
+  /**
+   * Advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Page size. Value range: 1-100. Default: 10.
+   */
+  page_size?: number | undefined;
+};
+
+export interface ActionOutput_tiktok_ads_listaudiences {
+  items: ({  audience_id: string;
+  name?: string | undefined;
+  audience_type?: string | undefined;
+  cover_num?: number | undefined;
+  is_valid?: boolean | undefined;
+  is_expiring?: boolean | undefined;
+  is_creator?: boolean | undefined;
+  shared?: boolean | undefined;
+  calculate_type?: string | undefined;
+  create_time?: string | undefined;
+  expired_time?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_tiktok_ads_listautomatedrules {
+  /**
+   * Advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
+  filtering?: {  action?: string | undefined;
+  data_dimension?: string | undefined;
+  rule_info?: string[] | undefined;
+  status?: string | undefined;
+  time?: string[] | undefined;};
+  /**
+   * Page number. Default: 1
+   */
+  page?: number | undefined;
+  /**
+   * Page size. Default: 10
+   */
+  page_size?: number | undefined;
+  /**
+   * Timezone. Default: UTC
+   */
+  tzone?: string | undefined;
+};
+
+export interface ActionOutput_tiktok_ads_listautomatedrules {
+  items: ({  rule_id?: string | undefined;
+  name?: string | undefined;
+  status?: string | undefined;
+  action?: string | undefined;
+  data_dimension?: string | undefined;
+  tzone?: string | undefined;})[];
+  page_info?: {  page?: number | undefined;
+  page_size?: number | undefined;
+  total_number?: number | undefined;
+  total_page?: number | undefined;};
+};
+
+export interface ActionInput_tiktok_ads_listcampaigns {
+  /**
+   * Advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of items per page. Default: 10. Max: 1000.
+   */
+  page_size?: number | undefined;
+  /**
+   * Filtering criteria for campaigns.
+   */
+  filtering?: {  buying_types?: string[] | undefined;
+  campaign_ids?: string[] | undefined;
+  campaign_name?: string | undefined;
+  campaign_product_source?: string | undefined;
+  campaign_system_origins?: string[] | undefined;
+  campaign_type?: string | undefined;
+  creation_filter_end_time?: string | undefined;
+  creation_filter_start_time?: string | undefined;
+  creative_campaign_type?: string[] | undefined;
+  is_smart_performance_campaign?: boolean | undefined;
+  objective_type?: string | undefined;
+  optimization_goal?: string | undefined;
+  primary_status?: string | undefined;
+  sales_destination?: string | undefined;
+  secondary_status?: string | undefined;
+  split_test_enabled?: boolean | undefined;};
+};
+
+export interface ActionOutput_tiktok_ads_listcampaigns {
+  campaigns: ({  campaign_id: string;
+  campaign_name?: string | undefined;
+  advertiser_id?: string | undefined;
+  campaign_type?: string | undefined;
+  objective_type?: string | undefined;
+  budget?: number | undefined;
+  budget_mode?: string | undefined;
+  secondary_status?: string | undefined;
+  operation_status?: string | undefined;
+  optimization_goal?: string | undefined;
+  create_time?: string | undefined;
+  modify_time?: string | undefined;
+  is_smart_performance_campaign?: boolean | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_tiktok_ads_listcreativeassets {
+  /**
+   * Advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
+  /**
+   * Current page number. Default: 1
+   */
+  page?: number | undefined;
+  /**
+   * Page size. Default: 20. Value range: 1-100
+   */
+  page_size?: number | undefined;
+  /**
+   * Filters on the data
+   */
+  filtering?: {  /**
+   * A list of image IDs. At most 100 IDs.
+   */
+  image_ids?: string[] | undefined;
+  /**
+   * A list of material IDs. At most 100 IDs.
+   */
+  material_ids?: string[] | undefined;
+  /**
+   * Image width
+   */
+  width?: number | undefined;
+  /**
+   * Image height
+   */
+  height?: number | undefined;
+  /**
+   * Image MD5 hash
+   */
+  signature?: string | undefined;
+  /**
+   * Start time filter, in seconds
+   */
+  start_time?: number | undefined;
+  /**
+   * End time filter, in seconds
+   */
+  end_time?: number | undefined;
+  /**
+   * Whether image can be displayed
+   */
+  displayable?: boolean | undefined;};
+};
+
+export interface ActionOutput_tiktok_ads_listcreativeassets {
+  items: ({  image_id?: string | undefined;
+  format?: string | undefined;
+  image_url?: string | undefined;
+  height?: number | undefined;
+  width?: number | undefined;
+  signature?: string | undefined;
+  size?: number | undefined;
+  material_id?: string | undefined;
+  is_carousel_usable?: boolean | undefined;
+  file_name?: string | undefined;
+  create_time?: string | undefined;
+  modify_time?: string | undefined;
+  displayable?: boolean | undefined;})[];
+  page_info?: {  page?: number | undefined;
+  page_size?: number | undefined;
+  total_number?: number | undefined;
+  total_page?: number | undefined;};
+  has_more?: boolean | undefined;
+};
+
+export interface ActionInput_tiktok_ads_listpixels {
+  /**
+   * Advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
+  /**
+   * Pixel ID to filter by.
+   */
+  pixel_id?: string | undefined;
+  /**
+   * Pixel code to filter by.
+   */
+  code?: string | undefined;
+  /**
+   * Pixel name to filter by.
+   */
+  name?: string | undefined;
+  /**
+   * Sort order. Defaults to EARLIEST_CREATE.
+   */
+  order_by?: 'EARLIEST_CREATE' | 'LATEST_CREATE' | undefined;
+  /**
+   * Additional filters for the pixel list.
+   */
+  filtering?: {  available_for_catalog_only?: boolean | undefined;};
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Max 100.
+   */
+  page_size?: number | undefined;
+};
+
+export interface ActionOutput_tiktok_ads_listpixels {
+  items: ({  pixel_id: string;
+  pixel_name?: string | undefined;
+  pixel_code?: string | undefined;
+  pixel_setup_mode?: string | undefined;
+  pixel_category?: string | undefined;
+  activity_status?: string | undefined;
+  create_time?: string | undefined;
+  partner_name?: string | undefined;
+  has_pcm_config?: unknown | undefined;
+  events?: unknown[] | undefined;
+  pixel_script?: string | undefined;
+  advanced_matching_fields?: {  [key: string]: boolean;} | undefined;
+  asset_ownership?: {  owner_bc_id?: string | undefined;
+  asset_relation_status?: string | undefined;
+  updated_at?: number | undefined;
+  ownership_status?: boolean | undefined;};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_tiktok_ads_runintegratedreport {
+  /**
+   * Advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
+  /**
+   * Report type. Example: "BASIC"
+   */
+  report_type: string;
+  /**
+   * Data level. Example: "AUCTION_CAMPAIGN", "AUCTION_ADGROUP", "AUCTION_AD"
+   */
+  data_level?: string | undefined;
+  /**
+   * Dimensions to group by. Example: ["campaign_id", "stat_time_day"]
+   */
+  dimensions?: string[] | undefined;
+  /**
+   * Metrics to retrieve. Example: ["spend", "impressions", "clicks"]
+   */
+  metrics?: string[] | undefined;
+  /**
+   * Start date in YYYY-MM-DD format. Example: "2024-01-01"
+   */
+  start_date?: string | undefined;
+  /**
+   * End date in YYYY-MM-DD format. Example: "2024-01-31"
+   */
+  end_date?: string | undefined;
+  /**
+   * Filters to apply.
+   */
+  filtering?: ({  /**
+   * Filter field name. Example: "campaign_id"
+   */
+  field_name?: string | undefined;
+  /**
+   * Filter type. Example: "IN", "MATCH", "GREATER_EQUAL"
+   */
+  filter_type?: string | undefined;
+  /**
+   * The value to filter. When filter_type is IN, filter_value needs to be a valid JSON array character string.
+   */
+  filter_value?: string | undefined;})[];
+  /**
+   * Page number. Default: 1
+   */
+  page?: number | undefined;
+  /**
+   * Page size. Default: 10
+   */
+  page_size?: number | undefined;
+  /**
+   * Field to order by.
+   */
+  order_field?: string | undefined;
+  /**
+   * Order type. Example: "ASC", "DESC"
+   */
+  order_type?: string | undefined;
+  /**
+   * Query lifetime data.
+   */
+  query_lifetime?: boolean | undefined;
+  /**
+   * Enable total metrics.
+   */
+  enable_total_metrics?: boolean | undefined;
+};
+
+export interface ActionOutput_tiktok_ads_runintegratedreport {
+  code?: number | undefined;
+  message?: string | undefined;
+  request_id?: string | undefined;
+  data?: {  list?: ({  dimensions?: {  [key: string]: unknown | undefined;};
+  metrics?: {  [key: string]: unknown | undefined;};})[];
+  page_info?: {  page?: number | undefined;
+  page_size?: number | undefined;
+  total_number?: number | undefined;
+  total_page?: number | undefined;};};
+};
+
+export interface ActionInput_tiktok_ads_updateadgroup {
+  /**
+   * Advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
+  /**
+   * Ad Group ID. Example: "1866248800809074"
+   */
+  adgroup_id: string;
+  /**
+   * New name for the ad group.
+   */
+  adgroup_name?: string | undefined;
+  /**
+   * Ad group budget.
+   */
+  budget?: number | undefined;
+  /**
+   * Bid price.
+   */
+  bid_price?: number | undefined;
+  /**
+   * Bid type.
+   */
+  bid_type?: string | undefined;
+  /**
+   * Schedule start time in UTC. Example: "2026-05-27T00:00:00Z"
+   */
+  schedule_start_time?: string | undefined;
+  /**
+   * Schedule end time in UTC. Example: "2026-06-27T00:00:00Z"
+   */
+  schedule_end_time?: string | undefined;
+  /**
+   * Schedule type.
+   */
+  schedule_type?: string | undefined;
+  /**
+   * Delivery pacing.
+   */
+  pacing?: string | undefined;
+  /**
+   * Whether comments are disabled.
+   */
+  comment_disabled?: boolean | undefined;
+  /**
+   * Whether sharing is disabled.
+   */
+  share_disabled?: boolean | undefined;
+  /**
+   * Whether auto-targeting is enabled.
+   */
+  auto_targeting_enabled?: boolean | undefined;
+  /**
+   * Age groups to target.
+   */
+  age_groups?: string[] | undefined;
+  /**
+   * Gender targeting.
+   */
+  gender?: string | undefined;
+  /**
+   * Languages to target.
+   */
+  languages?: string[] | undefined;
+  /**
+   * Location IDs to target.
+   */
+  location_ids?: string[] | undefined;
+  /**
+   * Interest category IDs.
+   */
+  interest_category_ids?: string[] | undefined;
+  /**
+   * Audience IDs to include.
+   */
+  audience_ids?: string[] | undefined;
+  /**
+   * Audience IDs to exclude.
+   */
+  excluded_audience_ids?: string[] | undefined;
+  /**
+   * Operating systems to target.
+   */
+  operating_systems?: string[] | undefined;
+  /**
+   * Network types.
+   */
+  network_types?: string[] | undefined;
+  /**
+   * Dayparting schedule.
+   */
+  dayparting?: string | undefined;
+  /**
+   * Deep bid type.
+   */
+  deep_bid_type?: string | undefined;
+  /**
+   * Conversion bid price.
+   */
+  conversion_bid_price?: number | undefined;
+  /**
+   * ROAS bid.
+   */
+  roas_bid?: number | undefined;
+};
+
+export interface ActionOutput_tiktok_ads_updateadgroup {
+  adgroup_id: string;
+  success?: boolean | undefined;
+};
+
+export interface ActionInput_tiktok_ads_updatead {
+  /**
+   * Advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
+  /**
+   * Ad group ID. Example: "1866248998099217"
+   */
+  adgroup_id: string;
+  /**
+   * Array of creative objects to update. Each object must include ad_id.
+   */
+  creatives: ({  /**
+   * The ID of the ad to update.
+   */
+  ad_id: string;
+  /**
+   * The new name for the ad.
+   */
+  ad_name?: string | undefined;
+  /**
+   * The new primary text for the ad.
+   */
+  ad_text?: string | undefined;
+  /**
+   * Multiple ad texts for dynamic creative.
+   */
+  ad_texts?: string[] | undefined;
+  /**
+   * Call to action text.
+   */
+  call_to_action?: string | undefined;
+  /**
+   * Call to action ID.
+   */
+  call_to_action_id?: string | undefined;
+  /**
+   * Video asset ID.
+   */
+  video_id?: string | undefined;
+  /**
+   * Image asset IDs.
+   */
+  image_ids?: string[] | undefined;
+  /**
+   * Landing page URL.
+   */
+  landing_page_url?: string | undefined;
+  /**
+   * Deeplink URL.
+   */
+  deeplink?: string | undefined;
+  /**
+   * Deeplink type.
+   */
+  deeplink_type?: string | undefined;
+  /**
+   * Tracking pixel ID.
+   */
+  tracking_pixel_id?: string | undefined;
+  /**
+   * Music ID.
+   */
+  music_id?: string | undefined;
+  /**
+   * Page ID.
+   */
+  page_id?: string | undefined;
+  /**
+   * Whether the creative is authorized.
+   */
+  creative_authorized?: boolean | undefined;
+  /**
+   * Whether instant product page is used.
+   */
+  instant_product_page_used?: boolean | undefined;
+  /**
+   * Whether promotional music is disabled.
+   */
+  promotional_music_disabled?: boolean | undefined;
+  /**
+   * Click tracking URL.
+   */
+  click_tracking_url?: string | undefined;
+  /**
+   * Impression tracking URL.
+   */
+  impression_tracking_url?: string | undefined;
+  /**
+   * Video view tracking URL.
+   */
+  video_view_tracking_url?: string | undefined;
+  /**
+   * AIGC disclosure type.
+   */
+  aigc_disclosure_type?: string | undefined;
+  /**
+   * Identity ID.
+   */
+  identity_id?: string | undefined;
+  /**
+   * Identity type.
+   */
+  identity_type?: string | undefined;
+  /**
+   * Avatar icon web URI.
+   */
+  avatar_icon_web_uri?: string | undefined;
+  /**
+   * Display name.
+   */
+  display_name?: string | undefined;
+  /**
+   * App name.
+   */
+  app_name?: string | undefined;
+  /**
+   * Product set ID.
+   */
+  product_set_id?: string | undefined;
+  /**
+   * Product specific type.
+   */
+  product_specific_type?: string | undefined;
+  /**
+   * SKU IDs.
+   */
+  sku_ids?: string[] | undefined;
+  /**
+   * TikTok item ID.
+   */
+  tiktok_item_id?: string | undefined;
+  /**
+   * Item group IDs.
+   */
+  item_group_ids?: string[] | undefined;
+  /**
+   * Shopping ads deeplink type.
+   */
+  shopping_ads_deeplink_type?: string | undefined;
+  /**
+   * Shopping ads fallback type.
+   */
+  shopping_ads_fallback_type?: string | undefined;
+  /**
+   * Shopping ads video package ID.
+   */
+  shopping_ads_video_package_id?: string | undefined;
+  /**
+   * Dynamic destination.
+   */
+  dynamic_destination?: string | undefined;
+  /**
+   * Dynamic format.
+   */
+  dynamic_format?: string | undefined;
+  /**
+   * Carousel image index.
+   */
+  carousel_image_index?: number | undefined;
+  /**
+   * Page image index.
+   */
+  page_image_index?: number | undefined;
+  /**
+   * Dark post status.
+   */
+  dark_post_status?: string | undefined;
+  /**
+   * Item duet status.
+   */
+  item_duet_status?: string | undefined;
+  /**
+   * Item stitch status.
+   */
+  item_stitch_status?: string | undefined;
+  /**
+   * Vertical video strategy.
+   */
+  vertical_video_strategy?: string | undefined;
+  /**
+   * Creative type.
+   */
+  creative_type?: string | undefined;
+  /**
+   * Operation status.
+   */
+  operation_status?: string | undefined;
+  /**
+   * Card ID.
+   */
+  card_id?: string | undefined;
+  /**
+   * Playable URL.
+   */
+  playable_url?: string | undefined;
+  /**
+   * CPP URL.
+   */
+  cpp_url?: string | undefined;
+  /**
+   * Whether VAST Moat is enabled.
+   */
+  vast_moat_enabled?: boolean | undefined;
+  /**
+   * Brand safety postbid partner.
+   */
+  brand_safety_postbid_partner?: string | undefined;
+  /**
+   * Brand safety VAST URL.
+   */
+  brand_safety_vast_url?: string | undefined;
+  /**
+   * Viewability postbid partner.
+   */
+  viewability_postbid_partner?: string | undefined;
+  /**
+   * Viewability VAST URL.
+   */
+  viewability_vast_url?: string | undefined;
+  /**
+   * Fallback type.
+   */
+  fallback_type?: string | undefined;})[];
+  /**
+   * If true, performs a partial update of the provided fields only.
+   */
+  patch_update?: boolean | undefined;
+};
+
+export interface ActionOutput_tiktok_ads_updatead {
+  code: number;
+  message: string;
+  request_id: string;
+  data?: {  ad_ids?: string[] | undefined;};
+};
+
+export interface ActionInput_tiktok_ads_updateaudience {
+  /**
+   * Advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
+  /**
+   * Custom audience ID. Example: "1234567890"
+   */
+  custom_audience_id: string;
+  /**
+   * New name for the audience. Length limit: 128 characters.
+   */
+  custom_audience_name?: string | undefined;
+  /**
+   * Modification type for file-based updates. Default: REPLACE.
+   */
+  action?: 'APPEND' | 'REMOVE' | 'REPLACE' | undefined;
+  /**
+   * Files to upload to update the Customer File audience.
+   */
+  file_paths?: string[] | undefined;
+  /**
+   * Audience sub type. Only NORMAL to REACH_FREQUENCY is supported.
+   */
+  audience_sub_type?: 'NORMAL' | 'REACH_FREQUENCY' | undefined;
+  /**
+   * Whether to enable audience enhancement.
+   */
+  audience_enhancement?: boolean | undefined;
+};
+
+export interface ActionOutput_tiktok_ads_updateaudience {
+  custom_audience_id: string;
+  audience_name?: string | undefined;
+  audience_enhancement?: boolean | undefined;
+  audience_sub_type?: string | undefined;
+};
+
+export interface ActionInput_tiktok_ads_updateautomatedrule {
+  /**
+   * Advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
+  /**
+   * Language. Default: "EN"
+   */
+  lang?: string | undefined;
+  /**
+   * Array of rules to update
+   */
+  rules: ({  /**
+   * Rule ID to update. Example: "1234567890"
+   */
+  rule_id: string;
+  /**
+   * Rule name. Example: "My Automated Rule"
+   */
+  name: string;
+  actions: ({  /**
+   * Subject type of the action. Example: "BUDGET", "BID"
+   */
+  subject_type: string;
+  /**
+   * Action type. Example: "INCREASE", "DECREASE", "SET"
+   */
+  action_type?: string | undefined;
+  /**
+   * Value type. Example: "PERCENTAGE", "ABSOLUTE"
+   */
+  value_type?: string | undefined;
+  value?: {  limit?: number | undefined;
+  use_limit?: boolean | undefined;
+  value?: number | undefined;};
+  frequency_info?: {  /**
+   * Frequency type. Example: "ONCE", "CUSTOM"
+   */
+  type: string;
+  count?: number | undefined;
+  custom_frequency_type?: string | undefined;
+  time?: number | undefined;};})[];
+  apply_objects: ({  /**
+   * Dimension to apply the rule to. Example: "CAMPAIGN", "ADGROUP"
+   */
+  dimension: string;
+  /**
+   * Pre-condition type. Example: "ALL", "PARTIAL"
+   */
+  pre_condition_type: string;
+  bind_type?: string | undefined;
+  dimension_ids?: string[] | undefined;})[];
+  conditions: ({  /**
+   * Subject type of the condition. Example: "COST_PER_RESULT", "SPEND"
+   */
+  subject_type: string;
+  /**
+   * Calculation type. Example: "ALL_TIME", "DAILY"
+   */
+  calculation_type?: string | undefined;
+  /**
+   * Match type. Example: "GREATER_THAN", "LESS_THAN"
+   */
+  match_type?: string | undefined;
+  /**
+   * Range type. Example: "ABSOLUTE", "PERCENTAGE"
+   */
+  range_type?: string | undefined;
+  values?: string[] | undefined;})[];
+  notification: {  /**
+   * Notification type. Example: "EMAIL", "NONE"
+   */
+  notification_type: string;
+  email_setting?: {  email_exec_time?: string[] | undefined;
+  mute_option?: string | undefined;
+  no_result_notification?: boolean | undefined;
+  notification_period?: string | undefined;};};
+  rule_exec_info: {  /**
+   * Execution time type. Example: "SCHEDULED", "REALTIME"
+   */
+  exec_time_type: string;
+  /**
+   * Execution time. Example: "09:00"
+   */
+  exec_time?: string | undefined;
+  time_period_info?: ({  /**
+   * Date type. Example: "WEEKDAY", "WEEKEND"
+   */
+  date_type: string;
+  /**
+   * Start time. Example: "09:00"
+   */
+  start_time: string;
+  /**
+   * End time. Example: "18:00"
+   */
+  end_time: string;
+  num: number[];})[] | undefined;};
+  /**
+   * Timezone. Example: "UTC"
+   */
+  tzone?: string | undefined;})[];
+};
+
+export interface ActionOutput_tiktok_ads_updateautomatedrule {
+  code?: number | undefined;
+  message?: string | undefined;
+  request_id?: string | undefined;
+  data?: {} | undefined;
+};
+
+export interface ActionInput_tiktok_ads_updatecampaign {
+  /**
+   * TikTok advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
+  /**
+   * TikTok campaign ID. Example: "1234567890"
+   */
+  campaign_id: string;
+  /**
+   * Campaign budget. Example: 1000
+   */
+  budget?: number | undefined;
+  /**
+   * Campaign name. Example: "Summer Sale Campaign"
+   */
+  campaign_name?: string | undefined;
+  /**
+   * Purchase order number. Example: "PO-12345"
+   */
+  po_number?: string | undefined;
+  /**
+   * Special industries. Example: ["GAMING"]
+   */
+  special_industries?: string[] | undefined;
+};
+
+export interface ActionOutput_tiktok_ads_updatecampaign {
+  code: number;
+  message: string;
+  request_id?: string | undefined;
+  campaign_id?: string | undefined;
+};
+
+export interface ActionInput_tiktok_ads_updatecatalogfeed {
+  /**
+   * Business Center ID. Example: "1234567890"
+   */
+  bc_id: string;
+  /**
+   * Catalog ID. Example: "1234567890"
+   */
+  catalog_id: string;
+  /**
+   * Feed ID. Example: "1234567890"
+   */
+  feed_id: string;
+  /**
+   * Name of the feed. Example: "Updated Feed Name"
+   */
+  feed_name: string;
+  schedule_param?: {  day_of_month?: number | undefined;
+  hour?: number | undefined;
+  interval_count?: number | undefined;
+  interval_type?: string | undefined;
+  minute?: number | undefined;
+  source?: {  password?: string | undefined;
+  uri?: string | undefined;
+  username?: string | undefined;};
+  timezone?: string | undefined;};
+  /**
+   * Update mode. Example: "INCREMENTAL" or "REPLACE"
+   */
+  update_mode: string;
+};
+
+export interface ActionOutput_tiktok_ads_updatecatalogfeed {
+  code: number;
+  message: string;
+  request_id?: string | undefined;
+};
+
+export interface ActionInput_tiktok_ads_updategmvmaxcampaign {
+  /**
+   * Advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
+  /**
+   * Campaign ID. Example: "1866249031553154"
+   */
+  campaign_id: string;
+  campaign_name?: string | undefined;
+  budget?: number | undefined;
+  auto_budget_enabled?: boolean | undefined;
+  affiliate_posts_enabled?: boolean | undefined;
+  roas_bid?: number | undefined;
+  schedule_end_time?: string | undefined;
+  schedule_type?: string | undefined;
+  item_group_ids?: string[] | undefined;
+  custom_anchor_video_list?: ({  item_id?: string | undefined;
+  spu_id_list?: string[] | undefined;
+  identity_info?: {  /**
+   * Identity ID. Example: "123"
+   */
+  identity_id: string;
+  /**
+   * Identity type. Example: "CUSTOMIZED_USER"
+   */
+  identity_type: string;
+  identity_authorized_bc_id?: string | undefined;
+  identity_authorized_shop_id?: string | undefined;
+  store_id?: string | undefined;};})[];
+  item_list?: ({  item_id?: string | undefined;
+  spu_id_list?: string[] | undefined;
+  identity_info?: {  /**
+   * Identity ID. Example: "123"
+   */
+  identity_id: string;
+  /**
+   * Identity type. Example: "CUSTOMIZED_USER"
+   */
+  identity_type: string;
+  identity_authorized_bc_id?: string | undefined;
+  identity_authorized_shop_id?: string | undefined;
+  store_id?: string | undefined;};
+  video_info?: {  /**
+   * Video ID. Example: "v123"
+   */
+  video_id: string;} | undefined;})[];
+  promotion_days?: {  auto_schedule_enabled?: boolean | undefined;
+  is_enabled?: boolean | undefined;
+  roas_bid_multiplier?: number | undefined;
+  custom_schedule_list?: ({  start_date?: string | undefined;
+  end_date?: string | undefined;
+  schedule_type?: string | undefined;})[];};
+};
+
+export interface ActionOutput_tiktok_ads_updategmvmaxcampaign {
+  campaign_id?: string | undefined;
+  code: number;
+  message: string;
+  request_id?: string | undefined;
+};
+
+export interface ActionInput_tiktok_ads_updatepixel {
+  /**
+   * Advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
+  /**
+   * Pixel ID. Example: "1234567890"
+   */
+  pixel_id: string;
+  /**
+   * Pixel name. Maximum 128 characters.
+   */
+  pixel_name: string;
+  /**
+   * Advanced matching fields configuration.
+   */
+  advanced_matching_fields?: {  email?: boolean | undefined;
+  phone_number?: boolean | undefined;};
+};
+
+export interface ActionOutput_tiktok_ads_updatepixel {
+  pixel_id: string;
+  pixel_name: string;
+};
+
+export interface ActionInput_tiktok_ads_updatesmartplusad {
+  /**
+   * Advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
+  /**
+   * Smart+ ad ID to update. Example: "1866249031553154"
+   */
+  smart_plus_ad_id: string;
+  /**
+   * New name for the ad.
+   */
+  ad_name?: string | undefined;
+  /**
+   * List of ad text objects.
+   */
+  ad_text_list?: ({  [key: string]: unknown | undefined;})[];
+  /**
+   * List of call-to-action objects.
+   */
+  call_to_action_list?: ({  [key: string]: unknown | undefined;})[];
+  /**
+   * List of creative objects to update.
+   */
+  creative_list?: ({  creative_info: {  ad_format: string;
+  aigc_disclosure_type?: string | undefined;
+  identity_authorized_bc_id?: string | undefined;
+  identity_id?: string | undefined;
+  identity_type?: string | undefined;
+  image_info?: ({  [key: string]: unknown | undefined;})[];
+  music_info?: {  [key: string]: unknown | undefined;};
+  tiktok_item_id?: string | undefined;
+  video_info?: {  [key: string]: unknown | undefined;};};})[];
+  /**
+   * List of deeplink objects.
+   */
+  deeplink_list?: ({  [key: string]: unknown | undefined;})[];
+  /**
+   * List of interactive add-on objects.
+   */
+  interactive_add_on_list?: ({  [key: string]: unknown | undefined;})[];
+  /**
+   * List of landing page URL objects.
+   */
+  landing_page_url_list?: ({  [key: string]: unknown | undefined;})[];
+  /**
+   * List of page objects.
+   */
+  page_list?: ({  [key: string]: unknown | undefined;})[];
+  /**
+   * Ad configuration settings.
+   */
+  ad_configuration?: {  auto_disclaimer_types?: string[] | undefined;
+  call_to_action_id?: string | undefined;
+  catalog_creative_toggle?: boolean | undefined;
+  dark_post_status?: string | undefined;
+  end_card_cta?: string | undefined;
+  fallback_type?: string | undefined;
+  identity_id?: string | undefined;
+  identity_type?: string | undefined;
+  product_ids?: string[] | undefined;
+  product_set_id?: string | undefined;
+  product_specific_type?: string | undefined;
+  tracking_info?: {  [key: string]: unknown | undefined;};
+  utm_params?: ({  [key: string]: unknown | undefined;})[];};
+};
+
+export interface ActionOutput_tiktok_ads_updatesmartplusad {
+  smart_plus_ad_id: string;
+  message?: string | undefined;
+  request_id?: string | undefined;
+};
+
+export interface ActionInput_tiktok_ads_updatesmartplusadgroup {
+  /**
+   * Advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
+  /**
+   * Smart+ Ad Group ID. Example: "1866248998099217"
+   */
+  adgroup_id: string;
+  adgroup_name?: string | undefined;
+  bid_price?: number | undefined;
+  budget?: number | undefined;
+  comment_disabled?: boolean | undefined;
+  conversion_bid_price?: number | undefined;
+  dayparting?: string | undefined;
+  min_budget?: number | undefined;
+  movie_premiere_date?: string | undefined;
+  pacing?: string | undefined;
+  roas_bid?: number | undefined;
+  schedule_end_time?: string | undefined;
+  schedule_start_time?: string | undefined;
+  schedule_type?: string | undefined;
+  share_disabled?: boolean | undefined;
+  suggestion_audience_enabled?: boolean | undefined;
+  targeting_optimization_mode?: string | undefined;
+  targeting_spec?: {  actions?: ({  action_category_ids?: string[] | undefined;
+  action_period?: number | undefined;
+  action_scene?: string | undefined;
+  video_user_actions?: string[] | undefined;})[];
+  age_groups?: string[] | undefined;
+  audience_ids?: string[] | undefined;
+  blocked_pangle_app_ids?: string[] | undefined;
+  carrier_ids?: string[] | undefined;
+  device_model_ids?: string[] | undefined;
+  device_price_ranges?: number[] | undefined;
+  excluded_audience_ids?: string[] | undefined;
+  excluded_pangle_audience_package_ids?: string[] | undefined;
+  gender?: string | undefined;
+  household_income?: string[] | undefined;
+  included_pangle_audience_package_ids?: string[] | undefined;
+  interest_category_ids?: string[] | undefined;
+  interest_keyword_ids?: string[] | undefined;
+  isp_ids?: string[] | undefined;
+  languages?: string[] | undefined;
+  location_ids?: string[] | undefined;
+  min_android_version?: string | undefined;
+  min_ios_version?: string | undefined;
+  network_types?: string[] | undefined;
+  operating_systems?: string[] | undefined;
+  purchase_intention_keyword_ids?: string[] | undefined;
+  saved_audience_id?: string | undefined;
+  smart_audience_enabled?: boolean | undefined;
+  smart_interest_behavior_enabled?: boolean | undefined;
+  spc_audience_age?: string | undefined;
+  spending_power?: string | undefined;
+  zipcode_ids?: string[] | undefined;};
+};
+
+export interface ActionOutput_tiktok_ads_updatesmartplusadgroup {
+  adgroup_id: string;
+  message?: string | undefined;
+  request_id?: string | undefined;
+};
+
+export interface ActionInput_tiktok_ads_updatesmartpluscampaign {
+  /**
+   * Advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
+  /**
+   * Smart+ campaign ID. Example: "1866249031553154"
+   */
+  campaign_id: string;
+  /**
+   * New campaign name
+   */
+  campaign_name?: string | undefined;
+  /**
+   * New campaign budget
+   */
+  budget?: number | undefined;
+  /**
+   * Purchase order number
+   */
+  po_number?: string | undefined;
+};
+
+export interface ActionOutput_tiktok_ads_updatesmartpluscampaign {
+  campaign_id: string;
+  request_id?: string | undefined;
+};
+
+export interface ActionInput_tiktok_ads_uploadimage {
+  /**
+   * TikTok advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
+  /**
+   * Public URL of the image to upload. Example: "https://example.com/image.png"
+   */
+  image_url: string;
+  /**
+   * Name for the uploaded image. Example: "creative-image.png"
+   */
+  file_name?: string | undefined;
+};
+
+export interface ActionOutput_tiktok_ads_uploadimage {
+  image_id: string;
+  image_url?: string | undefined;
+  file_name?: string | undefined;
+  material_id?: string | undefined;
+  format?: string | undefined;
+  height?: number | undefined;
+  width?: number | undefined;
+  signature?: string | undefined;
+  size?: number | undefined;
+  create_time?: string | undefined;
+  modify_time?: string | undefined;
+  displayable?: boolean | undefined;
+};
+
+export interface ActionInput_tiktok_ads_uploadvideo {
+  /**
+   * TikTok Ads advertiser ID. Example: "7644143197428744199"
+   */
+  advertiser_id: string;
+  /**
+   * Upload method. UPLOAD_BY_URL or UPLOAD_BY_VIDEO_ID
+   */
+  upload_type: 'UPLOAD_BY_URL' | 'UPLOAD_BY_VIDEO_ID';
+  /**
+   * Public URL of the video. Required when upload_type is UPLOAD_BY_URL
+   */
+  video_url?: string | undefined;
+  /**
+   * Existing TikTok video ID. Required when upload_type is UPLOAD_BY_VIDEO_ID
+   */
+  video_id?: string | undefined;
+  /**
+   * Video name. Length limit: 1 - 100 characters
+   */
+  file_name?: string | undefined;
+  /**
+   * Whether to automatically bind the video to the advertiser
+   */
+  auto_bind_enabled?: boolean | undefined;
+  /**
+   * Whether to automatically fix detected issues
+   */
+  auto_fix_enabled?: boolean | undefined;
+  /**
+   * Whether to run flaw detection
+   */
+  flaw_detect?: boolean | undefined;
+  /**
+   * Whether the video is from a third party
+   */
+  is_third_party?: boolean | undefined;
+};
+
+export interface ActionOutput_tiktok_ads_uploadvideo {
+  /**
+   * Uploaded video ID
+   */
+  video_id: string;
+  /**
+   * Material ID of the uploaded video
+   */
+  material_id?: string | undefined;
+  /**
+   * API request ID for tracing
+   */
+  request_id?: string | undefined;
+};
+
+export interface UserProfile {
+  id: string;
+  open_id: string;
+  union_id?: string | undefined;
+  avatar_url?: string | undefined;
+  display_name?: string | undefined;
+  bio_description?: string | undefined;
+  profile_deep_link?: string | undefined;
+  is_verified?: boolean | undefined;
+  follower_count?: number | undefined;
+  following_count?: number | undefined;
+  likes_count?: number | undefined;
+  video_count?: number | undefined;
+};
+
+export interface Video {
+  id: string;
+  create_time?: number | undefined;
+  cover_image_url?: string | undefined;
+  share_url?: string | undefined;
+  video_description?: string | undefined;
+  duration?: number | undefined;
+  height?: number | undefined;
+  width?: number | undefined;
+  title?: string | undefined;
+  embed_html?: string | undefined;
+  embed_link?: string | undefined;
+  like_count?: number | undefined;
+  comment_count?: number | undefined;
+  share_count?: number | undefined;
+  view_count?: number | undefined;
+};
+
+export interface ActionInput_tiktok_personal_getcreatorinfo {
+};
+
+export interface ActionOutput_tiktok_personal_getcreatorinfo {
+  creator_avatar_url?: string | undefined;
+  creator_username?: string | undefined;
+  creator_nickname?: string | undefined;
+  privacy_level_options?: string[] | undefined;
+  comment_disabled?: boolean | undefined;
+  duet_disabled?: boolean | undefined;
+  stitch_disabled?: boolean | undefined;
+  max_video_post_duration_sec?: number | undefined;
+};
+
+export interface ActionInput_tiktok_personal_getpublishstatus {
+  /**
+   * The publish ID returned when initializing a post. Example: "v1234567890"
+   */
+  publish_id: string;
+};
+
+export interface ActionOutput_tiktok_personal_getpublishstatus {
+  status: string;
+  fail_reason?: string | undefined;
+  publicaly_available_post_id?: string[] | undefined;
+  uploaded_bytes?: number | undefined;
+  downloaded_bytes?: number | undefined;
+};
+
+export interface ActionInput_tiktok_personal_getuserinfo {
+  /**
+   * Specific user fields to request. Defaults to basic profile fields.
+   */
+  fields?: string[] | undefined;
+};
+
+export interface ActionOutput_tiktok_personal_getuserinfo {
+  open_id?: string | undefined;
+  union_id?: string | undefined;
+  avatar_url?: string | undefined;
+  avatar_url_100?: string | undefined;
+  avatar_large_url?: string | undefined;
+  display_name?: string | undefined;
+  bio_description?: string | undefined;
+  profile_deep_link?: string | undefined;
+  is_verified?: boolean | undefined;
+  username?: string | undefined;
+  follower_count?: number | undefined;
+  following_count?: number | undefined;
+  likes_count?: number | undefined;
+  video_count?: number | undefined;
+};
+
+export interface ActionInput_tiktok_personal_getuserprofile {
+};
+
+export interface ActionOutput_tiktok_personal_getuserprofile {
+  bio_description?: string | undefined;
+  profile_deep_link?: string | undefined;
+  is_verified?: boolean | undefined;
+};
+
+export interface ActionInput_tiktok_personal_getuserstats {
+};
+
+export interface ActionOutput_tiktok_personal_getuserstats {
+  follower_count?: number | undefined;
+  following_count?: number | undefined;
+  likes_count?: number | undefined;
+  video_count?: number | undefined;
+};
+
+export interface ActionInput_tiktok_personal_getvideo {
+  /**
+   * TikTok video ID. Example: "7077642457847991554"
+   */
+  video_id: string;
+};
+
+export interface ActionOutput_tiktok_personal_getvideo {
+  id: string;
+  create_time?: number | undefined;
+  cover_image_url?: string | undefined;
+  share_url?: string | undefined;
+  video_description?: string | undefined;
+  duration?: number | undefined;
+  height?: number | undefined;
+  width?: number | undefined;
+  title?: string | undefined;
+  embed_html?: string | undefined;
+  embed_link?: string | undefined;
+  like_count?: number | undefined;
+  comment_count?: number | undefined;
+  share_count?: number | undefined;
+  view_count?: number | undefined;
+};
+
+export interface ActionInput_tiktok_personal_initinboxvideoupload {
+  source_info: {  source: 'FILE_UPLOAD';
+  video_size: number;
+  chunk_size: number;
+  total_chunk_count: number;} | {  source: 'PULL_FROM_URL';
+  video_url: string;};
+};
+
+export interface ActionOutput_tiktok_personal_initinboxvideoupload {
+  publish_id: string;
+  upload_url?: string | undefined;
+};
+
+export interface ActionInput_tiktok_personal_initphotoupload {
+  /**
+   * Must be PHOTO.
+   */
+  media_type: 'PHOTO';
+  /**
+   * DIRECT_POST or MEDIA_UPLOAD.
+   */
+  post_mode: 'DIRECT_POST' | 'MEDIA_UPLOAD';
+  /**
+   * Post metadata.
+   */
+  post_info: {  /**
+   * Post title. Max 90 UTF-16 runes.
+   */
+  title?: string | undefined;
+  /**
+   * Post description. Max 4000 UTF-16 runes.
+   */
+  description?: string | undefined;
+  /**
+   * Privacy level. Required for DIRECT_POST.
+   */
+  privacy_level?: 'PUBLIC_TO_EVERYONE' | 'MUTUAL_FOLLOW_FRIENDS' | 'FOLLOWER_OF_CREATOR' | 'SELF_ONLY' | undefined;
+  /**
+   * If true, disables comments. Only for DIRECT_POST.
+   */
+  disable_comment?: boolean | undefined;
+  /**
+   * If true, auto-adds recommended music. Only for DIRECT_POST.
+   */
+  auto_add_music?: boolean | undefined;
+  /**
+   * If true, content is a paid partnership. Only for DIRECT_POST.
+   */
+  brand_content_toggle?: boolean | undefined;
+  /**
+   * If true, content promotes own business. Only for DIRECT_POST.
+   */
+  brand_organic_toggle?: boolean | undefined;};
+  /**
+   * Media source metadata.
+   */
+  source_info: {  /**
+   * Must be PULL_FROM_URL for photos.
+   */
+  source: 'PULL_FROM_URL';
+  /**
+   * Publicly accessible photo URLs (1-35).
+   */
+  photo_images: string[];
+  /**
+   * Index of the cover photo, starting from 0.
+   */
+  photo_cover_index: number;};
+};
+
+export interface ActionOutput_tiktok_personal_initphotoupload {
+  /**
+   * Identifier to track the posting action.
+   */
+  publish_id: string;
+};
+
+export interface ActionInput_tiktok_personal_initvideoupload {
+  post_info: {  /**
+   * Video caption. Supports hashtags and @mentions. Max 2200 characters.
+   */
+  title?: string | undefined;
+  /**
+   * Privacy level for the posted video.
+   */
+  privacy_level: 'PUBLIC_TO_EVERYONE' | 'MUTUAL_FOLLOW_FRIENDS' | 'FOLLOWER_OF_CREATOR' | 'SELF_ONLY';
+  disable_duet?: boolean | undefined;
+  disable_stitch?: boolean | undefined;
+  disable_comment?: boolean | undefined;
+  /**
+   * Timestamp in milliseconds for the video cover frame.
+   */
+  video_cover_timestamp_ms?: number | undefined;
+  brand_content_toggle?: boolean | undefined;
+  brand_organic_toggle?: boolean | undefined;
+  /**
+   * Whether the content is AI-generated.
+   */
+  is_aigc?: boolean | undefined;};
+  source_info: {  source: 'FILE_UPLOAD';
+  /**
+   * Size of the video in bytes.
+   */
+  video_size: number;
+  /**
+   * Size of each upload chunk in bytes.
+   */
+  chunk_size: number;
+  /**
+   * Total number of chunks.
+   */
+  total_chunk_count: number;} | {  source: 'PULL_FROM_URL';
+  /**
+   * URL of the video. Domain must be verified with TikTok.
+   */
+  video_url: string;};
+  /**
+   * DIRECT_POST to publish immediately, MEDIA_UPLOAD to send to Creator Inbox.
+   */
+  post_mode?: 'DIRECT_POST' | 'MEDIA_UPLOAD' | undefined;
+  media_type?: 'VIDEO' | undefined;
+};
+
+export interface ActionOutput_tiktok_personal_initvideoupload {
+  /**
+   * Identifier to track the posting action.
+   */
+  publish_id: string;
+  /**
+   * URL provided by TikTok to upload the video file. Only present for FILE_UPLOAD.
+   */
+  upload_url?: string | undefined;
+  /**
+   * Post ID if available.
+   */
+  post_id?: string | undefined;
+};
+
+export interface ActionInput_tiktok_personal_listvideos {
+  cursor?: number | undefined;
+  max_count?: number | undefined;
+  fields?: string[] | undefined;
+};
+
+export interface ActionOutput_tiktok_personal_listvideos {
+  videos: ({  id: string;
+  create_time?: number | undefined;
+  cover_image_url?: string | undefined;
+  share_url?: string | undefined;
+  video_description?: string | undefined;
+  duration?: number | undefined;
+  height?: number | undefined;
+  width?: number | undefined;
+  title?: string | undefined;
+  embed_html?: string | undefined;
+  embed_link?: string | undefined;
+  like_count?: number | undefined;
+  comment_count?: number | undefined;
+  share_count?: number | undefined;
+  view_count?: number | undefined;})[];
+  cursor?: number | undefined;
+  has_more?: boolean | undefined;
+};
+
+export interface ActionInput_tiktok_personal_queryvideos {
+  /**
+   * List of TikTok video IDs to query. Maximum 20.
+   */
+  video_ids: string[];
+  /**
+   * Fields to return for each video. Defaults to all fields.
+   */
+  fields?: string[] | undefined;
+};
+
+export interface ActionOutput_tiktok_personal_queryvideos {
+  videos: ({  id: string;
+  create_time?: number | undefined;
+  cover_image_url?: string | undefined;
+  share_url?: string | undefined;
+  video_description?: string | undefined;
+  duration?: number | undefined;
+  height?: number | undefined;
+  width?: number | undefined;
+  title?: string | undefined;
+  embed_html?: string | undefined;
+  embed_link?: string | undefined;
+  like_count?: number | undefined;
+  comment_count?: number | undefined;
+  share_count?: number | undefined;
+  view_count?: number | undefined;})[];
 };
 
 export interface LikedTweet {
