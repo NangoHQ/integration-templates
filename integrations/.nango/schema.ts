@@ -30600,27 +30600,6 @@ export interface ActionOutput_lastpass_deleteuser {
 export interface SyncMetadata_lattice_users {
 };
 
-export interface ActionInput_lattice_scim_createuser {
-  firstName: string;
-  lastName: string;
-  email: string;
-};
-
-export interface ActionOutput_lattice_scim_createuser {
-  id: string;
-  email: string;
-  firstName: string;
-  lastName: string;
-};
-
-export interface ActionInput_lattice_scim_disableuser {
-  id: string;
-};
-
-export interface ActionOutput_lattice_scim_disableuser {
-  success: boolean;
-};
-
 export interface LeverOpportunity {
   id: string;
   name: string;
