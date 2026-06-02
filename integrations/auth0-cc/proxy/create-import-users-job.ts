@@ -51,18 +51,22 @@ async function run(input: {
         if (attempt > 0) {
             await new Promise((resolve) => setTimeout(resolve, 500 * Math.pow(2, attempt - 1)));
         }
-        const response = await fetch(`https://${hostname}/api/v2/jobs/users-imports`, {
-            method: 'POST',
-            headers: { Authorization: `Bearer ${accessToken}` },
-            body: formData
-        });
-        if (response.ok) {
-            return await response.json();
-        }
-        const errorBody = await response.text();
-        lastError = new Error(`Auth0 returned ${response.status}: ${errorBody}`);
-        if (response.status < 500) {
-            break;
+        try {
+            const response = await fetch(`https://${hostname}/api/v2/jobs/users-imports`, {
+                method: 'POST',
+                headers: { Authorization: `Bearer ${accessToken}` },
+                body: formData
+            });
+            if (response.ok) {
+                return await response.json();
+            }
+            const errorBody = await response.text();
+            lastError = new Error(`Auth0 returned ${response.status}: ${errorBody}`);
+            if (response.status < 500) {
+                break;
+            }
+        } catch (err) {
+            lastError = err instanceof Error ? err : new Error(String(err));
         }
     }
     throw lastError;

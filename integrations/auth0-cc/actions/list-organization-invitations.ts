@@ -55,8 +55,8 @@ const action = createAction({
     scopes: ['read:organization_invitations'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const page = input.cursor ? parseInt(input.cursor, 10) : 0;
-        if (Number.isNaN(page) || page < 0) {
+        const page = input.cursor ? Number(input.cursor) : 0;
+        if (!Number.isInteger(page) || page < 0) {
             throw new nango.ActionError({
                 type: 'invalid_cursor',
                 message: 'cursor must be a non-negative integer string'
