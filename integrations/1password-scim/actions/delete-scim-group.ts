@@ -1,9 +1,8 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
 
 const InputSchema = z.object({
-    id: z.string().describe('SCIM Group ID. Example: "group-123"')
+    id: z.string().describe('SCIM Group ID. Example: "abc123"')
 });
 
 const OutputSchema = z.object({
@@ -13,7 +12,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete or archive a SCIM group in 1Password SCIM.',
-    version: '1.0.0',
+    version: '1.1.0',
     endpoint: {
         method: 'POST',
         path: '/actions/delete-scim-group',
@@ -21,16 +20,14 @@ const action = createAction({
     },
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['scim'],
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const config: ProxyConfiguration = {
+        await nango.delete({
             // https://support.1password.com/scim-endpoints/
             endpoint: `/Groups/${encodeURIComponent(input.id)}`,
             retries: 3
-        };
-
-        await nango.delete(config);
+        });
 
         return {
             id: input.id,

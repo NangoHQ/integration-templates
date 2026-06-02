@@ -1,0 +1,2970 @@
+{
+  "nango": {
+    "getMetadata": {
+      "sharedDriveIds": [
+        "0AMhZJZkJUMchUk9PVA",
+        "0AG2wVj8zi4gmUk9PVA",
+        "0AObrA-qeMU0iUk9PVA"
+      ]
+    },
+    "batchSave": {
+      "SharedDriveDocument": [
+        {
+          "id": "176asHkjHAnIU2JDukTXy9Jeqi-Nog-W46qALVHIfqWI",
+          "documentId": "176asHkjHAnIU2JDukTXy9Jeqi-Nog-W46qALVHIfqWI",
+          "title": "Nango Sync Shared Drives Test 3 - Seed Document",
+          "document": {
+            "title": "Nango Sync Shared Drives Test 3 - Seed Document",
+            "revisionId": "AFwiY1_NzaEQRS3pDMdT-FhJRTV0kjaaYAZ2I7CMoHQlAwQo6sEBl6B8c0sYKRVWO-WHZPLI-OiteNUDCzZSPJU_wY7nawm0XLn_DQsflvo",
+            "suggestionsViewMode": "SUGGESTIONS_INLINE",
+            "documentId": "176asHkjHAnIU2JDukTXy9Jeqi-Nog-W46qALVHIfqWI",
+            "tabs": [
+              {
+                "tabProperties": {
+                  "tabId": "t.0",
+                  "title": "Tab 1",
+                  "index": 0
+                },
+                "documentTab": {
+                  "body": {
+                    "content": [
+                      {
+                        "endIndex": 1,
+                        "sectionBreak": {
+                          "sectionStyle": {
+                            "columnSeparatorStyle": "NONE",
+                            "contentDirection": "LEFT_TO_RIGHT",
+                            "sectionType": "CONTINUOUS"
+                          }
+                        }
+                      },
+                      {
+                        "startIndex": 1,
+                        "endIndex": 2,
+                        "paragraph": {
+                          "elements": [
+                            {
+                              "startIndex": 1,
+                              "endIndex": 2,
+                              "textRun": {
+                                "content": "\n",
+                                "textStyle": {}
+                              }
+                            }
+                          ],
+                          "paragraphStyle": {
+                            "namedStyleType": "NORMAL_TEXT",
+                            "direction": "LEFT_TO_RIGHT"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "documentStyle": {
+                    "background": {
+                      "color": {}
+                    },
+                    "pageNumberStart": 1,
+                    "marginTop": {
+                      "magnitude": 72,
+                      "unit": "PT"
+                    },
+                    "marginBottom": {
+                      "magnitude": 72,
+                      "unit": "PT"
+                    },
+                    "marginRight": {
+                      "magnitude": 72,
+                      "unit": "PT"
+                    },
+                    "marginLeft": {
+                      "magnitude": 72,
+                      "unit": "PT"
+                    },
+                    "pageSize": {
+                      "height": {
+                        "magnitude": 792,
+                        "unit": "PT"
+                      },
+                      "width": {
+                        "magnitude": 612,
+                        "unit": "PT"
+                      }
+                    },
+                    "marginHeader": {
+                      "magnitude": 36,
+                      "unit": "PT"
+                    },
+                    "marginFooter": {
+                      "magnitude": 36,
+                      "unit": "PT"
+                    },
+                    "useCustomHeaderFooterMargins": true,
+                    "documentFormat": {
+                      "documentMode": "PAGES"
+                    }
+                  },
+                  "namedStyles": {
+                    "styles": [
+                      {
+                        "namedStyleType": "NORMAL_TEXT",
+                        "textStyle": {
+                          "bold": false,
+                          "italic": false,
+                          "underline": false,
+                          "strikethrough": false,
+                          "smallCaps": false,
+                          "backgroundColor": {},
+                          "foregroundColor": {
+                            "color": {
+                              "rgbColor": {}
+                            }
+                          },
+                          "fontSize": {
+                            "magnitude": 11,
+                            "unit": "PT"
+                          },
+                          "weightedFontFamily": {
+                            "fontFamily": "Arial",
+                            "weight": 400
+                          },
+                          "baselineOffset": "NONE"
+                        },
+                        "paragraphStyle": {
+                          "namedStyleType": "NORMAL_TEXT",
+                          "alignment": "START",
+                          "lineSpacing": 115,
+                          "direction": "LEFT_TO_RIGHT",
+                          "spacingMode": "COLLAPSE_LISTS",
+                          "spaceAbove": {
+                            "unit": "PT"
+                          },
+                          "spaceBelow": {
+                            "unit": "PT"
+                          },
+                          "borderBetween": {
+                            "color": {},
+                            "width": {
+                              "unit": "PT"
+                            },
+                            "padding": {
+                              "unit": "PT"
+                            },
+                            "dashStyle": "SOLID"
+                          },
+                          "borderTop": {
+                            "color": {},
+                            "width": {
+                              "unit": "PT"
+                            },
+                            "padding": {
+                              "unit": "PT"
+                            },
+                            "dashStyle": "SOLID"
+                          },
+                          "borderBottom": {
+                            "color": {},
+                            "width": {
+                              "unit": "PT"
+                            },
+                            "padding": {
+                              "unit": "PT"
+                            },
+                            "dashStyle": "SOLID"
+                          },
+                          "borderLeft": {
+                            "color": {},
+                            "width": {
+                              "unit": "PT"
+                            },
+                            "padding": {
+                              "unit": "PT"
+                            },
+                            "dashStyle": "SOLID"
+                          },
+                          "borderRight": {
+                            "color": {},
+                            "width": {
+                              "unit": "PT"
+                            },
+                            "padding": {
+                              "unit": "PT"
+                            },
+                            "dashStyle": "SOLID"
+                          },
+                          "indentFirstLine": {
+                            "unit": "PT"
+                          },
+                          "indentStart": {
+                            "unit": "PT"
+                          },
+                          "indentEnd": {
+                            "unit": "PT"
+                          },
+                          "keepLinesTogether": false,
+                          "keepWithNext": false,
+                          "avoidWidowAndOrphan": true,
+                          "shading": {
+                            "backgroundColor": {}
+                          },
+                          "pageBreakBefore": false
+                        }
+                      },
+                      {
+                        "namedStyleType": "HEADING_1",
+                        "textStyle": {
+                          "fontSize": {
+                            "magnitude": 20,
+                            "unit": "PT"
+                          }
+                        },
+                        "paragraphStyle": {
+                          "namedStyleType": "NORMAL_TEXT",
+                          "direction": "LEFT_TO_RIGHT",
+                          "spaceAbove": {
+                            "magnitude": 20,
+                            "unit": "PT"
+                          },
+                          "spaceBelow": {
+                            "magnitude": 6,
+                            "unit": "PT"
+                          },
+                          "keepLinesTogether": true,
+                          "keepWithNext": true,
+                          "pageBreakBefore": false
+                        }
+                      },
+                      {
+                        "namedStyleType": "HEADING_2",
+                        "textStyle": {
+                          "bold": false,
+                          "fontSize": {
+                            "magnitude": 16,
+                            "unit": "PT"
+                          }
+                        },
+                        "paragraphStyle": {
+                          "namedStyleType": "NORMAL_TEXT",
+                          "direction": "LEFT_TO_RIGHT",
+                          "spaceAbove": {
+                            "magnitude": 18,
+                            "unit": "PT"
+                          },
+                          "spaceBelow": {
+                            "magnitude": 6,
+                            "unit": "PT"
+                          },
+                          "keepLinesTogether": true,
+                          "keepWithNext": true,
+                          "pageBreakBefore": false
+                        }
+                      },
+                      {
+                        "namedStyleType": "HEADING_3",
+                        "textStyle": {
+                          "bold": false,
+                          "foregroundColor": {
+                            "color": {
+                              "rgbColor": {
+                                "red": 0.2627451,
+                                "green": 0.2627451,
+                                "blue": 0.2627451
+                              }
+                            }
+                          },
+                          "fontSize": {
+                            "magnitude": 14,
+                            "unit": "PT"
+                          }
+                        },
+                        "paragraphStyle": {
+                          "namedStyleType": "NORMAL_TEXT",
+                          "direction": "LEFT_TO_RIGHT",
+                          "spaceAbove": {
+                            "magnitude": 16,
+                            "unit": "PT"
+                          },
+                          "spaceBelow": {
+                            "magnitude": 4,
+                            "unit": "PT"
+                          },
+                          "keepLinesTogether": true,
+                          "keepWithNext": true,
+                          "pageBreakBefore": false
+                        }
+                      },
+                      {
+                        "namedStyleType": "HEADING_4",
+                        "textStyle": {
+                          "foregroundColor": {
+                            "color": {
+                              "rgbColor": {
+                                "red": 0.4,
+                                "green": 0.4,
+                                "blue": 0.4
+                              }
+                            }
+                          },
+                          "fontSize": {
+                            "magnitude": 12,
+                            "unit": "PT"
+                          }
+                        },
+                        "paragraphStyle": {
+                          "namedStyleType": "NORMAL_TEXT",
+                          "direction": "LEFT_TO_RIGHT",
+                          "spaceAbove": {
+                            "magnitude": 14,
+                            "unit": "PT"
+                          },
+                          "spaceBelow": {
+                            "magnitude": 4,
+                            "unit": "PT"
+                          },
+                          "keepLinesTogether": true,
+                          "keepWithNext": true,
+                          "pageBreakBefore": false
+                        }
+                      },
+                      {
+                        "namedStyleType": "HEADING_5",
+                        "textStyle": {
+                          "foregroundColor": {
+                            "color": {
+                              "rgbColor": {
+                                "red": 0.4,
+                                "green": 0.4,
+                                "blue": 0.4
+                              }
+                            }
+                          },
+                          "fontSize": {
+                            "magnitude": 11,
+                            "unit": "PT"
+                          }
+                        },
+                        "paragraphStyle": {
+                          "namedStyleType": "NORMAL_TEXT",
+                          "direction": "LEFT_TO_RIGHT",
+                          "spaceAbove": {
+                            "magnitude": 12,
+                            "unit": "PT"
+                          },
+                          "spaceBelow": {
+                            "magnitude": 4,
+                            "unit": "PT"
+                          },
+                          "keepLinesTogether": true,
+                          "keepWithNext": true,
+                          "pageBreakBefore": false
+                        }
+                      },
+                      {
+                        "namedStyleType": "HEADING_6",
+                        "textStyle": {
+                          "italic": true,
+                          "foregroundColor": {
+                            "color": {
+                              "rgbColor": {
+                                "red": 0.4,
+                                "green": 0.4,
+                                "blue": 0.4
+                              }
+                            }
+                          },
+                          "fontSize": {
+                            "magnitude": 11,
+                            "unit": "PT"
+                          }
+                        },
+                        "paragraphStyle": {
+                          "namedStyleType": "NORMAL_TEXT",
+                          "direction": "LEFT_TO_RIGHT",
+                          "spaceAbove": {
+                            "magnitude": 12,
+                            "unit": "PT"
+                          },
+                          "spaceBelow": {
+                            "magnitude": 4,
+                            "unit": "PT"
+                          },
+                          "keepLinesTogether": true,
+                          "keepWithNext": true,
+                          "pageBreakBefore": false
+                        }
+                      },
+                      {
+                        "namedStyleType": "TITLE",
+                        "textStyle": {
+                          "fontSize": {
+                            "magnitude": 26,
+                            "unit": "PT"
+                          }
+                        },
+                        "paragraphStyle": {
+                          "namedStyleType": "NORMAL_TEXT",
+                          "direction": "LEFT_TO_RIGHT",
+                          "spaceAbove": {
+                            "unit": "PT"
+                          },
+                          "spaceBelow": {
+                            "magnitude": 3,
+                            "unit": "PT"
+                          },
+                          "keepLinesTogether": true,
+                          "keepWithNext": true,
+                          "pageBreakBefore": false
+                        }
+                      },
+                      {
+                        "namedStyleType": "SUBTITLE",
+                        "textStyle": {
+                          "italic": false,
+                          "foregroundColor": {
+                            "color": {
+                              "rgbColor": {
+                                "red": 0.4,
+                                "green": 0.4,
+                                "blue": 0.4
+                              }
+                            }
+                          },
+                          "fontSize": {
+                            "magnitude": 15,
+                            "unit": "PT"
+                          },
+                          "weightedFontFamily": {
+                            "fontFamily": "Arial",
+                            "weight": 400
+                          }
+                        },
+                        "paragraphStyle": {
+                          "namedStyleType": "NORMAL_TEXT",
+                          "direction": "LEFT_TO_RIGHT",
+                          "spaceAbove": {
+                            "unit": "PT"
+                          },
+                          "spaceBelow": {
+                            "magnitude": 16,
+                            "unit": "PT"
+                          },
+                          "keepLinesTogether": true,
+                          "keepWithNext": true,
+                          "pageBreakBefore": false
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "1_nQG3u1PH9327k8q-MCnVwCFHxF4V11yUhQML7HG2QQ",
+          "documentId": "1_nQG3u1PH9327k8q-MCnVwCFHxF4V11yUhQML7HG2QQ",
+          "title": "Nango Sync Shared Drives Test 2 - Seed Document",
+          "document": {
+            "title": "Nango Sync Shared Drives Test 2 - Seed Document",
+            "revisionId": "AFwiY19uUQHOvMeBq57lF-p_WwQIMk3ls6KZiztkHtdupIM7PjKJeQ9fSCrssnewWqpYujR35AuD3-RKbkvicAFQGCVR47IzRZaNFhMCIlc",
+            "suggestionsViewMode": "SUGGESTIONS_INLINE",
+            "documentId": "1_nQG3u1PH9327k8q-MCnVwCFHxF4V11yUhQML7HG2QQ",
+            "tabs": [
+              {
+                "tabProperties": {
+                  "tabId": "t.0",
+                  "title": "Tab 1",
+                  "index": 0
+                },
+                "documentTab": {
+                  "body": {
+                    "content": [
+                      {
+                        "endIndex": 1,
+                        "sectionBreak": {
+                          "sectionStyle": {
+                            "columnSeparatorStyle": "NONE",
+                            "contentDirection": "LEFT_TO_RIGHT",
+                            "sectionType": "CONTINUOUS"
+                          }
+                        }
+                      },
+                      {
+                        "startIndex": 1,
+                        "endIndex": 2,
+                        "paragraph": {
+                          "elements": [
+                            {
+                              "startIndex": 1,
+                              "endIndex": 2,
+                              "textRun": {
+                                "content": "\n",
+                                "textStyle": {}
+                              }
+                            }
+                          ],
+                          "paragraphStyle": {
+                            "namedStyleType": "NORMAL_TEXT",
+                            "direction": "LEFT_TO_RIGHT"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "documentStyle": {
+                    "background": {
+                      "color": {}
+                    },
+                    "pageNumberStart": 1,
+                    "marginTop": {
+                      "magnitude": 72,
+                      "unit": "PT"
+                    },
+                    "marginBottom": {
+                      "magnitude": 72,
+                      "unit": "PT"
+                    },
+                    "marginRight": {
+                      "magnitude": 72,
+                      "unit": "PT"
+                    },
+                    "marginLeft": {
+                      "magnitude": 72,
+                      "unit": "PT"
+                    },
+                    "pageSize": {
+                      "height": {
+                        "magnitude": 792,
+                        "unit": "PT"
+                      },
+                      "width": {
+                        "magnitude": 612,
+                        "unit": "PT"
+                      }
+                    },
+                    "marginHeader": {
+                      "magnitude": 36,
+                      "unit": "PT"
+                    },
+                    "marginFooter": {
+                      "magnitude": 36,
+                      "unit": "PT"
+                    },
+                    "useCustomHeaderFooterMargins": true,
+                    "documentFormat": {
+                      "documentMode": "PAGES"
+                    }
+                  },
+                  "namedStyles": {
+                    "styles": [
+                      {
+                        "namedStyleType": "NORMAL_TEXT",
+                        "textStyle": {
+                          "bold": false,
+                          "italic": false,
+                          "underline": false,
+                          "strikethrough": false,
+                          "smallCaps": false,
+                          "backgroundColor": {},
+                          "foregroundColor": {
+                            "color": {
+                              "rgbColor": {}
+                            }
+                          },
+                          "fontSize": {
+                            "magnitude": 11,
+                            "unit": "PT"
+                          },
+                          "weightedFontFamily": {
+                            "fontFamily": "Arial",
+                            "weight": 400
+                          },
+                          "baselineOffset": "NONE"
+                        },
+                        "paragraphStyle": {
+                          "namedStyleType": "NORMAL_TEXT",
+                          "alignment": "START",
+                          "lineSpacing": 115,
+                          "direction": "LEFT_TO_RIGHT",
+                          "spacingMode": "COLLAPSE_LISTS",
+                          "spaceAbove": {
+                            "unit": "PT"
+                          },
+                          "spaceBelow": {
+                            "unit": "PT"
+                          },
+                          "borderBetween": {
+                            "color": {},
+                            "width": {
+                              "unit": "PT"
+                            },
+                            "padding": {
+                              "unit": "PT"
+                            },
+                            "dashStyle": "SOLID"
+                          },
+                          "borderTop": {
+                            "color": {},
+                            "width": {
+                              "unit": "PT"
+                            },
+                            "padding": {
+                              "unit": "PT"
+                            },
+                            "dashStyle": "SOLID"
+                          },
+                          "borderBottom": {
+                            "color": {},
+                            "width": {
+                              "unit": "PT"
+                            },
+                            "padding": {
+                              "unit": "PT"
+                            },
+                            "dashStyle": "SOLID"
+                          },
+                          "borderLeft": {
+                            "color": {},
+                            "width": {
+                              "unit": "PT"
+                            },
+                            "padding": {
+                              "unit": "PT"
+                            },
+                            "dashStyle": "SOLID"
+                          },
+                          "borderRight": {
+                            "color": {},
+                            "width": {
+                              "unit": "PT"
+                            },
+                            "padding": {
+                              "unit": "PT"
+                            },
+                            "dashStyle": "SOLID"
+                          },
+                          "indentFirstLine": {
+                            "unit": "PT"
+                          },
+                          "indentStart": {
+                            "unit": "PT"
+                          },
+                          "indentEnd": {
+                            "unit": "PT"
+                          },
+                          "keepLinesTogether": false,
+                          "keepWithNext": false,
+                          "avoidWidowAndOrphan": true,
+                          "shading": {
+                            "backgroundColor": {}
+                          },
+                          "pageBreakBefore": false
+                        }
+                      },
+                      {
+                        "namedStyleType": "HEADING_1",
+                        "textStyle": {
+                          "fontSize": {
+                            "magnitude": 20,
+                            "unit": "PT"
+                          }
+                        },
+                        "paragraphStyle": {
+                          "namedStyleType": "NORMAL_TEXT",
+                          "direction": "LEFT_TO_RIGHT",
+                          "spaceAbove": {
+                            "magnitude": 20,
+                            "unit": "PT"
+                          },
+                          "spaceBelow": {
+                            "magnitude": 6,
+                            "unit": "PT"
+                          },
+                          "keepLinesTogether": true,
+                          "keepWithNext": true,
+                          "pageBreakBefore": false
+                        }
+                      },
+                      {
+                        "namedStyleType": "HEADING_2",
+                        "textStyle": {
+                          "bold": false,
+                          "fontSize": {
+                            "magnitude": 16,
+                            "unit": "PT"
+                          }
+                        },
+                        "paragraphStyle": {
+                          "namedStyleType": "NORMAL_TEXT",
+                          "direction": "LEFT_TO_RIGHT",
+                          "spaceAbove": {
+                            "magnitude": 18,
+                            "unit": "PT"
+                          },
+                          "spaceBelow": {
+                            "magnitude": 6,
+                            "unit": "PT"
+                          },
+                          "keepLinesTogether": true,
+                          "keepWithNext": true,
+                          "pageBreakBefore": false
+                        }
+                      },
+                      {
+                        "namedStyleType": "HEADING_3",
+                        "textStyle": {
+                          "bold": false,
+                          "foregroundColor": {
+                            "color": {
+                              "rgbColor": {
+                                "red": 0.2627451,
+                                "green": 0.2627451,
+                                "blue": 0.2627451
+                              }
+                            }
+                          },
+                          "fontSize": {
+                            "magnitude": 14,
+                            "unit": "PT"
+                          }
+                        },
+                        "paragraphStyle": {
+                          "namedStyleType": "NORMAL_TEXT",
+                          "direction": "LEFT_TO_RIGHT",
+                          "spaceAbove": {
+                            "magnitude": 16,
+                            "unit": "PT"
+                          },
+                          "spaceBelow": {
+                            "magnitude": 4,
+                            "unit": "PT"
+                          },
+                          "keepLinesTogether": true,
+                          "keepWithNext": true,
+                          "pageBreakBefore": false
+                        }
+                      },
+                      {
+                        "namedStyleType": "HEADING_4",
+                        "textStyle": {
+                          "foregroundColor": {
+                            "color": {
+                              "rgbColor": {
+                                "red": 0.4,
+                                "green": 0.4,
+                                "blue": 0.4
+                              }
+                            }
+                          },
+                          "fontSize": {
+                            "magnitude": 12,
+                            "unit": "PT"
+                          }
+                        },
+                        "paragraphStyle": {
+                          "namedStyleType": "NORMAL_TEXT",
+                          "direction": "LEFT_TO_RIGHT",
+                          "spaceAbove": {
+                            "magnitude": 14,
+                            "unit": "PT"
+                          },
+                          "spaceBelow": {
+                            "magnitude": 4,
+                            "unit": "PT"
+                          },
+                          "keepLinesTogether": true,
+                          "keepWithNext": true,
+                          "pageBreakBefore": false
+                        }
+                      },
+                      {
+                        "namedStyleType": "HEADING_5",
+                        "textStyle": {
+                          "foregroundColor": {
+                            "color": {
+                              "rgbColor": {
+                                "red": 0.4,
+                                "green": 0.4,
+                                "blue": 0.4
+                              }
+                            }
+                          },
+                          "fontSize": {
+                            "magnitude": 11,
+                            "unit": "PT"
+                          }
+                        },
+                        "paragraphStyle": {
+                          "namedStyleType": "NORMAL_TEXT",
+                          "direction": "LEFT_TO_RIGHT",
+                          "spaceAbove": {
+                            "magnitude": 12,
+                            "unit": "PT"
+                          },
+                          "spaceBelow": {
+                            "magnitude": 4,
+                            "unit": "PT"
+                          },
+                          "keepLinesTogether": true,
+                          "keepWithNext": true,
+                          "pageBreakBefore": false
+                        }
+                      },
+                      {
+                        "namedStyleType": "HEADING_6",
+                        "textStyle": {
+                          "italic": true,
+                          "foregroundColor": {
+                            "color": {
+                              "rgbColor": {
+                                "red": 0.4,
+                                "green": 0.4,
+                                "blue": 0.4
+                              }
+                            }
+                          },
+                          "fontSize": {
+                            "magnitude": 11,
+                            "unit": "PT"
+                          }
+                        },
+                        "paragraphStyle": {
+                          "namedStyleType": "NORMAL_TEXT",
+                          "direction": "LEFT_TO_RIGHT",
+                          "spaceAbove": {
+                            "magnitude": 12,
+                            "unit": "PT"
+                          },
+                          "spaceBelow": {
+                            "magnitude": 4,
+                            "unit": "PT"
+                          },
+                          "keepLinesTogether": true,
+                          "keepWithNext": true,
+                          "pageBreakBefore": false
+                        }
+                      },
+                      {
+                        "namedStyleType": "TITLE",
+                        "textStyle": {
+                          "fontSize": {
+                            "magnitude": 26,
+                            "unit": "PT"
+                          }
+                        },
+                        "paragraphStyle": {
+                          "namedStyleType": "NORMAL_TEXT",
+                          "direction": "LEFT_TO_RIGHT",
+                          "spaceAbove": {
+                            "unit": "PT"
+                          },
+                          "spaceBelow": {
+                            "magnitude": 3,
+                            "unit": "PT"
+                          },
+                          "keepLinesTogether": true,
+                          "keepWithNext": true,
+                          "pageBreakBefore": false
+                        }
+                      },
+                      {
+                        "namedStyleType": "SUBTITLE",
+                        "textStyle": {
+                          "italic": false,
+                          "foregroundColor": {
+                            "color": {
+                              "rgbColor": {
+                                "red": 0.4,
+                                "green": 0.4,
+                                "blue": 0.4
+                              }
+                            }
+                          },
+                          "fontSize": {
+                            "magnitude": 15,
+                            "unit": "PT"
+                          },
+                          "weightedFontFamily": {
+                            "fontFamily": "Arial",
+                            "weight": 400
+                          }
+                        },
+                        "paragraphStyle": {
+                          "namedStyleType": "NORMAL_TEXT",
+                          "direction": "LEFT_TO_RIGHT",
+                          "spaceAbove": {
+                            "unit": "PT"
+                          },
+                          "spaceBelow": {
+                            "magnitude": 16,
+                            "unit": "PT"
+                          },
+                          "keepLinesTogether": true,
+                          "keepWithNext": true,
+                          "pageBreakBefore": false
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "1UN7-d7uQ1gFMUIpWvwuUXRR-csHSln1FlOBaZ5Jl7DQ",
+          "documentId": "1UN7-d7uQ1gFMUIpWvwuUXRR-csHSln1FlOBaZ5Jl7DQ",
+          "title": "Nango Sync Shared Drives Test 1 - Seed Document",
+          "document": {
+            "title": "Nango Sync Shared Drives Test 1 - Seed Document",
+            "revisionId": "AFwiY18Py4cKxtXzaSY_PZRL8aAfMungLuPcvsXT3E-cLwq5FpY5yXmOHoAic31FsiSSvh_om0J6X4h3KLSkyToc0e2UAWn6LYXy8xdLW0c",
+            "suggestionsViewMode": "SUGGESTIONS_INLINE",
+            "documentId": "1UN7-d7uQ1gFMUIpWvwuUXRR-csHSln1FlOBaZ5Jl7DQ",
+            "tabs": [
+              {
+                "tabProperties": {
+                  "tabId": "t.0",
+                  "title": "Tab 1",
+                  "index": 0
+                },
+                "documentTab": {
+                  "body": {
+                    "content": [
+                      {
+                        "endIndex": 1,
+                        "sectionBreak": {
+                          "sectionStyle": {
+                            "columnSeparatorStyle": "NONE",
+                            "contentDirection": "LEFT_TO_RIGHT",
+                            "sectionType": "CONTINUOUS"
+                          }
+                        }
+                      },
+                      {
+                        "startIndex": 1,
+                        "endIndex": 2,
+                        "paragraph": {
+                          "elements": [
+                            {
+                              "startIndex": 1,
+                              "endIndex": 2,
+                              "textRun": {
+                                "content": "\n",
+                                "textStyle": {}
+                              }
+                            }
+                          ],
+                          "paragraphStyle": {
+                            "namedStyleType": "NORMAL_TEXT",
+                            "direction": "LEFT_TO_RIGHT"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "documentStyle": {
+                    "background": {
+                      "color": {}
+                    },
+                    "pageNumberStart": 1,
+                    "marginTop": {
+                      "magnitude": 72,
+                      "unit": "PT"
+                    },
+                    "marginBottom": {
+                      "magnitude": 72,
+                      "unit": "PT"
+                    },
+                    "marginRight": {
+                      "magnitude": 72,
+                      "unit": "PT"
+                    },
+                    "marginLeft": {
+                      "magnitude": 72,
+                      "unit": "PT"
+                    },
+                    "pageSize": {
+                      "height": {
+                        "magnitude": 792,
+                        "unit": "PT"
+                      },
+                      "width": {
+                        "magnitude": 612,
+                        "unit": "PT"
+                      }
+                    },
+                    "marginHeader": {
+                      "magnitude": 36,
+                      "unit": "PT"
+                    },
+                    "marginFooter": {
+                      "magnitude": 36,
+                      "unit": "PT"
+                    },
+                    "useCustomHeaderFooterMargins": true,
+                    "documentFormat": {
+                      "documentMode": "PAGES"
+                    }
+                  },
+                  "namedStyles": {
+                    "styles": [
+                      {
+                        "namedStyleType": "NORMAL_TEXT",
+                        "textStyle": {
+                          "bold": false,
+                          "italic": false,
+                          "underline": false,
+                          "strikethrough": false,
+                          "smallCaps": false,
+                          "backgroundColor": {},
+                          "foregroundColor": {
+                            "color": {
+                              "rgbColor": {}
+                            }
+                          },
+                          "fontSize": {
+                            "magnitude": 11,
+                            "unit": "PT"
+                          },
+                          "weightedFontFamily": {
+                            "fontFamily": "Arial",
+                            "weight": 400
+                          },
+                          "baselineOffset": "NONE"
+                        },
+                        "paragraphStyle": {
+                          "namedStyleType": "NORMAL_TEXT",
+                          "alignment": "START",
+                          "lineSpacing": 115,
+                          "direction": "LEFT_TO_RIGHT",
+                          "spacingMode": "COLLAPSE_LISTS",
+                          "spaceAbove": {
+                            "unit": "PT"
+                          },
+                          "spaceBelow": {
+                            "unit": "PT"
+                          },
+                          "borderBetween": {
+                            "color": {},
+                            "width": {
+                              "unit": "PT"
+                            },
+                            "padding": {
+                              "unit": "PT"
+                            },
+                            "dashStyle": "SOLID"
+                          },
+                          "borderTop": {
+                            "color": {},
+                            "width": {
+                              "unit": "PT"
+                            },
+                            "padding": {
+                              "unit": "PT"
+                            },
+                            "dashStyle": "SOLID"
+                          },
+                          "borderBottom": {
+                            "color": {},
+                            "width": {
+                              "unit": "PT"
+                            },
+                            "padding": {
+                              "unit": "PT"
+                            },
+                            "dashStyle": "SOLID"
+                          },
+                          "borderLeft": {
+                            "color": {},
+                            "width": {
+                              "unit": "PT"
+                            },
+                            "padding": {
+                              "unit": "PT"
+                            },
+                            "dashStyle": "SOLID"
+                          },
+                          "borderRight": {
+                            "color": {},
+                            "width": {
+                              "unit": "PT"
+                            },
+                            "padding": {
+                              "unit": "PT"
+                            },
+                            "dashStyle": "SOLID"
+                          },
+                          "indentFirstLine": {
+                            "unit": "PT"
+                          },
+                          "indentStart": {
+                            "unit": "PT"
+                          },
+                          "indentEnd": {
+                            "unit": "PT"
+                          },
+                          "keepLinesTogether": false,
+                          "keepWithNext": false,
+                          "avoidWidowAndOrphan": true,
+                          "shading": {
+                            "backgroundColor": {}
+                          },
+                          "pageBreakBefore": false
+                        }
+                      },
+                      {
+                        "namedStyleType": "HEADING_1",
+                        "textStyle": {
+                          "fontSize": {
+                            "magnitude": 20,
+                            "unit": "PT"
+                          }
+                        },
+                        "paragraphStyle": {
+                          "namedStyleType": "NORMAL_TEXT",
+                          "direction": "LEFT_TO_RIGHT",
+                          "spaceAbove": {
+                            "magnitude": 20,
+                            "unit": "PT"
+                          },
+                          "spaceBelow": {
+                            "magnitude": 6,
+                            "unit": "PT"
+                          },
+                          "keepLinesTogether": true,
+                          "keepWithNext": true,
+                          "pageBreakBefore": false
+                        }
+                      },
+                      {
+                        "namedStyleType": "HEADING_2",
+                        "textStyle": {
+                          "bold": false,
+                          "fontSize": {
+                            "magnitude": 16,
+                            "unit": "PT"
+                          }
+                        },
+                        "paragraphStyle": {
+                          "namedStyleType": "NORMAL_TEXT",
+                          "direction": "LEFT_TO_RIGHT",
+                          "spaceAbove": {
+                            "magnitude": 18,
+                            "unit": "PT"
+                          },
+                          "spaceBelow": {
+                            "magnitude": 6,
+                            "unit": "PT"
+                          },
+                          "keepLinesTogether": true,
+                          "keepWithNext": true,
+                          "pageBreakBefore": false
+                        }
+                      },
+                      {
+                        "namedStyleType": "HEADING_3",
+                        "textStyle": {
+                          "bold": false,
+                          "foregroundColor": {
+                            "color": {
+                              "rgbColor": {
+                                "red": 0.2627451,
+                                "green": 0.2627451,
+                                "blue": 0.2627451
+                              }
+                            }
+                          },
+                          "fontSize": {
+                            "magnitude": 14,
+                            "unit": "PT"
+                          }
+                        },
+                        "paragraphStyle": {
+                          "namedStyleType": "NORMAL_TEXT",
+                          "direction": "LEFT_TO_RIGHT",
+                          "spaceAbove": {
+                            "magnitude": 16,
+                            "unit": "PT"
+                          },
+                          "spaceBelow": {
+                            "magnitude": 4,
+                            "unit": "PT"
+                          },
+                          "keepLinesTogether": true,
+                          "keepWithNext": true,
+                          "pageBreakBefore": false
+                        }
+                      },
+                      {
+                        "namedStyleType": "HEADING_4",
+                        "textStyle": {
+                          "foregroundColor": {
+                            "color": {
+                              "rgbColor": {
+                                "red": 0.4,
+                                "green": 0.4,
+                                "blue": 0.4
+                              }
+                            }
+                          },
+                          "fontSize": {
+                            "magnitude": 12,
+                            "unit": "PT"
+                          }
+                        },
+                        "paragraphStyle": {
+                          "namedStyleType": "NORMAL_TEXT",
+                          "direction": "LEFT_TO_RIGHT",
+                          "spaceAbove": {
+                            "magnitude": 14,
+                            "unit": "PT"
+                          },
+                          "spaceBelow": {
+                            "magnitude": 4,
+                            "unit": "PT"
+                          },
+                          "keepLinesTogether": true,
+                          "keepWithNext": true,
+                          "pageBreakBefore": false
+                        }
+                      },
+                      {
+                        "namedStyleType": "HEADING_5",
+                        "textStyle": {
+                          "foregroundColor": {
+                            "color": {
+                              "rgbColor": {
+                                "red": 0.4,
+                                "green": 0.4,
+                                "blue": 0.4
+                              }
+                            }
+                          },
+                          "fontSize": {
+                            "magnitude": 11,
+                            "unit": "PT"
+                          }
+                        },
+                        "paragraphStyle": {
+                          "namedStyleType": "NORMAL_TEXT",
+                          "direction": "LEFT_TO_RIGHT",
+                          "spaceAbove": {
+                            "magnitude": 12,
+                            "unit": "PT"
+                          },
+                          "spaceBelow": {
+                            "magnitude": 4,
+                            "unit": "PT"
+                          },
+                          "keepLinesTogether": true,
+                          "keepWithNext": true,
+                          "pageBreakBefore": false
+                        }
+                      },
+                      {
+                        "namedStyleType": "HEADING_6",
+                        "textStyle": {
+                          "italic": true,
+                          "foregroundColor": {
+                            "color": {
+                              "rgbColor": {
+                                "red": 0.4,
+                                "green": 0.4,
+                                "blue": 0.4
+                              }
+                            }
+                          },
+                          "fontSize": {
+                            "magnitude": 11,
+                            "unit": "PT"
+                          }
+                        },
+                        "paragraphStyle": {
+                          "namedStyleType": "NORMAL_TEXT",
+                          "direction": "LEFT_TO_RIGHT",
+                          "spaceAbove": {
+                            "magnitude": 12,
+                            "unit": "PT"
+                          },
+                          "spaceBelow": {
+                            "magnitude": 4,
+                            "unit": "PT"
+                          },
+                          "keepLinesTogether": true,
+                          "keepWithNext": true,
+                          "pageBreakBefore": false
+                        }
+                      },
+                      {
+                        "namedStyleType": "TITLE",
+                        "textStyle": {
+                          "fontSize": {
+                            "magnitude": 26,
+                            "unit": "PT"
+                          }
+                        },
+                        "paragraphStyle": {
+                          "namedStyleType": "NORMAL_TEXT",
+                          "direction": "LEFT_TO_RIGHT",
+                          "spaceAbove": {
+                            "unit": "PT"
+                          },
+                          "spaceBelow": {
+                            "magnitude": 3,
+                            "unit": "PT"
+                          },
+                          "keepLinesTogether": true,
+                          "keepWithNext": true,
+                          "pageBreakBefore": false
+                        }
+                      },
+                      {
+                        "namedStyleType": "SUBTITLE",
+                        "textStyle": {
+                          "italic": false,
+                          "foregroundColor": {
+                            "color": {
+                              "rgbColor": {
+                                "red": 0.4,
+                                "green": 0.4,
+                                "blue": 0.4
+                              }
+                            }
+                          },
+                          "fontSize": {
+                            "magnitude": 15,
+                            "unit": "PT"
+                          },
+                          "weightedFontFamily": {
+                            "fontFamily": "Arial",
+                            "weight": 400
+                          }
+                        },
+                        "paragraphStyle": {
+                          "namedStyleType": "NORMAL_TEXT",
+                          "direction": "LEFT_TO_RIGHT",
+                          "spaceAbove": {
+                            "unit": "PT"
+                          },
+                          "spaceBelow": {
+                            "magnitude": 16,
+                            "unit": "PT"
+                          },
+                          "keepLinesTogether": true,
+                          "keepWithNext": true,
+                          "pageBreakBefore": false
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "batchDelete": {
+      "SharedDriveDocument": []
+    }
+  },
+  "api": {
+    "get": {
+      "/files": [
+        {
+          "response": {
+            "files": [
+              {
+                "kind": "drive#file",
+                "driveId": "0AMhZJZkJUMchUk9PVA",
+                "mimeType": "application/vnd.google-apps.document",
+                "id": "176asHkjHAnIU2JDukTXy9Jeqi-Nog-W46qALVHIfqWI",
+                "name": "Nango Sync Shared Drives Test 3 - Seed Document",
+                "teamDriveId": "0AMhZJZkJUMchUk9PVA"
+              }
+            ],
+            "kind": "drive#fileList",
+            "incompleteSearch": false
+          },
+          "status": 200,
+          "headers": {
+            "date": "Wed, 27 May 2026 08:04:33 GMT",
+            "content-type": "application/json; charset=UTF-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=5184000; includeSubDomains",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4911",
+            "x-ratelimit-reset": "1779869086",
+            "vary": "Origin, X-Origin",
+            "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+            "pragma": "no-cache",
+            "expires": "Mon, 01 Jan 1990 00:00:00 GMT",
+            "server": "ESF",
+            "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+          },
+          "hash": "09ad8c45a731bae5480f0d71902b0e9856de3b2e",
+          "request": {
+            "params": {
+              "corpora": "drive",
+              "driveId": "0AMhZJZkJUMchUk9PVA",
+              "includeItemsFromAllDrives": "true",
+              "orderBy": "modifiedTime desc",
+              "pageSize": "100",
+              "q": "mimeType='application/vnd.google-apps.document'",
+              "supportsAllDrives": "true",
+              "fields": "nextPageToken, files(id, name, mimeType, modifiedTime)"
+            }
+          }
+        },
+        {
+          "response": {
+            "files": [
+              {
+                "kind": "drive#file",
+                "driveId": "0AG2wVj8zi4gmUk9PVA",
+                "mimeType": "application/vnd.google-apps.document",
+                "id": "1_nQG3u1PH9327k8q-MCnVwCFHxF4V11yUhQML7HG2QQ",
+                "name": "Nango Sync Shared Drives Test 2 - Seed Document",
+                "teamDriveId": "0AG2wVj8zi4gmUk9PVA"
+              }
+            ],
+            "kind": "drive#fileList",
+            "incompleteSearch": false
+          },
+          "status": 200,
+          "headers": {
+            "date": "Wed, 27 May 2026 08:04:34 GMT",
+            "content-type": "application/json; charset=UTF-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=5184000; includeSubDomains",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4908",
+            "x-ratelimit-reset": "1779869086",
+            "pragma": "no-cache",
+            "expires": "Mon, 01 Jan 1990 00:00:00 GMT",
+            "vary": "Origin, X-Origin",
+            "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+            "server": "ESF",
+            "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+          },
+          "hash": "3605e31419190b3c83772dfed8cee6f2763962f9",
+          "request": {
+            "params": {
+              "corpora": "drive",
+              "driveId": "0AG2wVj8zi4gmUk9PVA",
+              "includeItemsFromAllDrives": "true",
+              "orderBy": "modifiedTime desc",
+              "pageSize": "100",
+              "q": "mimeType='application/vnd.google-apps.document'",
+              "supportsAllDrives": "true",
+              "fields": "nextPageToken, files(id, name, mimeType, modifiedTime)"
+            }
+          }
+        },
+        {
+          "response": {
+            "files": [
+              {
+                "kind": "drive#file",
+                "driveId": "0AObrA-qeMU0iUk9PVA",
+                "mimeType": "application/vnd.google-apps.document",
+                "id": "1UN7-d7uQ1gFMUIpWvwuUXRR-csHSln1FlOBaZ5Jl7DQ",
+                "name": "Nango Sync Shared Drives Test 1 - Seed Document",
+                "teamDriveId": "0AObrA-qeMU0iUk9PVA"
+              }
+            ],
+            "kind": "drive#fileList",
+            "incompleteSearch": false
+          },
+          "status": 200,
+          "headers": {
+            "date": "Wed, 27 May 2026 08:04:34 GMT",
+            "content-type": "application/json; charset=UTF-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=5184000; includeSubDomains",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4904",
+            "x-ratelimit-reset": "1779869086",
+            "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+            "vary": "Origin, X-Origin",
+            "pragma": "no-cache",
+            "expires": "Mon, 01 Jan 1990 00:00:00 GMT",
+            "server": "ESF",
+            "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+          },
+          "hash": "e6bf36e371b5c57dbcad2f1d61baeb5f624a8580",
+          "request": {
+            "params": {
+              "corpora": "drive",
+              "driveId": "0AObrA-qeMU0iUk9PVA",
+              "includeItemsFromAllDrives": "true",
+              "orderBy": "modifiedTime desc",
+              "pageSize": "100",
+              "q": "mimeType='application/vnd.google-apps.document'",
+              "supportsAllDrives": "true",
+              "fields": "nextPageToken, files(id, name, mimeType, modifiedTime)"
+            }
+          }
+        }
+      ],
+      "/v1/documents/176asHkjHAnIU2JDukTXy9Jeqi-Nog-W46qALVHIfqWI": {
+        "response": {
+          "title": "Nango Sync Shared Drives Test 3 - Seed Document",
+          "revisionId": "AFwiY1_NzaEQRS3pDMdT-FhJRTV0kjaaYAZ2I7CMoHQlAwQo6sEBl6B8c0sYKRVWO-WHZPLI-OiteNUDCzZSPJU_wY7nawm0XLn_DQsflvo",
+          "suggestionsViewMode": "SUGGESTIONS_INLINE",
+          "documentId": "176asHkjHAnIU2JDukTXy9Jeqi-Nog-W46qALVHIfqWI",
+          "tabs": [
+            {
+              "tabProperties": {
+                "tabId": "t.0",
+                "title": "Tab 1",
+                "index": 0
+              },
+              "documentTab": {
+                "body": {
+                  "content": [
+                    {
+                      "endIndex": 1,
+                      "sectionBreak": {
+                        "sectionStyle": {
+                          "columnSeparatorStyle": "NONE",
+                          "contentDirection": "LEFT_TO_RIGHT",
+                          "sectionType": "CONTINUOUS"
+                        }
+                      }
+                    },
+                    {
+                      "startIndex": 1,
+                      "endIndex": 2,
+                      "paragraph": {
+                        "elements": [
+                          {
+                            "startIndex": 1,
+                            "endIndex": 2,
+                            "textRun": {
+                              "content": "\n",
+                              "textStyle": {}
+                            }
+                          }
+                        ],
+                        "paragraphStyle": {
+                          "namedStyleType": "NORMAL_TEXT",
+                          "direction": "LEFT_TO_RIGHT"
+                        }
+                      }
+                    }
+                  ]
+                },
+                "documentStyle": {
+                  "background": {
+                    "color": {}
+                  },
+                  "pageNumberStart": 1,
+                  "marginTop": {
+                    "magnitude": 72,
+                    "unit": "PT"
+                  },
+                  "marginBottom": {
+                    "magnitude": 72,
+                    "unit": "PT"
+                  },
+                  "marginRight": {
+                    "magnitude": 72,
+                    "unit": "PT"
+                  },
+                  "marginLeft": {
+                    "magnitude": 72,
+                    "unit": "PT"
+                  },
+                  "pageSize": {
+                    "height": {
+                      "magnitude": 792,
+                      "unit": "PT"
+                    },
+                    "width": {
+                      "magnitude": 612,
+                      "unit": "PT"
+                    }
+                  },
+                  "marginHeader": {
+                    "magnitude": 36,
+                    "unit": "PT"
+                  },
+                  "marginFooter": {
+                    "magnitude": 36,
+                    "unit": "PT"
+                  },
+                  "useCustomHeaderFooterMargins": true,
+                  "documentFormat": {
+                    "documentMode": "PAGES"
+                  }
+                },
+                "namedStyles": {
+                  "styles": [
+                    {
+                      "namedStyleType": "NORMAL_TEXT",
+                      "textStyle": {
+                        "bold": false,
+                        "italic": false,
+                        "underline": false,
+                        "strikethrough": false,
+                        "smallCaps": false,
+                        "backgroundColor": {},
+                        "foregroundColor": {
+                          "color": {
+                            "rgbColor": {}
+                          }
+                        },
+                        "fontSize": {
+                          "magnitude": 11,
+                          "unit": "PT"
+                        },
+                        "weightedFontFamily": {
+                          "fontFamily": "Arial",
+                          "weight": 400
+                        },
+                        "baselineOffset": "NONE"
+                      },
+                      "paragraphStyle": {
+                        "namedStyleType": "NORMAL_TEXT",
+                        "alignment": "START",
+                        "lineSpacing": 115,
+                        "direction": "LEFT_TO_RIGHT",
+                        "spacingMode": "COLLAPSE_LISTS",
+                        "spaceAbove": {
+                          "unit": "PT"
+                        },
+                        "spaceBelow": {
+                          "unit": "PT"
+                        },
+                        "borderBetween": {
+                          "color": {},
+                          "width": {
+                            "unit": "PT"
+                          },
+                          "padding": {
+                            "unit": "PT"
+                          },
+                          "dashStyle": "SOLID"
+                        },
+                        "borderTop": {
+                          "color": {},
+                          "width": {
+                            "unit": "PT"
+                          },
+                          "padding": {
+                            "unit": "PT"
+                          },
+                          "dashStyle": "SOLID"
+                        },
+                        "borderBottom": {
+                          "color": {},
+                          "width": {
+                            "unit": "PT"
+                          },
+                          "padding": {
+                            "unit": "PT"
+                          },
+                          "dashStyle": "SOLID"
+                        },
+                        "borderLeft": {
+                          "color": {},
+                          "width": {
+                            "unit": "PT"
+                          },
+                          "padding": {
+                            "unit": "PT"
+                          },
+                          "dashStyle": "SOLID"
+                        },
+                        "borderRight": {
+                          "color": {},
+                          "width": {
+                            "unit": "PT"
+                          },
+                          "padding": {
+                            "unit": "PT"
+                          },
+                          "dashStyle": "SOLID"
+                        },
+                        "indentFirstLine": {
+                          "unit": "PT"
+                        },
+                        "indentStart": {
+                          "unit": "PT"
+                        },
+                        "indentEnd": {
+                          "unit": "PT"
+                        },
+                        "keepLinesTogether": false,
+                        "keepWithNext": false,
+                        "avoidWidowAndOrphan": true,
+                        "shading": {
+                          "backgroundColor": {}
+                        },
+                        "pageBreakBefore": false
+                      }
+                    },
+                    {
+                      "namedStyleType": "HEADING_1",
+                      "textStyle": {
+                        "fontSize": {
+                          "magnitude": 20,
+                          "unit": "PT"
+                        }
+                      },
+                      "paragraphStyle": {
+                        "namedStyleType": "NORMAL_TEXT",
+                        "direction": "LEFT_TO_RIGHT",
+                        "spaceAbove": {
+                          "magnitude": 20,
+                          "unit": "PT"
+                        },
+                        "spaceBelow": {
+                          "magnitude": 6,
+                          "unit": "PT"
+                        },
+                        "keepLinesTogether": true,
+                        "keepWithNext": true,
+                        "pageBreakBefore": false
+                      }
+                    },
+                    {
+                      "namedStyleType": "HEADING_2",
+                      "textStyle": {
+                        "bold": false,
+                        "fontSize": {
+                          "magnitude": 16,
+                          "unit": "PT"
+                        }
+                      },
+                      "paragraphStyle": {
+                        "namedStyleType": "NORMAL_TEXT",
+                        "direction": "LEFT_TO_RIGHT",
+                        "spaceAbove": {
+                          "magnitude": 18,
+                          "unit": "PT"
+                        },
+                        "spaceBelow": {
+                          "magnitude": 6,
+                          "unit": "PT"
+                        },
+                        "keepLinesTogether": true,
+                        "keepWithNext": true,
+                        "pageBreakBefore": false
+                      }
+                    },
+                    {
+                      "namedStyleType": "HEADING_3",
+                      "textStyle": {
+                        "bold": false,
+                        "foregroundColor": {
+                          "color": {
+                            "rgbColor": {
+                              "red": 0.2627451,
+                              "green": 0.2627451,
+                              "blue": 0.2627451
+                            }
+                          }
+                        },
+                        "fontSize": {
+                          "magnitude": 14,
+                          "unit": "PT"
+                        }
+                      },
+                      "paragraphStyle": {
+                        "namedStyleType": "NORMAL_TEXT",
+                        "direction": "LEFT_TO_RIGHT",
+                        "spaceAbove": {
+                          "magnitude": 16,
+                          "unit": "PT"
+                        },
+                        "spaceBelow": {
+                          "magnitude": 4,
+                          "unit": "PT"
+                        },
+                        "keepLinesTogether": true,
+                        "keepWithNext": true,
+                        "pageBreakBefore": false
+                      }
+                    },
+                    {
+                      "namedStyleType": "HEADING_4",
+                      "textStyle": {
+                        "foregroundColor": {
+                          "color": {
+                            "rgbColor": {
+                              "red": 0.4,
+                              "green": 0.4,
+                              "blue": 0.4
+                            }
+                          }
+                        },
+                        "fontSize": {
+                          "magnitude": 12,
+                          "unit": "PT"
+                        }
+                      },
+                      "paragraphStyle": {
+                        "namedStyleType": "NORMAL_TEXT",
+                        "direction": "LEFT_TO_RIGHT",
+                        "spaceAbove": {
+                          "magnitude": 14,
+                          "unit": "PT"
+                        },
+                        "spaceBelow": {
+                          "magnitude": 4,
+                          "unit": "PT"
+                        },
+                        "keepLinesTogether": true,
+                        "keepWithNext": true,
+                        "pageBreakBefore": false
+                      }
+                    },
+                    {
+                      "namedStyleType": "HEADING_5",
+                      "textStyle": {
+                        "foregroundColor": {
+                          "color": {
+                            "rgbColor": {
+                              "red": 0.4,
+                              "green": 0.4,
+                              "blue": 0.4
+                            }
+                          }
+                        },
+                        "fontSize": {
+                          "magnitude": 11,
+                          "unit": "PT"
+                        }
+                      },
+                      "paragraphStyle": {
+                        "namedStyleType": "NORMAL_TEXT",
+                        "direction": "LEFT_TO_RIGHT",
+                        "spaceAbove": {
+                          "magnitude": 12,
+                          "unit": "PT"
+                        },
+                        "spaceBelow": {
+                          "magnitude": 4,
+                          "unit": "PT"
+                        },
+                        "keepLinesTogether": true,
+                        "keepWithNext": true,
+                        "pageBreakBefore": false
+                      }
+                    },
+                    {
+                      "namedStyleType": "HEADING_6",
+                      "textStyle": {
+                        "italic": true,
+                        "foregroundColor": {
+                          "color": {
+                            "rgbColor": {
+                              "red": 0.4,
+                              "green": 0.4,
+                              "blue": 0.4
+                            }
+                          }
+                        },
+                        "fontSize": {
+                          "magnitude": 11,
+                          "unit": "PT"
+                        }
+                      },
+                      "paragraphStyle": {
+                        "namedStyleType": "NORMAL_TEXT",
+                        "direction": "LEFT_TO_RIGHT",
+                        "spaceAbove": {
+                          "magnitude": 12,
+                          "unit": "PT"
+                        },
+                        "spaceBelow": {
+                          "magnitude": 4,
+                          "unit": "PT"
+                        },
+                        "keepLinesTogether": true,
+                        "keepWithNext": true,
+                        "pageBreakBefore": false
+                      }
+                    },
+                    {
+                      "namedStyleType": "TITLE",
+                      "textStyle": {
+                        "fontSize": {
+                          "magnitude": 26,
+                          "unit": "PT"
+                        }
+                      },
+                      "paragraphStyle": {
+                        "namedStyleType": "NORMAL_TEXT",
+                        "direction": "LEFT_TO_RIGHT",
+                        "spaceAbove": {
+                          "unit": "PT"
+                        },
+                        "spaceBelow": {
+                          "magnitude": 3,
+                          "unit": "PT"
+                        },
+                        "keepLinesTogether": true,
+                        "keepWithNext": true,
+                        "pageBreakBefore": false
+                      }
+                    },
+                    {
+                      "namedStyleType": "SUBTITLE",
+                      "textStyle": {
+                        "italic": false,
+                        "foregroundColor": {
+                          "color": {
+                            "rgbColor": {
+                              "red": 0.4,
+                              "green": 0.4,
+                              "blue": 0.4
+                            }
+                          }
+                        },
+                        "fontSize": {
+                          "magnitude": 15,
+                          "unit": "PT"
+                        },
+                        "weightedFontFamily": {
+                          "fontFamily": "Arial",
+                          "weight": 400
+                        }
+                      },
+                      "paragraphStyle": {
+                        "namedStyleType": "NORMAL_TEXT",
+                        "direction": "LEFT_TO_RIGHT",
+                        "spaceAbove": {
+                          "unit": "PT"
+                        },
+                        "spaceBelow": {
+                          "magnitude": 16,
+                          "unit": "PT"
+                        },
+                        "keepLinesTogether": true,
+                        "keepWithNext": true,
+                        "pageBreakBefore": false
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 27 May 2026 08:04:33 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4909",
+          "x-ratelimit-reset": "1779869086",
+          "vary": "Origin, X-Origin, Referer",
+          "server": "ESF",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+          "x-l2-request-path": "l2-managed-5"
+        },
+        "hash": "d2d25b4df26e99adc386a22c7e47ff11d82537ae",
+        "request": {
+          "params": {
+            "includeTabsContent": "true"
+          }
+        }
+      },
+      "/v1/documents/1_nQG3u1PH9327k8q-MCnVwCFHxF4V11yUhQML7HG2QQ": {
+        "response": {
+          "title": "Nango Sync Shared Drives Test 2 - Seed Document",
+          "revisionId": "AFwiY19uUQHOvMeBq57lF-p_WwQIMk3ls6KZiztkHtdupIM7PjKJeQ9fSCrssnewWqpYujR35AuD3-RKbkvicAFQGCVR47IzRZaNFhMCIlc",
+          "suggestionsViewMode": "SUGGESTIONS_INLINE",
+          "documentId": "1_nQG3u1PH9327k8q-MCnVwCFHxF4V11yUhQML7HG2QQ",
+          "tabs": [
+            {
+              "tabProperties": {
+                "tabId": "t.0",
+                "title": "Tab 1",
+                "index": 0
+              },
+              "documentTab": {
+                "body": {
+                  "content": [
+                    {
+                      "endIndex": 1,
+                      "sectionBreak": {
+                        "sectionStyle": {
+                          "columnSeparatorStyle": "NONE",
+                          "contentDirection": "LEFT_TO_RIGHT",
+                          "sectionType": "CONTINUOUS"
+                        }
+                      }
+                    },
+                    {
+                      "startIndex": 1,
+                      "endIndex": 2,
+                      "paragraph": {
+                        "elements": [
+                          {
+                            "startIndex": 1,
+                            "endIndex": 2,
+                            "textRun": {
+                              "content": "\n",
+                              "textStyle": {}
+                            }
+                          }
+                        ],
+                        "paragraphStyle": {
+                          "namedStyleType": "NORMAL_TEXT",
+                          "direction": "LEFT_TO_RIGHT"
+                        }
+                      }
+                    }
+                  ]
+                },
+                "documentStyle": {
+                  "background": {
+                    "color": {}
+                  },
+                  "pageNumberStart": 1,
+                  "marginTop": {
+                    "magnitude": 72,
+                    "unit": "PT"
+                  },
+                  "marginBottom": {
+                    "magnitude": 72,
+                    "unit": "PT"
+                  },
+                  "marginRight": {
+                    "magnitude": 72,
+                    "unit": "PT"
+                  },
+                  "marginLeft": {
+                    "magnitude": 72,
+                    "unit": "PT"
+                  },
+                  "pageSize": {
+                    "height": {
+                      "magnitude": 792,
+                      "unit": "PT"
+                    },
+                    "width": {
+                      "magnitude": 612,
+                      "unit": "PT"
+                    }
+                  },
+                  "marginHeader": {
+                    "magnitude": 36,
+                    "unit": "PT"
+                  },
+                  "marginFooter": {
+                    "magnitude": 36,
+                    "unit": "PT"
+                  },
+                  "useCustomHeaderFooterMargins": true,
+                  "documentFormat": {
+                    "documentMode": "PAGES"
+                  }
+                },
+                "namedStyles": {
+                  "styles": [
+                    {
+                      "namedStyleType": "NORMAL_TEXT",
+                      "textStyle": {
+                        "bold": false,
+                        "italic": false,
+                        "underline": false,
+                        "strikethrough": false,
+                        "smallCaps": false,
+                        "backgroundColor": {},
+                        "foregroundColor": {
+                          "color": {
+                            "rgbColor": {}
+                          }
+                        },
+                        "fontSize": {
+                          "magnitude": 11,
+                          "unit": "PT"
+                        },
+                        "weightedFontFamily": {
+                          "fontFamily": "Arial",
+                          "weight": 400
+                        },
+                        "baselineOffset": "NONE"
+                      },
+                      "paragraphStyle": {
+                        "namedStyleType": "NORMAL_TEXT",
+                        "alignment": "START",
+                        "lineSpacing": 115,
+                        "direction": "LEFT_TO_RIGHT",
+                        "spacingMode": "COLLAPSE_LISTS",
+                        "spaceAbove": {
+                          "unit": "PT"
+                        },
+                        "spaceBelow": {
+                          "unit": "PT"
+                        },
+                        "borderBetween": {
+                          "color": {},
+                          "width": {
+                            "unit": "PT"
+                          },
+                          "padding": {
+                            "unit": "PT"
+                          },
+                          "dashStyle": "SOLID"
+                        },
+                        "borderTop": {
+                          "color": {},
+                          "width": {
+                            "unit": "PT"
+                          },
+                          "padding": {
+                            "unit": "PT"
+                          },
+                          "dashStyle": "SOLID"
+                        },
+                        "borderBottom": {
+                          "color": {},
+                          "width": {
+                            "unit": "PT"
+                          },
+                          "padding": {
+                            "unit": "PT"
+                          },
+                          "dashStyle": "SOLID"
+                        },
+                        "borderLeft": {
+                          "color": {},
+                          "width": {
+                            "unit": "PT"
+                          },
+                          "padding": {
+                            "unit": "PT"
+                          },
+                          "dashStyle": "SOLID"
+                        },
+                        "borderRight": {
+                          "color": {},
+                          "width": {
+                            "unit": "PT"
+                          },
+                          "padding": {
+                            "unit": "PT"
+                          },
+                          "dashStyle": "SOLID"
+                        },
+                        "indentFirstLine": {
+                          "unit": "PT"
+                        },
+                        "indentStart": {
+                          "unit": "PT"
+                        },
+                        "indentEnd": {
+                          "unit": "PT"
+                        },
+                        "keepLinesTogether": false,
+                        "keepWithNext": false,
+                        "avoidWidowAndOrphan": true,
+                        "shading": {
+                          "backgroundColor": {}
+                        },
+                        "pageBreakBefore": false
+                      }
+                    },
+                    {
+                      "namedStyleType": "HEADING_1",
+                      "textStyle": {
+                        "fontSize": {
+                          "magnitude": 20,
+                          "unit": "PT"
+                        }
+                      },
+                      "paragraphStyle": {
+                        "namedStyleType": "NORMAL_TEXT",
+                        "direction": "LEFT_TO_RIGHT",
+                        "spaceAbove": {
+                          "magnitude": 20,
+                          "unit": "PT"
+                        },
+                        "spaceBelow": {
+                          "magnitude": 6,
+                          "unit": "PT"
+                        },
+                        "keepLinesTogether": true,
+                        "keepWithNext": true,
+                        "pageBreakBefore": false
+                      }
+                    },
+                    {
+                      "namedStyleType": "HEADING_2",
+                      "textStyle": {
+                        "bold": false,
+                        "fontSize": {
+                          "magnitude": 16,
+                          "unit": "PT"
+                        }
+                      },
+                      "paragraphStyle": {
+                        "namedStyleType": "NORMAL_TEXT",
+                        "direction": "LEFT_TO_RIGHT",
+                        "spaceAbove": {
+                          "magnitude": 18,
+                          "unit": "PT"
+                        },
+                        "spaceBelow": {
+                          "magnitude": 6,
+                          "unit": "PT"
+                        },
+                        "keepLinesTogether": true,
+                        "keepWithNext": true,
+                        "pageBreakBefore": false
+                      }
+                    },
+                    {
+                      "namedStyleType": "HEADING_3",
+                      "textStyle": {
+                        "bold": false,
+                        "foregroundColor": {
+                          "color": {
+                            "rgbColor": {
+                              "red": 0.2627451,
+                              "green": 0.2627451,
+                              "blue": 0.2627451
+                            }
+                          }
+                        },
+                        "fontSize": {
+                          "magnitude": 14,
+                          "unit": "PT"
+                        }
+                      },
+                      "paragraphStyle": {
+                        "namedStyleType": "NORMAL_TEXT",
+                        "direction": "LEFT_TO_RIGHT",
+                        "spaceAbove": {
+                          "magnitude": 16,
+                          "unit": "PT"
+                        },
+                        "spaceBelow": {
+                          "magnitude": 4,
+                          "unit": "PT"
+                        },
+                        "keepLinesTogether": true,
+                        "keepWithNext": true,
+                        "pageBreakBefore": false
+                      }
+                    },
+                    {
+                      "namedStyleType": "HEADING_4",
+                      "textStyle": {
+                        "foregroundColor": {
+                          "color": {
+                            "rgbColor": {
+                              "red": 0.4,
+                              "green": 0.4,
+                              "blue": 0.4
+                            }
+                          }
+                        },
+                        "fontSize": {
+                          "magnitude": 12,
+                          "unit": "PT"
+                        }
+                      },
+                      "paragraphStyle": {
+                        "namedStyleType": "NORMAL_TEXT",
+                        "direction": "LEFT_TO_RIGHT",
+                        "spaceAbove": {
+                          "magnitude": 14,
+                          "unit": "PT"
+                        },
+                        "spaceBelow": {
+                          "magnitude": 4,
+                          "unit": "PT"
+                        },
+                        "keepLinesTogether": true,
+                        "keepWithNext": true,
+                        "pageBreakBefore": false
+                      }
+                    },
+                    {
+                      "namedStyleType": "HEADING_5",
+                      "textStyle": {
+                        "foregroundColor": {
+                          "color": {
+                            "rgbColor": {
+                              "red": 0.4,
+                              "green": 0.4,
+                              "blue": 0.4
+                            }
+                          }
+                        },
+                        "fontSize": {
+                          "magnitude": 11,
+                          "unit": "PT"
+                        }
+                      },
+                      "paragraphStyle": {
+                        "namedStyleType": "NORMAL_TEXT",
+                        "direction": "LEFT_TO_RIGHT",
+                        "spaceAbove": {
+                          "magnitude": 12,
+                          "unit": "PT"
+                        },
+                        "spaceBelow": {
+                          "magnitude": 4,
+                          "unit": "PT"
+                        },
+                        "keepLinesTogether": true,
+                        "keepWithNext": true,
+                        "pageBreakBefore": false
+                      }
+                    },
+                    {
+                      "namedStyleType": "HEADING_6",
+                      "textStyle": {
+                        "italic": true,
+                        "foregroundColor": {
+                          "color": {
+                            "rgbColor": {
+                              "red": 0.4,
+                              "green": 0.4,
+                              "blue": 0.4
+                            }
+                          }
+                        },
+                        "fontSize": {
+                          "magnitude": 11,
+                          "unit": "PT"
+                        }
+                      },
+                      "paragraphStyle": {
+                        "namedStyleType": "NORMAL_TEXT",
+                        "direction": "LEFT_TO_RIGHT",
+                        "spaceAbove": {
+                          "magnitude": 12,
+                          "unit": "PT"
+                        },
+                        "spaceBelow": {
+                          "magnitude": 4,
+                          "unit": "PT"
+                        },
+                        "keepLinesTogether": true,
+                        "keepWithNext": true,
+                        "pageBreakBefore": false
+                      }
+                    },
+                    {
+                      "namedStyleType": "TITLE",
+                      "textStyle": {
+                        "fontSize": {
+                          "magnitude": 26,
+                          "unit": "PT"
+                        }
+                      },
+                      "paragraphStyle": {
+                        "namedStyleType": "NORMAL_TEXT",
+                        "direction": "LEFT_TO_RIGHT",
+                        "spaceAbove": {
+                          "unit": "PT"
+                        },
+                        "spaceBelow": {
+                          "magnitude": 3,
+                          "unit": "PT"
+                        },
+                        "keepLinesTogether": true,
+                        "keepWithNext": true,
+                        "pageBreakBefore": false
+                      }
+                    },
+                    {
+                      "namedStyleType": "SUBTITLE",
+                      "textStyle": {
+                        "italic": false,
+                        "foregroundColor": {
+                          "color": {
+                            "rgbColor": {
+                              "red": 0.4,
+                              "green": 0.4,
+                              "blue": 0.4
+                            }
+                          }
+                        },
+                        "fontSize": {
+                          "magnitude": 15,
+                          "unit": "PT"
+                        },
+                        "weightedFontFamily": {
+                          "fontFamily": "Arial",
+                          "weight": 400
+                        }
+                      },
+                      "paragraphStyle": {
+                        "namedStyleType": "NORMAL_TEXT",
+                        "direction": "LEFT_TO_RIGHT",
+                        "spaceAbove": {
+                          "unit": "PT"
+                        },
+                        "spaceBelow": {
+                          "magnitude": 16,
+                          "unit": "PT"
+                        },
+                        "keepLinesTogether": true,
+                        "keepWithNext": true,
+                        "pageBreakBefore": false
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 27 May 2026 08:04:34 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4906",
+          "x-ratelimit-reset": "1779869086",
+          "vary": "Origin, X-Origin, Referer",
+          "server": "ESF",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+          "x-l2-request-path": "l2-managed-5"
+        },
+        "hash": "ec588fca4ee73ed84e6ccbe2ab238078211aeccc",
+        "request": {
+          "params": {
+            "includeTabsContent": "true"
+          }
+        }
+      },
+      "/v1/documents/1UN7-d7uQ1gFMUIpWvwuUXRR-csHSln1FlOBaZ5Jl7DQ": {
+        "response": {
+          "title": "Nango Sync Shared Drives Test 1 - Seed Document",
+          "revisionId": "AFwiY18Py4cKxtXzaSY_PZRL8aAfMungLuPcvsXT3E-cLwq5FpY5yXmOHoAic31FsiSSvh_om0J6X4h3KLSkyToc0e2UAWn6LYXy8xdLW0c",
+          "suggestionsViewMode": "SUGGESTIONS_INLINE",
+          "documentId": "1UN7-d7uQ1gFMUIpWvwuUXRR-csHSln1FlOBaZ5Jl7DQ",
+          "tabs": [
+            {
+              "tabProperties": {
+                "tabId": "t.0",
+                "title": "Tab 1",
+                "index": 0
+              },
+              "documentTab": {
+                "body": {
+                  "content": [
+                    {
+                      "endIndex": 1,
+                      "sectionBreak": {
+                        "sectionStyle": {
+                          "columnSeparatorStyle": "NONE",
+                          "contentDirection": "LEFT_TO_RIGHT",
+                          "sectionType": "CONTINUOUS"
+                        }
+                      }
+                    },
+                    {
+                      "startIndex": 1,
+                      "endIndex": 2,
+                      "paragraph": {
+                        "elements": [
+                          {
+                            "startIndex": 1,
+                            "endIndex": 2,
+                            "textRun": {
+                              "content": "\n",
+                              "textStyle": {}
+                            }
+                          }
+                        ],
+                        "paragraphStyle": {
+                          "namedStyleType": "NORMAL_TEXT",
+                          "direction": "LEFT_TO_RIGHT"
+                        }
+                      }
+                    }
+                  ]
+                },
+                "documentStyle": {
+                  "background": {
+                    "color": {}
+                  },
+                  "pageNumberStart": 1,
+                  "marginTop": {
+                    "magnitude": 72,
+                    "unit": "PT"
+                  },
+                  "marginBottom": {
+                    "magnitude": 72,
+                    "unit": "PT"
+                  },
+                  "marginRight": {
+                    "magnitude": 72,
+                    "unit": "PT"
+                  },
+                  "marginLeft": {
+                    "magnitude": 72,
+                    "unit": "PT"
+                  },
+                  "pageSize": {
+                    "height": {
+                      "magnitude": 792,
+                      "unit": "PT"
+                    },
+                    "width": {
+                      "magnitude": 612,
+                      "unit": "PT"
+                    }
+                  },
+                  "marginHeader": {
+                    "magnitude": 36,
+                    "unit": "PT"
+                  },
+                  "marginFooter": {
+                    "magnitude": 36,
+                    "unit": "PT"
+                  },
+                  "useCustomHeaderFooterMargins": true,
+                  "documentFormat": {
+                    "documentMode": "PAGES"
+                  }
+                },
+                "namedStyles": {
+                  "styles": [
+                    {
+                      "namedStyleType": "NORMAL_TEXT",
+                      "textStyle": {
+                        "bold": false,
+                        "italic": false,
+                        "underline": false,
+                        "strikethrough": false,
+                        "smallCaps": false,
+                        "backgroundColor": {},
+                        "foregroundColor": {
+                          "color": {
+                            "rgbColor": {}
+                          }
+                        },
+                        "fontSize": {
+                          "magnitude": 11,
+                          "unit": "PT"
+                        },
+                        "weightedFontFamily": {
+                          "fontFamily": "Arial",
+                          "weight": 400
+                        },
+                        "baselineOffset": "NONE"
+                      },
+                      "paragraphStyle": {
+                        "namedStyleType": "NORMAL_TEXT",
+                        "alignment": "START",
+                        "lineSpacing": 115,
+                        "direction": "LEFT_TO_RIGHT",
+                        "spacingMode": "COLLAPSE_LISTS",
+                        "spaceAbove": {
+                          "unit": "PT"
+                        },
+                        "spaceBelow": {
+                          "unit": "PT"
+                        },
+                        "borderBetween": {
+                          "color": {},
+                          "width": {
+                            "unit": "PT"
+                          },
+                          "padding": {
+                            "unit": "PT"
+                          },
+                          "dashStyle": "SOLID"
+                        },
+                        "borderTop": {
+                          "color": {},
+                          "width": {
+                            "unit": "PT"
+                          },
+                          "padding": {
+                            "unit": "PT"
+                          },
+                          "dashStyle": "SOLID"
+                        },
+                        "borderBottom": {
+                          "color": {},
+                          "width": {
+                            "unit": "PT"
+                          },
+                          "padding": {
+                            "unit": "PT"
+                          },
+                          "dashStyle": "SOLID"
+                        },
+                        "borderLeft": {
+                          "color": {},
+                          "width": {
+                            "unit": "PT"
+                          },
+                          "padding": {
+                            "unit": "PT"
+                          },
+                          "dashStyle": "SOLID"
+                        },
+                        "borderRight": {
+                          "color": {},
+                          "width": {
+                            "unit": "PT"
+                          },
+                          "padding": {
+                            "unit": "PT"
+                          },
+                          "dashStyle": "SOLID"
+                        },
+                        "indentFirstLine": {
+                          "unit": "PT"
+                        },
+                        "indentStart": {
+                          "unit": "PT"
+                        },
+                        "indentEnd": {
+                          "unit": "PT"
+                        },
+                        "keepLinesTogether": false,
+                        "keepWithNext": false,
+                        "avoidWidowAndOrphan": true,
+                        "shading": {
+                          "backgroundColor": {}
+                        },
+                        "pageBreakBefore": false
+                      }
+                    },
+                    {
+                      "namedStyleType": "HEADING_1",
+                      "textStyle": {
+                        "fontSize": {
+                          "magnitude": 20,
+                          "unit": "PT"
+                        }
+                      },
+                      "paragraphStyle": {
+                        "namedStyleType": "NORMAL_TEXT",
+                        "direction": "LEFT_TO_RIGHT",
+                        "spaceAbove": {
+                          "magnitude": 20,
+                          "unit": "PT"
+                        },
+                        "spaceBelow": {
+                          "magnitude": 6,
+                          "unit": "PT"
+                        },
+                        "keepLinesTogether": true,
+                        "keepWithNext": true,
+                        "pageBreakBefore": false
+                      }
+                    },
+                    {
+                      "namedStyleType": "HEADING_2",
+                      "textStyle": {
+                        "bold": false,
+                        "fontSize": {
+                          "magnitude": 16,
+                          "unit": "PT"
+                        }
+                      },
+                      "paragraphStyle": {
+                        "namedStyleType": "NORMAL_TEXT",
+                        "direction": "LEFT_TO_RIGHT",
+                        "spaceAbove": {
+                          "magnitude": 18,
+                          "unit": "PT"
+                        },
+                        "spaceBelow": {
+                          "magnitude": 6,
+                          "unit": "PT"
+                        },
+                        "keepLinesTogether": true,
+                        "keepWithNext": true,
+                        "pageBreakBefore": false
+                      }
+                    },
+                    {
+                      "namedStyleType": "HEADING_3",
+                      "textStyle": {
+                        "bold": false,
+                        "foregroundColor": {
+                          "color": {
+                            "rgbColor": {
+                              "red": 0.2627451,
+                              "green": 0.2627451,
+                              "blue": 0.2627451
+                            }
+                          }
+                        },
+                        "fontSize": {
+                          "magnitude": 14,
+                          "unit": "PT"
+                        }
+                      },
+                      "paragraphStyle": {
+                        "namedStyleType": "NORMAL_TEXT",
+                        "direction": "LEFT_TO_RIGHT",
+                        "spaceAbove": {
+                          "magnitude": 16,
+                          "unit": "PT"
+                        },
+                        "spaceBelow": {
+                          "magnitude": 4,
+                          "unit": "PT"
+                        },
+                        "keepLinesTogether": true,
+                        "keepWithNext": true,
+                        "pageBreakBefore": false
+                      }
+                    },
+                    {
+                      "namedStyleType": "HEADING_4",
+                      "textStyle": {
+                        "foregroundColor": {
+                          "color": {
+                            "rgbColor": {
+                              "red": 0.4,
+                              "green": 0.4,
+                              "blue": 0.4
+                            }
+                          }
+                        },
+                        "fontSize": {
+                          "magnitude": 12,
+                          "unit": "PT"
+                        }
+                      },
+                      "paragraphStyle": {
+                        "namedStyleType": "NORMAL_TEXT",
+                        "direction": "LEFT_TO_RIGHT",
+                        "spaceAbove": {
+                          "magnitude": 14,
+                          "unit": "PT"
+                        },
+                        "spaceBelow": {
+                          "magnitude": 4,
+                          "unit": "PT"
+                        },
+                        "keepLinesTogether": true,
+                        "keepWithNext": true,
+                        "pageBreakBefore": false
+                      }
+                    },
+                    {
+                      "namedStyleType": "HEADING_5",
+                      "textStyle": {
+                        "foregroundColor": {
+                          "color": {
+                            "rgbColor": {
+                              "red": 0.4,
+                              "green": 0.4,
+                              "blue": 0.4
+                            }
+                          }
+                        },
+                        "fontSize": {
+                          "magnitude": 11,
+                          "unit": "PT"
+                        }
+                      },
+                      "paragraphStyle": {
+                        "namedStyleType": "NORMAL_TEXT",
+                        "direction": "LEFT_TO_RIGHT",
+                        "spaceAbove": {
+                          "magnitude": 12,
+                          "unit": "PT"
+                        },
+                        "spaceBelow": {
+                          "magnitude": 4,
+                          "unit": "PT"
+                        },
+                        "keepLinesTogether": true,
+                        "keepWithNext": true,
+                        "pageBreakBefore": false
+                      }
+                    },
+                    {
+                      "namedStyleType": "HEADING_6",
+                      "textStyle": {
+                        "italic": true,
+                        "foregroundColor": {
+                          "color": {
+                            "rgbColor": {
+                              "red": 0.4,
+                              "green": 0.4,
+                              "blue": 0.4
+                            }
+                          }
+                        },
+                        "fontSize": {
+                          "magnitude": 11,
+                          "unit": "PT"
+                        }
+                      },
+                      "paragraphStyle": {
+                        "namedStyleType": "NORMAL_TEXT",
+                        "direction": "LEFT_TO_RIGHT",
+                        "spaceAbove": {
+                          "magnitude": 12,
+                          "unit": "PT"
+                        },
+                        "spaceBelow": {
+                          "magnitude": 4,
+                          "unit": "PT"
+                        },
+                        "keepLinesTogether": true,
+                        "keepWithNext": true,
+                        "pageBreakBefore": false
+                      }
+                    },
+                    {
+                      "namedStyleType": "TITLE",
+                      "textStyle": {
+                        "fontSize": {
+                          "magnitude": 26,
+                          "unit": "PT"
+                        }
+                      },
+                      "paragraphStyle": {
+                        "namedStyleType": "NORMAL_TEXT",
+                        "direction": "LEFT_TO_RIGHT",
+                        "spaceAbove": {
+                          "unit": "PT"
+                        },
+                        "spaceBelow": {
+                          "magnitude": 3,
+                          "unit": "PT"
+                        },
+                        "keepLinesTogether": true,
+                        "keepWithNext": true,
+                        "pageBreakBefore": false
+                      }
+                    },
+                    {
+                      "namedStyleType": "SUBTITLE",
+                      "textStyle": {
+                        "italic": false,
+                        "foregroundColor": {
+                          "color": {
+                            "rgbColor": {
+                              "red": 0.4,
+                              "green": 0.4,
+                              "blue": 0.4
+                            }
+                          }
+                        },
+                        "fontSize": {
+                          "magnitude": 15,
+                          "unit": "PT"
+                        },
+                        "weightedFontFamily": {
+                          "fontFamily": "Arial",
+                          "weight": 400
+                        }
+                      },
+                      "paragraphStyle": {
+                        "namedStyleType": "NORMAL_TEXT",
+                        "direction": "LEFT_TO_RIGHT",
+                        "spaceAbove": {
+                          "unit": "PT"
+                        },
+                        "spaceBelow": {
+                          "magnitude": 16,
+                          "unit": "PT"
+                        },
+                        "keepLinesTogether": true,
+                        "keepWithNext": true,
+                        "pageBreakBefore": false
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 27 May 2026 08:04:35 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4903",
+          "x-ratelimit-reset": "1779869086",
+          "vary": "Origin, X-Origin, Referer",
+          "server": "ESF",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+          "x-l2-request-path": "l2-managed-5"
+        },
+        "hash": "e47a0b8538e4d20877fbcd274957c7b6641a44d0",
+        "request": {
+          "params": {
+            "includeTabsContent": "true"
+          }
+        }
+      }
+    }
+  }
+}

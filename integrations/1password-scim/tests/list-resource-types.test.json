@@ -5,8 +5,6 @@
       "urn:ietf:params:scim:api:messages:2.0:ListResponse"
     ],
     "totalResults": 2,
-    "itemsPerPage": 2,
-    "startIndex": 0,
     "Resources": [
       {
         "schemas": [
@@ -14,8 +12,8 @@
         ],
         "id": "User",
         "name": "User",
-        "description": "User Account",
         "endpoint": "/scim/v2/User",
+        "description": "User Account",
         "schema": "urn:ietf:params:scim:schemas:core:2.0:User",
         "meta": {
           "resourceType": "ResourceType",
@@ -28,15 +26,17 @@
         ],
         "id": "Group",
         "name": "Group",
-        "description": "Group",
         "endpoint": "/scim/v2/Groups",
+        "description": "Group",
         "schema": "urn:ietf:params:scim:schemas:core:2.0:Group",
         "meta": {
           "resourceType": "ResourceType",
           "location": "/scim/v2/ResourceTypes/Group"
         }
       }
-    ]
+    ],
+    "startIndex": 0,
+    "itemsPerPage": 2
   },
   "nango": {},
   "api": {
@@ -82,7 +82,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Thu, 21 May 2026 14:15:39 GMT",
+          "date": "Fri, 22 May 2026 17:58:26 GMT",
           "content-type": "application/scim+json",
           "content-length": "695",
           "connection": "keep-alive",
@@ -96,8 +96,8 @@
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "5000",
-          "x-ratelimit-remaining": "4973",
-          "x-ratelimit-reset": "1779372973",
+          "x-ratelimit-remaining": "4996",
+          "x-ratelimit-reset": "1779472763",
           "etag": "W/\"2b7-YzXP206MYfilWmP/lfbCtcU/wKo\""
         },
         "hash": "8a3ae5c0014a65e9a1349d4d31b428e726adf132",
