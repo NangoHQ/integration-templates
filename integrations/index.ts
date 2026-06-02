@@ -752,6 +752,24 @@ import './google/syncs/workspace-org-units.js';
 import './google/syncs/workspace-user-access-tokens.js';
 import './google/syncs/workspace-users.js';
 
+// -- Integration: google-analytics
+import './google-analytics/syncs/accounts.js';
+import './google-analytics/syncs/audiences.js';
+import './google-analytics/syncs/conversion-events.js';
+import './google-analytics/syncs/data-streams.js';
+import './google-analytics/syncs/properties.js';
+import './google-analytics/actions/archive-conversion-event.js';
+import './google-analytics/actions/batch-run-reports.js';
+import './google-analytics/actions/create-conversion-event.js';
+import './google-analytics/actions/create-data-stream.js';
+import './google-analytics/actions/create-property.js';
+import './google-analytics/actions/get-metadata.js';
+import './google-analytics/actions/run-pivot-report.js';
+import './google-analytics/actions/run-realtime-report.js';
+import './google-analytics/actions/run-report.js';
+import './google-analytics/actions/update-data-stream.js';
+import './google-analytics/actions/update-property.js';
+
 // -- Integration: google-calendar
 import './google-calendar/syncs/events.js';
 import './google-calendar/syncs/calendars.js';

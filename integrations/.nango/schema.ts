@@ -22041,6 +22041,476 @@ export interface SyncMetadata_google_workspaceusers {
   path: string;})[];
 };
 
+export interface Audience {
+  id: string;
+  name: string;
+  date_created?: string | undefined;
+  list_rating?: number | undefined;
+  email_type_option?: boolean | undefined;
+  visibility?: string | undefined;
+  double_optin?: boolean | undefined;
+  has_welcome?: boolean | undefined;
+  marketing_permissions?: boolean | undefined;
+  permission_reminder?: string | undefined;
+  notify_on_subscribe?: string | undefined;
+  notify_on_unsubscribe?: string | undefined;
+  subscribe_url_short?: string | undefined;
+  subscribe_url_long?: string | undefined;
+  beamer_address?: string | undefined;
+  web_id?: number | undefined;
+  stats?: {  [key: string]: unknown | undefined;};
+};
+
+export interface KeyEvent {
+  id: string;
+  name?: string | undefined;
+  eventName?: string | undefined;
+  createTime?: string | undefined;
+  deletable?: boolean | undefined;
+  custom?: boolean | undefined;
+  countingMethod?: string | undefined;
+  defaultValue?: {  numericValue?: number | undefined;
+  currencyCode?: string | undefined;};
+};
+
+export interface DataStream {
+  id: string;
+  displayName?: string | undefined;
+  type?: string | undefined;
+  propertyId: string;
+  measurementId?: string | undefined;
+  defaultUri?: string | undefined;
+  firebaseAppId?: string | undefined;
+  packageName?: string | undefined;
+  bundleId?: string | undefined;
+  createTime?: string | undefined;
+  updateTime?: string | undefined;
+};
+
+export interface Property {
+  id: string;
+  displayName?: string | undefined;
+  propertyType?: string | undefined;
+  parent?: string | undefined;
+  createTime?: string | undefined;
+  updateTime?: string | undefined;
+  timeZone?: string | undefined;
+  currencyCode?: string | undefined;
+  industryCategory?: string | undefined;
+  serviceLevel?: string | undefined;
+};
+
+export interface ActionInput_google_analytics_archiveconversionevent {
+  /**
+   * GA4 property numeric ID. Example: "12345"
+   */
+  property_id: string;
+  /**
+   * Conversion event numeric ID. Example: "67890"
+   */
+  conversion_event_id: string;
+};
+
+export interface ActionOutput_google_analytics_archiveconversionevent {
+  success: boolean;
+  /**
+   * Resource name of the archived conversion event.
+   */
+  name: string;
+};
+
+export interface ActionInput_google_analytics_batchrunreports {
+  /**
+   * Google Analytics property ID. Example: "properties/123456789"
+   */
+  property: string;
+  requests: ({  dimensions?: ({  name: string;})[] | undefined;
+  metrics?: ({  name: string;})[] | undefined;
+  dateRanges?: ({  startDate: string;
+  endDate: string;})[] | undefined;
+  offset?: string | undefined;
+  limit?: string | undefined;
+  keepEmptyRows?: boolean | undefined;
+  returnPropertyQuota?: boolean | undefined;})[];
+};
+
+export interface ActionOutput_google_analytics_batchrunreports {
+  reports: ({  dimensionHeaders?: ({  name?: string | undefined;})[];
+  metricHeaders?: ({  name?: string | undefined;
+  type?: string | undefined;})[];
+  rows?: ({  dimensionValues?: ({  value?: string | undefined;})[];
+  metricValues?: ({  value?: string | undefined;})[];})[];
+  totals?: ({  dimensionValues?: ({  value?: string | undefined;})[];
+  metricValues?: ({  value?: string | undefined;})[];})[];
+  maximums?: ({  dimensionValues?: ({  value?: string | undefined;})[];
+  metricValues?: ({  value?: string | undefined;})[];})[];
+  minimums?: ({  dimensionValues?: ({  value?: string | undefined;})[];
+  metricValues?: ({  value?: string | undefined;})[];})[];
+  rowCount?: number | undefined;
+  metadata?: {  [key: string]: unknown | undefined;};
+  propertyQuota?: {  [key: string]: unknown | undefined;};
+  kind?: string | undefined;})[];
+  kind?: string | undefined;
+};
+
+export interface ActionInput_google_analytics_createconversionevent {
+  /**
+   * GA4 property ID. Example: "123456789"
+   */
+  propertyId: string;
+  /**
+   * The event name for this conversion event. Example: "click"
+   */
+  eventName: string;
+  /**
+   * Optional. The method by which conversions will be counted. Example: "ONCE_PER_EVENT"
+   */
+  countingMethod?: string | undefined;
+  /**
+   * Optional. Defines a default value/currency for a conversion event.
+   */
+  defaultConversionValue?: {  value: number;
+  currencyCode: string;} | undefined;
+};
+
+export interface ActionOutput_google_analytics_createconversionevent {
+  name: string;
+  eventName: string;
+  createTime?: string | undefined;
+  deletable?: boolean | undefined;
+  custom?: boolean | undefined;
+  countingMethod?: string | undefined;
+  defaultConversionValue?: {  value: number;
+  currencyCode: string;} | undefined;
+};
+
+export interface ActionInput_google_analytics_createdatastream {
+  0: {  /**
+   * GA4 property numeric ID. Example: "1234"
+   */
+  property_id: string;
+  /**
+   * Human-readable display name for the Data Stream.
+   */
+  display_name: string;
+  type: 'WEB_DATA_STREAM';
+  /**
+   * Data specific to web streams. Required when type is WEB_DATA_STREAM.
+   */
+  web_stream_data: {  /**
+   * Domain name of the web app being measured. Example: "https://www.example.com"
+   */
+  default_uri: string;};};
+  1: {  /**
+   * GA4 property numeric ID. Example: "1234"
+   */
+  property_id: string;
+  /**
+   * Human-readable display name for the Data Stream.
+   */
+  display_name: string;
+  type: 'ANDROID_APP_DATA_STREAM';
+  /**
+   * Data specific to Android app streams. Required when type is ANDROID_APP_DATA_STREAM.
+   */
+  android_app_stream_data: {  /**
+   * The package name for the app being measured. Example: "com.example.myandroidapp"
+   */
+  package_name: string;};};
+  2: {  /**
+   * GA4 property numeric ID. Example: "1234"
+   */
+  property_id: string;
+  /**
+   * Human-readable display name for the Data Stream.
+   */
+  display_name: string;
+  type: 'IOS_APP_DATA_STREAM';
+  /**
+   * Data specific to iOS app streams. Required when type is IOS_APP_DATA_STREAM.
+   */
+  ios_app_stream_data: {  /**
+   * The Apple App Store Bundle ID for the app. Example: "com.example.myiosapp"
+   */
+  bundle_id: string;};};
+  3: {  /**
+   * GA4 property numeric ID. Example: "1234"
+   */
+  property_id: string;
+  /**
+   * Human-readable display name for the Data Stream.
+   */
+  display_name: string;
+  type: 'DATA_STREAM_TYPE_UNSPECIFIED';};
+};
+
+export interface ActionOutput_google_analytics_createdatastream {
+  name?: string | undefined;
+  type?: 'DATA_STREAM_TYPE_UNSPECIFIED' | 'WEB_DATA_STREAM' | 'ANDROID_APP_DATA_STREAM' | 'IOS_APP_DATA_STREAM' | undefined;
+  displayName?: string | undefined;
+  createTime?: string | undefined;
+  updateTime?: string | undefined;
+  webStreamData?: {  measurementId?: string | undefined;
+  firebaseAppId?: string | undefined;
+  defaultUri?: string | undefined;};
+  androidAppStreamData?: {  firebaseAppId?: string | undefined;
+  packageName?: string | undefined;};
+  iosAppStreamData?: {  firebaseAppId?: string | undefined;
+  bundleId?: string | undefined;};
+};
+
+export interface ActionInput_google_analytics_createproperty {
+  /**
+   * The resource name of the account under which to create the property. Example: "accounts/12345"
+   */
+  parent: string;
+  /**
+   * Human-readable display name for the property. Max 100 UTF-16 code units.
+   */
+  displayName: string;
+  /**
+   * Reporting time zone for the property. Example: "America/Los_Angeles"
+   */
+  timeZone: string;
+  /**
+   * Currency type used in reports. Example: "USD"
+   */
+  currencyCode?: string | undefined;
+  /**
+   * Industry category for benchmarking. Example: "TECHNOLOGY"
+   */
+  industryCategory?: string | undefined;
+  /**
+   * Service level. Example: "STANDARD" or "GOOGLE_ANALYTICS_360"
+   */
+  serviceLevel?: string | undefined;
+  /**
+   * Property type. Example: "ORDINARY_PROPERTY"
+   */
+  propertyType?: string | undefined;
+};
+
+export interface ActionOutput_google_analytics_createproperty {
+  /**
+   * Resource name of the created property. Example: "properties/12345"
+   */
+  name: string;
+  /**
+   * Parent account name. Example: "accounts/12345"
+   */
+  parent: string;
+  displayName: string;
+  createTime?: string | undefined;
+  updateTime?: string | undefined;
+  timeZone?: string | undefined;
+  currencyCode?: string | undefined;
+  industryCategory?: string | undefined;
+  serviceLevel?: string | undefined;
+  propertyType?: string | undefined;
+  account?: string | undefined;
+};
+
+export interface ActionInput_google_analytics_getmetadata {
+  /**
+   * GA4 property ID. Use "0" for universal metadata. Example: "123456789"
+   */
+  propertyId: string;
+};
+
+export interface ActionOutput_google_analytics_getmetadata {
+  name: string;
+  dimensions: ({  apiName: string;
+  uiName: string;
+  description: string;
+  category: string;
+  deprecatedApiNames?: string[] | undefined;})[];
+  metrics: ({  apiName: string;
+  uiName: string;
+  description: string;
+  type: string;
+  category: string;
+  deprecatedApiNames?: string[] | undefined;})[];
+};
+
+export interface ActionInput_google_analytics_runpivotreport {
+  /**
+   * Google Analytics property numeric ID. Example: 535258304
+   */
+  property: string;
+  dimensions?: ({  [key: string]: unknown | undefined;})[];
+  metrics?: ({  [key: string]: unknown | undefined;})[];
+  dateRanges?: ({  [key: string]: unknown | undefined;})[];
+  pivots?: ({  [key: string]: unknown | undefined;})[];
+  dimensionFilter?: {  [key: string]: unknown | undefined;};
+  metricFilter?: {  [key: string]: unknown | undefined;};
+  currencyCode?: string | undefined;
+  cohortSpec?: {  [key: string]: unknown | undefined;};
+  keepEmptyRows?: boolean | undefined;
+  returnPropertyQuota?: boolean | undefined;
+  comparisons?: ({  [key: string]: unknown | undefined;})[];
+};
+
+export interface ActionOutput_google_analytics_runpivotreport {
+  pivotHeaders?: ({  [key: string]: unknown | undefined;})[];
+  dimensionHeaders?: ({  [key: string]: unknown | undefined;})[];
+  metricHeaders?: ({  [key: string]: unknown | undefined;})[];
+  rows?: ({  [key: string]: unknown | undefined;})[];
+  aggregates?: ({  [key: string]: unknown | undefined;})[];
+  metadata?: {  [key: string]: unknown | undefined;};
+  propertyQuota?: {  [key: string]: unknown | undefined;};
+  kind?: string | undefined;
+};
+
+export interface ActionInput_google_analytics_runrealtimereport {
+  /**
+   * A Google Analytics property identifier. Example: "properties/1234"
+   */
+  property: string;
+  dimensions?: ({  name?: string | undefined;})[];
+  metrics?: ({  name?: string | undefined;
+  expression?: string | undefined;
+  invisible?: boolean | undefined;})[];
+  dimensionFilter?: {} | undefined;
+  metricFilter?: {} | undefined;
+  /**
+   * The number of rows to return. If unspecified, 10,000 rows are returned.
+   */
+  limit?: string | undefined;
+  metricAggregations?: string[] | undefined;
+  orderBys?: ({})[] | undefined;
+  returnPropertyQuota?: boolean | undefined;
+  minuteRanges?: ({  name?: string | undefined;
+  startMinutesAgo?: number | undefined;
+  endMinutesAgo?: number | undefined;})[];
+};
+
+export interface ActionOutput_google_analytics_runrealtimereport {
+  dimensionHeaders?: ({  name?: string | undefined;})[];
+  metricHeaders?: ({  name?: string | undefined;
+  type?: string | undefined;})[];
+  rows?: ({  dimensionValues?: ({  value?: string | undefined;
+  oneValue?: string | undefined;})[];
+  metricValues?: ({  value?: string | undefined;})[];})[];
+  totals?: ({  dimensionValues?: ({  value?: string | undefined;
+  oneValue?: string | undefined;})[];
+  metricValues?: ({  value?: string | undefined;})[];})[];
+  maximums?: ({  dimensionValues?: ({  value?: string | undefined;
+  oneValue?: string | undefined;})[];
+  metricValues?: ({  value?: string | undefined;})[];})[];
+  minimums?: ({  dimensionValues?: ({  value?: string | undefined;
+  oneValue?: string | undefined;})[];
+  metricValues?: ({  value?: string | undefined;})[];})[];
+  rowCount?: number | undefined;
+  propertyQuota?: {} | undefined;
+  kind?: string | undefined;
+};
+
+export interface ActionInput_google_analytics_runreport {
+  /**
+   * GA4 property ID. Example: "properties/123456789" or "123456789"
+   */
+  property: string;
+  dimensions?: ({  name: string;})[] | undefined;
+  metrics?: ({  name: string;})[] | undefined;
+  dateRanges?: ({  startDate: string;
+  endDate: string;})[] | undefined;
+  dimensionFilter?: {} | undefined;
+  metricFilter?: {} | undefined;
+  ordering?: ({  dimension?: {  dimensionName: string;} | undefined;
+  metric?: {  metricName: string;} | undefined;
+  desc?: boolean | undefined;})[];
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_google_analytics_runreport {
+  dimensionHeaders?: ({  name?: string | undefined;})[];
+  metricHeaders?: ({  name?: string | undefined;
+  type?: string | undefined;})[];
+  rows?: ({  dimensionValues?: ({  value?: string | undefined;})[];
+  metricValues?: ({  value?: string | undefined;})[];})[];
+  rowCount?: number | undefined;
+  totals?: ({  dimensionValues?: ({  value?: string | undefined;})[];
+  metricValues?: ({  value?: string | undefined;})[];})[];
+  maximums?: ({  dimensionValues?: ({  value?: string | undefined;})[];
+  metricValues?: ({  value?: string | undefined;})[];})[];
+  minimums?: ({  dimensionValues?: ({  value?: string | undefined;})[];
+  metricValues?: ({  value?: string | undefined;})[];})[];
+};
+
+export interface ActionInput_google_analytics_updatedatastream {
+  /**
+   * GA4 property ID.
+   */
+  propertyId: string;
+  /**
+   * Data stream ID to update.
+   */
+  dataStreamId: string;
+  /**
+   * Human-readable display name for the Data Stream.
+   */
+  displayName?: string | undefined;
+  /**
+   * Data specific to web streams.
+   */
+  webStreamData?: {  /**
+   * Domain name of the web app being measured.
+   */
+  defaultUri?: string | undefined;};
+  /**
+   * The list of fields to be updated. If omitted, it will be computed from provided fields.
+   */
+  updateMask?: string | undefined;
+};
+
+export interface ActionOutput_google_analytics_updatedatastream {
+  name: string;
+  type?: string | undefined;
+  displayName?: string | undefined;
+  createTime?: string | undefined;
+  updateTime?: string | undefined;
+  webStreamData?: {  defaultUri?: string | undefined;
+  measurementId?: string | undefined;
+  firebaseAppId?: string | undefined;};
+  androidAppStreamData?: {  packageName?: string | undefined;
+  firebaseAppId?: string | undefined;};
+  iosAppStreamData?: {  bundleId?: string | undefined;
+  firebaseAppId?: string | undefined;};
+};
+
+export interface ActionInput_google_analytics_updateproperty {
+  /**
+   * Property resource name. Example: "properties/123456789"
+   */
+  name: string;
+  /**
+   * Human-readable display name for the property.
+   */
+  displayName?: string | undefined;
+  /**
+   * The reporting time zone for the property. Example: "America/Los_Angeles".
+   */
+  timeZone?: string | undefined;
+  /**
+   * The currency type used in reports. Example: "USD".
+   */
+  currencyCode?: string | undefined;
+  /**
+   * Industry category. Example: "TECHNOLOGY".
+   */
+  industryCategory?: string | undefined;
+};
+
+export interface ActionOutput_google_analytics_updateproperty {
+  name: string;
+  displayName?: string | undefined;
+  industryCategory?: string | undefined;
+  timeZone?: string | undefined;
+  currencyCode?: string | undefined;
+  serviceLevel?: string | undefined;
+  account?: string | undefined;
+};
+
 export interface CalendarEvent {
   id: string;
   kind?: string | undefined;
@@ -34569,26 +35039,6 @@ export interface ActionOutput_linkedin_updatepost {
 };
 
 export interface SyncMetadata_luma_listevents {
-};
-
-export interface Audience {
-  id: string;
-  name: string;
-  date_created?: string | undefined;
-  list_rating?: number | undefined;
-  email_type_option?: boolean | undefined;
-  visibility?: string | undefined;
-  double_optin?: boolean | undefined;
-  has_welcome?: boolean | undefined;
-  marketing_permissions?: boolean | undefined;
-  permission_reminder?: string | undefined;
-  notify_on_subscribe?: string | undefined;
-  notify_on_unsubscribe?: string | undefined;
-  subscribe_url_short?: string | undefined;
-  subscribe_url_long?: string | undefined;
-  beamer_address?: string | undefined;
-  web_id?: number | undefined;
-  stats?: {  [key: string]: unknown | undefined;};
 };
 
 export interface Automation {
