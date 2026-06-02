@@ -1,36 +1,33 @@
 {
   "input": {
-    "group_id": "sitza7mfvjmrgdr6krnetp7g2q",
+    "id": "va2pjrrhr7ykpdxkscbql6ipue",
     "operations": [
       {
         "op": "replace",
         "path": "displayName",
-        "value": "Test Group Patched"
+        "value": "Nango Test Group Updated"
       }
     ]
   },
   "output": {
-    "schemas": [
-      "urn:ietf:params:scim:schemas:core:2.0:Group"
-    ],
-    "id": "sitza7mfvjmrgdr6krnetp7g2q",
-    "displayName": "Test Group Patched",
+    "id": "va2pjrrhr7ykpdxkscbql6ipue",
+    "displayName": "Nango Test Group Updated",
     "meta": {
       "resourceType": "Group",
-      "created": "2026-05-21T14:15:21Z",
-      "lastModified": "2026-05-21T14:23:16Z"
+      "created": "2026-05-22T17:57:33Z",
+      "lastModified": "2026-05-22T18:01:09Z"
     }
   },
   "nango": {},
   "api": {
     "patch": {
-      "/Groups/sitza7mfvjmrgdr6krnetp7g2q": {
+      "/Groups/va2pjrrhr7ykpdxkscbql6ipue": {
         "response": {
-          "displayName": "Test Group Patched",
-          "id": "sitza7mfvjmrgdr6krnetp7g2q",
+          "displayName": "Nango Test Group Updated",
+          "id": "va2pjrrhr7ykpdxkscbql6ipue",
           "meta": {
-            "created": "2026-05-21T14:15:21Z",
-            "lastModified": "2026-05-21T14:23:16Z",
+            "created": "2026-05-22T17:57:33Z",
+            "lastModified": "2026-05-22T18:01:09Z",
             "resourceType": "Group"
           },
           "schemas": [
@@ -39,9 +36,9 @@
         },
         "status": 200,
         "headers": {
-          "date": "Thu, 21 May 2026 14:23:27 GMT",
+          "date": "Fri, 22 May 2026 18:01:23 GMT",
           "content-type": "application/scim+json",
-          "content-length": "232",
+          "content-length": "238",
           "connection": "keep-alive",
           "x-xss-protection": "0",
           "x-content-type-options": "nosniff",
@@ -53,11 +50,11 @@
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "5000",
-          "x-ratelimit-remaining": "4984",
-          "x-ratelimit-reset": "1779373452",
-          "etag": "W/\"e8-sCbpq8DnsEXAzU3UgYfcv3yqCoU\""
+          "x-ratelimit-remaining": "4969",
+          "x-ratelimit-reset": "1779472886",
+          "etag": "W/\"ee-lSQW4eUFfLuQgIIZCAMhDHZF7mo\""
         },
-        "hash": "233cc7503db1cb5dfa78f645ff512646a0444b9d",
+        "hash": "7b0196cc92eabd472b0a2d4b0036482f93d560eb",
         "request": {
           "data": {
             "schemas": [
@@ -67,7 +64,7 @@
               {
                 "op": "replace",
                 "path": "displayName",
-                "value": "Test Group Patched"
+                "value": "Nango Test Group Updated"
               }
             ]
           }

@@ -11,53 +11,51 @@
  * ! See the official zod documentation: https://zod.dev/basics?id=inferring-types
  */
 
-export interface ScimGroup {
+export interface Group {
   id: string;
-  externalId?: string | undefined;
-  displayName?: string | undefined;
-  meta?: {  resourceType?: string | undefined;
-  created?: string | undefined;
-  lastModified?: string | undefined;
-  location?: string | undefined;};
-  members?: ({  value: string;
-  display?: string | undefined;})[];
+  name: string;
+  description?: string | undefined;
+  isDefault?: boolean | undefined;
+  isDeleted?: boolean | undefined;
+  isPublic?: boolean | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  url?: string | undefined;
 };
 
 export interface ScimUser {
   id: string;
-  userName: string;
+  userName?: string | undefined;
   displayName?: string | undefined;
-  name?: {  formatted?: string | undefined;
+  name?: {  givenName?: string | undefined;
   familyName?: string | undefined;
-  givenName?: string | undefined;};
-  emails?: ({  value: string;
+  formatted?: string | undefined;};
+  emails?: ({  value?: string | undefined;
   type?: string | undefined;
   primary?: boolean | undefined;})[];
-  externalId?: string | undefined;
   active?: boolean | undefined;
-  meta?: {  created?: string | undefined;
-  lastModified?: string | undefined;
-  resourceType?: string | undefined;};
+  externalId?: string | undefined;
+  updated_at?: string | undefined;
 };
 
 export interface ActionInput_1password_scim_createscimgroup {
   /**
-   * The display name of the SCIM group. Example: "Engineering"
+   * Display name of the SCIM group. Example: "Engineering"
    */
   displayName: string;
   /**
-   * The external identifier for the group. Example: "group-123"
+   * External identifier for the group.
    */
   externalId?: string | undefined;
   /**
-   * Array of group members to assign on creation
+   * Members to add to the group at creation.
    */
   members?: ({  /**
-   * The identifier of the member. Example: "user-123"
+   * Identifier of the member. Example: "user-id-123"
    */
   value: string;
   /**
-   * The display name of the member. Example: "John Doe"
+   * Display name of the member.
    */
   display?: string | undefined;})[];
 };
@@ -77,23 +75,23 @@ export interface ActionOutput_1password_scim_createscimgroup {
 
 export interface ActionInput_1password_scim_createscimuser {
   /**
-   * SCIM userName. Example: "user@example.com"
+   * User login name, typically an email. Example: "bjensen@example.com"
    */
   userName: string;
   /**
-   * External identifier for the user.
+   * Identifier from the provisioning client. Example: "bjensen"
    */
   externalId?: string | undefined;
-  /**
-   * Display name for the user.
-   */
-  displayName?: string | undefined;
-  name?: {  formatted?: string | undefined;
+  name?: {  givenName?: string | undefined;
   familyName?: string | undefined;
-  givenName?: string | undefined;};
+  formatted?: string | undefined;};
+  displayName?: string | undefined;
   emails?: ({  value: string;
   type?: string | undefined;
   primary?: boolean | undefined;})[];
+  /**
+   * Whether the user is active.
+   */
   active?: boolean | undefined;
 };
 
@@ -102,9 +100,9 @@ export interface ActionOutput_1password_scim_createscimuser {
   userName: string;
   externalId?: string | undefined;
   displayName?: string | undefined;
-  name?: {  formatted?: string | undefined;
+  name?: {  givenName?: string | undefined;
   familyName?: string | undefined;
-  givenName?: string | undefined;};
+  formatted?: string | undefined;};
   emails?: ({  value: string;
   type?: string | undefined;
   primary?: boolean | undefined;})[];
@@ -117,7 +115,7 @@ export interface ActionOutput_1password_scim_createscimuser {
 
 export interface ActionInput_1password_scim_deletescimgroup {
   /**
-   * SCIM Group ID. Example: "group-123"
+   * SCIM Group ID. Example: "abc123"
    */
   id: string;
 };
@@ -141,33 +139,29 @@ export interface ActionOutput_1password_scim_deletescimuser {
 
 export interface ActionInput_1password_scim_getscimgroup {
   /**
-   * SCIM Group ID. Example: "e9e30dba-f08f-4109-8486-d5c6a331660a"
+   * The SCIM group ID. Example: "2819c223-7f76-453a-919d-413861904646"
    */
-  groupId: string;
+  id: string;
 };
 
 export interface ActionOutput_1password_scim_getscimgroup {
   schemas: string[];
   id: string;
   externalId?: string | undefined;
-  displayName: string;
-  members?: ({  /**
-   * The ID of the SCIM resource
-   */
-  value: string;
-  display?: string | undefined;
-  "$ref"?: string | undefined;
-  type?: string | undefined;})[];
   meta?: {  resourceType?: string | undefined;
   created?: string | undefined;
   lastModified?: string | undefined;
   location?: string | undefined;
   version?: string | undefined;};
+  displayName: string;
+  members?: ({  value: string;
+  "$ref"?: string | undefined;
+  display?: string | undefined;})[];
 };
 
 export interface ActionInput_1password_scim_getscimuser {
   /**
-   * The SCIM user ID. Example: "123"
+   * SCIM User ID. Example: "2819c223-7f76-453a-919d-413861904646"
    */
   id: string;
 };
@@ -176,12 +170,7 @@ export interface ActionOutput_1password_scim_getscimuser {
   schemas: string[];
   id: string;
   externalId?: string | undefined;
-  meta?: {  resourceType?: string | undefined;
-  created?: string | undefined;
-  lastModified?: string | undefined;
-  location?: string | undefined;
-  version?: string | undefined;};
-  userName: string;
+  userName?: string | undefined;
   name?: {  formatted?: string | undefined;
   familyName?: string | undefined;
   givenName?: string | undefined;
@@ -197,45 +186,79 @@ export interface ActionOutput_1password_scim_getscimuser {
   locale?: string | undefined;
   timezone?: string | undefined;
   active?: boolean | undefined;
-  emails?: ({  value: string;
+  emails?: ({  value?: string | undefined;
   display?: string | undefined;
   type?: string | undefined;
   primary?: boolean | undefined;})[];
-  groups?: ({  value: string;
+  phoneNumbers?: ({  value?: string | undefined;
+  display?: string | undefined;
+  type?: string | undefined;
+  primary?: boolean | undefined;})[];
+  ims?: ({  value?: string | undefined;
+  display?: string | undefined;
+  type?: string | undefined;
+  primary?: boolean | undefined;})[];
+  photos?: ({  value?: string | undefined;
+  display?: string | undefined;
+  type?: string | undefined;
+  primary?: boolean | undefined;})[];
+  addresses?: ({  formatted?: string | undefined;
+  streetAddress?: string | undefined;
+  locality?: string | undefined;
+  region?: string | undefined;
+  postalCode?: string | undefined;
+  country?: string | undefined;
+  type?: string | undefined;
+  primary?: boolean | undefined;})[];
+  groups?: ({  value?: string | undefined;
   display?: string | undefined;
   type?: string | undefined;
   "$ref"?: string | undefined;})[];
-  roles?: ({})[] | undefined;
-  entitlements?: ({})[] | undefined;
+  entitlements?: ({  value?: string | undefined;
+  display?: string | undefined;
+  type?: string | undefined;
+  primary?: boolean | undefined;})[];
+  roles?: ({  value?: string | undefined;
+  display?: string | undefined;
+  type?: string | undefined;
+  primary?: boolean | undefined;})[];
+  x509Certificates?: ({  value?: string | undefined;
+  display?: string | undefined;
+  type?: string | undefined;
+  primary?: boolean | undefined;})[];
+  meta?: {  resourceType?: string | undefined;
+  created?: string | undefined;
+  lastModified?: string | undefined;
+  version?: string | undefined;
+  location?: string | undefined;};
 };
 
 export interface ActionInput_1password_scim_getserviceproviderconfig {
 };
 
 export interface ActionOutput_1password_scim_getserviceproviderconfig {
-  schemas?: string[] | undefined;
-  id?: string | undefined;
-  meta?: {  resourceType?: string | undefined;
-  created?: string | undefined;
-  lastModified?: string | undefined;
-  location?: string | undefined;
-  version?: string | undefined;};
+  schemas: string[];
   documentationUri?: string | undefined;
-  patch?: {  supported?: boolean | undefined;};
-  bulk?: {  supported?: boolean | undefined;
-  maxOperations?: number | undefined;
-  maxPayloadSize?: number | undefined;};
-  filter?: {  supported?: boolean | undefined;
-  maxResults?: number | undefined;};
-  changePassword?: {  supported?: boolean | undefined;};
-  sort?: {  supported?: boolean | undefined;};
-  etag?: {  supported?: boolean | undefined;};
-  authenticationSchemes?: ({  name?: string | undefined;
-  description?: string | undefined;
+  patch: {  supported: boolean;};
+  bulk: {  supported: boolean;
+  maxOperations: number;
+  maxPayloadSize: number;};
+  filter: {  supported: boolean;
+  maxResults: number;};
+  changePassword: {  supported: boolean;};
+  sort: {  supported: boolean;};
+  etag: {  supported: boolean;};
+  authenticationSchemes: ({  name: string;
+  description: string;
   specUri?: string | undefined;
   documentationUri?: string | undefined;
-  type?: string | undefined;
+  type: string;
   primary?: boolean | undefined;})[];
+  meta?: {  location: string;
+  resourceType: string;
+  created?: string | undefined;
+  lastModified?: string | undefined;
+  version?: string | undefined;};
 };
 
 export interface ActionInput_1password_scim_listresourcetypes {
@@ -243,31 +266,44 @@ export interface ActionInput_1password_scim_listresourcetypes {
 
 export interface ActionOutput_1password_scim_listresourcetypes {
   schemas?: string[] | undefined;
-  totalResults?: number | undefined;
-  itemsPerPage?: number | undefined;
-  startIndex?: number | undefined;
-  Resources?: ({  schemas?: string[] | undefined;
-  id?: string | undefined;
-  name?: string | undefined;
+  totalResults: number;
+  Resources: ({  schemas?: string[] | undefined;
+  id: string;
+  name: string;
+  endpoint: string;
   description?: string | undefined;
-  endpoint?: string | undefined;
-  schema?: string | undefined;
-  schemaExtensions?: ({  schema?: string | undefined;
-  required?: boolean | undefined;})[];
+  schema: string;
+  schemaExtensions?: ({  schema: string;
+  required: boolean;})[] | undefined;
   meta?: {  resourceType?: string | undefined;
   location?: string | undefined;};})[];
+  startIndex?: number | undefined;
+  itemsPerPage?: number | undefined;
 };
 
 export interface ActionInput_1password_scim_listschemas {
 };
 
 export interface ActionOutput_1password_scim_listschemas {
-  schemas?: string[] | undefined;
-  totalResults?: number | undefined;
-  Resources?: ({  id: string;
-  name?: string | undefined;
+  schemas?: ({  id: string;
+  name: string;
   description?: string | undefined;
-  attributes?: unknown[] | undefined;})[];
+  attributes?: ({  name: string;
+  type?: string | undefined;
+  multiValued?: boolean | undefined;
+  required?: boolean | undefined;
+  mutability?: string | undefined;
+  returned?: string | undefined;
+  uniqueness?: string | undefined;
+  description?: string | undefined;
+  subAttributes?: ({  name: string;
+  type?: string | undefined;
+  multiValued?: boolean | undefined;
+  required?: boolean | undefined;
+  mutability?: string | undefined;
+  returned?: string | undefined;
+  uniqueness?: string | undefined;
+  description?: string | undefined;})[];})[];})[];
 };
 
 export interface ActionInput_1password_scim_listscimgroups {
@@ -276,40 +312,41 @@ export interface ActionInput_1password_scim_listscimgroups {
    */
   cursor?: string | undefined;
   /**
-   * SCIM filter expression. Example: 'displayName eq "Engineering"'
-   */
-  filter?: string | undefined;
-  /**
-   * Number of results per page (1-250). Defaults to 100.
+   * Number of results per page. Defaults to 100.
    */
   count?: number | undefined;
+  /**
+   * SCIM filter expression. Example: displayName co "Engineering"
+   */
+  filter?: string | undefined;
 };
 
 export interface ActionOutput_1password_scim_listscimgroups {
-  groups: ({  id: string;
-  displayName: string;
-  members?: ({  value: string;
-  display?: string | undefined;
-  type?: string | undefined;})[];
+  items: ({  schemas: string[];
+  id: string;
+  externalId?: string | undefined;
   meta?: {  resourceType?: string | undefined;
   created?: string | undefined;
   lastModified?: string | undefined;
   location?: string | undefined;
   version?: string | undefined;};
-  externalId?: string | undefined;
-  schemas?: string[] | undefined;})[];
-  next_cursor?: string | undefined;
+  displayName: string;
+  members?: ({  value?: string | undefined;
+  "$ref"?: string | undefined;
+  display?: string | undefined;
+  type?: string | undefined;})[];})[];
+  nextCursor?: string | undefined;
 };
 
 export interface ActionInput_1password_scim_listscimusers {
   /**
-   * SCIM filter query. Example: userName eq "john.doe@example.com"
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * SCIM filter expression. Example: userName eq "user@example.com"
    */
   filter?: string | undefined;
-  /**
-   * 1-based index of the first result to return.
-   */
-  start_index?: number | undefined;
   /**
    * Number of results to return per page.
    */
@@ -317,54 +354,69 @@ export interface ActionInput_1password_scim_listscimusers {
 };
 
 export interface ActionOutput_1password_scim_listscimusers {
-  users: ({  id: string;
+  items: ({  id: string;
   userName: string;
-  name?: {  familyName?: string | undefined;
-  givenName?: string | undefined;
-  formatted?: string | undefined;};
-  emails?: ({  value: string;
-  type?: string | undefined;
-  primary?: boolean | undefined;})[];
+  name?: {  formatted?: string | undefined;
+  familyName?: string | undefined;
+  givenName?: string | undefined;};
+  displayName?: string | undefined;
   active?: boolean | undefined;
-  externalId?: string | undefined;
-  meta?: {  created?: string | undefined;
-  lastModified?: string | undefined;
-  resourceType?: string | undefined;};
-  schemas?: string[] | undefined;})[];
-  total_results: number;
-  start_index?: number | undefined;
-  items_per_page?: number | undefined;
-  next_start_index?: number | undefined;
+  emails?: ({  value: string;
+  primary?: boolean | undefined;
+  type?: string | undefined;})[];})[];
+  totalResults?: number | undefined;
+  nextCursor?: string | undefined;
 };
 
 export interface ActionInput_1password_scim_patchscimgroup {
   /**
-   * The SCIM group ID to patch. Example: "group-123"
+   * SCIM Group ID. Example: "9067729b3d-f987ac4d-a175-44f0-a528-6d23c5d2ec4d"
    */
-  group_id: string;
+  id: string;
   /**
-   * SCIM PatchOp operations to apply.
+   * SCIM patch operations to apply to the group.
    */
   operations: ({  0: {  op: 'add';
+  /**
+   * Target attribute path. Example: "members" or "displayName"
+   */
   path?: string | undefined;
-  value?: unknown | undefined;};
+  value?: string | ({  /**
+   * User ID. Example: "2819c223-7f76-453a-919d-413861904646"
+   */
+  value: string;
+  display?: string | undefined;
+  "$ref"?: string | undefined;})[] | {  [key: string]: unknown | undefined;};};
   1: {  op: 'replace';
+  /**
+   * Target attribute path. Example: "members" or "displayName"
+   */
   path?: string | undefined;
-  value?: unknown | undefined;};
+  value?: string | ({  /**
+   * User ID. Example: "2819c223-7f76-453a-919d-413861904646"
+   */
+  value: string;
+  display?: string | undefined;
+  "$ref"?: string | undefined;})[] | {  [key: string]: unknown | undefined;};};
   2: {  op: 'remove';
+  /**
+   * Target attribute path. Example: "members" or "displayName"
+   */
   path: string;
-  value?: unknown | undefined;};})[];
+  value?: string | ({  /**
+   * User ID. Example: "2819c223-7f76-453a-919d-413861904646"
+   */
+  value: string;
+  display?: string | undefined;
+  "$ref"?: string | undefined;})[] | {  [key: string]: unknown | undefined;};};})[];
 };
 
 export interface ActionOutput_1password_scim_patchscimgroup {
-  schemas: string[];
   id: string;
   displayName?: string | undefined;
   members?: ({  value: string;
-  display?: string | undefined;
-  type?: string | undefined;
-  "$ref"?: string | undefined;})[];
-  meta?: {  resourceType: string;
+  display?: string | undefined;})[];
+  meta?: {  resourceType?: string | undefined;
   created?: string | undefined;
   lastModified?: string | undefined;
   location?: string | undefined;
@@ -374,11 +426,11 @@ export interface ActionOutput_1password_scim_patchscimgroup {
 
 export interface ActionInput_1password_scim_patchscimuser {
   /**
-   * The SCIM user ID to patch. Example: "2819c223-7f76-453a-919d-413861904646"
+   * SCIM User ID. Example: "2819c223-7f76-453a-919d-413861904646"
    */
   userId: string;
   /**
-   * SCIM patch operations to apply.
+   * SCIM PatchOp operations. Example: [{"op":"replace","path":"userName","value":"new@example.com"}]
    */
   operations: ({  0: {  op: 'add';
   path?: string | undefined;
@@ -392,15 +444,16 @@ export interface ActionInput_1password_scim_patchscimuser {
 };
 
 export interface ActionOutput_1password_scim_patchscimuser {
+  schemas: string[];
   id: string;
   userName?: string | undefined;
-  externalId?: string | undefined;
-  displayName?: string | undefined;
   active?: boolean | undefined;
+  displayName?: string | undefined;
+  preferredLanguage?: string | undefined;
   name?: {  formatted?: string | undefined;
   familyName?: string | undefined;
   givenName?: string | undefined;};
-  emails?: ({  value?: string | undefined;
+  emails?: ({  value: string;
   type?: string | undefined;
   primary?: boolean | undefined;})[];
   meta?: {  resourceType?: string | undefined;
@@ -412,84 +465,63 @@ export interface ActionOutput_1password_scim_patchscimuser {
 
 export interface ActionInput_1password_scim_updatescimgroup {
   /**
-   * The unique identifier of the SCIM group to update. Example: "9067729b3d-f987ac4d-a175-44f0-a528-6d23c5d2ec4d"
+   * The SCIM group ID. Example: "27i3xrasou26ukebqazeadyhua"
    */
   groupId: string;
   /**
-   * The new display name for the group.
+   * New display name for the group
    */
   displayName?: string | undefined;
   /**
-   * Array of user IDs to add as members to the group.
+   * Member add or remove operations
    */
-  addMembers?: string[] | undefined;
-  /**
-   * Array of user IDs to remove from the group.
-   */
-  removeMembers?: string[] | undefined;
+  members?: ({  op: 'add' | 'remove';
+  userId: string;
+  display?: string | undefined;})[];
 };
 
 export interface ActionOutput_1password_scim_updatescimgroup {
   id: string;
-  schemas?: string[] | undefined;
   displayName?: string | undefined;
   members?: ({  value: string;
-  display?: string | undefined;
-  "$ref"?: string | undefined;
-  type?: string | undefined;})[];
-  meta?: {  resourceType?: string | undefined;
-  created?: string | undefined;
-  lastModified?: string | undefined;
-  location?: string | undefined;
-  version?: string | undefined;};
+  display?: string | undefined;})[];
 };
 
 export interface ActionInput_1password_scim_updatescimuser {
   /**
-   * SCIM user ID. Example: "2819c223-7f76-453a-919d-413861904646"
+   * SCIM User ID. Example: "2819c223-7f76-453a-919d-413861904646"
    */
   id: string;
   /**
-   * Array of SCIM PatchOp operations to apply
+   * User email address. Example: "user@example.com"
    */
-  operations: ({  0: {  op: 'add';
-  path?: string | undefined;
-  value?: unknown | undefined;};
-  1: {  op: 'replace';
-  path?: string | undefined;
-  value?: unknown | undefined;};
-  2: {  op: 'remove';
-  path: string;
-  value?: unknown | undefined;};})[];
+  userName?: string | undefined;
+  /**
+   * First name. Example: "Jane"
+   */
+  givenName?: string | undefined;
+  /**
+   * Last name. Example: "Doe"
+   */
+  familyName?: string | undefined;
+  /**
+   * Display name. Example: "Jane Doe"
+   */
+  displayName?: string | undefined;
+  /**
+   * Whether the user is active.
+   */
+  active?: boolean | undefined;
 };
 
 export interface ActionOutput_1password_scim_updatescimuser {
   id: string;
-  externalId?: string | undefined;
-  meta?: {  resourceType?: string | undefined;
-  created?: string | undefined;
-  lastModified?: string | undefined;
-  location?: string | undefined;
-  version?: string | undefined;};
-  schemas?: string[] | undefined;
   userName?: string | undefined;
-  name?: {  formatted?: string | undefined;
-  familyName?: string | undefined;
   givenName?: string | undefined;
-  middleName?: string | undefined;
-  honorificPrefix?: string | undefined;
-  honorificSuffix?: string | undefined;};
+  familyName?: string | undefined;
   displayName?: string | undefined;
-  nickName?: string | undefined;
-  profileUrl?: string | undefined;
-  title?: string | undefined;
-  userType?: string | undefined;
-  preferredLanguage?: string | undefined;
-  locale?: string | undefined;
-  timezone?: string | undefined;
   active?: boolean | undefined;
-  emails?: ({  value?: string | undefined;
-  display?: string | undefined;
+  emails?: ({  value: string;
   type?: string | undefined;
   primary?: boolean | undefined;})[];
 };
@@ -31711,27 +31743,6 @@ export interface ActionOutput_lastpass_deleteuser {
 export interface SyncMetadata_lattice_users {
 };
 
-export interface ActionInput_lattice_scim_createuser {
-  firstName: string;
-  lastName: string;
-  email: string;
-};
-
-export interface ActionOutput_lattice_scim_createuser {
-  id: string;
-  email: string;
-  firstName: string;
-  lastName: string;
-};
-
-export interface ActionInput_lattice_scim_disableuser {
-  id: string;
-};
-
-export interface ActionOutput_lattice_scim_disableuser {
-  success: boolean;
-};
-
 export interface LeverOpportunity {
   id: string;
   name: string;
@@ -36028,18 +36039,6 @@ export interface DirectoryRole {
   displayName?: string | undefined;
   description?: string | undefined;
   roleTemplateId?: string | undefined;
-};
-
-export interface Group {
-  id: string;
-  name: string;
-  description?: string | undefined;
-  isDefault?: boolean | undefined;
-  isDeleted?: boolean | undefined;
-  isPublic?: boolean | undefined;
-  createdAt?: string | undefined;
-  updatedAt?: string | undefined;
-  url?: string | undefined;
 };
 
 export interface ServicePrincipal {

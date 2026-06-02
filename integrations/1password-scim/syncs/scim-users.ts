@@ -1,33 +1,56 @@
 import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
-const ScimUserEmailSchema = z.object({
-    value: z.string(),
-    type: z.string().optional(),
-    primary: z.boolean().optional()
+const ScimNameSchema = z.object({
+    givenName: z.string().optional().nullable(),
+    familyName: z.string().optional().nullable(),
+    formatted: z.string().optional().nullable()
 });
 
-const ScimUserNameSchema = z.object({
-    formatted: z.string().optional(),
-    familyName: z.string().optional(),
-    givenName: z.string().optional()
+const ScimEmailSchema = z.object({
+    value: z.string().optional().nullable(),
+    type: z.string().optional().nullable(),
+    primary: z.boolean().optional().nullable()
 });
 
 const ScimUserMetaSchema = z.object({
-    created: z.string().optional(),
-    lastModified: z.string().optional(),
-    resourceType: z.string().optional()
+    lastModified: z.string().optional()
+});
+
+const ScimUserResponseSchema = z.object({
+    id: z.string(),
+    userName: z.string().optional().nullable(),
+    displayName: z.string().optional().nullable(),
+    name: ScimNameSchema.optional().nullable(),
+    emails: z.array(ScimEmailSchema).optional().nullable(),
+    active: z.boolean().optional().nullable(),
+    externalId: z.string().optional().nullable(),
+    meta: ScimUserMetaSchema.optional().nullable()
 });
 
 const ScimUserSchema = z.object({
     id: z.string(),
-    userName: z.string(),
+    userName: z.string().optional(),
     displayName: z.string().optional(),
-    name: ScimUserNameSchema.optional(),
-    emails: z.array(ScimUserEmailSchema).optional(),
-    externalId: z.string().optional(),
+    name: z
+        .object({
+            givenName: z.string().optional(),
+            familyName: z.string().optional(),
+            formatted: z.string().optional()
+        })
+        .optional(),
+    emails: z
+        .array(
+            z.object({
+                value: z.string().optional(),
+                type: z.string().optional(),
+                primary: z.boolean().optional()
+            })
+        )
+        .optional(),
     active: z.boolean().optional(),
-    meta: ScimUserMetaSchema.optional()
+    externalId: z.string().optional(),
+    updated_at: z.string().optional()
 });
 
 const sync = createSync({
@@ -35,10 +58,15 @@ const sync = createSync({
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
-    endpoints: [{ method: 'GET', path: '/syncs/scim-users' }],
     models: {
         ScimUser: ScimUserSchema
     },
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/syncs/scim-users'
+        }
+    ],
 
     exec: async (nango) => {
         await nango.trackDeletesStart('ScimUser');
@@ -59,18 +87,48 @@ const sync = createSync({
         };
 
         for await (const page of nango.paginate(proxyConfig)) {
-            const rawItems = z.array(z.unknown()).parse(page);
-            const users = rawItems.map((item) => {
-                const parsed = ScimUserSchema.safeParse(item);
-                if (!parsed.success) {
-                    throw new Error(`Failed to parse SCIM user: ${parsed.error.message}`);
-                }
-                return parsed.data;
-            });
-
-            if (users.length > 0) {
-                await nango.batchSave(users, 'ScimUser');
+            const parseResult = z.array(ScimUserResponseSchema).safeParse(page);
+            if (!parseResult.success) {
+                throw new Error(`Failed to parse SCIM users response: ${parseResult.error.message}`);
             }
+
+            const records = parseResult.data;
+            const users = [];
+            for (const record of records) {
+                const lastModified = record.meta?.lastModified;
+
+                const user = {
+                    id: record.id,
+                    ...(record.userName != null && { userName: record.userName }),
+                    ...(record.displayName != null && { displayName: record.displayName }),
+                    ...(record.name != null && {
+                        name: {
+                            ...(record.name.givenName != null && { givenName: record.name.givenName }),
+                            ...(record.name.familyName != null && { familyName: record.name.familyName }),
+                            ...(record.name.formatted != null && { formatted: record.name.formatted })
+                        }
+                    }),
+                    ...(record.emails != null && {
+                        emails: record.emails
+                            .filter((email) => email.value != null)
+                            .map((email) => ({
+                                ...(email.value != null && { value: email.value }),
+                                ...(email.type != null && { type: email.type }),
+                                ...(email.primary != null && { primary: email.primary })
+                            }))
+                    }),
+                    ...(record.active != null && { active: record.active }),
+                    ...(record.externalId != null && { externalId: record.externalId }),
+                    ...(lastModified != null && { updated_at: lastModified })
+                };
+                users.push(user);
+            }
+
+            if (users.length === 0) {
+                continue;
+            }
+
+            await nango.batchSave(users, 'ScimUser');
         }
 
         await nango.trackDeletesEnd('ScimUser');

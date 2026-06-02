@@ -1129,10 +1129,6 @@ import './lastpass/actions/delete-user.js';
 // -- Integration: lattice
 import './lattice/syncs/users.js';
 
-// -- Integration: lattice-scim
-import './lattice-scim/actions/create-user.js';
-import './lattice-scim/actions/disable-user.js';
-
 // -- Integration: lever
 import './lever/syncs/opportunities.js';
 import './lever/syncs/opportunities-applications.js';
