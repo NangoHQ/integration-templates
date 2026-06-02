@@ -1,0 +1,158 @@
+{
+  "input": {
+    "advertiser_id": "7644143197428744199",
+    "page": 1,
+    "page_size": 20
+  },
+  "output": {
+    "items": [
+      {
+        "image_id": "similarity-engine-crawled-images-sg/2cd8bde463f5d82aae0f0cec061d6b8f",
+        "format": "",
+        "image_url": "https://p21-ad-sg.ibyteimg.com/obj/similarity-engine-crawled-images-sg/2cd8bde463f5d82aae0f0cec061d6b8f",
+        "height": 1,
+        "width": 1,
+        "signature": "2cd8bde463f5d82aae0f0cec061d6b8f",
+        "size": 70,
+        "material_id": "6961645257717104641",
+        "is_carousel_usable": false,
+        "file_name": "test-image.png",
+        "create_time": "2026-05-26T11:02:55Z",
+        "modify_time": "2026-05-26T11:02:55Z",
+        "displayable": true
+      },
+      {
+        "image_id": "https://p16-bi-material-center-sign-sg.ibyteimg.com/tos-alisg-i-hlfvu81ju6-sg/2975e246369e4176bb822b3d171d270d~tplv-hlfvu81ju6-image.image?lk3s=f9abdb00&mc_caller=eyes.product_lib&mc_key=1761345718049623893_1&x-expires=1763596800&x-signature=Ul2diyoQlrbyqCSLyGiPYW9hd64%3D",
+        "format": "jpeg",
+        "image_url": "https://p16-bi-material-center-sign-sg.ibyteimg.com/tos-alisg-i-hlfvu81ju6-sg/2975e246369e4176bb822b3d171d270d~tplv-hlfvu81ju6-image.image?lk3s=f9abdb00&mc_caller=eyes.product_lib&mc_key=1761345718049623893_1&x-expires=1763596800&x-signature=Ul2diyoQlrbyqCSLyGiPYW9hd64%3D",
+        "height": 100,
+        "width": 100,
+        "signature": "03c5ecd056928ec891ad1ebfdc6fcba0",
+        "size": 1052,
+        "material_id": "7513041635014344720",
+        "is_carousel_usable": false,
+        "file_name": "test-upload.png",
+        "create_time": "2026-05-26T11:01:35Z",
+        "modify_time": "2026-05-26T11:01:35Z",
+        "displayable": true
+      },
+      {
+        "image_id": "ad-site-i18n-sg/20260526c7403f4cc110b42e464590fd",
+        "format": "",
+        "image_url": "https://p21-ad-sg.ibyteimg.com/obj/ad-site-i18n-sg/20260526c7403f4cc110b42e464590fd",
+        "height": 628,
+        "width": 1200,
+        "signature": "f5cb983b9453f30df0ecab7a15b840c1",
+        "size": 30333,
+        "material_id": "7644153708657852437",
+        "is_carousel_usable": true,
+        "file_name": "test-creative.jpg",
+        "create_time": "2026-05-26T11:00:37Z",
+        "modify_time": "2026-05-26T11:00:37Z",
+        "displayable": true
+      }
+    ],
+    "page_info": {
+      "page": 1,
+      "page_size": 20,
+      "total_number": 3,
+      "total_page": 1
+    },
+    "has_more": false
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/file/image/ad/search/": {
+        "response": {
+          "code": 0,
+          "message": "OK",
+          "request_id": "2026052619031295B040156D16A2783A1A",
+          "data": {
+            "list": [
+              {
+                "displayable": true,
+                "create_time": "2026-05-26T11:02:55Z",
+                "material_id": "6961645257717104641",
+                "signature": "2cd8bde463f5d82aae0f0cec061d6b8f",
+                "height": 1,
+                "modify_time": "2026-05-26T11:02:55Z",
+                "image_id": "similarity-engine-crawled-images-sg/2cd8bde463f5d82aae0f0cec061d6b8f",
+                "size": 70,
+                "file_name": "test-image.png",
+                "is_carousel_usable": false,
+                "image_url": "https://p21-ad-sg.ibyteimg.com/obj/similarity-engine-crawled-images-sg/2cd8bde463f5d82aae0f0cec061d6b8f",
+                "width": 1,
+                "format": ""
+              },
+              {
+                "displayable": true,
+                "create_time": "2026-05-26T11:01:35Z",
+                "material_id": "7513041635014344720",
+                "signature": "03c5ecd056928ec891ad1ebfdc6fcba0",
+                "height": 100,
+                "modify_time": "2026-05-26T11:01:35Z",
+                "image_id": "https://p16-bi-material-center-sign-sg.ibyteimg.com/tos-alisg-i-hlfvu81ju6-sg/2975e246369e4176bb822b3d171d270d~tplv-hlfvu81ju6-image.image?lk3s=f9abdb00&mc_caller=eyes.product_lib&mc_key=1761345718049623893_1&x-expires=1763596800&x-signature=Ul2diyoQlrbyqCSLyGiPYW9hd64%3D",
+                "size": 1052,
+                "file_name": "test-upload.png",
+                "is_carousel_usable": false,
+                "image_url": "https://p16-bi-material-center-sign-sg.ibyteimg.com/tos-alisg-i-hlfvu81ju6-sg/2975e246369e4176bb822b3d171d270d~tplv-hlfvu81ju6-image.image?lk3s=f9abdb00&mc_caller=eyes.product_lib&mc_key=1761345718049623893_1&x-expires=1763596800&x-signature=Ul2diyoQlrbyqCSLyGiPYW9hd64%3D",
+                "width": 100,
+                "format": "jpeg"
+              },
+              {
+                "displayable": true,
+                "create_time": "2026-05-26T11:00:37Z",
+                "material_id": "7644153708657852437",
+                "signature": "f5cb983b9453f30df0ecab7a15b840c1",
+                "height": 628,
+                "modify_time": "2026-05-26T11:00:37Z",
+                "image_id": "ad-site-i18n-sg/20260526c7403f4cc110b42e464590fd",
+                "size": 30333,
+                "file_name": "test-creative.jpg",
+                "is_carousel_usable": true,
+                "image_url": "https://p21-ad-sg.ibyteimg.com/obj/ad-site-i18n-sg/20260526c7403f4cc110b42e464590fd",
+                "width": 1200,
+                "format": ""
+              }
+            ],
+            "page_info": {
+              "page_size": 20,
+              "page": 1,
+              "total_number": 3,
+              "total_page": 1
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 26 May 2026 11:03:12 GMT",
+          "content-type": "application/json",
+          "content-length": "2042",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4912",
+          "x-ratelimit-reset": "1779793423",
+          "etag": "W/\"7fa-2EpL1+Qh/Bbz3iIXxoJHLBSHo2E\""
+        },
+        "hash": "6e1fa215a2e112c4843184f70f6bc7cb650dc332",
+        "request": {
+          "params": {
+            "advertiser_id": "7644143197428744199",
+            "page": "1",
+            "page_size": "20"
+          }
+        }
+      }
+    }
+  }
+}

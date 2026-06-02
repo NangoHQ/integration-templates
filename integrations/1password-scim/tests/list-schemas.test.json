@@ -2,189 +2,168 @@
   "input": {},
   "output": {
     "schemas": [
-      "urn:ietf:params:scim:api:messages:2.0:ListResponse"
-    ],
-    "totalResults": 2,
-    "Resources": [
       {
         "id": "urn:ietf:params:scim:schemas:core:2.0:User",
         "name": "User",
         "description": "User account information",
         "attributes": [
           {
-            "description": "Unique identifier for the User, typically used by the user to directly authenticate to the service provider.  Each User MUST include a non-empty userName value.  This identifier MUST be unique across the service provider's entire set of Users.  REQUIRED.",
-            "multiValued": false,
-            "mutability": "readWrite",
             "name": "userName",
-            "required": true,
-            "returned": "always",
             "type": "string",
-            "uniqueness": "server"
+            "multiValued": false,
+            "required": true,
+            "mutability": "readWrite",
+            "returned": "always",
+            "uniqueness": "server",
+            "description": "Unique identifier for the User, typically used by the user to directly authenticate to the service provider.  Each User MUST include a non-empty userName value.  This identifier MUST be unique across the service provider's entire set of Users.  REQUIRED."
           },
           {
-            "description": "The components of the user's real name.  Providers MAY return just the full name as a single string in the formatted sub-attribute, or they MAY return just the individual component attributes using the other sub-attributes, or they MAY return both.  If both variants are returned, they SHOULD be describing the same name, with the formatted name indicating how the component attributes should be combined.",
-            "multiValued": false,
-            "mutability": "readWrite",
             "name": "name",
+            "type": "complex",
+            "multiValued": false,
             "required": true,
+            "mutability": "readWrite",
             "returned": "always",
+            "uniqueness": "none",
+            "description": "The components of the user's real name.  Providers MAY return just the full name as a single string in the formatted sub-attribute, or they MAY return just the individual component attributes using the other sub-attributes, or they MAY return both.  If both variants are returned, they SHOULD be describing the same name, with the formatted name indicating how the component attributes should be combined.",
             "subAttributes": [
               {
-                "caseExact": true,
-                "description": "The given name of the User, or first name in most Western languages (e.g., 'Barbara' given the full name 'Ms. Barbara J Jensen, III').",
-                "multiValued": false,
-                "mutability": "readWrite",
                 "name": "givenName",
-                "required": true,
-                "returned": "default",
                 "type": "string",
-                "uniqueness": "none"
+                "multiValued": false,
+                "required": true,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none",
+                "description": "The given name of the User, or first name in most Western languages (e.g., 'Barbara' given the full name 'Ms. Barbara J Jensen, III')."
               },
               {
-                "caseExact": true,
-                "description": "The family name of the User, or last name in most Western languages (e.g., 'Jensen' given the full name 'Ms. Barbara J Jensen, III').",
-                "multiValued": false,
-                "mutability": "readWrite",
                 "name": "familyName",
-                "required": true,
-                "returned": "default",
                 "type": "string",
-                "uniqueness": "none"
+                "multiValued": false,
+                "required": true,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none",
+                "description": "The family name of the User, or last name in most Western languages (e.g., 'Jensen' given the full name 'Ms. Barbara J Jensen, III')."
               },
               {
-                "caseExact": true,
-                "description": "The full name, including all middle names, titles, and suffixes as appropriate, formatted for display (e.g., 'Ms. Barbara J Jensen, III').",
-                "multiValued": false,
-                "mutability": "readWrite",
                 "name": "formatted",
-                "required": true,
-                "returned": "default",
                 "type": "string",
-                "uniqueness": "none"
+                "multiValued": false,
+                "required": true,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none",
+                "description": "The full name, including all middle names, titles, and suffixes as appropriate, formatted for display (e.g., 'Ms. Barbara J Jensen, III')."
               }
-            ],
-            "type": "complex",
-            "uniqueness": "none"
+            ]
           },
           {
-            "description": "Email addresses for the user.  The value SHOULD be canonicalized by the service provider, e.g., 'bjensen@example.com' instead of 'bjensen@EXAMPLE.COM'.  Canonical type values of 'work', 'home', and 'other'.",
-            "multiValued": true,
-            "mutability": "readWrite",
             "name": "emails",
-            "required": false,
-            "returned": "always",
-            "subAttributes": [
-              {
-                "caseExact": false,
-                "description": "A Boolean value indicating the 'primary' or preferred attribute value for this attribute, e.g., the preferred mailing address or primary email address.  The primary attribute value 'true' MUST appear no more than once.",
-                "multiValued": false,
-                "mutability": "readWrite",
-                "name": "primary",
-                "required": true,
-                "returned": "default",
-                "type": "boolean",
-                "uniqueness": "none"
-              },
-              {
-                "caseExact": false,
-                "description": "A label indicating the attribute's function, e.g., 'work' or 'home'.",
-                "multiValued": false,
-                "mutability": "readWrite",
-                "name": "type",
-                "required": false,
-                "returned": "default",
-                "type": "string",
-                "uniqueness": "none"
-              },
-              {
-                "caseExact": false,
-                "description": "Email addresses for the user.  The value SHOULD be canonicalized by the service provider, e.g., 'bjensen@example.com' instead of 'bjensen@EXAMPLE.COM'.  Canonical type values of 'work', 'home', and 'other'.",
-                "multiValued": false,
-                "mutability": "readWrite",
-                "name": "value",
-                "required": true,
-                "returned": "default",
-                "type": "string",
-                "uniqueness": "none"
-              }
-            ],
             "type": "complex",
-            "uniqueness": "none"
-          },
-          {
-            "description": "An identifier for a user defined by the provisioning client",
-            "multiValued": false,
-            "mutability": "readWrite",
-            "name": "externalId",
-            "required": false,
-            "returned": "default",
-            "type": "string",
-            "uniqueness": "none"
-          },
-          {
-            "description": "Indicates the User's preferred written or spoken language.  Generally used for selecting a localized user interface; e.g., 'en_US' specifies the language English and country US.",
-            "multiValued": false,
-            "mutability": "readWrite",
-            "name": "preferredLanguage",
-            "required": false,
-            "returned": "default",
-            "type": "string",
-            "uniqueness": "none"
-          },
-          {
-            "description": "A list of groups to which the user belongs, either through direct membership, through nested groups, or dynamically calculated.",
             "multiValued": true,
-            "mutability": "readOnly",
-            "name": "groups",
             "required": false,
-            "returned": "default",
+            "mutability": "readWrite",
+            "returned": "always",
+            "uniqueness": "none",
+            "description": "Email addresses for the user.  The value SHOULD be canonicalized by the service provider, e.g., 'bjensen@example.com' instead of 'bjensen@EXAMPLE.COM'.  Canonical type values of 'work', 'home', and 'other'.",
             "subAttributes": [
               {
-                "caseExact": false,
-                "description": "The URI of the corresponding 'Group' resource to which the user belongs.",
+                "name": "primary",
+                "type": "boolean",
                 "multiValued": false,
-                "mutability": "readOnly",
-                "name": "$ref",
-                "referenceTypes": [
-                  "User",
-                  "Group"
-                ],
-                "required": false,
+                "required": true,
+                "mutability": "readWrite",
                 "returned": "default",
-                "type": "reference",
-                "uniqueness": "none"
+                "uniqueness": "none",
+                "description": "A Boolean value indicating the 'primary' or preferred attribute value for this attribute, e.g., the preferred mailing address or primary email address.  The primary attribute value 'true' MUST appear no more than once."
               },
               {
-                "caseExact": false,
-                "description": "The identifier of the User's group.",
+                "name": "type",
+                "type": "string",
                 "multiValued": false,
-                "mutability": "readOnly",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none",
+                "description": "A label indicating the attribute's function, e.g., 'work' or 'home'."
+              },
+              {
                 "name": "value",
-                "required": false,
-                "returned": "default",
                 "type": "string",
-                "uniqueness": "none"
+                "multiValued": false,
+                "required": true,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none",
+                "description": "Email addresses for the user.  The value SHOULD be canonicalized by the service provider, e.g., 'bjensen@example.com' instead of 'bjensen@EXAMPLE.COM'.  Canonical type values of 'work', 'home', and 'other'."
+              }
+            ]
+          },
+          {
+            "name": "externalId",
+            "type": "string",
+            "multiValued": false,
+            "required": false,
+            "mutability": "readWrite",
+            "returned": "default",
+            "uniqueness": "none",
+            "description": "An identifier for a user defined by the provisioning client"
+          },
+          {
+            "name": "preferredLanguage",
+            "type": "string",
+            "multiValued": false,
+            "required": false,
+            "mutability": "readWrite",
+            "returned": "default",
+            "uniqueness": "none",
+            "description": "Indicates the User's preferred written or spoken language.  Generally used for selecting a localized user interface; e.g., 'en_US' specifies the language English and country US."
+          },
+          {
+            "name": "groups",
+            "type": "complex",
+            "multiValued": true,
+            "required": false,
+            "mutability": "readOnly",
+            "returned": "default",
+            "uniqueness": "none",
+            "description": "A list of groups to which the user belongs, either through direct membership, through nested groups, or dynamically calculated.",
+            "subAttributes": [
+              {
+                "name": "$ref",
+                "type": "reference",
+                "multiValued": false,
+                "required": false,
+                "mutability": "readOnly",
+                "returned": "default",
+                "uniqueness": "none",
+                "description": "The URI of the corresponding 'Group' resource to which the user belongs."
               },
               {
-                "caseExact": false,
-                "description": "A human-readable name, primarily used for display purposes.",
-                "multiValued": false,
-                "mutability": "readOnly",
-                "name": "display",
-                "required": false,
-                "returned": "default",
+                "name": "value",
                 "type": "string",
-                "uniqueness": "none"
+                "multiValued": false,
+                "required": false,
+                "mutability": "readOnly",
+                "returned": "default",
+                "uniqueness": "none",
+                "description": "The identifier of the User's group."
+              },
+              {
+                "name": "display",
+                "type": "string",
+                "multiValued": false,
+                "required": false,
+                "mutability": "readOnly",
+                "returned": "default",
+                "uniqueness": "none",
+                "description": "A human-readable name, primarily used for display purposes."
               }
-            ],
-            "type": "complex",
-            "uniqueness": "none"
+            ]
           }
-        ],
-        "meta": {
-          "location": "/scim/v2/Schemas/urn:ietf:params:scim:schemas:core:2.0:User",
-          "resourceType": "Schema"
-        }
+        ]
       },
       {
         "id": "urn:ietf:params:scim:schemas:core:2.0:Group",
@@ -192,83 +171,68 @@
         "description": "Group information",
         "attributes": [
           {
-            "description": "A human-readable name for the Group. REQUIRED.",
-            "multiValued": false,
-            "mutability": "readWrite",
             "name": "displayName",
-            "required": true,
-            "returned": "default",
             "type": "string",
-            "uniqueness": "none"
+            "multiValued": false,
+            "required": true,
+            "mutability": "readWrite",
+            "returned": "default",
+            "uniqueness": "none",
+            "description": "A human-readable name for the Group. REQUIRED."
           },
           {
-            "description": "A list of members of the Group.",
-            "multiValued": true,
-            "mutability": "readWrite",
             "name": "members",
+            "type": "complex",
+            "multiValued": true,
             "required": false,
+            "mutability": "readWrite",
             "returned": "default",
+            "uniqueness": "none",
+            "description": "A list of members of the Group.",
             "subAttributes": [
               {
-                "caseExact": false,
-                "description": "Identifier of the member of this Group.",
-                "multiValued": false,
-                "mutability": "immutable",
                 "name": "value",
-                "required": false,
-                "returned": "default",
                 "type": "string",
-                "uniqueness": "none"
+                "multiValued": false,
+                "required": false,
+                "mutability": "immutable",
+                "returned": "default",
+                "uniqueness": "none",
+                "description": "Identifier of the member of this Group."
               },
               {
-                "caseExact": false,
-                "description": "The URI corresponding to a SCIM resource that is a member of this Group.",
-                "multiValued": false,
-                "mutability": "immutable",
                 "name": "$ref",
-                "referenceTypes": [
-                  "User",
-                  "Group"
-                ],
-                "required": false,
-                "returned": "default",
                 "type": "reference",
-                "uniqueness": "none"
+                "multiValued": false,
+                "required": false,
+                "mutability": "immutable",
+                "returned": "default",
+                "uniqueness": "none",
+                "description": "The URI corresponding to a SCIM resource that is a member of this Group."
               },
               {
-                "canonicalValues": [
-                  "User",
-                  "Group"
-                ],
-                "caseExact": false,
-                "description": "A label indicating the type of resource, e.g., 'User' or 'Group'.",
-                "multiValued": false,
-                "mutability": "immutable",
                 "name": "type",
-                "required": false,
-                "returned": "default",
                 "type": "string",
-                "uniqueness": "none"
+                "multiValued": false,
+                "required": false,
+                "mutability": "immutable",
+                "returned": "default",
+                "uniqueness": "none",
+                "description": "A label indicating the type of resource, e.g., 'User' or 'Group'."
               }
-            ],
-            "type": "complex",
-            "uniqueness": "none"
+            ]
           },
           {
-            "description": "An identifier for a user defined by the provisioning client",
-            "multiValued": false,
-            "mutability": "readWrite",
             "name": "externalId",
-            "required": false,
-            "returned": "default",
             "type": "string",
-            "uniqueness": "none"
+            "multiValued": false,
+            "required": false,
+            "mutability": "readWrite",
+            "returned": "default",
+            "uniqueness": "none",
+            "description": "An identifier for a user defined by the provisioning client"
           }
-        ],
-        "meta": {
-          "location": "/scim/v2/Schemas/urn:ietf:params:scim:schemas:core:2.0:Group",
-          "resourceType": "Schema"
-        }
+        ]
       }
     ]
   },
@@ -552,7 +516,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Thu, 21 May 2026 14:14:32 GMT",
+          "date": "Fri, 22 May 2026 17:58:12 GMT",
           "content-type": "application/scim+json",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
@@ -566,8 +530,8 @@
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "1000",
-          "x-ratelimit-remaining": "996",
-          "x-ratelimit-reset": "1779372920",
+          "x-ratelimit-remaining": "989",
+          "x-ratelimit-reset": "1779472718",
           "content-security-policy": "default-src 'none'; connect-src 'self' https:; script-src 'self'; img-src 'self' data: https://w3.org; style-src 'self'; frame-ancestors 'none'; form-action 'none'; manifest-src 'self'",
           "referrer-policy": "no-referrer",
           "x-robots-tag": "none"
