@@ -1,0 +1,98 @@
+{
+  "input": {
+    "project_id": 82599306,
+    "branch": "test-branch-create-action-2",
+    "ref": "main"
+  },
+  "output": {
+    "name": "test-branch-create-action-2",
+    "merged": false,
+    "protected": false,
+    "default": false,
+    "developers_can_push": false,
+    "developers_can_merge": false,
+    "can_push": true,
+    "web_url": "https://gitlab.com/nangodev-group/nangoDev-project/-/tree/test-branch-create-action-2",
+    "commit": {
+      "id": "326793c9823e44aa0d619020d479ea1a2bc4b188",
+      "short_id": "326793c9",
+      "title": "feat: add CI pipeline and update README",
+      "message": "feat: add CI pipeline and update README\n",
+      "author_name": "Victor Lang'at",
+      "author_email": "125632594+viictoo@users.noreply.github.com",
+      "authored_date": "2026-05-27T16:13:38.000+03:00",
+      "committer_name": "Victor Lang'at",
+      "committer_email": "125632594+viictoo@users.noreply.github.com",
+      "committed_date": "2026-05-27T16:13:38.000+03:00",
+      "created_at": "2026-05-27T16:13:38.000+03:00",
+      "parent_ids": [
+        "e996045d27daf073cff218a952813f328ac4facf"
+      ],
+      "web_url": "https://gitlab.com/nangodev-group/nangoDev-project/-/commit/326793c9823e44aa0d619020d479ea1a2bc4b188"
+    }
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/api/v4/projects/82599306/repository/branches": {
+        "response": {
+          "name": "test-branch-create-action-2",
+          "commit": {
+            "id": "326793c9823e44aa0d619020d479ea1a2bc4b188",
+            "short_id": "326793c9",
+            "created_at": "2026-05-27T16:13:38.000+03:00",
+            "parent_ids": [
+              "e996045d27daf073cff218a952813f328ac4facf"
+            ],
+            "title": "feat: add CI pipeline and update README",
+            "message": "feat: add CI pipeline and update README\n",
+            "author_name": "Victor Lang'at",
+            "author_email": "125632594+viictoo@users.noreply.github.com",
+            "authored_date": "2026-05-27T16:13:38.000+03:00",
+            "committer_name": "Victor Lang'at",
+            "committer_email": "125632594+viictoo@users.noreply.github.com",
+            "committed_date": "2026-05-27T16:13:38.000+03:00",
+            "trailers": {},
+            "extended_trailers": {},
+            "web_url": "https://gitlab.com/nangodev-group/nangoDev-project/-/commit/326793c9823e44aa0d619020d479ea1a2bc4b188"
+          },
+          "merged": false,
+          "protected": false,
+          "developers_can_push": false,
+          "developers_can_merge": false,
+          "can_push": true,
+          "default": false,
+          "web_url": "https://gitlab.com/nangodev-group/nangoDev-project/-/tree/test-branch-create-action-2"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 27 May 2026 13:33:26 GMT",
+          "content-type": "application/json",
+          "content-length": "981",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4770",
+          "x-ratelimit-reset": "1779888813",
+          "x-request-id": "a025642e7f7dff1a-PDX",
+          "etag": "W/\"3d5-cxcn2Gn8BvxAWsQFMnUqM63C+WY\""
+        },
+        "hash": "925d51e4f872a38abd83a4492a0f6a5a9eebce59",
+        "request": {
+          "data": {
+            "branch": "test-branch-create-action-2",
+            "ref": "main"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "input": {
+    "project_id": "82599306",
+    "tag_name": "v1.0.0"
+  },
+  "output": {
+    "tag_name": "v1.0.0",
+    "name": "v1.0.0 - Initial Release",
+    "deleted": true
+  },
+  "nango": {},
+  "api": {
+    "delete": {
+      "/api/v4/projects/82599306/releases/v1.0.0": {
+        "response": {
+          "name": "v1.0.0 - Initial Release",
+          "tag_name": "v1.0.0",
+          "description": "Initial release for Nango GitLab integration testing.",
+          "created_at": "2026-05-27T13:35:01.888Z",
+          "released_at": "2026-05-27T13:35:01.888Z",
+          "upcoming_release": false,
+          "author": {
+            "id": 38590808,
+            "username": "api46",
+            "public_email": null,
+            "name": "Nango Developer",
+            "state": "active",
+            "locked": false,
+            "avatar_url": "https://secure.gravatar.com/avatar/c89d19930bbb731cfec48ff1584648234d177e53d3c5641a51797a3d16ac420d?s=80&d=identicon",
+            "web_url": "https://gitlab.com/api46"
+          },
+          "commit": {
+            "id": "326793c9823e44aa0d619020d479ea1a2bc4b188",
+            "short_id": "326793c9",
+            "created_at": "2026-05-27T16:13:38.000+03:00",
+            "parent_ids": [
+              "e996045d27daf073cff218a952813f328ac4facf"
+            ],
+            "title": "feat: add CI pipeline and update README",
+            "message": "feat: add CI pipeline and update README\n",
+            "author_name": "Victor Lang'at",
+            "author_email": "125632594+viictoo@users.noreply.github.com",
+            "authored_date": "2026-05-27T16:13:38.000+03:00",
+            "committer_name": "Victor Lang'at",
+            "committer_email": "125632594+viictoo@users.noreply.github.com",
+            "committed_date": "2026-05-27T16:13:38.000+03:00",
+            "trailers": {},
+            "extended_trailers": {},
+            "web_url": "https://gitlab.com/nangodev-group/nangoDev-project/-/commit/326793c9823e44aa0d619020d479ea1a2bc4b188"
+          },
+          "commit_path": "/nangodev-group/nangoDev-project/-/commit/326793c9823e44aa0d619020d479ea1a2bc4b188",
+          "tag_path": "/nangodev-group/nangoDev-project/-/tags/v1.0.0",
+          "assets": {
+            "count": 4,
+            "sources": [
+              {
+                "format": "zip",
+                "url": "https://gitlab.com/nangodev-group/nangoDev-project/-/archive/v1.0.0/nangoDev-project-v1.0.0.zip"
+              },
+              {
+                "format": "tar.gz",
+                "url": "https://gitlab.com/nangodev-group/nangoDev-project/-/archive/v1.0.0/nangoDev-project-v1.0.0.tar.gz"
+              },
+              {
+                "format": "tar.bz2",
+                "url": "https://gitlab.com/nangodev-group/nangoDev-project/-/archive/v1.0.0/nangoDev-project-v1.0.0.tar.bz2"
+              },
+              {
+                "format": "tar",
+                "url": "https://gitlab.com/nangodev-group/nangoDev-project/-/archive/v1.0.0/nangoDev-project-v1.0.0.tar"
+              }
+            ],
+            "links": []
+          },
+          "evidences": [],
+          "_links": {
+            "closed_issues_url": "https://gitlab.com/nangodev-group/nangoDev-project/-/issues?release_tag=v1.0.0&scope=all&state=closed",
+            "closed_merge_requests_url": "https://gitlab.com/nangodev-group/nangoDev-project/-/merge_requests?release_tag=v1.0.0&scope=all&state=closed",
+            "edit_url": "https://gitlab.com/nangodev-group/nangoDev-project/-/releases/v1.0.0/edit",
+            "merged_merge_requests_url": "https://gitlab.com/nangodev-group/nangoDev-project/-/merge_requests?release_tag=v1.0.0&scope=all&state=merged",
+            "opened_issues_url": "https://gitlab.com/nangodev-group/nangoDev-project/-/issues?release_tag=v1.0.0&scope=all&state=opened",
+            "opened_merge_requests_url": "https://gitlab.com/nangodev-group/nangoDev-project/-/merge_requests?release_tag=v1.0.0&scope=all&state=opened",
+            "self": "https://gitlab.com/nangodev-group/nangoDev-project/-/releases/v1.0.0"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 27 May 2026 13:35:09 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4899",
+          "x-ratelimit-reset": "1779888935",
+          "set-cookie": "<redacted>",
+          "cf-ray": "a02566b34f61054d-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "etag": "W/\"2054ac513ed650befea21c490a483bba\"",
+          "server": "cloudflare",
+          "vary": "Origin",
+          "content-security-policy": "default-src 'none'",
+          "gitlab-lb": "haproxy-main-27-lb-gprd",
+          "gitlab-sv": "api-gke-us-east1-d",
+          "nel": "{\"max_age\": 0}",
+          "ratelimit-limit": "2000",
+          "ratelimit-name": "throttle_authenticated_api",
+          "ratelimit-observed": "9",
+          "ratelimit-remaining": "1991",
+          "ratelimit-reset": "1779888960",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-gitlab-meta": "{\"correlation_id\":\"a02566b34f61054d-PDX\",\"version\":\"1\"}",
+          "x-request-id": "a02566b34f61054d-PDX",
+          "x-runtime": "0.225380"
+        },
+        "hash": "4c0e4fd4eeab72d1b72cfd6684b653becb3be5fd",
+        "request": {}
+      }
+    }
+  }
+}

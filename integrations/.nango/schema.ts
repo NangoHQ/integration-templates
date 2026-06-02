@@ -20006,50 +20006,23 @@ export interface SyncMetadata_gem_jobstages {
 export interface Job {
   id: string;
   name: string;
-  requisition_id: string;
-  confidential: boolean;
+  project_id: number;
+  pipeline_id: number;
+  ref?: string | undefined;
+  stage?: string | undefined;
   status: string;
+  failure_reason?: string | undefined;
+  tag?: boolean | undefined;
+  web_url?: string | undefined;
   created_at: string;
-  opened_at: string;
-  closed_at: string | null;
-  deleted_at: string | null;
-  updated_at: string;
-  is_template: boolean;
-  departments: ({  id: string;
-  name: string;
-  parent_id: string;
-  child_ids: string[];
-  parent_department_external_id: string;
-  child_department_external_ids: string[];
-  deleted_at: string;})[];
-  offices: ({  id: string;
-  name: string;
-  location: {  name: string;};
-  parent_id: string;
-  child_ids: string[];
-  parent_office_external_id: string;
-  child_office_external_ids: string[];
-  deleted_at: string;})[];
-  hiring_team: {  hiring_managers: ({  id: string;
-  name: string;
-  first_name: string;
-  last_name: string;
-  employee_id: string;})[] | null;
-  recruiters: ({  id: string;
-  name: string;
-  first_name: string;
-  last_name: string;
-  employee_id: string;})[] | null;
-  coordinators: ({  id: string;
-  name: string;
-  first_name: string;
-  last_name: string;
-  employee_id: string;})[] | null;
-  sourcers: ({  id: string;
-  name: string;
-  first_name: string;
-  last_name: string;
-  employee_id: string;})[] | null;};
+  started_at?: string | undefined;
+  finished_at?: string | undefined;
+  duration?: number | undefined;
+  queued_duration?: number | undefined;
+  coverage?: number | undefined;
+  allow_failure?: boolean | undefined;
+  user_id?: number | undefined;
+  runner_id?: number | undefined;
 };
 
 export interface SyncMetadata_gem_jobs {
@@ -20228,24 +20201,18 @@ export interface ActionOutput_gem_uploadresume {
 
 export interface Commit {
   id: string;
-  sha: string;
-  message: string;
+  short_id?: string | undefined;
+  title?: string | undefined;
   author_name?: string | undefined;
   author_email?: string | undefined;
-  author_date?: string | undefined;
-  author_login?: string | undefined;
+  authored_date?: string | undefined;
   committer_name?: string | undefined;
   committer_email?: string | undefined;
-  committer_date?: string | undefined;
-  committer_login?: string | undefined;
-  url?: string | undefined;
-  html_url?: string | undefined;
-  repository_owner: string;
-  repository_name: string;
-  branch: string;
-  parent_shas?: string[] | undefined;
-  verified?: boolean | undefined;
-  verification_reason?: string | undefined;
+  committed_date?: string | undefined;
+  created_at?: string | undefined;
+  message?: string | undefined;
+  parent_ids?: string[] | undefined;
+  web_url?: string | undefined;
 };
 
 export interface Issue {
@@ -20392,20 +20359,14 @@ export interface SyncMetadata_github_pullrequests {
 
 export interface Release {
   id: string;
-  repo_owner: string;
-  repo_name: string;
-  release_id: number;
-  node_id: string;
+  project_id: number;
   tag_name: string;
-  target_commitish: string;
   name?: string | undefined;
-  body?: string | undefined;
-  draft: boolean;
-  prerelease: boolean;
+  description?: string | undefined;
   created_at: string;
-  published_at?: string | undefined;
-  author_login: string;
-  author_id: number;
+  released_at: string;
+  author_id?: number | undefined;
+  commit_id?: string | undefined;
 };
 
 export interface SyncMetadata_github_releases {
@@ -23022,6 +22983,2449 @@ export interface ActionOutput_github_app_repositories {
   watchers: number;
   watchers_count: number;
   web_commit_signoff_required: boolean;})[];
+};
+
+export interface Branch {
+  id: string;
+  name: string;
+  project_id: string;
+  merged?: boolean | undefined;
+  protected?: boolean | undefined;
+  default?: boolean | undefined;
+  developers_can_push?: boolean | undefined;
+  developers_can_merge?: boolean | undefined;
+  can_push?: boolean | undefined;
+  web_url?: string | undefined;
+  commit_id?: string | undefined;
+  commit_short_id?: string | undefined;
+  commit_created_at?: string | undefined;
+  commit_title?: string | undefined;
+  commit_message?: string | undefined;
+  commit_author_name?: string | undefined;
+  commit_author_email?: string | undefined;
+  commit_authored_date?: string | undefined;
+  commit_committer_name?: string | undefined;
+  commit_committer_email?: string | undefined;
+  commit_committed_date?: string | undefined;
+  commit_web_url?: string | undefined;
+};
+
+export interface SyncMetadata_gitlab_commits {
+  project_id?: string | undefined;
+};
+
+export interface Group {
+  id: string;
+  name: string;
+  description?: string | undefined;
+  isDefault?: boolean | undefined;
+  isDeleted?: boolean | undefined;
+  isPublic?: boolean | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  url?: string | undefined;
+};
+
+export interface MergeRequest {
+  id: string;
+  iid: number;
+  project_id: number;
+  title: string;
+  description?: string | undefined;
+  state: string;
+  created_at: string;
+  updated_at: string;
+  author_id?: number | undefined;
+  author_username?: string | undefined;
+  source_branch: string;
+  target_branch: string;
+  web_url: string;
+  draft: boolean;
+  labels?: string[] | undefined;
+  merged_at?: string | undefined;
+  closed_at?: string | undefined;
+};
+
+export interface Pipeline {
+  id: string;
+  name?: string | undefined;
+  update_time: string;
+  add_time?: string | undefined;
+  is_deal_probability_enabled?: boolean | undefined;
+};
+
+export interface SyncMetadata_gitlab_pipelines {
+  project_id: string;
+};
+
+export interface ActionInput_gitlab_cancelpipeline {
+  /**
+   * Project ID or URL-encoded path. Example: 82599306
+   */
+  project_id: number | string;
+  /**
+   * Pipeline ID. Example: 46
+   */
+  pipeline_id: number;
+};
+
+export interface ActionOutput_gitlab_cancelpipeline {
+  id: number;
+  iid: number;
+  project_id: number;
+  status: string;
+  ref?: string | undefined;
+  sha?: string | undefined;
+  before_sha?: string | undefined;
+  tag?: boolean | undefined;
+  yaml_errors?: string | undefined;
+  user?: {  id: number;
+  name: string;
+  username: string;
+  state: string;
+  avatar_url?: string | undefined;
+  web_url?: string | undefined;};
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  started_at?: string | undefined;
+  finished_at?: string | undefined;
+  committed_at?: string | undefined;
+  duration?: number | undefined;
+  queued_duration?: number | undefined;
+  coverage?: number | undefined;
+  web_url?: string | undefined;
+  archived?: boolean | undefined;
+};
+
+export interface ActionInput_gitlab_createbranch {
+  /**
+   * Project ID. Example: 82599306
+   */
+  project_id: number;
+  /**
+   * Name of the new branch. Example: "feature/my-branch"
+   */
+  branch: string;
+  /**
+   * Branch name or commit SHA to create the branch from. Example: "main"
+   */
+  ref: string;
+};
+
+export interface ActionOutput_gitlab_createbranch {
+  name: string;
+  merged?: boolean | undefined;
+  protected?: boolean | undefined;
+  default?: boolean | undefined;
+  developers_can_push?: boolean | undefined;
+  developers_can_merge?: boolean | undefined;
+  can_push?: boolean | undefined;
+  web_url?: string | undefined;
+  commit?: {  id: string;
+  short_id?: string | undefined;
+  title?: string | undefined;
+  message?: string | undefined;
+  author_name?: string | undefined;
+  author_email?: string | undefined;
+  authored_date?: string | undefined;
+  committer_name?: string | undefined;
+  committer_email?: string | undefined;
+  committed_date?: string | undefined;
+  created_at?: string | undefined;
+  parent_ids?: string[] | undefined;
+  web_url?: string | undefined;};
+};
+
+export interface ActionInput_gitlab_createcommit {
+  /**
+   * The ID or URL-encoded path of the project. Example: "82599306"
+   */
+  project_id: string;
+  /**
+   * Name of the branch to commit into. Example: "feature/test"
+   */
+  branch: string;
+  /**
+   * Commit message. Example: "Add new feature"
+   */
+  commit_message: string;
+  /**
+   * Array of file actions to perform in this commit
+   */
+  actions?: ({  action: 'create' | 'delete' | 'move' | 'update' | 'chmod';
+  file_path: string;
+  content?: string | undefined;
+  encoding?: 'text' | 'base64' | undefined;
+  execute_filemode?: boolean | undefined;
+  last_commit_id?: string | undefined;
+  previous_path?: string | undefined;})[];
+  /**
+   * Name of the branch to use as the parent for the new commit
+   */
+  start_branch?: string | undefined;
+  /**
+   * Specify the commit author's email address
+   */
+  author_email?: string | undefined;
+  /**
+   * Specify the commit author's name
+   */
+  author_name?: string | undefined;
+  /**
+   * When true, creates an empty commit. Default is false
+   */
+  allow_empty?: boolean | undefined;
+  /**
+   * If true, overwrites branch with a new commit. Default is false
+   */
+  force?: boolean | undefined;
+  /**
+   * SHA of the commit to use as the parent for the new commit
+   */
+  start_sha?: string | undefined;
+  /**
+   * The project ID or URL-encoded path to use as the source
+   */
+  start_project?: string | undefined;
+  /**
+   * Include commit stats. Default is true
+   */
+  stats?: boolean | undefined;
+};
+
+export interface ActionOutput_gitlab_createcommit {
+  id: string;
+  short_id: string;
+  title: string;
+  author_name: string;
+  author_email: string;
+  committer_name?: string | undefined;
+  committer_email?: string | undefined;
+  created_at: string;
+  message: string;
+  parent_ids?: string[] | undefined;
+  committed_date?: string | undefined;
+  authored_date?: string | undefined;
+  stats?: {  additions?: number | undefined;
+  deletions?: number | undefined;
+  total?: number | undefined;};
+  status?: string | undefined;
+  web_url?: string | undefined;
+};
+
+export interface ActionInput_gitlab_createfile {
+  /**
+   * Project ID or URL-encoded path. Example: 82599306
+   */
+  project_id: number | string;
+  /**
+   * Full path to the new file. Example: "hello.txt"
+   */
+  file_path: string;
+  /**
+   * Name of the branch to create the file in. Example: "main"
+   */
+  branch: string;
+  /**
+   * Commit message for the file creation.
+   */
+  commit_message: string;
+  /**
+   * Content of the file.
+   */
+  content: string;
+  /**
+   * Commit author email address.
+   */
+  author_email?: string | undefined;
+  /**
+   * Commit author name.
+   */
+  author_name?: string | undefined;
+  /**
+   * File encoding. Defaults to "text".
+   */
+  encoding?: 'text' | 'base64' | undefined;
+  /**
+   * If true, enables the execute flag on the file.
+   */
+  execute_filemode?: boolean | undefined;
+  /**
+   * Base branch to create the new branch from.
+   */
+  start_branch?: string | undefined;
+};
+
+export interface ActionOutput_gitlab_createfile {
+  file_path: string;
+  branch: string;
+};
+
+export interface ActionInput_gitlab_creategroup {
+  /**
+   * The name of the group. Example: "My Group"
+   */
+  name: string;
+  /**
+   * The path of the group. Example: "my-group"
+   */
+  path: string;
+  /**
+   * The parent group ID for creating a nested group. Example: 133159324
+   */
+  parent_id?: number | undefined;
+  /**
+   * The group description.
+   */
+  description?: string | undefined;
+  /**
+   * The group visibility level.
+   */
+  visibility?: 'private' | 'internal' | 'public' | undefined;
+  /**
+   * Enable/disable Large File Storage (LFS) for projects in this group.
+   */
+  lfs_enabled?: boolean | undefined;
+  /**
+   * Allow users to request member access.
+   */
+  request_access_enabled?: boolean | undefined;
+};
+
+export interface ActionOutput_gitlab_creategroup {
+  id: number;
+  name: string;
+  path: string;
+  full_path: string;
+  description?: string | undefined;
+  visibility: string;
+  web_url: string;
+  parent_id?: number | undefined;
+};
+
+export interface ActionInput_gitlab_createissue {
+  /**
+   * The global ID of the project. Example: 82599306
+   */
+  project_id: number;
+  /**
+   * The title of the issue.
+   */
+  title: string;
+  /**
+   * The description of an issue.
+   */
+  description?: string | undefined;
+  /**
+   * Comma-separated label names to assign to the new issue.
+   */
+  labels?: string | undefined;
+  /**
+   * Set an issue to be confidential. Default is false.
+   */
+  confidential?: boolean | undefined;
+  /**
+   * The IDs of the users to assign the issue to.
+   */
+  assignee_ids?: number[] | undefined;
+  /**
+   * The global ID of a milestone to assign to the issue.
+   */
+  milestone_id?: number | undefined;
+  /**
+   * The due date. Format: YYYY-MM-DD.
+   */
+  due_date?: string | undefined;
+  /**
+   * The type of issue. One of issue, incident, test_case or task. Default is issue.
+   */
+  issue_type?: string | undefined;
+};
+
+export interface ActionOutput_gitlab_createissue {
+  id: number;
+  iid: number;
+  project_id: number;
+  title: string;
+  description?: string | undefined;
+  state: string;
+  created_at: string;
+  updated_at: string;
+  labels: string[];
+  web_url: string;
+  confidential?: boolean | undefined;
+};
+
+export interface ActionInput_gitlab_createmergerequest {
+  project_id: number;
+  source_branch: string;
+  target_branch: string;
+  title: string;
+  description?: string | undefined;
+  labels?: string | undefined;
+  assignee_ids?: number[] | undefined;
+  reviewer_ids?: number[] | undefined;
+  milestone_id?: number | undefined;
+  remove_source_branch?: boolean | undefined;
+  squash?: boolean | undefined;
+  allow_collaboration?: boolean | undefined;
+};
+
+export interface ActionOutput_gitlab_createmergerequest {
+  id: number;
+  iid: number;
+  project_id: number;
+  title: string;
+  description?: string | undefined;
+  state: string;
+  source_branch: string;
+  target_branch: string;
+  web_url: string;
+  created_at: string;
+  updated_at: string;
+  author?: {  id: number;
+  name: string;
+  username: string;} | undefined;
+};
+
+export interface ActionInput_gitlab_createproject {
+  /**
+   * Name of the new project. Example: "my-new-project"
+   */
+  name: string;
+  /**
+   * Repository name for the new project. Generated from name if not provided.
+   */
+  path?: string | undefined;
+  /**
+   * Namespace ID for the new project. Defaults to the current user namespace.
+   */
+  namespace_id?: number | undefined;
+  /**
+   * Short project description.
+   */
+  description?: string | undefined;
+  /**
+   * Visibility level of the project.
+   */
+  visibility?: 'private' | 'internal' | 'public' | undefined;
+  /**
+   * Whether to initialize the project with a README file.
+   */
+  initialize_with_readme?: boolean | undefined;
+  /**
+   * Default branch name. Requires initialize_with_readme to be true.
+   */
+  default_branch?: string | undefined;
+};
+
+export interface ActionOutput_gitlab_createproject {
+  id: number;
+  name: string;
+  name_with_namespace?: string | undefined;
+  path: string;
+  path_with_namespace?: string | undefined;
+  description?: string | undefined;
+  default_branch?: string | undefined;
+  visibility?: string | undefined;
+  ssh_url_to_repo?: string | undefined;
+  http_url_to_repo?: string | undefined;
+  web_url?: string | undefined;
+  readme_url?: string | undefined;
+  created_at?: string | undefined;
+  last_activity_at?: string | undefined;
+  namespace?: {  id: number;
+  name: string;
+  path: string;
+  kind?: string | undefined;
+  full_path?: string | undefined;
+  parent_id?: number | undefined;
+  avatar_url?: string | undefined;
+  web_url?: string | undefined;};
+  topics?: string[] | undefined;
+  empty_repo?: boolean | undefined;
+  archived?: boolean | undefined;
+  creator_id?: number | undefined;
+};
+
+export interface ActionInput_gitlab_createpipeline {
+  /**
+   * The ID or URL-encoded path of the project. Example: "82599306"
+   */
+  project_id: number | string;
+  /**
+   * The branch or tag to run the pipeline on. Example: "main"
+   */
+  ref: string;
+  variables?: ({  key: string;
+  variable_type?: string | undefined;
+  value: string;})[];
+  inputs?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_gitlab_createpipeline {
+  id: number;
+  iid: number;
+  project_id: number;
+  sha: string;
+  ref: string;
+  status: string;
+  before_sha?: string | undefined;
+  tag: boolean;
+  yaml_errors?: string | undefined;
+  user?: {  name: string;
+  username: string;
+  id: number;
+  state: string;
+  avatar_url?: string | undefined;
+  web_url?: string | undefined;};
+  created_at: string;
+  updated_at: string;
+  started_at?: string | undefined;
+  finished_at?: string | undefined;
+  committed_at?: string | undefined;
+  duration?: number | undefined;
+  queued_duration?: number | undefined;
+  coverage?: number | undefined;
+  web_url?: string | undefined;
+  archived?: boolean | undefined;
+};
+
+export interface ActionInput_gitlab_createrelease {
+  /**
+   * The ID or URL-encoded path of the project. Example: 82599306
+   */
+  project_id: string | number;
+  /**
+   * The Git tag the release is associated with. Example: "v1.0.0"
+   */
+  tag_name: string;
+  name?: string | undefined;
+  tag_message?: string | undefined;
+  description?: string | undefined;
+  /**
+   * Commit SHA, branch name, or tag name. Required if tag_name does not exist.
+   */
+  ref?: string | undefined;
+  milestones?: string[] | undefined;
+  assets_links?: ({  name: string;
+  url: string;
+  direct_asset_path?: string | undefined;
+  link_type?: string | undefined;})[];
+  /**
+   * ISO 8601 datetime. Example: "2019-03-15T08:00:00Z"
+   */
+  released_at?: string | undefined;
+};
+
+export interface ActionOutput_gitlab_createrelease {
+  tag_name: string;
+  description?: string | undefined;
+  name?: string | undefined;
+  created_at?: string | undefined;
+  released_at?: string | undefined;
+  commit_path?: string | undefined;
+  tag_path?: string | undefined;
+  evidence_sha?: string | undefined;
+};
+
+export interface ActionInput_gitlab_deletebranch {
+  /**
+   * Project ID or URL-encoded path. Example: "82599306"
+   */
+  project_id: number | string;
+  /**
+   * Name of the branch to delete. Example: "feature/test"
+   */
+  branch: string;
+};
+
+export interface ActionOutput_gitlab_deletebranch {
+  success: boolean;
+  project_id?: number | string | undefined;
+  branch?: string | undefined;
+};
+
+export interface ActionInput_gitlab_deletefile {
+  /**
+   * Project ID or URL-encoded path. Example: 82599306
+   */
+  project_id: number | string;
+  /**
+   * Full path to the file. Example: hello.txt
+   */
+  file_path: string;
+  /**
+   * Name of the branch to delete the file from. Example: feature/test
+   */
+  branch: string;
+  /**
+   * Commit message for the deletion.
+   */
+  commit_message: string;
+  /**
+   * Commit author email address.
+   */
+  author_email?: string | undefined;
+  /**
+   * Commit author name.
+   */
+  author_name?: string | undefined;
+  /**
+   * Last known file commit ID.
+   */
+  last_commit_id?: string | undefined;
+  /**
+   * Name of the base branch to create the branch from.
+   */
+  start_branch?: string | undefined;
+};
+
+export interface ActionOutput_gitlab_deletefile {
+  file_path?: string | undefined;
+  branch?: string | undefined;
+};
+
+export interface ActionInput_gitlab_deletegroup {
+  /**
+   * The ID or URL-encoded path of the group. Example: 123
+   */
+  group_id: number | string;
+  /**
+   * If true, immediately deletes a subgroup already marked for deletion.
+   */
+  permanently_remove?: boolean | undefined;
+  /**
+   * The full path to the subgroup. Required when permanently_remove is true.
+   */
+  full_path?: string | undefined;
+};
+
+export interface ActionOutput_gitlab_deletegroup {
+  success: boolean;
+  group_id?: number | string | undefined;
+};
+
+export interface ActionInput_gitlab_deleteissue {
+  /**
+   * The global ID or URL-encoded path of the project. Example: 82599306
+   */
+  project_id: number | string;
+  /**
+   * The internal ID of a project issue. Example: 1
+   */
+  issue_iid: number;
+};
+
+export interface ActionOutput_gitlab_deleteissue {
+  success: boolean;
+  project_id: number | string;
+  issue_iid: number;
+};
+
+export interface ActionInput_gitlab_deletemergerequest {
+  /**
+   * The ID of the project containing the merge request. Example: 82599306
+   */
+  project_id: number;
+  /**
+   * The internal ID of the merge request. Example: 1
+   */
+  merge_request_iid: number;
+};
+
+export interface ActionOutput_gitlab_deletemergerequest {
+  success: boolean;
+  id?: number | undefined;
+  iid?: number | undefined;
+  project_id?: number | undefined;
+  title?: string | undefined;
+  state?: string | undefined;
+};
+
+export interface ActionInput_gitlab_deletepipeline {
+  /**
+   * The ID or URL-encoded path of the project. Example: "82599306" or "group/project".
+   */
+  project_id: string;
+  /**
+   * The ID of the pipeline to delete. Example: 123
+   */
+  pipeline_id: number;
+};
+
+export interface ActionOutput_gitlab_deletepipeline {
+  success: boolean;
+  project_id: string;
+  pipeline_id: number;
+};
+
+export interface ActionInput_gitlab_deleteproject {
+  /**
+   * The ID or URL-encoded path of the project. Example: "82599306" or "group/project".
+   */
+  project_id: string;
+  /**
+   * If true, archive the project instead of permanently deleting it. Defaults to false.
+   */
+  archive?: boolean | undefined;
+};
+
+export interface ActionOutput_gitlab_deleteproject {
+  success: boolean;
+  project_id: string;
+  archived: boolean;
+  message?: string | undefined;
+};
+
+export interface ActionInput_gitlab_deleterelease {
+  /**
+   * The ID or URL-encoded path of the project. Example: "82599306"
+   */
+  project_id: string;
+  /**
+   * The Git tag the release is associated with. Example: "v1.0.0"
+   */
+  tag_name: string;
+};
+
+export interface ActionOutput_gitlab_deleterelease {
+  tag_name: string;
+  name?: string | undefined;
+  deleted: true;
+};
+
+export interface ActionInput_gitlab_getbranch {
+  /**
+   * Project ID or URL-encoded path. Example: 82599306
+   */
+  project_id: number | string;
+  /**
+   * Branch name. Example: feature/test
+   */
+  branch: string;
+};
+
+export interface ActionOutput_gitlab_getbranch {
+  name: string;
+  merged: boolean;
+  protected: boolean;
+  default: boolean;
+  developers_can_push: boolean;
+  developers_can_merge: boolean;
+  can_push: boolean;
+  web_url: string;
+  commit: {  id: string;
+  short_id: string;
+  created_at: string;
+  parent_ids: string[];
+  title: string;
+  message: string;
+  author_name: string;
+  author_email: string;
+  authored_date: string;
+  committer_name: string;
+  committer_email: string;
+  committed_date: string;
+  trailers: {  [key: string]: unknown | undefined;};
+  extended_trailers: {  [key: string]: unknown | undefined;};
+  web_url: string;};
+};
+
+export interface ActionInput_gitlab_getcommit {
+  /**
+   * The ID or URL-encoded path of the project. Example: 82599306
+   */
+  project_id: string | number;
+  /**
+   * The commit hash or name of a repository branch or tag. Example: abc123def456
+   */
+  sha: string;
+};
+
+export interface ActionOutput_gitlab_getcommit {
+  id: string;
+  short_id: string;
+  title: string;
+  author_name: string;
+  author_email: string;
+  committer_name: string;
+  committer_email: string;
+  created_at: string;
+  message: string;
+  committed_date: string;
+  authored_date: string;
+  parent_ids: string[];
+  last_pipeline?: {  id: number;
+  ref: string;
+  sha: string;
+  status: string;} | undefined;
+  stats?: {  additions: number;
+  deletions: number;
+  total: number;} | undefined;
+  status?: string | undefined;
+  web_url: string;
+};
+
+export interface ActionInput_gitlab_getfile {
+  /**
+   * Project ID or URL-encoded path. Example: 82599306
+   */
+  project_id: number | string;
+  /**
+   * URL-encoded full path to the file. Example: hello.txt
+   */
+  file_path: string;
+  /**
+   * Name of branch, tag, or commit. Defaults to the default branch if omitted.
+   */
+  ref?: string | undefined;
+};
+
+export interface ActionOutput_gitlab_getfile {
+  file_name: string;
+  file_path: string;
+  size: number;
+  encoding: string;
+  content: string;
+  content_sha256: string;
+  ref: string;
+  blob_id: string;
+  commit_id: string;
+  last_commit_id: string;
+  execute_filemode: boolean;
+};
+
+export interface ActionInput_gitlab_getgroup {
+  /**
+   * The ID or URL-encoded path of the group. Example: "133159324"
+   */
+  id: string | number;
+};
+
+export interface ActionOutput_gitlab_getgroup {
+  id: number;
+  name: string;
+  path: string;
+  description?: string | undefined;
+  visibility?: string | undefined;
+  avatar_url?: string | undefined;
+  web_url?: string | undefined;
+  request_access_enabled?: boolean | undefined;
+  repository_storage?: string | undefined;
+  full_name?: string | undefined;
+  full_path?: string | undefined;
+  file_template_project_id?: number | undefined;
+  parent_id?: number | undefined;
+  created_at?: string | undefined;
+};
+
+export interface ActionInput_gitlab_getissue {
+  /**
+   * The global ID or URL-encoded path of the project. Example: 82599306
+   */
+  project_id: string | number;
+  /**
+   * The internal ID of a project's issue. Example: 1
+   */
+  issue_iid: number;
+};
+
+export interface ActionOutput_gitlab_getissue {
+  id: number;
+  iid: number;
+  project_id: number;
+  title: string;
+  description?: string | undefined;
+  state: string;
+  created_at: string;
+  updated_at: string;
+  closed_at?: string | undefined;
+  closed_by?: {  id: number;
+  username: string;
+  name: string;
+  state: string;
+  avatar_url?: string | undefined;
+  web_url: string;};
+  labels: string[];
+  author: {  id: number;
+  username: string;
+  name: string;
+  state: string;
+  avatar_url?: string | undefined;
+  web_url: string;};
+  assignee?: {  id: number;
+  username: string;
+  name: string;
+  state: string;
+  avatar_url?: string | undefined;
+  web_url: string;};
+  assignees: ({  id: number;
+  username: string;
+  name: string;
+  state: string;
+  avatar_url?: string | undefined;
+  web_url: string;})[];
+  type: string;
+  upvotes: number;
+  downvotes: number;
+  merge_requests_count: number;
+  subscribed: boolean;
+  user_notes_count: number;
+  due_date?: string | undefined;
+  imported: boolean;
+  imported_from: string;
+  web_url: string;
+  references: {  short: string;
+  relative: string;
+  full: string;};
+  time_stats: {  time_estimate: number;
+  total_time_spent: number;
+  human_time_estimate?: string | undefined;
+  human_total_time_spent?: string | undefined;};
+  confidential: boolean;
+  discussion_locked?: boolean | undefined;
+  issue_type: string;
+  severity: string;
+  task_completion_status: {  count: number;
+  completed_count: number;};
+  weight?: number | undefined;
+  has_tasks: boolean;
+  _links: {  self: string;
+  notes: string;
+  award_emoji: string;
+  project: string;
+  closed_as_duplicate_of?: string | undefined;};
+  milestone?: unknown | undefined;
+};
+
+export interface ActionInput_gitlab_getjob {
+  /**
+   * Project ID. Example: 82599306
+   */
+  project_id: number;
+  /**
+   * Job ID. Example: 1
+   */
+  job_id: number;
+};
+
+export interface ActionOutput_gitlab_getjob {
+  commit?: {  author_email?: string | undefined;
+  author_name?: string | undefined;
+  created_at?: string | undefined;
+  id?: string | undefined;
+  message?: string | undefined;
+  short_id?: string | undefined;
+  title?: string | undefined;};
+  coverage?: number | undefined;
+  archived?: boolean | undefined;
+  source?: string | undefined;
+  allow_failure?: boolean | undefined;
+  created_at?: string | undefined;
+  started_at?: string | undefined;
+  finished_at?: string | undefined;
+  erased_at?: string | undefined;
+  duration?: number | undefined;
+  queued_duration?: number | undefined;
+  artifacts_file?: {  filename?: string | undefined;
+  size?: number | undefined;};
+  artifacts?: ({  file_type?: string | undefined;
+  size?: number | undefined;
+  filename?: string | undefined;
+  file_format?: string | undefined;})[];
+  artifacts_expire_at?: string | undefined;
+  tag_list?: string[] | undefined;
+  id: number;
+  name?: string | undefined;
+  pipeline?: {  id?: number | undefined;
+  project_id?: number | undefined;
+  ref?: string | undefined;
+  sha?: string | undefined;
+  status?: string | undefined;};
+  ref?: string | undefined;
+  runner?: {  id?: number | undefined;
+  description?: string | undefined;
+  ip_address?: string | undefined;
+  active?: boolean | undefined;
+  paused?: boolean | undefined;
+  is_shared?: boolean | undefined;
+  runner_type?: string | undefined;
+  name?: string | undefined;
+  online?: boolean | undefined;
+  status?: string | undefined;};
+  runner_manager?: {  id?: number | undefined;
+  system_id?: string | undefined;
+  version?: string | undefined;
+  revision?: string | undefined;
+  platform?: string | undefined;
+  architecture?: string | undefined;
+  created_at?: string | undefined;
+  contacted_at?: string | undefined;
+  ip_address?: string | undefined;
+  status?: string | undefined;};
+  stage?: string | undefined;
+  status?: string | undefined;
+  failure_reason?: string | undefined;
+  tag?: boolean | undefined;
+  web_url?: string | undefined;
+  project?: {  ci_job_token_scope_enabled?: boolean | undefined;};
+  user?: {  id?: number | undefined;
+  name?: string | undefined;
+  username?: string | undefined;
+  state?: string | undefined;
+  avatar_url?: string | undefined;
+  web_url?: string | undefined;
+  created_at?: string | undefined;
+  bio?: string | undefined;
+  location?: string | undefined;
+  public_email?: string | undefined;
+  linkedin?: string | undefined;
+  twitter?: string | undefined;
+  website_url?: string | undefined;
+  organization?: string | undefined;};
+};
+
+export interface ActionInput_gitlab_getmergerequest {
+  /**
+   * The ID or URL-encoded path of the project. Example: 82599306
+   */
+  project_id: number | string;
+  /**
+   * The internal ID of the merge request in the project. Example: 1
+   */
+  merge_request_iid: number;
+};
+
+export interface ActionOutput_gitlab_getmergerequest {
+  id: number;
+  iid: number;
+  project_id: number;
+  title: string;
+  description?: string | undefined;
+  state: string;
+  created_at: string;
+  updated_at: string;
+  target_branch: string;
+  source_branch: string;
+  upvotes: number;
+  downvotes: number;
+  author: {  id: number;
+  name: string;
+  username: string;
+  state: string;
+  avatar_url?: string | undefined;
+  web_url?: string | undefined;
+  locked?: boolean | undefined;
+  public_email?: string | undefined;};
+  assignee?: {  id: number;
+  name: string;
+  username: string;
+  state: string;
+  avatar_url?: string | undefined;
+  web_url?: string | undefined;
+  locked?: boolean | undefined;
+  public_email?: string | undefined;};
+  assignees?: ({  id: number;
+  name: string;
+  username: string;
+  state: string;
+  avatar_url?: string | undefined;
+  web_url?: string | undefined;
+  locked?: boolean | undefined;
+  public_email?: string | undefined;})[];
+  reviewers?: ({  id: number;
+  name: string;
+  username: string;
+  state: string;
+  avatar_url?: string | undefined;
+  web_url?: string | undefined;
+  locked?: boolean | undefined;
+  public_email?: string | undefined;})[];
+  source_project_id: number;
+  target_project_id: number;
+  labels?: string[] | undefined;
+  draft: boolean;
+  work_in_progress?: boolean | undefined;
+  milestone?: {  id: number;
+  iid: number;
+  project_id?: number | undefined;
+  group_id?: number | undefined;
+  title: string;
+  description?: string | undefined;
+  state: string;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  due_date?: string | undefined;
+  start_date?: string | undefined;
+  web_url?: string | undefined;};
+  merge_when_pipeline_succeeds?: boolean | undefined;
+  merge_status?: string | undefined;
+  detailed_merge_status: string;
+  sha: string;
+  merge_commit_sha?: string | undefined;
+  squash_commit_sha?: string | undefined;
+  user_notes_count: number;
+  discussion_locked?: boolean | undefined;
+  should_remove_source_branch?: boolean | undefined;
+  force_remove_source_branch?: boolean | undefined;
+  allow_collaboration?: boolean | undefined;
+  allow_maintainer_to_push?: boolean | undefined;
+  web_url: string;
+  references: {  short: string;
+  relative: string;
+  full: string;};
+  time_stats: {  time_estimate: number;
+  total_time_spent: number;
+  human_time_estimate?: string | undefined;
+  human_total_time_spent?: string | undefined;};
+  squash?: boolean | undefined;
+  squash_on_merge?: boolean | undefined;
+  task_completion_status: {  count: number;
+  completed_count: number;};
+  has_conflicts?: boolean | undefined;
+  blocking_discussions_resolved?: boolean | undefined;
+  closed_at?: string | undefined;
+  closed_by?: {  id: number;
+  name: string;
+  username: string;
+  state: string;
+  avatar_url?: string | undefined;
+  web_url?: string | undefined;
+  locked?: boolean | undefined;
+  public_email?: string | undefined;};
+  merged_at?: string | undefined;
+  merge_user?: {  id: number;
+  name: string;
+  username: string;
+  state: string;
+  avatar_url?: string | undefined;
+  web_url?: string | undefined;
+  locked?: boolean | undefined;
+  public_email?: string | undefined;};
+  merge_after?: string | undefined;
+  prepared_at?: string | undefined;
+  imported?: boolean | undefined;
+  imported_from?: string | undefined;
+};
+
+export interface ActionInput_gitlab_getpipeline {
+  /**
+   * The ID or URL-encoded path of the project. Example: 82599306
+   */
+  project_id: number | string;
+  /**
+   * The ID of the pipeline. Example: 287
+   */
+  pipeline_id: number;
+};
+
+export interface ActionOutput_gitlab_getpipeline {
+  id: number;
+  iid: number;
+  project_id: number;
+  name?: string | undefined;
+  sha: string;
+  ref: string;
+  status: string;
+  source: string;
+  created_at: string;
+  updated_at: string;
+  web_url: string;
+  before_sha: string;
+  tag: boolean;
+  yaml_errors?: string | undefined;
+  user?: {  id: number;
+  username: string;
+  name: string;
+  state: string;
+  avatar_url: string;
+  web_url: string;} | undefined;
+  started_at?: string | undefined;
+  finished_at?: string | undefined;
+  committed_at?: string | undefined;
+  duration?: number | undefined;
+  queued_duration?: number | undefined;
+  coverage?: string | undefined;
+  detailed_status?: {  icon: string;
+  text: string;
+  label: string;
+  group: string;
+  tooltip: string;
+  has_details: boolean;
+  details_path: string;
+  illustration?: string | undefined;
+  favicon?: string | undefined;};
+  archived: boolean;
+};
+
+export interface ActionInput_gitlab_getproject {
+  /**
+   * The ID or URL-encoded path of the project. Example: 82599306 or "nangodev-group/nangoDev-project"
+   */
+  project_id: number | string;
+};
+
+export interface ActionOutput_gitlab_getproject {
+  id: number;
+  description?: string | undefined;
+  description_html?: string | undefined;
+  name: string;
+  name_with_namespace?: string | undefined;
+  path?: string | undefined;
+  path_with_namespace?: string | undefined;
+  created_at?: string | undefined;
+  default_branch?: string | undefined;
+  topics?: string[] | undefined;
+  ssh_url_to_repo?: string | undefined;
+  http_url_to_repo?: string | undefined;
+  web_url?: string | undefined;
+  readme_url?: string | undefined;
+  forks_count?: number | undefined;
+  avatar_url?: string | undefined;
+  star_count?: number | undefined;
+  last_activity_at?: string | undefined;
+  visibility?: string | undefined;
+  namespace?: {  id?: number | undefined;
+  name?: string | undefined;
+  path?: string | undefined;
+  kind?: string | undefined;
+  full_path?: string | undefined;
+  parent_id?: number | undefined;
+  avatar_url?: string | undefined;
+  web_url?: string | undefined;};
+  owner?: {  id?: number | undefined;
+  name?: string | undefined;
+  created_at?: string | undefined;
+  username?: string | undefined;
+  public_email?: string | undefined;
+  state?: string | undefined;
+  locked?: boolean | undefined;
+  avatar_url?: string | undefined;
+  web_url?: string | undefined;};
+  container_registry_image_prefix?: string | undefined;
+  _links?: {  [key: string]: string;} | undefined;
+  marked_for_deletion_at?: string | undefined;
+  marked_for_deletion_on?: string | undefined;
+  packages_enabled?: boolean | undefined;
+  empty_repo?: boolean | undefined;
+  archived?: boolean | undefined;
+  resolve_outdated_diff_discussions?: boolean | undefined;
+  container_expiration_policy?: {  cadence?: string | undefined;
+  enabled?: boolean | undefined;
+  keep_n?: number | undefined;
+  older_than?: string | undefined;
+  name_regex?: string | undefined;
+  name_regex_delete?: string | undefined;
+  name_regex_keep?: string | undefined;
+  next_run_at?: string | undefined;};
+  issues_enabled?: boolean | undefined;
+  merge_requests_enabled?: boolean | undefined;
+  wiki_enabled?: boolean | undefined;
+  jobs_enabled?: boolean | undefined;
+  snippets_enabled?: boolean | undefined;
+  container_registry_enabled?: boolean | undefined;
+  service_desk_enabled?: boolean | undefined;
+  service_desk_address?: string | undefined;
+  can_create_merge_request_in?: boolean | undefined;
+  issues_access_level?: string | undefined;
+  repository_access_level?: string | undefined;
+  merge_requests_access_level?: string | undefined;
+  forking_access_level?: string | undefined;
+  wiki_access_level?: string | undefined;
+  builds_access_level?: string | undefined;
+  snippets_access_level?: string | undefined;
+  pages_access_level?: string | undefined;
+  analytics_access_level?: string | undefined;
+  container_registry_access_level?: string | undefined;
+  security_and_compliance_access_level?: string | undefined;
+  releases_access_level?: string | undefined;
+  environments_access_level?: string | undefined;
+  feature_flags_access_level?: string | undefined;
+  infrastructure_access_level?: string | undefined;
+  monitor_access_level?: string | undefined;
+  model_experiments_access_level?: string | undefined;
+  model_registry_access_level?: string | undefined;
+  package_registry_access_level?: string | undefined;
+  emails_disabled?: boolean | undefined;
+  emails_enabled?: boolean | undefined;
+  show_diff_preview_in_email?: boolean | undefined;
+  shared_runners_enabled?: boolean | undefined;
+  lfs_enabled?: boolean | undefined;
+  creator_id?: number | undefined;
+  import_url?: string | undefined;
+  import_type?: string | undefined;
+  import_status?: string | undefined;
+  import_error?: string | undefined;
+  open_issues_count?: number | undefined;
+  updated_at?: string | undefined;
+  ci_default_git_depth?: number | undefined;
+  ci_forward_deployment_enabled?: boolean | undefined;
+  ci_forward_deployment_rollback_allowed?: boolean | undefined;
+  ci_job_token_scope_enabled?: boolean | undefined;
+  ci_separated_caches?: boolean | undefined;
+  ci_allow_fork_pipelines_to_run_in_parent_project?: boolean | undefined;
+  ci_id_token_sub_claim_components?: string[] | undefined;
+  build_git_strategy?: string | undefined;
+  keep_latest_artifact?: boolean | undefined;
+  restrict_user_defined_variables?: boolean | undefined;
+  ci_pipeline_variables_minimum_override_role?: string | undefined;
+  runner_token_expiration_interval?: number | undefined;
+  group_runners_enabled?: boolean | undefined;
+  resource_group_default_process_mode?: string | undefined;
+  auto_cancel_pending_pipelines?: string | undefined;
+  build_timeout?: number | undefined;
+  auto_devops_enabled?: boolean | undefined;
+  auto_devops_deploy_strategy?: string | undefined;
+  ci_push_repository_for_job_token_allowed?: boolean | undefined;
+  runners_token?: string | undefined;
+  ci_config_path?: string | undefined;
+  public_jobs?: boolean | undefined;
+  shared_with_groups?: ({  group_id?: number | undefined;
+  group_name?: string | undefined;
+  group_full_path?: string | undefined;
+  group_access_level?: number | undefined;})[];
+  only_allow_merge_if_pipeline_succeeds?: boolean | undefined;
+  allow_merge_on_skipped_pipeline?: boolean | undefined;
+  request_access_enabled?: boolean | undefined;
+  only_allow_merge_if_all_discussions_are_resolved?: boolean | undefined;
+  remove_source_branch_after_merge?: boolean | undefined;
+  printing_merge_request_link_enabled?: boolean | undefined;
+  printing_merge_requests_link_enabled?: boolean | undefined;
+  merge_method?: string | undefined;
+  merge_request_title_regex?: string | undefined;
+  merge_request_title_regex_description?: string | undefined;
+  squash_option?: string | undefined;
+  enforce_auth_checks_on_uploads?: boolean | undefined;
+  suggestion_commit_message?: string | undefined;
+  merge_commit_template?: string | undefined;
+  mr_default_title_template?: string | undefined;
+  squash_commit_template?: string | undefined;
+  issue_branch_template?: string | undefined;
+  warn_about_potentially_unwanted_characters?: boolean | undefined;
+  autoclose_referenced_issues?: boolean | undefined;
+  max_artifacts_size?: number | undefined;
+  approvals_before_merge?: number | undefined;
+  mirror?: boolean | undefined;
+  external_authorization_classification_label?: string | undefined;
+  requirements_enabled?: boolean | undefined;
+  requirements_access_level?: string | undefined;
+  security_and_compliance_enabled?: boolean | undefined;
+  secret_push_protection_enabled?: boolean | undefined;
+  pre_receive_secret_detection_enabled?: boolean | undefined;
+  compliance_frameworks?: string[] | undefined;
+  issues_template?: string | undefined;
+  merge_requests_template?: string | undefined;
+  ci_restrict_pipeline_cancellation_role?: string | undefined;
+  merge_pipelines_enabled?: boolean | undefined;
+  merge_trains_enabled?: boolean | undefined;
+  merge_trains_skip_train_allowed?: boolean | undefined;
+  max_pipelines_per_merge_train?: number | undefined;
+  only_allow_merge_if_all_status_checks_passed?: boolean | undefined;
+  allow_pipeline_trigger_approve_deployment?: boolean | undefined;
+  prevent_merge_without_jira_issue?: boolean | undefined;
+  duo_remote_flows_enabled?: boolean | undefined;
+  duo_foundational_flows_enabled?: boolean | undefined;
+  duo_sast_fp_detection_enabled?: boolean | undefined;
+  duo_sast_vr_workflow_enabled?: boolean | undefined;
+  web_based_commit_signing_enabled?: boolean | undefined;
+  spp_repository_pipeline_access?: boolean | undefined;
+  permissions?: {  project_access?: {  access_level?: number | undefined;
+  notification_level?: number | undefined;};
+  group_access?: {  access_level?: number | undefined;
+  notification_level?: number | undefined;};};
+  license_url?: string | undefined;
+  license?: {  key?: string | undefined;
+  name?: string | undefined;
+  nickname?: string | undefined;
+  html_url?: string | undefined;
+  source_url?: string | undefined;};
+  repository_storage?: string | undefined;
+  mirror_user_id?: number | undefined;
+  mirror_trigger_builds?: boolean | undefined;
+  only_mirror_protected_branches?: boolean | undefined;
+  mirror_overwrites_diverged_branches?: boolean | undefined;
+  statistics?: {  commit_count?: number | undefined;
+  storage_size?: number | undefined;
+  repository_size?: number | undefined;
+  wiki_size?: number | undefined;
+  lfs_objects_size?: number | undefined;
+  job_artifacts_size?: number | undefined;
+  pipeline_artifacts_size?: number | undefined;
+  packages_size?: number | undefined;
+  snippets_size?: number | undefined;
+  uploads_size?: number | undefined;
+  container_registry_size?: number | undefined;};
+  forked_from_project?: {  id?: number | undefined;
+  name?: string | undefined;
+  path?: string | undefined;
+  web_url?: string | undefined;};
+  mr_default_target_self?: boolean | undefined;
+  tag_list?: string[] | undefined;
+};
+
+export interface ActionInput_gitlab_getrelease {
+  /**
+   * The ID or URL-encoded path of the project. Example: "82599306"
+   */
+  project_id: string | number;
+  /**
+   * The Git tag the release is associated with. Example: "v1.0.0"
+   */
+  tag_name: string;
+};
+
+export interface ActionOutput_gitlab_getrelease {
+  tag_name: string;
+  description?: string | undefined;
+  name?: string | undefined;
+  created_at?: string | undefined;
+  released_at?: string | undefined;
+  author?: {  id: number;
+  name?: string | undefined;
+  username?: string | undefined;
+  state?: string | undefined;
+  avatar_url?: string | undefined;
+  web_url?: string | undefined;};
+  commit?: {  id: string;
+  short_id?: string | undefined;
+  title?: string | undefined;
+  created_at?: string | undefined;
+  parent_ids?: string[] | undefined;
+  message?: string | undefined;
+  author_name?: string | undefined;
+  author_email?: string | undefined;
+  authored_date?: string | undefined;
+  committer_name?: string | undefined;
+  committer_email?: string | undefined;
+  committed_date?: string | undefined;};
+  milestones?: ({  id: number;
+  iid?: number | undefined;
+  project_id?: number | undefined;
+  title?: string | undefined;
+  description?: string | undefined;
+  state?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  due_date?: string | undefined;
+  start_date?: string | undefined;
+  web_url?: string | undefined;
+  issue_stats?: {  total?: number | undefined;
+  closed?: number | undefined;
+  opened?: number | undefined;};})[];
+  commit_path?: string | undefined;
+  tag_path?: string | undefined;
+  assets?: {  count?: number | undefined;
+  sources?: ({  format?: string | undefined;
+  url?: string | undefined;})[];
+  links?: ({  id?: number | undefined;
+  name?: string | undefined;
+  url?: string | undefined;
+  link_type?: string | undefined;
+  direct_asset_path?: string | undefined;})[];
+  evidence_file_path?: string | undefined;};
+  evidences?: ({  sha?: string | undefined;
+  filepath?: string | undefined;
+  collected_at?: string | undefined;})[];
+  evidence_sha?: string | undefined;
+  upcoming_release?: boolean | undefined;
+  historical_release?: boolean | undefined;
+  _links?: {  closed_issues_url?: string | undefined;
+  closed_merge_requests_url?: string | undefined;
+  edit_url?: string | undefined;
+  merged_merge_requests_url?: string | undefined;
+  opened_issues_url?: string | undefined;
+  opened_merge_requests_url?: string | undefined;
+  self?: string | undefined;};
+};
+
+export interface ActionInput_gitlab_listbranches {
+  /**
+   * Project ID or URL-encoded path. Example: 82599306
+   */
+  project_id: string | number;
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Default: 20, max: 100.
+   */
+  per_page?: number | undefined;
+  /**
+   * Search string to filter branches.
+   */
+  search?: string | undefined;
+  /**
+   * Regular expression to filter branch names. Cannot be used with search.
+   */
+  regex?: string | undefined;
+};
+
+export interface ActionOutput_gitlab_listbranches {
+  items: ({  name: string;
+  merged: boolean;
+  protected: boolean;
+  default: boolean;
+  developers_can_push: boolean;
+  developers_can_merge: boolean;
+  can_push: boolean;
+  web_url: string;
+  commit?: {  id: string;
+  short_id: string;
+  title: string;
+  message: string;
+  author_name?: string | undefined;
+  author_email?: string | undefined;
+  authored_date?: string | undefined;
+  committed_date?: string | undefined;
+  web_url?: string | undefined;};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_gitlab_listcommits {
+  /**
+   * The ID of the project. Example: 82599306
+   */
+  project_id: number;
+  /**
+   * The name of a repository branch or tag. If not given, the default branch is used.
+   */
+  ref_name?: string | undefined;
+  /**
+   * The file path. Example: hello.txt
+   */
+  path?: string | undefined;
+  /**
+   * Only commits after this date. Format: ISO 8601 (YYYY-MM-DDTHH:MM:SSZ).
+   */
+  since?: string | undefined;
+  /**
+   * Only commits before this date. Format: ISO 8601 (YYYY-MM-DDTHH:MM:SSZ).
+   */
+  until?: string | undefined;
+  /**
+   * Number of results per page. Default: 20, max: 100.
+   */
+  per_page?: number | undefined;
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_gitlab_listcommits {
+  commits: ({  id: string;
+  short_id?: string | undefined;
+  title?: string | undefined;
+  message?: string | undefined;
+  author_name?: string | undefined;
+  author_email?: string | undefined;
+  authored_date?: string | undefined;
+  committer_name?: string | undefined;
+  committer_email?: string | undefined;
+  committed_date?: string | undefined;
+  created_at?: string | undefined;
+  parent_ids?: string[] | undefined;
+  web_url?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_gitlab_listgroups {
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Search query to filter groups.
+   */
+  search?: string | undefined;
+  /**
+   * Limit to groups explicitly owned by the current user.
+   */
+  owned?: boolean | undefined;
+  /**
+   * Minimum access level of the authenticated user.
+   */
+  min_access_level?: number | undefined;
+  /**
+   * Limit to top level groups only.
+   */
+  top_level_only?: boolean | undefined;
+  /**
+   * Number of results to return per page.
+   */
+  per_page?: number | undefined;
+};
+
+export interface ActionOutput_gitlab_listgroups {
+  items: ({  id: number;
+  name: string;
+  path: string;
+  description?: string | undefined;
+  visibility?: string | undefined;
+  web_url?: string | undefined;
+  full_name?: string | undefined;
+  full_path?: string | undefined;
+  parent_id?: number | undefined;
+  created_at?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_gitlab_listissues {
+  /**
+   * The ID or URL-encoded path of the project. Example: "82599306"
+   */
+  project_id: string | number;
+  state?: 'opened' | 'closed' | 'all' | undefined;
+  labels?: string | undefined;
+  milestone?: string | undefined;
+  search?: string | undefined;
+  author_id?: number | undefined;
+  assignee_id?: number | undefined;
+  scope?: 'created_by_me' | 'assigned_to_me' | 'all' | undefined;
+  sort?: 'asc' | 'desc' | undefined;
+  order_by?: string | undefined;
+  created_after?: string | undefined;
+  created_before?: string | undefined;
+  updated_after?: string | undefined;
+  updated_before?: string | undefined;
+  confidential?: boolean | undefined;
+  issue_type?: 'issue' | 'incident' | 'test_case' | 'task' | undefined;
+  /**
+   * Pagination cursor (page number) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  per_page?: number | undefined;
+};
+
+export interface ActionOutput_gitlab_listissues {
+  items: ({  id: number;
+  iid: number;
+  project_id: number;
+  title: string;
+  description?: string | undefined;
+  state: string;
+  created_at: string;
+  updated_at: string;
+  closed_at?: string | undefined;
+  labels?: string[] | undefined;
+  author?: {  id: number;
+  name: string;
+  username: string;
+  state: string;
+  avatar_url?: string | undefined;
+  web_url?: string | undefined;};
+  assignees?: ({  id: number;
+  name: string;
+  username: string;
+  state: string;
+  avatar_url?: string | undefined;
+  web_url?: string | undefined;})[];
+  assignee?: {  id: number;
+  name: string;
+  username: string;
+  state: string;
+  avatar_url?: string | undefined;
+  web_url?: string | undefined;};
+  milestone?: {  id: number;
+  iid: number;
+  project_id?: number | undefined;
+  title: string;
+  description?: string | undefined;
+  state: string;
+  due_date?: string | undefined;
+  created_at: string;
+  updated_at: string;};
+  due_date?: string | undefined;
+  web_url?: string | undefined;
+  references?: {  short: string;
+  relative: string;
+  full: string;} | undefined;
+  confidential?: boolean | undefined;
+  issue_type?: string | undefined;
+  severity?: string | undefined;
+  weight?: number | undefined;
+  user_notes_count?: number | undefined;
+  merge_requests_count?: number | undefined;
+  upvotes?: number | undefined;
+  downvotes?: number | undefined;
+  has_tasks?: boolean | undefined;
+  task_status?: string | undefined;
+  task_completion_status?: {  count: number;
+  completed_count: number;} | undefined;
+  time_stats?: {  time_estimate: number;
+  total_time_spent: number;
+  human_time_estimate?: string | undefined;
+  human_total_time_spent?: string | undefined;};
+  links?: {  [key: string]: string;} | undefined;
+  subscribed?: boolean | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_gitlab_listjobs {
+  /**
+   * Project ID or URL-encoded namespace path. Example: 82599306
+   */
+  project_id: number | string;
+  /**
+   * Job status scope(s) to filter by
+   */
+  scope?: string | string[] | undefined;
+  /**
+   * Order results by a field. Example: "id"
+   */
+  order_by?: string | undefined;
+  /**
+   * Sort order. Example: "asc" or "desc"
+   */
+  sort?: string | undefined;
+  /**
+   * Pagination cursor (page number)
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Default: 20
+   */
+  per_page?: number | undefined;
+};
+
+export interface ActionOutput_gitlab_listjobs {
+  items: ({  id: number;
+  name: string;
+  status: string;
+  stage: string;
+  ref: string;
+  tag: boolean;
+  coverage?: number | undefined;
+  allow_failure: boolean;
+  created_at?: string | undefined;
+  started_at?: string | undefined;
+  finished_at?: string | undefined;
+  duration?: number | undefined;
+  queued_duration?: number | undefined;
+  web_url?: string | undefined;
+  failure_reason?: string | undefined;
+  user?: {  id: number;
+  name: string;
+  username: string;
+  avatar_url?: string | undefined;};
+  pipeline?: {  id: number;
+  project_id: number;
+  ref: string;
+  sha: string;
+  status: string;} | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_gitlab_listmergerequests {
+  /**
+   * The ID or URL-encoded path of the project. Example: 82599306
+   */
+  project_id: number | string;
+  /**
+   * Return all merge requests or just those with the given state.
+   */
+  state?: 'all' | 'opened' | 'closed' | 'locked' | 'merged' | undefined;
+  /**
+   * Return merge requests with the given target branch.
+   */
+  target_branch?: string | undefined;
+  /**
+   * Return merge requests with the given source branch.
+   */
+  source_branch?: string | undefined;
+  /**
+   * Search merge requests against their title and description.
+   */
+  search?: string | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_gitlab_listmergerequests {
+  items: ({  id: number;
+  iid: number;
+  project_id: number;
+  title: string;
+  description: string;
+  state: string;
+  created_at: string;
+  updated_at: string;
+  merged_at: string;
+  closed_at: string;
+  target_branch: string;
+  source_branch: string;
+  author: {  id: number;
+  name: string;
+  username: string;
+  state: string;
+  avatar_url?: string | undefined;
+  web_url: string;};
+  assignees?: ({  id: number;
+  name: string;
+  username: string;
+  state: string;
+  avatar_url?: string | undefined;
+  web_url: string;})[];
+  reviewers?: ({  id: number;
+  name: string;
+  username: string;
+  state: string;
+  avatar_url?: string | undefined;
+  web_url: string;})[];
+  labels?: string[] | undefined;
+  draft: boolean;
+  work_in_progress?: boolean | undefined;
+  web_url: string;
+  sha: string;
+  merge_commit_sha: string;
+  squash_commit_sha?: string | undefined;
+  source_project_id: number;
+  target_project_id: number;
+  upvotes: number;
+  downvotes: number;
+  user_notes_count: number;
+  references: {  short: string;
+  relative: string;
+  full: string;};
+  detailed_merge_status?: string | undefined;
+  merge_status?: string | undefined;
+  has_conflicts?: boolean | undefined;
+  blocking_discussions_resolved?: boolean | undefined;
+  merge_when_pipeline_succeeds?: boolean | undefined;
+  should_remove_source_branch?: boolean | undefined;
+  force_remove_source_branch?: boolean | undefined;
+  allow_collaboration?: boolean | undefined;
+  squash?: boolean | undefined;
+  squash_on_merge?: boolean | undefined;
+  imported?: boolean | undefined;
+  imported_from?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_gitlab_listpipelines {
+  /**
+   * GitLab project ID. Example: 82599306
+   */
+  project_id: number;
+  /**
+   * Pagination cursor (page number) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Default: 20, Max: 100.
+   */
+  per_page?: number | undefined;
+  /**
+   * Return pipelines with the specified name.
+   */
+  name?: string | undefined;
+  /**
+   * Field to order by: id, status, ref, updated_at, or user_id. Default: id.
+   */
+  order_by?: string | undefined;
+  /**
+   * Return pipelines for the specified branch or tag.
+   */
+  ref?: string | undefined;
+  /**
+   * Scope: running, pending, finished, branches, or tags.
+   */
+  scope?: string | undefined;
+  /**
+   * Return pipelines for the specified commit SHA.
+   */
+  sha?: string | undefined;
+  /**
+   * Sort order: asc or desc. Default: desc.
+   */
+  sort?: string | undefined;
+  /**
+   * Return pipelines with the specified source.
+   */
+  source?: string | undefined;
+  /**
+   * Status: created, waiting_for_resource, preparing, pending, running, success, failed, canceled, skipped, manual, or scheduled.
+   */
+  status?: string | undefined;
+  /**
+   * Return pipelines updated after the specified date in ISO 8601 format.
+   */
+  updated_after?: string | undefined;
+  /**
+   * Return pipelines updated before the specified date in ISO 8601 format.
+   */
+  updated_before?: string | undefined;
+  /**
+   * Return pipelines created after the specified date in ISO 8601 format.
+   */
+  created_after?: string | undefined;
+  /**
+   * Return pipelines created before the specified date in ISO 8601 format.
+   */
+  created_before?: string | undefined;
+  /**
+   * Return pipelines triggered by the specified username.
+   */
+  username?: string | undefined;
+  /**
+   * Return pipelines with invalid configurations.
+   */
+  yaml_errors?: boolean | undefined;
+};
+
+export interface ActionOutput_gitlab_listpipelines {
+  pipelines: ({  id: number;
+  iid: number;
+  project_id: number;
+  status: string;
+  source: string;
+  ref: string;
+  sha: string;
+  name?: string | undefined;
+  web_url: string;
+  created_at: string;
+  updated_at: string;})[];
+  next_page?: string | undefined;
+};
+
+export interface ActionInput_gitlab_listprojects {
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page (max 100).
+   */
+  per_page?: number | undefined;
+  /**
+   * Filter projects by name.
+   */
+  search?: string | undefined;
+  /**
+   * Limit to projects owned by the current user.
+   */
+  owned?: boolean | undefined;
+  /**
+   * Limit to projects where the current user is a member.
+   */
+  membership?: boolean | undefined;
+  /**
+   * Filter by visibility level.
+   */
+  visibility?: 'private' | 'internal' | 'public' | undefined;
+  /**
+   * Include archived projects.
+   */
+  archived?: boolean | undefined;
+};
+
+export interface ActionOutput_gitlab_listprojects {
+  items: ({  id: number;
+  name: string;
+  path: string;
+  description?: string | undefined;
+  web_url: string;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  visibility?: string | undefined;
+  default_branch?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_gitlab_listreleases {
+  /**
+   * The ID or URL-encoded path of the project. Example: "82599306" or "group%2Fproject"
+   */
+  project_id: string;
+  /**
+   * Pagination cursor (page number) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * The field to use as order. Either released_at (default) or created_at.
+   */
+  order_by?: 'released_at' | 'created_at' | undefined;
+  /**
+   * The direction of the order. Either desc (default) or asc.
+   */
+  sort?: 'asc' | 'desc' | undefined;
+  /**
+   * Number of items to list per page (default: 20, max: 100).
+   */
+  per_page?: number | undefined;
+  /**
+   * If true, a response includes HTML rendered Markdown of the release description.
+   */
+  include_html_description?: boolean | undefined;
+};
+
+export interface ActionOutput_gitlab_listreleases {
+  releases: ({  tag_name: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  created_at: string;
+  released_at: string;
+  author?: {  id: number;
+  name: string;
+  username: string;
+  state?: string | undefined;
+  avatar_url?: string | undefined;
+  web_url?: string | undefined;};
+  commit?: {  id: string;
+  short_id: string;
+  title: string;
+  created_at?: string | undefined;
+  message?: string | undefined;
+  author_name?: string | undefined;
+  author_email?: string | undefined;};
+  upcoming_release?: boolean | undefined;
+  historical_release?: boolean | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_gitlab_retryjob {
+  /**
+   * Project ID. Example: 82599306
+   */
+  project_id: number;
+  /**
+   * Job ID. Example: 12345
+   */
+  job_id: number;
+};
+
+export interface ActionOutput_gitlab_retryjob {
+  id: number;
+  status: string;
+  stage: string;
+  name: string;
+  ref: string;
+  tag: boolean;
+  coverage?: string | undefined;
+  created_at: string;
+  started_at?: string | undefined;
+  finished_at?: string | undefined;
+  duration?: number | undefined;
+  queued_duration?: number | undefined;
+  user?: {  id: number;
+  name: string;
+  username: string;
+  state: string;
+  avatar_url?: string | undefined;};
+  commit?: {  id: string;
+  short_id: string;
+  title: string;
+  message: string;
+  author_name: string;
+  authored_date: string;} | undefined;
+  pipeline?: {  id: number;
+  sha: string;
+  ref: string;
+  status: string;} | undefined;
+  web_url: string;
+};
+
+export interface ActionInput_gitlab_updatefile {
+  /**
+   * Project ID or URL-encoded path. Example: 82599306
+   */
+  project_id: number | string;
+  /**
+   * URL-encoded full path to the file. Example: hello.txt
+   */
+  file_path: string;
+  /**
+   * Name of the branch to update the file in. Example: feature/test
+   */
+  branch: string;
+  /**
+   * The file content.
+   */
+  content: string;
+  /**
+   * Commit message.
+   */
+  commit_message: string;
+  /**
+   * Commit author's email address.
+   */
+  author_email?: string | undefined;
+  /**
+   * Commit author's name.
+   */
+  author_name?: string | undefined;
+  /**
+   * Change encoding to 'base64'. Default is 'text'.
+   */
+  encoding?: 'text' | 'base64' | undefined;
+  /**
+   * If true, enables the execute flag on the file. If false, disables it.
+   */
+  execute_filemode?: boolean | undefined;
+  /**
+   * Last known file commit ID.
+   */
+  last_commit_id?: string | undefined;
+  /**
+   * Name of the base branch to create the branch from.
+   */
+  start_branch?: string | undefined;
+};
+
+export interface ActionOutput_gitlab_updatefile {
+  file_path: string;
+  branch: string;
+};
+
+export interface ActionInput_gitlab_updategroup {
+  /**
+   * The ID of the group. Example: 133159324
+   */
+  id: number;
+  /**
+   * The name of the group
+   */
+  name?: string | undefined;
+  /**
+   * The path of the group
+   */
+  path?: string | undefined;
+  /**
+   * The description of the group
+   */
+  description?: string | undefined;
+  /**
+   * The visibility level of the group
+   */
+  visibility?: 'private' | 'internal' | 'public' | undefined;
+  /**
+   * Allow users to request member access
+   */
+  request_access_enabled?: boolean | undefined;
+  /**
+   * Enable/disable Large File Storage (LFS) for the projects in this group
+   */
+  lfs_enabled?: boolean | undefined;
+  /**
+   * Determine if developers can create projects in the group
+   */
+  project_creation_level?: string | undefined;
+  /**
+   * Allowed to create subgroups
+   */
+  subgroup_creation_level?: string | undefined;
+  /**
+   * The default branch name for group's projects
+   */
+  default_branch?: string | undefined;
+  /**
+   * Enable email notifications
+   */
+  emails_enabled?: boolean | undefined;
+  /**
+   * Disable the capability of a group from getting mentioned
+   */
+  mentions_disabled?: boolean | undefined;
+  /**
+   * Prevent sharing a project with another group within this group
+   */
+  share_with_group_lock?: boolean | undefined;
+  /**
+   * Require all users in this group to set up two-factor authentication
+   */
+  require_two_factor_authentication?: boolean | undefined;
+  /**
+   * Time before Two-factor authentication is enforced (in hours)
+   */
+  two_factor_grace_period?: number | undefined;
+  /**
+   * Default to Auto DevOps pipeline for all projects within this group
+   */
+  auto_devops_enabled?: boolean | undefined;
+};
+
+export interface ActionOutput_gitlab_updategroup {
+  id: number;
+  name: string;
+  path: string;
+  description?: string | undefined;
+  visibility: string;
+  avatar_url?: string | undefined;
+  web_url: string;
+  request_access_enabled: boolean;
+  full_name: string;
+  full_path: string;
+  parent_id?: number | undefined;
+  created_at: string;
+};
+
+export interface ActionInput_gitlab_updateissue {
+  /**
+   * The ID or URL-encoded path of the project. Example: "82599306"
+   */
+  project_id: string;
+  /**
+   * The internal ID of a project issue. Example: 1
+   */
+  issue_iid: number;
+  /**
+   * The title of the issue
+   */
+  title?: string | undefined;
+  /**
+   * The description of the issue
+   */
+  description?: string | undefined;
+  /**
+   * The state event of the issue. Use "close" to close or "reopen" to reopen
+   */
+  state_event?: string | undefined;
+  /**
+   * Comma-separated label names for the issue. Set to empty string to unassign all labels
+   */
+  labels?: string | undefined;
+  /**
+   * Comma-separated label names to add to the issue
+   */
+  add_labels?: string | undefined;
+  /**
+   * Comma-separated label names to remove from the issue
+   */
+  remove_labels?: string | undefined;
+  /**
+   * Array of user IDs to assign the issue to
+   */
+  assignee_ids?: number[] | undefined;
+  /**
+   * The global ID of a milestone to assign the issue to
+   */
+  milestone_id?: number | undefined;
+  /**
+   * The due date in YYYY-MM-DD format
+   */
+  due_date?: string | undefined;
+  /**
+   * Whether the issue is confidential
+   */
+  confidential?: boolean | undefined;
+  /**
+   * Whether the issue discussion is locked
+   */
+  discussion_locked?: boolean | undefined;
+  /**
+   * The type of issue. One of issue, incident, test_case, or task
+   */
+  issue_type?: string | undefined;
+  /**
+   * The weight of the issue
+   */
+  weight?: number | undefined;
+};
+
+export interface ActionOutput_gitlab_updateissue {
+  iid: number;
+  title: string;
+  description?: string | undefined;
+  state: string;
+  labels: string[];
+  assignees: ({  id: number;
+  username: string;
+  name: string;
+  state: string;})[];
+  milestone?: {  id: number;
+  title: string;} | undefined;
+  due_date?: string | undefined;
+  confidential?: boolean | undefined;
+  discussion_locked?: boolean | undefined;
+  issue_type?: string | undefined;
+  created_at: string;
+  updated_at: string;
+  web_url: string;
+  project_id: number;
+};
+
+export interface ActionInput_gitlab_updatemergerequest {
+  /**
+   * The ID or URL-encoded path of the project. Example: 82599306
+   */
+  project_id: string | number;
+  /**
+   * The internal ID of the merge request. Example: 1
+   */
+  merge_request_iid: number;
+  add_labels?: string | undefined;
+  allow_collaboration?: boolean | undefined;
+  allow_maintainer_to_push?: boolean | undefined;
+  assignee_id?: number | undefined;
+  assignee_ids?: number[] | undefined;
+  description?: string | undefined;
+  discussion_locked?: boolean | undefined;
+  labels?: string | undefined;
+  merge_after?: string | undefined;
+  milestone_id?: number | undefined;
+  milestone?: string | undefined;
+  remove_labels?: string | undefined;
+  remove_source_branch?: boolean | undefined;
+  reviewer_ids?: number[] | undefined;
+  squash?: boolean | undefined;
+  state_event?: 'close' | 'reopen' | undefined;
+  target_branch?: string | undefined;
+  title?: string | undefined;
+};
+
+export interface ActionOutput_gitlab_updatemergerequest {
+  id: number;
+  iid: number;
+};
+
+export interface ActionInput_gitlab_updateproject {
+  /**
+   * The ID or URL-encoded path of the project. Example: 82599306
+   */
+  id: number | string;
+  /**
+   * The name of the project.
+   */
+  name?: string | undefined;
+  /**
+   * Custom repository name for the project.
+   */
+  path?: string | undefined;
+  /**
+   * Short project description.
+   */
+  description?: string | undefined;
+  /**
+   * Project visibility level.
+   */
+  visibility?: 'private' | 'internal' | 'public' | undefined;
+  /**
+   * The default branch name.
+   */
+  default_branch?: string | undefined;
+  /**
+   * List of topics for the project.
+   */
+  topics?: string[] | undefined;
+  /**
+   * Set visibility of issues.
+   */
+  issues_access_level?: 'disabled' | 'private' | 'enabled' | undefined;
+  /**
+   * Set visibility of merge requests.
+   */
+  merge_requests_access_level?: 'disabled' | 'private' | 'enabled' | undefined;
+  /**
+   * Set visibility of wiki.
+   */
+  wiki_access_level?: 'disabled' | 'private' | 'enabled' | undefined;
+  /**
+   * Set visibility of pipelines.
+   */
+  builds_access_level?: 'disabled' | 'private' | 'enabled' | undefined;
+  /**
+   * Set visibility of snippets.
+   */
+  snippets_access_level?: 'disabled' | 'private' | 'enabled' | undefined;
+  /**
+   * Set visibility of GitLab Pages.
+   */
+  pages_access_level?: 'disabled' | 'private' | 'enabled' | 'public' | undefined;
+  /**
+   * Set visibility of container registry.
+   */
+  container_registry_access_level?: 'disabled' | 'private' | 'enabled' | undefined;
+  /**
+   * Set whether merge requests can only be merged with successful jobs.
+   */
+  only_allow_merge_if_pipeline_succeeds?: boolean | undefined;
+  /**
+   * Enable deleting source branch after merge by default.
+   */
+  remove_source_branch_after_merge?: boolean | undefined;
+  /**
+   * Merge method used for the project.
+   */
+  merge_method?: 'merge' | 'rebase_merge' | 'ff' | undefined;
+  /**
+   * Squash option for merge requests.
+   */
+  squash_option?: 'never' | 'always' | 'default_on' | 'default_off' | undefined;
+  /**
+   * If true, jobs can be viewed by non-project members.
+   */
+  public_jobs?: boolean | undefined;
+  /**
+   * Enable instance runners for this project.
+   */
+  shared_runners_enabled?: boolean | undefined;
+  /**
+   * Set whether auto-closing referenced issues on default branch.
+   */
+  autoclose_referenced_issues?: boolean | undefined;
+  /**
+   * Allow users to request member access.
+   */
+  request_access_enabled?: boolean | undefined;
+  /**
+   * Enable email notifications.
+   */
+  emails_enabled?: boolean | undefined;
+};
+
+export interface ActionOutput_gitlab_updateproject {
+  id: number;
+  name: string;
+  path: string;
+  description?: string | undefined;
+  visibility?: string | undefined;
+  default_branch?: string | undefined;
+  web_url?: string | undefined;
+  topics?: string[] | undefined;
+  namespace_id?: number | undefined;
+  namespace_name?: string | undefined;
+  namespace_path?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+};
+
+export interface ActionInput_gitlab_updaterelease {
+  /**
+   * The ID or URL-encoded path of the project. Example: "82599306"
+   */
+  project_id: string;
+  /**
+   * The Git tag the release is associated with. Example: "v1.0.0"
+   */
+  tag_name: string;
+  /**
+   * The release name.
+   */
+  name?: string | undefined;
+  /**
+   * The description of the release. You can use Markdown.
+   */
+  description?: string | undefined;
+  /**
+   * The title of each milestone to associate with the release. To remove all milestones, specify [].
+   */
+  milestones?: string[] | undefined;
+  /**
+   * The date when the release is/was ready. Expected in ISO 8601 format (e.g. 2019-03-15T08:00:00Z).
+   */
+  released_at?: string | undefined;
+};
+
+export interface ActionOutput_gitlab_updaterelease {
+  tag_name: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  created_at: string;
+  released_at: string;
 };
 
 export interface GongCallTranscriptSyncOutput {
@@ -48481,14 +50885,6 @@ export interface Lead {
   fax?: string | undefined;
   secondaryEmail?: string | undefined;
   tags?: string[] | undefined;
-};
-
-export interface Pipeline {
-  id: string;
-  name?: string | undefined;
-  update_time: string;
-  add_time?: string | undefined;
-  is_deal_probability_enabled?: boolean | undefined;
 };
 
 export interface Stage {

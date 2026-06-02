@@ -1,0 +1,153 @@
+import { z } from 'zod';
+import { createAction } from 'nango';
+
+const PipelineVariableSchema = z.object({
+    key: z.string(),
+    variable_type: z.string().optional(),
+    value: z.string()
+});
+
+const InputSchema = z.object({
+    project_id: z.union([z.number(), z.string()]).describe('The ID or URL-encoded path of the project. Example: "82599306"'),
+    ref: z.string().describe('The branch or tag to run the pipeline on. Example: "main"'),
+    variables: z.array(PipelineVariableSchema).optional(),
+    inputs: z.record(z.string(), z.unknown()).optional()
+});
+
+const ProviderUserSchema = z.object({
+    name: z.string(),
+    username: z.string(),
+    id: z.number(),
+    state: z.string(),
+    avatar_url: z.string().optional(),
+    web_url: z.string().optional()
+});
+
+const ProviderPipelineSchema = z.object({
+    id: z.number(),
+    iid: z.number(),
+    project_id: z.number(),
+    sha: z.string(),
+    ref: z.string(),
+    status: z.string(),
+    before_sha: z.string().optional(),
+    tag: z.boolean(),
+    yaml_errors: z.string().nullable().optional(),
+    user: ProviderUserSchema.optional(),
+    created_at: z.string(),
+    updated_at: z.string(),
+    started_at: z.string().nullable().optional(),
+    finished_at: z.string().nullable().optional(),
+    committed_at: z.string().nullable().optional(),
+    duration: z.number().nullable().optional(),
+    queued_duration: z.number().nullable().optional(),
+    coverage: z.string().nullable().optional(),
+    web_url: z.string().optional(),
+    archived: z.boolean().optional()
+});
+
+const OutputSchema = z.object({
+    id: z.number(),
+    iid: z.number(),
+    project_id: z.number(),
+    sha: z.string(),
+    ref: z.string(),
+    status: z.string(),
+    before_sha: z.string().optional(),
+    tag: z.boolean(),
+    yaml_errors: z.string().optional(),
+    user: z
+        .object({
+            name: z.string(),
+            username: z.string(),
+            id: z.number(),
+            state: z.string(),
+            avatar_url: z.string().optional(),
+            web_url: z.string().optional()
+        })
+        .optional(),
+    created_at: z.string(),
+    updated_at: z.string(),
+    started_at: z.string().optional(),
+    finished_at: z.string().optional(),
+    committed_at: z.string().optional(),
+    duration: z.number().optional(),
+    queued_duration: z.number().optional(),
+    coverage: z.number().optional(),
+    web_url: z.string().optional(),
+    archived: z.boolean().optional()
+});
+
+const action = createAction({
+    description: 'Create a pipeline in GitLab.',
+    version: '1.0.0',
+    endpoint: {
+        method: 'POST',
+        path: '/actions/create-pipeline',
+        group: 'Pipelines'
+    },
+    input: InputSchema,
+    output: OutputSchema,
+    scopes: ['api'],
+
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const projectId = String(input.project_id);
+        const requestData: Record<string, unknown> = {};
+
+        if (input.variables !== undefined) {
+            requestData['variables'] = input.variables;
+        }
+
+        if (input.inputs !== undefined) {
+            requestData['inputs'] = input.inputs;
+        }
+
+        const response = await nango.post({
+            // https://docs.gitlab.com/api/pipelines/#create-a-new-pipeline
+            endpoint: `/api/v4/projects/${encodeURIComponent(projectId)}/pipeline`,
+            params: {
+                ref: input.ref
+            },
+            data: requestData,
+            retries: 3
+        });
+
+        const providerPipeline = ProviderPipelineSchema.parse(response.data);
+
+        return {
+            id: providerPipeline.id,
+            iid: providerPipeline.iid,
+            project_id: providerPipeline.project_id,
+            sha: providerPipeline.sha,
+            ref: providerPipeline.ref,
+            status: providerPipeline.status,
+            ...(providerPipeline.before_sha !== undefined && { before_sha: providerPipeline.before_sha }),
+            tag: providerPipeline.tag,
+            ...(providerPipeline.yaml_errors !== null && providerPipeline.yaml_errors !== undefined && { yaml_errors: providerPipeline.yaml_errors }),
+            ...(providerPipeline.user !== undefined && {
+                user: {
+                    name: providerPipeline.user.name,
+                    username: providerPipeline.user.username,
+                    id: providerPipeline.user.id,
+                    state: providerPipeline.user.state,
+                    ...(providerPipeline.user.avatar_url !== undefined && { avatar_url: providerPipeline.user.avatar_url }),
+                    ...(providerPipeline.user.web_url !== undefined && { web_url: providerPipeline.user.web_url })
+                }
+            }),
+            created_at: providerPipeline.created_at,
+            updated_at: providerPipeline.updated_at,
+            ...(providerPipeline.started_at !== null && providerPipeline.started_at !== undefined && { started_at: providerPipeline.started_at }),
+            ...(providerPipeline.finished_at !== null && providerPipeline.finished_at !== undefined && { finished_at: providerPipeline.finished_at }),
+            ...(providerPipeline.committed_at !== null && providerPipeline.committed_at !== undefined && { committed_at: providerPipeline.committed_at }),
+            ...(providerPipeline.duration !== null && providerPipeline.duration !== undefined && { duration: providerPipeline.duration }),
+            ...(providerPipeline.queued_duration !== null &&
+                providerPipeline.queued_duration !== undefined && { queued_duration: providerPipeline.queued_duration }),
+            ...(providerPipeline.coverage !== null && providerPipeline.coverage !== undefined && { coverage: parseFloat(providerPipeline.coverage) }),
+            ...(providerPipeline.web_url !== undefined && { web_url: providerPipeline.web_url }),
+            ...(providerPipeline.archived !== undefined && { archived: providerPipeline.archived })
+        };
+    }
+});
+
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
+export default action;
