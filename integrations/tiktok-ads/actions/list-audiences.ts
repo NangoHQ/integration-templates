@@ -9,16 +9,16 @@ const InputSchema = z.object({
 
 const AudienceSchema = z.object({
     audience_id: z.string(),
-    name: z.string().optional(),
-    audience_type: z.string().optional(),
-    cover_num: z.number().int().optional(),
-    is_valid: z.boolean().optional(),
-    is_expiring: z.boolean().optional(),
-    is_creator: z.boolean().optional(),
-    shared: z.boolean().optional(),
-    calculate_type: z.string().optional(),
-    create_time: z.string().optional(),
-    expired_time: z.string().optional()
+    name: z.string().nullable().optional(),
+    audience_type: z.string().nullable().optional(),
+    cover_num: z.number().int().nullable().optional(),
+    is_valid: z.boolean().nullable().optional(),
+    is_expiring: z.boolean().nullable().optional(),
+    is_creator: z.boolean().nullable().optional(),
+    shared: z.boolean().nullable().optional(),
+    calculate_type: z.string().nullable().optional(),
+    create_time: z.string().nullable().optional(),
+    expired_time: z.string().nullable().optional()
 });
 
 const PageInfoSchema = z.object({
@@ -59,6 +59,12 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const page = input.cursor ? parseInt(input.cursor, 10) : 1;
+        if (Number.isNaN(page) || page < 1) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'cursor must be a positive integer string'
+            });
+        }
 
         // https://business-api.tiktok.com/portal/docs?id=1739940506015746
         const response = await nango.get({

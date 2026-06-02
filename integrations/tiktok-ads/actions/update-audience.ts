@@ -4,7 +4,7 @@ import { createAction } from 'nango';
 const InputSchema = z.object({
     advertiser_id: z.string().describe('Advertiser ID. Example: "7644143197428744199"'),
     custom_audience_id: z.string().describe('Custom audience ID. Example: "1234567890"'),
-    custom_audience_name: z.string().optional().describe('New name for the audience. Length limit: 128 characters.'),
+    custom_audience_name: z.string().max(128).optional().describe('New name for the audience. Length limit: 128 characters.'),
     action: z.enum(['APPEND', 'REMOVE', 'REPLACE']).optional().describe('Modification type for file-based updates. Default: REPLACE.'),
     file_paths: z.array(z.string()).optional().describe('Files to upload to update the Customer File audience.'),
     audience_sub_type: z.enum(['NORMAL', 'REACH_FREQUENCY']).optional().describe('Audience sub type. Only NORMAL to REACH_FREQUENCY is supported.'),

@@ -7,7 +7,7 @@ const InputSchema = z.object({
 });
 
 const ProviderResponseSchema = z.object({
-    code: z.number(),
+    code: z.number().optional(),
     message: z.string().optional(),
     request_id: z.string().optional(),
     data: z.unknown().optional()
@@ -49,7 +49,7 @@ const action = createAction({
             });
         }
 
-        if (parsed.data.code !== 0) {
+        if (parsed.data.code !== undefined && parsed.data.code !== 0) {
             throw new nango.ActionError({
                 type: 'provider_error',
                 message: parsed.data.message || `Provider error code: ${parsed.data.code}`,

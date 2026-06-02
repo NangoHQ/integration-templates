@@ -62478,7 +62478,7 @@ export interface ActionInput_tiktok_ads_updatead {
   /**
    * Tracking pixel ID.
    */
-  tracking_pixel_id?: number | undefined;
+  tracking_pixel_id?: string | undefined;
   /**
    * Music ID.
    */
@@ -62486,7 +62486,7 @@ export interface ActionInput_tiktok_ads_updatead {
   /**
    * Page ID.
    */
-  page_id?: number | undefined;
+  page_id?: string | undefined;
   /**
    * Whether the creative is authorized.
    */

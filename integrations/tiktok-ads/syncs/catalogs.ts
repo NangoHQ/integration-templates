@@ -50,7 +50,7 @@ const sync = createSync({
     description: 'Sync product catalogs and their feeds from TikTok Ads',
     version: '1.0.0',
     frequency: 'every hour',
-    autoStart: true,
+    autoStart: false,
     metadata: MetadataSchema,
     endpoints: [{ method: 'POST', path: '/syncs/catalogs' }],
     models: {
@@ -116,16 +116,18 @@ const sync = createSync({
                 const feedResponse = await nango.get(feedProxyConfig);
                 const feedParse = FeedResponseSchema.safeParse(feedResponse.data);
 
-                let feeds: Array<z.infer<typeof FeedSchema>> = [];
-                if (feedParse.success) {
-                    const feedList = feedParse.data.data?.list ?? [];
-                    feeds = feedList
-                        .map((rawFeed) => {
-                            const feedItemParse = FeedSchema.safeParse(rawFeed);
-                            return feedItemParse.success ? feedItemParse.data : null;
-                        })
-                        .filter((feed): feed is z.infer<typeof FeedSchema> => feed !== null);
+                if (!feedParse.success) {
+                    throw new Error(`Failed to parse feed response for catalog ${catalog.catalog_id}: ${feedParse.error.message}`);
                 }
+
+                const feedList = feedParse.data.data?.list ?? [];
+                const feeds: Array<z.infer<typeof FeedSchema>> = feedList.map((rawFeed) => {
+                    const feedItemParse = FeedSchema.safeParse(rawFeed);
+                    if (!feedItemParse.success) {
+                        throw new Error(`Failed to parse feed item for catalog ${catalog.catalog_id}: ${feedItemParse.error.message}`);
+                    }
+                    return feedItemParse.data;
+                });
 
                 catalogs.push({
                     id: catalog.catalog_id,

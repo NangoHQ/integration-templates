@@ -7,7 +7,7 @@ const InputSchema = z.object({
     adgroup_ids: z.array(z.string()).optional().describe('Filter by ad group IDs.'),
     primary_status: z.string().optional().describe('Filter by primary status. Example: "STATUS_NOT_DELETE"'),
     cursor: z.string().optional().describe('Pagination cursor (page number). Omit for the first page.'),
-    page_size: z.number().optional().describe('Number of items per page. Default: 10, Max: 1000.')
+    page_size: z.number().int().min(1).max(1000).optional().describe('Number of items per page. Default: 10, Max: 1000.')
 });
 
 const PageInfoSchema = z.object({

@@ -44,8 +44,6 @@ const sync = createSync({
             throw new Error('advertiser_id is required in metadata');
         }
 
-        await nango.trackDeletesStart('AutomatedRule');
-
         // https://business-api.tiktok.com/portal/docs?id=1738768861976578
         const proxyConfig: ProxyConfiguration = {
             // https://business-api.tiktok.com/portal/docs?id=1738768861976578
@@ -65,6 +63,8 @@ const sync = createSync({
             retries: 3
         };
 
+        let deleteTrackingStarted = false;
+
         for await (const page of nango.paginate<unknown>(proxyConfig)) {
             const rules = page.map((item) => {
                 const raw = z.object({ rule_id: z.string() }).passthrough().parse(item);
@@ -75,12 +75,19 @@ const sync = createSync({
                 };
             });
 
+            if (!deleteTrackingStarted) {
+                await nango.trackDeletesStart('AutomatedRule');
+                deleteTrackingStarted = true;
+            }
+
             if (rules.length > 0) {
                 await nango.batchSave(rules, 'AutomatedRule');
             }
         }
 
-        await nango.trackDeletesEnd('AutomatedRule');
+        if (deleteTrackingStarted) {
+            await nango.trackDeletesEnd('AutomatedRule');
+        }
     }
 });
 

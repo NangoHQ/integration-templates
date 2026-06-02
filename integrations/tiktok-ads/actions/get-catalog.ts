@@ -52,38 +52,74 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://business-api.tiktok.com/portal/docs?id=1740315452868610
-        const response = await nango.get({
-            endpoint: 'catalog/get/',
-            params: {
-                bc_id: input.bc_id,
-                ...(input.catalog_id !== undefined && { catalog_id: input.catalog_id })
-            },
-            retries: 3
-        });
-
-        const parsedResponse = TikTokResponseSchema.parse(response.data);
-
-        if (parsedResponse.code !== 0) {
-            throw new nango.ActionError({
-                type: 'provider_error',
-                message: parsedResponse.message,
-                code: parsedResponse.code
-            });
-        }
-
-        const catalogs = parsedResponse.data.list.map((item) => CatalogSchema.parse(item));
-
         if (input.catalog_id) {
-            const filtered = catalogs.filter((catalog) => catalog.catalog_id === input.catalog_id);
+            const response = await nango.get({
+                endpoint: 'catalog/get/',
+                params: {
+                    bc_id: input.bc_id,
+                    catalog_id: input.catalog_id
+                },
+                retries: 3
+            });
+
+            const parsedResponse = TikTokResponseSchema.parse(response.data);
+
+            if (parsedResponse.code !== 0) {
+                throw new nango.ActionError({
+                    type: 'provider_error',
+                    message: parsedResponse.message,
+                    code: parsedResponse.code
+                });
+            }
+
+            const catalogs = parsedResponse.data.list.map((item) => CatalogSchema.parse(item)).filter((catalog) => catalog.catalog_id === input.catalog_id);
+
             return {
-                catalogs: filtered,
+                catalogs,
                 ...(parsedResponse.data.page_info && { page_info: parsedResponse.data.page_info })
             };
         }
 
+        const allCatalogs: Array<z.infer<typeof CatalogSchema>> = [];
+        let page = 1;
+        let totalPage = 1;
+        let lastPageInfo: z.infer<typeof PageInfoSchema> | undefined;
+
+        while (page <= totalPage) {
+            const response = await nango.get({
+                endpoint: 'catalog/get/',
+                params: {
+                    bc_id: input.bc_id,
+                    page,
+                    page_size: 100
+                },
+                retries: 3
+            });
+
+            const parsedResponse = TikTokResponseSchema.parse(response.data);
+
+            if (parsedResponse.code !== 0) {
+                throw new nango.ActionError({
+                    type: 'provider_error',
+                    message: parsedResponse.message,
+                    code: parsedResponse.code
+                });
+            }
+
+            const catalogs = parsedResponse.data.list.map((item) => CatalogSchema.parse(item));
+            allCatalogs.push(...catalogs);
+
+            if (parsedResponse.data.page_info) {
+                totalPage = parsedResponse.data.page_info.total_page;
+                lastPageInfo = parsedResponse.data.page_info;
+            }
+
+            page++;
+        }
+
         return {
-            catalogs,
-            ...(parsedResponse.data.page_info && { page_info: parsedResponse.data.page_info })
+            catalogs: allCatalogs,
+            ...(lastPageInfo && { page_info: lastPageInfo })
         };
     }
 });

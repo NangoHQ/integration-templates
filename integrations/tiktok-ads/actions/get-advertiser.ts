@@ -70,13 +70,19 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://business-api.tiktok.com/portal/docs?id=1739593083610113
-        const response = await nango.get({
+        const config: Parameters<typeof nango.get>[0] = {
             endpoint: '/advertiser/info/',
             params: {
                 advertiser_ids: JSON.stringify([input.advertiser_id])
             },
             retries: 3
-        });
+        };
+
+        if (nango.connectionId?.endsWith('-sandbox')) {
+            config.baseUrlOverride = 'https://sandbox-ads.tiktok.com/open_api/v1.3/';
+        }
+
+        const response = await nango.get(config);
 
         const envelope = z
             .object({

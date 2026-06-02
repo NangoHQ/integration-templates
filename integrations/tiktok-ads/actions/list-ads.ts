@@ -22,7 +22,7 @@ const FilteringSchema = z.object({
 const InputSchema = z.object({
     advertiser_id: z.string().describe('TikTok Advertiser ID. Example: "7644143197428744199"'),
     cursor: z.string().optional().describe('Pagination cursor (page number). Omit for the first page.'),
-    page_size: z.number().optional().describe('Number of records per page. Maximum is 1000.'),
+    page_size: z.number().int().min(1).max(1000).optional().describe('Number of records per page. Maximum is 1000.'),
     filtering: FilteringSchema.optional()
 });
 
@@ -63,10 +63,10 @@ const action = createAction({
 
     exec: async (nango, input) => {
         const page = input.cursor ? Number(input.cursor) : 1;
-        if (Number.isNaN(page)) {
+        if (Number.isNaN(page) || !Number.isInteger(page) || page < 1) {
             throw new nango.ActionError({
                 type: 'invalid_input',
-                message: 'cursor must be a valid page number string'
+                message: 'cursor must be a positive integer string'
             });
         }
 

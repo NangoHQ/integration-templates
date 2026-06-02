@@ -5,7 +5,7 @@ const InputSchema = z
     .object({
         advertiser_id: z.string().describe('Advertiser ID. Example: "7644143197428744199"'),
         upload_type: z.enum(['UPLOAD_BY_URL', 'UPLOAD_BY_FILE_ID']).describe('Image upload method'),
-        image_url: z.string().optional().describe('Image URL. Required when upload_type is UPLOAD_BY_URL'),
+        image_url: z.string().url().optional().describe('Image URL. Required when upload_type is UPLOAD_BY_URL'),
         file_id: z.string().optional().describe('File ID. Required when upload_type is UPLOAD_BY_FILE_ID'),
         file_name: z.string().optional().describe('Image name. Length limit: 1-100 characters')
     })
