@@ -1,0 +1,72 @@
+{
+    "input": {
+        "advertiser_id": "7644143197428744199",
+        "image_url": "https://placehold.co/100x100.png",
+        "file_name": "test-upload-2026-05-26-003.png"
+    },
+    "output": {
+        "image_id": "ad-site-i18n-sg/20260526c740ad6a28f279394e01857e",
+        "image_url": "https://p21-ad-sg.ibyteimg.com/obj/ad-site-i18n-sg/20260526c740ad6a28f279394e01857e",
+        "file_name": "test-upload-2026-05-26-003.png",
+        "material_id": "7513041635014344720",
+        "format": "png",
+        "height": 100,
+        "width": 100,
+        "signature": "03c5ecd056928ec891ad1ebfdc6fcba0",
+        "size": 1052,
+        "displayable": true
+    },
+    "nango": {},
+    "api": {
+        "post": {
+            "/file/image/ad/upload/": {
+                "response": {
+                    "code": 0,
+                    "message": "OK",
+                    "request_id": "202605261906133F352F99BA121E7370CD",
+                    "data": {
+                        "displayable": true,
+                        "create_time": null,
+                        "material_id": "7513041635014344720",
+                        "signature": "03c5ecd056928ec891ad1ebfdc6fcba0",
+                        "height": 100,
+                        "modify_time": null,
+                        "image_id": "ad-site-i18n-sg/20260526c740ad6a28f279394e01857e",
+                        "size": 1052,
+                        "file_name": "test-upload-2026-05-26-003.png",
+                        "image_url": "https://p21-ad-sg.ibyteimg.com/obj/ad-site-i18n-sg/20260526c740ad6a28f279394e01857e",
+                        "width": 100,
+                        "format": "png"
+                    }
+                },
+                "status": 200,
+                "headers": {
+                    "date": "Tue, 26 May 2026 11:06:13 GMT",
+                    "content-type": "application/json",
+                    "content-length": "511",
+                    "connection": "keep-alive",
+                    "x-xss-protection": "0",
+                    "x-content-type-options": "nosniff",
+                    "x-download-options": "noopen",
+                    "x-frame-options": "SAMEORIGIN",
+                    "x-dns-prefetch-control": "off",
+                    "strict-transport-security": "max-age=5184000; includeSubDomains",
+                    "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+                    "access-control-allow-origin": "*",
+                    "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+                    "x-ratelimit-limit": "5000",
+                    "x-ratelimit-remaining": "4950",
+                    "x-ratelimit-reset": "1779793608",
+                    "etag": "W/\"1ff-tP3/DVJNQMfjFV82ebIjky4F4Vc\""
+                },
+                "hash": "a61d9d20bc342d9d7516f8398ef37b907213baf4",
+                "request": {
+                    "headers": {
+                        "Content-Type": "multipart/form-data; boundary=----NangoBoundaryFixed12345"
+                    },
+                    "data": "------NangoBoundaryFixed12345\r\nContent-Disposition: form-data; name=\"advertiser_id\"\r\n\r\n7644143197428744199\r\n------NangoBoundaryFixed12345\r\nContent-Disposition: form-data; name=\"upload_type\"\r\n\r\nUPLOAD_BY_URL\r\n------NangoBoundaryFixed12345\r\nContent-Disposition: form-data; name=\"image_url\"\r\n\r\nhttps://placehold.co/100x100.png\r\n------NangoBoundaryFixed12345\r\nContent-Disposition: form-data; name=\"file_name\"\r\n\r\ntest-upload-2026-05-26-003.png\r\n------NangoBoundaryFixed12345--\r\n"
+                }
+            }
+        }
+    }
+}
