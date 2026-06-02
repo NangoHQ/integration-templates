@@ -1,0 +1,532 @@
+{
+  "input": {
+    "jobPostingId": "00000000-0000-0000-0000-000000000001"
+  },
+  "output": {
+    "id": "00000000-0000-0000-0000-000000000001",
+    "title": "Founding Developer Growth Lead",
+    "descriptionPlain": "(In San Francisco)\n\nNango http://nango.dev (YC W23) lets developers build product integrations with AI. It enables applications to connect to the real world through integrations.\n\nMore than 400 paying customers rely on Nango today, including Replit, Mercor, and Ramp. We are a YC-backed, multi-million ARR company with a team of 14 from AWS, GitHub, Okta, Snyk, Netlify, Uber, Samsara, Workato, and other top-tier dev tools.\n\nWe are hiring a Founding Developer Growth Lead to make Nango known, trusted, and talked about by developers. Your job is to be deeply embedded in the SF AI/developer ecosystem, understand what builders are experimenting with, and turn that insight into demos, prototypes, use cases, content, events, community loops, and product ideas that resonate. You should be technical enough to build yourself and close enough to developer culture to know what feels exciting. You’ll work directly with the founders.\n\n\nWHAT YOU'LL DO\n\n - Build demos, examples, and starter projects that make Nango click for developers.\n\n - Spot emerging use cases around AI agents, MCP, tool-calling, and API integrations.\n\n - Turn new trends into demos, content, examples, events, and product ideas.\n\n - Spend time with developers, founders, and early AI teams in SF.\n\n - Bring community feedback and positioning insights back to the team.\n\n - Get Nango into relevant hackathons, meetups, demo nights, and builder communities.\n\n - Activate users and customers to share what they are building with Nango.\n\n - Experiment with short-form technical content across X, LinkedIn, GitHub, and YouTube.\n\n\nWHO YOU ARE\n\n - You are a technical builder with strong distribution instincts.\n\n - You can prototype demos, understand APIs, read/write code, and speak credibly with developers.\n\n - You are excited to meet builders, attend events, test ideas, and create momentum in SF.\n\n - You understand developer culture and know what feels useful, exciting, or cringe.\n\n - You have high agency and enjoy zero-to-one work without a clear playbook.\n\n - You may be a former founder, early startup employee, growth-minded engineer, developer creator, or DevRel person.\n\n - You have experience or strong interest in AI products, agents, developer tools, APIs, OAuth, MCP, SDKs, or hackathons.\n\n\nLOCATION\n\nThis is an in-person role in San Francisco.",
+    "descriptionHtml": "<p><em>(In San Francisco)</em></p><p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"http://nango.dev\">Nango</a> (YC W23) lets developers build product integrations with AI. It enables applications to connect to the real world through integrations.</p><p>More than 400 paying customers rely on Nango today, including Replit, Mercor, and Ramp. We are a YC-backed, multi-million ARR company with a team of 14 from AWS, GitHub, Okta, Snyk, Netlify, Uber, Samsara, Workato, and other top-tier dev tools.</p><p>We are hiring a Founding Developer Growth Lead to make Nango known, trusted, and talked about by developers. Your job is to be deeply embedded in the SF AI/developer ecosystem, understand what builders are experimenting with, and turn that insight into demos, prototypes, use cases, content, events, community loops, and product ideas that resonate. You should be technical enough to build yourself and close enough to developer culture to know what feels exciting. You’ll work directly with the founders.</p><p></p><h2>What You'll Do</h2><ul><li><p>Build demos, examples, and starter projects that make Nango click for developers.</p></li><li><p>Spot emerging use cases around AI agents, MCP, tool-calling, and API integrations.</p></li><li><p>Turn new trends into demos, content, examples, events, and product ideas.</p></li><li><p>Spend time with developers, founders, and early AI teams in SF.</p></li><li><p>Bring community feedback and positioning insights back to the team.</p></li><li><p>Get Nango into relevant hackathons, meetups, demo nights, and builder communities.</p></li><li><p>Activate users and customers to share what they are building with Nango.</p></li><li><p>Experiment with short-form technical content across X, LinkedIn, GitHub, and YouTube.</p></li></ul><p></p><h2>Who You Are</h2><ul><li><p>You are a technical builder with strong distribution instincts.</p></li><li><p>You can prototype demos, understand APIs, read/write code, and speak credibly with developers.</p></li><li><p>You are excited to meet builders, attend events, test ideas, and create momentum in SF.</p></li><li><p>You understand developer culture and know what feels useful, exciting, or cringe.</p></li><li><p>You have high agency and enjoy zero-to-one work without a clear playbook.</p></li><li><p>You may be a former founder, early startup employee, growth-minded engineer, developer creator, or DevRel person.</p></li><li><p>You have experience or strong interest in AI products, agents, developer tools, APIs, OAuth, MCP, SDKs, or hackathons.</p></li></ul><p></p><h2><strong>Location</strong></h2><p>This is an in-person role in San Francisco.</p>",
+    "descriptionSocial": "Join a fast-growing YC-backed dev-tool startup.",
+    "descriptionParts": {
+      "descriptionOpening": null,
+      "descriptionBody": {
+        "html": "<p><em>(In San Francisco)</em></p><p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"http://nango.dev\">Nango</a> (YC W23) lets developers build product integrations with AI. It enables applications to connect to the real world through integrations.</p><p>More than 400 paying customers rely on Nango today, including Replit, Mercor, and Ramp. We are a YC-backed, multi-million ARR company with a team of 14 from AWS, GitHub, Okta, Snyk, Netlify, Uber, Samsara, Workato, and other top-tier dev tools.</p><p>We are hiring a Founding Developer Growth Lead to make Nango known, trusted, and talked about by developers. Your job is to be deeply embedded in the SF AI/developer ecosystem, understand what builders are experimenting with, and turn that insight into demos, prototypes, use cases, content, events, community loops, and product ideas that resonate. You should be technical enough to build yourself and close enough to developer culture to know what feels exciting. You’ll work directly with the founders.</p><p></p><h2>What You'll Do</h2><ul><li><p>Build demos, examples, and starter projects that make Nango click for developers.</p></li><li><p>Spot emerging use cases around AI agents, MCP, tool-calling, and API integrations.</p></li><li><p>Turn new trends into demos, content, examples, events, and product ideas.</p></li><li><p>Spend time with developers, founders, and early AI teams in SF.</p></li><li><p>Bring community feedback and positioning insights back to the team.</p></li><li><p>Get Nango into relevant hackathons, meetups, demo nights, and builder communities.</p></li><li><p>Activate users and customers to share what they are building with Nango.</p></li><li><p>Experiment with short-form technical content across X, LinkedIn, GitHub, and YouTube.</p></li></ul><p></p><h2>Who You Are</h2><ul><li><p>You are a technical builder with strong distribution instincts.</p></li><li><p>You can prototype demos, understand APIs, read/write code, and speak credibly with developers.</p></li><li><p>You are excited to meet builders, attend events, test ideas, and create momentum in SF.</p></li><li><p>You understand developer culture and know what feels useful, exciting, or cringe.</p></li><li><p>You have high agency and enjoy zero-to-one work without a clear playbook.</p></li><li><p>You may be a former founder, early startup employee, growth-minded engineer, developer creator, or DevRel person.</p></li><li><p>You have experience or strong interest in AI products, agents, developer tools, APIs, OAuth, MCP, SDKs, or hackathons.</p></li></ul><p></p><h2><strong>Location</strong></h2><p>This is an in-person role in San Francisco.</p>",
+        "plain": "(In San Francisco)\n\nNango http://nango.dev (YC W23) lets developers build product integrations with AI. It enables applications to connect to the real world through integrations.\n\nMore than 400 paying customers rely on Nango today, including Replit, Mercor, and Ramp. We are a YC-backed, multi-million ARR company with a team of 14 from AWS, GitHub, Okta, Snyk, Netlify, Uber, Samsara, Workato, and other top-tier dev tools.\n\nWe are hiring a Founding Developer Growth Lead to make Nango known, trusted, and talked about by developers. Your job is to be deeply embedded in the SF AI/developer ecosystem, understand what builders are experimenting with, and turn that insight into demos, prototypes, use cases, content, events, community loops, and product ideas that resonate. You should be technical enough to build yourself and close enough to developer culture to know what feels exciting. You’ll work directly with the founders.\n\n\nWHAT YOU'LL DO\n\n - Build demos, examples, and starter projects that make Nango click for developers.\n\n - Spot emerging use cases around AI agents, MCP, tool-calling, and API integrations.\n\n - Turn new trends into demos, content, examples, events, and product ideas.\n\n - Spend time with developers, founders, and early AI teams in SF.\n\n - Bring community feedback and positioning insights back to the team.\n\n - Get Nango into relevant hackathons, meetups, demo nights, and builder communities.\n\n - Activate users and customers to share what they are building with Nango.\n\n - Experiment with short-form technical content across X, LinkedIn, GitHub, and YouTube.\n\n\nWHO YOU ARE\n\n - You are a technical builder with strong distribution instincts.\n\n - You can prototype demos, understand APIs, read/write code, and speak credibly with developers.\n\n - You are excited to meet builders, attend events, test ideas, and create momentum in SF.\n\n - You understand developer culture and know what feels useful, exciting, or cringe.\n\n - You have high agency and enjoy zero-to-one work without a clear playbook.\n\n - You may be a former founder, early startup employee, growth-minded engineer, developer creator, or DevRel person.\n\n - You have experience or strong interest in AI products, agents, developer tools, APIs, OAuth, MCP, SDKs, or hackathons.\n\n\nLOCATION\n\nThis is an in-person role in San Francisco."
+      },
+      "descriptionClosing": null
+    },
+    "departmentName": "Nango",
+    "teamName": "Nango",
+    "teamNameHierarchy": [
+      "Nango"
+    ],
+    "jobId": "00000000-0000-0000-0000-000000000002",
+    "locationName": "San Francisco",
+    "locationIds": {
+      "primaryLocationId": "00000000-0000-0000-0000-000000000003",
+      "secondaryLocationIds": []
+    },
+    "linkedData": {
+      "@context": "https://schema.org/",
+      "@type": "JobPosting",
+      "title": "Founding Developer Growth Lead",
+      "description": "<p><em>(In San Francisco)</em></p><p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"http://nango.dev\">Nango</a> (YC W23) lets developers build product integrations with AI. It enables applications to connect to the real world through integrations.</p><p>More than 400 paying customers rely on Nango today, including Replit, Mercor, and Ramp. We are a YC-backed, multi-million ARR company with a team of 14 from AWS, GitHub, Okta, Snyk, Netlify, Uber, Samsara, Workato, and other top-tier dev tools.</p><p>We are hiring a Founding Developer Growth Lead to make Nango known, trusted, and talked about by developers. Your job is to be deeply embedded in the SF AI/developer ecosystem, understand what builders are experimenting with, and turn that insight into demos, prototypes, use cases, content, events, community loops, and product ideas that resonate. You should be technical enough to build yourself and close enough to developer culture to know what feels exciting. You’ll work directly with the founders.</p><p></p><h2>What You'll Do</h2><ul><li><p>Build demos, examples, and starter projects that make Nango click for developers.</p></li><li><p>Spot emerging use cases around AI agents, MCP, tool-calling, and API integrations.</p></li><li><p>Turn new trends into demos, content, examples, events, and product ideas.</p></li><li><p>Spend time with developers, founders, and early AI teams in SF.</p></li><li><p>Bring community feedback and positioning insights back to the team.</p></li><li><p>Get Nango into relevant hackathons, meetups, demo nights, and builder communities.</p></li><li><p>Activate users and customers to share what they are building with Nango.</p></li><li><p>Experiment with short-form technical content across X, LinkedIn, GitHub, and YouTube.</p></li></ul><p></p><h2>Who You Are</h2><ul><li><p>You are a technical builder with strong distribution instincts.</p></li><li><p>You can prototype demos, understand APIs, read/write code, and speak credibly with developers.</p></li><li><p>You are excited to meet builders, attend events, test ideas, and create momentum in SF.</p></li><li><p>You understand developer culture and know what feels useful, exciting, or cringe.</p></li><li><p>You have high agency and enjoy zero-to-one work without a clear playbook.</p></li><li><p>You may be a former founder, early startup employee, growth-minded engineer, developer creator, or DevRel person.</p></li><li><p>You have experience or strong interest in AI products, agents, developer tools, APIs, OAuth, MCP, SDKs, or hackathons.</p></li></ul><p></p><h2><strong>Location</strong></h2><p>This is an in-person role in San Francisco.</p>",
+      "directApply": false,
+      "identifier": {
+        "@type": "PropertyValue",
+        "name": "Test User 1",
+        "value": "00000000-0000-0000-0000-000000000001"
+      },
+      "datePosted": "+10000000001",
+      "hiringOrganization": {
+        "@type": "Organization",
+        "name": "Test User 2",
+        "sameAs": "https://www.nango.dev/"
+      },
+      "jobLocation": {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "San Francisco",
+          "addressCountry": "United States"
+        }
+      },
+      "employmentType": "FULL_TIME",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "USD",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 150000,
+          "maxValue": 200000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    "publishedDate": "+10000000002",
+    "applicationDeadline": null,
+    "address": {
+      "postalAddress": {
+        "addressCountry": "United States",
+        "addressLocality": "San Francisco"
+      }
+    },
+    "isRemote": false,
+    "workplaceType": "OnSite",
+    "employmentType": "FullTime",
+    "applicationFormDefinition": {
+      "sections": [
+        {
+          "fields": [
+            {
+              "isRequired": true,
+              "field": {
+                "id": "00000000-0000-0000-0000-000000000004",
+                "type": "String",
+                "path": "_systemfield_name",
+                "humanReadablePath": "Name",
+                "title": "Name",
+                "isNullable": false
+              }
+            },
+            {
+              "isRequired": true,
+              "field": {
+                "id": "00000000-0000-0000-0000-000000000005",
+                "type": "Email",
+                "path": "_systemfield_email",
+                "humanReadablePath": "Email",
+                "title": "Email",
+                "isNullable": false
+              }
+            },
+            {
+              "isRequired": true,
+              "field": {
+                "id": "00000000-0000-0000-0000-000000000006",
+                "type": "Url",
+                "path": "00000000-0000-0000-0000-000000000006",
+                "humanReadablePath": "",
+                "title": "LinkedIn Profile URL",
+                "isNullable": false
+              }
+            },
+            {
+              "isRequired": true,
+              "field": {
+                "id": "00000000-0000-0000-0000-000000000007",
+                "type": "ValueSelect",
+                "path": "00000000-0000-0000-0000-000000000007",
+                "humanReadablePath": "",
+                "title": "How much software engineering experience do you have?",
+                "isNullable": false,
+                "selectableValues": [
+                  {
+                    "label": "0-5 years",
+                    "value": "0-5 years"
+                  },
+                  {
+                    "label": "5-10 years",
+                    "value": "5-10 years"
+                  },
+                  {
+                    "label": "10-15 years",
+                    "value": "10-15 years"
+                  },
+                  {
+                    "label": "15+ years",
+                    "value": "15+ years"
+                  }
+                ]
+              },
+              "descriptionHtml": "<p>This role requires 5 years of experience minimum (10+ for staff positions).</p>",
+              "descriptionPlain": "This role requires 5 years of experience minimum (10+ for staff positions)."
+            },
+            {
+              "isRequired": true,
+              "field": {
+                "id": "00000000-0000-0000-0000-000000000008",
+                "type": "Url",
+                "path": "00000000-0000-0000-0000-000000000008",
+                "humanReadablePath": "",
+                "title": "Share a link (URL) to a dev-tool company you worked at before",
+                "isNullable": false
+              },
+              "descriptionHtml": "<p>Or a company where you worked on internal tooling for developers.</p>",
+              "descriptionPlain": "Or a company where you worked on internal tooling for developers."
+            },
+            {
+              "isRequired": true,
+              "field": {
+                "id": "00000000-0000-0000-0000-000000000009",
+                "type": "Location",
+                "path": "_systemfield_location",
+                "humanReadablePath": "Location",
+                "title": "What city do you live in?",
+                "isNullable": false
+              },
+              "descriptionHtml": "<p>Please verify in the role description that it is available in your location.</p>",
+              "descriptionPlain": "Please verify in the role description that it is available in your location."
+            },
+            {
+              "isRequired": true,
+              "field": {
+                "id": "00000000-0000-0000-0000-00000000000a",
+                "type": "LongText",
+                "path": "00000000-0000-0000-0000-00000000000a",
+                "humanReadablePath": "",
+                "title": "Why are you interested in this position?",
+                "isNullable": false
+              },
+              "descriptionHtml": "<p>Please keep it short and honest. 1–3 genuine sentences stand out, while AI-sounding responses disappoint.</p>",
+              "descriptionPlain": "Please keep it short and honest. 1–3 genuine sentences stand out, while AI-sounding responses disappoint."
+            }
+          ]
+        }
+      ]
+    },
+    "surveyFormDefinitions": [],
+    "isListed": true,
+    "suppressDescriptionOpening": false,
+    "suppressDescriptionClosing": false,
+    "externalLink": "https://jobs.ashbyhq.com/Nango/95526e19-b9c4-468f-b420-41348f1688ae",
+    "applyLink": "https://jobs.ashbyhq.com/Nango/95526e19-b9c4-468f-b420-41348f1688ae",
+    "compensation": {
+      "compensationTierSummary": "$150K – $200K • 0.25% – 1%",
+      "summaryComponents": [
+        {
+          "compensationType": "EquityPercentage",
+          "interval": "NONE",
+          "currencyCode": null,
+          "minValue": 0.25,
+          "maxValue": 1,
+          "summary": "0.25% – 1%"
+        },
+        {
+          "compensationType": "Salary",
+          "interval": "1 YEAR",
+          "currencyCode": "USD",
+          "minValue": 150000,
+          "maxValue": 200000,
+          "summary": "$150K – $200K"
+        }
+      ],
+      "compensationTiers": [
+        {
+          "id": "00000000-0000-0000-0000-00000000000b",
+          "tierSummary": "$150K – $200K • 0.25% – 1%",
+          "title": null,
+          "additionalInformation": null,
+          "components": [
+            {
+              "id": "00000000-0000-0000-0000-00000000000c",
+              "summary": "0.25% – 1%",
+              "compensationType": "EquityPercentage",
+              "interval": "NONE",
+              "currencyCode": null,
+              "minValue": 0.25,
+              "maxValue": 1
+            },
+            {
+              "id": "00000000-0000-0000-0000-00000000000d",
+              "summary": "$150K – $200K",
+              "compensationType": "Salary",
+              "interval": "1 YEAR",
+              "currencyCode": "USD",
+              "minValue": 150000,
+              "maxValue": 200000
+            }
+          ]
+        }
+      ],
+      "shouldDisplayCompensation": true
+    },
+    "updatedAt": "2026-04-28T11:55:08.267Z"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/jobPosting.info": {
+        "response": {
+          "success": true,
+          "results": {
+            "id": "00000000-0000-0000-0000-000000000001",
+            "title": "Founding Developer Growth Lead",
+            "descriptionPlain": "(In San Francisco)\n\nNango http://nango.dev (YC W23) lets developers build product integrations with AI. It enables applications to connect to the real world through integrations.\n\nMore than 400 paying customers rely on Nango today, including Replit, Mercor, and Ramp. We are a YC-backed, multi-million ARR company with a team of 14 from AWS, GitHub, Okta, Snyk, Netlify, Uber, Samsara, Workato, and other top-tier dev tools.\n\nWe are hiring a Founding Developer Growth Lead to make Nango known, trusted, and talked about by developers. Your job is to be deeply embedded in the SF AI/developer ecosystem, understand what builders are experimenting with, and turn that insight into demos, prototypes, use cases, content, events, community loops, and product ideas that resonate. You should be technical enough to build yourself and close enough to developer culture to know what feels exciting. You’ll work directly with the founders.\n\n\nWHAT YOU'LL DO\n\n - Build demos, examples, and starter projects that make Nango click for developers.\n\n - Spot emerging use cases around AI agents, MCP, tool-calling, and API integrations.\n\n - Turn new trends into demos, content, examples, events, and product ideas.\n\n - Spend time with developers, founders, and early AI teams in SF.\n\n - Bring community feedback and positioning insights back to the team.\n\n - Get Nango into relevant hackathons, meetups, demo nights, and builder communities.\n\n - Activate users and customers to share what they are building with Nango.\n\n - Experiment with short-form technical content across X, LinkedIn, GitHub, and YouTube.\n\n\nWHO YOU ARE\n\n - You are a technical builder with strong distribution instincts.\n\n - You can prototype demos, understand APIs, read/write code, and speak credibly with developers.\n\n - You are excited to meet builders, attend events, test ideas, and create momentum in SF.\n\n - You understand developer culture and know what feels useful, exciting, or cringe.\n\n - You have high agency and enjoy zero-to-one work without a clear playbook.\n\n - You may be a former founder, early startup employee, growth-minded engineer, developer creator, or DevRel person.\n\n - You have experience or strong interest in AI products, agents, developer tools, APIs, OAuth, MCP, SDKs, or hackathons.\n\n\nLOCATION\n\nThis is an in-person role in San Francisco.",
+            "descriptionHtml": "<p><em>(In San Francisco)</em></p><p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"http://nango.dev\">Nango</a> (YC W23) lets developers build product integrations with AI. It enables applications to connect to the real world through integrations.</p><p>More than 400 paying customers rely on Nango today, including Replit, Mercor, and Ramp. We are a YC-backed, multi-million ARR company with a team of 14 from AWS, GitHub, Okta, Snyk, Netlify, Uber, Samsara, Workato, and other top-tier dev tools.</p><p>We are hiring a Founding Developer Growth Lead to make Nango known, trusted, and talked about by developers. Your job is to be deeply embedded in the SF AI/developer ecosystem, understand what builders are experimenting with, and turn that insight into demos, prototypes, use cases, content, events, community loops, and product ideas that resonate. You should be technical enough to build yourself and close enough to developer culture to know what feels exciting. You’ll work directly with the founders.</p><p></p><h2>What You'll Do</h2><ul><li><p>Build demos, examples, and starter projects that make Nango click for developers.</p></li><li><p>Spot emerging use cases around AI agents, MCP, tool-calling, and API integrations.</p></li><li><p>Turn new trends into demos, content, examples, events, and product ideas.</p></li><li><p>Spend time with developers, founders, and early AI teams in SF.</p></li><li><p>Bring community feedback and positioning insights back to the team.</p></li><li><p>Get Nango into relevant hackathons, meetups, demo nights, and builder communities.</p></li><li><p>Activate users and customers to share what they are building with Nango.</p></li><li><p>Experiment with short-form technical content across X, LinkedIn, GitHub, and YouTube.</p></li></ul><p></p><h2>Who You Are</h2><ul><li><p>You are a technical builder with strong distribution instincts.</p></li><li><p>You can prototype demos, understand APIs, read/write code, and speak credibly with developers.</p></li><li><p>You are excited to meet builders, attend events, test ideas, and create momentum in SF.</p></li><li><p>You understand developer culture and know what feels useful, exciting, or cringe.</p></li><li><p>You have high agency and enjoy zero-to-one work without a clear playbook.</p></li><li><p>You may be a former founder, early startup employee, growth-minded engineer, developer creator, or DevRel person.</p></li><li><p>You have experience or strong interest in AI products, agents, developer tools, APIs, OAuth, MCP, SDKs, or hackathons.</p></li></ul><p></p><h2><strong>Location</strong></h2><p>This is an in-person role in San Francisco.</p>",
+            "descriptionSocial": "Join a fast-growing YC-backed dev-tool startup.",
+            "descriptionParts": {
+              "descriptionOpening": null,
+              "descriptionBody": {
+                "html": "<p><em>(In San Francisco)</em></p><p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"http://nango.dev\">Nango</a> (YC W23) lets developers build product integrations with AI. It enables applications to connect to the real world through integrations.</p><p>More than 400 paying customers rely on Nango today, including Replit, Mercor, and Ramp. We are a YC-backed, multi-million ARR company with a team of 14 from AWS, GitHub, Okta, Snyk, Netlify, Uber, Samsara, Workato, and other top-tier dev tools.</p><p>We are hiring a Founding Developer Growth Lead to make Nango known, trusted, and talked about by developers. Your job is to be deeply embedded in the SF AI/developer ecosystem, understand what builders are experimenting with, and turn that insight into demos, prototypes, use cases, content, events, community loops, and product ideas that resonate. You should be technical enough to build yourself and close enough to developer culture to know what feels exciting. You’ll work directly with the founders.</p><p></p><h2>What You'll Do</h2><ul><li><p>Build demos, examples, and starter projects that make Nango click for developers.</p></li><li><p>Spot emerging use cases around AI agents, MCP, tool-calling, and API integrations.</p></li><li><p>Turn new trends into demos, content, examples, events, and product ideas.</p></li><li><p>Spend time with developers, founders, and early AI teams in SF.</p></li><li><p>Bring community feedback and positioning insights back to the team.</p></li><li><p>Get Nango into relevant hackathons, meetups, demo nights, and builder communities.</p></li><li><p>Activate users and customers to share what they are building with Nango.</p></li><li><p>Experiment with short-form technical content across X, LinkedIn, GitHub, and YouTube.</p></li></ul><p></p><h2>Who You Are</h2><ul><li><p>You are a technical builder with strong distribution instincts.</p></li><li><p>You can prototype demos, understand APIs, read/write code, and speak credibly with developers.</p></li><li><p>You are excited to meet builders, attend events, test ideas, and create momentum in SF.</p></li><li><p>You understand developer culture and know what feels useful, exciting, or cringe.</p></li><li><p>You have high agency and enjoy zero-to-one work without a clear playbook.</p></li><li><p>You may be a former founder, early startup employee, growth-minded engineer, developer creator, or DevRel person.</p></li><li><p>You have experience or strong interest in AI products, agents, developer tools, APIs, OAuth, MCP, SDKs, or hackathons.</p></li></ul><p></p><h2><strong>Location</strong></h2><p>This is an in-person role in San Francisco.</p>",
+                "plain": "(In San Francisco)\n\nNango http://nango.dev (YC W23) lets developers build product integrations with AI. It enables applications to connect to the real world through integrations.\n\nMore than 400 paying customers rely on Nango today, including Replit, Mercor, and Ramp. We are a YC-backed, multi-million ARR company with a team of 14 from AWS, GitHub, Okta, Snyk, Netlify, Uber, Samsara, Workato, and other top-tier dev tools.\n\nWe are hiring a Founding Developer Growth Lead to make Nango known, trusted, and talked about by developers. Your job is to be deeply embedded in the SF AI/developer ecosystem, understand what builders are experimenting with, and turn that insight into demos, prototypes, use cases, content, events, community loops, and product ideas that resonate. You should be technical enough to build yourself and close enough to developer culture to know what feels exciting. You’ll work directly with the founders.\n\n\nWHAT YOU'LL DO\n\n - Build demos, examples, and starter projects that make Nango click for developers.\n\n - Spot emerging use cases around AI agents, MCP, tool-calling, and API integrations.\n\n - Turn new trends into demos, content, examples, events, and product ideas.\n\n - Spend time with developers, founders, and early AI teams in SF.\n\n - Bring community feedback and positioning insights back to the team.\n\n - Get Nango into relevant hackathons, meetups, demo nights, and builder communities.\n\n - Activate users and customers to share what they are building with Nango.\n\n - Experiment with short-form technical content across X, LinkedIn, GitHub, and YouTube.\n\n\nWHO YOU ARE\n\n - You are a technical builder with strong distribution instincts.\n\n - You can prototype demos, understand APIs, read/write code, and speak credibly with developers.\n\n - You are excited to meet builders, attend events, test ideas, and create momentum in SF.\n\n - You understand developer culture and know what feels useful, exciting, or cringe.\n\n - You have high agency and enjoy zero-to-one work without a clear playbook.\n\n - You may be a former founder, early startup employee, growth-minded engineer, developer creator, or DevRel person.\n\n - You have experience or strong interest in AI products, agents, developer tools, APIs, OAuth, MCP, SDKs, or hackathons.\n\n\nLOCATION\n\nThis is an in-person role in San Francisco."
+              },
+              "descriptionClosing": null
+            },
+            "departmentName": "Nango",
+            "teamName": "Nango",
+            "teamNameHierarchy": [
+              "Nango"
+            ],
+            "jobId": "00000000-0000-0000-0000-000000000002",
+            "locationName": "San Francisco",
+            "locationIds": {
+              "primaryLocationId": "00000000-0000-0000-0000-000000000003",
+              "secondaryLocationIds": []
+            },
+            "workplaceType": "OnSite",
+            "linkedData": {
+              "@context": "https://schema.org/",
+              "@type": "JobPosting",
+              "title": "Founding Developer Growth Lead",
+              "description": "<p><em>(In San Francisco)</em></p><p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"http://nango.dev\">Nango</a> (YC W23) lets developers build product integrations with AI. It enables applications to connect to the real world through integrations.</p><p>More than 400 paying customers rely on Nango today, including Replit, Mercor, and Ramp. We are a YC-backed, multi-million ARR company with a team of 14 from AWS, GitHub, Okta, Snyk, Netlify, Uber, Samsara, Workato, and other top-tier dev tools.</p><p>We are hiring a Founding Developer Growth Lead to make Nango known, trusted, and talked about by developers. Your job is to be deeply embedded in the SF AI/developer ecosystem, understand what builders are experimenting with, and turn that insight into demos, prototypes, use cases, content, events, community loops, and product ideas that resonate. You should be technical enough to build yourself and close enough to developer culture to know what feels exciting. You’ll work directly with the founders.</p><p></p><h2>What You'll Do</h2><ul><li><p>Build demos, examples, and starter projects that make Nango click for developers.</p></li><li><p>Spot emerging use cases around AI agents, MCP, tool-calling, and API integrations.</p></li><li><p>Turn new trends into demos, content, examples, events, and product ideas.</p></li><li><p>Spend time with developers, founders, and early AI teams in SF.</p></li><li><p>Bring community feedback and positioning insights back to the team.</p></li><li><p>Get Nango into relevant hackathons, meetups, demo nights, and builder communities.</p></li><li><p>Activate users and customers to share what they are building with Nango.</p></li><li><p>Experiment with short-form technical content across X, LinkedIn, GitHub, and YouTube.</p></li></ul><p></p><h2>Who You Are</h2><ul><li><p>You are a technical builder with strong distribution instincts.</p></li><li><p>You can prototype demos, understand APIs, read/write code, and speak credibly with developers.</p></li><li><p>You are excited to meet builders, attend events, test ideas, and create momentum in SF.</p></li><li><p>You understand developer culture and know what feels useful, exciting, or cringe.</p></li><li><p>You have high agency and enjoy zero-to-one work without a clear playbook.</p></li><li><p>You may be a former founder, early startup employee, growth-minded engineer, developer creator, or DevRel person.</p></li><li><p>You have experience or strong interest in AI products, agents, developer tools, APIs, OAuth, MCP, SDKs, or hackathons.</p></li></ul><p></p><h2><strong>Location</strong></h2><p>This is an in-person role in San Francisco.</p>",
+              "directApply": false,
+              "identifier": {
+                "@type": "PropertyValue",
+                "name": "Test User 1",
+                "value": "00000000-0000-0000-0000-000000000001"
+              },
+              "datePosted": "+10000000001",
+              "hiringOrganization": {
+                "@type": "Organization",
+                "name": "Test User 2",
+                "sameAs": "https://www.nango.dev/"
+              },
+              "jobLocation": {
+                "@type": "Place",
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressLocality": "San Francisco",
+                  "addressCountry": "United States"
+                }
+              },
+              "employmentType": "FULL_TIME",
+              "baseSalary": {
+                "@type": "MonetaryAmount",
+                "currency": "USD",
+                "value": {
+                  "@type": "QuantitativeValue",
+                  "minValue": 150000,
+                  "maxValue": 200000,
+                  "unitText": "YEAR"
+                }
+              }
+            },
+            "publishedDate": "+10000000002",
+            "address": {
+              "postalAddress": {
+                "addressCountry": "United States",
+                "addressLocality": "San Francisco"
+              }
+            },
+            "applicationDeadline": null,
+            "isRemote": false,
+            "employmentType": "FullTime",
+            "applicationFormDefinition": {
+              "sections": [
+                {
+                  "fields": [
+                    {
+                      "isRequired": true,
+                      "field": {
+                        "id": "00000000-0000-0000-0000-000000000004",
+                        "type": "String",
+                        "path": "_systemfield_name",
+                        "humanReadablePath": "Name",
+                        "title": "Name",
+                        "isNullable": false
+                      }
+                    },
+                    {
+                      "isRequired": true,
+                      "field": {
+                        "id": "00000000-0000-0000-0000-000000000005",
+                        "type": "Email",
+                        "path": "_systemfield_email",
+                        "humanReadablePath": "Email",
+                        "title": "Email",
+                        "isNullable": false
+                      }
+                    },
+                    {
+                      "isRequired": true,
+                      "field": {
+                        "id": "00000000-0000-0000-0000-000000000006",
+                        "type": "Url",
+                        "path": "00000000-0000-0000-0000-000000000006",
+                        "humanReadablePath": "",
+                        "title": "LinkedIn Profile URL",
+                        "isNullable": false
+                      }
+                    },
+                    {
+                      "isRequired": true,
+                      "field": {
+                        "id": "00000000-0000-0000-0000-000000000007",
+                        "type": "ValueSelect",
+                        "path": "00000000-0000-0000-0000-000000000007",
+                        "humanReadablePath": "",
+                        "title": "How much software engineering experience do you have?",
+                        "isNullable": false,
+                        "selectableValues": [
+                          {
+                            "label": "0-5 years",
+                            "value": "0-5 years"
+                          },
+                          {
+                            "label": "5-10 years",
+                            "value": "5-10 years"
+                          },
+                          {
+                            "label": "10-15 years",
+                            "value": "10-15 years"
+                          },
+                          {
+                            "label": "15+ years",
+                            "value": "15+ years"
+                          }
+                        ]
+                      },
+                      "descriptionHtml": "<p>This role requires 5 years of experience minimum (10+ for staff positions).</p>",
+                      "descriptionPlain": "This role requires 5 years of experience minimum (10+ for staff positions)."
+                    },
+                    {
+                      "isRequired": true,
+                      "field": {
+                        "id": "00000000-0000-0000-0000-000000000008",
+                        "type": "Url",
+                        "path": "00000000-0000-0000-0000-000000000008",
+                        "humanReadablePath": "",
+                        "title": "Share a link (URL) to a dev-tool company you worked at before",
+                        "isNullable": false
+                      },
+                      "descriptionHtml": "<p>Or a company where you worked on internal tooling for developers.</p>",
+                      "descriptionPlain": "Or a company where you worked on internal tooling for developers."
+                    },
+                    {
+                      "isRequired": true,
+                      "field": {
+                        "id": "00000000-0000-0000-0000-000000000009",
+                        "type": "Location",
+                        "path": "_systemfield_location",
+                        "humanReadablePath": "Location",
+                        "title": "What city do you live in?",
+                        "isNullable": false
+                      },
+                      "descriptionHtml": "<p>Please verify in the role description that it is available in your location.</p>",
+                      "descriptionPlain": "Please verify in the role description that it is available in your location."
+                    },
+                    {
+                      "isRequired": true,
+                      "field": {
+                        "id": "00000000-0000-0000-0000-00000000000a",
+                        "type": "LongText",
+                        "path": "00000000-0000-0000-0000-00000000000a",
+                        "humanReadablePath": "",
+                        "title": "Why are you interested in this position?",
+                        "isNullable": false
+                      },
+                      "descriptionHtml": "<p>Please keep it short and honest. 1–3 genuine sentences stand out, while AI-sounding responses disappoint.</p>",
+                      "descriptionPlain": "Please keep it short and honest. 1–3 genuine sentences stand out, while AI-sounding responses disappoint."
+                    }
+                  ]
+                }
+              ]
+            },
+            "surveyFormDefinitions": [],
+            "isListed": true,
+            "suppressDescriptionOpening": false,
+            "suppressDescriptionClosing": false,
+            "externalLink": "https://jobs.ashbyhq.com/Nango/95526e19-b9c4-468f-b420-41348f1688ae",
+            "applyLink": "https://jobs.ashbyhq.com/Nango/95526e19-b9c4-468f-b420-41348f1688ae",
+            "compensation": {
+              "compensationTierSummary": "$150K – $200K • 0.25% – 1%",
+              "summaryComponents": [
+                {
+                  "compensationType": "EquityPercentage",
+                  "interval": "NONE",
+                  "currencyCode": null,
+                  "minValue": 0.25,
+                  "maxValue": 1,
+                  "summary": "0.25% – 1%"
+                },
+                {
+                  "compensationType": "Salary",
+                  "interval": "1 YEAR",
+                  "currencyCode": "USD",
+                  "minValue": 150000,
+                  "maxValue": 200000,
+                  "summary": "$150K – $200K"
+                }
+              ],
+              "compensationTiers": [
+                {
+                  "id": "00000000-0000-0000-0000-00000000000b",
+                  "tierSummary": "$150K – $200K • 0.25% – 1%",
+                  "title": null,
+                  "additionalInformation": null,
+                  "components": [
+                    {
+                      "id": "00000000-0000-0000-0000-00000000000c",
+                      "summary": "0.25% – 1%",
+                      "compensationType": "EquityPercentage",
+                      "interval": "NONE",
+                      "currencyCode": null,
+                      "minValue": 0.25,
+                      "maxValue": 1
+                    },
+                    {
+                      "id": "00000000-0000-0000-0000-00000000000d",
+                      "summary": "$150K – $200K",
+                      "compensationType": "Salary",
+                      "interval": "1 YEAR",
+                      "currencyCode": "USD",
+                      "minValue": 150000,
+                      "maxValue": 200000
+                    }
+                  ]
+                }
+              ],
+              "shouldDisplayCompensation": true
+            },
+            "updatedAt": "2026-04-28T11:55:08.267Z"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 28 May 2026 21:08:11 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "1000",
+          "x-ratelimit-remaining": "995",
+          "x-ratelimit-reset": "+10000000004",
+          "x-ashby-request-id": "01KSR6N29J4MDTQDXSC8HP47MP",
+          "referrer-policy": "same-origin",
+          "ashby-session-expiry-alert-level": "",
+          "vary": "Origin",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "cf-ray": "a0303bae2c59fb74-PDX",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "a0eec9a407f0649cea101cef7561415a7267f84c",
+        "request": {
+          "data": {
+            "jobPostingId": "00000000-0000-0000-0000-000000000001"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,418 @@
+{
+  "nango": {
+    "batchSave": {
+      "User": [
+        {
+          "id": "00000000-0000-0000-0000-000000000001",
+          "firstName": "Test",
+          "lastName": "User1",
+          "email": "user1@example.com",
+          "globalRole": "Organization Admin",
+          "isEnabled": true,
+          "updatedAt": "2026-05-18T15:01:46.792Z"
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000002",
+          "firstName": "Test",
+          "lastName": "User2",
+          "email": "user2@example.com",
+          "globalRole": "Organization Admin",
+          "isEnabled": true,
+          "updatedAt": "2026-02-02T18:16:13.457Z"
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000003",
+          "firstName": "Test",
+          "lastName": "User3",
+          "email": "user3@example.com",
+          "globalRole": "Limited Access",
+          "isEnabled": false,
+          "updatedAt": "2025-11-06T23:32:45.895Z"
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000004",
+          "firstName": "Test",
+          "lastName": "User4",
+          "email": "user4@example.com",
+          "globalRole": "Limited Access",
+          "isEnabled": false,
+          "updatedAt": "2025-11-06T23:32:45.892Z"
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000005",
+          "firstName": "Test",
+          "lastName": "User5",
+          "email": "user5@example.com",
+          "globalRole": "Elevated Access",
+          "isEnabled": false,
+          "updatedAt": "2026-03-02T09:08:04.566Z"
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000006",
+          "firstName": "Test",
+          "lastName": "User6",
+          "email": "user6@example.com",
+          "globalRole": "Organization Admin",
+          "isEnabled": true,
+          "updatedAt": "2026-05-28T17:27:35.112Z"
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000007",
+          "firstName": "Test",
+          "lastName": "User7",
+          "email": "user7@example.com",
+          "globalRole": "Limited Access",
+          "isEnabled": false,
+          "updatedAt": "2025-11-05T11:16:33.475Z"
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000008",
+          "firstName": "Test",
+          "lastName": "User8",
+          "email": "user8@example.com",
+          "globalRole": "Limited Access",
+          "isEnabled": false,
+          "updatedAt": "2025-11-05T11:16:33.520Z"
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000009",
+          "firstName": "Test",
+          "lastName": "User9",
+          "email": "user9@example.com",
+          "globalRole": "Limited Access",
+          "isEnabled": false,
+          "updatedAt": "2025-11-06T23:32:45.905Z"
+        },
+        {
+          "id": "00000000-0000-0000-0000-00000000000a",
+          "firstName": "Test",
+          "lastName": "User10",
+          "email": "user10@example.com",
+          "globalRole": "Limited Access",
+          "isEnabled": false,
+          "updatedAt": "2025-11-06T23:32:45.887Z"
+        },
+        {
+          "id": "00000000-0000-0000-0000-00000000000b",
+          "firstName": "Test",
+          "lastName": "User11",
+          "email": "user11@example.com",
+          "globalRole": "Limited Access",
+          "isEnabled": false,
+          "updatedAt": "2025-11-06T23:32:45.898Z"
+        },
+        {
+          "id": "00000000-0000-0000-0000-00000000000c",
+          "firstName": "Test",
+          "lastName": "User12",
+          "email": "user12@example.com",
+          "globalRole": "Limited Access",
+          "isEnabled": false,
+          "updatedAt": "2025-11-06T23:32:45.878Z"
+        },
+        {
+          "id": "00000000-0000-0000-0000-00000000000d",
+          "firstName": "Test",
+          "lastName": "User13",
+          "email": "user13@example.com",
+          "globalRole": "Limited Access",
+          "isEnabled": false,
+          "updatedAt": "2025-11-06T23:32:45.896Z"
+        },
+        {
+          "id": "00000000-0000-0000-0000-00000000000e",
+          "firstName": "Test",
+          "lastName": "User14",
+          "email": "user14@example.com",
+          "globalRole": "Limited Access",
+          "isEnabled": false,
+          "updatedAt": "2025-11-06T23:32:45.885Z"
+        },
+        {
+          "id": "00000000-0000-0000-0000-00000000000f",
+          "firstName": "Test",
+          "lastName": "User15",
+          "email": "user15@example.com",
+          "globalRole": "Limited Access",
+          "isEnabled": false,
+          "updatedAt": "2025-11-06T23:32:45.890Z"
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000010",
+          "firstName": "Test",
+          "lastName": "User16",
+          "email": "user16@example.com",
+          "globalRole": "Limited Access",
+          "isEnabled": false,
+          "updatedAt": "2025-11-06T23:32:45.901Z"
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000011",
+          "firstName": "Test",
+          "lastName": "User17",
+          "email": "user17@example.com",
+          "globalRole": "Limited Access",
+          "isEnabled": false,
+          "updatedAt": "2025-06-20T16:40:21.390Z"
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000012",
+          "firstName": "Test",
+          "lastName": "User18",
+          "email": "user18@example.com",
+          "globalRole": "Limited Access",
+          "isEnabled": false,
+          "updatedAt": "2025-11-06T23:32:45.891Z"
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000013",
+          "firstName": "Test",
+          "lastName": "User19",
+          "email": "user19@example.com",
+          "globalRole": "Limited Access",
+          "isEnabled": false,
+          "updatedAt": "2025-11-06T23:32:45.903Z"
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000014",
+          "firstName": "Test",
+          "lastName": "User20",
+          "email": "user20@example.com",
+          "globalRole": "Limited Access",
+          "isEnabled": false,
+          "updatedAt": "2025-11-06T23:32:45.893Z"
+        }
+      ]
+    },
+    "batchDelete": {
+      "User": []
+    }
+  },
+  "api": {
+    "post": {
+      "/user.list": {
+        "response": {
+          "success": true,
+          "results": [
+            {
+              "id": "00000000-0000-0000-0000-000000000001",
+              "firstName": "Test",
+              "lastName": "User1",
+              "email": "user1@example.com",
+              "globalRole": "Organization Admin",
+              "isEnabled": true,
+              "updatedAt": "2026-05-18T15:01:46.792Z"
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000000002",
+              "firstName": "Test",
+              "lastName": "User2",
+              "email": "user2@example.com",
+              "globalRole": "Organization Admin",
+              "isEnabled": true,
+              "updatedAt": "2026-02-02T18:16:13.457Z"
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000000003",
+              "firstName": "Test",
+              "lastName": "User3",
+              "email": "user3@example.com",
+              "globalRole": "Limited Access",
+              "isEnabled": false,
+              "updatedAt": "2025-11-06T23:32:45.895Z"
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000000004",
+              "firstName": "Test",
+              "lastName": "User4",
+              "email": "user4@example.com",
+              "globalRole": "Limited Access",
+              "isEnabled": false,
+              "updatedAt": "2025-11-06T23:32:45.892Z"
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000000005",
+              "firstName": "Test",
+              "lastName": "User5",
+              "email": "user5@example.com",
+              "globalRole": "Elevated Access",
+              "isEnabled": false,
+              "updatedAt": "2026-03-02T09:08:04.566Z"
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000000006",
+              "firstName": "Test",
+              "lastName": "User6",
+              "email": "user6@example.com",
+              "globalRole": "Organization Admin",
+              "isEnabled": true,
+              "updatedAt": "2026-05-28T17:27:35.112Z"
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000000007",
+              "firstName": "Test",
+              "lastName": "User7",
+              "email": "user7@example.com",
+              "globalRole": "Limited Access",
+              "isEnabled": false,
+              "updatedAt": "2025-11-05T11:16:33.475Z"
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000000008",
+              "firstName": "Test",
+              "lastName": "User8",
+              "email": "user8@example.com",
+              "globalRole": "Limited Access",
+              "isEnabled": false,
+              "updatedAt": "2025-11-05T11:16:33.520Z"
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000000009",
+              "firstName": "Test",
+              "lastName": "User9",
+              "email": "user9@example.com",
+              "globalRole": "Limited Access",
+              "isEnabled": false,
+              "updatedAt": "2025-11-06T23:32:45.905Z"
+            },
+            {
+              "id": "00000000-0000-0000-0000-00000000000a",
+              "firstName": "Test",
+              "lastName": "User10",
+              "email": "user10@example.com",
+              "globalRole": "Limited Access",
+              "isEnabled": false,
+              "updatedAt": "2025-11-06T23:32:45.887Z"
+            },
+            {
+              "id": "00000000-0000-0000-0000-00000000000b",
+              "firstName": "Test",
+              "lastName": "User11",
+              "email": "user11@example.com",
+              "globalRole": "Limited Access",
+              "isEnabled": false,
+              "updatedAt": "2025-11-06T23:32:45.898Z"
+            },
+            {
+              "id": "00000000-0000-0000-0000-00000000000c",
+              "firstName": "Test",
+              "lastName": "User12",
+              "email": "user12@example.com",
+              "globalRole": "Limited Access",
+              "isEnabled": false,
+              "updatedAt": "2025-11-06T23:32:45.878Z"
+            },
+            {
+              "id": "00000000-0000-0000-0000-00000000000d",
+              "firstName": "Test",
+              "lastName": "User13",
+              "email": "user13@example.com",
+              "globalRole": "Limited Access",
+              "isEnabled": false,
+              "updatedAt": "2025-11-06T23:32:45.896Z"
+            },
+            {
+              "id": "00000000-0000-0000-0000-00000000000e",
+              "firstName": "Test",
+              "lastName": "User14",
+              "email": "user14@example.com",
+              "globalRole": "Limited Access",
+              "isEnabled": false,
+              "updatedAt": "2025-11-06T23:32:45.885Z"
+            },
+            {
+              "id": "00000000-0000-0000-0000-00000000000f",
+              "firstName": "Test",
+              "lastName": "User15",
+              "email": "user15@example.com",
+              "globalRole": "Limited Access",
+              "isEnabled": false,
+              "updatedAt": "2025-11-06T23:32:45.890Z"
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000000010",
+              "firstName": "Test",
+              "lastName": "User16",
+              "email": "user16@example.com",
+              "globalRole": "Limited Access",
+              "isEnabled": false,
+              "updatedAt": "2025-11-06T23:32:45.901Z"
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000000011",
+              "firstName": "Test",
+              "lastName": "User17",
+              "email": "user17@example.com",
+              "globalRole": "Limited Access",
+              "isEnabled": false,
+              "updatedAt": "2025-06-20T16:40:21.390Z"
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000000012",
+              "firstName": "Test",
+              "lastName": "User18",
+              "email": "user18@example.com",
+              "globalRole": "Limited Access",
+              "isEnabled": false,
+              "updatedAt": "2025-11-06T23:32:45.891Z"
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000000013",
+              "firstName": "Test",
+              "lastName": "User19",
+              "email": "user19@example.com",
+              "globalRole": "Limited Access",
+              "isEnabled": false,
+              "updatedAt": "2025-11-06T23:32:45.903Z"
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000000014",
+              "firstName": "Test",
+              "lastName": "User20",
+              "email": "user20@example.com",
+              "globalRole": "Limited Access",
+              "isEnabled": false,
+              "updatedAt": "2025-11-06T23:32:45.893Z"
+            }
+          ],
+          "moreDataAvailable": false,
+          "syncToken": "6WpGx7L3L"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 28 May 2026 21:07:58 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "1000",
+          "x-ratelimit-remaining": "958",
+          "x-ratelimit-reset": "+10000000001",
+          "x-ashby-request-id": "01KSR6MPBPTA6XT85BE9T1140F",
+          "referrer-policy": "same-origin",
+          "ashby-session-expiry-alert-level": "",
+          "vary": "Origin",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "cf-ray": "a0303b61bf9797a5-PDX",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "9a1efe7307d014d9a7250b7ae7635507c26c8dc0",
+        "request": {
+          "data": {
+            "limit": 100,
+            "includeDeactivated": true
+          }
+        }
+      }
+    }
+  }
+}

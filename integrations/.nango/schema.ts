@@ -8709,716 +8709,422 @@ export interface ActionOutput_asana_updatetask {
   permalink_url?: string | undefined;
 };
 
-export interface AshbyCandidate {
+export interface Application {
   id: string;
-  createdAt: Date;
-  name: string;
-  primaryEmailAddress: {  value: string;
-  type: string;
-  isPrimary: boolean;};
-  emailAddresses: string[];
-  primaryPhoneNumber: {  value: string;
-  type: string;
-  isPrimary: boolean;};
-  phoneNumbers: string[];
-  socialLinks: string[];
-  tags: string[];
-  position: string;
-  company: string;
-  school: string;
-  applicationIds: string[];
-  resumeFileHandle: {  id: string;
-  name: string;
-  handle: string;};
-  fileHandles: string[];
-  customFields: string[];
-  profileUrl: string;
+  candidate_id: string;
+  applied_at: string;
+  rejected_at: string | null;
+  last_activity_at: string;
   source: {  id: string;
+  public_name: string;};
+  credited_to: string;
+  rejection_reason: {  id: string;
+  name: string;
+  type: {  id: string;
+  name: string;};} | null;
+  jobs: ({  id: string;
+  name: string;})[];
+  job_post_id: string;
+  status: string;
+  current_stage: {  id: string;
+  name: string;};
+  deleted_at: string | null;
+};
+
+export interface SyncMetadata_ashby_applications {
+  created_after?: number | undefined;
+};
+
+export interface Candidate {
+  id: string;
+  first_name: string;
+  last_name: string;
+  company: string | null;
+  title: string | null;
+  attachments: ({  filename: string;
+  url: string;
+  type: string;
+  created_at: string;})[];
+  phone_numbers: ({  type: string;
+  value: string;})[];
+  email_addresses: ({  type: string;
+  value: string;
+  is_primary: boolean;})[];
+  social_media_addresses: ({  value: string;})[];
+  tags: string[];
+  educations: ({  id: string;
+  school_name: string;
+  degree: string;
+  discipline: string;
+  start_date: string;
+  end_date: string;})[];
+  employments: ({  id: string;
+  company_name: string;
   title: string;
-  isArchived: boolean;
-  sourceType: {  id: string;
-  title: string;
-  isArchived: boolean;};};
-  creditedToUser: {  id: string;
-  firstName: string;
-  lastName: string;
-  email: string;
-  globalRole: string;
-  isEnabled: boolean;
-  updatedAt: Date;};
+  start_date: string;
+  end_date: string;})[];
+  linked_user_ids: string[];
+  created_at: string;
+  updated_at: string | null;
+  last_activity: string | null;
+  deleted_at: string | null;
+  is_private: boolean;
+  applications: ({  id: string;
+  candidate_id: string;
+  applied_at: string;
+  rejected_at: string | null;
+  last_activity_at: string;
+  source: {  id: string;
+  public_name: string;};
+  credited_to: string;
+  rejection_reason: {  id: string;
+  name: string;
+  type: {  id: string;
+  name: string;};} | null;
+  jobs: ({  id: string;
+  name: string;})[];
+  job_post_id: string;
+  status: string;
+  current_stage: {  id: string;
+  name: string;};
+  deleted_at: string | null;})[];
+  application_ids: string[];
 };
 
 export interface SyncMetadata_ashby_candidates {
-  candidatelastsyncToken?: string | undefined;
+  limit?: number | undefined;
+  max_pages?: number | undefined;
 };
 
-export interface AshbyJob {
+export interface Department {
+  id: string;
+  name?: string | undefined;
+  externalName?: string | undefined;
+  isArchived?: boolean | undefined;
+  parentId?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+};
+
+export interface Interview {
   id: string;
   title: string;
-  confidential: boolean;
-  status: string;
-  employmentType: string;
-  locationId: string;
-  departmentId: string;
-  defaultInterviewPlanId: string;
-  interviewPlanIds: string[];
-  customFields: string[];
-  jobPostingIds: string[];
-  customRequisitionId: string;
-  hiringTeam: string[];
-  updatedAt: Date;
-  location: {  id: string;
-  name: string;
+  externalTitle?: string | undefined;
   isArchived: boolean;
-  address: {  postalAddress: {  addressCountry: string;
-  addressRegion: string;
-  addressLocality: string;};};
-  isRemote: boolean;};
-  openings: string[];
+  isDebrief?: boolean | undefined;
+  isFeedbackRequired: boolean;
+  isFeedbackRequested: boolean;
+  instructionsHtml?: string | undefined;
+  instructionsPlain?: string | undefined;
+  jobId?: string | undefined;
+  feedbackFormDefinitionId: string;
 };
 
-export interface SyncMetadata_ashby_jobs {
-  jobslastsyncToken?: string | undefined;
+export interface JobPosting {
+  id: string;
+  title: string;
+  jobId: string;
+  departmentName: string;
+  teamName: string;
+  locationName: string;
+  locationIds: {  primaryLocationId: string;
+  secondaryLocationIds: string[];};
+  workplaceType?: string | undefined;
+  employmentType: string;
+  isListed: boolean;
+  publishedDate: string;
+  applicationDeadline?: string | undefined;
+  externalLink?: string | undefined;
+  applyLink: string;
+  compensationTierSummary?: string | undefined;
+  shouldDisplayCompensationOnJobBoard: boolean;
+  updatedAt: string;
 };
 
-export interface ActionInput_ashby_applicationchangesource {
+export interface Job {
+  id: string;
+  name: string;
+  project_id: number;
+  pipeline_id: number;
+  ref?: string | undefined;
+  stage?: string | undefined;
+  status: string;
+  failure_reason?: string | undefined;
+  tag?: boolean | undefined;
+  web_url?: string | undefined;
+  created_at: string;
+  started_at?: string | undefined;
+  finished_at?: string | undefined;
+  duration?: number | undefined;
+  queued_duration?: number | undefined;
+  coverage?: number | undefined;
+  allow_failure?: boolean | undefined;
+  user_id?: number | undefined;
+  runner_id?: number | undefined;
+};
+
+export interface Source {
+  id: string;
+  title: string;
+  isArchived: boolean;
+  sourceType?: {  id: string;
+  title: string;
+  isArchived: boolean;} | undefined;
+};
+
+export interface ActionInput_ashby_changeapplicationsource {
+  /**
+   * The id of the application to update the source of. Example: "3ae2b801-19f6-41ef-ad28-214bd731948f"
+   */
   applicationId: string;
+  /**
+   * The source to set on the application. Pass null to unset an application's source. Example: "2c6991c5-c9e2-4af8-879e-29c5a9d26509"
+   */
   sourceId: string;
 };
 
-export interface ActionOutput_ashby_applicationchangesource {
-  success: boolean;
-  errors: string[];
-  results?: {  id: string;
-  createdAt: Date;
-  updatedAt: Date;
+export interface ActionOutput_ashby_changeapplicationsource {
+  id: string;
   status: string;
-  customFields: ({})[];
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
   candidate: {  id: string;
-  name: string;
-  primaryEmailAddress?: {  value: string;
-  type?: any | undefined;
-  isPrimary: string;};
-  primaryPhoneNumber?: {} | undefined;};
-  currentInterviewStage: {  id: string;
-  title: string;
-  type: string;
-  orderInInterviewPlan: number;
-  interviewStageGroupId?: string | undefined;
-  interviewPlanId: string;};
-  source?: {  id: string;
-  title: string;
-  isArchived: boolean;
-  sourceType: {  id: string;
-  title: string;
-  isArchived: boolean;};} | undefined;
-  archiveReason?: {  id: string;
-  text: string;
-  reasonType: string;
-  isArchived: boolean;} | undefined;
-  archivedAt?: Date | undefined;
+  name?: string | undefined;};
+  currentInterviewStage?: {  id: string;
+  title?: string | undefined;};
   job: {  id: string;
-  title: string;
-  locationId: string;
-  departmentId: string;};
-  creditedToUser?: {  id: string;
-  firstName: string;
-  lastName: string;
-  email?: string | undefined;
-  globalRole: string;
-  isEnabled: boolean;
-  updatedAt: Date;};
-  hiringTeam: ({  email: string;
-  firstName: string;
-  lastName: string;
-  role: string;
-  userId: string;})[];
-  appliedViaJobPostingId?: string | undefined;} | {  id: string;
-  createdAt?: Date | undefined;
-  updatedAt?: Date | undefined;
-  name: string;
-  primaryEmailAddress?: {  value: string;
-  type: string;
-  isPrimary: boolean;} | undefined;
-  emailAddresses: ({  value: string;
-  type: string;
-  isPrimary: boolean;})[];
-  primaryPhoneNumber: ({  value: string;
-  type: string;
-  isPrimary: boolean;})[];
-  phoneNumbers: ({  value: string;
-  type: string;
-  isPrimary: boolean;})[];
-  socialLinks: ({  type: string;
-  url: string;})[];
-  tags: ({  id: string;
-  title: string;
-  isArchived: boolean;})[];
-  position?: string | null | undefined;
-  company?: string | null | undefined;
-  applicationIds: string[];
-  resumeFileHandle?: {  id: string;
-  name: string;
-  handle: string;} | undefined;
-  fileHandles: ({  id: string;
-  name: string;
-  handle: string;})[];
-  customFields: ({})[];
-  profileUrl: string;
+  title?: string | undefined;};
   source?: {  id: string;
-  title: string;
-  isArchived: boolean;
-  sourceType?: {  id: string;
-  title: string;
-  isArchived: string;} | undefined;};
-  creditedToUser?: {  id: string;
-  firstName: string;
-  lastName: string;
-  email: string;
-  globalRole: string;
-  isEnabled: boolean;
-  updatedAt: Date;} | undefined;
-  timezone?: string | undefined;
-  primaryLocation?: {  id: string;
-  locationSummary: string;
-  locationComponents: ({  type: string;
-  name: string;})[];} | undefined;} | {  id: string;
-  title: string;
-  type: string;
-  orderInInterviewPlan: number;
-  interviewStageGroupId?: string | undefined;
-  interviewPlanId: string;};
-  moreDataAvailable?: boolean | undefined;
+  title?: string | undefined;};
 };
 
-export interface ActionInput_ashby_applicationchangestage {
+export interface ActionInput_ashby_changeapplicationstage {
+  /**
+   * The id of the application to update the stage of. Example: "3ae2b801-19f6-41ef-ad28-214bd731948f"
+   */
   applicationId: string;
+  /**
+   * The interview stage to move the application to. Example: "2c6991c5-c9e2-4af8-879e-29c5a9d26509"
+   */
   interviewStageId: string;
+  /**
+   * Archive reason to set when moving to an Interview Stage with type: Archived. Required when moving to an Archived stage.
+   */
   archiveReasonId?: string | undefined;
+  /**
+   * Email to send to the candidate when moving to an Interview Stage with type: Archived.
+   */
+  archiveEmail?: {  /**
+   * The id of the communication template to use for the email.
+   */
+  communicationTemplateId: string;
+  /**
+   * ISO 8601 date-time to send the email. If omitted, scheduled for the following morning at 9:32am in the default timezone.
+   */
+  sendAt?: string | undefined;};
 };
 
-export interface ActionOutput_ashby_applicationchangestage {
-  success: boolean;
-  errors: string[];
-  results?: {  id: string;
-  createdAt: Date;
-  updatedAt: Date;
+export interface ActionOutput_ashby_changeapplicationstage {
+  id: string;
+  createdAt: string;
+  updatedAt: string;
   status: string;
-  customFields: ({})[];
   candidate: {  id: string;
-  name: string;
-  primaryEmailAddress?: {  value: string;
-  type?: any | undefined;
-  isPrimary: string;};
-  primaryPhoneNumber?: {} | undefined;};
-  currentInterviewStage: {  id: string;
-  title: string;
-  type: string;
-  orderInInterviewPlan: number;
-  interviewStageGroupId?: string | undefined;
-  interviewPlanId: string;};
-  source?: {  id: string;
-  title: string;
-  isArchived: boolean;
-  sourceType: {  id: string;
-  title: string;
-  isArchived: boolean;};} | undefined;
-  archiveReason?: {  id: string;
-  text: string;
-  reasonType: string;
-  isArchived: boolean;} | undefined;
-  archivedAt?: Date | undefined;
-  job: {  id: string;
-  title: string;
-  locationId: string;
-  departmentId: string;};
-  creditedToUser?: {  id: string;
-  firstName: string;
-  lastName: string;
-  email?: string | undefined;
-  globalRole: string;
-  isEnabled: boolean;
-  updatedAt: Date;};
-  hiringTeam: ({  email: string;
-  firstName: string;
-  lastName: string;
-  role: string;
-  userId: string;})[];
-  appliedViaJobPostingId?: string | undefined;} | {  id: string;
-  createdAt?: Date | undefined;
-  updatedAt?: Date | undefined;
   name: string;
   primaryEmailAddress?: {  value: string;
   type: string;
   isPrimary: boolean;} | undefined;
-  emailAddresses: ({  value: string;
+  primaryPhoneNumber?: {  value: string;
   type: string;
-  isPrimary: boolean;})[];
-  primaryPhoneNumber: ({  value: string;
-  type: string;
-  isPrimary: boolean;})[];
-  phoneNumbers: ({  value: string;
-  type: string;
-  isPrimary: boolean;})[];
-  socialLinks: ({  type: string;
-  url: string;})[];
-  tags: ({  id: string;
-  title: string;
-  isArchived: boolean;})[];
-  position?: string | null | undefined;
-  company?: string | null | undefined;
-  applicationIds: string[];
-  resumeFileHandle?: {  id: string;
-  name: string;
-  handle: string;} | undefined;
-  fileHandles: ({  id: string;
-  name: string;
-  handle: string;})[];
-  customFields: ({})[];
-  profileUrl: string;
-  source?: {  id: string;
-  title: string;
-  isArchived: boolean;
-  sourceType?: {  id: string;
-  title: string;
-  isArchived: string;} | undefined;};
-  creditedToUser?: {  id: string;
-  firstName: string;
-  lastName: string;
-  email: string;
-  globalRole: string;
-  isEnabled: boolean;
-  updatedAt: Date;} | undefined;
-  timezone?: string | undefined;
-  primaryLocation?: {  id: string;
-  locationSummary: string;
-  locationComponents: ({  type: string;
-  name: string;})[];} | undefined;} | {  id: string;
-  title: string;
-  type: string;
-  orderInInterviewPlan: number;
-  interviewStageGroupId?: string | undefined;
-  interviewPlanId: string;};
-  moreDataAvailable?: boolean | undefined;
-};
-
-export interface ActionInput_ashby_applicationupdate {
-  0: {  applicationId: string;
-  sourceId: string;};
-  1: {  applicationId: string;
-  interviewStageId: string;
-  archiveReasonId?: string | undefined;};
-  2: {  applicationId: string;
-  applicationHistory: ({  stageId: string;
-  stageNumber: number;
-  enteredStageAt: Date;
-  applicationHistoryId?: string | undefined;
-  archiveReasonId?: string | undefined;})[];};
-};
-
-export interface ActionOutput_ashby_applicationupdate {
-  success: boolean;
-  errors: string[];
-  results?: {  id: string;
-  createdAt: Date;
-  updatedAt: Date;
-  status: string;
-  customFields: ({})[];
-  candidate: {  id: string;
-  name: string;
-  primaryEmailAddress?: {  value: string;
-  type?: any | undefined;
-  isPrimary: string;};
-  primaryPhoneNumber?: {} | undefined;};
+  isPrimary: boolean;} | undefined;};
+  customFields?: ({})[] | undefined;
   currentInterviewStage: {  id: string;
   title: string;
   type: string;
-  orderInInterviewPlan: number;
-  interviewStageGroupId?: string | undefined;
-  interviewPlanId: string;};
+  interviewPlanId?: string | undefined;
+  orderInInterviewPlan?: number | undefined;
+  interviewStageGroupId?: string | undefined;};
   source?: {  id: string;
   title: string;
-  isArchived: boolean;
-  sourceType: {  id: string;
-  title: string;
-  isArchived: boolean;};} | undefined;
-  archiveReason?: {  id: string;
-  text: string;
-  reasonType: string;
-  isArchived: boolean;} | undefined;
-  archivedAt?: Date | undefined;
-  job: {  id: string;
-  title: string;
-  locationId: string;
-  departmentId: string;};
-  creditedToUser?: {  id: string;
-  firstName: string;
-  lastName: string;
-  email?: string | undefined;
-  globalRole: string;
-  isEnabled: boolean;
-  updatedAt: Date;};
-  hiringTeam: ({  email: string;
-  firstName: string;
-  lastName: string;
-  role: string;
-  userId: string;})[];
-  appliedViaJobPostingId?: string | undefined;} | {  id: string;
-  createdAt?: Date | undefined;
-  updatedAt?: Date | undefined;
-  name: string;
-  primaryEmailAddress?: {  value: string;
-  type: string;
-  isPrimary: boolean;} | undefined;
-  emailAddresses: ({  value: string;
-  type: string;
-  isPrimary: boolean;})[];
-  primaryPhoneNumber: ({  value: string;
-  type: string;
-  isPrimary: boolean;})[];
-  phoneNumbers: ({  value: string;
-  type: string;
-  isPrimary: boolean;})[];
-  socialLinks: ({  type: string;
-  url: string;})[];
-  tags: ({  id: string;
-  title: string;
-  isArchived: boolean;})[];
-  position?: string | null | undefined;
-  company?: string | null | undefined;
-  applicationIds: string[];
-  resumeFileHandle?: {  id: string;
-  name: string;
-  handle: string;} | undefined;
-  fileHandles: ({  id: string;
-  name: string;
-  handle: string;})[];
-  customFields: ({})[];
-  profileUrl: string;
-  source?: {  id: string;
-  title: string;
-  isArchived: boolean;
+  isArchived?: boolean | undefined;
   sourceType?: {  id: string;
   title: string;
-  isArchived: string;} | undefined;};
-  creditedToUser?: {  id: string;
-  firstName: string;
-  lastName: string;
-  email: string;
-  globalRole: string;
-  isEnabled: boolean;
-  updatedAt: Date;} | undefined;
-  timezone?: string | undefined;
-  primaryLocation?: {  id: string;
-  locationSummary: string;
-  locationComponents: ({  type: string;
-  name: string;})[];} | undefined;} | {  id: string;
-  title: string;
-  type: string;
-  orderInInterviewPlan: number;
-  interviewStageGroupId?: string | undefined;
-  interviewPlanId: string;};
-  moreDataAvailable?: boolean | undefined;
-};
-
-export interface ActionInput_ashby_applicationupdatehistory {
-  applicationId: string;
-  applicationHistory: ({  stageId: string;
-  stageNumber: number;
-  enteredStageAt: Date;
-  applicationHistoryId?: string | undefined;
-  archiveReasonId?: string | undefined;})[];
-};
-
-export interface ActionOutput_ashby_applicationupdatehistory {
-  success: boolean;
-  errors: string[];
-  results?: {  id: string;
-  createdAt: Date;
-  updatedAt: Date;
-  status: string;
-  customFields: ({})[];
-  candidate: {  id: string;
-  name: string;
-  primaryEmailAddress?: {  value: string;
-  type?: any | undefined;
-  isPrimary: string;};
-  primaryPhoneNumber?: {} | undefined;};
-  currentInterviewStage: {  id: string;
-  title: string;
-  type: string;
-  orderInInterviewPlan: number;
-  interviewStageGroupId?: string | undefined;
-  interviewPlanId: string;};
-  source?: {  id: string;
-  title: string;
-  isArchived: boolean;
-  sourceType: {  id: string;
-  title: string;
-  isArchived: boolean;};} | undefined;
+  isArchived?: boolean | undefined;};};
+  creditedToUser?: unknown | undefined;
   archiveReason?: {  id: string;
   text: string;
-  reasonType: string;
-  isArchived: boolean;} | undefined;
-  archivedAt?: Date | undefined;
+  reasonType?: string | undefined;
+  isArchived?: boolean | undefined;
+  customFields?: ({})[] | undefined;};
   job: {  id: string;
   title: string;
-  locationId: string;
-  departmentId: string;};
-  creditedToUser?: {  id: string;
-  firstName: string;
-  lastName: string;
-  email?: string | undefined;
-  globalRole: string;
-  isEnabled: boolean;
-  updatedAt: Date;};
-  hiringTeam: ({  email: string;
-  firstName: string;
-  lastName: string;
-  role: string;
-  userId: string;})[];
-  appliedViaJobPostingId?: string | undefined;} | {  id: string;
-  createdAt?: Date | undefined;
-  updatedAt?: Date | undefined;
-  name: string;
-  primaryEmailAddress?: {  value: string;
-  type: string;
-  isPrimary: boolean;} | undefined;
-  emailAddresses: ({  value: string;
-  type: string;
-  isPrimary: boolean;})[];
-  primaryPhoneNumber: ({  value: string;
-  type: string;
-  isPrimary: boolean;})[];
-  phoneNumbers: ({  value: string;
-  type: string;
-  isPrimary: boolean;})[];
-  socialLinks: ({  type: string;
-  url: string;})[];
-  tags: ({  id: string;
-  title: string;
-  isArchived: boolean;})[];
-  position?: string | null | undefined;
-  company?: string | null | undefined;
-  applicationIds: string[];
-  resumeFileHandle?: {  id: string;
-  name: string;
-  handle: string;} | undefined;
-  fileHandles: ({  id: string;
-  name: string;
-  handle: string;})[];
-  customFields: ({})[];
-  profileUrl: string;
-  source?: {  id: string;
-  title: string;
-  isArchived: boolean;
-  sourceType?: {  id: string;
-  title: string;
-  isArchived: string;} | undefined;};
-  creditedToUser?: {  id: string;
-  firstName: string;
-  lastName: string;
-  email: string;
-  globalRole: string;
-  isEnabled: boolean;
-  updatedAt: Date;} | undefined;
-  timezone?: string | undefined;
-  primaryLocation?: {  id: string;
-  locationSummary: string;
-  locationComponents: ({  type: string;
-  name: string;})[];} | undefined;} | {  id: string;
-  title: string;
-  type: string;
-  orderInInterviewPlan: number;
-  interviewStageGroupId?: string | undefined;
-  interviewPlanId: string;};
-  moreDataAvailable?: boolean | undefined;
+  locationId?: string | undefined;
+  departmentId?: string | undefined;
+  brandId?: string | undefined;};
+  hiringTeam?: ({})[] | undefined;
+  appliedViaJobPostingId?: string | undefined;
+  submitterClientIp?: string | undefined;
+  submitterUserAgent?: string | undefined;
 };
 
 export interface ActionInput_ashby_createapplication {
+  /**
+   * The id of the candidate to consider for a job. Example: "3ae2b801-19f6-41ef-ad28-214bd731948f"
+   */
   candidateId: string;
+  /**
+   * The id of the job to consider the candidate for. Example: "2c6991c5-c9e2-4af8-879e-29c5a9d26509"
+   */
   jobId: string;
-  interviewPlanId: string;
-  interviewStageId: string;
-  sourceId: string;
-  creditedToUserId: string;
+  /**
+   * The id of the interview plan to place the application in.
+   */
+  interviewPlanId?: string | undefined;
+  /**
+   * The interview stage to place the application in.
+   */
+  interviewStageId?: string | undefined;
+  /**
+   * The source to set on the application being created.
+   */
+  sourceId?: string | undefined;
+  /**
+   * The id of the user the application will be credited to.
+   */
+  creditedToUserId?: string | undefined;
+  /**
+   * An ISO date string to set the application createdAt timestamp.
+   */
+  createdAt?: string | undefined;
+  /**
+   * An array of objects representing the application history.
+   */
+  applicationHistory?: ({  stageId: string;
+  stageNumber: number;
+  enteredStageAt: string;
+  archiveReasonId?: string | undefined;})[];
 };
 
 export interface ActionOutput_ashby_createapplication {
   id: string;
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt: string;
+  updatedAt: string;
   status: string;
-  customFields: string[];
   candidate: {  id: string;
-  name: string;
-  primaryEmailAddress: {  value: string;
-  type: string;
-  isPrimary: boolean;};
-  primaryPhoneNumber: {  value: string;
-  type: string;
-  isPrimary: boolean;};};
-  currentInterviewStage: {  id: string;
-  title: string;
-  type: string;
-  orderInInterviewPlan: number;
-  interviewPlanId: string;};
-  source: {  id: string;
-  title: string;
-  isArchived: boolean;
-  sourceType: {  id: string;
-  title: string;
-  isArchived: boolean;};};
-  archiveReason: {  id: string;
-  text: string;
-  reasonType: string;
-  isArchived: boolean;};
+  name?: string | undefined;};
   job: {  id: string;
-  title: string;
-  locationId: string;
-  departmentId: string;};
-  creditedToUser: {  id: string;
-  firstName: string;
-  lastName: string;
-  email: string;
-  globalRole: string;
-  isEnabled: boolean;
-  updatedAt: Date;};
-  hiringTeam: string[];
-  appliedViaJobPostingId: string;
+  title?: string | undefined;};
+  currentInterviewStage: {  id: string;
+  name?: string | undefined;};
+  source?: {  id: string;
+  name?: string | undefined;};
+  archiveReason?: {  id: string;
+  name?: string | undefined;};
+  archivedAt?: string | undefined;
+  creditedToUser?: {  id: string;
+  name?: string | undefined;};
+  appliedViaJobPostingId?: string | undefined;
+  customFields?: unknown[] | undefined;
+  hiringTeam: unknown[];
 };
 
 export interface ActionInput_ashby_createcandidate {
+  /**
+   * The first and last name of the candidate to be created.
+   */
+  name: string;
+  /**
+   * Primary, personal email of the candidate to be created.
+   */
+  email?: string | undefined;
+  /**
+   * Primary, personal phone number of the candidate to be created.
+   */
+  phoneNumber?: string | undefined;
+  /**
+   * Url to the candidate's LinkedIn profile.
+   */
+  linkedInUrl?: string | undefined;
+  /**
+   * Url to the candidate's Github profile.
+   */
+  githubUrl?: string | undefined;
+  /**
+   * Url of the candidate's website.
+   */
+  website?: string | undefined;
+  /**
+   * Array of alternate email addresses to add to the candidate profile.
+   */
+  alternateEmailAddresses?: string[] | undefined;
+  /**
+   * The source to set on the candidate being created.
+   */
+  sourceId?: string | undefined;
+  /**
+   * The id of the user the candidate will be credited to.
+   */
+  creditedToUserId?: string | undefined;
+  /**
+   * The location of the candidate.
+   */
+  location?: {  city?: string | undefined;
+  region?: string | undefined;
+  country?: string | undefined;};
+  /**
+   * An ISO date string to set the candidate's createdAt timestamp.
+   */
+  createdAt?: string | undefined;
+};
+
+export interface ActionOutput_ashby_createcandidate {
+  id: string;
   name: string;
   email?: string | undefined;
   phoneNumber?: string | undefined;
   linkedInUrl?: string | undefined;
   githubUrl?: string | undefined;
   website?: string | undefined;
-  alternateEmailAddresses: string[];
+  profileUrl?: string | undefined;
   sourceId?: string | undefined;
   creditedToUserId?: string | undefined;
-  location?: {  city?: string | undefined;
-  region?: string | undefined;
-  country?: string | undefined;};
-  createdAt?: Date | undefined;
-};
-
-export interface ActionOutput_ashby_createcandidate {
-  success: boolean;
-  errors: string[];
-  results?: {  id: string;
-  createdAt: Date;
-  updatedAt: Date;
-  status: string;
-  customFields: ({})[];
-  candidate: {  id: string;
-  name: string;
-  primaryEmailAddress?: {  value: string;
-  type?: any | undefined;
-  isPrimary: string;};
-  primaryPhoneNumber?: {} | undefined;};
-  currentInterviewStage: {  id: string;
-  title: string;
-  type: string;
-  orderInInterviewPlan: number;
-  interviewStageGroupId?: string | undefined;
-  interviewPlanId: string;};
-  source?: {  id: string;
-  title: string;
-  isArchived: boolean;
-  sourceType: {  id: string;
-  title: string;
-  isArchived: boolean;};} | undefined;
-  archiveReason?: {  id: string;
-  text: string;
-  reasonType: string;
-  isArchived: boolean;} | undefined;
-  archivedAt?: Date | undefined;
-  job: {  id: string;
-  title: string;
-  locationId: string;
-  departmentId: string;};
-  creditedToUser?: {  id: string;
-  firstName: string;
-  lastName: string;
-  email?: string | undefined;
-  globalRole: string;
-  isEnabled: boolean;
-  updatedAt: Date;};
-  hiringTeam: ({  email: string;
-  firstName: string;
-  lastName: string;
-  role: string;
-  userId: string;})[];
-  appliedViaJobPostingId?: string | undefined;} | {  id: string;
-  createdAt?: Date | undefined;
-  updatedAt?: Date | undefined;
-  name: string;
-  primaryEmailAddress?: {  value: string;
-  type: string;
-  isPrimary: boolean;} | undefined;
-  emailAddresses: ({  value: string;
-  type: string;
-  isPrimary: boolean;})[];
-  primaryPhoneNumber: ({  value: string;
-  type: string;
-  isPrimary: boolean;})[];
-  phoneNumbers: ({  value: string;
-  type: string;
-  isPrimary: boolean;})[];
-  socialLinks: ({  type: string;
-  url: string;})[];
-  tags: ({  id: string;
-  title: string;
-  isArchived: boolean;})[];
-  position?: string | null | undefined;
-  company?: string | null | undefined;
-  applicationIds: string[];
-  resumeFileHandle?: {  id: string;
-  name: string;
-  handle: string;} | undefined;
-  fileHandles: ({  id: string;
-  name: string;
-  handle: string;})[];
-  customFields: ({})[];
-  profileUrl: string;
-  source?: {  id: string;
-  title: string;
-  isArchived: boolean;
-  sourceType?: {  id: string;
-  title: string;
-  isArchived: string;} | undefined;};
-  creditedToUser?: {  id: string;
-  firstName: string;
-  lastName: string;
-  email: string;
-  globalRole: string;
-  isEnabled: boolean;
-  updatedAt: Date;} | undefined;
-  timezone?: string | undefined;
-  primaryLocation?: {  id: string;
-  locationSummary: string;
-  locationComponents: ({  type: string;
-  name: string;})[];} | undefined;} | {  id: string;
-  title: string;
-  type: string;
-  orderInInterviewPlan: number;
-  interviewStageGroupId?: string | undefined;
-  interviewPlanId: string;};
-  moreDataAvailable?: boolean | undefined;
+  location?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
 };
 
 export interface ActionInput_ashby_createnote {
+  /**
+   * Candidate ID. Example: "e9ed20fd-d45f-4aad-8a00-a19bfba0083e"
+   */
   candidateId: string;
-  note: string | {  value: string;
-  type: string;};
-  sendNotifications: boolean;
+  /**
+   * The note content to add.
+   */
+  note: string;
+  /**
+   * Content type of the note. Defaults to text/plain.
+   */
+  noteType?: 'text/plain' | 'text/html' | undefined;
+  /**
+   * Whether subscribed users should be notified. Defaults to false.
+   */
+  sendNotifications?: boolean | undefined;
+  /**
+   * Whether the note should be marked as private. Defaults to false.
+   */
+  isPrivate?: boolean | undefined;
+  /**
+   * Optional ISO 8601 timestamp for when the note was created.
+   */
+  createdAt?: string | undefined;
 };
 
 export interface ActionOutput_ashby_createnote {
   id: string;
-  createdAt: Date;
+  candidateId: string;
+  createdAt: string;
+  isPrivate: boolean;
   content: string;
   author: {  id: string;
   firstName: string;
@@ -9426,17 +9132,681 @@ export interface ActionOutput_ashby_createnote {
   email: string;};
 };
 
-export interface ActionInput_ashby_interviewstage {
-  interviewPlanId: string;
+export interface ActionInput_ashby_getapplication {
+  /**
+   * The id of the application to fetch. Example: "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
+   */
+  applicationId: string;
 };
 
-export interface ActionOutput_ashby_interviewstage {
-  stages: ({  id: string;
-  title: string;
+export interface ActionOutput_ashby_getapplication {
+  application: {  id: string;
+  createdAt: string;
+  updatedAt: string;
+  status: string;
+  candidate: {  id: string;
+  name: string;
+  primaryEmailAddress?: {  value: string;
   type: string;
-  orderInInterviewPlan: number;
-  interviewStageGroupId?: string | undefined;
-  interviewPlanId: string;})[];
+  isPrimary: boolean;} | undefined;
+  primaryPhoneNumber?: {  value: string;
+  type: string;
+  isPrimary: boolean;} | undefined;};
+  currentInterviewStage: {  id: string;
+  title: string;};
+  job: {  id: string;
+  title: string;
+  locationId?: string | undefined;
+  departmentId?: string | undefined;};
+  hiringTeam: ({  userId: string;})[];
+  source?: {  id: string;
+  title: string;} | undefined;
+  archiveReason?: {} | undefined;
+  archivedAt?: string | undefined;
+  creditedToUser?: {  id: string;} | undefined;
+  appliedViaJobPostingId?: string | undefined;
+  submitterClientIp?: string | undefined;
+  submitterUserAgent?: string | undefined;
+  customFields?: ({})[] | undefined;
+  resumeFileHandle?: {} | undefined;
+  openings?: ({})[] | undefined;
+  applicationHistory?: ({})[] | undefined;
+  applicationFormSubmissions?: ({})[] | undefined;
+  referrals?: ({})[] | undefined;};
+};
+
+export interface ActionInput_ashby_getcandidate {
+  /**
+   * The unique id of the candidate to retrieve. Example: "f9e52a51-a075-4116-a7b8-484deba69004"
+   */
+  id: string;
+};
+
+export interface ActionOutput_ashby_getcandidate {
+  id: string;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  name: string;
+  primaryEmailAddress?: {  value: string;
+  type: string;
+  isPrimary: boolean;} | undefined;
+  emailAddresses: ({  value: string;
+  type: string;
+  isPrimary: boolean;})[];
+  primaryPhoneNumber?: {  value: string;
+  type: string;
+  isPrimary: boolean;} | undefined;
+  phoneNumbers: ({  value: string;
+  type: string;
+  isPrimary: boolean;})[];
+  socialLinks: ({  type: string;
+  url: string;})[];
+  tags: ({  [key: string]: unknown | undefined;})[];
+  position?: string | undefined;
+  company?: string | undefined;
+  school?: string | undefined;
+  applicationIds: string[];
+  resumeFileHandle?: {  id: string;
+  name: string;
+  handle: string;} | undefined;
+  fileHandles: ({  id: string;
+  name: string;
+  handle: string;})[];
+  customFields: ({  [key: string]: unknown | undefined;})[];
+  profileUrl: string;
+  source?: {  [key: string]: unknown | undefined;};
+  creditedToUser?: {  [key: string]: unknown | undefined;};
+  timezone?: string | undefined;
+  location?: {  id: string;
+  locationSummary: string;
+  locationComponents: ({  type: 'Country' | 'Region' | 'City';
+  name: string;})[];} | undefined;
+  fraudStatus?: 'Fraudulent' | 'NotFraudulent' | 'Unsure' | 'Unreviewed' | 'PassedFraudCheck' | undefined;
+};
+
+export interface ActionInput_ashby_getdepartment {
+  /**
+   * The unique id of the department whose details will be fetched. Example: "148bea15-9b05-4aae-97a0-7886df2d549f"
+   */
+  departmentId: string;
+};
+
+export interface ActionOutput_ashby_getdepartment {
+  id: string;
+  name: string;
+  externalName?: string | undefined;
+  isArchived: boolean;
+  parentId?: string | undefined;
+  createdAt: string;
+  updatedAt: string;
+  extraData?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_ashby_getinterview {
+  /**
+   * The unique id of the interview whose details will be fetched. Example: "3ae2b801-19f6-41ef-ad28-214bd731948f"
+   */
+  id: string;
+};
+
+export interface ActionOutput_ashby_getinterview {
+  id: string;
+  title: string;
+  externalTitle?: string | undefined;
+  isArchived: boolean;
+  isDebrief?: boolean | undefined;
+  isFeedbackRequired: boolean;
+  isFeedbackRequested: boolean;
+  instructionsHtml?: string | undefined;
+  instructionsPlain?: string | undefined;
+  jobId?: string | undefined;
+  feedbackFormDefinitionId?: string | undefined;
+};
+
+export interface ActionInput_ashby_getjobposting {
+  /**
+   * The id of the job posting to return. Example: "4be0e8c0-9323-43a0-ab48-506789ab9c16"
+   */
+  jobPostingId: string;
+  /**
+   * If provided, returns the job posting data for the specified job board.
+   */
+  jobBoardId?: string | undefined;
+  /**
+   * Choose to expand the result and include additional data for related objects. Example: ["job"]
+   */
+  expand?: string[] | undefined;
+};
+
+export interface ActionOutput_ashby_getjobposting {
+  id: string;
+  title: string;
+  descriptionPlain: string;
+  descriptionHtml: string;
+  descriptionSocial?: string | undefined;
+  descriptionParts: {  descriptionOpening?: {  html?: string | undefined;
+  plain?: string | undefined;};
+  descriptionBody: {  html?: string | undefined;
+  plain?: string | undefined;};
+  descriptionClosing?: {  html?: string | undefined;
+  plain?: string | undefined;};};
+  departmentName: string;
+  teamName: string;
+  teamNameHierarchy?: string[] | undefined;
+  jobId: string;
+  locationName: string;
+  locationIds?: unknown | undefined;
+  linkedData: {  [key: string]: unknown | undefined;};
+  publishedDate: string;
+  applicationDeadline?: string | undefined;
+  address?: {  [key: string]: unknown | undefined;};
+  isRemote?: boolean | undefined;
+  workplaceType?: string | undefined;
+  employmentType: string;
+  applicationFormDefinition: {  [key: string]: unknown | undefined;};
+  surveyFormDefinitions: ({  [key: string]: unknown | undefined;})[];
+  isListed: boolean;
+  suppressDescriptionOpening?: boolean | undefined;
+  suppressDescriptionClosing?: boolean | undefined;
+  externalLink?: string | undefined;
+  applyLink: string;
+  compensation?: {  [key: string]: unknown | undefined;};
+  updatedAt: string;
+  applicationLimitCalloutHtml?: string | undefined;
+};
+
+export interface ActionInput_ashby_getjob {
+  /**
+   * The id of the job to fetch. Example: "abc123"
+   */
+  id: string;
+  includeUnpublishedJobPostingsIds?: boolean | undefined;
+  expand?: ({  0: 'location';
+  1: 'openings';})[] | undefined;
+};
+
+export interface ActionOutput_ashby_getjob {
+  id: string;
+  title: string;
+  confidential: boolean;
+  /**
+   * Job status. Example: "Open"
+   */
+  status: string;
+  /**
+   * Employment type. Example: "FullTime"
+   */
+  employmentType: string;
+  locationId?: string | undefined;
+  departmentId?: string | undefined;
+  defaultInterviewPlanId?: string | undefined;
+  interviewPlanIds?: string[] | undefined;
+  customFields?: unknown[] | undefined;
+  jobPostingIds?: string[] | undefined;
+  customRequisitionId?: string | undefined;
+  brandId?: string | undefined;
+  hiringTeam?: unknown[] | undefined;
+  author?: unknown | undefined;
+  createdAt?: string | undefined;
+  updatedAt: string;
+  openedAt?: string | undefined;
+  closedAt?: string | undefined;
+  location?: unknown | undefined;
+  openings?: unknown[] | undefined;
+  compensation?: unknown | undefined;
+};
+
+export interface ActionInput_ashby_getsource {
+  /**
+   * Source ID. Example: "747a6dfa-389e-4d47-a840-308a12e4fd1c"
+   */
+  sourceId: string;
+};
+
+export interface ActionOutput_ashby_getsource {
+  id: string;
+  title: string;
+  isArchived: boolean;
+  sourceType?: {  id: string;
+  title: string;
+  isArchived: boolean;} | undefined;
+};
+
+export interface ActionInput_ashby_getuser {
+  /**
+   * The id to lookup the user. Example: "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
+   */
+  userId: string;
+};
+
+export interface ActionOutput_ashby_getuser {
+  id: string;
+  firstName: string;
+  lastName: string;
+  email?: string | undefined;
+  globalRole: string;
+  isEnabled: boolean;
+  updatedAt: string;
+  managerId?: string | undefined;
+  customFields?: unknown[] | undefined;
+};
+
+export interface ActionInput_ashby_listapplications {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * The maximum number of items to return. The maximum and default value is 100.
+   */
+  limit?: number | undefined;
+  /**
+   * Filter by application status.
+   */
+  status?: 'Hired' | 'Archived' | 'Active' | 'Lead' | undefined;
+  /**
+   * Filter by job ID.
+   */
+  jobId?: string | undefined;
+  /**
+   * Opaque token for incremental synchronization.
+   */
+  syncToken?: string | undefined;
+  /**
+   * Unix epoch timestamp in milliseconds. Return data created after this date.
+   */
+  createdAfter?: number | undefined;
+};
+
+export interface ActionOutput_ashby_listapplications {
+  items: ({  id: string;})[];
+  nextCursor?: string | undefined;
+  moreDataAvailable: boolean;
+  syncToken?: string | undefined;
+};
+
+export interface ActionInput_ashby_listcandidates {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * The maximum number of items to return. The maximum and default value is 100.
+   */
+  limit?: number | undefined;
+  /**
+   * The API will return data after this date, which is the time since the unix epoch in milliseconds.
+   */
+  createdAfter?: number | undefined;
+  /**
+   * An opaque token representing the last time the data was successfully synced from the API.
+   */
+  syncToken?: string | undefined;
+};
+
+export interface ActionOutput_ashby_listcandidates {
+  items: ({  id: string;
+  name?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  primaryEmailAddress?: string | undefined;
+  emailAddresses?: string[] | undefined;
+  phoneNumbers?: string[] | undefined;
+  socialLinks?: unknown[] | undefined;
+  tags?: unknown[] | undefined;
+  applicationIds?: string[] | undefined;
+  profileUrl?: string | undefined;
+  source?: unknown | undefined;
+  creditedToUser?: unknown | undefined;
+  timezone?: string | undefined;
+  isArchived?: boolean | undefined;})[];
+  nextCursor?: string | undefined;
+  syncToken?: string | undefined;
+};
+
+export interface ActionInput_ashby_listdepartments {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * The maximum number of items to return. The maximum and default value is 100.
+   */
+  limit?: number | undefined;
+  /**
+   * When true, includes archived items.
+   */
+  includeArchived?: boolean | undefined;
+  /**
+   * An opaque token representing the last time the data was successfully synced from the API.
+   */
+  syncToken?: string | undefined;
+};
+
+export interface ActionOutput_ashby_listdepartments {
+  items: ({  id: string;
+  name: string;
+  externalName?: string | undefined;
+  isArchived: boolean;
+  parentId?: string | undefined;
+  createdAt: string;
+  updatedAt: string;
+  extraData?: {  [key: string]: unknown | undefined;};})[];
+  nextCursor?: string | undefined;
+  moreDataAvailable: boolean;
+  syncToken?: string | undefined;
+};
+
+export interface ActionInput_ashby_listinterviews {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * The maximum number of items to return. The maximum and default value is 100.
+   */
+  limit?: number | undefined;
+  /**
+   * When true, includes archived items.
+   */
+  includeArchived?: boolean | undefined;
+  /**
+   * If true, interviews associated with specific jobs will be included in the response.
+   */
+  includeNonSharedInterviews?: boolean | undefined;
+  /**
+   * If true, interviews local to archived schedule templates are omitted from the response.
+   */
+  excludeArchivedScheduleTemplateInterviews?: boolean | undefined;
+};
+
+export interface ActionOutput_ashby_listinterviews {
+  items: ({  id: string;
+  title: string;
+  externalTitle: string;
+  isArchived: boolean;
+  isDebrief: boolean;
+  isFeedbackRequired: boolean;
+  isFeedbackRequested: boolean;
+  instructionsHtml?: string | undefined;
+  instructionsPlain?: string | undefined;
+  feedbackFormDefinitionId?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_ashby_listjobpostings {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Filter by location name (case sensitive)
+   */
+  location?: string | undefined;
+  /**
+   * Filter by department name (case sensitive)
+   */
+  department?: string | undefined;
+  /**
+   * If true, filter out unlisted job postings
+   */
+  listedOnly?: boolean | undefined;
+  /**
+   * If provided, only returns job postings on the specified job board
+   */
+  jobBoardId?: string | undefined;
+};
+
+export interface ActionOutput_ashby_listjobpostings {
+  items: ({  id: string;
+  title: string;
+  jobId: string;
+  departmentName: string;
+  teamName: string;
+  locationName: string;
+  locationIds: {  primaryLocationId: string;
+  secondaryLocationIds: string[];};
+  workplaceType?: string | undefined;
+  employmentType: string;
+  isListed: boolean;
+  publishedDate: string;
+  applicationDeadline?: string | undefined;
+  externalLink?: string | undefined;
+  applyLink: string;
+  compensationTierSummary?: string | undefined;
+  shouldDisplayCompensationOnJobBoard: boolean;
+  updatedAt: string;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_ashby_listjobs {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum number of items to return. The maximum and default value is 100.
+   */
+  limit?: number | undefined;
+  /**
+   * Filter by job statuses such as Draft, Open, Closed, or Archived.
+   */
+  status?: string[] | undefined;
+  /**
+   * Return jobs opened after this unix epoch timestamp in milliseconds.
+   */
+  openedAfter?: number | undefined;
+  /**
+   * Return jobs opened before this unix epoch timestamp in milliseconds.
+   */
+  openedBefore?: number | undefined;
+  /**
+   * Return jobs closed after this unix epoch timestamp in milliseconds.
+   */
+  closedAfter?: number | undefined;
+  /**
+   * Return jobs closed before this unix epoch timestamp in milliseconds.
+   */
+  closedBefore?: number | undefined;
+  /**
+   * Include unpublished job posting ids in the response.
+   */
+  includeUnpublishedJobPostingsIds?: boolean | undefined;
+};
+
+export interface ActionOutput_ashby_listjobs {
+  items: ({  id: string;
+  title: string;
+  confidential: boolean;
+  status: string;
+  employmentType?: string | undefined;
+  locationId?: string | undefined;
+  departmentId?: string | undefined;
+  defaultInterviewPlanId?: string | undefined;
+  interviewPlanIds?: string[] | undefined;
+  customFields?: unknown[] | undefined;
+  jobPostingIds?: string[] | undefined;
+  customRequisitionId?: string | undefined;
+  brandId?: string | undefined;
+  hiringTeam?: unknown[] | undefined;
+  author?: unknown | undefined;
+  createdAt?: string | undefined;
+  updatedAt: string;
+  openedAt?: string | undefined;
+  closedAt?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_ashby_listsources {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Defaults to the API limit.
+   */
+  limit?: number | undefined;
+  /**
+   * When true, includes archived items. Defaults to false.
+   */
+  includeArchived?: boolean | undefined;
+};
+
+export interface ActionOutput_ashby_listsources {
+  items: ({  id: string;
+  title: string;
+  isArchived?: boolean | undefined;
+  sourceType?: {  id: string;
+  title: string;
+  isArchived?: boolean | undefined;};})[];
+  next_cursor?: string | undefined;
+  sync_token?: string | undefined;
+};
+
+export interface ActionInput_ashby_listusers {
+  /**
+   * Opaque cursor indicating which page of results to fetch.
+   */
+  cursor?: string | undefined;
+  /**
+   * The maximum number of items to return. The maximum and default value is 100.
+   */
+  limit?: number | undefined;
+  /**
+   * If set to true, deactivated users are included in the response.
+   */
+  includeDeactivated?: boolean | undefined;
+  /**
+   * An opaque token representing the last time the data was successfully synced from the API.
+   */
+  syncToken?: string | undefined;
+};
+
+export interface ActionOutput_ashby_listusers {
+  items: ({  id: string;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  email?: string | undefined;
+  globalRole?: string | undefined;
+  isEnabled?: boolean | undefined;
+  updatedAt?: string | undefined;})[];
+  nextCursor?: string | undefined;
+  syncToken?: string | undefined;
+};
+
+export interface ActionInput_ashby_updateapplication {
+  /**
+   * The id of the application to update. Example: "3ae2b801-19f6-41ef-ad28-214bd731948f"
+   */
+  applicationId: string;
+  /**
+   * The source to set on the application.
+   */
+  sourceId?: string | undefined;
+  /**
+   * The id of the user the application will be credited to.
+   */
+  creditedToUserId?: string | undefined;
+  /**
+   * An ISO date string to set the application's createdAt timestamp.
+   */
+  createdAt?: string | undefined;
+  /**
+   * Whether users subscribed to the application should be notified. Default is true.
+   */
+  sendNotifications?: boolean | undefined;
+};
+
+export interface ActionOutput_ashby_updateapplication {
+  id: string;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  status?: string | undefined;
+  candidate?: {  id: string;
+  name?: string | undefined;};
+  currentInterviewStage?: {  id: string;
+  title?: string | undefined;};
+  job?: {  id: string;
+  title?: string | undefined;};
+};
+
+export interface ActionInput_ashby_updatecandidate {
+  /**
+   * The unique id of the candidate to update. Example: "f9e52a51-a075-4116-a7b8-484deba69004"
+   */
+  candidateId: string;
+  /**
+   * The first and last name of the candidate to update.
+   */
+  name?: string | undefined;
+  /**
+   * Primary, personal email of the candidate to update.
+   */
+  email?: string | undefined;
+  /**
+   * Primary, personal phone number of the candidate to update.
+   */
+  phoneNumber?: string | undefined;
+  /**
+   * Url to the candidate's LinkedIn profile.
+   */
+  linkedInUrl?: string | undefined;
+  /**
+   * Url to the candidate's Github profile.
+   */
+  githubUrl?: string | undefined;
+  /**
+   * Url of the candidate's website.
+   */
+  websiteUrl?: string | undefined;
+  /**
+   * An alternate email address to add to the candidate's profile.
+   */
+  alternateEmail?: string | undefined;
+  /**
+   * An array of social links to set on the candidate.
+   */
+  socialLinks?: ({  type: 'LinkedIn' | 'GitHub' | 'Twitter' | 'Medium' | 'StackOverflow' | 'YouTube' | 'CodePen' | 'Website';
+  url: string;})[] | undefined;
+  /**
+   * The id of source for this candidate.
+   */
+  sourceId?: string | undefined;
+  /**
+   * The id of the user the candidate will be credited to.
+   */
+  creditedToUserId?: string | undefined;
+  /**
+   * The location of the candidate.
+   */
+  location?: {  city?: string | undefined;
+  region?: string | undefined;
+  country?: string | undefined;};
+  /**
+   * An ISO date string to set the candidate's createdAt timestamp.
+   */
+  createdAt?: string | undefined;
+  /**
+   * Whether or not users who are subscribed to the candidate should be notified that candidate was updated.
+   */
+  sendNotifications?: boolean | undefined;
+};
+
+export interface ActionOutput_ashby_updatecandidate {
+  id: string;
+  name?: string | undefined;
+  primaryEmailAddress?: string | undefined;
+  primaryPhoneNumber?: string | undefined;
+  position?: string | undefined;
+  company?: string | undefined;
+  school?: string | undefined;
+  profileUrl?: string | undefined;
+  timezone?: string | undefined;
+  location?: string | undefined;
+  source?: string | undefined;
+  creditedToUser?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
 };
 
 export interface Company {
@@ -22187,85 +22557,7 @@ export interface ActionOutput_front_conversation {
   chat_visitor_url?: string | undefined;};})[];
 };
 
-export interface Application {
-  id: string;
-  candidate_id: string;
-  applied_at: string;
-  rejected_at: string | null;
-  last_activity_at: string;
-  source: {  id: string;
-  public_name: string;};
-  credited_to: string;
-  rejection_reason: {  id: string;
-  name: string;
-  type: {  id: string;
-  name: string;};} | null;
-  jobs: ({  id: string;
-  name: string;})[];
-  job_post_id: string;
-  status: string;
-  current_stage: {  id: string;
-  name: string;};
-  deleted_at: string | null;
-};
-
 export interface SyncMetadata_gem_applications {
-};
-
-export interface Candidate {
-  id: string;
-  first_name: string;
-  last_name: string;
-  company: string | null;
-  title: string | null;
-  attachments: ({  filename: string;
-  url: string;
-  type: string;
-  created_at: string;})[];
-  phone_numbers: ({  type: string;
-  value: string;})[];
-  email_addresses: ({  type: string;
-  value: string;
-  is_primary: boolean;})[];
-  social_media_addresses: ({  value: string;})[];
-  tags: string[];
-  educations: ({  id: string;
-  school_name: string;
-  degree: string;
-  discipline: string;
-  start_date: string;
-  end_date: string;})[];
-  employments: ({  id: string;
-  company_name: string;
-  title: string;
-  start_date: string;
-  end_date: string;})[];
-  linked_user_ids: string[];
-  created_at: string;
-  updated_at: string | null;
-  last_activity: string | null;
-  deleted_at: string | null;
-  is_private: boolean;
-  applications: ({  id: string;
-  candidate_id: string;
-  applied_at: string;
-  rejected_at: string | null;
-  last_activity_at: string;
-  source: {  id: string;
-  public_name: string;};
-  credited_to: string;
-  rejection_reason: {  id: string;
-  name: string;
-  type: {  id: string;
-  name: string;};} | null;
-  jobs: ({  id: string;
-  name: string;})[];
-  job_post_id: string;
-  status: string;
-  current_stage: {  id: string;
-  name: string;};
-  deleted_at: string | null;})[];
-  application_ids: string[];
 };
 
 export interface SyncMetadata_gem_candidates {
@@ -22314,28 +22606,6 @@ export interface JobStage {
 };
 
 export interface SyncMetadata_gem_jobstages {
-};
-
-export interface Job {
-  id: string;
-  name: string;
-  project_id: number;
-  pipeline_id: number;
-  ref?: string | undefined;
-  stage?: string | undefined;
-  status: string;
-  failure_reason?: string | undefined;
-  tag?: boolean | undefined;
-  web_url?: string | undefined;
-  created_at: string;
-  started_at?: string | undefined;
-  finished_at?: string | undefined;
-  duration?: number | undefined;
-  queued_duration?: number | undefined;
-  coverage?: number | undefined;
-  allow_failure?: boolean | undefined;
-  user_id?: number | undefined;
-  runner_id?: number | undefined;
 };
 
 export interface SyncMetadata_gem_jobs {

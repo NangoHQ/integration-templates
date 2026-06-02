@@ -1,0 +1,196 @@
+{
+  "input": {
+    "id": "00000000-0000-0000-0000-000000000001"
+  },
+  "output": {
+    "id": "00000000-0000-0000-0000-000000000001",
+    "createdAt": "2024-02-04T21:38:12.442Z",
+    "updatedAt": "2026-05-28T21:06:18.703Z",
+    "name": "Test User 1",
+    "primaryEmailAddress": {
+      "value": "user1@example.com",
+      "type": "Personal",
+      "isPrimary": true
+    },
+    "emailAddresses": [
+      {
+        "value": "user2@example.com",
+        "type": "Personal",
+        "isPrimary": true
+      }
+    ],
+    "primaryPhoneNumber": {
+      "value": "+10000000001",
+      "type": "Personal",
+      "isPrimary": true
+    },
+    "phoneNumbers": [
+      {
+        "value": "+10000000002",
+        "type": "Personal",
+        "isPrimary": true
+      }
+    ],
+    "socialLinks": [
+      {
+        "type": "LinkedIn",
+        "url": "https://linkedin.com/in/hasan-n-23a47274"
+      },
+      {
+        "type": "Website",
+        "url": "http://www.hasannaseem.com"
+      }
+    ],
+    "tags": [],
+    "position": "Senior Full Stack Engineer",
+    "company": "The Mars Agency",
+    "school": "The University of Sheffield",
+    "applicationIds": [
+      "00000000-0000-0000-0000-000000000002"
+    ],
+    "resumeFileHandle": {
+      "id": "00000000-0000-0000-0000-000000000003",
+      "name": "Test User 2",
+      "handle": "eyJoYW5kbGUiOnsidHlwZSI6IlJlc3VtZUZpbGUiLCJmaWxlSWQiOiJhZjhjNGVkNi00ZjgwLTQwMTAtODMyYy0yY2VkZmIxOTM1NWYiLCJvd25lcklkIjoiMTkzMDI0YTgtN2NiMy00MzVmLTg3NDMtNmY0Zjc0MzNhODI0In0sInNpZ25hdHVyZSI6Indma001V01DZlhROWttVDd5N3J3eDl5dC84b3VrQUYraHQyQ1I5Y3MvK0E9IiwidmVyc2lvbiI6IjEifQ"
+    },
+    "fileHandles": [
+      {
+        "id": "00000000-0000-0000-0000-000000000003",
+        "name": "Test User 2",
+        "handle": "eyJoYW5kbGUiOnsidHlwZSI6IlJlc3VtZUZpbGUiLCJmaWxlSWQiOiJhZjhjNGVkNi00ZjgwLTQwMTAtODMyYy0yY2VkZmIxOTM1NWYiLCJvd25lcklkIjoiMTkzMDI0YTgtN2NiMy00MzVmLTg3NDMtNmY0Zjc0MzNhODI0In0sInNpZ25hdHVyZSI6Indma001V01DZlhROWttVDd5N3J3eDl5dC84b3VrQUYraHQyQ1I5Y3MvK0E9IiwidmVyc2lvbiI6IjEifQ"
+      }
+    ],
+    "customFields": [],
+    "profileUrl": "https://app.ashbyhq.com/candidate-searches/new/right-side/candidates/193024a8-7cb3-435f-8743-6f4f7433a824",
+    "source": {
+      "id": "00000000-0000-0000-0000-000000000004",
+      "title": "Applied",
+      "isArchived": false,
+      "sourceType": {
+        "id": "00000000-0000-0000-0000-000000000005",
+        "title": "Inbound",
+        "isArchived": false
+      }
+    },
+    "creditedToUser": null,
+    "timezone": null,
+    "fraudStatus": null
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/candidate.info": {
+        "response": {
+          "success": true,
+          "results": {
+            "id": "00000000-0000-0000-0000-000000000001",
+            "createdAt": "2024-02-04T21:38:12.442Z",
+            "updatedAt": "2026-05-28T21:06:18.703Z",
+            "name": "Test User 1",
+            "primaryEmailAddress": {
+              "value": "user1@example.com",
+              "type": "Personal",
+              "isPrimary": true
+            },
+            "emailAddresses": [
+              {
+                "value": "user2@example.com",
+                "type": "Personal",
+                "isPrimary": true
+              }
+            ],
+            "primaryPhoneNumber": {
+              "value": "+10000000001",
+              "type": "Personal",
+              "isPrimary": true
+            },
+            "phoneNumbers": [
+              {
+                "value": "+10000000002",
+                "type": "Personal",
+                "isPrimary": true
+              }
+            ],
+            "socialLinks": [
+              {
+                "type": "LinkedIn",
+                "url": "https://linkedin.com/in/hasan-n-23a47274"
+              },
+              {
+                "type": "Website",
+                "url": "http://www.hasannaseem.com"
+              }
+            ],
+            "tags": [],
+            "position": "Senior Full Stack Engineer",
+            "company": "The Mars Agency",
+            "school": "The University of Sheffield",
+            "applicationIds": [
+              "00000000-0000-0000-0000-000000000002"
+            ],
+            "resumeFileHandle": {
+              "id": "00000000-0000-0000-0000-000000000003",
+              "name": "Test User 2",
+              "handle": "eyJoYW5kbGUiOnsidHlwZSI6IlJlc3VtZUZpbGUiLCJmaWxlSWQiOiJhZjhjNGVkNi00ZjgwLTQwMTAtODMyYy0yY2VkZmIxOTM1NWYiLCJvd25lcklkIjoiMTkzMDI0YTgtN2NiMy00MzVmLTg3NDMtNmY0Zjc0MzNhODI0In0sInNpZ25hdHVyZSI6Indma001V01DZlhROWttVDd5N3J3eDl5dC84b3VrQUYraHQyQ1I5Y3MvK0E9IiwidmVyc2lvbiI6IjEifQ"
+            },
+            "fileHandles": [
+              {
+                "id": "00000000-0000-0000-0000-000000000003",
+                "name": "Test User 2",
+                "handle": "eyJoYW5kbGUiOnsidHlwZSI6IlJlc3VtZUZpbGUiLCJmaWxlSWQiOiJhZjhjNGVkNi00ZjgwLTQwMTAtODMyYy0yY2VkZmIxOTM1NWYiLCJvd25lcklkIjoiMTkzMDI0YTgtN2NiMy00MzVmLTg3NDMtNmY0Zjc0MzNhODI0In0sInNpZ25hdHVyZSI6Indma001V01DZlhROWttVDd5N3J3eDl5dC84b3VrQUYraHQyQ1I5Y3MvK0E9IiwidmVyc2lvbiI6IjEifQ"
+              }
+            ],
+            "customFields": [],
+            "profileUrl": "https://app.ashbyhq.com/candidate-searches/new/right-side/candidates/193024a8-7cb3-435f-8743-6f4f7433a824",
+            "source": {
+              "id": "00000000-0000-0000-0000-000000000004",
+              "title": "Applied",
+              "isArchived": false,
+              "sourceType": {
+                "id": "00000000-0000-0000-0000-000000000005",
+                "title": "Inbound",
+                "isArchived": false
+              }
+            },
+            "creditedToUser": null,
+            "timezone": null,
+            "fraudStatus": null
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 28 May 2026 21:06:52 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "1000",
+          "x-ratelimit-remaining": "963",
+          "x-ratelimit-reset": "+10000000005",
+          "x-ashby-request-id": "01KSR6JNDE5Z2HWY68QXHTBNQX",
+          "referrer-policy": "same-origin",
+          "ashby-session-expiry-alert-level": "",
+          "vary": "Origin",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "cf-ray": "a03039c24f4f87ab-PDX",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "3a7c74b7f4bbfffab73d6552b60626ff61c1332f",
+        "request": {
+          "data": {
+            "id": "00000000-0000-0000-0000-000000000001"
+          }
+        }
+      }
+    }
+  }
+}

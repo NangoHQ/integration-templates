@@ -1,0 +1,1469 @@
+{
+  "nango": {
+    "batchSave": {
+      "Job": [
+        {
+          "id": "00000000-0000-0000-0000-000000000001",
+          "title": "[Old] Senior Full-Stack Engineer - Remote",
+          "confidential": false,
+          "status": "Closed",
+          "employmentType": "FullTime",
+          "locationId": "00000000-0000-0000-0000-000000000002",
+          "departmentId": "00000000-0000-0000-0000-000000000003",
+          "defaultInterviewPlanId": "00000000-0000-0000-0000-000000000004",
+          "interviewPlanIds": [
+            "00000000-0000-0000-0000-000000000005"
+          ],
+          "jobPostingIds": [],
+          "customFields": [],
+          "hiringTeam": [],
+          "customRequisitionId": null,
+          "brandId": "00000000-0000-0000-0000-000000000006",
+          "author": {
+            "id": "00000000-0000-0000-0000-000000000007",
+            "firstName": "Test",
+            "lastName": "User1",
+            "email": "user1@example.com",
+            "globalRole": "Organization Admin",
+            "isEnabled": true,
+            "updatedAt": "2026-05-18T15:01:46.792Z"
+          },
+          "createdAt": "2024-02-04T08:15:58.104Z",
+          "updatedAt": "2024-09-18T10:51:33.773Z",
+          "openedAt": "2024-02-04T08:38:15.158Z",
+          "closedAt": "2024-06-14T10:00:31.753Z"
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000008",
+          "title": "[Old] Founding Success Engineer",
+          "confidential": false,
+          "status": "Closed",
+          "employmentType": "FullTime",
+          "locationId": "00000000-0000-0000-0000-000000000002",
+          "departmentId": "00000000-0000-0000-0000-000000000003",
+          "defaultInterviewPlanId": "00000000-0000-0000-0000-000000000009",
+          "interviewPlanIds": [
+            "00000000-0000-0000-0000-00000000000a"
+          ],
+          "jobPostingIds": [],
+          "customFields": [],
+          "hiringTeam": [],
+          "customRequisitionId": null,
+          "brandId": "00000000-0000-0000-0000-000000000006",
+          "author": {
+            "id": "00000000-0000-0000-0000-000000000007",
+            "firstName": "Test",
+            "lastName": "User1",
+            "email": "user1@example.com",
+            "globalRole": "Organization Admin",
+            "isEnabled": true,
+            "updatedAt": "2026-05-18T15:01:46.792Z"
+          },
+          "createdAt": "2024-02-05T19:19:11.627Z",
+          "updatedAt": "2024-09-18T10:51:10.656Z",
+          "openedAt": "2024-02-05T19:28:38.482Z",
+          "closedAt": "2024-02-19T07:59:14.468Z"
+        },
+        {
+          "id": "00000000-0000-0000-0000-00000000000b",
+          "title": "Technical Founder in Residence for YC startup",
+          "confidential": false,
+          "status": "Closed",
+          "employmentType": "FullTime",
+          "locationId": "00000000-0000-0000-0000-00000000000c",
+          "departmentId": "00000000-0000-0000-0000-000000000003",
+          "defaultInterviewPlanId": "00000000-0000-0000-0000-00000000000d",
+          "interviewPlanIds": [
+            "00000000-0000-0000-0000-00000000000e"
+          ],
+          "jobPostingIds": [],
+          "customFields": [],
+          "hiringTeam": [],
+          "customRequisitionId": null,
+          "brandId": "00000000-0000-0000-0000-000000000006",
+          "author": {
+            "id": "00000000-0000-0000-0000-00000000000f",
+            "firstName": "Test",
+            "lastName": "User2",
+            "email": "user2@example.com",
+            "globalRole": "Organization Admin",
+            "isEnabled": true,
+            "updatedAt": "2026-05-28T17:27:35.112Z"
+          },
+          "createdAt": "2024-02-09T01:11:09.666Z",
+          "updatedAt": "2024-09-06T08:54:37.768Z",
+          "openedAt": "2024-02-09T06:54:50.146Z",
+          "closedAt": "2024-02-19T08:00:06.648Z"
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000010",
+          "title": "[Old] Senior Product Engineer - Remote",
+          "confidential": false,
+          "status": "Closed",
+          "employmentType": "FullTime",
+          "locationId": "00000000-0000-0000-0000-000000000002",
+          "departmentId": "00000000-0000-0000-0000-000000000003",
+          "defaultInterviewPlanId": "00000000-0000-0000-0000-000000000011",
+          "interviewPlanIds": [
+            "00000000-0000-0000-0000-000000000012"
+          ],
+          "jobPostingIds": [],
+          "customFields": [],
+          "hiringTeam": [],
+          "customRequisitionId": null,
+          "brandId": "00000000-0000-0000-0000-000000000006",
+          "author": {
+            "id": "00000000-0000-0000-0000-000000000007",
+            "firstName": "Test",
+            "lastName": "User1",
+            "email": "user1@example.com",
+            "globalRole": "Organization Admin",
+            "isEnabled": true,
+            "updatedAt": "2026-05-18T15:01:46.792Z"
+          },
+          "createdAt": "2024-06-14T08:57:27.294Z",
+          "updatedAt": "2024-09-18T10:51:39.499Z",
+          "openedAt": "2024-06-14T09:11:20.738Z",
+          "closedAt": "2024-09-13T09:16:51.609Z"
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000013",
+          "title": "[Old] Senior Product Engineer - Remote",
+          "confidential": false,
+          "status": "Closed",
+          "employmentType": "FullTime",
+          "locationId": "00000000-0000-0000-0000-000000000002",
+          "departmentId": "00000000-0000-0000-0000-000000000003",
+          "defaultInterviewPlanId": "00000000-0000-0000-0000-000000000014",
+          "interviewPlanIds": [
+            "00000000-0000-0000-0000-000000000015"
+          ],
+          "jobPostingIds": [],
+          "customFields": [],
+          "hiringTeam": [],
+          "customRequisitionId": null,
+          "brandId": "00000000-0000-0000-0000-000000000006",
+          "author": {
+            "id": "00000000-0000-0000-0000-00000000000f",
+            "firstName": "Test",
+            "lastName": "User2",
+            "email": "user2@example.com",
+            "globalRole": "Organization Admin",
+            "isEnabled": true,
+            "updatedAt": "2026-05-28T17:27:35.112Z"
+          },
+          "createdAt": "2024-07-31T16:01:17.117Z",
+          "updatedAt": "2024-10-29T10:20:41.792Z",
+          "openedAt": "2024-07-31T16:02:57.789Z",
+          "closedAt": "2024-10-29T10:20:41.776Z"
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000016",
+          "title": "Staff Backend Engineer",
+          "confidential": false,
+          "status": "Closed",
+          "employmentType": "FullTime",
+          "locationId": "00000000-0000-0000-0000-000000000002",
+          "departmentId": "00000000-0000-0000-0000-000000000003",
+          "defaultInterviewPlanId": "00000000-0000-0000-0000-000000000017",
+          "interviewPlanIds": [
+            "00000000-0000-0000-0000-000000000018"
+          ],
+          "jobPostingIds": [],
+          "customFields": [],
+          "hiringTeam": [],
+          "customRequisitionId": null,
+          "brandId": "00000000-0000-0000-0000-000000000006",
+          "author": {
+            "id": "00000000-0000-0000-0000-000000000007",
+            "firstName": "Test",
+            "lastName": "User1",
+            "email": "user1@example.com",
+            "globalRole": "Organization Admin",
+            "isEnabled": true,
+            "updatedAt": "2026-05-18T15:01:46.792Z"
+          },
+          "createdAt": "2024-09-18T10:06:34.466Z",
+          "updatedAt": "2026-01-21T10:05:33.969Z",
+          "openedAt": "2025-10-09T08:26:42.635Z",
+          "closedAt": "2026-01-21T10:05:33.962Z"
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000019",
+          "title": "Head of Growth",
+          "confidential": false,
+          "status": "Closed",
+          "employmentType": "FullTime",
+          "locationId": "00000000-0000-0000-0000-000000000002",
+          "departmentId": "00000000-0000-0000-0000-000000000003",
+          "defaultInterviewPlanId": "00000000-0000-0000-0000-00000000001a",
+          "interviewPlanIds": [
+            "00000000-0000-0000-0000-00000000001b"
+          ],
+          "jobPostingIds": [],
+          "customFields": [],
+          "hiringTeam": [],
+          "customRequisitionId": null,
+          "brandId": "00000000-0000-0000-0000-000000000006",
+          "author": {
+            "id": "00000000-0000-0000-0000-00000000000f",
+            "firstName": "Test",
+            "lastName": "User2",
+            "email": "user2@example.com",
+            "globalRole": "Organization Admin",
+            "isEnabled": true,
+            "updatedAt": "2026-05-28T17:27:35.112Z"
+          },
+          "createdAt": "2024-10-16T08:53:43.460Z",
+          "updatedAt": "2025-04-28T08:12:06.014Z",
+          "openedAt": "2025-04-08T19:33:34.778Z",
+          "closedAt": "2025-04-28T08:12:06.005Z"
+        },
+        {
+          "id": "00000000-0000-0000-0000-00000000001c",
+          "title": "Integration Engineer - Remote",
+          "confidential": false,
+          "status": "Closed",
+          "employmentType": "FullTime",
+          "locationId": "00000000-0000-0000-0000-00000000001d",
+          "departmentId": "00000000-0000-0000-0000-000000000003",
+          "defaultInterviewPlanId": "00000000-0000-0000-0000-00000000001e",
+          "interviewPlanIds": [
+            "00000000-0000-0000-0000-00000000001f"
+          ],
+          "jobPostingIds": [],
+          "customFields": [],
+          "hiringTeam": [],
+          "customRequisitionId": null,
+          "brandId": "00000000-0000-0000-0000-000000000006",
+          "author": {
+            "id": "00000000-0000-0000-0000-000000000007",
+            "firstName": "Test",
+            "lastName": "User1",
+            "email": "user1@example.com",
+            "globalRole": "Organization Admin",
+            "isEnabled": true,
+            "updatedAt": "2026-05-18T15:01:46.792Z"
+          },
+          "createdAt": "2024-10-18T08:50:36.498Z",
+          "updatedAt": "2025-05-22T05:43:20.547Z",
+          "openedAt": "2025-04-29T13:13:05.185Z",
+          "closedAt": "2025-05-22T05:43:20.536Z"
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000020",
+          "title": "Entrepreneur in Residence for open-source devtool",
+          "confidential": false,
+          "status": "Closed",
+          "employmentType": "PartTime",
+          "locationId": "00000000-0000-0000-0000-000000000002",
+          "departmentId": "00000000-0000-0000-0000-000000000003",
+          "defaultInterviewPlanId": "00000000-0000-0000-0000-000000000021",
+          "interviewPlanIds": [
+            "00000000-0000-0000-0000-000000000022"
+          ],
+          "jobPostingIds": [],
+          "customFields": [],
+          "hiringTeam": [
+            {
+              "userId": "00000000-0000-0000-0000-00000000000f",
+              "firstName": "Test",
+              "lastName": "User2",
+              "email": "user2@example.com",
+              "role": "Hiring Manager"
+            }
+          ],
+          "customRequisitionId": null,
+          "brandId": "00000000-0000-0000-0000-000000000006",
+          "author": {
+            "id": "00000000-0000-0000-0000-00000000000f",
+            "firstName": "Test",
+            "lastName": "User2",
+            "email": "user2@example.com",
+            "globalRole": "Organization Admin",
+            "isEnabled": true,
+            "updatedAt": "2026-05-28T17:27:35.112Z"
+          },
+          "createdAt": "2025-01-29T08:41:56.057Z",
+          "updatedAt": "2025-02-08T02:56:21.607Z",
+          "openedAt": "2025-01-29T08:57:10.448Z",
+          "closedAt": "2025-02-08T02:56:21.594Z"
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000023",
+          "title": "Founding GTM/Sales",
+          "confidential": false,
+          "status": "Archived",
+          "employmentType": "FullTime",
+          "locationId": "00000000-0000-0000-0000-000000000002",
+          "departmentId": "00000000-0000-0000-0000-000000000003",
+          "interviewPlanIds": [],
+          "jobPostingIds": [],
+          "customFields": [],
+          "hiringTeam": [
+            {
+              "userId": "00000000-0000-0000-0000-00000000000f",
+              "firstName": "Test",
+              "lastName": "User2",
+              "email": "user2@example.com",
+              "role": "Hiring Manager"
+            }
+          ],
+          "customRequisitionId": null,
+          "brandId": "00000000-0000-0000-0000-000000000006",
+          "author": {
+            "id": "00000000-0000-0000-0000-00000000000f",
+            "firstName": "Test",
+            "lastName": "User2",
+            "email": "user2@example.com",
+            "globalRole": "Organization Admin",
+            "isEnabled": true,
+            "updatedAt": "2026-05-28T17:27:35.112Z"
+          },
+          "createdAt": "2025-04-07T09:21:32.291Z",
+          "updatedAt": "2025-09-09T09:55:42.200Z",
+          "openedAt": null,
+          "closedAt": null
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000024",
+          "title": "Operations",
+          "confidential": false,
+          "status": "Closed",
+          "employmentType": "PartTime",
+          "locationId": "00000000-0000-0000-0000-000000000025",
+          "departmentId": "00000000-0000-0000-0000-000000000003",
+          "defaultInterviewPlanId": "00000000-0000-0000-0000-000000000021",
+          "interviewPlanIds": [
+            "00000000-0000-0000-0000-000000000022"
+          ],
+          "jobPostingIds": [],
+          "customFields": [],
+          "hiringTeam": [
+            {
+              "userId": "00000000-0000-0000-0000-00000000000f",
+              "firstName": "Test",
+              "lastName": "User2",
+              "email": "user2@example.com",
+              "role": "Hiring Manager"
+            }
+          ],
+          "customRequisitionId": null,
+          "brandId": "00000000-0000-0000-0000-000000000006",
+          "author": {
+            "id": "00000000-0000-0000-0000-00000000000f",
+            "firstName": "Test",
+            "lastName": "User2",
+            "email": "user2@example.com",
+            "globalRole": "Organization Admin",
+            "isEnabled": true,
+            "updatedAt": "2026-05-28T17:27:35.112Z"
+          },
+          "createdAt": "2025-04-08T20:14:08.518Z",
+          "updatedAt": "2025-04-21T11:37:18.788Z",
+          "openedAt": "2025-04-08T20:36:08.393Z",
+          "closedAt": "2025-04-21T11:37:18.778Z"
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000026",
+          "title": "Backend Engineer",
+          "confidential": false,
+          "status": "Closed",
+          "employmentType": "FullTime",
+          "locationId": "00000000-0000-0000-0000-000000000002",
+          "departmentId": "00000000-0000-0000-0000-000000000003",
+          "defaultInterviewPlanId": "00000000-0000-0000-0000-000000000027",
+          "interviewPlanIds": [
+            "00000000-0000-0000-0000-000000000028"
+          ],
+          "jobPostingIds": [],
+          "customFields": [],
+          "hiringTeam": [],
+          "customRequisitionId": null,
+          "brandId": "00000000-0000-0000-0000-000000000006",
+          "author": {
+            "id": "00000000-0000-0000-0000-000000000007",
+            "firstName": "Test",
+            "lastName": "User1",
+            "email": "user1@example.com",
+            "globalRole": "Organization Admin",
+            "isEnabled": true,
+            "updatedAt": "2026-05-18T15:01:46.792Z"
+          },
+          "createdAt": "2025-10-24T08:13:38.467Z",
+          "updatedAt": "2026-02-20T08:40:50.887Z",
+          "openedAt": "2025-10-24T08:15:45.031Z",
+          "closedAt": "2026-02-20T08:40:50.869Z"
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000029",
+          "title": "Founding Devrel",
+          "confidential": false,
+          "status": "Closed",
+          "employmentType": "FullTime",
+          "locationId": "00000000-0000-0000-0000-000000000002",
+          "departmentId": "00000000-0000-0000-0000-000000000003",
+          "defaultInterviewPlanId": "00000000-0000-0000-0000-00000000002a",
+          "interviewPlanIds": [
+            "00000000-0000-0000-0000-00000000002b"
+          ],
+          "jobPostingIds": [],
+          "customFields": [],
+          "hiringTeam": [
+            {
+              "userId": "00000000-0000-0000-0000-00000000000f",
+              "firstName": "Test",
+              "lastName": "User2",
+              "email": "user2@example.com",
+              "role": "Hiring Manager"
+            }
+          ],
+          "customRequisitionId": null,
+          "brandId": "00000000-0000-0000-0000-000000000006",
+          "author": {
+            "id": "00000000-0000-0000-0000-00000000000f",
+            "firstName": "Test",
+            "lastName": "User2",
+            "email": "user2@example.com",
+            "globalRole": "Organization Admin",
+            "isEnabled": true,
+            "updatedAt": "2026-05-28T17:27:35.112Z"
+          },
+          "createdAt": "2025-11-06T02:15:08.365Z",
+          "updatedAt": "2025-12-08T11:24:42.358Z",
+          "openedAt": "2025-11-06T02:25:11.316Z",
+          "closedAt": "2025-12-08T11:24:42.344Z"
+        },
+        {
+          "id": "00000000-0000-0000-0000-00000000002c",
+          "title": "Solutions Engineer",
+          "confidential": false,
+          "status": "Closed",
+          "employmentType": "FullTime",
+          "locationId": "00000000-0000-0000-0000-000000000002",
+          "departmentId": "00000000-0000-0000-0000-000000000003",
+          "defaultInterviewPlanId": "00000000-0000-0000-0000-00000000002d",
+          "interviewPlanIds": [
+            "00000000-0000-0000-0000-00000000002e"
+          ],
+          "jobPostingIds": [],
+          "customFields": [],
+          "hiringTeam": [],
+          "customRequisitionId": null,
+          "brandId": "00000000-0000-0000-0000-000000000006",
+          "author": {
+            "id": "00000000-0000-0000-0000-000000000007",
+            "firstName": "Test",
+            "lastName": "User1",
+            "email": "user1@example.com",
+            "globalRole": "Organization Admin",
+            "isEnabled": true,
+            "updatedAt": "2026-05-18T15:01:46.792Z"
+          },
+          "createdAt": "2026-01-19T12:57:32.771Z",
+          "updatedAt": "2026-01-28T10:07:00.643Z",
+          "openedAt": "2026-01-19T13:24:25.612Z",
+          "closedAt": "2026-01-28T10:07:00.635Z"
+        },
+        {
+          "id": "00000000-0000-0000-0000-00000000002f",
+          "title": "Chief of Staff",
+          "confidential": false,
+          "status": "Closed",
+          "employmentType": "FullTime",
+          "locationId": "00000000-0000-0000-0000-000000000002",
+          "departmentId": "00000000-0000-0000-0000-000000000003",
+          "defaultInterviewPlanId": "00000000-0000-0000-0000-000000000030",
+          "interviewPlanIds": [
+            "00000000-0000-0000-0000-000000000031"
+          ],
+          "jobPostingIds": [],
+          "customFields": [],
+          "hiringTeam": [
+            {
+              "userId": "00000000-0000-0000-0000-00000000000f",
+              "firstName": "Test",
+              "lastName": "User2",
+              "email": "user2@example.com",
+              "role": "Hiring Manager"
+            }
+          ],
+          "customRequisitionId": null,
+          "brandId": "00000000-0000-0000-0000-000000000006",
+          "author": {
+            "id": "00000000-0000-0000-0000-000000000007",
+            "firstName": "Test",
+            "lastName": "User1",
+            "email": "user1@example.com",
+            "globalRole": "Organization Admin",
+            "isEnabled": true,
+            "updatedAt": "2026-05-18T15:01:46.792Z"
+          },
+          "createdAt": "2026-01-19T13:43:41.847Z",
+          "updatedAt": "2026-02-16T08:58:14.366Z",
+          "openedAt": "2026-01-19T15:15:56.435Z",
+          "closedAt": "2026-02-16T08:58:14.353Z"
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000032",
+          "title": "Forward Deployed Engineer",
+          "confidential": false,
+          "status": "Closed",
+          "employmentType": "FullTime",
+          "locationId": "00000000-0000-0000-0000-000000000002",
+          "departmentId": "00000000-0000-0000-0000-000000000003",
+          "defaultInterviewPlanId": "00000000-0000-0000-0000-000000000033",
+          "interviewPlanIds": [
+            "00000000-0000-0000-0000-000000000034"
+          ],
+          "jobPostingIds": [],
+          "customFields": [],
+          "hiringTeam": [],
+          "customRequisitionId": null,
+          "brandId": "00000000-0000-0000-0000-000000000006",
+          "author": {
+            "id": "00000000-0000-0000-0000-000000000007",
+            "firstName": "Test",
+            "lastName": "User1",
+            "email": "user1@example.com",
+            "globalRole": "Organization Admin",
+            "isEnabled": true,
+            "updatedAt": "2026-05-18T15:01:46.792Z"
+          },
+          "createdAt": "2026-01-21T09:23:28.449Z",
+          "updatedAt": "2026-02-18T10:27:18.409Z",
+          "openedAt": "2026-01-21T09:48:32.186Z",
+          "closedAt": "2026-02-18T10:27:18.393Z"
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000035",
+          "title": "Developer Content Engineer",
+          "confidential": false,
+          "status": "Closed",
+          "employmentType": "FullTime",
+          "locationId": "00000000-0000-0000-0000-000000000002",
+          "departmentId": "00000000-0000-0000-0000-000000000003",
+          "defaultInterviewPlanId": "00000000-0000-0000-0000-000000000021",
+          "interviewPlanIds": [
+            "00000000-0000-0000-0000-000000000022"
+          ],
+          "jobPostingIds": [],
+          "customFields": [],
+          "hiringTeam": [
+            {
+              "userId": "00000000-0000-0000-0000-00000000000f",
+              "firstName": "Test",
+              "lastName": "User2",
+              "email": "user2@example.com",
+              "role": "Hiring Manager"
+            }
+          ],
+          "customRequisitionId": null,
+          "brandId": "00000000-0000-0000-0000-000000000006",
+          "author": {
+            "id": "00000000-0000-0000-0000-00000000000f",
+            "firstName": "Test",
+            "lastName": "User2",
+            "email": "user2@example.com",
+            "globalRole": "Organization Admin",
+            "isEnabled": true,
+            "updatedAt": "2026-05-28T17:27:35.112Z"
+          },
+          "createdAt": "2026-01-23T00:46:09.564Z",
+          "updatedAt": "2026-02-10T08:53:30.333Z",
+          "openedAt": "2026-01-23T01:07:03.877Z",
+          "closedAt": "2026-02-10T08:53:30.320Z"
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000036",
+          "title": "Growth Engineer",
+          "confidential": false,
+          "status": "Closed",
+          "employmentType": "FullTime",
+          "locationId": "00000000-0000-0000-0000-000000000002",
+          "departmentId": "00000000-0000-0000-0000-000000000003",
+          "defaultInterviewPlanId": "00000000-0000-0000-0000-000000000037",
+          "interviewPlanIds": [
+            "00000000-0000-0000-0000-000000000038"
+          ],
+          "jobPostingIds": [],
+          "customFields": [],
+          "hiringTeam": [],
+          "customRequisitionId": null,
+          "brandId": "00000000-0000-0000-0000-000000000006",
+          "author": {
+            "id": "00000000-0000-0000-0000-000000000007",
+            "firstName": "Test",
+            "lastName": "User1",
+            "email": "user1@example.com",
+            "globalRole": "Organization Admin",
+            "isEnabled": true,
+            "updatedAt": "2026-05-18T15:01:46.792Z"
+          },
+          "createdAt": "2026-02-09T13:22:26.927Z",
+          "updatedAt": "2026-02-18T10:27:21.067Z",
+          "openedAt": "2026-02-09T13:25:41.028Z",
+          "closedAt": "2026-02-18T10:27:21.057Z"
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000039",
+          "title": "Frontend Engineer",
+          "confidential": false,
+          "status": "Closed",
+          "employmentType": "FullTime",
+          "locationId": "00000000-0000-0000-0000-000000000002",
+          "departmentId": "00000000-0000-0000-0000-000000000003",
+          "defaultInterviewPlanId": "00000000-0000-0000-0000-00000000003a",
+          "interviewPlanIds": [
+            "00000000-0000-0000-0000-00000000003b"
+          ],
+          "jobPostingIds": [],
+          "customFields": [],
+          "hiringTeam": [],
+          "customRequisitionId": null,
+          "brandId": "00000000-0000-0000-0000-000000000006",
+          "author": {
+            "id": "00000000-0000-0000-0000-000000000007",
+            "firstName": "Test",
+            "lastName": "User1",
+            "email": "user1@example.com",
+            "globalRole": "Organization Admin",
+            "isEnabled": true,
+            "updatedAt": "2026-05-18T15:01:46.792Z"
+          },
+          "createdAt": "2026-03-09T09:44:22.835Z",
+          "updatedAt": "2026-03-31T18:46:26.601Z",
+          "openedAt": "2026-03-09T09:55:30.539Z",
+          "closedAt": "2026-03-31T18:46:26.590Z"
+        },
+        {
+          "id": "00000000-0000-0000-0000-00000000003c",
+          "title": "Founding Developer Growth Lead",
+          "confidential": false,
+          "status": "Open",
+          "employmentType": "FullTime",
+          "locationId": "00000000-0000-0000-0000-000000000002",
+          "departmentId": "00000000-0000-0000-0000-000000000003",
+          "defaultInterviewPlanId": "00000000-0000-0000-0000-00000000003d",
+          "interviewPlanIds": [
+            "00000000-0000-0000-0000-00000000003e"
+          ],
+          "jobPostingIds": [
+            "00000000-0000-0000-0000-00000000003f"
+          ],
+          "customFields": [],
+          "hiringTeam": [],
+          "customRequisitionId": null,
+          "brandId": "00000000-0000-0000-0000-000000000006",
+          "author": {
+            "id": "00000000-0000-0000-0000-000000000007",
+            "firstName": "Test",
+            "lastName": "User1",
+            "email": "user1@example.com",
+            "globalRole": "Organization Admin",
+            "isEnabled": true,
+            "updatedAt": "2026-05-18T15:01:46.792Z"
+          },
+          "createdAt": "2026-03-24T21:43:00.032Z",
+          "updatedAt": "2026-04-28T11:43:23.921Z",
+          "openedAt": "2026-03-24T21:46:47.964Z",
+          "closedAt": null
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000040",
+          "title": "Support Engineer",
+          "confidential": false,
+          "status": "Closed",
+          "employmentType": "FullTime",
+          "locationId": "00000000-0000-0000-0000-000000000002",
+          "departmentId": "00000000-0000-0000-0000-000000000003",
+          "defaultInterviewPlanId": "00000000-0000-0000-0000-000000000041",
+          "interviewPlanIds": [
+            "00000000-0000-0000-0000-000000000042"
+          ],
+          "jobPostingIds": [],
+          "customFields": [],
+          "hiringTeam": [
+            {
+              "userId": "00000000-0000-0000-0000-00000000000f",
+              "firstName": "Test",
+              "lastName": "User2",
+              "email": "user2@example.com",
+              "role": "Hiring Manager"
+            }
+          ],
+          "customRequisitionId": null,
+          "brandId": "00000000-0000-0000-0000-000000000006",
+          "author": {
+            "id": "00000000-0000-0000-0000-00000000000f",
+            "firstName": "Test",
+            "lastName": "User2",
+            "email": "user2@example.com",
+            "globalRole": "Organization Admin",
+            "isEnabled": true,
+            "updatedAt": "2026-05-28T17:27:35.112Z"
+          },
+          "createdAt": "2026-04-24T09:55:05.770Z",
+          "updatedAt": "2026-05-06T12:24:20.281Z",
+          "openedAt": "2026-04-24T10:34:34.382Z",
+          "closedAt": "2026-05-06T12:24:20.271Z"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Job": []
+    }
+  },
+  "api": {
+    "post": {
+      "/job.list": {
+        "response": {
+          "success": true,
+          "results": [
+            {
+              "id": "00000000-0000-0000-0000-000000000001",
+              "title": "[Old] Senior Full-Stack Engineer - Remote",
+              "confidential": false,
+              "status": "Closed",
+              "employmentType": "FullTime",
+              "locationId": "00000000-0000-0000-0000-000000000002",
+              "departmentId": "00000000-0000-0000-0000-000000000003",
+              "defaultInterviewPlanId": "00000000-0000-0000-0000-000000000004",
+              "interviewPlanIds": [
+                "00000000-0000-0000-0000-000000000005"
+              ],
+              "jobPostingIds": [],
+              "customFields": [],
+              "hiringTeam": [],
+              "customRequisitionId": null,
+              "brandId": "00000000-0000-0000-0000-000000000006",
+              "author": {
+                "id": "00000000-0000-0000-0000-000000000007",
+                "firstName": "Test",
+                "lastName": "User1",
+                "email": "user1@example.com",
+                "globalRole": "Organization Admin",
+                "isEnabled": true,
+                "updatedAt": "2026-05-18T15:01:46.792Z"
+              },
+              "createdAt": "2024-02-04T08:15:58.104Z",
+              "updatedAt": "2024-09-18T10:51:33.773Z",
+              "openedAt": "2024-02-04T08:38:15.158Z",
+              "closedAt": "2024-06-14T10:00:31.753Z"
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000000008",
+              "title": "[Old] Founding Success Engineer",
+              "confidential": false,
+              "status": "Closed",
+              "employmentType": "FullTime",
+              "locationId": "00000000-0000-0000-0000-000000000002",
+              "departmentId": "00000000-0000-0000-0000-000000000003",
+              "defaultInterviewPlanId": "00000000-0000-0000-0000-000000000009",
+              "interviewPlanIds": [
+                "00000000-0000-0000-0000-00000000000a"
+              ],
+              "jobPostingIds": [],
+              "customFields": [],
+              "hiringTeam": [],
+              "customRequisitionId": null,
+              "brandId": "00000000-0000-0000-0000-000000000006",
+              "author": {
+                "id": "00000000-0000-0000-0000-000000000007",
+                "firstName": "Test",
+                "lastName": "User1",
+                "email": "user1@example.com",
+                "globalRole": "Organization Admin",
+                "isEnabled": true,
+                "updatedAt": "2026-05-18T15:01:46.792Z"
+              },
+              "createdAt": "2024-02-05T19:19:11.627Z",
+              "updatedAt": "2024-09-18T10:51:10.656Z",
+              "openedAt": "2024-02-05T19:28:38.482Z",
+              "closedAt": "2024-02-19T07:59:14.468Z"
+            },
+            {
+              "id": "00000000-0000-0000-0000-00000000000b",
+              "title": "Technical Founder in Residence for YC startup",
+              "confidential": false,
+              "status": "Closed",
+              "employmentType": "FullTime",
+              "locationId": "00000000-0000-0000-0000-00000000000c",
+              "departmentId": "00000000-0000-0000-0000-000000000003",
+              "defaultInterviewPlanId": "00000000-0000-0000-0000-00000000000d",
+              "interviewPlanIds": [
+                "00000000-0000-0000-0000-00000000000e"
+              ],
+              "jobPostingIds": [],
+              "customFields": [],
+              "hiringTeam": [],
+              "customRequisitionId": null,
+              "brandId": "00000000-0000-0000-0000-000000000006",
+              "author": {
+                "id": "00000000-0000-0000-0000-00000000000f",
+                "firstName": "Test",
+                "lastName": "User2",
+                "email": "user2@example.com",
+                "globalRole": "Organization Admin",
+                "isEnabled": true,
+                "updatedAt": "2026-05-28T17:27:35.112Z"
+              },
+              "createdAt": "2024-02-09T01:11:09.666Z",
+              "updatedAt": "2024-09-06T08:54:37.768Z",
+              "openedAt": "2024-02-09T06:54:50.146Z",
+              "closedAt": "2024-02-19T08:00:06.648Z"
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000000010",
+              "title": "[Old] Senior Product Engineer - Remote",
+              "confidential": false,
+              "status": "Closed",
+              "employmentType": "FullTime",
+              "locationId": "00000000-0000-0000-0000-000000000002",
+              "departmentId": "00000000-0000-0000-0000-000000000003",
+              "defaultInterviewPlanId": "00000000-0000-0000-0000-000000000011",
+              "interviewPlanIds": [
+                "00000000-0000-0000-0000-000000000012"
+              ],
+              "jobPostingIds": [],
+              "customFields": [],
+              "hiringTeam": [],
+              "customRequisitionId": null,
+              "brandId": "00000000-0000-0000-0000-000000000006",
+              "author": {
+                "id": "00000000-0000-0000-0000-000000000007",
+                "firstName": "Test",
+                "lastName": "User1",
+                "email": "user1@example.com",
+                "globalRole": "Organization Admin",
+                "isEnabled": true,
+                "updatedAt": "2026-05-18T15:01:46.792Z"
+              },
+              "createdAt": "2024-06-14T08:57:27.294Z",
+              "updatedAt": "2024-09-18T10:51:39.499Z",
+              "openedAt": "2024-06-14T09:11:20.738Z",
+              "closedAt": "2024-09-13T09:16:51.609Z"
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000000013",
+              "title": "[Old] Senior Product Engineer - Remote",
+              "confidential": false,
+              "status": "Closed",
+              "employmentType": "FullTime",
+              "locationId": "00000000-0000-0000-0000-000000000002",
+              "departmentId": "00000000-0000-0000-0000-000000000003",
+              "defaultInterviewPlanId": "00000000-0000-0000-0000-000000000014",
+              "interviewPlanIds": [
+                "00000000-0000-0000-0000-000000000015"
+              ],
+              "jobPostingIds": [],
+              "customFields": [],
+              "hiringTeam": [],
+              "customRequisitionId": null,
+              "brandId": "00000000-0000-0000-0000-000000000006",
+              "author": {
+                "id": "00000000-0000-0000-0000-00000000000f",
+                "firstName": "Test",
+                "lastName": "User2",
+                "email": "user2@example.com",
+                "globalRole": "Organization Admin",
+                "isEnabled": true,
+                "updatedAt": "2026-05-28T17:27:35.112Z"
+              },
+              "createdAt": "2024-07-31T16:01:17.117Z",
+              "updatedAt": "2024-10-29T10:20:41.792Z",
+              "openedAt": "2024-07-31T16:02:57.789Z",
+              "closedAt": "2024-10-29T10:20:41.776Z"
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000000016",
+              "title": "Staff Backend Engineer",
+              "confidential": false,
+              "status": "Closed",
+              "employmentType": "FullTime",
+              "locationId": "00000000-0000-0000-0000-000000000002",
+              "departmentId": "00000000-0000-0000-0000-000000000003",
+              "defaultInterviewPlanId": "00000000-0000-0000-0000-000000000017",
+              "interviewPlanIds": [
+                "00000000-0000-0000-0000-000000000018"
+              ],
+              "jobPostingIds": [],
+              "customFields": [],
+              "hiringTeam": [],
+              "customRequisitionId": null,
+              "brandId": "00000000-0000-0000-0000-000000000006",
+              "author": {
+                "id": "00000000-0000-0000-0000-000000000007",
+                "firstName": "Test",
+                "lastName": "User1",
+                "email": "user1@example.com",
+                "globalRole": "Organization Admin",
+                "isEnabled": true,
+                "updatedAt": "2026-05-18T15:01:46.792Z"
+              },
+              "createdAt": "2024-09-18T10:06:34.466Z",
+              "updatedAt": "2026-01-21T10:05:33.969Z",
+              "openedAt": "2025-10-09T08:26:42.635Z",
+              "closedAt": "2026-01-21T10:05:33.962Z"
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000000019",
+              "title": "Head of Growth",
+              "confidential": false,
+              "status": "Closed",
+              "employmentType": "FullTime",
+              "locationId": "00000000-0000-0000-0000-000000000002",
+              "departmentId": "00000000-0000-0000-0000-000000000003",
+              "defaultInterviewPlanId": "00000000-0000-0000-0000-00000000001a",
+              "interviewPlanIds": [
+                "00000000-0000-0000-0000-00000000001b"
+              ],
+              "jobPostingIds": [],
+              "customFields": [],
+              "hiringTeam": [],
+              "customRequisitionId": null,
+              "brandId": "00000000-0000-0000-0000-000000000006",
+              "author": {
+                "id": "00000000-0000-0000-0000-00000000000f",
+                "firstName": "Test",
+                "lastName": "User2",
+                "email": "user2@example.com",
+                "globalRole": "Organization Admin",
+                "isEnabled": true,
+                "updatedAt": "2026-05-28T17:27:35.112Z"
+              },
+              "createdAt": "2024-10-16T08:53:43.460Z",
+              "updatedAt": "2025-04-28T08:12:06.014Z",
+              "openedAt": "2025-04-08T19:33:34.778Z",
+              "closedAt": "2025-04-28T08:12:06.005Z"
+            },
+            {
+              "id": "00000000-0000-0000-0000-00000000001c",
+              "title": "Integration Engineer - Remote",
+              "confidential": false,
+              "status": "Closed",
+              "employmentType": "FullTime",
+              "locationId": "00000000-0000-0000-0000-00000000001d",
+              "departmentId": "00000000-0000-0000-0000-000000000003",
+              "defaultInterviewPlanId": "00000000-0000-0000-0000-00000000001e",
+              "interviewPlanIds": [
+                "00000000-0000-0000-0000-00000000001f"
+              ],
+              "jobPostingIds": [],
+              "customFields": [],
+              "hiringTeam": [],
+              "customRequisitionId": null,
+              "brandId": "00000000-0000-0000-0000-000000000006",
+              "author": {
+                "id": "00000000-0000-0000-0000-000000000007",
+                "firstName": "Test",
+                "lastName": "User1",
+                "email": "user1@example.com",
+                "globalRole": "Organization Admin",
+                "isEnabled": true,
+                "updatedAt": "2026-05-18T15:01:46.792Z"
+              },
+              "createdAt": "2024-10-18T08:50:36.498Z",
+              "updatedAt": "2025-05-22T05:43:20.547Z",
+              "openedAt": "2025-04-29T13:13:05.185Z",
+              "closedAt": "2025-05-22T05:43:20.536Z"
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000000020",
+              "title": "Entrepreneur in Residence for open-source devtool",
+              "confidential": false,
+              "status": "Closed",
+              "employmentType": "PartTime",
+              "locationId": "00000000-0000-0000-0000-000000000002",
+              "departmentId": "00000000-0000-0000-0000-000000000003",
+              "defaultInterviewPlanId": "00000000-0000-0000-0000-000000000021",
+              "interviewPlanIds": [
+                "00000000-0000-0000-0000-000000000022"
+              ],
+              "jobPostingIds": [],
+              "customFields": [],
+              "hiringTeam": [
+                {
+                  "userId": "00000000-0000-0000-0000-00000000000f",
+                  "firstName": "Test",
+                  "lastName": "User2",
+                  "email": "user2@example.com",
+                  "role": "Hiring Manager"
+                }
+              ],
+              "customRequisitionId": null,
+              "brandId": "00000000-0000-0000-0000-000000000006",
+              "author": {
+                "id": "00000000-0000-0000-0000-00000000000f",
+                "firstName": "Test",
+                "lastName": "User2",
+                "email": "user2@example.com",
+                "globalRole": "Organization Admin",
+                "isEnabled": true,
+                "updatedAt": "2026-05-28T17:27:35.112Z"
+              },
+              "createdAt": "2025-01-29T08:41:56.057Z",
+              "updatedAt": "2025-02-08T02:56:21.607Z",
+              "openedAt": "2025-01-29T08:57:10.448Z",
+              "closedAt": "2025-02-08T02:56:21.594Z"
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000000023",
+              "title": "Founding GTM/Sales",
+              "confidential": false,
+              "status": "Archived",
+              "employmentType": "FullTime",
+              "locationId": "00000000-0000-0000-0000-000000000002",
+              "departmentId": "00000000-0000-0000-0000-000000000003",
+              "interviewPlanIds": [],
+              "jobPostingIds": [],
+              "customFields": [],
+              "hiringTeam": [
+                {
+                  "userId": "00000000-0000-0000-0000-00000000000f",
+                  "firstName": "Test",
+                  "lastName": "User2",
+                  "email": "user2@example.com",
+                  "role": "Hiring Manager"
+                }
+              ],
+              "customRequisitionId": null,
+              "brandId": "00000000-0000-0000-0000-000000000006",
+              "author": {
+                "id": "00000000-0000-0000-0000-00000000000f",
+                "firstName": "Test",
+                "lastName": "User2",
+                "email": "user2@example.com",
+                "globalRole": "Organization Admin",
+                "isEnabled": true,
+                "updatedAt": "2026-05-28T17:27:35.112Z"
+              },
+              "createdAt": "2025-04-07T09:21:32.291Z",
+              "updatedAt": "2025-09-09T09:55:42.200Z",
+              "openedAt": null,
+              "closedAt": null
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000000024",
+              "title": "Operations",
+              "confidential": false,
+              "status": "Closed",
+              "employmentType": "PartTime",
+              "locationId": "00000000-0000-0000-0000-000000000025",
+              "departmentId": "00000000-0000-0000-0000-000000000003",
+              "defaultInterviewPlanId": "00000000-0000-0000-0000-000000000021",
+              "interviewPlanIds": [
+                "00000000-0000-0000-0000-000000000022"
+              ],
+              "jobPostingIds": [],
+              "customFields": [],
+              "hiringTeam": [
+                {
+                  "userId": "00000000-0000-0000-0000-00000000000f",
+                  "firstName": "Test",
+                  "lastName": "User2",
+                  "email": "user2@example.com",
+                  "role": "Hiring Manager"
+                }
+              ],
+              "customRequisitionId": null,
+              "brandId": "00000000-0000-0000-0000-000000000006",
+              "author": {
+                "id": "00000000-0000-0000-0000-00000000000f",
+                "firstName": "Test",
+                "lastName": "User2",
+                "email": "user2@example.com",
+                "globalRole": "Organization Admin",
+                "isEnabled": true,
+                "updatedAt": "2026-05-28T17:27:35.112Z"
+              },
+              "createdAt": "2025-04-08T20:14:08.518Z",
+              "updatedAt": "2025-04-21T11:37:18.788Z",
+              "openedAt": "2025-04-08T20:36:08.393Z",
+              "closedAt": "2025-04-21T11:37:18.778Z"
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000000026",
+              "title": "Backend Engineer",
+              "confidential": false,
+              "status": "Closed",
+              "employmentType": "FullTime",
+              "locationId": "00000000-0000-0000-0000-000000000002",
+              "departmentId": "00000000-0000-0000-0000-000000000003",
+              "defaultInterviewPlanId": "00000000-0000-0000-0000-000000000027",
+              "interviewPlanIds": [
+                "00000000-0000-0000-0000-000000000028"
+              ],
+              "jobPostingIds": [],
+              "customFields": [],
+              "hiringTeam": [],
+              "customRequisitionId": null,
+              "brandId": "00000000-0000-0000-0000-000000000006",
+              "author": {
+                "id": "00000000-0000-0000-0000-000000000007",
+                "firstName": "Test",
+                "lastName": "User1",
+                "email": "user1@example.com",
+                "globalRole": "Organization Admin",
+                "isEnabled": true,
+                "updatedAt": "2026-05-18T15:01:46.792Z"
+              },
+              "createdAt": "2025-10-24T08:13:38.467Z",
+              "updatedAt": "2026-02-20T08:40:50.887Z",
+              "openedAt": "2025-10-24T08:15:45.031Z",
+              "closedAt": "2026-02-20T08:40:50.869Z"
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000000029",
+              "title": "Founding Devrel",
+              "confidential": false,
+              "status": "Closed",
+              "employmentType": "FullTime",
+              "locationId": "00000000-0000-0000-0000-000000000002",
+              "departmentId": "00000000-0000-0000-0000-000000000003",
+              "defaultInterviewPlanId": "00000000-0000-0000-0000-00000000002a",
+              "interviewPlanIds": [
+                "00000000-0000-0000-0000-00000000002b"
+              ],
+              "jobPostingIds": [],
+              "customFields": [],
+              "hiringTeam": [
+                {
+                  "userId": "00000000-0000-0000-0000-00000000000f",
+                  "firstName": "Test",
+                  "lastName": "User2",
+                  "email": "user2@example.com",
+                  "role": "Hiring Manager"
+                }
+              ],
+              "customRequisitionId": null,
+              "brandId": "00000000-0000-0000-0000-000000000006",
+              "author": {
+                "id": "00000000-0000-0000-0000-00000000000f",
+                "firstName": "Test",
+                "lastName": "User2",
+                "email": "user2@example.com",
+                "globalRole": "Organization Admin",
+                "isEnabled": true,
+                "updatedAt": "2026-05-28T17:27:35.112Z"
+              },
+              "createdAt": "2025-11-06T02:15:08.365Z",
+              "updatedAt": "2025-12-08T11:24:42.358Z",
+              "openedAt": "2025-11-06T02:25:11.316Z",
+              "closedAt": "2025-12-08T11:24:42.344Z"
+            },
+            {
+              "id": "00000000-0000-0000-0000-00000000002c",
+              "title": "Solutions Engineer",
+              "confidential": false,
+              "status": "Closed",
+              "employmentType": "FullTime",
+              "locationId": "00000000-0000-0000-0000-000000000002",
+              "departmentId": "00000000-0000-0000-0000-000000000003",
+              "defaultInterviewPlanId": "00000000-0000-0000-0000-00000000002d",
+              "interviewPlanIds": [
+                "00000000-0000-0000-0000-00000000002e"
+              ],
+              "jobPostingIds": [],
+              "customFields": [],
+              "hiringTeam": [],
+              "customRequisitionId": null,
+              "brandId": "00000000-0000-0000-0000-000000000006",
+              "author": {
+                "id": "00000000-0000-0000-0000-000000000007",
+                "firstName": "Test",
+                "lastName": "User1",
+                "email": "user1@example.com",
+                "globalRole": "Organization Admin",
+                "isEnabled": true,
+                "updatedAt": "2026-05-18T15:01:46.792Z"
+              },
+              "createdAt": "2026-01-19T12:57:32.771Z",
+              "updatedAt": "2026-01-28T10:07:00.643Z",
+              "openedAt": "2026-01-19T13:24:25.612Z",
+              "closedAt": "2026-01-28T10:07:00.635Z"
+            },
+            {
+              "id": "00000000-0000-0000-0000-00000000002f",
+              "title": "Chief of Staff",
+              "confidential": false,
+              "status": "Closed",
+              "employmentType": "FullTime",
+              "locationId": "00000000-0000-0000-0000-000000000002",
+              "departmentId": "00000000-0000-0000-0000-000000000003",
+              "defaultInterviewPlanId": "00000000-0000-0000-0000-000000000030",
+              "interviewPlanIds": [
+                "00000000-0000-0000-0000-000000000031"
+              ],
+              "jobPostingIds": [],
+              "customFields": [],
+              "hiringTeam": [
+                {
+                  "userId": "00000000-0000-0000-0000-00000000000f",
+                  "firstName": "Test",
+                  "lastName": "User2",
+                  "email": "user2@example.com",
+                  "role": "Hiring Manager"
+                }
+              ],
+              "customRequisitionId": null,
+              "brandId": "00000000-0000-0000-0000-000000000006",
+              "author": {
+                "id": "00000000-0000-0000-0000-000000000007",
+                "firstName": "Test",
+                "lastName": "User1",
+                "email": "user1@example.com",
+                "globalRole": "Organization Admin",
+                "isEnabled": true,
+                "updatedAt": "2026-05-18T15:01:46.792Z"
+              },
+              "createdAt": "2026-01-19T13:43:41.847Z",
+              "updatedAt": "2026-02-16T08:58:14.366Z",
+              "openedAt": "2026-01-19T15:15:56.435Z",
+              "closedAt": "2026-02-16T08:58:14.353Z"
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000000032",
+              "title": "Forward Deployed Engineer",
+              "confidential": false,
+              "status": "Closed",
+              "employmentType": "FullTime",
+              "locationId": "00000000-0000-0000-0000-000000000002",
+              "departmentId": "00000000-0000-0000-0000-000000000003",
+              "defaultInterviewPlanId": "00000000-0000-0000-0000-000000000033",
+              "interviewPlanIds": [
+                "00000000-0000-0000-0000-000000000034"
+              ],
+              "jobPostingIds": [],
+              "customFields": [],
+              "hiringTeam": [],
+              "customRequisitionId": null,
+              "brandId": "00000000-0000-0000-0000-000000000006",
+              "author": {
+                "id": "00000000-0000-0000-0000-000000000007",
+                "firstName": "Test",
+                "lastName": "User1",
+                "email": "user1@example.com",
+                "globalRole": "Organization Admin",
+                "isEnabled": true,
+                "updatedAt": "2026-05-18T15:01:46.792Z"
+              },
+              "createdAt": "2026-01-21T09:23:28.449Z",
+              "updatedAt": "2026-02-18T10:27:18.409Z",
+              "openedAt": "2026-01-21T09:48:32.186Z",
+              "closedAt": "2026-02-18T10:27:18.393Z"
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000000035",
+              "title": "Developer Content Engineer",
+              "confidential": false,
+              "status": "Closed",
+              "employmentType": "FullTime",
+              "locationId": "00000000-0000-0000-0000-000000000002",
+              "departmentId": "00000000-0000-0000-0000-000000000003",
+              "defaultInterviewPlanId": "00000000-0000-0000-0000-000000000021",
+              "interviewPlanIds": [
+                "00000000-0000-0000-0000-000000000022"
+              ],
+              "jobPostingIds": [],
+              "customFields": [],
+              "hiringTeam": [
+                {
+                  "userId": "00000000-0000-0000-0000-00000000000f",
+                  "firstName": "Test",
+                  "lastName": "User2",
+                  "email": "user2@example.com",
+                  "role": "Hiring Manager"
+                }
+              ],
+              "customRequisitionId": null,
+              "brandId": "00000000-0000-0000-0000-000000000006",
+              "author": {
+                "id": "00000000-0000-0000-0000-00000000000f",
+                "firstName": "Test",
+                "lastName": "User2",
+                "email": "user2@example.com",
+                "globalRole": "Organization Admin",
+                "isEnabled": true,
+                "updatedAt": "2026-05-28T17:27:35.112Z"
+              },
+              "createdAt": "2026-01-23T00:46:09.564Z",
+              "updatedAt": "2026-02-10T08:53:30.333Z",
+              "openedAt": "2026-01-23T01:07:03.877Z",
+              "closedAt": "2026-02-10T08:53:30.320Z"
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000000036",
+              "title": "Growth Engineer",
+              "confidential": false,
+              "status": "Closed",
+              "employmentType": "FullTime",
+              "locationId": "00000000-0000-0000-0000-000000000002",
+              "departmentId": "00000000-0000-0000-0000-000000000003",
+              "defaultInterviewPlanId": "00000000-0000-0000-0000-000000000037",
+              "interviewPlanIds": [
+                "00000000-0000-0000-0000-000000000038"
+              ],
+              "jobPostingIds": [],
+              "customFields": [],
+              "hiringTeam": [],
+              "customRequisitionId": null,
+              "brandId": "00000000-0000-0000-0000-000000000006",
+              "author": {
+                "id": "00000000-0000-0000-0000-000000000007",
+                "firstName": "Test",
+                "lastName": "User1",
+                "email": "user1@example.com",
+                "globalRole": "Organization Admin",
+                "isEnabled": true,
+                "updatedAt": "2026-05-18T15:01:46.792Z"
+              },
+              "createdAt": "2026-02-09T13:22:26.927Z",
+              "updatedAt": "2026-02-18T10:27:21.067Z",
+              "openedAt": "2026-02-09T13:25:41.028Z",
+              "closedAt": "2026-02-18T10:27:21.057Z"
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000000039",
+              "title": "Frontend Engineer",
+              "confidential": false,
+              "status": "Closed",
+              "employmentType": "FullTime",
+              "locationId": "00000000-0000-0000-0000-000000000002",
+              "departmentId": "00000000-0000-0000-0000-000000000003",
+              "defaultInterviewPlanId": "00000000-0000-0000-0000-00000000003a",
+              "interviewPlanIds": [
+                "00000000-0000-0000-0000-00000000003b"
+              ],
+              "jobPostingIds": [],
+              "customFields": [],
+              "hiringTeam": [],
+              "customRequisitionId": null,
+              "brandId": "00000000-0000-0000-0000-000000000006",
+              "author": {
+                "id": "00000000-0000-0000-0000-000000000007",
+                "firstName": "Test",
+                "lastName": "User1",
+                "email": "user1@example.com",
+                "globalRole": "Organization Admin",
+                "isEnabled": true,
+                "updatedAt": "2026-05-18T15:01:46.792Z"
+              },
+              "createdAt": "2026-03-09T09:44:22.835Z",
+              "updatedAt": "2026-03-31T18:46:26.601Z",
+              "openedAt": "2026-03-09T09:55:30.539Z",
+              "closedAt": "2026-03-31T18:46:26.590Z"
+            },
+            {
+              "id": "00000000-0000-0000-0000-00000000003c",
+              "title": "Founding Developer Growth Lead",
+              "confidential": false,
+              "status": "Open",
+              "employmentType": "FullTime",
+              "locationId": "00000000-0000-0000-0000-000000000002",
+              "departmentId": "00000000-0000-0000-0000-000000000003",
+              "defaultInterviewPlanId": "00000000-0000-0000-0000-00000000003d",
+              "interviewPlanIds": [
+                "00000000-0000-0000-0000-00000000003e"
+              ],
+              "jobPostingIds": [
+                "00000000-0000-0000-0000-00000000003f"
+              ],
+              "customFields": [],
+              "hiringTeam": [],
+              "customRequisitionId": null,
+              "brandId": "00000000-0000-0000-0000-000000000006",
+              "author": {
+                "id": "00000000-0000-0000-0000-000000000007",
+                "firstName": "Test",
+                "lastName": "User1",
+                "email": "user1@example.com",
+                "globalRole": "Organization Admin",
+                "isEnabled": true,
+                "updatedAt": "2026-05-18T15:01:46.792Z"
+              },
+              "createdAt": "2026-03-24T21:43:00.032Z",
+              "updatedAt": "2026-04-28T11:43:23.921Z",
+              "openedAt": "2026-03-24T21:46:47.964Z",
+              "closedAt": null
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000000040",
+              "title": "Support Engineer",
+              "confidential": false,
+              "status": "Closed",
+              "employmentType": "FullTime",
+              "locationId": "00000000-0000-0000-0000-000000000002",
+              "departmentId": "00000000-0000-0000-0000-000000000003",
+              "defaultInterviewPlanId": "00000000-0000-0000-0000-000000000041",
+              "interviewPlanIds": [
+                "00000000-0000-0000-0000-000000000042"
+              ],
+              "jobPostingIds": [],
+              "customFields": [],
+              "hiringTeam": [
+                {
+                  "userId": "00000000-0000-0000-0000-00000000000f",
+                  "firstName": "Test",
+                  "lastName": "User2",
+                  "email": "user2@example.com",
+                  "role": "Hiring Manager"
+                }
+              ],
+              "customRequisitionId": null,
+              "brandId": "00000000-0000-0000-0000-000000000006",
+              "author": {
+                "id": "00000000-0000-0000-0000-00000000000f",
+                "firstName": "Test",
+                "lastName": "User2",
+                "email": "user2@example.com",
+                "globalRole": "Organization Admin",
+                "isEnabled": true,
+                "updatedAt": "2026-05-28T17:27:35.112Z"
+              },
+              "createdAt": "2026-04-24T09:55:05.770Z",
+              "updatedAt": "2026-05-06T12:24:20.281Z",
+              "openedAt": "2026-04-24T10:34:34.382Z",
+              "closedAt": "2026-05-06T12:24:20.271Z"
+            }
+          ],
+          "moreDataAvailable": false,
+          "syncToken": "nRW7mj0zY"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 28 May 2026 21:11:42 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "1000",
+          "x-ratelimit-remaining": "929",
+          "x-ratelimit-reset": "+10000000001",
+          "x-ashby-request-id": "01KSR6VGD8GD1S1ENWHG7M8NF0",
+          "referrer-policy": "same-origin",
+          "ashby-session-expiry-alert-level": "",
+          "vary": "Origin",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "cf-ray": "a03040d53f5b9314-PDX",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "3d7fc54faafed98bbd0f77d21b907a591c8437e9",
+        "request": {
+          "data": {
+            "limit": 100
+          }
+        }
+      }
+    }
+  }
+}
