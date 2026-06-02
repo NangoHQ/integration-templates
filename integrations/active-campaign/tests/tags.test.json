@@ -1,0 +1,398 @@
+{
+  "nango": {
+    "batchSave": {
+      "Tag": [
+        {
+          "id": "1",
+          "tagType": "contact",
+          "tag": "nango-test-1",
+          "description": "Nango test tag 1",
+          "cdate": "2026-05-28T03:43:37-05:00"
+        },
+        {
+          "id": "2",
+          "tagType": "contact",
+          "tag": "nango-test-2",
+          "description": "Nango test tag 2",
+          "cdate": "2026-05-28T03:43:38-05:00"
+        },
+        {
+          "id": "3",
+          "tagType": "contact",
+          "tag": "nango-test-3",
+          "description": "Nango test tag 3",
+          "cdate": "2026-05-28T03:43:41-05:00"
+        },
+        {
+          "id": "4",
+          "tagType": "contact",
+          "tag": "nango-test-4",
+          "description": "Nango test tag 4",
+          "cdate": "2026-05-28T03:43:42-05:00"
+        },
+        {
+          "id": "5",
+          "tagType": "contact",
+          "tag": "nango-test-5",
+          "description": "Nango test tag 5",
+          "cdate": "2026-05-28T03:43:43-05:00"
+        },
+        {
+          "id": "6",
+          "tagType": "contact",
+          "tag": "nango-test-6",
+          "description": "Nango test tag 6",
+          "cdate": "2026-05-28T03:44:40-05:00"
+        },
+        {
+          "id": "7",
+          "tagType": "contact",
+          "tag": "nango-test-7",
+          "description": "Nango test tag 7",
+          "cdate": "2026-05-28T03:44:42-05:00"
+        },
+        {
+          "id": "8",
+          "tagType": "contact",
+          "tag": "nango-test-8",
+          "description": "Nango test tag 8",
+          "cdate": "2026-05-28T03:44:43-05:00"
+        },
+        {
+          "id": "9",
+          "tagType": "contact",
+          "tag": "nango-test-9",
+          "description": "Nango test tag 9",
+          "cdate": "2026-05-28T03:44:45-05:00"
+        },
+        {
+          "id": "10",
+          "tagType": "contact",
+          "tag": "nango-test-10",
+          "description": "Nango test tag 10",
+          "cdate": "2026-05-28T03:44:46-05:00"
+        },
+        {
+          "id": "11",
+          "tagType": "contact",
+          "tag": "nango-delete-1",
+          "description": "Delete me tag 1",
+          "cdate": "2026-05-28T03:44:48-05:00"
+        },
+        {
+          "id": "12",
+          "tagType": "contact",
+          "tag": "nango-delete-2",
+          "description": "Delete me tag 2",
+          "cdate": "2026-05-28T03:44:49-05:00"
+        },
+        {
+          "id": "13",
+          "tagType": "contact",
+          "tag": "nango-test-create-1",
+          "description": "Test tag created by dryrun",
+          "cdate": "2026-05-28T04:02:36-05:00"
+        },
+        {
+          "id": "15",
+          "tagType": "contact",
+          "tag": "nango-test-create-2",
+          "description": "Test tag created by dryrun save",
+          "cdate": "2026-05-28T04:02:55-05:00"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Tag": []
+    }
+  },
+  "api": {
+    "get": {
+      "/3/tags": {
+        "response": {
+          "tags": [
+            {
+              "tagType": "contact",
+              "tag": "nango-test-1",
+              "description": "Nango test tag 1",
+              "subscriber_count": "1",
+              "cdate": "2026-05-28T03:43:37-05:00",
+              "created_timestamp": "2026-05-28 03:43:37",
+              "updated_timestamp": "2026-05-28 04:03:25",
+              "created_by": null,
+              "updated_by": null,
+              "deleted": "0",
+              "links": {
+                "contactGoalTags": "https://nango56865.api-us1.com/api/3/tags/1/contactGoalTags",
+                "templateTags": "https://nango56865.api-us1.com/api/3/tags/1/templateTags"
+              },
+              "id": "1"
+            },
+            {
+              "tagType": "contact",
+              "tag": "nango-test-2",
+              "description": "Nango test tag 2",
+              "subscriber_count": "0",
+              "cdate": "2026-05-28T03:43:38-05:00",
+              "created_timestamp": "2026-05-28 03:43:38",
+              "updated_timestamp": "2026-05-28 03:43:38",
+              "created_by": null,
+              "updated_by": null,
+              "deleted": "0",
+              "links": {
+                "contactGoalTags": "https://nango56865.api-us1.com/api/3/tags/2/contactGoalTags",
+                "templateTags": "https://nango56865.api-us1.com/api/3/tags/2/templateTags"
+              },
+              "id": "2"
+            },
+            {
+              "tagType": "contact",
+              "tag": "nango-test-3",
+              "description": "Nango test tag 3",
+              "subscriber_count": "0",
+              "cdate": "2026-05-28T03:43:41-05:00",
+              "created_timestamp": "2026-05-28 03:43:41",
+              "updated_timestamp": "2026-05-28 03:43:41",
+              "created_by": null,
+              "updated_by": null,
+              "deleted": "0",
+              "links": {
+                "contactGoalTags": "https://nango56865.api-us1.com/api/3/tags/3/contactGoalTags",
+                "templateTags": "https://nango56865.api-us1.com/api/3/tags/3/templateTags"
+              },
+              "id": "3"
+            },
+            {
+              "tagType": "contact",
+              "tag": "nango-test-4",
+              "description": "Nango test tag 4",
+              "subscriber_count": "0",
+              "cdate": "2026-05-28T03:43:42-05:00",
+              "created_timestamp": "2026-05-28 03:43:42",
+              "updated_timestamp": "2026-05-28 03:43:42",
+              "created_by": null,
+              "updated_by": null,
+              "deleted": "0",
+              "links": {
+                "contactGoalTags": "https://nango56865.api-us1.com/api/3/tags/4/contactGoalTags",
+                "templateTags": "https://nango56865.api-us1.com/api/3/tags/4/templateTags"
+              },
+              "id": "4"
+            },
+            {
+              "tagType": "contact",
+              "tag": "nango-test-5",
+              "description": "Nango test tag 5",
+              "subscriber_count": "0",
+              "cdate": "2026-05-28T03:43:43-05:00",
+              "created_timestamp": "2026-05-28 03:43:43",
+              "updated_timestamp": "2026-05-28 03:43:43",
+              "created_by": null,
+              "updated_by": null,
+              "deleted": "0",
+              "links": {
+                "contactGoalTags": "https://nango56865.api-us1.com/api/3/tags/5/contactGoalTags",
+                "templateTags": "https://nango56865.api-us1.com/api/3/tags/5/templateTags"
+              },
+              "id": "5"
+            },
+            {
+              "tagType": "contact",
+              "tag": "nango-test-6",
+              "description": "Nango test tag 6",
+              "subscriber_count": "0",
+              "cdate": "2026-05-28T03:44:40-05:00",
+              "created_timestamp": "2026-05-28 03:44:40",
+              "updated_timestamp": "2026-05-28 03:44:40",
+              "created_by": null,
+              "updated_by": null,
+              "deleted": "0",
+              "links": {
+                "contactGoalTags": "https://nango56865.api-us1.com/api/3/tags/6/contactGoalTags",
+                "templateTags": "https://nango56865.api-us1.com/api/3/tags/6/templateTags"
+              },
+              "id": "6"
+            },
+            {
+              "tagType": "contact",
+              "tag": "nango-test-7",
+              "description": "Nango test tag 7",
+              "subscriber_count": "0",
+              "cdate": "2026-05-28T03:44:42-05:00",
+              "created_timestamp": "2026-05-28 03:44:42",
+              "updated_timestamp": "2026-05-28 03:44:42",
+              "created_by": null,
+              "updated_by": null,
+              "deleted": "0",
+              "links": {
+                "contactGoalTags": "https://nango56865.api-us1.com/api/3/tags/7/contactGoalTags",
+                "templateTags": "https://nango56865.api-us1.com/api/3/tags/7/templateTags"
+              },
+              "id": "7"
+            },
+            {
+              "tagType": "contact",
+              "tag": "nango-test-8",
+              "description": "Nango test tag 8",
+              "subscriber_count": "0",
+              "cdate": "2026-05-28T03:44:43-05:00",
+              "created_timestamp": "2026-05-28 03:44:43",
+              "updated_timestamp": "2026-05-28 03:44:43",
+              "created_by": null,
+              "updated_by": null,
+              "deleted": "0",
+              "links": {
+                "contactGoalTags": "https://nango56865.api-us1.com/api/3/tags/8/contactGoalTags",
+                "templateTags": "https://nango56865.api-us1.com/api/3/tags/8/templateTags"
+              },
+              "id": "8"
+            },
+            {
+              "tagType": "contact",
+              "tag": "nango-test-9",
+              "description": "Nango test tag 9",
+              "subscriber_count": "0",
+              "cdate": "2026-05-28T03:44:45-05:00",
+              "created_timestamp": "2026-05-28 03:44:45",
+              "updated_timestamp": "2026-05-28 03:44:45",
+              "created_by": null,
+              "updated_by": null,
+              "deleted": "0",
+              "links": {
+                "contactGoalTags": "https://nango56865.api-us1.com/api/3/tags/9/contactGoalTags",
+                "templateTags": "https://nango56865.api-us1.com/api/3/tags/9/templateTags"
+              },
+              "id": "9"
+            },
+            {
+              "tagType": "contact",
+              "tag": "nango-test-10",
+              "description": "Nango test tag 10",
+              "subscriber_count": "0",
+              "cdate": "2026-05-28T03:44:46-05:00",
+              "created_timestamp": "2026-05-28 03:44:46",
+              "updated_timestamp": "2026-05-28 03:44:46",
+              "created_by": null,
+              "updated_by": null,
+              "deleted": "0",
+              "links": {
+                "contactGoalTags": "https://nango56865.api-us1.com/api/3/tags/10/contactGoalTags",
+                "templateTags": "https://nango56865.api-us1.com/api/3/tags/10/templateTags"
+              },
+              "id": "10"
+            },
+            {
+              "tagType": "contact",
+              "tag": "nango-delete-1",
+              "description": "Delete me tag 1",
+              "subscriber_count": "0",
+              "cdate": "2026-05-28T03:44:48-05:00",
+              "created_timestamp": "2026-05-28 03:44:48",
+              "updated_timestamp": "2026-05-28 03:44:48",
+              "created_by": null,
+              "updated_by": null,
+              "deleted": "0",
+              "links": {
+                "contactGoalTags": "https://nango56865.api-us1.com/api/3/tags/11/contactGoalTags",
+                "templateTags": "https://nango56865.api-us1.com/api/3/tags/11/templateTags"
+              },
+              "id": "11"
+            },
+            {
+              "tagType": "contact",
+              "tag": "nango-delete-2",
+              "description": "Delete me tag 2",
+              "subscriber_count": "0",
+              "cdate": "2026-05-28T03:44:49-05:00",
+              "created_timestamp": "2026-05-28 03:44:49",
+              "updated_timestamp": "2026-05-28 03:44:49",
+              "created_by": null,
+              "updated_by": null,
+              "deleted": "0",
+              "links": {
+                "contactGoalTags": "https://nango56865.api-us1.com/api/3/tags/12/contactGoalTags",
+                "templateTags": "https://nango56865.api-us1.com/api/3/tags/12/templateTags"
+              },
+              "id": "12"
+            },
+            {
+              "tagType": "contact",
+              "tag": "nango-test-create-1",
+              "description": "Test tag created by dryrun",
+              "subscriber_count": "0",
+              "cdate": "2026-05-28T04:02:36-05:00",
+              "created_timestamp": "2026-05-28 04:02:36",
+              "updated_timestamp": "2026-05-28 04:02:36",
+              "created_by": null,
+              "updated_by": null,
+              "deleted": "0",
+              "links": {
+                "contactGoalTags": "https://nango56865.api-us1.com/api/3/tags/13/contactGoalTags",
+                "templateTags": "https://nango56865.api-us1.com/api/3/tags/13/templateTags"
+              },
+              "id": "13"
+            },
+            {
+              "tagType": "contact",
+              "tag": "nango-test-create-2",
+              "description": "Test tag created by dryrun save",
+              "subscriber_count": "0",
+              "cdate": "2026-05-28T04:02:55-05:00",
+              "created_timestamp": "2026-05-28 04:02:55",
+              "updated_timestamp": "2026-05-28 04:02:55",
+              "created_by": null,
+              "updated_by": null,
+              "deleted": "0",
+              "links": {
+                "contactGoalTags": "https://nango56865.api-us1.com/api/3/tags/15/contactGoalTags",
+                "templateTags": "https://nango56865.api-us1.com/api/3/tags/15/templateTags"
+              },
+              "id": "15"
+            }
+          ],
+          "meta": {
+            "total": "14"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 28 May 2026 09:08:46 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4996",
+          "x-ratelimit-reset": "1779959383",
+          "access-control-allow-headers": "Content-Type, origin, x-requested-with",
+          "access-control-allow-methods": "POST, GET",
+          "cache-control": "no-store, no-cache, must-revalidate,no-cache, private",
+          "expires": "Thu, 19 Nov 1981 08:52:00 GMT",
+          "pragma": "no-cache",
+          "server": "cloudflare",
+          "set-cookie": "PHPSESSID=b577d02279c9e2589213d78329550b7f; path=/; secure; HttpOnly; SameSite=Lax, em_acp_globalauth_cookie=cfddbee2-adb6-49cb-8ec3-776a225e548a; path=/; domain=.nango56865.api-us1.com; secure; httponly; SameSite=Lax",
+          "x-envoy-decorator-operation": "ac-hosted-current-web.activecampaign-hosted.svc.cluster.local:80/*",
+          "x-envoy-upstream-service-time": "76",
+          "x-request-id": "59438660-25ac-42b4-ba8a-3d2a5a3029bc",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a02c1ddfa9cfb642-PDX"
+        },
+        "hash": "34e3cfa40061e0774788cdaf013f8d7db647c0e3",
+        "request": {
+          "params": {
+            "limit": "100",
+            "offset": "0"
+          }
+        }
+      }
+    }
+  }
+}

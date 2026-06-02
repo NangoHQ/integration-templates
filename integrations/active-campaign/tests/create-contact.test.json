@@ -1,0 +1,98 @@
+{
+  "input": {
+    "email": "create-contact-pristine-2026@nango.dev",
+    "firstName": "Pristine",
+    "lastName": "Contact"
+  },
+  "output": {
+    "id": "15",
+    "email": "create-contact-pristine-2026@nango.dev",
+    "firstName": "Pristine",
+    "lastName": "Contact",
+    "phone": "",
+    "cdate": "2026-05-28T04:33:44-05:00",
+    "udate": "2026-05-28T04:33:44-05:00"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/3/contacts": {
+        "response": {
+          "contact": {
+            "email": "create-contact-pristine-2026@nango.dev",
+            "firstName": "Pristine",
+            "lastName": "Contact",
+            "cdate": "2026-05-28T04:33:44-05:00",
+            "udate": "2026-05-28T04:33:44-05:00",
+            "phone": "",
+            "orgid": "0",
+            "orgname": "",
+            "links": {
+              "bounceLogs": "https://nango56865.api-us1.com/api/3/contacts/15/bounceLogs",
+              "contactAutomations": "https://nango56865.api-us1.com/api/3/contacts/15/contactAutomations?limit=2500&orders%5Blastdate%5D=DESC",
+              "contactData": "https://nango56865.api-us1.com/api/3/contacts/15/contactData",
+              "contactGoals": "https://nango56865.api-us1.com/api/3/contacts/15/contactGoals",
+              "contactLists": "https://nango56865.api-us1.com/api/3/contacts/15/contactLists",
+              "contactLogs": "https://nango56865.api-us1.com/api/3/contacts/15/contactLogs",
+              "contactTags": "https://nango56865.api-us1.com/api/3/contacts/15/contactTags",
+              "contactDeals": "https://nango56865.api-us1.com/api/3/contacts/15/contactDeals",
+              "deals": "https://nango56865.api-us1.com/api/3/contacts/15/deals",
+              "fieldValues": "https://nango56865.api-us1.com/api/3/contacts/15/fieldValues",
+              "geoIps": "https://nango56865.api-us1.com/api/3/contacts/15/geoIps",
+              "notes": "https://nango56865.api-us1.com/api/3/contacts/15/notes",
+              "organization": "https://nango56865.api-us1.com/api/3/contacts/15/organization",
+              "plusAppend": "https://nango56865.api-us1.com/api/3/contacts/15/plusAppend",
+              "trackingLogs": "https://nango56865.api-us1.com/api/3/contacts/15/trackingLogs",
+              "scoreValues": "https://nango56865.api-us1.com/api/3/contacts/15/scoreValues",
+              "accountContacts": "https://nango56865.api-us1.com/api/3/contacts/15/accountContacts",
+              "automationEntryCounts": "https://nango56865.api-us1.com/api/3/contacts/15/automationEntryCounts"
+            },
+            "id": "15",
+            "organization": null
+          }
+        },
+        "status": 201,
+        "headers": {
+          "date": "Thu, 28 May 2026 09:33:45 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4988",
+          "x-ratelimit-reset": "1779960855",
+          "access-control-allow-headers": "Content-Type, origin, x-requested-with",
+          "access-control-allow-methods": "POST, GET",
+          "cache-control": "no-store, no-cache, must-revalidate,no-cache, private",
+          "expires": "Thu, 19 Nov 1981 08:52:00 GMT",
+          "pragma": "no-cache",
+          "server": "cloudflare",
+          "set-cookie": "PHPSESSID=7e4b00e03922cff7fb9d35a859a643bf; path=/; secure; HttpOnly; SameSite=Lax, em_acp_globalauth_cookie=aa633b8f-ede1-4526-9c1a-90619a9ec84c; path=/; domain=.nango56865.api-us1.com; secure; httponly; SameSite=Lax, cmp652926665=65f00a4c966182ec681cad45910f8209; expires=Sat, 27-Jun-2026 09:33:44 GMT; Max-Age=2592000; path=/; domain=.nango56865.api-us1.com; secure; SameSite=Lax",
+          "x-envoy-decorator-operation": "ac-hosted-current-web.activecampaign-hosted.svc.cluster.local:80/*",
+          "x-envoy-upstream-service-time": "160",
+          "x-request-id": "ac32942c-b5cf-4f8f-bf3c-23dca7d2d34c",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a02c427229268b10-PDX"
+        },
+        "hash": "1989aaa7b1aa7511421c3bcb21992b5f2f21ea1e",
+        "request": {
+          "data": {
+            "contact": {
+              "email": "create-contact-pristine-2026@nango.dev",
+              "firstName": "Pristine",
+              "lastName": "Contact"
+            }
+          }
+        }
+      }
+    }
+  }
+}

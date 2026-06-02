@@ -1,0 +1,385 @@
+{
+  "nango": {
+    "batchSave": {
+      "Account": [
+        {
+          "id": "1",
+          "name": "Updated Nango Test Corp",
+          "account_url": "https://nango.dev",
+          "created_timestamp": "2026-05-28T03:43:35-05:00",
+          "updated_timestamp": "2026-05-28T04:11:31-05:00",
+          "owner": "1",
+          "contact_count": "0",
+          "deal_count": "0"
+        },
+        {
+          "id": "2",
+          "name": "Acme Integration Co",
+          "created_timestamp": "2026-05-28T03:44:26-05:00",
+          "updated_timestamp": "2026-05-28T03:44:26-05:00",
+          "owner": "1",
+          "contact_count": "0",
+          "deal_count": "0"
+        },
+        {
+          "id": "3",
+          "name": "Sync Systems Ltd",
+          "created_timestamp": "2026-05-28T03:44:27-05:00",
+          "updated_timestamp": "2026-05-28T03:44:27-05:00",
+          "owner": "1",
+          "contact_count": "0",
+          "deal_count": "0"
+        },
+        {
+          "id": "4",
+          "name": "DevOps Partners",
+          "created_timestamp": "2026-05-28T03:44:29-05:00",
+          "updated_timestamp": "2026-05-28T03:44:29-05:00",
+          "owner": "1",
+          "contact_count": "0",
+          "deal_count": "0"
+        },
+        {
+          "id": "5",
+          "name": "Cloud Nine Software",
+          "created_timestamp": "2026-05-28T03:44:30-05:00",
+          "updated_timestamp": "2026-05-28T03:44:30-05:00",
+          "owner": "1",
+          "contact_count": "0",
+          "deal_count": "0"
+        },
+        {
+          "id": "6",
+          "name": "API First Inc",
+          "created_timestamp": "2026-05-28T03:44:31-05:00",
+          "updated_timestamp": "2026-05-28T03:44:31-05:00",
+          "owner": "1",
+          "contact_count": "0",
+          "deal_count": "0"
+        },
+        {
+          "id": "7",
+          "name": "Webhook Works",
+          "created_timestamp": "2026-05-28T03:44:33-05:00",
+          "updated_timestamp": "2026-05-28T03:44:33-05:00",
+          "owner": "1",
+          "contact_count": "0",
+          "deal_count": "0"
+        },
+        {
+          "id": "8",
+          "name": "Token Tech Group",
+          "created_timestamp": "2026-05-28T03:44:35-05:00",
+          "updated_timestamp": "2026-05-28T03:44:35-05:00",
+          "owner": "1",
+          "contact_count": "0",
+          "deal_count": "0"
+        },
+        {
+          "id": "9",
+          "name": "Pipeline Pro",
+          "created_timestamp": "2026-05-28T03:44:36-05:00",
+          "updated_timestamp": "2026-05-28T03:44:36-05:00",
+          "owner": "1",
+          "contact_count": "0",
+          "deal_count": "0"
+        },
+        {
+          "id": "12",
+          "name": "Nango Test Account Dryrun",
+          "created_timestamp": "2026-05-28T04:04:36-05:00",
+          "updated_timestamp": "2026-05-28T04:04:36-05:00",
+          "owner": "1",
+          "contact_count": "0",
+          "deal_count": "0"
+        },
+        {
+          "id": "13",
+          "name": "Nango Test Account Dryrun Save",
+          "created_timestamp": "2026-05-28T04:04:49-05:00",
+          "updated_timestamp": "2026-05-28T04:04:49-05:00",
+          "owner": "1",
+          "contact_count": "0",
+          "deal_count": "0"
+        },
+        {
+          "id": "14",
+          "name": "Nango Test Account Final",
+          "created_timestamp": "2026-05-28T04:05:48-05:00",
+          "updated_timestamp": "2026-05-28T04:05:48-05:00",
+          "owner": "1",
+          "contact_count": "0",
+          "deal_count": "0"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Account": []
+    }
+  },
+  "api": {
+    "get": {
+      "/3/accounts": {
+        "response": {
+          "accounts": [
+            {
+              "name": "Updated Nango Test Corp",
+              "accountUrl": "https://nango.dev",
+              "createdTimestamp": "2026-05-28T03:43:35-05:00",
+              "updatedTimestamp": "2026-05-28T04:11:31-05:00",
+              "owner": "1",
+              "contactCount": "0",
+              "dealCount": "0",
+              "links": {
+                "notes": "https://nango56865.api-us1.com/api/3/accounts/1/notes",
+                "accountCustomFieldData": "https://nango56865.api-us1.com/api/3/accounts/1/accountCustomFieldData",
+                "accountContacts": "https://nango56865.api-us1.com/api/3/accounts/1/accountContacts",
+                "emailActivities": "https://nango56865.api-us1.com/api/3/accounts/1/emailActivities",
+                "contactEmails": "https://nango56865.api-us1.com/api/3/accounts/1/contactEmails",
+                "owner": "https://nango56865.api-us1.com/api/3/accounts/1/owner"
+              },
+              "id": "1"
+            },
+            {
+              "name": "Acme Integration Co",
+              "accountUrl": null,
+              "createdTimestamp": "2026-05-28T03:44:26-05:00",
+              "updatedTimestamp": "2026-05-28T03:44:26-05:00",
+              "owner": "1",
+              "contactCount": "0",
+              "dealCount": "0",
+              "links": {
+                "notes": "https://nango56865.api-us1.com/api/3/accounts/2/notes",
+                "accountCustomFieldData": "https://nango56865.api-us1.com/api/3/accounts/2/accountCustomFieldData",
+                "accountContacts": "https://nango56865.api-us1.com/api/3/accounts/2/accountContacts",
+                "emailActivities": "https://nango56865.api-us1.com/api/3/accounts/2/emailActivities",
+                "contactEmails": "https://nango56865.api-us1.com/api/3/accounts/2/contactEmails",
+                "owner": "https://nango56865.api-us1.com/api/3/accounts/2/owner"
+              },
+              "id": "2"
+            },
+            {
+              "name": "Sync Systems Ltd",
+              "accountUrl": null,
+              "createdTimestamp": "2026-05-28T03:44:27-05:00",
+              "updatedTimestamp": "2026-05-28T03:44:27-05:00",
+              "owner": "1",
+              "contactCount": "0",
+              "dealCount": "0",
+              "links": {
+                "notes": "https://nango56865.api-us1.com/api/3/accounts/3/notes",
+                "accountCustomFieldData": "https://nango56865.api-us1.com/api/3/accounts/3/accountCustomFieldData",
+                "accountContacts": "https://nango56865.api-us1.com/api/3/accounts/3/accountContacts",
+                "emailActivities": "https://nango56865.api-us1.com/api/3/accounts/3/emailActivities",
+                "contactEmails": "https://nango56865.api-us1.com/api/3/accounts/3/contactEmails",
+                "owner": "https://nango56865.api-us1.com/api/3/accounts/3/owner"
+              },
+              "id": "3"
+            },
+            {
+              "name": "DevOps Partners",
+              "accountUrl": null,
+              "createdTimestamp": "2026-05-28T03:44:29-05:00",
+              "updatedTimestamp": "2026-05-28T03:44:29-05:00",
+              "owner": "1",
+              "contactCount": "0",
+              "dealCount": "0",
+              "links": {
+                "notes": "https://nango56865.api-us1.com/api/3/accounts/4/notes",
+                "accountCustomFieldData": "https://nango56865.api-us1.com/api/3/accounts/4/accountCustomFieldData",
+                "accountContacts": "https://nango56865.api-us1.com/api/3/accounts/4/accountContacts",
+                "emailActivities": "https://nango56865.api-us1.com/api/3/accounts/4/emailActivities",
+                "contactEmails": "https://nango56865.api-us1.com/api/3/accounts/4/contactEmails",
+                "owner": "https://nango56865.api-us1.com/api/3/accounts/4/owner"
+              },
+              "id": "4"
+            },
+            {
+              "name": "Cloud Nine Software",
+              "accountUrl": null,
+              "createdTimestamp": "2026-05-28T03:44:30-05:00",
+              "updatedTimestamp": "2026-05-28T03:44:30-05:00",
+              "owner": "1",
+              "contactCount": "0",
+              "dealCount": "0",
+              "links": {
+                "notes": "https://nango56865.api-us1.com/api/3/accounts/5/notes",
+                "accountCustomFieldData": "https://nango56865.api-us1.com/api/3/accounts/5/accountCustomFieldData",
+                "accountContacts": "https://nango56865.api-us1.com/api/3/accounts/5/accountContacts",
+                "emailActivities": "https://nango56865.api-us1.com/api/3/accounts/5/emailActivities",
+                "contactEmails": "https://nango56865.api-us1.com/api/3/accounts/5/contactEmails",
+                "owner": "https://nango56865.api-us1.com/api/3/accounts/5/owner"
+              },
+              "id": "5"
+            },
+            {
+              "name": "API First Inc",
+              "accountUrl": null,
+              "createdTimestamp": "2026-05-28T03:44:31-05:00",
+              "updatedTimestamp": "2026-05-28T03:44:31-05:00",
+              "owner": "1",
+              "contactCount": "0",
+              "dealCount": "0",
+              "links": {
+                "notes": "https://nango56865.api-us1.com/api/3/accounts/6/notes",
+                "accountCustomFieldData": "https://nango56865.api-us1.com/api/3/accounts/6/accountCustomFieldData",
+                "accountContacts": "https://nango56865.api-us1.com/api/3/accounts/6/accountContacts",
+                "emailActivities": "https://nango56865.api-us1.com/api/3/accounts/6/emailActivities",
+                "contactEmails": "https://nango56865.api-us1.com/api/3/accounts/6/contactEmails",
+                "owner": "https://nango56865.api-us1.com/api/3/accounts/6/owner"
+              },
+              "id": "6"
+            },
+            {
+              "name": "Webhook Works",
+              "accountUrl": null,
+              "createdTimestamp": "2026-05-28T03:44:33-05:00",
+              "updatedTimestamp": "2026-05-28T03:44:33-05:00",
+              "owner": "1",
+              "contactCount": "0",
+              "dealCount": "0",
+              "links": {
+                "notes": "https://nango56865.api-us1.com/api/3/accounts/7/notes",
+                "accountCustomFieldData": "https://nango56865.api-us1.com/api/3/accounts/7/accountCustomFieldData",
+                "accountContacts": "https://nango56865.api-us1.com/api/3/accounts/7/accountContacts",
+                "emailActivities": "https://nango56865.api-us1.com/api/3/accounts/7/emailActivities",
+                "contactEmails": "https://nango56865.api-us1.com/api/3/accounts/7/contactEmails",
+                "owner": "https://nango56865.api-us1.com/api/3/accounts/7/owner"
+              },
+              "id": "7"
+            },
+            {
+              "name": "Token Tech Group",
+              "accountUrl": null,
+              "createdTimestamp": "2026-05-28T03:44:35-05:00",
+              "updatedTimestamp": "2026-05-28T03:44:35-05:00",
+              "owner": "1",
+              "contactCount": "0",
+              "dealCount": "0",
+              "links": {
+                "notes": "https://nango56865.api-us1.com/api/3/accounts/8/notes",
+                "accountCustomFieldData": "https://nango56865.api-us1.com/api/3/accounts/8/accountCustomFieldData",
+                "accountContacts": "https://nango56865.api-us1.com/api/3/accounts/8/accountContacts",
+                "emailActivities": "https://nango56865.api-us1.com/api/3/accounts/8/emailActivities",
+                "contactEmails": "https://nango56865.api-us1.com/api/3/accounts/8/contactEmails",
+                "owner": "https://nango56865.api-us1.com/api/3/accounts/8/owner"
+              },
+              "id": "8"
+            },
+            {
+              "name": "Pipeline Pro",
+              "accountUrl": null,
+              "createdTimestamp": "2026-05-28T03:44:36-05:00",
+              "updatedTimestamp": "2026-05-28T03:44:36-05:00",
+              "owner": "1",
+              "contactCount": "0",
+              "dealCount": "0",
+              "links": {
+                "notes": "https://nango56865.api-us1.com/api/3/accounts/9/notes",
+                "accountCustomFieldData": "https://nango56865.api-us1.com/api/3/accounts/9/accountCustomFieldData",
+                "accountContacts": "https://nango56865.api-us1.com/api/3/accounts/9/accountContacts",
+                "emailActivities": "https://nango56865.api-us1.com/api/3/accounts/9/emailActivities",
+                "contactEmails": "https://nango56865.api-us1.com/api/3/accounts/9/contactEmails",
+                "owner": "https://nango56865.api-us1.com/api/3/accounts/9/owner"
+              },
+              "id": "9"
+            },
+            {
+              "name": "Nango Test Account Dryrun",
+              "accountUrl": null,
+              "createdTimestamp": "2026-05-28T04:04:36-05:00",
+              "updatedTimestamp": "2026-05-28T04:04:36-05:00",
+              "owner": "1",
+              "contactCount": "0",
+              "dealCount": "0",
+              "links": {
+                "notes": "https://nango56865.api-us1.com/api/3/accounts/12/notes",
+                "accountCustomFieldData": "https://nango56865.api-us1.com/api/3/accounts/12/accountCustomFieldData",
+                "accountContacts": "https://nango56865.api-us1.com/api/3/accounts/12/accountContacts",
+                "emailActivities": "https://nango56865.api-us1.com/api/3/accounts/12/emailActivities",
+                "contactEmails": "https://nango56865.api-us1.com/api/3/accounts/12/contactEmails",
+                "owner": "https://nango56865.api-us1.com/api/3/accounts/12/owner"
+              },
+              "id": "12"
+            },
+            {
+              "name": "Nango Test Account Dryrun Save",
+              "accountUrl": null,
+              "createdTimestamp": "2026-05-28T04:04:49-05:00",
+              "updatedTimestamp": "2026-05-28T04:04:49-05:00",
+              "owner": "1",
+              "contactCount": "0",
+              "dealCount": "0",
+              "links": {
+                "notes": "https://nango56865.api-us1.com/api/3/accounts/13/notes",
+                "accountCustomFieldData": "https://nango56865.api-us1.com/api/3/accounts/13/accountCustomFieldData",
+                "accountContacts": "https://nango56865.api-us1.com/api/3/accounts/13/accountContacts",
+                "emailActivities": "https://nango56865.api-us1.com/api/3/accounts/13/emailActivities",
+                "contactEmails": "https://nango56865.api-us1.com/api/3/accounts/13/contactEmails",
+                "owner": "https://nango56865.api-us1.com/api/3/accounts/13/owner"
+              },
+              "id": "13"
+            },
+            {
+              "name": "Nango Test Account Final",
+              "accountUrl": null,
+              "createdTimestamp": "2026-05-28T04:05:48-05:00",
+              "updatedTimestamp": "2026-05-28T04:05:48-05:00",
+              "owner": "1",
+              "contactCount": "0",
+              "dealCount": "0",
+              "links": {
+                "notes": "https://nango56865.api-us1.com/api/3/accounts/14/notes",
+                "accountCustomFieldData": "https://nango56865.api-us1.com/api/3/accounts/14/accountCustomFieldData",
+                "accountContacts": "https://nango56865.api-us1.com/api/3/accounts/14/accountContacts",
+                "emailActivities": "https://nango56865.api-us1.com/api/3/accounts/14/emailActivities",
+                "contactEmails": "https://nango56865.api-us1.com/api/3/accounts/14/contactEmails",
+                "owner": "https://nango56865.api-us1.com/api/3/accounts/14/owner"
+              },
+              "id": "14"
+            }
+          ],
+          "meta": {
+            "total": "12"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 28 May 2026 10:07:42 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4929",
+          "x-ratelimit-reset": "1779962890",
+          "cache-control": "no-store, no-cache, must-revalidate,no-cache, private",
+          "expires": "Thu, 19 Nov 1981 08:52:00 GMT",
+          "pragma": "no-cache",
+          "server": "cloudflare",
+          "set-cookie": "PHPSESSID=c2d78a645381a5a24c1a031b87e9b477; path=/; secure; HttpOnly; SameSite=Lax, em_acp_globalauth_cookie=cd6f644d-c197-4676-8e86-bd06a045f185; path=/; domain=.nango56865.api-us1.com; secure; httponly; SameSite=Lax",
+          "x-envoy-decorator-operation": "ac-hosted-current-web.activecampaign-hosted.svc.cluster.local:80/*",
+          "x-envoy-upstream-service-time": "141",
+          "x-request-id": "905085c9-0383-42de-a066-9a8bc7433f52",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a02c742f4db0dd6a-PDX"
+        },
+        "hash": "dac1b6e56c9fc683078f653eb03349fa6d39f008",
+        "request": {
+          "params": {
+            "limit": "100",
+            "offset": "0"
+          }
+        }
+      }
+    }
+  }
+}

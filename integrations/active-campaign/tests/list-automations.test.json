@@ -1,0 +1,109 @@
+{
+  "input": {},
+  "output": {
+    "automations": [
+      {
+        "id": "1",
+        "name": "Developer Integration Platform Launch",
+        "cdate": "2026-05-28T03:20:46-05:00",
+        "mdate": "2026-05-28T03:20:46-05:00",
+        "userid": "1",
+        "status": "0",
+        "entered": "0",
+        "exited": "0",
+        "hidden": "0",
+        "defaultscreenshot": "//img-us1.com/default-series.gif",
+        "screenshot": "//nango56865.img-us3.com/_screenshot_/e11838e5-4e0f-4459-bf8e-b9235fbbea47.jpeg"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/3/automations": {
+        "response": {
+          "automations": [
+            {
+              "name": "Developer Integration Platform Launch",
+              "cdate": "2026-05-28T03:20:46-05:00",
+              "mdate": "2026-05-28T03:20:46-05:00",
+              "userid": "1",
+              "status": "0",
+              "entered": "0",
+              "exited": "0",
+              "hidden": "0",
+              "entitlements_violation": "0",
+              "source": "6",
+              "description": "A 14-day email sequence introducing developers to Nango's integration platform, highlighting API connectivity, security infrastructure, community features, and onboarding resources.",
+              "exit_on_unsubscribe": "0",
+              "exit_on_conversion": "0",
+              "multientry": "1",
+              "defaultscreenshot": "//img-us1.com/default-series.gif",
+              "screenshot": "//nango56865.img-us3.com/_screenshot_/e11838e5-4e0f-4459-bf8e-b9235fbbea47.jpeg",
+              "links": {
+                "campaigns": "https://nango56865.api-us1.com/api/3/automations/1/campaigns",
+                "contactGoals": "https://nango56865.api-us1.com/api/3/automations/1/contactGoals",
+                "contactAutomations": "https://nango56865.api-us1.com/api/3/automations/1/contactAutomations",
+                "blocks": "https://nango56865.api-us1.com/api/3/automations/1/blocks",
+                "goals": "https://nango56865.api-us1.com/api/3/automations/1/goals",
+                "sms": "https://nango56865.api-us1.com/api/3/automations/1/sms",
+                "sitemessages": "https://nango56865.api-us1.com/api/3/automations/1/sitemessages",
+                "triggers": "https://nango56865.api-us1.com/api/3/automations/1/triggers"
+              },
+              "id": "1"
+            }
+          ],
+          "meta": {
+            "total": "1",
+            "starts": [
+              {
+                "id": "2",
+                "series": "1",
+                "type": "none",
+                "dealfield": false
+              }
+            ],
+            "filtered": false,
+            "smsLogs": []
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 28 May 2026 09:09:46 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4997",
+          "x-ratelimit-reset": "1779959446",
+          "cache-control": "no-store, no-cache, must-revalidate,no-cache, private",
+          "expires": "Thu, 19 Nov 1981 08:52:00 GMT",
+          "pragma": "no-cache",
+          "server": "cloudflare",
+          "set-cookie": "PHPSESSID=b7b38a1931a8a8253a2d63bb7b7606e2; path=/; secure; HttpOnly; SameSite=Lax, em_acp_globalauth_cookie=f98f8d7a-3f40-4d22-bb05-397713fee811; path=/; domain=.nango56865.api-us1.com; secure; httponly; SameSite=Lax",
+          "x-envoy-decorator-operation": "ac-hosted-current-web.activecampaign-hosted.svc.cluster.local:80/*",
+          "x-envoy-upstream-service-time": "68",
+          "x-request-id": "99861876-3fb2-438d-ac67-79a3107192ac",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a02c1f54ec720ba9-PDX"
+        },
+        "hash": "a8118fb572f1daaa0c64eb3c2a7831239d047fdb",
+        "request": {
+          "params": {
+            "limit": "20",
+            "offset": "0"
+          }
+        }
+      }
+    }
+  }
+}
