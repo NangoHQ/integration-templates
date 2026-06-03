@@ -1824,6 +1824,19 @@ import './notion/actions/update-database.js';
 import './notion/actions/update-page-markdown.js';
 import './notion/actions/update-page.js';
 
+// -- Integration: odoo-cc
+import './odoo-cc/syncs/crm-leads.js';
+import './odoo-cc/syncs/invoices.js';
+import './odoo-cc/syncs/products.js';
+import './odoo-cc/syncs/project-tasks.js';
+import './odoo-cc/syncs/sale-orders.js';
+import './odoo-cc/actions/create-record.js';
+import './odoo-cc/actions/delete-record.js';
+import './odoo-cc/actions/execute-kw.js';
+import './odoo-cc/actions/get-record-fields.js';
+import './odoo-cc/actions/search-read-records.js';
+import './odoo-cc/actions/update-record.js';
+
 // -- Integration: okta
 import './okta/syncs/users.js';
 import './okta/actions/add-group.js';

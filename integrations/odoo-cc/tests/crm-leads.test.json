@@ -1,0 +1,825 @@
+{
+  "nango": {
+    "batchSave": {
+      "CrmLead": [
+        {
+          "id": "1",
+          "name": "Club Office Furnitures",
+          "partner_name": "Le Club SARL",
+          "email_from": "jdunagan@leclub.example.com",
+          "stage_id": "1",
+          "stage_name": "New",
+          "write_date": "2026-06-03T08:16:59.659390"
+        },
+        {
+          "id": "2",
+          "name": "Design Software",
+          "partner_name": "The Oil Company",
+          "email_from": "md@oilcompany.fr",
+          "stage_id": "1",
+          "stage_name": "New",
+          "write_date": "2026-06-03T08:16:59.659390"
+        },
+        {
+          "id": "3",
+          "name": "Pricing for 25 desks",
+          "partner_name": "The Kompany",
+          "email_from": "contact@thekompany.example.com",
+          "stage_id": "1",
+          "stage_name": "New",
+          "write_date": "2026-06-03T08:16:59.659390"
+        },
+        {
+          "id": "4",
+          "name": "Campbell: Chairs",
+          "partner_name": "Burstein Applebee",
+          "email_from": "hmc@yahoo.example.com",
+          "stage_id": "1",
+          "stage_name": "New",
+          "write_date": "2026-06-03T08:16:59.659390"
+        },
+        {
+          "id": "5",
+          "name": "Quotation for 50 Chairs",
+          "partner_name": "Stonage IT",
+          "email_from": "helle@stonageit.example.com",
+          "stage_id": "1",
+          "stage_name": "New",
+          "write_date": "2026-06-03T08:16:59.659390"
+        },
+        {
+          "id": "6",
+          "name": "Opensides: Need Info",
+          "partner_name": "Opensides",
+          "email_from": "tina@opensides.example.com",
+          "stage_id": "1",
+          "stage_name": "New",
+          "write_date": "2026-06-03T08:16:59.659390"
+        },
+        {
+          "id": "8",
+          "name": "Product Catalog",
+          "partner_name": "ESM Expert",
+          "email_from": "logan_expert@gmail.example.com",
+          "stage_id": "1",
+          "stage_name": "New",
+          "write_date": "2026-06-03T08:16:59.659390"
+        },
+        {
+          "id": "10",
+          "name": "Design Software Info",
+          "partner_name": "Solar IT",
+          "email_from": "jga@solar.example.com",
+          "stage_id": "1",
+          "stage_name": "New",
+          "write_date": "2026-06-03T08:16:59.659390"
+        },
+        {
+          "id": "13",
+          "name": "Quote for 12 Tables",
+          "partner_name": "Rediff Mail",
+          "email_from": "willmac@rediffmail.example.com",
+          "stage_id": "1",
+          "stage_name": "New",
+          "write_date": "2026-06-03T08:16:59.659390"
+        },
+        {
+          "id": "16",
+          "name": "Global Solutions: Furnitures",
+          "partner_name": "Global Solutions",
+          "email_from": "info@deltapc.example.com",
+          "stage_id": "2",
+          "stage_name": "Qualified",
+          "write_date": "2026-06-03T08:16:59.659390"
+        },
+        {
+          "id": "17",
+          "name": "Balmer Inc: Potential Distributor",
+          "partner_name": "BalmerInc S.A.",
+          "email_from": "olivier.passo@balmer.inc.sa",
+          "stage_id": "2",
+          "stage_name": "Qualified",
+          "write_date": "2026-06-03T08:16:59.659390"
+        },
+        {
+          "id": "18",
+          "name": "DeltaPC: 10 Computer Desks",
+          "partner_name": "Delta PC",
+          "email_from": "info@deltapc.example.com",
+          "stage_id": "2",
+          "stage_name": "Qualified",
+          "write_date": "2026-06-03T08:16:59.659390"
+        },
+        {
+          "id": "19",
+          "name": "Customizable Desk",
+          "partner_name": "Vauxoo",
+          "email_from": "vauxoo@yourcompany.example.com",
+          "stage_id": "3",
+          "stage_name": "Proposition",
+          "write_date": "2026-06-03T08:16:59.659390"
+        },
+        {
+          "id": "20",
+          "name": "Distributor Contract",
+          "partner_name": "Epic Technologies",
+          "email_from": "john.b@tech.info",
+          "stage_id": "4",
+          "stage_name": "Won",
+          "write_date": "2026-06-03T08:16:59.659390"
+        },
+        {
+          "id": "21",
+          "name": "Office Design and Architecture",
+          "partner_name": "Ready Mat",
+          "email_from": "info@deltapc.example.com",
+          "stage_id": "3",
+          "stage_name": "Proposition",
+          "write_date": "2026-06-03T08:16:59.659390"
+        },
+        {
+          "id": "22",
+          "name": "5 VP Chairs",
+          "partner_name": "Nebula Business",
+          "email_from": "vauxoo@yourcompany.example.com",
+          "stage_id": "3",
+          "stage_name": "Proposition",
+          "write_date": "2026-06-03T08:16:59.659390"
+        },
+        {
+          "id": "23",
+          "name": "Access to Online Catalog",
+          "partner_name": "Lumber Inc",
+          "email_from": "lumber-inv92@example.com",
+          "stage_id": "4",
+          "stage_name": "Won",
+          "write_date": "2026-06-03T08:16:59.659390"
+        },
+        {
+          "id": "24",
+          "name": "Need 20 Desks",
+          "email_from": "info@mycompany.net",
+          "stage_id": "3",
+          "stage_name": "Proposition",
+          "write_date": "2026-06-03T08:16:59.659390"
+        },
+        {
+          "id": "25",
+          "name": "Modern Open Space",
+          "partner_name": "E-light Industry",
+          "email_from": "henry@elight.com",
+          "stage_id": "3",
+          "stage_name": "Proposition",
+          "write_date": "2026-06-03T08:16:59.659390"
+        },
+        {
+          "id": "29",
+          "name": "Club Office More Desks",
+          "partner_name": "Le Club SARL",
+          "email_from": "jdunagan@leclub.example.com",
+          "stage_id": "2",
+          "stage_name": "Qualified",
+          "write_date": "2026-06-03T08:16:59.659390"
+        },
+        {
+          "id": "30",
+          "name": "Acadia College Furnitures",
+          "partner_name": "Acadia College",
+          "email_from": "GastonRochon@example.com",
+          "stage_id": "1",
+          "stage_name": "New",
+          "write_date": "2026-06-03T08:16:59.659390"
+        },
+        {
+          "id": "31",
+          "name": "Quote for 150 carpets",
+          "email_from": "ErikNFrench@armyspy.com",
+          "stage_id": "1",
+          "stage_name": "New",
+          "write_date": "2026-06-03T08:16:59.659390"
+        },
+        {
+          "id": "32",
+          "name": "Quote for 600 Chairs",
+          "email_from": "ErikNFrench@armyspy.com",
+          "stage_id": "2",
+          "stage_name": "Qualified",
+          "write_date": "2026-06-03T08:16:59.659390"
+        },
+        {
+          "id": "33",
+          "name": "Recurring delivery contract",
+          "email_from": "max123@itconsult.com",
+          "stage_id": "2",
+          "stage_name": "Qualified",
+          "write_date": "2026-06-03T08:16:59.659390"
+        },
+        {
+          "id": "34",
+          "name": "Need info about pricing",
+          "email_from": "aakreda@theglobeandmail.com",
+          "stage_id": "3",
+          "stage_name": "Proposition",
+          "write_date": "2026-06-03T08:16:59.659390"
+        },
+        {
+          "id": "35",
+          "name": "Trelian New Offices",
+          "partner_name": "Photobug",
+          "email_from": "roxshott9@trellian.com",
+          "stage_id": "2",
+          "stage_name": "Qualified",
+          "write_date": "2026-06-03T08:16:59.659390"
+        },
+        {
+          "id": "36",
+          "name": "Branded Furniture",
+          "email_from": "mlimprecht8@fastcompany.com",
+          "stage_id": "2",
+          "stage_name": "Qualified",
+          "write_date": "2026-06-03T08:16:59.659390"
+        },
+        {
+          "id": "37",
+          "name": "Design New Shelves",
+          "partner_name": "Jaloo",
+          "email_from": "akalinovich7@tinypic.com",
+          "stage_id": "2",
+          "stage_name": "Qualified",
+          "write_date": "2026-06-03T08:16:59.659390"
+        },
+        {
+          "id": "38",
+          "name": "Office chairs",
+          "partner_name": "Shufflebeat",
+          "email_from": "jjobbins6@simplemachines.org",
+          "stage_id": "2",
+          "stage_name": "Qualified",
+          "write_date": "2026-06-03T08:16:59.659390"
+        },
+        {
+          "id": "39",
+          "name": "Cleaning subscription",
+          "partner_name": "Realblab",
+          "email_from": "eespinazo5@reuters.com",
+          "stage_id": "1",
+          "stage_name": "New",
+          "write_date": "2026-06-03T08:16:59.659390"
+        },
+        {
+          "id": "40",
+          "name": "Custom Desks (100 pieces)",
+          "partner_name": "Muxo",
+          "email_from": "credford4@salon.com",
+          "stage_id": "2",
+          "stage_name": "Qualified",
+          "write_date": "2026-06-03T08:16:59.659390"
+        },
+        {
+          "id": "41",
+          "name": "Need a price: urgent",
+          "partner_name": "Skibox",
+          "email_from": "ikirvell3@gnu.org",
+          "stage_id": "3",
+          "stage_name": "Proposition",
+          "write_date": "2026-06-03T08:16:59.659390"
+        },
+        {
+          "id": "42",
+          "name": "Furnitures for new location",
+          "partner_name": "Twinte",
+          "email_from": "ngrabert2@dailymail.co.uk",
+          "stage_id": "2",
+          "stage_name": "Qualified",
+          "write_date": "2026-06-03T08:16:59.659390"
+        },
+        {
+          "id": "43",
+          "name": "Modernize old offices",
+          "partner_name": "Yozio",
+          "email_from": "fseiller1@theglobeandmail.com",
+          "stage_id": "3",
+          "stage_name": "Proposition",
+          "write_date": "2026-06-03T08:16:59.659390"
+        },
+        {
+          "id": "44",
+          "name": "Quote for 35 windows",
+          "partner_name": "Gabcube",
+          "email_from": "tbrockhouse0@google.pl",
+          "stage_id": "3",
+          "stage_name": "Proposition",
+          "write_date": "2026-06-03T08:16:59.659390"
+        },
+        {
+          "id": "14",
+          "name": "Office Design Project",
+          "partner_name": "Acme Corporation",
+          "email_from": "info@acme-example-company.com",
+          "stage_id": "1",
+          "stage_name": "New",
+          "write_date": "2026-06-03T08:41:02.681902"
+        },
+        {
+          "id": "15",
+          "name": "Info about services",
+          "partner_name": "Acme Corporation",
+          "email_from": "info@acme-example-company.com",
+          "stage_id": "2",
+          "stage_name": "Qualified",
+          "write_date": "2026-06-03T08:41:02.681902"
+        },
+        {
+          "id": "26",
+          "name": "Open Space Design",
+          "partner_name": "Acme Corporation",
+          "email_from": "info@acme-example-company.com",
+          "stage_id": "3",
+          "stage_name": "Proposition",
+          "write_date": "2026-06-03T08:41:02.681902"
+        },
+        {
+          "id": "27",
+          "name": "Interest in your products",
+          "partner_name": "Acme Corporation",
+          "email_from": "info@acme-example-company.com",
+          "stage_id": "4",
+          "stage_name": "Won",
+          "write_date": "2026-06-03T08:41:02.681902"
+        }
+      ]
+    },
+    "batchDelete": {
+      "CrmLead": []
+    }
+  },
+  "api": {
+    "get": {
+      "/1.0/crm.lead": {
+        "response": {
+          "records": [
+            {
+              "id": 1,
+              "name": "Club Office Furnitures",
+              "partner_name": "Le Club SARL",
+              "email_from": "jdunagan@leclub.example.com",
+              "stage_id": [
+                1,
+                "New"
+              ],
+              "write_date": "2026-06-03T08:16:59.659390"
+            },
+            {
+              "id": 2,
+              "name": "Design Software",
+              "partner_name": "The Oil Company",
+              "email_from": "md@oilcompany.fr",
+              "stage_id": [
+                1,
+                "New"
+              ],
+              "write_date": "2026-06-03T08:16:59.659390"
+            },
+            {
+              "id": 3,
+              "name": "Pricing for 25 desks",
+              "partner_name": "The Kompany",
+              "email_from": "contact@thekompany.example.com",
+              "stage_id": [
+                1,
+                "New"
+              ],
+              "write_date": "2026-06-03T08:16:59.659390"
+            },
+            {
+              "id": 4,
+              "name": "Campbell: Chairs",
+              "partner_name": "Burstein Applebee",
+              "email_from": "hmc@yahoo.example.com",
+              "stage_id": [
+                1,
+                "New"
+              ],
+              "write_date": "2026-06-03T08:16:59.659390"
+            },
+            {
+              "id": 5,
+              "name": "Quotation for 50 Chairs",
+              "partner_name": "Stonage IT",
+              "email_from": "helle@stonageit.example.com",
+              "stage_id": [
+                1,
+                "New"
+              ],
+              "write_date": "2026-06-03T08:16:59.659390"
+            },
+            {
+              "id": 6,
+              "name": "Opensides: Need Info",
+              "partner_name": "Opensides",
+              "email_from": "tina@opensides.example.com",
+              "stage_id": [
+                1,
+                "New"
+              ],
+              "write_date": "2026-06-03T08:16:59.659390"
+            },
+            {
+              "id": 8,
+              "name": "Product Catalog",
+              "partner_name": "ESM Expert",
+              "email_from": "logan_expert@gmail.example.com",
+              "stage_id": [
+                1,
+                "New"
+              ],
+              "write_date": "2026-06-03T08:16:59.659390"
+            },
+            {
+              "id": 10,
+              "name": "Design Software Info",
+              "partner_name": "Solar IT",
+              "email_from": "jga@solar.example.com",
+              "stage_id": [
+                1,
+                "New"
+              ],
+              "write_date": "2026-06-03T08:16:59.659390"
+            },
+            {
+              "id": 13,
+              "name": "Quote for 12 Tables",
+              "partner_name": "Rediff Mail",
+              "email_from": "willmac@rediffmail.example.com",
+              "stage_id": [
+                1,
+                "New"
+              ],
+              "write_date": "2026-06-03T08:16:59.659390"
+            },
+            {
+              "id": 16,
+              "name": "Global Solutions: Furnitures",
+              "partner_name": "Global Solutions",
+              "email_from": "info@deltapc.example.com",
+              "stage_id": [
+                2,
+                "Qualified"
+              ],
+              "write_date": "2026-06-03T08:16:59.659390"
+            },
+            {
+              "id": 17,
+              "name": "Balmer Inc: Potential Distributor",
+              "partner_name": "BalmerInc S.A.",
+              "email_from": "olivier.passo@balmer.inc.sa",
+              "stage_id": [
+                2,
+                "Qualified"
+              ],
+              "write_date": "2026-06-03T08:16:59.659390"
+            },
+            {
+              "id": 18,
+              "name": "DeltaPC: 10 Computer Desks",
+              "partner_name": "Delta PC",
+              "email_from": "info@deltapc.example.com",
+              "stage_id": [
+                2,
+                "Qualified"
+              ],
+              "write_date": "2026-06-03T08:16:59.659390"
+            },
+            {
+              "id": 19,
+              "name": "Customizable Desk",
+              "partner_name": "Vauxoo",
+              "email_from": "vauxoo@yourcompany.example.com",
+              "stage_id": [
+                3,
+                "Proposition"
+              ],
+              "write_date": "2026-06-03T08:16:59.659390"
+            },
+            {
+              "id": 20,
+              "name": "Distributor Contract",
+              "partner_name": "Epic Technologies",
+              "email_from": "john.b@tech.info",
+              "stage_id": [
+                4,
+                "Won"
+              ],
+              "write_date": "2026-06-03T08:16:59.659390"
+            },
+            {
+              "id": 21,
+              "name": "Office Design and Architecture",
+              "partner_name": "Ready Mat",
+              "email_from": "info@deltapc.example.com",
+              "stage_id": [
+                3,
+                "Proposition"
+              ],
+              "write_date": "2026-06-03T08:16:59.659390"
+            },
+            {
+              "id": 22,
+              "name": "5 VP Chairs",
+              "partner_name": "Nebula Business",
+              "email_from": "vauxoo@yourcompany.example.com",
+              "stage_id": [
+                3,
+                "Proposition"
+              ],
+              "write_date": "2026-06-03T08:16:59.659390"
+            },
+            {
+              "id": 23,
+              "name": "Access to Online Catalog",
+              "partner_name": "Lumber Inc",
+              "email_from": "lumber-inv92@example.com",
+              "stage_id": [
+                4,
+                "Won"
+              ],
+              "write_date": "2026-06-03T08:16:59.659390"
+            },
+            {
+              "id": 24,
+              "name": "Need 20 Desks",
+              "partner_name": false,
+              "email_from": "info@mycompany.net",
+              "stage_id": [
+                3,
+                "Proposition"
+              ],
+              "write_date": "2026-06-03T08:16:59.659390"
+            },
+            {
+              "id": 25,
+              "name": "Modern Open Space",
+              "partner_name": "E-light Industry",
+              "email_from": "henry@elight.com",
+              "stage_id": [
+                3,
+                "Proposition"
+              ],
+              "write_date": "2026-06-03T08:16:59.659390"
+            },
+            {
+              "id": 29,
+              "name": "Club Office More Desks",
+              "partner_name": "Le Club SARL",
+              "email_from": "jdunagan@leclub.example.com",
+              "stage_id": [
+                2,
+                "Qualified"
+              ],
+              "write_date": "2026-06-03T08:16:59.659390"
+            },
+            {
+              "id": 30,
+              "name": "Acadia College Furnitures",
+              "partner_name": "Acadia College",
+              "email_from": "GastonRochon@example.com",
+              "stage_id": [
+                1,
+                "New"
+              ],
+              "write_date": "2026-06-03T08:16:59.659390"
+            },
+            {
+              "id": 31,
+              "name": "Quote for 150 carpets",
+              "partner_name": false,
+              "email_from": "ErikNFrench@armyspy.com",
+              "stage_id": [
+                1,
+                "New"
+              ],
+              "write_date": "2026-06-03T08:16:59.659390"
+            },
+            {
+              "id": 32,
+              "name": "Quote for 600 Chairs",
+              "partner_name": false,
+              "email_from": "ErikNFrench@armyspy.com",
+              "stage_id": [
+                2,
+                "Qualified"
+              ],
+              "write_date": "2026-06-03T08:16:59.659390"
+            },
+            {
+              "id": 33,
+              "name": "Recurring delivery contract",
+              "partner_name": false,
+              "email_from": "max123@itconsult.com",
+              "stage_id": [
+                2,
+                "Qualified"
+              ],
+              "write_date": "2026-06-03T08:16:59.659390"
+            },
+            {
+              "id": 34,
+              "name": "Need info about pricing",
+              "partner_name": false,
+              "email_from": "aakreda@theglobeandmail.com",
+              "stage_id": [
+                3,
+                "Proposition"
+              ],
+              "write_date": "2026-06-03T08:16:59.659390"
+            },
+            {
+              "id": 35,
+              "name": "Trelian New Offices",
+              "partner_name": "Photobug",
+              "email_from": "roxshott9@trellian.com",
+              "stage_id": [
+                2,
+                "Qualified"
+              ],
+              "write_date": "2026-06-03T08:16:59.659390"
+            },
+            {
+              "id": 36,
+              "name": "Branded Furniture",
+              "partner_name": false,
+              "email_from": "mlimprecht8@fastcompany.com",
+              "stage_id": [
+                2,
+                "Qualified"
+              ],
+              "write_date": "2026-06-03T08:16:59.659390"
+            },
+            {
+              "id": 37,
+              "name": "Design New Shelves",
+              "partner_name": "Jaloo",
+              "email_from": "akalinovich7@tinypic.com",
+              "stage_id": [
+                2,
+                "Qualified"
+              ],
+              "write_date": "2026-06-03T08:16:59.659390"
+            },
+            {
+              "id": 38,
+              "name": "Office chairs",
+              "partner_name": "Shufflebeat",
+              "email_from": "jjobbins6@simplemachines.org",
+              "stage_id": [
+                2,
+                "Qualified"
+              ],
+              "write_date": "2026-06-03T08:16:59.659390"
+            },
+            {
+              "id": 39,
+              "name": "Cleaning subscription",
+              "partner_name": "Realblab",
+              "email_from": "eespinazo5@reuters.com",
+              "stage_id": [
+                1,
+                "New"
+              ],
+              "write_date": "2026-06-03T08:16:59.659390"
+            },
+            {
+              "id": 40,
+              "name": "Custom Desks (100 pieces)",
+              "partner_name": "Muxo",
+              "email_from": "credford4@salon.com",
+              "stage_id": [
+                2,
+                "Qualified"
+              ],
+              "write_date": "2026-06-03T08:16:59.659390"
+            },
+            {
+              "id": 41,
+              "name": "Need a price: urgent",
+              "partner_name": "Skibox",
+              "email_from": "ikirvell3@gnu.org",
+              "stage_id": [
+                3,
+                "Proposition"
+              ],
+              "write_date": "2026-06-03T08:16:59.659390"
+            },
+            {
+              "id": 42,
+              "name": "Furnitures for new location",
+              "partner_name": "Twinte",
+              "email_from": "ngrabert2@dailymail.co.uk",
+              "stage_id": [
+                2,
+                "Qualified"
+              ],
+              "write_date": "2026-06-03T08:16:59.659390"
+            },
+            {
+              "id": 43,
+              "name": "Modernize old offices",
+              "partner_name": "Yozio",
+              "email_from": "fseiller1@theglobeandmail.com",
+              "stage_id": [
+                3,
+                "Proposition"
+              ],
+              "write_date": "2026-06-03T08:16:59.659390"
+            },
+            {
+              "id": 44,
+              "name": "Quote for 35 windows",
+              "partner_name": "Gabcube",
+              "email_from": "tbrockhouse0@google.pl",
+              "stage_id": [
+                3,
+                "Proposition"
+              ],
+              "write_date": "2026-06-03T08:16:59.659390"
+            },
+            {
+              "id": 14,
+              "name": "Office Design Project",
+              "partner_name": "Acme Corporation",
+              "email_from": "info@acme-example-company.com",
+              "stage_id": [
+                1,
+                "New"
+              ],
+              "write_date": "2026-06-03T08:41:02.681902"
+            },
+            {
+              "id": 15,
+              "name": "Info about services",
+              "partner_name": "Acme Corporation",
+              "email_from": "info@acme-example-company.com",
+              "stage_id": [
+                2,
+                "Qualified"
+              ],
+              "write_date": "2026-06-03T08:41:02.681902"
+            },
+            {
+              "id": 26,
+              "name": "Open Space Design",
+              "partner_name": "Acme Corporation",
+              "email_from": "info@acme-example-company.com",
+              "stage_id": [
+                3,
+                "Proposition"
+              ],
+              "write_date": "2026-06-03T08:41:02.681902"
+            },
+            {
+              "id": 27,
+              "name": "Interest in your products",
+              "partner_name": "Acme Corporation",
+              "email_from": "info@acme-example-company.com",
+              "stage_id": [
+                4,
+                "Won"
+              ],
+              "write_date": "2026-06-03T08:41:02.681902"
+            }
+          ],
+          "count": 39
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 03 Jun 2026 08:51:52 GMT",
+          "content-type": "application/json",
+          "content-length": "7395",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4996",
+          "x-ratelimit-reset": "1780476768",
+          "etag": "W/\"1ce3-z439jwGq/4380reEKIgMBLi2+ew\""
+        },
+        "hash": "7e62dc8ee7f4c020dd15b963f2746be6ff8b5e6b",
+        "request": {
+          "params": {
+            "fields": "['id','name','partner_name','email_from','stage_id','write_date']",
+            "limit": "100",
+            "offset": "0",
+            "order": "write_date asc, id asc"
+          }
+        }
+      }
+    }
+  }
+}

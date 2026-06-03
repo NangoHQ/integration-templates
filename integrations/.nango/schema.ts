@@ -52085,6 +52085,172 @@ export interface ActionOutput_notion_updatepage {
   last_edited_by?: unknown | undefined;
 };
 
+export interface CrmLead {
+  id: string;
+  name?: string | undefined;
+  partner_name?: string | undefined;
+  email_from?: string | undefined;
+  stage_id?: string | undefined;
+  stage_name?: string | undefined;
+  write_date?: string | undefined;
+};
+
+export interface Invoice {
+  id: string;
+  InvoiceNumber?: string | undefined;
+  Status?: string | undefined;
+  Type?: string | undefined;
+  ContactID?: string | undefined;
+  ContactName?: string | undefined;
+  Date?: string | undefined;
+  DueDate?: string | undefined;
+  Total?: number | undefined;
+  SubTotal?: number | undefined;
+  TotalTax?: number | undefined;
+  AmountDue?: number | undefined;
+  AmountPaid?: number | undefined;
+  AmountCredited?: number | undefined;
+  UpdatedDateUTC?: string | undefined;
+  CurrencyCode?: string | undefined;
+};
+
+export interface SaleOrder {
+  id: string;
+  name?: string | undefined;
+  partner_id?: string | undefined;
+  partner_name?: string | undefined;
+  amount_total?: number | undefined;
+  state?: string | undefined;
+  write_date?: string | undefined;
+};
+
+export interface ActionInput_odoo_cc_createrecord {
+  /**
+   * Odoo model name. Example: "res.partner"
+   */
+  model: string;
+  /**
+   * Field values for the new record
+   */
+  values: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_odoo_cc_createrecord {
+  id: number;
+};
+
+export interface ActionInput_odoo_cc_deleterecord {
+  /**
+   * Odoo model name. Example: "res.partner"
+   */
+  model: string;
+  /**
+   * Record ID to delete. Example: 10
+   */
+  id: number;
+};
+
+export interface ActionOutput_odoo_cc_deleterecord {
+  success: boolean;
+  model: string;
+  id: number;
+};
+
+export interface ActionInput_odoo_cc_executekw {
+  /**
+   * Odoo model name. Example: "res.partner"
+   */
+  model: string;
+  /**
+   * Method name to execute. Example: "search_count"
+   */
+  method: string;
+  /**
+   * Positional arguments as a JSON array.
+   */
+  args?: unknown[] | undefined;
+  /**
+   * Keyword arguments as a JSON object.
+   */
+  kwargs?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_odoo_cc_executekw {
+  /**
+   * The raw result returned by the Odoo method.
+   */
+  result?: unknown | undefined;
+};
+
+export interface ActionInput_odoo_cc_getrecordfields {
+  /**
+   * Odoo model name. Example: "res.partner"
+   */
+  model: string;
+};
+
+export interface ActionOutput_odoo_cc_getrecordfields {
+  model: string;
+  fields: {  [key: string]: {  string?: string | undefined;
+  type?: string | undefined;
+  required?: boolean | undefined;};};
+};
+
+export interface ActionInput_odoo_cc_searchreadrecords {
+  /**
+   * Odoo model name. Example: "res.partner"
+   */
+  model: string;
+  /**
+   * Odoo domain filter as a Python list string. Example: "[['is_company','=',true]]"
+   */
+  domain?: string | undefined;
+  /**
+   * Field names to return. Example: ["id","name","email"]
+   */
+  fields?: string[] | undefined;
+  /**
+   * Maximum number of records to return. Default: 100
+   */
+  limit?: number | undefined;
+  /**
+   * Number of records to skip
+   */
+  offset?: number | undefined;
+  /**
+   * Sort order. Example: "write_date desc"
+   */
+  order?: string | undefined;
+  /**
+   * ISO datetime string; if provided adds a write_date filter to the domain
+   */
+  write_date?: string | undefined;
+};
+
+export interface ActionOutput_odoo_cc_searchreadrecords {
+  count: number;
+  records: ({  [key: string]: unknown | undefined;})[];
+};
+
+export interface ActionInput_odoo_cc_updaterecord {
+  /**
+   * Odoo model name. Example: "res.partner"
+   */
+  model: string;
+  /**
+   * Record ID to update. Example: 10
+   */
+  id: number;
+  /**
+   * Fields to update. Example: { "phone": "123-456-7890" }
+   */
+  fields: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_odoo_cc_updaterecord {
+  success: boolean;
+};
+
 export interface SyncMetadata_okta_users {
 };
 
@@ -58704,25 +58870,6 @@ export interface Estimate {
   shipping_address?: {  [key: string]: unknown | undefined;};
   line_items?: ({  [key: string]: unknown | undefined;})[];
   last_updated_time: string;
-};
-
-export interface Invoice {
-  id: string;
-  InvoiceNumber?: string | undefined;
-  Status?: string | undefined;
-  Type?: string | undefined;
-  ContactID?: string | undefined;
-  ContactName?: string | undefined;
-  Date?: string | undefined;
-  DueDate?: string | undefined;
-  Total?: number | undefined;
-  SubTotal?: number | undefined;
-  TotalTax?: number | undefined;
-  AmountDue?: number | undefined;
-  AmountPaid?: number | undefined;
-  AmountCredited?: number | undefined;
-  UpdatedDateUTC?: string | undefined;
-  CurrencyCode?: string | undefined;
 };
 
 export interface Item {

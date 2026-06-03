@@ -1,0 +1,1395 @@
+{
+  "nango": {
+    "batchSave": {
+      "Task": [
+        {
+          "id": "5",
+          "name": "Energy Certificate",
+          "project_id": 1,
+          "project_name": "Office Design",
+          "stage_id": 2,
+          "stage_name": "In Progress",
+          "write_date": "2026-06-03T08:17:00.849110"
+        },
+        {
+          "id": "1",
+          "name": "Office planning",
+          "project_id": 1,
+          "project_name": "Office Design",
+          "stage_id": 3,
+          "stage_name": "Done",
+          "write_date": "2026-06-03T08:17:00.849110"
+        },
+        {
+          "id": "7",
+          "name": "Room 2: Decoration",
+          "project_id": 1,
+          "project_name": "Office Design",
+          "stage_id": 2,
+          "stage_name": "In Progress",
+          "write_date": "2026-06-03T08:17:00.849110"
+        },
+        {
+          "id": "1",
+          "name": "Office planning",
+          "project_id": 1,
+          "project_name": "Office Design",
+          "stage_id": 3,
+          "stage_name": "Done",
+          "write_date": "2026-06-03T08:17:00.849110"
+        },
+        {
+          "id": "9",
+          "name": "Meeting Room Furnitures",
+          "project_id": 1,
+          "project_name": "Office Design",
+          "stage_id": 2,
+          "stage_name": "In Progress",
+          "write_date": "2026-06-03T08:17:00.849110"
+        },
+        {
+          "id": "1",
+          "name": "Office planning",
+          "project_id": 1,
+          "project_name": "Office Design",
+          "stage_id": 3,
+          "stage_name": "Done",
+          "write_date": "2026-06-03T08:17:00.849110"
+        },
+        {
+          "id": "14",
+          "name": "Daily stand-up meeting - Send minutes",
+          "project_id": 1,
+          "project_name": "Office Design",
+          "stage_id": 2,
+          "stage_name": "In Progress",
+          "write_date": "2026-06-03T08:17:00.849110"
+        },
+        {
+          "id": "1",
+          "name": "Office planning",
+          "project_id": 1,
+          "project_name": "Office Design",
+          "stage_id": 3,
+          "stage_name": "Done",
+          "write_date": "2026-06-03T08:17:00.849110"
+        },
+        {
+          "id": "16",
+          "name": "Daily Meetings summary",
+          "project_id": 1,
+          "project_name": "Office Design",
+          "stage_id": 2,
+          "stage_name": "In Progress",
+          "write_date": "2026-06-03T08:17:00.849110"
+        },
+        {
+          "id": "1",
+          "name": "Office planning",
+          "project_id": 1,
+          "project_name": "Office Design",
+          "stage_id": 3,
+          "stage_name": "Done",
+          "write_date": "2026-06-03T08:17:00.849110"
+        },
+        {
+          "id": "18",
+          "name": "Minutes",
+          "project_id": 1,
+          "project_name": "Office Design",
+          "stage_id": 2,
+          "stage_name": "In Progress",
+          "write_date": "2026-06-03T08:17:00.849110"
+        },
+        {
+          "id": "1",
+          "name": "Office planning",
+          "project_id": 1,
+          "project_name": "Office Design",
+          "stage_id": 3,
+          "stage_name": "Done",
+          "write_date": "2026-06-03T08:17:00.849110"
+        },
+        {
+          "id": "20",
+          "name": "Plywood requirement",
+          "project_id": 1,
+          "project_name": "Office Design",
+          "stage_id": 3,
+          "stage_name": "Done",
+          "write_date": "2026-06-03T08:17:00.849110"
+        },
+        {
+          "id": "1",
+          "name": "Office planning",
+          "project_id": 1,
+          "project_name": "Office Design",
+          "stage_id": 3,
+          "stage_name": "Done",
+          "write_date": "2026-06-03T08:17:00.849110"
+        },
+        {
+          "id": "22",
+          "name": "Basic outline",
+          "project_id": 2,
+          "project_name": "Research & Development",
+          "stage_id": 3,
+          "stage_name": "Done",
+          "write_date": "2026-06-03T08:17:00.849110"
+        },
+        {
+          "id": "1",
+          "name": "Office planning",
+          "project_id": 1,
+          "project_name": "Office Design",
+          "stage_id": 3,
+          "stage_name": "Done",
+          "write_date": "2026-06-03T08:17:00.849110"
+        },
+        {
+          "id": "23",
+          "name": "Planning and budget",
+          "project_id": 2,
+          "project_name": "Research & Development",
+          "stage_id": 3,
+          "stage_name": "Done",
+          "write_date": "2026-06-03T08:17:00.849110"
+        },
+        {
+          "id": "33",
+          "name": "Check Lift",
+          "project_id": 3,
+          "project_name": "Renovations",
+          "stage_id": 3,
+          "stage_name": "Done",
+          "write_date": "2026-06-03T08:17:00.849110"
+        },
+        {
+          "id": "24",
+          "name": "User interface improvements",
+          "project_id": 2,
+          "project_name": "Research & Development",
+          "stage_id": 2,
+          "stage_name": "In Progress",
+          "write_date": "2026-06-03T08:17:00.849110"
+        },
+        {
+          "id": "25",
+          "name": "Social network integration",
+          "project_id": 2,
+          "project_name": "Research & Development",
+          "stage_id": 2,
+          "stage_name": "In Progress",
+          "write_date": "2026-06-03T08:17:00.849110"
+        },
+        {
+          "id": "28",
+          "name": "Usability review",
+          "project_id": 2,
+          "project_name": "Research & Development",
+          "stage_id": 1,
+          "stage_name": "New",
+          "write_date": "2026-06-03T08:17:00.849110"
+        },
+        {
+          "id": "29",
+          "name": "Document management",
+          "project_id": 2,
+          "project_name": "Research & Development",
+          "stage_id": 1,
+          "stage_name": "New",
+          "write_date": "2026-06-03T08:17:00.849110"
+        },
+        {
+          "id": "26",
+          "name": "Create new components",
+          "project_id": 2,
+          "project_name": "Research & Development",
+          "stage_id": 2,
+          "stage_name": "In Progress",
+          "write_date": "2026-06-03T08:17:00.849110"
+        },
+        {
+          "id": "30",
+          "name": "Unit Testing",
+          "project_id": 2,
+          "project_name": "Research & Development",
+          "stage_id": 1,
+          "stage_name": "New",
+          "write_date": "2026-06-03T08:17:00.849110"
+        },
+        {
+          "id": "32",
+          "name": "Entry Hall",
+          "project_id": 3,
+          "project_name": "Renovations",
+          "stage_id": 3,
+          "stage_name": "Done",
+          "write_date": "2026-06-03T08:17:00.849110"
+        },
+        {
+          "id": "34",
+          "name": "Room 1: Paint",
+          "project_id": 3,
+          "project_name": "Renovations",
+          "stage_id": 3,
+          "stage_name": "Done",
+          "write_date": "2026-06-03T08:17:00.849110"
+        },
+        {
+          "id": "35",
+          "name": "Bathroom",
+          "project_id": 3,
+          "project_name": "Renovations",
+          "stage_id": 3,
+          "stage_name": "Done",
+          "write_date": "2026-06-03T08:17:00.849110"
+        },
+        {
+          "id": "37",
+          "name": "Buy a gift for Marc Demo's birthday",
+          "write_date": "2026-06-03T08:17:00.849110"
+        },
+        {
+          "id": "38",
+          "name": "Change left screen cable",
+          "write_date": "2026-06-03T08:17:00.849110"
+        },
+        {
+          "id": "39",
+          "name": "Clean kitchen fridge",
+          "write_date": "2026-06-03T08:17:00.849110"
+        },
+        {
+          "id": "40",
+          "name": "Check employees lunch accounts",
+          "write_date": "2026-06-03T08:17:00.849110"
+        },
+        {
+          "id": "3",
+          "name": "Noise Reduction",
+          "project_id": 1,
+          "project_name": "Office Design",
+          "stage_id": 3,
+          "stage_name": "Done",
+          "write_date": "2026-06-03T08:17:00.849110"
+        },
+        {
+          "id": "27",
+          "name": "New portal system",
+          "project_id": 2,
+          "project_name": "Research & Development",
+          "stage_id": 3,
+          "stage_name": "Done",
+          "write_date": "2026-06-03T08:17:00.849110"
+        },
+        {
+          "id": "4",
+          "name": "Modifications asked by the customer",
+          "project_id": 1,
+          "project_name": "Office Design",
+          "stage_id": 3,
+          "stage_name": "Done",
+          "write_date": "2026-06-03T08:17:00.849110"
+        },
+        {
+          "id": "2",
+          "name": "Lunch Room: kitchen",
+          "project_id": 1,
+          "project_name": "Office Design",
+          "stage_id": 3,
+          "stage_name": "Done",
+          "write_date": "2026-06-03T08:17:00.849110"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Task": []
+    }
+  },
+  "api": {
+    "get": {
+      "/1.0/project.task": [
+        {
+          "response": {
+            "records": [
+              {
+                "id": 5,
+                "name": "Energy Certificate",
+                "project_id": [
+                  1,
+                  "Office Design"
+                ],
+                "stage_id": [
+                  2,
+                  "In Progress"
+                ],
+                "write_date": "2026-06-03T08:17:00.849110"
+              },
+              {
+                "id": 1,
+                "name": "Office planning",
+                "project_id": [
+                  1,
+                  "Office Design"
+                ],
+                "stage_id": [
+                  3,
+                  "Done"
+                ],
+                "write_date": "2026-06-03T08:17:00.849110"
+              }
+            ],
+            "count": 2
+          },
+          "status": 200,
+          "headers": {
+            "date": "Wed, 03 Jun 2026 08:57:22 GMT",
+            "content-type": "application/json",
+            "content-length": "321",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=5184000; includeSubDomains",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4996",
+            "x-ratelimit-reset": "1780477098",
+            "etag": "W/\"141-IKdG9LPs4tRGgNs8szLiq3WL6LY\""
+          },
+          "hash": "9cac4ecbe5866222ad73f0f84bb3978e6f5d8fee",
+          "request": {
+            "params": {
+              "fields": "['id','name','project_id','stage_id','write_date']",
+              "limit": "2",
+              "offset": "0",
+              "order": "write_date asc"
+            }
+          }
+        },
+        {
+          "response": {
+            "records": [
+              {
+                "id": 7,
+                "name": "Room 2: Decoration",
+                "project_id": [
+                  1,
+                  "Office Design"
+                ],
+                "stage_id": [
+                  2,
+                  "In Progress"
+                ],
+                "write_date": "2026-06-03T08:17:00.849110"
+              },
+              {
+                "id": 1,
+                "name": "Office planning",
+                "project_id": [
+                  1,
+                  "Office Design"
+                ],
+                "stage_id": [
+                  3,
+                  "Done"
+                ],
+                "write_date": "2026-06-03T08:17:00.849110"
+              }
+            ],
+            "count": 2
+          },
+          "status": 200,
+          "headers": {
+            "date": "Wed, 03 Jun 2026 08:57:24 GMT",
+            "content-type": "application/json",
+            "content-length": "321",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=5184000; includeSubDomains",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4995",
+            "x-ratelimit-reset": "1780477098",
+            "etag": "W/\"141-QCPtvQJbhZlYZZMPsZC6DViBT3Q\""
+          },
+          "hash": "f2c9b00d0ce342676f7b4544a59b28c1511fc1bf",
+          "request": {
+            "params": {
+              "fields": "['id','name','project_id','stage_id','write_date']",
+              "limit": "2",
+              "offset": "2",
+              "order": "write_date asc"
+            }
+          }
+        },
+        {
+          "response": {
+            "records": [
+              {
+                "id": 9,
+                "name": "Meeting Room Furnitures",
+                "project_id": [
+                  1,
+                  "Office Design"
+                ],
+                "stage_id": [
+                  2,
+                  "In Progress"
+                ],
+                "write_date": "2026-06-03T08:17:00.849110"
+              },
+              {
+                "id": 1,
+                "name": "Office planning",
+                "project_id": [
+                  1,
+                  "Office Design"
+                ],
+                "stage_id": [
+                  3,
+                  "Done"
+                ],
+                "write_date": "2026-06-03T08:17:00.849110"
+              }
+            ],
+            "count": 2
+          },
+          "status": 200,
+          "headers": {
+            "date": "Wed, 03 Jun 2026 08:57:25 GMT",
+            "content-type": "application/json",
+            "content-length": "326",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=5184000; includeSubDomains",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4994",
+            "x-ratelimit-reset": "1780477098",
+            "etag": "W/\"146-Bs3sua8xKRUP6dCk9J6jIMmpMYc\""
+          },
+          "hash": "93565977f4162b847bfc68d2d0d53ec8b3d6da67",
+          "request": {
+            "params": {
+              "fields": "['id','name','project_id','stage_id','write_date']",
+              "limit": "2",
+              "offset": "4",
+              "order": "write_date asc"
+            }
+          }
+        },
+        {
+          "response": {
+            "records": [
+              {
+                "id": 14,
+                "name": "Daily stand-up meeting - Send minutes",
+                "project_id": [
+                  1,
+                  "Office Design"
+                ],
+                "stage_id": [
+                  2,
+                  "In Progress"
+                ],
+                "write_date": "2026-06-03T08:17:00.849110"
+              },
+              {
+                "id": 1,
+                "name": "Office planning",
+                "project_id": [
+                  1,
+                  "Office Design"
+                ],
+                "stage_id": [
+                  3,
+                  "Done"
+                ],
+                "write_date": "2026-06-03T08:17:00.849110"
+              }
+            ],
+            "count": 2
+          },
+          "status": 200,
+          "headers": {
+            "date": "Wed, 03 Jun 2026 08:57:26 GMT",
+            "content-type": "application/json",
+            "content-length": "341",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=5184000; includeSubDomains",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4993",
+            "x-ratelimit-reset": "1780477098",
+            "etag": "W/\"155-LjJ0m85/iNaLBNG45GlUa6xcJSk\""
+          },
+          "hash": "57935dbd3b300501a5c9a861dde2a1ebf7c6f30e",
+          "request": {
+            "params": {
+              "fields": "['id','name','project_id','stage_id','write_date']",
+              "limit": "2",
+              "offset": "6",
+              "order": "write_date asc"
+            }
+          }
+        },
+        {
+          "response": {
+            "records": [
+              {
+                "id": 16,
+                "name": "Daily Meetings summary",
+                "project_id": [
+                  1,
+                  "Office Design"
+                ],
+                "stage_id": [
+                  2,
+                  "In Progress"
+                ],
+                "write_date": "2026-06-03T08:17:00.849110"
+              },
+              {
+                "id": 1,
+                "name": "Office planning",
+                "project_id": [
+                  1,
+                  "Office Design"
+                ],
+                "stage_id": [
+                  3,
+                  "Done"
+                ],
+                "write_date": "2026-06-03T08:17:00.849110"
+              }
+            ],
+            "count": 2
+          },
+          "status": 200,
+          "headers": {
+            "date": "Wed, 03 Jun 2026 08:57:26 GMT",
+            "content-type": "application/json",
+            "content-length": "326",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=5184000; includeSubDomains",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4992",
+            "x-ratelimit-reset": "1780477098",
+            "etag": "W/\"146-iOR9QatgVLhXZlWsjRWJhjrP32Q\""
+          },
+          "hash": "8845f507e175bd7fd5b2724c87619c6817434e2f",
+          "request": {
+            "params": {
+              "fields": "['id','name','project_id','stage_id','write_date']",
+              "limit": "2",
+              "offset": "8",
+              "order": "write_date asc"
+            }
+          }
+        },
+        {
+          "response": {
+            "records": [
+              {
+                "id": 18,
+                "name": "Minutes",
+                "project_id": [
+                  1,
+                  "Office Design"
+                ],
+                "stage_id": [
+                  2,
+                  "In Progress"
+                ],
+                "write_date": "2026-06-03T08:17:00.849110"
+              },
+              {
+                "id": 1,
+                "name": "Office planning",
+                "project_id": [
+                  1,
+                  "Office Design"
+                ],
+                "stage_id": [
+                  3,
+                  "Done"
+                ],
+                "write_date": "2026-06-03T08:17:00.849110"
+              }
+            ],
+            "count": 2
+          },
+          "status": 200,
+          "headers": {
+            "date": "Wed, 03 Jun 2026 08:57:27 GMT",
+            "content-type": "application/json",
+            "content-length": "311",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=5184000; includeSubDomains",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4991",
+            "x-ratelimit-reset": "1780477098",
+            "etag": "W/\"137-UsuEA8InUcN/KPsdx1vYU4ob7Eg\""
+          },
+          "hash": "0d7e0b4ebc3fc0d6730833df88aaf885ecb4da56",
+          "request": {
+            "params": {
+              "fields": "['id','name','project_id','stage_id','write_date']",
+              "limit": "2",
+              "offset": "10",
+              "order": "write_date asc"
+            }
+          }
+        },
+        {
+          "response": {
+            "records": [
+              {
+                "id": 20,
+                "name": "Plywood requirement",
+                "project_id": [
+                  1,
+                  "Office Design"
+                ],
+                "stage_id": [
+                  3,
+                  "Done"
+                ],
+                "write_date": "2026-06-03T08:17:00.849110"
+              },
+              {
+                "id": 1,
+                "name": "Office planning",
+                "project_id": [
+                  1,
+                  "Office Design"
+                ],
+                "stage_id": [
+                  3,
+                  "Done"
+                ],
+                "write_date": "2026-06-03T08:17:00.849110"
+              }
+            ],
+            "count": 2
+          },
+          "status": 200,
+          "headers": {
+            "date": "Wed, 03 Jun 2026 08:57:28 GMT",
+            "content-type": "application/json",
+            "content-length": "316",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=5184000; includeSubDomains",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4990",
+            "x-ratelimit-reset": "1780477098",
+            "etag": "W/\"13c-LGKS6aUnTa21zZRwh2fTN2v0Ai0\""
+          },
+          "hash": "2aa34f8ad9bbefac239a626cae65822cf4cc9c78",
+          "request": {
+            "params": {
+              "fields": "['id','name','project_id','stage_id','write_date']",
+              "limit": "2",
+              "offset": "12",
+              "order": "write_date asc"
+            }
+          }
+        },
+        {
+          "response": {
+            "records": [
+              {
+                "id": 22,
+                "name": "Basic outline",
+                "project_id": [
+                  2,
+                  "Research & Development"
+                ],
+                "stage_id": [
+                  3,
+                  "Done"
+                ],
+                "write_date": "2026-06-03T08:17:00.849110"
+              },
+              {
+                "id": 1,
+                "name": "Office planning",
+                "project_id": [
+                  1,
+                  "Office Design"
+                ],
+                "stage_id": [
+                  3,
+                  "Done"
+                ],
+                "write_date": "2026-06-03T08:17:00.849110"
+              }
+            ],
+            "count": 2
+          },
+          "status": 200,
+          "headers": {
+            "date": "Wed, 03 Jun 2026 08:57:29 GMT",
+            "content-type": "application/json",
+            "content-length": "319",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=5184000; includeSubDomains",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4989",
+            "x-ratelimit-reset": "1780477098",
+            "etag": "W/\"13f-5cne7pug6Z1sHe3O/yzKGhDQYsc\""
+          },
+          "hash": "ab47ae8f238b6398279941e33841e404a2611854",
+          "request": {
+            "params": {
+              "fields": "['id','name','project_id','stage_id','write_date']",
+              "limit": "2",
+              "offset": "14",
+              "order": "write_date asc"
+            }
+          }
+        },
+        {
+          "response": {
+            "records": [
+              {
+                "id": 23,
+                "name": "Planning and budget",
+                "project_id": [
+                  2,
+                  "Research & Development"
+                ],
+                "stage_id": [
+                  3,
+                  "Done"
+                ],
+                "write_date": "2026-06-03T08:17:00.849110"
+              },
+              {
+                "id": 33,
+                "name": "Check Lift",
+                "project_id": [
+                  3,
+                  "Renovations"
+                ],
+                "stage_id": [
+                  3,
+                  "Done"
+                ],
+                "write_date": "2026-06-03T08:17:00.849110"
+              }
+            ],
+            "count": 2
+          },
+          "status": 200,
+          "headers": {
+            "date": "Wed, 03 Jun 2026 08:57:30 GMT",
+            "content-type": "application/json",
+            "content-length": "319",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=5184000; includeSubDomains",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4988",
+            "x-ratelimit-reset": "1780477098",
+            "etag": "W/\"13f-EwEGk/gdPirx+4WfRN+c4Fgxzpg\""
+          },
+          "hash": "3090cd1213b6b39afa2b8d79d75e0cfb137195ce",
+          "request": {
+            "params": {
+              "fields": "['id','name','project_id','stage_id','write_date']",
+              "limit": "2",
+              "offset": "16",
+              "order": "write_date asc"
+            }
+          }
+        },
+        {
+          "response": {
+            "records": [
+              {
+                "id": 24,
+                "name": "User interface improvements",
+                "project_id": [
+                  2,
+                  "Research & Development"
+                ],
+                "stage_id": [
+                  2,
+                  "In Progress"
+                ],
+                "write_date": "2026-06-03T08:17:00.849110"
+              },
+              {
+                "id": 25,
+                "name": "Social network integration",
+                "project_id": [
+                  2,
+                  "Research & Development"
+                ],
+                "stage_id": [
+                  2,
+                  "In Progress"
+                ],
+                "write_date": "2026-06-03T08:17:00.849110"
+              }
+            ],
+            "count": 2
+          },
+          "status": 200,
+          "headers": {
+            "date": "Wed, 03 Jun 2026 08:57:31 GMT",
+            "content-type": "application/json",
+            "content-length": "368",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=5184000; includeSubDomains",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4987",
+            "x-ratelimit-reset": "1780477098",
+            "etag": "W/\"170-8BjvD8B8QEDpiNx2+3WwxtVIE5A\""
+          },
+          "hash": "60fbfc6f667bafbcf767e08b5e8c9d6291b13bb4",
+          "request": {
+            "params": {
+              "fields": "['id','name','project_id','stage_id','write_date']",
+              "limit": "2",
+              "offset": "18",
+              "order": "write_date asc"
+            }
+          }
+        },
+        {
+          "response": {
+            "records": [
+              {
+                "id": 28,
+                "name": "Usability review",
+                "project_id": [
+                  2,
+                  "Research & Development"
+                ],
+                "stage_id": [
+                  1,
+                  "New"
+                ],
+                "write_date": "2026-06-03T08:17:00.849110"
+              },
+              {
+                "id": 29,
+                "name": "Document management",
+                "project_id": [
+                  2,
+                  "Research & Development"
+                ],
+                "stage_id": [
+                  1,
+                  "New"
+                ],
+                "write_date": "2026-06-03T08:17:00.849110"
+              }
+            ],
+            "count": 2
+          },
+          "status": 200,
+          "headers": {
+            "date": "Wed, 03 Jun 2026 08:57:32 GMT",
+            "content-type": "application/json",
+            "content-length": "334",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=5184000; includeSubDomains",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4986",
+            "x-ratelimit-reset": "1780477098",
+            "etag": "W/\"14e-TZXb2hwxaEsTLIMJYhKgDQBYTns\""
+          },
+          "hash": "08a9112c2aba9c01173fa6ab0c1e66b20f37dd4a",
+          "request": {
+            "params": {
+              "fields": "['id','name','project_id','stage_id','write_date']",
+              "limit": "2",
+              "offset": "20",
+              "order": "write_date asc"
+            }
+          }
+        },
+        {
+          "response": {
+            "records": [
+              {
+                "id": 26,
+                "name": "Create new components",
+                "project_id": [
+                  2,
+                  "Research & Development"
+                ],
+                "stage_id": [
+                  2,
+                  "In Progress"
+                ],
+                "write_date": "2026-06-03T08:17:00.849110"
+              },
+              {
+                "id": 30,
+                "name": "Unit Testing",
+                "project_id": [
+                  2,
+                  "Research & Development"
+                ],
+                "stage_id": [
+                  1,
+                  "New"
+                ],
+                "write_date": "2026-06-03T08:17:00.849110"
+              }
+            ],
+            "count": 2
+          },
+          "status": 200,
+          "headers": {
+            "date": "Wed, 03 Jun 2026 08:57:33 GMT",
+            "content-type": "application/json",
+            "content-length": "340",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=5184000; includeSubDomains",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4985",
+            "x-ratelimit-reset": "1780477098",
+            "etag": "W/\"154-+xdLV3PCQi5Bi63yMu0erLImT/E\""
+          },
+          "hash": "68f7eef72b3da1dce8a371a56d8b36201bcc9bd6",
+          "request": {
+            "params": {
+              "fields": "['id','name','project_id','stage_id','write_date']",
+              "limit": "2",
+              "offset": "22",
+              "order": "write_date asc"
+            }
+          }
+        },
+        {
+          "response": {
+            "records": [
+              {
+                "id": 32,
+                "name": "Entry Hall",
+                "project_id": [
+                  3,
+                  "Renovations"
+                ],
+                "stage_id": [
+                  3,
+                  "Done"
+                ],
+                "write_date": "2026-06-03T08:17:00.849110"
+              },
+              {
+                "id": 34,
+                "name": "Room 1: Paint",
+                "project_id": [
+                  3,
+                  "Renovations"
+                ],
+                "stage_id": [
+                  3,
+                  "Done"
+                ],
+                "write_date": "2026-06-03T08:17:00.849110"
+              }
+            ],
+            "count": 2
+          },
+          "status": 200,
+          "headers": {
+            "date": "Wed, 03 Jun 2026 08:57:34 GMT",
+            "content-type": "application/json",
+            "content-length": "302",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=5184000; includeSubDomains",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4984",
+            "x-ratelimit-reset": "1780477098",
+            "etag": "W/\"12e-5NbLoliObzEiagmotIqRWrAU74M\""
+          },
+          "hash": "72a053867fbb2610b86f0c2222b7c0157ef09164",
+          "request": {
+            "params": {
+              "fields": "['id','name','project_id','stage_id','write_date']",
+              "limit": "2",
+              "offset": "24",
+              "order": "write_date asc"
+            }
+          }
+        },
+        {
+          "response": {
+            "records": [
+              {
+                "id": 35,
+                "name": "Bathroom",
+                "project_id": [
+                  3,
+                  "Renovations"
+                ],
+                "stage_id": [
+                  3,
+                  "Done"
+                ],
+                "write_date": "2026-06-03T08:17:00.849110"
+              },
+              {
+                "id": 37,
+                "name": "Buy a gift for Marc Demo's birthday",
+                "project_id": false,
+                "stage_id": false,
+                "write_date": "2026-06-03T08:17:00.849110"
+              }
+            ],
+            "count": 2
+          },
+          "status": 200,
+          "headers": {
+            "date": "Wed, 03 Jun 2026 08:57:35 GMT",
+            "content-type": "application/json",
+            "content-length": "303",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=5184000; includeSubDomains",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4983",
+            "x-ratelimit-reset": "1780477098",
+            "etag": "W/\"12f-5EnUPTFSvU4w/2TmemhGfaBAbzQ\""
+          },
+          "hash": "de4a8e461474732dc4cb166c0ece3b33b83a770a",
+          "request": {
+            "params": {
+              "fields": "['id','name','project_id','stage_id','write_date']",
+              "limit": "2",
+              "offset": "26",
+              "order": "write_date asc"
+            }
+          }
+        },
+        {
+          "response": {
+            "records": [
+              {
+                "id": 38,
+                "name": "Change left screen cable",
+                "project_id": false,
+                "stage_id": false,
+                "write_date": "2026-06-03T08:17:00.849110"
+              },
+              {
+                "id": 39,
+                "name": "Clean kitchen fridge",
+                "project_id": false,
+                "stage_id": false,
+                "write_date": "2026-06-03T08:17:00.849110"
+              }
+            ],
+            "count": 2
+          },
+          "status": 200,
+          "headers": {
+            "date": "Wed, 03 Jun 2026 08:57:36 GMT",
+            "content-type": "application/json",
+            "content-length": "285",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=5184000; includeSubDomains",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4982",
+            "x-ratelimit-reset": "1780477098",
+            "etag": "W/\"11d-gog2g1dYADE4NS3JKUhUu0QfblI\""
+          },
+          "hash": "d4017fd2b67cf17f4cad55ee5a71f11ba5f64134",
+          "request": {
+            "params": {
+              "fields": "['id','name','project_id','stage_id','write_date']",
+              "limit": "2",
+              "offset": "28",
+              "order": "write_date asc"
+            }
+          }
+        },
+        {
+          "response": {
+            "records": [
+              {
+                "id": 40,
+                "name": "Check employees lunch accounts",
+                "project_id": false,
+                "stage_id": false,
+                "write_date": "2026-06-03T08:17:00.849110"
+              },
+              {
+                "id": 3,
+                "name": "Noise Reduction",
+                "project_id": [
+                  1,
+                  "Office Design"
+                ],
+                "stage_id": [
+                  3,
+                  "Done"
+                ],
+                "write_date": "2026-06-03T08:17:00.849110"
+              }
+            ],
+            "count": 2
+          },
+          "status": 200,
+          "headers": {
+            "date": "Wed, 03 Jun 2026 08:57:36 GMT",
+            "content-type": "application/json",
+            "content-length": "306",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=5184000; includeSubDomains",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4981",
+            "x-ratelimit-reset": "1780477098",
+            "etag": "W/\"132-gbvX0IYON8y+xw2C+lQBmPjuc20\""
+          },
+          "hash": "42eaa96712d4c713af3458e136376fe232377652",
+          "request": {
+            "params": {
+              "fields": "['id','name','project_id','stage_id','write_date']",
+              "limit": "2",
+              "offset": "30",
+              "order": "write_date asc"
+            }
+          }
+        },
+        {
+          "response": {
+            "records": [
+              {
+                "id": 27,
+                "name": "New portal system",
+                "project_id": [
+                  2,
+                  "Research & Development"
+                ],
+                "stage_id": [
+                  3,
+                  "Done"
+                ],
+                "write_date": "2026-06-03T08:17:00.849110"
+              },
+              {
+                "id": 4,
+                "name": "Modifications asked by the customer",
+                "project_id": [
+                  1,
+                  "Office Design"
+                ],
+                "stage_id": [
+                  3,
+                  "Done"
+                ],
+                "write_date": "2026-06-03T08:17:00.849110"
+              }
+            ],
+            "count": 2
+          },
+          "status": 200,
+          "headers": {
+            "date": "Wed, 03 Jun 2026 08:57:37 GMT",
+            "content-type": "application/json",
+            "content-length": "343",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=5184000; includeSubDomains",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4980",
+            "x-ratelimit-reset": "1780477098",
+            "etag": "W/\"157-gC9F1Of4Uh/5Pzp+zTOt1SfER/k\""
+          },
+          "hash": "5abf8b9a0286ec5b40ed5a476004f0bf0d4ea3cf",
+          "request": {
+            "params": {
+              "fields": "['id','name','project_id','stage_id','write_date']",
+              "limit": "2",
+              "offset": "32",
+              "order": "write_date asc"
+            }
+          }
+        },
+        {
+          "response": {
+            "records": [
+              {
+                "id": 2,
+                "name": "Lunch Room: kitchen",
+                "project_id": [
+                  1,
+                  "Office Design"
+                ],
+                "stage_id": [
+                  3,
+                  "Done"
+                ],
+                "write_date": "2026-06-03T08:17:00.849110"
+              }
+            ],
+            "count": 1
+          },
+          "status": 200,
+          "headers": {
+            "date": "Wed, 03 Jun 2026 08:57:38 GMT",
+            "content-type": "application/json",
+            "content-length": "172",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=5184000; includeSubDomains",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4979",
+            "x-ratelimit-reset": "1780477098",
+            "etag": "W/\"ac-hEyF3VCaSQJ5D32pQI48HJ9pYs8\""
+          },
+          "hash": "60e3c0ba23206a4d20dbc8aedf194c33e9ea7ae8",
+          "request": {
+            "params": {
+              "fields": "['id','name','project_id','stage_id','write_date']",
+              "limit": "2",
+              "offset": "34",
+              "order": "write_date asc"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
