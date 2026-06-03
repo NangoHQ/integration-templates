@@ -55,15 +55,16 @@ const sync = createSync({
             endpoint: '/1.0/project.task',
             params: {
                 fields: "['id','name','project_id','stage_id','write_date']",
-                order: 'write_date asc',
+                order: 'write_date asc, id asc',
                 ...(updatedAfter && { write_date: updatedAfter })
             },
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'offset',
+                offset_start_value: 0,
                 offset_calculation_method: 'by-response-size',
                 limit_name_in_request: 'limit',
-                limit: 2,
+                limit: 100,
                 response_path: 'records'
             },
             retries: 3
