@@ -49,12 +49,12 @@ const sync = createSync({
 
     exec: async (nango) => {
         // https://posthog.com/docs/api/surveys
-        await nango.trackDeletesStart('Survey');
-
         const metadata = await nango.getMetadata<z.infer<typeof MetadataSchema>>();
         if (!metadata?.project_id) {
             throw new Error('project_id is required in metadata');
         }
+
+        await nango.trackDeletesStart('Survey');
 
         const proxyConfig: ProxyConfiguration = {
             // https://posthog.com/docs/api/surveys#list-all-surveys

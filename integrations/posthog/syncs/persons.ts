@@ -46,12 +46,12 @@ const sync = createSync({
         // updated_at, modified_since, or since_id filter. It only supports
         // cursor pagination via next/previous URLs with no timestamp-based
         // filtering, making incremental checkpointing impossible.
-        await nango.trackDeletesStart('Person');
-
         const metadata = await nango.getMetadata<z.infer<typeof MetadataSchema>>();
         if (!metadata?.project_id) {
             throw new Error('project_id is required in metadata');
         }
+
+        await nango.trackDeletesStart('Person');
 
         const proxyConfig: ProxyConfiguration = {
             // https://posthog.com/docs/api/persons

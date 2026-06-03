@@ -104,13 +104,13 @@ const sync = createSync({
         // Blocker: The PostHog Actions list endpoint only supports limit/offset
         // pagination with no updated_after, modified_since, since_id, or cursor
         // filter. There is no changed-records or delta endpoint for actions.
-        await nango.trackDeletesStart('Action');
-
         const metadata = await nango.getMetadata<z.infer<typeof MetadataSchema>>();
         if (!metadata?.project_id) {
             throw new Error('project_id is required in metadata');
         }
         const projectId = metadata.project_id;
+
+        await nango.trackDeletesStart('Action');
 
         const proxyConfig: ProxyConfiguration = {
             // https://posthog.com/docs/api/actions
