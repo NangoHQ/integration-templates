@@ -1,0 +1,205 @@
+{
+  "input": {
+    "name": "Nango Create Experiment Test",
+    "feature_flag_key": "nango-test-flag-a"
+  },
+  "output": {
+    "id": 374855,
+    "name": "Nango Create Experiment Test",
+    "description": "",
+    "start_date": null,
+    "end_date": null,
+    "feature_flag_key": "nango-test-flag-a",
+    "feature_flag": {
+      "id": 700578,
+      "team_id": 309484,
+      "name": "Feature Flag for Experiment Nango Test Experiment",
+      "key": "nango-test-flag-a",
+      "filters": {
+        "groups": [
+          {
+            "properties": [],
+            "rollout_percentage": 100,
+            "aggregation_group_type_index": null
+          }
+        ],
+        "holdout": null,
+        "multivariate": {
+          "variants": [
+            {
+              "key": "control",
+              "name": "Control Group",
+              "rollout_percentage": 50
+            },
+            {
+              "key": "test",
+              "name": "Test Variant",
+              "rollout_percentage": 50
+            }
+          ]
+        },
+        "aggregation_group_type_index": null
+      },
+      "deleted": false,
+      "active": false,
+      "ensure_experience_continuity": false,
+      "version": 1,
+      "evaluation_runtime": "all",
+      "bucketing_identifier": "distinct_id",
+      "evaluation_contexts": []
+    },
+    "holdout_id": null,
+    "parameters": null,
+    "secondary_metrics": [],
+    "saved_metrics": [],
+    "saved_metrics_ids": null,
+    "filters": {},
+    "archived": false,
+    "deleted": false,
+    "created_at": "2026-06-03T12:11:34.662574Z",
+    "updated_at": "2026-06-03T12:11:34.662925Z",
+    "type": "product",
+    "exposure_criteria": {
+      "filterTestAccounts": true
+    },
+    "metrics": [],
+    "metrics_secondary": [],
+    "stats_config": {
+      "method": "bayesian"
+    },
+    "scheduling_config": null,
+    "conclusion": null,
+    "conclusion_comment": null,
+    "primary_metrics_ordered_uuids": null,
+    "secondary_metrics_ordered_uuids": null,
+    "only_count_matured_users": false,
+    "status": "draft",
+    "user_access_level": "manager"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/api/projects/309484/experiments/": {
+        "response": {
+          "id": 374855,
+          "name": "Nango Create Experiment Test",
+          "description": "",
+          "start_date": null,
+          "end_date": null,
+          "feature_flag_key": "nango-test-flag-a",
+          "feature_flag": {
+            "id": 700578,
+            "team_id": 309484,
+            "name": "Feature Flag for Experiment Nango Test Experiment",
+            "key": "nango-test-flag-a",
+            "filters": {
+              "groups": [
+                {
+                  "properties": [],
+                  "rollout_percentage": 100,
+                  "aggregation_group_type_index": null
+                }
+              ],
+              "holdout": null,
+              "multivariate": {
+                "variants": [
+                  {
+                    "key": "control",
+                    "name": "Control Group",
+                    "rollout_percentage": 50
+                  },
+                  {
+                    "key": "test",
+                    "name": "Test Variant",
+                    "rollout_percentage": 50
+                  }
+                ]
+              },
+              "aggregation_group_type_index": null
+            },
+            "deleted": false,
+            "active": false,
+            "ensure_experience_continuity": false,
+            "version": 1,
+            "evaluation_runtime": "all",
+            "bucketing_identifier": "distinct_id",
+            "evaluation_contexts": []
+          },
+          "holdout": null,
+          "holdout_id": null,
+          "exposure_cohort": null,
+          "parameters": null,
+          "secondary_metrics": [],
+          "saved_metrics": [],
+          "saved_metrics_ids": null,
+          "filters": {},
+          "archived": false,
+          "deleted": false,
+          "created_by": {
+            "id": 411781,
+            "uuid": "019c439e-fd4f-0000-dc37-5baa50dfcff6",
+            "distinct_id": "xQi0eQjuEyQ8RFio14FSc5gE3wC5wOKUM7lm3FFRMyR",
+            "first_name": "Nango Developer",
+            "last_name": "",
+            "email": "api@nango.dev",
+            "is_email_verified": true,
+            "hedgehog_config": null,
+            "role_at_organization": ""
+          },
+          "created_at": "2026-06-03T12:11:34.662574Z",
+          "updated_at": "2026-06-03T12:11:34.662925Z",
+          "type": "product",
+          "exposure_criteria": {
+            "filterTestAccounts": true
+          },
+          "metrics": [],
+          "metrics_secondary": [],
+          "stats_config": {
+            "method": "bayesian"
+          },
+          "scheduling_config": null,
+          "conclusion": null,
+          "conclusion_comment": null,
+          "primary_metrics_ordered_uuids": null,
+          "secondary_metrics_ordered_uuids": null,
+          "only_count_matured_users": false,
+          "status": "draft",
+          "user_access_level": "manager"
+        },
+        "status": 201,
+        "headers": {
+          "date": "Wed, 03 Jun 2026 12:11:34 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4964",
+          "x-ratelimit-reset": "1780488706",
+          "allow": "GET, POST, HEAD, OPTIONS",
+          "content-security-policy": "default-src 'none'",
+          "vary": "origin, Cookie, Accept-Encoding",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "cross-origin-opener-policy": "same-origin",
+          "server": "envoy",
+          "x-envoy-upstream-service-time": "116"
+        },
+        "hash": "da2bdd9a08caacb572250d7552650d05a94ed70a",
+        "request": {
+          "data": {
+            "name": "Nango Create Experiment Test",
+            "feature_flag_key": "nango-test-flag-a"
+          }
+        }
+      }
+    }
+  }
+}

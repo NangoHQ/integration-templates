@@ -1,0 +1,135 @@
+{
+  "input": {
+    "name": "Nango Test Survey 2026-06-03-1209",
+    "type": "popover"
+  },
+  "output": {
+    "id": "019e8d63-4ecd-0000-d81b-c72391cc5835",
+    "name": "Nango Test Survey 2026-06-03-1209",
+    "description": "",
+    "type": "popover",
+    "schedule": "once",
+    "created_at": "2026-06-03T12:09:16.240064Z",
+    "archived": false
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/api/projects/309484/surveys/": {
+        "response": {
+          "id": "019e8d63-4ecd-0000-d81b-c72391cc5835",
+          "name": "Nango Test Survey 2026-06-03-1209",
+          "description": "",
+          "type": "popover",
+          "schedule": "once",
+          "linked_flag": null,
+          "targeting_flag": null,
+          "internal_targeting_flag": {
+            "id": 700582,
+            "team_id": 309484,
+            "name": "Targeting flag for survey Nango Test Survey 2026-06-03-1209",
+            "key": "survey-targeting-1a12585e8d-custom",
+            "filters": {
+              "groups": [
+                {
+                  "variant": "",
+                  "properties": [
+                    {
+                      "key": "$survey_dismissed/019e8d63-4ecd-0000-d81b-c72391cc5835",
+                      "type": "person",
+                      "value": "is_not_set",
+                      "operator": "is_not_set"
+                    },
+                    {
+                      "key": "$survey_responded/019e8d63-4ecd-0000-d81b-c72391cc5835",
+                      "type": "person",
+                      "value": "is_not_set",
+                      "operator": "is_not_set"
+                    }
+                  ],
+                  "rollout_percentage": 100,
+                  "aggregation_group_type_index": null
+                }
+              ],
+              "aggregation_group_type_index": null
+            },
+            "deleted": false,
+            "active": false,
+            "ensure_experience_continuity": false,
+            "version": 1,
+            "evaluation_runtime": "all",
+            "bucketing_identifier": "distinct_id",
+            "evaluation_contexts": []
+          },
+          "questions": null,
+          "conditions": null,
+          "appearance": null,
+          "created_at": "2026-06-03T12:09:16.240064Z",
+          "created_by": {
+            "id": 411781,
+            "uuid": "019c439e-fd4f-0000-dc37-5baa50dfcff6",
+            "distinct_id": "xQi0eQjuEyQ8RFio14FSc5gE3wC5wOKUM7lm3FFRMyR",
+            "first_name": "Nango Developer",
+            "last_name": "",
+            "email": "api@nango.dev",
+            "is_email_verified": true,
+            "hedgehog_config": null,
+            "role_at_organization": ""
+          },
+          "start_date": null,
+          "end_date": null,
+          "archived": false,
+          "responses_limit": null,
+          "iteration_count": null,
+          "iteration_frequency_days": null,
+          "iteration_start_dates": [],
+          "current_iteration": null,
+          "current_iteration_start_date": null,
+          "response_sampling_start_date": null,
+          "response_sampling_interval_type": "week",
+          "response_sampling_interval": null,
+          "response_sampling_limit": null,
+          "response_sampling_daily_limits": null,
+          "enable_partial_responses": false,
+          "enable_iframe_embedding": false,
+          "base_language": "en",
+          "translations": null,
+          "form_content": null
+        },
+        "status": 201,
+        "headers": {
+          "date": "Wed, 03 Jun 2026 12:09:16 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4943",
+          "x-ratelimit-reset": "1780488578",
+          "allow": "GET, POST, HEAD, OPTIONS",
+          "content-security-policy": "default-src 'none'",
+          "vary": "origin, Cookie, Accept-Encoding",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "cross-origin-opener-policy": "same-origin",
+          "server": "envoy",
+          "x-envoy-upstream-service-time": "550"
+        },
+        "hash": "cf7fcb08af179f11190b607edc9d20692bd398c1",
+        "request": {
+          "data": {
+            "name": "Nango Test Survey 2026-06-03-1209",
+            "type": "popover"
+          }
+        }
+      }
+    }
+  }
+}

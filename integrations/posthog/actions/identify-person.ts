@@ -1,0 +1,68 @@
+import { z } from 'zod';
+import { createAction } from 'nango';
+
+const InputSchema = z.object({
+    distinct_id: z.string().describe('The distinct ID of the person to identify. Example: "user@example.com"'),
+    properties: z.record(z.string(), z.unknown()).optional().describe('Properties to set on the person via $set. Example: {"email": "user@example.com"}'),
+    project_id: z.number().describe('The PostHog project ID. Example: 309484')
+});
+
+const ProjectSchema = z.object({
+    api_token: z.string()
+});
+
+const CaptureResponseSchema = z.object({
+    status: z.string()
+});
+
+const OutputSchema = z.object({
+    status: z.string(),
+    distinct_id: z.string()
+});
+
+const action = createAction({
+    description: 'Identify or update a PostHog person.',
+    version: '1.0.0',
+    endpoint: {
+        method: 'POST',
+        path: '/actions/identify-person',
+        group: 'Persons'
+    },
+    input: InputSchema,
+    output: OutputSchema,
+    scopes: [],
+
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // https://posthog.com/docs/api/projects
+        const projectResponse = await nango.get({
+            endpoint: `/api/projects/${input.project_id}/`,
+            retries: 3
+        });
+
+        const project = ProjectSchema.parse(projectResponse.data);
+
+        // https://posthog.com/docs/api/capture
+        const captureResponse = await nango.post({
+            endpoint: '/i/v0/e/',
+            data: {
+                api_key: project.api_token,
+                event: '$identify',
+                distinct_id: input.distinct_id,
+                properties: {
+                    ...(input.properties !== undefined && { $set: input.properties })
+                }
+            },
+            retries: 1
+        });
+
+        const result = CaptureResponseSchema.parse(captureResponse.data);
+
+        return {
+            status: result.status,
+            distinct_id: input.distinct_id
+        };
+    }
+});
+
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
+export default action;

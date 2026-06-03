@@ -1,0 +1,92 @@
+{
+  "input": {
+    "project_id": "309484",
+    "id": 1663109
+  },
+  "output": {
+    "id": 1663109,
+    "deleted": true,
+    "name": "Nango Test Dashboard B"
+  },
+  "nango": {
+    "getConnection": {}
+  },
+  "api": {
+    "patch": {
+      "/api/projects/309484/dashboards/1663109/": {
+        "response": {
+          "id": 1663109,
+          "name": "Nango Test Dashboard B",
+          "description": "",
+          "pinned": false,
+          "created_at": "2026-06-03T09:53:14.771560Z",
+          "created_by": {
+            "id": 411781,
+            "uuid": "019c439e-fd4f-0000-dc37-5baa50dfcff6",
+            "distinct_id": "xQi0eQjuEyQ8RFio14FSc5gE3wC5wOKUM7lm3FFRMyR",
+            "first_name": "Nango Developer",
+            "last_name": "",
+            "email": "api@nango.dev",
+            "is_email_verified": true,
+            "hedgehog_config": null,
+            "role_at_organization": ""
+          },
+          "last_accessed_at": null,
+          "last_viewed_at": null,
+          "is_shared": false,
+          "deleted": true,
+          "creation_mode": "default",
+          "filters": {},
+          "variables": {},
+          "breakdown_colors": [],
+          "data_color_theme_id": null,
+          "restriction_level": 21,
+          "effective_restriction_level": 21,
+          "effective_privilege_level": 37,
+          "user_access_level": "manager",
+          "access_control_version": "v2",
+          "last_refresh": null,
+          "persisted_filters": null,
+          "persisted_variables": null,
+          "team_id": 309484,
+          "quick_filter_ids": [],
+          "tiles": [],
+          "tags": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 03 Jun 2026 10:09:33 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4916",
+          "x-ratelimit-reset": "1780481386",
+          "vary": "Accept, origin, Cookie, Accept-Encoding",
+          "allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS",
+          "server-timing": "django;dur=230, pg;dur=120, pg_max;dur=10, ch;dur=0, ch_max;dur=0, pg_count;desc=\"37\", pg_slow;desc=\"0\", ch_count;desc=\"0\", ch_slow;desc=\"0\"",
+          "content-security-policy": "default-src 'none'",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "cross-origin-opener-policy": "same-origin",
+          "server": "envoy",
+          "x-envoy-upstream-service-time": "232"
+        },
+        "hash": "8e91c4f25cedbc3df240d0727186ebbe6854f16c",
+        "request": {
+          "data": {
+            "deleted": true
+          }
+        }
+      }
+    }
+  }
+}

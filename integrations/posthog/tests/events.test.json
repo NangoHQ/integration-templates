@@ -1,0 +1,2002 @@
+{
+  "nango": {
+    "batchSave": {
+      "Event": [
+        {
+          "id": "019e8dcb-a7e2-7b0b-a6fc-0a7543d42d9a",
+          "event": "$snapshot",
+          "distinct_id": "nango-test-person-2026-0603",
+          "properties": {
+            "$session_id": "nango-test-recording-2026-0603",
+            "distinct_id": "nango-test-person-2026-0603",
+            "$window_id": "window-1",
+            "token": "phc_SfpnhgEeTG6WhNZuVVozFpDoXqOeVdcjQASMi3XtFD8",
+            "$snapshot_data": [
+              [
+                0,
+                4,
+                {
+                  "height": 1080,
+                  "href": "https://example.com",
+                  "width": 1920
+                }
+              ],
+              [
+                0,
+                2,
+                {
+                  "attributes": {},
+                  "childNodes": [],
+                  "tagName": "html",
+                  "type": 0
+                }
+              ]
+            ],
+            "$ip": "34.169.252.110",
+            "$set": {
+              "$geoip_city_name": "The Dalles",
+              "$geoip_city_confidence": null,
+              "$geoip_subdivision_2_name": null,
+              "$geoip_subdivision_2_code": null,
+              "$geoip_subdivision_1_name": "Oregon",
+              "$geoip_subdivision_1_code": "OR",
+              "$geoip_country_name": "United States",
+              "$geoip_country_code": "US",
+              "$geoip_continent_name": "North America",
+              "$geoip_continent_code": "NA",
+              "$geoip_postal_code": "97058",
+              "$geoip_latitude": 45.5999,
+              "$geoip_longitude": -121.1871,
+              "$geoip_accuracy_radius": 20,
+              "$geoip_time_zone": "America/Los_Angeles"
+            },
+            "$set_once": {
+              "$initial_geoip_city_name": "The Dalles",
+              "$initial_geoip_city_confidence": null,
+              "$initial_geoip_subdivision_2_name": null,
+              "$initial_geoip_subdivision_2_code": null,
+              "$initial_geoip_subdivision_1_name": "Oregon",
+              "$initial_geoip_subdivision_1_code": "OR",
+              "$initial_geoip_country_name": "United States",
+              "$initial_geoip_country_code": "US",
+              "$initial_geoip_continent_name": "North America",
+              "$initial_geoip_continent_code": "NA",
+              "$initial_geoip_postal_code": "97058",
+              "$initial_geoip_latitude": 45.5999,
+              "$initial_geoip_longitude": -121.1871,
+              "$initial_geoip_accuracy_radius": 20,
+              "$initial_geoip_time_zone": "America/Los_Angeles"
+            },
+            "$geoip_city_name": "The Dalles",
+            "$geoip_country_name": "United States",
+            "$geoip_country_code": "US",
+            "$geoip_continent_name": "North America",
+            "$geoip_continent_code": "NA",
+            "$geoip_postal_code": "97058",
+            "$geoip_latitude": 45.5999,
+            "$geoip_longitude": -121.1871,
+            "$geoip_accuracy_radius": 20,
+            "$geoip_time_zone": "America/Los_Angeles",
+            "$geoip_subdivision_1_code": "OR",
+            "$geoip_subdivision_1_name": "Oregon",
+            "$transformations_succeeded": [
+              "GeoIP (019c439e-fea2-0000-a581-a2f8b00d63fc)"
+            ]
+          },
+          "timestamp": "2026-06-03T14:00:00+00:00",
+          "elements": [],
+          "elements_chain": ""
+        },
+        {
+          "id": "019e8dc5-39fe-7fe0-8fc5-552fc89137a4",
+          "event": "$identify",
+          "distinct_id": "nango-test-person-2026-0603-capture",
+          "properties": {
+            "$ip": "52.26.211.56",
+            "$set": {
+              "$geoip_city_name": "Boardman",
+              "$geoip_city_confidence": null,
+              "$geoip_subdivision_2_name": null,
+              "$geoip_subdivision_2_code": null,
+              "$geoip_subdivision_1_name": "Oregon",
+              "$geoip_subdivision_1_code": "OR",
+              "$geoip_country_name": "United States",
+              "$geoip_country_code": "US",
+              "$geoip_continent_name": "North America",
+              "$geoip_continent_code": "NA",
+              "$geoip_postal_code": "97818",
+              "$geoip_latitude": 45.8401,
+              "$geoip_longitude": -119.705,
+              "$geoip_accuracy_radius": 1000,
+              "$geoip_time_zone": "America/Los_Angeles"
+            },
+            "$set_once": {
+              "$initial_geoip_city_name": "Boardman",
+              "$initial_geoip_city_confidence": null,
+              "$initial_geoip_subdivision_2_name": null,
+              "$initial_geoip_subdivision_2_code": null,
+              "$initial_geoip_subdivision_1_name": "Oregon",
+              "$initial_geoip_subdivision_1_code": "OR",
+              "$initial_geoip_country_name": "United States",
+              "$initial_geoip_country_code": "US",
+              "$initial_geoip_continent_name": "North America",
+              "$initial_geoip_continent_code": "NA",
+              "$initial_geoip_postal_code": "97818",
+              "$initial_geoip_latitude": 45.8401,
+              "$initial_geoip_longitude": -119.705,
+              "$initial_geoip_accuracy_radius": 1000,
+              "$initial_geoip_time_zone": "America/Los_Angeles"
+            },
+            "$geoip_city_name": "Boardman",
+            "$geoip_country_name": "United States",
+            "$geoip_country_code": "US",
+            "$geoip_continent_name": "North America",
+            "$geoip_continent_code": "NA",
+            "$geoip_postal_code": "97818",
+            "$geoip_latitude": 45.8401,
+            "$geoip_longitude": -119.705,
+            "$geoip_accuracy_radius": 1000,
+            "$geoip_time_zone": "America/Los_Angeles",
+            "$geoip_subdivision_1_code": "OR",
+            "$geoip_subdivision_1_name": "Oregon",
+            "$transformations_succeeded": [
+              "GeoIP (019c439e-fea2-0000-a581-a2f8b00d63fc)"
+            ]
+          },
+          "timestamp": "2026-06-03T13:56:13.438000+00:00",
+          "elements": [],
+          "elements_chain": ""
+        },
+        {
+          "id": "019e8dc3-5a77-76a0-b8d2-cee637d7da6a",
+          "event": "$identify",
+          "distinct_id": "nango-test-person-2026-0603-capture",
+          "properties": {
+            "$ip": "52.26.211.56",
+            "$set": {
+              "$geoip_city_name": "Boardman",
+              "$geoip_city_confidence": null,
+              "$geoip_subdivision_2_name": null,
+              "$geoip_subdivision_2_code": null,
+              "$geoip_subdivision_1_name": "Oregon",
+              "$geoip_subdivision_1_code": "OR",
+              "$geoip_country_name": "United States",
+              "$geoip_country_code": "US",
+              "$geoip_continent_name": "North America",
+              "$geoip_continent_code": "NA",
+              "$geoip_postal_code": "97818",
+              "$geoip_latitude": 45.8401,
+              "$geoip_longitude": -119.705,
+              "$geoip_accuracy_radius": 1000,
+              "$geoip_time_zone": "America/Los_Angeles"
+            },
+            "$set_once": {
+              "$initial_geoip_city_name": "Boardman",
+              "$initial_geoip_city_confidence": null,
+              "$initial_geoip_subdivision_2_name": null,
+              "$initial_geoip_subdivision_2_code": null,
+              "$initial_geoip_subdivision_1_name": "Oregon",
+              "$initial_geoip_subdivision_1_code": "OR",
+              "$initial_geoip_country_name": "United States",
+              "$initial_geoip_country_code": "US",
+              "$initial_geoip_continent_name": "North America",
+              "$initial_geoip_continent_code": "NA",
+              "$initial_geoip_postal_code": "97818",
+              "$initial_geoip_latitude": 45.8401,
+              "$initial_geoip_longitude": -119.705,
+              "$initial_geoip_accuracy_radius": 1000,
+              "$initial_geoip_time_zone": "America/Los_Angeles"
+            },
+            "$geoip_city_name": "Boardman",
+            "$geoip_country_name": "United States",
+            "$geoip_country_code": "US",
+            "$geoip_continent_name": "North America",
+            "$geoip_continent_code": "NA",
+            "$geoip_postal_code": "97818",
+            "$geoip_latitude": 45.8401,
+            "$geoip_longitude": -119.705,
+            "$geoip_accuracy_radius": 1000,
+            "$geoip_time_zone": "America/Los_Angeles",
+            "$geoip_subdivision_1_code": "OR",
+            "$geoip_subdivision_1_name": "Oregon",
+            "$transformations_succeeded": [
+              "GeoIP (019c439e-fea2-0000-a581-a2f8b00d63fc)"
+            ]
+          },
+          "timestamp": "2026-06-03T13:54:10.679000+00:00",
+          "elements": [],
+          "elements_chain": ""
+        },
+        {
+          "id": "019e8dc3-2e4d-7007-95b8-7fd3bb1edb48",
+          "event": "$identify",
+          "distinct_id": "nango-test-person-2026-0603-capture",
+          "properties": {
+            "$ip": "54.69.127.183",
+            "$set": {
+              "$geoip_city_name": "Boardman",
+              "$geoip_city_confidence": null,
+              "$geoip_subdivision_2_name": null,
+              "$geoip_subdivision_2_code": null,
+              "$geoip_subdivision_1_name": "Oregon",
+              "$geoip_subdivision_1_code": "OR",
+              "$geoip_country_name": "United States",
+              "$geoip_country_code": "US",
+              "$geoip_continent_name": "North America",
+              "$geoip_continent_code": "NA",
+              "$geoip_postal_code": "97818",
+              "$geoip_latitude": 45.8401,
+              "$geoip_longitude": -119.705,
+              "$geoip_accuracy_radius": 20,
+              "$geoip_time_zone": "America/Los_Angeles"
+            },
+            "$set_once": {
+              "$initial_geoip_city_name": "Boardman",
+              "$initial_geoip_city_confidence": null,
+              "$initial_geoip_subdivision_2_name": null,
+              "$initial_geoip_subdivision_2_code": null,
+              "$initial_geoip_subdivision_1_name": "Oregon",
+              "$initial_geoip_subdivision_1_code": "OR",
+              "$initial_geoip_country_name": "United States",
+              "$initial_geoip_country_code": "US",
+              "$initial_geoip_continent_name": "North America",
+              "$initial_geoip_continent_code": "NA",
+              "$initial_geoip_postal_code": "97818",
+              "$initial_geoip_latitude": 45.8401,
+              "$initial_geoip_longitude": -119.705,
+              "$initial_geoip_accuracy_radius": 20,
+              "$initial_geoip_time_zone": "America/Los_Angeles"
+            },
+            "$geoip_city_name": "Boardman",
+            "$geoip_country_name": "United States",
+            "$geoip_country_code": "US",
+            "$geoip_continent_name": "North America",
+            "$geoip_continent_code": "NA",
+            "$geoip_postal_code": "97818",
+            "$geoip_latitude": 45.8401,
+            "$geoip_longitude": -119.705,
+            "$geoip_accuracy_radius": 20,
+            "$geoip_time_zone": "America/Los_Angeles",
+            "$geoip_subdivision_1_code": "OR",
+            "$geoip_subdivision_1_name": "Oregon",
+            "$transformations_succeeded": [
+              "GeoIP (019c439e-fea2-0000-a581-a2f8b00d63fc)"
+            ]
+          },
+          "timestamp": "2026-06-03T13:53:59.373000+00:00",
+          "elements": [],
+          "elements_chain": ""
+        },
+        {
+          "id": "019e8dc2-725d-766d-bd50-8d68226fd200",
+          "event": "$identify",
+          "distinct_id": "nango-test-person-2026-0603-capture",
+          "properties": {
+            "$ip": "52.34.139.153",
+            "$set": {
+              "$geoip_city_name": "Boardman",
+              "$geoip_city_confidence": null,
+              "$geoip_subdivision_2_name": null,
+              "$geoip_subdivision_2_code": null,
+              "$geoip_subdivision_1_name": "Oregon",
+              "$geoip_subdivision_1_code": "OR",
+              "$geoip_country_name": "United States",
+              "$geoip_country_code": "US",
+              "$geoip_continent_name": "North America",
+              "$geoip_continent_code": "NA",
+              "$geoip_postal_code": "97818",
+              "$geoip_latitude": 45.8401,
+              "$geoip_longitude": -119.705,
+              "$geoip_accuracy_radius": 20,
+              "$geoip_time_zone": "America/Los_Angeles"
+            },
+            "$set_once": {
+              "$initial_geoip_city_name": "Boardman",
+              "$initial_geoip_city_confidence": null,
+              "$initial_geoip_subdivision_2_name": null,
+              "$initial_geoip_subdivision_2_code": null,
+              "$initial_geoip_subdivision_1_name": "Oregon",
+              "$initial_geoip_subdivision_1_code": "OR",
+              "$initial_geoip_country_name": "United States",
+              "$initial_geoip_country_code": "US",
+              "$initial_geoip_continent_name": "North America",
+              "$initial_geoip_continent_code": "NA",
+              "$initial_geoip_postal_code": "97818",
+              "$initial_geoip_latitude": 45.8401,
+              "$initial_geoip_longitude": -119.705,
+              "$initial_geoip_accuracy_radius": 20,
+              "$initial_geoip_time_zone": "America/Los_Angeles"
+            },
+            "$geoip_city_name": "Boardman",
+            "$geoip_country_name": "United States",
+            "$geoip_country_code": "US",
+            "$geoip_continent_name": "North America",
+            "$geoip_continent_code": "NA",
+            "$geoip_postal_code": "97818",
+            "$geoip_latitude": 45.8401,
+            "$geoip_longitude": -119.705,
+            "$geoip_accuracy_radius": 20,
+            "$geoip_time_zone": "America/Los_Angeles",
+            "$geoip_subdivision_1_code": "OR",
+            "$geoip_subdivision_1_name": "Oregon",
+            "$transformations_succeeded": [
+              "GeoIP (019c439e-fea2-0000-a581-a2f8b00d63fc)"
+            ]
+          },
+          "timestamp": "2026-06-03T13:53:11.261000+00:00",
+          "elements": [],
+          "elements_chain": ""
+        },
+        {
+          "id": "019e8dc2-06c3-77ce-b489-f79c40da5810",
+          "event": "$identify",
+          "distinct_id": "nango-test-person-2026-0603-capture",
+          "properties": {
+            "$set": {
+              "email": "test@example.com",
+              "name": "Test Person Updated",
+              "$geoip_city_name": "Boardman",
+              "$geoip_city_confidence": null,
+              "$geoip_subdivision_2_name": null,
+              "$geoip_subdivision_2_code": null,
+              "$geoip_subdivision_1_name": "Oregon",
+              "$geoip_subdivision_1_code": "OR",
+              "$geoip_country_name": "United States",
+              "$geoip_country_code": "US",
+              "$geoip_continent_name": "North America",
+              "$geoip_continent_code": "NA",
+              "$geoip_postal_code": "97818",
+              "$geoip_latitude": 45.8401,
+              "$geoip_longitude": -119.705,
+              "$geoip_accuracy_radius": 20,
+              "$geoip_time_zone": "America/Los_Angeles"
+            },
+            "$ip": "44.247.133.183",
+            "$set_once": {
+              "$initial_geoip_city_name": "Boardman",
+              "$initial_geoip_city_confidence": null,
+              "$initial_geoip_subdivision_2_name": null,
+              "$initial_geoip_subdivision_2_code": null,
+              "$initial_geoip_subdivision_1_name": "Oregon",
+              "$initial_geoip_subdivision_1_code": "OR",
+              "$initial_geoip_country_name": "United States",
+              "$initial_geoip_country_code": "US",
+              "$initial_geoip_continent_name": "North America",
+              "$initial_geoip_continent_code": "NA",
+              "$initial_geoip_postal_code": "97818",
+              "$initial_geoip_latitude": 45.8401,
+              "$initial_geoip_longitude": -119.705,
+              "$initial_geoip_accuracy_radius": 20,
+              "$initial_geoip_time_zone": "America/Los_Angeles"
+            },
+            "$geoip_city_name": "Boardman",
+            "$geoip_country_name": "United States",
+            "$geoip_country_code": "US",
+            "$geoip_continent_name": "North America",
+            "$geoip_continent_code": "NA",
+            "$geoip_postal_code": "97818",
+            "$geoip_latitude": 45.8401,
+            "$geoip_longitude": -119.705,
+            "$geoip_accuracy_radius": 20,
+            "$geoip_time_zone": "America/Los_Angeles",
+            "$geoip_subdivision_1_code": "OR",
+            "$geoip_subdivision_1_name": "Oregon",
+            "$transformations_succeeded": [
+              "GeoIP (019c439e-fea2-0000-a581-a2f8b00d63fc)"
+            ]
+          },
+          "timestamp": "2026-06-03T13:52:43.715000+00:00",
+          "elements": [],
+          "elements_chain": ""
+        },
+        {
+          "id": "019e8dc1-7468-7179-9eb0-01304003fdde",
+          "event": "$identify",
+          "distinct_id": "nango-test-person-2026-0603-retry3",
+          "properties": {
+            "$set": {
+              "email": "test@example.com",
+              "name": "Test Person",
+              "$geoip_city_name": "Boardman",
+              "$geoip_city_confidence": null,
+              "$geoip_subdivision_2_name": null,
+              "$geoip_subdivision_2_code": null,
+              "$geoip_subdivision_1_name": "Oregon",
+              "$geoip_subdivision_1_code": "OR",
+              "$geoip_country_name": "United States",
+              "$geoip_country_code": "US",
+              "$geoip_continent_name": "North America",
+              "$geoip_continent_code": "NA",
+              "$geoip_postal_code": "97818",
+              "$geoip_latitude": 45.8401,
+              "$geoip_longitude": -119.705,
+              "$geoip_accuracy_radius": 20,
+              "$geoip_time_zone": "America/Los_Angeles"
+            },
+            "$ip": "54.69.127.183",
+            "$set_once": {
+              "$initial_geoip_city_name": "Boardman",
+              "$initial_geoip_city_confidence": null,
+              "$initial_geoip_subdivision_2_name": null,
+              "$initial_geoip_subdivision_2_code": null,
+              "$initial_geoip_subdivision_1_name": "Oregon",
+              "$initial_geoip_subdivision_1_code": "OR",
+              "$initial_geoip_country_name": "United States",
+              "$initial_geoip_country_code": "US",
+              "$initial_geoip_continent_name": "North America",
+              "$initial_geoip_continent_code": "NA",
+              "$initial_geoip_postal_code": "97818",
+              "$initial_geoip_latitude": 45.8401,
+              "$initial_geoip_longitude": -119.705,
+              "$initial_geoip_accuracy_radius": 20,
+              "$initial_geoip_time_zone": "America/Los_Angeles"
+            },
+            "$geoip_city_name": "Boardman",
+            "$geoip_country_name": "United States",
+            "$geoip_country_code": "US",
+            "$geoip_continent_name": "North America",
+            "$geoip_continent_code": "NA",
+            "$geoip_postal_code": "97818",
+            "$geoip_latitude": 45.8401,
+            "$geoip_longitude": -119.705,
+            "$geoip_accuracy_radius": 20,
+            "$geoip_time_zone": "America/Los_Angeles",
+            "$geoip_subdivision_1_code": "OR",
+            "$geoip_subdivision_1_name": "Oregon",
+            "$transformations_succeeded": [
+              "GeoIP (019c439e-fea2-0000-a581-a2f8b00d63fc)"
+            ]
+          },
+          "timestamp": "2026-06-03T13:52:06.248000+00:00",
+          "elements": [],
+          "elements_chain": ""
+        },
+        {
+          "id": "019e8dc0-bd1c-724f-9167-fcda1f0983ed",
+          "event": "$identify",
+          "distinct_id": "nango-test-person-2026-0603-retry2",
+          "properties": {
+            "$set": {
+              "email": "test@example.com",
+              "name": "Test Person",
+              "$geoip_city_name": "Boardman",
+              "$geoip_city_confidence": null,
+              "$geoip_subdivision_2_name": null,
+              "$geoip_subdivision_2_code": null,
+              "$geoip_subdivision_1_name": "Oregon",
+              "$geoip_subdivision_1_code": "OR",
+              "$geoip_country_name": "United States",
+              "$geoip_country_code": "US",
+              "$geoip_continent_name": "North America",
+              "$geoip_continent_code": "NA",
+              "$geoip_postal_code": "97818",
+              "$geoip_latitude": 45.8401,
+              "$geoip_longitude": -119.705,
+              "$geoip_accuracy_radius": 20,
+              "$geoip_time_zone": "America/Los_Angeles"
+            },
+            "$ip": "52.34.139.153",
+            "$set_once": {
+              "$initial_geoip_city_name": "Boardman",
+              "$initial_geoip_city_confidence": null,
+              "$initial_geoip_subdivision_2_name": null,
+              "$initial_geoip_subdivision_2_code": null,
+              "$initial_geoip_subdivision_1_name": "Oregon",
+              "$initial_geoip_subdivision_1_code": "OR",
+              "$initial_geoip_country_name": "United States",
+              "$initial_geoip_country_code": "US",
+              "$initial_geoip_continent_name": "North America",
+              "$initial_geoip_continent_code": "NA",
+              "$initial_geoip_postal_code": "97818",
+              "$initial_geoip_latitude": 45.8401,
+              "$initial_geoip_longitude": -119.705,
+              "$initial_geoip_accuracy_radius": 20,
+              "$initial_geoip_time_zone": "America/Los_Angeles"
+            },
+            "$geoip_city_name": "Boardman",
+            "$geoip_country_name": "United States",
+            "$geoip_country_code": "US",
+            "$geoip_continent_name": "North America",
+            "$geoip_continent_code": "NA",
+            "$geoip_postal_code": "97818",
+            "$geoip_latitude": 45.8401,
+            "$geoip_longitude": -119.705,
+            "$geoip_accuracy_radius": 20,
+            "$geoip_time_zone": "America/Los_Angeles",
+            "$geoip_subdivision_1_code": "OR",
+            "$geoip_subdivision_1_name": "Oregon",
+            "$transformations_succeeded": [
+              "GeoIP (019c439e-fea2-0000-a581-a2f8b00d63fc)"
+            ]
+          },
+          "timestamp": "2026-06-03T13:51:19.324000+00:00",
+          "elements": [],
+          "elements_chain": ""
+        },
+        {
+          "id": "019e8dc0-5f93-70cf-8470-05518a66f5aa",
+          "event": "$identify",
+          "distinct_id": "nango-test-person-2026-0603-retry",
+          "properties": {
+            "$set": {
+              "email": "test@example.com",
+              "name": "Test Person",
+              "$geoip_city_name": "Boardman",
+              "$geoip_city_confidence": null,
+              "$geoip_subdivision_2_name": null,
+              "$geoip_subdivision_2_code": null,
+              "$geoip_subdivision_1_name": "Oregon",
+              "$geoip_subdivision_1_code": "OR",
+              "$geoip_country_name": "United States",
+              "$geoip_country_code": "US",
+              "$geoip_continent_name": "North America",
+              "$geoip_continent_code": "NA",
+              "$geoip_postal_code": "97818",
+              "$geoip_latitude": 45.8401,
+              "$geoip_longitude": -119.705,
+              "$geoip_accuracy_radius": 20,
+              "$geoip_time_zone": "America/Los_Angeles"
+            },
+            "$ip": "52.34.139.153",
+            "$set_once": {
+              "$initial_geoip_city_name": "Boardman",
+              "$initial_geoip_city_confidence": null,
+              "$initial_geoip_subdivision_2_name": null,
+              "$initial_geoip_subdivision_2_code": null,
+              "$initial_geoip_subdivision_1_name": "Oregon",
+              "$initial_geoip_subdivision_1_code": "OR",
+              "$initial_geoip_country_name": "United States",
+              "$initial_geoip_country_code": "US",
+              "$initial_geoip_continent_name": "North America",
+              "$initial_geoip_continent_code": "NA",
+              "$initial_geoip_postal_code": "97818",
+              "$initial_geoip_latitude": 45.8401,
+              "$initial_geoip_longitude": -119.705,
+              "$initial_geoip_accuracy_radius": 20,
+              "$initial_geoip_time_zone": "America/Los_Angeles"
+            },
+            "$geoip_city_name": "Boardman",
+            "$geoip_country_name": "United States",
+            "$geoip_country_code": "US",
+            "$geoip_continent_name": "North America",
+            "$geoip_continent_code": "NA",
+            "$geoip_postal_code": "97818",
+            "$geoip_latitude": 45.8401,
+            "$geoip_longitude": -119.705,
+            "$geoip_accuracy_radius": 20,
+            "$geoip_time_zone": "America/Los_Angeles",
+            "$geoip_subdivision_1_code": "OR",
+            "$geoip_subdivision_1_name": "Oregon",
+            "$transformations_succeeded": [
+              "GeoIP (019c439e-fea2-0000-a581-a2f8b00d63fc)"
+            ]
+          },
+          "timestamp": "2026-06-03T13:50:55.379000+00:00",
+          "elements": [],
+          "elements_chain": ""
+        },
+        {
+          "id": "019e8dbf-7a9a-71a0-9b34-fb25f3b447b5",
+          "event": "$identify",
+          "distinct_id": "nango-test-person-2026-0603-final",
+          "properties": {
+            "$set": {
+              "email": "test@example.com",
+              "name": "Test Person",
+              "$geoip_city_name": "Boardman",
+              "$geoip_city_confidence": null,
+              "$geoip_subdivision_2_name": null,
+              "$geoip_subdivision_2_code": null,
+              "$geoip_subdivision_1_name": "Oregon",
+              "$geoip_subdivision_1_code": "OR",
+              "$geoip_country_name": "United States",
+              "$geoip_country_code": "US",
+              "$geoip_continent_name": "North America",
+              "$geoip_continent_code": "NA",
+              "$geoip_postal_code": "97818",
+              "$geoip_latitude": 45.8401,
+              "$geoip_longitude": -119.705,
+              "$geoip_accuracy_radius": 1000,
+              "$geoip_time_zone": "America/Los_Angeles"
+            },
+            "$ip": "52.26.211.56",
+            "$set_once": {
+              "$initial_geoip_city_name": "Boardman",
+              "$initial_geoip_city_confidence": null,
+              "$initial_geoip_subdivision_2_name": null,
+              "$initial_geoip_subdivision_2_code": null,
+              "$initial_geoip_subdivision_1_name": "Oregon",
+              "$initial_geoip_subdivision_1_code": "OR",
+              "$initial_geoip_country_name": "United States",
+              "$initial_geoip_country_code": "US",
+              "$initial_geoip_continent_name": "North America",
+              "$initial_geoip_continent_code": "NA",
+              "$initial_geoip_postal_code": "97818",
+              "$initial_geoip_latitude": 45.8401,
+              "$initial_geoip_longitude": -119.705,
+              "$initial_geoip_accuracy_radius": 1000,
+              "$initial_geoip_time_zone": "America/Los_Angeles"
+            },
+            "$geoip_city_name": "Boardman",
+            "$geoip_country_name": "United States",
+            "$geoip_country_code": "US",
+            "$geoip_continent_name": "North America",
+            "$geoip_continent_code": "NA",
+            "$geoip_postal_code": "97818",
+            "$geoip_latitude": 45.8401,
+            "$geoip_longitude": -119.705,
+            "$geoip_accuracy_radius": 1000,
+            "$geoip_time_zone": "America/Los_Angeles",
+            "$geoip_subdivision_1_code": "OR",
+            "$geoip_subdivision_1_name": "Oregon",
+            "$transformations_succeeded": [
+              "GeoIP (019c439e-fea2-0000-a581-a2f8b00d63fc)"
+            ]
+          },
+          "timestamp": "2026-06-03T13:49:56.762000+00:00",
+          "elements": [],
+          "elements_chain": ""
+        },
+        {
+          "id": "019e8dbd-6f39-7f6e-816e-3e3d0e177523",
+          "event": "$identify",
+          "distinct_id": "nango-test-person-2026-0603-capture",
+          "properties": {
+            "$set": {
+              "email": "test@example.com",
+              "name": "Test Person",
+              "$geoip_city_name": "Boardman",
+              "$geoip_city_confidence": null,
+              "$geoip_subdivision_2_name": null,
+              "$geoip_subdivision_2_code": null,
+              "$geoip_subdivision_1_name": "Oregon",
+              "$geoip_subdivision_1_code": "OR",
+              "$geoip_country_name": "United States",
+              "$geoip_country_code": "US",
+              "$geoip_continent_name": "North America",
+              "$geoip_continent_code": "NA",
+              "$geoip_postal_code": "97818",
+              "$geoip_latitude": 45.8401,
+              "$geoip_longitude": -119.705,
+              "$geoip_accuracy_radius": 1000,
+              "$geoip_time_zone": "America/Los_Angeles"
+            },
+            "$ip": "52.26.211.56",
+            "$set_once": {
+              "$initial_geoip_city_name": "Boardman",
+              "$initial_geoip_city_confidence": null,
+              "$initial_geoip_subdivision_2_name": null,
+              "$initial_geoip_subdivision_2_code": null,
+              "$initial_geoip_subdivision_1_name": "Oregon",
+              "$initial_geoip_subdivision_1_code": "OR",
+              "$initial_geoip_country_name": "United States",
+              "$initial_geoip_country_code": "US",
+              "$initial_geoip_continent_name": "North America",
+              "$initial_geoip_continent_code": "NA",
+              "$initial_geoip_postal_code": "97818",
+              "$initial_geoip_latitude": 45.8401,
+              "$initial_geoip_longitude": -119.705,
+              "$initial_geoip_accuracy_radius": 1000,
+              "$initial_geoip_time_zone": "America/Los_Angeles"
+            },
+            "$geoip_city_name": "Boardman",
+            "$geoip_country_name": "United States",
+            "$geoip_country_code": "US",
+            "$geoip_continent_name": "North America",
+            "$geoip_continent_code": "NA",
+            "$geoip_postal_code": "97818",
+            "$geoip_latitude": 45.8401,
+            "$geoip_longitude": -119.705,
+            "$geoip_accuracy_radius": 1000,
+            "$geoip_time_zone": "America/Los_Angeles",
+            "$geoip_subdivision_1_code": "OR",
+            "$geoip_subdivision_1_name": "Oregon",
+            "$transformations_succeeded": [
+              "GeoIP (019c439e-fea2-0000-a581-a2f8b00d63fc)"
+            ]
+          },
+          "timestamp": "2026-06-03T13:47:42.777000+00:00",
+          "elements": [],
+          "elements_chain": ""
+        },
+        {
+          "id": "019e8dbc-ebd9-7024-9cb6-2779dd6a3ffe",
+          "event": "$pageview",
+          "distinct_id": "test-user-123",
+          "properties": {
+            "$current_url": "/test",
+            "$ip": "34.177.113.48",
+            "$set": {
+              "$geoip_city_name": "The Dalles",
+              "$geoip_city_confidence": null,
+              "$geoip_subdivision_2_name": null,
+              "$geoip_subdivision_2_code": null,
+              "$geoip_subdivision_1_name": "Oregon",
+              "$geoip_subdivision_1_code": "OR",
+              "$geoip_country_name": "United States",
+              "$geoip_country_code": "US",
+              "$geoip_continent_name": "North America",
+              "$geoip_continent_code": "NA",
+              "$geoip_postal_code": "97058",
+              "$geoip_latitude": 45.5999,
+              "$geoip_longitude": -121.1871,
+              "$geoip_accuracy_radius": 20,
+              "$geoip_time_zone": "America/Los_Angeles",
+              "$current_url": "/test"
+            },
+            "$set_once": {
+              "$initial_geoip_city_name": "The Dalles",
+              "$initial_geoip_city_confidence": null,
+              "$initial_geoip_subdivision_2_name": null,
+              "$initial_geoip_subdivision_2_code": null,
+              "$initial_geoip_subdivision_1_name": "Oregon",
+              "$initial_geoip_subdivision_1_code": "OR",
+              "$initial_geoip_country_name": "United States",
+              "$initial_geoip_country_code": "US",
+              "$initial_geoip_continent_name": "North America",
+              "$initial_geoip_continent_code": "NA",
+              "$initial_geoip_postal_code": "97058",
+              "$initial_geoip_latitude": 45.5999,
+              "$initial_geoip_longitude": -121.1871,
+              "$initial_geoip_accuracy_radius": 20,
+              "$initial_geoip_time_zone": "America/Los_Angeles",
+              "$initial_current_url": "/test"
+            },
+            "$geoip_city_name": "The Dalles",
+            "$geoip_country_name": "United States",
+            "$geoip_country_code": "US",
+            "$geoip_continent_name": "North America",
+            "$geoip_continent_code": "NA",
+            "$geoip_postal_code": "97058",
+            "$geoip_latitude": 45.5999,
+            "$geoip_longitude": -121.1871,
+            "$geoip_accuracy_radius": 20,
+            "$geoip_time_zone": "America/Los_Angeles",
+            "$geoip_subdivision_1_code": "OR",
+            "$geoip_subdivision_1_name": "Oregon",
+            "$transformations_succeeded": [
+              "GeoIP (019c439e-fea2-0000-a581-a2f8b00d63fc)"
+            ]
+          },
+          "timestamp": "2026-06-03T13:47:09.145000+00:00",
+          "elements": [],
+          "elements_chain": ""
+        },
+        {
+          "id": "019e8dba-4007-75d9-bc55-af835283df6d",
+          "event": "$snapshot",
+          "distinct_id": "test-user-123",
+          "properties": {
+            "$snapshot_data": [
+              [
+                0,
+                4,
+                {
+                  "height": 1080,
+                  "href": "https://example.com",
+                  "width": 1920
+                }
+              ],
+              [
+                0,
+                2,
+                {
+                  "attributes": {},
+                  "childNodes": [],
+                  "tagName": "html",
+                  "type": 0
+                }
+              ]
+            ],
+            "$session_id": "test-session-abc123",
+            "$window_id": "test-window-abc123",
+            "$ip": "34.177.113.48",
+            "$set": {
+              "$geoip_city_name": "The Dalles",
+              "$geoip_city_confidence": null,
+              "$geoip_subdivision_2_name": null,
+              "$geoip_subdivision_2_code": null,
+              "$geoip_subdivision_1_name": "Oregon",
+              "$geoip_subdivision_1_code": "OR",
+              "$geoip_country_name": "United States",
+              "$geoip_country_code": "US",
+              "$geoip_continent_name": "North America",
+              "$geoip_continent_code": "NA",
+              "$geoip_postal_code": "97058",
+              "$geoip_latitude": 45.5999,
+              "$geoip_longitude": -121.1871,
+              "$geoip_accuracy_radius": 20,
+              "$geoip_time_zone": "America/Los_Angeles"
+            },
+            "$set_once": {
+              "$initial_geoip_city_name": "The Dalles",
+              "$initial_geoip_city_confidence": null,
+              "$initial_geoip_subdivision_2_name": null,
+              "$initial_geoip_subdivision_2_code": null,
+              "$initial_geoip_subdivision_1_name": "Oregon",
+              "$initial_geoip_subdivision_1_code": "OR",
+              "$initial_geoip_country_name": "United States",
+              "$initial_geoip_country_code": "US",
+              "$initial_geoip_continent_name": "North America",
+              "$initial_geoip_continent_code": "NA",
+              "$initial_geoip_postal_code": "97058",
+              "$initial_geoip_latitude": 45.5999,
+              "$initial_geoip_longitude": -121.1871,
+              "$initial_geoip_accuracy_radius": 20,
+              "$initial_geoip_time_zone": "America/Los_Angeles"
+            },
+            "$geoip_city_name": "The Dalles",
+            "$geoip_country_name": "United States",
+            "$geoip_country_code": "US",
+            "$geoip_continent_name": "North America",
+            "$geoip_continent_code": "NA",
+            "$geoip_postal_code": "97058",
+            "$geoip_latitude": 45.5999,
+            "$geoip_longitude": -121.1871,
+            "$geoip_accuracy_radius": 20,
+            "$geoip_time_zone": "America/Los_Angeles",
+            "$geoip_subdivision_1_code": "OR",
+            "$geoip_subdivision_1_name": "Oregon",
+            "$transformations_succeeded": [
+              "GeoIP (019c439e-fea2-0000-a581-a2f8b00d63fc)"
+            ]
+          },
+          "timestamp": "2026-06-03T13:44:14.087000+00:00",
+          "elements": [],
+          "elements_chain": ""
+        }
+      ]
+    },
+    "batchDelete": {
+      "Event": []
+    }
+  },
+  "api": {
+    "get": {
+      "/api/projects/309484/events/": [
+        {
+          "response": {
+            "next": "https://us.posthog.com/api/projects/309484/events/?limit=2&before=2026-06-03T13%3A56%3A13.438000%2B00%3A00",
+            "results": [
+              {
+                "id": "019e8dcb-a7e2-7b0b-a6fc-0a7543d42d9a",
+                "distinct_id": "nango-test-person-2026-0603",
+                "properties": {
+                  "$session_id": "nango-test-recording-2026-0603",
+                  "distinct_id": "nango-test-person-2026-0603",
+                  "$window_id": "window-1",
+                  "token": "phc_SfpnhgEeTG6WhNZuVVozFpDoXqOeVdcjQASMi3XtFD8",
+                  "$snapshot_data": [
+                    [
+                      0,
+                      4,
+                      {
+                        "height": 1080,
+                        "href": "https://example.com",
+                        "width": 1920
+                      }
+                    ],
+                    [
+                      0,
+                      2,
+                      {
+                        "attributes": {},
+                        "childNodes": [],
+                        "tagName": "html",
+                        "type": 0
+                      }
+                    ]
+                  ],
+                  "$ip": "34.169.252.110",
+                  "$set": {
+                    "$geoip_city_name": "The Dalles",
+                    "$geoip_city_confidence": null,
+                    "$geoip_subdivision_2_name": null,
+                    "$geoip_subdivision_2_code": null,
+                    "$geoip_subdivision_1_name": "Oregon",
+                    "$geoip_subdivision_1_code": "OR",
+                    "$geoip_country_name": "United States",
+                    "$geoip_country_code": "US",
+                    "$geoip_continent_name": "North America",
+                    "$geoip_continent_code": "NA",
+                    "$geoip_postal_code": "97058",
+                    "$geoip_latitude": 45.5999,
+                    "$geoip_longitude": -121.1871,
+                    "$geoip_accuracy_radius": 20,
+                    "$geoip_time_zone": "America/Los_Angeles"
+                  },
+                  "$set_once": {
+                    "$initial_geoip_city_name": "The Dalles",
+                    "$initial_geoip_city_confidence": null,
+                    "$initial_geoip_subdivision_2_name": null,
+                    "$initial_geoip_subdivision_2_code": null,
+                    "$initial_geoip_subdivision_1_name": "Oregon",
+                    "$initial_geoip_subdivision_1_code": "OR",
+                    "$initial_geoip_country_name": "United States",
+                    "$initial_geoip_country_code": "US",
+                    "$initial_geoip_continent_name": "North America",
+                    "$initial_geoip_continent_code": "NA",
+                    "$initial_geoip_postal_code": "97058",
+                    "$initial_geoip_latitude": 45.5999,
+                    "$initial_geoip_longitude": -121.1871,
+                    "$initial_geoip_accuracy_radius": 20,
+                    "$initial_geoip_time_zone": "America/Los_Angeles"
+                  },
+                  "$geoip_city_name": "The Dalles",
+                  "$geoip_country_name": "United States",
+                  "$geoip_country_code": "US",
+                  "$geoip_continent_name": "North America",
+                  "$geoip_continent_code": "NA",
+                  "$geoip_postal_code": "97058",
+                  "$geoip_latitude": 45.5999,
+                  "$geoip_longitude": -121.1871,
+                  "$geoip_accuracy_radius": 20,
+                  "$geoip_time_zone": "America/Los_Angeles",
+                  "$geoip_subdivision_1_code": "OR",
+                  "$geoip_subdivision_1_name": "Oregon",
+                  "$transformations_succeeded": [
+                    "GeoIP (019c439e-fea2-0000-a581-a2f8b00d63fc)"
+                  ]
+                },
+                "event": "$snapshot",
+                "timestamp": "2026-06-03T14:00:00+00:00",
+                "person": null,
+                "elements": [],
+                "elements_chain": ""
+              },
+              {
+                "id": "019e8dc5-39fe-7fe0-8fc5-552fc89137a4",
+                "distinct_id": "nango-test-person-2026-0603-capture",
+                "properties": {
+                  "$ip": "52.26.211.56",
+                  "$set": {
+                    "$geoip_city_name": "Boardman",
+                    "$geoip_city_confidence": null,
+                    "$geoip_subdivision_2_name": null,
+                    "$geoip_subdivision_2_code": null,
+                    "$geoip_subdivision_1_name": "Oregon",
+                    "$geoip_subdivision_1_code": "OR",
+                    "$geoip_country_name": "United States",
+                    "$geoip_country_code": "US",
+                    "$geoip_continent_name": "North America",
+                    "$geoip_continent_code": "NA",
+                    "$geoip_postal_code": "97818",
+                    "$geoip_latitude": 45.8401,
+                    "$geoip_longitude": -119.705,
+                    "$geoip_accuracy_radius": 1000,
+                    "$geoip_time_zone": "America/Los_Angeles"
+                  },
+                  "$set_once": {
+                    "$initial_geoip_city_name": "Boardman",
+                    "$initial_geoip_city_confidence": null,
+                    "$initial_geoip_subdivision_2_name": null,
+                    "$initial_geoip_subdivision_2_code": null,
+                    "$initial_geoip_subdivision_1_name": "Oregon",
+                    "$initial_geoip_subdivision_1_code": "OR",
+                    "$initial_geoip_country_name": "United States",
+                    "$initial_geoip_country_code": "US",
+                    "$initial_geoip_continent_name": "North America",
+                    "$initial_geoip_continent_code": "NA",
+                    "$initial_geoip_postal_code": "97818",
+                    "$initial_geoip_latitude": 45.8401,
+                    "$initial_geoip_longitude": -119.705,
+                    "$initial_geoip_accuracy_radius": 1000,
+                    "$initial_geoip_time_zone": "America/Los_Angeles"
+                  },
+                  "$geoip_city_name": "Boardman",
+                  "$geoip_country_name": "United States",
+                  "$geoip_country_code": "US",
+                  "$geoip_continent_name": "North America",
+                  "$geoip_continent_code": "NA",
+                  "$geoip_postal_code": "97818",
+                  "$geoip_latitude": 45.8401,
+                  "$geoip_longitude": -119.705,
+                  "$geoip_accuracy_radius": 1000,
+                  "$geoip_time_zone": "America/Los_Angeles",
+                  "$geoip_subdivision_1_code": "OR",
+                  "$geoip_subdivision_1_name": "Oregon",
+                  "$transformations_succeeded": [
+                    "GeoIP (019c439e-fea2-0000-a581-a2f8b00d63fc)"
+                  ]
+                },
+                "event": "$identify",
+                "timestamp": "2026-06-03T13:56:13.438000+00:00",
+                "person": null,
+                "elements": [],
+                "elements_chain": ""
+              }
+            ]
+          },
+          "status": 200,
+          "headers": {
+            "date": "Wed, 03 Jun 2026 14:44:58 GMT",
+            "content-type": "application/json",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=31536000; includeSubDomains",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4988",
+            "x-ratelimit-reset": "1780497947",
+            "x-posthog-warn": "https://posthog.com/docs/api/events",
+            "vary": "Accept, origin, Cookie, Accept-Encoding",
+            "allow": "GET, HEAD, OPTIONS",
+            "content-security-policy": "default-src 'none'",
+            "referrer-policy": "same-origin",
+            "cross-origin-opener-policy": "same-origin",
+            "server": "envoy",
+            "x-envoy-upstream-service-time": "589"
+          },
+          "hash": "84825e1d949ad06c019be509444262967f55b863",
+          "request": {
+            "params": {
+              "limit": "2"
+            }
+          }
+        },
+        {
+          "response": {
+            "next": "https://us.posthog.com/api/projects/309484/events/?limit=2&before=2026-06-03T13%3A53%3A59.373000%2B00%3A00",
+            "results": [
+              {
+                "id": "019e8dc3-5a77-76a0-b8d2-cee637d7da6a",
+                "distinct_id": "nango-test-person-2026-0603-capture",
+                "properties": {
+                  "$ip": "52.26.211.56",
+                  "$set": {
+                    "$geoip_city_name": "Boardman",
+                    "$geoip_city_confidence": null,
+                    "$geoip_subdivision_2_name": null,
+                    "$geoip_subdivision_2_code": null,
+                    "$geoip_subdivision_1_name": "Oregon",
+                    "$geoip_subdivision_1_code": "OR",
+                    "$geoip_country_name": "United States",
+                    "$geoip_country_code": "US",
+                    "$geoip_continent_name": "North America",
+                    "$geoip_continent_code": "NA",
+                    "$geoip_postal_code": "97818",
+                    "$geoip_latitude": 45.8401,
+                    "$geoip_longitude": -119.705,
+                    "$geoip_accuracy_radius": 1000,
+                    "$geoip_time_zone": "America/Los_Angeles"
+                  },
+                  "$set_once": {
+                    "$initial_geoip_city_name": "Boardman",
+                    "$initial_geoip_city_confidence": null,
+                    "$initial_geoip_subdivision_2_name": null,
+                    "$initial_geoip_subdivision_2_code": null,
+                    "$initial_geoip_subdivision_1_name": "Oregon",
+                    "$initial_geoip_subdivision_1_code": "OR",
+                    "$initial_geoip_country_name": "United States",
+                    "$initial_geoip_country_code": "US",
+                    "$initial_geoip_continent_name": "North America",
+                    "$initial_geoip_continent_code": "NA",
+                    "$initial_geoip_postal_code": "97818",
+                    "$initial_geoip_latitude": 45.8401,
+                    "$initial_geoip_longitude": -119.705,
+                    "$initial_geoip_accuracy_radius": 1000,
+                    "$initial_geoip_time_zone": "America/Los_Angeles"
+                  },
+                  "$geoip_city_name": "Boardman",
+                  "$geoip_country_name": "United States",
+                  "$geoip_country_code": "US",
+                  "$geoip_continent_name": "North America",
+                  "$geoip_continent_code": "NA",
+                  "$geoip_postal_code": "97818",
+                  "$geoip_latitude": 45.8401,
+                  "$geoip_longitude": -119.705,
+                  "$geoip_accuracy_radius": 1000,
+                  "$geoip_time_zone": "America/Los_Angeles",
+                  "$geoip_subdivision_1_code": "OR",
+                  "$geoip_subdivision_1_name": "Oregon",
+                  "$transformations_succeeded": [
+                    "GeoIP (019c439e-fea2-0000-a581-a2f8b00d63fc)"
+                  ]
+                },
+                "event": "$identify",
+                "timestamp": "2026-06-03T13:54:10.679000+00:00",
+                "person": null,
+                "elements": [],
+                "elements_chain": ""
+              },
+              {
+                "id": "019e8dc3-2e4d-7007-95b8-7fd3bb1edb48",
+                "distinct_id": "nango-test-person-2026-0603-capture",
+                "properties": {
+                  "$ip": "54.69.127.183",
+                  "$set": {
+                    "$geoip_city_name": "Boardman",
+                    "$geoip_city_confidence": null,
+                    "$geoip_subdivision_2_name": null,
+                    "$geoip_subdivision_2_code": null,
+                    "$geoip_subdivision_1_name": "Oregon",
+                    "$geoip_subdivision_1_code": "OR",
+                    "$geoip_country_name": "United States",
+                    "$geoip_country_code": "US",
+                    "$geoip_continent_name": "North America",
+                    "$geoip_continent_code": "NA",
+                    "$geoip_postal_code": "97818",
+                    "$geoip_latitude": 45.8401,
+                    "$geoip_longitude": -119.705,
+                    "$geoip_accuracy_radius": 20,
+                    "$geoip_time_zone": "America/Los_Angeles"
+                  },
+                  "$set_once": {
+                    "$initial_geoip_city_name": "Boardman",
+                    "$initial_geoip_city_confidence": null,
+                    "$initial_geoip_subdivision_2_name": null,
+                    "$initial_geoip_subdivision_2_code": null,
+                    "$initial_geoip_subdivision_1_name": "Oregon",
+                    "$initial_geoip_subdivision_1_code": "OR",
+                    "$initial_geoip_country_name": "United States",
+                    "$initial_geoip_country_code": "US",
+                    "$initial_geoip_continent_name": "North America",
+                    "$initial_geoip_continent_code": "NA",
+                    "$initial_geoip_postal_code": "97818",
+                    "$initial_geoip_latitude": 45.8401,
+                    "$initial_geoip_longitude": -119.705,
+                    "$initial_geoip_accuracy_radius": 20,
+                    "$initial_geoip_time_zone": "America/Los_Angeles"
+                  },
+                  "$geoip_city_name": "Boardman",
+                  "$geoip_country_name": "United States",
+                  "$geoip_country_code": "US",
+                  "$geoip_continent_name": "North America",
+                  "$geoip_continent_code": "NA",
+                  "$geoip_postal_code": "97818",
+                  "$geoip_latitude": 45.8401,
+                  "$geoip_longitude": -119.705,
+                  "$geoip_accuracy_radius": 20,
+                  "$geoip_time_zone": "America/Los_Angeles",
+                  "$geoip_subdivision_1_code": "OR",
+                  "$geoip_subdivision_1_name": "Oregon",
+                  "$transformations_succeeded": [
+                    "GeoIP (019c439e-fea2-0000-a581-a2f8b00d63fc)"
+                  ]
+                },
+                "event": "$identify",
+                "timestamp": "2026-06-03T13:53:59.373000+00:00",
+                "person": null,
+                "elements": [],
+                "elements_chain": ""
+              }
+            ]
+          },
+          "status": 200,
+          "headers": {
+            "date": "Wed, 03 Jun 2026 14:44:59 GMT",
+            "content-type": "application/json",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=31536000; includeSubDomains",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4987",
+            "x-ratelimit-reset": "1780497947",
+            "x-posthog-warn": "https://posthog.com/docs/api/events",
+            "vary": "Accept, origin, Cookie, Accept-Encoding",
+            "allow": "GET, HEAD, OPTIONS",
+            "content-security-policy": "default-src 'none'",
+            "referrer-policy": "same-origin",
+            "cross-origin-opener-policy": "same-origin",
+            "server": "envoy",
+            "x-envoy-upstream-service-time": "283"
+          },
+          "hash": "18d0ab5e06c896431eea7f404f499abe549471f0",
+          "request": {
+            "params": {
+              "before": "2026-06-03T13:56:13.438000+00:00",
+              "limit": "2"
+            }
+          }
+        },
+        {
+          "response": {
+            "next": "https://us.posthog.com/api/projects/309484/events/?limit=2&before=2026-06-03T13%3A52%3A43.715000%2B00%3A00",
+            "results": [
+              {
+                "id": "019e8dc2-725d-766d-bd50-8d68226fd200",
+                "distinct_id": "nango-test-person-2026-0603-capture",
+                "properties": {
+                  "$ip": "52.34.139.153",
+                  "$set": {
+                    "$geoip_city_name": "Boardman",
+                    "$geoip_city_confidence": null,
+                    "$geoip_subdivision_2_name": null,
+                    "$geoip_subdivision_2_code": null,
+                    "$geoip_subdivision_1_name": "Oregon",
+                    "$geoip_subdivision_1_code": "OR",
+                    "$geoip_country_name": "United States",
+                    "$geoip_country_code": "US",
+                    "$geoip_continent_name": "North America",
+                    "$geoip_continent_code": "NA",
+                    "$geoip_postal_code": "97818",
+                    "$geoip_latitude": 45.8401,
+                    "$geoip_longitude": -119.705,
+                    "$geoip_accuracy_radius": 20,
+                    "$geoip_time_zone": "America/Los_Angeles"
+                  },
+                  "$set_once": {
+                    "$initial_geoip_city_name": "Boardman",
+                    "$initial_geoip_city_confidence": null,
+                    "$initial_geoip_subdivision_2_name": null,
+                    "$initial_geoip_subdivision_2_code": null,
+                    "$initial_geoip_subdivision_1_name": "Oregon",
+                    "$initial_geoip_subdivision_1_code": "OR",
+                    "$initial_geoip_country_name": "United States",
+                    "$initial_geoip_country_code": "US",
+                    "$initial_geoip_continent_name": "North America",
+                    "$initial_geoip_continent_code": "NA",
+                    "$initial_geoip_postal_code": "97818",
+                    "$initial_geoip_latitude": 45.8401,
+                    "$initial_geoip_longitude": -119.705,
+                    "$initial_geoip_accuracy_radius": 20,
+                    "$initial_geoip_time_zone": "America/Los_Angeles"
+                  },
+                  "$geoip_city_name": "Boardman",
+                  "$geoip_country_name": "United States",
+                  "$geoip_country_code": "US",
+                  "$geoip_continent_name": "North America",
+                  "$geoip_continent_code": "NA",
+                  "$geoip_postal_code": "97818",
+                  "$geoip_latitude": 45.8401,
+                  "$geoip_longitude": -119.705,
+                  "$geoip_accuracy_radius": 20,
+                  "$geoip_time_zone": "America/Los_Angeles",
+                  "$geoip_subdivision_1_code": "OR",
+                  "$geoip_subdivision_1_name": "Oregon",
+                  "$transformations_succeeded": [
+                    "GeoIP (019c439e-fea2-0000-a581-a2f8b00d63fc)"
+                  ]
+                },
+                "event": "$identify",
+                "timestamp": "2026-06-03T13:53:11.261000+00:00",
+                "person": null,
+                "elements": [],
+                "elements_chain": ""
+              },
+              {
+                "id": "019e8dc2-06c3-77ce-b489-f79c40da5810",
+                "distinct_id": "nango-test-person-2026-0603-capture",
+                "properties": {
+                  "$set": {
+                    "email": "test@example.com",
+                    "name": "Test Person Updated",
+                    "$geoip_city_name": "Boardman",
+                    "$geoip_city_confidence": null,
+                    "$geoip_subdivision_2_name": null,
+                    "$geoip_subdivision_2_code": null,
+                    "$geoip_subdivision_1_name": "Oregon",
+                    "$geoip_subdivision_1_code": "OR",
+                    "$geoip_country_name": "United States",
+                    "$geoip_country_code": "US",
+                    "$geoip_continent_name": "North America",
+                    "$geoip_continent_code": "NA",
+                    "$geoip_postal_code": "97818",
+                    "$geoip_latitude": 45.8401,
+                    "$geoip_longitude": -119.705,
+                    "$geoip_accuracy_radius": 20,
+                    "$geoip_time_zone": "America/Los_Angeles"
+                  },
+                  "$ip": "44.247.133.183",
+                  "$set_once": {
+                    "$initial_geoip_city_name": "Boardman",
+                    "$initial_geoip_city_confidence": null,
+                    "$initial_geoip_subdivision_2_name": null,
+                    "$initial_geoip_subdivision_2_code": null,
+                    "$initial_geoip_subdivision_1_name": "Oregon",
+                    "$initial_geoip_subdivision_1_code": "OR",
+                    "$initial_geoip_country_name": "United States",
+                    "$initial_geoip_country_code": "US",
+                    "$initial_geoip_continent_name": "North America",
+                    "$initial_geoip_continent_code": "NA",
+                    "$initial_geoip_postal_code": "97818",
+                    "$initial_geoip_latitude": 45.8401,
+                    "$initial_geoip_longitude": -119.705,
+                    "$initial_geoip_accuracy_radius": 20,
+                    "$initial_geoip_time_zone": "America/Los_Angeles"
+                  },
+                  "$geoip_city_name": "Boardman",
+                  "$geoip_country_name": "United States",
+                  "$geoip_country_code": "US",
+                  "$geoip_continent_name": "North America",
+                  "$geoip_continent_code": "NA",
+                  "$geoip_postal_code": "97818",
+                  "$geoip_latitude": 45.8401,
+                  "$geoip_longitude": -119.705,
+                  "$geoip_accuracy_radius": 20,
+                  "$geoip_time_zone": "America/Los_Angeles",
+                  "$geoip_subdivision_1_code": "OR",
+                  "$geoip_subdivision_1_name": "Oregon",
+                  "$transformations_succeeded": [
+                    "GeoIP (019c439e-fea2-0000-a581-a2f8b00d63fc)"
+                  ]
+                },
+                "event": "$identify",
+                "timestamp": "2026-06-03T13:52:43.715000+00:00",
+                "person": null,
+                "elements": [],
+                "elements_chain": ""
+              }
+            ]
+          },
+          "status": 200,
+          "headers": {
+            "date": "Wed, 03 Jun 2026 14:45:00 GMT",
+            "content-type": "application/json",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=31536000; includeSubDomains",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4986",
+            "x-ratelimit-reset": "1780497947",
+            "x-posthog-warn": "https://posthog.com/docs/api/events",
+            "vary": "Accept, origin, Cookie, Accept-Encoding",
+            "allow": "GET, HEAD, OPTIONS",
+            "content-security-policy": "default-src 'none'",
+            "referrer-policy": "same-origin",
+            "cross-origin-opener-policy": "same-origin",
+            "server": "envoy",
+            "x-envoy-upstream-service-time": "691"
+          },
+          "hash": "1db08b502c6dabbf84bfb96db8ee3f804bc4ee03",
+          "request": {
+            "params": {
+              "before": "2026-06-03T13:53:59.373000+00:00",
+              "limit": "2"
+            }
+          }
+        },
+        {
+          "response": {
+            "next": "https://us.posthog.com/api/projects/309484/events/?limit=2&before=2026-06-03T13%3A51%3A19.324000%2B00%3A00",
+            "results": [
+              {
+                "id": "019e8dc1-7468-7179-9eb0-01304003fdde",
+                "distinct_id": "nango-test-person-2026-0603-retry3",
+                "properties": {
+                  "$set": {
+                    "email": "test@example.com",
+                    "name": "Test Person",
+                    "$geoip_city_name": "Boardman",
+                    "$geoip_city_confidence": null,
+                    "$geoip_subdivision_2_name": null,
+                    "$geoip_subdivision_2_code": null,
+                    "$geoip_subdivision_1_name": "Oregon",
+                    "$geoip_subdivision_1_code": "OR",
+                    "$geoip_country_name": "United States",
+                    "$geoip_country_code": "US",
+                    "$geoip_continent_name": "North America",
+                    "$geoip_continent_code": "NA",
+                    "$geoip_postal_code": "97818",
+                    "$geoip_latitude": 45.8401,
+                    "$geoip_longitude": -119.705,
+                    "$geoip_accuracy_radius": 20,
+                    "$geoip_time_zone": "America/Los_Angeles"
+                  },
+                  "$ip": "54.69.127.183",
+                  "$set_once": {
+                    "$initial_geoip_city_name": "Boardman",
+                    "$initial_geoip_city_confidence": null,
+                    "$initial_geoip_subdivision_2_name": null,
+                    "$initial_geoip_subdivision_2_code": null,
+                    "$initial_geoip_subdivision_1_name": "Oregon",
+                    "$initial_geoip_subdivision_1_code": "OR",
+                    "$initial_geoip_country_name": "United States",
+                    "$initial_geoip_country_code": "US",
+                    "$initial_geoip_continent_name": "North America",
+                    "$initial_geoip_continent_code": "NA",
+                    "$initial_geoip_postal_code": "97818",
+                    "$initial_geoip_latitude": 45.8401,
+                    "$initial_geoip_longitude": -119.705,
+                    "$initial_geoip_accuracy_radius": 20,
+                    "$initial_geoip_time_zone": "America/Los_Angeles"
+                  },
+                  "$geoip_city_name": "Boardman",
+                  "$geoip_country_name": "United States",
+                  "$geoip_country_code": "US",
+                  "$geoip_continent_name": "North America",
+                  "$geoip_continent_code": "NA",
+                  "$geoip_postal_code": "97818",
+                  "$geoip_latitude": 45.8401,
+                  "$geoip_longitude": -119.705,
+                  "$geoip_accuracy_radius": 20,
+                  "$geoip_time_zone": "America/Los_Angeles",
+                  "$geoip_subdivision_1_code": "OR",
+                  "$geoip_subdivision_1_name": "Oregon",
+                  "$transformations_succeeded": [
+                    "GeoIP (019c439e-fea2-0000-a581-a2f8b00d63fc)"
+                  ]
+                },
+                "event": "$identify",
+                "timestamp": "2026-06-03T13:52:06.248000+00:00",
+                "person": null,
+                "elements": [],
+                "elements_chain": ""
+              },
+              {
+                "id": "019e8dc0-bd1c-724f-9167-fcda1f0983ed",
+                "distinct_id": "nango-test-person-2026-0603-retry2",
+                "properties": {
+                  "$set": {
+                    "email": "test@example.com",
+                    "name": "Test Person",
+                    "$geoip_city_name": "Boardman",
+                    "$geoip_city_confidence": null,
+                    "$geoip_subdivision_2_name": null,
+                    "$geoip_subdivision_2_code": null,
+                    "$geoip_subdivision_1_name": "Oregon",
+                    "$geoip_subdivision_1_code": "OR",
+                    "$geoip_country_name": "United States",
+                    "$geoip_country_code": "US",
+                    "$geoip_continent_name": "North America",
+                    "$geoip_continent_code": "NA",
+                    "$geoip_postal_code": "97818",
+                    "$geoip_latitude": 45.8401,
+                    "$geoip_longitude": -119.705,
+                    "$geoip_accuracy_radius": 20,
+                    "$geoip_time_zone": "America/Los_Angeles"
+                  },
+                  "$ip": "52.34.139.153",
+                  "$set_once": {
+                    "$initial_geoip_city_name": "Boardman",
+                    "$initial_geoip_city_confidence": null,
+                    "$initial_geoip_subdivision_2_name": null,
+                    "$initial_geoip_subdivision_2_code": null,
+                    "$initial_geoip_subdivision_1_name": "Oregon",
+                    "$initial_geoip_subdivision_1_code": "OR",
+                    "$initial_geoip_country_name": "United States",
+                    "$initial_geoip_country_code": "US",
+                    "$initial_geoip_continent_name": "North America",
+                    "$initial_geoip_continent_code": "NA",
+                    "$initial_geoip_postal_code": "97818",
+                    "$initial_geoip_latitude": 45.8401,
+                    "$initial_geoip_longitude": -119.705,
+                    "$initial_geoip_accuracy_radius": 20,
+                    "$initial_geoip_time_zone": "America/Los_Angeles"
+                  },
+                  "$geoip_city_name": "Boardman",
+                  "$geoip_country_name": "United States",
+                  "$geoip_country_code": "US",
+                  "$geoip_continent_name": "North America",
+                  "$geoip_continent_code": "NA",
+                  "$geoip_postal_code": "97818",
+                  "$geoip_latitude": 45.8401,
+                  "$geoip_longitude": -119.705,
+                  "$geoip_accuracy_radius": 20,
+                  "$geoip_time_zone": "America/Los_Angeles",
+                  "$geoip_subdivision_1_code": "OR",
+                  "$geoip_subdivision_1_name": "Oregon",
+                  "$transformations_succeeded": [
+                    "GeoIP (019c439e-fea2-0000-a581-a2f8b00d63fc)"
+                  ]
+                },
+                "event": "$identify",
+                "timestamp": "2026-06-03T13:51:19.324000+00:00",
+                "person": null,
+                "elements": [],
+                "elements_chain": ""
+              }
+            ]
+          },
+          "status": 200,
+          "headers": {
+            "date": "Wed, 03 Jun 2026 14:45:02 GMT",
+            "content-type": "application/json",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=31536000; includeSubDomains",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4985",
+            "x-ratelimit-reset": "1780497947",
+            "x-posthog-warn": "https://posthog.com/docs/api/events",
+            "vary": "Accept, origin, Cookie, Accept-Encoding",
+            "allow": "GET, HEAD, OPTIONS",
+            "content-security-policy": "default-src 'none'",
+            "referrer-policy": "same-origin",
+            "cross-origin-opener-policy": "same-origin",
+            "server": "envoy",
+            "x-envoy-upstream-service-time": "1750"
+          },
+          "hash": "c50e8ba27a74c5d3354206a53bf33d7388ffa1ad",
+          "request": {
+            "params": {
+              "before": "2026-06-03T13:52:43.715000+00:00",
+              "limit": "2"
+            }
+          }
+        },
+        {
+          "response": {
+            "next": "https://us.posthog.com/api/projects/309484/events/?limit=2&before=2026-06-03T13%3A49%3A56.762000%2B00%3A00",
+            "results": [
+              {
+                "id": "019e8dc0-5f93-70cf-8470-05518a66f5aa",
+                "distinct_id": "nango-test-person-2026-0603-retry",
+                "properties": {
+                  "$set": {
+                    "email": "test@example.com",
+                    "name": "Test Person",
+                    "$geoip_city_name": "Boardman",
+                    "$geoip_city_confidence": null,
+                    "$geoip_subdivision_2_name": null,
+                    "$geoip_subdivision_2_code": null,
+                    "$geoip_subdivision_1_name": "Oregon",
+                    "$geoip_subdivision_1_code": "OR",
+                    "$geoip_country_name": "United States",
+                    "$geoip_country_code": "US",
+                    "$geoip_continent_name": "North America",
+                    "$geoip_continent_code": "NA",
+                    "$geoip_postal_code": "97818",
+                    "$geoip_latitude": 45.8401,
+                    "$geoip_longitude": -119.705,
+                    "$geoip_accuracy_radius": 20,
+                    "$geoip_time_zone": "America/Los_Angeles"
+                  },
+                  "$ip": "52.34.139.153",
+                  "$set_once": {
+                    "$initial_geoip_city_name": "Boardman",
+                    "$initial_geoip_city_confidence": null,
+                    "$initial_geoip_subdivision_2_name": null,
+                    "$initial_geoip_subdivision_2_code": null,
+                    "$initial_geoip_subdivision_1_name": "Oregon",
+                    "$initial_geoip_subdivision_1_code": "OR",
+                    "$initial_geoip_country_name": "United States",
+                    "$initial_geoip_country_code": "US",
+                    "$initial_geoip_continent_name": "North America",
+                    "$initial_geoip_continent_code": "NA",
+                    "$initial_geoip_postal_code": "97818",
+                    "$initial_geoip_latitude": 45.8401,
+                    "$initial_geoip_longitude": -119.705,
+                    "$initial_geoip_accuracy_radius": 20,
+                    "$initial_geoip_time_zone": "America/Los_Angeles"
+                  },
+                  "$geoip_city_name": "Boardman",
+                  "$geoip_country_name": "United States",
+                  "$geoip_country_code": "US",
+                  "$geoip_continent_name": "North America",
+                  "$geoip_continent_code": "NA",
+                  "$geoip_postal_code": "97818",
+                  "$geoip_latitude": 45.8401,
+                  "$geoip_longitude": -119.705,
+                  "$geoip_accuracy_radius": 20,
+                  "$geoip_time_zone": "America/Los_Angeles",
+                  "$geoip_subdivision_1_code": "OR",
+                  "$geoip_subdivision_1_name": "Oregon",
+                  "$transformations_succeeded": [
+                    "GeoIP (019c439e-fea2-0000-a581-a2f8b00d63fc)"
+                  ]
+                },
+                "event": "$identify",
+                "timestamp": "2026-06-03T13:50:55.379000+00:00",
+                "person": null,
+                "elements": [],
+                "elements_chain": ""
+              },
+              {
+                "id": "019e8dbf-7a9a-71a0-9b34-fb25f3b447b5",
+                "distinct_id": "nango-test-person-2026-0603-final",
+                "properties": {
+                  "$set": {
+                    "email": "test@example.com",
+                    "name": "Test Person",
+                    "$geoip_city_name": "Boardman",
+                    "$geoip_city_confidence": null,
+                    "$geoip_subdivision_2_name": null,
+                    "$geoip_subdivision_2_code": null,
+                    "$geoip_subdivision_1_name": "Oregon",
+                    "$geoip_subdivision_1_code": "OR",
+                    "$geoip_country_name": "United States",
+                    "$geoip_country_code": "US",
+                    "$geoip_continent_name": "North America",
+                    "$geoip_continent_code": "NA",
+                    "$geoip_postal_code": "97818",
+                    "$geoip_latitude": 45.8401,
+                    "$geoip_longitude": -119.705,
+                    "$geoip_accuracy_radius": 1000,
+                    "$geoip_time_zone": "America/Los_Angeles"
+                  },
+                  "$ip": "52.26.211.56",
+                  "$set_once": {
+                    "$initial_geoip_city_name": "Boardman",
+                    "$initial_geoip_city_confidence": null,
+                    "$initial_geoip_subdivision_2_name": null,
+                    "$initial_geoip_subdivision_2_code": null,
+                    "$initial_geoip_subdivision_1_name": "Oregon",
+                    "$initial_geoip_subdivision_1_code": "OR",
+                    "$initial_geoip_country_name": "United States",
+                    "$initial_geoip_country_code": "US",
+                    "$initial_geoip_continent_name": "North America",
+                    "$initial_geoip_continent_code": "NA",
+                    "$initial_geoip_postal_code": "97818",
+                    "$initial_geoip_latitude": 45.8401,
+                    "$initial_geoip_longitude": -119.705,
+                    "$initial_geoip_accuracy_radius": 1000,
+                    "$initial_geoip_time_zone": "America/Los_Angeles"
+                  },
+                  "$geoip_city_name": "Boardman",
+                  "$geoip_country_name": "United States",
+                  "$geoip_country_code": "US",
+                  "$geoip_continent_name": "North America",
+                  "$geoip_continent_code": "NA",
+                  "$geoip_postal_code": "97818",
+                  "$geoip_latitude": 45.8401,
+                  "$geoip_longitude": -119.705,
+                  "$geoip_accuracy_radius": 1000,
+                  "$geoip_time_zone": "America/Los_Angeles",
+                  "$geoip_subdivision_1_code": "OR",
+                  "$geoip_subdivision_1_name": "Oregon",
+                  "$transformations_succeeded": [
+                    "GeoIP (019c439e-fea2-0000-a581-a2f8b00d63fc)"
+                  ]
+                },
+                "event": "$identify",
+                "timestamp": "2026-06-03T13:49:56.762000+00:00",
+                "person": null,
+                "elements": [],
+                "elements_chain": ""
+              }
+            ]
+          },
+          "status": 200,
+          "headers": {
+            "date": "Wed, 03 Jun 2026 14:45:05 GMT",
+            "content-type": "application/json",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=31536000; includeSubDomains",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4984",
+            "x-ratelimit-reset": "1780497947",
+            "x-posthog-warn": "https://posthog.com/docs/api/events",
+            "vary": "Accept, origin, Cookie, Accept-Encoding",
+            "allow": "GET, HEAD, OPTIONS",
+            "content-security-policy": "default-src 'none'",
+            "referrer-policy": "same-origin",
+            "cross-origin-opener-policy": "same-origin",
+            "server": "envoy",
+            "x-envoy-upstream-service-time": "2526"
+          },
+          "hash": "323f8215e606f3d31b4a12b9980772dcd8d54bab",
+          "request": {
+            "params": {
+              "before": "2026-06-03T13:51:19.324000+00:00",
+              "limit": "2"
+            }
+          }
+        },
+        {
+          "response": {
+            "next": "https://us.posthog.com/api/projects/309484/events/?limit=2&before=2026-06-03T13%3A47%3A09.145000%2B00%3A00",
+            "results": [
+              {
+                "id": "019e8dbd-6f39-7f6e-816e-3e3d0e177523",
+                "distinct_id": "nango-test-person-2026-0603-capture",
+                "properties": {
+                  "$set": {
+                    "email": "test@example.com",
+                    "name": "Test Person",
+                    "$geoip_city_name": "Boardman",
+                    "$geoip_city_confidence": null,
+                    "$geoip_subdivision_2_name": null,
+                    "$geoip_subdivision_2_code": null,
+                    "$geoip_subdivision_1_name": "Oregon",
+                    "$geoip_subdivision_1_code": "OR",
+                    "$geoip_country_name": "United States",
+                    "$geoip_country_code": "US",
+                    "$geoip_continent_name": "North America",
+                    "$geoip_continent_code": "NA",
+                    "$geoip_postal_code": "97818",
+                    "$geoip_latitude": 45.8401,
+                    "$geoip_longitude": -119.705,
+                    "$geoip_accuracy_radius": 1000,
+                    "$geoip_time_zone": "America/Los_Angeles"
+                  },
+                  "$ip": "52.26.211.56",
+                  "$set_once": {
+                    "$initial_geoip_city_name": "Boardman",
+                    "$initial_geoip_city_confidence": null,
+                    "$initial_geoip_subdivision_2_name": null,
+                    "$initial_geoip_subdivision_2_code": null,
+                    "$initial_geoip_subdivision_1_name": "Oregon",
+                    "$initial_geoip_subdivision_1_code": "OR",
+                    "$initial_geoip_country_name": "United States",
+                    "$initial_geoip_country_code": "US",
+                    "$initial_geoip_continent_name": "North America",
+                    "$initial_geoip_continent_code": "NA",
+                    "$initial_geoip_postal_code": "97818",
+                    "$initial_geoip_latitude": 45.8401,
+                    "$initial_geoip_longitude": -119.705,
+                    "$initial_geoip_accuracy_radius": 1000,
+                    "$initial_geoip_time_zone": "America/Los_Angeles"
+                  },
+                  "$geoip_city_name": "Boardman",
+                  "$geoip_country_name": "United States",
+                  "$geoip_country_code": "US",
+                  "$geoip_continent_name": "North America",
+                  "$geoip_continent_code": "NA",
+                  "$geoip_postal_code": "97818",
+                  "$geoip_latitude": 45.8401,
+                  "$geoip_longitude": -119.705,
+                  "$geoip_accuracy_radius": 1000,
+                  "$geoip_time_zone": "America/Los_Angeles",
+                  "$geoip_subdivision_1_code": "OR",
+                  "$geoip_subdivision_1_name": "Oregon",
+                  "$transformations_succeeded": [
+                    "GeoIP (019c439e-fea2-0000-a581-a2f8b00d63fc)"
+                  ]
+                },
+                "event": "$identify",
+                "timestamp": "2026-06-03T13:47:42.777000+00:00",
+                "person": null,
+                "elements": [],
+                "elements_chain": ""
+              },
+              {
+                "id": "019e8dbc-ebd9-7024-9cb6-2779dd6a3ffe",
+                "distinct_id": "test-user-123",
+                "properties": {
+                  "$current_url": "/test",
+                  "$ip": "34.177.113.48",
+                  "$set": {
+                    "$geoip_city_name": "The Dalles",
+                    "$geoip_city_confidence": null,
+                    "$geoip_subdivision_2_name": null,
+                    "$geoip_subdivision_2_code": null,
+                    "$geoip_subdivision_1_name": "Oregon",
+                    "$geoip_subdivision_1_code": "OR",
+                    "$geoip_country_name": "United States",
+                    "$geoip_country_code": "US",
+                    "$geoip_continent_name": "North America",
+                    "$geoip_continent_code": "NA",
+                    "$geoip_postal_code": "97058",
+                    "$geoip_latitude": 45.5999,
+                    "$geoip_longitude": -121.1871,
+                    "$geoip_accuracy_radius": 20,
+                    "$geoip_time_zone": "America/Los_Angeles",
+                    "$current_url": "/test"
+                  },
+                  "$set_once": {
+                    "$initial_geoip_city_name": "The Dalles",
+                    "$initial_geoip_city_confidence": null,
+                    "$initial_geoip_subdivision_2_name": null,
+                    "$initial_geoip_subdivision_2_code": null,
+                    "$initial_geoip_subdivision_1_name": "Oregon",
+                    "$initial_geoip_subdivision_1_code": "OR",
+                    "$initial_geoip_country_name": "United States",
+                    "$initial_geoip_country_code": "US",
+                    "$initial_geoip_continent_name": "North America",
+                    "$initial_geoip_continent_code": "NA",
+                    "$initial_geoip_postal_code": "97058",
+                    "$initial_geoip_latitude": 45.5999,
+                    "$initial_geoip_longitude": -121.1871,
+                    "$initial_geoip_accuracy_radius": 20,
+                    "$initial_geoip_time_zone": "America/Los_Angeles",
+                    "$initial_current_url": "/test"
+                  },
+                  "$geoip_city_name": "The Dalles",
+                  "$geoip_country_name": "United States",
+                  "$geoip_country_code": "US",
+                  "$geoip_continent_name": "North America",
+                  "$geoip_continent_code": "NA",
+                  "$geoip_postal_code": "97058",
+                  "$geoip_latitude": 45.5999,
+                  "$geoip_longitude": -121.1871,
+                  "$geoip_accuracy_radius": 20,
+                  "$geoip_time_zone": "America/Los_Angeles",
+                  "$geoip_subdivision_1_code": "OR",
+                  "$geoip_subdivision_1_name": "Oregon",
+                  "$transformations_succeeded": [
+                    "GeoIP (019c439e-fea2-0000-a581-a2f8b00d63fc)"
+                  ]
+                },
+                "event": "$pageview",
+                "timestamp": "2026-06-03T13:47:09.145000+00:00",
+                "person": null,
+                "elements": [],
+                "elements_chain": ""
+              }
+            ]
+          },
+          "status": 200,
+          "headers": {
+            "date": "Wed, 03 Jun 2026 14:45:07 GMT",
+            "content-type": "application/json",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=31536000; includeSubDomains",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4983",
+            "x-ratelimit-reset": "1780497947",
+            "x-posthog-warn": "https://posthog.com/docs/api/events",
+            "vary": "Accept, origin, Cookie, Accept-Encoding",
+            "allow": "GET, HEAD, OPTIONS",
+            "content-security-policy": "default-src 'none'",
+            "referrer-policy": "same-origin",
+            "cross-origin-opener-policy": "same-origin",
+            "server": "envoy",
+            "x-envoy-upstream-service-time": "421"
+          },
+          "hash": "3b941bdd7f32ba703085171022b440170038a63c",
+          "request": {
+            "params": {
+              "before": "2026-06-03T13:49:56.762000+00:00",
+              "limit": "2"
+            }
+          }
+        },
+        {
+          "response": {
+            "next": null,
+            "results": [
+              {
+                "id": "019e8dba-4007-75d9-bc55-af835283df6d",
+                "distinct_id": "test-user-123",
+                "properties": {
+                  "$snapshot_data": [
+                    [
+                      0,
+                      4,
+                      {
+                        "height": 1080,
+                        "href": "https://example.com",
+                        "width": 1920
+                      }
+                    ],
+                    [
+                      0,
+                      2,
+                      {
+                        "attributes": {},
+                        "childNodes": [],
+                        "tagName": "html",
+                        "type": 0
+                      }
+                    ]
+                  ],
+                  "$session_id": "test-session-abc123",
+                  "$window_id": "test-window-abc123",
+                  "$ip": "34.177.113.48",
+                  "$set": {
+                    "$geoip_city_name": "The Dalles",
+                    "$geoip_city_confidence": null,
+                    "$geoip_subdivision_2_name": null,
+                    "$geoip_subdivision_2_code": null,
+                    "$geoip_subdivision_1_name": "Oregon",
+                    "$geoip_subdivision_1_code": "OR",
+                    "$geoip_country_name": "United States",
+                    "$geoip_country_code": "US",
+                    "$geoip_continent_name": "North America",
+                    "$geoip_continent_code": "NA",
+                    "$geoip_postal_code": "97058",
+                    "$geoip_latitude": 45.5999,
+                    "$geoip_longitude": -121.1871,
+                    "$geoip_accuracy_radius": 20,
+                    "$geoip_time_zone": "America/Los_Angeles"
+                  },
+                  "$set_once": {
+                    "$initial_geoip_city_name": "The Dalles",
+                    "$initial_geoip_city_confidence": null,
+                    "$initial_geoip_subdivision_2_name": null,
+                    "$initial_geoip_subdivision_2_code": null,
+                    "$initial_geoip_subdivision_1_name": "Oregon",
+                    "$initial_geoip_subdivision_1_code": "OR",
+                    "$initial_geoip_country_name": "United States",
+                    "$initial_geoip_country_code": "US",
+                    "$initial_geoip_continent_name": "North America",
+                    "$initial_geoip_continent_code": "NA",
+                    "$initial_geoip_postal_code": "97058",
+                    "$initial_geoip_latitude": 45.5999,
+                    "$initial_geoip_longitude": -121.1871,
+                    "$initial_geoip_accuracy_radius": 20,
+                    "$initial_geoip_time_zone": "America/Los_Angeles"
+                  },
+                  "$geoip_city_name": "The Dalles",
+                  "$geoip_country_name": "United States",
+                  "$geoip_country_code": "US",
+                  "$geoip_continent_name": "North America",
+                  "$geoip_continent_code": "NA",
+                  "$geoip_postal_code": "97058",
+                  "$geoip_latitude": 45.5999,
+                  "$geoip_longitude": -121.1871,
+                  "$geoip_accuracy_radius": 20,
+                  "$geoip_time_zone": "America/Los_Angeles",
+                  "$geoip_subdivision_1_code": "OR",
+                  "$geoip_subdivision_1_name": "Oregon",
+                  "$transformations_succeeded": [
+                    "GeoIP (019c439e-fea2-0000-a581-a2f8b00d63fc)"
+                  ]
+                },
+                "event": "$snapshot",
+                "timestamp": "2026-06-03T13:44:14.087000+00:00",
+                "person": null,
+                "elements": [],
+                "elements_chain": ""
+              }
+            ]
+          },
+          "status": 200,
+          "headers": {
+            "date": "Wed, 03 Jun 2026 14:45:08 GMT",
+            "content-type": "application/json",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=31536000; includeSubDomains",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4982",
+            "x-ratelimit-reset": "1780497947",
+            "x-posthog-warn": "https://posthog.com/docs/api/events",
+            "vary": "Accept, origin, Cookie, Accept-Encoding",
+            "allow": "GET, HEAD, OPTIONS",
+            "content-security-policy": "default-src 'none'",
+            "referrer-policy": "same-origin",
+            "cross-origin-opener-policy": "same-origin",
+            "server": "envoy",
+            "x-envoy-upstream-service-time": "390"
+          },
+          "hash": "77dd1ad49cfc28bd9068bfaabdde684be7d9745e",
+          "request": {
+            "params": {
+              "before": "2026-06-03T13:47:09.145000+00:00",
+              "limit": "2"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
