@@ -1,0 +1,237 @@
+{
+  "input": {
+    "query": "test"
+  },
+  "output": {
+    "items": [
+      {
+        "id": "nangodevelopers.sharepoint.com,237fb47c-8919-4cbd-bd3f-f338574cbf50,d12a8199-c77a-4e48-a193-2e1288b26f13",
+        "name": "TestTeam-PrivateTestChannel",
+        "createdDateTime": "2026-05-14T16:34:17Z",
+        "lastModifiedDateTime": "2026-05-01T00:49:38Z",
+        "webUrl": "https://nangodevelopers.sharepoint.com/sites/TestTeam-PrivateTestChannel"
+      },
+      {
+        "id": "nangodevelopers.sharepoint.com,4c97403e-1663-4673-90fa-d2f8690b4510,29d15734-3d19-43f6-976b-43ece3ff81a8",
+        "name": "NangoTestTeam",
+        "description": "Seeded by seed-test-data",
+        "createdDateTime": "2026-05-14T16:40:56Z",
+        "lastModifiedDateTime": "2026-05-01T00:38:11Z",
+        "webUrl": "https://nangodevelopers.sharepoint.com/sites/NangoTestTeam"
+      },
+      {
+        "id": "nangodevelopers.sharepoint.com,5a0488a1-2035-411d-a51b-a2fc5e88d520,29d15734-3d19-43f6-976b-43ece3ff81a8",
+        "name": "TestTeamCreatedbyNango_81d794",
+        "description": "A test team for validation",
+        "createdDateTime": "2026-05-14T17:01:51Z",
+        "lastModifiedDateTime": "2026-05-01T00:38:11Z",
+        "webUrl": "https://nangodevelopers.sharepoint.com/sites/TestTeamCreatedbyNango_81d794"
+      },
+      {
+        "id": "nangodevelopers.sharepoint.com,3e223165-9e83-4bed-800a-f93dc01a4a1a,29d15734-3d19-43f6-976b-43ece3ff81a8",
+        "name": "TestTeamCreatedbyNango_fe0c02",
+        "description": "A test team for validation",
+        "createdDateTime": "2026-05-14T17:00:52Z",
+        "lastModifiedDateTime": "2026-05-01T00:38:11Z",
+        "webUrl": "https://nangodevelopers.sharepoint.com/sites/TestTeamCreatedbyNango_fe0c02"
+      },
+      {
+        "id": "nangodevelopers.sharepoint.com,f13b0765-9658-435c-9c26-b9a9ce295fe3,29d15734-3d19-43f6-976b-43ece3ff81a8",
+        "name": "TestTeamCreatedbyNango",
+        "description": "A test team for validation",
+        "createdDateTime": "2026-05-14T16:59:43Z",
+        "lastModifiedDateTime": "2026-05-01T00:38:11Z",
+        "webUrl": "https://nangodevelopers.sharepoint.com/sites/TestTeamCreatedbyNango"
+      },
+      {
+        "id": "nangodevelopers.sharepoint.com,b18ec9a7-4578-4044-a78a-2f010525cca8,29d15734-3d19-43f6-976b-43ece3ff81a8",
+        "name": "TestTeamCreatedbyNango_d2d98c",
+        "description": "A test team for validation",
+        "createdDateTime": "2026-05-14T17:02:41Z",
+        "lastModifiedDateTime": "2026-05-01T00:38:11Z",
+        "webUrl": "https://nangodevelopers.sharepoint.com/sites/TestTeamCreatedbyNango_d2d98c"
+      },
+      {
+        "id": "nangodevelopers.sharepoint.com,76f3bd5f-1795-499d-94b7-458677472bc0,29d15734-3d19-43f6-976b-43ece3ff81a8",
+        "name": "TestTeamCreatedbyNango_228365",
+        "description": "A test team for validation",
+        "createdDateTime": "2026-05-14T17:03:49Z",
+        "lastModifiedDateTime": "2026-05-01T00:38:11Z",
+        "webUrl": "https://nangodevelopers.sharepoint.com/sites/TestTeamCreatedbyNango_228365"
+      },
+      {
+        "id": "nangodevelopers.sharepoint.com,8138a334-9ae9-40da-b66b-cae1ebaee9dc,d12a8199-c77a-4e48-a193-2e1288b26f13",
+        "name": "NangoTestTeam-PrivateSeed",
+        "createdDateTime": "2026-05-14T16:46:15Z",
+        "lastModifiedDateTime": "2026-05-01T00:49:38Z",
+        "webUrl": "https://nangodevelopers.sharepoint.com/sites/NangoTestTeam-PrivateSeed"
+      },
+      {
+        "id": "nangodevelopers.sharepoint.com,da01dfb6-5fa4-4e78-a148-921d7a71767f,d12a8199-c77a-4e48-a193-2e1288b26f13",
+        "name": "NangoTestTeam-AddMemberHere",
+        "createdDateTime": "2026-05-14T16:46:11Z",
+        "lastModifiedDateTime": "2026-05-01T00:49:38Z",
+        "webUrl": "https://nangodevelopers.sharepoint.com/sites/NangoTestTeam-AddMemberHere"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1.0/sites": {
+        "response": {
+          "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#sites",
+          "value": [
+            {
+              "createdDateTime": "2026-05-14T16:34:17Z",
+              "id": "nangodevelopers.sharepoint.com,237fb47c-8919-4cbd-bd3f-f338574cbf50,d12a8199-c77a-4e48-a193-2e1288b26f13",
+              "lastModifiedDateTime": "2026-05-01T00:49:38Z",
+              "name": "TestTeam-PrivateTestChannel",
+              "webUrl": "https://nangodevelopers.sharepoint.com/sites/TestTeam-PrivateTestChannel",
+              "displayName": "TestTeam-Private Test Channel",
+              "root": {},
+              "siteCollection": {
+                "hostname": "nangodevelopers.sharepoint.com"
+              }
+            },
+            {
+              "createdDateTime": "2026-05-14T16:40:56Z",
+              "description": "Seeded by seed-test-data",
+              "id": "nangodevelopers.sharepoint.com,4c97403e-1663-4673-90fa-d2f8690b4510,29d15734-3d19-43f6-976b-43ece3ff81a8",
+              "lastModifiedDateTime": "2026-05-01T00:38:11Z",
+              "name": "NangoTestTeam",
+              "webUrl": "https://nangodevelopers.sharepoint.com/sites/NangoTestTeam",
+              "displayName": "Nango Test Team",
+              "root": {},
+              "siteCollection": {
+                "hostname": "nangodevelopers.sharepoint.com"
+              }
+            },
+            {
+              "createdDateTime": "2026-05-14T17:01:51Z",
+              "description": "A test team for validation",
+              "id": "nangodevelopers.sharepoint.com,5a0488a1-2035-411d-a51b-a2fc5e88d520,29d15734-3d19-43f6-976b-43ece3ff81a8",
+              "lastModifiedDateTime": "2026-05-01T00:38:11Z",
+              "name": "TestTeamCreatedbyNango_81d794",
+              "webUrl": "https://nangodevelopers.sharepoint.com/sites/TestTeamCreatedbyNango_81d794",
+              "displayName": "Test Team Created by Nango",
+              "root": {},
+              "siteCollection": {
+                "hostname": "nangodevelopers.sharepoint.com"
+              }
+            },
+            {
+              "createdDateTime": "2026-05-14T17:00:52Z",
+              "description": "A test team for validation",
+              "id": "nangodevelopers.sharepoint.com,3e223165-9e83-4bed-800a-f93dc01a4a1a,29d15734-3d19-43f6-976b-43ece3ff81a8",
+              "lastModifiedDateTime": "2026-05-01T00:38:11Z",
+              "name": "TestTeamCreatedbyNango_fe0c02",
+              "webUrl": "https://nangodevelopers.sharepoint.com/sites/TestTeamCreatedbyNango_fe0c02",
+              "displayName": "Test Team Created by Nango",
+              "root": {},
+              "siteCollection": {
+                "hostname": "nangodevelopers.sharepoint.com"
+              }
+            },
+            {
+              "createdDateTime": "2026-05-14T16:59:43Z",
+              "description": "A test team for validation",
+              "id": "nangodevelopers.sharepoint.com,f13b0765-9658-435c-9c26-b9a9ce295fe3,29d15734-3d19-43f6-976b-43ece3ff81a8",
+              "lastModifiedDateTime": "2026-05-01T00:38:11Z",
+              "name": "TestTeamCreatedbyNango",
+              "webUrl": "https://nangodevelopers.sharepoint.com/sites/TestTeamCreatedbyNango",
+              "displayName": "Test Team Created by Nango",
+              "root": {},
+              "siteCollection": {
+                "hostname": "nangodevelopers.sharepoint.com"
+              }
+            },
+            {
+              "createdDateTime": "2026-05-14T17:02:41Z",
+              "description": "A test team for validation",
+              "id": "nangodevelopers.sharepoint.com,b18ec9a7-4578-4044-a78a-2f010525cca8,29d15734-3d19-43f6-976b-43ece3ff81a8",
+              "lastModifiedDateTime": "2026-05-01T00:38:11Z",
+              "name": "TestTeamCreatedbyNango_d2d98c",
+              "webUrl": "https://nangodevelopers.sharepoint.com/sites/TestTeamCreatedbyNango_d2d98c",
+              "displayName": "Test Team Created by Nango",
+              "root": {},
+              "siteCollection": {
+                "hostname": "nangodevelopers.sharepoint.com"
+              }
+            },
+            {
+              "createdDateTime": "2026-05-14T17:03:49Z",
+              "description": "A test team for validation",
+              "id": "nangodevelopers.sharepoint.com,76f3bd5f-1795-499d-94b7-458677472bc0,29d15734-3d19-43f6-976b-43ece3ff81a8",
+              "lastModifiedDateTime": "2026-05-01T00:38:11Z",
+              "name": "TestTeamCreatedbyNango_228365",
+              "webUrl": "https://nangodevelopers.sharepoint.com/sites/TestTeamCreatedbyNango_228365",
+              "displayName": "Test Team Created by Nango",
+              "root": {},
+              "siteCollection": {
+                "hostname": "nangodevelopers.sharepoint.com"
+              }
+            },
+            {
+              "createdDateTime": "2026-05-14T16:46:15Z",
+              "id": "nangodevelopers.sharepoint.com,8138a334-9ae9-40da-b66b-cae1ebaee9dc,d12a8199-c77a-4e48-a193-2e1288b26f13",
+              "lastModifiedDateTime": "2026-05-01T00:49:38Z",
+              "name": "NangoTestTeam-PrivateSeed",
+              "webUrl": "https://nangodevelopers.sharepoint.com/sites/NangoTestTeam-PrivateSeed",
+              "displayName": "Nango Test Team-Private Seed",
+              "root": {},
+              "siteCollection": {
+                "hostname": "nangodevelopers.sharepoint.com"
+              }
+            },
+            {
+              "createdDateTime": "2026-05-14T16:46:11Z",
+              "id": "nangodevelopers.sharepoint.com,da01dfb6-5fa4-4e78-a148-921d7a71767f,d12a8199-c77a-4e48-a193-2e1288b26f13",
+              "lastModifiedDateTime": "2026-05-01T00:49:38Z",
+              "name": "NangoTestTeam-AddMemberHere",
+              "webUrl": "https://nangodevelopers.sharepoint.com/sites/NangoTestTeam-AddMemberHere",
+              "displayName": "Nango Test Team-AddMemberHere",
+              "root": {},
+              "siteCollection": {
+                "hostname": "nangodevelopers.sharepoint.com"
+              }
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 03 Jun 2026 15:05:47 GMT",
+          "content-type": "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false;charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4996",
+          "x-ratelimit-reset": "1780499206",
+          "cache-control": "no-store, no-cache",
+          "vary": "Accept-Encoding",
+          "request-id": "bbe3352c-f0df-49c7-9f09-755de39ffad0",
+          "client-request-id": "bbe3352c-f0df-49c7-9f09-755de39ffad0",
+          "x-ms-ags-diagnostic": "{\"ServerInfo\":{\"DataCenter\":\"West US 2\",\"Slice\":\"E\",\"Ring\":\"4\",\"ScaleUnit\":\"000\",\"RoleInstance\":\"CO1PEPF0001623C\"}}",
+          "x-searchplatform": "Substrate",
+          "splogid": "1c031aa2-2014-d000-715d-76b80730c15f",
+          "odata-version": "4.0"
+        },
+        "hash": "e7bdc8b62303b782bb2dcbe7b1a5bff80097cde0",
+        "request": {
+          "params": {
+            "search": "test"
+          }
+        }
+      }
+    }
+  }
+}
