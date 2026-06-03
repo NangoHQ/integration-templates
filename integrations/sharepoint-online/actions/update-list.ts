@@ -10,24 +10,12 @@ const InputSchema = z.object({
     description: z.string().optional().describe('New description for the list.')
 });
 
-const ProviderListInfoSchema = z
+const ListInfoSchema = z
     .object({
         hidden: z.boolean().optional(),
         template: z.string().optional()
     })
     .optional();
-
-const ProviderListSchema = z.object({
-    id: z.string(),
-    displayName: z.string().optional(),
-    description: z.string().optional(),
-    name: z.string().optional(),
-    webUrl: z.string().optional(),
-    createdDateTime: z.string().optional(),
-    lastModifiedDateTime: z.string().optional(),
-    eTag: z.string().optional(),
-    list: ProviderListInfoSchema
-});
 
 const OutputSchema = z.object({
     id: z.string(),
@@ -38,7 +26,7 @@ const OutputSchema = z.object({
     createdDateTime: z.string().optional(),
     lastModifiedDateTime: z.string().optional(),
     eTag: z.string().optional(),
-    list: ProviderListInfoSchema
+    list: ListInfoSchema
 });
 
 const action = createAction({
@@ -77,19 +65,7 @@ const action = createAction({
             retries: 3
         });
 
-        const providerList = ProviderListSchema.parse(response.data);
-
-        return {
-            id: providerList.id,
-            ...(providerList.displayName !== undefined && { displayName: providerList.displayName }),
-            ...(providerList.description !== undefined && { description: providerList.description }),
-            ...(providerList.name !== undefined && { name: providerList.name }),
-            ...(providerList.webUrl !== undefined && { webUrl: providerList.webUrl }),
-            ...(providerList.createdDateTime !== undefined && { createdDateTime: providerList.createdDateTime }),
-            ...(providerList.lastModifiedDateTime !== undefined && { lastModifiedDateTime: providerList.lastModifiedDateTime }),
-            ...(providerList.eTag !== undefined && { eTag: providerList.eTag }),
-            ...(providerList.list !== undefined && { list: providerList.list })
-        };
+        return OutputSchema.parse(response.data);
     }
 });
 

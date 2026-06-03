@@ -12,27 +12,6 @@ const InputSchema = z.object({
         .describe('Conflict behavior if a folder with the same name exists. Defaults to "rename".')
 });
 
-const ProviderDriveItemSchema = z.object({
-    id: z.string(),
-    name: z.string(),
-    webUrl: z.string().optional(),
-    createdDateTime: z.string().optional(),
-    lastModifiedDateTime: z.string().optional(),
-    size: z.number().optional(),
-    parentReference: z
-        .object({
-            driveId: z.string().optional(),
-            id: z.string().optional(),
-            path: z.string().optional()
-        })
-        .optional(),
-    folder: z
-        .object({
-            childCount: z.number().optional()
-        })
-        .optional()
-});
-
 const OutputSchema = z.object({
     id: z.string(),
     name: z.string(),
@@ -85,18 +64,7 @@ const action = createAction({
             });
         }
 
-        const providerItem = ProviderDriveItemSchema.parse(response.data);
-
-        return {
-            id: providerItem.id,
-            name: providerItem.name,
-            ...(providerItem.webUrl !== undefined && { webUrl: providerItem.webUrl }),
-            ...(providerItem.createdDateTime !== undefined && { createdDateTime: providerItem.createdDateTime }),
-            ...(providerItem.lastModifiedDateTime !== undefined && { lastModifiedDateTime: providerItem.lastModifiedDateTime }),
-            ...(providerItem.size !== undefined && { size: providerItem.size }),
-            ...(providerItem.parentReference !== undefined && { parentReference: providerItem.parentReference }),
-            ...(providerItem.folder !== undefined && { folder: providerItem.folder })
-        };
+        return OutputSchema.parse(response.data);
     }
 });
 

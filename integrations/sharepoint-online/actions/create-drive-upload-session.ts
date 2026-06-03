@@ -12,12 +12,6 @@ const InputSchema = z.object({
     description: z.string().optional().describe('Description of the file. Only available for OneDrive personal.')
 });
 
-const ProviderUploadSessionSchema = z.object({
-    uploadUrl: z.string(),
-    expirationDateTime: z.string(),
-    nextExpectedRanges: z.array(z.string()).optional()
-});
-
 const OutputSchema = z.object({
     uploadUrl: z.string(),
     expirationDateTime: z.string(),
@@ -68,13 +62,7 @@ const action = createAction({
             retries: 3
         });
 
-        const session = ProviderUploadSessionSchema.parse(response.data);
-
-        return {
-            uploadUrl: session.uploadUrl,
-            expirationDateTime: session.expirationDateTime,
-            ...(session.nextExpectedRanges !== undefined && { nextExpectedRanges: session.nextExpectedRanges })
-        };
+        return OutputSchema.parse(response.data);
     }
 });
 

@@ -58,7 +58,7 @@ const action = createAction({
                 type: input.type,
                 scope: input.scope
             },
-            retries: 1
+            retries: 3
         });
 
         const permission = PermissionSchema.parse(response.data);

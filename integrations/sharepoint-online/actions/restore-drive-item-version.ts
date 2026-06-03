@@ -30,7 +30,7 @@ const action = createAction({
         // https://learn.microsoft.com/en-us/graph/api/driveitemversion-restoreversion?view=graph-rest-1.0
         const response = await nango.post({
             endpoint: `/v1.0/sites/${encodeURIComponent(input.siteId)}/drives/${encodeURIComponent(input.driveId)}/items/${encodeURIComponent(input.itemId)}/versions/${encodeURIComponent(input.versionId)}/restoreVersion`,
-            retries: 1
+            retries: 3
         });
 
         if (response.status !== 204) {

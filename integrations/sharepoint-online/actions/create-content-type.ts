@@ -70,24 +70,12 @@ const action = createAction({
                 ...(input.group !== undefined && { group: input.group }),
                 base: baseContentType
             },
-            retries: 10
+            retries: 3
         });
 
         const providerContentType = ProviderContentTypeSchema.parse(response.data);
 
-        return {
-            id: providerContentType.id,
-            ...(providerContentType.name !== undefined && { name: providerContentType.name }),
-            ...(providerContentType.description !== undefined && { description: providerContentType.description }),
-            ...(providerContentType.group !== undefined && { group: providerContentType.group }),
-            ...(providerContentType.parentId !== undefined && { parentId: providerContentType.parentId }),
-            ...(providerContentType.base !== undefined && {
-                base: {
-                    ...(providerContentType.base.id !== undefined && { id: providerContentType.base.id }),
-                    ...(providerContentType.base.name !== undefined && { name: providerContentType.base.name })
-                }
-            })
-        };
+        return OutputSchema.parse(providerContentType);
     }
 });
 

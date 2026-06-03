@@ -16,25 +16,6 @@ const InputSchema = z.object({
         .describe('Parent reference for moving the item.')
 });
 
-const ProviderDriveItemSchema = z.object({
-    id: z.string(),
-    name: z.string().optional(),
-    webUrl: z.string().optional(),
-    size: z.number().optional(),
-    createdDateTime: z.string().optional(),
-    lastModifiedDateTime: z.string().optional(),
-    parentReference: z
-        .object({
-            id: z.string().optional(),
-            driveId: z.string().optional(),
-            path: z.string().optional(),
-            name: z.string().optional()
-        })
-        .optional(),
-    file: z.object({}).passthrough().optional(),
-    folder: z.object({}).passthrough().optional()
-});
-
 const OutputSchema = z.object({
     id: z.string(),
     name: z.string().optional(),
@@ -104,43 +85,7 @@ const action = createAction({
             });
         }
 
-        const providerItem = ProviderDriveItemSchema.parse(response.data);
-
-        const output: z.infer<typeof OutputSchema> = {
-            id: providerItem.id
-        };
-
-        if (providerItem.name !== undefined) {
-            output.name = providerItem.name;
-        }
-        if (providerItem.webUrl !== undefined) {
-            output.webUrl = providerItem.webUrl;
-        }
-        if (providerItem.size !== undefined) {
-            output.size = providerItem.size;
-        }
-        if (providerItem.createdDateTime !== undefined) {
-            output.createdDateTime = providerItem.createdDateTime;
-        }
-        if (providerItem.lastModifiedDateTime !== undefined) {
-            output.lastModifiedDateTime = providerItem.lastModifiedDateTime;
-        }
-        if (providerItem.parentReference !== undefined) {
-            output.parentReference = {
-                ...(providerItem.parentReference.id !== undefined && { id: providerItem.parentReference.id }),
-                ...(providerItem.parentReference.driveId !== undefined && { driveId: providerItem.parentReference.driveId }),
-                ...(providerItem.parentReference.path !== undefined && { path: providerItem.parentReference.path }),
-                ...(providerItem.parentReference.name !== undefined && { name: providerItem.parentReference.name })
-            };
-        }
-        if (providerItem.file !== undefined) {
-            output.file = providerItem.file;
-        }
-        if (providerItem.folder !== undefined) {
-            output.folder = providerItem.folder;
-        }
-
-        return output;
+        return OutputSchema.parse(response.data);
     }
 });
 

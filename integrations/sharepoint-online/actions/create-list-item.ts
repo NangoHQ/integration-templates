@@ -9,7 +9,7 @@ const InputSchema = z.object({
     fields: z.record(z.string(), z.unknown()).describe('Field values that match the list schema.')
 });
 
-const ProviderIdentitySchema = z.object({
+const IdentitySchema = z.object({
     user: z
         .object({
             displayName: z.string().optional(),
@@ -18,25 +18,14 @@ const ProviderIdentitySchema = z.object({
         .optional()
 });
 
-const ProviderListItemSchema = z.object({
-    id: z.string(),
-    name: z.string().optional(),
-    webUrl: z.string().optional(),
-    createdDateTime: z.string().optional(),
-    createdBy: ProviderIdentitySchema.optional(),
-    lastModifiedDateTime: z.string().optional(),
-    lastModifiedBy: ProviderIdentitySchema.optional(),
-    fields: z.record(z.string(), z.unknown()).optional()
-});
-
 const OutputSchema = z.object({
     id: z.string(),
     name: z.string().optional(),
     webUrl: z.string().optional(),
     createdDateTime: z.string().optional(),
-    createdBy: ProviderIdentitySchema.optional(),
+    createdBy: IdentitySchema.optional(),
     lastModifiedDateTime: z.string().optional(),
-    lastModifiedBy: ProviderIdentitySchema.optional(),
+    lastModifiedBy: IdentitySchema.optional(),
     fields: z.record(z.string(), z.unknown()).optional()
 });
 
@@ -62,18 +51,7 @@ const action = createAction({
             retries: 3
         });
 
-        const providerItem = ProviderListItemSchema.parse(response.data);
-
-        return {
-            id: providerItem.id,
-            ...(providerItem.name !== undefined && { name: providerItem.name }),
-            ...(providerItem.webUrl !== undefined && { webUrl: providerItem.webUrl }),
-            ...(providerItem.createdDateTime !== undefined && { createdDateTime: providerItem.createdDateTime }),
-            ...(providerItem.createdBy !== undefined && { createdBy: providerItem.createdBy }),
-            ...(providerItem.lastModifiedDateTime !== undefined && { lastModifiedDateTime: providerItem.lastModifiedDateTime }),
-            ...(providerItem.lastModifiedBy !== undefined && { lastModifiedBy: providerItem.lastModifiedBy }),
-            ...(providerItem.fields !== undefined && { fields: providerItem.fields })
-        };
+        return OutputSchema.parse(response.data);
     }
 });
 

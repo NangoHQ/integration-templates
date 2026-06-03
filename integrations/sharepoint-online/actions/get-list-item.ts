@@ -27,18 +27,6 @@ const ParentReferenceSchema = z.object({
     siteId: z.string().optional()
 });
 
-const ProviderListItemSchema = z.object({
-    id: z.string(),
-    createdDateTime: z.string().optional(),
-    lastModifiedDateTime: z.string().optional(),
-    webUrl: z.string().optional(),
-    createdBy: IdentitySetSchema.optional(),
-    lastModifiedBy: IdentitySetSchema.optional(),
-    parentReference: ParentReferenceSchema.optional(),
-    contentType: ContentTypeInfoSchema.optional(),
-    fields: z.record(z.string(), z.unknown()).optional()
-});
-
 const OutputSchema = z.object({
     id: z.string(),
     createdDateTime: z.string().optional(),
@@ -76,19 +64,7 @@ const action = createAction({
             retries: 3
         });
 
-        const providerItem = ProviderListItemSchema.parse(response.data);
-
-        return {
-            id: providerItem.id,
-            ...(providerItem.createdDateTime !== undefined && { createdDateTime: providerItem.createdDateTime }),
-            ...(providerItem.lastModifiedDateTime !== undefined && { lastModifiedDateTime: providerItem.lastModifiedDateTime }),
-            ...(providerItem.webUrl !== undefined && { webUrl: providerItem.webUrl }),
-            ...(providerItem.createdBy !== undefined && { createdBy: providerItem.createdBy }),
-            ...(providerItem.lastModifiedBy !== undefined && { lastModifiedBy: providerItem.lastModifiedBy }),
-            ...(providerItem.parentReference !== undefined && { parentReference: providerItem.parentReference }),
-            ...(providerItem.contentType !== undefined && { contentType: providerItem.contentType }),
-            ...(providerItem.fields !== undefined && { fields: providerItem.fields })
-        };
+        return OutputSchema.parse(response.data);
     }
 });
 
