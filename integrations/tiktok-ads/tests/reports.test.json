@@ -51,19 +51,19 @@
           "x-ratelimit-reset": "1779793997",
           "etag": "W/\"16e-E+llflAlk1UG6tDNlOoYIYr54E0\""
         },
-        "hash": "4d550b223946e6d11953b58eb8fe8968f1fa1cc6",
+        "hash": "10db4eace60ddb6bff2e408b1e0463efaa7f51c4",
         "request": {
           "params": {
             "advertiser_id": "7644143197428744199",
             "data_level": "AUCTION_CAMPAIGN",
             "dimensions": "[\"campaign_id\",\"stat_time_day\"]",
-            "end_date": "2026-05-26",
+            "end_date": "2025-01-15",
             "metrics": "[\"spend\",\"impressions\",\"clicks\"]",
             "page": "1",
             "page_size": "100",
             "report_type": "BASIC",
             "service_type": "AUCTION",
-            "start_date": "2026-04-26"
+            "start_date": "2024-12-16"
           }
         }
       }

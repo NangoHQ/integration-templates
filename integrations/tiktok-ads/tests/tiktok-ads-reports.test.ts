@@ -1,4 +1,4 @@
-import { afterEach, vi, expect, it, describe } from 'vitest';
+import { afterEach, beforeEach, vi, expect, it, describe } from 'vitest';
 
 import createSync from '../syncs/reports.js';
 
@@ -18,7 +18,13 @@ describe('tiktok-ads reports tests', () => {
         };
     };
 
+    beforeEach(() => {
+        vi.useFakeTimers();
+        vi.setSystemTime(new Date('2025-01-15T00:00:00.000Z'));
+    });
+
     afterEach(() => {
+        vi.useRealTimers();
         vi.clearAllMocks();
         vi.restoreAllMocks();
     });
