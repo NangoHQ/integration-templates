@@ -50,7 +50,7 @@ const ProviderActionSchema = z
         slack_message_format: z.string().optional(),
         steps: z.array(StepSchema).optional(),
         created_at: z.string(),
-        created_by: z.union([CreatedBySchema, z.null()]).optional(),
+        created_by: CreatedBySchema.nullable().optional(),
         deleted: z.boolean().optional(),
         is_calculating: z.boolean().optional(),
         last_calculated_at: z.string().optional(),
@@ -84,6 +84,10 @@ const ActionSchema = z.object({
     user_access_level: z.string().optional()
 });
 
+const MetadataSchema = z.object({
+    project_id: z.string()
+});
+
 const sync = createSync({
     description: 'Sync actions (saved event patterns) from PostHog.',
     version: '1.0.0',
@@ -91,6 +95,7 @@ const sync = createSync({
     endpoints: [{ method: 'GET', path: '/syncs/actions' }],
     frequency: 'every hour',
     autoStart: true,
+    metadata: MetadataSchema,
     models: {
         Action: ActionSchema
     },
@@ -101,7 +106,11 @@ const sync = createSync({
         // filter. There is no changed-records or delta endpoint for actions.
         await nango.trackDeletesStart('Action');
 
-        const projectId = '309484';
+        const metadata = await nango.getMetadata<z.infer<typeof MetadataSchema>>();
+        if (!metadata?.project_id) {
+            throw new Error('project_id is required in metadata');
+        }
+        const projectId = metadata.project_id;
 
         const proxyConfig: ProxyConfiguration = {
             // https://posthog.com/docs/api/actions

@@ -2,6 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
+    project_id: z.string().describe('PostHog project ID. Example: "309484"'),
     cursor: z.string().optional().describe('Pagination cursor (offset) from the previous response. Omit for the first page.'),
     limit: z.number().int().min(1).max(100).optional().describe('Maximum number of surveys to return per page.'),
     search: z.string().optional().describe('Search query to filter surveys by name.'),
@@ -76,7 +77,7 @@ const action = createAction({
 
         const response = await nango.get({
             // https://posthog.com/docs/api/surveys
-            endpoint: '/api/projects/309484/surveys/',
+            endpoint: `/api/projects/${encodeURIComponent(input.project_id)}/surveys/`,
             params,
             retries: 3
         });

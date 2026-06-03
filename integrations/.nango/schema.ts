@@ -58589,6 +58589,10 @@ export interface Action {
   user_access_level?: string | undefined;
 };
 
+export interface SyncMetadata_posthog_actions {
+  project_id: string;
+};
+
 export interface Annotation {
   id: string;
   content?: string | undefined;
@@ -58691,6 +58695,14 @@ export interface EventDefinition {
   tags?: string[] | undefined;
 };
 
+export interface SyncMetadata_posthog_eventdefinitions {
+  project_id: string;
+};
+
+export interface SyncMetadata_posthog_events {
+  project_id: string;
+};
+
 export interface Experiment {
   id: string;
   name?: string | undefined;
@@ -58786,6 +58798,10 @@ export interface SyncMetadata_posthog_insights {
   project_id?: string | undefined;
 };
 
+export interface SyncMetadata_posthog_persons {
+  project_id: string;
+};
+
 export interface SessionRecording {
   id: string;
   distinct_id?: string | undefined;
@@ -58823,6 +58839,10 @@ export interface SessionRecording {
   external_references?: unknown[] | undefined;
 };
 
+export interface SyncMetadata_posthog_sessionrecordings {
+  project_id: string;
+};
+
 export interface Survey {
   id: string;
   name?: string | undefined;
@@ -58847,6 +58867,10 @@ export interface Survey {
   enable_partial_responses?: boolean | undefined;
   enable_iframe_embedding?: boolean | undefined;
   base_language?: string | undefined;
+};
+
+export interface SyncMetadata_posthog_surveys {
+  project_id: string;
 };
 
 export interface ActionInput_posthog_captureevent {
@@ -58892,7 +58916,9 @@ export interface ActionInput_posthog_createaction {
   steps?: ({  event?: string | undefined;
   properties?: ({  key: string;
   type: string;
-  value: string;
+  value: string | number | boolean | ({  0: string;
+  1: number;
+  2: boolean;})[];
   operator: string;})[] | undefined;
   selector?: string | undefined;
   selector_regex?: string | undefined;
@@ -58915,7 +58941,9 @@ export interface ActionOutput_posthog_createaction {
   steps?: ({  event?: string | undefined;
   properties?: ({  key: string;
   type: string;
-  value: string;
+  value: string | number | boolean | ({  0: string;
+  1: number;
+  2: boolean;})[];
   operator: string;})[] | undefined;
   selector?: string | undefined;
   selector_regex?: string | undefined;
@@ -59227,6 +59255,10 @@ export interface ActionOutput_posthog_createearlyaccessfeature {
 
 export interface ActionInput_posthog_createexperiment {
   /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
    * Experiment name. Example: "Homepage CTA Test"
    */
   name: string;
@@ -59433,6 +59465,10 @@ export interface ActionOutput_posthog_createperson {
 };
 
 export interface ActionInput_posthog_createsurvey {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
   /**
    * Name of the survey.
    */
@@ -59686,6 +59722,10 @@ export interface ActionInput_posthog_deletesurvey {
    * Survey ID. Example: "497f6eca-6276-4993-bfeb-53cbbbba6f08"
    */
   id: string;
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
 };
 
 export interface ActionOutput_posthog_deletesurvey {
@@ -59713,7 +59753,9 @@ export interface ActionOutput_posthog_getaction {
   steps?: ({  event?: string | undefined;
   properties?: ({  key?: string | undefined;
   type?: string | undefined;
-  value?: string | undefined;
+  value?: string | number | boolean | ({  0: string;
+  1: number;
+  2: boolean;})[] | undefined;
   operator?: string | undefined;})[];
   selector?: string | undefined;
   selector_regex?: string | undefined;
@@ -59852,6 +59894,10 @@ export interface ActionInput_posthog_getcohort {
    * Cohort ID. Example: 342249
    */
   id: number;
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
 };
 
 export interface ActionOutput_posthog_getcohort {
@@ -60138,9 +60184,9 @@ export interface ActionOutput_posthog_getexperiment {
 
 export interface ActionInput_posthog_getfeatureflag {
   /**
-   * PostHog project ID. Example: 309484
+   * PostHog project ID. Example: "309484"
    */
-  project_id?: number | undefined;
+  project_id: string;
   /**
    * Feature flag ID. Example: 700471
    */
@@ -60430,7 +60476,9 @@ export interface ActionOutput_posthog_listactions {
   steps?: ({  event?: string | undefined;
   properties?: ({  key?: string | undefined;
   type?: string | undefined;
-  value?: string | undefined;
+  value?: string | number | boolean | ({  0: string;
+  1: number;
+  2: boolean;})[] | undefined;
   operator?: string | undefined;})[];
   selector?: string | undefined;
   selector_regex?: string | undefined;
@@ -61204,6 +61252,10 @@ export interface ActionOutput_posthog_listsessionrecordings {
 
 export interface ActionInput_posthog_listsurveys {
   /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
    * Pagination cursor (offset) from the previous response. Omit for the first page.
    */
   cursor?: string | undefined;
@@ -61284,7 +61336,9 @@ export interface ActionInput_posthog_updateaction {
   steps?: ({  event?: string | undefined;
   properties?: ({  key: string;
   type: string;
-  value: string;
+  value: string | number | boolean | ({  0: string;
+  1: number;
+  2: boolean;})[];
   operator: string;})[] | undefined;
   selector?: string | undefined;
   selector_regex?: string | undefined;
@@ -61323,7 +61377,9 @@ export interface ActionOutput_posthog_updateaction {
   steps?: ({  event?: string | undefined;
   properties?: ({  key: string;
   type: string;
-  value: string;
+  value: string | number | boolean | ({  0: string;
+  1: number;
+  2: boolean;})[];
   operator: string;})[] | undefined;
   selector?: string | undefined;
   selector_regex?: string | undefined;
@@ -61361,6 +61417,10 @@ export interface ActionInput_posthog_updatealert {
    * Alert ID. Example: "019e8d60-cb63-0000-f88c-60b06ee41715"
    */
   id: string;
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
   insight?: number | undefined;
   name?: string | undefined;
   subscribed_users?: number[] | undefined;
@@ -61785,6 +61845,10 @@ export interface ActionInput_posthog_updatefeatureflag {
    * Feature flag ID. Example: 700471
    */
   id: number;
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
   /**
    * Name of the feature flag.
    */

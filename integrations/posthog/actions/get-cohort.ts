@@ -2,7 +2,8 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    id: z.number().describe('Cohort ID. Example: 342249')
+    id: z.number().describe('Cohort ID. Example: 342249'),
+    project_id: z.string().describe('PostHog project ID. Example: "309484"')
 });
 
 const CreatedBySchema = z
@@ -102,7 +103,7 @@ const action = createAction({
     exec: async (nango, input) => {
         const response = await nango.get({
             // https://posthog.com/docs/api/cohorts
-            endpoint: `/api/projects/309484/cohorts/${encodeURIComponent(String(input.id))}/`,
+            endpoint: `/api/projects/${encodeURIComponent(input.project_id)}/cohorts/${encodeURIComponent(String(input.id))}/`,
             retries: 3
         });
 

@@ -1,7 +1,8 @@
 {
   "input": {
     "id": "019e8d60-cb63-0000-f88c-60b06ee41715",
-    "name": "Nango test alert updated via dryrun"
+    "name": "Nango test alert updated via dryrun",
+    "project_id": "309484"
   },
   "output": {
     "id": "019e8d60-cb63-0000-f88c-60b06ee41715",

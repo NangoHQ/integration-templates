@@ -1,7 +1,8 @@
 {
   "input": {
     "name": "Nango Create Experiment Test",
-    "feature_flag_key": "nango-test-flag-a"
+    "feature_flag_key": "nango-test-flag-a",
+    "project_id": "309484"
   },
   "output": {
     "id": 374855,

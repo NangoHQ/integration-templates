@@ -1,7 +1,8 @@
 {
   "input": {
     "name": "Nango Test Survey 2026-06-03-1209",
-    "type": "popover"
+    "type": "popover",
+    "project_id": "309484"
   },
   "output": {
     "id": "019e8d63-4ecd-0000-d81b-c72391cc5835",

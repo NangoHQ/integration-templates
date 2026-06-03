@@ -3,6 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     id: z.string().describe('Alert ID. Example: "019e8d60-cb63-0000-f88c-60b06ee41715"'),
+    project_id: z.string().describe('PostHog project ID. Example: "309484"'),
     insight: z.number().optional(),
     name: z.string().optional(),
     subscribed_users: z.array(z.number()).optional(),
@@ -166,7 +167,7 @@ const action = createAction({
 
         // https://posthog.com/docs/api/alerts
         const response = await nango.patch({
-            endpoint: `/api/projects/309484/alerts/${encodeURIComponent(input.id)}/`,
+            endpoint: `/api/projects/${encodeURIComponent(input.project_id)}/alerts/${encodeURIComponent(input.id)}/`,
             data,
             retries: 3
         });

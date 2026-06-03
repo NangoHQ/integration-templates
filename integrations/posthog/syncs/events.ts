@@ -50,11 +50,16 @@ function getBeforeCursor(nextPageParam: unknown): string | undefined {
     return before && before.length > 0 ? before : undefined;
 }
 
+const MetadataSchema = z.object({
+    project_id: z.string()
+});
+
 const sync = createSync({
     description: 'Sync events from PostHog.',
     version: '1.0.0',
     frequency: 'every 5 minutes',
     autoStart: true,
+    metadata: MetadataSchema,
     checkpoint: CheckpointSchema,
     scopes: ['query:read'],
     // https://posthog.com/docs/api/events
@@ -69,6 +74,11 @@ const sync = createSync({
     },
 
     exec: async (nango) => {
+        const metadata = await nango.getMetadata<z.infer<typeof MetadataSchema>>();
+        if (!metadata?.project_id) {
+            throw new Error('project_id is required in metadata');
+        }
+
         // PostHog starts incremental windows with `after`, but paginates each
         // window backwards with `before` links. Keep both so failed runs can
         // resume without replaying the full window.
@@ -81,7 +91,7 @@ const sync = createSync({
 
         const proxyConfig: ProxyConfiguration = {
             // https://posthog.com/docs/api/events#get-api-projects-project_id-events
-            endpoint: `/api/projects/${encodeURIComponent(String(309484))}/events/`,
+            endpoint: `/api/projects/${encodeURIComponent(metadata.project_id)}/events/`,
             params: {
                 ...(after && { after }),
                 ...(before && { before })

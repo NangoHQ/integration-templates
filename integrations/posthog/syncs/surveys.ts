@@ -27,11 +27,16 @@ const SurveySchema = z.object({
     base_language: z.string().optional().nullable()
 });
 
+const MetadataSchema = z.object({
+    project_id: z.string()
+});
+
 const sync = createSync({
     description: 'Sync surveys from PostHog.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    metadata: MetadataSchema,
     models: {
         Survey: SurveySchema
     },
@@ -46,9 +51,14 @@ const sync = createSync({
         // https://posthog.com/docs/api/surveys
         await nango.trackDeletesStart('Survey');
 
+        const metadata = await nango.getMetadata<z.infer<typeof MetadataSchema>>();
+        if (!metadata?.project_id) {
+            throw new Error('project_id is required in metadata');
+        }
+
         const proxyConfig: ProxyConfiguration = {
             // https://posthog.com/docs/api/surveys#list-all-surveys
-            endpoint: `/api/projects/${encodeURIComponent(String(309484))}/surveys/`,
+            endpoint: `/api/projects/${encodeURIComponent(metadata.project_id)}/surveys/`,
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'offset',

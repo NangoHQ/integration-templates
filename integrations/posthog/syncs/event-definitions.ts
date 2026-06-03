@@ -39,11 +39,16 @@ const ProviderEventDefinitionSchema = z.object({
     tags: z.array(z.string().nullable()).nullable().optional()
 });
 
+const MetadataSchema = z.object({
+    project_id: z.string()
+});
+
 const sync = createSync({
     description: 'Sync event definitions (auto-detected event schemas) from PostHog.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    metadata: MetadataSchema,
     models: {
         EventDefinition: EventDefinitionSchema
     },
@@ -55,6 +60,11 @@ const sync = createSync({
     ],
 
     exec: async (nango) => {
+        const metadata = await nango.getMetadata<z.infer<typeof MetadataSchema>>();
+        if (!metadata?.project_id) {
+            throw new Error('project_id is required in metadata');
+        }
+
         // Blocker: provider list endpoint only exposes limit/offset pagination
         // with no changed-since filter, no deleted-record endpoint, and no
         // resumable cursor for incremental syncs.
@@ -62,7 +72,7 @@ const sync = createSync({
 
         // https://posthog.com/docs/api/event-definitions
         for await (const page of nango.paginate({
-            endpoint: `/api/projects/${encodeURIComponent('309484')}/event_definitions/`,
+            endpoint: `/api/projects/${encodeURIComponent(metadata.project_id)}/event_definitions/`,
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'offset',

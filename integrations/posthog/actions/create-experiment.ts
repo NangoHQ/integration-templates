@@ -18,6 +18,7 @@ const ParametersInputSchema = z
     .optional();
 
 const InputSchema = z.object({
+    project_id: z.string().describe('PostHog project ID. Example: "309484"'),
     name: z.string().describe('Experiment name. Example: "Homepage CTA Test"'),
     feature_flag_key: z.string().describe('Feature flag key to link to this experiment. Example: "homepage-cta-v2"'),
     description: z.string().optional().nullable().describe('Optional description of the experiment.'),
@@ -94,11 +95,9 @@ const action = createAction({
     output: OutputSchema,
     scopes: ['experiment:write'],
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const projectId = 309484;
-
         const response = await nango.post({
             // https://posthog.com/docs/api/experiments
-            endpoint: `/api/projects/${encodeURIComponent(String(projectId))}/experiments/`,
+            endpoint: `/api/projects/${encodeURIComponent(input.project_id)}/experiments/`,
             data: {
                 name: input.name,
                 feature_flag_key: input.feature_flag_key,

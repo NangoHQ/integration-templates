@@ -1,5 +1,8 @@
 {
   "nango": {
+    "getMetadata": {
+      "project_id": "309484"
+    },
     "batchSave": {
       "Person": [
         {

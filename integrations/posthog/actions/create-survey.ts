@@ -19,6 +19,7 @@ const SurveyQuestionSchema = z.object({
 });
 
 const InputSchema = z.object({
+    project_id: z.string().describe('PostHog project ID. Example: "309484"'),
     name: z.string().describe('Name of the survey.'),
     type: z.string().describe('Survey type. Examples: "popover", "api", "widget", "external_survey"'),
     description: z.string().optional(),
@@ -112,11 +113,9 @@ const action = createAction({
     scopes: ['survey:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const projectId = '309484';
-
         const response = await nango.post({
             // https://posthog.com/docs/api/surveys
-            endpoint: `/api/projects/${encodeURIComponent(projectId)}/surveys/`,
+            endpoint: `/api/projects/${encodeURIComponent(input.project_id)}/surveys/`,
             data: {
                 name: input.name,
                 type: input.type,

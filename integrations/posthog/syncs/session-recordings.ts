@@ -51,11 +51,16 @@ const CheckpointSchema = z.object({
     after: z.string()
 });
 
+const MetadataSchema = z.object({
+    project_id: z.string()
+});
+
 const sync = createSync({
     description: 'Sync session recording metadata from PostHog',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    metadata: MetadataSchema,
     scopes: ['session_recording:read'],
     checkpoint: CheckpointSchema,
     models: {
@@ -69,10 +74,15 @@ const sync = createSync({
     ],
 
     exec: async (nango) => {
+        const metadata = await nango.getMetadata<z.infer<typeof MetadataSchema>>();
+        if (!metadata?.project_id) {
+            throw new Error('project_id is required in metadata');
+        }
+
         const rawCheckpoint = await nango.getCheckpoint();
         const checkpoint = rawCheckpoint ?? { date_from: 'all', after: '' };
 
-        const projectId = '309484';
+        const projectId = metadata.project_id;
         const dateFrom = checkpoint.date_from || 'all';
         let after = checkpoint.after || '';
 

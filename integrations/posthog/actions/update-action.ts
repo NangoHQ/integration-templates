@@ -4,7 +4,7 @@ import { createAction } from 'nango';
 const StepPropertySchema = z.object({
     key: z.string(),
     type: z.string(),
-    value: z.string(),
+    value: z.union([z.string(), z.number(), z.boolean(), z.array(z.union([z.string(), z.number(), z.boolean()]))]),
     operator: z.string()
 });
 

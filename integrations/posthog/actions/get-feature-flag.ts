@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    project_id: z.number().optional().describe('PostHog project ID. Example: 309484'),
+    project_id: z.string().describe('PostHog project ID. Example: "309484"'),
     id: z.number().describe('Feature flag ID. Example: 700471')
 });
 
@@ -71,11 +71,9 @@ const action = createAction({
     scopes: ['feature_flag:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof FeatureFlagSchema>> => {
-        const projectId = input.project_id ?? 309484;
-
         const response = await nango.get({
             // https://posthog.com/docs/api/feature-flags#retrieve-feature-flags
-            endpoint: `/api/projects/${encodeURIComponent(String(projectId))}/feature_flags/${encodeURIComponent(String(input.id))}/`,
+            endpoint: `/api/projects/${encodeURIComponent(input.project_id)}/feature_flags/${encodeURIComponent(String(input.id))}/`,
             retries: 3
         });
 

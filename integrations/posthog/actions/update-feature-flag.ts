@@ -3,6 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     id: z.number().describe('Feature flag ID. Example: 700471'),
+    project_id: z.string().describe('PostHog project ID. Example: "309484"'),
     name: z.string().optional().describe('Name of the feature flag.'),
     key: z.string().optional().describe('Unique key for the feature flag.'),
     active: z.boolean().optional().describe('Whether the feature flag is active.'),
@@ -118,7 +119,7 @@ const action = createAction({
 
         // https://posthog.com/docs/api/feature-flags
         const response = await nango.patch({
-            endpoint: `/api/projects/309484/feature_flags/${encodeURIComponent(String(input.id))}/`,
+            endpoint: `/api/projects/${encodeURIComponent(input.project_id)}/feature_flags/${encodeURIComponent(String(input.id))}/`,
             data,
             retries: 3
         });

@@ -9,7 +9,7 @@ const InputSchema = z.object({
 const StepPropertySchema = z.object({
     key: z.string().nullish(),
     type: z.string().nullish(),
-    value: z.string().nullish(),
+    value: z.union([z.string(), z.number(), z.boolean(), z.array(z.union([z.string(), z.number(), z.boolean()]))]).nullish(),
     operator: z.string().nullish()
 });
 

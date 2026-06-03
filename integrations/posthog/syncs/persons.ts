@@ -21,11 +21,16 @@ const ProviderPersonSchema = z.object({
     last_seen_at: z.string().optional()
 });
 
+const MetadataSchema = z.object({
+    project_id: z.string()
+});
+
 const sync = createSync({
     description: 'Sync persons from PostHog',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    metadata: MetadataSchema,
     endpoints: [
         {
             path: '/syncs/persons',
@@ -43,9 +48,14 @@ const sync = createSync({
         // filtering, making incremental checkpointing impossible.
         await nango.trackDeletesStart('Person');
 
+        const metadata = await nango.getMetadata<z.infer<typeof MetadataSchema>>();
+        if (!metadata?.project_id) {
+            throw new Error('project_id is required in metadata');
+        }
+
         const proxyConfig: ProxyConfiguration = {
             // https://posthog.com/docs/api/persons
-            endpoint: '/api/projects/309484/persons/',
+            endpoint: `/api/projects/${encodeURIComponent(metadata.project_id)}/persons/`,
             paginate: {
                 type: 'link',
                 link_path_in_response_body: 'next',
