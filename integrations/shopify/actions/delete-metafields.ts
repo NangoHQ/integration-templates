@@ -28,12 +28,15 @@ const OutputSchema = z.object({
 });
 
 const GraphQLResponseSchema = z.object({
-    data: z.object({
-        metafieldsDelete: z.object({
-            deletedMetafields: z.array(DeletedMetafieldSchema.nullable()),
-            userErrors: z.array(UserErrorSchema)
+    data: z
+        .object({
+            metafieldsDelete: z.object({
+                deletedMetafields: z.array(DeletedMetafieldSchema.nullable()),
+                userErrors: z.array(UserErrorSchema)
+            })
         })
-    }),
+        .nullable()
+        .optional(),
     errors: z.array(z.unknown()).optional()
 });
 
@@ -84,6 +87,13 @@ const action = createAction({
                 type: 'graphql_error',
                 message: 'GraphQL errors occurred while deleting metafields.',
                 errors: body.errors
+            });
+        }
+
+        if (!body.data) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Unexpected response from Shopify: missing data.'
             });
         }
 

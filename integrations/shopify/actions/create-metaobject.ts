@@ -38,7 +38,7 @@ const MetaobjectCreateResultSchema = z.object({
             z.object({
                 field: z.array(z.string()),
                 message: z.string(),
-                code: z.string()
+                code: z.string().nullable()
             })
         )
         .optional()

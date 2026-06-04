@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    first: z.number().optional().describe('The number of markets to return. Default: 50'),
+    first: z.number().int().min(1).max(250).optional().describe('The number of markets to return. Max 250. Default: 50'),
     after: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
     reverse: z.boolean().optional().describe('Reverse the order of the underlying list.')
 });

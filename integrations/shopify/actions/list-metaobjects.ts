@@ -3,9 +3,9 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     type: z.string().describe('The type of the metaobjects to query. Example: "app:author"'),
-    first: z.number().optional().describe('The number of metaobjects to return. Example: 10'),
+    first: z.number().int().min(1).max(250).optional().describe('The number of metaobjects to return. Max 250. Example: 10'),
     after: z.string().optional().describe('The cursor to fetch the next page. Example: "eyJsYXN0X2lkIjo5NzE2NjI1MzB9"'),
-    sortKey: z.string().optional().describe('The key to sort by. Supports "id", "type", "updated_at", and "display_name".'),
+    sortKey: z.enum(['ID', 'TYPE', 'UPDATED_AT', 'DISPLAY_NAME']).optional().describe('The key to sort by. Valid values: ID, TYPE, UPDATED_AT, DISPLAY_NAME.'),
     reverse: z.boolean().optional().describe('Reverse the order of the results.')
 });
 
@@ -85,7 +85,7 @@ const action = createAction({
             // https://shopify.dev/docs/api/admin-graphql/queries/metaobjects
             endpoint: '/admin/api/2026-04/graphql.json',
             data: {
-                query: `query Metaobjects($type: String!, $first: Int, $after: String, $sortKey: String, $reverse: Boolean) {
+                query: `query Metaobjects($type: String!, $first: Int, $after: String, $sortKey: MetaobjectSortKeys, $reverse: Boolean) {
                     metaobjects(type: $type, first: $first, after: $after, sortKey: $sortKey, reverse: $reverse) {
                         nodes {
                             id

@@ -29,7 +29,7 @@ const GraphQLResponseSchema = z.object({
                 userErrors: z.array(
                     z.object({
                         field: z.array(z.string()),
-                        code: z.string(),
+                        code: z.string().nullable(),
                         message: z.string()
                     })
                 )
@@ -45,7 +45,7 @@ const OutputSchema = z.object({
         .array(
             z.object({
                 field: z.array(z.string()),
-                code: z.string(),
+                code: z.string().nullable(),
                 message: z.string()
             })
         )

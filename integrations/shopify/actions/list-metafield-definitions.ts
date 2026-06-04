@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     owner_type: z.string().describe('The resource type that the metafield definition is attached to. Example: "PRODUCT"'),
-    first: z.number().optional().describe('The first n elements from the paginated list.'),
+    first: z.number().int().min(1).max(250).optional().describe('The first n elements from the paginated list. Max 250.'),
     after: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
     namespace: z.string().optional().describe('Filter metafield definitions by namespace.'),
     pinned_status: z.string().optional().describe('Filter by pinned status. Values: ANY, PINNED, UNPINNED.')

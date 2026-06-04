@@ -55,19 +55,37 @@ const action = createAction({
 
         const graphQLResponse = z
             .object({
-                data: z.object({
-                    customerDelete: z.object({
-                        deletedCustomerId: z.string().nullable().optional(),
-                        userErrors: z.array(
-                            z.object({
-                                field: z.array(z.string()).optional(),
-                                message: z.string()
-                            })
-                        )
+                data: z
+                    .object({
+                        customerDelete: z.object({
+                            deletedCustomerId: z.string().nullable().optional(),
+                            userErrors: z.array(
+                                z.object({
+                                    field: z.array(z.string()).optional(),
+                                    message: z.string()
+                                })
+                            )
+                        })
                     })
-                })
+                    .nullable()
+                    .optional(),
+                errors: z.array(z.object({ message: z.string() })).optional()
             })
             .parse(response.data);
+
+        if (graphQLResponse.errors?.length) {
+            throw new nango.ActionError({
+                type: 'graphql_error',
+                message: graphQLResponse.errors.map((e) => e.message).join('; ')
+            });
+        }
+
+        if (!graphQLResponse.data) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Unexpected response from Shopify: missing data.'
+            });
+        }
 
         const result = graphQLResponse.data.customerDelete;
         const deleted = result.deletedCustomerId != null && result.userErrors.length === 0;

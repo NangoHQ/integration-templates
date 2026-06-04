@@ -4,7 +4,10 @@ import { createAction } from 'nango';
 const InputSchema = z.object({
     first: z.number().int().min(1).max(250).optional().describe('Number of records to return. Max 250.'),
     after: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
-    sortKey: z.string().optional().describe('Sort key for the underlying list. Example: "ID", "NAME", "CREATED_AT", "UPDATED_AT", "CUSTOMER_SINCE".'),
+    sortKey: z
+        .enum(['ID', 'NAME', 'CREATED_AT', 'UPDATED_AT', 'CUSTOMER_SINCE'])
+        .optional()
+        .describe('Sort key for the underlying list. Valid values: ID, NAME, CREATED_AT, UPDATED_AT, CUSTOMER_SINCE.'),
     reverse: z.boolean().optional().describe('Reverse the order of the underlying list.'),
     query: z.string().optional().describe('A filter made up of terms, connectives, modifiers, and comparators.')
 });

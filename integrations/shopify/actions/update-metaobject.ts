@@ -116,7 +116,7 @@ const action = createAction({
                                     z.object({
                                         field: z.array(z.string()),
                                         message: z.string(),
-                                        code: z.string()
+                                        code: z.string().nullable()
                                     })
                                 )
                             })

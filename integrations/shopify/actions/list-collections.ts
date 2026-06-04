@@ -3,9 +3,9 @@ import { createAction } from 'nango';
 import type { ProxyConfiguration } from 'nango';
 
 const InputSchema = z.object({
-    first: z.number().optional().describe('Number of collections to return. Example: 10'),
+    first: z.number().int().min(1).max(250).optional().describe('Number of collections to return. Max 250. Example: 10'),
     after: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
-    sortKey: z.string().optional().describe('Sort key. Valid values: ID, TITLE, UPDATED_AT, RELEVANCE. Example: "ID"'),
+    sortKey: z.enum(['ID', 'TITLE', 'UPDATED_AT', 'RELEVANCE']).optional().describe('Sort key. Valid values: ID, TITLE, UPDATED_AT, RELEVANCE.'),
     reverse: z.boolean().optional().describe('Reverse the order of the underlying list. Default: false'),
     query: z.string().optional().describe('Filter query using Shopify API search syntax. Example: "collection_type:smart"')
 });

@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    first: z.number().optional().describe('The number of URL redirects to return. Example: 10'),
+    first: z.number().int().min(1).max(250).optional().describe('The number of URL redirects to return. Max 250. Example: 10'),
     after: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
     query: z.string().optional().describe('A filter query for URL redirects. Example: "path:/old-path"')
 });

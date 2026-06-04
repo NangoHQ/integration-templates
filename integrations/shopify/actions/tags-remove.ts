@@ -38,7 +38,18 @@ const action = createAction({
     },
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['read_products', 'write_products', 'read_customers', 'write_customers', 'read_orders', 'write_orders', 'read_discounts', 'write_discounts'],
+    scopes: [
+        'read_products',
+        'write_products',
+        'read_customers',
+        'write_customers',
+        'read_orders',
+        'write_orders',
+        'read_discounts',
+        'write_discounts',
+        'write_draft_orders',
+        'write_content'
+    ],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({

@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    first: z.number().optional().describe('The number of publications to return.'),
+    first: z.number().int().min(1).max(250).optional().describe('The number of publications to return. Max 250.'),
     after: z.string().optional().describe('Pagination cursor from the previous response.')
 });
 

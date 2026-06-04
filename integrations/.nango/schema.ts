@@ -66139,7 +66139,7 @@ export interface ActionOutput_shopify_listabandonedcheckouts {
 
 export interface ActionInput_shopify_listcollections {
   /**
-   * Number of collections to return. Example: 10
+   * Number of collections to return. Max 250. Example: 10
    */
   first?: number | undefined;
   /**
@@ -66147,9 +66147,9 @@ export interface ActionInput_shopify_listcollections {
    */
   after?: string | undefined;
   /**
-   * Sort key. Valid values: ID, TITLE, UPDATED_AT, RELEVANCE. Example: "ID"
+   * Sort key. Valid values: ID, TITLE, UPDATED_AT, RELEVANCE.
    */
-  sortKey?: string | undefined;
+  sortKey?: 'ID' | 'TITLE' | 'UPDATED_AT' | 'RELEVANCE' | undefined;
   /**
    * Reverse the order of the underlying list. Default: false
    */
@@ -66181,9 +66181,9 @@ export interface ActionInput_shopify_listcompanies {
    */
   after?: string | undefined;
   /**
-   * Sort key for the underlying list. Example: "ID", "NAME", "CREATED_AT", "UPDATED_AT", "CUSTOMER_SINCE".
+   * Sort key for the underlying list. Valid values: ID, NAME, CREATED_AT, UPDATED_AT, CUSTOMER_SINCE.
    */
-  sortKey?: string | undefined;
+  sortKey?: 'ID' | 'NAME' | 'CREATED_AT' | 'UPDATED_AT' | 'CUSTOMER_SINCE' | undefined;
   /**
    * Reverse the order of the underlying list.
    */
@@ -66221,7 +66221,7 @@ export interface ActionInput_shopify_listcustomersegments {
   /**
    * Sort key. Valid values: CREATION_DATE, ID, LAST_EDIT_DATE, NAME.
    */
-  sortKey?: string | undefined;
+  sortKey?: 'CREATION_DATE' | 'ID' | 'LAST_EDIT_DATE' | 'NAME' | undefined;
   /**
    * Reverse the order of the list.
    */
@@ -66418,7 +66418,7 @@ export interface ActionOutput_shopify_listlocations {
 
 export interface ActionInput_shopify_listmarkets {
   /**
-   * The number of markets to return. Default: 50
+   * The number of markets to return. Max 250. Default: 50
    */
   first?: number | undefined;
   /**
@@ -66447,7 +66447,7 @@ export interface ActionInput_shopify_listmetafielddefinitions {
    */
   owner_type: string;
   /**
-   * The first n elements from the paginated list.
+   * The first n elements from the paginated list. Max 250.
    */
   first?: number | undefined;
   /**
@@ -66486,7 +66486,7 @@ export interface ActionOutput_shopify_listmetafielddefinitions {
 
 export interface ActionInput_shopify_listmetaobjectdefinitions {
   /**
-   * The number of metaobject definitions to return. Example: 10
+   * The number of metaobject definitions to return. Max 250. Example: 10
    */
   first?: number | undefined;
   /**
@@ -66516,7 +66516,7 @@ export interface ActionInput_shopify_listmetaobjects {
    */
   type: string;
   /**
-   * The number of metaobjects to return. Example: 10
+   * The number of metaobjects to return. Max 250. Example: 10
    */
   first?: number | undefined;
   /**
@@ -66524,9 +66524,9 @@ export interface ActionInput_shopify_listmetaobjects {
    */
   after?: string | undefined;
   /**
-   * The key to sort by. Supports "id", "type", "updated_at", and "display_name".
+   * The key to sort by. Valid values: ID, TYPE, UPDATED_AT, DISPLAY_NAME.
    */
-  sortKey?: string | undefined;
+  sortKey?: 'ID' | 'TYPE' | 'UPDATED_AT' | 'DISPLAY_NAME' | undefined;
   /**
    * Reverse the order of the results.
    */
@@ -66587,7 +66587,7 @@ export interface ActionOutput_shopify_listproducts {
 
 export interface ActionInput_shopify_listpublications {
   /**
-   * The number of publications to return.
+   * The number of publications to return. Max 250.
    */
   first?: number | undefined;
   /**
@@ -66606,7 +66606,7 @@ export interface ActionOutput_shopify_listpublications {
 
 export interface ActionInput_shopify_listurlredirects {
   /**
-   * The number of URL redirects to return. Example: 10
+   * The number of URL redirects to return. Max 250. Example: 10
    */
   first?: number | undefined;
   /**
