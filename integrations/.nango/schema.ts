@@ -64052,6 +64052,386 @@ export interface ActionOutput_shopify_approvereturn {
   message: string;})[];
 };
 
+export interface ActionInput_shopify_calculatedraftorder {
+  acceptAutomaticDiscounts?: boolean | undefined;
+  allowDiscountCodesInCheckout?: boolean | undefined;
+  appliedDiscount?: {  /**
+   * The value of the discount.
+   */
+  amount?: string | undefined;
+  amountWithCurrency?: {  /**
+   * Decimal money amount. Example: "10.00"
+   */
+  amount: string;
+  /**
+   * Currency code. Example: "USD"
+   */
+  currencyCode: string;} | undefined;
+  description?: string | undefined;
+  title?: string | undefined;
+  value?: number | undefined;
+  /**
+   * Example: "FIXED_AMOUNT" or "PERCENTAGE"
+   */
+  valueType?: string | undefined;};
+  billingAddress?: {  address1?: string | undefined;
+  address2?: string | undefined;
+  city?: string | undefined;
+  company?: string | undefined;
+  countryCode?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  phone?: string | undefined;
+  provinceCode?: string | undefined;
+  zip?: string | undefined;};
+  customAttributes?: ({  key: string;
+  value: string;})[] | undefined;
+  discountCodes?: string[] | undefined;
+  email?: string | undefined;
+  lineItems: ({  appliedDiscount?: {  /**
+   * The value of the discount.
+   */
+  amount?: string | undefined;
+  amountWithCurrency?: {  /**
+   * Decimal money amount. Example: "10.00"
+   */
+  amount: string;
+  /**
+   * Currency code. Example: "USD"
+   */
+  currencyCode: string;} | undefined;
+  description?: string | undefined;
+  title?: string | undefined;
+  value?: number | undefined;
+  /**
+   * Example: "FIXED_AMOUNT" or "PERCENTAGE"
+   */
+  valueType?: string | undefined;};
+  components?: ({})[] | undefined;
+  customAttributes?: ({  key: string;
+  value: string;})[] | undefined;
+  generatePriceOverride?: boolean | undefined;
+  originalUnitPriceWithCurrency?: {  /**
+   * Decimal money amount. Example: "10.00"
+   */
+  amount: string;
+  /**
+   * Currency code. Example: "USD"
+   */
+  currencyCode: string;} | undefined;
+  priceOverride?: {  /**
+   * Decimal money amount. Example: "10.00"
+   */
+  amount: string;
+  /**
+   * Currency code. Example: "USD"
+   */
+  currencyCode: string;} | undefined;
+  quantity: number;
+  requiresShipping?: boolean | undefined;
+  sku?: string | undefined;
+  taxable?: boolean | undefined;
+  title?: string | undefined;
+  uuid?: string | undefined;
+  /**
+   * Example: "gid://shopify/ProductVariant/123"
+   */
+  variantId?: string | undefined;
+  weight?: {  /**
+   * Example: "KILOGRAMS"
+   */
+  unit: string;
+  value: number;} | undefined;})[];
+  note?: string | undefined;
+  phone?: string | undefined;
+  poNumber?: string | undefined;
+  /**
+   * Example: "USD"
+   */
+  presentmentCurrencyCode?: string | undefined;
+  purchasingEntity?: {  customerId?: string | undefined;
+  companyId?: string | undefined;
+  companyLocationId?: string | undefined;
+  contactId?: string | undefined;};
+  reserveInventoryUntil?: string | undefined;
+  sessionToken?: string | undefined;
+  shippingAddress?: {  address1?: string | undefined;
+  address2?: string | undefined;
+  city?: string | undefined;
+  company?: string | undefined;
+  countryCode?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  phone?: string | undefined;
+  provinceCode?: string | undefined;
+  zip?: string | undefined;};
+  shippingLine?: {  price?: string | undefined;
+  priceWithCurrency?: {  /**
+   * Decimal money amount. Example: "10.00"
+   */
+  amount: string;
+  /**
+   * Currency code. Example: "USD"
+   */
+  currencyCode: string;} | undefined;
+  shippingRateHandle?: string | undefined;
+  title?: string | undefined;};
+  sourceName?: string | undefined;
+  tags?: string[] | undefined;
+  taxExempt?: boolean | undefined;
+  transformerFingerprint?: string | undefined;
+  useCustomerDefaultAddress?: boolean | undefined;
+  visibleToCustomer?: boolean | undefined;
+};
+
+export interface ActionOutput_shopify_calculatedraftorder {
+  calculatedDraftOrder?: {  lineItems?: ({  appliedDiscount?: {  amountSet?: {  presentmentMoney?: {  amount: string;
+  currencyCode: string;} | undefined;
+  shopMoney?: {  amount: string;
+  currencyCode: string;} | undefined;};
+  description?: string | undefined;
+  title?: string | undefined;
+  value?: number | undefined;
+  valueType?: string | undefined;};
+  custom?: boolean | undefined;
+  customAttributes?: ({  key: string;
+  value: string;})[] | undefined;
+  discountedTotalSet?: {  presentmentMoney?: {  amount: string;
+  currencyCode: string;} | undefined;
+  shopMoney?: {  amount: string;
+  currencyCode: string;} | undefined;};
+  name?: string | undefined;
+  originalTotalSet?: {  presentmentMoney?: {  amount: string;
+  currencyCode: string;} | undefined;
+  shopMoney?: {  amount: string;
+  currencyCode: string;} | undefined;};
+  originalUnitPriceSet?: {  presentmentMoney?: {  amount: string;
+  currencyCode: string;} | undefined;
+  shopMoney?: {  amount: string;
+  currencyCode: string;} | undefined;};
+  priceOverride?: {  amount: string;
+  currencyCode: string;} | undefined;
+  product?: {  id?: string | undefined;
+  title?: string | undefined;};
+  quantity?: number | undefined;
+  requiresShipping?: boolean | undefined;
+  sku?: string | undefined;
+  taxable?: boolean | undefined;
+  title?: string | undefined;
+  totalDiscountSet?: {  presentmentMoney?: {  amount: string;
+  currencyCode: string;} | undefined;
+  shopMoney?: {  amount: string;
+  currencyCode: string;} | undefined;};
+  uuid?: string | undefined;
+  variant?: {  id?: string | undefined;};
+  variantTitle?: string | undefined;
+  vendor?: string | undefined;
+  weight?: {  unit?: string | undefined;
+  value?: number | undefined;};})[];
+  subtotalPriceSet?: {  presentmentMoney?: {  amount: string;
+  currencyCode: string;} | undefined;
+  shopMoney?: {  amount: string;
+  currencyCode: string;} | undefined;};
+  totalShippingPriceSet?: {  presentmentMoney?: {  amount: string;
+  currencyCode: string;} | undefined;
+  shopMoney?: {  amount: string;
+  currencyCode: string;} | undefined;};
+  totalPriceSet?: {  presentmentMoney?: {  amount: string;
+  currencyCode: string;} | undefined;
+  shopMoney?: {  amount: string;
+  currencyCode: string;} | undefined;};
+  totalTaxSet?: {  presentmentMoney?: {  amount: string;
+  currencyCode: string;} | undefined;
+  shopMoney?: {  amount: string;
+  currencyCode: string;} | undefined;};
+  totalDiscountsSet?: {  presentmentMoney?: {  amount: string;
+  currencyCode: string;} | undefined;
+  shopMoney?: {  amount: string;
+  currencyCode: string;} | undefined;};
+  totalLineItemsPriceSet?: {  presentmentMoney?: {  amount: string;
+  currencyCode: string;} | undefined;
+  shopMoney?: {  amount: string;
+  currencyCode: string;} | undefined;};
+  lineItemsSubtotalPrice?: {  presentmentMoney?: {  amount: string;
+  currencyCode: string;} | undefined;
+  shopMoney?: {  amount: string;
+  currencyCode: string;} | undefined;};
+  shippingLine?: {  custom?: boolean | undefined;
+  id?: string | undefined;
+  originalPriceSet?: {  presentmentMoney?: {  amount: string;
+  currencyCode: string;} | undefined;
+  shopMoney?: {  amount: string;
+  currencyCode: string;} | undefined;};
+  shippingRateHandle?: string | undefined;
+  title?: string | undefined;};
+  taxLines?: ({  channelLiable?: boolean | undefined;
+  priceSet?: {  presentmentMoney?: {  amount: string;
+  currencyCode: string;} | undefined;
+  shopMoney?: {  amount: string;
+  currencyCode: string;} | undefined;};
+  rate?: number | undefined;
+  ratePercentage?: number | undefined;
+  title?: string | undefined;})[];
+  presentmentCurrencyCode?: string | undefined;
+  currencyCode?: string | undefined;
+  customer?: {  id?: string | undefined;
+  email?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  taxExempt?: boolean | undefined;};
+  billingAddressMatchesShippingAddress?: boolean | undefined;
+  taxesIncluded?: boolean | undefined;
+  discountCodes?: string[] | undefined;};
+  userErrors?: ({  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_calculaterefund {
+  /**
+   * The ID of the order. Example: "gid://shopify/Order/123"
+   */
+  orderId: string;
+  /**
+   * The line items to include in the refund
+   */
+  refundLineItems: ({  /**
+   * The ID of the line item to refund. Example: "gid://shopify/LineItem/123"
+   */
+  lineItemId: string;
+  /**
+   * The quantity to refund
+   */
+  quantity: number;
+  /**
+   * The type of restock
+   */
+  restockType?: 'CANCEL' | 'NO_RESTOCK' | 'RETURN' | undefined;
+  /**
+   * The intended location for restocking
+   */
+  locationId?: string | undefined;})[];
+  /**
+   * The duties to include in the refund
+   */
+  refundDuties?: ({  /**
+   * The ID of the duty to refund. Example: "gid://shopify/Duty/123"
+   */
+  dutyId: string;
+  /**
+   * The type of duty refund
+   */
+  refundType?: 'FULL' | 'PROPORTIONAL' | undefined;})[];
+  /**
+   * The amount to refund for shipping. Overrides refundShipping.
+   */
+  shippingAmount?: {  /**
+   * Decimal money amount
+   */
+  amount: string;
+  /**
+   * Currency code. Example: "USD"
+   */
+  currencyCode: string;} | undefined;
+  /**
+   * Whether to refund the full shipping amount
+   */
+  refundShipping?: boolean | undefined;
+  /**
+   * Which refund methods to allocate to
+   */
+  refundMethodAllocation?: 'ORIGINAL_PAYMENT_METHODS' | 'STORE_CREDIT' | undefined;
+  /**
+   * Whether to suggest a refund from all refundable line items
+   */
+  suggestFullRefund?: boolean | undefined;
+};
+
+export interface ActionOutput_shopify_calculaterefund {
+  amountSet: {  shopMoney: {  amount: string;
+  currencyCode: string;};
+  presentmentMoney: {  amount: string;
+  currencyCode: string;};};
+  maximumRefundableSet: {  shopMoney: {  amount: string;
+  currencyCode: string;};
+  presentmentMoney: {  amount: string;
+  currencyCode: string;};};
+  subtotalSet: {  shopMoney: {  amount: string;
+  currencyCode: string;};
+  presentmentMoney: {  amount: string;
+  currencyCode: string;};};
+  totalTaxSet: {  shopMoney: {  amount: string;
+  currencyCode: string;};
+  presentmentMoney: {  amount: string;
+  currencyCode: string;};};
+  totalDutiesSet: {  shopMoney: {  amount: string;
+  currencyCode: string;};
+  presentmentMoney: {  amount: string;
+  currencyCode: string;};};
+  totalCartDiscountAmountSet: {  shopMoney: {  amount: string;
+  currencyCode: string;};
+  presentmentMoney: {  amount: string;
+  currencyCode: string;};};
+  discountedSubtotalSet: {  shopMoney: {  amount: string;
+  currencyCode: string;};
+  presentmentMoney: {  amount: string;
+  currencyCode: string;};};
+  shipping: {  amountSet: {  shopMoney: {  amount: string;
+  currencyCode: string;};
+  presentmentMoney: {  amount: string;
+  currencyCode: string;};};
+  maximumRefundableSet: {  shopMoney: {  amount: string;
+  currencyCode: string;};
+  presentmentMoney: {  amount: string;
+  currencyCode: string;};};
+  taxSet: {  shopMoney: {  amount: string;
+  currencyCode: string;};
+  presentmentMoney: {  amount: string;
+  currencyCode: string;};};};
+  refundDuties: ({  amountSet: {  shopMoney: {  amount: string;
+  currencyCode: string;};
+  presentmentMoney: {  amount: string;
+  currencyCode: string;};};
+  originalDuty?: {  id?: string | undefined;};})[];
+  refundLineItems: ({  lineItem?: {  id?: string | undefined;};
+  quantity: number;
+  priceSet: {  shopMoney: {  amount: string;
+  currencyCode: string;};
+  presentmentMoney: {  amount: string;
+  currencyCode: string;};};
+  subtotalSet: {  shopMoney: {  amount: string;
+  currencyCode: string;};
+  presentmentMoney: {  amount: string;
+  currencyCode: string;};};
+  totalTaxSet: {  shopMoney: {  amount: string;
+  currencyCode: string;};
+  presentmentMoney: {  amount: string;
+  currencyCode: string;};};
+  restockType?: string | undefined;
+  location?: {  id?: string | undefined;};})[];
+  suggestedTransactions: ({  accountNumber?: string | undefined;
+  amountSet: {  shopMoney: {  amount: string;
+  currencyCode: string;};
+  presentmentMoney: {  amount: string;
+  currencyCode: string;};};
+  formattedGateway?: string | undefined;
+  gateway?: string | undefined;
+  kind: string;
+  maximumRefundableSet?: {  shopMoney: {  amount: string;
+  currencyCode: string;};
+  presentmentMoney: {  amount: string;
+  currencyCode: string;};} | undefined;
+  parentTransaction?: {  id?: string | undefined;};})[];
+  suggestedRefundMethods: ({  __typename: string;
+  amount: {  shopMoney: {  amount: string;
+  currencyCode: string;};
+  presentmentMoney: {  amount: string;
+  currencyCode: string;};};
+  maximumRefundable: {  shopMoney: {  amount: string;
+  currencyCode: string;};
+  presentmentMoney: {  amount: string;
+  currencyCode: string;};};})[];
+};
+
 export interface ActionInput_shopify_cancelfulfillmentrequest {
   /**
    * The ID of the fulfillment order to cancel. Example: "gid://shopify/FulfillmentOrder/1046000804"
@@ -64501,6 +64881,75 @@ export interface ActionOutput_shopify_createcompany {
   code?: string | undefined;})[];
 };
 
+export interface ActionInput_shopify_createcustomeraddress {
+  /**
+   * The globally-unique ID of the Shopify customer. Example: "gid://shopify/Customer/1234567890"
+   */
+  customerId: string;
+  /**
+   * The first line of the address. Typically the street address or PO Box number.
+   */
+  address1?: string | undefined;
+  /**
+   * The second line of the address. Typically the apartment, suite, or unit number.
+   */
+  address2?: string | undefined;
+  /**
+   * The name of the city, district, village, or town.
+   */
+  city?: string | undefined;
+  /**
+   * The name of the customer's company or organization.
+   */
+  company?: string | undefined;
+  /**
+   * The two-letter ISO country code for the address. Example: "US"
+   */
+  countryCode?: string | undefined;
+  /**
+   * The first name of the customer.
+   */
+  firstName?: string | undefined;
+  /**
+   * The last name of the customer.
+   */
+  lastName?: string | undefined;
+  /**
+   * A unique phone number for the customer, formatted using E.164 standard. Example: "+16135551111"
+   */
+  phone?: string | undefined;
+  /**
+   * The code for the region of the address, such as the province, state, or district. Example: "ON"
+   */
+  provinceCode?: string | undefined;
+  /**
+   * The zip or postal code of the address.
+   */
+  zip?: string | undefined;
+  /**
+   * Whether to set the address as the customer's default address.
+   */
+  setAsDefault?: boolean | undefined;
+};
+
+export interface ActionOutput_shopify_createcustomeraddress {
+  id: string;
+  address1?: string | undefined;
+  address2?: string | undefined;
+  city?: string | undefined;
+  company?: string | undefined;
+  country?: string | undefined;
+  countryCodeV2?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  phone?: string | undefined;
+  province?: string | undefined;
+  provinceCode?: string | undefined;
+  zip?: string | undefined;
+  name?: string | undefined;
+  formattedArea?: string | undefined;
+};
+
 export interface ActionInput_shopify_createcustomer {
   firstName?: string | undefined;
   lastName?: string | undefined;
@@ -64730,6 +65179,134 @@ export interface ActionOutput_shopify_creatediscountcodefreeshipping {
   message: string;})[];
 };
 
+export interface ActionInput_shopify_createdraftorder {
+  lineItems: ({  variantId?: string | undefined;
+  title?: string | undefined;
+  quantity: number;
+  price?: number | undefined;
+  currencyCode?: string | undefined;
+  appliedDiscount?: {  description?: string | undefined;
+  title?: string | undefined;
+  value: number;
+  valueType: 'FIXED_AMOUNT' | 'PERCENTAGE';
+  amount?: number | undefined;};
+  customAttributes?: ({  key: string;
+  value: string;})[] | undefined;
+  components?: ({  variantId: string;
+  quantity: number;})[] | undefined;
+  requiresShipping?: boolean | undefined;
+  sku?: string | undefined;
+  taxable?: boolean | undefined;
+  uuid?: string | undefined;})[];
+  customerId?: string | undefined;
+  purchasingEntity?: {  customerId?: string | undefined;
+  purchasingCompany?: {  companyId: string;
+  companyContactId: string;
+  companyLocationId: string;} | undefined;};
+  email?: string | undefined;
+  note?: string | undefined;
+  tags?: string[] | undefined;
+  appliedDiscount?: {  description?: string | undefined;
+  title?: string | undefined;
+  value: number;
+  valueType: 'FIXED_AMOUNT' | 'PERCENTAGE';
+  amount?: number | undefined;};
+  shippingAddress?: {  address1?: string | undefined;
+  address2?: string | undefined;
+  city?: string | undefined;
+  company?: string | undefined;
+  country?: string | undefined;
+  countryCode?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  phone?: string | undefined;
+  province?: string | undefined;
+  provinceCode?: string | undefined;
+  zip?: string | undefined;};
+  billingAddress?: {  address1?: string | undefined;
+  address2?: string | undefined;
+  city?: string | undefined;
+  company?: string | undefined;
+  country?: string | undefined;
+  countryCode?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  phone?: string | undefined;
+  province?: string | undefined;
+  provinceCode?: string | undefined;
+  zip?: string | undefined;};
+  shippingLine?: {  title?: string | undefined;
+  price?: number | undefined;
+  priceWithCurrency?: {  amount: string;
+  currencyCode: string;} | undefined;
+  shippingRateHandle?: string | undefined;};
+  taxExempt?: boolean | undefined;
+  presentmentCurrencyCode?: string | undefined;
+  customAttributes?: ({  key: string;
+  value: string;})[] | undefined;
+  discountCodes?: string[] | undefined;
+  phone?: string | undefined;
+  poNumber?: string | undefined;
+  reserveInventoryUntil?: string | undefined;
+  visibleToCustomer?: boolean | undefined;
+};
+
+export interface ActionOutput_shopify_createdraftorder {
+  id: string;
+  name?: string | undefined;
+  status?: string | undefined;
+  email?: string | undefined;
+  note2?: string | undefined;
+  tags?: string[] | undefined;
+  taxExempt?: boolean | undefined;
+  presentmentCurrencyCode?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  customer?: {  id?: string | undefined;
+  email?: string | undefined;};
+  purchasingEntity?: {  customer?: {  id?: string | undefined;
+  email?: string | undefined;};
+  company?: {  id?: string | undefined;
+  name?: string | undefined;};
+  contact?: {  id?: string | undefined;};
+  location?: {  id?: string | undefined;};};
+  shippingAddress?: {  address1?: string | undefined;
+  address2?: string | undefined;
+  city?: string | undefined;
+  company?: string | undefined;
+  country?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  phone?: string | undefined;
+  province?: string | undefined;
+  zip?: string | undefined;};
+  billingAddress?: {  address1?: string | undefined;
+  address2?: string | undefined;
+  city?: string | undefined;
+  company?: string | undefined;
+  country?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  phone?: string | undefined;
+  province?: string | undefined;
+  zip?: string | undefined;};
+  lineItems?: ({  id?: string | undefined;
+  title?: string | undefined;
+  quantity?: number | undefined;
+  custom?: boolean | undefined;
+  variant?: {  id?: string | undefined;
+  title?: string | undefined;};
+  originalUnitPriceSet?: {  shopMoney?: {  amount?: string | undefined;
+  currencyCode?: string | undefined;};};})[];
+  appliedDiscount?: {  description?: string | undefined;
+  title?: string | undefined;
+  value?: number | undefined;
+  valueType?: string | undefined;
+  amount?: string | undefined;};
+  totalPriceSet?: {  shopMoney?: {  amount?: string | undefined;
+  currencyCode?: string | undefined;};};
+};
+
 export interface ActionInput_shopify_createfile {
   files: ({  alt?: string | undefined;
   contentType?: string | undefined;
@@ -64743,6 +65320,93 @@ export interface ActionOutput_shopify_createfile {
   userErrors: ({  code?: string | undefined;
   field?: string[] | undefined;
   message: string;})[];
+};
+
+export interface ActionInput_shopify_createfulfillment {
+  /**
+   * Pairs of fulfillment order IDs and line items to fulfill.
+   */
+  lineItemsByFulfillmentOrder: ({  /**
+   * The ID of the fulfillment order.
+   */
+  fulfillmentOrderId: string;
+  /**
+   * The line items to fulfill. If omitted, all line items are fulfilled.
+   */
+  fulfillmentOrderLineItems?: ({  /**
+   * The ID of the fulfillment order line item.
+   */
+  id: string;
+  /**
+   * The quantity to fulfill.
+   */
+  quantity: number;})[] | undefined;})[];
+  /**
+   * Whether to notify the customer. Defaults to false.
+   */
+  notifyCustomer?: boolean | undefined;
+  /**
+   * The origin address for tax purposes.
+   */
+  originAddress?: {  /**
+   * The street address of the fulfillment location.
+   */
+  address1?: string | undefined;
+  /**
+   * The second line of the address.
+   */
+  address2?: string | undefined;
+  /**
+   * The city of the fulfillment location.
+   */
+  city?: string | undefined;
+  /**
+   * The country code of the fulfillment location.
+   */
+  countryCode: string;
+  /**
+   * The province code of the fulfillment location.
+   */
+  provinceCode?: string | undefined;
+  /**
+   * The zip code of the fulfillment location.
+   */
+  zip?: string | undefined;};
+  /**
+   * Tracking information for the fulfillment.
+   */
+  trackingInfo?: {  /**
+   * The tracking company name.
+   */
+  company?: string | undefined;
+  /**
+   * A single tracking number.
+   */
+  number?: string | undefined;
+  /**
+   * Multiple tracking numbers.
+   */
+  numbers?: string[] | undefined;
+  /**
+   * A single tracking URL.
+   */
+  url?: string | undefined;
+  /**
+   * Multiple tracking URLs.
+   */
+  urls?: string[] | undefined;};
+};
+
+export interface ActionOutput_shopify_createfulfillment {
+  id: string;
+  name?: string | undefined;
+  status?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  totalQuantity?: number | undefined;
+  trackingInfo?: ({  company?: string | undefined;
+  number?: string | undefined;
+  url?: string | undefined;})[];
 };
 
 export interface ActionInput_shopify_creategiftcard {
@@ -65315,6 +65979,21 @@ export interface ActionOutput_shopify_deletecollection {
   message: string;})[];
 };
 
+export interface ActionInput_shopify_deletecustomeraddress {
+  /**
+   * The Shopify customer GID. Example: "gid://shopify/Customer/1234567890"
+   */
+  customer_id: string;
+  /**
+   * The Shopify mailing address GID to delete. Example: "gid://shopify/MailingAddress/1234567890"
+   */
+  address_id: string;
+};
+
+export interface ActionOutput_shopify_deletecustomeraddress {
+  deleted_address_id?: string | undefined;
+};
+
 export interface ActionInput_shopify_deletecustomer {
   /**
    * The GID of the customer to delete. Example: gid://shopify/Customer/1234567890
@@ -65639,6 +66318,72 @@ export interface ActionOutput_shopify_getcompany {
   externalId?: string | undefined;})[];
 };
 
+export interface ActionInput_shopify_getcustomerbyidentifier {
+  /**
+   * Customer email address. Example: "bob@example.com"
+   */
+  email_address?: string | undefined;
+  /**
+   * Customer phone number. Example: "+13125551212"
+   */
+  phone_number?: string | undefined;
+  /**
+   * Shopify customer GID. Example: "gid://shopify/Customer/544365967"
+   */
+  id?: string | undefined;
+  /**
+   * Custom metafield identifier
+   */
+  custom_id?: {  /**
+   * Metafield namespace. Example: "custom"
+   */
+  namespace: string;
+  /**
+   * Metafield key. Example: "id"
+   */
+  key: string;
+  /**
+   * Metafield value. Example: "16a3a6dd"
+   */
+  value: string;} | undefined;
+};
+
+export interface ActionOutput_shopify_getcustomerbyidentifier {
+  /**
+   * Shopify customer GID. Example: "gid://shopify/Customer/544365967"
+   */
+  id: string;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  displayName: string;
+  emailAddress?: string | undefined;
+  emailMarketingState?: string | undefined;
+  phoneNumber?: string | undefined;
+  phoneMarketingState?: string | undefined;
+  /**
+   * ISO 8601 timestamp. Example: "2024-01-15T10:30:00Z"
+   */
+  createdAt: string;
+  /**
+   * ISO 8601 timestamp. Example: "2024-01-15T10:30:00Z"
+   */
+  updatedAt: string;
+  tags: string[];
+  taxExempt: boolean;
+  verifiedEmail: boolean;
+  numberOfOrders: string;
+  /**
+   * Customer account state. Example: "ENABLED"
+   */
+  state: string;
+  note?: string | undefined;
+  amountSpent: {  amount: string;
+  /**
+   * Currency code. Example: "USD"
+   */
+  currencyCode: string;};
+};
+
 export interface ActionInput_shopify_getcustomersegment {
   /**
    * GraphQL ID of the segment. Example: "gid://shopify/Segment/1234567890"
@@ -65651,6 +66396,44 @@ export interface ActionOutput_shopify_getcustomersegment {
   query: string;
   creationDate: string;
   lastEditDate: string;
+};
+
+export interface ActionInput_shopify_getcustomer {
+  /**
+   * The GraphQL ID of the customer. Example: "gid://shopify/Customer/544365967"
+   */
+  id: string;
+};
+
+export interface ActionOutput_shopify_getcustomer {
+  id: string;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  displayName?: string | undefined;
+  emailAddress?: string | undefined;
+  emailMarketingState?: string | undefined;
+  emailMarketingUpdatedAt?: string | undefined;
+  phoneNumber?: string | undefined;
+  phoneMarketingState?: string | undefined;
+  phoneMarketingUpdatedAt?: string | undefined;
+  tags?: string[] | undefined;
+  note?: string | undefined;
+  verifiedEmail?: boolean | undefined;
+  state?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  numberOfOrders?: string | undefined;
+  amountSpent?: {  amount?: string | undefined;
+  currencyCode?: string | undefined;};
+  defaultAddress?: {  address1?: string | undefined;
+  address2?: string | undefined;
+  city?: string | undefined;
+  province?: string | undefined;
+  zip?: string | undefined;
+  country?: string | undefined;
+  countryCodeV2?: string | undefined;
+  phone?: string | undefined;};
+  taxExempt?: boolean | undefined;
 };
 
 export interface ActionInput_shopify_getdiscount {
@@ -65668,6 +66451,126 @@ export interface ActionOutput_shopify_getdiscount {
   summary?: string | undefined;
 };
 
+export interface ActionInput_shopify_getdraftorder {
+  /**
+   * The GraphQL ID of the draft order. Example: "gid://shopify/DraftOrder/123456789"
+   */
+  id: string;
+};
+
+export interface ActionOutput_shopify_getdraftorder {
+  id: string;
+  name: string;
+  status: string;
+  email?: string | undefined;
+  note2?: string | undefined;
+  createdAt: string;
+  updatedAt: string;
+  completedAt?: string | undefined;
+  invoiceUrl?: string | undefined;
+  invoiceSentAt?: string | undefined;
+  invoiceEmailTemplateSubject?: string | undefined;
+  currencyCode: string;
+  presentmentCurrencyCode: string;
+  taxesIncluded: boolean;
+  taxExempt: boolean;
+  tags?: string[] | undefined;
+  customer?: {  id: string;
+  email?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  phone?: string | undefined;};
+  lineItems?: ({  id: string;
+  name: string;
+  sku?: string | undefined;
+  quantity: number;
+  taxable: boolean;
+  requiresShipping: boolean;
+  isGiftCard: boolean;
+  custom: boolean;
+  variant?: {  id: string;
+  title: string;} | undefined;
+  product?: {  id: string;} | undefined;
+  originalUnitPriceSet: {  shopMoney: {  amount: string;
+  currencyCode: string;};
+  presentmentMoney: {  amount: string;
+  currencyCode: string;};};
+  discountedTotalSet: {  shopMoney: {  amount: string;
+  currencyCode: string;};
+  presentmentMoney: {  amount: string;
+  currencyCode: string;};};
+  appliedDiscount?: {  title?: string | undefined;
+  value?: string | undefined;
+  valueType?: string | undefined;};
+  taxLines?: ({  title: string;
+  rate?: string | undefined;
+  ratePercentage?: string | undefined;
+  priceSet?: {  shopMoney: {  amount: string;
+  currencyCode: string;};
+  presentmentMoney: {  amount: string;
+  currencyCode: string;};} | undefined;})[];})[];
+  totalPriceSet: {  shopMoney: {  amount: string;
+  currencyCode: string;};
+  presentmentMoney: {  amount: string;
+  currencyCode: string;};};
+  subtotalPriceSet: {  shopMoney: {  amount: string;
+  currencyCode: string;};
+  presentmentMoney: {  amount: string;
+  currencyCode: string;};};
+  totalTaxSet: {  shopMoney: {  amount: string;
+  currencyCode: string;};
+  presentmentMoney: {  amount: string;
+  currencyCode: string;};};
+  totalShippingPriceSet: {  shopMoney: {  amount: string;
+  currencyCode: string;};
+  presentmentMoney: {  amount: string;
+  currencyCode: string;};};
+  totalDiscountsSet: {  shopMoney: {  amount: string;
+  currencyCode: string;};
+  presentmentMoney: {  amount: string;
+  currencyCode: string;};};
+  totalLineItemsPriceSet: {  shopMoney: {  amount: string;
+  currencyCode: string;};
+  presentmentMoney: {  amount: string;
+  currencyCode: string;};};
+  shippingAddress?: {  firstName?: string | undefined;
+  lastName?: string | undefined;
+  address1?: string | undefined;
+  address2?: string | undefined;
+  city?: string | undefined;
+  province?: string | undefined;
+  country?: string | undefined;
+  zip?: string | undefined;
+  phone?: string | undefined;};
+  billingAddress?: {  firstName?: string | undefined;
+  lastName?: string | undefined;
+  address1?: string | undefined;
+  address2?: string | undefined;
+  city?: string | undefined;
+  province?: string | undefined;
+  country?: string | undefined;
+  zip?: string | undefined;
+  phone?: string | undefined;};
+  shippingLine?: {  title?: string | undefined;
+  code?: string | undefined;
+  source?: string | undefined;
+  carrierIdentifier?: string | undefined;
+  discountedPriceSet?: {  shopMoney: {  amount: string;
+  currencyCode: string;};
+  presentmentMoney: {  amount: string;
+  currencyCode: string;};} | undefined;};
+  appliedDiscount?: {  title?: string | undefined;
+  value?: string | undefined;
+  valueType?: string | undefined;};
+  taxLines?: ({  title: string;
+  rate?: string | undefined;
+  ratePercentage?: string | undefined;
+  priceSet?: {  shopMoney: {  amount: string;
+  currencyCode: string;};
+  presentmentMoney: {  amount: string;
+  currencyCode: string;};} | undefined;})[];
+};
+
 export interface ActionInput_shopify_getfile {
   /**
    * The GraphQL ID of the Shopify file. Example: "gid://shopify/MediaImage/1234567890"
@@ -65681,6 +66584,77 @@ export interface ActionOutput_shopify_getfile {
   alt?: string | undefined;
   mediaContentType?: string | undefined;
   createdAt?: string | undefined;
+};
+
+export interface ActionInput_shopify_getfulfillmentorder {
+  /**
+   * The GraphQL ID of the fulfillment order. Example: "gid://shopify/FulfillmentOrder/123"
+   */
+  id: string;
+};
+
+export interface ActionOutput_shopify_getfulfillmentorder {
+  id: string;
+  status: string;
+  requestStatus: string;
+  assignedLocation?: {  name?: string | undefined;
+  location?: {  id: string;
+  name: string;} | undefined;};
+  deliveryMethod?: {  methodType?: string | undefined;
+  serviceCode?: string | undefined;};
+  lineItems?: ({  id: string;
+  totalQuantity: number;
+  remainingQuantity: number;
+  lineItem?: {  id: string;
+  title: string;} | undefined;})[];
+};
+
+export interface ActionInput_shopify_getfulfillment {
+  /**
+   * The GraphQL ID of the fulfillment. Example: "gid://shopify/Fulfillment/1234567890"
+   */
+  id: string;
+};
+
+export interface ActionOutput_shopify_getfulfillment {
+  id: string;
+  status: string;
+  trackingInfo?: ({  company?: string | undefined;
+  number?: string | undefined;
+  url?: string | undefined;})[];
+  service?: {  handle?: string | undefined;
+  serviceName?: string | undefined;};
+  fulfillmentLineItems?: ({  id: string;
+  lineItem?: {  id?: string | undefined;
+  title?: string | undefined;
+  variant?: {  id?: string | undefined;
+  title?: string | undefined;};};
+  quantity?: number | undefined;})[];
+  order?: {  id: string;
+  name?: string | undefined;
+  legacyResourceId?: string | undefined;};
+};
+
+export interface ActionInput_shopify_getgiftcard {
+  /**
+   * The GraphQL ID of the gift card. Example: "gid://shopify/GiftCard/123456789"
+   */
+  id: string;
+};
+
+export interface ActionOutput_shopify_getgiftcard {
+  id: string;
+  balance: {  amount: string;
+  currencyCode: string;};
+  initialValue: {  amount: string;
+  currencyCode: string;};
+  customer?: {  id: string;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  email?: string | undefined;};
+  expiresOn?: string | undefined;
+  maskedCode: string;
+  createdAt: string;
 };
 
 export interface ActionInput_shopify_getinventoryitem {
@@ -66241,6 +67215,42 @@ export interface ActionOutput_shopify_listcustomersegments {
   next_cursor?: string | undefined;
 };
 
+export interface ActionInput_shopify_listcustomers {
+  /**
+   * Number of items to return per page. Maximum 250.
+   */
+  first?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  after?: string | undefined;
+  /**
+   * Sort key for the results.
+   */
+  sortKey?: 'CREATED_AT' | 'CUSTOMER_SINCE' | 'EMAIL' | 'ID' | 'LOCATION' | 'NAME' | 'RELEVANCE' | 'UPDATED_AT' | undefined;
+  /**
+   * Reverse the order of the results.
+   */
+  reverse?: boolean | undefined;
+  /**
+   * Search query string for filtering customers.
+   */
+  query?: string | undefined;
+};
+
+export interface ActionOutput_shopify_listcustomers {
+  customers: ({  id: string;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  emailAddress?: string | undefined;
+  phoneNumber?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  state?: string | undefined;
+  numberOfOrders?: number | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
 export interface ActionInput_shopify_listdiscounts {
   /**
    * The number of discount nodes to return (max 250). Default: 50.
@@ -66267,6 +67277,80 @@ export interface ActionOutput_shopify_listdiscounts {
   /**
    * Pagination cursor to fetch the next page. Omit if there are no more pages.
    */
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_shopify_listdraftorders {
+  /**
+   * Number of draft orders to return per page. Maximum 250.
+   */
+  first?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  after?: string | undefined;
+  /**
+   * Sort key for ordering results.
+   */
+  sortKey?: 'CREATED_AT' | 'CUSTOMER_NAME' | 'ID' | 'NUMBER' | 'TOTAL_PRICE' | 'UPDATED_AT' | undefined;
+  /**
+   * Reverse the order of results.
+   */
+  reverse?: boolean | undefined;
+  /**
+   * Filter query using Shopify search syntax.
+   */
+  query?: string | undefined;
+};
+
+export interface ActionOutput_shopify_listdraftorders {
+  items: ({  id: string;
+  name: string;
+  email?: string | undefined;
+  status: string;
+  createdAt: string;
+  updatedAt: string;
+  completedAt?: string | undefined;
+  invoiceSentAt?: string | undefined;
+  invoiceUrl?: string | undefined;
+  currencyCode: string;
+  presentmentCurrencyCode?: string | undefined;
+  taxesIncluded: boolean;
+  taxExempt: boolean;
+  tags: string[];
+  note2?: string | undefined;
+  subtotalPriceSet?: {  shopMoney?: {  amount: string;
+  currencyCode: string;} | undefined;
+  presentmentMoney?: {  amount: string;
+  currencyCode: string;} | undefined;};
+  totalPriceSet?: {  shopMoney?: {  amount: string;
+  currencyCode: string;} | undefined;
+  presentmentMoney?: {  amount: string;
+  currencyCode: string;} | undefined;};
+  totalTaxSet?: {  shopMoney?: {  amount: string;
+  currencyCode: string;} | undefined;
+  presentmentMoney?: {  amount: string;
+  currencyCode: string;} | undefined;};
+  totalShippingPriceSet?: {  shopMoney?: {  amount: string;
+  currencyCode: string;} | undefined;
+  presentmentMoney?: {  amount: string;
+  currencyCode: string;} | undefined;};
+  totalDiscountsSet?: {  shopMoney?: {  amount: string;
+  currencyCode: string;} | undefined;
+  presentmentMoney?: {  amount: string;
+  currencyCode: string;} | undefined;};
+  customer?: {  id?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  email?: string | undefined;};
+  lineItems?: {  edges: ({  node: {  id: string;
+  name?: string | undefined;
+  quantity?: number | undefined;
+  sku?: string | undefined;
+  variant?: {  id?: string | undefined;
+  title?: string | undefined;};
+  product?: {  id?: string | undefined;};};
+  cursor?: string | undefined;})[];};})[];
   nextCursor?: string | undefined;
 };
 
@@ -66343,6 +67427,91 @@ export interface ActionOutput_shopify_listfiles {
   url?: string | undefined;
   preview?: {  image?: {  url?: string | undefined;};};})[];
   next_cursor?: string | undefined;
+};
+
+export interface ActionInput_shopify_listfulfillmentorders {
+  /**
+   * Number of records to return (1-250). Default: 50.
+   */
+  first?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  after?: string | undefined;
+  /**
+   * Filter query using Shopify search syntax.
+   */
+  query?: string | undefined;
+  /**
+   * Whether to include closed fulfillment orders. Default: false.
+   */
+  includeClosed?: boolean | undefined;
+  /**
+   * Sort key. Default: ID.
+   */
+  sortKey?: 'ID' | undefined;
+  /**
+   * Reverse the order of the results. Default: false.
+   */
+  reverse?: boolean | undefined;
+};
+
+export interface ActionOutput_shopify_listfulfillmentorders {
+  items: ({  id: string;
+  status: string;
+  requestStatus: string;
+  orderId: string;
+  orderName: string;
+  createdAt: string;
+  updatedAt: string;
+  assignedLocation?: {  name?: string | undefined;};})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_shopify_listgiftcards {
+  /**
+   * The number of gift cards to return. Max 250.
+   */
+  first?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  after?: string | undefined;
+  /**
+   * Sort key for the gift card list.
+   */
+  sortKey?: 'CODE' | 'CREATED_AT' | 'CUSTOMER_NAME' | 'ID' | 'UPDATED_AT' | undefined;
+  /**
+   * Reverse the order of the results.
+   */
+  reverse?: boolean | undefined;
+  /**
+   * Filter query string using Shopify search syntax.
+   */
+  query?: string | undefined;
+};
+
+export interface ActionOutput_shopify_listgiftcards {
+  items: ({  id: string;
+  balance: {  amount: string;
+  currencyCode: string;};
+  createdAt: string;
+  customer?: {  id: string;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  email?: string | undefined;};
+  deactivatedAt?: string | undefined;
+  enabled: boolean;
+  expiresOn?: string | undefined;
+  initialValue: {  amount: string;
+  currencyCode: string;};
+  lastCharacters: string;
+  maskedCode: string;
+  note?: string | undefined;
+  order?: {  id: string;} | undefined;
+  templateSuffix?: string | undefined;
+  updatedAt: string;})[];
+  nextCursor?: string | undefined;
 };
 
 export interface ActionInput_shopify_listinventorylevels {
@@ -66547,6 +67716,56 @@ export interface ActionOutput_shopify_listmetaobjects {
   nextCursor?: string | undefined;
 };
 
+export interface ActionInput_shopify_listordertransactions {
+  /**
+   * Shopify order GID. Example: "gid://shopify/Order/1234567890"
+   */
+  orderId: string;
+};
+
+export interface ActionOutput_shopify_listordertransactions {
+  transactions: ({  kind: string;
+  status: string;
+  amount: string;
+  gateway?: string | undefined;
+  processedAt?: string | undefined;})[];
+};
+
+export interface ActionInput_shopify_listorders {
+  /**
+   * Number of orders to return. Max 250.
+   */
+  first?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  after?: string | undefined;
+  /**
+   * Sort key for ordering results.
+   */
+  sortKey?: 'CREATED_AT' | 'CUSTOMER_NAME' | 'DESTINATION' | 'FINANCIAL_STATUS' | 'FULFILLMENT_STATUS' | 'ID' | 'ORDER_NUMBER' | 'PROCESSED_AT' | 'RELEVANCE' | 'TOTAL_PRICE' | 'UPDATED_AT' | undefined;
+  /**
+   * Reverse the order of the results.
+   */
+  reverse?: boolean | undefined;
+  /**
+   * Filter query string. Example: "status:open"
+   */
+  query?: string | undefined;
+};
+
+export interface ActionOutput_shopify_listorders {
+  items: ({  id: string;
+  name: string;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  displayFinancialStatus?: string | undefined;
+  displayFulfillmentStatus?: string | undefined;
+  totalPriceSet?: {  shopMoney: {  amount: string;
+  currencyCode: string;};} | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
 export interface ActionInput_shopify_listproducts {
   /**
    * Number of products to return (1-250). Default: 50.
@@ -66602,6 +67821,89 @@ export interface ActionOutput_shopify_listpublications {
   app: {  id: string;
   title?: string | undefined;};})[];
   nextCursor?: string | undefined;
+};
+
+export interface ActionInput_shopify_listrefunds {
+  /**
+   * The Shopify order ID. Can be a numeric ID or a GID like "gid://shopify/Order/1234567890". Example: "1234567890"
+   */
+  order_id: string;
+};
+
+export interface ActionOutput_shopify_listrefunds {
+  refunds: ({  id: string;
+  createdAt?: string | undefined;
+  note?: string | undefined;
+  refundLineItems: ({  id: string;
+  quantity: number;
+  restocked: boolean;
+  restockType: string;
+  lineItem: {  id: string;
+  name: string;
+  title: string;
+  variantTitle?: string | undefined;
+  sku?: string | undefined;};
+  location?: {  id: string;
+  name: string;} | undefined;
+  priceSet: {  shopMoney: {  amount: string;
+  currencyCode: string;};
+  presentmentMoney: {  amount: string;
+  currencyCode: string;};};
+  subtotalSet: {  shopMoney: {  amount: string;
+  currencyCode: string;};
+  presentmentMoney: {  amount: string;
+  currencyCode: string;};};
+  totalTaxSet: {  shopMoney: {  amount: string;
+  currencyCode: string;};
+  presentmentMoney: {  amount: string;
+  currencyCode: string;};};})[];
+  transactions: ({  id: string;
+  kind: string;
+  status: string;
+  gateway?: string | undefined;
+  createdAt?: string | undefined;
+  processedAt?: string | undefined;
+  amountSet: {  shopMoney: {  amount: string;
+  currencyCode: string;};
+  presentmentMoney: {  amount: string;
+  currencyCode: string;};};})[];
+  duties: ({  amountSet: {  shopMoney: {  amount: string;
+  currencyCode: string;};
+  presentmentMoney: {  amount: string;
+  currencyCode: string;};};
+  originalDuty?: {  id: string;} | undefined;})[];
+  totalRefundedSet: {  shopMoney: {  amount: string;
+  currencyCode: string;};
+  presentmentMoney: {  amount: string;
+  currencyCode: string;};};})[];
+};
+
+export interface ActionInput_shopify_listreturns {
+  /**
+   * Number of returns to fetch per page. Max 250.
+   */
+  first?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  after?: string | undefined;
+  /**
+   * Filter query string using Shopify search syntax. Example: "status:OPEN".
+   */
+  query?: string | undefined;
+  /**
+   * Sort key for ordering results. Examples: "CREATED_AT", "ID".
+   */
+  sortKey?: string | undefined;
+};
+
+export interface ActionOutput_shopify_listreturns {
+  items: ({  id: string;
+  name: string;
+  status: string;
+  createdAt?: string | undefined;
+  orderId?: string | undefined;})[];
+  next_cursor?: string | undefined;
 };
 
 export interface ActionInput_shopify_listurlredirects {
@@ -66978,6 +68280,38 @@ export interface ActionOutput_shopify_setcustomeremailmarketingconsent {
   marketing_opt_in_level?: string | undefined;
 };
 
+export interface ActionInput_shopify_setcustomersmsmarketingconsent {
+  /**
+   * The ID of the customer to update. Example: "gid://shopify/Customer/207119551"
+   */
+  customerId: string;
+  smsMarketingConsent: {  /**
+   * The current SMS marketing state for the customer.
+   */
+  marketingState: 'SUBSCRIBED' | 'UNSUBSCRIBED' | 'NOT_SUBSCRIBED' | 'PENDING' | 'REDACTED';
+  /**
+   * The marketing subscription opt-in level.
+   */
+  marketingOptInLevel?: 'CONFIRMED_OPT_IN' | 'SINGLE_OPT_IN' | 'UNKNOWN' | undefined;
+  /**
+   * The date and time when the customer consented. ISO 8601 format. Example: "2021-01-07T15:50:00Z"
+   */
+  consentUpdatedAt?: string | undefined;
+  /**
+   * The location ID where consent was collected.
+   */
+  sourceLocationId?: string | undefined;};
+};
+
+export interface ActionOutput_shopify_setcustomersmsmarketingconsent {
+  id: string;
+  phone?: string | undefined;
+  smsMarketingConsent?: {  marketingState?: string | undefined;
+  marketingOptInLevel?: string | undefined;
+  consentUpdatedAt?: string | undefined;
+  consentCollectedFrom?: string | undefined;};
+};
+
 export interface ActionInput_shopify_setinventoryquantities {
   /**
    * The name of the quantity to change.
@@ -67061,6 +68395,42 @@ export interface ActionOutput_shopify_setmetafields {
   user_errors: ({  field?: string[] | undefined;
   message: string;
   code?: string | undefined;})[];
+};
+
+export interface ActionInput_shopify_submitfulfillmentrequest {
+  /**
+   * The ID of the fulfillment order to submit for fulfillment.
+   */
+  id: string;
+  /**
+   * The fulfillment order line items to be requested for fulfillment. If omitted, all line items are requested.
+   */
+  fulfillmentOrderLineItems?: ({  /**
+   * The ID of the fulfillment order line item.
+   */
+  id: string;
+  /**
+   * The quantity of the fulfillment order line item.
+   */
+  quantity: number;})[] | undefined;
+  /**
+   * Whether the customer should be notified when fulfillments are created.
+   */
+  notifyCustomer?: boolean | undefined;
+};
+
+export interface ActionOutput_shopify_submitfulfillmentrequest {
+  originalFulfillmentOrder: {  id: string;
+  status: string;
+  requestStatus: string;};
+  submittedFulfillmentOrder: {  id: string;
+  status: string;
+  requestStatus: string;};
+  unsubmittedFulfillmentOrder?: {  id: string;
+  status: string;
+  requestStatus: string;} | undefined;
+  userErrors: ({  field?: string[] | undefined;
+  message: string;})[];
 };
 
 export interface ActionInput_shopify_tagsadd {
@@ -67282,6 +68652,100 @@ export interface ActionOutput_shopify_updatecompany {
   message: string;})[];
 };
 
+export interface ActionInput_shopify_updatecustomeraddress {
+  /**
+   * The globally-unique ID of the customer. Example: "gid://shopify/Customer/123"
+   */
+  customerId: string;
+  /**
+   * The globally-unique ID of the address to update. Example: "gid://shopify/MailingAddress/456?model_name=CustomerAddress"
+   */
+  addressId: string;
+  /**
+   * The first line of the address. Typically the street address or PO Box number.
+   */
+  address1?: string | undefined;
+  /**
+   * The second line of the address. Typically the number of the apartment, suite, or unit.
+   */
+  address2?: string | undefined;
+  /**
+   * The name of the city, district, village, or town.
+   */
+  city?: string | undefined;
+  /**
+   * The name of the customer's company or organization.
+   */
+  company?: string | undefined;
+  /**
+   * The two-letter code for the country of the address. Example: "US"
+   */
+  countryCode?: string | undefined;
+  /**
+   * The first name of the customer.
+   */
+  firstName?: string | undefined;
+  /**
+   * The last name of the customer.
+   */
+  lastName?: string | undefined;
+  /**
+   * A unique phone number for the customer. Formatted using E.164 standard. Example: "+16135551111"
+   */
+  phone?: string | undefined;
+  /**
+   * The code for the region of the address, such as the province, state, or district. Example: "QC"
+   */
+  provinceCode?: string | undefined;
+  /**
+   * The zip or postal code of the address.
+   */
+  zip?: string | undefined;
+  /**
+   * Whether to set the address as the customer's default address.
+   */
+  setAsDefault?: boolean | undefined;
+};
+
+export interface ActionOutput_shopify_updatecustomeraddress {
+  id: string;
+  address1?: string | undefined;
+  address2?: string | undefined;
+  city?: string | undefined;
+  company?: string | undefined;
+  country?: string | undefined;
+  countryCode?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  phone?: string | undefined;
+  province?: string | undefined;
+  provinceCode?: string | undefined;
+  zip?: string | undefined;
+};
+
+export interface ActionInput_shopify_updatecustomer {
+  /**
+   * The GID of the customer to update. Example: gid://shopify/Customer/1234567890
+   */
+  id: string;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  note?: string | undefined;
+  tags?: string[] | undefined;
+};
+
+export interface ActionOutput_shopify_updatecustomer {
+  id: string;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  note?: string | undefined;
+  tags?: string[] | undefined;
+};
+
 export interface ActionInput_shopify_updatediscountcodebasic {
   /**
    * The ID of the discount code node to update. Example: "gid://shopify/DiscountCodeNode/123"
@@ -67393,6 +68857,25 @@ export interface ActionOutput_shopify_updatediscountcodefreeshipping {
   codeDiscount?: unknown | undefined;};
   userErrors: ({  field?: string[] | undefined;
   code?: string | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_updatedraftorder {
+  /**
+   * The draft order ID. Example: gid://shopify/DraftOrder/1234567890
+   */
+  id: string;
+  /**
+   * Partial DraftOrderInput fields to update
+   */
+  input: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_shopify_updatedraftorder {
+  id?: string | undefined;
+  name?: string | undefined;
+  status?: string | undefined;
+  userErrors?: ({  field?: string[] | undefined;
   message: string;})[];
 };
 
