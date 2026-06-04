@@ -1,0 +1,201 @@
+{
+  "input": {
+    "id": "gid://shopify/Product/8651795562633"
+  },
+  "output": {
+    "id": "gid://shopify/Product/8651795562633",
+    "title": "Gift Card",
+    "description": "This is a gift card for the store",
+    "handle": "gift-card",
+    "productType": "giftcard",
+    "vendor": "Snowboard Vendor",
+    "status": "ACTIVE",
+    "totalInventory": 0,
+    "createdAt": "2026-06-04T08:49:53Z",
+    "updatedAt": "2026-06-04T09:38:23Z",
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/46840089673865",
+        "title": "$10",
+        "price": "10.00",
+        "inventoryQuantity": 0,
+        "createdAt": "2026-06-04T08:49:54Z",
+        "updatedAt": "2026-06-04T08:49:54Z"
+      },
+      {
+        "id": "gid://shopify/ProductVariant/46840089706633",
+        "title": "$25",
+        "price": "25.00",
+        "inventoryQuantity": 0,
+        "createdAt": "2026-06-04T08:49:54Z",
+        "updatedAt": "2026-06-04T08:49:54Z"
+      },
+      {
+        "id": "gid://shopify/ProductVariant/46840089739401",
+        "title": "$50",
+        "price": "50.00",
+        "inventoryQuantity": 0,
+        "createdAt": "2026-06-04T08:49:54Z",
+        "updatedAt": "2026-06-04T08:49:54Z"
+      },
+      {
+        "id": "gid://shopify/ProductVariant/46840089772169",
+        "title": "$100",
+        "price": "100.00",
+        "inventoryQuantity": 0,
+        "createdAt": "2026-06-04T08:49:54Z",
+        "updatedAt": "2026-06-04T08:49:54Z"
+      }
+    ],
+    "media": [
+      {
+        "id": "gid://shopify/MediaImage/31220341702793",
+        "alt": "Gift card that shows text: Generated data gift card",
+        "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/gift_card.png?v=1780562996"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/admin/api/2025-01/graphql.json": {
+        "response": {
+          "data": {
+            "product": {
+              "id": "gid://shopify/Product/8651795562633",
+              "title": "Gift Card",
+              "description": "This is a gift card for the store",
+              "handle": "gift-card",
+              "productType": "giftcard",
+              "vendor": "Snowboard Vendor",
+              "status": "ACTIVE",
+              "totalInventory": 0,
+              "createdAt": "2026-06-04T08:49:53Z",
+              "updatedAt": "2026-06-04T09:38:23Z",
+              "variants": {
+                "edges": [
+                  {
+                    "node": {
+                      "id": "gid://shopify/ProductVariant/46840089673865",
+                      "title": "$10",
+                      "sku": null,
+                      "price": "10.00",
+                      "barcode": null,
+                      "inventoryQuantity": 0,
+                      "createdAt": "2026-06-04T08:49:54Z",
+                      "updatedAt": "2026-06-04T08:49:54Z"
+                    }
+                  },
+                  {
+                    "node": {
+                      "id": "gid://shopify/ProductVariant/46840089706633",
+                      "title": "$25",
+                      "sku": null,
+                      "price": "25.00",
+                      "barcode": null,
+                      "inventoryQuantity": 0,
+                      "createdAt": "2026-06-04T08:49:54Z",
+                      "updatedAt": "2026-06-04T08:49:54Z"
+                    }
+                  },
+                  {
+                    "node": {
+                      "id": "gid://shopify/ProductVariant/46840089739401",
+                      "title": "$50",
+                      "sku": null,
+                      "price": "50.00",
+                      "barcode": null,
+                      "inventoryQuantity": 0,
+                      "createdAt": "2026-06-04T08:49:54Z",
+                      "updatedAt": "2026-06-04T08:49:54Z"
+                    }
+                  },
+                  {
+                    "node": {
+                      "id": "gid://shopify/ProductVariant/46840089772169",
+                      "title": "$100",
+                      "sku": null,
+                      "price": "100.00",
+                      "barcode": null,
+                      "inventoryQuantity": 0,
+                      "createdAt": "2026-06-04T08:49:54Z",
+                      "updatedAt": "2026-06-04T08:49:54Z"
+                    }
+                  }
+                ]
+              },
+              "media": {
+                "edges": [
+                  {
+                    "node": {
+                      "id": "gid://shopify/MediaImage/31220341702793",
+                      "alt": "Gift card that shows text: Generated data gift card",
+                      "image": {
+                        "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/gift_card.png?v=1780562996"
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "extensions": {
+            "cost": {
+              "requestedQueryCost": 26,
+              "actualQueryCost": 7,
+              "throttleStatus": {
+                "maximumAvailable": 4000,
+                "currentlyAvailable": 3988,
+                "restoreRate": 200
+              }
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 04 Jun 2026 09:38:37 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=7889238",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4929",
+          "x-ratelimit-reset": "1780565949",
+          "vary": "Accept-Encoding,Sec-Fetch-Site",
+          "referrer-policy": "origin-when-cross-origin",
+          "cf-cache-status": "DYNAMIC",
+          "x-stats-userid": "",
+          "x-stats-apiclientid": "376951341057",
+          "x-stats-apipermissionid": "695964696713",
+          "x-shopify-api-version": "2025-07",
+          "x-shopify-api-version-warning": "https://shopify.dev/concepts/about-apis/versioning",
+          "content-language": "en",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "x-shopify-api-gql-engine": "cardinal",
+          "x-dc": "gcp-us-west1,gcp-us-east1,gcp-us-east1",
+          "x-request-id": "f370feb2-7eab-48b6-b0fe-651f5d7d8cf3-1780565917",
+          "server-timing": "processing;dur=86, verdict_flag_enabled;desc=\"count=17\";dur=1.35, graphql;desc=\"admin/query/other\", _y;desc=\"b271d01c-447a-4aed-a2a7-c2c0d1f1e989\", _s;desc=\"14ccaecc-1f6d-4b76-81c3-a2791795b90a\"",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=%2BI2ZJTPK3Z51sZkk8fwA98%2BrFULSxbCkjvqM00J4OuQ0K2a%2B1R%2Fg9oiCekkf1VGpOxf5mhZbAFOnmlGwkB6bEudzxgCwrj1ruoc7whTy83X0r2%2F0dyVf%2Fy99Umh4MPsZIn0hhx7HDVk%3D\"}]}",
+          "server": "cloudflare",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.01,\"max_age\":604800}",
+          "content-security-policy": "default-src 'self' data: blob: 'unsafe-inline' 'unsafe-eval' https://* shopify-pos://*; block-all-mixed-content; child-src 'self' https://* shopify-pos://*; connect-src 'self' wss://* https://*; frame-ancestors 'none'; img-src 'self' data: blob: https:; script-src https://cdn.shopify.com https://cdn.shopifycdn.net https://checkout.pci.shopifyinc.com https://checkout.pci.shopifyinc.com/build/04ed4e1/card_fields.js https://api.stripe.com https://mpsnare.iesnare.com https://appcenter.intuit.com https://www.paypal.com https://js.braintreegateway.com https://c.paypal.com https://maps.googleapis.com https://www.google-analytics.com https://v.shopify.com 'self' 'unsafe-inline' 'unsafe-eval'; upgrade-insecure-requests; report-uri /csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=f370feb2-7eab-48b6-b0fe-651f5d7d8cf3-1780565917; report-to shopify-csp",
+          "x-permitted-cross-domain-policies": "none",
+          "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=f370feb2-7eab-48b6-b0fe-651f5d7d8cf3-1780565917\"",
+          "cf-ray": "a065f7378e3e5ecc-PDX"
+        },
+        "hash": "157aac90527da0d0b3dd517a1dc68ca94edd3937",
+        "request": {
+          "data": "sha1:857a503b40f6f773d3779d27832f9cde9c96a65f"
+        }
+      }
+    }
+  }
+}

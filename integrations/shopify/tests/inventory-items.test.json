@@ -1,0 +1,1598 @@
+{
+  "nango": {
+    "batchSave": {
+      "InventoryItem": [
+        {
+          "id": "gid://shopify/InventoryItem/48968084914313",
+          "sku": "TEST-SKU-001",
+          "tracked": true,
+          "updatedAt": "2026-06-04T10:48:54Z",
+          "variant": {
+            "id": "gid://shopify/ProductVariant/46840089608329",
+            "title": "Default Title",
+            "displayName": "The Videographer Snowboard - Default Title",
+            "productId": "gid://shopify/Product/8651795792009",
+            "productTitle": "The Videographer Snowboard"
+          }
+        },
+        {
+          "id": "gid://shopify/InventoryItem/48968084947081",
+          "tracked": true,
+          "updatedAt": "2026-06-04T08:49:54Z",
+          "variant": {
+            "id": "gid://shopify/ProductVariant/46840089575561",
+            "title": "Default Title",
+            "displayName": "The Draft Snowboard - Default Title",
+            "productId": "gid://shopify/Product/8651795693705",
+            "productTitle": "The Draft Snowboard"
+          }
+        },
+        {
+          "id": "gid://shopify/InventoryItem/48968084979849",
+          "tracked": true,
+          "updatedAt": "2026-06-04T08:49:54Z",
+          "variant": {
+            "id": "gid://shopify/ProductVariant/46840089641097",
+            "title": "Blue / Small",
+            "displayName": "The Minimal Snowboard - Blue / Small",
+            "productId": "gid://shopify/Product/8651795628169",
+            "productTitle": "The Minimal Snowboard"
+          }
+        },
+        {
+          "id": "gid://shopify/InventoryItem/48968085012617",
+          "tracked": true,
+          "updatedAt": "2026-06-04T08:49:54Z",
+          "variant": {
+            "id": "gid://shopify/ProductVariant/46840089673865",
+            "title": "$10",
+            "displayName": "Gift Card - $10",
+            "productId": "gid://shopify/Product/8651795562633",
+            "productTitle": "Gift Card"
+          }
+        },
+        {
+          "id": "gid://shopify/InventoryItem/48968085045385",
+          "tracked": true,
+          "updatedAt": "2026-06-04T08:49:54Z",
+          "variant": {
+            "id": "gid://shopify/ProductVariant/46840089706633",
+            "title": "$25",
+            "displayName": "Gift Card - $25",
+            "productId": "gid://shopify/Product/8651795562633",
+            "productTitle": "Gift Card"
+          }
+        },
+        {
+          "id": "gid://shopify/InventoryItem/48968085078153",
+          "tracked": true,
+          "updatedAt": "2026-06-04T08:49:54Z",
+          "variant": {
+            "id": "gid://shopify/ProductVariant/46840089739401",
+            "title": "$50",
+            "displayName": "Gift Card - $50",
+            "productId": "gid://shopify/Product/8651795562633",
+            "productTitle": "Gift Card"
+          }
+        },
+        {
+          "id": "gid://shopify/InventoryItem/48968085110921",
+          "tracked": true,
+          "updatedAt": "2026-06-04T08:49:54Z",
+          "variant": {
+            "id": "gid://shopify/ProductVariant/46840089772169",
+            "title": "$100",
+            "displayName": "Gift Card - $100",
+            "productId": "gid://shopify/Product/8651795562633",
+            "productTitle": "Gift Card"
+          }
+        },
+        {
+          "id": "gid://shopify/InventoryItem/48968085143689",
+          "tracked": true,
+          "updatedAt": "2026-06-04T08:49:54Z",
+          "variant": {
+            "id": "gid://shopify/ProductVariant/46840089804937",
+            "title": "Default Title",
+            "displayName": "The Archived Snowboard - Default Title",
+            "productId": "gid://shopify/Product/8651795857545",
+            "productTitle": "The Archived Snowboard"
+          }
+        },
+        {
+          "id": "gid://shopify/InventoryItem/48968085209225",
+          "sku": "sku-untracked-1",
+          "tracked": false,
+          "updatedAt": "2026-06-04T08:49:54Z",
+          "variant": {
+            "id": "gid://shopify/ProductVariant/46840089870473",
+            "title": "Default Title",
+            "displayName": "The Inventory Not Tracked Snowboard - Default Title",
+            "productId": "gid://shopify/Product/8651795595401",
+            "productTitle": "The Inventory Not Tracked Snowboard"
+          }
+        },
+        {
+          "id": "gid://shopify/InventoryItem/48968085241993",
+          "tracked": true,
+          "updatedAt": "2026-06-04T08:49:54Z",
+          "variant": {
+            "id": "gid://shopify/ProductVariant/46840089903241",
+            "title": "Default Title",
+            "displayName": "The Collection Snowboard: Hydrogen - Default Title",
+            "productId": "gid://shopify/Product/8651795660937",
+            "productTitle": "The Collection Snowboard: Hydrogen"
+          }
+        },
+        {
+          "id": "gid://shopify/InventoryItem/48968085274761",
+          "tracked": true,
+          "updatedAt": "2026-06-04T08:49:54Z",
+          "variant": {
+            "id": "gid://shopify/ProductVariant/46840090067081",
+            "title": "Default Title",
+            "displayName": "The Hidden Snowboard - Default Title",
+            "productId": "gid://shopify/Product/8651795890313",
+            "productTitle": "The Hidden Snowboard"
+          }
+        },
+        {
+          "id": "gid://shopify/InventoryItem/48968085307529",
+          "tracked": true,
+          "updatedAt": "2026-06-04T08:49:54Z",
+          "variant": {
+            "id": "gid://shopify/ProductVariant/46840089936009",
+            "title": "Selling Plans Ski Wax",
+            "displayName": "Selling Plans Ski Wax - Selling Plans Ski Wax",
+            "productId": "gid://shopify/Product/8651795726473",
+            "productTitle": "Selling Plans Ski Wax"
+          }
+        },
+        {
+          "id": "gid://shopify/InventoryItem/48968085340297",
+          "tracked": true,
+          "updatedAt": "2026-06-04T08:49:54Z",
+          "variant": {
+            "id": "gid://shopify/ProductVariant/46840089968777",
+            "title": "Special Selling Plans Ski Wax",
+            "displayName": "Selling Plans Ski Wax - Special Selling Plans Ski Wax",
+            "productId": "gid://shopify/Product/8651795726473",
+            "productTitle": "Selling Plans Ski Wax"
+          }
+        },
+        {
+          "id": "gid://shopify/InventoryItem/48968085373065",
+          "tracked": true,
+          "updatedAt": "2026-06-04T08:49:54Z",
+          "variant": {
+            "id": "gid://shopify/ProductVariant/46840090001545",
+            "title": "Sample Selling Plans Ski Wax",
+            "displayName": "Selling Plans Ski Wax - Sample Selling Plans Ski Wax",
+            "productId": "gid://shopify/Product/8651795726473",
+            "productTitle": "Selling Plans Ski Wax"
+          }
+        },
+        {
+          "id": "gid://shopify/InventoryItem/48968085405833",
+          "tracked": true,
+          "updatedAt": "2026-06-04T08:49:54Z",
+          "variant": {
+            "id": "gid://shopify/ProductVariant/46840090034313",
+            "title": "Default Title",
+            "displayName": "The Compare at Price Snowboard - Default Title",
+            "productId": "gid://shopify/Product/8651795824777",
+            "productTitle": "The Compare at Price Snowboard"
+          }
+        },
+        {
+          "id": "gid://shopify/InventoryItem/48968085471369",
+          "tracked": true,
+          "updatedAt": "2026-06-04T08:49:54Z",
+          "variant": {
+            "id": "gid://shopify/ProductVariant/46840090165385",
+            "title": "Ice",
+            "displayName": "The Complete Snowboard - Ice",
+            "productId": "gid://shopify/Product/8651795923081",
+            "productTitle": "The Complete Snowboard"
+          }
+        },
+        {
+          "id": "gid://shopify/InventoryItem/48968085504137",
+          "tracked": true,
+          "updatedAt": "2026-06-04T08:49:54Z",
+          "variant": {
+            "id": "gid://shopify/ProductVariant/46840090198153",
+            "title": "Dawn",
+            "displayName": "The Complete Snowboard - Dawn",
+            "productId": "gid://shopify/Product/8651795923081",
+            "productTitle": "The Complete Snowboard"
+          }
+        },
+        {
+          "id": "gid://shopify/InventoryItem/48968085536905",
+          "tracked": true,
+          "updatedAt": "2026-06-04T08:49:54Z",
+          "variant": {
+            "id": "gid://shopify/ProductVariant/46840090230921",
+            "title": "Powder",
+            "displayName": "The Complete Snowboard - Powder",
+            "productId": "gid://shopify/Product/8651795923081",
+            "productTitle": "The Complete Snowboard"
+          }
+        },
+        {
+          "id": "gid://shopify/InventoryItem/48968085569673",
+          "tracked": true,
+          "updatedAt": "2026-06-04T08:49:54Z",
+          "variant": {
+            "id": "gid://shopify/ProductVariant/46840090263689",
+            "title": "Electric",
+            "displayName": "The Complete Snowboard - Electric",
+            "productId": "gid://shopify/Product/8651795923081",
+            "productTitle": "The Complete Snowboard"
+          }
+        },
+        {
+          "id": "gid://shopify/InventoryItem/48968085602441",
+          "tracked": true,
+          "updatedAt": "2026-06-04T08:49:54Z",
+          "variant": {
+            "id": "gid://shopify/ProductVariant/46840090296457",
+            "title": "Sunset",
+            "displayName": "The Complete Snowboard - Sunset",
+            "productId": "gid://shopify/Product/8651795923081",
+            "productTitle": "The Complete Snowboard"
+          }
+        },
+        {
+          "id": "gid://shopify/InventoryItem/48968085635209",
+          "tracked": true,
+          "updatedAt": "2026-06-04T08:49:54Z",
+          "variant": {
+            "id": "gid://shopify/ProductVariant/46840090132617",
+            "title": "Default Title",
+            "displayName": "The Out of Stock Snowboard - Default Title",
+            "productId": "gid://shopify/Product/8651795759241",
+            "productTitle": "The Out of Stock Snowboard"
+          }
+        },
+        {
+          "id": "gid://shopify/InventoryItem/48968085766281",
+          "tracked": true,
+          "updatedAt": "2026-06-04T08:49:55Z",
+          "variant": {
+            "id": "gid://shopify/ProductVariant/46840090427529",
+            "title": "Default Title",
+            "displayName": "The Multi-location Snowboard - Default Title",
+            "productId": "gid://shopify/Product/8651795988617",
+            "productTitle": "The Multi-location Snowboard"
+          }
+        },
+        {
+          "id": "gid://shopify/InventoryItem/48968085799049",
+          "sku": "sku-managed-1",
+          "tracked": true,
+          "updatedAt": "2026-06-04T08:49:55Z",
+          "variant": {
+            "id": "gid://shopify/ProductVariant/46840090460297",
+            "title": "Default Title",
+            "displayName": "The Multi-managed Snowboard - Default Title",
+            "productId": "gid://shopify/Product/8651796021385",
+            "productTitle": "The Multi-managed Snowboard"
+          }
+        },
+        {
+          "id": "gid://shopify/InventoryItem/48968085831817",
+          "sku": "sku-hosted-1",
+          "tracked": true,
+          "updatedAt": "2026-06-04T08:49:55Z",
+          "variant": {
+            "id": "gid://shopify/ProductVariant/46840090493065",
+            "title": "Default Title",
+            "displayName": "The 3p Fulfilled Snowboard - Default Title",
+            "productId": "gid://shopify/Product/8651796054153",
+            "productTitle": "The 3p Fulfilled Snowboard"
+          }
+        },
+        {
+          "id": "gid://shopify/InventoryItem/48968085864585",
+          "tracked": true,
+          "updatedAt": "2026-06-04T08:49:55Z",
+          "variant": {
+            "id": "gid://shopify/ProductVariant/46840090525833",
+            "title": "Default Title",
+            "displayName": "The Collection Snowboard: Oxygen - Default Title",
+            "productId": "gid://shopify/Product/8651796086921",
+            "productTitle": "The Collection Snowboard: Oxygen"
+          }
+        },
+        {
+          "id": "gid://shopify/InventoryItem/48968085930121",
+          "tracked": true,
+          "updatedAt": "2026-06-04T08:49:56Z",
+          "variant": {
+            "id": "gid://shopify/ProductVariant/46840090591369",
+            "title": "Default Title",
+            "displayName": "The Collection Snowboard: Liquid - Default Title",
+            "productId": "gid://shopify/Product/8651796119689",
+            "productTitle": "The Collection Snowboard: Liquid"
+          }
+        },
+        {
+          "id": "gid://shopify/InventoryItem/48968151367817",
+          "tracked": false,
+          "updatedAt": "2026-06-04T09:39:02Z",
+          "variant": {
+            "id": "gid://shopify/ProductVariant/46840155373705",
+            "title": "Small",
+            "displayName": "Nango Test Product - Small",
+            "productId": "gid://shopify/Product/8651812864137",
+            "productTitle": "Nango Test Product"
+          }
+        },
+        {
+          "id": "gid://shopify/InventoryItem/48968151564425",
+          "tracked": false,
+          "updatedAt": "2026-06-04T09:39:39Z",
+          "variant": {
+            "id": "gid://shopify/ProductVariant/46840155570313",
+            "title": "Red",
+            "displayName": "Delete Option Test Product - Red",
+            "productId": "gid://shopify/Product/8651813060745",
+            "productTitle": "Delete Option Test Product"
+          }
+        },
+        {
+          "id": "gid://shopify/InventoryItem/48968151957641",
+          "tracked": false,
+          "updatedAt": "2026-06-04T09:40:08Z",
+          "variant": {
+            "id": "gid://shopify/ProductVariant/46840155963529",
+            "title": "Red",
+            "displayName": "Delete Option Test Product 2 - Red",
+            "productId": "gid://shopify/Product/8651813486729",
+            "productTitle": "Delete Option Test Product 2"
+          }
+        },
+        {
+          "id": "gid://shopify/InventoryItem/48968152285321",
+          "tracked": false,
+          "updatedAt": "2026-06-04T09:40:46Z",
+          "variant": {
+            "id": "gid://shopify/ProductVariant/46840156291209",
+            "title": "Default Title",
+            "displayName": "Nango Test Product for Variant Deletion - Default Title",
+            "productId": "gid://shopify/Product/8651813748873",
+            "productTitle": "Nango Test Product for Variant Deletion"
+          }
+        },
+        {
+          "id": "gid://shopify/InventoryItem/48968153301129",
+          "tracked": true,
+          "updatedAt": "2026-06-04T09:43:02Z",
+          "variant": {
+            "id": "gid://shopify/ProductVariant/46840157307017",
+            "title": "Medium",
+            "displayName": "Nango Test Product - Medium",
+            "productId": "gid://shopify/Product/8651812864137",
+            "productTitle": "Nango Test Product"
+          }
+        },
+        {
+          "id": "gid://shopify/InventoryItem/48968153333897",
+          "tracked": true,
+          "updatedAt": "2026-06-04T09:43:02Z",
+          "variant": {
+            "id": "gid://shopify/ProductVariant/46840157339785",
+            "title": "Large",
+            "displayName": "Nango Test Product - Large",
+            "productId": "gid://shopify/Product/8651812864137",
+            "productTitle": "Nango Test Product"
+          }
+        },
+        {
+          "id": "gid://shopify/InventoryItem/48968153497737",
+          "tracked": false,
+          "updatedAt": "2026-06-04T09:43:43Z",
+          "variant": {
+            "id": "gid://shopify/ProductVariant/46840157503625",
+            "title": "Default Title",
+            "displayName": "Nango Test Product - Default Title",
+            "productId": "gid://shopify/Product/8651814666377",
+            "productTitle": "Nango Test Product"
+          }
+        },
+        {
+          "id": "gid://shopify/InventoryItem/48968153628809",
+          "tracked": false,
+          "updatedAt": "2026-06-04T09:43:56Z",
+          "variant": {
+            "id": "gid://shopify/ProductVariant/46840157634697",
+            "title": "Default Title",
+            "displayName": "Nango Test Product - Default Title",
+            "productId": "gid://shopify/Product/8651814797449",
+            "productTitle": "Nango Test Product"
+          }
+        },
+        {
+          "id": "gid://shopify/InventoryItem/48968153661577",
+          "tracked": true,
+          "updatedAt": "2026-06-04T09:44:03Z",
+          "variant": {
+            "id": "gid://shopify/ProductVariant/46840157667465",
+            "title": "Special",
+            "displayName": "Nango Test Product 2 - Special",
+            "productId": "gid://shopify/Product/8651814731913",
+            "productTitle": "Nango Test Product 2"
+          }
+        },
+        {
+          "id": "gid://shopify/InventoryItem/48968153825417",
+          "tracked": true,
+          "updatedAt": "2026-06-04T09:44:27Z",
+          "variant": {
+            "id": "gid://shopify/ProductVariant/46840157831305",
+            "title": "ValidateTest",
+            "displayName": "Nango Test Product 2 - ValidateTest",
+            "productId": "gid://shopify/Product/8651814731913",
+            "productTitle": "Nango Test Product 2"
+          }
+        },
+        {
+          "id": "gid://shopify/InventoryItem/48968153989257",
+          "tracked": false,
+          "updatedAt": "2026-06-04T09:45:17Z",
+          "variant": {
+            "id": "gid://shopify/ProductVariant/46840157995145",
+            "title": "Default Title",
+            "displayName": "Nango Test Product for Deletion - Default Title",
+            "productId": "gid://shopify/Product/8651814338697",
+            "productTitle": "Nango Test Product for Deletion"
+          }
+        },
+        {
+          "id": "gid://shopify/InventoryItem/48968154480777",
+          "tracked": true,
+          "updatedAt": "2026-06-04T09:46:29Z",
+          "variant": {
+            "id": "gid://shopify/ProductVariant/46840158486665",
+            "title": "ValidateTest2",
+            "displayName": "Nango Test Product 2 - ValidateTest2",
+            "productId": "gid://shopify/Product/8651814731913",
+            "productTitle": "Nango Test Product 2"
+          }
+        },
+        {
+          "id": "gid://shopify/InventoryItem/48968154873993",
+          "tracked": true,
+          "updatedAt": "2026-06-04T09:46:39Z",
+          "variant": {
+            "id": "gid://shopify/ProductVariant/46840158879881",
+            "title": "SaveTest1",
+            "displayName": "Nango Test Product 2 - SaveTest1",
+            "productId": "gid://shopify/Product/8651814731913",
+            "productTitle": "Nango Test Product 2"
+          }
+        },
+        {
+          "id": "gid://shopify/InventoryItem/48968155070601",
+          "tracked": false,
+          "updatedAt": "2026-06-04T09:47:04Z",
+          "variant": {
+            "id": "gid://shopify/ProductVariant/46840159076489",
+            "title": "Default Title",
+            "displayName": "Test Deactivation Product - Default Title",
+            "productId": "gid://shopify/Product/8651815616649",
+            "productTitle": "Test Deactivation Product"
+          }
+        },
+        {
+          "id": "gid://shopify/InventoryItem/48968156840073",
+          "tracked": false,
+          "updatedAt": "2026-06-04T09:50:05Z",
+          "variant": {
+            "id": "gid://shopify/ProductVariant/46840160878729",
+            "title": "Default Title",
+            "displayName": "Test Product - Default Title",
+            "productId": "gid://shopify/Product/8651816829065",
+            "productTitle": "Test Product"
+          }
+        },
+        {
+          "id": "gid://shopify/InventoryItem/48968157692041",
+          "tracked": false,
+          "updatedAt": "2026-06-04T09:50:19Z",
+          "variant": {
+            "id": "gid://shopify/ProductVariant/46840161697929",
+            "title": "Default Title",
+            "displayName": "Test Product - Default Title",
+            "productId": "gid://shopify/Product/8651816861833",
+            "productTitle": "Test Product"
+          }
+        },
+        {
+          "id": "gid://shopify/InventoryItem/48968157790345",
+          "tracked": false,
+          "updatedAt": "2026-06-04T09:50:36Z",
+          "variant": {
+            "id": "gid://shopify/ProductVariant/46840161796233",
+            "title": "Default Title",
+            "displayName": "Test Product - Default Title",
+            "productId": "gid://shopify/Product/8651816960137",
+            "productTitle": "Test Product"
+          }
+        },
+        {
+          "id": "gid://shopify/InventoryItem/48968158904457",
+          "tracked": false,
+          "updatedAt": "2026-06-04T09:52:40Z",
+          "variant": {
+            "id": "gid://shopify/ProductVariant/46840162910345",
+            "title": "Default Title",
+            "displayName": "Test Product - Default Title",
+            "productId": "gid://shopify/Product/8651818074249",
+            "productTitle": "Test Product"
+          }
+        },
+        {
+          "id": "gid://shopify/InventoryItem/48968160346249",
+          "tracked": false,
+          "updatedAt": "2026-06-04T09:57:02Z",
+          "variant": {
+            "id": "gid://shopify/ProductVariant/46840164352137",
+            "title": "Default Title",
+            "displayName": "Test Product for Refund - Default Title",
+            "productId": "gid://shopify/Product/8651819352201",
+            "productTitle": "Test Product for Refund"
+          }
+        },
+        {
+          "id": "gid://shopify/InventoryItem/48968219951241",
+          "tracked": false,
+          "updatedAt": "2026-06-04T10:48:58Z",
+          "variant": {
+            "id": "gid://shopify/ProductVariant/46840223662217",
+            "title": "Default Title",
+            "displayName": "Nango Test Product - Default Title",
+            "productId": "gid://shopify/Product/8651840716937",
+            "productTitle": "Nango Test Product"
+          }
+        },
+        {
+          "id": "gid://shopify/InventoryItem/48968220409993",
+          "tracked": false,
+          "updatedAt": "2026-06-04T10:50:39Z",
+          "variant": {
+            "id": "gid://shopify/ProductVariant/46840224120969",
+            "title": "Default Title",
+            "displayName": "Test Product - Default Title",
+            "productId": "gid://shopify/Product/8651841372297",
+            "productTitle": "Test Product"
+          }
+        },
+        {
+          "id": "gid://shopify/InventoryItem/48968220508297",
+          "tracked": false,
+          "updatedAt": "2026-06-04T10:50:51Z",
+          "variant": {
+            "id": "gid://shopify/ProductVariant/46840224219273",
+            "title": "Default Title",
+            "displayName": "Updated Test Product - Default Title",
+            "productId": "gid://shopify/Product/8651841470601",
+            "productTitle": "Updated Test Product"
+          }
+        }
+      ]
+    },
+    "batchDelete": {
+      "InventoryItem": []
+    }
+  },
+  "api": {
+    "post": {
+      "/admin/api/2025-01/graphql.json": [
+        {
+          "response": {
+            "data": {
+              "inventoryItems": {
+                "nodes": [
+                  {
+                    "id": "gid://shopify/InventoryItem/48968084914313",
+                    "sku": "TEST-SKU-001",
+                    "tracked": true,
+                    "unitCost": null,
+                    "countryCodeOfOrigin": null,
+                    "harmonizedSystemCode": null,
+                    "updatedAt": "2026-06-04T10:48:54Z",
+                    "variant": {
+                      "id": "gid://shopify/ProductVariant/46840089608329",
+                      "title": "Default Title",
+                      "displayName": "The Videographer Snowboard - Default Title",
+                      "product": {
+                        "id": "gid://shopify/Product/8651795792009",
+                        "title": "The Videographer Snowboard"
+                      }
+                    }
+                  },
+                  {
+                    "id": "gid://shopify/InventoryItem/48968084947081",
+                    "sku": null,
+                    "tracked": true,
+                    "unitCost": null,
+                    "countryCodeOfOrigin": null,
+                    "harmonizedSystemCode": null,
+                    "updatedAt": "2026-06-04T08:49:54Z",
+                    "variant": {
+                      "id": "gid://shopify/ProductVariant/46840089575561",
+                      "title": "Default Title",
+                      "displayName": "The Draft Snowboard - Default Title",
+                      "product": {
+                        "id": "gid://shopify/Product/8651795693705",
+                        "title": "The Draft Snowboard"
+                      }
+                    }
+                  },
+                  {
+                    "id": "gid://shopify/InventoryItem/48968084979849",
+                    "sku": null,
+                    "tracked": true,
+                    "unitCost": null,
+                    "countryCodeOfOrigin": null,
+                    "harmonizedSystemCode": null,
+                    "updatedAt": "2026-06-04T08:49:54Z",
+                    "variant": {
+                      "id": "gid://shopify/ProductVariant/46840089641097",
+                      "title": "Blue / Small",
+                      "displayName": "The Minimal Snowboard - Blue / Small",
+                      "product": {
+                        "id": "gid://shopify/Product/8651795628169",
+                        "title": "The Minimal Snowboard"
+                      }
+                    }
+                  },
+                  {
+                    "id": "gid://shopify/InventoryItem/48968085012617",
+                    "sku": null,
+                    "tracked": true,
+                    "unitCost": null,
+                    "countryCodeOfOrigin": null,
+                    "harmonizedSystemCode": null,
+                    "updatedAt": "2026-06-04T08:49:54Z",
+                    "variant": {
+                      "id": "gid://shopify/ProductVariant/46840089673865",
+                      "title": "$10",
+                      "displayName": "Gift Card - $10",
+                      "product": {
+                        "id": "gid://shopify/Product/8651795562633",
+                        "title": "Gift Card"
+                      }
+                    }
+                  },
+                  {
+                    "id": "gid://shopify/InventoryItem/48968085045385",
+                    "sku": null,
+                    "tracked": true,
+                    "unitCost": null,
+                    "countryCodeOfOrigin": null,
+                    "harmonizedSystemCode": null,
+                    "updatedAt": "2026-06-04T08:49:54Z",
+                    "variant": {
+                      "id": "gid://shopify/ProductVariant/46840089706633",
+                      "title": "$25",
+                      "displayName": "Gift Card - $25",
+                      "product": {
+                        "id": "gid://shopify/Product/8651795562633",
+                        "title": "Gift Card"
+                      }
+                    }
+                  },
+                  {
+                    "id": "gid://shopify/InventoryItem/48968085078153",
+                    "sku": null,
+                    "tracked": true,
+                    "unitCost": null,
+                    "countryCodeOfOrigin": null,
+                    "harmonizedSystemCode": null,
+                    "updatedAt": "2026-06-04T08:49:54Z",
+                    "variant": {
+                      "id": "gid://shopify/ProductVariant/46840089739401",
+                      "title": "$50",
+                      "displayName": "Gift Card - $50",
+                      "product": {
+                        "id": "gid://shopify/Product/8651795562633",
+                        "title": "Gift Card"
+                      }
+                    }
+                  },
+                  {
+                    "id": "gid://shopify/InventoryItem/48968085110921",
+                    "sku": null,
+                    "tracked": true,
+                    "unitCost": null,
+                    "countryCodeOfOrigin": null,
+                    "harmonizedSystemCode": null,
+                    "updatedAt": "2026-06-04T08:49:54Z",
+                    "variant": {
+                      "id": "gid://shopify/ProductVariant/46840089772169",
+                      "title": "$100",
+                      "displayName": "Gift Card - $100",
+                      "product": {
+                        "id": "gid://shopify/Product/8651795562633",
+                        "title": "Gift Card"
+                      }
+                    }
+                  },
+                  {
+                    "id": "gid://shopify/InventoryItem/48968085143689",
+                    "sku": null,
+                    "tracked": true,
+                    "unitCost": null,
+                    "countryCodeOfOrigin": null,
+                    "harmonizedSystemCode": null,
+                    "updatedAt": "2026-06-04T08:49:54Z",
+                    "variant": {
+                      "id": "gid://shopify/ProductVariant/46840089804937",
+                      "title": "Default Title",
+                      "displayName": "The Archived Snowboard - Default Title",
+                      "product": {
+                        "id": "gid://shopify/Product/8651795857545",
+                        "title": "The Archived Snowboard"
+                      }
+                    }
+                  },
+                  {
+                    "id": "gid://shopify/InventoryItem/48968085209225",
+                    "sku": "sku-untracked-1",
+                    "tracked": false,
+                    "unitCost": null,
+                    "countryCodeOfOrigin": null,
+                    "harmonizedSystemCode": null,
+                    "updatedAt": "2026-06-04T08:49:54Z",
+                    "variant": {
+                      "id": "gid://shopify/ProductVariant/46840089870473",
+                      "title": "Default Title",
+                      "displayName": "The Inventory Not Tracked Snowboard - Default Title",
+                      "product": {
+                        "id": "gid://shopify/Product/8651795595401",
+                        "title": "The Inventory Not Tracked Snowboard"
+                      }
+                    }
+                  },
+                  {
+                    "id": "gid://shopify/InventoryItem/48968085241993",
+                    "sku": null,
+                    "tracked": true,
+                    "unitCost": null,
+                    "countryCodeOfOrigin": null,
+                    "harmonizedSystemCode": null,
+                    "updatedAt": "2026-06-04T08:49:54Z",
+                    "variant": {
+                      "id": "gid://shopify/ProductVariant/46840089903241",
+                      "title": "Default Title",
+                      "displayName": "The Collection Snowboard: Hydrogen - Default Title",
+                      "product": {
+                        "id": "gid://shopify/Product/8651795660937",
+                        "title": "The Collection Snowboard: Hydrogen"
+                      }
+                    }
+                  },
+                  {
+                    "id": "gid://shopify/InventoryItem/48968085274761",
+                    "sku": null,
+                    "tracked": true,
+                    "unitCost": null,
+                    "countryCodeOfOrigin": null,
+                    "harmonizedSystemCode": null,
+                    "updatedAt": "2026-06-04T08:49:54Z",
+                    "variant": {
+                      "id": "gid://shopify/ProductVariant/46840090067081",
+                      "title": "Default Title",
+                      "displayName": "The Hidden Snowboard - Default Title",
+                      "product": {
+                        "id": "gid://shopify/Product/8651795890313",
+                        "title": "The Hidden Snowboard"
+                      }
+                    }
+                  },
+                  {
+                    "id": "gid://shopify/InventoryItem/48968085307529",
+                    "sku": null,
+                    "tracked": true,
+                    "unitCost": null,
+                    "countryCodeOfOrigin": null,
+                    "harmonizedSystemCode": null,
+                    "updatedAt": "2026-06-04T08:49:54Z",
+                    "variant": {
+                      "id": "gid://shopify/ProductVariant/46840089936009",
+                      "title": "Selling Plans Ski Wax",
+                      "displayName": "Selling Plans Ski Wax - Selling Plans Ski Wax",
+                      "product": {
+                        "id": "gid://shopify/Product/8651795726473",
+                        "title": "Selling Plans Ski Wax"
+                      }
+                    }
+                  },
+                  {
+                    "id": "gid://shopify/InventoryItem/48968085340297",
+                    "sku": null,
+                    "tracked": true,
+                    "unitCost": null,
+                    "countryCodeOfOrigin": null,
+                    "harmonizedSystemCode": null,
+                    "updatedAt": "2026-06-04T08:49:54Z",
+                    "variant": {
+                      "id": "gid://shopify/ProductVariant/46840089968777",
+                      "title": "Special Selling Plans Ski Wax",
+                      "displayName": "Selling Plans Ski Wax - Special Selling Plans Ski Wax",
+                      "product": {
+                        "id": "gid://shopify/Product/8651795726473",
+                        "title": "Selling Plans Ski Wax"
+                      }
+                    }
+                  },
+                  {
+                    "id": "gid://shopify/InventoryItem/48968085373065",
+                    "sku": null,
+                    "tracked": true,
+                    "unitCost": null,
+                    "countryCodeOfOrigin": null,
+                    "harmonizedSystemCode": null,
+                    "updatedAt": "2026-06-04T08:49:54Z",
+                    "variant": {
+                      "id": "gid://shopify/ProductVariant/46840090001545",
+                      "title": "Sample Selling Plans Ski Wax",
+                      "displayName": "Selling Plans Ski Wax - Sample Selling Plans Ski Wax",
+                      "product": {
+                        "id": "gid://shopify/Product/8651795726473",
+                        "title": "Selling Plans Ski Wax"
+                      }
+                    }
+                  },
+                  {
+                    "id": "gid://shopify/InventoryItem/48968085405833",
+                    "sku": null,
+                    "tracked": true,
+                    "unitCost": null,
+                    "countryCodeOfOrigin": null,
+                    "harmonizedSystemCode": null,
+                    "updatedAt": "2026-06-04T08:49:54Z",
+                    "variant": {
+                      "id": "gid://shopify/ProductVariant/46840090034313",
+                      "title": "Default Title",
+                      "displayName": "The Compare at Price Snowboard - Default Title",
+                      "product": {
+                        "id": "gid://shopify/Product/8651795824777",
+                        "title": "The Compare at Price Snowboard"
+                      }
+                    }
+                  },
+                  {
+                    "id": "gid://shopify/InventoryItem/48968085471369",
+                    "sku": null,
+                    "tracked": true,
+                    "unitCost": null,
+                    "countryCodeOfOrigin": null,
+                    "harmonizedSystemCode": null,
+                    "updatedAt": "2026-06-04T08:49:54Z",
+                    "variant": {
+                      "id": "gid://shopify/ProductVariant/46840090165385",
+                      "title": "Ice",
+                      "displayName": "The Complete Snowboard - Ice",
+                      "product": {
+                        "id": "gid://shopify/Product/8651795923081",
+                        "title": "The Complete Snowboard"
+                      }
+                    }
+                  },
+                  {
+                    "id": "gid://shopify/InventoryItem/48968085504137",
+                    "sku": null,
+                    "tracked": true,
+                    "unitCost": null,
+                    "countryCodeOfOrigin": null,
+                    "harmonizedSystemCode": null,
+                    "updatedAt": "2026-06-04T08:49:54Z",
+                    "variant": {
+                      "id": "gid://shopify/ProductVariant/46840090198153",
+                      "title": "Dawn",
+                      "displayName": "The Complete Snowboard - Dawn",
+                      "product": {
+                        "id": "gid://shopify/Product/8651795923081",
+                        "title": "The Complete Snowboard"
+                      }
+                    }
+                  },
+                  {
+                    "id": "gid://shopify/InventoryItem/48968085536905",
+                    "sku": null,
+                    "tracked": true,
+                    "unitCost": null,
+                    "countryCodeOfOrigin": null,
+                    "harmonizedSystemCode": null,
+                    "updatedAt": "2026-06-04T08:49:54Z",
+                    "variant": {
+                      "id": "gid://shopify/ProductVariant/46840090230921",
+                      "title": "Powder",
+                      "displayName": "The Complete Snowboard - Powder",
+                      "product": {
+                        "id": "gid://shopify/Product/8651795923081",
+                        "title": "The Complete Snowboard"
+                      }
+                    }
+                  },
+                  {
+                    "id": "gid://shopify/InventoryItem/48968085569673",
+                    "sku": null,
+                    "tracked": true,
+                    "unitCost": null,
+                    "countryCodeOfOrigin": null,
+                    "harmonizedSystemCode": null,
+                    "updatedAt": "2026-06-04T08:49:54Z",
+                    "variant": {
+                      "id": "gid://shopify/ProductVariant/46840090263689",
+                      "title": "Electric",
+                      "displayName": "The Complete Snowboard - Electric",
+                      "product": {
+                        "id": "gid://shopify/Product/8651795923081",
+                        "title": "The Complete Snowboard"
+                      }
+                    }
+                  },
+                  {
+                    "id": "gid://shopify/InventoryItem/48968085602441",
+                    "sku": null,
+                    "tracked": true,
+                    "unitCost": null,
+                    "countryCodeOfOrigin": null,
+                    "harmonizedSystemCode": null,
+                    "updatedAt": "2026-06-04T08:49:54Z",
+                    "variant": {
+                      "id": "gid://shopify/ProductVariant/46840090296457",
+                      "title": "Sunset",
+                      "displayName": "The Complete Snowboard - Sunset",
+                      "product": {
+                        "id": "gid://shopify/Product/8651795923081",
+                        "title": "The Complete Snowboard"
+                      }
+                    }
+                  },
+                  {
+                    "id": "gid://shopify/InventoryItem/48968085635209",
+                    "sku": null,
+                    "tracked": true,
+                    "unitCost": null,
+                    "countryCodeOfOrigin": null,
+                    "harmonizedSystemCode": null,
+                    "updatedAt": "2026-06-04T08:49:54Z",
+                    "variant": {
+                      "id": "gid://shopify/ProductVariant/46840090132617",
+                      "title": "Default Title",
+                      "displayName": "The Out of Stock Snowboard - Default Title",
+                      "product": {
+                        "id": "gid://shopify/Product/8651795759241",
+                        "title": "The Out of Stock Snowboard"
+                      }
+                    }
+                  },
+                  {
+                    "id": "gid://shopify/InventoryItem/48968085766281",
+                    "sku": null,
+                    "tracked": true,
+                    "unitCost": null,
+                    "countryCodeOfOrigin": null,
+                    "harmonizedSystemCode": null,
+                    "updatedAt": "2026-06-04T08:49:55Z",
+                    "variant": {
+                      "id": "gid://shopify/ProductVariant/46840090427529",
+                      "title": "Default Title",
+                      "displayName": "The Multi-location Snowboard - Default Title",
+                      "product": {
+                        "id": "gid://shopify/Product/8651795988617",
+                        "title": "The Multi-location Snowboard"
+                      }
+                    }
+                  },
+                  {
+                    "id": "gid://shopify/InventoryItem/48968085799049",
+                    "sku": "sku-managed-1",
+                    "tracked": true,
+                    "unitCost": null,
+                    "countryCodeOfOrigin": null,
+                    "harmonizedSystemCode": null,
+                    "updatedAt": "2026-06-04T08:49:55Z",
+                    "variant": {
+                      "id": "gid://shopify/ProductVariant/46840090460297",
+                      "title": "Default Title",
+                      "displayName": "The Multi-managed Snowboard - Default Title",
+                      "product": {
+                        "id": "gid://shopify/Product/8651796021385",
+                        "title": "The Multi-managed Snowboard"
+                      }
+                    }
+                  },
+                  {
+                    "id": "gid://shopify/InventoryItem/48968085831817",
+                    "sku": "sku-hosted-1",
+                    "tracked": true,
+                    "unitCost": null,
+                    "countryCodeOfOrigin": null,
+                    "harmonizedSystemCode": null,
+                    "updatedAt": "2026-06-04T08:49:55Z",
+                    "variant": {
+                      "id": "gid://shopify/ProductVariant/46840090493065",
+                      "title": "Default Title",
+                      "displayName": "The 3p Fulfilled Snowboard - Default Title",
+                      "product": {
+                        "id": "gid://shopify/Product/8651796054153",
+                        "title": "The 3p Fulfilled Snowboard"
+                      }
+                    }
+                  },
+                  {
+                    "id": "gid://shopify/InventoryItem/48968085864585",
+                    "sku": null,
+                    "tracked": true,
+                    "unitCost": null,
+                    "countryCodeOfOrigin": null,
+                    "harmonizedSystemCode": null,
+                    "updatedAt": "2026-06-04T08:49:55Z",
+                    "variant": {
+                      "id": "gid://shopify/ProductVariant/46840090525833",
+                      "title": "Default Title",
+                      "displayName": "The Collection Snowboard: Oxygen - Default Title",
+                      "product": {
+                        "id": "gid://shopify/Product/8651796086921",
+                        "title": "The Collection Snowboard: Oxygen"
+                      }
+                    }
+                  },
+                  {
+                    "id": "gid://shopify/InventoryItem/48968085930121",
+                    "sku": null,
+                    "tracked": true,
+                    "unitCost": null,
+                    "countryCodeOfOrigin": null,
+                    "harmonizedSystemCode": null,
+                    "updatedAt": "2026-06-04T08:49:56Z",
+                    "variant": {
+                      "id": "gid://shopify/ProductVariant/46840090591369",
+                      "title": "Default Title",
+                      "displayName": "The Collection Snowboard: Liquid - Default Title",
+                      "product": {
+                        "id": "gid://shopify/Product/8651796119689",
+                        "title": "The Collection Snowboard: Liquid"
+                      }
+                    }
+                  },
+                  {
+                    "id": "gid://shopify/InventoryItem/48968151367817",
+                    "sku": null,
+                    "tracked": false,
+                    "unitCost": null,
+                    "countryCodeOfOrigin": null,
+                    "harmonizedSystemCode": null,
+                    "updatedAt": "2026-06-04T09:39:02Z",
+                    "variant": {
+                      "id": "gid://shopify/ProductVariant/46840155373705",
+                      "title": "Small",
+                      "displayName": "Nango Test Product - Small",
+                      "product": {
+                        "id": "gid://shopify/Product/8651812864137",
+                        "title": "Nango Test Product"
+                      }
+                    }
+                  },
+                  {
+                    "id": "gid://shopify/InventoryItem/48968151564425",
+                    "sku": null,
+                    "tracked": false,
+                    "unitCost": null,
+                    "countryCodeOfOrigin": null,
+                    "harmonizedSystemCode": null,
+                    "updatedAt": "2026-06-04T09:39:39Z",
+                    "variant": {
+                      "id": "gid://shopify/ProductVariant/46840155570313",
+                      "title": "Red",
+                      "displayName": "Delete Option Test Product - Red",
+                      "product": {
+                        "id": "gid://shopify/Product/8651813060745",
+                        "title": "Delete Option Test Product"
+                      }
+                    }
+                  },
+                  {
+                    "id": "gid://shopify/InventoryItem/48968151957641",
+                    "sku": null,
+                    "tracked": false,
+                    "unitCost": null,
+                    "countryCodeOfOrigin": null,
+                    "harmonizedSystemCode": null,
+                    "updatedAt": "2026-06-04T09:40:08Z",
+                    "variant": {
+                      "id": "gid://shopify/ProductVariant/46840155963529",
+                      "title": "Red",
+                      "displayName": "Delete Option Test Product 2 - Red",
+                      "product": {
+                        "id": "gid://shopify/Product/8651813486729",
+                        "title": "Delete Option Test Product 2"
+                      }
+                    }
+                  },
+                  {
+                    "id": "gid://shopify/InventoryItem/48968152285321",
+                    "sku": null,
+                    "tracked": false,
+                    "unitCost": null,
+                    "countryCodeOfOrigin": null,
+                    "harmonizedSystemCode": null,
+                    "updatedAt": "2026-06-04T09:40:46Z",
+                    "variant": {
+                      "id": "gid://shopify/ProductVariant/46840156291209",
+                      "title": "Default Title",
+                      "displayName": "Nango Test Product for Variant Deletion - Default Title",
+                      "product": {
+                        "id": "gid://shopify/Product/8651813748873",
+                        "title": "Nango Test Product for Variant Deletion"
+                      }
+                    }
+                  },
+                  {
+                    "id": "gid://shopify/InventoryItem/48968153301129",
+                    "sku": null,
+                    "tracked": true,
+                    "unitCost": null,
+                    "countryCodeOfOrigin": null,
+                    "harmonizedSystemCode": null,
+                    "updatedAt": "2026-06-04T09:43:02Z",
+                    "variant": {
+                      "id": "gid://shopify/ProductVariant/46840157307017",
+                      "title": "Medium",
+                      "displayName": "Nango Test Product - Medium",
+                      "product": {
+                        "id": "gid://shopify/Product/8651812864137",
+                        "title": "Nango Test Product"
+                      }
+                    }
+                  },
+                  {
+                    "id": "gid://shopify/InventoryItem/48968153333897",
+                    "sku": null,
+                    "tracked": true,
+                    "unitCost": null,
+                    "countryCodeOfOrigin": null,
+                    "harmonizedSystemCode": null,
+                    "updatedAt": "2026-06-04T09:43:02Z",
+                    "variant": {
+                      "id": "gid://shopify/ProductVariant/46840157339785",
+                      "title": "Large",
+                      "displayName": "Nango Test Product - Large",
+                      "product": {
+                        "id": "gid://shopify/Product/8651812864137",
+                        "title": "Nango Test Product"
+                      }
+                    }
+                  },
+                  {
+                    "id": "gid://shopify/InventoryItem/48968153497737",
+                    "sku": null,
+                    "tracked": false,
+                    "unitCost": null,
+                    "countryCodeOfOrigin": null,
+                    "harmonizedSystemCode": null,
+                    "updatedAt": "2026-06-04T09:43:43Z",
+                    "variant": {
+                      "id": "gid://shopify/ProductVariant/46840157503625",
+                      "title": "Default Title",
+                      "displayName": "Nango Test Product - Default Title",
+                      "product": {
+                        "id": "gid://shopify/Product/8651814666377",
+                        "title": "Nango Test Product"
+                      }
+                    }
+                  },
+                  {
+                    "id": "gid://shopify/InventoryItem/48968153628809",
+                    "sku": null,
+                    "tracked": false,
+                    "unitCost": null,
+                    "countryCodeOfOrigin": null,
+                    "harmonizedSystemCode": null,
+                    "updatedAt": "2026-06-04T09:43:56Z",
+                    "variant": {
+                      "id": "gid://shopify/ProductVariant/46840157634697",
+                      "title": "Default Title",
+                      "displayName": "Nango Test Product - Default Title",
+                      "product": {
+                        "id": "gid://shopify/Product/8651814797449",
+                        "title": "Nango Test Product"
+                      }
+                    }
+                  },
+                  {
+                    "id": "gid://shopify/InventoryItem/48968153661577",
+                    "sku": null,
+                    "tracked": true,
+                    "unitCost": null,
+                    "countryCodeOfOrigin": null,
+                    "harmonizedSystemCode": null,
+                    "updatedAt": "2026-06-04T09:44:03Z",
+                    "variant": {
+                      "id": "gid://shopify/ProductVariant/46840157667465",
+                      "title": "Special",
+                      "displayName": "Nango Test Product 2 - Special",
+                      "product": {
+                        "id": "gid://shopify/Product/8651814731913",
+                        "title": "Nango Test Product 2"
+                      }
+                    }
+                  },
+                  {
+                    "id": "gid://shopify/InventoryItem/48968153825417",
+                    "sku": null,
+                    "tracked": true,
+                    "unitCost": null,
+                    "countryCodeOfOrigin": null,
+                    "harmonizedSystemCode": null,
+                    "updatedAt": "2026-06-04T09:44:27Z",
+                    "variant": {
+                      "id": "gid://shopify/ProductVariant/46840157831305",
+                      "title": "ValidateTest",
+                      "displayName": "Nango Test Product 2 - ValidateTest",
+                      "product": {
+                        "id": "gid://shopify/Product/8651814731913",
+                        "title": "Nango Test Product 2"
+                      }
+                    }
+                  },
+                  {
+                    "id": "gid://shopify/InventoryItem/48968153989257",
+                    "sku": null,
+                    "tracked": false,
+                    "unitCost": null,
+                    "countryCodeOfOrigin": null,
+                    "harmonizedSystemCode": null,
+                    "updatedAt": "2026-06-04T09:45:17Z",
+                    "variant": {
+                      "id": "gid://shopify/ProductVariant/46840157995145",
+                      "title": "Default Title",
+                      "displayName": "Nango Test Product for Deletion - Default Title",
+                      "product": {
+                        "id": "gid://shopify/Product/8651814338697",
+                        "title": "Nango Test Product for Deletion"
+                      }
+                    }
+                  },
+                  {
+                    "id": "gid://shopify/InventoryItem/48968154480777",
+                    "sku": null,
+                    "tracked": true,
+                    "unitCost": null,
+                    "countryCodeOfOrigin": null,
+                    "harmonizedSystemCode": null,
+                    "updatedAt": "2026-06-04T09:46:29Z",
+                    "variant": {
+                      "id": "gid://shopify/ProductVariant/46840158486665",
+                      "title": "ValidateTest2",
+                      "displayName": "Nango Test Product 2 - ValidateTest2",
+                      "product": {
+                        "id": "gid://shopify/Product/8651814731913",
+                        "title": "Nango Test Product 2"
+                      }
+                    }
+                  },
+                  {
+                    "id": "gid://shopify/InventoryItem/48968154873993",
+                    "sku": null,
+                    "tracked": true,
+                    "unitCost": null,
+                    "countryCodeOfOrigin": null,
+                    "harmonizedSystemCode": null,
+                    "updatedAt": "2026-06-04T09:46:39Z",
+                    "variant": {
+                      "id": "gid://shopify/ProductVariant/46840158879881",
+                      "title": "SaveTest1",
+                      "displayName": "Nango Test Product 2 - SaveTest1",
+                      "product": {
+                        "id": "gid://shopify/Product/8651814731913",
+                        "title": "Nango Test Product 2"
+                      }
+                    }
+                  },
+                  {
+                    "id": "gid://shopify/InventoryItem/48968155070601",
+                    "sku": null,
+                    "tracked": false,
+                    "unitCost": null,
+                    "countryCodeOfOrigin": null,
+                    "harmonizedSystemCode": null,
+                    "updatedAt": "2026-06-04T09:47:04Z",
+                    "variant": {
+                      "id": "gid://shopify/ProductVariant/46840159076489",
+                      "title": "Default Title",
+                      "displayName": "Test Deactivation Product - Default Title",
+                      "product": {
+                        "id": "gid://shopify/Product/8651815616649",
+                        "title": "Test Deactivation Product"
+                      }
+                    }
+                  },
+                  {
+                    "id": "gid://shopify/InventoryItem/48968156840073",
+                    "sku": null,
+                    "tracked": false,
+                    "unitCost": null,
+                    "countryCodeOfOrigin": null,
+                    "harmonizedSystemCode": null,
+                    "updatedAt": "2026-06-04T09:50:05Z",
+                    "variant": {
+                      "id": "gid://shopify/ProductVariant/46840160878729",
+                      "title": "Default Title",
+                      "displayName": "Test Product - Default Title",
+                      "product": {
+                        "id": "gid://shopify/Product/8651816829065",
+                        "title": "Test Product"
+                      }
+                    }
+                  },
+                  {
+                    "id": "gid://shopify/InventoryItem/48968157692041",
+                    "sku": null,
+                    "tracked": false,
+                    "unitCost": null,
+                    "countryCodeOfOrigin": null,
+                    "harmonizedSystemCode": null,
+                    "updatedAt": "2026-06-04T09:50:19Z",
+                    "variant": {
+                      "id": "gid://shopify/ProductVariant/46840161697929",
+                      "title": "Default Title",
+                      "displayName": "Test Product - Default Title",
+                      "product": {
+                        "id": "gid://shopify/Product/8651816861833",
+                        "title": "Test Product"
+                      }
+                    }
+                  },
+                  {
+                    "id": "gid://shopify/InventoryItem/48968157790345",
+                    "sku": null,
+                    "tracked": false,
+                    "unitCost": null,
+                    "countryCodeOfOrigin": null,
+                    "harmonizedSystemCode": null,
+                    "updatedAt": "2026-06-04T09:50:36Z",
+                    "variant": {
+                      "id": "gid://shopify/ProductVariant/46840161796233",
+                      "title": "Default Title",
+                      "displayName": "Test Product - Default Title",
+                      "product": {
+                        "id": "gid://shopify/Product/8651816960137",
+                        "title": "Test Product"
+                      }
+                    }
+                  },
+                  {
+                    "id": "gid://shopify/InventoryItem/48968158904457",
+                    "sku": null,
+                    "tracked": false,
+                    "unitCost": null,
+                    "countryCodeOfOrigin": null,
+                    "harmonizedSystemCode": null,
+                    "updatedAt": "2026-06-04T09:52:40Z",
+                    "variant": {
+                      "id": "gid://shopify/ProductVariant/46840162910345",
+                      "title": "Default Title",
+                      "displayName": "Test Product - Default Title",
+                      "product": {
+                        "id": "gid://shopify/Product/8651818074249",
+                        "title": "Test Product"
+                      }
+                    }
+                  },
+                  {
+                    "id": "gid://shopify/InventoryItem/48968160346249",
+                    "sku": null,
+                    "tracked": false,
+                    "unitCost": null,
+                    "countryCodeOfOrigin": null,
+                    "harmonizedSystemCode": null,
+                    "updatedAt": "2026-06-04T09:57:02Z",
+                    "variant": {
+                      "id": "gid://shopify/ProductVariant/46840164352137",
+                      "title": "Default Title",
+                      "displayName": "Test Product for Refund - Default Title",
+                      "product": {
+                        "id": "gid://shopify/Product/8651819352201",
+                        "title": "Test Product for Refund"
+                      }
+                    }
+                  },
+                  {
+                    "id": "gid://shopify/InventoryItem/48968219951241",
+                    "sku": null,
+                    "tracked": false,
+                    "unitCost": null,
+                    "countryCodeOfOrigin": null,
+                    "harmonizedSystemCode": null,
+                    "updatedAt": "2026-06-04T10:48:58Z",
+                    "variant": {
+                      "id": "gid://shopify/ProductVariant/46840223662217",
+                      "title": "Default Title",
+                      "displayName": "Nango Test Product - Default Title",
+                      "product": {
+                        "id": "gid://shopify/Product/8651840716937",
+                        "title": "Nango Test Product"
+                      }
+                    }
+                  },
+                  {
+                    "id": "gid://shopify/InventoryItem/48968220409993",
+                    "sku": null,
+                    "tracked": false,
+                    "unitCost": null,
+                    "countryCodeOfOrigin": null,
+                    "harmonizedSystemCode": null,
+                    "updatedAt": "2026-06-04T10:50:39Z",
+                    "variant": {
+                      "id": "gid://shopify/ProductVariant/46840224120969",
+                      "title": "Default Title",
+                      "displayName": "Test Product - Default Title",
+                      "product": {
+                        "id": "gid://shopify/Product/8651841372297",
+                        "title": "Test Product"
+                      }
+                    }
+                  },
+                  {
+                    "id": "gid://shopify/InventoryItem/48968220508297",
+                    "sku": null,
+                    "tracked": false,
+                    "unitCost": null,
+                    "countryCodeOfOrigin": null,
+                    "harmonizedSystemCode": null,
+                    "updatedAt": "2026-06-04T10:50:51Z",
+                    "variant": {
+                      "id": "gid://shopify/ProductVariant/46840224219273",
+                      "title": "Default Title",
+                      "displayName": "Updated Test Product - Default Title",
+                      "product": {
+                        "id": "gid://shopify/Product/8651841470601",
+                        "title": "Updated Test Product"
+                      }
+                    }
+                  }
+                ],
+                "pageInfo": {
+                  "hasNextPage": false,
+                  "endCursor": "eyJsYXN0X2lkIjo0ODk2ODIyMDUwODI5NywibGFzdF92YWx1ZSI6IjQ4OTY4MjIwNTA4Mjk3In0="
+                }
+              }
+            },
+            "extensions": {
+              "cost": {
+                "requestedQueryCost": 29,
+                "actualQueryCost": 16,
+                "throttleStatus": {
+                  "maximumAvailable": 4000,
+                  "currentlyAvailable": 3984,
+                  "restoreRate": 200
+                }
+              }
+            }
+          },
+          "status": 200,
+          "headers": {
+            "date": "Thu, 04 Jun 2026 11:23:12 GMT",
+            "content-type": "application/json; charset=utf-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "1; mode=block",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "DENY",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=7889238",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4864",
+            "x-ratelimit-reset": "1780572199",
+            "vary": "Accept-Encoding,Sec-Fetch-Site",
+            "referrer-policy": "origin-when-cross-origin",
+            "cf-cache-status": "DYNAMIC",
+            "x-stats-userid": "",
+            "x-stats-apiclientid": "376951341057",
+            "x-stats-apipermissionid": "695964696713",
+            "x-shopify-api-version": "2025-07",
+            "x-shopify-api-version-warning": "https://shopify.dev/concepts/about-apis/versioning",
+            "content-language": "en",
+            "alt-svc": "h3=\":443\"; ma=86400",
+            "x-shopify-api-gql-engine": "cardinal",
+            "x-dc": "gcp-us-west1,gcp-us-east1,gcp-us-east1",
+            "x-request-id": "ee02aea3-bce4-43b3-8df6-028f52ee56c1-1780572192",
+            "server-timing": "processing;dur=62, verdict_flag_enabled;desc=\"count=12\";dur=0.554, graphql;desc=\"admin/query/other\", _y;desc=\"68648e6b-f3ae-4b11-8f79-8ef1a67b563b\", _s;desc=\"ddd1d5b1-be46-4c21-998f-39ce53303bc2\"",
+            "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=UuEAivZOL1xe%2BWi7Y1iS27sp0%2FxH5MHZvBosrvIQaw8%2FhE2TwxNJT73PkyIkbf42NWbTmCl%2F3w44c3LSM4eZA5uGfrBZjSkijVULOFCTRaXljSgWQA0TuODcxvKEebRKBw2Jlv4HKLg%3D\"}]}",
+            "server": "cloudflare",
+            "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.01,\"max_age\":604800}",
+            "content-security-policy": "default-src 'self' data: blob: 'unsafe-inline' 'unsafe-eval' https://* shopify-pos://*; block-all-mixed-content; child-src 'self' https://* shopify-pos://*; connect-src 'self' wss://* https://*; frame-ancestors 'none'; img-src 'self' data: blob: https:; script-src https://cdn.shopify.com https://cdn.shopifycdn.net https://checkout.pci.shopifyinc.com https://checkout.pci.shopifyinc.com/build/04ed4e1/card_fields.js https://api.stripe.com https://mpsnare.iesnare.com https://appcenter.intuit.com https://www.paypal.com https://js.braintreegateway.com https://c.paypal.com https://maps.googleapis.com https://www.google-analytics.com https://v.shopify.com 'self' 'unsafe-inline' 'unsafe-eval'; upgrade-insecure-requests; report-uri /csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=ee02aea3-bce4-43b3-8df6-028f52ee56c1-1780572192; report-to shopify-csp",
+            "x-permitted-cross-domain-policies": "none",
+            "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=ee02aea3-bce4-43b3-8df6-028f52ee56c1-1780572192\"",
+            "cf-ray": "a066906d08b3ac0d-PDX"
+          },
+          "hash": "6dba397ccd9a56316175128c3a3f3f9eb46e73e1",
+          "request": {
+            "data": "sha1:0ca1441b74827a63558b796c99b3425c754fb44e"
+          }
+        },
+        {
+          "response": {
+            "data": {
+              "inventoryItems": {
+                "nodes": [],
+                "pageInfo": {
+                  "hasNextPage": false,
+                  "endCursor": null
+                }
+              }
+            },
+            "extensions": {
+              "cost": {
+                "requestedQueryCost": 29,
+                "actualQueryCost": 11,
+                "throttleStatus": {
+                  "maximumAvailable": 4000,
+                  "currentlyAvailable": 3989,
+                  "restoreRate": 200
+                }
+              }
+            }
+          },
+          "status": 200,
+          "headers": {
+            "date": "Thu, 04 Jun 2026 11:23:13 GMT",
+            "content-type": "application/json; charset=utf-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "1; mode=block",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "DENY",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=7889238",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4862",
+            "x-ratelimit-reset": "1780572199",
+            "vary": "Accept-Encoding,Sec-Fetch-Site",
+            "referrer-policy": "origin-when-cross-origin",
+            "cf-cache-status": "DYNAMIC",
+            "x-stats-userid": "",
+            "x-stats-apiclientid": "376951341057",
+            "x-stats-apipermissionid": "695964696713",
+            "x-shopify-api-version": "2025-07",
+            "x-shopify-api-version-warning": "https://shopify.dev/concepts/about-apis/versioning",
+            "content-language": "en",
+            "alt-svc": "h3=\":443\"; ma=86400",
+            "x-shopify-api-gql-engine": "cardinal",
+            "x-dc": "gcp-us-west1,gcp-us-east1,gcp-us-east1",
+            "x-request-id": "2cf91251-7121-40b6-bb34-963a97f36f25-1780572193",
+            "server-timing": "processing;dur=43, verdict_flag_enabled;desc=\"count=11\";dur=0.511, graphql;desc=\"admin/query/other\", _y;desc=\"13874266-6ac3-4b33-8702-8ef1fa6a4137\", _s;desc=\"ede3b747-d7ec-49c7-90a7-2a328c79e063\"",
+            "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=S2gMPwTeZju5UnJ5rtZTie1XiWuQx%2Fl9vUy5kSYkklM3SFQPUmHoo3kZxZ3zsYj%2Bb2PeJO2kC8Z1Y9tiV%2FvNrLfUbFu0beBtj1yovFDWdD7swNHBF2sgVLij3qkhnDp19DSUyNeTvEM%3D\"}]}",
+            "server": "cloudflare",
+            "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.01,\"max_age\":604800}",
+            "content-security-policy": "default-src 'self' data: blob: 'unsafe-inline' 'unsafe-eval' https://* shopify-pos://*; block-all-mixed-content; child-src 'self' https://* shopify-pos://*; connect-src 'self' wss://* https://*; frame-ancestors 'none'; img-src 'self' data: blob: https:; script-src https://cdn.shopify.com https://cdn.shopifycdn.net https://checkout.pci.shopifyinc.com https://checkout.pci.shopifyinc.com/build/04ed4e1/card_fields.js https://api.stripe.com https://mpsnare.iesnare.com https://appcenter.intuit.com https://www.paypal.com https://js.braintreegateway.com https://c.paypal.com https://maps.googleapis.com https://www.google-analytics.com https://v.shopify.com 'self' 'unsafe-inline' 'unsafe-eval'; upgrade-insecure-requests; report-uri /csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=2cf91251-7121-40b6-bb34-963a97f36f25-1780572193; report-to shopify-csp",
+            "x-permitted-cross-domain-policies": "none",
+            "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=2cf91251-7121-40b6-bb34-963a97f36f25-1780572193\"",
+            "cf-ray": "a066906f3bf569da-PDX"
+          },
+          "hash": "6e43badd96c630fa1fc272827b7b3292a7e8f6f8",
+          "request": {
+            "data": "sha1:dfe30fb3df3f293656418b9b1bad5e9a4e31af0a"
+          }
+        }
+      ]
+    }
+  }
+}

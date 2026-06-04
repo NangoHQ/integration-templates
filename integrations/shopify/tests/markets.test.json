@@ -1,0 +1,405 @@
+{
+  "nango": {
+    "batchSave": {
+      "Market": [
+        {
+          "id": "gid://shopify/Market/56332517513",
+          "name": "Canada",
+          "handle": "canada",
+          "enabled": true,
+          "status": "ACTIVE",
+          "regions": [
+            {
+              "name": "Canada",
+              "code": "CA"
+            }
+          ],
+          "currencySettings": {
+            "baseCurrencyCode": "CAD",
+            "localCurrencies": false,
+            "roundingEnabled": true
+          }
+        },
+        {
+          "id": "gid://shopify/Market/56333369481",
+          "name": "Test Market",
+          "handle": "test-market",
+          "enabled": false,
+          "status": "DRAFT",
+          "regions": [
+            {
+              "name": "United States",
+              "code": "US"
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/Market/56333402249",
+          "name": "Test Market 3",
+          "handle": "test-market-3",
+          "enabled": false,
+          "status": "DRAFT",
+          "regions": [
+            {
+              "name": "United States",
+              "code": "US"
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/Market/56334385289",
+          "name": "Test Market for Dryrun",
+          "handle": "test-market-dryrun",
+          "enabled": false,
+          "status": "DRAFT",
+          "regions": []
+        },
+        {
+          "id": "gid://shopify/Market/56332484745",
+          "name": "United States",
+          "handle": "us",
+          "enabled": true,
+          "status": "ACTIVE",
+          "regions": [
+            {
+              "name": "United States",
+              "code": "US"
+            }
+          ],
+          "currencySettings": {
+            "baseCurrencyCode": "USD",
+            "localCurrencies": false,
+            "roundingEnabled": true
+          }
+        },
+        {
+          "id": "gid://shopify/Market/56334418057",
+          "name": "Updated Test Market",
+          "handle": "test-market-1780570281",
+          "enabled": false,
+          "status": "DRAFT",
+          "regions": []
+        }
+      ]
+    },
+    "batchDelete": {
+      "Market": []
+    }
+  },
+  "api": {
+    "post": {
+      "/admin/api/2026-04/graphql.json": [
+        {
+          "response": {
+            "data": {
+              "markets": {
+                "nodes": [
+                  {
+                    "id": "gid://shopify/Market/56332517513",
+                    "name": "Canada",
+                    "handle": "canada",
+                    "enabled": true,
+                    "status": "ACTIVE",
+                    "regions": {
+                      "nodes": [
+                        {
+                          "name": "Canada",
+                          "code": "CA"
+                        }
+                      ]
+                    },
+                    "currencySettings": {
+                      "baseCurrency": {
+                        "currencyCode": "CAD"
+                      },
+                      "localCurrencies": false,
+                      "roundingEnabled": true
+                    },
+                    "webPresence": null
+                  },
+                  {
+                    "id": "gid://shopify/Market/56333369481",
+                    "name": "Test Market",
+                    "handle": "test-market",
+                    "enabled": false,
+                    "status": "DRAFT",
+                    "regions": {
+                      "nodes": [
+                        {
+                          "name": "United States",
+                          "code": "US"
+                        }
+                      ]
+                    },
+                    "currencySettings": null,
+                    "webPresence": null
+                  },
+                  {
+                    "id": "gid://shopify/Market/56333402249",
+                    "name": "Test Market 3",
+                    "handle": "test-market-3",
+                    "enabled": false,
+                    "status": "DRAFT",
+                    "regions": {
+                      "nodes": [
+                        {
+                          "name": "United States",
+                          "code": "US"
+                        }
+                      ]
+                    },
+                    "currencySettings": null,
+                    "webPresence": null
+                  },
+                  {
+                    "id": "gid://shopify/Market/56334385289",
+                    "name": "Test Market for Dryrun",
+                    "handle": "test-market-dryrun",
+                    "enabled": false,
+                    "status": "DRAFT",
+                    "regions": {
+                      "nodes": []
+                    },
+                    "currencySettings": null,
+                    "webPresence": null
+                  },
+                  {
+                    "id": "gid://shopify/Market/56332484745",
+                    "name": "United States",
+                    "handle": "us",
+                    "enabled": true,
+                    "status": "ACTIVE",
+                    "regions": {
+                      "nodes": [
+                        {
+                          "name": "United States",
+                          "code": "US"
+                        }
+                      ]
+                    },
+                    "currencySettings": {
+                      "baseCurrency": {
+                        "currencyCode": "USD"
+                      },
+                      "localCurrencies": false,
+                      "roundingEnabled": true
+                    },
+                    "webPresence": null
+                  }
+                ],
+                "pageInfo": {
+                  "hasNextPage": true,
+                  "endCursor": "eyJsYXN0X2lkIjo1NjMzMjQ4NDc0NSwibGFzdF92YWx1ZSI6IlVuaXRlZCBTdGF0ZXMifQ=="
+                }
+              }
+            },
+            "extensions": {
+              "cost": {
+                "requestedQueryCost": 53,
+                "actualQueryCost": 18,
+                "throttleStatus": {
+                  "maximumAvailable": 4000,
+                  "currentlyAvailable": 3982,
+                  "restoreRate": 200
+                }
+              }
+            }
+          },
+          "status": 200,
+          "headers": {
+            "date": "Thu, 04 Jun 2026 13:57:51 GMT",
+            "content-type": "application/json; charset=utf-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "1; mode=block",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "DENY",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=7889238",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4996",
+            "x-ratelimit-reset": "1780581529",
+            "vary": "Accept-Encoding,Sec-Fetch-Site",
+            "referrer-policy": "origin-when-cross-origin",
+            "cf-cache-status": "DYNAMIC",
+            "x-stats-userid": "",
+            "x-stats-apiclientid": "376951341057",
+            "x-stats-apipermissionid": "695964696713",
+            "x-shopify-api-version": "2026-04",
+            "content-language": "en",
+            "alt-svc": "h3=\":443\"; ma=86400",
+            "x-shopify-api-gql-engine": "cardinal",
+            "x-shopify-api-deprecated-reason": "Market.enabled, Market.regions, Market.webPresence",
+            "x-dc": "gcp-us-west1,gcp-us-east1,gcp-us-east1",
+            "x-request-id": "81c0f55b-5f95-4215-b361-b185d31c1c84-1780581471",
+            "server-timing": "processing;dur=109, verdict_flag_enabled;desc=\"count=21\";dur=2.015, graphql;desc=\"admin/query/other\", _y;desc=\"cf421b3a-50f2-4ea3-8daf-087f7cdf441d\", _s;desc=\"82b740b0-7bb6-4a12-bd47-51c7cc2a9e02\"",
+            "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=bZSVOaRuNmM5Pa6h1Nx04RgIEZ8ZiL2dqLvst%2FLCL1Im1Y7rWX6WogfqA18toDr5MvjE7mmGyIB9ORNxkeX1cCCcG%2BfOzd6IBz%2FLtv27Qty25TwjMJb%2FmADF0LX8dxX%2FilQmqQk87Uw%3D\"}]}",
+            "server": "cloudflare",
+            "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.01,\"max_age\":604800}",
+            "content-security-policy": "default-src 'self' data: blob: 'unsafe-inline' 'unsafe-eval' https://* shopify-pos://*; block-all-mixed-content; child-src 'self' https://* shopify-pos://*; connect-src 'self' wss://* https://*; frame-ancestors 'none'; img-src 'self' data: blob: https:; script-src https://cdn.shopify.com https://cdn.shopifycdn.net https://checkout.pci.shopifyinc.com https://checkout.pci.shopifyinc.com/build/04ed4e1/card_fields.js https://api.stripe.com https://mpsnare.iesnare.com https://appcenter.intuit.com https://www.paypal.com https://js.braintreegateway.com https://c.paypal.com https://maps.googleapis.com https://www.google-analytics.com https://v.shopify.com 'self' 'unsafe-inline' 'unsafe-eval'; upgrade-insecure-requests; report-uri /csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=81c0f55b-5f95-4215-b361-b185d31c1c84-1780581471; report-to shopify-csp",
+            "x-permitted-cross-domain-policies": "none",
+            "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=81c0f55b-5f95-4215-b361-b185d31c1c84-1780581471\"",
+            "cf-ray": "a06772f2ca7ddabf-PDX"
+          },
+          "hash": "419ceacc1139c9b73c43f9e1d27fe4f8804454fb",
+          "request": {
+            "data": "sha1:8b7e666106580a068f8623fe98376d00a11c9bac"
+          }
+        },
+        {
+          "response": {
+            "data": {
+              "markets": {
+                "nodes": [
+                  {
+                    "id": "gid://shopify/Market/56334418057",
+                    "name": "Updated Test Market",
+                    "handle": "test-market-1780570281",
+                    "enabled": false,
+                    "status": "DRAFT",
+                    "regions": {
+                      "nodes": []
+                    },
+                    "currencySettings": null,
+                    "webPresence": null
+                  }
+                ],
+                "pageInfo": {
+                  "hasNextPage": false,
+                  "endCursor": "eyJsYXN0X2lkIjo1NjMzNDQxODA1NywibGFzdF92YWx1ZSI6IlVwZGF0ZWQgVGVzdCBNYXJrZXQifQ=="
+                }
+              }
+            },
+            "extensions": {
+              "cost": {
+                "requestedQueryCost": 53,
+                "actualQueryCost": 9,
+                "throttleStatus": {
+                  "maximumAvailable": 4000,
+                  "currentlyAvailable": 3991,
+                  "restoreRate": 200
+                }
+              }
+            }
+          },
+          "status": 200,
+          "headers": {
+            "date": "Thu, 04 Jun 2026 13:57:51 GMT",
+            "content-type": "application/json; charset=utf-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "1; mode=block",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "DENY",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=7889238",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4995",
+            "x-ratelimit-reset": "1780581529",
+            "vary": "Accept-Encoding,Sec-Fetch-Site",
+            "referrer-policy": "origin-when-cross-origin",
+            "cf-cache-status": "DYNAMIC",
+            "x-stats-userid": "",
+            "x-stats-apiclientid": "376951341057",
+            "x-stats-apipermissionid": "695964696713",
+            "x-shopify-api-version": "2026-04",
+            "content-language": "en",
+            "alt-svc": "h3=\":443\"; ma=86400",
+            "x-shopify-api-gql-engine": "cardinal",
+            "x-shopify-api-deprecated-reason": "Market.enabled, Market.regions, Market.webPresence",
+            "x-dc": "gcp-us-west1,gcp-us-east1,gcp-us-east1",
+            "x-request-id": "8bb7967b-5afa-4dc4-9aab-36dce4072cf7-1780581471",
+            "server-timing": "processing;dur=61, verdict_flag_enabled;desc=\"count=18\";dur=1.672, graphql;desc=\"admin/query/other\", _y;desc=\"d148f8b0-3b37-47b1-b72b-15c7eabc360c\", _s;desc=\"a06f34ec-2c51-4266-b53d-55291470c5e8\"",
+            "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=Oez8XTaNmXnAVFqxXsv84tfdhqxr10c%2B%2F7DZ8n7xdL8%2F4OS%2FkVPinIYik2XtOwl8r23KE9E%2BPax3N8wxc29%2Bslm%2BdyGfJH9xfAOcllVQSpCAC70ly5gwD6p8J7951S7ta6HQaRsqFlY%3D\"}]}",
+            "server": "cloudflare",
+            "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.01,\"max_age\":604800}",
+            "content-security-policy": "default-src 'self' data: blob: 'unsafe-inline' 'unsafe-eval' https://* shopify-pos://*; block-all-mixed-content; child-src 'self' https://* shopify-pos://*; connect-src 'self' wss://* https://*; frame-ancestors 'none'; img-src 'self' data: blob: https:; script-src https://cdn.shopify.com https://cdn.shopifycdn.net https://checkout.pci.shopifyinc.com https://checkout.pci.shopifyinc.com/build/04ed4e1/card_fields.js https://api.stripe.com https://mpsnare.iesnare.com https://appcenter.intuit.com https://www.paypal.com https://js.braintreegateway.com https://c.paypal.com https://maps.googleapis.com https://www.google-analytics.com https://v.shopify.com 'self' 'unsafe-inline' 'unsafe-eval'; upgrade-insecure-requests; report-uri /csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=8bb7967b-5afa-4dc4-9aab-36dce4072cf7-1780581471; report-to shopify-csp",
+            "x-permitted-cross-domain-policies": "none",
+            "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=8bb7967b-5afa-4dc4-9aab-36dce4072cf7-1780581471\"",
+            "cf-ray": "a06772f67a11b298-PDX"
+          },
+          "hash": "38f4d67bdbf11940f797c371f6626729bcb682a5",
+          "request": {
+            "data": "sha1:94e58c6cfa3650f9a69042578a99ce14c30980c5"
+          }
+        },
+        {
+          "response": {
+            "data": {
+              "markets": {
+                "nodes": [],
+                "pageInfo": {
+                  "hasNextPage": false,
+                  "endCursor": null
+                }
+              }
+            },
+            "extensions": {
+              "cost": {
+                "requestedQueryCost": 53,
+                "actualQueryCost": 5,
+                "throttleStatus": {
+                  "maximumAvailable": 4000,
+                  "currentlyAvailable": 3995,
+                  "restoreRate": 200
+                }
+              }
+            }
+          },
+          "status": 200,
+          "headers": {
+            "date": "Thu, 04 Jun 2026 13:57:52 GMT",
+            "content-type": "application/json; charset=utf-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "1; mode=block",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "DENY",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=7889238",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4994",
+            "x-ratelimit-reset": "1780581529",
+            "vary": "Accept-Encoding,Sec-Fetch-Site",
+            "referrer-policy": "origin-when-cross-origin",
+            "cf-cache-status": "DYNAMIC",
+            "x-stats-userid": "",
+            "x-stats-apiclientid": "376951341057",
+            "x-stats-apipermissionid": "695964696713",
+            "x-shopify-api-version": "2026-04",
+            "content-language": "en",
+            "alt-svc": "h3=\":443\"; ma=86400",
+            "x-shopify-api-gql-engine": "cardinal",
+            "x-shopify-api-deprecated-reason": "Market.enabled, Market.regions, Market.webPresence",
+            "x-dc": "gcp-us-west1,gcp-us-east1,gcp-us-east1",
+            "x-request-id": "6325b185-fd9f-4234-a4fe-96b7183b9bff-1780581472",
+            "server-timing": "processing;dur=54, verdict_flag_enabled;desc=\"count=16\";dur=1.407, graphql;desc=\"admin/query/other\", _y;desc=\"ca4f4063-1ef5-4571-a9c0-093ec3114d7a\", _s;desc=\"6c38d93f-80fe-4673-959e-b318f7dc3bdb\"",
+            "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=vFABQU7IpQhj6RO40QgE%2FyH6HEBDbB98SNYFNBvwBlTs3ACgGGS4i8EaVUeahLW%2BlVhE9%2FyGFEpDT3uxpWT%2FK2cf0YxHyrK1G6p0HXz2%2B00if19uRV9XDXRphaqeESkpK%2BNFlPnGijU%3D\"}]}",
+            "server": "cloudflare",
+            "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.01,\"max_age\":604800}",
+            "content-security-policy": "default-src 'self' data: blob: 'unsafe-inline' 'unsafe-eval' https://* shopify-pos://*; block-all-mixed-content; child-src 'self' https://* shopify-pos://*; connect-src 'self' wss://* https://*; frame-ancestors 'none'; img-src 'self' data: blob: https:; script-src https://cdn.shopify.com https://cdn.shopifycdn.net https://checkout.pci.shopifyinc.com https://checkout.pci.shopifyinc.com/build/04ed4e1/card_fields.js https://api.stripe.com https://mpsnare.iesnare.com https://appcenter.intuit.com https://www.paypal.com https://js.braintreegateway.com https://c.paypal.com https://maps.googleapis.com https://www.google-analytics.com https://v.shopify.com 'self' 'unsafe-inline' 'unsafe-eval'; upgrade-insecure-requests; report-uri /csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=6325b185-fd9f-4234-a4fe-96b7183b9bff-1780581472; report-to shopify-csp",
+            "x-permitted-cross-domain-policies": "none",
+            "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=6325b185-fd9f-4234-a4fe-96b7183b9bff-1780581472\"",
+            "cf-ray": "a06772f9ef0add6a-PDX"
+          },
+          "hash": "e0a1c5a9197625ab2ad2a1adcad419882a5f7d9b",
+          "request": {
+            "data": "sha1:b683c03c0c2302cbb9436f6a4deada9243e8f5ae"
+          }
+        }
+      ]
+    }
+  }
+}
