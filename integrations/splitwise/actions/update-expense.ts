@@ -181,7 +181,7 @@ const action = createAction({
 
         // https://dev.splitwise.com/#tag/expenses/paths/~1update_expense~1{id}/post
         const response = await nango.post({
-            endpoint: `api/v3.0/update_expense/${encodeURIComponent(String(input.id))}`,
+            endpoint: `/api/v3.0/update_expense/${encodeURIComponent(String(input.id))}`,
             data,
             retries: 3
         });

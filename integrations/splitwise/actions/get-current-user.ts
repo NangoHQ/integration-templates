@@ -4,9 +4,9 @@ import { createAction } from 'nango';
 const InputSchema = z.object({});
 
 const ProviderPictureSchema = z.object({
-    small: z.string(),
-    medium: z.string(),
-    large: z.string()
+    small: z.string().nullable().optional(),
+    medium: z.string().nullable().optional(),
+    large: z.string().nullable().optional()
 });
 
 const ProviderNotificationsSchema = z.object({
@@ -19,7 +19,7 @@ const ProviderUserSchema = z.object({
     last_name: z.string(),
     email: z.string(),
     registration_status: z.string(),
-    picture: ProviderPictureSchema,
+    picture: ProviderPictureSchema.nullable().optional(),
     custom_picture: z.boolean(),
     notifications_read: z.string().optional().nullable(),
     notifications_count: z.number().optional().nullable(),
@@ -38,11 +38,13 @@ const OutputSchema = z.object({
     last_name: z.string(),
     email: z.string(),
     registration_status: z.string(),
-    picture: z.object({
-        small: z.string(),
-        medium: z.string(),
-        large: z.string()
-    }),
+    picture: z
+        .object({
+            small: z.string().optional(),
+            medium: z.string().optional(),
+            large: z.string().optional()
+        })
+        .optional(),
     custom_picture: z.boolean(),
     notifications_read: z.string().optional(),
     notifications_count: z.number().optional(),
@@ -82,11 +84,13 @@ const action = createAction({
             last_name: user.last_name,
             email: user.email,
             registration_status: user.registration_status,
-            picture: {
-                small: user.picture.small,
-                medium: user.picture.medium,
-                large: user.picture.large
-            },
+            ...(user.picture != null && {
+                picture: {
+                    ...(user.picture.small != null && { small: user.picture.small }),
+                    ...(user.picture.medium != null && { medium: user.picture.medium }),
+                    ...(user.picture.large != null && { large: user.picture.large })
+                }
+            }),
             custom_picture: user.custom_picture,
             ...(user.notifications_read != null && { notifications_read: user.notifications_read }),
             ...(user.notifications_count != null && { notifications_count: user.notifications_count }),

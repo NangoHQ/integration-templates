@@ -199,7 +199,7 @@ const sync = createSync({
                     });
                 }
 
-                const recordTimestamp = record.updated_at || record.deleted_at || record.created_at || record.date;
+                const recordTimestamp = record.updated_at || record.deleted_at || record.created_at;
                 if (recordTimestamp) {
                     if (!maxUpdatedAt || recordTimestamp > maxUpdatedAt) {
                         maxUpdatedAt = recordTimestamp;
@@ -214,10 +214,10 @@ const sync = createSync({
             if (deletions.length > 0) {
                 await nango.batchDelete(deletions, 'Expense');
             }
-        }
 
-        if (maxUpdatedAt) {
-            await nango.saveCheckpoint({ updated_after: maxUpdatedAt });
+            if (maxUpdatedAt) {
+                await nango.saveCheckpoint({ updated_after: maxUpdatedAt });
+            }
         }
     }
 });

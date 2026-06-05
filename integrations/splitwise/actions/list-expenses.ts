@@ -243,11 +243,24 @@ const action = createAction({
     output: OutputSchema,
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const limit = input.limit ?? 20;
+        if (limit <= 0) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'limit must be a positive integer'
+            });
+        }
+
         const offset = input.cursor ? parseInt(input.cursor, 10) : 0;
         if (input.cursor && Number.isNaN(offset)) {
             throw new nango.ActionError({
                 type: 'invalid_input',
                 message: 'cursor must be a valid integer string'
+            });
+        }
+        if (offset < 0) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'cursor must correspond to a non-negative offset'
             });
         }
 

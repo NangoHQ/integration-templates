@@ -6,9 +6,9 @@ const InputSchema = z.object({
 });
 
 const PictureSchema = z.object({
-    small: z.string().optional(),
-    medium: z.string().optional(),
-    large: z.string().optional()
+    small: z.string().nullable().optional(),
+    medium: z.string().nullable().optional(),
+    large: z.string().nullable().optional()
 });
 
 const BalanceSchema = z.object({
@@ -18,12 +18,12 @@ const BalanceSchema = z.object({
 
 const MemberSchema = z.object({
     id: z.number(),
-    first_name: z.string().optional(),
-    last_name: z.string().optional(),
-    email: z.string().optional(),
-    registration_status: z.string().optional(),
-    picture: PictureSchema.optional(),
-    custom_picture: z.boolean().optional(),
+    first_name: z.string().nullable().optional(),
+    last_name: z.string().nullable().optional(),
+    email: z.string().nullable().optional(),
+    registration_status: z.string().nullable().optional(),
+    picture: PictureSchema.nullable().optional(),
+    custom_picture: z.boolean().nullable().optional(),
     balance: z.array(BalanceSchema).optional()
 });
 

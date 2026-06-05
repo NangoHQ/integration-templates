@@ -7,12 +7,12 @@ const InputSchema = z.object({
 
 const ProviderResponseSchema = z.object({
     success: z.boolean(),
-    errors: z.array(z.string()).optional()
+    error: z.string().nullable().optional()
 });
 
 const OutputSchema = z.object({
     success: z.boolean(),
-    errors: z.array(z.string()).optional()
+    error: z.string().optional()
 });
 
 const action = createAction({
@@ -39,14 +39,13 @@ const action = createAction({
         if (!providerResponse.success) {
             throw new nango.ActionError({
                 type: 'delete_failed',
-                message: 'Failed to delete friendship',
-                errors: providerResponse.errors ?? []
+                message: providerResponse.error ?? 'Failed to delete friendship'
             });
         }
 
         return {
             success: providerResponse.success,
-            errors: providerResponse.errors ?? []
+            ...(providerResponse.error != null && { error: providerResponse.error })
         };
     }
 });

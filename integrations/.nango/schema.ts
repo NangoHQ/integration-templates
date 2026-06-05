@@ -65742,7 +65742,7 @@ export interface ActionInput_splitwise_deletefriend {
 
 export interface ActionOutput_splitwise_deletefriend {
   success: boolean;
-  errors?: string[] | undefined;
+  error?: string | undefined;
 };
 
 export interface ActionInput_splitwise_deletegroup {
@@ -65765,9 +65765,9 @@ export interface ActionOutput_splitwise_getcurrentuser {
   last_name: string;
   email: string;
   registration_status: string;
-  picture: {  small: string;
-  medium: string;
-  large: string;};
+  picture?: {  small?: string | undefined;
+  medium?: string | undefined;
+  large?: string | undefined;};
   custom_picture: boolean;
   notifications_read?: string | undefined;
   notifications_count?: number | undefined;
@@ -66095,7 +66095,7 @@ export interface ActionOutput_splitwise_listgroups {
   simplify_by_default?: boolean | undefined;
   members?: ({  id: number;
   first_name?: string | undefined;
-  last_name?: string | null | undefined;
+  last_name?: string | undefined;
   email?: string | undefined;
   registration_status?: string | undefined;
   picture?: {  small?: string | undefined;

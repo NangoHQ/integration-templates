@@ -170,7 +170,7 @@ const action = createAction({
 
         // https://dev.splitwise.com/#tag/expenses/paths/~1create_expense/post
         const response = await nango.post({
-            endpoint: 'api/v3.0/create_expense',
+            endpoint: '/api/v3.0/create_expense',
             data,
             retries: 10
         });

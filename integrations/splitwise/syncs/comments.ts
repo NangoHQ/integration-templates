@@ -153,12 +153,12 @@ const sync = createSync({
                     maxUpdatedAt = expense.updated_at;
                 }
             }
-        }
 
-        if (maxUpdatedAt) {
-            await nango.saveCheckpoint({
-                updated_after: maxUpdatedAt
-            });
+            if (maxUpdatedAt) {
+                await nango.saveCheckpoint({
+                    updated_after: maxUpdatedAt
+                });
+            }
         }
     }
 });
