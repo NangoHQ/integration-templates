@@ -1,0 +1,191 @@
+{
+  "input": {
+    "statement_handle": "01c4d2c3-0001-e881-001c-d6c3000130ea",
+    "partition": 0
+  },
+  "output": {
+    "statement_handle": "01c4d2c3-0001-e881-001c-d6c3000130ea",
+    "num_rows": 1,
+    "columns": [
+      {
+        "name": "CURRENT_USER()",
+        "type": "text",
+        "byte_length": 134217728,
+        "length": 134217728,
+        "nullable": true
+      },
+      {
+        "name": "CURRENT_ROLE()",
+        "type": "text",
+        "byte_length": 134217728,
+        "length": 134217728,
+        "nullable": true
+      },
+      {
+        "name": "CURRENT_WAREHOUSE()",
+        "type": "text",
+        "byte_length": 134217728,
+        "length": 134217728,
+        "nullable": true
+      },
+      {
+        "name": "CURRENT_DATABASE()",
+        "type": "text",
+        "byte_length": 134217728,
+        "length": 134217728,
+        "nullable": true
+      },
+      {
+        "name": "CURRENT_SCHEMA()",
+        "type": "text",
+        "byte_length": 134217728,
+        "length": 134217728,
+        "nullable": true
+      }
+    ],
+    "rows": [
+      [
+        "VICTORNANGO2",
+        "ACCOUNTADMIN",
+        "COMPUTE_WH",
+        null,
+        null
+      ]
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/v2/statements/01c4d2c3-0001-e881-001c-d6c3000130ea": {
+        "response": {
+          "resultSetMetaData": {
+            "numRows": 1,
+            "format": "jsonv2",
+            "partitionInfo": [
+              {
+                "rowCount": 1,
+                "uncompressedSize": 54
+              }
+            ],
+            "rowType": [
+              {
+                "name": "CURRENT_USER()",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "precision": null,
+                "collation": null,
+                "scale": null,
+                "byteLength": 134217728,
+                "nullable": true,
+                "length": 134217728,
+                "type": "text"
+              },
+              {
+                "name": "CURRENT_ROLE()",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "precision": null,
+                "collation": null,
+                "scale": null,
+                "byteLength": 134217728,
+                "nullable": true,
+                "length": 134217728,
+                "type": "text"
+              },
+              {
+                "name": "CURRENT_WAREHOUSE()",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "precision": null,
+                "collation": null,
+                "scale": null,
+                "byteLength": 134217728,
+                "nullable": true,
+                "length": 134217728,
+                "type": "text"
+              },
+              {
+                "name": "CURRENT_DATABASE()",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "precision": null,
+                "collation": null,
+                "scale": null,
+                "byteLength": 134217728,
+                "nullable": true,
+                "length": 134217728,
+                "type": "text"
+              },
+              {
+                "name": "CURRENT_SCHEMA()",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "precision": null,
+                "collation": null,
+                "scale": null,
+                "byteLength": 134217728,
+                "nullable": true,
+                "length": 134217728,
+                "type": "text"
+              }
+            ]
+          },
+          "data": [
+            [
+              "VICTORNANGO2",
+              "ACCOUNTADMIN",
+              "COMPUTE_WH",
+              null,
+              null
+            ]
+          ],
+          "code": "090001",
+          "statementStatusUrl": "/api/v2/statements/01c4d2c3-0001-e881-001c-d6c3000130ea?requestId=41a0d6bf-5241-4842-a250-be3b664667a6",
+          "requestId": "41a0d6bf-5241-4842-a250-be3b664667a6",
+          "sqlState": "00000",
+          "statementHandle": "01c4d2c3-0001-e881-001c-d6c3000130ea",
+          "message": "Statement executed successfully.",
+          "createdOn": 1780573628651
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 04 Jun 2026 16:42:44 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "deny",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4993",
+          "x-ratelimit-reset": "1780591418",
+          "link": "</api/v2/statements/01c4d2c3-0001-e881-001c-d6c3000130ea?requestId=2694335a-83b7-420e-b6d5-4fffaf00b10f&partition=0>; rel=\"first\",</api/v2/statements/01c4d2c3-0001-e881-001c-d6c3000130ea?requestId=46cf991c-5c83-49c0-bb71-1b8cfcada73a&partition=0>; rel=\"last\"",
+          "vary": "Accept-Encoding, User-Agent",
+          "server": "SF-LB-T1",
+          "x-envoy-upstream-service-time": "189",
+          "x-snowflake-fe-instance": "-",
+          "x-snowflake-fe-config": "v20260515.0.0-7dd0594cd.1778867353.va4.1780591281942",
+          "x-envoy-attempt-count": "1",
+          "expect-ct": "enforce, max-age=3600"
+        },
+        "hash": "f477b7b174c44f7e37ecc06566c49243d71d4134",
+        "request": {
+          "params": {
+            "partition": "0"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,418 @@
+{
+  "input": {
+    "database": "NANGO_TEST_DB",
+    "schema": "SALES",
+    "table": "CUSTOMERS"
+  },
+  "output": {
+    "columns": [
+      {
+        "table_name": "CUSTOMERS",
+        "schema_name": "SALES",
+        "column_name": "CUSTOMER_ID",
+        "data_type": "{\"type\":\"FIXED\",\"precision\":38,\"scale\":0,\"nullable\":false}",
+        "nullable": false,
+        "default": "",
+        "kind": "COLUMN",
+        "autoincrement": "IDENTITY START 1 INCREMENT 1 NOORDER"
+      },
+      {
+        "table_name": "CUSTOMERS",
+        "schema_name": "SALES",
+        "column_name": "EMAIL",
+        "data_type": "{\"type\":\"TEXT\",\"length\":255,\"byteLength\":1020,\"nullable\":false,\"fixed\":false}",
+        "nullable": false,
+        "default": "",
+        "kind": "COLUMN",
+        "autoincrement": ""
+      },
+      {
+        "table_name": "CUSTOMERS",
+        "schema_name": "SALES",
+        "column_name": "FIRST_NAME",
+        "data_type": "{\"type\":\"TEXT\",\"length\":100,\"byteLength\":400,\"nullable\":true,\"fixed\":false}",
+        "nullable": true,
+        "default": "",
+        "kind": "COLUMN",
+        "autoincrement": ""
+      },
+      {
+        "table_name": "CUSTOMERS",
+        "schema_name": "SALES",
+        "column_name": "LAST_NAME",
+        "data_type": "{\"type\":\"TEXT\",\"length\":100,\"byteLength\":400,\"nullable\":true,\"fixed\":false}",
+        "nullable": true,
+        "default": "",
+        "kind": "COLUMN",
+        "autoincrement": ""
+      },
+      {
+        "table_name": "CUSTOMERS",
+        "schema_name": "SALES",
+        "column_name": "COMPANY",
+        "data_type": "{\"type\":\"TEXT\",\"length\":200,\"byteLength\":800,\"nullable\":true,\"fixed\":false}",
+        "nullable": true,
+        "default": "",
+        "kind": "COLUMN",
+        "autoincrement": ""
+      },
+      {
+        "table_name": "CUSTOMERS",
+        "schema_name": "SALES",
+        "column_name": "PLAN",
+        "data_type": "{\"type\":\"TEXT\",\"length\":50,\"byteLength\":200,\"nullable\":true,\"fixed\":false}",
+        "nullable": true,
+        "default": "'free'",
+        "kind": "COLUMN",
+        "autoincrement": ""
+      },
+      {
+        "table_name": "CUSTOMERS",
+        "schema_name": "SALES",
+        "column_name": "CREATED_AT",
+        "data_type": "{\"type\":\"TIMESTAMP_NTZ\",\"precision\":0,\"scale\":9,\"nullable\":true}",
+        "nullable": true,
+        "default": "CURRENT_TIMESTAMP()",
+        "kind": "COLUMN",
+        "autoincrement": ""
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/api/v2/statements": {
+        "response": {
+          "resultSetMetaData": {
+            "numRows": 7,
+            "format": "jsonv2",
+            "partitionInfo": [
+              {
+                "rowCount": 7,
+                "uncompressedSize": 1276
+              }
+            ],
+            "rowType": [
+              {
+                "name": "table_name",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "collation": null,
+                "byteLength": 16777216,
+                "nullable": true,
+                "scale": null,
+                "precision": null,
+                "length": 16777216,
+                "type": "text"
+              },
+              {
+                "name": "schema_name",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "collation": null,
+                "byteLength": 16777216,
+                "nullable": true,
+                "scale": null,
+                "precision": null,
+                "length": 16777216,
+                "type": "text"
+              },
+              {
+                "name": "column_name",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "collation": null,
+                "byteLength": 16777216,
+                "nullable": true,
+                "scale": null,
+                "precision": null,
+                "length": 16777216,
+                "type": "text"
+              },
+              {
+                "name": "data_type",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "collation": null,
+                "byteLength": 16777216,
+                "nullable": true,
+                "scale": null,
+                "precision": null,
+                "length": 16777216,
+                "type": "text"
+              },
+              {
+                "name": "null?",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "collation": null,
+                "byteLength": 16777216,
+                "nullable": true,
+                "scale": null,
+                "precision": null,
+                "length": 16777216,
+                "type": "text"
+              },
+              {
+                "name": "default",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "collation": null,
+                "byteLength": 16777216,
+                "nullable": true,
+                "scale": null,
+                "precision": null,
+                "length": 16777216,
+                "type": "text"
+              },
+              {
+                "name": "kind",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "collation": null,
+                "byteLength": 16777216,
+                "nullable": true,
+                "scale": null,
+                "precision": null,
+                "length": 16777216,
+                "type": "text"
+              },
+              {
+                "name": "expression",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "collation": null,
+                "byteLength": 16777216,
+                "nullable": true,
+                "scale": null,
+                "precision": null,
+                "length": 16777216,
+                "type": "text"
+              },
+              {
+                "name": "comment",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "collation": null,
+                "byteLength": 16777216,
+                "nullable": true,
+                "scale": null,
+                "precision": null,
+                "length": 16777216,
+                "type": "text"
+              },
+              {
+                "name": "database_name",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "collation": null,
+                "byteLength": 16777216,
+                "nullable": true,
+                "scale": null,
+                "precision": null,
+                "length": 16777216,
+                "type": "text"
+              },
+              {
+                "name": "autoincrement",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "collation": null,
+                "byteLength": 16777216,
+                "nullable": true,
+                "scale": null,
+                "precision": null,
+                "length": 16777216,
+                "type": "text"
+              },
+              {
+                "name": "schema_evolution_record",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "collation": null,
+                "byteLength": 16777216,
+                "nullable": true,
+                "scale": null,
+                "precision": null,
+                "length": 16777216,
+                "type": "text"
+              },
+              {
+                "name": "write_default",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "collation": null,
+                "byteLength": 16777216,
+                "nullable": true,
+                "scale": null,
+                "precision": null,
+                "length": 16777216,
+                "type": "text"
+              }
+            ]
+          },
+          "data": [
+            [
+              "CUSTOMERS",
+              "SALES",
+              "CUSTOMER_ID",
+              "{\"type\":\"FIXED\",\"precision\":38,\"scale\":0,\"nullable\":false}",
+              "NOT_NULL",
+              "",
+              "COLUMN",
+              "",
+              "",
+              "NANGO_TEST_DB",
+              "IDENTITY START 1 INCREMENT 1 NOORDER",
+              null,
+              null
+            ],
+            [
+              "CUSTOMERS",
+              "SALES",
+              "EMAIL",
+              "{\"type\":\"TEXT\",\"length\":255,\"byteLength\":1020,\"nullable\":false,\"fixed\":false}",
+              "NOT_NULL",
+              "",
+              "COLUMN",
+              "",
+              "",
+              "NANGO_TEST_DB",
+              "",
+              null,
+              null
+            ],
+            [
+              "CUSTOMERS",
+              "SALES",
+              "FIRST_NAME",
+              "{\"type\":\"TEXT\",\"length\":100,\"byteLength\":400,\"nullable\":true,\"fixed\":false}",
+              "true",
+              "",
+              "COLUMN",
+              "",
+              "",
+              "NANGO_TEST_DB",
+              "",
+              null,
+              null
+            ],
+            [
+              "CUSTOMERS",
+              "SALES",
+              "LAST_NAME",
+              "{\"type\":\"TEXT\",\"length\":100,\"byteLength\":400,\"nullable\":true,\"fixed\":false}",
+              "true",
+              "",
+              "COLUMN",
+              "",
+              "",
+              "NANGO_TEST_DB",
+              "",
+              null,
+              null
+            ],
+            [
+              "CUSTOMERS",
+              "SALES",
+              "COMPANY",
+              "{\"type\":\"TEXT\",\"length\":200,\"byteLength\":800,\"nullable\":true,\"fixed\":false}",
+              "true",
+              "",
+              "COLUMN",
+              "",
+              "",
+              "NANGO_TEST_DB",
+              "",
+              null,
+              null
+            ],
+            [
+              "CUSTOMERS",
+              "SALES",
+              "PLAN",
+              "{\"type\":\"TEXT\",\"length\":50,\"byteLength\":200,\"nullable\":true,\"fixed\":false}",
+              "true",
+              "'free'",
+              "COLUMN",
+              "",
+              "",
+              "NANGO_TEST_DB",
+              "",
+              null,
+              null
+            ],
+            [
+              "CUSTOMERS",
+              "SALES",
+              "CREATED_AT",
+              "{\"type\":\"TIMESTAMP_NTZ\",\"precision\":0,\"scale\":9,\"nullable\":true}",
+              "true",
+              "CURRENT_TIMESTAMP()",
+              "COLUMN",
+              "",
+              "",
+              "NANGO_TEST_DB",
+              "",
+              null,
+              null
+            ]
+          ],
+          "code": "090001",
+          "statementStatusUrl": "/api/v2/statements/01c4d88a-0001-e877-001c-d6c30001a342?requestId=d1d14498-f1c1-4408-9520-c2255f37a74a",
+          "requestId": "d1d14498-f1c1-4408-9520-c2255f37a74a",
+          "sqlState": "00000",
+          "statementHandle": "01c4d88a-0001-e877-001c-d6c30001a342",
+          "message": "Statement executed successfully.",
+          "createdOn": 1780662365515
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 05 Jun 2026 12:26:05 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "deny",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4997",
+          "x-ratelimit-reset": "1780662425",
+          "link": "</api/v2/statements/01c4d88a-0001-e877-001c-d6c30001a342?requestId=bccf817d-2020-4d0e-9cab-1038b920a5e4&partition=0>; rel=\"first\",</api/v2/statements/01c4d88a-0001-e877-001c-d6c30001a342?requestId=6fd7fc3b-a0f3-49e3-b890-a2e56666c8dd&partition=0>; rel=\"last\"",
+          "vary": "Accept-Encoding, User-Agent",
+          "server": "SF-LB-T1",
+          "x-envoy-upstream-service-time": "326",
+          "x-snowflake-fe-instance": "-",
+          "x-snowflake-fe-config": "v20260515.0.0-7dd0594cd.1778867353.va4.1780662213642",
+          "x-envoy-attempt-count": "1",
+          "expect-ct": "enforce, max-age=3600"
+        },
+        "hash": "38f669f32427648827a7a9d084b8d46863848a59",
+        "request": {
+          "data": {
+            "statement": "SHOW COLUMNS IN TABLE NANGO_TEST_DB.SALES.CUSTOMERS"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,266 @@
+{
+  "input": {
+    "database": "NANGO_TEST_DB"
+  },
+  "output": {
+    "streams": []
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/api/v2/statements": {
+        "response": {
+          "resultSetMetaData": {
+            "numRows": 0,
+            "format": "jsonv2",
+            "partitionInfo": [
+              {
+                "rowCount": 0,
+                "uncompressedSize": 0
+              }
+            ],
+            "rowType": [
+              {
+                "name": "created_on",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "scale": 3,
+                "byteLength": null,
+                "nullable": true,
+                "collation": null,
+                "precision": 0,
+                "length": null,
+                "type": "timestamp_ltz"
+              },
+              {
+                "name": "name",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "scale": null,
+                "byteLength": 16777216,
+                "nullable": true,
+                "collation": null,
+                "precision": null,
+                "length": 16777216,
+                "type": "text"
+              },
+              {
+                "name": "database_name",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "scale": null,
+                "byteLength": 16777216,
+                "nullable": true,
+                "collation": null,
+                "precision": null,
+                "length": 16777216,
+                "type": "text"
+              },
+              {
+                "name": "schema_name",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "scale": null,
+                "byteLength": 16777216,
+                "nullable": true,
+                "collation": null,
+                "precision": null,
+                "length": 16777216,
+                "type": "text"
+              },
+              {
+                "name": "owner",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "scale": null,
+                "byteLength": 16777216,
+                "nullable": true,
+                "collation": null,
+                "precision": null,
+                "length": 16777216,
+                "type": "text"
+              },
+              {
+                "name": "comment",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "scale": null,
+                "byteLength": 16777216,
+                "nullable": true,
+                "collation": null,
+                "precision": null,
+                "length": 16777216,
+                "type": "text"
+              },
+              {
+                "name": "table_name",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "scale": null,
+                "byteLength": 16777216,
+                "nullable": true,
+                "collation": null,
+                "precision": null,
+                "length": 16777216,
+                "type": "text"
+              },
+              {
+                "name": "source_type",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "scale": null,
+                "byteLength": 16777216,
+                "nullable": true,
+                "collation": null,
+                "precision": null,
+                "length": 16777216,
+                "type": "text"
+              },
+              {
+                "name": "base_tables",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "scale": null,
+                "byteLength": 16777216,
+                "nullable": true,
+                "collation": null,
+                "precision": null,
+                "length": 16777216,
+                "type": "text"
+              },
+              {
+                "name": "type",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "scale": null,
+                "byteLength": 16777216,
+                "nullable": true,
+                "collation": null,
+                "precision": null,
+                "length": 16777216,
+                "type": "text"
+              },
+              {
+                "name": "stale",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "scale": null,
+                "byteLength": 16777216,
+                "nullable": true,
+                "collation": null,
+                "precision": null,
+                "length": 16777216,
+                "type": "text"
+              },
+              {
+                "name": "mode",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "scale": null,
+                "byteLength": 16777216,
+                "nullable": true,
+                "collation": null,
+                "precision": null,
+                "length": 16777216,
+                "type": "text"
+              },
+              {
+                "name": "stale_after",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "scale": 3,
+                "byteLength": null,
+                "nullable": true,
+                "collation": null,
+                "precision": 0,
+                "length": null,
+                "type": "timestamp_ltz"
+              },
+              {
+                "name": "invalid_reason",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "scale": null,
+                "byteLength": 16777216,
+                "nullable": true,
+                "collation": null,
+                "precision": null,
+                "length": 16777216,
+                "type": "text"
+              },
+              {
+                "name": "owner_role_type",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "scale": null,
+                "byteLength": 16777216,
+                "nullable": true,
+                "collation": null,
+                "precision": null,
+                "length": 16777216,
+                "type": "text"
+              }
+            ]
+          },
+          "data": [],
+          "code": "090001",
+          "statementStatusUrl": "/api/v2/statements/01c4d3ea-0001-e916-0000-001cd6c3e165?requestId=dceac733-3b54-4e54-ac05-90c2c839ab2e",
+          "requestId": "dceac733-3b54-4e54-ac05-90c2c839ab2e",
+          "sqlState": "00000",
+          "statementHandle": "01c4d3ea-0001-e916-0000-001cd6c3e165",
+          "message": "Statement executed successfully.",
+          "createdOn": 1780591330721
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 04 Jun 2026 16:42:11 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "deny",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4976",
+          "x-ratelimit-reset": "1780591357",
+          "link": "</api/v2/statements/01c4d3ea-0001-e916-0000-001cd6c3e165?requestId=60db6ecb-b067-404a-a7e0-afd8c02c3d87&partition=0>; rel=\"first\",</api/v2/statements/01c4d3ea-0001-e916-0000-001cd6c3e165?requestId=345614f1-162e-4ef4-8aae-eb7dac6ce6c8&partition=0>; rel=\"last\"",
+          "vary": "Accept-Encoding, User-Agent",
+          "server": "SF-LB-T1",
+          "x-envoy-upstream-service-time": "399",
+          "x-snowflake-fe-instance": "-",
+          "x-snowflake-fe-config": "v20260515.0.0-7dd0594cd.1778867353.va4.1780591281942",
+          "x-envoy-attempt-count": "1",
+          "expect-ct": "enforce, max-age=3600"
+        },
+        "hash": "242aa1dc89759e76255b7ae7e18e06cd870c37c3",
+        "request": {
+          "data": {
+            "statement": "SHOW STREAMS IN DATABASE NANGO_TEST_DB",
+            "timeout": 60
+          }
+        }
+      }
+    }
+  }
+}

@@ -2260,6 +2260,31 @@ import './smartsheet/actions/create-user.js';
 import './smartsheet/actions/delete-user.js';
 import './smartsheet/actions/disable-user.js';
 
+// -- Integration: snowflake-jwt
+import './snowflake-jwt/syncs/columns.js';
+import './snowflake-jwt/syncs/databases.js';
+import './snowflake-jwt/syncs/query-results.js';
+import './snowflake-jwt/syncs/roles.js';
+import './snowflake-jwt/syncs/schemas.js';
+import './snowflake-jwt/syncs/tables.js';
+import './snowflake-jwt/syncs/users.js';
+import './snowflake-jwt/syncs/views.js';
+import './snowflake-jwt/actions/cancel-statement.js';
+import './snowflake-jwt/actions/execute-statement.js';
+import './snowflake-jwt/actions/get-statement-result.js';
+import './snowflake-jwt/actions/get-statement-status.js';
+import './snowflake-jwt/actions/list-columns.js';
+import './snowflake-jwt/actions/list-databases.js';
+import './snowflake-jwt/actions/list-roles.js';
+import './snowflake-jwt/actions/list-schemas.js';
+import './snowflake-jwt/actions/list-stages.js';
+import './snowflake-jwt/actions/list-streams.js';
+import './snowflake-jwt/actions/list-tables.js';
+import './snowflake-jwt/actions/list-tasks.js';
+import './snowflake-jwt/actions/list-users.js';
+import './snowflake-jwt/actions/list-views.js';
+import './snowflake-jwt/actions/list-warehouses.js';
+
 // -- Integration: spotify
 import './spotify/syncs/albums.js';
 import './spotify/syncs/artists.js';

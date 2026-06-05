@@ -3107,17 +3107,14 @@ export interface SyncMetadata_airtable_records {
 export interface Table {
   id: string;
   name: string;
-  baseId: string;
-  baseName: string;
-  primaryFieldId: string;
-  fields: ({  id: string;
-  name: string;
-  type: string;
-  description?: string | undefined;
-  options?: {  [key: string]: unknown | undefined;};})[];
-  views: ({  id: string;
-  name: string;
-  type: string;})[];
+  database_name: string;
+  schema_name: string;
+  rows?: number | undefined;
+  bytes?: number | undefined;
+  is_external?: string | undefined;
+  is_iceberg?: string | undefined;
+  change_tracking?: string | undefined;
+  owner?: string | undefined;
 };
 
 export interface View {
@@ -11188,18 +11185,15 @@ export interface RolePermission {
 export interface Role {
   id: string;
   name: string;
-  color?: number | undefined;
-  colors?: {  primary_color: number;
-  secondary_color?: number | undefined;
-  tertiary_color?: number | undefined;};
-  hoist?: boolean | undefined;
-  icon?: string | undefined;
-  unicode_emoji?: string | undefined;
-  position?: number | undefined;
-  permissions?: string | undefined;
-  managed?: boolean | undefined;
-  mentionable?: boolean | undefined;
-  flags?: number | undefined;
+  is_default?: boolean | undefined;
+  is_current?: boolean | undefined;
+  is_inherited?: boolean | undefined;
+  assigned_to_users?: number | undefined;
+  granted_to_roles?: number | undefined;
+  granted_roles?: number | undefined;
+  created_on: string;
+  owner?: string | undefined;
+  comment?: string | undefined;
 };
 
 export interface UserBlock {
@@ -49187,11 +49181,23 @@ export interface Board {
 
 export interface Column {
   id: string;
-  board_id: string;
-  column_id: string;
-  title: string;
-  type: string;
-  settings_str?: string | undefined;
+  database_name: string;
+  schema_name: string;
+  table_name: string;
+  column_name: string;
+  ordinal_position?: number | undefined;
+  data_type?: string | undefined;
+  data_type_type?: string | undefined;
+  data_type_precision?: number | undefined;
+  data_type_scale?: number | undefined;
+  data_type_byte_length?: number | undefined;
+  data_type_length?: number | undefined;
+  nullable?: boolean | undefined;
+  default_value?: string | undefined;
+  kind?: string | undefined;
+  expression?: string | undefined;
+  comment?: string | undefined;
+  autoincrement?: string | undefined;
 };
 
 export interface Subitem {
@@ -65414,6 +65420,421 @@ export interface ActionInput_smartsheet_disableuser {
 
 export interface ActionOutput_smartsheet_disableuser {
   success: boolean;
+};
+
+export interface Database {
+  id: string;
+  name: string;
+  created_on?: string | undefined;
+  kind?: string | undefined;
+  owner?: string | undefined;
+  comment?: string | undefined;
+};
+
+export interface QueryResult {
+  id: string;
+  row_data: {  [key: string]: unknown | undefined;};
+};
+
+export interface SyncMetadata_snowflake_jwt_queryresults {
+  query: string;
+  incremental_column: string;
+  id_column: string;
+  database?: string | undefined;
+  schema?: string | undefined;
+  warehouse?: string | undefined;
+  role?: string | undefined;
+};
+
+export interface Schema {
+  /**
+   * Composite identifier: database_name/schema_name
+   */
+  id: string;
+  database_name: string;
+  name: string;
+  created_on?: string | undefined;
+  schema_owner?: string | undefined;
+  comment?: string | undefined;
+  retention_time?: string | undefined;
+};
+
+export interface SyncMetadata_snowflake_jwt_tables {
+  schemas?: string[] | undefined;
+};
+
+export interface SyncMetadata_snowflake_jwt_views {
+  schemas?: ({  database: string;
+  schema: string;})[] | undefined;
+};
+
+export interface ActionInput_snowflake_jwt_cancelstatement {
+  /**
+   * The statement handle returned by Snowflake when a statement is submitted. Example: "01c4d2c3-0001-e881-001c-d6c3000130ea"
+   */
+  statement_handle: string;
+};
+
+export interface ActionOutput_snowflake_jwt_cancelstatement {
+  code: string;
+  message: string;
+};
+
+export interface ActionInput_snowflake_jwt_executestatement {
+  statement: string;
+  timeout?: number | undefined;
+  warehouse?: string | undefined;
+  database?: string | undefined;
+  schema?: string | undefined;
+  role?: string | undefined;
+  bindings?: {  [key: string]: {  type: string;
+  value: string;};} | undefined;
+};
+
+export interface ActionOutput_snowflake_jwt_executestatement {
+  code: string;
+  sqlState?: string | undefined;
+  message: string;
+  statementHandle: string;
+  statementHandles?: string[] | undefined;
+  statementStatusUrl: string;
+  createdOn?: number | undefined;
+  resultSetMetaData?: {  numRows?: number | undefined;
+  format?: string | undefined;
+  rowType?: ({  name: string;
+  database?: string | undefined;
+  schema?: string | undefined;
+  table?: string | undefined;
+  type: string;
+  scale?: number | undefined;
+  precision?: number | undefined;
+  length?: number | undefined;
+  nullable: boolean;
+  byteLength?: number | undefined;
+  collation?: string | undefined;})[];
+  partitionInfo?: ({  rowCount: number;
+  uncompressedSize: number;
+  compressedSize?: number | undefined;})[];};
+  data?: unknown[] | undefined;
+  stats?: {  numRowsInserted?: number | undefined;
+  numRowsUpdated?: number | undefined;
+  numRowsDeleted?: number | undefined;
+  numDuplicateRowsUpdated?: number | undefined;
+  numRowsUnloaded?: number | undefined;
+  numBytesUnloaded?: number | undefined;};
+};
+
+export interface ActionInput_snowflake_jwt_getstatementresult {
+  /**
+   * The statement handle returned by the execute-statement endpoint. Example: "01c4d2c3-0001-e881-001c-d6c3000130ea"
+   */
+  statement_handle: string;
+  /**
+   * The partition number to fetch. Defaults to 0.
+   */
+  partition?: number | undefined;
+};
+
+export interface ActionOutput_snowflake_jwt_getstatementresult {
+  statement_handle: string;
+  statement_state?: string | undefined;
+  num_rows?: number | undefined;
+  columns?: ({  name: string;
+  type: string;
+  precision?: number | undefined;
+  scale?: number | undefined;
+  byte_length?: number | undefined;
+  length?: number | undefined;
+  nullable?: boolean | undefined;})[];
+  rows?: unknown[] | undefined;
+  next_partition_num?: number | undefined;
+};
+
+export interface ActionInput_snowflake_jwt_getstatementstatus {
+  /**
+   * The handle of the SQL statement to check. Example: "01c4d2c3-0001-e881-001c-d6c3000130ea"
+   */
+  statementHandle: string;
+};
+
+export interface ActionOutput_snowflake_jwt_getstatementstatus {
+  statementHandle: string;
+  sqlState?: string | undefined;
+  message?: string | undefined;
+  code?: string | undefined;
+  createdOn?: number | undefined;
+  statementStatusUrl?: string | undefined;
+  resultSetMetaData?: {  numRows?: number | undefined;
+  format?: string | undefined;
+  rowType?: ({  name: string;
+  type: string;
+  database?: string | undefined;
+  schema?: string | undefined;
+  table?: string | undefined;
+  scale?: number | undefined;
+  precision?: number | undefined;
+  length?: number | undefined;
+  byteLength?: number | undefined;
+  nullable?: boolean | undefined;
+  collation?: string | undefined;})[];
+  partitionInfo?: ({  rowCount: number;
+  uncompressedSize: number;
+  compressedSize?: number | undefined;})[];};
+  data?: unknown[] | undefined;
+};
+
+export interface ActionInput_snowflake_jwt_listcolumns {
+  /**
+   * Database name. Example: "NANGO_TEST_DB"
+   */
+  database: string;
+  /**
+   * Schema name. Example: "SALES"
+   */
+  schema: string;
+  /**
+   * Table name. Example: "CUSTOMERS"
+   */
+  table: string;
+};
+
+export interface ActionOutput_snowflake_jwt_listcolumns {
+  columns: ({  table_name: string;
+  schema_name: string;
+  column_name: string;
+  data_type: string;
+  nullable: boolean;
+  default?: string | undefined;
+  kind: string;
+  autoincrement?: string | undefined;})[];
+};
+
+export interface ActionInput_snowflake_jwt_listdatabases {
+};
+
+export interface ActionOutput_snowflake_jwt_listdatabases {
+  databases: ({  created_on?: string | undefined;
+  name: string;
+  is_default?: string | undefined;
+  is_current?: string | undefined;
+  origin?: string | undefined;
+  owner?: string | undefined;
+  comment?: string | undefined;
+  retention_time?: string | undefined;
+  kind?: string | undefined;})[];
+};
+
+export interface ActionInput_snowflake_jwt_listroles {
+};
+
+export interface ActionOutput_snowflake_jwt_listroles {
+  roles: ({  created_on?: string | undefined;
+  name: string;
+  is_default: boolean;
+  is_current: boolean;
+  is_inherited: boolean;
+  assigned_to_users?: number | undefined;
+  granted_to_roles?: number | undefined;
+  granted_roles?: number | undefined;
+  owner?: string | undefined;
+  comment?: string | undefined;})[];
+};
+
+export interface ActionInput_snowflake_jwt_listschemas {
+  /**
+   * Database name. Example: "NANGO_TEST_DB"
+   */
+  database: string;
+};
+
+export interface ActionOutput_snowflake_jwt_listschemas {
+  schemas: ({  /**
+   * Schema creation timestamp in ISO 8601 format
+   */
+  created_on?: string | undefined;
+  /**
+   * Schema name
+   */
+  name: string;
+  /**
+   * Whether this is the default schema
+   */
+  is_default: boolean;
+  /**
+   * Whether this is the current schema
+   */
+  is_current: boolean;
+  /**
+   * Database name
+   */
+  database_name: string;
+  /**
+   * Owner of the schema
+   */
+  owner: string;
+  /**
+   * Comment on the schema
+   */
+  comment?: string | undefined;
+  /**
+   * Retention time in days
+   */
+  retention_time?: string | undefined;})[];
+};
+
+export interface ActionInput_snowflake_jwt_liststages {
+  /**
+   * Database name. Example: "NANGO_TEST_DB"
+   */
+  database: string;
+};
+
+export interface ActionOutput_snowflake_jwt_liststages {
+  stages: ({  created_on?: string | undefined;
+  name?: string | undefined;
+  database_name?: string | undefined;
+  schema_name?: string | undefined;
+  url?: string | undefined;
+  has_credentials?: string | undefined;
+  has_encryption_key?: string | undefined;
+  owner?: string | undefined;
+  comment?: string | undefined;
+  region?: string | undefined;
+  type?: string | undefined;
+  cloud?: string | undefined;})[];
+};
+
+export interface ActionInput_snowflake_jwt_liststreams {
+  /**
+   * Database name to list streams from. Example: "NANGO_TEST_DB"
+   */
+  database: string;
+};
+
+export interface ActionOutput_snowflake_jwt_liststreams {
+  streams: ({  created_on?: string | undefined;
+  name?: string | undefined;
+  database_name?: string | undefined;
+  schema_name?: string | undefined;
+  owner?: string | undefined;
+  comment?: string | undefined;
+  table_name?: string | undefined;
+  source_type?: string | undefined;
+  type?: string | undefined;
+  stale?: string | undefined;
+  mode?: string | undefined;})[];
+};
+
+export interface ActionInput_snowflake_jwt_listtables {
+  /**
+   * Database name. Example: "NANGO_TEST_DB"
+   */
+  database: string;
+  /**
+   * Schema name. Example: "SALES"
+   */
+  schema: string;
+};
+
+export interface ActionOutput_snowflake_jwt_listtables {
+  tables: ({  created_on?: string | undefined;
+  name: string;
+  database_name?: string | undefined;
+  schema_name?: string | undefined;
+  kind?: string | undefined;
+  rows?: number | undefined;
+  bytes?: number | undefined;
+  owner?: string | undefined;
+  retention_time?: number | undefined;
+  is_external?: string | undefined;
+  is_iceberg?: string | undefined;})[];
+};
+
+export interface ActionInput_snowflake_jwt_listtasks {
+  /**
+   * Database name to list tasks from. Example: "NANGO_TEST_DB"
+   */
+  database: string;
+};
+
+export interface ActionOutput_snowflake_jwt_listtasks {
+  tasks: ({  created_on?: string | undefined;
+  name?: string | undefined;
+  database_name?: string | undefined;
+  schema_name?: string | undefined;
+  owner?: string | undefined;
+  warehouse?: string | undefined;
+  schedule?: string | undefined;
+  state?: string | undefined;
+  definition?: string | undefined;
+  condition?: string | undefined;})[];
+};
+
+export interface ActionInput_snowflake_jwt_listusers {
+};
+
+export interface ActionOutput_snowflake_jwt_listusers {
+  items: ({  name: string;
+  created_on?: string | undefined;
+  login_name?: string | undefined;
+  display_name?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  disabled?: boolean | undefined;
+  must_change_password?: boolean | undefined;
+  default_warehouse?: string | undefined;
+  default_role?: string | undefined;
+  has_password?: boolean | undefined;
+  has_rsa_public_key?: boolean | undefined;
+  last_success_login?: string | undefined;
+  type?: string | undefined;})[];
+};
+
+export interface ActionInput_snowflake_jwt_listviews {
+  /**
+   * Database name. Example: "NANGO_TEST_DB"
+   */
+  database_name: string;
+  /**
+   * Schema name. Example: "SALES"
+   */
+  schema_name: string;
+};
+
+export interface ActionOutput_snowflake_jwt_listviews {
+  items: ({  created_on: string;
+  name: string;
+  database_name: string;
+  schema_name: string;
+  owner?: string | undefined;
+  comment?: string | undefined;
+  text?: string | undefined;
+  is_secure: boolean;
+  is_materialized: boolean;
+  change_tracking?: string | undefined;})[];
+};
+
+export interface ActionInput_snowflake_jwt_listwarehouses {
+};
+
+export interface ActionOutput_snowflake_jwt_listwarehouses {
+  warehouses: ({  name: string;
+  state: string;
+  type: string;
+  size: string;
+  min_cluster_count: number;
+  max_cluster_count: number;
+  started_clusters: number;
+  running: number;
+  queued: number;
+  is_default: boolean;
+  is_current: boolean;
+  auto_suspend: number;
+  auto_resume: boolean;
+  owner: string;
+  enable_query_acceleration: boolean;
+  resource_monitor?: string | undefined;})[];
 };
 
 export interface Album {
