@@ -156,7 +156,7 @@ async function getConfiguredSchemas(nango: NangoSyncLocal, metadata: z.infer<typ
 
     const schemas: { database: string; schema: string }[] = [];
     for (const database of databases) {
-        const { columns: schemaCols, rows: schemaRows } = await executeStatement(nango, `SHOW SCHEMAS IN DATABASE ${database}`);
+        const { columns: schemaCols, rows: schemaRows } = await executeStatement(nango, `SHOW SCHEMAS IN DATABASE "${database.replace(/"/g, '""')}"`);
         for (const row of schemaRows) {
             if (!Array.isArray(row)) {
                 continue;
@@ -249,7 +249,7 @@ const sync = createSync({
                 continue;
             }
 
-            const { columns, rows } = await executeStatement(nango, `SHOW VIEWS IN SCHEMA ${database}.${schema}`);
+            const { columns, rows } = await executeStatement(nango, `SHOW VIEWS IN SCHEMA "${database.replace(/"/g, '""')}"."${schema.replace(/"/g, '""')}"`);
 
             const parsedViews: z.infer<typeof ViewRowSchema>[] = [];
             for (const row of rows) {

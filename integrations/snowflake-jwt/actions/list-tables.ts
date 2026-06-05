@@ -59,7 +59,7 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const statement = `SHOW TABLES IN SCHEMA ${input.database}.${input.schema}`;
+        const statement = `SHOW TABLES IN SCHEMA "${input.database.replace(/"/g, '""')}"."${input.schema.replace(/"/g, '""')}"`;
 
         // https://docs.snowflake.com/en/developer-guide/sql-api/index
         const response = await nango.post({

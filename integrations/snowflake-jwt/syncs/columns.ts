@@ -132,9 +132,9 @@ const sync = createSync({
 
             const rows = getParsed.data.data ? [...getParsed.data.data] : [];
             const columns = getParsed.data.resultSetMetaData?.rowType ?? [];
-            const numPartitions = getParsed.data.resultSetMetaData?.numPartitions ?? 1;
+            const partitionInfo = getParsed.data.resultSetMetaData?.partitionInfo ?? [];
 
-            for (let i = 1; i < numPartitions; i++) {
+            for (let i = 1; i < partitionInfo.length; i++) {
                 const partitionResponse = await nango.get({
                     // https://docs.snowflake.com/en/developer-guide/sql-api/index
                     endpoint: `/api/v2/statements/${encodeURIComponent(handle)}`,
@@ -193,7 +193,7 @@ const sync = createSync({
                 continue;
             }
 
-            const schemasResult = await executeStatement(`SHOW SCHEMAS IN DATABASE ${dbName}`);
+            const schemasResult = await executeStatement(`SHOW SCHEMAS IN DATABASE "${dbName.replace(/"/g, '""')}"`);
             const schemas = schemasResult.rows
                 .map((row) => rowToObject(row, schemasResult.columns))
                 .filter((schema) => {
@@ -207,7 +207,7 @@ const sync = createSync({
                     continue;
                 }
 
-                const tablesResult = await executeStatement(`SHOW TABLES IN SCHEMA ${dbName}.${schemaName}`);
+                const tablesResult = await executeStatement(`SHOW TABLES IN SCHEMA "${dbName.replace(/"/g, '""')}"."${schemaName.replace(/"/g, '""')}"`);
                 const tables = tablesResult.rows.map((row) => rowToObject(row, tablesResult.columns));
 
                 for (const tableRow of tables) {
@@ -220,7 +220,9 @@ const sync = createSync({
                         continue;
                     }
 
-                    const columnsResult = await executeStatement(`SHOW COLUMNS IN TABLE ${dbName}.${schemaName}.${tableName}`);
+                    const columnsResult = await executeStatement(
+                        `SHOW COLUMNS IN TABLE "${dbName.replace(/"/g, '""')}"."${schemaName.replace(/"/g, '""')}"."${tableName.replace(/"/g, '""')}"`
+                    );
                     const columns = columnsResult.rows.map((row) => rowToObject(row, columnsResult.columns));
 
                     const columnRecords = [];
@@ -238,7 +240,12 @@ const sync = createSync({
                         let dataTypeObj: Record<string, unknown> = {};
 
                         if (dataTypeStr) {
-                            const parsedJson = JSON.parse(dataTypeStr);
+                            let parsedJson: unknown;
+                            try {
+                                parsedJson = JSON.parse(dataTypeStr);
+                            } catch {
+                                throw new Error(`Malformed data_type JSON for column ${dbName}.${schemaName}.${tableName}.${columnName}: ${dataTypeStr}`);
+                            }
                             const parsed = DataTypeJsonSchema.safeParse(parsedJson);
                             if (!parsed.success) {
                                 throw new Error(
@@ -286,8 +293,8 @@ const sync = createSync({
             }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Column');
-        await nango.saveCheckpoint({ database: '', schema: '', table: '', column_name: '' });
     }
 });
 

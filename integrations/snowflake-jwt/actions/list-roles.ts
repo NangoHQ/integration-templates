@@ -156,7 +156,7 @@ async function fetchAllRows(
         }
 
         const partitionSchema = z.object({
-            data: z.array(z.array(z.union([z.string(), z.null()])))
+            data: z.array(z.array(z.string().nullable()))
         });
 
         const parsedPartition = partitionSchema.parse(partitionResponse.data);

@@ -55,7 +55,7 @@ const ResultSetSchema = z.object({
     sqlState: z.string().optional(),
     statementStatusUrl: z.string().optional(),
     resultSetMetaData: ResultSetMetaDataSchema,
-    data: z.array(z.array(z.union([z.string(), z.null()])))
+    data: z.array(z.array(z.string().nullable()))
 });
 
 const action = createAction({
@@ -71,21 +71,7 @@ const action = createAction({
     scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const identifierPattern = /^[A-Za-z_][A-Za-z0-9_]*$/;
-        if (!identifierPattern.test(input.database_name)) {
-            throw new nango.ActionError({
-                type: 'invalid_input',
-                message: 'database_name contains invalid characters'
-            });
-        }
-        if (!identifierPattern.test(input.schema_name)) {
-            throw new nango.ActionError({
-                type: 'invalid_input',
-                message: 'schema_name contains invalid characters'
-            });
-        }
-
-        const statement = `SHOW VIEWS IN SCHEMA ${input.database_name}.${input.schema_name}`;
+        const statement = `SHOW VIEWS IN SCHEMA "${input.database_name.replace(/"/g, '""')}"."${input.schema_name.replace(/"/g, '""')}"`;
 
         const response = await nango.post({
             // https://docs.snowflake.com/en/developer-guide/sql-api/submitting-requests

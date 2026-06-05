@@ -132,7 +132,7 @@ const sync = createSync({
             const schemasResponse = await nango.post({
                 endpoint: '/api/v2/statements',
                 data: {
-                    statement: `SHOW SCHEMAS IN DATABASE ${databaseName}`
+                    statement: `SHOW SCHEMAS IN DATABASE "${databaseName.replace(/"/g, '""')}"`
                 },
                 retries: 3
             });

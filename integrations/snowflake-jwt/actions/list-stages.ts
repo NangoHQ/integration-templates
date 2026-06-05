@@ -72,26 +72,32 @@ const action = createAction({
             // https://docs.snowflake.com/en/developer-guide/sql-api/submitting-requests
             endpoint: '/api/v2/statements',
             data: {
-                statement: `SHOW STAGES IN DATABASE ${input.database}`
+                statement: `SHOW STAGES IN DATABASE "${input.database.replace(/"/g, '""')}"`
             },
             retries: 3
         });
 
         const submitResult = StatementResponseSchema.parse(submitResponse.data);
 
-        let resultData = submitResult.data;
-        let resultMetaData = submitResult.resultSetMetaData;
+        let currentResult = submitResult;
+        const maxAttempts = 30;
+        let attempts = 0;
 
-        if (!resultData && submitResult.statementHandle) {
+        while (!currentResult.data && currentResult.statementHandle && attempts < maxAttempts) {
+            // https://docs.snowflake.com/en/developer-guide/sql-api/handling-responses
             const statusResponse = await nango.get({
-                // https://docs.snowflake.com/en/developer-guide/sql-api/handling-responses
-                endpoint: `/api/v2/statements/${encodeURIComponent(submitResult.statementHandle)}`,
+                endpoint: `/api/v2/statements/${encodeURIComponent(currentResult.statementHandle)}`,
                 retries: 3
             });
-            const statusResult = StatementResponseSchema.parse(statusResponse.data);
-            resultData = statusResult.data;
-            resultMetaData = statusResult.resultSetMetaData;
+            currentResult = StatementResponseSchema.parse(statusResponse.data);
+            attempts += 1;
+            if (!currentResult.data && attempts < maxAttempts) {
+                await new Promise((resolve) => setTimeout(resolve, 1000));
+            }
         }
+
+        const resultData = currentResult.data;
+        const resultMetaData = currentResult.resultSetMetaData;
 
         if (!resultData || !resultMetaData) {
             throw new nango.ActionError({

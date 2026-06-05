@@ -77,8 +77,8 @@ const ShowTableRowSchema = z.object({
     database_name: z.string().optional(),
     schema_name: z.string().optional(),
     kind: z.string().optional(),
-    rows: z.union([z.string(), z.number(), z.null()]).optional(),
-    bytes: z.union([z.string(), z.number(), z.null()]).optional(),
+    rows: z.union([z.string(), z.number()]).nullable().optional(),
+    bytes: z.union([z.string(), z.number()]).nullable().optional(),
     owner: z.string().optional(),
     change_tracking: z.string().optional(),
     is_external: z.string().optional(),
@@ -198,7 +198,8 @@ const sync = createSync({
 
             for (const db of databases) {
                 // https://docs.snowflake.com/sql-reference/sql/show-schemas
-                const schemaResult = await executeSql(nango, `SHOW SCHEMAS IN DATABASE ${db.name}`);
+                const quotedDb = `"${db.name.replace(/"/g, '""')}"`;
+                const schemaResult = await executeSql(nango, `SHOW SCHEMAS IN DATABASE ${quotedDb}`);
                 const schemaColumnNames = schemaResult.meta.rowType?.map((c) => c.name) || [];
 
                 const schemas = schemaResult.data
@@ -233,7 +234,9 @@ const sync = createSync({
             }
 
             // https://docs.snowflake.com/sql-reference/sql/show-tables
-            const tableResult = await executeSql(nango, `SHOW TABLES IN SCHEMA ${database}.${schema}`);
+            const quotedDatabase = `"${database.replace(/"/g, '""')}"`;
+            const quotedSchema = `"${schema.replace(/"/g, '""')}"`;
+            const tableResult = await executeSql(nango, `SHOW TABLES IN SCHEMA ${quotedDatabase}.${quotedSchema}`);
             const tableColumnNames = tableResult.meta.rowType?.map((c) => c.name) || [];
 
             const parsedTables = tableResult.data

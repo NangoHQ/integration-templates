@@ -242,10 +242,10 @@
           "x-envoy-attempt-count": "1",
           "expect-ct": "enforce, max-age=3600"
         },
-        "hash": "c2772652092e1e866588e4d784dac131a4b14712",
+        "hash": "df91171a82399052ab1958b1539cf9d140b7c728",
         "request": {
           "data": {
-            "statement": "SHOW VIEWS IN SCHEMA NANGO_TEST_DB.SALES",
+            "statement": "SHOW VIEWS IN SCHEMA \"NANGO_TEST_DB\".\"SALES\"",
             "resultSetMetaData": {
               "format": "jsonv2"
             }

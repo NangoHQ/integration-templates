@@ -91,7 +91,7 @@ const action = createAction({
     scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const statement = `SHOW SCHEMAS IN DATABASE ${input.database}`;
+        const statement = `SHOW SCHEMAS IN DATABASE "${input.database.replace(/"/g, '""')}"`;
 
         // https://docs.snowflake.com/en/developer-guide/sql-api/reference#post-apiv2statements
         const response = await nango.post({

@@ -52,7 +52,7 @@ const action = createAction({
             // https://docs.snowflake.com/en/developer-guide/sql-api/index
             endpoint: '/api/v2/statements',
             data: {
-                statement: `SHOW STREAMS IN DATABASE ${input.database}`,
+                statement: `SHOW STREAMS IN DATABASE "${input.database.replace(/"/g, '""')}"`,
                 timeout: 60
             },
             retries: 3

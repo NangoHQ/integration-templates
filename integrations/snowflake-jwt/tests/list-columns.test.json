@@ -406,10 +406,10 @@
           "x-envoy-attempt-count": "1",
           "expect-ct": "enforce, max-age=3600"
         },
-        "hash": "38f669f32427648827a7a9d084b8d46863848a59",
+        "hash": "f75cc4e6225d956281ed8f10d2b2aeb4e7116c1e",
         "request": {
           "data": {
-            "statement": "SHOW COLUMNS IN TABLE NANGO_TEST_DB.SALES.CUSTOMERS"
+            "statement": "SHOW COLUMNS IN TABLE \"NANGO_TEST_DB\".\"SALES\".\"CUSTOMERS\""
           }
         }
       }

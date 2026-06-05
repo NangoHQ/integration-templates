@@ -863,10 +863,10 @@
             "x-envoy-attempt-count": "1",
             "expect-ct": "enforce, max-age=3600"
           },
-          "hash": "2523d5550d3007be4465e49f19e8da23d3f2ac8d",
+          "hash": "6eab4fe2f6a07df75458896336af92ebdb4dcb5d",
           "request": {
             "data": {
-              "statement": "SHOW SCHEMAS IN DATABASE NANGO_TEST_DB"
+              "statement": "SHOW SCHEMAS IN DATABASE \"NANGO_TEST_DB\""
             }
           }
         },
@@ -1551,10 +1551,10 @@
             "x-envoy-attempt-count": "1",
             "expect-ct": "enforce, max-age=3600"
           },
-          "hash": "401e52a83d368aed3a11442bf47c53984ed84ded",
+          "hash": "161e176cf52294d636d25818b484b6cb528c0856",
           "request": {
             "data": {
-              "statement": "SHOW SCHEMAS IN DATABASE SNOWFLAKE"
+              "statement": "SHOW SCHEMAS IN DATABASE \"SNOWFLAKE\""
             }
           }
         },
@@ -1903,10 +1903,10 @@
             "x-envoy-attempt-count": "1",
             "expect-ct": "enforce, max-age=3600"
           },
-          "hash": "23cdf6227f70051163123bed7b9ee543c227b4eb",
+          "hash": "3a3c483bbc220e6ef968f3d19abc20c11e76825f",
           "request": {
             "data": {
-              "statement": "SHOW SCHEMAS IN DATABASE SNOWFLAKE_SAMPLE_DATA"
+              "statement": "SHOW SCHEMAS IN DATABASE \"SNOWFLAKE_SAMPLE_DATA\""
             }
           }
         }

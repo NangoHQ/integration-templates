@@ -77,7 +77,7 @@ function buildQuery(
         return { query: baseQuery, bindings: undefined };
     }
 
-    const wrappedQuery = `SELECT * FROM (${baseQuery}) AS _nango_sync WHERE "${incrementalColumn}" > ? ORDER BY "${incrementalColumn}" ASC`;
+    const wrappedQuery = `SELECT * FROM (${baseQuery}) AS _nango_sync WHERE "${incrementalColumn}" >= ? ORDER BY "${incrementalColumn}" ASC`;
     return {
         query: wrappedQuery,
         bindings: {

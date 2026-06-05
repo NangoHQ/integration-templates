@@ -3640,10 +3640,10 @@
             "x-envoy-attempt-count": "1",
             "expect-ct": "enforce, max-age=3600"
           },
-          "hash": "2523d5550d3007be4465e49f19e8da23d3f2ac8d",
+          "hash": "6eab4fe2f6a07df75458896336af92ebdb4dcb5d",
           "request": {
             "data": {
-              "statement": "SHOW SCHEMAS IN DATABASE NANGO_TEST_DB"
+              "statement": "SHOW SCHEMAS IN DATABASE \"NANGO_TEST_DB\""
             }
           }
         },
@@ -4328,10 +4328,10 @@
             "x-envoy-attempt-count": "1",
             "expect-ct": "enforce, max-age=3600"
           },
-          "hash": "401e52a83d368aed3a11442bf47c53984ed84ded",
+          "hash": "161e176cf52294d636d25818b484b6cb528c0856",
           "request": {
             "data": {
-              "statement": "SHOW SCHEMAS IN DATABASE SNOWFLAKE"
+              "statement": "SHOW SCHEMAS IN DATABASE \"SNOWFLAKE\""
             }
           }
         },
@@ -4680,10 +4680,10 @@
             "x-envoy-attempt-count": "1",
             "expect-ct": "enforce, max-age=3600"
           },
-          "hash": "23cdf6227f70051163123bed7b9ee543c227b4eb",
+          "hash": "3a3c483bbc220e6ef968f3d19abc20c11e76825f",
           "request": {
             "data": {
-              "statement": "SHOW SCHEMAS IN DATABASE SNOWFLAKE_SAMPLE_DATA"
+              "statement": "SHOW SCHEMAS IN DATABASE \"SNOWFLAKE_SAMPLE_DATA\""
             }
           }
         },
@@ -4893,10 +4893,10 @@
             "x-envoy-attempt-count": "1",
             "expect-ct": "enforce, max-age=3600"
           },
-          "hash": "0f4b14f6f377dee428f8fe3aa8da9bbd170acc61",
+          "hash": "04b5bf5e4585125e115e661fabe387a84a18d983",
           "request": {
             "data": {
-              "statement": "SHOW VIEWS IN SCHEMA NANGO_TEST_DB.ANALYTICS"
+              "statement": "SHOW VIEWS IN SCHEMA \"NANGO_TEST_DB\".\"ANALYTICS\""
             }
           }
         },
@@ -5106,10 +5106,10 @@
             "x-envoy-attempt-count": "1",
             "expect-ct": "enforce, max-age=3600"
           },
-          "hash": "89b33aec9adcfb1845f433c986d6a51dda32a884",
+          "hash": "c9b86890723bd731dea3125f108bc1f08da605a3",
           "request": {
             "data": {
-              "statement": "SHOW VIEWS IN SCHEMA NANGO_TEST_DB.PUBLIC"
+              "statement": "SHOW VIEWS IN SCHEMA \"NANGO_TEST_DB\".\"PUBLIC\""
             }
           }
         },
@@ -5334,10 +5334,10 @@
             "x-envoy-attempt-count": "1",
             "expect-ct": "enforce, max-age=3600"
           },
-          "hash": "fea213e68e39bac729a28c4eb940e494d7084357",
+          "hash": "26085e65053555a569f013e1b909ef394953b2cd",
           "request": {
             "data": {
-              "statement": "SHOW VIEWS IN SCHEMA NANGO_TEST_DB.SALES"
+              "statement": "SHOW VIEWS IN SCHEMA \"NANGO_TEST_DB\".\"SALES\""
             }
           }
         },
@@ -8110,10 +8110,10 @@
             "x-envoy-attempt-count": "1",
             "expect-ct": "enforce, max-age=3600"
           },
-          "hash": "f6cf2568f164ab115c92e3d644ca59fc75ed99dc",
+          "hash": "db229de0343afc216866626904a9b93b87f02a6e",
           "request": {
             "data": {
-              "statement": "SHOW VIEWS IN SCHEMA SNOWFLAKE.ACCOUNT_USAGE"
+              "statement": "SHOW VIEWS IN SCHEMA \"SNOWFLAKE\".\"ACCOUNT_USAGE\""
             }
           }
         },
@@ -8323,10 +8323,10 @@
             "x-envoy-attempt-count": "1",
             "expect-ct": "enforce, max-age=3600"
           },
-          "hash": "689f61f890d2fe167c481b2a493f7cd0559e33e0",
+          "hash": "fa4d80160ccb39f4310e40b98b8621308facca97",
           "request": {
             "data": {
-              "statement": "SHOW VIEWS IN SCHEMA SNOWFLAKE.ALERT"
+              "statement": "SHOW VIEWS IN SCHEMA \"SNOWFLAKE\".\"ALERT\""
             }
           }
         },
@@ -8565,10 +8565,10 @@
             "x-envoy-attempt-count": "1",
             "expect-ct": "enforce, max-age=3600"
           },
-          "hash": "da4094ae60337587787cca9010bdd399fec65e41",
+          "hash": "157e363c1ddbfaf98adf1e1d126354dfe15680b7",
           "request": {
             "data": {
-              "statement": "SHOW VIEWS IN SCHEMA SNOWFLAKE.BCR_ROLLOUT"
+              "statement": "SHOW VIEWS IN SCHEMA \"SNOWFLAKE\".\"BCR_ROLLOUT\""
             }
           }
         },
@@ -8821,10 +8821,10 @@
             "x-envoy-attempt-count": "1",
             "expect-ct": "enforce, max-age=3600"
           },
-          "hash": "4787ebe207176dce8add3a0628bf0ec46dd4350b",
+          "hash": "e253fb78a30d4d80b908b03241f4a706cb71d6e7",
           "request": {
             "data": {
-              "statement": "SHOW VIEWS IN SCHEMA SNOWFLAKE.BILLING"
+              "statement": "SHOW VIEWS IN SCHEMA \"SNOWFLAKE\".\"BILLING\""
             }
           }
         },
@@ -9034,10 +9034,10 @@
             "x-envoy-attempt-count": "1",
             "expect-ct": "enforce, max-age=3600"
           },
-          "hash": "024eacf7a2371ef3ef73c3209dcae6ea55a8a826",
+          "hash": "9bd5cc1b5ff125d405269f586f191f009dbbe49b",
           "request": {
             "data": {
-              "statement": "SHOW VIEWS IN SCHEMA SNOWFLAKE.CORE"
+              "statement": "SHOW VIEWS IN SCHEMA \"SNOWFLAKE\".\"CORE\""
             }
           }
         },
@@ -9247,10 +9247,10 @@
             "x-envoy-attempt-count": "1",
             "expect-ct": "enforce, max-age=3600"
           },
-          "hash": "7289cb0efec83ce978edb21eab6f19add5885f29",
+          "hash": "04a9a8b07d21fc4f33084e4b29d17a60065fb5c6",
           "request": {
             "data": {
-              "statement": "SHOW VIEWS IN SCHEMA SNOWFLAKE.CORTEX"
+              "statement": "SHOW VIEWS IN SCHEMA \"SNOWFLAKE\".\"CORTEX\""
             }
           }
         },
@@ -9460,10 +9460,10 @@
             "x-envoy-attempt-count": "1",
             "expect-ct": "enforce, max-age=3600"
           },
-          "hash": "f476f91f5949d624a7ff6b70af8b8ed8b0c7dced",
+          "hash": "6cd0c56f5080f1d17b855135d8b32b8b6feda774",
           "request": {
             "data": {
-              "statement": "SHOW VIEWS IN SCHEMA SNOWFLAKE.DATA_PRIVACY"
+              "statement": "SHOW VIEWS IN SCHEMA \"SNOWFLAKE\".\"DATA_PRIVACY\""
             }
           }
         },
@@ -9688,10 +9688,10 @@
             "x-envoy-attempt-count": "1",
             "expect-ct": "enforce, max-age=3600"
           },
-          "hash": "1836d7e80b6ed1fb78210ce838236ea2c235fb6f",
+          "hash": "1dbf7242bfe643a11357d8a75ed6333499e271df",
           "request": {
             "data": {
-              "statement": "SHOW VIEWS IN SCHEMA SNOWFLAKE.DATA_SECURITY"
+              "statement": "SHOW VIEWS IN SCHEMA \"SNOWFLAKE\".\"DATA_SECURITY\""
             }
           }
         },
@@ -10098,10 +10098,10 @@
             "x-envoy-attempt-count": "1",
             "expect-ct": "enforce, max-age=3600"
           },
-          "hash": "6e1d320be820d8d5ec41840c622461450e8e9f7e",
+          "hash": "3141319086a98d1a3ca8ce14f371e78f97972d33",
           "request": {
             "data": {
-              "statement": "SHOW VIEWS IN SCHEMA SNOWFLAKE.DATA_SHARING_USAGE"
+              "statement": "SHOW VIEWS IN SCHEMA \"SNOWFLAKE\".\"DATA_SHARING_USAGE\""
             }
           }
         },
@@ -10311,10 +10311,10 @@
             "x-envoy-attempt-count": "1",
             "expect-ct": "enforce, max-age=3600"
           },
-          "hash": "ec878fb9c4059f11c14c712e1e14adbfc78c8405",
+          "hash": "8e8a99ee3991f89407d62a1b291ccdc37044293d",
           "request": {
             "data": {
-              "statement": "SHOW VIEWS IN SCHEMA SNOWFLAKE.DEFAULT_IMAGE_STORE"
+              "statement": "SHOW VIEWS IN SCHEMA \"SNOWFLAKE\".\"DEFAULT_IMAGE_STORE\""
             }
           }
         },
@@ -10524,10 +10524,10 @@
             "x-envoy-attempt-count": "1",
             "expect-ct": "enforce, max-age=3600"
           },
-          "hash": "c24799fc51313c15493c446d6f630e3d64cdd370",
+          "hash": "929375e106ff41e801ebe6428411d91615268159",
           "request": {
             "data": {
-              "statement": "SHOW VIEWS IN SCHEMA SNOWFLAKE.IMAGES"
+              "statement": "SHOW VIEWS IN SCHEMA \"SNOWFLAKE\".\"IMAGES\""
             }
           }
         },
@@ -10808,10 +10808,10 @@
             "x-envoy-attempt-count": "1",
             "expect-ct": "enforce, max-age=3600"
           },
-          "hash": "d2e5fc74029e25b6e841aa51dbecd6ca77444eaf",
+          "hash": "78476aa9d3c89f071d8c911b51ff637ee22e3ef8",
           "request": {
             "data": {
-              "statement": "SHOW VIEWS IN SCHEMA SNOWFLAKE.LOCAL"
+              "statement": "SHOW VIEWS IN SCHEMA \"SNOWFLAKE\".\"LOCAL\""
             }
           }
         },
@@ -11021,10 +11021,10 @@
             "x-envoy-attempt-count": "1",
             "expect-ct": "enforce, max-age=3600"
           },
-          "hash": "152566cd324400744e606e759a66d57eee47a37e",
+          "hash": "5cd680ecc376072af3b9ee663a92e13f1a00bcd3",
           "request": {
             "data": {
-              "statement": "SHOW VIEWS IN SCHEMA SNOWFLAKE.MARKETPLACE_NOTIFICATION"
+              "statement": "SHOW VIEWS IN SCHEMA \"SNOWFLAKE\".\"MARKETPLACE_NOTIFICATION\""
             }
           }
         },
@@ -11234,10 +11234,10 @@
             "x-envoy-attempt-count": "1",
             "expect-ct": "enforce, max-age=3600"
           },
-          "hash": "d0a0ad3a8247cb1a5b0b296babadf1cb982c94b8",
+          "hash": "84e5b5956a14a97eb929df081dee0bdf964f3524",
           "request": {
             "data": {
-              "statement": "SHOW VIEWS IN SCHEMA SNOWFLAKE.ML"
+              "statement": "SHOW VIEWS IN SCHEMA \"SNOWFLAKE\".\"ML\""
             }
           }
         },
@@ -11447,10 +11447,10 @@
             "x-envoy-attempt-count": "1",
             "expect-ct": "enforce, max-age=3600"
           },
-          "hash": "23f61cd160e5eb63dc53778f6c466bcccf3f34d5",
+          "hash": "dfbae3d1a2460c57f415e6981e8bcdcc5d353e2a",
           "request": {
             "data": {
-              "statement": "SHOW VIEWS IN SCHEMA SNOWFLAKE.MODELS"
+              "statement": "SHOW VIEWS IN SCHEMA \"SNOWFLAKE\".\"MODELS\""
             }
           }
         },
@@ -11675,10 +11675,10 @@
             "x-envoy-attempt-count": "1",
             "expect-ct": "enforce, max-age=3600"
           },
-          "hash": "420a6dc776f2be2518b6005b12e5014d174b4833",
+          "hash": "fcdf9c2a105a5c87dcde86234525b237b70aba03",
           "request": {
             "data": {
-              "statement": "SHOW VIEWS IN SCHEMA SNOWFLAKE.MONITORING"
+              "statement": "SHOW VIEWS IN SCHEMA \"SNOWFLAKE\".\"MONITORING\""
             }
           }
         },
@@ -11888,10 +11888,10 @@
             "x-envoy-attempt-count": "1",
             "expect-ct": "enforce, max-age=3600"
           },
-          "hash": "59587b406f5179819a0aff2301fa3a97fad7ed1c",
+          "hash": "f281c5e6bd372efcdf609b73c2c8d7b4f4605953",
           "request": {
             "data": {
-              "statement": "SHOW VIEWS IN SCHEMA SNOWFLAKE.NETWORK_SECURITY"
+              "statement": "SHOW VIEWS IN SCHEMA \"SNOWFLAKE\".\"NETWORK_SECURITY\""
             }
           }
         },
@@ -12101,10 +12101,10 @@
             "x-envoy-attempt-count": "1",
             "expect-ct": "enforce, max-age=3600"
           },
-          "hash": "33ff90d63015b3212abe9c3a0b22a3dc83bfe031",
+          "hash": "e7ab97d03800623f7b38733ebabecb3dcff5c454",
           "request": {
             "data": {
-              "statement": "SHOW VIEWS IN SCHEMA SNOWFLAKE.NOTIFICATION"
+              "statement": "SHOW VIEWS IN SCHEMA \"SNOWFLAKE\".\"NOTIFICATION\""
             }
           }
         },
@@ -12665,10 +12665,10 @@
             "x-envoy-attempt-count": "1",
             "expect-ct": "enforce, max-age=3600"
           },
-          "hash": "5bb6c50d3feb0e4e103be96fb722274cf34d0c75",
+          "hash": "420f3eeda4fa9e05d4c8ca67196c613205f5c9b1",
           "request": {
             "data": {
-              "statement": "SHOW VIEWS IN SCHEMA SNOWFLAKE.ORGANIZATION_USAGE"
+              "statement": "SHOW VIEWS IN SCHEMA \"SNOWFLAKE\".\"ORGANIZATION_USAGE\""
             }
           }
         },
@@ -12949,10 +12949,10 @@
             "x-envoy-attempt-count": "1",
             "expect-ct": "enforce, max-age=3600"
           },
-          "hash": "a53a78cfc9f031debcbd6d4ab3f7d32faaa6927c",
+          "hash": "fec74500650f9b19e03fb3d1d2c83cfcb4ccf0e1",
           "request": {
             "data": {
-              "statement": "SHOW VIEWS IN SCHEMA SNOWFLAKE.READER_ACCOUNT_USAGE"
+              "statement": "SHOW VIEWS IN SCHEMA \"SNOWFLAKE\".\"READER_ACCOUNT_USAGE\""
             }
           }
         },
@@ -13162,10 +13162,10 @@
             "x-envoy-attempt-count": "1",
             "expect-ct": "enforce, max-age=3600"
           },
-          "hash": "0c72aef6808a4bae4c996df6555caf27a7028afd",
+          "hash": "c728083e8e0b239ccd099485e7b32d3d343c8752",
           "request": {
             "data": {
-              "statement": "SHOW VIEWS IN SCHEMA SNOWFLAKE.SNOWPARK"
+              "statement": "SHOW VIEWS IN SCHEMA \"SNOWFLAKE\".\"SNOWPARK\""
             }
           }
         },
@@ -13390,10 +13390,10 @@
             "x-envoy-attempt-count": "1",
             "expect-ct": "enforce, max-age=3600"
           },
-          "hash": "05da2c1770c0889b91e39226aacc014ee7e1eb95",
+          "hash": "21f191bac926dd53e6b42a93c4c944be0806d76d",
           "request": {
             "data": {
-              "statement": "SHOW VIEWS IN SCHEMA SNOWFLAKE.SNOWPARK_CONNECT"
+              "statement": "SHOW VIEWS IN SCHEMA \"SNOWFLAKE\".\"SNOWPARK_CONNECT\""
             }
           }
         },
@@ -13603,10 +13603,10 @@
             "x-envoy-attempt-count": "1",
             "expect-ct": "enforce, max-age=3600"
           },
-          "hash": "e01568b1b515a3709c2455a6441da19173cbff54",
+          "hash": "e6bce58e87cb8768402d9f7a8ee570367f688973",
           "request": {
             "data": {
-              "statement": "SHOW VIEWS IN SCHEMA SNOWFLAKE.SPCS"
+              "statement": "SHOW VIEWS IN SCHEMA \"SNOWFLAKE\".\"SPCS\""
             }
           }
         },
@@ -13831,10 +13831,10 @@
             "x-envoy-attempt-count": "1",
             "expect-ct": "enforce, max-age=3600"
           },
-          "hash": "c87291cad762d09bc6aadc2c7e9d09c15e280c75",
+          "hash": "1172b4386a415c84575e6619f6838e7c8d98f759",
           "request": {
             "data": {
-              "statement": "SHOW VIEWS IN SCHEMA SNOWFLAKE.TELEMETRY"
+              "statement": "SHOW VIEWS IN SCHEMA \"SNOWFLAKE\".\"TELEMETRY\""
             }
           }
         },
@@ -14199,10 +14199,10 @@
             "x-envoy-attempt-count": "1",
             "expect-ct": "enforce, max-age=3600"
           },
-          "hash": "631be16d70ddcca5465fc71b7a1b76610c9fe694",
+          "hash": "d31afa38447de55aceedbd745a374e69db575013",
           "request": {
             "data": {
-              "statement": "SHOW VIEWS IN SCHEMA SNOWFLAKE.TRUST_CENTER"
+              "statement": "SHOW VIEWS IN SCHEMA \"SNOWFLAKE\".\"TRUST_CENTER\""
             }
           }
         },
@@ -14412,10 +14412,10 @@
             "x-envoy-attempt-count": "1",
             "expect-ct": "enforce, max-age=3600"
           },
-          "hash": "d1b363885b50a8bc957a89b53a18e223d99d44c3",
+          "hash": "4b509fcf8a5f9a12f76a5d2f5c210ebdcae9538a",
           "request": {
             "data": {
-              "statement": "SHOW VIEWS IN SCHEMA SNOWFLAKE.WORKLOAD_INSIGHTS"
+              "statement": "SHOW VIEWS IN SCHEMA \"SNOWFLAKE\".\"WORKLOAD_INSIGHTS\""
             }
           }
         },
@@ -14625,10 +14625,10 @@
             "x-envoy-attempt-count": "1",
             "expect-ct": "enforce, max-age=3600"
           },
-          "hash": "9db060b35332975cd02b83d0677ef74e207a3bd9",
+          "hash": "9765ecaf1b035deef88c72f88358951859eb5b8f",
           "request": {
             "data": {
-              "statement": "SHOW VIEWS IN SCHEMA SNOWFLAKE.WORKLOAD_OPTIMIZATION"
+              "statement": "SHOW VIEWS IN SCHEMA \"SNOWFLAKE\".\"WORKLOAD_OPTIMIZATION\""
             }
           }
         },
@@ -14838,10 +14838,10 @@
             "x-envoy-attempt-count": "1",
             "expect-ct": "enforce, max-age=3600"
           },
-          "hash": "fe471ccc0f3f9a173ec0f27edf12ba09c3dd606b",
+          "hash": "b5edfe181fa66e9f3a7657d09e7e121ff1500d91",
           "request": {
             "data": {
-              "statement": "SHOW VIEWS IN SCHEMA SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL"
+              "statement": "SHOW VIEWS IN SCHEMA \"SNOWFLAKE_SAMPLE_DATA\".\"TPCDS_SF100TCL\""
             }
           }
         },
@@ -15051,10 +15051,10 @@
             "x-envoy-attempt-count": "1",
             "expect-ct": "enforce, max-age=3600"
           },
-          "hash": "8c5be2560e56c4c0ac252afbabf7b76608f64b0a",
+          "hash": "4fcf769b5cf99597ec08b68252a1f5bf93121108",
           "request": {
             "data": {
-              "statement": "SHOW VIEWS IN SCHEMA SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL"
+              "statement": "SHOW VIEWS IN SCHEMA \"SNOWFLAKE_SAMPLE_DATA\".\"TPCDS_SF10TCL\""
             }
           }
         },
@@ -15264,10 +15264,10 @@
             "x-envoy-attempt-count": "1",
             "expect-ct": "enforce, max-age=3600"
           },
-          "hash": "cdff425e452ae2e976482a0aaa4feb0798a300b6",
+          "hash": "b5abfde2318d87838dc9e276232a7cdb4e8ebe11",
           "request": {
             "data": {
-              "statement": "SHOW VIEWS IN SCHEMA SNOWFLAKE_SAMPLE_DATA.TPCH_SF1"
+              "statement": "SHOW VIEWS IN SCHEMA \"SNOWFLAKE_SAMPLE_DATA\".\"TPCH_SF1\""
             }
           }
         },
@@ -15477,10 +15477,10 @@
             "x-envoy-attempt-count": "1",
             "expect-ct": "enforce, max-age=3600"
           },
-          "hash": "10beb76a56630d9aabe20120069b86ad5aaf91c9",
+          "hash": "3ce6c0c145bb096532d5d3a6632b222512f9cd62",
           "request": {
             "data": {
-              "statement": "SHOW VIEWS IN SCHEMA SNOWFLAKE_SAMPLE_DATA.TPCH_SF10"
+              "statement": "SHOW VIEWS IN SCHEMA \"SNOWFLAKE_SAMPLE_DATA\".\"TPCH_SF10\""
             }
           }
         },
@@ -15690,10 +15690,10 @@
             "x-envoy-attempt-count": "1",
             "expect-ct": "enforce, max-age=3600"
           },
-          "hash": "a165ce7b91804c881dc5d7fe64513c0e9cb3c6e8",
+          "hash": "d9f3187cd8317edc03c388412e8294995ab8db16",
           "request": {
             "data": {
-              "statement": "SHOW VIEWS IN SCHEMA SNOWFLAKE_SAMPLE_DATA.TPCH_SF100"
+              "statement": "SHOW VIEWS IN SCHEMA \"SNOWFLAKE_SAMPLE_DATA\".\"TPCH_SF100\""
             }
           }
         },
@@ -15903,10 +15903,10 @@
             "x-envoy-attempt-count": "1",
             "expect-ct": "enforce, max-age=3600"
           },
-          "hash": "c38998378bdef0d68424f87b38181f9da2445958",
+          "hash": "b868ef1218119ac3231a85323a078e7ae2a4e384",
           "request": {
             "data": {
-              "statement": "SHOW VIEWS IN SCHEMA SNOWFLAKE_SAMPLE_DATA.TPCH_SF1000"
+              "statement": "SHOW VIEWS IN SCHEMA \"SNOWFLAKE_SAMPLE_DATA\".\"TPCH_SF1000\""
             }
           }
         }

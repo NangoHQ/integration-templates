@@ -253,10 +253,10 @@
           "x-envoy-attempt-count": "1",
           "expect-ct": "enforce, max-age=3600"
         },
-        "hash": "242aa1dc89759e76255b7ae7e18e06cd870c37c3",
+        "hash": "94469c6697eb7d4983db321f48c652ac0558966e",
         "request": {
           "data": {
-            "statement": "SHOW STREAMS IN DATABASE NANGO_TEST_DB",
+            "statement": "SHOW STREAMS IN DATABASE \"NANGO_TEST_DB\"",
             "timeout": 60
           }
         }

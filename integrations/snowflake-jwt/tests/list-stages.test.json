@@ -279,10 +279,10 @@
           "x-envoy-attempt-count": "1",
           "expect-ct": "enforce, max-age=3600"
         },
-        "hash": "cac89108c7dedb2b79d526e5b2a59ebc935e1262",
+        "hash": "643942188fad10682b3077bade7ca5a529157480",
         "request": {
           "data": {
-            "statement": "SHOW STAGES IN DATABASE NANGO_TEST_DB"
+            "statement": "SHOW STAGES IN DATABASE \"NANGO_TEST_DB\""
           }
         }
       }

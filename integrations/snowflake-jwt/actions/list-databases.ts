@@ -4,15 +4,15 @@ import { createAction, ProxyConfiguration } from 'nango';
 const InputSchema = z.object({});
 
 const ProviderDatabaseSchema = z.object({
-    created_on: z.string().optional(),
+    created_on: z.string().nullish(),
     name: z.string(),
-    is_default: z.string().optional(),
-    is_current: z.string().optional(),
-    origin: z.string().optional(),
-    owner: z.string().optional(),
-    comment: z.string().optional(),
-    retention_time: z.string().optional(),
-    kind: z.string().optional()
+    is_default: z.string().nullish(),
+    is_current: z.string().nullish(),
+    origin: z.string().nullish(),
+    owner: z.string().nullish(),
+    comment: z.string().nullish(),
+    retention_time: z.string().nullish(),
+    kind: z.string().nullish()
 });
 
 const OutputSchema = z.object({

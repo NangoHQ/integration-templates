@@ -63,7 +63,7 @@ const action = createAction({
     scopes: [],
 
     exec: async (nango, input) => {
-        const statement = `SHOW COLUMNS IN TABLE ${input.database}.${input.schema}.${input.table}`;
+        const statement = `SHOW COLUMNS IN TABLE "${input.database.replace(/"/g, '""')}"."${input.schema.replace(/"/g, '""')}"."${input.table.replace(/"/g, '""')}"`;
 
         const response = await nango.post({
             // https://docs.snowflake.com/en/developer-guide/sql-api/reference
