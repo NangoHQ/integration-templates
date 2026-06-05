@@ -55,8 +55,13 @@ const FulfillmentSchema = z.object({
 });
 
 const UserErrorSchema = z.object({
-    field: z.array(z.string()),
+    field: z.array(z.string()).optional(),
     message: z.string()
+});
+
+const GraphQLErrorSchema = z.object({
+    message: z.string(),
+    extensions: z.record(z.string(), z.unknown()).optional()
 });
 
 const GraphQLResponseSchema = z.object({
@@ -69,7 +74,9 @@ const GraphQLResponseSchema = z.object({
                 })
                 .optional()
         })
-        .optional()
+        .nullable()
+        .optional(),
+    errors: z.array(GraphQLErrorSchema).optional()
 });
 
 const OutputSchema = z.object({
@@ -149,6 +156,14 @@ const action = createAction({
         const response = await nango.post(config);
 
         const parsed = GraphQLResponseSchema.parse(response.data);
+
+        if (parsed.errors != null && parsed.errors.length > 0) {
+            throw new nango.ActionError({
+                type: 'graphql_error',
+                message: parsed.errors.map((e) => e.message).join(', ')
+            });
+        }
+
         const result = parsed.data?.fulfillmentCreate;
 
         if (!result) {

@@ -74,12 +74,27 @@ const action = createAction({
             retries: 3
         });
 
-        const body = response.data;
+        const body = z
+            .object({
+                data: z
+                    .object({
+                        order: z
+                            .object({
+                                transactions: z.array(z.unknown()).optional()
+                            })
+                            .nullable()
+                            .optional()
+                    })
+                    .nullable()
+                    .optional(),
+                errors: z.array(z.object({ message: z.string() })).optional()
+            })
+            .parse(response.data);
 
-        if (body.errors && body.errors.length > 0) {
+        if (body.errors != null && body.errors.length > 0) {
             throw new nango.ActionError({
                 type: 'provider_error',
-                message: body.errors[0].message || 'Shopify GraphQL error'
+                message: body.errors.map((e) => e.message).join(', ')
             });
         }
 

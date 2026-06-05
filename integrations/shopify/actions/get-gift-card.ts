@@ -33,9 +33,12 @@ const GraphQLErrorSchema = z.object({
 });
 
 const GraphQLResponseSchema = z.object({
-    data: z.object({
-        giftCard: GiftCardSchema.nullable().optional()
-    }),
+    data: z
+        .object({
+            giftCard: GiftCardSchema.nullable().optional()
+        })
+        .nullable()
+        .optional(),
     errors: z.array(GraphQLErrorSchema).optional()
 });
 
@@ -106,7 +109,7 @@ const action = createAction({
             });
         }
 
-        const giftCard = parsed.data.giftCard;
+        const giftCard = parsed.data?.giftCard;
 
         if (!giftCard) {
             throw new nango.ActionError({
