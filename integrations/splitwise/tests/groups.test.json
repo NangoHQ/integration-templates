@@ -1,0 +1,525 @@
+{
+  "nango": {
+    "batchSave": {
+      "Group": [
+        {
+          "id": "0",
+          "name": "Non-group expenses",
+          "updated_at": "2026-06-05T14:06:59Z",
+          "simplify_by_default": false,
+          "members": [
+            {
+              "id": 121534786,
+              "first_name": "Nango",
+              "last_name": "Developer",
+              "email": "api@nango.dev",
+              "registration_status": "confirmed",
+              "picture": {
+                "small": "https://s3.amazonaws.com/splitwise/uploads/user/default_avatars/avatar-orange25-50px.png",
+                "medium": "https://s3.amazonaws.com/splitwise/uploads/user/default_avatars/avatar-orange25-100px.png",
+                "large": "https://s3.amazonaws.com/splitwise/uploads/user/default_avatars/avatar-orange25-200px.png"
+              },
+              "custom_picture": false,
+              "balance": [
+                {
+                  "currency_code": "USD",
+                  "amount": "40.0"
+                }
+              ]
+            }
+          ],
+          "original_debts": [
+            {
+              "from": 121585689,
+              "to": 121534786,
+              "amount": "40.0",
+              "currency_code": "USD"
+            }
+          ],
+          "simplified_debts": [
+            {
+              "from": 121585689,
+              "to": 121534786,
+              "amount": "40.0",
+              "currency_code": "USD"
+            }
+          ],
+          "avatar": {
+            "original": null,
+            "xxlarge": "https://s3.amazonaws.com/splitwise/uploads/group/default_avatars/v2021/avatar-nongroup-1000px.png",
+            "xlarge": "https://s3.amazonaws.com/splitwise/uploads/group/default_avatars/v2021/avatar-nongroup-500px.png",
+            "large": "https://s3.amazonaws.com/splitwise/uploads/group/default_avatars/v2021/avatar-nongroup-200px.png",
+            "medium": "https://s3.amazonaws.com/splitwise/uploads/group/default_avatars/v2021/avatar-nongroup-100px.png",
+            "small": "https://s3.amazonaws.com/splitwise/uploads/group/default_avatars/v2021/avatar-nongroup-50px.png"
+          },
+          "custom_avatar": false,
+          "cover_photo": {
+            "xxlarge": "https://s3.amazonaws.com/splitwise/uploads/group/default_cover_photos/coverphoto-nongroup-1000px.png",
+            "xlarge": "https://s3.amazonaws.com/splitwise/uploads/group/default_cover_photos/coverphoto-nongroup-500px.png"
+          }
+        },
+        {
+          "id": "98454460",
+          "name": "Test Group for GetGroup",
+          "group_type": "other",
+          "updated_at": "2026-06-05T13:59:05Z",
+          "simplify_by_default": false,
+          "members": [
+            {
+              "id": 121534786,
+              "first_name": "Nango",
+              "last_name": "Developer",
+              "email": "api@nango.dev",
+              "registration_status": "confirmed",
+              "picture": {
+                "small": "https://s3.amazonaws.com/splitwise/uploads/user/default_avatars/avatar-orange25-50px.png",
+                "medium": "https://s3.amazonaws.com/splitwise/uploads/user/default_avatars/avatar-orange25-100px.png",
+                "large": "https://s3.amazonaws.com/splitwise/uploads/user/default_avatars/avatar-orange25-200px.png"
+              },
+              "custom_picture": false,
+              "balance": []
+            }
+          ],
+          "original_debts": [],
+          "simplified_debts": [],
+          "avatar": {
+            "original": null,
+            "xxlarge": "https://s3.amazonaws.com/splitwise/uploads/group/default_avatars/avatar-teal36-other-1000px.png",
+            "xlarge": "https://s3.amazonaws.com/splitwise/uploads/group/default_avatars/avatar-teal36-other-500px.png",
+            "large": "https://s3.amazonaws.com/splitwise/uploads/group/default_avatars/avatar-teal36-other-200px.png",
+            "medium": "https://s3.amazonaws.com/splitwise/uploads/group/default_avatars/avatar-teal36-other-100px.png",
+            "small": "https://s3.amazonaws.com/splitwise/uploads/group/default_avatars/avatar-teal36-other-50px.png"
+          },
+          "custom_avatar": false,
+          "cover_photo": {
+            "xxlarge": "https://s3.amazonaws.com/splitwise/uploads/group/default_cover_photos/teal-other-1000px.png",
+            "xlarge": "https://s3.amazonaws.com/splitwise/uploads/group/default_cover_photos/teal-other-500px.png"
+          },
+          "invite_link": "https://www.splitwise.com/join/LLmLwb9dAZv+20cwua"
+        },
+        {
+          "id": "98454565",
+          "name": "Test Group",
+          "updated_at": "2026-06-05T14:00:55Z",
+          "simplify_by_default": false,
+          "members": [
+            {
+              "id": 121534786,
+              "first_name": "Nango",
+              "last_name": "Developer",
+              "email": "api@nango.dev",
+              "registration_status": "confirmed",
+              "picture": {
+                "small": "https://s3.amazonaws.com/splitwise/uploads/user/default_avatars/avatar-orange25-50px.png",
+                "medium": "https://s3.amazonaws.com/splitwise/uploads/user/default_avatars/avatar-orange25-100px.png",
+                "large": "https://s3.amazonaws.com/splitwise/uploads/user/default_avatars/avatar-orange25-200px.png"
+              },
+              "custom_picture": false,
+              "balance": []
+            }
+          ],
+          "original_debts": [],
+          "simplified_debts": [],
+          "avatar": {
+            "original": null,
+            "xxlarge": "https://s3.amazonaws.com/splitwise/uploads/group/default_avatars/avatar-ruby47-other-1000px.png",
+            "xlarge": "https://s3.amazonaws.com/splitwise/uploads/group/default_avatars/avatar-ruby47-other-500px.png",
+            "large": "https://s3.amazonaws.com/splitwise/uploads/group/default_avatars/avatar-ruby47-other-200px.png",
+            "medium": "https://s3.amazonaws.com/splitwise/uploads/group/default_avatars/avatar-ruby47-other-100px.png",
+            "small": "https://s3.amazonaws.com/splitwise/uploads/group/default_avatars/avatar-ruby47-other-50px.png"
+          },
+          "custom_avatar": false,
+          "cover_photo": {
+            "xxlarge": "https://s3.amazonaws.com/splitwise/uploads/group/default_cover_photos/ruby-other-1000px.png",
+            "xlarge": "https://s3.amazonaws.com/splitwise/uploads/group/default_cover_photos/ruby-other-500px.png"
+          },
+          "invite_link": "https://www.splitwise.com/join/nGD73FNjjqh+20cwua"
+        },
+        {
+          "id": "98454591",
+          "name": "Test Group",
+          "updated_at": "2026-06-05T14:01:42Z",
+          "simplify_by_default": false,
+          "members": [
+            {
+              "id": 121534786,
+              "first_name": "Nango",
+              "last_name": "Developer",
+              "email": "api@nango.dev",
+              "registration_status": "confirmed",
+              "picture": {
+                "small": "https://s3.amazonaws.com/splitwise/uploads/user/default_avatars/avatar-orange25-50px.png",
+                "medium": "https://s3.amazonaws.com/splitwise/uploads/user/default_avatars/avatar-orange25-100px.png",
+                "large": "https://s3.amazonaws.com/splitwise/uploads/user/default_avatars/avatar-orange25-200px.png"
+              },
+              "custom_picture": false,
+              "balance": []
+            }
+          ],
+          "original_debts": [],
+          "simplified_debts": [],
+          "avatar": {
+            "original": null,
+            "xxlarge": "https://s3.amazonaws.com/splitwise/uploads/group/default_avatars/avatar-blue26-other-1000px.png",
+            "xlarge": "https://s3.amazonaws.com/splitwise/uploads/group/default_avatars/avatar-blue26-other-500px.png",
+            "large": "https://s3.amazonaws.com/splitwise/uploads/group/default_avatars/avatar-blue26-other-200px.png",
+            "medium": "https://s3.amazonaws.com/splitwise/uploads/group/default_avatars/avatar-blue26-other-100px.png",
+            "small": "https://s3.amazonaws.com/splitwise/uploads/group/default_avatars/avatar-blue26-other-50px.png"
+          },
+          "custom_avatar": false,
+          "cover_photo": {
+            "xxlarge": "https://s3.amazonaws.com/splitwise/uploads/group/default_cover_photos/blue-other-1000px.png",
+            "xlarge": "https://s3.amazonaws.com/splitwise/uploads/group/default_cover_photos/blue-other-500px.png"
+          },
+          "invite_link": "https://www.splitwise.com/join/6ts2NrhKmJZ+20cwua"
+        },
+        {
+          "id": "98454600",
+          "name": "Test Group",
+          "updated_at": "2026-06-05T14:01:50Z",
+          "simplify_by_default": false,
+          "members": [
+            {
+              "id": 121534786,
+              "first_name": "Nango",
+              "last_name": "Developer",
+              "email": "api@nango.dev",
+              "registration_status": "confirmed",
+              "picture": {
+                "small": "https://s3.amazonaws.com/splitwise/uploads/user/default_avatars/avatar-orange25-50px.png",
+                "medium": "https://s3.amazonaws.com/splitwise/uploads/user/default_avatars/avatar-orange25-100px.png",
+                "large": "https://s3.amazonaws.com/splitwise/uploads/user/default_avatars/avatar-orange25-200px.png"
+              },
+              "custom_picture": false,
+              "balance": []
+            }
+          ],
+          "original_debts": [],
+          "simplified_debts": [],
+          "avatar": {
+            "original": null,
+            "xxlarge": "https://s3.amazonaws.com/splitwise/uploads/group/default_avatars/avatar-teal35-other-1000px.png",
+            "xlarge": "https://s3.amazonaws.com/splitwise/uploads/group/default_avatars/avatar-teal35-other-500px.png",
+            "large": "https://s3.amazonaws.com/splitwise/uploads/group/default_avatars/avatar-teal35-other-200px.png",
+            "medium": "https://s3.amazonaws.com/splitwise/uploads/group/default_avatars/avatar-teal35-other-100px.png",
+            "small": "https://s3.amazonaws.com/splitwise/uploads/group/default_avatars/avatar-teal35-other-50px.png"
+          },
+          "custom_avatar": false,
+          "cover_photo": {
+            "xxlarge": "https://s3.amazonaws.com/splitwise/uploads/group/default_cover_photos/teal-other-1000px.png",
+            "xlarge": "https://s3.amazonaws.com/splitwise/uploads/group/default_cover_photos/teal-other-500px.png"
+          },
+          "invite_link": "https://www.splitwise.com/join/8iFM3dgUpRv+20cwua"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Group": []
+    }
+  },
+  "api": {
+    "get": {
+      "/api/v3.0/get_groups": {
+        "response": {
+          "groups": [
+            {
+              "id": 0,
+              "name": "Non-group expenses",
+              "created_at": "2026-06-04T13:14:57Z",
+              "updated_at": "2026-06-05T14:06:59Z",
+              "members": [
+                {
+                  "id": 121534786,
+                  "first_name": "Nango",
+                  "last_name": "Developer",
+                  "picture": {
+                    "small": "https://s3.amazonaws.com/splitwise/uploads/user/default_avatars/avatar-orange25-50px.png",
+                    "medium": "https://s3.amazonaws.com/splitwise/uploads/user/default_avatars/avatar-orange25-100px.png",
+                    "large": "https://s3.amazonaws.com/splitwise/uploads/user/default_avatars/avatar-orange25-200px.png"
+                  },
+                  "custom_picture": false,
+                  "email": "api@nango.dev",
+                  "registration_status": "confirmed",
+                  "balance": [
+                    {
+                      "amount": "40.0",
+                      "currency_code": "USD"
+                    }
+                  ]
+                }
+              ],
+              "simplify_by_default": false,
+              "original_debts": [
+                {
+                  "from": 121585689,
+                  "to": 121534786,
+                  "amount": "40.0",
+                  "currency_code": "USD"
+                }
+              ],
+              "simplified_debts": [
+                {
+                  "from": 121585689,
+                  "to": 121534786,
+                  "amount": "40.0",
+                  "currency_code": "USD"
+                }
+              ],
+              "avatar": {
+                "small": "https://s3.amazonaws.com/splitwise/uploads/group/default_avatars/v2021/avatar-nongroup-50px.png",
+                "medium": "https://s3.amazonaws.com/splitwise/uploads/group/default_avatars/v2021/avatar-nongroup-100px.png",
+                "large": "https://s3.amazonaws.com/splitwise/uploads/group/default_avatars/v2021/avatar-nongroup-200px.png",
+                "xlarge": "https://s3.amazonaws.com/splitwise/uploads/group/default_avatars/v2021/avatar-nongroup-500px.png",
+                "xxlarge": "https://s3.amazonaws.com/splitwise/uploads/group/default_avatars/v2021/avatar-nongroup-1000px.png",
+                "original": null
+              },
+              "tall_avatar": {
+                "xlarge": "https://s3.amazonaws.com/splitwise/uploads/group/default_tall_avatars/avatar-nongroup-288px.png",
+                "large": "https://s3.amazonaws.com/splitwise/uploads/group/default_tall_avatars/avatar-nongroup-192px.png"
+              },
+              "custom_avatar": false,
+              "cover_photo": {
+                "xxlarge": "https://s3.amazonaws.com/splitwise/uploads/group/default_cover_photos/coverphoto-nongroup-1000px.png",
+                "xlarge": "https://s3.amazonaws.com/splitwise/uploads/group/default_cover_photos/coverphoto-nongroup-500px.png"
+              }
+            },
+            {
+              "id": 98454460,
+              "name": "Test Group for GetGroup",
+              "created_at": "2026-06-05T13:59:05Z",
+              "updated_at": "2026-06-05T13:59:05Z",
+              "members": [
+                {
+                  "id": 121534786,
+                  "first_name": "Nango",
+                  "last_name": "Developer",
+                  "picture": {
+                    "small": "https://s3.amazonaws.com/splitwise/uploads/user/default_avatars/avatar-orange25-50px.png",
+                    "medium": "https://s3.amazonaws.com/splitwise/uploads/user/default_avatars/avatar-orange25-100px.png",
+                    "large": "https://s3.amazonaws.com/splitwise/uploads/user/default_avatars/avatar-orange25-200px.png"
+                  },
+                  "custom_picture": false,
+                  "email": "api@nango.dev",
+                  "registration_status": "confirmed",
+                  "balance": []
+                }
+              ],
+              "simplify_by_default": false,
+              "original_debts": [],
+              "simplified_debts": [],
+              "whiteboard": null,
+              "whiteboard_lock_version": 0,
+              "whiteboard_updated_at": null,
+              "whiteboard_updated_by": null,
+              "group_type": "other",
+              "invite_link": "https://www.splitwise.com/join/LLmLwb9dAZv+20cwua",
+              "group_reminders": null,
+              "avatar": {
+                "small": "https://s3.amazonaws.com/splitwise/uploads/group/default_avatars/avatar-teal36-other-50px.png",
+                "medium": "https://s3.amazonaws.com/splitwise/uploads/group/default_avatars/avatar-teal36-other-100px.png",
+                "large": "https://s3.amazonaws.com/splitwise/uploads/group/default_avatars/avatar-teal36-other-200px.png",
+                "xlarge": "https://s3.amazonaws.com/splitwise/uploads/group/default_avatars/avatar-teal36-other-500px.png",
+                "xxlarge": "https://s3.amazonaws.com/splitwise/uploads/group/default_avatars/avatar-teal36-other-1000px.png",
+                "original": null
+              },
+              "tall_avatar": {
+                "xlarge": "https://s3.amazonaws.com/splitwise/uploads/group/default_tall_avatars/avatar-teal36-other-288px.png",
+                "large": "https://s3.amazonaws.com/splitwise/uploads/group/default_tall_avatars/avatar-teal36-other-192px.png"
+              },
+              "custom_avatar": false,
+              "cover_photo": {
+                "xxlarge": "https://s3.amazonaws.com/splitwise/uploads/group/default_cover_photos/teal-other-1000px.png",
+                "xlarge": "https://s3.amazonaws.com/splitwise/uploads/group/default_cover_photos/teal-other-500px.png"
+              }
+            },
+            {
+              "id": 98454565,
+              "name": "Test Group",
+              "created_at": "2026-06-05T14:00:55Z",
+              "updated_at": "2026-06-05T14:00:55Z",
+              "members": [
+                {
+                  "id": 121534786,
+                  "first_name": "Nango",
+                  "last_name": "Developer",
+                  "picture": {
+                    "small": "https://s3.amazonaws.com/splitwise/uploads/user/default_avatars/avatar-orange25-50px.png",
+                    "medium": "https://s3.amazonaws.com/splitwise/uploads/user/default_avatars/avatar-orange25-100px.png",
+                    "large": "https://s3.amazonaws.com/splitwise/uploads/user/default_avatars/avatar-orange25-200px.png"
+                  },
+                  "custom_picture": false,
+                  "email": "api@nango.dev",
+                  "registration_status": "confirmed",
+                  "balance": []
+                }
+              ],
+              "simplify_by_default": false,
+              "original_debts": [],
+              "simplified_debts": [],
+              "whiteboard": null,
+              "whiteboard_lock_version": 0,
+              "whiteboard_updated_at": null,
+              "whiteboard_updated_by": null,
+              "group_type": null,
+              "invite_link": "https://www.splitwise.com/join/nGD73FNjjqh+20cwua",
+              "group_reminders": null,
+              "avatar": {
+                "small": "https://s3.amazonaws.com/splitwise/uploads/group/default_avatars/avatar-ruby47-other-50px.png",
+                "medium": "https://s3.amazonaws.com/splitwise/uploads/group/default_avatars/avatar-ruby47-other-100px.png",
+                "large": "https://s3.amazonaws.com/splitwise/uploads/group/default_avatars/avatar-ruby47-other-200px.png",
+                "xlarge": "https://s3.amazonaws.com/splitwise/uploads/group/default_avatars/avatar-ruby47-other-500px.png",
+                "xxlarge": "https://s3.amazonaws.com/splitwise/uploads/group/default_avatars/avatar-ruby47-other-1000px.png",
+                "original": null
+              },
+              "tall_avatar": {
+                "xlarge": "https://s3.amazonaws.com/splitwise/uploads/group/default_tall_avatars/avatar-ruby47-other-288px.png",
+                "large": "https://s3.amazonaws.com/splitwise/uploads/group/default_tall_avatars/avatar-ruby47-other-192px.png"
+              },
+              "custom_avatar": false,
+              "cover_photo": {
+                "xxlarge": "https://s3.amazonaws.com/splitwise/uploads/group/default_cover_photos/ruby-other-1000px.png",
+                "xlarge": "https://s3.amazonaws.com/splitwise/uploads/group/default_cover_photos/ruby-other-500px.png"
+              }
+            },
+            {
+              "id": 98454591,
+              "name": "Test Group",
+              "created_at": "2026-06-05T14:01:42Z",
+              "updated_at": "2026-06-05T14:01:42Z",
+              "members": [
+                {
+                  "id": 121534786,
+                  "first_name": "Nango",
+                  "last_name": "Developer",
+                  "picture": {
+                    "small": "https://s3.amazonaws.com/splitwise/uploads/user/default_avatars/avatar-orange25-50px.png",
+                    "medium": "https://s3.amazonaws.com/splitwise/uploads/user/default_avatars/avatar-orange25-100px.png",
+                    "large": "https://s3.amazonaws.com/splitwise/uploads/user/default_avatars/avatar-orange25-200px.png"
+                  },
+                  "custom_picture": false,
+                  "email": "api@nango.dev",
+                  "registration_status": "confirmed",
+                  "balance": []
+                }
+              ],
+              "simplify_by_default": false,
+              "original_debts": [],
+              "simplified_debts": [],
+              "whiteboard": null,
+              "whiteboard_lock_version": 0,
+              "whiteboard_updated_at": null,
+              "whiteboard_updated_by": null,
+              "group_type": null,
+              "invite_link": "https://www.splitwise.com/join/6ts2NrhKmJZ+20cwua",
+              "group_reminders": null,
+              "avatar": {
+                "small": "https://s3.amazonaws.com/splitwise/uploads/group/default_avatars/avatar-blue26-other-50px.png",
+                "medium": "https://s3.amazonaws.com/splitwise/uploads/group/default_avatars/avatar-blue26-other-100px.png",
+                "large": "https://s3.amazonaws.com/splitwise/uploads/group/default_avatars/avatar-blue26-other-200px.png",
+                "xlarge": "https://s3.amazonaws.com/splitwise/uploads/group/default_avatars/avatar-blue26-other-500px.png",
+                "xxlarge": "https://s3.amazonaws.com/splitwise/uploads/group/default_avatars/avatar-blue26-other-1000px.png",
+                "original": null
+              },
+              "tall_avatar": {
+                "xlarge": "https://s3.amazonaws.com/splitwise/uploads/group/default_tall_avatars/avatar-blue26-other-288px.png",
+                "large": "https://s3.amazonaws.com/splitwise/uploads/group/default_tall_avatars/avatar-blue26-other-192px.png"
+              },
+              "custom_avatar": false,
+              "cover_photo": {
+                "xxlarge": "https://s3.amazonaws.com/splitwise/uploads/group/default_cover_photos/blue-other-1000px.png",
+                "xlarge": "https://s3.amazonaws.com/splitwise/uploads/group/default_cover_photos/blue-other-500px.png"
+              }
+            },
+            {
+              "id": 98454600,
+              "name": "Test Group",
+              "created_at": "2026-06-05T14:01:50Z",
+              "updated_at": "2026-06-05T14:01:50Z",
+              "members": [
+                {
+                  "id": 121534786,
+                  "first_name": "Nango",
+                  "last_name": "Developer",
+                  "picture": {
+                    "small": "https://s3.amazonaws.com/splitwise/uploads/user/default_avatars/avatar-orange25-50px.png",
+                    "medium": "https://s3.amazonaws.com/splitwise/uploads/user/default_avatars/avatar-orange25-100px.png",
+                    "large": "https://s3.amazonaws.com/splitwise/uploads/user/default_avatars/avatar-orange25-200px.png"
+                  },
+                  "custom_picture": false,
+                  "email": "api@nango.dev",
+                  "registration_status": "confirmed",
+                  "balance": []
+                }
+              ],
+              "simplify_by_default": false,
+              "original_debts": [],
+              "simplified_debts": [],
+              "whiteboard": null,
+              "whiteboard_lock_version": 0,
+              "whiteboard_updated_at": null,
+              "whiteboard_updated_by": null,
+              "group_type": null,
+              "invite_link": "https://www.splitwise.com/join/8iFM3dgUpRv+20cwua",
+              "group_reminders": null,
+              "avatar": {
+                "small": "https://s3.amazonaws.com/splitwise/uploads/group/default_avatars/avatar-teal35-other-50px.png",
+                "medium": "https://s3.amazonaws.com/splitwise/uploads/group/default_avatars/avatar-teal35-other-100px.png",
+                "large": "https://s3.amazonaws.com/splitwise/uploads/group/default_avatars/avatar-teal35-other-200px.png",
+                "xlarge": "https://s3.amazonaws.com/splitwise/uploads/group/default_avatars/avatar-teal35-other-500px.png",
+                "xxlarge": "https://s3.amazonaws.com/splitwise/uploads/group/default_avatars/avatar-teal35-other-1000px.png",
+                "original": null
+              },
+              "tall_avatar": {
+                "xlarge": "https://s3.amazonaws.com/splitwise/uploads/group/default_tall_avatars/avatar-teal35-other-288px.png",
+                "large": "https://s3.amazonaws.com/splitwise/uploads/group/default_tall_avatars/avatar-teal35-other-192px.png"
+              },
+              "custom_avatar": false,
+              "cover_photo": {
+                "xxlarge": "https://s3.amazonaws.com/splitwise/uploads/group/default_cover_photos/teal-other-1000px.png",
+                "xlarge": "https://s3.amazonaws.com/splitwise/uploads/group/default_cover_photos/teal-other-500px.png"
+              }
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 05 Jun 2026 14:06:59 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=2592000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4990",
+          "x-ratelimit-reset": "1780668474",
+          "cache-control": "no-store",
+          "content-disposition": "inline; filename=\"response.json\"",
+          "etag": "W/\"7a28c7da4d80646d005d7fb6bb7998c5\"",
+          "expires": "Fri, 01 Jan 1990 00:00:00 GMT",
+          "nel": "{\"report_to\":\"heroku-nel\",\"response_headers\":[\"Via\"],\"max_age\":3600,\"success_fraction\":0.01,\"failure_fraction\":0.1}",
+          "pragma": "no-cache",
+          "referrer-policy": "origin",
+          "report-to": "{\"group\":\"heroku-nel\",\"endpoints\":[{\"url\":\"https://nel.heroku.com/reports?s=YxXZSdk3D%2BzGNzJTX%2BhGDDweMnLTdMQTpHHTt%2B30lEc%3D\\u0026sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add\\u0026ts=1780668418\"}],\"max_age\":3600}",
+          "reporting-endpoints": "heroku-nel=\"https://nel.heroku.com/reports?s=YxXZSdk3D%2BzGNzJTX%2BhGDDweMnLTdMQTpHHTt%2B30lEc%3D&sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&ts=1780668418\"",
+          "server": "cloudflare",
+          "vary": "Accept-Encoding",
+          "via": "2.0 heroku-router",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "f84a284e-2247-3c1f-8f53-7a7a54ce7225",
+          "x-runtime": "0.126749",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a06fbdb19aeaff1a-PDX"
+        },
+        "hash": "05176419307cc7f47e4e67bf860f132a18411f63",
+        "request": {}
+      }
+    }
+  }
+}
