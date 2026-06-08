@@ -1,0 +1,164 @@
+{
+  "nango": {
+    "batchSave": {
+      "Invoice": [
+        {
+          "id": "6",
+          "name": "/",
+          "move_type": "in_invoice",
+          "amount_total": 0,
+          "state": "draft",
+          "write_date": "2026-06-03T08:16:56.979730"
+        },
+        {
+          "id": "5",
+          "name": "BILL/2026/06/0001",
+          "move_type": "in_invoice",
+          "amount_total": 34.5,
+          "state": "posted",
+          "write_date": "2026-06-03T08:16:59.659390"
+        },
+        {
+          "id": "7",
+          "name": "BILL/2025/03/0001",
+          "move_type": "in_invoice",
+          "amount_total": 622.27,
+          "state": "posted",
+          "write_date": "2026-06-03T08:16:59.659390"
+        },
+        {
+          "id": "1",
+          "name": "INV/2026/00002",
+          "move_type": "out_invoice",
+          "amount_total": 36512.5,
+          "state": "posted",
+          "write_date": "2026-06-03T08:17:07.412472"
+        },
+        {
+          "id": "2",
+          "name": "INV/2026/00003",
+          "move_type": "out_invoice",
+          "amount_total": 48012.5,
+          "state": "posted",
+          "write_date": "2026-06-03T08:17:07.412472"
+        },
+        {
+          "id": "3",
+          "name": "INV/2026/00004",
+          "move_type": "out_invoice",
+          "amount_total": 22137.5,
+          "state": "posted",
+          "write_date": "2026-06-03T08:17:07.412472"
+        },
+        {
+          "id": "4",
+          "name": "INV/2026/00001",
+          "move_type": "out_invoice",
+          "amount_total": 36512.5,
+          "state": "posted",
+          "write_date": "2026-06-03T08:17:07.412472"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Invoice": []
+    }
+  },
+  "api": {
+    "get": {
+      "/1.0/account.move": {
+        "response": {
+          "records": [
+            {
+              "id": 6,
+              "name": "/",
+              "move_type": "in_invoice",
+              "amount_total": 0,
+              "state": "draft",
+              "write_date": "2026-06-03T08:16:56.979730"
+            },
+            {
+              "id": 5,
+              "name": "BILL/2026/06/0001",
+              "move_type": "in_invoice",
+              "amount_total": 34.5,
+              "state": "posted",
+              "write_date": "2026-06-03T08:16:59.659390"
+            },
+            {
+              "id": 7,
+              "name": "BILL/2025/03/0001",
+              "move_type": "in_invoice",
+              "amount_total": 622.27,
+              "state": "posted",
+              "write_date": "2026-06-03T08:16:59.659390"
+            },
+            {
+              "id": 1,
+              "name": "INV/2026/00002",
+              "move_type": "out_invoice",
+              "amount_total": 36512.5,
+              "state": "posted",
+              "write_date": "2026-06-03T08:17:07.412472"
+            },
+            {
+              "id": 2,
+              "name": "INV/2026/00003",
+              "move_type": "out_invoice",
+              "amount_total": 48012.5,
+              "state": "posted",
+              "write_date": "2026-06-03T08:17:07.412472"
+            },
+            {
+              "id": 3,
+              "name": "INV/2026/00004",
+              "move_type": "out_invoice",
+              "amount_total": 22137.5,
+              "state": "posted",
+              "write_date": "2026-06-03T08:17:07.412472"
+            },
+            {
+              "id": 4,
+              "name": "INV/2026/00001",
+              "move_type": "out_invoice",
+              "amount_total": 36512.5,
+              "state": "posted",
+              "write_date": "2026-06-03T08:17:07.412472"
+            }
+          ],
+          "count": 7
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 03 Jun 2026 08:47:52 GMT",
+          "content-type": "application/json",
+          "content-length": "1077",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4962",
+          "x-ratelimit-reset": "1780476500",
+          "etag": "W/\"435-R/zJuGaiodp9I3RG/YGqJvAfhus\""
+        },
+        "hash": "b72bce44519b7eedfad5f4d6fad31954bdca0356",
+        "request": {
+          "params": {
+            "domain": "[['move_type','in',['out_invoice','in_invoice']]]",
+            "fields": "['id','name','move_type','amount_total','state','write_date']",
+            "limit": "100",
+            "offset": "0",
+            "order": "write_date asc, id asc"
+          }
+        }
+      }
+    }
+  }
+}
