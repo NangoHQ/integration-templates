@@ -24,11 +24,25 @@ const action = createAction({
     scopes: ['read', 'write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        await nango.delete({
+        const response = await nango.delete({
             // https://developer.atlassian.com/cloud/trello/rest/api-group-checklists/#api-checklists-id-checkitems-idcheckitem-delete
             endpoint: `/1/checklists/${encodeURIComponent(input.checklistId)}/checkItems/${encodeURIComponent(input.checkItemId)}`,
             retries: 3
         });
+
+        if (response.status === 404) {
+            throw new nango.ActionError({
+                type: 'not_found',
+                message: `Checklist item "${input.checkItemId}" not found in checklist "${input.checklistId}".`
+            });
+        }
+
+        if (response.status >= 400) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: `Trello returned status ${response.status} when attempting to delete the checklist item.`
+            });
+        }
 
         return {
             id: input.checkItemId,

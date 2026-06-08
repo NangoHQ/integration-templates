@@ -29,11 +29,18 @@ const action = createAction({
             retries: 1
         });
 
-        if (response.data && typeof response.data === 'object' && 'id' in response.data && typeof response.data.id === 'string') {
-            return {
-                id: response.data.id,
-                success: true
-            };
+        if (response.status === 404) {
+            throw new nango.ActionError({
+                type: 'not_found',
+                message: `Checklist with id "${input.id}" was not found.`
+            });
+        }
+
+        if (response.status >= 400) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: `Trello returned status ${response.status} when attempting to delete the checklist.`
+            });
         }
 
         return {

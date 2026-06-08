@@ -3,7 +3,7 @@ import { createAction, ProxyConfiguration } from 'nango';
 
 const InputSchema = z.object({
     limit: z.number().optional().describe('Maximum number of organizations to return per page.'),
-    cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.')
+    cursor: z.string().regex(/^\d+$/).optional().describe('Pagination cursor from the previous response. Omit for the first page.')
 });
 
 const ProviderOrganizationSchema = z.object({

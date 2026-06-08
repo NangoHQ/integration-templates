@@ -5,17 +5,6 @@ const InputSchema = z.object({
     id: z.string().describe('The ID of the list to retrieve. Example: "5abbe4b7ddc1b351ef961414"')
 });
 
-const TrelloListSchema = z.object({
-    id: z.string(),
-    name: z.string().optional(),
-    closed: z.boolean().optional(),
-    pos: z.number().optional(),
-    softLimit: z.string().optional(),
-    idBoard: z.string().optional(),
-    subscribed: z.boolean().optional(),
-    limits: z.unknown().optional()
-});
-
 const OutputSchema = z.object({
     id: z.string(),
     name: z.string().optional(),
@@ -48,7 +37,7 @@ const action = createAction({
 
         const response = await nango.get(config);
 
-        if (!response.data) {
+        if (response.status === 404) {
             throw new nango.ActionError({
                 type: 'not_found',
                 message: 'List not found',
@@ -56,7 +45,14 @@ const action = createAction({
             });
         }
 
-        const providerList = TrelloListSchema.parse(response.data);
+        if (response.status >= 400) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: `Trello returned status ${response.status} when retrieving list.`
+            });
+        }
+
+        const providerList = OutputSchema.parse(response.data);
 
         return {
             id: providerList.id,

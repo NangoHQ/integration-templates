@@ -49,7 +49,7 @@ const action = createAction({
     },
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['read:board', 'write:board'],
+    scopes: ['read', 'write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developer.atlassian.com/cloud/trello/rest/api-group-boards/

@@ -31,9 +31,9 @@ const ProviderCardSchema = z.object({
     idBoard: z.string(),
     idList: z.string(),
     idMembers: z.array(z.string()).optional(),
-    idLabels: z.array(ProviderLabelSchema).optional(),
+    idLabels: z.array(z.string()).optional(),
     idChecklists: z.array(z.string()).optional(),
-    labels: z.array(z.string()).optional(),
+    labels: z.array(ProviderLabelSchema).optional(),
     pos: z.number().optional(),
     shortLink: z.string().optional(),
     shortUrl: z.string().optional(),
@@ -53,9 +53,9 @@ const OutputSchema = z.object({
     idBoard: z.string(),
     idList: z.string(),
     idMembers: z.array(z.string()).optional(),
-    idLabels: z.array(ProviderLabelSchema).optional(),
+    idLabels: z.array(z.string()).optional(),
     idChecklists: z.array(z.string()).optional(),
-    labels: z.array(z.string()).optional(),
+    labels: z.array(ProviderLabelSchema).optional(),
     pos: z.number().optional(),
     shortLink: z.string().optional(),
     shortUrl: z.string().optional(),
@@ -83,11 +83,18 @@ const action = createAction({
             retries: 3
         });
 
-        if (!response.data) {
+        if (response.status === 404) {
             throw new nango.ActionError({
                 type: 'not_found',
                 message: 'Card not found',
                 id: input.id
+            });
+        }
+
+        if (response.status >= 400) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: `Trello returned status ${response.status} when retrieving card.`
             });
         }
 

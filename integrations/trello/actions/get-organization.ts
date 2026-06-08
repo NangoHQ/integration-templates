@@ -7,16 +7,16 @@ const InputSchema = z.object({
 
 const ProviderOrganizationSchema = z.object({
     id: z.string(),
-    name: z.string().optional(),
-    displayName: z.string().optional(),
-    dateLastActivity: z.string().optional(),
-    prefs: z.record(z.string(), z.unknown()).optional(),
-    idEnterprise: z.string().optional(),
-    offering: z.string().optional(),
-    url: z.string().optional(),
-    idBoards: z.array(z.string()).optional(),
-    memberships: z.array(z.unknown()).optional(),
-    premiumFeatures: z.array(z.string()).optional()
+    name: z.string().nullable().optional(),
+    displayName: z.string().nullable().optional(),
+    dateLastActivity: z.string().nullable().optional(),
+    prefs: z.record(z.string(), z.unknown()).nullable().optional(),
+    idEnterprise: z.string().nullable().optional(),
+    offering: z.string().nullable().optional(),
+    url: z.string().nullable().optional(),
+    idBoards: z.array(z.string()).nullable().optional(),
+    memberships: z.array(z.unknown()).nullable().optional(),
+    premiumFeatures: z.array(z.string()).nullable().optional()
 });
 
 const OutputSchema = z.object({
@@ -52,7 +52,7 @@ const action = createAction({
             retries: 3
         });
 
-        if (!response.data) {
+        if (response.status === 404) {
             throw new nango.ActionError({
                 type: 'not_found',
                 message: 'Organization not found',
@@ -60,20 +60,27 @@ const action = createAction({
             });
         }
 
+        if (response.status >= 400) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: `Trello returned status ${response.status} when retrieving organization.`
+            });
+        }
+
         const providerOrg = ProviderOrganizationSchema.parse(response.data);
 
         return {
             id: providerOrg.id,
-            ...(providerOrg.name !== undefined && { name: providerOrg.name }),
-            ...(providerOrg.displayName !== undefined && { displayName: providerOrg.displayName }),
-            ...(providerOrg.dateLastActivity !== undefined && { dateLastActivity: providerOrg.dateLastActivity }),
-            ...(providerOrg.prefs !== undefined && { prefs: providerOrg.prefs }),
-            ...(providerOrg.idEnterprise !== undefined && { idEnterprise: providerOrg.idEnterprise }),
-            ...(providerOrg.offering !== undefined && { offering: providerOrg.offering }),
-            ...(providerOrg.url !== undefined && { url: providerOrg.url }),
-            ...(providerOrg.idBoards !== undefined && { idBoards: providerOrg.idBoards }),
-            ...(providerOrg.memberships !== undefined && { memberships: providerOrg.memberships }),
-            ...(providerOrg.premiumFeatures !== undefined && { premiumFeatures: providerOrg.premiumFeatures })
+            ...(providerOrg.name != null && { name: providerOrg.name }),
+            ...(providerOrg.displayName != null && { displayName: providerOrg.displayName }),
+            ...(providerOrg.dateLastActivity != null && { dateLastActivity: providerOrg.dateLastActivity }),
+            ...(providerOrg.prefs != null && { prefs: providerOrg.prefs }),
+            ...(providerOrg.idEnterprise != null && { idEnterprise: providerOrg.idEnterprise }),
+            ...(providerOrg.offering != null && { offering: providerOrg.offering }),
+            ...(providerOrg.url != null && { url: providerOrg.url }),
+            ...(providerOrg.idBoards != null && { idBoards: providerOrg.idBoards }),
+            ...(providerOrg.memberships != null && { memberships: providerOrg.memberships }),
+            ...(providerOrg.premiumFeatures != null && { premiumFeatures: providerOrg.premiumFeatures })
         };
     }
 });

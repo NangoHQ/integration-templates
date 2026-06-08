@@ -23,26 +23,8 @@ const ProviderMemberSchema = z.object({
     idEnterprisesAdmin: z.array(z.string()).optional()
 });
 
-const MemberSchema = z.object({
-    id: z.string(),
-    fullName: z.string().optional(),
-    username: z.string().optional(),
-    avatarHash: z.string().optional(),
-    initials: z.string().optional(),
-    memberType: z.string().optional(),
-    email: z.string().optional(),
-    url: z.string().optional(),
-    confirmed: z.boolean().optional(),
-    bio: z.string().optional(),
-    avatarUrl: z.string().optional(),
-    status: z.string().optional(),
-    gravatarHash: z.string().optional(),
-    idOrganizations: z.array(z.string()).optional(),
-    idEnterprisesAdmin: z.array(z.string()).optional()
-});
-
 const OutputSchema = z.object({
-    members: z.array(MemberSchema)
+    members: z.array(ProviderMemberSchema)
 });
 
 const action = createAction({
@@ -64,28 +46,7 @@ const action = createAction({
             retries: 3
         });
 
-        const rawMembers = z.array(z.unknown()).parse(response.data);
-
-        const members = rawMembers.map((raw) => {
-            const member = ProviderMemberSchema.parse(raw);
-            return {
-                id: member.id,
-                ...(member.fullName !== undefined && { fullName: member.fullName }),
-                ...(member.username !== undefined && { username: member.username }),
-                ...(member.avatarHash !== undefined && { avatarHash: member.avatarHash }),
-                ...(member.initials !== undefined && { initials: member.initials }),
-                ...(member.memberType !== undefined && { memberType: member.memberType }),
-                ...(member.email !== undefined && { email: member.email }),
-                ...(member.url !== undefined && { url: member.url }),
-                ...(member.confirmed !== undefined && { confirmed: member.confirmed }),
-                ...(member.bio !== undefined && { bio: member.bio }),
-                ...(member.avatarUrl !== undefined && { avatarUrl: member.avatarUrl }),
-                ...(member.status !== undefined && { status: member.status }),
-                ...(member.gravatarHash !== undefined && { gravatarHash: member.gravatarHash }),
-                ...(member.idOrganizations !== undefined && { idOrganizations: member.idOrganizations }),
-                ...(member.idEnterprisesAdmin !== undefined && { idEnterprisesAdmin: member.idEnterprisesAdmin })
-            };
-        });
+        const members = z.array(ProviderMemberSchema).parse(response.data);
 
         return { members };
     }

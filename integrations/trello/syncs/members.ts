@@ -51,7 +51,10 @@ const sync = createSync({
             retries: 3
         });
 
-        const rawBoards = Array.isArray(boardsResponse.data) ? boardsResponse.data : [];
+        const rawBoards = boardsResponse.data;
+        if (!Array.isArray(rawBoards)) {
+            throw new Error(`Expected boards to be an array, got: ${typeof rawBoards}`);
+        }
         const boards = rawBoards
             .map((rawBoard) => {
                 const boardResult = BoardSchema.safeParse(rawBoard);
@@ -79,7 +82,10 @@ const sync = createSync({
                 retries: 3
             });
 
-            const rawMembers = Array.isArray(membersResponse.data) ? membersResponse.data : [];
+            const rawMembers = membersResponse.data;
+            if (!Array.isArray(rawMembers)) {
+                throw new Error(`Expected members to be an array for board ${boardId}, got: ${typeof rawMembers}`);
+            }
             const members: z.infer<typeof MemberSchema>[] = [];
 
             for (const rawMember of rawMembers) {

@@ -49,12 +49,19 @@ const action = createAction({
             retries: 3
         });
 
-        if (!response.data) {
+        if (response.status === 404) {
             throw new nango.ActionError({
                 type: 'not_found',
                 message: 'Checklist item not found',
                 checklistId: input.checklistId,
                 checkItemId: input.checkItemId
+            });
+        }
+
+        if (response.status >= 400) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: `Trello returned status ${response.status} when retrieving checklist item.`
             });
         }
 

@@ -5,7 +5,7 @@ const LabelSchema = z.object({
     id: z.string(),
     idBoard: z.string(),
     name: z.string().optional(),
-    color: z.string().optional(),
+    color: z.string().nullable().optional(),
     uses: z.number().optional()
 });
 
@@ -40,10 +40,6 @@ const sync = createSync({
         const rawCheckpoint = await nango.getCheckpoint();
         const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : null;
 
-        if (!checkpoint) {
-            await nango.trackDeletesStart('Label');
-        }
-
         // https://developer.atlassian.com/cloud/trello/rest/api-group-members/#api-members-id-boards-get
         const boardsResponse = await nango.get({
             endpoint: '/1/members/me/boards',
@@ -54,6 +50,11 @@ const sync = createSync({
             .array(BoardSchema)
             .parse(boardsResponse.data)
             .sort((a, b) => a.id.localeCompare(b.id));
+
+        if (!checkpoint) {
+            await nango.trackDeletesStart('Label');
+        }
+
         const startBoardIndex = checkpoint
             ? Math.max(
                   boards.findIndex((board) => board.id === checkpoint.board_id),

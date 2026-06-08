@@ -9,7 +9,7 @@ const InputSchema = z.object({
 const ProviderAttachmentSchema = z
     .object({
         id: z.string(),
-        bytes: z.number().nullable().optional(),
+        bytes: z.union([z.string(), z.number()]).nullable().optional(),
         date: z.string().optional(),
         edgeColor: z.string().nullable().optional(),
         idMember: z.string().optional(),
@@ -85,7 +85,7 @@ const action = createAction({
 
         return {
             id: providerAttachment.id,
-            ...(providerAttachment.bytes != null && { bytes: providerAttachment.bytes }),
+            ...(providerAttachment.bytes != null && { bytes: Number(providerAttachment.bytes) }),
             ...(providerAttachment.date !== undefined && { date: providerAttachment.date }),
             ...(providerAttachment.edgeColor != null && { edgeColor: providerAttachment.edgeColor }),
             ...(providerAttachment.idMember !== undefined && { idMember: providerAttachment.idMember }),

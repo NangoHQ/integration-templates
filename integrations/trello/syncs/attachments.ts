@@ -64,8 +64,9 @@ const sync = createSync({
     exec: async (nango) => {
         const rawCheckpoint = await nango.getCheckpoint();
         const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : null;
+        const wasTrackingDeletes = !checkpoint;
 
-        if (!checkpoint) {
+        if (wasTrackingDeletes) {
             await nango.trackDeletesStart('Attachment');
         }
 
@@ -157,7 +158,9 @@ const sync = createSync({
         }
 
         await nango.clearCheckpoint();
-        await nango.trackDeletesEnd('Attachment');
+        if (wasTrackingDeletes) {
+            await nango.trackDeletesEnd('Attachment');
+        }
     }
 });
 

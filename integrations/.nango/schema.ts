@@ -86991,12 +86991,12 @@ export interface ActionOutput_trello_getcard {
   idBoard: string;
   idList: string;
   idMembers?: string[] | undefined;
-  idLabels?: ({  id: string;
+  idLabels?: string[] | undefined;
+  idChecklists?: string[] | undefined;
+  labels?: ({  id: string;
   idBoard: string;
   name: string;
   color?: string | undefined;})[];
-  idChecklists?: string[] | undefined;
-  labels?: string[] | undefined;
   pos?: number | undefined;
   shortLink?: string | undefined;
   shortUrl?: string | undefined;

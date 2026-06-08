@@ -90,7 +90,8 @@ const action = createAction({
             })
         }));
 
-        const nextCursor = providerActions.length === limit ? String(page + 1) : undefined;
+        const nextPage = page + 1;
+        const nextCursor = providerActions.length === limit && nextPage * limit < 1000 ? String(nextPage) : undefined;
 
         return {
             actions,

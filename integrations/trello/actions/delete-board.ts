@@ -5,10 +5,6 @@ const InputSchema = z.object({
     id: z.string().describe('The ID of the board to delete. Example: "6a26f2fbd1ccaa2cb9602757"')
 });
 
-const ProviderDeleteResponseSchema = z.object({
-    _value: z.null().optional()
-});
-
 const OutputSchema = z.object({
     id: z.string(),
     success: z.boolean()
@@ -32,14 +28,19 @@ const action = createAction({
             retries: 3
         });
 
-        if (!response.data) {
+        if (response.status === 404) {
             throw new nango.ActionError({
                 type: 'not_found',
                 message: `Board with ID '${input.id}' not found or could not be deleted.`
             });
         }
 
-        ProviderDeleteResponseSchema.parse(response.data);
+        if (response.status >= 400) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: `Trello returned status ${response.status} when attempting to delete the board.`
+            });
+        }
 
         return {
             id: input.id,

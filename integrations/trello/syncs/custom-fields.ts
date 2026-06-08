@@ -13,7 +13,7 @@ const CustomFieldOptionSchema = z.object({
         })
         .passthrough()
         .optional(),
-    color: z.string().optional(),
+    color: z.string().nullable().optional(),
     pos: z.number().optional()
 });
 
@@ -39,7 +39,7 @@ const CustomFieldSchema = z.object({
             z.object({
                 id: z.string(),
                 value: z.string().optional(),
-                color: z.string().optional(),
+                color: z.string().nullable().optional(),
                 pos: z.number().optional()
             })
         )

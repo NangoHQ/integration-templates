@@ -41,7 +41,6 @@ const sync = createSync({
     exec: async (nango) => {
         // Blocker: provider only exposes /1/members/me/organizations with no changed-since filter,
         // no deleted-record endpoint, and no resumable cursor. Members typically belong to a small number of orgs.
-        await nango.trackDeletesStart('Organization');
 
         // https://developer.atlassian.com/cloud/trello/rest/api-group-members/#api-members-id-organizations-get
         const response = await nango.get({
@@ -53,6 +52,8 @@ const sync = createSync({
         if (!parsed.success) {
             throw new Error('Failed to parse organizations response');
         }
+
+        await nango.trackDeletesStart('Organization');
 
         const organizations = parsed.data.map((org: unknown) => {
             const record = ProviderOrganizationSchema.parse(org);

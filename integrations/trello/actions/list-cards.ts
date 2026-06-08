@@ -28,7 +28,7 @@ const ProviderCardSchema = z.object({
             z.object({
                 id: z.string().optional(),
                 name: z.string().optional(),
-                color: z.string().optional()
+                color: z.string().nullable().optional()
             })
         )
         .optional()
@@ -55,7 +55,7 @@ const OutputSchema = z.object({
             z.object({
                 id: z.string().optional(),
                 name: z.string().optional(),
-                color: z.string().optional()
+                color: z.string().nullable().optional()
             })
         )
         .optional()

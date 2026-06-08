@@ -20,7 +20,7 @@ const action = createAction({
     },
     input: InputSchema,
     output: OutputSchema,
-    scopes: [],
+    scopes: ['read', 'write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developer.atlassian.com/cloud/trello/rest/api-group-labels/
@@ -29,7 +29,19 @@ const action = createAction({
             retries: 1
         });
 
-        z.unknown().parse(response.data);
+        if (response.status === 404) {
+            throw new nango.ActionError({
+                type: 'not_found',
+                message: `Label with id "${input.id}" was not found.`
+            });
+        }
+
+        if (response.status >= 400) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: `Trello returned status ${response.status} when attempting to delete the label.`
+            });
+        }
 
         return {
             id: input.id,
