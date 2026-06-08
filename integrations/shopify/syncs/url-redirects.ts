@@ -66,7 +66,7 @@ const sync = createSync({
                     }
                 `,
                 variables: {
-                    first: 2,
+                    first: 250,
                     ...(cursor && { after: cursor })
                 }
             },
@@ -76,7 +76,7 @@ const sync = createSync({
                 cursor_path_in_response: 'data.urlRedirects.pageInfo.endCursor',
                 response_path: 'data.urlRedirects.nodes',
                 limit_name_in_request: 'variables.first',
-                limit: 2,
+                limit: 250,
                 on_page: async ({ nextPageParam }) => {
                     cursor = typeof nextPageParam === 'string' ? nextPageParam : undefined;
                 }
