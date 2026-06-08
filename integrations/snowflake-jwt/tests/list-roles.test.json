@@ -1,0 +1,357 @@
+{
+  "input": {},
+  "output": {
+    "roles": [
+      {
+        "created_on": "1780571997.414",
+        "name": "ACCOUNTADMIN",
+        "is_default": true,
+        "is_current": true,
+        "is_inherited": false,
+        "assigned_to_users": 1,
+        "granted_to_roles": 0,
+        "granted_roles": 2,
+        "comment": "Account administrator can manage all aspects of the account."
+      },
+      {
+        "created_on": "1780571997.841",
+        "name": "ORGADMIN",
+        "is_default": false,
+        "is_current": false,
+        "is_inherited": false,
+        "assigned_to_users": 1,
+        "granted_to_roles": 0,
+        "granted_roles": 0,
+        "comment": "Organization administrator can manage organizations and accounts in organizations"
+      },
+      {
+        "created_on": "1780571997.391",
+        "name": "PUBLIC",
+        "is_default": false,
+        "is_current": false,
+        "is_inherited": true,
+        "assigned_to_users": 0,
+        "granted_to_roles": 0,
+        "granted_roles": 0,
+        "comment": "Public role is automatically available to every user in the account."
+      },
+      {
+        "created_on": "1780571997.361",
+        "name": "SECURITYADMIN",
+        "is_default": false,
+        "is_current": false,
+        "is_inherited": true,
+        "assigned_to_users": 0,
+        "granted_to_roles": 1,
+        "granted_roles": 1,
+        "comment": "Security administrator can manage security aspects of the account."
+      },
+      {
+        "created_on": "1780571997.374",
+        "name": "SYSADMIN",
+        "is_default": false,
+        "is_current": false,
+        "is_inherited": true,
+        "assigned_to_users": 0,
+        "granted_to_roles": 1,
+        "granted_roles": 0,
+        "comment": "System administrator can create and manage databases and warehouses."
+      },
+      {
+        "created_on": "1780571997.434",
+        "name": "USERADMIN",
+        "is_default": false,
+        "is_current": false,
+        "is_inherited": true,
+        "assigned_to_users": 0,
+        "granted_to_roles": 1,
+        "granted_roles": 0,
+        "comment": "User administrator can create and manage users and roles"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/api/v2/statements": {
+        "response": {
+          "resultSetMetaData": {
+            "numRows": 6,
+            "format": "jsonv2",
+            "partitionInfo": [
+              {
+                "rowCount": 6,
+                "uncompressedSize": 790
+              }
+            ],
+            "rowType": [
+              {
+                "name": "created_on",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "precision": 0,
+                "collation": null,
+                "byteLength": null,
+                "scale": 3,
+                "nullable": true,
+                "length": null,
+                "type": "timestamp_ltz"
+              },
+              {
+                "name": "name",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "precision": null,
+                "collation": null,
+                "byteLength": 16777216,
+                "scale": null,
+                "nullable": true,
+                "length": 16777216,
+                "type": "text"
+              },
+              {
+                "name": "is_default",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "precision": null,
+                "collation": null,
+                "byteLength": 16777216,
+                "scale": null,
+                "nullable": true,
+                "length": 16777216,
+                "type": "text"
+              },
+              {
+                "name": "is_current",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "precision": null,
+                "collation": null,
+                "byteLength": 16777216,
+                "scale": null,
+                "nullable": true,
+                "length": 16777216,
+                "type": "text"
+              },
+              {
+                "name": "is_inherited",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "precision": null,
+                "collation": null,
+                "byteLength": 16777216,
+                "scale": null,
+                "nullable": true,
+                "length": 16777216,
+                "type": "text"
+              },
+              {
+                "name": "assigned_to_users",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "precision": 38,
+                "collation": null,
+                "byteLength": null,
+                "scale": 0,
+                "nullable": true,
+                "length": null,
+                "type": "fixed"
+              },
+              {
+                "name": "granted_to_roles",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "precision": 38,
+                "collation": null,
+                "byteLength": null,
+                "scale": 0,
+                "nullable": true,
+                "length": null,
+                "type": "fixed"
+              },
+              {
+                "name": "granted_roles",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "precision": 38,
+                "collation": null,
+                "byteLength": null,
+                "scale": 0,
+                "nullable": true,
+                "length": null,
+                "type": "fixed"
+              },
+              {
+                "name": "owner",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "precision": null,
+                "collation": null,
+                "byteLength": 16777216,
+                "scale": null,
+                "nullable": true,
+                "length": 16777216,
+                "type": "text"
+              },
+              {
+                "name": "comment",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "precision": null,
+                "collation": null,
+                "byteLength": 16777216,
+                "scale": null,
+                "nullable": true,
+                "length": 16777216,
+                "type": "text"
+              },
+              {
+                "name": "is_from_organization_user_group",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "precision": null,
+                "collation": null,
+                "byteLength": 16777216,
+                "scale": null,
+                "nullable": true,
+                "length": 16777216,
+                "type": "text"
+              }
+            ]
+          },
+          "data": [
+            [
+              "1780571997.414",
+              "ACCOUNTADMIN",
+              "Y",
+              "Y",
+              "N",
+              "1",
+              "0",
+              "2",
+              "",
+              "Account administrator can manage all aspects of the account.",
+              "N"
+            ],
+            [
+              "1780571997.841",
+              "ORGADMIN",
+              "N",
+              "N",
+              "N",
+              "1",
+              "0",
+              "0",
+              "",
+              "Organization administrator can manage organizations and accounts in organizations",
+              "N"
+            ],
+            [
+              "1780571997.391",
+              "PUBLIC",
+              "N",
+              "N",
+              "Y",
+              "0",
+              "0",
+              "0",
+              "",
+              "Public role is automatically available to every user in the account.",
+              "N"
+            ],
+            [
+              "1780571997.361",
+              "SECURITYADMIN",
+              "N",
+              "N",
+              "Y",
+              "0",
+              "1",
+              "1",
+              "",
+              "Security administrator can manage security aspects of the account.",
+              "N"
+            ],
+            [
+              "1780571997.374",
+              "SYSADMIN",
+              "N",
+              "N",
+              "Y",
+              "0",
+              "1",
+              "0",
+              "",
+              "System administrator can create and manage databases and warehouses.",
+              "N"
+            ],
+            [
+              "1780571997.434",
+              "USERADMIN",
+              "N",
+              "N",
+              "Y",
+              "0",
+              "1",
+              "0",
+              "",
+              "User administrator can create and manage users and roles",
+              "N"
+            ]
+          ],
+          "code": "090001",
+          "statementStatusUrl": "/api/v2/statements/01c4d3eb-0001-ea1d-001c-d6c30001719a?requestId=9a1efc00-7012-4afd-bffa-1d343baffa32",
+          "requestId": "9a1efc00-7012-4afd-bffa-1d343baffa32",
+          "sqlState": "00000",
+          "statementHandle": "01c4d3eb-0001-ea1d-001c-d6c30001719a",
+          "message": "Statement executed successfully.",
+          "createdOn": 1780591396551
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 04 Jun 2026 16:43:16 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "deny",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4959",
+          "x-ratelimit-reset": "1780591418",
+          "link": "</api/v2/statements/01c4d3eb-0001-ea1d-001c-d6c30001719a?requestId=274ef4a0-eeb3-49ca-94df-3da744ba2acf&partition=0>; rel=\"first\",</api/v2/statements/01c4d3eb-0001-ea1d-001c-d6c30001719a?requestId=dfc48fd3-467b-4751-b162-029d4366d24d&partition=0>; rel=\"last\"",
+          "vary": "Accept-Encoding, User-Agent",
+          "server": "SF-LB-T1",
+          "x-envoy-upstream-service-time": "281",
+          "x-snowflake-fe-instance": "-",
+          "x-snowflake-fe-config": "v20260515.0.0-7dd0594cd.1778867353.va4.1780591281942",
+          "x-envoy-attempt-count": "1",
+          "expect-ct": "enforce, max-age=3600"
+        },
+        "hash": "e4c8dad6494aa1723bd60bb4677832399b26242b",
+        "request": {
+          "data": {
+            "statement": "SHOW ROLES"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,348 @@
+{
+  "input": {
+    "database": "NANGO_TEST_DB"
+  },
+  "output": {
+    "schemas": [
+      {
+        "created_on": "2026-06-04T11:48:40.576Z",
+        "name": "ANALYTICS",
+        "is_default": false,
+        "is_current": false,
+        "database_name": "NANGO_TEST_DB",
+        "owner": "ACCOUNTADMIN",
+        "comment": "Analytics data schema",
+        "retention_time": "1"
+      },
+      {
+        "created_on": "2026-06-04T11:48:22.633Z",
+        "name": "PUBLIC",
+        "is_default": false,
+        "is_current": false,
+        "database_name": "NANGO_TEST_DB",
+        "owner": "ACCOUNTADMIN",
+        "retention_time": "1"
+      },
+      {
+        "created_on": "2026-06-04T11:48:31.284Z",
+        "name": "SALES",
+        "is_default": false,
+        "is_current": false,
+        "database_name": "NANGO_TEST_DB",
+        "owner": "ACCOUNTADMIN",
+        "comment": "Sales data schema",
+        "retention_time": "1"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/api/v2/statements": {
+        "response": {
+          "resultSetMetaData": {
+            "numRows": 4,
+            "format": "jsonv2",
+            "partitionInfo": [
+              {
+                "rowCount": 4,
+                "uncompressedSize": 508
+              }
+            ],
+            "rowType": [
+              {
+                "name": "created_on",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "scale": 3,
+                "byteLength": null,
+                "nullable": true,
+                "precision": 0,
+                "collation": null,
+                "length": null,
+                "type": "timestamp_ltz"
+              },
+              {
+                "name": "name",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "scale": null,
+                "byteLength": 16777216,
+                "nullable": true,
+                "precision": null,
+                "collation": null,
+                "length": 16777216,
+                "type": "text"
+              },
+              {
+                "name": "is_default",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "scale": null,
+                "byteLength": 16777216,
+                "nullable": true,
+                "precision": null,
+                "collation": null,
+                "length": 16777216,
+                "type": "text"
+              },
+              {
+                "name": "is_current",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "scale": null,
+                "byteLength": 16777216,
+                "nullable": true,
+                "precision": null,
+                "collation": null,
+                "length": 16777216,
+                "type": "text"
+              },
+              {
+                "name": "database_name",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "scale": null,
+                "byteLength": 16777216,
+                "nullable": true,
+                "precision": null,
+                "collation": null,
+                "length": 16777216,
+                "type": "text"
+              },
+              {
+                "name": "owner",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "scale": null,
+                "byteLength": 16777216,
+                "nullable": true,
+                "precision": null,
+                "collation": null,
+                "length": 16777216,
+                "type": "text"
+              },
+              {
+                "name": "comment",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "scale": null,
+                "byteLength": 16777216,
+                "nullable": true,
+                "precision": null,
+                "collation": null,
+                "length": 16777216,
+                "type": "text"
+              },
+              {
+                "name": "options",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "scale": null,
+                "byteLength": 16777216,
+                "nullable": true,
+                "precision": null,
+                "collation": null,
+                "length": 16777216,
+                "type": "text"
+              },
+              {
+                "name": "retention_time",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "scale": null,
+                "byteLength": 16777216,
+                "nullable": true,
+                "precision": null,
+                "collation": null,
+                "length": 16777216,
+                "type": "text"
+              },
+              {
+                "name": "owner_role_type",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "scale": null,
+                "byteLength": 16777216,
+                "nullable": true,
+                "precision": null,
+                "collation": null,
+                "length": 16777216,
+                "type": "text"
+              },
+              {
+                "name": "classification_profile_database",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "scale": null,
+                "byteLength": 16777216,
+                "nullable": true,
+                "precision": null,
+                "collation": null,
+                "length": 16777216,
+                "type": "text"
+              },
+              {
+                "name": "classification_profile_schema",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "scale": null,
+                "byteLength": 16777216,
+                "nullable": true,
+                "precision": null,
+                "collation": null,
+                "length": 16777216,
+                "type": "text"
+              },
+              {
+                "name": "classification_profile",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "scale": null,
+                "byteLength": 16777216,
+                "nullable": true,
+                "precision": null,
+                "collation": null,
+                "length": 16777216,
+                "type": "text"
+              },
+              {
+                "name": "object_visibility",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "scale": null,
+                "byteLength": null,
+                "nullable": true,
+                "precision": null,
+                "collation": null,
+                "length": null,
+                "type": "object"
+              }
+            ]
+          },
+          "data": [
+            [
+              "1780573720.576",
+              "ANALYTICS",
+              "N",
+              "N",
+              "NANGO_TEST_DB",
+              "ACCOUNTADMIN",
+              "Analytics data schema",
+              "",
+              "1",
+              "ROLE",
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              "1780666817.097",
+              "INFORMATION_SCHEMA",
+              "N",
+              "N",
+              "NANGO_TEST_DB",
+              "",
+              "Views describing the contents of schemas in this database",
+              "",
+              "1",
+              "",
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              "1780573702.633",
+              "PUBLIC",
+              "N",
+              "N",
+              "NANGO_TEST_DB",
+              "ACCOUNTADMIN",
+              "",
+              "",
+              "1",
+              "ROLE",
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              "1780573711.284",
+              "SALES",
+              "N",
+              "N",
+              "NANGO_TEST_DB",
+              "ACCOUNTADMIN",
+              "Sales data schema",
+              "",
+              "1",
+              "ROLE",
+              null,
+              null,
+              null,
+              null
+            ]
+          ],
+          "code": "090001",
+          "statementStatusUrl": "/api/v2/statements/01c4d8d4-0001-ea35-001c-d6c30001b21a?requestId=d6bccbc0-0908-457b-acfe-95930ca42465",
+          "requestId": "d6bccbc0-0908-457b-acfe-95930ca42465",
+          "sqlState": "00000",
+          "statementHandle": "01c4d8d4-0001-ea35-001c-d6c30001b21a",
+          "message": "Statement executed successfully.",
+          "createdOn": 1780666816943
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 05 Jun 2026 13:40:17 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "deny",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4978",
+          "x-ratelimit-reset": "1780666853",
+          "link": "</api/v2/statements/01c4d8d4-0001-ea35-001c-d6c30001b21a?requestId=c50eae07-cb5f-4bf2-9300-431c0383cd1e&partition=0>; rel=\"first\",</api/v2/statements/01c4d8d4-0001-ea35-001c-d6c30001b21a?requestId=9fd38547-4464-469e-8db5-0e8e41b02427&partition=0>; rel=\"last\"",
+          "vary": "Accept-Encoding, User-Agent",
+          "server": "SF-LB-T1",
+          "x-envoy-upstream-service-time": "291",
+          "x-snowflake-fe-instance": "-",
+          "x-snowflake-fe-config": "v20260515.0.0-7dd0594cd.1778867353.va4.1780666724131",
+          "x-envoy-attempt-count": "1",
+          "expect-ct": "enforce, max-age=3600"
+        },
+        "hash": "851727469f8450df81878a4bbeec3274483ae05c",
+        "request": {
+          "data": {
+            "statement": "SHOW SCHEMAS IN DATABASE \"NANGO_TEST_DB\"",
+            "database": "NANGO_TEST_DB"
+          }
+        }
+      }
+    }
+  }
+}
