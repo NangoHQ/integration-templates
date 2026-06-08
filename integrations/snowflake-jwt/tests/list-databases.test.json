@@ -1,0 +1,343 @@
+{
+  "input": {},
+  "output": {
+    "databases": [
+      {
+        "created_on": "1780573702.603",
+        "name": "NANGO_TEST_DB",
+        "is_default": "N",
+        "is_current": "N",
+        "origin": "",
+        "owner": "ACCOUNTADMIN",
+        "comment": "Nango integration test database",
+        "retention_time": "1",
+        "kind": "STANDARD"
+      },
+      {
+        "created_on": "1780571998.255",
+        "name": "SNOWFLAKE",
+        "is_default": "N",
+        "is_current": "N",
+        "origin": "SNOWFLAKE.ACCOUNT_USAGE",
+        "owner": "",
+        "comment": "",
+        "retention_time": "0",
+        "kind": "APPLICATION"
+      },
+      {
+        "created_on": "1780572003.068",
+        "name": "SNOWFLAKE_SAMPLE_DATA",
+        "is_default": "N",
+        "is_current": "N",
+        "origin": "SFSALESSHARED.SFC_SAMPLES_VA4.SAMPLE_DATA",
+        "owner": "ACCOUNTADMIN",
+        "comment": "Preloaded TPCH Data provided by Snowflake during account provisioning",
+        "retention_time": "0",
+        "kind": "IMPORTED DATABASE"
+      },
+      {
+        "created_on": "1780572957.453",
+        "name": "USER$VICTORNANGO2",
+        "is_default": "N",
+        "is_current": "N",
+        "origin": "",
+        "owner": "",
+        "comment": "",
+        "retention_time": "1",
+        "kind": "PERSONAL DATABASE"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/api/v2/statements": {
+        "response": {
+          "resultSetMetaData": {
+            "numRows": 4,
+            "format": "jsonv2",
+            "partitionInfo": [
+              {
+                "rowCount": 4,
+                "uncompressedSize": 556
+              }
+            ],
+            "rowType": [
+              {
+                "name": "created_on",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "scale": 3,
+                "byteLength": null,
+                "nullable": true,
+                "precision": 0,
+                "collation": null,
+                "length": null,
+                "type": "timestamp_ltz"
+              },
+              {
+                "name": "name",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "scale": null,
+                "byteLength": 16777216,
+                "nullable": true,
+                "precision": null,
+                "collation": null,
+                "length": 16777216,
+                "type": "text"
+              },
+              {
+                "name": "is_default",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "scale": null,
+                "byteLength": 16777216,
+                "nullable": true,
+                "precision": null,
+                "collation": null,
+                "length": 16777216,
+                "type": "text"
+              },
+              {
+                "name": "is_current",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "scale": null,
+                "byteLength": 16777216,
+                "nullable": true,
+                "precision": null,
+                "collation": null,
+                "length": 16777216,
+                "type": "text"
+              },
+              {
+                "name": "origin",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "scale": null,
+                "byteLength": 16777216,
+                "nullable": true,
+                "precision": null,
+                "collation": null,
+                "length": 16777216,
+                "type": "text"
+              },
+              {
+                "name": "owner",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "scale": null,
+                "byteLength": 16777216,
+                "nullable": true,
+                "precision": null,
+                "collation": null,
+                "length": 16777216,
+                "type": "text"
+              },
+              {
+                "name": "comment",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "scale": null,
+                "byteLength": 16777216,
+                "nullable": true,
+                "precision": null,
+                "collation": null,
+                "length": 16777216,
+                "type": "text"
+              },
+              {
+                "name": "options",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "scale": null,
+                "byteLength": 16777216,
+                "nullable": true,
+                "precision": null,
+                "collation": null,
+                "length": 16777216,
+                "type": "text"
+              },
+              {
+                "name": "retention_time",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "scale": null,
+                "byteLength": 16777216,
+                "nullable": true,
+                "precision": null,
+                "collation": null,
+                "length": 16777216,
+                "type": "text"
+              },
+              {
+                "name": "kind",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "scale": null,
+                "byteLength": 16777216,
+                "nullable": true,
+                "precision": null,
+                "collation": null,
+                "length": 16777216,
+                "type": "text"
+              },
+              {
+                "name": "owner_role_type",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "scale": null,
+                "byteLength": 16777216,
+                "nullable": true,
+                "precision": null,
+                "collation": null,
+                "length": 16777216,
+                "type": "text"
+              },
+              {
+                "name": "object_visibility",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "scale": null,
+                "byteLength": null,
+                "nullable": true,
+                "precision": null,
+                "collation": null,
+                "length": null,
+                "type": "object"
+              },
+              {
+                "name": "data_quality_monitoring_settings",
+                "database": "",
+                "schema": "",
+                "table": "",
+                "scale": null,
+                "byteLength": null,
+                "nullable": true,
+                "precision": null,
+                "collation": null,
+                "length": null,
+                "type": "object"
+              }
+            ]
+          },
+          "data": [
+            [
+              "1780573702.603",
+              "NANGO_TEST_DB",
+              "N",
+              "N",
+              "",
+              "ACCOUNTADMIN",
+              "Nango integration test database",
+              "",
+              "1",
+              "STANDARD",
+              "ROLE",
+              null,
+              null
+            ],
+            [
+              "1780571998.255",
+              "SNOWFLAKE",
+              "N",
+              "N",
+              "SNOWFLAKE.ACCOUNT_USAGE",
+              "",
+              "",
+              "",
+              "0",
+              "APPLICATION",
+              "",
+              null,
+              null
+            ],
+            [
+              "1780572003.068",
+              "SNOWFLAKE_SAMPLE_DATA",
+              "N",
+              "N",
+              "SFSALESSHARED.SFC_SAMPLES_VA4.SAMPLE_DATA",
+              "ACCOUNTADMIN",
+              "Preloaded TPCH Data provided by Snowflake during account provisioning",
+              "",
+              "0",
+              "IMPORTED DATABASE",
+              "ROLE",
+              null,
+              null
+            ],
+            [
+              "1780572957.453",
+              "USER$VICTORNANGO2",
+              "N",
+              "N",
+              "",
+              "",
+              "",
+              "",
+              "1",
+              "PERSONAL DATABASE",
+              "",
+              null,
+              null
+            ]
+          ],
+          "code": "090001",
+          "statementStatusUrl": "/api/v2/statements/01c4d3e9-0001-ea35-001c-d6c30001b0ae?requestId=d573222e-5e0a-48d0-ae67-c3d251bb485c",
+          "requestId": "d573222e-5e0a-48d0-ae67-c3d251bb485c",
+          "sqlState": "00000",
+          "statementHandle": "01c4d3e9-0001-ea35-001c-d6c30001b0ae",
+          "message": "Statement executed successfully.",
+          "createdOn": 1780591270165
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 04 Jun 2026 16:41:10 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "deny",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4975",
+          "x-ratelimit-reset": "1780591290",
+          "link": "</api/v2/statements/01c4d3e9-0001-ea35-001c-d6c30001b0ae?requestId=9b6e350f-a560-414e-a807-f830194a4d8e&partition=0>; rel=\"first\",</api/v2/statements/01c4d3e9-0001-ea35-001c-d6c30001b0ae?requestId=e4321f76-d4e6-4557-9ffe-c6b8eaa36e11&partition=0>; rel=\"last\"",
+          "vary": "Accept-Encoding, User-Agent",
+          "server": "SF-LB-T1",
+          "x-envoy-upstream-service-time": "320",
+          "x-snowflake-fe-instance": "-",
+          "x-snowflake-fe-config": "v20260515.0.0-7dd0594cd.1778867353.va4.1780591109217",
+          "x-envoy-attempt-count": "1",
+          "expect-ct": "enforce, max-age=3600"
+        },
+        "hash": "23935b659c77e818d96bd2f131672213d763c51c",
+        "request": {
+          "data": {
+            "statement": "SHOW DATABASES"
+          }
+        }
+      }
+    }
+  }
+}
