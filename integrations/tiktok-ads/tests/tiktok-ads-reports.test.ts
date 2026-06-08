@@ -19,8 +19,10 @@ describe('tiktok-ads reports tests', () => {
     };
 
     beforeEach(() => {
+        // Freeze time to match the fixture's start_date/end_date params.
+        // The sync computes today's date at runtime; without this the hash drifts daily.
         vi.useFakeTimers();
-        vi.setSystemTime(new Date('2025-01-15T00:00:00.000Z'));
+        vi.setSystemTime(new Date('2026-05-26T00:00:00.000Z'));
     });
 
     afterEach(() => {

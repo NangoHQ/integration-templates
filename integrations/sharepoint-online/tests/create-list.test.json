@@ -1,0 +1,90 @@
+{
+  "input": {
+    "siteId": "nangodevelopers.sharepoint.com,4c97403e-1663-4673-90fa-d2f8690b4510,29d15734-3d19-43f6-976b-43ece3ff81a8",
+    "displayName": "TestListSave20260603a",
+    "template": "genericList"
+  },
+  "output": {
+    "id": "bedc91a2-049c-4c0c-8992-9cd7062e2b7b",
+    "displayName": "TestListSave20260603a",
+    "name": "TestListSave20260603a",
+    "description": "",
+    "webUrl": "https://nangodevelopers.sharepoint.com/sites/NangoTestTeam/Lists/TestListSave20260603a",
+    "createdDateTime": "2026-06-03T16:38:37Z",
+    "lastModifiedDateTime": "2026-06-03T16:38:37Z",
+    "template": "genericList",
+    "contentTypesEnabled": false,
+    "hidden": false
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v1.0/sites/nangodevelopers.sharepoint.com%2C4c97403e-1663-4673-90fa-d2f8690b4510%2C29d15734-3d19-43f6-976b-43ece3ff81a8/lists": {
+        "response": {
+          "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#sites('nangodevelopers.sharepoint.com%2C4c97403e-1663-4673-90fa-d2f8690b4510%2C29d15734-3d19-43f6-976b-43ece3ff81a8')/lists/$entity",
+          "@odata.etag": "bedc91a2-049c-4c0c-8992-9cd7062e2b7b,0",
+          "eTag": "bedc91a2-049c-4c0c-8992-9cd7062e2b7b,0",
+          "lastModifiedDateTime": "2026-06-03T16:38:37Z",
+          "createdDateTime": "2026-06-03T16:38:37Z",
+          "description": "",
+          "id": "bedc91a2-049c-4c0c-8992-9cd7062e2b7b",
+          "name": "TestListSave20260603a",
+          "webUrl": "https://nangodevelopers.sharepoint.com/sites/NangoTestTeam/Lists/TestListSave20260603a",
+          "displayName": "TestListSave20260603a",
+          "createdBy": {
+            "user": {
+              "displayName": "Robin Guldener",
+              "email": "api@nangodevelopers.onmicrosoft.com"
+            }
+          },
+          "parentReference": {
+            "siteId": "nangodevelopers.sharepoint.com,4c97403e-1663-4673-90fa-d2f8690b4510,29d15734-3d19-43f6-976b-43ece3ff81a8"
+          },
+          "list": {
+            "contentTypesEnabled": false,
+            "hidden": false,
+            "template": "genericList"
+          }
+        },
+        "status": 201,
+        "headers": {
+          "date": "Wed, 03 Jun 2026 16:38:37 GMT",
+          "content-type": "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false;charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4987",
+          "x-ratelimit-reset": "1780504769",
+          "cache-control": "no-store, no-cache",
+          "etag": "bedc91a2-049c-4c0c-8992-9cd7062e2b7b,0",
+          "location": "https://nangodevelopers.sharepoint.com/_api/v2.0/sites('nangodevelopers.sharepoint.com,4c97403e-1663-4673-90fa-d2f8690b4510,29d15734-3d19-43f6-976b-43ece3ff81a8')/lists('bedc91a2-049c-4c0c-8992-9cd7062e2b7b')",
+          "vary": "Accept-Encoding",
+          "request-id": "f3c1f1e6-660f-4d3f-90c7-14b25da24750",
+          "client-request-id": "f3c1f1e6-660f-4d3f-90c7-14b25da24750",
+          "x-ms-ags-diagnostic": "{\"ServerInfo\":{\"DataCenter\":\"West US 2\",\"Slice\":\"E\",\"Ring\":\"4\",\"ScaleUnit\":\"000\",\"RoleInstance\":\"CO1PEPF00000104\"}}",
+          "splogid": "6b081aa2-a0f5-d000-715d-77b7a9c8a2a3",
+          "sprequestduration": "461",
+          "odata-version": "4.0"
+        },
+        "hash": "3dce72c094367b8148774129c40ea28d60cb5478",
+        "request": {
+          "data": {
+            "displayName": "TestListSave20260603a",
+            "list": {
+              "template": "genericList"
+            }
+          }
+        }
+      }
+    }
+  }
+}
