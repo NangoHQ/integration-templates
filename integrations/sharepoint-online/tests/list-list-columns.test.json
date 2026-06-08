@@ -1,0 +1,1176 @@
+{
+  "input": {
+    "siteId": "nangodevelopers.sharepoint.com,1d6e1722-9330-4b30-aa92-b73f215d9420,413c102d-9557-4a8d-8a68-bbb499015216",
+    "listId": "eca0d94a-d37a-46ee-9fa4-340a2e0c39f2"
+  },
+  "output": {
+    "columns": [
+      {
+        "id": "1d22ea11-1e32-424e-89ab-9fedbadb6ce1",
+        "name": "ID",
+        "displayName": "ID",
+        "description": "",
+        "columnGroup": "Custom Columns",
+        "hidden": false,
+        "indexed": false,
+        "readOnly": true,
+        "required": false,
+        "enforceUniqueValues": false
+      },
+      {
+        "id": "c042a256-787d-4a6f-8a8a-cf6ab767f12d",
+        "name": "ContentType",
+        "displayName": "Content Type",
+        "description": "",
+        "columnGroup": "_Hidden",
+        "hidden": false,
+        "indexed": false,
+        "readOnly": false,
+        "required": false,
+        "enforceUniqueValues": false
+      },
+      {
+        "id": "8c06beca-0777-48f7-91c7-6da68bc07b69",
+        "name": "Created",
+        "displayName": "Created",
+        "description": "",
+        "columnGroup": "Custom Columns",
+        "hidden": false,
+        "indexed": false,
+        "readOnly": true,
+        "required": false,
+        "enforceUniqueValues": false,
+        "dateTime": {
+          "displayAs": "default",
+          "format": "dateTime"
+        }
+      },
+      {
+        "id": "1df5e554-ec7e-46a6-901d-d85a3881cb18",
+        "name": "Author",
+        "displayName": "Created By",
+        "description": "",
+        "columnGroup": "Custom Columns",
+        "hidden": false,
+        "indexed": false,
+        "readOnly": true,
+        "required": false,
+        "enforceUniqueValues": false,
+        "personOrGroup": {
+          "allowMultipleSelection": false,
+          "displayAs": "nameWithPresence",
+          "chooseFromType": "peopleAndGroups"
+        }
+      },
+      {
+        "id": "28cf69c5-fa48-462a-b5cd-27b6f9d2bd5f",
+        "name": "Modified",
+        "displayName": "Modified",
+        "description": "",
+        "columnGroup": "Custom Columns",
+        "hidden": false,
+        "indexed": false,
+        "readOnly": true,
+        "required": false,
+        "enforceUniqueValues": false,
+        "dateTime": {
+          "displayAs": "default",
+          "format": "dateTime"
+        }
+      },
+      {
+        "id": "d31655d1-1d5b-4511-95a1-7a09e9b75bf2",
+        "name": "Editor",
+        "displayName": "Modified By",
+        "description": "",
+        "columnGroup": "Custom Columns",
+        "hidden": false,
+        "indexed": false,
+        "readOnly": true,
+        "required": false,
+        "enforceUniqueValues": false,
+        "personOrGroup": {
+          "allowMultipleSelection": false,
+          "displayAs": "nameWithPresence",
+          "chooseFromType": "peopleAndGroups"
+        }
+      },
+      {
+        "id": "6b4e226d-3d88-4a36-808d-a129bf52bccf",
+        "name": "_CopySource",
+        "displayName": "Copy Source",
+        "description": "",
+        "columnGroup": "Custom Columns",
+        "hidden": false,
+        "indexed": false,
+        "readOnly": true,
+        "required": false,
+        "enforceUniqueValues": false,
+        "text": {
+          "allowMultipleLines": false,
+          "appendChangesToExistingText": false,
+          "linesForEditing": 0,
+          "maxLength": 255
+        }
+      },
+      {
+        "id": "3881510a-4e4a-4ee8-b102-8ee8e2d0dd4b",
+        "name": "CheckoutUser",
+        "displayName": "Checked Out To",
+        "description": "",
+        "columnGroup": "Custom Columns",
+        "hidden": false,
+        "indexed": false,
+        "readOnly": true,
+        "required": false,
+        "enforceUniqueValues": false,
+        "personOrGroup": {
+          "allowMultipleSelection": false,
+          "displayAs": "nameWithPresence",
+          "chooseFromType": "peopleAndGroups"
+        }
+      },
+      {
+        "id": "8553196d-ec8d-4564-9861-3dbe931050c8",
+        "name": "FileLeafRef",
+        "displayName": "Name",
+        "description": "",
+        "columnGroup": "Custom Columns",
+        "hidden": false,
+        "indexed": false,
+        "readOnly": false,
+        "required": true,
+        "enforceUniqueValues": false
+      },
+      {
+        "id": "58014f77-5463-437b-ab67-eec79532da67",
+        "name": "_CheckinComment",
+        "displayName": "Check In Comment",
+        "description": "",
+        "columnGroup": "Custom Columns",
+        "hidden": false,
+        "indexed": false,
+        "readOnly": true,
+        "required": false,
+        "enforceUniqueValues": false,
+        "lookup": {
+          "allowMultipleValues": false,
+          "allowUnlimitedLength": false,
+          "columnName": "CheckinComment",
+          "listId": "",
+          "primaryLookupColumnId": "ID"
+        }
+      },
+      {
+        "id": "9d30f126-ba48-446b-b8f9-83745f322ebe",
+        "name": "LinkFilenameNoMenu",
+        "displayName": "Name",
+        "description": "",
+        "columnGroup": "Custom Columns",
+        "hidden": false,
+        "indexed": false,
+        "readOnly": true,
+        "required": false,
+        "enforceUniqueValues": false
+      },
+      {
+        "id": "5cc6dc79-3710-4374-b433-61cb4a686c12",
+        "name": "LinkFilename",
+        "displayName": "Name",
+        "description": "",
+        "columnGroup": "Custom Columns",
+        "hidden": false,
+        "indexed": false,
+        "readOnly": true,
+        "required": false,
+        "enforceUniqueValues": false
+      },
+      {
+        "id": "081c6e4c-5c14-4f20-b23e-1a71ceb6a67c",
+        "name": "DocIcon",
+        "displayName": "Type",
+        "description": "",
+        "columnGroup": "Custom Columns",
+        "hidden": false,
+        "indexed": false,
+        "readOnly": true,
+        "required": false,
+        "enforceUniqueValues": false
+      },
+      {
+        "id": "78a07ba4-bda8-4357-9e0f-580d64487583",
+        "name": "FileSizeDisplay",
+        "displayName": "File Size",
+        "description": "",
+        "columnGroup": "Custom Columns",
+        "hidden": false,
+        "indexed": false,
+        "readOnly": true,
+        "required": false,
+        "enforceUniqueValues": false
+      },
+      {
+        "id": "b824e17e-a1b3-426e-aecf-f0184d900485",
+        "name": "ItemChildCount",
+        "displayName": "Item Child Count",
+        "description": "",
+        "columnGroup": "Custom Columns",
+        "hidden": false,
+        "indexed": false,
+        "readOnly": true,
+        "required": false,
+        "enforceUniqueValues": false,
+        "lookup": {
+          "allowMultipleValues": false,
+          "allowUnlimitedLength": false,
+          "columnName": "ItemChildCount",
+          "listId": "",
+          "primaryLookupColumnId": "ID"
+        }
+      },
+      {
+        "id": "960ff01f-2b6d-4f1b-9c3f-e19ad8927341",
+        "name": "FolderChildCount",
+        "displayName": "Folder Child Count",
+        "description": "",
+        "columnGroup": "Custom Columns",
+        "hidden": false,
+        "indexed": false,
+        "readOnly": true,
+        "required": false,
+        "enforceUniqueValues": false,
+        "lookup": {
+          "allowMultipleValues": false,
+          "allowUnlimitedLength": false,
+          "columnName": "FolderChildCount",
+          "listId": "",
+          "primaryLookupColumnId": "ID"
+        }
+      },
+      {
+        "id": "ccc1037f-f65e-434a-868e-8c98af31fe29",
+        "name": "_ComplianceFlags",
+        "displayName": "Label setting",
+        "description": "",
+        "columnGroup": "Custom Columns",
+        "hidden": false,
+        "indexed": false,
+        "readOnly": true,
+        "required": false,
+        "enforceUniqueValues": false,
+        "lookup": {
+          "allowMultipleValues": false,
+          "allowUnlimitedLength": false,
+          "columnName": "ComplianceFlags",
+          "listId": "",
+          "primaryLookupColumnId": "ID"
+        }
+      },
+      {
+        "id": "d4b6480a-4bed-4094-9a52-30181ea38f1d",
+        "name": "_ComplianceTag",
+        "displayName": "Retention label",
+        "description": "",
+        "columnGroup": "Custom Columns",
+        "hidden": false,
+        "indexed": false,
+        "readOnly": true,
+        "required": false,
+        "enforceUniqueValues": false,
+        "lookup": {
+          "allowMultipleValues": false,
+          "allowUnlimitedLength": false,
+          "columnName": "ComplianceTag",
+          "listId": "",
+          "primaryLookupColumnId": "ID"
+        }
+      },
+      {
+        "id": "92be610e-ddbb-49f4-b3b1-5c2bc768df8f",
+        "name": "_ComplianceTagWrittenTime",
+        "displayName": "Retention label Applied",
+        "description": "",
+        "columnGroup": "Custom Columns",
+        "hidden": false,
+        "indexed": false,
+        "readOnly": true,
+        "required": false,
+        "enforceUniqueValues": false,
+        "lookup": {
+          "allowMultipleValues": false,
+          "allowUnlimitedLength": false,
+          "columnName": "ComplianceTagWrittenTime",
+          "listId": "",
+          "primaryLookupColumnId": "ID"
+        }
+      },
+      {
+        "id": "418d7676-2d6f-42cf-a16a-e43d2971252a",
+        "name": "_ComplianceTagUserId",
+        "displayName": "Label applied by",
+        "description": "",
+        "columnGroup": "Custom Columns",
+        "hidden": false,
+        "indexed": false,
+        "readOnly": true,
+        "required": false,
+        "enforceUniqueValues": false,
+        "lookup": {
+          "allowMultipleValues": false,
+          "allowUnlimitedLength": false,
+          "columnName": "ComplianceTagUserId",
+          "listId": "",
+          "primaryLookupColumnId": "ID"
+        }
+      },
+      {
+        "id": "8382d247-72a9-44b1-9794-7b177edc89f3",
+        "name": "_IsRecord",
+        "displayName": "Item is a Record",
+        "description": "",
+        "columnGroup": "Custom Columns",
+        "hidden": false,
+        "indexed": false,
+        "readOnly": true,
+        "required": false,
+        "enforceUniqueValues": false
+      },
+      {
+        "id": "d307dff3-340f-44a2-9f4b-fbfe1ba07459",
+        "name": "_CommentCount",
+        "displayName": "Comment count",
+        "description": "",
+        "columnGroup": "Custom Columns",
+        "hidden": false,
+        "indexed": false,
+        "readOnly": true,
+        "required": false,
+        "enforceUniqueValues": false,
+        "lookup": {
+          "allowMultipleValues": false,
+          "allowUnlimitedLength": false,
+          "columnName": "CommentCount",
+          "listId": "",
+          "primaryLookupColumnId": "ID"
+        }
+      },
+      {
+        "id": "db8d9d6d-dc9a-4fbd-85f3-4a753bfdc58c",
+        "name": "_LikeCount",
+        "displayName": "Like count",
+        "description": "",
+        "columnGroup": "Custom Columns",
+        "hidden": false,
+        "indexed": false,
+        "readOnly": true,
+        "required": false,
+        "enforceUniqueValues": false,
+        "lookup": {
+          "allowMultipleValues": false,
+          "allowUnlimitedLength": false,
+          "columnName": "LikeCount",
+          "listId": "",
+          "primaryLookupColumnId": "ID"
+        }
+      },
+      {
+        "id": "1a53ab5a-11f9-4b92-a377-8cfaaf6ba7be",
+        "name": "_DisplayName",
+        "displayName": "Sensitivity",
+        "description": "",
+        "columnGroup": "Custom Columns",
+        "hidden": false,
+        "indexed": false,
+        "readOnly": true,
+        "required": false,
+        "enforceUniqueValues": false,
+        "lookup": {
+          "allowMultipleValues": false,
+          "allowUnlimitedLength": false,
+          "columnName": "DisplayName",
+          "listId": "",
+          "primaryLookupColumnId": "LabelId"
+        }
+      },
+      {
+        "id": "76d13cd2-1bae-45a5-8b74-545b87b65037",
+        "name": "_ColorTag",
+        "displayName": "Color Tag",
+        "description": "",
+        "columnGroup": "Custom Columns",
+        "hidden": false,
+        "indexed": false,
+        "readOnly": true,
+        "required": false,
+        "enforceUniqueValues": false,
+        "text": {
+          "allowMultipleLines": false,
+          "appendChangesToExistingText": false,
+          "linesForEditing": 0,
+          "maxLength": 255
+        }
+      },
+      {
+        "id": "6bfaba20-36bf-44b5-a1b2-eb6346d49716",
+        "name": "AppAuthor",
+        "displayName": "App Created By",
+        "description": "",
+        "columnGroup": "Custom Columns",
+        "hidden": false,
+        "indexed": false,
+        "readOnly": true,
+        "required": false,
+        "enforceUniqueValues": false,
+        "lookup": {
+          "allowMultipleValues": false,
+          "allowUnlimitedLength": false,
+          "columnName": "Title",
+          "listId": "AppPrincipals"
+        }
+      },
+      {
+        "id": "e08400f3-c779-4ed2-a18c-ab7f34caa318",
+        "name": "AppEditor",
+        "displayName": "App Modified By",
+        "description": "",
+        "columnGroup": "Custom Columns",
+        "hidden": false,
+        "indexed": false,
+        "readOnly": true,
+        "required": false,
+        "enforceUniqueValues": false,
+        "lookup": {
+          "allowMultipleValues": false,
+          "allowUnlimitedLength": false,
+          "columnName": "Title",
+          "listId": "AppPrincipals"
+        }
+      },
+      {
+        "id": "503f1caa-358e-4918-9094-4a2cdc4bc034",
+        "name": "Edit",
+        "displayName": "Edit",
+        "description": "",
+        "columnGroup": "Custom Columns",
+        "hidden": false,
+        "indexed": false,
+        "readOnly": true,
+        "required": false,
+        "enforceUniqueValues": false
+      },
+      {
+        "id": "dce8262a-3ae9-45aa-aab4-83bd75fb738a",
+        "name": "_UIVersionString",
+        "displayName": "Version",
+        "description": "",
+        "columnGroup": "Custom Columns",
+        "hidden": false,
+        "indexed": false,
+        "readOnly": true,
+        "required": false,
+        "enforceUniqueValues": false,
+        "text": {
+          "allowMultipleLines": false,
+          "appendChangesToExistingText": false,
+          "linesForEditing": 0,
+          "maxLength": 255
+        }
+      },
+      {
+        "id": "bc1a8efb-0f4c-49f8-a38f-7fe22af3d3e0",
+        "name": "ParentVersionString",
+        "displayName": "Source Version (Converted Document)",
+        "description": "",
+        "columnGroup": "Custom Columns",
+        "hidden": false,
+        "indexed": false,
+        "readOnly": true,
+        "required": false,
+        "enforceUniqueValues": false,
+        "lookup": {
+          "allowMultipleValues": false,
+          "allowUnlimitedLength": false,
+          "columnName": "ParentVersionString",
+          "listId": "",
+          "primaryLookupColumnId": "ID"
+        }
+      },
+      {
+        "id": "774eab3a-855f-4a34-99da-69dc21043bec",
+        "name": "ParentLeafName",
+        "displayName": "Source Name (Converted Document)",
+        "description": "",
+        "columnGroup": "Custom Columns",
+        "hidden": false,
+        "indexed": false,
+        "readOnly": true,
+        "required": false,
+        "enforceUniqueValues": false,
+        "lookup": {
+          "allowMultipleValues": false,
+          "allowUnlimitedLength": false,
+          "columnName": "ParentLeafName",
+          "listId": "",
+          "primaryLookupColumnId": "ID"
+        }
+      },
+      {
+        "id": "3a6b296c-3f50-445c-a13f-9c679ea9dda3",
+        "name": "ComplianceAssetId",
+        "displayName": "Compliance Asset Id",
+        "description": "",
+        "columnGroup": "Custom Columns",
+        "hidden": false,
+        "indexed": false,
+        "readOnly": true,
+        "required": false,
+        "enforceUniqueValues": false,
+        "text": {
+          "allowMultipleLines": false,
+          "appendChangesToExistingText": false,
+          "linesForEditing": 0,
+          "maxLength": 255
+        }
+      },
+      {
+        "id": "fa564e0f-0c70-4ab9-b863-0177e6ddd247",
+        "name": "Title",
+        "displayName": "Title",
+        "description": "",
+        "columnGroup": "Custom Columns",
+        "hidden": false,
+        "indexed": false,
+        "readOnly": false,
+        "required": false,
+        "enforceUniqueValues": false,
+        "text": {
+          "allowMultipleLines": false,
+          "appendChangesToExistingText": false,
+          "linesForEditing": 0,
+          "maxLength": 255
+        }
+      },
+      {
+        "id": "cb19284a-cde7-4570-a980-1dab8bd74470",
+        "name": "_ExtendedDescription",
+        "displayName": "Description",
+        "description": "",
+        "columnGroup": "Custom Columns",
+        "hidden": false,
+        "indexed": false,
+        "readOnly": false,
+        "required": false,
+        "enforceUniqueValues": false,
+        "text": {
+          "allowMultipleLines": true,
+          "appendChangesToExistingText": false,
+          "linesForEditing": 6,
+          "textType": "richText"
+        }
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1.0/sites/nangodevelopers.sharepoint.com%2C1d6e1722-9330-4b30-aa92-b73f215d9420%2C413c102d-9557-4a8d-8a68-bbb499015216/lists/eca0d94a-d37a-46ee-9fa4-340a2e0c39f2/columns": {
+        "response": {
+          "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#sites('nangodevelopers.sharepoint.com%2C1d6e1722-9330-4b30-aa92-b73f215d9420%2C413c102d-9557-4a8d-8a68-bbb499015216')/lists('eca0d94a-d37a-46ee-9fa4-340a2e0c39f2')/columns",
+          "value": [
+            {
+              "columnGroup": "Custom Columns",
+              "description": "",
+              "displayName": "ID",
+              "enforceUniqueValues": false,
+              "hidden": false,
+              "id": "1d22ea11-1e32-424e-89ab-9fedbadb6ce1",
+              "indexed": false,
+              "name": "ID",
+              "readOnly": true,
+              "required": false
+            },
+            {
+              "columnGroup": "_Hidden",
+              "description": "",
+              "displayName": "Content Type",
+              "enforceUniqueValues": false,
+              "hidden": false,
+              "id": "c042a256-787d-4a6f-8a8a-cf6ab767f12d",
+              "indexed": false,
+              "name": "ContentType",
+              "readOnly": false,
+              "required": false
+            },
+            {
+              "columnGroup": "Custom Columns",
+              "description": "",
+              "displayName": "Created",
+              "enforceUniqueValues": false,
+              "hidden": false,
+              "id": "8c06beca-0777-48f7-91c7-6da68bc07b69",
+              "indexed": false,
+              "name": "Created",
+              "readOnly": true,
+              "required": false,
+              "dateTime": {
+                "displayAs": "default",
+                "format": "dateTime"
+              }
+            },
+            {
+              "columnGroup": "Custom Columns",
+              "description": "",
+              "displayName": "Created By",
+              "enforceUniqueValues": false,
+              "hidden": false,
+              "id": "1df5e554-ec7e-46a6-901d-d85a3881cb18",
+              "indexed": false,
+              "name": "Author",
+              "readOnly": true,
+              "required": false,
+              "personOrGroup": {
+                "allowMultipleSelection": false,
+                "displayAs": "nameWithPresence",
+                "chooseFromType": "peopleAndGroups"
+              }
+            },
+            {
+              "columnGroup": "Custom Columns",
+              "description": "",
+              "displayName": "Modified",
+              "enforceUniqueValues": false,
+              "hidden": false,
+              "id": "28cf69c5-fa48-462a-b5cd-27b6f9d2bd5f",
+              "indexed": false,
+              "name": "Modified",
+              "readOnly": true,
+              "required": false,
+              "dateTime": {
+                "displayAs": "default",
+                "format": "dateTime"
+              }
+            },
+            {
+              "columnGroup": "Custom Columns",
+              "description": "",
+              "displayName": "Modified By",
+              "enforceUniqueValues": false,
+              "hidden": false,
+              "id": "d31655d1-1d5b-4511-95a1-7a09e9b75bf2",
+              "indexed": false,
+              "name": "Editor",
+              "readOnly": true,
+              "required": false,
+              "personOrGroup": {
+                "allowMultipleSelection": false,
+                "displayAs": "nameWithPresence",
+                "chooseFromType": "peopleAndGroups"
+              }
+            },
+            {
+              "columnGroup": "Custom Columns",
+              "description": "",
+              "displayName": "Copy Source",
+              "enforceUniqueValues": false,
+              "hidden": false,
+              "id": "6b4e226d-3d88-4a36-808d-a129bf52bccf",
+              "indexed": false,
+              "name": "_CopySource",
+              "readOnly": true,
+              "required": false,
+              "text": {
+                "allowMultipleLines": false,
+                "appendChangesToExistingText": false,
+                "linesForEditing": 0,
+                "maxLength": 255
+              }
+            },
+            {
+              "columnGroup": "Custom Columns",
+              "description": "",
+              "displayName": "Checked Out To",
+              "enforceUniqueValues": false,
+              "hidden": false,
+              "id": "3881510a-4e4a-4ee8-b102-8ee8e2d0dd4b",
+              "indexed": false,
+              "name": "CheckoutUser",
+              "readOnly": true,
+              "required": false,
+              "personOrGroup": {
+                "allowMultipleSelection": false,
+                "displayAs": "nameWithPresence",
+                "chooseFromType": "peopleAndGroups"
+              }
+            },
+            {
+              "columnGroup": "Custom Columns",
+              "description": "",
+              "displayName": "Name",
+              "enforceUniqueValues": false,
+              "hidden": false,
+              "id": "8553196d-ec8d-4564-9861-3dbe931050c8",
+              "indexed": false,
+              "name": "FileLeafRef",
+              "readOnly": false,
+              "required": true
+            },
+            {
+              "columnGroup": "Custom Columns",
+              "description": "",
+              "displayName": "Check In Comment",
+              "enforceUniqueValues": false,
+              "hidden": false,
+              "id": "58014f77-5463-437b-ab67-eec79532da67",
+              "indexed": false,
+              "name": "_CheckinComment",
+              "readOnly": true,
+              "required": false,
+              "lookup": {
+                "allowMultipleValues": false,
+                "allowUnlimitedLength": false,
+                "columnName": "CheckinComment",
+                "listId": "",
+                "primaryLookupColumnId": "ID"
+              }
+            },
+            {
+              "columnGroup": "Custom Columns",
+              "description": "",
+              "displayName": "Name",
+              "enforceUniqueValues": false,
+              "hidden": false,
+              "id": "9d30f126-ba48-446b-b8f9-83745f322ebe",
+              "indexed": false,
+              "name": "LinkFilenameNoMenu",
+              "readOnly": true,
+              "required": false
+            },
+            {
+              "columnGroup": "Custom Columns",
+              "description": "",
+              "displayName": "Name",
+              "enforceUniqueValues": false,
+              "hidden": false,
+              "id": "5cc6dc79-3710-4374-b433-61cb4a686c12",
+              "indexed": false,
+              "name": "LinkFilename",
+              "readOnly": true,
+              "required": false
+            },
+            {
+              "columnGroup": "Custom Columns",
+              "description": "",
+              "displayName": "Type",
+              "enforceUniqueValues": false,
+              "hidden": false,
+              "id": "081c6e4c-5c14-4f20-b23e-1a71ceb6a67c",
+              "indexed": false,
+              "name": "DocIcon",
+              "readOnly": true,
+              "required": false
+            },
+            {
+              "columnGroup": "Custom Columns",
+              "description": "",
+              "displayName": "File Size",
+              "enforceUniqueValues": false,
+              "hidden": false,
+              "id": "78a07ba4-bda8-4357-9e0f-580d64487583",
+              "indexed": false,
+              "name": "FileSizeDisplay",
+              "readOnly": true,
+              "required": false
+            },
+            {
+              "columnGroup": "Custom Columns",
+              "description": "",
+              "displayName": "Item Child Count",
+              "enforceUniqueValues": false,
+              "hidden": false,
+              "id": "b824e17e-a1b3-426e-aecf-f0184d900485",
+              "indexed": false,
+              "name": "ItemChildCount",
+              "readOnly": true,
+              "required": false,
+              "lookup": {
+                "allowMultipleValues": false,
+                "allowUnlimitedLength": false,
+                "columnName": "ItemChildCount",
+                "listId": "",
+                "primaryLookupColumnId": "ID"
+              }
+            },
+            {
+              "columnGroup": "Custom Columns",
+              "description": "",
+              "displayName": "Folder Child Count",
+              "enforceUniqueValues": false,
+              "hidden": false,
+              "id": "960ff01f-2b6d-4f1b-9c3f-e19ad8927341",
+              "indexed": false,
+              "name": "FolderChildCount",
+              "readOnly": true,
+              "required": false,
+              "lookup": {
+                "allowMultipleValues": false,
+                "allowUnlimitedLength": false,
+                "columnName": "FolderChildCount",
+                "listId": "",
+                "primaryLookupColumnId": "ID"
+              }
+            },
+            {
+              "columnGroup": "Custom Columns",
+              "description": "",
+              "displayName": "Label setting",
+              "enforceUniqueValues": false,
+              "hidden": false,
+              "id": "ccc1037f-f65e-434a-868e-8c98af31fe29",
+              "indexed": false,
+              "name": "_ComplianceFlags",
+              "readOnly": true,
+              "required": false,
+              "lookup": {
+                "allowMultipleValues": false,
+                "allowUnlimitedLength": false,
+                "columnName": "ComplianceFlags",
+                "listId": "",
+                "primaryLookupColumnId": "ID"
+              }
+            },
+            {
+              "columnGroup": "Custom Columns",
+              "description": "",
+              "displayName": "Retention label",
+              "enforceUniqueValues": false,
+              "hidden": false,
+              "id": "d4b6480a-4bed-4094-9a52-30181ea38f1d",
+              "indexed": false,
+              "name": "_ComplianceTag",
+              "readOnly": true,
+              "required": false,
+              "lookup": {
+                "allowMultipleValues": false,
+                "allowUnlimitedLength": false,
+                "columnName": "ComplianceTag",
+                "listId": "",
+                "primaryLookupColumnId": "ID"
+              }
+            },
+            {
+              "columnGroup": "Custom Columns",
+              "description": "",
+              "displayName": "Retention label Applied",
+              "enforceUniqueValues": false,
+              "hidden": false,
+              "id": "92be610e-ddbb-49f4-b3b1-5c2bc768df8f",
+              "indexed": false,
+              "name": "_ComplianceTagWrittenTime",
+              "readOnly": true,
+              "required": false,
+              "lookup": {
+                "allowMultipleValues": false,
+                "allowUnlimitedLength": false,
+                "columnName": "ComplianceTagWrittenTime",
+                "listId": "",
+                "primaryLookupColumnId": "ID"
+              }
+            },
+            {
+              "columnGroup": "Custom Columns",
+              "description": "",
+              "displayName": "Label applied by",
+              "enforceUniqueValues": false,
+              "hidden": false,
+              "id": "418d7676-2d6f-42cf-a16a-e43d2971252a",
+              "indexed": false,
+              "name": "_ComplianceTagUserId",
+              "readOnly": true,
+              "required": false,
+              "lookup": {
+                "allowMultipleValues": false,
+                "allowUnlimitedLength": false,
+                "columnName": "ComplianceTagUserId",
+                "listId": "",
+                "primaryLookupColumnId": "ID"
+              }
+            },
+            {
+              "columnGroup": "Custom Columns",
+              "description": "",
+              "displayName": "Item is a Record",
+              "enforceUniqueValues": false,
+              "hidden": false,
+              "id": "8382d247-72a9-44b1-9794-7b177edc89f3",
+              "indexed": false,
+              "name": "_IsRecord",
+              "readOnly": true,
+              "required": false
+            },
+            {
+              "columnGroup": "Custom Columns",
+              "description": "",
+              "displayName": "Comment count",
+              "enforceUniqueValues": false,
+              "hidden": false,
+              "id": "d307dff3-340f-44a2-9f4b-fbfe1ba07459",
+              "indexed": false,
+              "name": "_CommentCount",
+              "readOnly": true,
+              "required": false,
+              "lookup": {
+                "allowMultipleValues": false,
+                "allowUnlimitedLength": false,
+                "columnName": "CommentCount",
+                "listId": "",
+                "primaryLookupColumnId": "ID"
+              }
+            },
+            {
+              "columnGroup": "Custom Columns",
+              "description": "",
+              "displayName": "Like count",
+              "enforceUniqueValues": false,
+              "hidden": false,
+              "id": "db8d9d6d-dc9a-4fbd-85f3-4a753bfdc58c",
+              "indexed": false,
+              "name": "_LikeCount",
+              "readOnly": true,
+              "required": false,
+              "lookup": {
+                "allowMultipleValues": false,
+                "allowUnlimitedLength": false,
+                "columnName": "LikeCount",
+                "listId": "",
+                "primaryLookupColumnId": "ID"
+              }
+            },
+            {
+              "columnGroup": "Custom Columns",
+              "description": "",
+              "displayName": "Sensitivity",
+              "enforceUniqueValues": false,
+              "hidden": false,
+              "id": "1a53ab5a-11f9-4b92-a377-8cfaaf6ba7be",
+              "indexed": false,
+              "name": "_DisplayName",
+              "readOnly": true,
+              "required": false,
+              "lookup": {
+                "allowMultipleValues": false,
+                "allowUnlimitedLength": false,
+                "columnName": "DisplayName",
+                "listId": "",
+                "primaryLookupColumnId": "LabelId"
+              }
+            },
+            {
+              "columnGroup": "Custom Columns",
+              "description": "",
+              "displayName": "Color Tag",
+              "enforceUniqueValues": false,
+              "hidden": false,
+              "id": "76d13cd2-1bae-45a5-8b74-545b87b65037",
+              "indexed": false,
+              "name": "_ColorTag",
+              "readOnly": true,
+              "required": false,
+              "text": {
+                "allowMultipleLines": false,
+                "appendChangesToExistingText": false,
+                "linesForEditing": 0,
+                "maxLength": 255
+              }
+            },
+            {
+              "columnGroup": "Custom Columns",
+              "description": "",
+              "displayName": "App Created By",
+              "enforceUniqueValues": false,
+              "hidden": false,
+              "id": "6bfaba20-36bf-44b5-a1b2-eb6346d49716",
+              "indexed": false,
+              "name": "AppAuthor",
+              "readOnly": true,
+              "required": false,
+              "lookup": {
+                "allowMultipleValues": false,
+                "allowUnlimitedLength": false,
+                "columnName": "Title",
+                "listId": "AppPrincipals"
+              }
+            },
+            {
+              "columnGroup": "Custom Columns",
+              "description": "",
+              "displayName": "App Modified By",
+              "enforceUniqueValues": false,
+              "hidden": false,
+              "id": "e08400f3-c779-4ed2-a18c-ab7f34caa318",
+              "indexed": false,
+              "name": "AppEditor",
+              "readOnly": true,
+              "required": false,
+              "lookup": {
+                "allowMultipleValues": false,
+                "allowUnlimitedLength": false,
+                "columnName": "Title",
+                "listId": "AppPrincipals"
+              }
+            },
+            {
+              "columnGroup": "Custom Columns",
+              "description": "",
+              "displayName": "Edit",
+              "enforceUniqueValues": false,
+              "hidden": false,
+              "id": "503f1caa-358e-4918-9094-4a2cdc4bc034",
+              "indexed": false,
+              "name": "Edit",
+              "readOnly": true,
+              "required": false
+            },
+            {
+              "columnGroup": "Custom Columns",
+              "description": "",
+              "displayName": "Version",
+              "enforceUniqueValues": false,
+              "hidden": false,
+              "id": "dce8262a-3ae9-45aa-aab4-83bd75fb738a",
+              "indexed": false,
+              "name": "_UIVersionString",
+              "readOnly": true,
+              "required": false,
+              "text": {
+                "allowMultipleLines": false,
+                "appendChangesToExistingText": false,
+                "linesForEditing": 0,
+                "maxLength": 255
+              }
+            },
+            {
+              "columnGroup": "Custom Columns",
+              "description": "",
+              "displayName": "Source Version (Converted Document)",
+              "enforceUniqueValues": false,
+              "hidden": false,
+              "id": "bc1a8efb-0f4c-49f8-a38f-7fe22af3d3e0",
+              "indexed": false,
+              "name": "ParentVersionString",
+              "readOnly": true,
+              "required": false,
+              "lookup": {
+                "allowMultipleValues": false,
+                "allowUnlimitedLength": false,
+                "columnName": "ParentVersionString",
+                "listId": "",
+                "primaryLookupColumnId": "ID"
+              }
+            },
+            {
+              "columnGroup": "Custom Columns",
+              "description": "",
+              "displayName": "Source Name (Converted Document)",
+              "enforceUniqueValues": false,
+              "hidden": false,
+              "id": "774eab3a-855f-4a34-99da-69dc21043bec",
+              "indexed": false,
+              "name": "ParentLeafName",
+              "readOnly": true,
+              "required": false,
+              "lookup": {
+                "allowMultipleValues": false,
+                "allowUnlimitedLength": false,
+                "columnName": "ParentLeafName",
+                "listId": "",
+                "primaryLookupColumnId": "ID"
+              }
+            },
+            {
+              "columnGroup": "Custom Columns",
+              "description": "",
+              "displayName": "Compliance Asset Id",
+              "enforceUniqueValues": false,
+              "hidden": false,
+              "id": "3a6b296c-3f50-445c-a13f-9c679ea9dda3",
+              "indexed": false,
+              "name": "ComplianceAssetId",
+              "readOnly": true,
+              "required": false,
+              "text": {
+                "allowMultipleLines": false,
+                "appendChangesToExistingText": false,
+                "linesForEditing": 0,
+                "maxLength": 255
+              }
+            },
+            {
+              "columnGroup": "Custom Columns",
+              "description": "",
+              "displayName": "Title",
+              "enforceUniqueValues": false,
+              "hidden": false,
+              "id": "fa564e0f-0c70-4ab9-b863-0177e6ddd247",
+              "indexed": false,
+              "name": "Title",
+              "readOnly": false,
+              "required": false,
+              "text": {
+                "allowMultipleLines": false,
+                "appendChangesToExistingText": false,
+                "linesForEditing": 0,
+                "maxLength": 255
+              }
+            },
+            {
+              "columnGroup": "Custom Columns",
+              "description": "",
+              "displayName": "Description",
+              "enforceUniqueValues": false,
+              "hidden": false,
+              "id": "cb19284a-cde7-4570-a980-1dab8bd74470",
+              "indexed": false,
+              "name": "_ExtendedDescription",
+              "readOnly": false,
+              "required": false,
+              "text": {
+                "allowMultipleLines": true,
+                "appendChangesToExistingText": false,
+                "linesForEditing": 6,
+                "textType": "richText"
+              }
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 03 Jun 2026 15:10:47 GMT",
+          "content-type": "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false;charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4847",
+          "x-ratelimit-reset": "1780499447",
+          "cache-control": "no-store, no-cache",
+          "vary": "Accept-Encoding",
+          "request-id": "3a7cbb41-1acb-456c-a7e6-33e060bb974b",
+          "client-request-id": "3a7cbb41-1acb-456c-a7e6-33e060bb974b",
+          "x-ms-ags-diagnostic": "{\"ServerInfo\":{\"DataCenter\":\"West US 2\",\"Slice\":\"E\",\"Ring\":\"4\",\"ScaleUnit\":\"004\",\"RoleInstance\":\"MW2PEPF0000E056\"}}",
+          "splogid": "65031aa2-c05b-d000-715d-74050abbb88b",
+          "odata-version": "4.0"
+        },
+        "hash": "588fd52f204a991c4172c326abe72f1c3620eeba",
+        "request": {}
+      }
+    }
+  }
+}

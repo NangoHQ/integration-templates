@@ -27029,19 +27029,12 @@ export interface Repository {
 };
 
 export interface FileMetadata {
-  siteId: string;
   id: string;
-  name: string;
-  etag: string;
-  cTag: string;
-  is_folder: boolean;
-  mime_type: string | null;
   path: string;
-  raw_source?: any | undefined;
-  updated_at: string;
-  download_url: string | null;
-  created_at: string;
-  blob_size: number;
+  sha: string;
+  type: 'blob' | 'tree' | 'commit';
+  mode: string;
+  size?: number | undefined;
 };
 
 export interface SyncMetadata_github_repositoryfiles {
@@ -36062,15 +36055,17 @@ export interface SyncMetadata_google_drive_documents {
 
 export interface Permission {
   id: string;
-  fileId: string;
+  itemId: string;
   permissionId: string;
-  type: string;
-  role: string;
-  displayName?: string | undefined;
-  emailAddress?: string | undefined;
-  domain?: string | undefined;
-  allowFileDiscovery?: boolean | undefined;
-  deleted?: boolean | undefined;
+  roles?: string[] | undefined;
+  grantedToV2?: {  [key: string]: unknown | undefined;};
+  grantedToIdentitiesV2?: ({  [key: string]: unknown | undefined;})[];
+  link?: {  [key: string]: unknown | undefined;};
+  invitation?: {  [key: string]: unknown | undefined;};
+  shareId?: string | undefined;
+  expirationDateTime?: string | undefined;
+  hasPassword?: boolean | undefined;
+  inheritedFrom?: {  [key: string]: unknown | undefined;};
 };
 
 export interface SharedDrive {
@@ -53631,16 +53626,16 @@ export interface ActionOutput_okta_removeusergroup {
 
 export interface DriveItem {
   id: string;
+  driveId: string;
   name?: string | undefined;
+  parentId?: string | undefined;
+  path?: string | undefined;
   size?: number | undefined;
+  webUrl?: string | undefined;
   createdDateTime?: string | undefined;
   lastModifiedDateTime?: string | undefined;
-  webUrl?: string | undefined;
-  downloadUrl?: string | undefined;
-  file?: {} | undefined;
-  folder?: {} | undefined;
-  parentReference?: {  id?: string | undefined;};
-  deleted?: {} | undefined;
+  folder?: boolean | undefined;
+  file?: boolean | undefined;
 };
 
 export interface FolderChild {
@@ -53751,17 +53746,20 @@ export interface SelectedUserFile {
 
 export interface UserFile {
   id: string;
+  driveId: string;
+  itemId: string;
+  driveType?: string | undefined;
   name?: string | undefined;
   size?: number | undefined;
+  webUrl?: string | undefined;
   createdDateTime?: string | undefined;
   lastModifiedDateTime?: string | undefined;
-  webUrl?: string | undefined;
-  downloadUrl?: string | undefined;
-  mimeType?: string | undefined;
-  isFolder?: boolean | undefined;
-  childCount?: number | undefined;
-  parentId?: string | undefined;
+  createdByDisplayName?: string | undefined;
+  lastModifiedByDisplayName?: string | undefined;
+  parentDriveId?: string | undefined;
+  parentItemId?: string | undefined;
   parentPath?: string | undefined;
+  fileType?: string | undefined;
 };
 
 export interface ActionInput_one_drive_copyitem {
@@ -54350,13 +54348,16 @@ export interface ActionOutput_one_drive_uploadsmallfile {
 
 export interface UserFileSelection {
   id: string;
-  fileId: string;
   name?: string | undefined;
-  size?: number | undefined;
   webUrl?: string | undefined;
-  downloadUrl?: string | undefined;
-  createdDateTime?: string | undefined;
+  size?: number | undefined;
   lastModifiedDateTime?: string | undefined;
+  createdDateTime?: string | undefined;
+  driveId: string;
+  mimeType?: string | undefined;
+  parentReference?: {  driveId: string;
+  id: string;
+  path?: string | undefined;};
 };
 
 export interface ActionInput_one_drive_personal_createfolder {
@@ -65053,70 +65054,2137 @@ export interface SyncMetadata_sap_success_factors_locations {
 export interface SyncMetadata_sap_success_factors_unifiedemployees {
 };
 
+export interface ContentType {
+  id: string;
+  siteId: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  group?: string | undefined;
+  hidden?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  sealed?: boolean | undefined;
+  isBuiltIn?: boolean | undefined;
+  parentId?: string | undefined;
+  base?: {  id?: string | undefined;
+  name?: string | undefined;
+  description?: string | undefined;
+  group?: string | undefined;
+  hidden?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  sealed?: boolean | undefined;};
+};
+
+export interface DriveItemVersion {
+  id: string;
+  itemId: string;
+  driveId: string;
+  siteId: string;
+  versionId: string;
+  size?: number | undefined;
+  lastModifiedDateTime?: string | undefined;
+  lastModifiedByDisplayName?: string | undefined;
+};
+
+export interface SyncMetadata_sharepoint_online_driveitemversions {
+  drives?: ({  siteId: string;
+  driveId: string;})[] | undefined;
+};
+
+export interface SyncMetadata_sharepoint_online_driveitems {
+  driveIds?: string[] | undefined;
+};
+
+export interface Drive {
+  id: string;
+  siteId: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  driveType?: string | undefined;
+  webUrl?: string | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+};
+
+export interface SyncMetadata_sharepoint_online_drives {
+  siteIds?: string[] | undefined;
+};
+
+export interface ListColumn {
+  id: string;
+  siteId: string;
+  listId: string;
+  name?: string | undefined;
+  displayName?: string | undefined;
+  description?: string | undefined;
+  columnType?: string | undefined;
+  hidden?: boolean | undefined;
+  required?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  indexed?: boolean | undefined;
+  enforceUniqueValues?: boolean | undefined;
+};
+
+export interface ListItem {
+  id: string;
+  siteId: string;
+  listId: string;
+  itemId: string;
+  name?: string | undefined;
+  webUrl?: string | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  contentTypeId?: string | undefined;
+  contentTypeName?: string | undefined;
+  fields?: {  [key: string]: unknown | undefined;};
+};
+
+export interface SyncMetadata_sharepoint_online_lists {
+  site_ids?: string[] | undefined;
+};
+
+export interface SyncMetadata_sharepoint_online_permissions {
+  drives: ({  siteId: string;
+  driveId: string;})[];
+};
+
+export interface SharedSiteFile {
+  id: string;
+  siteId: string;
+  driveId: string;
+  itemId: string;
+  name?: string | undefined;
+  webUrl?: string | undefined;
+  size?: number | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  parentId?: string | undefined;
+  parentPath?: string | undefined;
+};
+
 export interface SyncMetadata_sharepoint_online_sharedsitesselection {
-  sharedSites: string[];
-  pickedFiles: ({  siteId: string;
-  fileIds: string[];})[];
+  sharedSites?: string[] | undefined;
+  pickedFiles?: string[] | undefined;
 };
 
-export interface UserFileMetadata {
-  siteId: string;
+export interface SiteColumn {
   id: string;
-  name: string;
-  etag: string;
-  cTag: string;
-  is_folder: boolean;
-  mime_type: string | null;
-  path: string;
-  raw_source: {};
-  updated_at: string;
-  download_url: string | null;
-  created_at: string;
-  blob_size: number;
-};
-
-export interface SyncMetadata_sharepoint_online_userfiles {
-};
-
-export interface SelectedUserFileMetadata {
+  columnId: string;
   siteId: string;
+  name?: string | undefined;
+  displayName?: string | undefined;
+  description?: string | undefined;
+  columnGroup?: string | undefined;
+  hidden?: boolean | undefined;
+  indexed?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  required?: boolean | undefined;
+  enforceUniqueValues?: boolean | undefined;
+  type?: string | undefined;
+  text?: {  [key: string]: unknown | undefined;};
+  number?: {  [key: string]: unknown | undefined;};
+  boolean?: {  [key: string]: unknown | undefined;};
+  dateTime?: {  [key: string]: unknown | undefined;};
+  choice?: {  [key: string]: unknown | undefined;};
+  lookup?: {  [key: string]: unknown | undefined;};
+  personOrGroup?: {  [key: string]: unknown | undefined;};
+  calculated?: {  [key: string]: unknown | undefined;};
+  currency?: {  [key: string]: unknown | undefined;};
+  hyperlinkOrPicture?: {  [key: string]: unknown | undefined;};
+  term?: {  [key: string]: unknown | undefined;};
+  thumbnail?: {  [key: string]: unknown | undefined;};
+  geolocation?: {  [key: string]: unknown | undefined;};
+  validation?: {  [key: string]: unknown | undefined;};
+  defaultValue?: {  [key: string]: unknown | undefined;};
+  sourceContentType?: {  [key: string]: unknown | undefined;};
+};
+
+export interface SyncMetadata_sharepoint_online_sitecolumns {
+  siteIds: string[];
+};
+
+export interface SitePage {
   id: string;
-  name: string;
-  etag: string;
-  cTag: string;
-  is_folder: boolean;
-  mime_type: string | null;
-  path: string;
-  raw_source: {};
-  updated_at: string;
-  download_url: string | null;
-  created_at: string;
-  blob_size: number;
+  title?: string | undefined;
+  publishingState?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+};
+
+export interface SyncMetadata_sharepoint_online_sitepages {
+  selectedSites?: string[] | undefined;
+};
+
+export interface Site {
+  id: string;
+  displayName?: string | undefined;
+  name?: string | undefined;
+  webUrl?: string | undefined;
+  description?: string | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  siteCollectionHostname?: string | undefined;
+};
+
+export interface SyncMetadata_sharepoint_online_sites {
+  siteIds?: string[] | undefined;
+  sitePaths?: string[] | undefined;
+  searchTerms?: string[] | undefined;
+};
+
+export interface Subsite {
+  id: string;
+  name?: string | undefined;
+  displayName?: string | undefined;
+  description?: string | undefined;
+  webUrl?: string | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  parentSiteId?: string | undefined;
 };
 
 export interface SyncMetadata_sharepoint_online_userfilesselection {
-  sharedSites: string[];
-  pickedFiles: ({  siteId: string;
-  fileIds: string[];})[];
+  sharedSites?: string[] | undefined;
+  pickedFiles?: ({  driveId: string;
+  id: string;})[] | undefined;
 };
 
-export interface ActionInput_sharepoint_online_fetchfile {
+export interface ActionInput_sharepoint_online_addcontenttypetolist {
+  /**
+   * SharePoint site ID. Example: "hostname, guid1, guid2"
+   */
   siteId: string;
+  /**
+   * SharePoint list ID. Example: "list-guid"
+   */
+  listId: string;
+  /**
+   * Content type ID to add. Provide this or contentTypeUrl. Example: "0x0100D7B64D4E96D446B8B27A7FB63C94B3E2"
+   */
+  contentTypeId?: string | undefined;
+  /**
+   * Full content type URL to add. Provide this or contentTypeId. Example: "https://graph.microsoft.com/v1.0/sites/{siteId}/contentTypes/{contentTypeId}"
+   */
+  contentTypeUrl?: string | undefined;
+};
+
+export interface ActionOutput_sharepoint_online_addcontenttypetolist {
+  id?: string | undefined;
+  name?: string | undefined;
+  description?: string | undefined;
+  group?: string | undefined;
+  parentId?: string | undefined;
+  hidden?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  sealed?: boolean | undefined;
+};
+
+export interface ActionInput_sharepoint_online_adddriveitempermission {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,siteId,webId"
+   */
+  siteId: string;
+  /**
+   * Drive ID. Example: "b!isEncodedDriveId"
+   */
+  driveId: string;
+  /**
+   * Drive item ID. Example: "01H2W2E3E4E5E6E7E8E9E0E1"
+   */
+  itemId: string;
+  /**
+   * Recipients to invite.
+   */
+  recipients: ({  /**
+   * The email address for the recipient.
+   */
+  email?: string | undefined;
+  /**
+   * The alias of the domain object.
+   */
+  alias?: string | undefined;
+  /**
+   * The unique identifier for the recipient in the directory.
+   */
+  objectId?: string | undefined;})[];
+  /**
+   * Roles to grant, e.g. ["read"] or ["write"].
+   */
+  roles: string[];
+  /**
+   * Optional message included in the sharing invitation.
+   */
+  message?: string | undefined;
+  /**
+   * Whether the recipient must sign in.
+   */
+  requireSignIn?: boolean | undefined;
+  /**
+   * Whether to send a sharing invitation notification.
+   */
+  sendInvitation?: boolean | undefined;
+};
+
+export interface ActionOutput_sharepoint_online_adddriveitempermission {
+  permissions: ({  id: string;
+  roles: string[];
+  grantedToUserId?: string | undefined;
+  grantedToUserDisplayName?: string | undefined;
+  invitationEmail?: string | undefined;
+  invitationSignInRequired?: boolean | undefined;
+  expirationDateTime?: string | undefined;
+  shareId?: string | undefined;
+  hasPassword?: boolean | undefined;})[];
+};
+
+export interface ActionInput_sharepoint_online_copydriveitem {
+  /**
+   * SharePoint site ID. Example: "nangodevelopers.sharepoint.com,4c97403e-1663-4673-90fa-d2f8690b4510,29d15734-3d19-43f6-976b-43ece3ff81a8"
+   */
+  siteId: string;
+  /**
+   * Source drive ID. Example: "b!PkCXTGMWc0aQ-tL4aQtFEDRX0SkZPfZDl2tD7OP_gahvi-nd5TAvTJG6KTmx6Mm0"
+   */
+  driveId: string;
+  /**
+   * Source drive item ID. Example: "01RFYLAYAB3LJFGWGL6NFZAM6DHUS3QPWZ"
+   */
+  itemId: string;
+  /**
+   * Destination drive ID. Example: "b!PkCXTGMWc0aQ-tL4aQtFEDRX0SkZPfZDl2tD7OP_gahvi-nd5TAvTJG6KTmx6Mm0"
+   */
+  parentDriveId: string;
+  /**
+   * Destination parent folder item ID. Example: "01RFYLAYF6Y2GOVW7725BZO354PWSELRRZ"
+   */
+  parentItemId: string;
+  /**
+   * Optional new name for the copy. Example: "nango-copy-test-copy.txt"
+   */
+  name?: string | undefined;
+  /**
+   * If true, only copy children of a folder.
+   */
+  childrenOnly?: boolean | undefined;
+  /**
+   * If true, preserve all version history.
+   */
+  includeAllVersionHistory?: boolean | undefined;
+  /**
+   * How to handle name conflicts.
+   */
+  conflictBehavior?: 'fail' | 'replace' | 'rename' | undefined;
+};
+
+export interface ActionOutput_sharepoint_online_copydriveitem {
+  status: string;
+  monitorUrl?: string | undefined;
+  operationId?: string | undefined;
+};
+
+export interface ActionInput_sharepoint_online_createcontenttype {
+  /**
+   * SharePoint site ID. Example: "nangodevelopers.sharepoint.com,1d6e1722-9330-4b30-aa92-b73f215d9420,413c102d-9557-4a8d-8a68-bbb499015216"
+   */
+  siteId: string;
+  /**
+   * Name of the content type.
+   */
+  name: string;
+  /**
+   * Description of the content type.
+   */
+  description?: string | undefined;
+  /**
+   * Group name for the content type.
+   */
+  group?: string | undefined;
+  /**
+   * Base content type reference. Defaults to Item (0x01) if omitted.
+   */
+  base?: {  /**
+   * Base content type ID. Example: "0x01" for Item, "0x0101" for Document.
+   */
+  id: string;} | undefined;
+};
+
+export interface ActionOutput_sharepoint_online_createcontenttype {
+  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  group?: string | undefined;
+  parentId?: string | undefined;
+  base?: {  id?: string | undefined;
+  name?: string | undefined;};
+};
+
+export interface ActionInput_sharepoint_online_createdrivefolder {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,site-id,web-id"
+   */
+  siteId: string;
+  /**
+   * Drive (document library) ID. Example: "b!1234567890abcdef"
+   */
+  driveId: string;
+  /**
+   * Parent item ID where the folder will be created. Example: "0123456789abcdef"
+   */
+  parentItemId: string;
+  /**
+   * Name of the new folder. Example: "New Folder"
+   */
+  name: string;
+  /**
+   * Conflict behavior if a folder with the same name exists. Defaults to "rename".
+   */
+  conflictBehavior?: 'rename' | 'fail' | 'replace' | undefined;
+};
+
+export interface ActionOutput_sharepoint_online_createdrivefolder {
+  id: string;
+  name: string;
+  webUrl?: string | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  size?: number | undefined;
+  parentReference?: {  driveId?: string | undefined;
+  id?: string | undefined;
+  path?: string | undefined;};
+  folder?: {  childCount?: number | undefined;};
+};
+
+export interface ActionInput_sharepoint_online_createdriveuploadsession {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,1234abc"
+   */
+  siteId: string;
+  /**
+   * Drive ID. Example: "b!1234567890"
+   */
+  driveId: string;
+  /**
+   * Parent drive item ID. Example: "01ABC123DEF"
+   */
+  parentItemId: string;
+  /**
+   * Name of the file to upload. Example: "document.pdf"
+   */
+  fileName: string;
+  /**
+   * Conflict behavior if the file already exists. Default: "fail"
+   */
+  conflictBehavior?: 'fail' | 'replace' | 'rename' | undefined;
+  /**
+   * If true, the final creation requires an explicit completion request. Default: false
+   */
+  deferCommit?: boolean | undefined;
+  /**
+   * Size of the file in bytes. Only available for OneDrive personal.
+   */
+  fileSize?: number | undefined;
+  /**
+   * Description of the file. Only available for OneDrive personal.
+   */
+  description?: string | undefined;
+};
+
+export interface ActionOutput_sharepoint_online_createdriveuploadsession {
+  uploadUrl: string;
+  expirationDateTime: string;
+  nextExpectedRanges?: string[] | undefined;
+};
+
+export interface ActionInput_sharepoint_online_createlistcolumn {
+  /**
+   * SharePoint site ID. Example: "nangodevelopers.sharepoint.com,ff9cef8d-d0e4-4638-a6a6-d5374e2b31e1,d12a8199-c77a-4e48-a193-2e1288b26f13"
+   */
+  siteId: string;
+  /**
+   * SharePoint list ID. Example: "c662d085-19c0-4514-b514-d2acbdb8a4e4"
+   */
+  listId: string;
+  /**
+   * API-facing name of the column. Example: "TestColumn"
+   */
+  name: string;
+  /**
+   * User-facing name of the column. Example: "Test Column"
+   */
+  displayName?: string | undefined;
+  /**
+   * User-facing description of the column.
+   */
+  description?: string | undefined;
+  /**
+   * Text column settings.
+   */
+  text?: {} | undefined;
+  /**
+   * Number column settings.
+   */
+  number?: {} | undefined;
+  /**
+   * Choice column settings.
+   */
+  choice?: {} | undefined;
+  /**
+   * DateTime column settings.
+   */
+  dateTime?: {} | undefined;
+  /**
+   * Boolean column settings.
+   */
+  boolean?: {} | undefined;
+  /**
+   * Currency column settings.
+   */
+  currency?: {} | undefined;
+  /**
+   * Person or group column settings.
+   */
+  personOrGroup?: {} | undefined;
+  /**
+   * Lookup column settings.
+   */
+  lookup?: {} | undefined;
+  /**
+   * Hyperlink or picture column settings.
+   */
+  hyperlinkOrPicture?: {} | undefined;
+  /**
+   * Calculated column settings.
+   */
+  calculated?: {} | undefined;
+  /**
+   * Term column settings.
+   */
+  term?: {} | undefined;
+  /**
+   * Geolocation column settings.
+   */
+  geolocation?: {} | undefined;
+  /**
+   * Whether column values must be unique.
+   */
+  enforceUniqueValues?: boolean | undefined;
+  /**
+   * Whether the column is hidden in the UI.
+   */
+  hidden?: boolean | undefined;
+  /**
+   * Whether the column is indexed for search and sort.
+   */
+  indexed?: boolean | undefined;
+  /**
+   * Whether the column value is required.
+   */
+  required?: boolean | undefined;
+  /**
+   * Whether the column values can be modified.
+   */
+  readOnly?: boolean | undefined;
+  /**
+   * Group name for organizing site columns.
+   */
+  columnGroup?: string | undefined;
+  /**
+   * Default value for the column.
+   */
+  defaultValue?: {} | undefined;
+  /**
+   * Validation formula and message for the column.
+   */
+  validation?: {} | undefined;
+};
+
+export interface ActionOutput_sharepoint_online_createlistcolumn {
+  id: string;
+  name: string;
+  displayName?: string | undefined;
+  description?: string | undefined;
+  text?: {  [key: string]: unknown | undefined;};
+  number?: {  [key: string]: unknown | undefined;};
+  choice?: {  [key: string]: unknown | undefined;};
+  dateTime?: {  [key: string]: unknown | undefined;};
+  boolean?: {  [key: string]: unknown | undefined;};
+  currency?: {  [key: string]: unknown | undefined;};
+  personOrGroup?: {  [key: string]: unknown | undefined;};
+  lookup?: {  [key: string]: unknown | undefined;};
+  hyperlinkOrPicture?: {  [key: string]: unknown | undefined;};
+  calculated?: {  [key: string]: unknown | undefined;};
+  term?: {  [key: string]: unknown | undefined;};
+  geolocation?: {  [key: string]: unknown | undefined;};
+  enforceUniqueValues?: boolean | undefined;
+  hidden?: boolean | undefined;
+  indexed?: boolean | undefined;
+  required?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  columnGroup?: string | undefined;
+  defaultValue?: {  [key: string]: unknown | undefined;};
+  validation?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_sharepoint_online_createlistitem {
+  /**
+   * SharePoint site ID. Example: "nangodevelopers.sharepoint.com,ff9cef8d-d0e4-4638-a6a6-d5374e2b31e1,d12a8199-c77a-4e48-a193-2e1288b26f13"
+   */
+  siteId: string;
+  /**
+   * SharePoint list ID. Example: "dde98b6f-30e5-4c2f-91ba-2939b1e8c9b4"
+   */
+  listId: string;
+  /**
+   * Field values that match the list schema.
+   */
+  fields: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_sharepoint_online_createlistitem {
+  id: string;
+  name?: string | undefined;
+  webUrl?: string | undefined;
+  createdDateTime?: string | undefined;
+  createdBy?: {  user?: {  displayName?: string | undefined;
+  id?: string | undefined;};};
+  lastModifiedDateTime?: string | undefined;
+  lastModifiedBy?: {  user?: {  displayName?: string | undefined;
+  id?: string | undefined;};};
+  fields?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_sharepoint_online_createlist {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,12345678-1234-1234-1234-123456789012,00000000-0000-0000-0000-000000000000"
+   */
+  siteId: string;
+  /**
+   * Display name of the list
+   */
+  displayName: string;
+  /**
+   * Description of the list
+   */
+  description?: string | undefined;
+  /**
+   * List template. Example: "genericList", "documentLibrary", "survey", "links", "announcements". Defaults to "genericList"
+   */
+  template?: string | undefined;
+  /**
+   * Optional column definitions to create with the list
+   */
+  columns?: ({  name: string;
+  text?: {} | undefined;
+  number?: {} | undefined;
+  dateTime?: {} | undefined;
+  choice?: {} | undefined;
+  boolean?: {} | undefined;
+  hyperlinkOrPicture?: {} | undefined;
+  personOrGroup?: {} | undefined;
+  lookup?: {} | undefined;
+  currency?: {} | undefined;})[];
+  /**
+   * Whether content types are enabled for the list
+   */
+  contentTypesEnabled?: boolean | undefined;
+};
+
+export interface ActionOutput_sharepoint_online_createlist {
+  id: string;
+  displayName: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  webUrl?: string | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  template?: string | undefined;
+  contentTypesEnabled?: boolean | undefined;
+  hidden?: boolean | undefined;
+  columns?: ({})[] | undefined;
+};
+
+export interface ActionInput_sharepoint_online_createsharinglink {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,12345678-1234-1234-1234-123456789012"
+   */
+  siteId: string;
+  /**
+   * Drive ID. Example: "b!1234567890abcdefghijklmnopqrstuvwxyz"
+   */
+  driveId: string;
+  /**
+   * Drive item ID. Example: "0123456789abcdefghijklmnopqrstuvwxyz"
+   */
+  itemId: string;
+  /**
+   * The type of sharing link to create.
+   */
+  type: 'view' | 'edit' | 'embed';
+  /**
+   * The scope of access granted by the sharing link.
+   */
+  scope: 'anonymous' | 'organization';
+};
+
+export interface ActionOutput_sharepoint_online_createsharinglink {
+  id?: string | undefined;
+  roles?: string[] | undefined;
+  shareId?: string | undefined;
+  hasPassword?: boolean | undefined;
+  link?: {  type?: string | undefined;
+  scope?: string | undefined;
+  webUrl?: string | undefined;
+  preventsDownload?: boolean | undefined;};
+};
+
+export interface ActionInput_sharepoint_online_createsitecolumn {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,12345678-1234-1234-1234-123456789012,12345678-1234-1234-1234-123456789012"
+   */
+  siteId: string;
+  /**
+   * The API-facing name of the column.
+   */
+  name: string;
+  /**
+   * The user-facing description of the column.
+   */
+  description?: string | undefined;
+  /**
+   * Text column type configuration.
+   */
+  text?: {  allowMultipleLines?: boolean | undefined;
+  appendChangesToExistingText?: boolean | undefined;
+  linesForEditing?: number | undefined;
+  maxLength?: number | undefined;};
+  /**
+   * Number column type configuration.
+   */
+  number?: {  decimalPlaces?: string | undefined;
+  displayAs?: string | undefined;
+  maximum?: number | undefined;
+  minimum?: number | undefined;};
+  /**
+   * DateTime column type configuration.
+   */
+  dateTime?: {  displayAs?: string | undefined;
+  format?: string | undefined;};
+  /**
+   * Choice column type configuration.
+   */
+  choice?: {  allowTextEntry?: boolean | undefined;
+  choices?: string[] | undefined;
+  displayAs?: string | undefined;};
+};
+
+export interface ActionOutput_sharepoint_online_createsitecolumn {
+  id?: string | undefined;
+  name?: string | undefined;
+  displayName?: string | undefined;
+  description?: string | undefined;
+  text?: {  [key: string]: unknown | undefined;};
+  number?: {  [key: string]: unknown | undefined;};
+  dateTime?: {  [key: string]: unknown | undefined;};
+  choice?: {  [key: string]: unknown | undefined;};
+  hidden?: boolean | undefined;
+  indexed?: boolean | undefined;
+  enforceUniqueValues?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  required?: boolean | undefined;
+  columnGroup?: string | undefined;
+};
+
+export interface ActionInput_sharepoint_online_createsitepage {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,5a58bb09-1d8d-4e19-8eb3-196471ad0dd9,9f2ec061-1f39-4f4c-9390-3210abbaa8b0"
+   */
+  siteId: string;
+  /**
+   * Page file name. Example: "test.aspx"
+   */
+  name: string;
+  /**
+   * Page title. Example: "My New Page"
+   */
+  title: string;
+  /**
+   * Page layout type. Example: "article"
+   */
+  pageLayout: string;
+  showComments?: boolean | undefined;
+  showRecommendedPages?: boolean | undefined;
+  titleArea?: {  enableGradientEffect?: boolean | undefined;
+  imageWebUrl?: string | undefined;
+  layout?: string | undefined;
+  showAuthor?: boolean | undefined;
+  showPublishedDate?: boolean | undefined;
+  showTextBlockAboveTitle?: boolean | undefined;
+  textAboveTitle?: string | undefined;
+  textAlignment?: string | undefined;
+  imageSourceType?: number | undefined;
+  title?: string | undefined;};
+  canvasLayout?: {  horizontalSections?: ({  layout?: string | undefined;
+  id?: string | undefined;
+  emphasis?: string | undefined;
+  columns?: ({  id?: string | undefined;
+  width?: number | undefined;
+  webparts?: ({  id?: string | undefined;
+  innerHtml?: string | undefined;
+  webPartType?: string | undefined;})[];})[];})[];};
+};
+
+export interface ActionOutput_sharepoint_online_createsitepage {
+  id: string;
+  name?: string | undefined;
+  webUrl?: string | undefined;
+  title?: string | undefined;
+  pageLayout?: string | undefined;
+  showComments?: boolean | undefined;
+  showRecommendedPages?: boolean | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+};
+
+export interface ActionInput_sharepoint_online_deletecontenttype {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,12345678-1234-1234-1234-123456789012,abcdef12-3456-7890-abcd-ef1234567890"
+   */
+  siteId: string;
+  /**
+   * SharePoint content type ID. Example: "0x0101009D1CB325DA4B6BDA4F5C51B469A07A12"
+   */
+  contentTypeId: string;
+};
+
+export interface ActionOutput_sharepoint_online_deletecontenttype {
+  success: boolean;
+};
+
+export interface ActionInput_sharepoint_online_deletedriveitem {
+  /**
+   * The unique identifier of the SharePoint site. Example: "nango.sharepoint.com,1d123d45-1234-12d4-1d34-12d1234d12d1,12d12345-12d1-12d4-12d4-12d1234d12d1"
+   */
+  siteId: string;
+  /**
+   * The unique identifier of the drive. Example: "b!1d123d4512d412d412d412d1234d12d1d12d1234d12d412d1234d12d12d12d"
+   */
+  driveId: string;
+  /**
+   * The unique identifier of the drive item. Example: "0123456789ABC!123"
+   */
   itemId: string;
 };
 
-export interface ActionOutput_sharepoint_online_fetchfile {
-  id: string;
-  download_url: string | null;
+export interface ActionOutput_sharepoint_online_deletedriveitem {
+  success: boolean;
 };
 
-export type ActionInput_sharepoint_online_listsharedsites = void
+export interface ActionInput_sharepoint_online_deletelistcolumn {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,12345678-1234-1234-1234-123456789012,abcdef12-3456-7890-abcd-ef1234567890"
+   */
+  siteId: string;
+  /**
+   * SharePoint list ID. Example: "12345678-1234-1234-1234-123456789012"
+   */
+  listId: string;
+  /**
+   * SharePoint column definition ID. Example: "12345678-1234-1234-1234-123456789012"
+   */
+  columnId: string;
+};
+
+export interface ActionOutput_sharepoint_online_deletelistcolumn {
+  success: boolean;
+};
+
+export interface ActionInput_sharepoint_online_deletelistitem {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,12345678-1234-1234-1234-123456789012,98765432-1234-1234-1234-123456789012"
+   */
+  siteId: string;
+  /**
+   * SharePoint list ID. Example: "12345678-1234-1234-1234-123456789012"
+   */
+  listId: string;
+  /**
+   * SharePoint list item ID. Example: "1"
+   */
+  itemId: string;
+};
+
+export interface ActionOutput_sharepoint_online_deletelistitem {
+  success: boolean;
+};
+
+export interface ActionInput_sharepoint_online_deletelist {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,12345678-1234-1234-1234-123456789012,abcdef12-3456-7890-abcd-ef1234567890"
+   */
+  siteId: string;
+  /**
+   * SharePoint list ID. Example: "12345678-1234-1234-1234-123456789012"
+   */
+  listId: string;
+};
+
+export interface ActionOutput_sharepoint_online_deletelist {
+  siteId: string;
+  listId: string;
+};
+
+export interface ActionInput_sharepoint_online_deletesitecolumn {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,00000000-0000-0000-0000-000000000000,00000000-0000-0000-0000-000000000000"
+   */
+  siteId: string;
+  /**
+   * Site column ID (GUID). Example: "00000000-0000-0000-0000-000000000000"
+   */
+  columnId: string;
+};
+
+export interface ActionOutput_sharepoint_online_deletesitecolumn {
+  success: boolean;
+};
+
+export interface ActionInput_sharepoint_online_deletesitepage {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,2c7126d0-5f53-4b7b-9a3e-0b5c2e7d1f3a,1"
+   */
+  siteId: string;
+  /**
+   * SharePoint site page ID. Example: "2"
+   */
+  pageId: string;
+};
+
+export interface ActionOutput_sharepoint_online_deletesitepage {
+  siteId: string;
+  pageId: string;
+  success: boolean;
+};
+
+export interface ActionInput_sharepoint_online_downloaddriveitemcontent {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,site-id"
+   */
+  siteId: string;
+  /**
+   * Drive ID. Example: "drive-id"
+   */
+  driveId: string;
+  /**
+   * Drive item ID. Example: "item-id"
+   */
+  itemId: string;
+};
+
+export interface ActionOutput_sharepoint_online_downloaddriveitemcontent {
+  /**
+   * Base64-encoded file content
+   */
+  content: string;
+  /**
+   * File size in bytes
+   */
+  size: number;
+  /**
+   * MIME type of the file
+   */
+  mimeType?: string | undefined;
+};
+
+export interface ActionInput_sharepoint_online_getcontenttype {
+  /**
+   * The unique identifier of the SharePoint site. Example: "contoso.sharepoint.com,12345678-1234-1234-1234-123456789012"
+   */
+  siteId: string;
+  /**
+   * The unique identifier of the content type. Example: "0x0101"
+   */
+  contentTypeId: string;
+};
+
+export interface ActionOutput_sharepoint_online_getcontenttype {
+  id?: string | undefined;
+  name?: string | undefined;
+  description?: string | undefined;
+  group?: string | undefined;
+  hidden?: boolean | undefined;
+  isBuiltIn?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  sealed?: boolean | undefined;
+  propagateChanges?: boolean | undefined;
+  parentId?: string | undefined;
+  associatedHubsUrls?: string[] | undefined;
+  order?: {  default?: boolean | undefined;
+  position?: number | undefined;};
+  inheritedFrom?: {  id?: string | undefined;
+  name?: string | undefined;
+  path?: string | undefined;
+  shareId?: string | undefined;
+  sharepointIds?: {  [key: string]: unknown | undefined;};};
+  base?: {  id?: string | undefined;
+  name?: string | undefined;
+  description?: string | undefined;
+  group?: string | undefined;};
+  baseTypes?: ({  id?: string | undefined;
+  name?: string | undefined;
+  description?: string | undefined;
+  group?: string | undefined;})[];
+  columns?: ({  id?: string | undefined;
+  name?: string | undefined;
+  displayName?: string | undefined;
+  description?: string | undefined;
+  columnGroup?: string | undefined;
+  type?: string | undefined;
+  hidden?: boolean | undefined;
+  indexed?: boolean | undefined;
+  required?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  enforceUniqueValues?: boolean | undefined;
+  isDeletable?: boolean | undefined;
+  isReorderable?: boolean | undefined;
+  isSealed?: boolean | undefined;
+  propagateChanges?: boolean | undefined;
+  text?: {  [key: string]: unknown | undefined;};
+  number?: {  [key: string]: unknown | undefined;};
+  dateTime?: {  [key: string]: unknown | undefined;};
+  boolean?: {  [key: string]: unknown | undefined;};
+  choice?: {  [key: string]: unknown | undefined;};
+  lookup?: {  [key: string]: unknown | undefined;};
+  personOrGroup?: {  [key: string]: unknown | undefined;};
+  currency?: {  [key: string]: unknown | undefined;};
+  calculated?: {  [key: string]: unknown | undefined;};
+  hyperlinkOrPicture?: {  [key: string]: unknown | undefined;};
+  term?: {  [key: string]: unknown | undefined;};
+  thumbnail?: {  [key: string]: unknown | undefined;};
+  geolocation?: {  [key: string]: unknown | undefined;};
+  contentApprovalStatus?: {  [key: string]: unknown | undefined;};
+  defaultValue?: {  [key: string]: unknown | undefined;};
+  validation?: {  [key: string]: unknown | undefined;};
+  sourceContentType?: {  [key: string]: unknown | undefined;};
+  sourceColumn?: {  [key: string]: unknown | undefined;};})[];
+  columnLinks?: ({  [key: string]: unknown | undefined;})[];
+  columnPositions?: ({  id?: string | undefined;
+  name?: string | undefined;
+  displayName?: string | undefined;
+  description?: string | undefined;
+  columnGroup?: string | undefined;
+  type?: string | undefined;
+  hidden?: boolean | undefined;
+  indexed?: boolean | undefined;
+  required?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  enforceUniqueValues?: boolean | undefined;
+  isDeletable?: boolean | undefined;
+  isReorderable?: boolean | undefined;
+  isSealed?: boolean | undefined;
+  propagateChanges?: boolean | undefined;
+  text?: {  [key: string]: unknown | undefined;};
+  number?: {  [key: string]: unknown | undefined;};
+  dateTime?: {  [key: string]: unknown | undefined;};
+  boolean?: {  [key: string]: unknown | undefined;};
+  choice?: {  [key: string]: unknown | undefined;};
+  lookup?: {  [key: string]: unknown | undefined;};
+  personOrGroup?: {  [key: string]: unknown | undefined;};
+  currency?: {  [key: string]: unknown | undefined;};
+  calculated?: {  [key: string]: unknown | undefined;};
+  hyperlinkOrPicture?: {  [key: string]: unknown | undefined;};
+  term?: {  [key: string]: unknown | undefined;};
+  thumbnail?: {  [key: string]: unknown | undefined;};
+  geolocation?: {  [key: string]: unknown | undefined;};
+  contentApprovalStatus?: {  [key: string]: unknown | undefined;};
+  defaultValue?: {  [key: string]: unknown | undefined;};
+  validation?: {  [key: string]: unknown | undefined;};
+  sourceContentType?: {  [key: string]: unknown | undefined;};
+  sourceColumn?: {  [key: string]: unknown | undefined;};})[];
+};
+
+export interface ActionInput_sharepoint_online_getdriveitemthumbnail {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,siteId,webId"
+   */
+  siteId: string;
+  /**
+   * Drive ID. Example: "b!driveId"
+   */
+  driveId: string;
+  /**
+   * Drive item ID. Example: "01NKDM7HMOJTVYMDOSXFDK2QJDXCDI3WUK"
+   */
+  itemId: string;
+};
+
+export interface ActionOutput_sharepoint_online_getdriveitemthumbnail {
+  thumbnailSets: ({  id: string;
+  small?: {  height?: number | undefined;
+  width?: number | undefined;
+  url?: string | undefined;};
+  medium?: {  height?: number | undefined;
+  width?: number | undefined;
+  url?: string | undefined;};
+  large?: {  height?: number | undefined;
+  width?: number | undefined;
+  url?: string | undefined;};})[];
+};
+
+export interface ActionInput_sharepoint_online_getdriveitem {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,1a2b3c4d,1a2b3c4d-5e6f-7g8h-9i0j-1k2l3m4n5o6p"
+   */
+  siteId: string;
+  /**
+   * Drive ID. Example: "b!1a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p7q8r9s0t1u2v3w4x5y6z7a8b9c0d1e2f"
+   */
+  driveId: string;
+  /**
+   * Drive item ID. Example: "01A2B3C4D5E6F7G8H9I0J1K2L3M4N5O6P7Q8R9S0T1U2V3W4X5Y6Z7A8B9C0D1E2F"
+   */
+  itemId: string;
+};
+
+export interface ActionOutput_sharepoint_online_getdriveitem {
+  id: string;
+  name?: string | undefined;
+  size?: number | undefined;
+  webUrl?: string | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  mimeType?: string | undefined;
+  folderChildCount?: number | undefined;
+  parentDriveId?: string | undefined;
+  parentItemId?: string | undefined;
+  parentPath?: string | undefined;
+  createdByDisplayName?: string | undefined;
+  lastModifiedByDisplayName?: string | undefined;
+};
+
+export interface ActionInput_sharepoint_online_getdrive {
+  /**
+   * SharePoint site ID. Example: "nangodevelopers.sharepoint.com,1d6e..."
+   */
+  siteId: string;
+  /**
+   * SharePoint drive ID. Example: "b!IhduHTCTMEuqkrc..."
+   */
+  driveId: string;
+};
+
+export interface ActionOutput_sharepoint_online_getdrive {
+  id: string;
+  name: string;
+  driveType: string;
+  webUrl: string;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  description?: string | undefined;
+  ownerGroupId?: string | undefined;
+  ownerGroupName?: string | undefined;
+  ownerUserId?: string | undefined;
+  ownerUserName?: string | undefined;
+  quotaDeleted?: number | undefined;
+  quotaRemaining?: number | undefined;
+  quotaState?: string | undefined;
+  quotaTotal?: number | undefined;
+  quotaUsed?: number | undefined;
+};
+
+export interface ActionInput_sharepoint_online_getlistitem {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,site-id"
+   */
+  siteId: string;
+  /**
+   * SharePoint list ID. Example: "list-id"
+   */
+  listId: string;
+  /**
+   * SharePoint list item ID. Example: "1"
+   */
+  itemId: string;
+  /**
+   * Whether to expand the fields property to include custom column values.
+   */
+  expandFields?: boolean | undefined;
+};
+
+export interface ActionOutput_sharepoint_online_getlistitem {
+  id: string;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  webUrl?: string | undefined;
+  createdBy?: {  user?: {  displayName?: string | undefined;
+  email?: string | undefined;};};
+  lastModifiedBy?: {  user?: {  displayName?: string | undefined;
+  email?: string | undefined;};};
+  parentReference?: {  id?: string | undefined;
+  siteId?: string | undefined;};
+  contentType?: {  id?: string | undefined;
+  name?: string | undefined;};
+  fields?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_sharepoint_online_getlist {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,abc123,def456"
+   */
+  siteId: string;
+  /**
+   * SharePoint list ID. Example: "12345678-1234-1234-1234-123456789012"
+   */
+  listId: string;
+};
+
+export interface ActionOutput_sharepoint_online_getlist {
+  id: string;
+  displayName?: string | undefined;
+  description?: string | undefined;
+  name?: string | undefined;
+  webUrl?: string | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  template?: string | undefined;
+  contentTypesEnabled?: boolean | undefined;
+  hidden?: boolean | undefined;
+};
+
+export interface ActionInput_sharepoint_online_getsitepage {
+  /**
+   * SharePoint site ID. Example: "7f50f45e-714a-4264-9c59-3bf43ea4db8f"
+   */
+  siteId: string;
+  /**
+   * Site page ID. Example: "df69e386-6c58-4df2-afc0-ab6327d5b202"
+   */
+  pageId: string;
+};
+
+export interface ActionOutput_sharepoint_online_getsitepage {
+  id: string;
+  name?: string | undefined;
+  title?: string | undefined;
+  webUrl?: string | undefined;
+  description?: string | undefined;
+  eTag?: string | undefined;
+  pageLayout?: string | undefined;
+  promotionKind?: string | undefined;
+  showComments?: boolean | undefined;
+  showRecommendedPages?: boolean | undefined;
+  thumbnailWebUrl?: string | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  createdBy?: {  user?: {  displayName?: string | undefined;
+  email?: string | undefined;};};
+  lastModifiedBy?: {  user?: {  displayName?: string | undefined;
+  email?: string | undefined;};};
+  contentType?: {  id?: string | undefined;
+  name?: string | undefined;};
+  parentReference?: {  listId?: string | undefined;
+  siteId?: string | undefined;};
+  publishingState?: {  level?: string | undefined;
+  versionId?: string | undefined;};
+  reactions?: {  commentCount?: number | undefined;};
+  titleArea?: unknown | undefined;
+  canvasLayout?: unknown | undefined;
+};
+
+export interface ActionInput_sharepoint_online_getsite {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,2C712604-1370-44E7-A1F5-426573FDA80A,2D224884-BFCC-4BE3-A6D9-B8C87A8A1234"
+   */
+  siteId?: string | undefined;
+  /**
+   * SharePoint hostname. Example: "contoso.sharepoint.com"
+   */
+  hostname?: string | undefined;
+  /**
+   * Server-relative URL path of the site. Example: "/sites/hr"
+   */
+  path?: string | undefined;
+};
+
+export interface ActionOutput_sharepoint_online_getsite {
+  id: string;
+  name?: string | undefined;
+  displayName?: string | undefined;
+  description?: string | undefined;
+  webUrl?: string | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  siteCollection?: {  hostname?: string | undefined;};
+};
+
+export interface ActionInput_sharepoint_online_listcontenttypes {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,12345678-1234-1234-1234-123456789012,12345678-1234-1234-1234-123456789012"
+   */
+  siteId: string;
+};
+
+export interface ActionOutput_sharepoint_online_listcontenttypes {
+  contentTypes: ({  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  group?: string | undefined;
+  base?: {  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  group?: string | undefined;};})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_sharepoint_online_listdrivechildren {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,12345,67890"
+   */
+  siteId: string;
+  /**
+   * Drive ID. Example: "b!abc123"
+   */
+  driveId: string;
+  /**
+   * Drive item ID of the folder. Omit to list root children. Example: "0127NLFRHGEUS6RLKWZVGZQZCMF3DVTGWG"
+   */
+  itemId?: string | undefined;
+  /**
+   * Pagination cursor from the previous response (@odata.nextLink). Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_sharepoint_online_listdrivechildren {
+  items: ({  id: string;
+  name: string;
+  webUrl?: string | undefined;
+  size?: number | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  file?: {} | undefined;
+  folder?: {} | undefined;
+  parentReference?: {} | undefined;})[];
+  /**
+   * URL for the next page of results. Absent when there are no more pages.
+   */
+  nextLink?: string | undefined;
+};
+
+export interface ActionInput_sharepoint_online_listdriveitempermissions {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,12345678-1234-1234-1234-123456789012,abcdef12-3456-7890-abcd-ef1234567890"
+   */
+  site_id: string;
+  /**
+   * Drive ID. Example: "b!abcdef1234567890abcdef1234567890abcdef12"
+   */
+  drive_id: string;
+  /**
+   * Drive item ID. Example: "1234567890ABC!123"
+   */
+  item_id: string;
+};
+
+export interface ActionOutput_sharepoint_online_listdriveitempermissions {
+  permissions: ({  id: string;
+  roles?: string[] | undefined;
+  grantedTo?: {  user?: {  id?: string | undefined;
+  displayName?: string | undefined;};
+  application?: {  id?: string | undefined;
+  displayName?: string | undefined;};
+  device?: {  id?: string | undefined;
+  displayName?: string | undefined;};
+  group?: {  id?: string | undefined;
+  displayName?: string | undefined;};};
+  grantedToIdentities?: ({  user?: {  id?: string | undefined;
+  displayName?: string | undefined;};
+  application?: {  id?: string | undefined;
+  displayName?: string | undefined;};
+  device?: {  id?: string | undefined;
+  displayName?: string | undefined;};
+  group?: {  id?: string | undefined;
+  displayName?: string | undefined;};})[];
+  grantedToV2?: {  user?: {  id?: string | undefined;
+  displayName?: string | undefined;};
+  application?: {  id?: string | undefined;
+  displayName?: string | undefined;};
+  device?: {  id?: string | undefined;
+  displayName?: string | undefined;};
+  group?: {  id?: string | undefined;
+  displayName?: string | undefined;};
+  siteUser?: {  id?: string | undefined;
+  displayName?: string | undefined;
+  loginName?: string | undefined;};
+  siteGroup?: {  id?: string | undefined;
+  displayName?: string | undefined;
+  loginName?: string | undefined;};};
+  grantedToIdentitiesV2?: ({  user?: {  id?: string | undefined;
+  displayName?: string | undefined;};
+  application?: {  id?: string | undefined;
+  displayName?: string | undefined;};
+  device?: {  id?: string | undefined;
+  displayName?: string | undefined;};
+  group?: {  id?: string | undefined;
+  displayName?: string | undefined;};
+  siteUser?: {  id?: string | undefined;
+  displayName?: string | undefined;
+  loginName?: string | undefined;};
+  siteGroup?: {  id?: string | undefined;
+  displayName?: string | undefined;
+  loginName?: string | undefined;};})[];
+  inheritedFrom?: {  driveId?: string | undefined;
+  id?: string | undefined;
+  path?: string | undefined;
+  shareId?: string | undefined;};
+  invitation?: {  email?: string | undefined;
+  signInRequired?: boolean | undefined;};
+  link?: {  webUrl?: string | undefined;
+  type?: string | undefined;
+  scope?: string | undefined;
+  application?: {  id?: string | undefined;
+  displayName?: string | undefined;};};
+  shareId?: string | undefined;
+  expirationDateTime?: string | undefined;
+  hasPassword?: boolean | undefined;})[];
+};
+
+export interface ActionInput_sharepoint_online_listdriveitemversions {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,1dabc234-5678-90ab-cdef-1234567890ab,1dabc234-5678-90ab-cdef-1234567890ab"
+   */
+  site_id: string;
+  /**
+   * Drive ID. Example: "b!isEncodedDriveId"
+   */
+  drive_id: string;
+  /**
+   * Drive item ID. Example: "01A2B3C4D5E6F7G8H9I0J1K2L3M4N5O6P7Q8R9S0T1U2V3W4X5Y6Z"
+   */
+  item_id: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_sharepoint_online_listdriveitemversions {
+  items: ({  id: string;
+  size?: number | undefined;
+  lastModifiedDateTime?: string | undefined;
+  lastModifiedBy?: {  user?: {  displayName?: string | undefined;
+  email?: string | undefined;};};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_sharepoint_online_listdrives {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,abc123"
+   */
+  siteId: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_sharepoint_online_listdrives {
+  items: ({  id: string;
+  name: string;
+  driveType?: string | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  webUrl?: string | undefined;
+  description?: string | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_sharepoint_online_listlistcolumns {
+  /**
+   * SharePoint site ID. Example: "nangodevelopers.sharepoint.com,1d6e1722-9330-4b30-aa92-b73f215d9420,413c102d-9557-4a8d-8a68-bbb499015216"
+   */
+  siteId: string;
+  /**
+   * SharePoint list ID. Example: "eca0d94a-d37a-46ee-9fa4-340a2e0c39f2"
+   */
+  listId: string;
+  /**
+   * Pagination cursor (the @odata.nextLink URL from the previous response). Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_sharepoint_online_listlistcolumns {
+  columns: ({  id: string;
+  name: string;
+  displayName: string;
+  description?: string | undefined;
+  columnGroup?: string | undefined;
+  hidden?: boolean | undefined;
+  indexed?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  required?: boolean | undefined;
+  enforceUniqueValues?: boolean | undefined;})[];
+  /**
+   * The @odata.nextLink URL for the next page of results, if any.
+   */
+  nextLink?: string | undefined;
+};
+
+export interface ActionInput_sharepoint_online_listlistcontenttypes {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,00000000-0000-0000-0000-000000000000,00000000-0000-0000-0000-000000000000"
+   */
+  siteId: string;
+  /**
+   * SharePoint list ID. Example: "00000000-0000-0000-0000-000000000000"
+   */
+  listId: string;
+  /**
+   * Pagination cursor from the previous response (@odata.nextLink). Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_sharepoint_online_listlistcontenttypes {
+  items: ({  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  group?: string | undefined;
+  hidden?: boolean | undefined;
+  isBuiltIn?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  sealed?: boolean | undefined;
+  parentId?: string | undefined;
+  base?: {  id?: string | undefined;
+  name?: string | undefined;};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_sharepoint_online_listlistitems {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,2C712604-1370-44E7-A1F5-426573FDA80A,2D2244C3-251A-49EA-93A8-39E1C3A060FE"
+   */
+  siteId: string;
+  /**
+   * SharePoint list ID. Example: "243bca4b-4e5e-45af-b37d-25f6135a740d"
+   */
+  listId: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Whether to expand the fields property for each list item.
+   */
+  expandFields?: boolean | undefined;
+  /**
+   * Comma-separated column names to select when expanding fields. Requires expandFields to be true. Example: "Name,Color,Quantity"
+   */
+  fieldSelectors?: string | undefined;
+  /**
+   * Number of items to return per page (1-999).
+   */
+  top?: number | undefined;
+};
+
+export interface ActionOutput_sharepoint_online_listlistitems {
+  items: ({  id: string;
+  contentType?: {  id?: string | undefined;
+  name?: string | undefined;};
+  createdBy?: {  [key: string]: unknown | undefined;};
+  createdDateTime?: string | undefined;
+  deleted?: {  [key: string]: unknown | undefined;};
+  description?: string | undefined;
+  eTag?: string | undefined;
+  lastModifiedBy?: {  [key: string]: unknown | undefined;};
+  lastModifiedDateTime?: string | undefined;
+  name?: string | undefined;
+  parentReference?: {  [key: string]: unknown | undefined;};
+  sharepointIds?: {  [key: string]: unknown | undefined;};
+  webUrl?: string | undefined;
+  fields?: {  [key: string]: unknown | undefined;};})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_sharepoint_online_listlists {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,site-id,web-id"
+   */
+  siteId: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_sharepoint_online_listlists {
+  items: ({  id: string;
+  name?: string | undefined;
+  displayName?: string | undefined;
+  description?: string | undefined;
+  webUrl?: string | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  listTemplate?: string | undefined;
+  hidden?: boolean | undefined;
+  contentTypesEnabled?: boolean | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_sharepoint_online_listsharedsites {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
 
 export interface ActionOutput_sharepoint_online_listsharedsites {
-  sitesToSync: ({  id: string;
+  sites: ({  id: string;
+  name?: string | undefined;
+  displayName?: string | undefined;
+  description?: string | undefined;
+  webUrl?: string | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_sharepoint_online_listsitecolumns {
+  /**
+   * The ID of the SharePoint site.
+   */
+  siteId: string;
+  /**
+   * Pagination cursor from a previous response.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_sharepoint_online_listsitecolumns {
+  columns: ({  id?: string | undefined;
+  name?: string | undefined;
+  displayName?: string | undefined;
+  description?: string | undefined;
+  hidden?: boolean | undefined;
+  indexed?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  required?: boolean | undefined;
+  text?: {  allowMultipleLines?: boolean | undefined;
+  appendChangesToExistingText?: boolean | undefined;
+  linesForEditing?: number | undefined;
+  maxLength?: number | undefined;};})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_sharepoint_online_listsitepages {
+  /**
+   * SharePoint site ID. Example: "7f50f45e-714a-4264-9c59-3bf43ea4db8f"
+   */
+  siteId: string;
+  /**
+   * Pagination cursor from the previous response (@odata.nextLink). Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_sharepoint_online_listsitepages {
+  items: ({  id: string;
+  name?: string | undefined;
+  webUrl?: string | undefined;
+  title?: string | undefined;
+  pageLayout?: string | undefined;
+  promotionKind?: string | undefined;
+  showComments?: boolean | undefined;
+  showRecommendedPages?: boolean | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  thumbnailWebUrl?: string | undefined;
+  createdBy?: {  user?: {  displayName?: string | undefined;
+  email?: string | undefined;};};
+  lastModifiedBy?: {  user?: {  displayName?: string | undefined;
+  email?: string | undefined;};};
+  publishingState?: {  level?: string | undefined;
+  versionId?: string | undefined;
+  checkedOutBy?: {  user?: {  displayName?: string | undefined;
+  email?: string | undefined;};};};
+  reactions?: {  commentCount?: number | undefined;
+  likeCount?: number | undefined;};
+  titleArea?: unknown | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_sharepoint_online_publishsitepage {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,site-id"
+   */
+  siteId: string;
+  /**
+   * Site page ID. Example: "page-id-guid"
+   */
+  pageId: string;
+};
+
+export interface ActionOutput_sharepoint_online_publishsitepage {
+  success: boolean;
+  siteId: string;
+  pageId: string;
+};
+
+export interface ActionInput_sharepoint_online_removedriveitempermission {
+  /**
+   * The ID of the SharePoint site. Example: "contoso.sharepoint.com,1bc25372-6eb2-4c3c-8237-809c7c4b2800,2e1554b0-6b7f-4e52-85ff-725d9f9a9c6e"
+   */
+  siteId: string;
+  /**
+   * The ID of the drive. Example: "b!yX8juNup80KqhYTKaqNlebaaLNrjw1VNhQ0el-3iEoQAiQ9Qf7W1Q5g"
+   */
+  driveId: string;
+  /**
+   * The ID of the drive item. Example: "01X2JKGDJW5WBDKAXEFREIJSKIQATQZ5VE"
+   */
+  itemId: string;
+  /**
+   * The ID of the permission to remove. Example: "1"
+   */
+  permissionId: string;
+};
+
+export interface ActionOutput_sharepoint_online_removedriveitempermission {
+  success: boolean;
+};
+
+export interface ActionInput_sharepoint_online_restoredriveitemversion {
+  /**
+   * SharePoint site ID. Example: "nangodevelopers.sharepoint.com,4c97403e-1663-4673-90fa-d2f8690b4510,29d15734-3d19-43f6-976b-43ece3ff81a8"
+   */
+  siteId: string;
+  /**
+   * Drive ID. Example: "b!PkCXTGMWc0aQ-tL4aQtFEDRX0SkZPfZDl2tD7OP_gahvi-nd5TAvTJG6KTmx6Mm0"
+   */
+  driveId: string;
+  /**
+   * Drive item ID. Example: "01RFYLAYF2MHKA54O4TZDL5SKCE4MJLIUJ"
+   */
+  itemId: string;
+  /**
+   * Version ID to restore. Example: "1.0"
+   */
+  versionId: string;
+};
+
+export interface ActionOutput_sharepoint_online_restoredriveitemversion {
+  success: true;
+};
+
+export interface ActionInput_sharepoint_online_searchdriveitems {
+  /**
+   * The ID of the SharePoint site. Example: "contoso.sharepoint.com,12345678-1234-1234-1234-123456789012,12345678-1234-1234-1234-123456789012"
+   */
+  siteId: string;
+  /**
+   * The ID of the drive within the site. Example: "b!1234567890abcdef"
+   */
+  driveId: string;
+  /**
+   * The query text used to search for items. Example: "budget"
+   */
+  query: string;
+  /**
+   * Maximum number of items to return per page. Default: 50
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_sharepoint_online_searchdriveitems {
+  items: ({  id: string;
+  name?: string | undefined;
+  webUrl?: string | undefined;
+  size?: number | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  folder?: {  childCount?: number | undefined;};
+  file?: {  mimeType?: string | undefined;};
+  parentReference?: {  driveId?: string | undefined;
+  id?: string | undefined;
+  path?: string | undefined;};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_sharepoint_online_searchsites {
+  /**
+   * Search keyword. Example: "contoso"
+   */
+  query: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_sharepoint_online_searchsites {
+  items: ({  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  webUrl?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_sharepoint_online_updatedriveitempermission {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,12345678-1234-1234-1234-123456789012,12345678-1234-1234-1234-123456789012"
+   */
+  siteId: string;
+  /**
+   * Drive ID. Example: "b!1234567890abcdef1234567890abcdef"
+   */
+  driveId: string;
+  /**
+   * Drive item ID. Example: "01ABCDEFGHIJKLMNOPQRSTUVWX"
+   */
+  itemId: string;
+  /**
+   * Permission ID to update. Example: "1234567890abcdef"
+   */
+  permissionId: string;
+  /**
+   * Roles to assign. Example: ["write"]
+   */
+  roles: string[];
+};
+
+export interface ActionOutput_sharepoint_online_updatedriveitempermission {
+  id: string;
+  roles: string[];
+  grantedTo?: {  user?: {  displayName?: string | undefined;
+  id?: string | undefined;};
+  group?: {  displayName?: string | undefined;
+  id?: string | undefined;};};
+  grantedToIdentities?: ({  user?: {  displayName?: string | undefined;
+  id?: string | undefined;};
+  group?: {  displayName?: string | undefined;
+  id?: string | undefined;};})[];
+  link?: {  type?: string | undefined;
+  scope?: string | undefined;
+  webUrl?: string | undefined;};
+  shareId?: string | undefined;
+  expirationDateTime?: string | undefined;
+  hasPassword?: boolean | undefined;
+};
+
+export interface ActionInput_sharepoint_online_updatedriveitem {
+  /**
+   * SharePoint site ID. Example: "nangodevelopers.sharepoint.com,ff9cef8d-d0e4-4638-a6a6-d5374e2b31e1,d12a8199-c77a-4e48-a193-2e1288b26f13"
+   */
+  siteId: string;
+  /**
+   * Drive ID. Example: "b!PkCXTGMWc0aQ-tL4aQtFEDRX0SkZPfZDl2tD7OP_gahvi-nd5TAvTJG6KTmx6Mm0"
+   */
+  driveId: string;
+  /**
+   * Drive item ID. Example: "01RFYLAYF2MHKA54O4TZDL5SKCE4MJLIUJ"
+   */
+  itemId: string;
+  /**
+   * New name for the drive item.
+   */
+  name?: string | undefined;
+  /**
+   * Parent reference for moving the item.
+   */
+  parentReference?: {  /**
+   * ID of the target parent folder to move the item into.
+   */
+  id?: string | undefined;};
+};
+
+export interface ActionOutput_sharepoint_online_updatedriveitem {
+  id: string;
+  name?: string | undefined;
+  webUrl?: string | undefined;
+  size?: number | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  parentReference?: {  id?: string | undefined;
+  driveId?: string | undefined;
+  path?: string | undefined;
+  name?: string | undefined;};
+  file?: {} | undefined;
+  folder?: {} | undefined;
+};
+
+export interface ActionInput_sharepoint_online_updatelistcolumn {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,12345678-1234-1234-1234-123456789012,abcdef12-1234-1234-1234-123456789012"
+   */
+  siteId: string;
+  /**
+   * SharePoint list ID. Example: "12345678-1234-1234-1234-123456789012"
+   */
+  listId: string;
+  /**
+   * SharePoint column ID. Example: "12345678-1234-1234-1234-123456789012"
+   */
+  columnId: string;
+  /**
+   * The columnDefinition properties to update.
+   */
+  columnDefinition: {};
+};
+
+export interface ActionOutput_sharepoint_online_updatelistcolumn {
+  id?: string | undefined;
+  name?: string | undefined;
+  displayName?: string | undefined;
+  description?: string | undefined;
+  required?: boolean | undefined;
+  hidden?: boolean | undefined;
+  indexed?: boolean | undefined;
+  enforceUniqueValues?: boolean | undefined;
+  columnGroup?: string | undefined;
+};
+
+export interface ActionInput_sharepoint_online_updatelistitem {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,site-id"
+   */
+  site_id: string;
+  /**
+   * SharePoint list ID. Example: "list-id"
+   */
+  list_id: string;
+  /**
+   * SharePoint list item ID. Example: "1"
+   */
+  item_id: string;
+  /**
+   * Field values keyed by internal column name.
+   */
+  fields: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_sharepoint_online_updatelistitem {
+  site_id: string;
+  list_id: string;
+  item_id: string;
+  fields: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_sharepoint_online_updatelist {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,550e8400-e29b-41d4-a716-446655440000,6f8d1c89-3b96-41d4-a78c-1234567890ab"
+   */
+  siteId: string;
+  /**
+   * List ID. Example: "550e8400-e29b-41d4-a716-446655440000"
+   */
+  listId: string;
+  /**
+   * New display name for the list.
+   */
+  displayName?: string | undefined;
+  /**
+   * New description for the list.
+   */
+  description?: string | undefined;
+};
+
+export interface ActionOutput_sharepoint_online_updatelist {
+  id: string;
+  displayName?: string | undefined;
+  description?: string | undefined;
+  name?: string | undefined;
+  webUrl?: string | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  eTag?: string | undefined;
+  list?: {  hidden?: boolean | undefined;
+  template?: string | undefined;};
+};
+
+export interface ActionInput_sharepoint_online_updatesitecolumn {
+  /**
+   * SharePoint site ID. Example: "hostname,guid1,guid2"
+   */
+  siteId: string;
+  /**
+   * Column ID. Example: "973ae66e-25b9-4c4a-a79c-ff14439de0ea"
+   */
+  columnId: string;
+  displayName?: string | undefined;
+  description?: string | undefined;
+  hidden?: boolean | undefined;
+  indexed?: boolean | undefined;
+  required?: boolean | undefined;
+  enforceUniqueValues?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  columnGroup?: string | undefined;
+  text?: {  allowMultipleLines?: boolean | undefined;
+  appendChangesToExistingText?: boolean | undefined;
+  linesForEditing?: number | undefined;
+  maxLength?: number | undefined;};
+  number?: {  decimalPlaces?: string | undefined;
+  displayAs?: string | undefined;
+  maximum?: number | undefined;
+  minimum?: number | undefined;};
+  choice?: {  choices?: string[] | undefined;
+  displayAs?: string | undefined;};
+  dateTime?: {  displayAs?: string | undefined;
+  format?: string | undefined;};
+  personOrGroup?: {  allowMultipleSelection?: boolean | undefined;
+  displayAs?: string | undefined;
+  chooseFromType?: string | undefined;};
+  lookup?: {  allowMultipleValues?: boolean | undefined;
+  allowUnlimitedLength?: boolean | undefined;
+  columnName?: string | undefined;
+  listId?: string | undefined;
+  primaryLookupColumnId?: string | undefined;};
+};
+
+export interface ActionOutput_sharepoint_online_updatesitecolumn {
+  id: string;
   name: string;
-  createdDateTime: string;
-  webUrl: string;})[];
+  displayName?: string | undefined;
+  description?: string | undefined;
+  hidden?: boolean | undefined;
+  indexed?: boolean | undefined;
+  required?: boolean | undefined;
+  enforceUniqueValues?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  columnGroup?: string | undefined;
+  text?: {  allowMultipleLines?: boolean | undefined;
+  appendChangesToExistingText?: boolean | undefined;
+  linesForEditing?: number | undefined;
+  maxLength?: number | undefined;};
+  number?: {  decimalPlaces?: string | undefined;
+  displayAs?: string | undefined;
+  maximum?: number | undefined;
+  minimum?: number | undefined;};
+  choice?: {  choices?: string[] | undefined;
+  displayAs?: string | undefined;};
+  dateTime?: {  displayAs?: string | undefined;
+  format?: string | undefined;};
+  personOrGroup?: {  allowMultipleSelection?: boolean | undefined;
+  displayAs?: string | undefined;
+  chooseFromType?: string | undefined;};
+  lookup?: {  allowMultipleValues?: boolean | undefined;
+  allowUnlimitedLength?: boolean | undefined;
+  columnName?: string | undefined;
+  listId?: string | undefined;
+  primaryLookupColumnId?: string | undefined;};
+};
+
+export interface ActionInput_sharepoint_online_updatesitepage {
+  /**
+   * SharePoint site ID. Example: "7f50f45e-714a-4264-9c59-3bf43ea4db8f"
+   */
+  siteId: string;
+  /**
+   * SharePoint site page ID. Example: "df69e386-6c58-4df2-afc0-ab6327d5b202"
+   */
+  pageId: string;
+  /**
+   * Title of the site page.
+   */
+  title?: string | undefined;
+  /**
+   * Description of the site page.
+   */
+  description?: string | undefined;
+  /**
+   * Whether to show comments at the bottom of the page.
+   */
+  showComments?: boolean | undefined;
+  /**
+   * Whether to show recommended pages at the bottom of the page.
+   */
+  showRecommendedPages?: boolean | undefined;
+  /**
+   * URL of the site page thumbnail image.
+   */
+  thumbnailWebUrl?: string | undefined;
+  /**
+   * Promotion kind of the page. Values: page, newsPost.
+   */
+  promotionKind?: string | undefined;
+  /**
+   * Title area configuration.
+   */
+  titleArea?: {} | undefined;
+  /**
+   * Canvas layout configuration.
+   */
+  canvasLayout?: {} | undefined;
+};
+
+export interface ActionOutput_sharepoint_online_updatesitepage {
+  id: string;
+  name?: string | undefined;
+  webUrl?: string | undefined;
+  title?: string | undefined;
+  description?: string | undefined;
+  pageLayout?: string | undefined;
+  showComments?: boolean | undefined;
+  showRecommendedPages?: boolean | undefined;
+  thumbnailWebUrl?: string | undefined;
+  promotionKind?: string | undefined;
+  createdBy?: {  displayName?: string | undefined;
+  email?: string | undefined;};
+  lastModifiedBy?: {  displayName?: string | undefined;
+  email?: string | undefined;};
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  publishingState?: {  level?: string | undefined;
+  versionId?: string | undefined;};
+  titleArea?: {  enableGradientEffect?: boolean | undefined;
+  imageWebUrl?: string | undefined;
+  layout?: string | undefined;
+  showAuthor?: boolean | undefined;
+  showPublishedDate?: boolean | undefined;
+  showTextBlockAboveTitle?: boolean | undefined;
+  textAboveTitle?: string | undefined;
+  textAlignment?: string | undefined;
+  title?: string | undefined;
+  imageSourceType?: number | undefined;};
+};
+
+export interface ActionInput_sharepoint_online_uploaddriveitem {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,1d2f3g4h,5i6j7k8l"
+   */
+  siteId: string;
+  /**
+   * Drive ID. Example: "b!abc123def456"
+   */
+  driveId: string;
+  /**
+   * Parent item ID. Example: "01ABC123DEF456"
+   */
+  parentItemId: string;
+  /**
+   * Name of the file to upload. Example: "report.txt"
+   */
+  fileName: string;
+  /**
+   * File content encoded as base64
+   */
+  content: string;
+  /**
+   * Content-Type of the file. Defaults to application/octet-stream
+   */
+  contentType?: string | undefined;
+};
+
+export interface ActionOutput_sharepoint_online_uploaddriveitem {
+  id: string;
+  name?: string | undefined;
+  size?: number | undefined;
+  webUrl?: string | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
 };
 
 export interface Order {

@@ -1,0 +1,83 @@
+{
+  "input": {
+    "siteId": "nangodevelopers.sharepoint.com,4c97403e-1663-4673-90fa-d2f8690b4510,29d15734-3d19-43f6-976b-43ece3ff81a8",
+    "columnId": "973ae66e-25b9-4c4a-a79c-ff14439de0ea",
+    "description": "Updated description via Nango action dryrun validate"
+  },
+  "output": {
+    "id": "973ae66e-25b9-4c4a-a79c-ff14439de0ea",
+    "name": "NangoTestColumn",
+    "displayName": "Nango Test Column",
+    "description": "Updated description via Nango action dryrun validate",
+    "hidden": false,
+    "indexed": false,
+    "required": false,
+    "enforceUniqueValues": false,
+    "readOnly": false,
+    "columnGroup": "Custom Columns",
+    "text": {
+      "allowMultipleLines": false,
+      "appendChangesToExistingText": false,
+      "linesForEditing": 0,
+      "maxLength": 255
+    }
+  },
+  "nango": {},
+  "api": {
+    "patch": {
+      "/v1.0/sites/nangodevelopers.sharepoint.com%2C4c97403e-1663-4673-90fa-d2f8690b4510%2C29d15734-3d19-43f6-976b-43ece3ff81a8/columns/973ae66e-25b9-4c4a-a79c-ff14439de0ea": {
+        "response": {
+          "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#sites('nangodevelopers.sharepoint.com%2C4c97403e-1663-4673-90fa-d2f8690b4510%2C29d15734-3d19-43f6-976b-43ece3ff81a8')/columns/$entity",
+          "columnGroup": "Custom Columns",
+          "description": "Updated description via Nango action dryrun validate",
+          "displayName": "Nango Test Column",
+          "enforceUniqueValues": false,
+          "hidden": false,
+          "id": "973ae66e-25b9-4c4a-a79c-ff14439de0ea",
+          "indexed": false,
+          "name": "NangoTestColumn",
+          "readOnly": false,
+          "required": false,
+          "text": {
+            "allowMultipleLines": false,
+            "appendChangesToExistingText": false,
+            "linesForEditing": 0,
+            "maxLength": 255
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 03 Jun 2026 16:41:51 GMT",
+          "content-type": "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false;charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4992",
+          "x-ratelimit-reset": "1780504952",
+          "cache-control": "no-store, no-cache",
+          "vary": "Accept-Encoding",
+          "request-id": "0c401d18-6779-49dd-86f9-f9bd486ec4e6",
+          "client-request-id": "0c401d18-6779-49dd-86f9-f9bd486ec4e6",
+          "x-ms-ags-diagnostic": "{\"ServerInfo\":{\"DataCenter\":\"West US 2\",\"Slice\":\"E\",\"Ring\":\"4\",\"ScaleUnit\":\"000\",\"RoleInstance\":\"CO1PEPF00016243\"}}",
+          "splogid": "9b081aa2-c059-d000-715d-790de08ec465",
+          "odata-version": "4.0"
+        },
+        "hash": "b833e9930ac6e9f978b2c85a38a0ded7fd9985dd",
+        "request": {
+          "data": {
+            "description": "Updated description via Nango action dryrun validate"
+          }
+        }
+      }
+    }
+  }
+}

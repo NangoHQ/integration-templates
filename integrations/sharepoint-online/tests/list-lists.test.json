@@ -1,0 +1,125 @@
+{
+  "input": {
+    "siteId": "root"
+  },
+  "output": {
+    "items": [
+      {
+        "id": "eca0d94a-d37a-46ee-9fa4-340a2e0c39f2",
+        "name": "Shared Documents",
+        "displayName": "Documents",
+        "description": "",
+        "webUrl": "https://nangodevelopers.sharepoint.com/Shared%20Documents",
+        "createdDateTime": "2026-05-01T00:38:24Z",
+        "lastModifiedDateTime": "2026-06-03T15:06:28Z",
+        "listTemplate": "documentLibrary",
+        "hidden": false,
+        "contentTypesEnabled": false
+      },
+      {
+        "id": "5c7a7ebb-19c7-4143-9e33-d91d07c7e65c",
+        "name": "Events",
+        "displayName": "Events",
+        "description": "",
+        "webUrl": "https://nangodevelopers.sharepoint.com/Lists/Events",
+        "createdDateTime": "2026-05-01T00:38:27Z",
+        "lastModifiedDateTime": "2026-05-01T00:38:27Z",
+        "listTemplate": "events",
+        "hidden": false,
+        "contentTypesEnabled": true
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1.0/sites/root/lists": {
+        "response": {
+          "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#sites('root')/lists",
+          "value": [
+            {
+              "@odata.etag": "\"eca0d94a-d37a-46ee-9fa4-340a2e0c39f2,1\"",
+              "createdDateTime": "2026-05-01T00:38:24Z",
+              "description": "",
+              "eTag": "\"eca0d94a-d37a-46ee-9fa4-340a2e0c39f2,1\"",
+              "id": "eca0d94a-d37a-46ee-9fa4-340a2e0c39f2",
+              "lastModifiedDateTime": "2026-06-03T15:06:28Z",
+              "name": "Shared Documents",
+              "webUrl": "https://nangodevelopers.sharepoint.com/Shared%20Documents",
+              "displayName": "Documents",
+              "createdBy": {
+                "user": {
+                  "displayName": "System Account"
+                }
+              },
+              "parentReference": {
+                "siteId": "nangodevelopers.sharepoint.com,1d6e1722-9330-4b30-aa92-b73f215d9420,413c102d-9557-4a8d-8a68-bbb499015216"
+              },
+              "list": {
+                "contentTypesEnabled": false,
+                "hidden": false,
+                "template": "documentLibrary"
+              }
+            },
+            {
+              "@odata.etag": "\"5c7a7ebb-19c7-4143-9e33-d91d07c7e65c,0\"",
+              "createdDateTime": "2026-05-01T00:38:27Z",
+              "description": "",
+              "eTag": "\"5c7a7ebb-19c7-4143-9e33-d91d07c7e65c,0\"",
+              "id": "5c7a7ebb-19c7-4143-9e33-d91d07c7e65c",
+              "lastModifiedDateTime": "2026-05-01T00:38:27Z",
+              "name": "Events",
+              "webUrl": "https://nangodevelopers.sharepoint.com/Lists/Events",
+              "displayName": "Events",
+              "createdBy": {
+                "user": {
+                  "displayName": "System Account"
+                }
+              },
+              "parentReference": {
+                "siteId": "nangodevelopers.sharepoint.com,1d6e1722-9330-4b30-aa92-b73f215d9420,413c102d-9557-4a8d-8a68-bbb499015216"
+              },
+              "list": {
+                "contentTypesEnabled": true,
+                "hidden": false,
+                "template": "events"
+              }
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 03 Jun 2026 15:07:07 GMT",
+          "content-type": "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false;charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4943",
+          "x-ratelimit-reset": "1780499266",
+          "cache-control": "no-store, no-cache",
+          "vary": "Accept-Encoding",
+          "request-id": "c4a2b9b6-d806-47f4-969f-afefc71ffdec",
+          "client-request-id": "c4a2b9b6-d806-47f4-969f-afefc71ffdec",
+          "x-ms-ags-diagnostic": "{\"ServerInfo\":{\"DataCenter\":\"West US 2\",\"Slice\":\"E\",\"Ring\":\"4\",\"ScaleUnit\":\"005\",\"RoleInstance\":\"MWH0EPF000B4402\"}}",
+          "splogid": "2f031aa2-70c0-d000-715d-72eb4c1bd618",
+          "odata-version": "4.0"
+        },
+        "hash": "e287a15f0bcebdfd4419fc1b5be3601736c7651e",
+        "request": {
+          "params": {
+            "$top": "50"
+          }
+        }
+      }
+    }
+  }
+}
