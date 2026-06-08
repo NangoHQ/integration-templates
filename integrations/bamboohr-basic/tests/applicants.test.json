@@ -1,0 +1,782 @@
+{
+  "nango": {
+    "batchSave": {
+      "Applicant": [
+        {
+          "id": "58",
+          "appliedDate": "2025-11-20T17:53:57+00:00",
+          "statusId": 1,
+          "statusLabel": "New",
+          "applicantId": 114,
+          "firstName": "James",
+          "lastName": "Garcia",
+          "avatar": "https://resources.bamboohr.com/employees/photos/initials.php?initials=JG",
+          "email": "jamesgarcia@efficientoffice.com",
+          "source": "ZipRecruiter",
+          "jobId": 19,
+          "jobTitleLabel": "General Application"
+        },
+        {
+          "id": "59",
+          "appliedDate": "2025-11-20T20:59:36+00:00",
+          "statusId": 1,
+          "statusLabel": "New",
+          "applicantId": 116,
+          "firstName": "Anderson",
+          "lastName": "Pierce",
+          "avatar": "https://resources.bamboohr.com/employees/photos/initials.php?initials=AP",
+          "email": "apierce@efficientoffice.com",
+          "source": "Indeed",
+          "jobId": 21,
+          "jobTitleLabel": "Marketing Manager"
+        },
+        {
+          "id": "30",
+          "appliedDate": "2025-12-29T20:53:05+00:00",
+          "statusId": 2,
+          "statusLabel": "Reviewed",
+          "rating": 4,
+          "applicantId": 92,
+          "firstName": "Fred",
+          "lastName": "Hunt",
+          "avatar": "https://resources.bamboohr.com/employees/photos/initials.php?initials=FH",
+          "email": "fred@efficientoffice.com",
+          "jobId": 15,
+          "jobTitleLabel": "IT Security Engineer"
+        },
+        {
+          "id": "31",
+          "appliedDate": "2025-12-29T20:57:10+00:00",
+          "statusId": 2,
+          "statusLabel": "Reviewed",
+          "rating": 5,
+          "applicantId": 93,
+          "firstName": "Jacob",
+          "lastName": "Parks",
+          "avatar": "https://resources.bamboohr.com/employees/photos/initials.php?initials=JP",
+          "email": "jacob@efficientoffice.com",
+          "jobId": 15,
+          "jobTitleLabel": "IT Security Engineer"
+        },
+        {
+          "id": "21",
+          "appliedDate": "2025-12-20T16:39:10+00:00",
+          "statusId": 8,
+          "statusLabel": "Checking References",
+          "rating": 5,
+          "applicantId": 83,
+          "firstName": "Janice",
+          "lastName": "Hall",
+          "avatar": "https://resources.bamboohr.com/employees/photos/initials.php?initials=JH",
+          "email": "Janice@efficientoffice.com",
+          "jobId": 20,
+          "jobTitleLabel": "Software Engineer"
+        },
+        {
+          "id": "22",
+          "appliedDate": "2025-12-20T16:41:33+00:00",
+          "statusId": 7,
+          "statusLabel": "Put on Hold",
+          "rating": 2,
+          "applicantId": 84,
+          "firstName": "Frank",
+          "lastName": "Baldwin",
+          "avatar": "https://resources.bamboohr.com/employees/photos/initials.php?initials=FB",
+          "email": "frank@efficientoffice.com",
+          "jobId": 20,
+          "jobTitleLabel": "Software Engineer"
+        },
+        {
+          "id": "20",
+          "appliedDate": "2025-12-20T16:37:35+00:00",
+          "statusId": 3,
+          "statusLabel": "Schedule Phone Screen",
+          "rating": 4,
+          "applicantId": 82,
+          "firstName": "Kimberly",
+          "lastName": "Hughes",
+          "avatar": "https://resources.bamboohr.com/employees/photos/initials.php?initials=KH",
+          "email": "kimberly@efficientoffice.com",
+          "jobId": 20,
+          "jobTitleLabel": "Software Engineer"
+        },
+        {
+          "id": "23",
+          "appliedDate": "2025-12-20T16:45:46+00:00",
+          "statusId": 20,
+          "statusLabel": "Made an Offer",
+          "rating": 5,
+          "applicantId": 85,
+          "firstName": "Gene",
+          "lastName": "Owen",
+          "avatar": "https://resources.bamboohr.com/employees/photos/initials.php?initials=GO",
+          "email": "gene@efficientoffice.com",
+          "jobId": 20,
+          "jobTitleLabel": "Software Engineer"
+        },
+        {
+          "id": "33",
+          "appliedDate": "2025-12-29T21:03:16+00:00",
+          "statusId": 5,
+          "statusLabel": "Schedule Interview",
+          "rating": 5,
+          "applicantId": 95,
+          "firstName": "Nathan",
+          "lastName": "Rose",
+          "avatar": "https://resources.bamboohr.com/employees/photos/initials.php?initials=NR",
+          "email": "nathan@efficientoffice.com",
+          "jobId": 15,
+          "jobTitleLabel": "IT Security Engineer"
+        },
+        {
+          "id": "45",
+          "appliedDate": "2026-04-14T22:08:37+00:00",
+          "statusId": 2,
+          "statusLabel": "Reviewed",
+          "rating": 3,
+          "applicantId": 107,
+          "firstName": "April",
+          "lastName": "Kivlin",
+          "avatar": "https://resources.bamboohr.com/employees/photos/initials.php?initials=AK",
+          "email": "akivlin@efficientoffice.com",
+          "source": "12",
+          "jobId": 19,
+          "jobTitleLabel": "General Application"
+        },
+        {
+          "id": "46",
+          "appliedDate": "2026-04-15T14:10:32+00:00",
+          "statusId": 2,
+          "statusLabel": "Reviewed",
+          "rating": 3,
+          "applicantId": 108,
+          "firstName": "Anderson",
+          "lastName": "Pierce",
+          "avatar": "https://resources.bamboohr.com/employees/photos/initials.php?initials=AP",
+          "email": "apierce@efficientoffice.com",
+          "source": "11",
+          "jobId": 19,
+          "jobTitleLabel": "General Application"
+        },
+        {
+          "id": "38",
+          "appliedDate": "2026-03-28T22:19:14+00:00",
+          "statusId": 7,
+          "statusLabel": "Put on Hold",
+          "rating": 4,
+          "applicantId": 100,
+          "firstName": "Kelli",
+          "lastName": "Colburn",
+          "avatar": "https://resources.bamboohr.com/employees/photos/initials.php?initials=KC",
+          "email": "kcolburn@efficientoffice.com",
+          "source": "12",
+          "jobId": 19,
+          "jobTitleLabel": "General Application"
+        },
+        {
+          "id": "32",
+          "appliedDate": "2025-12-29T21:00:30+00:00",
+          "statusId": 4,
+          "statusLabel": "Phone Screened",
+          "rating": 3,
+          "applicantId": 94,
+          "firstName": "Jodi",
+          "lastName": "Edwards",
+          "avatar": "https://resources.bamboohr.com/employees/photos/initials.php?initials=JE",
+          "email": "jodi@efficientoffice.com",
+          "jobId": 15,
+          "jobTitleLabel": "IT Security Engineer"
+        },
+        {
+          "id": "49",
+          "appliedDate": "2026-04-21T23:45:58+00:00",
+          "statusId": 1,
+          "statusLabel": "New",
+          "rating": 4,
+          "applicantId": 111,
+          "firstName": "Emma",
+          "lastName": "Jones",
+          "avatar": "https://resources.bamboohr.com/employees/photos/initials.php?initials=EJ",
+          "email": "email@email.com",
+          "source": "LinkedIn",
+          "jobId": 22,
+          "jobTitleLabel": "Financial Analyst"
+        },
+        {
+          "id": "47",
+          "appliedDate": "2026-04-22T20:07:43+00:00",
+          "statusId": 1,
+          "statusLabel": "New",
+          "applicantId": 109,
+          "firstName": "John",
+          "lastName": "Stone",
+          "avatar": "https://resources.bamboohr.com/employees/photos/initials.php?initials=JS",
+          "email": "jstone@efficientoffice.com",
+          "source": "other",
+          "jobId": 19,
+          "jobTitleLabel": "General Application"
+        },
+        {
+          "id": "48",
+          "appliedDate": "2026-04-30T17:08:59+00:00",
+          "statusId": 1,
+          "statusLabel": "New",
+          "applicantId": 110,
+          "firstName": "Janet",
+          "lastName": "Lewis",
+          "avatar": "https://resources.bamboohr.com/employees/photos/initials.php?initials=JL",
+          "email": "jlewis@efficientoffice.com",
+          "source": "other",
+          "jobId": 19,
+          "jobTitleLabel": "General Application"
+        },
+        {
+          "id": "60",
+          "appliedDate": "2026-05-29T14:14:52+00:00",
+          "statusId": 1,
+          "statusLabel": "New",
+          "applicantId": 117,
+          "firstName": "Validation",
+          "lastName": "Run",
+          "avatar": "https://resources.bamboohr.com/employees/photos/initials.php?initials=VR",
+          "email": "validation.run@example.com",
+          "jobId": 22,
+          "jobTitleLabel": "Financial Analyst"
+        },
+        {
+          "id": "61",
+          "appliedDate": "2026-05-29T14:15:03+00:00",
+          "statusId": 1,
+          "statusLabel": "New",
+          "applicantId": 118,
+          "firstName": "Validation",
+          "lastName": "Run",
+          "avatar": "https://resources.bamboohr.com/employees/photos/initials.php?initials=VR",
+          "email": "validation.run@example.com",
+          "jobId": 22,
+          "jobTitleLabel": "Financial Analyst"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Applicant": []
+    }
+  },
+  "api": {
+    "get": {
+      "/v1/applicant_tracking/applications": [
+        {
+          "response": {
+            "paginationComplete": true,
+            "applications": [
+              {
+                "id": 58,
+                "appliedDate": "2025-11-20T17:53:57+00:00",
+                "status": {
+                  "id": 1,
+                  "label": "New"
+                },
+                "rating": null,
+                "applicant": {
+                  "id": 114,
+                  "firstName": "James",
+                  "lastName": "Garcia",
+                  "avatar": "https://resources.bamboohr.com/employees/photos/initials.php?initials=JG",
+                  "email": "jamesgarcia@efficientoffice.com",
+                  "source": "ZipRecruiter"
+                },
+                "job": {
+                  "id": 19,
+                  "title": {
+                    "id": null,
+                    "label": "General Application"
+                  }
+                }
+              },
+              {
+                "id": 59,
+                "appliedDate": "2025-11-20T20:59:36+00:00",
+                "status": {
+                  "id": 1,
+                  "label": "New"
+                },
+                "rating": null,
+                "applicant": {
+                  "id": 116,
+                  "firstName": "Anderson",
+                  "lastName": "Pierce",
+                  "avatar": "https://resources.bamboohr.com/employees/photos/initials.php?initials=AP",
+                  "email": "apierce@efficientoffice.com",
+                  "source": "Indeed"
+                },
+                "job": {
+                  "id": 21,
+                  "title": {
+                    "id": null,
+                    "label": "Marketing Manager"
+                  }
+                }
+              },
+              {
+                "id": 30,
+                "appliedDate": "2025-12-29T20:53:05+00:00",
+                "status": {
+                  "id": 2,
+                  "label": "Reviewed"
+                },
+                "rating": 4,
+                "applicant": {
+                  "id": 92,
+                  "firstName": "Fred",
+                  "lastName": "Hunt",
+                  "avatar": "https://resources.bamboohr.com/employees/photos/initials.php?initials=FH",
+                  "email": "fred@efficientoffice.com",
+                  "source": null
+                },
+                "job": {
+                  "id": 15,
+                  "title": {
+                    "id": null,
+                    "label": "IT Security Engineer"
+                  }
+                }
+              },
+              {
+                "id": 31,
+                "appliedDate": "2025-12-29T20:57:10+00:00",
+                "status": {
+                  "id": 2,
+                  "label": "Reviewed"
+                },
+                "rating": 5,
+                "applicant": {
+                  "id": 93,
+                  "firstName": "Jacob",
+                  "lastName": "Parks",
+                  "avatar": "https://resources.bamboohr.com/employees/photos/initials.php?initials=JP",
+                  "email": "jacob@efficientoffice.com",
+                  "source": null
+                },
+                "job": {
+                  "id": 15,
+                  "title": {
+                    "id": null,
+                    "label": "IT Security Engineer"
+                  }
+                }
+              },
+              {
+                "id": 21,
+                "appliedDate": "2025-12-20T16:39:10+00:00",
+                "status": {
+                  "id": 8,
+                  "label": "Checking References"
+                },
+                "rating": 5,
+                "applicant": {
+                  "id": 83,
+                  "firstName": "Janice",
+                  "lastName": "Hall",
+                  "avatar": "https://resources.bamboohr.com/employees/photos/initials.php?initials=JH",
+                  "email": "Janice@efficientoffice.com",
+                  "source": null
+                },
+                "job": {
+                  "id": 20,
+                  "title": {
+                    "id": null,
+                    "label": "Software Engineer"
+                  }
+                }
+              },
+              {
+                "id": 22,
+                "appliedDate": "2025-12-20T16:41:33+00:00",
+                "status": {
+                  "id": 7,
+                  "label": "Put on Hold"
+                },
+                "rating": 2,
+                "applicant": {
+                  "id": 84,
+                  "firstName": "Frank",
+                  "lastName": "Baldwin",
+                  "avatar": "https://resources.bamboohr.com/employees/photos/initials.php?initials=FB",
+                  "email": "frank@efficientoffice.com",
+                  "source": null
+                },
+                "job": {
+                  "id": 20,
+                  "title": {
+                    "id": null,
+                    "label": "Software Engineer"
+                  }
+                }
+              },
+              {
+                "id": 20,
+                "appliedDate": "2025-12-20T16:37:35+00:00",
+                "status": {
+                  "id": 3,
+                  "label": "Schedule Phone Screen"
+                },
+                "rating": 4,
+                "applicant": {
+                  "id": 82,
+                  "firstName": "Kimberly",
+                  "lastName": "Hughes",
+                  "avatar": "https://resources.bamboohr.com/employees/photos/initials.php?initials=KH",
+                  "email": "kimberly@efficientoffice.com",
+                  "source": null
+                },
+                "job": {
+                  "id": 20,
+                  "title": {
+                    "id": null,
+                    "label": "Software Engineer"
+                  }
+                }
+              },
+              {
+                "id": 23,
+                "appliedDate": "2025-12-20T16:45:46+00:00",
+                "status": {
+                  "id": 20,
+                  "label": "Made an Offer"
+                },
+                "rating": 5,
+                "applicant": {
+                  "id": 85,
+                  "firstName": "Gene",
+                  "lastName": "Owen",
+                  "avatar": "https://resources.bamboohr.com/employees/photos/initials.php?initials=GO",
+                  "email": "gene@efficientoffice.com",
+                  "source": null
+                },
+                "job": {
+                  "id": 20,
+                  "title": {
+                    "id": null,
+                    "label": "Software Engineer"
+                  }
+                }
+              },
+              {
+                "id": 33,
+                "appliedDate": "2025-12-29T21:03:16+00:00",
+                "status": {
+                  "id": 5,
+                  "label": "Schedule Interview"
+                },
+                "rating": 5,
+                "applicant": {
+                  "id": 95,
+                  "firstName": "Nathan",
+                  "lastName": "Rose",
+                  "avatar": "https://resources.bamboohr.com/employees/photos/initials.php?initials=NR",
+                  "email": "nathan@efficientoffice.com",
+                  "source": null
+                },
+                "job": {
+                  "id": 15,
+                  "title": {
+                    "id": null,
+                    "label": "IT Security Engineer"
+                  }
+                }
+              },
+              {
+                "id": 45,
+                "appliedDate": "2026-04-14T22:08:37+00:00",
+                "status": {
+                  "id": 2,
+                  "label": "Reviewed"
+                },
+                "rating": 3,
+                "applicant": {
+                  "id": 107,
+                  "firstName": "April",
+                  "lastName": "Kivlin",
+                  "avatar": "https://resources.bamboohr.com/employees/photos/initials.php?initials=AK",
+                  "email": "akivlin@efficientoffice.com",
+                  "source": "12"
+                },
+                "job": {
+                  "id": 19,
+                  "title": {
+                    "id": null,
+                    "label": "General Application"
+                  }
+                }
+              },
+              {
+                "id": 46,
+                "appliedDate": "2026-04-15T14:10:32+00:00",
+                "status": {
+                  "id": 2,
+                  "label": "Reviewed"
+                },
+                "rating": 3,
+                "applicant": {
+                  "id": 108,
+                  "firstName": "Anderson",
+                  "lastName": "Pierce",
+                  "avatar": "https://resources.bamboohr.com/employees/photos/initials.php?initials=AP",
+                  "email": "apierce@efficientoffice.com",
+                  "source": "11"
+                },
+                "job": {
+                  "id": 19,
+                  "title": {
+                    "id": null,
+                    "label": "General Application"
+                  }
+                }
+              },
+              {
+                "id": 38,
+                "appliedDate": "2026-03-28T22:19:14+00:00",
+                "status": {
+                  "id": 7,
+                  "label": "Put on Hold"
+                },
+                "rating": 4,
+                "applicant": {
+                  "id": 100,
+                  "firstName": "Kelli",
+                  "lastName": "Colburn",
+                  "avatar": "https://resources.bamboohr.com/employees/photos/initials.php?initials=KC",
+                  "email": "kcolburn@efficientoffice.com",
+                  "source": "12"
+                },
+                "job": {
+                  "id": 19,
+                  "title": {
+                    "id": null,
+                    "label": "General Application"
+                  }
+                }
+              },
+              {
+                "id": 32,
+                "appliedDate": "2025-12-29T21:00:30+00:00",
+                "status": {
+                  "id": 4,
+                  "label": "Phone Screened"
+                },
+                "rating": 3,
+                "applicant": {
+                  "id": 94,
+                  "firstName": "Jodi",
+                  "lastName": "Edwards",
+                  "avatar": "https://resources.bamboohr.com/employees/photos/initials.php?initials=JE",
+                  "email": "jodi@efficientoffice.com",
+                  "source": null
+                },
+                "job": {
+                  "id": 15,
+                  "title": {
+                    "id": null,
+                    "label": "IT Security Engineer"
+                  }
+                }
+              },
+              {
+                "id": 49,
+                "appliedDate": "2026-04-21T23:45:58+00:00",
+                "status": {
+                  "id": 1,
+                  "label": "New"
+                },
+                "rating": 4,
+                "applicant": {
+                  "id": 111,
+                  "firstName": "Emma",
+                  "lastName": "Jones",
+                  "avatar": "https://resources.bamboohr.com/employees/photos/initials.php?initials=EJ",
+                  "email": "email@email.com",
+                  "source": "LinkedIn"
+                },
+                "job": {
+                  "id": 22,
+                  "title": {
+                    "id": null,
+                    "label": "Financial Analyst"
+                  }
+                }
+              },
+              {
+                "id": 47,
+                "appliedDate": "2026-04-22T20:07:43+00:00",
+                "status": {
+                  "id": 1,
+                  "label": "New"
+                },
+                "rating": null,
+                "applicant": {
+                  "id": 109,
+                  "firstName": "John",
+                  "lastName": "Stone",
+                  "avatar": "https://resources.bamboohr.com/employees/photos/initials.php?initials=JS",
+                  "email": "jstone@efficientoffice.com",
+                  "source": "other"
+                },
+                "job": {
+                  "id": 19,
+                  "title": {
+                    "id": null,
+                    "label": "General Application"
+                  }
+                }
+              },
+              {
+                "id": 48,
+                "appliedDate": "2026-04-30T17:08:59+00:00",
+                "status": {
+                  "id": 1,
+                  "label": "New"
+                },
+                "rating": null,
+                "applicant": {
+                  "id": 110,
+                  "firstName": "Janet",
+                  "lastName": "Lewis",
+                  "avatar": "https://resources.bamboohr.com/employees/photos/initials.php?initials=JL",
+                  "email": "jlewis@efficientoffice.com",
+                  "source": "other"
+                },
+                "job": {
+                  "id": 19,
+                  "title": {
+                    "id": null,
+                    "label": "General Application"
+                  }
+                }
+              },
+              {
+                "id": 60,
+                "appliedDate": "2026-05-29T14:14:52+00:00",
+                "status": {
+                  "id": 1,
+                  "label": "New"
+                },
+                "rating": null,
+                "applicant": {
+                  "id": 117,
+                  "firstName": "Validation",
+                  "lastName": "Run",
+                  "avatar": "https://resources.bamboohr.com/employees/photos/initials.php?initials=VR",
+                  "email": "validation.run@example.com",
+                  "source": null
+                },
+                "job": {
+                  "id": 22,
+                  "title": {
+                    "id": null,
+                    "label": "Financial Analyst"
+                  }
+                }
+              },
+              {
+                "id": 61,
+                "appliedDate": "2026-05-29T14:15:03+00:00",
+                "status": {
+                  "id": 1,
+                  "label": "New"
+                },
+                "rating": null,
+                "applicant": {
+                  "id": 118,
+                  "firstName": "Validation",
+                  "lastName": "Run",
+                  "avatar": "https://resources.bamboohr.com/employees/photos/initials.php?initials=VR",
+                  "email": "validation.run@example.com",
+                  "source": null
+                },
+                "job": {
+                  "id": 22,
+                  "title": {
+                    "id": null,
+                    "label": "Financial Analyst"
+                  }
+                }
+              }
+            ],
+            "nextPageUrl": null
+          },
+          "status": 200,
+          "headers": {
+            "date": "Fri, 29 May 2026 14:26:50 GMT",
+            "content-type": "application/json",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=31536000; includeSubdomains;",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4926",
+            "x-ratelimit-reset": "1780064838",
+            "server": "nginx",
+            "cache-control": "no-cache, private",
+            "x-request-id": "141031264052603070396455614115904600343",
+            "vary": "Authorization,User-Agent"
+          },
+          "hash": "5bfc3f0cde8d4b4ce42abc6af6e0fa8714ef1422",
+          "request": {
+            "params": {
+              "page": "1",
+              "per_page": "2",
+              "sortBy": "last_updated",
+              "sortOrder": "ASC"
+            }
+          }
+        },
+        {
+          "response": {
+            "paginationComplete": true,
+            "applications": [],
+            "nextPageUrl": null
+          },
+          "status": 200,
+          "headers": {
+            "date": "Fri, 29 May 2026 14:26:50 GMT",
+            "content-type": "application/json",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=31536000; includeSubdomains;",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4925",
+            "x-ratelimit-reset": "1780064838",
+            "server": "nginx",
+            "cache-control": "no-cache, private",
+            "x-request-id": "141031264052603070392811360399046702305",
+            "vary": "Authorization,User-Agent"
+          },
+          "hash": "0ff6e2dbb76e30c3d5f5444681ebe32295869e10",
+          "request": {
+            "params": {
+              "page": "2",
+              "per_page": "2",
+              "sortBy": "last_updated",
+              "sortOrder": "ASC"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,447 @@
+{
+  "input": {},
+  "output": {
+    "14": {
+      "id": "14",
+      "name": "Unlawful Harassment",
+      "renewable": true,
+      "frequency": "12",
+      "dueFromHireDate": {
+        "unit": "day",
+        "amount": "10"
+      },
+      "required": true,
+      "category": [],
+      "linkUrl": null,
+      "description": null,
+      "allowEmployeesToMarkComplete": false
+    },
+    "15": {
+      "id": "15",
+      "name": "New Hire Training",
+      "renewable": false,
+      "frequency": 0,
+      "dueFromHireDate": {
+        "unit": "day",
+        "amount": "14"
+      },
+      "required": true,
+      "category": [],
+      "linkUrl": null,
+      "description": null,
+      "allowEmployeesToMarkComplete": false
+    },
+    "16": {
+      "id": "16",
+      "name": "Company Handbook Quiz",
+      "renewable": false,
+      "frequency": 0,
+      "dueFromHireDate": {
+        "unit": "day",
+        "amount": "14"
+      },
+      "required": true,
+      "category": [],
+      "linkUrl": null,
+      "description": null,
+      "allowEmployeesToMarkComplete": false
+    },
+    "17": {
+      "id": "17",
+      "name": "CPR",
+      "renewable": true,
+      "frequency": "24",
+      "dueFromHireDate": [],
+      "required": false,
+      "category": [],
+      "linkUrl": null,
+      "description": null,
+      "allowEmployeesToMarkComplete": false
+    },
+    "18": {
+      "id": "18",
+      "name": "First Aid",
+      "renewable": true,
+      "frequency": "24",
+      "dueFromHireDate": [],
+      "required": false,
+      "category": [],
+      "linkUrl": null,
+      "description": null,
+      "allowEmployeesToMarkComplete": false
+    },
+    "19": {
+      "id": "19",
+      "name": "Working from home during COVID-19",
+      "renewable": false,
+      "frequency": 0,
+      "dueFromHireDate": {
+        "unit": "day",
+        "amount": "3"
+      },
+      "required": true,
+      "category": {
+        "id": "18353",
+        "name": "COVID-19"
+      },
+      "linkUrl": "https://www.bamboohr.com/blog/get-the-most-from-remote-workers/",
+      "description": "Description Box:  Please review the online documentation linked below for our working from home expectations.",
+      "allowEmployeesToMarkComplete": false
+    },
+    "20": {
+      "id": "20",
+      "name": "Getting Started in BambooHR",
+      "renewable": false,
+      "frequency": 0,
+      "dueFromHireDate": {
+        "unit": "day",
+        "amount": "7"
+      },
+      "required": true,
+      "category": {
+        "id": "18356",
+        "name": "BambooHR Product Training"
+      },
+      "linkUrl": "https://help.bamboohr.com/hc/en-us/categories/203924308-Getting-Started-in-BambooHR",
+      "description": "Use our help documentation to get up and running in BambooHR\r\n",
+      "allowEmployeesToMarkComplete": false
+    },
+    "21": {
+      "id": "21",
+      "name": "BambooHR Advantage Package Demo Video",
+      "renewable": false,
+      "frequency": 0,
+      "dueFromHireDate": [],
+      "required": true,
+      "category": {
+        "id": "18356",
+        "name": "BambooHR Product Training"
+      },
+      "linkUrl": "https://www.bamboohr.com/video/the-bamboohr-advantage-open/",
+      "description": "Watch the BambooHR Advantage Package Demo Video to learn how to get the most out of your BambooHR experience. ",
+      "allowEmployeesToMarkComplete": false
+    },
+    "22": {
+      "id": "22",
+      "name": "Quarterly Security Training",
+      "renewable": true,
+      "frequency": "3",
+      "dueFromHireDate": {
+        "unit": "day",
+        "amount": "7"
+      },
+      "required": true,
+      "category": {
+        "id": "18356",
+        "name": "BambooHR Product Training"
+      },
+      "linkUrl": null,
+      "description": "Please complete your quarterly security training.",
+      "allowEmployeesToMarkComplete": true
+    },
+    "23": {
+      "id": "23",
+      "name": "OSHA Training",
+      "renewable": true,
+      "frequency": "1",
+      "dueFromHireDate": {
+        "unit": "day",
+        "amount": "3"
+      },
+      "required": true,
+      "category": {
+        "id": "18436",
+        "name": "Required Annual Trainings"
+      },
+      "linkUrl": null,
+      "description": "OSHA Training",
+      "allowEmployeesToMarkComplete": true
+    },
+    "24": {
+      "id": "24",
+      "name": "Sexual Harassment Training",
+      "renewable": true,
+      "frequency": "3",
+      "dueFromHireDate": {
+        "unit": "day",
+        "amount": "30"
+      },
+      "required": true,
+      "category": {
+        "id": "18437",
+        "name": "Quarterly Training"
+      },
+      "linkUrl": "https://calcivilrights.ca.gov/shpt/",
+      "description": "Quarterly sexual harassment training for all employees.",
+      "allowEmployeesToMarkComplete": true
+    },
+    "25": {
+      "id": "25",
+      "name": "Annual Security Training",
+      "renewable": true,
+      "frequency": "12",
+      "dueFromHireDate": [],
+      "required": true,
+      "category": {
+        "id": "18436",
+        "name": "Required Annual Trainings"
+      },
+      "linkUrl": null,
+      "description": "Required annual secuirty training",
+      "allowEmployeesToMarkComplete": false
+    },
+    "26": {
+      "id": "26",
+      "name": "HIPAA Training",
+      "renewable": true,
+      "frequency": "12",
+      "dueFromHireDate": [],
+      "required": true,
+      "category": {
+        "id": "18436",
+        "name": "Required Annual Trainings"
+      },
+      "linkUrl": null,
+      "description": "Annual required HIPAA Training",
+      "allowEmployeesToMarkComplete": true
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1/training/type": {
+        "response": {
+          "14": {
+            "id": "14",
+            "name": "Unlawful Harassment",
+            "renewable": true,
+            "frequency": "12",
+            "dueFromHireDate": {
+              "unit": "day",
+              "amount": "10"
+            },
+            "required": true,
+            "category": [],
+            "linkUrl": null,
+            "description": null,
+            "allowEmployeesToMarkComplete": false
+          },
+          "15": {
+            "id": "15",
+            "name": "New Hire Training",
+            "renewable": false,
+            "frequency": 0,
+            "dueFromHireDate": {
+              "unit": "day",
+              "amount": "14"
+            },
+            "required": true,
+            "category": [],
+            "linkUrl": null,
+            "description": null,
+            "allowEmployeesToMarkComplete": false
+          },
+          "16": {
+            "id": "16",
+            "name": "Company Handbook Quiz",
+            "renewable": false,
+            "frequency": 0,
+            "dueFromHireDate": {
+              "unit": "day",
+              "amount": "14"
+            },
+            "required": true,
+            "category": [],
+            "linkUrl": null,
+            "description": null,
+            "allowEmployeesToMarkComplete": false
+          },
+          "17": {
+            "id": "17",
+            "name": "CPR",
+            "renewable": true,
+            "frequency": "24",
+            "dueFromHireDate": [],
+            "required": false,
+            "category": [],
+            "linkUrl": null,
+            "description": null,
+            "allowEmployeesToMarkComplete": false
+          },
+          "18": {
+            "id": "18",
+            "name": "First Aid",
+            "renewable": true,
+            "frequency": "24",
+            "dueFromHireDate": [],
+            "required": false,
+            "category": [],
+            "linkUrl": null,
+            "description": null,
+            "allowEmployeesToMarkComplete": false
+          },
+          "19": {
+            "id": "19",
+            "name": "Working from home during COVID-19",
+            "renewable": false,
+            "frequency": 0,
+            "dueFromHireDate": {
+              "unit": "day",
+              "amount": "3"
+            },
+            "required": true,
+            "category": {
+              "id": "18353",
+              "name": "COVID-19"
+            },
+            "linkUrl": "https://www.bamboohr.com/blog/get-the-most-from-remote-workers/",
+            "description": "Description Box:  Please review the online documentation linked below for our working from home expectations.",
+            "allowEmployeesToMarkComplete": false
+          },
+          "20": {
+            "id": "20",
+            "name": "Getting Started in BambooHR",
+            "renewable": false,
+            "frequency": 0,
+            "dueFromHireDate": {
+              "unit": "day",
+              "amount": "7"
+            },
+            "required": true,
+            "category": {
+              "id": "18356",
+              "name": "BambooHR Product Training"
+            },
+            "linkUrl": "https://help.bamboohr.com/hc/en-us/categories/203924308-Getting-Started-in-BambooHR",
+            "description": "Use our help documentation to get up and running in BambooHR\r\n",
+            "allowEmployeesToMarkComplete": false
+          },
+          "21": {
+            "id": "21",
+            "name": "BambooHR Advantage Package Demo Video",
+            "renewable": false,
+            "frequency": 0,
+            "dueFromHireDate": [],
+            "required": true,
+            "category": {
+              "id": "18356",
+              "name": "BambooHR Product Training"
+            },
+            "linkUrl": "https://www.bamboohr.com/video/the-bamboohr-advantage-open/",
+            "description": "Watch the BambooHR Advantage Package Demo Video to learn how to get the most out of your BambooHR experience. ",
+            "allowEmployeesToMarkComplete": false
+          },
+          "22": {
+            "id": "22",
+            "name": "Quarterly Security Training",
+            "renewable": true,
+            "frequency": "3",
+            "dueFromHireDate": {
+              "unit": "day",
+              "amount": "7"
+            },
+            "required": true,
+            "category": {
+              "id": "18356",
+              "name": "BambooHR Product Training"
+            },
+            "linkUrl": null,
+            "description": "Please complete your quarterly security training.",
+            "allowEmployeesToMarkComplete": true
+          },
+          "23": {
+            "id": "23",
+            "name": "OSHA Training",
+            "renewable": true,
+            "frequency": "1",
+            "dueFromHireDate": {
+              "unit": "day",
+              "amount": "3"
+            },
+            "required": true,
+            "category": {
+              "id": "18436",
+              "name": "Required Annual Trainings"
+            },
+            "linkUrl": null,
+            "description": "OSHA Training",
+            "allowEmployeesToMarkComplete": true
+          },
+          "24": {
+            "id": "24",
+            "name": "Sexual Harassment Training",
+            "renewable": true,
+            "frequency": "3",
+            "dueFromHireDate": {
+              "unit": "day",
+              "amount": "30"
+            },
+            "required": true,
+            "category": {
+              "id": "18437",
+              "name": "Quarterly Training"
+            },
+            "linkUrl": "https://calcivilrights.ca.gov/shpt/",
+            "description": "Quarterly sexual harassment training for all employees.",
+            "allowEmployeesToMarkComplete": true
+          },
+          "25": {
+            "id": "25",
+            "name": "Annual Security Training",
+            "renewable": true,
+            "frequency": "12",
+            "dueFromHireDate": [],
+            "required": true,
+            "category": {
+              "id": "18436",
+              "name": "Required Annual Trainings"
+            },
+            "linkUrl": null,
+            "description": "Required annual secuirty training",
+            "allowEmployeesToMarkComplete": false
+          },
+          "26": {
+            "id": "26",
+            "name": "HIPAA Training",
+            "renewable": true,
+            "frequency": "12",
+            "dueFromHireDate": [],
+            "required": true,
+            "category": {
+              "id": "18436",
+              "name": "Required Annual Trainings"
+            },
+            "linkUrl": null,
+            "description": "Annual required HIPAA Training",
+            "allowEmployeesToMarkComplete": true
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 29 May 2026 14:20:23 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubdomains;",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4941",
+          "x-ratelimit-reset": "1780064473",
+          "server": "nginx",
+          "cache-control": "no-cache, private",
+          "x-request-id": "141031233391304177372234955089124715178",
+          "vary": "Authorization,User-Agent"
+        },
+        "hash": "7664ed343858a8811a5ee1658581fe94824f5d79",
+        "request": {}
+      }
+    }
+  }
+}
