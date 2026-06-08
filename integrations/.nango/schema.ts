@@ -7200,23 +7200,15 @@ export interface ActionOutput_apollo_updatetask {
 
 export interface Project {
   id: string;
-  name: string;
-  state?: string | undefined;
-  status?: {  id: string;
-  name: string;
-  type: string;
-  color?: string | undefined;};
-  progress?: number | undefined;
-  startDate?: string | undefined;
-  targetDate?: string | undefined;
-  createdAt: string;
-  updatedAt: string;
-  lead?: {  id: string;
+  uuid?: string | undefined;
+  organization?: string | undefined;
   name?: string | undefined;
-  email?: string | undefined;};
-  teams?: ({  id: string;
-  key?: string | undefined;
-  name?: string | undefined;})[];
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  timezone?: string | undefined;
+  is_demo?: boolean | undefined;
+  ingested_event?: boolean | undefined;
+  access_control?: boolean | undefined;
 };
 
 export interface SyncMetadata_asana_projects {
@@ -9871,17 +9863,12 @@ export interface AttioObject {
 
 export interface Person {
   id: string;
-  name: string;
-  emails?: ({  value: string;
-  primary?: boolean | undefined;
-  label?: string | undefined;})[];
-  phones?: ({  value: string;
-  primary?: boolean | undefined;
-  label?: string | undefined;})[];
-  org_id?: number | undefined;
-  owner_id?: number | undefined;
-  add_time?: string | undefined;
-  update_time: string;
+  name?: string | undefined;
+  distinct_ids?: string[] | undefined;
+  properties?: {  [key: string]: unknown | undefined;};
+  created_at?: string | undefined;
+  uuid?: string | undefined;
+  last_seen_at?: string | undefined;
 };
 
 export interface Record {
@@ -60180,6 +60167,3698 @@ export interface ActionOutput_pipedrive_updatestage {
   update_time?: string | undefined;
   pipeline_name?: string | undefined;
   pipeline_deal_probability?: boolean | undefined;
+};
+
+export interface Action {
+  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  tags?: string[] | undefined;
+  post_to_slack?: boolean | undefined;
+  slack_message_format?: string | undefined;
+  steps?: ({  event?: string | undefined;
+  properties?: ({  key: string;
+  type?: string | undefined;
+  value?: unknown | undefined;
+  operator?: string | undefined;})[];
+  selector?: string | undefined;
+  selector_regex?: string | undefined;
+  tag_name?: string | undefined;
+  text?: string | undefined;
+  text_matching?: string | undefined;
+  href?: string | undefined;
+  href_matching?: string | undefined;
+  url?: string | undefined;
+  url_matching?: string | undefined;})[];
+  created_at: string;
+  created_by?: {  id: number;
+  uuid?: string | undefined;
+  distinct_id?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  is_email_verified?: boolean | undefined;
+  hedgehog_config?: unknown | undefined;
+  role_at_organization?: string | undefined;};
+  deleted?: boolean | undefined;
+  is_calculating?: boolean | undefined;
+  last_calculated_at?: string | undefined;
+  team_id?: number | undefined;
+  is_action?: boolean | undefined;
+  bytecode_error?: string | undefined;
+  pinned_at?: string | undefined;
+  creation_context?: string | undefined;
+  user_access_level?: string | undefined;
+};
+
+export interface SyncMetadata_posthog_actions {
+  project_id: string;
+};
+
+export interface Annotation {
+  id: string;
+  content?: string | undefined;
+  date_marker?: string | undefined;
+  creation_type?: string | undefined;
+  dashboard_item?: number | undefined;
+  dashboard_id?: number | undefined;
+  dashboard_name?: string | undefined;
+  insight_short_id?: string | undefined;
+  insight_name?: string | undefined;
+  insight_derived_name?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  deleted?: boolean | undefined;
+  scope?: string | undefined;
+};
+
+export interface SyncMetadata_posthog_annotations {
+  project_id: string;
+};
+
+export interface Cohort {
+  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  created_at?: string | undefined;
+  last_calculation?: string | undefined;
+  deleted?: boolean | undefined;
+  is_static?: boolean | undefined;
+  cohort_type?: string | undefined;
+  count?: number | undefined;
+  is_calculating?: boolean | undefined;
+  errors_calculating?: number | undefined;
+  created_by_id?: number | undefined;
+  created_by_email?: string | undefined;
+};
+
+export interface SyncMetadata_posthog_cohorts {
+  project_id: string;
+};
+
+export interface Dashboard {
+  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  pinned?: boolean | undefined;
+  created_at?: string | undefined;
+  created_by?: unknown | undefined;
+  last_accessed_at?: string | undefined;
+  last_viewed_at?: string | undefined;
+  is_shared?: boolean | undefined;
+  deleted?: boolean | undefined;
+  creation_mode?: string | undefined;
+  tags?: string[] | undefined;
+  restriction_level?: number | undefined;
+  effective_restriction_level?: number | undefined;
+  effective_privilege_level?: number | undefined;
+  user_access_level?: string | undefined;
+  access_control_version?: string | undefined;
+  last_refresh?: string | undefined;
+  team_id?: number | undefined;
+};
+
+export interface SyncMetadata_posthog_dashboards {
+  project_id: string;
+};
+
+export interface EarlyAccessFeature {
+  id: string;
+  name: string;
+  description?: string | undefined;
+  stage: string;
+  documentation_url?: string | undefined;
+  payload?: {  [key: string]: unknown | undefined;};
+  created_at: string;
+  feature_flag_id?: number | undefined;
+  feature_flag_key?: string | undefined;
+};
+
+export interface SyncMetadata_posthog_earlyaccessfeatures {
+  project_id: string;
+};
+
+export interface EventDefinition {
+  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  last_seen_at?: string | undefined;
+  last_updated_at?: string | undefined;
+  verified?: boolean | undefined;
+  verified_at?: string | undefined;
+  hidden?: boolean | undefined;
+  enforcement_mode?: string | undefined;
+  primary_property?: string | undefined;
+  is_action?: boolean | undefined;
+  action_id?: number | undefined;
+  post_to_slack?: boolean | undefined;
+  tags?: string[] | undefined;
+};
+
+export interface SyncMetadata_posthog_eventdefinitions {
+  project_id: string;
+};
+
+export interface SyncMetadata_posthog_events {
+  project_id: string;
+};
+
+export interface Experiment {
+  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  start_date?: string | undefined;
+  end_date?: string | undefined;
+  feature_flag_key?: string | undefined;
+  feature_flag?: unknown | undefined;
+  holdout?: unknown | undefined;
+  holdout_id?: number | undefined;
+  exposure_cohort?: number | undefined;
+  parameters?: unknown | undefined;
+  secondary_metrics?: unknown | undefined;
+  saved_metrics?: unknown | undefined;
+  saved_metrics_ids?: unknown | undefined;
+  filters?: unknown | undefined;
+  archived?: boolean | undefined;
+  deleted?: boolean | undefined;
+  created_by?: unknown | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  type?: string | undefined;
+  exposure_criteria?: unknown | undefined;
+  metrics?: unknown | undefined;
+  metrics_secondary?: unknown | undefined;
+  stats_config?: unknown | undefined;
+  scheduling_config?: unknown | undefined;
+  conclusion?: string | undefined;
+  conclusion_comment?: string | undefined;
+  primary_metrics_ordered_uuids?: string[] | undefined;
+  secondary_metrics_ordered_uuids?: string[] | undefined;
+  only_count_matured_users?: boolean | undefined;
+  status?: string | undefined;
+  user_access_level?: string | undefined;
+};
+
+export interface SyncMetadata_posthog_experiments {
+  /**
+   * PostHog project ID
+   */
+  project_id: string;
+};
+
+export interface FeatureFlag {
+  id: string;
+  key: string;
+  name?: string | undefined;
+  active?: boolean | undefined;
+  deleted?: boolean | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  filters?: {  [key: string]: unknown | undefined;};
+  version?: number | undefined;
+  tags?: string[] | undefined;
+  ensure_experience_continuity?: boolean | undefined;
+  experiment_set?: number[] | undefined;
+  surveys?: unknown | undefined;
+  features?: unknown | undefined;
+  usage_dashboard?: number | undefined;
+  analytics_dashboards?: number[] | undefined;
+  has_enriched_analytics?: boolean | undefined;
+  is_remote_configuration?: boolean | undefined;
+  evaluation_runtime?: string | undefined;
+  bucketing_identifier?: string | undefined;
+  last_called_at?: string | undefined;
+  status?: string | undefined;
+  user_access_level?: string | undefined;
+};
+
+export interface SyncMetadata_posthog_featureflags {
+  project_id: string;
+};
+
+export interface Insight {
+  id: string;
+  short_id: string;
+  name?: string | undefined;
+  derived_name?: string | undefined;
+  query?: unknown | undefined;
+  deleted: boolean;
+  dashboards?: number[] | undefined;
+  last_refresh?: string | undefined;
+  created_at: string;
+  updated_at: string;
+  description?: string | undefined;
+  tags?: string[] | undefined;
+  favorited: boolean;
+  last_modified_at: string;
+  is_sample?: boolean | undefined;
+};
+
+export interface SyncMetadata_posthog_insights {
+  project_id?: string | undefined;
+};
+
+export interface SyncMetadata_posthog_persons {
+  project_id: string;
+};
+
+export interface SessionRecording {
+  id: string;
+  distinct_id?: string | undefined;
+  viewed?: boolean | undefined;
+  viewers?: string[] | undefined;
+  recording_duration?: number | undefined;
+  active_seconds?: number | undefined;
+  inactive_seconds?: number | undefined;
+  start_time?: string | undefined;
+  end_time?: string | undefined;
+  click_count?: number | undefined;
+  keypress_count?: number | undefined;
+  mouse_activity_count?: number | undefined;
+  console_log_count?: number | undefined;
+  console_warn_count?: number | undefined;
+  console_error_count?: number | undefined;
+  start_url?: string | undefined;
+  person?: {  id: number;
+  name?: string | undefined;
+  distinct_ids?: string[] | undefined;
+  properties?: unknown | undefined;
+  created_at?: string | undefined;
+  uuid?: string | undefined;
+  last_seen_at?: string | undefined;};
+  retention_period_days?: number | undefined;
+  expiry_time?: string | undefined;
+  recording_ttl?: number | undefined;
+  snapshot_source?: string | undefined;
+  snapshot_library?: string | undefined;
+  ongoing?: boolean | undefined;
+  activity_score?: number | undefined;
+  has_summary?: boolean | undefined;
+  summary_outcome?: {  description?: string | undefined;
+  success?: boolean | undefined;};
+  external_references?: unknown[] | undefined;
+};
+
+export interface SyncMetadata_posthog_sessionrecordings {
+  project_id: string;
+};
+
+export interface Survey {
+  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  type?: string | undefined;
+  schedule?: string | undefined;
+  linked_flag_id?: number | undefined;
+  linked_insight_id?: number | undefined;
+  targeting_flag_id?: number | undefined;
+  questions?: unknown | undefined;
+  conditions?: unknown | undefined;
+  appearance?: unknown | undefined;
+  created_at?: string | undefined;
+  start_date?: string | undefined;
+  end_date?: string | undefined;
+  archived?: boolean | undefined;
+  responses_limit?: number | undefined;
+  iteration_count?: number | undefined;
+  iteration_frequency_days?: number | undefined;
+  current_iteration?: number | undefined;
+  current_iteration_start_date?: string | undefined;
+  enable_partial_responses?: boolean | undefined;
+  enable_iframe_embedding?: boolean | undefined;
+  base_language?: string | undefined;
+};
+
+export interface SyncMetadata_posthog_surveys {
+  project_id: string;
+};
+
+export interface ActionInput_posthog_captureevent {
+  /**
+   * PostHog project API key (token) for the Capture API.
+   */
+  api_key: string;
+  /**
+   * Name of the event to capture.
+   */
+  event: string;
+  /**
+   * Unique identifier for the user or entity.
+   */
+  distinct_id: string;
+  /**
+   * Additional event properties.
+   */
+  properties?: {  [key: string]: unknown | undefined;};
+  /**
+   * ISO 8601 timestamp for the event. Defaults to now if omitted.
+   */
+  timestamp?: string | undefined;
+};
+
+export interface ActionOutput_posthog_captureevent {
+  status?: string | number | undefined;
+};
+
+export interface ActionInput_posthog_createaction {
+  /**
+   * PostHog project ID. Example: 309484
+   */
+  project_id: number;
+  /**
+   * Name of the action. Example: "Clicked Sign Up Button"
+   */
+  name: string;
+  description?: string | undefined;
+  tags?: string[] | undefined;
+  post_to_slack?: boolean | undefined;
+  slack_message_format?: string | undefined;
+  steps?: ({  event?: string | undefined;
+  properties?: ({  key: string;
+  type: string;
+  value: string | number | boolean | ({  0: string;
+  1: number;
+  2: boolean;})[];
+  operator: string;})[] | undefined;
+  selector?: string | undefined;
+  selector_regex?: string | undefined;
+  tag_name?: string | undefined;
+  text?: string | undefined;
+  text_matching?: string | undefined;
+  href?: string | undefined;
+  href_matching?: string | undefined;
+  url?: string | undefined;
+  url_matching?: string | undefined;})[];
+};
+
+export interface ActionOutput_posthog_createaction {
+  id: number;
+  name: string;
+  description?: string | undefined;
+  tags?: string[] | undefined;
+  post_to_slack?: boolean | undefined;
+  slack_message_format?: string | undefined;
+  steps?: ({  event?: string | undefined;
+  properties?: ({  key: string;
+  type: string;
+  value: string | number | boolean | ({  0: string;
+  1: number;
+  2: boolean;})[];
+  operator: string;})[] | undefined;
+  selector?: string | undefined;
+  selector_regex?: string | undefined;
+  tag_name?: string | undefined;
+  text?: string | undefined;
+  text_matching?: string | undefined;
+  href?: string | undefined;
+  href_matching?: string | undefined;
+  url?: string | undefined;
+  url_matching?: string | undefined;})[];
+  created_at?: string | undefined;
+  deleted?: boolean | undefined;
+  is_calculating?: boolean | undefined;
+  last_calculated_at?: string | undefined;
+  team_id?: number | undefined;
+  is_action?: boolean | undefined;
+  bytecode_error?: string | undefined;
+  pinned_at?: string | undefined;
+  creation_context?: string | undefined;
+  user_access_level?: string | undefined;
+};
+
+export interface ActionInput_posthog_createalert {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Insight ID to monitor. Example: 9038220
+   */
+  insight: number;
+  /**
+   * Name of the alert.
+   */
+  name: string;
+  /**
+   * Condition type.
+   */
+  condition_type: 'absolute_value' | 'relative_increase' | 'relative_decrease';
+  /**
+   * Threshold type.
+   */
+  threshold_type: 'absolute' | 'percentage';
+  /**
+   * Lower bound of the threshold.
+   */
+  threshold_lower?: number | undefined;
+  /**
+   * Upper bound of the threshold.
+   */
+  threshold_upper?: number | undefined;
+  calculation_interval?: 'every_15_minutes' | 'hourly' | 'daily' | 'weekly' | 'monthly' | undefined;
+  subscribed_users?: number[] | undefined;
+  config_series_index?: number | undefined;
+  config_check_ongoing_interval?: boolean | undefined;
+  enabled?: boolean | undefined;
+  skip_weekend?: boolean | undefined;
+  snoozed_until?: string | undefined;
+  detector_config?: {  [key: string]: unknown | undefined;};
+  schedule_restriction?: {  [key: string]: unknown | undefined;};
+  investigation_agent_enabled?: boolean | undefined;
+  investigation_gates_notifications?: boolean | undefined;
+  investigation_inconclusive_action?: string | undefined;
+};
+
+export interface ActionOutput_posthog_createalert {
+  id: string;
+  name: string;
+  insight_id: number;
+  state: string;
+  enabled: boolean;
+  calculation_interval: string;
+  condition_type?: string | undefined;
+  threshold_type?: string | undefined;
+  threshold_lower?: number | undefined;
+  threshold_upper?: number | undefined;
+  config_series_index?: number | undefined;
+  config_check_ongoing_interval?: boolean | undefined;
+  subscribed_users: number[];
+  created_at: string;
+  snoozed_until?: string | undefined;
+  skip_weekend?: boolean | undefined;
+  detector_config?: {  [key: string]: unknown | undefined;};
+  schedule_restriction?: {  [key: string]: unknown | undefined;};
+  investigation_agent_enabled?: boolean | undefined;
+  investigation_gates_notifications?: boolean | undefined;
+  investigation_inconclusive_action?: string | undefined;
+};
+
+export interface ActionInput_posthog_createannotation {
+  /**
+   * PostHog project ID. Example: 309484
+   */
+  project_id: number;
+  /**
+   * Annotation content. Example: "Deployment v1.2.0"
+   */
+  content: string;
+  /**
+   * ISO 8601 timestamp for the annotation. Example: "2024-01-15T10:00:00Z"
+   */
+  date_marker?: string | undefined;
+  /**
+   * Creation type. Example: "USR"
+   */
+  creation_type?: string | undefined;
+  /**
+   * Dashboard item ID to associate with the annotation.
+   */
+  dashboard_item?: number | undefined;
+  /**
+   * Dashboard ID to associate with the annotation.
+   */
+  dashboard_id?: number | undefined;
+  /**
+   * Whether the annotation is deleted.
+   */
+  deleted?: boolean | undefined;
+  /**
+   * Scope of the annotation. Example: "dashboard_item" or "project"
+   */
+  scope?: string | undefined;
+};
+
+export interface ActionOutput_posthog_createannotation {
+  id: number;
+  content?: string | undefined;
+  date_marker?: string | undefined;
+  creation_type?: string | undefined;
+  dashboard_item?: number | undefined;
+  dashboard_id?: number | undefined;
+  dashboard_name?: string | undefined;
+  insight_short_id?: string | undefined;
+  insight_name?: string | undefined;
+  insight_derived_name?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  deleted?: boolean | undefined;
+  scope?: string | undefined;
+};
+
+export interface ActionInput_posthog_createcohort {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Cohort name. Example: "Power Users"
+   */
+  name: string;
+  /**
+   * Cohort description.
+   */
+  description?: string | undefined;
+  /**
+   * Cohort filter definitions.
+   */
+  filters?: {  properties: {  type: string;
+  values: ({  [key: string]: unknown | undefined;})[];};};
+  /**
+   * Whether this is a static cohort.
+   */
+  is_static?: boolean | undefined;
+  /**
+   * Cohort type. Example: "static" or "dynamic".
+   */
+  cohort_type?: string | undefined;
+  /**
+   * Soft delete flag.
+   */
+  deleted?: boolean | undefined;
+  /**
+   * Alternative query definition.
+   */
+  query?: unknown | undefined;
+  /**
+   * Folder ID to create the cohort in.
+   */
+  _create_in_folder?: string | undefined;
+  /**
+   * Person IDs to add to a static cohort on creation.
+   */
+  _create_static_person_ids?: string[] | undefined;
+};
+
+export interface ActionOutput_posthog_createcohort {
+  id: number;
+  name?: string | undefined;
+  description?: string | undefined;
+  filters?: unknown | undefined;
+  is_static: boolean;
+  cohort_type?: string | undefined;
+  created_at?: string | undefined;
+  count?: number | undefined;
+  is_calculating: boolean;
+  deleted: boolean;
+};
+
+export interface ActionInput_posthog_createdashboard {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Dashboard name.
+   */
+  name: string;
+  /**
+   * Dashboard description.
+   */
+  description?: string | undefined;
+  /**
+   * Whether the dashboard is pinned.
+   */
+  pinned?: boolean | undefined;
+  /**
+   * Dashboard tags.
+   */
+  tags?: string[] | undefined;
+  /**
+   * Template to use for the dashboard.
+   */
+  use_template?: string | undefined;
+  /**
+   * Existing dashboard ID to duplicate.
+   */
+  use_dashboard?: number | undefined;
+  /**
+   * Whether to delete insights when duplicating.
+   */
+  delete_insights?: boolean | undefined;
+  /**
+   * Data color theme ID.
+   */
+  data_color_theme_id?: number | undefined;
+};
+
+export interface ActionOutput_posthog_createdashboard {
+  id: number;
+  name: string;
+  description?: string | undefined;
+  pinned?: boolean | undefined;
+  created_at?: string | undefined;
+  team_id?: number | undefined;
+  deleted?: boolean | undefined;
+  is_shared?: boolean | undefined;
+  creation_mode?: string | undefined;
+  filters?: unknown | undefined;
+  variables?: unknown | undefined;
+  data_color_theme_id?: number | undefined;
+  tags?: unknown[] | undefined;
+  restriction_level?: number | undefined;
+  effective_restriction_level?: number | undefined;
+  effective_privilege_level?: number | undefined;
+  user_access_level?: string | undefined;
+  access_control_version?: string | undefined;
+  last_refresh?: string | undefined;
+  quick_filter_ids?: string[] | undefined;
+  tiles?: unknown[] | undefined;
+};
+
+export interface ActionInput_posthog_createearlyaccessfeature {
+  /**
+   * PostHog project ID. Example: 309484
+   */
+  project_id: number;
+  /**
+   * Name of the early access feature. Example: "Beta Feature"
+   */
+  name: string;
+  /**
+   * Description of the feature. Example: "New dashboard beta"
+   */
+  description?: string | undefined;
+  /**
+   * Release stage. Examples: "draft", "concept", "alpha", "beta", "general_availability"
+   */
+  stage?: string | undefined;
+  /**
+   * URL to documentation. Example: "https://docs.example.com"
+   */
+  documentation_url?: string | undefined;
+  /**
+   * Custom payload object.
+   */
+  payload?: unknown | undefined;
+  /**
+   * ID of the associated feature flag. Example: 700471
+   */
+  feature_flag_id?: number | undefined;
+  /**
+   * Folder to create the feature in.
+   */
+  _create_in_folder?: string | undefined;
+};
+
+export interface ActionOutput_posthog_createearlyaccessfeature {
+  id: string;
+  name: string;
+  description?: string | undefined;
+  stage: string;
+  documentation_url?: string | undefined;
+  payload?: unknown | undefined;
+  created_at: string;
+  feature_flag_id?: number | undefined;
+  feature_flag?: {  id: number;
+  key?: string | undefined;};
+};
+
+export interface ActionInput_posthog_createexperiment {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Experiment name. Example: "Homepage CTA Test"
+   */
+  name: string;
+  /**
+   * Feature flag key to link to this experiment. Example: "homepage-cta-v2"
+   */
+  feature_flag_key: string;
+  /**
+   * Optional description of the experiment.
+   */
+  description?: string | undefined;
+  /**
+   * ISO 8601 start date. Example: "2024-01-15T00:00:00Z"
+   */
+  start_date?: string | undefined;
+  /**
+   * ISO 8601 end date. Example: "2024-01-30T00:00:00Z"
+   */
+  end_date?: string | undefined;
+  holdout_id?: number | undefined;
+  parameters?: {  feature_flag_variants?: ({  key: string;
+  name?: string | undefined;
+  rollout_percentage?: number | undefined;})[];
+  excluded_variants?: string[] | undefined;
+  minimum_detectable_effect?: number | undefined;
+  rollout_percentage?: number | undefined;};
+  secondary_metrics?: ({  [key: string]: unknown | undefined;})[];
+  saved_metrics_ids?: number[] | undefined;
+  filters?: {  [key: string]: unknown | undefined;};
+  archived?: boolean | undefined;
+  deleted?: boolean | undefined;
+  type?: string | undefined;
+  exposure_criteria?: {  [key: string]: unknown | undefined;};
+  metrics?: ({  [key: string]: unknown | undefined;})[];
+  metrics_secondary?: ({  [key: string]: unknown | undefined;})[];
+  stats_config?: {  [key: string]: unknown | undefined;};
+  scheduling_config?: {  [key: string]: unknown | undefined;};
+  allow_unknown_events?: boolean | undefined;
+  _create_in_folder?: string | undefined;
+  conclusion?: string | undefined;
+  conclusion_comment?: string | undefined;
+  primary_metrics_ordered_uuids?: string[] | undefined;
+  secondary_metrics_ordered_uuids?: string[] | undefined;
+  only_count_matured_users?: boolean | undefined;
+  update_feature_flag_params?: boolean | undefined;
+};
+
+export interface ActionOutput_posthog_createexperiment {
+  id: number;
+  name: string;
+  description?: string | undefined;
+  start_date?: string | undefined;
+  end_date?: string | undefined;
+  feature_flag_key: string;
+  feature_flag?: {  [key: string]: unknown | undefined;};
+  holdout_id?: number | undefined;
+  parameters?: {  [key: string]: unknown | undefined;};
+  secondary_metrics?: unknown | undefined;
+  saved_metrics?: ({  [key: string]: unknown | undefined;})[];
+  saved_metrics_ids?: unknown[] | undefined;
+  filters?: unknown | undefined;
+  archived?: boolean | undefined;
+  deleted?: boolean | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  type?: string | undefined;
+  exposure_criteria?: {  [key: string]: unknown | undefined;};
+  metrics?: ({  [key: string]: unknown | undefined;})[];
+  metrics_secondary?: ({  [key: string]: unknown | undefined;})[];
+  stats_config?: {  [key: string]: unknown | undefined;};
+  scheduling_config?: {  [key: string]: unknown | undefined;};
+  allow_unknown_events?: boolean | undefined;
+  _create_in_folder?: string | undefined;
+  conclusion?: string | undefined;
+  conclusion_comment?: string | undefined;
+  primary_metrics_ordered_uuids?: unknown[] | undefined;
+  secondary_metrics_ordered_uuids?: unknown[] | undefined;
+  only_count_matured_users?: boolean | undefined;
+  update_feature_flag_params?: boolean | undefined;
+  status?: string | undefined;
+  user_access_level?: string | undefined;
+};
+
+export interface ActionInput_posthog_createfeatureflag {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Unique key for the feature flag. Example: "my-new-flag"
+   */
+  key: string;
+  /**
+   * Display name for the feature flag.
+   */
+  name?: string | undefined;
+  /**
+   * Filter conditions for the feature flag.
+   */
+  filters?: {  [key: string]: unknown | undefined;};
+  /**
+   * Whether the feature flag is active.
+   */
+  active?: boolean | undefined;
+  /**
+   * Tags to associate with the feature flag.
+   */
+  tags?: string[] | undefined;
+  /**
+   * Evaluation contexts for the feature flag.
+   */
+  evaluation_contexts?: ({  [key: string]: unknown | undefined;})[];
+};
+
+export interface ActionOutput_posthog_createfeatureflag {
+  id: number;
+  key: string;
+  name?: string | undefined;
+  active?: boolean | undefined;
+  deleted?: boolean | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  filters?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_posthog_createinsight {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Name of the insight. Example: "Page views trend"
+   */
+  name: string;
+  /**
+   * PostHog query object. Example: {"kind":"InsightVizNode","source":{"kind":"TrendsQuery","series":[{"kind":"EventsNode","event":"$pageview"}]}}
+   */
+  query: {  [key: string]: unknown | undefined;};
+  /**
+   * Description of the insight.
+   */
+  description?: string | undefined;
+  /**
+   * Tags for the insight.
+   */
+  tags?: string[] | undefined;
+  /**
+   * Dashboard IDs to add the insight to.
+   */
+  dashboards?: number[] | undefined;
+  /**
+   * Whether the insight is favorited.
+   */
+  favorited?: boolean | undefined;
+  /**
+   * Display order of the insight.
+   */
+  order?: number | undefined;
+  /**
+   * Derived name of the insight.
+   */
+  derived_name?: string | undefined;
+};
+
+export interface ActionOutput_posthog_createinsight {
+  id: number;
+  short_id: string;
+  name?: string | undefined;
+  derived_name?: string | undefined;
+  description?: string | undefined;
+  query?: {  [key: string]: unknown | undefined;};
+  order?: number | undefined;
+  deleted?: boolean | undefined;
+  dashboards?: number[] | undefined;
+  tags?: string[] | undefined;
+  favorited?: boolean | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+};
+
+export interface ActionInput_posthog_createperson {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Distinct ID for the person. Example: "user_123"
+   */
+  distinct_id: string;
+  /**
+   * Person properties to set. Example: {"email": "user@example.com"}
+   */
+  properties?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_posthog_createperson {
+  id: string;
+  name?: string | undefined;
+  distinct_ids: string[];
+  properties?: {  [key: string]: unknown | undefined;};
+  created_at?: string | undefined;
+  uuid?: string | undefined;
+  last_seen_at?: string | undefined;
+};
+
+export interface ActionInput_posthog_createsurvey {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Name of the survey.
+   */
+  name: string;
+  /**
+   * Survey type. Examples: "popover", "api", "widget", "external_survey"
+   */
+  type: string;
+  description?: string | undefined;
+  questions?: ({  /**
+   * Question type. Examples: "open", "multiple_choice", "single_choice", "rating", "link"
+   */
+  type: string;
+  /**
+   * The question text.
+   */
+  question: string;
+  id?: string | undefined;
+  description?: string | undefined;
+  optional?: boolean | undefined;
+  buttonText?: string | undefined;
+  /**
+   * For rating questions. Examples: "number", "emoji"
+   */
+  display?: string | undefined;
+  /**
+   * For rating questions. Examples: 2, 3, 5, 7, 10
+   */
+  scale?: number | undefined;
+  lowerBoundLabel?: string | undefined;
+  upperBoundLabel?: string | undefined;
+  /**
+   * For multiple/single choice questions.
+   */
+  choices?: string[] | undefined;
+  /**
+   * For link questions.
+   */
+  link?: string | undefined;
+  hasOpenChoice?: boolean | undefined;
+  shuffleOptions?: boolean | undefined;})[];
+  appearance?: {  [key: string]: unknown | undefined;};
+  conditions?: {  [key: string]: unknown | undefined;};
+  /**
+   * ISO 8601 timestamp. Example: "2024-01-01T00:00:00Z"
+   */
+  start_date?: string | undefined;
+  /**
+   * ISO 8601 timestamp. Example: "2024-12-31T23:59:59Z"
+   */
+  end_date?: string | undefined;
+  linked_flag_id?: number | undefined;
+  linked_insight_id?: number | undefined;
+  targeting_flag_filters?: {  [key: string]: unknown | undefined;};
+  archived?: boolean | undefined;
+  schedule?: string | undefined;
+};
+
+export interface ActionOutput_posthog_createsurvey {
+  id: string;
+  name: string;
+  description?: string | undefined;
+  type: string;
+  schedule?: string | undefined;
+  linked_flag_id?: number | undefined;
+  linked_insight_id?: number | undefined;
+  targeting_flag_id?: number | undefined;
+  questions?: unknown[] | undefined;
+  conditions?: {  [key: string]: unknown | undefined;};
+  appearance?: {  [key: string]: unknown | undefined;};
+  created_at: string;
+  start_date?: string | undefined;
+  end_date?: string | undefined;
+  archived?: boolean | undefined;
+};
+
+export interface ActionInput_posthog_deleteaction {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Action ID to delete. Example: 275761
+   */
+  id: number;
+};
+
+export interface ActionOutput_posthog_deleteaction {
+  success: boolean;
+  id: number;
+};
+
+export interface ActionInput_posthog_deletealert {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Alert ID to delete. Example: "019e8d62-1ef1-0000-c642-6a68245a8aac"
+   */
+  id: string;
+};
+
+export interface ActionOutput_posthog_deletealert {
+  success: boolean;
+};
+
+export interface ActionInput_posthog_deleteannotation {
+  /**
+   * PostHog project ID. Example: 309484
+   */
+  project_id: number;
+  /**
+   * Annotation ID to delete. Example: 339256
+   */
+  annotation_id: number;
+};
+
+export interface ActionOutput_posthog_deleteannotation {
+  id: number;
+  content?: string | undefined;
+  date_marker?: string | undefined;
+  creation_type?: string | undefined;
+  dashboard_item?: number | undefined;
+  dashboard_id?: number | undefined;
+  dashboard_name?: string | undefined;
+  insight_short_id?: string | undefined;
+  insight_name?: string | undefined;
+  insight_derived_name?: string | undefined;
+  created_by?: {  id: number;
+  uuid: string;
+  distinct_id: string;
+  first_name: string;
+  last_name: string;
+  email: string;
+  is_email_verified: boolean;
+  hedgehog_config?: {  [key: string]: unknown | undefined;};
+  role_at_organization?: string | undefined;};
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  deleted?: boolean | undefined;
+  scope?: string | undefined;
+};
+
+export interface ActionInput_posthog_deletecohort {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Cohort ID. Example: 342249
+   */
+  cohort_id: number;
+};
+
+export interface ActionOutput_posthog_deletecohort {
+  id: number;
+  deleted: boolean;
+  name?: string | undefined;
+};
+
+export interface ActionInput_posthog_deletedashboard {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Dashboard ID. Example: 1663108
+   */
+  id: number;
+};
+
+export interface ActionOutput_posthog_deletedashboard {
+  id: number;
+  deleted?: boolean | undefined;
+  name?: string | undefined;
+};
+
+export interface ActionInput_posthog_deleteearlyaccessfeature {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Early access feature ID. Example: "497f6eca-6276-4993-bfeb-53cbbbba6f08"
+   */
+  id: string;
+};
+
+export interface ActionOutput_posthog_deleteearlyaccessfeature {
+  success: boolean;
+  id: string;
+};
+
+export interface ActionInput_posthog_deletefeatureflag {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Feature flag ID. Example: 700472
+   */
+  id: number;
+};
+
+export interface ActionOutput_posthog_deletefeatureflag {
+  id: number;
+  key?: string | undefined;
+  deleted?: boolean | undefined;
+};
+
+export interface ActionInput_posthog_deleteinsight {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Insight ID. Example: 9037904
+   */
+  id: number;
+};
+
+export interface ActionOutput_posthog_deleteinsight {
+  id: number;
+  short_id: string;
+  name?: string | undefined;
+  derived_name?: string | undefined;
+  deleted?: boolean | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+};
+
+export interface ActionInput_posthog_deleteperson {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * PostHog person ID. Example: "623209ad-6b83-5d5c-9e25-df49eba324bb"
+   */
+  person_id: string;
+};
+
+export interface ActionOutput_posthog_deleteperson {
+  success: boolean;
+  person_id: string;
+};
+
+export interface ActionInput_posthog_deletesurvey {
+  /**
+   * Survey ID. Example: "497f6eca-6276-4993-bfeb-53cbbbba6f08"
+   */
+  id: string;
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+};
+
+export interface ActionOutput_posthog_deletesurvey {
+  success: boolean;
+};
+
+export interface ActionInput_posthog_getaction {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Action ID. Example: 123
+   */
+  id: number;
+};
+
+export interface ActionOutput_posthog_getaction {
+  id: number;
+  name?: string | undefined;
+  description?: string | undefined;
+  tags?: string[] | undefined;
+  post_to_slack?: boolean | undefined;
+  slack_message_format?: string | undefined;
+  steps?: ({  event?: string | undefined;
+  properties?: ({  key?: string | undefined;
+  type?: string | undefined;
+  value?: string | number | boolean | ({  0: string;
+  1: number;
+  2: boolean;})[] | undefined;
+  operator?: string | undefined;})[];
+  selector?: string | undefined;
+  selector_regex?: string | undefined;
+  tag_name?: string | undefined;
+  text?: string | undefined;
+  text_matching?: string | undefined;
+  href?: string | undefined;
+  href_matching?: string | undefined;
+  url?: string | undefined;
+  url_matching?: string | undefined;})[];
+  created_at?: string | undefined;
+  created_by?: {  id?: number | undefined;
+  uuid?: string | undefined;
+  distinct_id?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  is_email_verified?: boolean | undefined;
+  hedgehog_config?: {} | undefined;
+  role_at_organization?: string | undefined;};
+  deleted?: boolean | undefined;
+  is_calculating?: boolean | undefined;
+  last_calculated_at?: string | undefined;
+  team_id?: number | undefined;
+  is_action?: boolean | undefined;
+  bytecode_error?: string | undefined;
+  pinned_at?: string | undefined;
+  creation_context?: string | undefined;
+  _create_in_folder?: string | undefined;
+  user_access_level?: string | undefined;
+};
+
+export interface ActionInput_posthog_getalert {
+  /**
+   * Alert ID. Example: "497f6eca-6276-4993-bfeb-53cbbbba6f08"
+   */
+  id: string;
+  /**
+   * Project ID. Example: "309484"
+   */
+  project_id: string;
+};
+
+export interface ActionOutput_posthog_getalert {
+  id: string;
+  created_by?: {  id: number;
+  uuid: string;
+  distinct_id: string;
+  first_name: string;
+  last_name: string;
+  email: string;
+  is_email_verified?: boolean | undefined;
+  hedgehog_config?: {  [key: string]: unknown | undefined;};
+  role_at_organization?: string | undefined;};
+  created_at?: string | undefined;
+  insight?: {  id?: number | undefined;};
+  name?: string | undefined;
+  subscribed_users?: number[] | undefined;
+  threshold?: {  id: string;
+  created_at: string;
+  name: string;
+  configuration?: {  type?: string | undefined;
+  bounds?: unknown | undefined;};};
+  condition?: {  type?: string | undefined;};
+  state?: string | undefined;
+  enabled?: boolean | undefined;
+  last_notified_at?: string | undefined;
+  last_checked_at?: string | undefined;
+  next_check_at?: string | undefined;
+  checks?: ({  id: string;
+  created_at: string;
+  calculated_value?: number | undefined;
+  state?: string | undefined;
+  targets_notified?: boolean | undefined;
+  anomaly_scores?: unknown | undefined;
+  triggered_points?: unknown | undefined;
+  triggered_dates?: unknown | undefined;
+  interval?: string | undefined;
+  triggered_metadata?: unknown | undefined;
+  investigation_status?: string | undefined;
+  investigation_verdict?: string | undefined;
+  investigation_summary?: string | undefined;
+  investigation_notebook_short_id?: string | undefined;
+  notification_sent_at?: string | undefined;
+  notification_suppressed_by_agent?: boolean | undefined;})[];
+  checks_total?: number | undefined;
+  config?: {  type?: string | undefined;
+  series_index?: number | undefined;
+  check_ongoing_interval?: unknown | undefined;};
+  detector_config?: {  detectors?: ({  preprocessing?: unknown | undefined;
+  threshold?: unknown | undefined;
+  type?: string | undefined;
+  window?: unknown | undefined;})[];
+  operator?: string | undefined;
+  type?: string | undefined;};
+  calculation_interval?: string | undefined;
+  snoozed_until?: string | undefined;
+  skip_weekend?: boolean | undefined;
+  schedule_restriction?: {  blocked_windows?: ({  start?: string | undefined;
+  end?: string | undefined;})[];};
+  last_value?: number | undefined;
+  investigation_agent_enabled?: boolean | undefined;
+  investigation_gates_notifications?: boolean | undefined;
+  investigation_inconclusive_action?: string | undefined;
+};
+
+export interface ActionInput_posthog_getannotation {
+  /**
+   * PostHog project ID. Example: 309484
+   */
+  project_id: number;
+  /**
+   * Annotation ID. Example: 339256
+   */
+  id: number;
+};
+
+export interface ActionOutput_posthog_getannotation {
+  id: number;
+  content: string;
+  date_marker?: string | undefined;
+  scope?: string | undefined;
+  creation_type?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  dashboard_item?: number | undefined;
+  created_by?: {  id: number;
+  uuid: string;
+  distinct_id: string;
+  first_name: string;
+  email: string;} | undefined;
+};
+
+export interface ActionInput_posthog_getcohort {
+  /**
+   * Cohort ID. Example: 342249
+   */
+  id: number;
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+};
+
+export interface ActionOutput_posthog_getcohort {
+  id: number;
+  name?: string | undefined;
+  description?: string | undefined;
+  groups?: unknown | undefined;
+  deleted?: boolean | undefined;
+  filters?: {  properties?: {  type?: string | undefined;
+  values?: ({  bytecode?: unknown | undefined;
+  bytecode_error?: unknown | undefined;
+  conditionHash?: unknown | undefined;
+  type?: string | undefined;
+  key?: string | undefined;
+  value?: string | undefined;
+  event_type?: string | undefined;
+  time_value?: unknown | undefined;
+  time_interval?: unknown | undefined;
+  negation?: boolean | undefined;
+  operator?: unknown | undefined;
+  operator_value?: unknown | undefined;
+  seq_time_interval?: unknown | undefined;
+  seq_time_value?: unknown | undefined;
+  seq_event?: unknown | undefined;
+  seq_event_type?: unknown | undefined;
+  total_periods?: unknown | undefined;
+  min_periods?: unknown | undefined;
+  event_filters?: unknown | undefined;
+  explicit_datetime?: unknown | undefined;
+  explicit_datetime_to?: unknown | undefined;})[];};};
+  query?: unknown | undefined;
+  version?: number | undefined;
+  pending_version?: number | undefined;
+  is_calculating?: boolean | undefined;
+  created_by?: {  id?: number | undefined;
+  uuid?: string | undefined;
+  distinct_id?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  is_email_verified?: boolean | undefined;
+  hedgehog_config?: {  [key: string]: unknown | undefined;};
+  role_at_organization?: string | undefined;};
+  created_at?: string | undefined;
+  last_calculation?: string | undefined;
+  last_backfill_person_properties_at?: string | undefined;
+  errors_calculating?: number | undefined;
+  last_error_message?: string | undefined;
+  count?: number | undefined;
+  is_static?: boolean | undefined;
+  cohort_type?: string | undefined;
+  experiment_set?: number[] | undefined;
+  _create_in_folder?: string | undefined;
+  _create_static_person_ids?: unknown[] | undefined;
+};
+
+export interface ActionInput_posthog_getdashboard {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Dashboard ID. Example: 1663108
+   */
+  id: number;
+};
+
+export interface ActionOutput_posthog_getdashboard {
+  id: number;
+  name?: string | undefined;
+  description?: string | undefined;
+  pinned?: boolean | undefined;
+  created_at?: string | undefined;
+  created_by?: {  id: number;
+  uuid?: string | undefined;
+  distinct_id?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  is_email_verified?: boolean | undefined;
+  hedgehog_config?: unknown | undefined;
+  role_at_organization?: string | undefined;};
+  last_accessed_at?: string | undefined;
+  last_viewed_at?: string | undefined;
+  is_shared?: boolean | undefined;
+  deleted?: boolean | undefined;
+  creation_mode?: string | undefined;
+  filters?: unknown | undefined;
+  variables?: unknown | undefined;
+  breakdown_colors?: unknown | undefined;
+  data_color_theme_id?: unknown | undefined;
+  tags?: unknown[] | undefined;
+  restriction_level?: number | undefined;
+  effective_restriction_level?: number | undefined;
+  effective_privilege_level?: number | undefined;
+  user_access_level?: string | undefined;
+  access_control_version?: string | undefined;
+  last_refresh?: string | undefined;
+  persisted_filters?: unknown | undefined;
+  persisted_variables?: unknown | undefined;
+  team_id?: number | undefined;
+  quick_filter_ids?: string[] | undefined;
+  tiles?: ({  [key: string]: unknown | undefined;})[];
+  use_template?: string | undefined;
+  use_dashboard?: number | undefined;
+  delete_insights?: boolean | undefined;
+  _create_in_folder?: string | undefined;
+};
+
+export interface ActionInput_posthog_getearlyaccessfeature {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Early access feature ID. Example: "019e8d60-fbc1-0000-d729-cb62a5d65a45"
+   */
+  id: string;
+};
+
+export interface ActionOutput_posthog_getearlyaccessfeature {
+  id: string;
+  feature_flag: {  id: number;
+  team_id: number;
+  name: string;
+  key: string;
+  filters: {  [key: string]: unknown | undefined;};
+  deleted: boolean;
+  active: boolean;
+  ensure_experience_continuity: boolean;
+  version: number;
+  evaluation_runtime: string;
+  bucketing_identifier: string;
+  evaluation_contexts: string[];};
+  name: string;
+  description?: string | undefined;
+  stage: string;
+  documentation_url?: string | undefined;
+  payload?: {  [key: string]: unknown | undefined;};
+  created_at: string;
+};
+
+export interface ActionInput_posthog_geteventdefinition {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Event definition ID. Example: "019e8cf4-5a29-75a2-970f-40e0711eaba8"
+   */
+  id: string;
+};
+
+export interface ActionOutput_posthog_geteventdefinition {
+  id: string;
+  name: string;
+  owner?: number | undefined;
+  description?: string | undefined;
+  tags?: string[] | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  updated_by?: {  id: number;
+  uuid: string;
+  distinct_id: string;
+  first_name: string;
+  last_name: string;
+  email: string;
+  is_email_verified: boolean;
+  hedgehog_config: {  [key: string]: unknown | undefined;};
+  role_at_organization: string;};
+  last_seen_at?: string | undefined;
+  last_updated_at?: string | undefined;
+  verified?: boolean | undefined;
+  verified_at?: string | undefined;
+  verified_by?: {  id: number;
+  uuid: string;
+  distinct_id: string;
+  first_name: string;
+  last_name: string;
+  email: string;
+  is_email_verified: boolean;
+  hedgehog_config: {  [key: string]: unknown | undefined;};
+  role_at_organization: string;};
+  hidden?: boolean | undefined;
+  enforcement_mode?: string | undefined;
+  primary_property?: string | undefined;
+  is_action?: boolean | undefined;
+  action_id?: number | undefined;
+  is_calculating?: boolean | undefined;
+  last_calculated_at?: string | undefined;
+  created_by?: {  id: number;
+  uuid: string;
+  distinct_id: string;
+  first_name: string;
+  last_name: string;
+  email: string;
+  is_email_verified: boolean;
+  hedgehog_config: {  [key: string]: unknown | undefined;};
+  role_at_organization: string;};
+  post_to_slack?: boolean | undefined;
+  default_columns?: string[] | undefined;
+  media_preview_urls?: string[] | undefined;
+};
+
+export interface ActionInput_posthog_getevent {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Event ID. Example: "019e8cf4-b6c4-7ec7-bf3c-d7deb1549ae7"
+   */
+  id: string;
+};
+
+export interface ActionOutput_posthog_getevent {
+  id: string;
+  distinct_id?: string | undefined;
+  properties?: {  [key: string]: unknown | undefined;};
+  event?: string | undefined;
+  timestamp?: string | undefined;
+  person?: {  [key: string]: unknown | undefined;};
+  elements?: ({  event?: string | undefined;
+  text?: string | undefined;
+  tag_name?: string | undefined;
+  attr_class?: string[] | undefined;
+  href?: string | undefined;
+  attr_id?: string | undefined;
+  nth_child?: number | undefined;
+  nth_of_type?: number | undefined;
+  attributes?: {  [key: string]: unknown | undefined;};
+  order?: number | undefined;})[];
+  elements_chain?: string | undefined;
+};
+
+export interface ActionInput_posthog_getexperiment {
+  /**
+   * Experiment ID. Example: 123
+   */
+  id: number;
+  /**
+   * PostHog project ID. Example: 309484
+   */
+  project_id: number;
+};
+
+export interface ActionOutput_posthog_getexperiment {
+  id: number;
+  name: string;
+  description?: string | undefined;
+  start_date?: string | undefined;
+  end_date?: string | undefined;
+  feature_flag_key: string;
+  feature_flag?: {  [key: string]: unknown | undefined;};
+  holdout?: {  [key: string]: unknown | undefined;};
+  holdout_id?: number | undefined;
+  exposure_cohort?: number | undefined;
+  parameters?: {  [key: string]: unknown | undefined;};
+  secondary_metrics?: unknown | undefined;
+  saved_metrics?: ({  [key: string]: unknown | undefined;})[];
+  saved_metrics_ids?: unknown[] | undefined;
+  filters?: unknown | undefined;
+  archived?: boolean | undefined;
+  deleted?: boolean | undefined;
+  created_by?: {  [key: string]: unknown | undefined;};
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  type?: string | undefined;
+  exposure_criteria?: {  [key: string]: unknown | undefined;};
+  metrics?: ({  [key: string]: unknown | undefined;})[];
+  metrics_secondary?: ({  [key: string]: unknown | undefined;})[];
+  stats_config?: unknown | undefined;
+  scheduling_config?: unknown | undefined;
+  allow_unknown_events?: boolean | undefined;
+  conclusion?: string | undefined;
+  conclusion_comment?: string | undefined;
+  primary_metrics_ordered_uuids?: unknown | undefined;
+  secondary_metrics_ordered_uuids?: unknown | undefined;
+  only_count_matured_users?: boolean | undefined;
+  update_feature_flag_params?: boolean | undefined;
+  status?: string | undefined;
+  user_access_level?: string | undefined;
+};
+
+export interface ActionInput_posthog_getfeatureflag {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Feature flag ID. Example: 700471
+   */
+  id: number;
+};
+
+export interface ActionOutput_posthog_getfeatureflag {
+  id: number;
+  name?: string | undefined;
+  key?: string | undefined;
+  filters?: unknown | undefined;
+  deleted?: boolean | undefined;
+  active?: boolean | undefined;
+  created_by?: {  id?: number | undefined;
+  uuid?: string | undefined;
+  distinct_id?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  is_email_verified?: boolean | undefined;
+  hedgehog_config?: unknown | undefined;
+  role_at_organization?: string | undefined;};
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  version?: number | undefined;
+  last_modified_by?: {  id?: number | undefined;
+  uuid?: string | undefined;
+  distinct_id?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  is_email_verified?: boolean | undefined;
+  hedgehog_config?: unknown | undefined;
+  role_at_organization?: string | undefined;};
+  ensure_experience_continuity?: boolean | undefined;
+  experiment_set?: number[] | undefined;
+  experiment_set_metadata?: unknown[] | undefined;
+  surveys?: unknown | undefined;
+  features?: unknown | undefined;
+  rollback_conditions?: unknown | undefined;
+  performed_rollback?: boolean | undefined;
+  can_edit?: boolean | undefined;
+  tags?: string[] | undefined;
+  evaluation_contexts?: unknown[] | undefined;
+  usage_dashboard?: number | undefined;
+  analytics_dashboards?: number[] | undefined;
+  has_enriched_analytics?: boolean | undefined;
+  user_access_level?: string | undefined;
+  creation_context?: string | undefined;
+  is_remote_configuration?: boolean | undefined;
+  has_encrypted_payloads?: boolean | undefined;
+  status?: string | undefined;
+  evaluation_runtime?: string | undefined;
+  bucketing_identifier?: string | undefined;
+  last_called_at?: string | undefined;
+  _create_in_folder?: string | undefined;
+  _should_create_usage_dashboard?: boolean | undefined;
+  is_used_in_replay_settings?: boolean | undefined;
+};
+
+export interface ActionInput_posthog_getinsight {
+  /**
+   * PostHog project ID. Example: 309484
+   */
+  project_id: number;
+  /**
+   * Insight ID. Example: 9038220
+   */
+  insight_id: number;
+};
+
+export interface ActionOutput_posthog_getinsight {
+  id: number;
+  short_id: string;
+  name?: string | undefined;
+  derived_name?: string | undefined;
+  query?: unknown | undefined;
+  order?: number | undefined;
+  deleted: boolean;
+  dashboards?: number[] | undefined;
+  dashboard_tiles?: ({  id: number;
+  dashboard_id: number;
+  deleted?: boolean | undefined;})[];
+  last_refresh?: string | undefined;
+  cache_target_age?: string | undefined;
+  next_allowed_client_refresh?: string | undefined;
+  result?: unknown | undefined;
+  hasMore?: boolean | undefined;
+  columns?: string[] | undefined;
+  created_at: string;
+  created_by?: unknown | undefined;
+  description?: string | undefined;
+  updated_at: string;
+  tags?: unknown[] | undefined;
+  favorited?: boolean | undefined;
+  last_modified_at?: string | undefined;
+  last_modified_by?: unknown | undefined;
+  is_sample?: boolean | undefined;
+  effective_restriction_level?: number | undefined;
+  effective_privilege_level?: number | undefined;
+  user_access_level?: string | undefined;
+  timezone?: string | undefined;
+  is_cached?: boolean | undefined;
+  query_status?: unknown | undefined;
+  hogql?: string | undefined;
+  types?: unknown[] | undefined;
+  resolved_date_range?: {  date_from: string;
+  date_to: string;} | undefined;
+  _create_in_folder?: string | undefined;
+  alerts?: unknown[] | undefined;
+  last_viewed_at?: string | undefined;
+};
+
+export interface ActionInput_posthog_getperson {
+  /**
+   * PostHog project ID. Example: 309484
+   */
+  project_id: number;
+  /**
+   * Person ID (numeric ID or UUID). Example: "28326788283"
+   */
+  id: string;
+};
+
+export interface ActionOutput_posthog_getperson {
+  id: number;
+  name?: string | undefined;
+  distinct_ids: string[];
+  properties?: {  [key: string]: unknown | undefined;};
+  created_at: string;
+  uuid: string;
+  last_seen_at?: string | undefined;
+};
+
+export interface ActionInput_posthog_getproject {
+  /**
+   * Project ID. Example: 309484
+   */
+  project_id: number;
+};
+
+export interface ActionOutput_posthog_getproject {
+  id: number;
+  uuid: string;
+  organization: string;
+  name: string;
+  product_description?: string | undefined;
+  created_at: string;
+  updated_at: string;
+};
+
+export interface ActionInput_posthog_getpropertydefinition {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Property definition ID (UUID). Example: "497f6eca-6276-4993-bfeb-53cbbbba6f08"
+   */
+  id: string;
+};
+
+export interface ActionOutput_posthog_getpropertydefinition {
+  id: string;
+  name: string;
+  description?: string | undefined;
+  tags?: string[] | undefined;
+  is_numerical?: boolean | undefined;
+  updated_at?: string | undefined;
+  updated_by?: {  id: number;
+  uuid: string;
+  distinct_id: string;
+  first_name: string;
+  last_name: string;
+  email: string;
+  is_email_verified: boolean;
+  hedgehog_config: {  [key: string]: unknown | undefined;};
+  role_at_organization: string;};
+  is_seen_on_filtered_events?: boolean | undefined;
+  property_type?: string | undefined;
+  verified?: boolean | undefined;
+  verified_at?: string | undefined;
+  verified_by?: {  id: number;
+  uuid: string;
+  distinct_id: string;
+  first_name: string;
+  last_name: string;
+  email: string;
+  is_email_verified: boolean;
+  hedgehog_config: {  [key: string]: unknown | undefined;};
+  role_at_organization: string;};
+  hidden?: boolean | undefined;
+};
+
+export interface ActionInput_posthog_getsurvey {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Survey ID. Example: "019e8d61-0fbf-0000-0ddc-95116dc0275e"
+   */
+  id: string;
+};
+
+export interface ActionOutput_posthog_getsurvey {
+  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  type?: string | undefined;
+  schedule?: string | undefined;
+  linked_flag?: {  [key: string]: unknown | undefined;};
+  linked_flag_id?: number | undefined;
+  linked_insight_id?: number | undefined;
+  targeting_flag?: {  [key: string]: unknown | undefined;};
+  internal_targeting_flag?: {  [key: string]: unknown | undefined;};
+  questions?: unknown[] | undefined;
+  conditions?: {  [key: string]: unknown | undefined;};
+  appearance?: unknown | undefined;
+  created_at?: string | undefined;
+  created_by?: {  [key: string]: unknown | undefined;};
+  start_date?: string | undefined;
+  end_date?: string | undefined;
+  archived?: boolean | undefined;
+  responses_limit?: number | undefined;
+  feature_flag_keys?: ({  [key: string]: unknown | undefined;})[];
+  iteration_count?: number | undefined;
+  iteration_frequency_days?: number | undefined;
+  iteration_start_dates?: string[] | undefined;
+  current_iteration?: number | undefined;
+  current_iteration_start_date?: string | undefined;
+  response_sampling_start_date?: string | undefined;
+  response_sampling_interval_type?: string | undefined;
+  response_sampling_interval?: number | undefined;
+  response_sampling_limit?: number | undefined;
+  response_sampling_daily_limits?: unknown | undefined;
+  enable_partial_responses?: boolean | undefined;
+  enable_iframe_embedding?: boolean | undefined;
+  base_language?: string | undefined;
+  translations?: unknown | undefined;
+  user_access_level?: string | undefined;
+  form_content?: unknown | undefined;
+};
+
+export interface ActionInput_posthog_identifyperson {
+  /**
+   * The distinct ID of the person to identify. Example: "user@example.com"
+   */
+  distinct_id: string;
+  /**
+   * Properties to set on the person via $set. Example: {"email": "user@example.com"}
+   */
+  properties?: {  [key: string]: unknown | undefined;};
+  /**
+   * The PostHog project ID. Example: 309484
+   */
+  project_id: number;
+};
+
+export interface ActionOutput_posthog_identifyperson {
+  status: string;
+  distinct_id: string;
+};
+
+export interface ActionInput_posthog_listactions {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Pagination cursor (offset value) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results to return per page.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_posthog_listactions {
+  items: ({  id: number;
+  name?: string | undefined;
+  description?: string | undefined;
+  tags?: string[] | undefined;
+  post_to_slack?: boolean | undefined;
+  slack_message_format?: string | undefined;
+  steps?: ({  event?: string | undefined;
+  properties?: ({  key?: string | undefined;
+  type?: string | undefined;
+  value?: string | number | boolean | ({  0: string;
+  1: number;
+  2: boolean;})[] | undefined;
+  operator?: string | undefined;})[];
+  selector?: string | undefined;
+  selector_regex?: string | undefined;
+  tag_name?: string | undefined;
+  text?: string | undefined;
+  text_matching?: string | undefined;
+  href?: string | undefined;
+  href_matching?: string | undefined;
+  url?: string | undefined;
+  url_matching?: string | undefined;})[];
+  created_at?: string | undefined;
+  created_by?: {  id?: number | undefined;
+  uuid?: string | undefined;
+  distinct_id?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  is_email_verified?: boolean | undefined;
+  hedgehog_config?: {  [key: string]: unknown | undefined;};
+  role_at_organization?: string | undefined;};
+  deleted?: boolean | undefined;
+  is_calculating?: boolean | undefined;
+  last_calculated_at?: string | undefined;
+  team_id?: number | undefined;
+  is_action?: boolean | undefined;
+  bytecode_error?: string | undefined;
+  pinned_at?: string | undefined;
+  creation_context?: string | undefined;
+  _create_in_folder?: string | undefined;
+  user_access_level?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_posthog_listalerts {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Pagination offset from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Example: 10
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_posthog_listalerts {
+  items: ({  id: string;
+  created_at?: string | undefined;
+  name?: string | undefined;
+  enabled?: boolean | undefined;
+  state?: string | undefined;
+  last_notified_at?: string | undefined;
+  last_checked_at?: string | undefined;
+  next_check_at?: string | undefined;
+  checks_total?: number | undefined;
+  last_value?: number | undefined;
+  calculation_interval?: string | undefined;
+  snoozed_until?: string | undefined;
+  skip_weekend?: boolean | undefined;
+  investigation_agent_enabled?: boolean | undefined;
+  investigation_gates_notifications?: boolean | undefined;
+  investigation_inconclusive_action?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_posthog_listannotations {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Pagination offset cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results to return per page.
+   */
+  limit?: number | undefined;
+  /**
+   * Search query string to filter annotations.
+   */
+  search?: string | undefined;
+};
+
+export interface ActionOutput_posthog_listannotations {
+  results: ({  id: number;
+  content?: string | undefined;
+  date_marker?: string | undefined;
+  creation_type?: string | undefined;
+  dashboard_item?: number | undefined;
+  dashboard_id?: number | undefined;
+  dashboard_name?: string | undefined;
+  insight_short_id?: string | undefined;
+  insight_name?: string | undefined;
+  insight_derived_name?: string | undefined;
+  created_by?: {  id: number;
+  uuid: string;
+  distinct_id?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  is_email_verified?: boolean | undefined;
+  hedgehog_config?: {  [key: string]: unknown | undefined;};
+  role_at_organization?: string | undefined;};
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  deleted?: boolean | undefined;
+  scope?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_posthog_listcohorts {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Pagination cursor (offset) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results to return per page. Example: 100
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_posthog_listcohorts {
+  items: ({  id: number;
+  name?: string | undefined;
+  description?: string | undefined;
+  deleted?: boolean | undefined;
+  is_calculating?: boolean | undefined;
+  created_at?: string | undefined;
+  last_calculation?: string | undefined;
+  count?: number | undefined;
+  is_static?: boolean | undefined;
+  cohort_type?: string | undefined;
+  errors_calculating?: number | undefined;
+  last_error_message?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_posthog_listdashboards {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Number of results per page. Example: 20
+   */
+  limit?: number | undefined;
+  /**
+   * Search query string
+   */
+  search?: string | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_posthog_listdashboards {
+  items: ({  id: number;
+  name: string;
+  description?: string | undefined;
+  pinned?: boolean | undefined;
+  created_at: string;
+  created_by?: {  id: number;
+  uuid: string;
+  distinct_id: string;
+  first_name: string;
+  last_name: string;
+  email: string;
+  is_email_verified: boolean;
+  role_at_organization?: string | undefined;};
+  last_accessed_at?: string | undefined;
+  last_viewed_at?: string | undefined;
+  is_shared?: boolean | undefined;
+  deleted?: boolean | undefined;
+  creation_mode?: string | undefined;
+  tags?: unknown[] | undefined;
+  restriction_level?: number | undefined;
+  effective_restriction_level?: number | undefined;
+  effective_privilege_level?: number | undefined;
+  user_access_level?: string | undefined;
+  last_refresh?: string | undefined;
+  team_id?: number | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_posthog_listearlyaccessfeatures {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Maximum number of results to return per page. Example: 100
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor (offset value) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_posthog_listearlyaccessfeatures {
+  count?: number | undefined;
+  next_cursor?: string | undefined;
+  previous_cursor?: string | undefined;
+  results: ({  id: string;
+  feature_flag?: {  id: number;
+  team_id?: number | undefined;
+  name?: string | undefined;
+  key?: string | undefined;
+  filters?: {  [key: string]: unknown | undefined;};
+  deleted?: boolean | undefined;
+  active?: boolean | undefined;
+  ensure_experience_continuity?: boolean | undefined;
+  version?: number | undefined;
+  evaluation_runtime?: string | undefined;
+  bucketing_identifier?: string | undefined;
+  evaluation_contexts?: string[] | undefined;};
+  name?: string | undefined;
+  description?: string | undefined;
+  stage?: string | undefined;
+  documentation_url?: string | undefined;
+  payload?: unknown | undefined;
+  created_at?: string | undefined;})[];
+};
+
+export interface ActionInput_posthog_listeventdefinitions {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Exclude hidden event definitions
+   */
+  exclude_hidden?: boolean | undefined;
+  /**
+   * Exclude stale event definitions
+   */
+  exclude_stale?: boolean | undefined;
+  /**
+   * Maximum number of results per page
+   */
+  limit?: number | undefined;
+  /**
+   * Offset for pagination
+   */
+  offset?: number | undefined;
+  /**
+   * Pagination cursor (offset) from the previous response. Overrides offset if provided.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_posthog_listeventdefinitions {
+  count: number;
+  next_cursor?: string | undefined;
+  previous_cursor?: string | undefined;
+  results: ({  id: string;
+  name: string;
+  owner?: number | undefined;
+  description?: string | undefined;
+  tags?: string[] | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  updated_by?: {  id?: number | undefined;
+  uuid?: string | undefined;
+  distinct_id?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  is_email_verified?: boolean | undefined;
+  hedgehog_config?: {  [key: string]: unknown | undefined;};
+  role_at_organization?: string | undefined;};
+  last_seen_at?: string | undefined;
+  last_updated_at?: string | undefined;
+  verified?: boolean | undefined;
+  verified_at?: string | undefined;
+  verified_by?: {  id?: number | undefined;
+  uuid?: string | undefined;
+  distinct_id?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  is_email_verified?: boolean | undefined;
+  hedgehog_config?: {  [key: string]: unknown | undefined;};
+  role_at_organization?: string | undefined;};
+  hidden?: boolean | undefined;
+  enforcement_mode?: string | undefined;
+  primary_property?: string | undefined;
+  is_action?: boolean | undefined;
+  action_id?: number | undefined;
+  is_calculating?: boolean | undefined;
+  last_calculated_at?: string | undefined;
+  created_by?: {  id?: number | undefined;
+  uuid?: string | undefined;
+  distinct_id?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  is_email_verified?: boolean | undefined;
+  hedgehog_config?: {  [key: string]: unknown | undefined;};
+  role_at_organization?: string | undefined;};
+  post_to_slack?: boolean | undefined;
+  default_columns?: string[] | undefined;
+  media_preview_urls?: string[] | undefined;})[];
+};
+
+export interface ActionInput_posthog_listevents {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Only fetch events after this ISO 8601 timestamp.
+   */
+  after?: string | undefined;
+  /**
+   * Only fetch events before this ISO 8601 timestamp.
+   */
+  before?: string | undefined;
+  /**
+   * Filter by distinct_id.
+   */
+  distinct_id?: string | undefined;
+  /**
+   * Filter by event name.
+   */
+  event?: string | undefined;
+  /**
+   * Number of results per page.
+   */
+  limit?: number | undefined;
+  /**
+   * Offset for pagination.
+   */
+  offset?: number | undefined;
+  /**
+   * Filter by person_id.
+   */
+  person_id?: string | undefined;
+  /**
+   * JSON-encoded property filters.
+   */
+  properties?: string | undefined;
+  /**
+   * Pagination cursor from the previous response next URL.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_posthog_listevents {
+  events: ({  id: string;
+  distinct_id: string;
+  properties?: {  [key: string]: unknown | undefined;};
+  event: string;
+  timestamp: string;
+  person?: unknown | undefined;
+  elements?: unknown[] | undefined;
+  elements_chain?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_posthog_listexperiments {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Pagination cursor (offset) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Example: 20
+   */
+  limit?: number | undefined;
+  /**
+   * Filter by status. One of: all, complete, draft, paused, running, stopped
+   */
+  status?: string | undefined;
+  /**
+   * Filter by archived state
+   */
+  archived?: boolean | undefined;
+  /**
+   * Search query string
+   */
+  search?: string | undefined;
+};
+
+export interface ActionOutput_posthog_listexperiments {
+  experiments: ({  id: number;
+  name: string;
+  description?: string | undefined;
+  start_date?: string | undefined;
+  end_date?: string | undefined;
+  feature_flag_key?: string | undefined;
+  status?: string | undefined;
+  archived?: boolean | undefined;
+  deleted?: boolean | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_posthog_listfeatureflags {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Pagination cursor (offset) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results to return per page.
+   */
+  limit?: number | undefined;
+  /**
+   * Filter by active status. One of: "STALE", "false", "true".
+   */
+  active?: string | undefined;
+  /**
+   * Filter by creator user ID.
+   */
+  created_by_id?: string | undefined;
+  /**
+   * Filter by evaluation runtime. One of: "both", "client", "server".
+   */
+  evaluation_runtime?: string | undefined;
+  /**
+   * Excluded properties filter.
+   */
+  excluded_properties?: string | undefined;
+  /**
+   * Filter by evaluation contexts. One of: "false", "true".
+   */
+  has_evaluation_contexts?: string | undefined;
+  /**
+   * Search query string.
+   */
+  search?: string | undefined;
+  /**
+   * Filter by tags.
+   */
+  tags?: string | undefined;
+  /**
+   * Filter by flag type. One of: "boolean", "experiment", "multivariant", "remote_config".
+   */
+  type?: string | undefined;
+};
+
+export interface ActionOutput_posthog_listfeatureflags {
+  items: ({  id: number;
+  name?: string | undefined;
+  key: string;
+  filters?: {  [key: string]: unknown | undefined;};
+  deleted?: boolean | undefined;
+  active?: boolean | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  version?: number | undefined;
+  tags?: string[] | undefined;
+  ensure_experience_continuity?: boolean | undefined;
+  experiment_set?: number[] | undefined;
+  is_remote_configuration?: boolean | undefined;
+  evaluation_runtime?: string | undefined;
+  status?: string | undefined;})[];
+  count: number;
+  next_cursor?: string | undefined;
+  previous_cursor?: string | undefined;
+};
+
+export interface ActionInput_posthog_listinsights {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Number of results to return per page. Example: 100
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor (offset) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Filter to saved insights only.
+   */
+  saved?: boolean | undefined;
+  /**
+   * Search string to filter insights by name or description.
+   */
+  search?: string | undefined;
+  /**
+   * Filter by insight short_id. Example: "ylBVGgvc"
+   */
+  short_id?: string | undefined;
+  /**
+   * Filter by insight type. One of: FUNNELS, JSON, LIFECYCLE, PATHS, RETENTION, SQL, STICKINESS, TRENDS
+   */
+  insight?: string | undefined;
+  /**
+   * Filter to favorited insights only.
+   */
+  favorited?: boolean | undefined;
+};
+
+export interface ActionOutput_posthog_listinsights {
+  items: ({  id: number;
+  short_id: string;
+  name?: string | undefined;
+  derived_name?: string | undefined;
+  query?: unknown | undefined;
+  order?: number | undefined;
+  deleted?: boolean | undefined;
+  dashboards?: number[] | undefined;
+  dashboard_tiles?: unknown[] | undefined;
+  last_refresh?: string | undefined;
+  cache_target_age?: string | undefined;
+  next_allowed_client_refresh?: string | undefined;
+  result?: unknown | undefined;
+  hasMore?: boolean | undefined;
+  columns?: string[] | undefined;
+  created_at?: string | undefined;
+  created_by?: {  id: number;
+  uuid?: string | undefined;
+  distinct_id?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  is_email_verified?: boolean | undefined;
+  hedgehog_config?: unknown | undefined;
+  role_at_organization?: string | undefined;};
+  description?: string | undefined;
+  updated_at?: string | undefined;
+  tags?: unknown[] | undefined;
+  favorited?: boolean | undefined;
+  last_modified_at?: string | undefined;
+  last_modified_by?: {  id: number;
+  uuid?: string | undefined;
+  distinct_id?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  is_email_verified?: boolean | undefined;
+  hedgehog_config?: unknown | undefined;
+  role_at_organization?: string | undefined;};
+  is_sample?: boolean | undefined;
+  effective_restriction_level?: number | undefined;
+  effective_privilege_level?: number | undefined;
+  user_access_level?: string | undefined;
+  timezone?: string | undefined;
+  is_cached?: boolean | undefined;
+  query_status?: unknown | undefined;
+  hogql?: string | undefined;
+  types?: unknown[] | undefined;
+  resolved_date_range?: {  date_from?: string | undefined;
+  date_to?: string | undefined;};
+  alerts?: unknown[] | undefined;
+  last_viewed_at?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_posthog_listpersons {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Filter by distinct ID.
+   */
+  distinct_id?: string | undefined;
+  /**
+   * Filter by email.
+   */
+  email?: string | undefined;
+  /**
+   * Search query string.
+   */
+  search?: string | undefined;
+  /**
+   * Filter by properties.
+   */
+  properties?: unknown[] | undefined;
+  /**
+   * Number of results to return per page.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_posthog_listpersons {
+  persons: ({  id: string;
+  name?: string | undefined;
+  distinct_ids?: string[] | undefined;
+  properties?: {  [key: string]: unknown | undefined;};
+  created_at?: string | undefined;
+  uuid?: string | undefined;
+  last_seen_at?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_posthog_listprojects {
+  /**
+   * Pagination offset from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results to return per page.
+   */
+  limit?: number | undefined;
+  /**
+   * Search query string.
+   */
+  search?: string | undefined;
+};
+
+export interface ActionOutput_posthog_listprojects {
+  items: ({  id: number;
+  uuid: string;
+  organization: string;
+  api_token: string;
+  name: string;
+  completed_snippet_onboarding?: boolean | undefined;
+  has_completed_onboarding_for?: unknown | undefined;
+  ingested_event?: boolean | undefined;
+  is_demo?: boolean | undefined;
+  timezone?: string | undefined;
+  access_control?: boolean | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_posthog_listpropertydefinitions {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page.
+   */
+  limit?: number | undefined;
+  /**
+   * Search query string.
+   */
+  search?: string | undefined;
+  /**
+   * Property type filter. Defaults to "event".
+   */
+  type?: 'event' | 'person' | 'group' | 'session' | undefined;
+  /**
+   * Comma-separated event names to filter by.
+   */
+  event_names?: string | undefined;
+  /**
+   * Exclude core properties.
+   */
+  exclude_core_properties?: boolean | undefined;
+  /**
+   * Exclude hidden properties.
+   */
+  exclude_hidden?: boolean | undefined;
+  /**
+   * Filter to numerical properties only.
+   */
+  is_numerical?: boolean | undefined;
+  /**
+   * Filter to verified properties only.
+   */
+  verified?: boolean | undefined;
+};
+
+export interface ActionOutput_posthog_listpropertydefinitions {
+  items: ({  id: string;
+  name: string;
+  description?: string | undefined;
+  tags?: string[] | undefined;
+  is_numerical?: boolean | undefined;
+  updated_at?: string | undefined;
+  updated_by?: {  id?: number | undefined;
+  uuid?: string | undefined;
+  distinct_id?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  is_email_verified?: boolean | undefined;
+  hedgehog_config?: {  [key: string]: unknown | undefined;};
+  role_at_organization?: string | undefined;};
+  is_seen_on_filtered_events?: boolean | undefined;
+  property_type?: string | undefined;
+  verified?: boolean | undefined;
+  verified_at?: string | undefined;
+  verified_by?: {  id?: number | undefined;
+  uuid?: string | undefined;
+  distinct_id?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  is_email_verified?: boolean | undefined;
+  hedgehog_config?: {  [key: string]: unknown | undefined;};
+  role_at_organization?: string | undefined;};
+  hidden?: boolean | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_posthog_listsessionrecordings {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Number of results to return per page.
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor (offset) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_posthog_listsessionrecordings {
+  items: ({  id: string;
+  distinct_id: string;
+  viewed?: boolean | undefined;
+  viewers?: string[] | undefined;
+  recording_duration?: number | undefined;
+  active_seconds?: number | undefined;
+  inactive_seconds?: number | undefined;
+  start_time?: string | undefined;
+  end_time?: string | undefined;
+  click_count?: number | undefined;
+  keypress_count?: number | undefined;
+  mouse_activity_count?: number | undefined;
+  console_log_count?: number | undefined;
+  console_warn_count?: number | undefined;
+  console_error_count?: number | undefined;
+  start_url?: string | undefined;
+  person?: {  id?: number | undefined;
+  name?: string | undefined;
+  distinct_ids?: string[] | undefined;
+  properties?: unknown | undefined;
+  created_at?: string | undefined;
+  uuid?: string | undefined;
+  last_seen_at?: string | undefined;};
+  retention_period_days?: number | undefined;
+  expiry_time?: string | undefined;
+  recording_ttl?: number | undefined;
+  snapshot_source?: string | undefined;
+  snapshot_library?: string | undefined;
+  ongoing?: boolean | undefined;
+  activity_score?: number | undefined;
+  has_summary?: boolean | undefined;
+  summary_outcome?: {  description?: string | undefined;
+  success?: boolean | undefined;};
+  external_references?: unknown[] | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_posthog_listsurveys {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Pagination cursor (offset) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum number of surveys to return per page.
+   */
+  limit?: number | undefined;
+  /**
+   * Search query to filter surveys by name.
+   */
+  search?: string | undefined;
+  /**
+   * Filter to archived surveys only.
+   */
+  archived?: boolean | undefined;
+};
+
+export interface ActionOutput_posthog_listsurveys {
+  items: ({  id: string;
+  name: string;
+  description?: string | undefined;
+  type?: string | undefined;
+  schedule?: string | undefined;
+  linked_flag_id?: number | undefined;
+  linked_insight_id?: number | undefined;
+  targeting_flag_id?: number | undefined;
+  questions?: unknown | undefined;
+  conditions?: unknown | undefined;
+  appearance?: unknown | undefined;
+  created_at?: string | undefined;
+  start_date?: string | undefined;
+  end_date?: string | undefined;
+  archived?: boolean | undefined;
+  responses_limit?: number | undefined;
+  iteration_count?: number | undefined;
+  iteration_frequency_days?: number | undefined;
+  current_iteration?: number | undefined;
+  current_iteration_start_date?: string | undefined;
+  enable_partial_responses?: boolean | undefined;
+  enable_iframe_embedding?: boolean | undefined;
+  base_language?: string | undefined;
+  user_access_level?: string | undefined;})[];
+  next?: string | undefined;
+};
+
+export interface ActionInput_posthog_updateaction {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Action ID. Example: 275761
+   */
+  id: number;
+  /**
+   * Action name. Set to null to clear.
+   */
+  name?: string | undefined;
+  /**
+   * Action description.
+   */
+  description?: string | undefined;
+  /**
+   * Tags to attach to the action.
+   */
+  tags?: string[] | undefined;
+  /**
+   * Whether to post to Slack.
+   */
+  post_to_slack?: boolean | undefined;
+  /**
+   * Slack message format string.
+   */
+  slack_message_format?: string | undefined;
+  /**
+   * Action steps.
+   */
+  steps?: ({  event?: string | undefined;
+  properties?: ({  key: string;
+  type: string;
+  value: string | number | boolean | ({  0: string;
+  1: number;
+  2: boolean;})[];
+  operator: string;})[] | undefined;
+  selector?: string | undefined;
+  selector_regex?: string | undefined;
+  tag_name?: string | undefined;
+  text?: string | undefined;
+  text_matching?: string | undefined;
+  href?: string | undefined;
+  href_matching?: string | undefined;
+  url?: string | undefined;
+  url_matching?: string | undefined;})[];
+  /**
+   * Whether the action is deleted.
+   */
+  deleted?: boolean | undefined;
+  /**
+   * ISO timestamp to pin the action. Set to null to unpin.
+   */
+  pinned_at?: string | undefined;
+  /**
+   * ISO timestamp of last calculation.
+   */
+  last_calculated_at?: string | undefined;
+  /**
+   * Folder ID to create the action in.
+   */
+  _create_in_folder?: string | undefined;
+};
+
+export interface ActionOutput_posthog_updateaction {
+  id: number;
+  name?: string | undefined;
+  description?: string | undefined;
+  tags?: string[] | undefined;
+  post_to_slack?: boolean | undefined;
+  slack_message_format?: string | undefined;
+  steps?: ({  event?: string | undefined;
+  properties?: ({  key: string;
+  type: string;
+  value: string | number | boolean | ({  0: string;
+  1: number;
+  2: boolean;})[];
+  operator: string;})[] | undefined;
+  selector?: string | undefined;
+  selector_regex?: string | undefined;
+  tag_name?: string | undefined;
+  text?: string | undefined;
+  text_matching?: string | undefined;
+  href?: string | undefined;
+  href_matching?: string | undefined;
+  url?: string | undefined;
+  url_matching?: string | undefined;})[];
+  created_at?: string | undefined;
+  created_by?: {  id: number;
+  uuid: string;
+  distinct_id: string;
+  first_name: string;
+  last_name: string;
+  email: string;
+  is_email_verified: boolean;
+  hedgehog_config?: unknown | undefined;
+  role_at_organization: string;};
+  deleted?: boolean | undefined;
+  is_calculating?: boolean | undefined;
+  last_calculated_at?: string | undefined;
+  team_id?: number | undefined;
+  is_action?: boolean | undefined;
+  bytecode_error?: string | undefined;
+  pinned_at?: string | undefined;
+  creation_context?: string | undefined;
+  _create_in_folder?: string | undefined;
+  user_access_level?: string | undefined;
+};
+
+export interface ActionInput_posthog_updatealert {
+  /**
+   * Alert ID. Example: "019e8d60-cb63-0000-f88c-60b06ee41715"
+   */
+  id: string;
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  insight?: number | undefined;
+  name?: string | undefined;
+  subscribed_users?: number[] | undefined;
+  threshold?: {  [key: string]: unknown | undefined;};
+  condition?: {  [key: string]: unknown | undefined;};
+  enabled?: boolean | undefined;
+  config?: {  [key: string]: unknown | undefined;};
+  detector_config?: {  [key: string]: unknown | undefined;};
+  calculation_interval?: string | undefined;
+  snoozed_until?: string | undefined;
+  skip_weekend?: boolean | undefined;
+  schedule_restriction?: {  [key: string]: unknown | undefined;};
+  investigation_agent_enabled?: boolean | undefined;
+  investigation_gates_notifications?: boolean | undefined;
+  investigation_inconclusive_action?: string | undefined;
+};
+
+export interface ActionOutput_posthog_updatealert {
+  id: string;
+  created_by: {  id: number;
+  uuid: string;
+  distinct_id: string;
+  first_name: string;
+  last_name: string;
+  email: string;
+  is_email_verified: boolean;
+  hedgehog_config?: unknown | undefined;
+  role_at_organization: string;};
+  created_at: string;
+  insight: {  id: number;
+  short_id: string;
+  name: string;
+  derived_name: string;
+  filters: {  [key: string]: unknown | undefined;};
+  query?: unknown | undefined;
+  dashboards: unknown[];
+  dashboard_tiles: unknown[];
+  description: string;
+  last_refresh: string;
+  refreshing: boolean;
+  saved: boolean;
+  updated_at: string;
+  created_by: {  id: number;
+  uuid: string;
+  distinct_id: string;
+  first_name: string;
+  last_name: string;
+  email: string;
+  is_email_verified: boolean;
+  hedgehog_config?: unknown | undefined;
+  role_at_organization: string;};
+  created_at: string;
+  last_modified_at: string;
+  favorited: boolean;
+  user_access_level: string;
+  last_viewed_at: string;
+  tags: unknown[];};
+  name: string;
+  subscribed_users: number[];
+  threshold: {  id: string;
+  created_at: string;
+  name: string;
+  configuration: {  type: string;
+  bounds?: {  [key: string]: unknown | undefined;};};};
+  condition: {  type: string;};
+  state: string;
+  enabled: boolean;
+  last_notified_at: string;
+  last_checked_at: string;
+  next_check_at: string;
+  config: {  type: string;
+  series_index: number;
+  check_ongoing_interval?: boolean | undefined;};
+  detector_config: {  [key: string]: unknown | undefined;};
+  calculation_interval: string;
+  snoozed_until: string;
+  skip_weekend: boolean;
+  schedule_restriction: {  [key: string]: unknown | undefined;};
+  last_value: number;
+  investigation_agent_enabled: boolean;
+  investigation_gates_notifications: boolean;
+  investigation_inconclusive_action: string;
+};
+
+export interface ActionInput_posthog_updateannotation {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Annotation ID. Example: 339256
+   */
+  id: number;
+  /**
+   * Annotation text content
+   */
+  content?: string | undefined;
+  /**
+   * ISO timestamp for the annotation marker. Example: "2024-01-15T00:00:00Z"
+   */
+  date_marker?: string | undefined;
+  /**
+   * Creation type. Example: "USR"
+   */
+  creation_type?: string | undefined;
+  /**
+   * Dashboard item (insight) ID this annotation is attached to
+   */
+  dashboard_item?: number | undefined;
+  /**
+   * Dashboard ID this annotation is attached to
+   */
+  dashboard_id?: number | undefined;
+  /**
+   * Whether the annotation is deleted
+   */
+  deleted?: boolean | undefined;
+  /**
+   * Scope of the annotation. Example: "dashboard_item" or "project"
+   */
+  scope?: string | undefined;
+};
+
+export interface ActionOutput_posthog_updateannotation {
+  id: number;
+  content?: string | undefined;
+  date_marker?: string | undefined;
+  creation_type?: string | undefined;
+  dashboard_item?: number | undefined;
+  dashboard_id?: number | undefined;
+  dashboard_name?: string | undefined;
+  insight_short_id?: string | undefined;
+  insight_name?: string | undefined;
+  insight_derived_name?: string | undefined;
+  created_by?: {  id: number;
+  uuid?: string | undefined;
+  distinct_id?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  is_email_verified?: boolean | undefined;
+  hedgehog_config?: {  [key: string]: unknown | undefined;};
+  role_at_organization?: string | undefined;};
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  deleted?: boolean | undefined;
+  scope?: string | undefined;
+};
+
+export interface ActionInput_posthog_updatecohort {
+  /**
+   * PostHog project ID. Example: 309484
+   */
+  project_id: number;
+  /**
+   * Cohort ID. Example: 342249
+   */
+  id: number;
+  /**
+   * Cohort name. Set to null to clear.
+   */
+  name?: string | undefined;
+  /**
+   * Cohort description.
+   */
+  description?: string | undefined;
+  /**
+   * Soft-delete the cohort.
+   */
+  deleted?: boolean | undefined;
+  /**
+   * Cohort filters object.
+   */
+  filters?: {  [key: string]: unknown | undefined;};
+  /**
+   * Cohort query.
+   */
+  query?: unknown | undefined;
+  /**
+   * Whether the cohort is static.
+   */
+  is_static?: boolean | undefined;
+  /**
+   * Cohort type.
+   */
+  cohort_type?: string | undefined;
+};
+
+export interface ActionOutput_posthog_updatecohort {
+  id: number;
+  name?: string | undefined;
+  description?: string | undefined;
+  groups?: unknown | undefined;
+  deleted: boolean;
+  filters?: {  [key: string]: unknown | undefined;};
+  query?: unknown | undefined;
+  version?: number | undefined;
+  pending_version?: number | undefined;
+  is_calculating?: boolean | undefined;
+  created_at?: string | undefined;
+  last_calculation?: string | undefined;
+  errors_calculating?: number | undefined;
+  last_error_message?: string | undefined;
+  count?: number | undefined;
+  is_static?: boolean | undefined;
+  cohort_type?: string | undefined;
+  experiment_set?: number[] | undefined;
+  _create_in_folder?: string | undefined;
+  _create_static_person_ids?: unknown[] | undefined;
+};
+
+export interface ActionInput_posthog_updatedashboard {
+  /**
+   * PostHog project ID. Example: 309484
+   */
+  project_id: number;
+  /**
+   * Dashboard ID. Example: 1663108
+   */
+  id: number;
+  /**
+   * Dashboard name. Set to null to clear.
+   */
+  name?: string | undefined;
+  /**
+   * Dashboard description
+   */
+  description?: string | undefined;
+  /**
+   * Whether the dashboard is pinned
+   */
+  pinned?: boolean | undefined;
+  /**
+   * ISO timestamp of last access
+   */
+  last_accessed_at?: string | undefined;
+  /**
+   * Soft-delete flag
+   */
+  deleted?: boolean | undefined;
+  /**
+   * Breakdown colors configuration
+   */
+  breakdown_colors?: unknown | undefined;
+  /**
+   * Data color theme ID
+   */
+  data_color_theme_id?: number | undefined;
+  /**
+   * Dashboard tags
+   */
+  tags?: unknown[] | undefined;
+  /**
+   * Restriction level
+   */
+  restriction_level?: number | undefined;
+  /**
+   * ISO timestamp of last refresh
+   */
+  last_refresh?: string | undefined;
+  /**
+   * Quick filter insight IDs
+   */
+  quick_filter_ids?: string[] | undefined;
+  /**
+   * Template name
+   */
+  use_template?: string | undefined;
+  /**
+   * ID of dashboard to copy from
+   */
+  use_dashboard?: number | undefined;
+  /**
+   * Whether to delete insights when copying
+   */
+  delete_insights?: boolean | undefined;
+  /**
+   * Folder to create the dashboard in
+   */
+  _create_in_folder?: string | undefined;
+};
+
+export interface ActionOutput_posthog_updatedashboard {
+  id: number;
+  name?: string | undefined;
+  description?: string | undefined;
+  pinned?: boolean | undefined;
+  created_at?: string | undefined;
+  created_by?: {  [key: string]: unknown | undefined;};
+  last_accessed_at?: string | undefined;
+  last_viewed_at?: string | undefined;
+  is_shared?: boolean | undefined;
+  deleted?: boolean | undefined;
+  creation_mode?: string | undefined;
+  filters?: {  [key: string]: unknown | undefined;};
+  variables?: {  [key: string]: unknown | undefined;};
+  breakdown_colors?: unknown | undefined;
+  data_color_theme_id?: number | undefined;
+  tags?: unknown[] | undefined;
+  restriction_level?: number | undefined;
+  effective_restriction_level?: number | undefined;
+  effective_privilege_level?: number | undefined;
+  user_access_level?: string | undefined;
+  access_control_version?: string | undefined;
+  last_refresh?: string | undefined;
+  persisted_filters?: {  [key: string]: unknown | undefined;};
+  persisted_variables?: {  [key: string]: unknown | undefined;};
+  team_id?: number | undefined;
+  quick_filter_ids?: unknown[] | undefined;
+  tiles?: unknown[] | undefined;
+  use_template?: string | undefined;
+  use_dashboard?: number | undefined;
+  delete_insights?: boolean | undefined;
+  _create_in_folder?: string | undefined;
+};
+
+export interface ActionInput_posthog_updateearlyaccessfeature {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Early access feature ID. Example: "497f6eca-6276-4993-bfeb-53cbbbba6f08"
+   */
+  id: string;
+  /**
+   * Name of the early access feature.
+   */
+  name?: string | undefined;
+  /**
+   * Description of the early access feature.
+   */
+  description?: string | undefined;
+  /**
+   * Stage of the early access feature.
+   */
+  stage?: 'draft' | 'concept' | 'alpha' | 'beta' | 'general-availability' | undefined;
+  /**
+   * URL to documentation for the early access feature.
+   */
+  documentation_url?: string | undefined;
+};
+
+export interface ActionOutput_posthog_updateearlyaccessfeature {
+  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  stage?: string | undefined;
+  documentation_url?: string | undefined;
+  payload?: unknown | undefined;
+  created_at?: string | undefined;
+  feature_flag_id?: number | undefined;
+};
+
+export interface ActionInput_posthog_updateexperiment {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Experiment ID. Example: 123
+   */
+  id: number;
+  /**
+   * Experiment name
+   */
+  name?: string | undefined;
+  /**
+   * Experiment description
+   */
+  description?: string | undefined;
+  /**
+   * Start date in ISO 8601 format. Example: 2019-08-24T14:15:22Z
+   */
+  start_date?: string | undefined;
+  /**
+   * End date in ISO 8601 format. Example: 2019-08-24T14:15:22Z
+   */
+  end_date?: string | undefined;
+  /**
+   * Feature flag key
+   */
+  feature_flag_key?: string | undefined;
+  /**
+   * Whether the experiment is archived
+   */
+  archived?: boolean | undefined;
+  /**
+   * Experiment conclusion. Example: won, lost, inconclusive
+   */
+  conclusion?: string | undefined;
+  /**
+   * Comment explaining the conclusion
+   */
+  conclusion_comment?: string | undefined;
+};
+
+export interface ActionOutput_posthog_updateexperiment {
+  id: number;
+  name: string;
+  description?: string | undefined;
+  start_date?: string | undefined;
+  end_date?: string | undefined;
+  feature_flag_key: string;
+  holdout_id?: number | undefined;
+  exposure_cohort?: number | undefined;
+  archived?: boolean | undefined;
+  deleted?: boolean | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  type?: string | undefined;
+  conclusion?: string | undefined;
+  conclusion_comment?: string | undefined;
+  status?: string | undefined;
+  allow_unknown_events?: boolean | undefined;
+  only_count_matured_users?: boolean | undefined;
+  update_feature_flag_params?: boolean | undefined;
+};
+
+export interface ActionInput_posthog_updatefeatureflag {
+  /**
+   * Feature flag ID. Example: 700471
+   */
+  id: number;
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Name of the feature flag.
+   */
+  name?: string | undefined;
+  /**
+   * Unique key for the feature flag.
+   */
+  key?: string | undefined;
+  /**
+   * Whether the feature flag is active.
+   */
+  active?: boolean | undefined;
+  /**
+   * Filter conditions for the feature flag.
+   */
+  filters?: {  [key: string]: unknown | undefined;};
+  /**
+   * Tags associated with the feature flag.
+   */
+  tags?: string[] | undefined;
+  /**
+   * Evaluation contexts for the feature flag.
+   */
+  evaluation_contexts?: ({  [key: string]: unknown | undefined;})[];
+};
+
+export interface ActionOutput_posthog_updatefeatureflag {
+  id: number;
+  name: string;
+  key: string;
+  filters?: {  [key: string]: unknown | undefined;};
+  deleted?: boolean | undefined;
+  active?: boolean | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  version?: number | undefined;
+  tags?: string[] | undefined;
+  ensure_experience_continuity?: boolean | undefined;
+  can_edit?: boolean | undefined;
+  status?: string | undefined;
+  evaluation_runtime?: string | undefined;
+};
+
+export interface ActionInput_posthog_updateinsight {
+  /**
+   * Insight ID. Example: 9037904
+   */
+  id: number;
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Insight name. Pass null to clear.
+   */
+  name?: string | undefined;
+  derived_name?: string | undefined;
+  /**
+   * Insight description. Pass null to clear.
+   */
+  description?: string | undefined;
+  query?: unknown | undefined;
+  order?: number | undefined;
+  deleted?: boolean | undefined;
+  dashboards?: number[] | undefined;
+  tags?: string[] | undefined;
+  favorited?: boolean | undefined;
+  _create_in_folder?: string | undefined;
+};
+
+export interface ActionOutput_posthog_updateinsight {
+  id: number;
+  short_id: string;
+  name?: string | undefined;
+  derived_name?: string | undefined;
+  description?: string | undefined;
+  query?: unknown | undefined;
+  order?: number | undefined;
+  deleted?: boolean | undefined;
+  dashboards?: number[] | undefined;
+  tags?: string[] | undefined;
+  favorited?: boolean | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+};
+
+export interface ActionInput_posthog_updateperson {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Person ID (numeric ID or UUID). Example: "28326843662" or "1842ea50-563c-5ead-88e8-88d3ad56983d"
+   */
+  person_id: string;
+  /**
+   * Properties to update on the person
+   */
+  properties?: {} | undefined;
+};
+
+export interface ActionOutput_posthog_updateperson {
+  id: number;
+  name?: string | undefined;
+  distinct_ids?: string[] | undefined;
+  properties?: {} | undefined;
+  created_at?: string | undefined;
+  uuid?: string | undefined;
+  last_seen_at?: string | undefined;
+};
+
+export interface ActionInput_posthog_updatepropertydefinition {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Property definition ID. Example: "497f6eca-6276-4993-bfeb-53cbbbba6f08"
+   */
+  id: string;
+  /**
+   * Description of the property definition.
+   */
+  description?: string | undefined;
+  /**
+   * Tags associated with the property definition.
+   */
+  tags?: string[] | undefined;
+  /**
+   * Type of the property. Example: "DateTime", "String", "Numeric"
+   */
+  property_type?: string | undefined;
+  /**
+   * Whether the property definition is verified.
+   */
+  verified?: boolean | undefined;
+  /**
+   * Whether the property definition is hidden.
+   */
+  hidden?: boolean | undefined;
+};
+
+export interface ActionOutput_posthog_updatepropertydefinition {
+  id: string;
+  name: string;
+  description?: string | undefined;
+  tags?: string[] | undefined;
+  is_numerical?: boolean | undefined;
+  updated_at?: string | undefined;
+  updated_by?: {  id: number;
+  uuid: string;
+  distinct_id: string;
+  first_name: string;
+  last_name: string;
+  email: string;
+  is_email_verified: boolean;
+  hedgehog_config: {  [key: string]: unknown | undefined;};
+  role_at_organization: string;};
+  is_seen_on_filtered_events?: boolean | undefined;
+  property_type?: string | undefined;
+  verified?: boolean | undefined;
+  verified_at?: string | undefined;
+  verified_by?: {  id: number;
+  uuid: string;
+  distinct_id: string;
+  first_name: string;
+  last_name: string;
+  email: string;
+  is_email_verified: boolean;
+  hedgehog_config: {  [key: string]: unknown | undefined;};
+  role_at_organization: string;};
+  hidden?: boolean | undefined;
+};
+
+export interface ActionInput_posthog_updatesurvey {
+  /**
+   * PostHog project ID. Example: 309484
+   */
+  project_id: number;
+  /**
+   * Survey ID to update. Example: "019e8d61-0fbf-0000-0ddc-95116dc0275e"
+   */
+  survey_id: string;
+  /**
+   * Survey name
+   */
+  name?: string | undefined;
+  /**
+   * Survey description
+   */
+  description?: string | undefined;
+  /**
+   * Survey type (e.g. popover, api)
+   */
+  type?: string | undefined;
+  /**
+   * Survey schedule
+   */
+  schedule?: string | undefined;
+  /**
+   * Linked feature flag ID
+   */
+  linked_flag_id?: number | undefined;
+  /**
+   * Linked insight ID
+   */
+  linked_insight_id?: number | undefined;
+  /**
+   * Targeting flag ID
+   */
+  targeting_flag_id?: number | undefined;
+  /**
+   * Targeting flag filters
+   */
+  targeting_flag_filters?: {  [key: string]: unknown | undefined;};
+  /**
+   * Remove targeting flag
+   */
+  remove_targeting_flag?: boolean | undefined;
+  /**
+   * Survey questions
+   */
+  questions?: ({  [key: string]: unknown | undefined;})[];
+  /**
+   * Survey conditions
+   */
+  conditions?: {  [key: string]: unknown | undefined;};
+  /**
+   * Survey appearance settings
+   */
+  appearance?: {  [key: string]: unknown | undefined;};
+  /**
+   * Start date ISO string
+   */
+  start_date?: string | undefined;
+  /**
+   * End date ISO string
+   */
+  end_date?: string | undefined;
+  /**
+   * Archive status
+   */
+  archived?: boolean | undefined;
+  /**
+   * Response limit
+   */
+  responses_limit?: number | undefined;
+  /**
+   * Iteration count
+   */
+  iteration_count?: number | undefined;
+  /**
+   * Iteration frequency in days
+   */
+  iteration_frequency_days?: number | undefined;
+  /**
+   * Iteration start dates
+   */
+  iteration_start_dates?: string[] | undefined;
+  /**
+   * Current iteration number
+   */
+  current_iteration?: number | undefined;
+  /**
+   * Current iteration start date
+   */
+  current_iteration_start_date?: string | undefined;
+  /**
+   * Response sampling start date
+   */
+  response_sampling_start_date?: string | undefined;
+  /**
+   * Response sampling interval type
+   */
+  response_sampling_interval_type?: string | undefined;
+  /**
+   * Response sampling interval
+   */
+  response_sampling_interval?: number | undefined;
+  /**
+   * Response sampling limit
+   */
+  response_sampling_limit?: number | undefined;
+  /**
+   * Response sampling daily limits
+   */
+  response_sampling_daily_limits?: {  [key: string]: unknown | undefined;};
+  /**
+   * Enable partial responses
+   */
+  enable_partial_responses?: boolean | undefined;
+  /**
+   * Enable iframe embedding
+   */
+  enable_iframe_embedding?: boolean | undefined;
+  /**
+   * Base language code
+   */
+  base_language?: string | undefined;
+  /**
+   * Translations object
+   */
+  translations?: {  [key: string]: unknown | undefined;};
+  /**
+   * Form content
+   */
+  form_content?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_posthog_updatesurvey {
+  id: string;
+  name: string;
+  description?: string | undefined;
+  type: string;
+  schedule?: string | undefined;
+  linked_flag?: {  id: number;
+  team_id: number;
+  name: string;
+  key: string;
+  filters?: {  [key: string]: unknown | undefined;};
+  deleted: boolean;
+  active: boolean;
+  ensure_experience_continuity: boolean;
+  version: number;
+  evaluation_runtime: string;
+  bucketing_identifier: string;
+  evaluation_contexts: string[];};
+  linked_flag_id?: number | undefined;
+  linked_insight_id?: number | undefined;
+  targeting_flag?: {  id: number;
+  team_id: number;
+  name: string;
+  key: string;
+  filters?: {  [key: string]: unknown | undefined;};
+  deleted: boolean;
+  active: boolean;
+  ensure_experience_continuity: boolean;
+  version: number;
+  evaluation_runtime: string;
+  bucketing_identifier: string;
+  evaluation_contexts: string[];};
+  internal_targeting_flag?: {  id: number;
+  team_id: number;
+  name: string;
+  key: string;
+  filters?: {  [key: string]: unknown | undefined;};
+  deleted: boolean;
+  active: boolean;
+  ensure_experience_continuity: boolean;
+  version: number;
+  evaluation_runtime: string;
+  bucketing_identifier: string;
+  evaluation_contexts: string[];};
+  targeting_flag_id?: number | undefined;
+  targeting_flag_filters?: {  [key: string]: unknown | undefined;};
+  remove_targeting_flag?: boolean | undefined;
+  questions?: ({  [key: string]: unknown | undefined;})[];
+  conditions?: {  [key: string]: unknown | undefined;};
+  appearance?: {  [key: string]: unknown | undefined;};
+  created_at: string;
+  created_by?: {  id: number;
+  uuid: string;
+  distinct_id: string;
+  first_name: string;
+  last_name: string;
+  email: string;
+  is_email_verified: boolean;
+  hedgehog_config?: unknown | undefined;
+  role_at_organization: string;};
+  start_date?: string | undefined;
+  end_date?: string | undefined;
+  archived: boolean;
+  responses_limit?: number | undefined;
+  iteration_count?: number | undefined;
+  iteration_frequency_days?: number | undefined;
+  iteration_start_dates?: string[] | undefined;
+  current_iteration?: number | undefined;
+  current_iteration_start_date?: string | undefined;
+  response_sampling_start_date?: string | undefined;
+  response_sampling_interval_type?: string | undefined;
+  response_sampling_interval?: number | undefined;
+  response_sampling_limit?: number | undefined;
+  response_sampling_daily_limits?: {  [key: string]: unknown | undefined;};
+  enable_partial_responses?: boolean | undefined;
+  enable_iframe_embedding?: boolean | undefined;
+  base_language?: string | undefined;
+  translations?: {  [key: string]: unknown | undefined;};
+  form_content?: {  [key: string]: unknown | undefined;};
 };
 
 export interface BillPayment {

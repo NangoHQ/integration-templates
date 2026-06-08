@@ -1,0 +1,3242 @@
+{
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "project_id": "309484"
+    },
+    "batchSave": {
+      "Insight": [
+        {
+          "id": "9038332",
+          "short_id": "GmPnNjHA",
+          "name": "Feature Flag calls made by unique users per variant",
+          "query": {
+            "kind": "InsightVizNode",
+            "source": {
+              "kind": "TrendsQuery",
+              "series": [
+                {
+                  "kind": "EventsNode",
+                  "math": "dau",
+                  "name": "$feature_flag_called",
+                  "event": "$feature_flag_called"
+                }
+              ],
+              "interval": "day",
+              "dateRange": {
+                "date_from": "-30d",
+                "explicitDate": false
+              },
+              "properties": {
+                "type": "AND",
+                "values": [
+                  {
+                    "type": "AND",
+                    "values": [
+                      {
+                        "key": "$feature_flag",
+                        "type": "event",
+                        "value": "nango-test-created-1780481776282091620",
+                        "operator": "exact"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "trendsFilter": {
+                "display": "ActionsTable",
+                "showLegend": false,
+                "yAxisScaleType": "linear",
+                "showValuesOnSeries": false,
+                "smoothingIntervals": 1,
+                "showPercentStackView": false,
+                "aggregationAxisFormat": "numeric",
+                "showAlertThresholdLines": false
+              },
+              "breakdownFilter": {
+                "breakdown": "$feature_flag_response",
+                "breakdown_type": "event"
+              },
+              "filterTestAccounts": false,
+              "version": 2
+            }
+          },
+          "deleted": false,
+          "dashboards": [
+            1663171
+          ],
+          "created_at": "2026-06-03T10:16:21.689602Z",
+          "updated_at": "2026-06-03T10:16:21.689624Z",
+          "description": "Shows the number of unique user calls made on feature flag per variant with key: nango-test-created-1780481776282091620",
+          "tags": [],
+          "favorited": false,
+          "last_modified_at": "2026-06-03T10:16:21.688962Z",
+          "is_sample": true
+        },
+        {
+          "id": "9038331",
+          "short_id": "mbyRp3xa",
+          "name": "Feature Flag Called Total Volume",
+          "query": {
+            "kind": "InsightVizNode",
+            "source": {
+              "kind": "TrendsQuery",
+              "series": [
+                {
+                  "kind": "EventsNode",
+                  "name": "$feature_flag_called",
+                  "event": "$feature_flag_called"
+                }
+              ],
+              "interval": "day",
+              "dateRange": {
+                "date_from": "-30d",
+                "explicitDate": false
+              },
+              "properties": {
+                "type": "AND",
+                "values": [
+                  {
+                    "type": "AND",
+                    "values": [
+                      {
+                        "key": "$feature_flag",
+                        "type": "event",
+                        "value": "nango-test-created-1780481776282091620",
+                        "operator": "exact"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "trendsFilter": {
+                "display": "ActionsLineGraph",
+                "showLegend": false,
+                "yAxisScaleType": "linear",
+                "showValuesOnSeries": false,
+                "smoothingIntervals": 1,
+                "showPercentStackView": false,
+                "aggregationAxisFormat": "numeric",
+                "showAlertThresholdLines": false
+              },
+              "breakdownFilter": {
+                "breakdown": "$feature_flag_response",
+                "breakdown_type": "event"
+              },
+              "filterTestAccounts": false,
+              "version": 2
+            }
+          },
+          "deleted": false,
+          "dashboards": [
+            1663171
+          ],
+          "created_at": "2026-06-03T10:16:21.655457Z",
+          "updated_at": "2026-06-03T10:16:21.655480Z",
+          "description": "Shows the number of total calls made on feature flag with key: nango-test-created-1780481776282091620",
+          "tags": [],
+          "favorited": false,
+          "last_modified_at": "2026-06-03T10:16:21.654794Z",
+          "is_sample": true
+        },
+        {
+          "id": "9038309",
+          "short_id": "k1Nponxg",
+          "name": "Feature Flag calls made by unique users per variant",
+          "query": {
+            "kind": "InsightVizNode",
+            "source": {
+              "kind": "TrendsQuery",
+              "series": [
+                {
+                  "kind": "EventsNode",
+                  "math": "dau",
+                  "name": "$feature_flag_called",
+                  "event": "$feature_flag_called"
+                }
+              ],
+              "interval": "day",
+              "dateRange": {
+                "date_from": "-30d",
+                "explicitDate": false
+              },
+              "properties": {
+                "type": "AND",
+                "values": [
+                  {
+                    "type": "AND",
+                    "values": [
+                      {
+                        "key": "$feature_flag",
+                        "type": "event",
+                        "value": "nango-test-created-1780481766833064995",
+                        "operator": "exact"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "trendsFilter": {
+                "display": "ActionsTable",
+                "showLegend": false,
+                "yAxisScaleType": "linear",
+                "showValuesOnSeries": false,
+                "smoothingIntervals": 1,
+                "showPercentStackView": false,
+                "aggregationAxisFormat": "numeric",
+                "showAlertThresholdLines": false
+              },
+              "breakdownFilter": {
+                "breakdown": "$feature_flag_response",
+                "breakdown_type": "event"
+              },
+              "filterTestAccounts": false,
+              "version": 2
+            }
+          },
+          "deleted": false,
+          "dashboards": [
+            1663166
+          ],
+          "created_at": "2026-06-03T10:16:12.236816Z",
+          "updated_at": "2026-06-03T10:16:12.236841Z",
+          "description": "Shows the number of unique user calls made on feature flag per variant with key: nango-test-created-1780481766833064995",
+          "tags": [],
+          "favorited": false,
+          "last_modified_at": "2026-06-03T10:16:12.236139Z",
+          "is_sample": true
+        },
+        {
+          "id": "9038308",
+          "short_id": "37BpNZix",
+          "name": "Feature Flag Called Total Volume",
+          "query": {
+            "kind": "InsightVizNode",
+            "source": {
+              "kind": "TrendsQuery",
+              "series": [
+                {
+                  "kind": "EventsNode",
+                  "name": "$feature_flag_called",
+                  "event": "$feature_flag_called"
+                }
+              ],
+              "interval": "day",
+              "dateRange": {
+                "date_from": "-30d",
+                "explicitDate": false
+              },
+              "properties": {
+                "type": "AND",
+                "values": [
+                  {
+                    "type": "AND",
+                    "values": [
+                      {
+                        "key": "$feature_flag",
+                        "type": "event",
+                        "value": "nango-test-created-1780481766833064995",
+                        "operator": "exact"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "trendsFilter": {
+                "display": "ActionsLineGraph",
+                "showLegend": false,
+                "yAxisScaleType": "linear",
+                "showValuesOnSeries": false,
+                "smoothingIntervals": 1,
+                "showPercentStackView": false,
+                "aggregationAxisFormat": "numeric",
+                "showAlertThresholdLines": false
+              },
+              "breakdownFilter": {
+                "breakdown": "$feature_flag_response",
+                "breakdown_type": "event"
+              },
+              "filterTestAccounts": false,
+              "version": 2
+            }
+          },
+          "deleted": false,
+          "dashboards": [
+            1663166
+          ],
+          "created_at": "2026-06-03T10:16:11.465524Z",
+          "updated_at": "2026-06-03T10:16:11.465544Z",
+          "description": "Shows the number of total calls made on feature flag with key: nango-test-created-1780481766833064995",
+          "tags": [],
+          "favorited": false,
+          "last_modified_at": "2026-06-03T10:16:11.464998Z",
+          "is_sample": true
+        },
+        {
+          "id": "9038220",
+          "short_id": "Sg50HIuR",
+          "name": "Nango Test Insight",
+          "query": {
+            "kind": "InsightVizNode",
+            "source": {
+              "kind": "TrendsQuery",
+              "series": [
+                {
+                  "kind": "EventsNode",
+                  "event": "$pageview"
+                }
+              ],
+              "version": 2
+            }
+          },
+          "deleted": false,
+          "dashboards": [],
+          "created_at": "2026-06-03T10:10:18.700474Z",
+          "updated_at": "2026-06-03T10:14:41.758862Z",
+          "description": "Updated via Nango dryrun",
+          "tags": [],
+          "favorited": false,
+          "last_modified_at": "2026-06-03T10:14:41.757928Z",
+          "is_sample": false
+        },
+        {
+          "id": "9038263",
+          "short_id": "EtgOh1ux",
+          "name": "Feature Flag calls made by unique users per variant",
+          "query": {
+            "kind": "InsightVizNode",
+            "source": {
+              "kind": "TrendsQuery",
+              "series": [
+                {
+                  "kind": "EventsNode",
+                  "math": "dau",
+                  "name": "$feature_flag_called",
+                  "event": "$feature_flag_called"
+                }
+              ],
+              "interval": "day",
+              "dateRange": {
+                "date_from": "-30d",
+                "explicitDate": false
+              },
+              "properties": {
+                "type": "AND",
+                "values": [
+                  {
+                    "type": "AND",
+                    "values": [
+                      {
+                        "key": "$feature_flag",
+                        "type": "event",
+                        "value": "nango-test-created-20260603-001",
+                        "operator": "exact"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "trendsFilter": {
+                "display": "ActionsTable",
+                "showLegend": false,
+                "yAxisScaleType": "linear",
+                "showValuesOnSeries": false,
+                "smoothingIntervals": 1,
+                "showPercentStackView": false,
+                "aggregationAxisFormat": "numeric",
+                "showAlertThresholdLines": false
+              },
+              "breakdownFilter": {
+                "breakdown": "$feature_flag_response",
+                "breakdown_type": "event"
+              },
+              "filterTestAccounts": false,
+              "version": 2
+            }
+          },
+          "deleted": false,
+          "dashboards": [
+            1663158
+          ],
+          "created_at": "2026-06-03T10:14:06.586635Z",
+          "updated_at": "2026-06-03T10:14:06.586656Z",
+          "description": "Shows the number of unique user calls made on feature flag per variant with key: nango-test-created-20260603-001",
+          "tags": [],
+          "favorited": false,
+          "last_modified_at": "2026-06-03T10:14:06.586042Z",
+          "is_sample": true
+        },
+        {
+          "id": "9038262",
+          "short_id": "tWQmaRm3",
+          "name": "Feature Flag Called Total Volume",
+          "query": {
+            "kind": "InsightVizNode",
+            "source": {
+              "kind": "TrendsQuery",
+              "series": [
+                {
+                  "kind": "EventsNode",
+                  "name": "$feature_flag_called",
+                  "event": "$feature_flag_called"
+                }
+              ],
+              "interval": "day",
+              "dateRange": {
+                "date_from": "-30d",
+                "explicitDate": false
+              },
+              "properties": {
+                "type": "AND",
+                "values": [
+                  {
+                    "type": "AND",
+                    "values": [
+                      {
+                        "key": "$feature_flag",
+                        "type": "event",
+                        "value": "nango-test-created-20260603-001",
+                        "operator": "exact"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "trendsFilter": {
+                "display": "ActionsLineGraph",
+                "showLegend": false,
+                "yAxisScaleType": "linear",
+                "showValuesOnSeries": false,
+                "smoothingIntervals": 1,
+                "showPercentStackView": false,
+                "aggregationAxisFormat": "numeric",
+                "showAlertThresholdLines": false
+              },
+              "breakdownFilter": {
+                "breakdown": "$feature_flag_response",
+                "breakdown_type": "event"
+              },
+              "filterTestAccounts": false,
+              "version": 2
+            }
+          },
+          "deleted": false,
+          "dashboards": [
+            1663158
+          ],
+          "created_at": "2026-06-03T10:14:06.561134Z",
+          "updated_at": "2026-06-03T10:14:06.561155Z",
+          "description": "Shows the number of total calls made on feature flag with key: nango-test-created-20260603-001",
+          "tags": [],
+          "favorited": false,
+          "last_modified_at": "2026-06-03T10:14:06.560545Z",
+          "is_sample": true
+        },
+        {
+          "id": "9038250",
+          "short_id": "5YjlMdOF",
+          "name": "Feature Flag calls made by unique users per variant",
+          "query": {
+            "kind": "InsightVizNode",
+            "source": {
+              "kind": "TrendsQuery",
+              "series": [
+                {
+                  "kind": "EventsNode",
+                  "math": "dau",
+                  "name": "$feature_flag_called",
+                  "event": "$feature_flag_called"
+                }
+              ],
+              "interval": "day",
+              "dateRange": {
+                "date_from": "-30d",
+                "explicitDate": false
+              },
+              "properties": {
+                "type": "AND",
+                "values": [
+                  {
+                    "type": "AND",
+                    "values": [
+                      {
+                        "key": "$feature_flag",
+                        "type": "event",
+                        "value": "nango-test-experiment-flag",
+                        "operator": "exact"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "trendsFilter": {
+                "display": "ActionsTable",
+                "showLegend": false,
+                "yAxisScaleType": "linear",
+                "showValuesOnSeries": false,
+                "smoothingIntervals": 1,
+                "showPercentStackView": false,
+                "aggregationAxisFormat": "numeric",
+                "showAlertThresholdLines": false
+              },
+              "breakdownFilter": {
+                "breakdown": "$feature_flag_response",
+                "breakdown_type": "event"
+              },
+              "filterTestAccounts": false,
+              "version": 2
+            }
+          },
+          "deleted": false,
+          "dashboards": [
+            1663154
+          ],
+          "created_at": "2026-06-03T10:13:36.019975Z",
+          "updated_at": "2026-06-03T10:13:36.019996Z",
+          "description": "Shows the number of unique user calls made on feature flag per variant with key: nango-test-experiment-flag",
+          "tags": [],
+          "favorited": false,
+          "last_modified_at": "2026-06-03T10:13:36.019293Z",
+          "is_sample": true
+        },
+        {
+          "id": "9038249",
+          "short_id": "KXRDbANq",
+          "name": "Feature Flag Called Total Volume",
+          "query": {
+            "kind": "InsightVizNode",
+            "source": {
+              "kind": "TrendsQuery",
+              "series": [
+                {
+                  "kind": "EventsNode",
+                  "name": "$feature_flag_called",
+                  "event": "$feature_flag_called"
+                }
+              ],
+              "interval": "day",
+              "dateRange": {
+                "date_from": "-30d",
+                "explicitDate": false
+              },
+              "properties": {
+                "type": "AND",
+                "values": [
+                  {
+                    "type": "AND",
+                    "values": [
+                      {
+                        "key": "$feature_flag",
+                        "type": "event",
+                        "value": "nango-test-experiment-flag",
+                        "operator": "exact"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "trendsFilter": {
+                "display": "ActionsLineGraph",
+                "showLegend": false,
+                "yAxisScaleType": "linear",
+                "showValuesOnSeries": false,
+                "smoothingIntervals": 1,
+                "showPercentStackView": false,
+                "aggregationAxisFormat": "numeric",
+                "showAlertThresholdLines": false
+              },
+              "breakdownFilter": {
+                "breakdown": "$feature_flag_response",
+                "breakdown_type": "event"
+              },
+              "filterTestAccounts": false,
+              "version": 2
+            }
+          },
+          "deleted": false,
+          "dashboards": [
+            1663154
+          ],
+          "created_at": "2026-06-03T10:13:35.980240Z",
+          "updated_at": "2026-06-03T10:13:35.980260Z",
+          "description": "Shows the number of total calls made on feature flag with key: nango-test-experiment-flag",
+          "tags": [],
+          "favorited": false,
+          "last_modified_at": "2026-06-03T10:13:35.979617Z",
+          "is_sample": true
+        },
+        {
+          "id": "9038219",
+          "short_id": "ohSTp8lE",
+          "name": "Nango Test Insight",
+          "query": {
+            "kind": "InsightVizNode",
+            "source": {
+              "kind": "TrendsQuery",
+              "series": [
+                {
+                  "kind": "EventsNode",
+                  "event": "$pageview"
+                }
+              ],
+              "version": 2
+            }
+          },
+          "deleted": false,
+          "dashboards": [],
+          "created_at": "2026-06-03T10:10:08.978261Z",
+          "updated_at": "2026-06-03T10:10:08.978285Z",
+          "tags": [],
+          "favorited": false,
+          "last_modified_at": "2026-06-03T10:10:08.974778Z",
+          "is_sample": false
+        },
+        {
+          "id": "9037895",
+          "short_id": "7zG6O2kw",
+          "name": "Feature Flag calls made by unique users per variant",
+          "query": {
+            "kind": "InsightVizNode",
+            "source": {
+              "kind": "TrendsQuery",
+              "series": [
+                {
+                  "kind": "EventsNode",
+                  "math": "dau",
+                  "name": "$feature_flag_called",
+                  "event": "$feature_flag_called"
+                }
+              ],
+              "interval": "day",
+              "dateRange": {
+                "date_from": "-30d",
+                "explicitDate": false
+              },
+              "properties": {
+                "type": "AND",
+                "values": [
+                  {
+                    "type": "AND",
+                    "values": [
+                      {
+                        "key": "$feature_flag",
+                        "type": "event",
+                        "value": "nango-test-flag-b",
+                        "operator": "exact"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "trendsFilter": {
+                "display": "ActionsTable",
+                "showLegend": false,
+                "yAxisScaleType": "linear",
+                "showValuesOnSeries": false,
+                "smoothingIntervals": 1,
+                "showPercentStackView": false,
+                "aggregationAxisFormat": "numeric",
+                "showAlertThresholdLines": false
+              },
+              "breakdownFilter": {
+                "breakdown": "$feature_flag_response",
+                "breakdown_type": "event"
+              },
+              "filterTestAccounts": false,
+              "version": 2
+            }
+          },
+          "deleted": false,
+          "dashboards": [
+            1663106
+          ],
+          "created_at": "2026-06-03T09:53:08.702347Z",
+          "updated_at": "2026-06-03T09:53:08.702371Z",
+          "description": "Shows the number of unique user calls made on feature flag per variant with key: nango-test-flag-b",
+          "tags": [],
+          "favorited": false,
+          "last_modified_at": "2026-06-03T09:53:08.701651Z",
+          "is_sample": true
+        },
+        {
+          "id": "9037894",
+          "short_id": "pTmBWWTM",
+          "name": "Feature Flag Called Total Volume",
+          "query": {
+            "kind": "InsightVizNode",
+            "source": {
+              "kind": "TrendsQuery",
+              "series": [
+                {
+                  "kind": "EventsNode",
+                  "name": "$feature_flag_called",
+                  "event": "$feature_flag_called"
+                }
+              ],
+              "interval": "day",
+              "dateRange": {
+                "date_from": "-30d",
+                "explicitDate": false
+              },
+              "properties": {
+                "type": "AND",
+                "values": [
+                  {
+                    "type": "AND",
+                    "values": [
+                      {
+                        "key": "$feature_flag",
+                        "type": "event",
+                        "value": "nango-test-flag-b",
+                        "operator": "exact"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "trendsFilter": {
+                "display": "ActionsLineGraph",
+                "showLegend": false,
+                "yAxisScaleType": "linear",
+                "showValuesOnSeries": false,
+                "smoothingIntervals": 1,
+                "showPercentStackView": false,
+                "aggregationAxisFormat": "numeric",
+                "showAlertThresholdLines": false
+              },
+              "breakdownFilter": {
+                "breakdown": "$feature_flag_response",
+                "breakdown_type": "event"
+              },
+              "filterTestAccounts": false,
+              "version": 2
+            }
+          },
+          "deleted": false,
+          "dashboards": [
+            1663106
+          ],
+          "created_at": "2026-06-03T09:53:08.623001Z",
+          "updated_at": "2026-06-03T09:53:08.623026Z",
+          "description": "Shows the number of total calls made on feature flag with key: nango-test-flag-b",
+          "tags": [],
+          "favorited": false,
+          "last_modified_at": "2026-06-03T09:53:08.622170Z",
+          "is_sample": true
+        },
+        {
+          "id": "9037893",
+          "short_id": "81DKe3PJ",
+          "name": "Feature Flag calls made by unique users per variant",
+          "query": {
+            "kind": "InsightVizNode",
+            "source": {
+              "kind": "TrendsQuery",
+              "series": [
+                {
+                  "kind": "EventsNode",
+                  "math": "dau",
+                  "name": "$feature_flag_called",
+                  "event": "$feature_flag_called"
+                }
+              ],
+              "interval": "day",
+              "dateRange": {
+                "date_from": "-30d",
+                "explicitDate": false
+              },
+              "properties": {
+                "type": "AND",
+                "values": [
+                  {
+                    "type": "AND",
+                    "values": [
+                      {
+                        "key": "$feature_flag",
+                        "type": "event",
+                        "value": "nango-test-flag-a",
+                        "operator": "exact"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "trendsFilter": {
+                "display": "ActionsTable",
+                "showLegend": false,
+                "yAxisScaleType": "linear",
+                "showValuesOnSeries": false,
+                "smoothingIntervals": 1,
+                "showPercentStackView": false,
+                "aggregationAxisFormat": "numeric",
+                "showAlertThresholdLines": false
+              },
+              "breakdownFilter": {
+                "breakdown": "$feature_flag_response",
+                "breakdown_type": "event"
+              },
+              "filterTestAccounts": false,
+              "version": 2
+            }
+          },
+          "deleted": false,
+          "dashboards": [
+            1663105
+          ],
+          "created_at": "2026-06-03T09:53:05.969226Z",
+          "updated_at": "2026-06-03T09:53:05.969248Z",
+          "description": "Shows the number of unique user calls made on feature flag per variant with key: nango-test-flag-a",
+          "tags": [],
+          "favorited": false,
+          "last_modified_at": "2026-06-03T09:53:05.968618Z",
+          "is_sample": true
+        },
+        {
+          "id": "9037892",
+          "short_id": "Ko7sGUXC",
+          "name": "Feature Flag Called Total Volume",
+          "query": {
+            "kind": "InsightVizNode",
+            "source": {
+              "kind": "TrendsQuery",
+              "series": [
+                {
+                  "kind": "EventsNode",
+                  "name": "$feature_flag_called",
+                  "event": "$feature_flag_called"
+                }
+              ],
+              "interval": "day",
+              "dateRange": {
+                "date_from": "-30d",
+                "explicitDate": false
+              },
+              "properties": {
+                "type": "AND",
+                "values": [
+                  {
+                    "type": "AND",
+                    "values": [
+                      {
+                        "key": "$feature_flag",
+                        "type": "event",
+                        "value": "nango-test-flag-a",
+                        "operator": "exact"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "trendsFilter": {
+                "display": "ActionsLineGraph",
+                "showLegend": false,
+                "yAxisScaleType": "linear",
+                "showValuesOnSeries": false,
+                "smoothingIntervals": 1,
+                "showPercentStackView": false,
+                "aggregationAxisFormat": "numeric",
+                "showAlertThresholdLines": false
+              },
+              "breakdownFilter": {
+                "breakdown": "$feature_flag_response",
+                "breakdown_type": "event"
+              },
+              "filterTestAccounts": false,
+              "version": 2
+            }
+          },
+          "deleted": false,
+          "dashboards": [
+            1663105
+          ],
+          "created_at": "2026-06-03T09:53:05.937809Z",
+          "updated_at": "2026-06-03T09:53:05.937830Z",
+          "description": "Shows the number of total calls made on feature flag with key: nango-test-flag-a",
+          "tags": [],
+          "favorited": false,
+          "last_modified_at": "2026-06-03T09:53:05.937186Z",
+          "is_sample": true
+        },
+        {
+          "id": "6825386",
+          "short_id": "VaR0QUi6",
+          "name": "Pageview funnel, by browser",
+          "query": {
+            "kind": "InsightVizNode",
+            "source": {
+              "kind": "FunnelsQuery",
+              "series": [
+                {
+                  "kind": "EventsNode",
+                  "name": "$pageview",
+                  "event": "$pageview",
+                  "custom_name": "First page view"
+                },
+                {
+                  "kind": "EventsNode",
+                  "name": "$pageview",
+                  "event": "$pageview",
+                  "custom_name": "Second page view"
+                },
+                {
+                  "kind": "EventsNode",
+                  "name": "$pageview",
+                  "event": "$pageview",
+                  "custom_name": "Third page view"
+                }
+              ],
+              "interval": "day",
+              "dateRange": {
+                "date_from": "-7d",
+                "explicitDate": false
+              },
+              "properties": [],
+              "funnelsFilter": {
+                "layout": "horizontal",
+                "exclusions": [],
+                "funnelVizType": "steps",
+                "funnelOrderType": "ordered",
+                "funnelStepReference": "total",
+                "funnelWindowInterval": 14,
+                "breakdownAttributionType": "first_touch",
+                "funnelWindowIntervalUnit": "day"
+              },
+              "breakdownFilter": {
+                "breakdown": "$browser",
+                "breakdown_type": "event"
+              },
+              "filterTestAccounts": false
+            }
+          },
+          "deleted": false,
+          "dashboards": [
+            1264879
+          ],
+          "created_at": "2026-02-09T18:16:59.522475Z",
+          "updated_at": "2026-02-09T18:16:59.522497Z",
+          "description": "This example funnel shows how many of your users have completed 3 page views, broken down by browser.",
+          "tags": [],
+          "favorited": false,
+          "last_modified_at": "2026-02-09T18:16:59.522037Z",
+          "is_sample": true
+        },
+        {
+          "id": "6825385",
+          "short_id": "Ga6La0R5",
+          "name": "Referring domain (last 14 days)",
+          "query": {
+            "kind": "InsightVizNode",
+            "source": {
+              "kind": "TrendsQuery",
+              "series": [
+                {
+                  "kind": "EventsNode",
+                  "math": "dau",
+                  "name": "$pageview",
+                  "event": "$pageview"
+                }
+              ],
+              "interval": "day",
+              "dateRange": {
+                "date_from": "-14d",
+                "explicitDate": false
+              },
+              "properties": [],
+              "trendsFilter": {
+                "display": "ActionsBarValue",
+                "showLegend": false,
+                "yAxisScaleType": "linear",
+                "showValuesOnSeries": false,
+                "smoothingIntervals": 1,
+                "showPercentStackView": false,
+                "aggregationAxisFormat": "numeric",
+                "showAlertThresholdLines": false
+              },
+              "breakdownFilter": {
+                "breakdown": "$referring_domain",
+                "breakdown_type": "event"
+              },
+              "filterTestAccounts": false,
+              "version": 2
+            }
+          },
+          "deleted": false,
+          "dashboards": [
+            1264879
+          ],
+          "created_at": "2026-02-09T18:16:59.496188Z",
+          "updated_at": "2026-02-09T18:16:59.496211Z",
+          "description": "Shows the most common referring domains for your users over the past 14 days.",
+          "tags": [],
+          "favorited": false,
+          "last_modified_at": "2026-02-09T18:16:59.495710Z",
+          "is_sample": true
+        },
+        {
+          "id": "6825384",
+          "short_id": "P8TFMqN5",
+          "name": "Growth accounting",
+          "query": {
+            "kind": "InsightVizNode",
+            "source": {
+              "kind": "LifecycleQuery",
+              "series": [
+                {
+                  "kind": "EventsNode",
+                  "name": "$pageview",
+                  "event": "$pageview"
+                }
+              ],
+              "interval": "week",
+              "dateRange": {
+                "date_from": "-30d",
+                "explicitDate": false
+              },
+              "properties": [],
+              "lifecycleFilter": {
+                "showLegend": false
+              },
+              "filterTestAccounts": false
+            }
+          },
+          "deleted": false,
+          "dashboards": [
+            1264879
+          ],
+          "created_at": "2026-02-09T18:16:59.470027Z",
+          "updated_at": "2026-02-09T18:16:59.470050Z",
+          "description": "How many of your users are new, returning, resurrecting, or dormant each week.",
+          "tags": [],
+          "favorited": false,
+          "last_modified_at": "2026-02-09T18:16:59.469660Z",
+          "is_sample": true
+        },
+        {
+          "id": "6825383",
+          "short_id": "ueJxoPWU",
+          "name": "Retention",
+          "query": {
+            "kind": "InsightVizNode",
+            "source": {
+              "kind": "RetentionQuery",
+              "dateRange": {
+                "date_from": "-7d",
+                "explicitDate": false
+              },
+              "properties": [],
+              "retentionFilter": {
+                "period": "Week",
+                "targetEntity": {
+                  "id": "$pageview",
+                  "type": "events"
+                },
+                "retentionType": "retention_first_time",
+                "totalIntervals": 11,
+                "returningEntity": {
+                  "id": "$pageview",
+                  "type": "events"
+                }
+              },
+              "filterTestAccounts": false,
+              "version": 2
+            }
+          },
+          "deleted": false,
+          "dashboards": [
+            1264879
+          ],
+          "created_at": "2026-02-09T18:16:59.444345Z",
+          "updated_at": "2026-02-09T18:16:59.444368Z",
+          "description": "Weekly retention of your users.",
+          "tags": [],
+          "favorited": false,
+          "last_modified_at": "2026-02-09T18:16:59.443988Z",
+          "is_sample": true
+        },
+        {
+          "id": "6825382",
+          "short_id": "0T3d5jLc",
+          "name": "Weekly active users (WAUs)",
+          "query": {
+            "kind": "InsightVizNode",
+            "source": {
+              "kind": "TrendsQuery",
+              "series": [
+                {
+                  "kind": "EventsNode",
+                  "math": "dau",
+                  "name": "$pageview",
+                  "event": "$pageview"
+                }
+              ],
+              "interval": "week",
+              "dateRange": {
+                "date_from": "-90d",
+                "explicitDate": false
+              },
+              "properties": [],
+              "trendsFilter": {
+                "display": "ActionsLineGraph",
+                "showLegend": false,
+                "yAxisScaleType": "linear",
+                "showValuesOnSeries": false,
+                "smoothingIntervals": 1,
+                "showPercentStackView": false,
+                "aggregationAxisFormat": "numeric",
+                "showAlertThresholdLines": false
+              },
+              "breakdownFilter": {
+                "breakdown_type": "event"
+              },
+              "filterTestAccounts": false,
+              "version": 2
+            }
+          },
+          "deleted": false,
+          "dashboards": [
+            1264879
+          ],
+          "created_at": "2026-02-09T18:16:59.417752Z",
+          "updated_at": "2026-02-09T18:16:59.417774Z",
+          "description": "Shows the number of unique users that use your app every week.",
+          "tags": [],
+          "favorited": false,
+          "last_modified_at": "2026-02-09T18:16:59.417281Z",
+          "is_sample": true
+        },
+        {
+          "id": "6825381",
+          "short_id": "oQGUHUbW",
+          "name": "Daily active users (DAUs)",
+          "query": {
+            "kind": "InsightVizNode",
+            "source": {
+              "kind": "TrendsQuery",
+              "series": [
+                {
+                  "kind": "EventsNode",
+                  "math": "dau",
+                  "name": "$pageview",
+                  "event": "$pageview"
+                }
+              ],
+              "interval": "day",
+              "dateRange": {
+                "date_from": "-30d",
+                "explicitDate": false
+              },
+              "properties": [],
+              "trendsFilter": {
+                "display": "ActionsLineGraph",
+                "showLegend": false,
+                "yAxisScaleType": "linear",
+                "showValuesOnSeries": false,
+                "smoothingIntervals": 1,
+                "showPercentStackView": false,
+                "aggregationAxisFormat": "numeric",
+                "showAlertThresholdLines": false
+              },
+              "breakdownFilter": {
+                "breakdown_type": "event"
+              },
+              "filterTestAccounts": false,
+              "version": 2
+            }
+          },
+          "deleted": false,
+          "dashboards": [
+            1264879
+          ],
+          "created_at": "2026-02-09T18:16:59.388268Z",
+          "updated_at": "2026-02-09T18:16:59.388293Z",
+          "description": "Shows the number of unique users that use your app every day.",
+          "tags": [],
+          "favorited": false,
+          "last_modified_at": "2026-02-09T18:16:59.387767Z",
+          "is_sample": true
+        }
+      ]
+    },
+    "batchDelete": {
+      "Insight": []
+    }
+  },
+  "api": {
+    "get": {
+      "/api/projects/309484/insights/": {
+        "response": {
+          "count": 20,
+          "next": null,
+          "previous": null,
+          "results": [
+            {
+              "id": 9038332,
+              "short_id": "GmPnNjHA",
+              "name": "Feature Flag calls made by unique users per variant",
+              "derived_name": null,
+              "filters": {},
+              "query": {
+                "kind": "InsightVizNode",
+                "source": {
+                  "kind": "TrendsQuery",
+                  "series": [
+                    {
+                      "kind": "EventsNode",
+                      "math": "dau",
+                      "name": "$feature_flag_called",
+                      "event": "$feature_flag_called"
+                    }
+                  ],
+                  "interval": "day",
+                  "dateRange": {
+                    "date_from": "-30d",
+                    "explicitDate": false
+                  },
+                  "properties": {
+                    "type": "AND",
+                    "values": [
+                      {
+                        "type": "AND",
+                        "values": [
+                          {
+                            "key": "$feature_flag",
+                            "type": "event",
+                            "value": "nango-test-created-1780481776282091620",
+                            "operator": "exact"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "trendsFilter": {
+                    "display": "ActionsTable",
+                    "showLegend": false,
+                    "yAxisScaleType": "linear",
+                    "showValuesOnSeries": false,
+                    "smoothingIntervals": 1,
+                    "showPercentStackView": false,
+                    "aggregationAxisFormat": "numeric",
+                    "showAlertThresholdLines": false
+                  },
+                  "breakdownFilter": {
+                    "breakdown": "$feature_flag_response",
+                    "breakdown_type": "event"
+                  },
+                  "filterTestAccounts": false,
+                  "version": 2
+                }
+              },
+              "order": null,
+              "deleted": false,
+              "dashboards": [
+                1663171
+              ],
+              "dashboard_tiles": [
+                {
+                  "id": 8226954,
+                  "dashboard_id": 1663171,
+                  "deleted": null
+                }
+              ],
+              "last_refresh": null,
+              "cache_target_age": null,
+              "next_allowed_client_refresh": null,
+              "result": null,
+              "hasMore": null,
+              "columns": null,
+              "created_at": "2026-06-03T10:16:21.689602Z",
+              "created_by": {
+                "id": 411781,
+                "uuid": "019c439e-fd4f-0000-dc37-5baa50dfcff6",
+                "distinct_id": "xQi0eQjuEyQ8RFio14FSc5gE3wC5wOKUM7lm3FFRMyR",
+                "first_name": "Nango Developer",
+                "last_name": "",
+                "email": "api@nango.dev",
+                "is_email_verified": true,
+                "hedgehog_config": null,
+                "role_at_organization": ""
+              },
+              "description": "Shows the number of unique user calls made on feature flag per variant with key: nango-test-created-1780481776282091620",
+              "updated_at": "2026-06-03T10:16:21.689624Z",
+              "favorited": false,
+              "saved": true,
+              "last_modified_at": "2026-06-03T10:16:21.688962Z",
+              "last_modified_by": {
+                "id": 411781,
+                "uuid": "019c439e-fd4f-0000-dc37-5baa50dfcff6",
+                "distinct_id": "xQi0eQjuEyQ8RFio14FSc5gE3wC5wOKUM7lm3FFRMyR",
+                "first_name": "Nango Developer",
+                "last_name": "",
+                "email": "api@nango.dev",
+                "is_email_verified": true,
+                "hedgehog_config": null,
+                "role_at_organization": ""
+              },
+              "is_sample": true,
+              "effective_restriction_level": 21,
+              "effective_privilege_level": 37,
+              "user_access_level": "manager",
+              "timezone": null,
+              "is_cached": false,
+              "query_status": null,
+              "hogql": null,
+              "types": null,
+              "resolved_date_range": null,
+              "alerts": [],
+              "last_viewed_at": null,
+              "tags": [],
+              "filters_hash": "cache_309484_7fdce21f26982fe7fa49f483794dc3546c5896d6c9634e10889442f7da61a597"
+            },
+            {
+              "id": 9038331,
+              "short_id": "mbyRp3xa",
+              "name": "Feature Flag Called Total Volume",
+              "derived_name": null,
+              "filters": {},
+              "query": {
+                "kind": "InsightVizNode",
+                "source": {
+                  "kind": "TrendsQuery",
+                  "series": [
+                    {
+                      "kind": "EventsNode",
+                      "name": "$feature_flag_called",
+                      "event": "$feature_flag_called"
+                    }
+                  ],
+                  "interval": "day",
+                  "dateRange": {
+                    "date_from": "-30d",
+                    "explicitDate": false
+                  },
+                  "properties": {
+                    "type": "AND",
+                    "values": [
+                      {
+                        "type": "AND",
+                        "values": [
+                          {
+                            "key": "$feature_flag",
+                            "type": "event",
+                            "value": "nango-test-created-1780481776282091620",
+                            "operator": "exact"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "trendsFilter": {
+                    "display": "ActionsLineGraph",
+                    "showLegend": false,
+                    "yAxisScaleType": "linear",
+                    "showValuesOnSeries": false,
+                    "smoothingIntervals": 1,
+                    "showPercentStackView": false,
+                    "aggregationAxisFormat": "numeric",
+                    "showAlertThresholdLines": false
+                  },
+                  "breakdownFilter": {
+                    "breakdown": "$feature_flag_response",
+                    "breakdown_type": "event"
+                  },
+                  "filterTestAccounts": false,
+                  "version": 2
+                }
+              },
+              "order": null,
+              "deleted": false,
+              "dashboards": [
+                1663171
+              ],
+              "dashboard_tiles": [
+                {
+                  "id": 8226953,
+                  "dashboard_id": 1663171,
+                  "deleted": null
+                }
+              ],
+              "last_refresh": null,
+              "cache_target_age": null,
+              "next_allowed_client_refresh": null,
+              "result": null,
+              "hasMore": null,
+              "columns": null,
+              "created_at": "2026-06-03T10:16:21.655457Z",
+              "created_by": {
+                "id": 411781,
+                "uuid": "019c439e-fd4f-0000-dc37-5baa50dfcff6",
+                "distinct_id": "xQi0eQjuEyQ8RFio14FSc5gE3wC5wOKUM7lm3FFRMyR",
+                "first_name": "Nango Developer",
+                "last_name": "",
+                "email": "api@nango.dev",
+                "is_email_verified": true,
+                "hedgehog_config": null,
+                "role_at_organization": ""
+              },
+              "description": "Shows the number of total calls made on feature flag with key: nango-test-created-1780481776282091620",
+              "updated_at": "2026-06-03T10:16:21.655480Z",
+              "favorited": false,
+              "saved": true,
+              "last_modified_at": "2026-06-03T10:16:21.654794Z",
+              "last_modified_by": {
+                "id": 411781,
+                "uuid": "019c439e-fd4f-0000-dc37-5baa50dfcff6",
+                "distinct_id": "xQi0eQjuEyQ8RFio14FSc5gE3wC5wOKUM7lm3FFRMyR",
+                "first_name": "Nango Developer",
+                "last_name": "",
+                "email": "api@nango.dev",
+                "is_email_verified": true,
+                "hedgehog_config": null,
+                "role_at_organization": ""
+              },
+              "is_sample": true,
+              "effective_restriction_level": 21,
+              "effective_privilege_level": 37,
+              "user_access_level": "manager",
+              "timezone": null,
+              "is_cached": false,
+              "query_status": null,
+              "hogql": null,
+              "types": null,
+              "resolved_date_range": null,
+              "alerts": [],
+              "last_viewed_at": null,
+              "tags": [],
+              "filters_hash": "cache_309484_611212ad7628735f5e50517c56e4613016dc5d19f60e640f9280c727bc0b99da"
+            },
+            {
+              "id": 9038309,
+              "short_id": "k1Nponxg",
+              "name": "Feature Flag calls made by unique users per variant",
+              "derived_name": null,
+              "filters": {},
+              "query": {
+                "kind": "InsightVizNode",
+                "source": {
+                  "kind": "TrendsQuery",
+                  "series": [
+                    {
+                      "kind": "EventsNode",
+                      "math": "dau",
+                      "name": "$feature_flag_called",
+                      "event": "$feature_flag_called"
+                    }
+                  ],
+                  "interval": "day",
+                  "dateRange": {
+                    "date_from": "-30d",
+                    "explicitDate": false
+                  },
+                  "properties": {
+                    "type": "AND",
+                    "values": [
+                      {
+                        "type": "AND",
+                        "values": [
+                          {
+                            "key": "$feature_flag",
+                            "type": "event",
+                            "value": "nango-test-created-1780481766833064995",
+                            "operator": "exact"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "trendsFilter": {
+                    "display": "ActionsTable",
+                    "showLegend": false,
+                    "yAxisScaleType": "linear",
+                    "showValuesOnSeries": false,
+                    "smoothingIntervals": 1,
+                    "showPercentStackView": false,
+                    "aggregationAxisFormat": "numeric",
+                    "showAlertThresholdLines": false
+                  },
+                  "breakdownFilter": {
+                    "breakdown": "$feature_flag_response",
+                    "breakdown_type": "event"
+                  },
+                  "filterTestAccounts": false,
+                  "version": 2
+                }
+              },
+              "order": null,
+              "deleted": false,
+              "dashboards": [
+                1663166
+              ],
+              "dashboard_tiles": [
+                {
+                  "id": 8226932,
+                  "dashboard_id": 1663166,
+                  "deleted": null
+                }
+              ],
+              "last_refresh": null,
+              "cache_target_age": null,
+              "next_allowed_client_refresh": null,
+              "result": null,
+              "hasMore": null,
+              "columns": null,
+              "created_at": "2026-06-03T10:16:12.236816Z",
+              "created_by": {
+                "id": 411781,
+                "uuid": "019c439e-fd4f-0000-dc37-5baa50dfcff6",
+                "distinct_id": "xQi0eQjuEyQ8RFio14FSc5gE3wC5wOKUM7lm3FFRMyR",
+                "first_name": "Nango Developer",
+                "last_name": "",
+                "email": "api@nango.dev",
+                "is_email_verified": true,
+                "hedgehog_config": null,
+                "role_at_organization": ""
+              },
+              "description": "Shows the number of unique user calls made on feature flag per variant with key: nango-test-created-1780481766833064995",
+              "updated_at": "2026-06-03T10:16:12.236841Z",
+              "favorited": false,
+              "saved": true,
+              "last_modified_at": "2026-06-03T10:16:12.236139Z",
+              "last_modified_by": {
+                "id": 411781,
+                "uuid": "019c439e-fd4f-0000-dc37-5baa50dfcff6",
+                "distinct_id": "xQi0eQjuEyQ8RFio14FSc5gE3wC5wOKUM7lm3FFRMyR",
+                "first_name": "Nango Developer",
+                "last_name": "",
+                "email": "api@nango.dev",
+                "is_email_verified": true,
+                "hedgehog_config": null,
+                "role_at_organization": ""
+              },
+              "is_sample": true,
+              "effective_restriction_level": 21,
+              "effective_privilege_level": 37,
+              "user_access_level": "manager",
+              "timezone": null,
+              "is_cached": false,
+              "query_status": null,
+              "hogql": null,
+              "types": null,
+              "resolved_date_range": null,
+              "alerts": [],
+              "last_viewed_at": null,
+              "tags": [],
+              "filters_hash": "cache_309484_138516a50b3a09d5304313e8fca8cd9c6e6257b8a4cf8ca6f042cbbb1851b89b"
+            },
+            {
+              "id": 9038308,
+              "short_id": "37BpNZix",
+              "name": "Feature Flag Called Total Volume",
+              "derived_name": null,
+              "filters": {},
+              "query": {
+                "kind": "InsightVizNode",
+                "source": {
+                  "kind": "TrendsQuery",
+                  "series": [
+                    {
+                      "kind": "EventsNode",
+                      "name": "$feature_flag_called",
+                      "event": "$feature_flag_called"
+                    }
+                  ],
+                  "interval": "day",
+                  "dateRange": {
+                    "date_from": "-30d",
+                    "explicitDate": false
+                  },
+                  "properties": {
+                    "type": "AND",
+                    "values": [
+                      {
+                        "type": "AND",
+                        "values": [
+                          {
+                            "key": "$feature_flag",
+                            "type": "event",
+                            "value": "nango-test-created-1780481766833064995",
+                            "operator": "exact"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "trendsFilter": {
+                    "display": "ActionsLineGraph",
+                    "showLegend": false,
+                    "yAxisScaleType": "linear",
+                    "showValuesOnSeries": false,
+                    "smoothingIntervals": 1,
+                    "showPercentStackView": false,
+                    "aggregationAxisFormat": "numeric",
+                    "showAlertThresholdLines": false
+                  },
+                  "breakdownFilter": {
+                    "breakdown": "$feature_flag_response",
+                    "breakdown_type": "event"
+                  },
+                  "filterTestAccounts": false,
+                  "version": 2
+                }
+              },
+              "order": null,
+              "deleted": false,
+              "dashboards": [
+                1663166
+              ],
+              "dashboard_tiles": [
+                {
+                  "id": 8226931,
+                  "dashboard_id": 1663166,
+                  "deleted": null
+                }
+              ],
+              "last_refresh": null,
+              "cache_target_age": null,
+              "next_allowed_client_refresh": null,
+              "result": null,
+              "hasMore": null,
+              "columns": null,
+              "created_at": "2026-06-03T10:16:11.465524Z",
+              "created_by": {
+                "id": 411781,
+                "uuid": "019c439e-fd4f-0000-dc37-5baa50dfcff6",
+                "distinct_id": "xQi0eQjuEyQ8RFio14FSc5gE3wC5wOKUM7lm3FFRMyR",
+                "first_name": "Nango Developer",
+                "last_name": "",
+                "email": "api@nango.dev",
+                "is_email_verified": true,
+                "hedgehog_config": null,
+                "role_at_organization": ""
+              },
+              "description": "Shows the number of total calls made on feature flag with key: nango-test-created-1780481766833064995",
+              "updated_at": "2026-06-03T10:16:11.465544Z",
+              "favorited": false,
+              "saved": true,
+              "last_modified_at": "2026-06-03T10:16:11.464998Z",
+              "last_modified_by": {
+                "id": 411781,
+                "uuid": "019c439e-fd4f-0000-dc37-5baa50dfcff6",
+                "distinct_id": "xQi0eQjuEyQ8RFio14FSc5gE3wC5wOKUM7lm3FFRMyR",
+                "first_name": "Nango Developer",
+                "last_name": "",
+                "email": "api@nango.dev",
+                "is_email_verified": true,
+                "hedgehog_config": null,
+                "role_at_organization": ""
+              },
+              "is_sample": true,
+              "effective_restriction_level": 21,
+              "effective_privilege_level": 37,
+              "user_access_level": "manager",
+              "timezone": null,
+              "is_cached": false,
+              "query_status": null,
+              "hogql": null,
+              "types": null,
+              "resolved_date_range": null,
+              "alerts": [],
+              "last_viewed_at": null,
+              "tags": [],
+              "filters_hash": "cache_309484_193e2f94de9667d0650e0d5dfca9c06e95f4516feeb16477245247b07da39dbb"
+            },
+            {
+              "id": 9038220,
+              "short_id": "Sg50HIuR",
+              "name": "Nango Test Insight",
+              "derived_name": null,
+              "filters": {},
+              "query": {
+                "kind": "InsightVizNode",
+                "source": {
+                  "kind": "TrendsQuery",
+                  "series": [
+                    {
+                      "kind": "EventsNode",
+                      "event": "$pageview"
+                    }
+                  ],
+                  "version": 2
+                }
+              },
+              "order": null,
+              "deleted": false,
+              "dashboards": [],
+              "dashboard_tiles": [],
+              "last_refresh": null,
+              "cache_target_age": null,
+              "next_allowed_client_refresh": null,
+              "result": null,
+              "hasMore": null,
+              "columns": null,
+              "created_at": "2026-06-03T10:10:18.700474Z",
+              "created_by": {
+                "id": 411781,
+                "uuid": "019c439e-fd4f-0000-dc37-5baa50dfcff6",
+                "distinct_id": "xQi0eQjuEyQ8RFio14FSc5gE3wC5wOKUM7lm3FFRMyR",
+                "first_name": "Nango Developer",
+                "last_name": "",
+                "email": "api@nango.dev",
+                "is_email_verified": true,
+                "hedgehog_config": null,
+                "role_at_organization": ""
+              },
+              "description": "Updated via Nango dryrun",
+              "updated_at": "2026-06-03T10:14:41.758862Z",
+              "favorited": false,
+              "saved": true,
+              "last_modified_at": "2026-06-03T10:14:41.757928Z",
+              "last_modified_by": {
+                "id": 411781,
+                "uuid": "019c439e-fd4f-0000-dc37-5baa50dfcff6",
+                "distinct_id": "xQi0eQjuEyQ8RFio14FSc5gE3wC5wOKUM7lm3FFRMyR",
+                "first_name": "Nango Developer",
+                "last_name": "",
+                "email": "api@nango.dev",
+                "is_email_verified": true,
+                "hedgehog_config": null,
+                "role_at_organization": ""
+              },
+              "is_sample": false,
+              "effective_restriction_level": 21,
+              "effective_privilege_level": 37,
+              "user_access_level": "manager",
+              "timezone": null,
+              "is_cached": false,
+              "query_status": null,
+              "hogql": null,
+              "types": null,
+              "resolved_date_range": null,
+              "alerts": [],
+              "last_viewed_at": "2026-06-03T10:10:18.731891Z",
+              "tags": [],
+              "filters_hash": "cache_309484_fdfd8c9bd6592d83a1b33537b3fd61fc27b923bd0b9c98303fef5cffd334f719"
+            },
+            {
+              "id": 9038263,
+              "short_id": "EtgOh1ux",
+              "name": "Feature Flag calls made by unique users per variant",
+              "derived_name": null,
+              "filters": {},
+              "query": {
+                "kind": "InsightVizNode",
+                "source": {
+                  "kind": "TrendsQuery",
+                  "series": [
+                    {
+                      "kind": "EventsNode",
+                      "math": "dau",
+                      "name": "$feature_flag_called",
+                      "event": "$feature_flag_called"
+                    }
+                  ],
+                  "interval": "day",
+                  "dateRange": {
+                    "date_from": "-30d",
+                    "explicitDate": false
+                  },
+                  "properties": {
+                    "type": "AND",
+                    "values": [
+                      {
+                        "type": "AND",
+                        "values": [
+                          {
+                            "key": "$feature_flag",
+                            "type": "event",
+                            "value": "nango-test-created-20260603-001",
+                            "operator": "exact"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "trendsFilter": {
+                    "display": "ActionsTable",
+                    "showLegend": false,
+                    "yAxisScaleType": "linear",
+                    "showValuesOnSeries": false,
+                    "smoothingIntervals": 1,
+                    "showPercentStackView": false,
+                    "aggregationAxisFormat": "numeric",
+                    "showAlertThresholdLines": false
+                  },
+                  "breakdownFilter": {
+                    "breakdown": "$feature_flag_response",
+                    "breakdown_type": "event"
+                  },
+                  "filterTestAccounts": false,
+                  "version": 2
+                }
+              },
+              "order": null,
+              "deleted": false,
+              "dashboards": [
+                1663158
+              ],
+              "dashboard_tiles": [
+                {
+                  "id": 8226890,
+                  "dashboard_id": 1663158,
+                  "deleted": null
+                }
+              ],
+              "last_refresh": null,
+              "cache_target_age": null,
+              "next_allowed_client_refresh": null,
+              "result": null,
+              "hasMore": null,
+              "columns": null,
+              "created_at": "2026-06-03T10:14:06.586635Z",
+              "created_by": {
+                "id": 411781,
+                "uuid": "019c439e-fd4f-0000-dc37-5baa50dfcff6",
+                "distinct_id": "xQi0eQjuEyQ8RFio14FSc5gE3wC5wOKUM7lm3FFRMyR",
+                "first_name": "Nango Developer",
+                "last_name": "",
+                "email": "api@nango.dev",
+                "is_email_verified": true,
+                "hedgehog_config": null,
+                "role_at_organization": ""
+              },
+              "description": "Shows the number of unique user calls made on feature flag per variant with key: nango-test-created-20260603-001",
+              "updated_at": "2026-06-03T10:14:06.586656Z",
+              "favorited": false,
+              "saved": true,
+              "last_modified_at": "2026-06-03T10:14:06.586042Z",
+              "last_modified_by": {
+                "id": 411781,
+                "uuid": "019c439e-fd4f-0000-dc37-5baa50dfcff6",
+                "distinct_id": "xQi0eQjuEyQ8RFio14FSc5gE3wC5wOKUM7lm3FFRMyR",
+                "first_name": "Nango Developer",
+                "last_name": "",
+                "email": "api@nango.dev",
+                "is_email_verified": true,
+                "hedgehog_config": null,
+                "role_at_organization": ""
+              },
+              "is_sample": true,
+              "effective_restriction_level": 21,
+              "effective_privilege_level": 37,
+              "user_access_level": "manager",
+              "timezone": null,
+              "is_cached": false,
+              "query_status": null,
+              "hogql": null,
+              "types": null,
+              "resolved_date_range": null,
+              "alerts": [],
+              "last_viewed_at": null,
+              "tags": [],
+              "filters_hash": "cache_309484_04242fc6254491168753988dc10cd2e17e47883cbb5beb149869ccaddc681aa9"
+            },
+            {
+              "id": 9038262,
+              "short_id": "tWQmaRm3",
+              "name": "Feature Flag Called Total Volume",
+              "derived_name": null,
+              "filters": {},
+              "query": {
+                "kind": "InsightVizNode",
+                "source": {
+                  "kind": "TrendsQuery",
+                  "series": [
+                    {
+                      "kind": "EventsNode",
+                      "name": "$feature_flag_called",
+                      "event": "$feature_flag_called"
+                    }
+                  ],
+                  "interval": "day",
+                  "dateRange": {
+                    "date_from": "-30d",
+                    "explicitDate": false
+                  },
+                  "properties": {
+                    "type": "AND",
+                    "values": [
+                      {
+                        "type": "AND",
+                        "values": [
+                          {
+                            "key": "$feature_flag",
+                            "type": "event",
+                            "value": "nango-test-created-20260603-001",
+                            "operator": "exact"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "trendsFilter": {
+                    "display": "ActionsLineGraph",
+                    "showLegend": false,
+                    "yAxisScaleType": "linear",
+                    "showValuesOnSeries": false,
+                    "smoothingIntervals": 1,
+                    "showPercentStackView": false,
+                    "aggregationAxisFormat": "numeric",
+                    "showAlertThresholdLines": false
+                  },
+                  "breakdownFilter": {
+                    "breakdown": "$feature_flag_response",
+                    "breakdown_type": "event"
+                  },
+                  "filterTestAccounts": false,
+                  "version": 2
+                }
+              },
+              "order": null,
+              "deleted": false,
+              "dashboards": [
+                1663158
+              ],
+              "dashboard_tiles": [
+                {
+                  "id": 8226889,
+                  "dashboard_id": 1663158,
+                  "deleted": null
+                }
+              ],
+              "last_refresh": null,
+              "cache_target_age": null,
+              "next_allowed_client_refresh": null,
+              "result": null,
+              "hasMore": null,
+              "columns": null,
+              "created_at": "2026-06-03T10:14:06.561134Z",
+              "created_by": {
+                "id": 411781,
+                "uuid": "019c439e-fd4f-0000-dc37-5baa50dfcff6",
+                "distinct_id": "xQi0eQjuEyQ8RFio14FSc5gE3wC5wOKUM7lm3FFRMyR",
+                "first_name": "Nango Developer",
+                "last_name": "",
+                "email": "api@nango.dev",
+                "is_email_verified": true,
+                "hedgehog_config": null,
+                "role_at_organization": ""
+              },
+              "description": "Shows the number of total calls made on feature flag with key: nango-test-created-20260603-001",
+              "updated_at": "2026-06-03T10:14:06.561155Z",
+              "favorited": false,
+              "saved": true,
+              "last_modified_at": "2026-06-03T10:14:06.560545Z",
+              "last_modified_by": {
+                "id": 411781,
+                "uuid": "019c439e-fd4f-0000-dc37-5baa50dfcff6",
+                "distinct_id": "xQi0eQjuEyQ8RFio14FSc5gE3wC5wOKUM7lm3FFRMyR",
+                "first_name": "Nango Developer",
+                "last_name": "",
+                "email": "api@nango.dev",
+                "is_email_verified": true,
+                "hedgehog_config": null,
+                "role_at_organization": ""
+              },
+              "is_sample": true,
+              "effective_restriction_level": 21,
+              "effective_privilege_level": 37,
+              "user_access_level": "manager",
+              "timezone": null,
+              "is_cached": false,
+              "query_status": null,
+              "hogql": null,
+              "types": null,
+              "resolved_date_range": null,
+              "alerts": [],
+              "last_viewed_at": null,
+              "tags": [],
+              "filters_hash": "cache_309484_480871892339b46a2e03ea1308b89a90ff6b3b556837b33cef07bc1663e4a32f"
+            },
+            {
+              "id": 9038250,
+              "short_id": "5YjlMdOF",
+              "name": "Feature Flag calls made by unique users per variant",
+              "derived_name": null,
+              "filters": {},
+              "query": {
+                "kind": "InsightVizNode",
+                "source": {
+                  "kind": "TrendsQuery",
+                  "series": [
+                    {
+                      "kind": "EventsNode",
+                      "math": "dau",
+                      "name": "$feature_flag_called",
+                      "event": "$feature_flag_called"
+                    }
+                  ],
+                  "interval": "day",
+                  "dateRange": {
+                    "date_from": "-30d",
+                    "explicitDate": false
+                  },
+                  "properties": {
+                    "type": "AND",
+                    "values": [
+                      {
+                        "type": "AND",
+                        "values": [
+                          {
+                            "key": "$feature_flag",
+                            "type": "event",
+                            "value": "nango-test-experiment-flag",
+                            "operator": "exact"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "trendsFilter": {
+                    "display": "ActionsTable",
+                    "showLegend": false,
+                    "yAxisScaleType": "linear",
+                    "showValuesOnSeries": false,
+                    "smoothingIntervals": 1,
+                    "showPercentStackView": false,
+                    "aggregationAxisFormat": "numeric",
+                    "showAlertThresholdLines": false
+                  },
+                  "breakdownFilter": {
+                    "breakdown": "$feature_flag_response",
+                    "breakdown_type": "event"
+                  },
+                  "filterTestAccounts": false,
+                  "version": 2
+                }
+              },
+              "order": null,
+              "deleted": false,
+              "dashboards": [
+                1663154
+              ],
+              "dashboard_tiles": [
+                {
+                  "id": 8226877,
+                  "dashboard_id": 1663154,
+                  "deleted": null
+                }
+              ],
+              "last_refresh": null,
+              "cache_target_age": null,
+              "next_allowed_client_refresh": null,
+              "result": null,
+              "hasMore": null,
+              "columns": null,
+              "created_at": "2026-06-03T10:13:36.019975Z",
+              "created_by": {
+                "id": 411781,
+                "uuid": "019c439e-fd4f-0000-dc37-5baa50dfcff6",
+                "distinct_id": "xQi0eQjuEyQ8RFio14FSc5gE3wC5wOKUM7lm3FFRMyR",
+                "first_name": "Nango Developer",
+                "last_name": "",
+                "email": "api@nango.dev",
+                "is_email_verified": true,
+                "hedgehog_config": null,
+                "role_at_organization": ""
+              },
+              "description": "Shows the number of unique user calls made on feature flag per variant with key: nango-test-experiment-flag",
+              "updated_at": "2026-06-03T10:13:36.019996Z",
+              "favorited": false,
+              "saved": true,
+              "last_modified_at": "2026-06-03T10:13:36.019293Z",
+              "last_modified_by": {
+                "id": 411781,
+                "uuid": "019c439e-fd4f-0000-dc37-5baa50dfcff6",
+                "distinct_id": "xQi0eQjuEyQ8RFio14FSc5gE3wC5wOKUM7lm3FFRMyR",
+                "first_name": "Nango Developer",
+                "last_name": "",
+                "email": "api@nango.dev",
+                "is_email_verified": true,
+                "hedgehog_config": null,
+                "role_at_organization": ""
+              },
+              "is_sample": true,
+              "effective_restriction_level": 21,
+              "effective_privilege_level": 37,
+              "user_access_level": "manager",
+              "timezone": null,
+              "is_cached": false,
+              "query_status": null,
+              "hogql": null,
+              "types": null,
+              "resolved_date_range": null,
+              "alerts": [],
+              "last_viewed_at": null,
+              "tags": [],
+              "filters_hash": "cache_309484_5599b028ffc4c710c3f88d5390b8fc31b3eff86557d75bd607e28c7393fd5d57"
+            },
+            {
+              "id": 9038249,
+              "short_id": "KXRDbANq",
+              "name": "Feature Flag Called Total Volume",
+              "derived_name": null,
+              "filters": {},
+              "query": {
+                "kind": "InsightVizNode",
+                "source": {
+                  "kind": "TrendsQuery",
+                  "series": [
+                    {
+                      "kind": "EventsNode",
+                      "name": "$feature_flag_called",
+                      "event": "$feature_flag_called"
+                    }
+                  ],
+                  "interval": "day",
+                  "dateRange": {
+                    "date_from": "-30d",
+                    "explicitDate": false
+                  },
+                  "properties": {
+                    "type": "AND",
+                    "values": [
+                      {
+                        "type": "AND",
+                        "values": [
+                          {
+                            "key": "$feature_flag",
+                            "type": "event",
+                            "value": "nango-test-experiment-flag",
+                            "operator": "exact"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "trendsFilter": {
+                    "display": "ActionsLineGraph",
+                    "showLegend": false,
+                    "yAxisScaleType": "linear",
+                    "showValuesOnSeries": false,
+                    "smoothingIntervals": 1,
+                    "showPercentStackView": false,
+                    "aggregationAxisFormat": "numeric",
+                    "showAlertThresholdLines": false
+                  },
+                  "breakdownFilter": {
+                    "breakdown": "$feature_flag_response",
+                    "breakdown_type": "event"
+                  },
+                  "filterTestAccounts": false,
+                  "version": 2
+                }
+              },
+              "order": null,
+              "deleted": false,
+              "dashboards": [
+                1663154
+              ],
+              "dashboard_tiles": [
+                {
+                  "id": 8226876,
+                  "dashboard_id": 1663154,
+                  "deleted": null
+                }
+              ],
+              "last_refresh": null,
+              "cache_target_age": null,
+              "next_allowed_client_refresh": null,
+              "result": null,
+              "hasMore": null,
+              "columns": null,
+              "created_at": "2026-06-03T10:13:35.980240Z",
+              "created_by": {
+                "id": 411781,
+                "uuid": "019c439e-fd4f-0000-dc37-5baa50dfcff6",
+                "distinct_id": "xQi0eQjuEyQ8RFio14FSc5gE3wC5wOKUM7lm3FFRMyR",
+                "first_name": "Nango Developer",
+                "last_name": "",
+                "email": "api@nango.dev",
+                "is_email_verified": true,
+                "hedgehog_config": null,
+                "role_at_organization": ""
+              },
+              "description": "Shows the number of total calls made on feature flag with key: nango-test-experiment-flag",
+              "updated_at": "2026-06-03T10:13:35.980260Z",
+              "favorited": false,
+              "saved": true,
+              "last_modified_at": "2026-06-03T10:13:35.979617Z",
+              "last_modified_by": {
+                "id": 411781,
+                "uuid": "019c439e-fd4f-0000-dc37-5baa50dfcff6",
+                "distinct_id": "xQi0eQjuEyQ8RFio14FSc5gE3wC5wOKUM7lm3FFRMyR",
+                "first_name": "Nango Developer",
+                "last_name": "",
+                "email": "api@nango.dev",
+                "is_email_verified": true,
+                "hedgehog_config": null,
+                "role_at_organization": ""
+              },
+              "is_sample": true,
+              "effective_restriction_level": 21,
+              "effective_privilege_level": 37,
+              "user_access_level": "manager",
+              "timezone": null,
+              "is_cached": false,
+              "query_status": null,
+              "hogql": null,
+              "types": null,
+              "resolved_date_range": null,
+              "alerts": [],
+              "last_viewed_at": null,
+              "tags": [],
+              "filters_hash": "cache_309484_2f64097de37cd5b4dd3970d2711bc977a4a84787aed772d6e76571fb7ebc3c8a"
+            },
+            {
+              "id": 9038219,
+              "short_id": "ohSTp8lE",
+              "name": "Nango Test Insight",
+              "derived_name": null,
+              "filters": {},
+              "query": {
+                "kind": "InsightVizNode",
+                "source": {
+                  "kind": "TrendsQuery",
+                  "series": [
+                    {
+                      "kind": "EventsNode",
+                      "event": "$pageview"
+                    }
+                  ],
+                  "version": 2
+                }
+              },
+              "order": null,
+              "deleted": false,
+              "dashboards": [],
+              "dashboard_tiles": [],
+              "last_refresh": null,
+              "cache_target_age": null,
+              "next_allowed_client_refresh": null,
+              "result": null,
+              "hasMore": null,
+              "columns": null,
+              "created_at": "2026-06-03T10:10:08.978261Z",
+              "created_by": {
+                "id": 411781,
+                "uuid": "019c439e-fd4f-0000-dc37-5baa50dfcff6",
+                "distinct_id": "xQi0eQjuEyQ8RFio14FSc5gE3wC5wOKUM7lm3FFRMyR",
+                "first_name": "Nango Developer",
+                "last_name": "",
+                "email": "api@nango.dev",
+                "is_email_verified": true,
+                "hedgehog_config": null,
+                "role_at_organization": ""
+              },
+              "description": null,
+              "updated_at": "2026-06-03T10:10:08.978285Z",
+              "favorited": false,
+              "saved": true,
+              "last_modified_at": "2026-06-03T10:10:08.974778Z",
+              "last_modified_by": {
+                "id": 411781,
+                "uuid": "019c439e-fd4f-0000-dc37-5baa50dfcff6",
+                "distinct_id": "xQi0eQjuEyQ8RFio14FSc5gE3wC5wOKUM7lm3FFRMyR",
+                "first_name": "Nango Developer",
+                "last_name": "",
+                "email": "api@nango.dev",
+                "is_email_verified": true,
+                "hedgehog_config": null,
+                "role_at_organization": ""
+              },
+              "is_sample": false,
+              "effective_restriction_level": 21,
+              "effective_privilege_level": 37,
+              "user_access_level": "manager",
+              "timezone": null,
+              "is_cached": false,
+              "query_status": null,
+              "hogql": null,
+              "types": null,
+              "resolved_date_range": null,
+              "alerts": [],
+              "last_viewed_at": "2026-06-03T10:10:09.008612Z",
+              "tags": [],
+              "filters_hash": "cache_309484_fdfd8c9bd6592d83a1b33537b3fd61fc27b923bd0b9c98303fef5cffd334f719"
+            },
+            {
+              "id": 9037895,
+              "short_id": "7zG6O2kw",
+              "name": "Feature Flag calls made by unique users per variant",
+              "derived_name": null,
+              "filters": {},
+              "query": {
+                "kind": "InsightVizNode",
+                "source": {
+                  "kind": "TrendsQuery",
+                  "series": [
+                    {
+                      "kind": "EventsNode",
+                      "math": "dau",
+                      "name": "$feature_flag_called",
+                      "event": "$feature_flag_called"
+                    }
+                  ],
+                  "interval": "day",
+                  "dateRange": {
+                    "date_from": "-30d",
+                    "explicitDate": false
+                  },
+                  "properties": {
+                    "type": "AND",
+                    "values": [
+                      {
+                        "type": "AND",
+                        "values": [
+                          {
+                            "key": "$feature_flag",
+                            "type": "event",
+                            "value": "nango-test-flag-b",
+                            "operator": "exact"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "trendsFilter": {
+                    "display": "ActionsTable",
+                    "showLegend": false,
+                    "yAxisScaleType": "linear",
+                    "showValuesOnSeries": false,
+                    "smoothingIntervals": 1,
+                    "showPercentStackView": false,
+                    "aggregationAxisFormat": "numeric",
+                    "showAlertThresholdLines": false
+                  },
+                  "breakdownFilter": {
+                    "breakdown": "$feature_flag_response",
+                    "breakdown_type": "event"
+                  },
+                  "filterTestAccounts": false,
+                  "version": 2
+                }
+              },
+              "order": null,
+              "deleted": false,
+              "dashboards": [
+                1663106
+              ],
+              "dashboard_tiles": [
+                {
+                  "id": 8226527,
+                  "dashboard_id": 1663106,
+                  "deleted": null
+                }
+              ],
+              "last_refresh": null,
+              "cache_target_age": null,
+              "next_allowed_client_refresh": null,
+              "result": null,
+              "hasMore": null,
+              "columns": null,
+              "created_at": "2026-06-03T09:53:08.702347Z",
+              "created_by": {
+                "id": 411781,
+                "uuid": "019c439e-fd4f-0000-dc37-5baa50dfcff6",
+                "distinct_id": "xQi0eQjuEyQ8RFio14FSc5gE3wC5wOKUM7lm3FFRMyR",
+                "first_name": "Nango Developer",
+                "last_name": "",
+                "email": "api@nango.dev",
+                "is_email_verified": true,
+                "hedgehog_config": null,
+                "role_at_organization": ""
+              },
+              "description": "Shows the number of unique user calls made on feature flag per variant with key: nango-test-flag-b",
+              "updated_at": "2026-06-03T09:53:08.702371Z",
+              "favorited": false,
+              "saved": true,
+              "last_modified_at": "2026-06-03T09:53:08.701651Z",
+              "last_modified_by": {
+                "id": 411781,
+                "uuid": "019c439e-fd4f-0000-dc37-5baa50dfcff6",
+                "distinct_id": "xQi0eQjuEyQ8RFio14FSc5gE3wC5wOKUM7lm3FFRMyR",
+                "first_name": "Nango Developer",
+                "last_name": "",
+                "email": "api@nango.dev",
+                "is_email_verified": true,
+                "hedgehog_config": null,
+                "role_at_organization": ""
+              },
+              "is_sample": true,
+              "effective_restriction_level": 21,
+              "effective_privilege_level": 37,
+              "user_access_level": "manager",
+              "timezone": null,
+              "is_cached": false,
+              "query_status": null,
+              "hogql": null,
+              "types": null,
+              "resolved_date_range": null,
+              "alerts": [],
+              "last_viewed_at": null,
+              "tags": [],
+              "filters_hash": "cache_309484_c3b9ecff90ba1907bce82766c6397edea9b21e7ac99d786958b0184d1f50bb18"
+            },
+            {
+              "id": 9037894,
+              "short_id": "pTmBWWTM",
+              "name": "Feature Flag Called Total Volume",
+              "derived_name": null,
+              "filters": {},
+              "query": {
+                "kind": "InsightVizNode",
+                "source": {
+                  "kind": "TrendsQuery",
+                  "series": [
+                    {
+                      "kind": "EventsNode",
+                      "name": "$feature_flag_called",
+                      "event": "$feature_flag_called"
+                    }
+                  ],
+                  "interval": "day",
+                  "dateRange": {
+                    "date_from": "-30d",
+                    "explicitDate": false
+                  },
+                  "properties": {
+                    "type": "AND",
+                    "values": [
+                      {
+                        "type": "AND",
+                        "values": [
+                          {
+                            "key": "$feature_flag",
+                            "type": "event",
+                            "value": "nango-test-flag-b",
+                            "operator": "exact"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "trendsFilter": {
+                    "display": "ActionsLineGraph",
+                    "showLegend": false,
+                    "yAxisScaleType": "linear",
+                    "showValuesOnSeries": false,
+                    "smoothingIntervals": 1,
+                    "showPercentStackView": false,
+                    "aggregationAxisFormat": "numeric",
+                    "showAlertThresholdLines": false
+                  },
+                  "breakdownFilter": {
+                    "breakdown": "$feature_flag_response",
+                    "breakdown_type": "event"
+                  },
+                  "filterTestAccounts": false,
+                  "version": 2
+                }
+              },
+              "order": null,
+              "deleted": false,
+              "dashboards": [
+                1663106
+              ],
+              "dashboard_tiles": [
+                {
+                  "id": 8226526,
+                  "dashboard_id": 1663106,
+                  "deleted": null
+                }
+              ],
+              "last_refresh": null,
+              "cache_target_age": null,
+              "next_allowed_client_refresh": null,
+              "result": null,
+              "hasMore": null,
+              "columns": null,
+              "created_at": "2026-06-03T09:53:08.623001Z",
+              "created_by": {
+                "id": 411781,
+                "uuid": "019c439e-fd4f-0000-dc37-5baa50dfcff6",
+                "distinct_id": "xQi0eQjuEyQ8RFio14FSc5gE3wC5wOKUM7lm3FFRMyR",
+                "first_name": "Nango Developer",
+                "last_name": "",
+                "email": "api@nango.dev",
+                "is_email_verified": true,
+                "hedgehog_config": null,
+                "role_at_organization": ""
+              },
+              "description": "Shows the number of total calls made on feature flag with key: nango-test-flag-b",
+              "updated_at": "2026-06-03T09:53:08.623026Z",
+              "favorited": false,
+              "saved": true,
+              "last_modified_at": "2026-06-03T09:53:08.622170Z",
+              "last_modified_by": {
+                "id": 411781,
+                "uuid": "019c439e-fd4f-0000-dc37-5baa50dfcff6",
+                "distinct_id": "xQi0eQjuEyQ8RFio14FSc5gE3wC5wOKUM7lm3FFRMyR",
+                "first_name": "Nango Developer",
+                "last_name": "",
+                "email": "api@nango.dev",
+                "is_email_verified": true,
+                "hedgehog_config": null,
+                "role_at_organization": ""
+              },
+              "is_sample": true,
+              "effective_restriction_level": 21,
+              "effective_privilege_level": 37,
+              "user_access_level": "manager",
+              "timezone": null,
+              "is_cached": false,
+              "query_status": null,
+              "hogql": null,
+              "types": null,
+              "resolved_date_range": null,
+              "alerts": [],
+              "last_viewed_at": null,
+              "tags": [],
+              "filters_hash": "cache_309484_1b306a51cbed41e9a1f9913c4d1f4891bcefcf2768fde15f5c5efef21bfd02f7"
+            },
+            {
+              "id": 9037893,
+              "short_id": "81DKe3PJ",
+              "name": "Feature Flag calls made by unique users per variant",
+              "derived_name": null,
+              "filters": {},
+              "query": {
+                "kind": "InsightVizNode",
+                "source": {
+                  "kind": "TrendsQuery",
+                  "series": [
+                    {
+                      "kind": "EventsNode",
+                      "math": "dau",
+                      "name": "$feature_flag_called",
+                      "event": "$feature_flag_called"
+                    }
+                  ],
+                  "interval": "day",
+                  "dateRange": {
+                    "date_from": "-30d",
+                    "explicitDate": false
+                  },
+                  "properties": {
+                    "type": "AND",
+                    "values": [
+                      {
+                        "type": "AND",
+                        "values": [
+                          {
+                            "key": "$feature_flag",
+                            "type": "event",
+                            "value": "nango-test-flag-a",
+                            "operator": "exact"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "trendsFilter": {
+                    "display": "ActionsTable",
+                    "showLegend": false,
+                    "yAxisScaleType": "linear",
+                    "showValuesOnSeries": false,
+                    "smoothingIntervals": 1,
+                    "showPercentStackView": false,
+                    "aggregationAxisFormat": "numeric",
+                    "showAlertThresholdLines": false
+                  },
+                  "breakdownFilter": {
+                    "breakdown": "$feature_flag_response",
+                    "breakdown_type": "event"
+                  },
+                  "filterTestAccounts": false,
+                  "version": 2
+                }
+              },
+              "order": null,
+              "deleted": false,
+              "dashboards": [
+                1663105
+              ],
+              "dashboard_tiles": [
+                {
+                  "id": 8226525,
+                  "dashboard_id": 1663105,
+                  "deleted": null
+                }
+              ],
+              "last_refresh": null,
+              "cache_target_age": null,
+              "next_allowed_client_refresh": null,
+              "result": null,
+              "hasMore": null,
+              "columns": null,
+              "created_at": "2026-06-03T09:53:05.969226Z",
+              "created_by": {
+                "id": 411781,
+                "uuid": "019c439e-fd4f-0000-dc37-5baa50dfcff6",
+                "distinct_id": "xQi0eQjuEyQ8RFio14FSc5gE3wC5wOKUM7lm3FFRMyR",
+                "first_name": "Nango Developer",
+                "last_name": "",
+                "email": "api@nango.dev",
+                "is_email_verified": true,
+                "hedgehog_config": null,
+                "role_at_organization": ""
+              },
+              "description": "Shows the number of unique user calls made on feature flag per variant with key: nango-test-flag-a",
+              "updated_at": "2026-06-03T09:53:05.969248Z",
+              "favorited": false,
+              "saved": true,
+              "last_modified_at": "2026-06-03T09:53:05.968618Z",
+              "last_modified_by": {
+                "id": 411781,
+                "uuid": "019c439e-fd4f-0000-dc37-5baa50dfcff6",
+                "distinct_id": "xQi0eQjuEyQ8RFio14FSc5gE3wC5wOKUM7lm3FFRMyR",
+                "first_name": "Nango Developer",
+                "last_name": "",
+                "email": "api@nango.dev",
+                "is_email_verified": true,
+                "hedgehog_config": null,
+                "role_at_organization": ""
+              },
+              "is_sample": true,
+              "effective_restriction_level": 21,
+              "effective_privilege_level": 37,
+              "user_access_level": "manager",
+              "timezone": null,
+              "is_cached": false,
+              "query_status": null,
+              "hogql": null,
+              "types": null,
+              "resolved_date_range": null,
+              "alerts": [],
+              "last_viewed_at": null,
+              "tags": [],
+              "filters_hash": "cache_309484_277bbb1d260bfbf575515ce79dd780341f94f024771545c794e1ad38b3d908c7"
+            },
+            {
+              "id": 9037892,
+              "short_id": "Ko7sGUXC",
+              "name": "Feature Flag Called Total Volume",
+              "derived_name": null,
+              "filters": {},
+              "query": {
+                "kind": "InsightVizNode",
+                "source": {
+                  "kind": "TrendsQuery",
+                  "series": [
+                    {
+                      "kind": "EventsNode",
+                      "name": "$feature_flag_called",
+                      "event": "$feature_flag_called"
+                    }
+                  ],
+                  "interval": "day",
+                  "dateRange": {
+                    "date_from": "-30d",
+                    "explicitDate": false
+                  },
+                  "properties": {
+                    "type": "AND",
+                    "values": [
+                      {
+                        "type": "AND",
+                        "values": [
+                          {
+                            "key": "$feature_flag",
+                            "type": "event",
+                            "value": "nango-test-flag-a",
+                            "operator": "exact"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "trendsFilter": {
+                    "display": "ActionsLineGraph",
+                    "showLegend": false,
+                    "yAxisScaleType": "linear",
+                    "showValuesOnSeries": false,
+                    "smoothingIntervals": 1,
+                    "showPercentStackView": false,
+                    "aggregationAxisFormat": "numeric",
+                    "showAlertThresholdLines": false
+                  },
+                  "breakdownFilter": {
+                    "breakdown": "$feature_flag_response",
+                    "breakdown_type": "event"
+                  },
+                  "filterTestAccounts": false,
+                  "version": 2
+                }
+              },
+              "order": null,
+              "deleted": false,
+              "dashboards": [
+                1663105
+              ],
+              "dashboard_tiles": [
+                {
+                  "id": 8226524,
+                  "dashboard_id": 1663105,
+                  "deleted": null
+                }
+              ],
+              "last_refresh": null,
+              "cache_target_age": null,
+              "next_allowed_client_refresh": null,
+              "result": null,
+              "hasMore": null,
+              "columns": null,
+              "created_at": "2026-06-03T09:53:05.937809Z",
+              "created_by": {
+                "id": 411781,
+                "uuid": "019c439e-fd4f-0000-dc37-5baa50dfcff6",
+                "distinct_id": "xQi0eQjuEyQ8RFio14FSc5gE3wC5wOKUM7lm3FFRMyR",
+                "first_name": "Nango Developer",
+                "last_name": "",
+                "email": "api@nango.dev",
+                "is_email_verified": true,
+                "hedgehog_config": null,
+                "role_at_organization": ""
+              },
+              "description": "Shows the number of total calls made on feature flag with key: nango-test-flag-a",
+              "updated_at": "2026-06-03T09:53:05.937830Z",
+              "favorited": false,
+              "saved": true,
+              "last_modified_at": "2026-06-03T09:53:05.937186Z",
+              "last_modified_by": {
+                "id": 411781,
+                "uuid": "019c439e-fd4f-0000-dc37-5baa50dfcff6",
+                "distinct_id": "xQi0eQjuEyQ8RFio14FSc5gE3wC5wOKUM7lm3FFRMyR",
+                "first_name": "Nango Developer",
+                "last_name": "",
+                "email": "api@nango.dev",
+                "is_email_verified": true,
+                "hedgehog_config": null,
+                "role_at_organization": ""
+              },
+              "is_sample": true,
+              "effective_restriction_level": 21,
+              "effective_privilege_level": 37,
+              "user_access_level": "manager",
+              "timezone": null,
+              "is_cached": false,
+              "query_status": null,
+              "hogql": null,
+              "types": null,
+              "resolved_date_range": null,
+              "alerts": [],
+              "last_viewed_at": null,
+              "tags": [],
+              "filters_hash": "cache_309484_abcce19d486523b8ebbb6392c1f6a7650295977051511e00a5f72d1c64b92b52"
+            },
+            {
+              "id": 6825386,
+              "short_id": "VaR0QUi6",
+              "name": "Pageview funnel, by browser",
+              "derived_name": null,
+              "filters": {},
+              "query": {
+                "kind": "InsightVizNode",
+                "source": {
+                  "kind": "FunnelsQuery",
+                  "series": [
+                    {
+                      "kind": "EventsNode",
+                      "name": "$pageview",
+                      "event": "$pageview",
+                      "custom_name": "First page view"
+                    },
+                    {
+                      "kind": "EventsNode",
+                      "name": "$pageview",
+                      "event": "$pageview",
+                      "custom_name": "Second page view"
+                    },
+                    {
+                      "kind": "EventsNode",
+                      "name": "$pageview",
+                      "event": "$pageview",
+                      "custom_name": "Third page view"
+                    }
+                  ],
+                  "interval": "day",
+                  "dateRange": {
+                    "date_from": "-7d",
+                    "explicitDate": false
+                  },
+                  "properties": [],
+                  "funnelsFilter": {
+                    "layout": "horizontal",
+                    "exclusions": [],
+                    "funnelVizType": "steps",
+                    "funnelOrderType": "ordered",
+                    "funnelStepReference": "total",
+                    "funnelWindowInterval": 14,
+                    "breakdownAttributionType": "first_touch",
+                    "funnelWindowIntervalUnit": "day"
+                  },
+                  "breakdownFilter": {
+                    "breakdown": "$browser",
+                    "breakdown_type": "event"
+                  },
+                  "filterTestAccounts": false
+                }
+              },
+              "order": null,
+              "deleted": false,
+              "dashboards": [
+                1264879
+              ],
+              "dashboard_tiles": [
+                {
+                  "id": 5994607,
+                  "dashboard_id": 1264879,
+                  "deleted": null
+                }
+              ],
+              "last_refresh": null,
+              "cache_target_age": null,
+              "next_allowed_client_refresh": null,
+              "result": null,
+              "hasMore": null,
+              "columns": null,
+              "created_at": "2026-02-09T18:16:59.522475Z",
+              "created_by": null,
+              "description": "This example funnel shows how many of your users have completed 3 page views, broken down by browser.",
+              "updated_at": "2026-02-09T18:16:59.522497Z",
+              "favorited": false,
+              "saved": false,
+              "last_modified_at": "2026-02-09T18:16:59.522037Z",
+              "last_modified_by": null,
+              "is_sample": true,
+              "effective_restriction_level": 21,
+              "effective_privilege_level": 37,
+              "user_access_level": "manager",
+              "timezone": null,
+              "is_cached": false,
+              "query_status": null,
+              "hogql": null,
+              "types": null,
+              "resolved_date_range": null,
+              "alerts": [],
+              "last_viewed_at": null,
+              "tags": [],
+              "filters_hash": "cache_309484_0417d8f1076bac04d6c4ea327a0d83065453f467960dbc46605ec2945f6bbfe5"
+            },
+            {
+              "id": 6825385,
+              "short_id": "Ga6La0R5",
+              "name": "Referring domain (last 14 days)",
+              "derived_name": null,
+              "filters": {},
+              "query": {
+                "kind": "InsightVizNode",
+                "source": {
+                  "kind": "TrendsQuery",
+                  "series": [
+                    {
+                      "kind": "EventsNode",
+                      "math": "dau",
+                      "name": "$pageview",
+                      "event": "$pageview"
+                    }
+                  ],
+                  "interval": "day",
+                  "dateRange": {
+                    "date_from": "-14d",
+                    "explicitDate": false
+                  },
+                  "properties": [],
+                  "trendsFilter": {
+                    "display": "ActionsBarValue",
+                    "showLegend": false,
+                    "yAxisScaleType": "linear",
+                    "showValuesOnSeries": false,
+                    "smoothingIntervals": 1,
+                    "showPercentStackView": false,
+                    "aggregationAxisFormat": "numeric",
+                    "showAlertThresholdLines": false
+                  },
+                  "breakdownFilter": {
+                    "breakdown": "$referring_domain",
+                    "breakdown_type": "event"
+                  },
+                  "filterTestAccounts": false,
+                  "version": 2
+                }
+              },
+              "order": null,
+              "deleted": false,
+              "dashboards": [
+                1264879
+              ],
+              "dashboard_tiles": [
+                {
+                  "id": 5994606,
+                  "dashboard_id": 1264879,
+                  "deleted": null
+                }
+              ],
+              "last_refresh": null,
+              "cache_target_age": null,
+              "next_allowed_client_refresh": null,
+              "result": null,
+              "hasMore": null,
+              "columns": null,
+              "created_at": "2026-02-09T18:16:59.496188Z",
+              "created_by": null,
+              "description": "Shows the most common referring domains for your users over the past 14 days.",
+              "updated_at": "2026-02-09T18:16:59.496211Z",
+              "favorited": false,
+              "saved": false,
+              "last_modified_at": "2026-02-09T18:16:59.495710Z",
+              "last_modified_by": null,
+              "is_sample": true,
+              "effective_restriction_level": 21,
+              "effective_privilege_level": 37,
+              "user_access_level": "manager",
+              "timezone": null,
+              "is_cached": false,
+              "query_status": null,
+              "hogql": null,
+              "types": null,
+              "resolved_date_range": null,
+              "alerts": [],
+              "last_viewed_at": null,
+              "tags": [],
+              "filters_hash": "cache_309484_65097353b412efa28aad2aef9e39ab548fd81deb2fd21834c2d3e5f55e8fe93d"
+            },
+            {
+              "id": 6825384,
+              "short_id": "P8TFMqN5",
+              "name": "Growth accounting",
+              "derived_name": null,
+              "filters": {},
+              "query": {
+                "kind": "InsightVizNode",
+                "source": {
+                  "kind": "LifecycleQuery",
+                  "series": [
+                    {
+                      "kind": "EventsNode",
+                      "name": "$pageview",
+                      "event": "$pageview"
+                    }
+                  ],
+                  "interval": "week",
+                  "dateRange": {
+                    "date_from": "-30d",
+                    "explicitDate": false
+                  },
+                  "properties": [],
+                  "lifecycleFilter": {
+                    "showLegend": false
+                  },
+                  "filterTestAccounts": false
+                }
+              },
+              "order": null,
+              "deleted": false,
+              "dashboards": [
+                1264879
+              ],
+              "dashboard_tiles": [
+                {
+                  "id": 5994605,
+                  "dashboard_id": 1264879,
+                  "deleted": null
+                }
+              ],
+              "last_refresh": null,
+              "cache_target_age": null,
+              "next_allowed_client_refresh": null,
+              "result": null,
+              "hasMore": null,
+              "columns": null,
+              "created_at": "2026-02-09T18:16:59.470027Z",
+              "created_by": null,
+              "description": "How many of your users are new, returning, resurrecting, or dormant each week.",
+              "updated_at": "2026-02-09T18:16:59.470050Z",
+              "favorited": false,
+              "saved": false,
+              "last_modified_at": "2026-02-09T18:16:59.469660Z",
+              "last_modified_by": null,
+              "is_sample": true,
+              "effective_restriction_level": 21,
+              "effective_privilege_level": 37,
+              "user_access_level": "manager",
+              "timezone": null,
+              "is_cached": false,
+              "query_status": null,
+              "hogql": null,
+              "types": null,
+              "resolved_date_range": null,
+              "alerts": [],
+              "last_viewed_at": null,
+              "tags": [],
+              "filters_hash": "cache_309484_fd321585e0bbfb0964c244050aca404100a3f4d4cafd05dec33984dc989913a3"
+            },
+            {
+              "id": 6825383,
+              "short_id": "ueJxoPWU",
+              "name": "Retention",
+              "derived_name": null,
+              "filters": {},
+              "query": {
+                "kind": "InsightVizNode",
+                "source": {
+                  "kind": "RetentionQuery",
+                  "dateRange": {
+                    "date_from": "-7d",
+                    "explicitDate": false
+                  },
+                  "properties": [],
+                  "retentionFilter": {
+                    "period": "Week",
+                    "targetEntity": {
+                      "id": "$pageview",
+                      "type": "events"
+                    },
+                    "retentionType": "retention_first_time",
+                    "totalIntervals": 11,
+                    "returningEntity": {
+                      "id": "$pageview",
+                      "type": "events"
+                    }
+                  },
+                  "filterTestAccounts": false,
+                  "version": 2
+                }
+              },
+              "order": null,
+              "deleted": false,
+              "dashboards": [
+                1264879
+              ],
+              "dashboard_tiles": [
+                {
+                  "id": 5994604,
+                  "dashboard_id": 1264879,
+                  "deleted": null
+                }
+              ],
+              "last_refresh": null,
+              "cache_target_age": null,
+              "next_allowed_client_refresh": null,
+              "result": null,
+              "hasMore": null,
+              "columns": null,
+              "created_at": "2026-02-09T18:16:59.444345Z",
+              "created_by": null,
+              "description": "Weekly retention of your users.",
+              "updated_at": "2026-02-09T18:16:59.444368Z",
+              "favorited": false,
+              "saved": false,
+              "last_modified_at": "2026-02-09T18:16:59.443988Z",
+              "last_modified_by": null,
+              "is_sample": true,
+              "effective_restriction_level": 21,
+              "effective_privilege_level": 37,
+              "user_access_level": "manager",
+              "timezone": null,
+              "is_cached": false,
+              "query_status": null,
+              "hogql": null,
+              "types": null,
+              "resolved_date_range": null,
+              "alerts": [],
+              "last_viewed_at": null,
+              "tags": [],
+              "filters_hash": "cache_309484_995412974ab6a8f69cc04b12bb3a71e0bf64bdc1314961452959e9d260174019"
+            },
+            {
+              "id": 6825382,
+              "short_id": "0T3d5jLc",
+              "name": "Weekly active users (WAUs)",
+              "derived_name": null,
+              "filters": {},
+              "query": {
+                "kind": "InsightVizNode",
+                "source": {
+                  "kind": "TrendsQuery",
+                  "series": [
+                    {
+                      "kind": "EventsNode",
+                      "math": "dau",
+                      "name": "$pageview",
+                      "event": "$pageview"
+                    }
+                  ],
+                  "interval": "week",
+                  "dateRange": {
+                    "date_from": "-90d",
+                    "explicitDate": false
+                  },
+                  "properties": [],
+                  "trendsFilter": {
+                    "display": "ActionsLineGraph",
+                    "showLegend": false,
+                    "yAxisScaleType": "linear",
+                    "showValuesOnSeries": false,
+                    "smoothingIntervals": 1,
+                    "showPercentStackView": false,
+                    "aggregationAxisFormat": "numeric",
+                    "showAlertThresholdLines": false
+                  },
+                  "breakdownFilter": {
+                    "breakdown_type": "event"
+                  },
+                  "filterTestAccounts": false,
+                  "version": 2
+                }
+              },
+              "order": null,
+              "deleted": false,
+              "dashboards": [
+                1264879
+              ],
+              "dashboard_tiles": [
+                {
+                  "id": 5994603,
+                  "dashboard_id": 1264879,
+                  "deleted": null
+                }
+              ],
+              "last_refresh": null,
+              "cache_target_age": null,
+              "next_allowed_client_refresh": null,
+              "result": null,
+              "hasMore": null,
+              "columns": null,
+              "created_at": "2026-02-09T18:16:59.417752Z",
+              "created_by": null,
+              "description": "Shows the number of unique users that use your app every week.",
+              "updated_at": "2026-02-09T18:16:59.417774Z",
+              "favorited": false,
+              "saved": false,
+              "last_modified_at": "2026-02-09T18:16:59.417281Z",
+              "last_modified_by": null,
+              "is_sample": true,
+              "effective_restriction_level": 21,
+              "effective_privilege_level": 37,
+              "user_access_level": "manager",
+              "timezone": null,
+              "is_cached": false,
+              "query_status": null,
+              "hogql": null,
+              "types": null,
+              "resolved_date_range": null,
+              "alerts": [],
+              "last_viewed_at": null,
+              "tags": [],
+              "filters_hash": "cache_309484_26adeedf785292d109e778c5f2f0ba3d31e629d6444c14dbcc5885f8501916ec"
+            },
+            {
+              "id": 6825381,
+              "short_id": "oQGUHUbW",
+              "name": "Daily active users (DAUs)",
+              "derived_name": null,
+              "filters": {},
+              "query": {
+                "kind": "InsightVizNode",
+                "source": {
+                  "kind": "TrendsQuery",
+                  "series": [
+                    {
+                      "kind": "EventsNode",
+                      "math": "dau",
+                      "name": "$pageview",
+                      "event": "$pageview"
+                    }
+                  ],
+                  "interval": "day",
+                  "dateRange": {
+                    "date_from": "-30d",
+                    "explicitDate": false
+                  },
+                  "properties": [],
+                  "trendsFilter": {
+                    "display": "ActionsLineGraph",
+                    "showLegend": false,
+                    "yAxisScaleType": "linear",
+                    "showValuesOnSeries": false,
+                    "smoothingIntervals": 1,
+                    "showPercentStackView": false,
+                    "aggregationAxisFormat": "numeric",
+                    "showAlertThresholdLines": false
+                  },
+                  "breakdownFilter": {
+                    "breakdown_type": "event"
+                  },
+                  "filterTestAccounts": false,
+                  "version": 2
+                }
+              },
+              "order": null,
+              "deleted": false,
+              "dashboards": [
+                1264879
+              ],
+              "dashboard_tiles": [
+                {
+                  "id": 5994602,
+                  "dashboard_id": 1264879,
+                  "deleted": null
+                }
+              ],
+              "last_refresh": null,
+              "cache_target_age": null,
+              "next_allowed_client_refresh": null,
+              "result": null,
+              "hasMore": null,
+              "columns": null,
+              "created_at": "2026-02-09T18:16:59.388268Z",
+              "created_by": null,
+              "description": "Shows the number of unique users that use your app every day.",
+              "updated_at": "2026-02-09T18:16:59.388293Z",
+              "favorited": false,
+              "saved": false,
+              "last_modified_at": "2026-02-09T18:16:59.387767Z",
+              "last_modified_by": null,
+              "is_sample": true,
+              "effective_restriction_level": 21,
+              "effective_privilege_level": 37,
+              "user_access_level": "manager",
+              "timezone": null,
+              "is_cached": false,
+              "query_status": null,
+              "hogql": null,
+              "types": null,
+              "resolved_date_range": null,
+              "alerts": [],
+              "last_viewed_at": null,
+              "tags": [],
+              "filters_hash": "cache_309484_be711f16ac09d7070cf2825911c8d10269f737d06370f41505cfcc2b2a2d94ff"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 03 Jun 2026 10:30:35 GMT",
+          "content-type": "application/json",
+          "content-length": "40214",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4990",
+          "x-ratelimit-reset": "1780482679",
+          "etag": "W/\"9d16-9A6HHyNHhL5nSGVmdm/kPAmrP/Q\""
+        },
+        "hash": "68fc5b6f0f6bd9fe830c679f6b9fe0aa0818b787",
+        "request": {
+          "params": {
+            "limit": "100",
+            "offset": "0"
+          }
+        }
+      }
+    }
+  }
+}
