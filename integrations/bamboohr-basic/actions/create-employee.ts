@@ -1,71 +1,84 @@
+import { z } from 'zod';
 import { createAction } from 'nango';
-import { BamboohrCreateEmployeeResponse, BamboohrCreateEmployee } from '../models.js';
+
+const InputSchema = z.object({
+    firstName: z.string().describe('Legal first name. Example: "John"'),
+    lastName: z.string().describe('Legal last name. Example: "Doe"'),
+    workEmail: z.string().optional().describe('Work email address. Example: "john.doe@example.com"'),
+    jobTitle: z.string().optional().describe('Job title. Example: "Software Engineer"'),
+    department: z.string().optional().describe('Department name. Example: "Engineering"'),
+    hireDate: z.string().optional().describe('Hire date in YYYY-MM-DD format. Example: "2024-01-15"')
+});
+
+const OutputSchema = z.object({
+    id: z.string().describe('Employee ID. Example: "123"'),
+    firstName: z.string(),
+    lastName: z.string(),
+    workEmail: z.string().optional(),
+    jobTitle: z.string().optional(),
+    department: z.string().optional(),
+    hireDate: z.string().optional()
+});
 
 const action = createAction({
-    description: 'Action to create a new employee',
-    version: '2.0.0',
-
+    description: 'Create an employee in BambooHR',
+    version: '3.0.0',
     endpoint: {
         method: 'POST',
-        path: '/employees',
+        path: '/actions/create-employee',
         group: 'Employees'
     },
+    input: InputSchema,
+    output: OutputSchema,
+    scopes: [],
 
-    input: BamboohrCreateEmployee,
-    output: BamboohrCreateEmployeeResponse,
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const response = await nango.post({
+            // https://documentation.bamboohr.com/reference/create-employee
+            endpoint: '/v1/employees',
+            data: {
+                firstName: input.firstName,
+                lastName: input.lastName,
+                ...(input.workEmail !== undefined && { workEmail: input.workEmail }),
+                ...(input.jobTitle !== undefined && { jobTitle: input.jobTitle }),
+                ...(input.department !== undefined && { department: input.department }),
+                ...(input.hireDate !== undefined && { hireDate: input.hireDate })
+            },
+            retries: 3
+        });
 
-    exec: async (nango, input): Promise<BamboohrCreateEmployeeResponse> => {
-        // Input validation on only required fields
-        if (!input.firstName && !input.lastName) {
+        if (response.status !== 201) {
             throw new nango.ActionError({
-                message: 'firstName and lastName are required fields'
-            });
-        } else if (!input.firstName) {
-            throw new nango.ActionError({
-                message: 'firstName is a required field'
-            });
-        } else if (!input.lastName) {
-            throw new nango.ActionError({
-                message: 'lastName is a required field'
+                type: 'create_failed',
+                message: `Failed to create employee: received status ${response.status}`
             });
         }
 
-        // @allowTryCatch
-        try {
-            const { firstName, lastName, ...rest } = input;
-            const postData = {
-                firstName,
-                lastName,
-                ...rest
-            };
-
-            const response = await nango.post({
-                endpoint: `/v1/employees`,
-                data: postData,
-                retries: 3
-            });
-
-            const location = response.headers['location'];
-            if (!location) {
-                throw new Error('missing location header');
+        const location = response.headers['location'] || response.headers['Location'];
+        let employeeId: string | undefined;
+        if (typeof location === 'string') {
+            const match = location.match(/\/employees\/(\d+)$/);
+            if (match && match[1]) {
+                employeeId = match[1];
             }
+        }
 
-            const id = location.split('/').pop() || '';
-
-            return {
-                id,
-                status: response.statusText
-            };
-        } catch (error: any) {
-            const messageHeader = error.response?.headers['x-bamboohr-error-message'];
-            const errorMessage = messageHeader || error.response?.data || error.message;
-
+        if (!employeeId) {
             throw new nango.ActionError({
-                message: `Failed to create employee`,
-                status: error.response.status,
-                error: errorMessage || undefined
+                type: 'missing_employee_id',
+                message: 'Employee created but ID could not be determined from response'
             });
         }
+
+        return {
+            id: employeeId,
+            firstName: input.firstName,
+            lastName: input.lastName,
+            ...(input.workEmail !== undefined && { workEmail: input.workEmail }),
+            ...(input.jobTitle !== undefined && { jobTitle: input.jobTitle }),
+            ...(input.department !== undefined && { department: input.department }),
+            ...(input.hireDate !== undefined && { hireDate: input.hireDate })
+        };
     }
 });
 

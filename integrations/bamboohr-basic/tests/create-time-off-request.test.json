@@ -1,0 +1,116 @@
+{
+  "input": {
+    "employeeId": 4,
+    "status": "requested",
+    "start": "2026-06-15",
+    "end": "2026-06-16",
+    "timeOffTypeId": 78,
+    "amount": 16
+  },
+  "output": {
+    "id": "1679",
+    "employeeId": "4",
+    "status": "requested",
+    "start": "2026-06-15",
+    "end": "2026-06-16",
+    "timeOffTypeId": "78",
+    "timeOffTypeName": "Vacation",
+    "name": "Charlotte Abbott",
+    "amount": {
+      "unit": "hours",
+      "amount": "16"
+    },
+    "notes": [],
+    "dates": {
+      "2026-06-15": "16",
+      "2026-06-16": "0"
+    }
+  },
+  "nango": {},
+  "api": {
+    "put": {
+      "/v1/employees/4/time_off/request": {
+        "response": {
+          "id": "1679",
+          "employeeId": "4",
+          "start": "2026-06-15",
+          "end": "2026-06-16",
+          "created": "2026-05-29",
+          "status": {
+            "status": "requested",
+            "lastChanged": "2026-05-29 10:28:31",
+            "lastChangedByUserId": "2385"
+          },
+          "name": "Charlotte Abbott",
+          "type": {
+            "id": "78",
+            "name": "Vacation"
+          },
+          "amount": {
+            "unit": "hours",
+            "amount": "16"
+          },
+          "notes": [],
+          "dates": {
+            "2026-06-15": "16",
+            "2026-06-16": "0"
+          },
+          "comments": [],
+          "approvers": [
+            {
+              "userId": "2371",
+              "displayName": "Adam Holt",
+              "employeeId": "75",
+              "photoUrl": "https://resources.bamboohr.com/images/photo_person_160x160.png"
+            }
+          ],
+          "actions": {
+            "view": true,
+            "edit": true,
+            "cancel": true,
+            "approve": true,
+            "deny": true,
+            "bypass": true
+          },
+          "policyType": "accruing",
+          "usedYearToDate": 184,
+          "balanceOnDateOfRequest": -32.4
+        },
+        "status": 201,
+        "headers": {
+          "date": "Fri, 29 May 2026 14:28:32 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubdomains;",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4986",
+          "x-ratelimit-reset": "1780064966",
+          "server": "nginx",
+          "location": "https://api.bamboohr.com/api/gateway.php/nagoinc/v1/employees/4/time_off/request/1679",
+          "cache-control": "no-cache, private",
+          "x-request-id": "141031272054647484333109695941515479945",
+          "vary": "Authorization,User-Agent"
+        },
+        "hash": "e3b916510ec50027cd7e57b9e1473b19f91ac8d8",
+        "request": {
+          "data": {
+            "status": "requested",
+            "start": "2026-06-15",
+            "end": "2026-06-16",
+            "timeOffTypeId": 78,
+            "amount": 16
+          }
+        }
+      }
+    }
+  }
+}

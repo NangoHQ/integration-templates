@@ -1,0 +1,1564 @@
+{
+  "nango": {
+    "batchSave": {
+      "User": [
+        {
+          "id": "2370",
+          "employeeId": 61,
+          "firstName": "Dwight",
+          "lastName": "Goodman",
+          "email": "dwight@efficientoffice.com",
+          "status": "enabled",
+          "lastLogin": "2025-10-20T22:14:17+00:00"
+        },
+        {
+          "id": "2371",
+          "employeeId": 75,
+          "firstName": "Adam",
+          "lastName": "Holt",
+          "email": "adamh@efficientoffice.com",
+          "status": "enabled",
+          "lastLogin": "2025-10-20T22:26:23+00:00"
+        },
+        {
+          "id": "2372",
+          "employeeId": 63,
+          "firstName": "Lewis",
+          "lastName": "Shelton",
+          "email": "lewis@efficientoffice.com",
+          "status": "enabled",
+          "lastLogin": "2025-10-20T22:59:06+00:00"
+        },
+        {
+          "id": "2375",
+          "employeeId": 18,
+          "firstName": "Javier",
+          "lastName": "Cruz",
+          "email": "javier@efficientoffice.com",
+          "status": "enabled",
+          "lastLogin": "2025-10-22T17:20:09+00:00"
+        },
+        {
+          "id": "2376",
+          "employeeId": 17,
+          "firstName": "Dorothy",
+          "lastName": "Chou",
+          "email": "dchou@efficientoffice.com",
+          "status": "enabled",
+          "lastLogin": "2025-11-16T16:40:19+00:00"
+        },
+        {
+          "id": "2377",
+          "employeeId": 16,
+          "firstName": "Jake",
+          "lastName": "Bryan",
+          "email": "jbryan@efficientoffice.com",
+          "status": "enabled",
+          "lastLogin": "2025-11-13T17:45:00+00:00"
+        },
+        {
+          "id": "2378",
+          "employeeId": 15,
+          "firstName": "Trent",
+          "lastName": "Walsh",
+          "email": "twalsh@efficientoffice.com",
+          "status": "enabled",
+          "lastLogin": "2025-11-16T16:26:36+00:00"
+        },
+        {
+          "id": "2379",
+          "employeeId": 14,
+          "firstName": "Maja",
+          "lastName": "Andev",
+          "email": "mandev@efficientoffice.com",
+          "status": "enabled",
+          "lastLogin": "2025-11-13T16:49:33+00:00"
+        },
+        {
+          "id": "2380",
+          "employeeId": 13,
+          "firstName": "Cheryl",
+          "lastName": "Barnet",
+          "email": "cbarnet@efficientoffice.com",
+          "status": "enabled",
+          "lastLogin": "2025-11-15T21:42:49+00:00"
+        },
+        {
+          "id": "2381",
+          "employeeId": 12,
+          "firstName": "Eric",
+          "lastName": "Asture",
+          "email": "easture@efficientoffice.com",
+          "status": "enabled",
+          "lastLogin": "2025-11-13T17:03:28+00:00"
+        },
+        {
+          "id": "2382",
+          "employeeId": 11,
+          "firstName": "Daniel",
+          "lastName": "Vance",
+          "email": "dvance@efficientoffice.com",
+          "status": "enabled",
+          "lastLogin": "2025-11-15T21:30:40+00:00"
+        },
+        {
+          "id": "2383",
+          "employeeId": 10,
+          "firstName": "Ryota",
+          "lastName": "Saito",
+          "email": "rsaito@efficientoffice.com",
+          "status": "enabled",
+          "lastLogin": "2025-11-13T17:48:45+00:00"
+        },
+        {
+          "id": "2384",
+          "employeeId": 9,
+          "firstName": "Jennifer",
+          "lastName": "Caldwell",
+          "email": "jcaldwell@efficientoffice.com",
+          "status": "enabled",
+          "lastLogin": "2025-10-12T16:48:56+00:00"
+        },
+        {
+          "id": "2385",
+          "employeeId": 8,
+          "firstName": "Victor",
+          "lastName": "Nango",
+          "email": "api@nango.dev",
+          "status": "enabled",
+          "lastLogin": "2026-05-29T14:01:15+00:00"
+        },
+        {
+          "id": "2386",
+          "employeeId": 7,
+          "firstName": "Shannon",
+          "lastName": "Anderson",
+          "email": "sanderson@efficientoffice.com",
+          "status": "enabled",
+          "lastLogin": "2025-11-14T23:24:11+00:00"
+        },
+        {
+          "id": "2387",
+          "employeeId": 6,
+          "firstName": "Christina",
+          "lastName": "Agluinda",
+          "email": "cagluinda@efficientoffice.com",
+          "status": "enabled",
+          "lastLogin": "2025-11-14T14:16:51+00:00"
+        },
+        {
+          "id": "2388",
+          "employeeId": 5,
+          "firstName": "Ashley",
+          "lastName": "Adams",
+          "email": "aadams@efficientoffice.com",
+          "status": "enabled",
+          "lastLogin": "2025-11-13T16:26:35+00:00"
+        },
+        {
+          "id": "2389",
+          "employeeId": 4,
+          "firstName": "Charlotte",
+          "lastName": "Abbott",
+          "email": "cabbott@efficientoffice.com",
+          "status": "enabled",
+          "lastLogin": "2025-10-12T17:22:45+00:00"
+        },
+        {
+          "id": "2390",
+          "employeeId": 58,
+          "firstName": "Tiffany",
+          "lastName": "Vincent",
+          "email": "tiffany@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2391",
+          "employeeId": 68,
+          "firstName": "Antonio",
+          "lastName": "Kruz",
+          "email": "antonio@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2392",
+          "employeeId": 96,
+          "firstName": "Yun",
+          "lastName": "Xu",
+          "email": "yun@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2393",
+          "employeeId": 30,
+          "firstName": "Corey",
+          "lastName": "Ross",
+          "email": "corey@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2394",
+          "employeeId": 77,
+          "firstName": "Dallon",
+          "lastName": "Khristensen",
+          "email": "dallon@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2395",
+          "employeeId": 99,
+          "firstName": "Michael",
+          "lastName": "Fernandez",
+          "email": "michaelf@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2396",
+          "employeeId": 56,
+          "firstName": "Lindsay",
+          "lastName": "Hadaway",
+          "email": "lindsay@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2397",
+          "employeeId": 51,
+          "firstName": "Nathan",
+          "lastName": "Pazavich",
+          "email": "nathan@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2398",
+          "employeeId": 93,
+          "firstName": "Caitlin",
+          "lastName": "Korbett",
+          "email": "caitlin@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2399",
+          "employeeId": 24,
+          "firstName": "Zack",
+          "lastName": "Miller",
+          "email": "zack@efficientoffice.com",
+          "status": "enabled",
+          "lastLogin": "2025-11-04T04:13:13+00:00"
+        },
+        {
+          "id": "2400",
+          "employeeId": 90,
+          "firstName": "Jon",
+          "lastName": "Richards",
+          "email": "jon@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2401",
+          "employeeId": 66,
+          "firstName": "Susan",
+          "lastName": "Roberts",
+          "email": "susan@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2402",
+          "employeeId": 102,
+          "firstName": "Michael",
+          "lastName": "Romney",
+          "email": "michaelr@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2403",
+          "employeeId": 89,
+          "firstName": "Madison",
+          "lastName": "Laker",
+          "email": "mlaker@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2404",
+          "employeeId": 38,
+          "firstName": "Marrissa",
+          "lastName": "Mellon",
+          "email": "marrissa@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2405",
+          "employeeId": 46,
+          "firstName": "Diana",
+          "lastName": "O'Connor",
+          "email": "diana@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2406",
+          "employeeId": 76,
+          "firstName": "Kennith",
+          "lastName": "Oakley",
+          "email": "kennith@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2407",
+          "employeeId": 22,
+          "firstName": "Dillon (Remote)",
+          "lastName": "Park",
+          "email": "dillon@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2408",
+          "employeeId": 69,
+          "firstName": "Karin",
+          "lastName": "Petty",
+          "email": "karin@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2409",
+          "employeeId": 39,
+          "firstName": "Paige",
+          "lastName": "Rasmussen",
+          "email": "paige@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2410",
+          "employeeId": 80,
+          "firstName": "Jeff",
+          "lastName": "Tobler",
+          "email": "jeff@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2411",
+          "employeeId": 37,
+          "firstName": "Whitney",
+          "lastName": "Webster",
+          "email": "whitney@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2412",
+          "employeeId": 92,
+          "firstName": "Dustin",
+          "lastName": "Wells",
+          "email": "dustin@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2413",
+          "employeeId": 65,
+          "firstName": "Shawn",
+          "lastName": "Williams",
+          "email": "shawn@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2414",
+          "employeeId": 70,
+          "firstName": "Omar",
+          "lastName": "Waldwin",
+          "email": "owaldwin@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2415",
+          "employeeId": 97,
+          "firstName": "Chad",
+          "lastName": "Zurdette",
+          "email": "czurdette@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2416",
+          "employeeId": 45,
+          "firstName": "Maria",
+          "lastName": "Karr",
+          "email": "mkarr@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2417",
+          "employeeId": 19,
+          "firstName": "Shelly",
+          "lastName": "Cluff",
+          "email": "shelly@efficientoffice.com",
+          "status": "enabled",
+          "lastLogin": "2025-10-28T13:40:18+00:00"
+        },
+        {
+          "id": "2418",
+          "employeeId": 60,
+          "firstName": "Yasmine",
+          "lastName": "Dean",
+          "email": "yasmine@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2419",
+          "employeeId": 101,
+          "firstName": "Anthony",
+          "lastName": "Diaz",
+          "email": "anthonyd@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2420",
+          "employeeId": 35,
+          "firstName": "Aaron",
+          "lastName": "Eckerly",
+          "email": "aaron@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2421",
+          "employeeId": 72,
+          "firstName": "Nelson",
+          "lastName": "Elliott",
+          "email": "nelson@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2422",
+          "employeeId": 53,
+          "firstName": "Clark",
+          "lastName": "Fuller",
+          "email": "clark@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2423",
+          "employeeId": 78,
+          "firstName": "Haleigh",
+          "lastName": "Girard",
+          "email": "haleigh@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2424",
+          "employeeId": 26,
+          "firstName": "Amy",
+          "lastName": "Granger",
+          "email": "agranger@efficientoffice.com",
+          "status": "enabled",
+          "lastLogin": "2025-11-13T16:23:58+00:00"
+        },
+        {
+          "id": "2425",
+          "employeeId": 28,
+          "firstName": "Andy",
+          "lastName": "Graves",
+          "email": "andy@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2426",
+          "employeeId": 44,
+          "firstName": "Marie",
+          "lastName": "Hamm",
+          "email": "marie@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2427",
+          "employeeId": 23,
+          "firstName": "Darlene",
+          "lastName": "Handley",
+          "email": "darlene@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2428",
+          "employeeId": 81,
+          "firstName": "Michelle",
+          "lastName": "Hannon",
+          "email": "michelle@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2429",
+          "employeeId": 31,
+          "firstName": "Sally",
+          "lastName": "Harmon",
+          "email": "sally@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2430",
+          "employeeId": 74,
+          "firstName": "Cameron",
+          "lastName": "Hill",
+          "email": "cameron@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2431",
+          "employeeId": 104,
+          "firstName": "Jake",
+          "lastName": "Huang",
+          "email": "jakeh@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2432",
+          "employeeId": 43,
+          "firstName": "Adam",
+          "lastName": "Hunter",
+          "email": "adam@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2433",
+          "employeeId": 49,
+          "firstName": "Robert",
+          "lastName": "Jackson",
+          "email": "robert@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2434",
+          "employeeId": 47,
+          "firstName": "Michael",
+          "lastName": "Jarsdel",
+          "email": "michael@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2435",
+          "employeeId": 95,
+          "firstName": "Ellen",
+          "lastName": "Karren",
+          "email": "ellen@bamboohr.com",
+          "status": "enabled",
+          "lastLogin": "2025-10-08T20:38:58+00:00"
+        },
+        {
+          "id": "2436",
+          "employeeId": 86,
+          "firstName": "Leslie",
+          "lastName": "Kay",
+          "email": "leslie@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2437",
+          "employeeId": 42,
+          "firstName": "Anthony",
+          "lastName": "Larsen",
+          "email": "anthony@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2438",
+          "employeeId": 87,
+          "firstName": "Kristina",
+          "lastName": "Pace",
+          "email": "kristina@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2439",
+          "employeeId": 79,
+          "firstName": "Trey",
+          "lastName": "Pickard",
+          "email": "trey@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2440",
+          "employeeId": 59,
+          "firstName": "Warren",
+          "lastName": "Poole",
+          "email": "warren@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2441",
+          "employeeId": 50,
+          "firstName": "John",
+          "lastName": "Quentin",
+          "email": "john@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2442",
+          "employeeId": 71,
+          "firstName": "Zeta",
+          "lastName": "Ramirez",
+          "email": "zeta@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2443",
+          "employeeId": 57,
+          "firstName": "Liam",
+          "lastName": "Raynott",
+          "email": "liam@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2444",
+          "employeeId": 105,
+          "firstName": "Norma",
+          "lastName": "Reed",
+          "email": "norma@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2445",
+          "employeeId": 55,
+          "firstName": "Gale",
+          "lastName": "Sachevich",
+          "email": "gale@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2446",
+          "employeeId": 32,
+          "firstName": "Carly",
+          "lastName": "Seymour",
+          "email": "carly@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2447",
+          "employeeId": 67,
+          "firstName": "Howard",
+          "lastName": "Smith",
+          "email": "howard@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2448",
+          "employeeId": 27,
+          "firstName": "Debra",
+          "lastName": "Tuescher",
+          "email": "debra@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2449",
+          "employeeId": 73,
+          "firstName": "Kellie",
+          "lastName": "Turner",
+          "email": "kellie@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2450",
+          "employeeId": 25,
+          "firstName": "Philip",
+          "lastName": "Wagener",
+          "email": "philip@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2451",
+          "employeeId": 52,
+          "firstName": "Nate",
+          "lastName": "Walker",
+          "email": "nate@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2452",
+          "employeeId": 88,
+          "firstName": "Samson",
+          "lastName": "Walters",
+          "email": "samson@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2453",
+          "employeeId": 83,
+          "firstName": "Preston",
+          "lastName": "Wilder",
+          "email": "preston@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2454",
+          "employeeId": 91,
+          "firstName": "Will",
+          "lastName": "Woodward",
+          "email": "will@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2456",
+          "employeeId": 106,
+          "firstName": "James",
+          "lastName": "Harris",
+          "email": "james@efficientoffice.com",
+          "status": "enabled",
+          "lastLogin": "2025-11-04T19:05:21+00:00"
+        },
+        {
+          "id": "2457",
+          "employeeId": 107,
+          "firstName": "Holly",
+          "lastName": "Hartley",
+          "email": "holly@efficientoffice.com",
+          "status": "enabled",
+          "lastLogin": "2025-11-04T19:05:38+00:00"
+        },
+        {
+          "id": "2467",
+          "employeeId": 110,
+          "firstName": "Katrina",
+          "lastName": "Cox",
+          "email": "kcox@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2480",
+          "employeeId": 108,
+          "firstName": "Clarissa",
+          "lastName": "Jones",
+          "email": "cjones@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2492",
+          "employeeId": 109,
+          "firstName": "Samantha",
+          "lastName": "Simmons",
+          "email": "Samantha@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2493",
+          "employeeId": 111,
+          "firstName": "Jeremy",
+          "lastName": "Steel",
+          "email": "jsteel@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2505",
+          "employeeId": 112,
+          "firstName": "Emily",
+          "lastName": "Jones",
+          "email": "Test+Test@bamboohr.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2509",
+          "employeeId": 113,
+          "firstName": "Ben",
+          "lastName": "Peterson",
+          "email": "Bpeterson@efficientoffice.com",
+          "status": "enabled"
+        },
+        {
+          "id": "2510",
+          "employeeId": 114,
+          "firstName": "Emily",
+          "lastName": "Howe",
+          "email": "ehowe@82397dhkls.com",
+          "status": "enabled"
+        }
+      ]
+    },
+    "batchDelete": {
+      "User": []
+    }
+  },
+  "api": {
+    "get": {
+      "/v1/meta/users": {
+        "response": {
+          "2370": {
+            "id": 2370,
+            "employeeId": 61,
+            "firstName": "Dwight",
+            "lastName": "Goodman",
+            "email": "dwight@efficientoffice.com",
+            "status": "enabled",
+            "lastLogin": "2025-10-20T22:14:17+00:00"
+          },
+          "2371": {
+            "id": 2371,
+            "employeeId": 75,
+            "firstName": "Adam",
+            "lastName": "Holt",
+            "email": "adamh@efficientoffice.com",
+            "status": "enabled",
+            "lastLogin": "2025-10-20T22:26:23+00:00"
+          },
+          "2372": {
+            "id": 2372,
+            "employeeId": 63,
+            "firstName": "Lewis",
+            "lastName": "Shelton",
+            "email": "lewis@efficientoffice.com",
+            "status": "enabled",
+            "lastLogin": "2025-10-20T22:59:06+00:00"
+          },
+          "2375": {
+            "id": 2375,
+            "employeeId": 18,
+            "firstName": "Javier",
+            "lastName": "Cruz",
+            "email": "javier@efficientoffice.com",
+            "status": "enabled",
+            "lastLogin": "2025-10-22T17:20:09+00:00"
+          },
+          "2376": {
+            "id": 2376,
+            "employeeId": 17,
+            "firstName": "Dorothy",
+            "lastName": "Chou",
+            "email": "dchou@efficientoffice.com",
+            "status": "enabled",
+            "lastLogin": "2025-11-16T16:40:19+00:00"
+          },
+          "2377": {
+            "id": 2377,
+            "employeeId": 16,
+            "firstName": "Jake",
+            "lastName": "Bryan",
+            "email": "jbryan@efficientoffice.com",
+            "status": "enabled",
+            "lastLogin": "2025-11-13T17:45:00+00:00"
+          },
+          "2378": {
+            "id": 2378,
+            "employeeId": 15,
+            "firstName": "Trent",
+            "lastName": "Walsh",
+            "email": "twalsh@efficientoffice.com",
+            "status": "enabled",
+            "lastLogin": "2025-11-16T16:26:36+00:00"
+          },
+          "2379": {
+            "id": 2379,
+            "employeeId": 14,
+            "firstName": "Maja",
+            "lastName": "Andev",
+            "email": "mandev@efficientoffice.com",
+            "status": "enabled",
+            "lastLogin": "2025-11-13T16:49:33+00:00"
+          },
+          "2380": {
+            "id": 2380,
+            "employeeId": 13,
+            "firstName": "Cheryl",
+            "lastName": "Barnet",
+            "email": "cbarnet@efficientoffice.com",
+            "status": "enabled",
+            "lastLogin": "2025-11-15T21:42:49+00:00"
+          },
+          "2381": {
+            "id": 2381,
+            "employeeId": 12,
+            "firstName": "Eric",
+            "lastName": "Asture",
+            "email": "easture@efficientoffice.com",
+            "status": "enabled",
+            "lastLogin": "2025-11-13T17:03:28+00:00"
+          },
+          "2382": {
+            "id": 2382,
+            "employeeId": 11,
+            "firstName": "Daniel",
+            "lastName": "Vance",
+            "email": "dvance@efficientoffice.com",
+            "status": "enabled",
+            "lastLogin": "2025-11-15T21:30:40+00:00"
+          },
+          "2383": {
+            "id": 2383,
+            "employeeId": 10,
+            "firstName": "Ryota",
+            "lastName": "Saito",
+            "email": "rsaito@efficientoffice.com",
+            "status": "enabled",
+            "lastLogin": "2025-11-13T17:48:45+00:00"
+          },
+          "2384": {
+            "id": 2384,
+            "employeeId": 9,
+            "firstName": "Jennifer",
+            "lastName": "Caldwell",
+            "email": "jcaldwell@efficientoffice.com",
+            "status": "enabled",
+            "lastLogin": "2025-10-12T16:48:56+00:00"
+          },
+          "2385": {
+            "id": 2385,
+            "employeeId": 8,
+            "firstName": "Victor",
+            "lastName": "Nango",
+            "email": "api@nango.dev",
+            "status": "enabled",
+            "lastLogin": "2026-05-29T14:01:15+00:00"
+          },
+          "2386": {
+            "id": 2386,
+            "employeeId": 7,
+            "firstName": "Shannon",
+            "lastName": "Anderson",
+            "email": "sanderson@efficientoffice.com",
+            "status": "enabled",
+            "lastLogin": "2025-11-14T23:24:11+00:00"
+          },
+          "2387": {
+            "id": 2387,
+            "employeeId": 6,
+            "firstName": "Christina",
+            "lastName": "Agluinda",
+            "email": "cagluinda@efficientoffice.com",
+            "status": "enabled",
+            "lastLogin": "2025-11-14T14:16:51+00:00"
+          },
+          "2388": {
+            "id": 2388,
+            "employeeId": 5,
+            "firstName": "Ashley",
+            "lastName": "Adams",
+            "email": "aadams@efficientoffice.com",
+            "status": "enabled",
+            "lastLogin": "2025-11-13T16:26:35+00:00"
+          },
+          "2389": {
+            "id": 2389,
+            "employeeId": 4,
+            "firstName": "Charlotte",
+            "lastName": "Abbott",
+            "email": "cabbott@efficientoffice.com",
+            "status": "enabled",
+            "lastLogin": "2025-10-12T17:22:45+00:00"
+          },
+          "2390": {
+            "id": 2390,
+            "employeeId": 58,
+            "firstName": "Tiffany",
+            "lastName": "Vincent",
+            "email": "tiffany@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2391": {
+            "id": 2391,
+            "employeeId": 68,
+            "firstName": "Antonio",
+            "lastName": "Kruz",
+            "email": "antonio@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2392": {
+            "id": 2392,
+            "employeeId": 96,
+            "firstName": "Yun",
+            "lastName": "Xu",
+            "email": "yun@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2393": {
+            "id": 2393,
+            "employeeId": 30,
+            "firstName": "Corey",
+            "lastName": "Ross",
+            "email": "corey@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2394": {
+            "id": 2394,
+            "employeeId": 77,
+            "firstName": "Dallon",
+            "lastName": "Khristensen",
+            "email": "dallon@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2395": {
+            "id": 2395,
+            "employeeId": 99,
+            "firstName": "Michael",
+            "lastName": "Fernandez",
+            "email": "michaelf@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2396": {
+            "id": 2396,
+            "employeeId": 56,
+            "firstName": "Lindsay",
+            "lastName": "Hadaway",
+            "email": "lindsay@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2397": {
+            "id": 2397,
+            "employeeId": 51,
+            "firstName": "Nathan",
+            "lastName": "Pazavich",
+            "email": "nathan@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2398": {
+            "id": 2398,
+            "employeeId": 93,
+            "firstName": "Caitlin",
+            "lastName": "Korbett",
+            "email": "caitlin@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2399": {
+            "id": 2399,
+            "employeeId": 24,
+            "firstName": "Zack",
+            "lastName": "Miller",
+            "email": "zack@efficientoffice.com",
+            "status": "enabled",
+            "lastLogin": "2025-11-04T04:13:13+00:00"
+          },
+          "2400": {
+            "id": 2400,
+            "employeeId": 90,
+            "firstName": "Jon",
+            "lastName": "Richards",
+            "email": "jon@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2401": {
+            "id": 2401,
+            "employeeId": 66,
+            "firstName": "Susan",
+            "lastName": "Roberts",
+            "email": "susan@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2402": {
+            "id": 2402,
+            "employeeId": 102,
+            "firstName": "Michael",
+            "lastName": "Romney",
+            "email": "michaelr@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2403": {
+            "id": 2403,
+            "employeeId": 89,
+            "firstName": "Madison",
+            "lastName": "Laker",
+            "email": "mlaker@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2404": {
+            "id": 2404,
+            "employeeId": 38,
+            "firstName": "Marrissa",
+            "lastName": "Mellon",
+            "email": "marrissa@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2405": {
+            "id": 2405,
+            "employeeId": 46,
+            "firstName": "Diana",
+            "lastName": "O'Connor",
+            "email": "diana@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2406": {
+            "id": 2406,
+            "employeeId": 76,
+            "firstName": "Kennith",
+            "lastName": "Oakley",
+            "email": "kennith@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2407": {
+            "id": 2407,
+            "employeeId": 22,
+            "firstName": "Dillon (Remote)",
+            "lastName": "Park",
+            "email": "dillon@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2408": {
+            "id": 2408,
+            "employeeId": 69,
+            "firstName": "Karin",
+            "lastName": "Petty",
+            "email": "karin@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2409": {
+            "id": 2409,
+            "employeeId": 39,
+            "firstName": "Paige",
+            "lastName": "Rasmussen",
+            "email": "paige@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2410": {
+            "id": 2410,
+            "employeeId": 80,
+            "firstName": "Jeff",
+            "lastName": "Tobler",
+            "email": "jeff@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2411": {
+            "id": 2411,
+            "employeeId": 37,
+            "firstName": "Whitney",
+            "lastName": "Webster",
+            "email": "whitney@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2412": {
+            "id": 2412,
+            "employeeId": 92,
+            "firstName": "Dustin",
+            "lastName": "Wells",
+            "email": "dustin@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2413": {
+            "id": 2413,
+            "employeeId": 65,
+            "firstName": "Shawn",
+            "lastName": "Williams",
+            "email": "shawn@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2414": {
+            "id": 2414,
+            "employeeId": 70,
+            "firstName": "Omar",
+            "lastName": "Waldwin",
+            "email": "owaldwin@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2415": {
+            "id": 2415,
+            "employeeId": 97,
+            "firstName": "Chad",
+            "lastName": "Zurdette",
+            "email": "czurdette@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2416": {
+            "id": 2416,
+            "employeeId": 45,
+            "firstName": "Maria",
+            "lastName": "Karr",
+            "email": "mkarr@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2417": {
+            "id": 2417,
+            "employeeId": 19,
+            "firstName": "Shelly",
+            "lastName": "Cluff",
+            "email": "shelly@efficientoffice.com",
+            "status": "enabled",
+            "lastLogin": "2025-10-28T13:40:18+00:00"
+          },
+          "2418": {
+            "id": 2418,
+            "employeeId": 60,
+            "firstName": "Yasmine",
+            "lastName": "Dean",
+            "email": "yasmine@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2419": {
+            "id": 2419,
+            "employeeId": 101,
+            "firstName": "Anthony",
+            "lastName": "Diaz",
+            "email": "anthonyd@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2420": {
+            "id": 2420,
+            "employeeId": 35,
+            "firstName": "Aaron",
+            "lastName": "Eckerly",
+            "email": "aaron@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2421": {
+            "id": 2421,
+            "employeeId": 72,
+            "firstName": "Nelson",
+            "lastName": "Elliott",
+            "email": "nelson@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2422": {
+            "id": 2422,
+            "employeeId": 53,
+            "firstName": "Clark",
+            "lastName": "Fuller",
+            "email": "clark@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2423": {
+            "id": 2423,
+            "employeeId": 78,
+            "firstName": "Haleigh",
+            "lastName": "Girard",
+            "email": "haleigh@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2424": {
+            "id": 2424,
+            "employeeId": 26,
+            "firstName": "Amy",
+            "lastName": "Granger",
+            "email": "agranger@efficientoffice.com",
+            "status": "enabled",
+            "lastLogin": "2025-11-13T16:23:58+00:00"
+          },
+          "2425": {
+            "id": 2425,
+            "employeeId": 28,
+            "firstName": "Andy",
+            "lastName": "Graves",
+            "email": "andy@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2426": {
+            "id": 2426,
+            "employeeId": 44,
+            "firstName": "Marie",
+            "lastName": "Hamm",
+            "email": "marie@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2427": {
+            "id": 2427,
+            "employeeId": 23,
+            "firstName": "Darlene",
+            "lastName": "Handley",
+            "email": "darlene@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2428": {
+            "id": 2428,
+            "employeeId": 81,
+            "firstName": "Michelle",
+            "lastName": "Hannon",
+            "email": "michelle@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2429": {
+            "id": 2429,
+            "employeeId": 31,
+            "firstName": "Sally",
+            "lastName": "Harmon",
+            "email": "sally@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2430": {
+            "id": 2430,
+            "employeeId": 74,
+            "firstName": "Cameron",
+            "lastName": "Hill",
+            "email": "cameron@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2431": {
+            "id": 2431,
+            "employeeId": 104,
+            "firstName": "Jake",
+            "lastName": "Huang",
+            "email": "jakeh@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2432": {
+            "id": 2432,
+            "employeeId": 43,
+            "firstName": "Adam",
+            "lastName": "Hunter",
+            "email": "adam@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2433": {
+            "id": 2433,
+            "employeeId": 49,
+            "firstName": "Robert",
+            "lastName": "Jackson",
+            "email": "robert@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2434": {
+            "id": 2434,
+            "employeeId": 47,
+            "firstName": "Michael",
+            "lastName": "Jarsdel",
+            "email": "michael@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2435": {
+            "id": 2435,
+            "employeeId": 95,
+            "firstName": "Ellen",
+            "lastName": "Karren",
+            "email": "ellen@bamboohr.com",
+            "status": "enabled",
+            "lastLogin": "2025-10-08T20:38:58+00:00"
+          },
+          "2436": {
+            "id": 2436,
+            "employeeId": 86,
+            "firstName": "Leslie",
+            "lastName": "Kay",
+            "email": "leslie@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2437": {
+            "id": 2437,
+            "employeeId": 42,
+            "firstName": "Anthony",
+            "lastName": "Larsen",
+            "email": "anthony@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2438": {
+            "id": 2438,
+            "employeeId": 87,
+            "firstName": "Kristina",
+            "lastName": "Pace",
+            "email": "kristina@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2439": {
+            "id": 2439,
+            "employeeId": 79,
+            "firstName": "Trey",
+            "lastName": "Pickard",
+            "email": "trey@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2440": {
+            "id": 2440,
+            "employeeId": 59,
+            "firstName": "Warren",
+            "lastName": "Poole",
+            "email": "warren@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2441": {
+            "id": 2441,
+            "employeeId": 50,
+            "firstName": "John",
+            "lastName": "Quentin",
+            "email": "john@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2442": {
+            "id": 2442,
+            "employeeId": 71,
+            "firstName": "Zeta",
+            "lastName": "Ramirez",
+            "email": "zeta@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2443": {
+            "id": 2443,
+            "employeeId": 57,
+            "firstName": "Liam",
+            "lastName": "Raynott",
+            "email": "liam@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2444": {
+            "id": 2444,
+            "employeeId": 105,
+            "firstName": "Norma",
+            "lastName": "Reed",
+            "email": "norma@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2445": {
+            "id": 2445,
+            "employeeId": 55,
+            "firstName": "Gale",
+            "lastName": "Sachevich",
+            "email": "gale@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2446": {
+            "id": 2446,
+            "employeeId": 32,
+            "firstName": "Carly",
+            "lastName": "Seymour",
+            "email": "carly@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2447": {
+            "id": 2447,
+            "employeeId": 67,
+            "firstName": "Howard",
+            "lastName": "Smith",
+            "email": "howard@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2448": {
+            "id": 2448,
+            "employeeId": 27,
+            "firstName": "Debra",
+            "lastName": "Tuescher",
+            "email": "debra@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2449": {
+            "id": 2449,
+            "employeeId": 73,
+            "firstName": "Kellie",
+            "lastName": "Turner",
+            "email": "kellie@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2450": {
+            "id": 2450,
+            "employeeId": 25,
+            "firstName": "Philip",
+            "lastName": "Wagener",
+            "email": "philip@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2451": {
+            "id": 2451,
+            "employeeId": 52,
+            "firstName": "Nate",
+            "lastName": "Walker",
+            "email": "nate@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2452": {
+            "id": 2452,
+            "employeeId": 88,
+            "firstName": "Samson",
+            "lastName": "Walters",
+            "email": "samson@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2453": {
+            "id": 2453,
+            "employeeId": 83,
+            "firstName": "Preston",
+            "lastName": "Wilder",
+            "email": "preston@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2454": {
+            "id": 2454,
+            "employeeId": 91,
+            "firstName": "Will",
+            "lastName": "Woodward",
+            "email": "will@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2456": {
+            "id": 2456,
+            "employeeId": 106,
+            "firstName": "James",
+            "lastName": "Harris",
+            "email": "james@efficientoffice.com",
+            "status": "enabled",
+            "lastLogin": "2025-11-04T19:05:21+00:00"
+          },
+          "2457": {
+            "id": 2457,
+            "employeeId": 107,
+            "firstName": "Holly",
+            "lastName": "Hartley",
+            "email": "holly@efficientoffice.com",
+            "status": "enabled",
+            "lastLogin": "2025-11-04T19:05:38+00:00"
+          },
+          "2467": {
+            "id": 2467,
+            "employeeId": 110,
+            "firstName": "Katrina",
+            "lastName": "Cox",
+            "email": "kcox@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2480": {
+            "id": 2480,
+            "employeeId": 108,
+            "firstName": "Clarissa",
+            "lastName": "Jones",
+            "email": "cjones@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2492": {
+            "id": 2492,
+            "employeeId": 109,
+            "firstName": "Samantha",
+            "lastName": "Simmons",
+            "email": "Samantha@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2493": {
+            "id": 2493,
+            "employeeId": 111,
+            "firstName": "Jeremy",
+            "lastName": "Steel",
+            "email": "jsteel@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2505": {
+            "id": 2505,
+            "employeeId": 112,
+            "firstName": "Emily",
+            "lastName": "Jones",
+            "email": "Test+Test@bamboohr.com",
+            "status": "enabled"
+          },
+          "2509": {
+            "id": 2509,
+            "employeeId": 113,
+            "firstName": "Ben",
+            "lastName": "Peterson",
+            "email": "Bpeterson@efficientoffice.com",
+            "status": "enabled"
+          },
+          "2510": {
+            "id": 2510,
+            "employeeId": 114,
+            "firstName": "Emily",
+            "lastName": "Howe",
+            "email": "ehowe@82397dhkls.com",
+            "status": "enabled"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 29 May 2026 14:27:15 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubdomains;",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4900",
+          "x-ratelimit-reset": "1780064838",
+          "server": "nginx",
+          "cache-control": "no-cache, private",
+          "x-request-id": "141031266033307133245297180003973274146",
+          "vary": "Authorization,User-Agent"
+        },
+        "hash": "f85306e12babb23a11e0d2593fa68aef5ea2572f",
+        "request": {}
+      }
+    }
+  }
+}
