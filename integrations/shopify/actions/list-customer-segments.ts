@@ -4,7 +4,10 @@ import { createAction, ProxyConfiguration } from 'nango';
 const InputSchema = z.object({
     first: z.number().int().min(1).max(250).optional().describe('Number of segments to return. Maximum 250.'),
     after: z.string().optional().describe('Pagination cursor from the previous response.'),
-    sortKey: z.enum(['CREATION_DATE', 'ID', 'LAST_EDIT_DATE', 'NAME']).optional().describe('Sort key. Valid values: CREATION_DATE, ID, LAST_EDIT_DATE, NAME.'),
+    sortKey: z
+        .enum(['CREATION_DATE', 'ID', 'LAST_EDIT_DATE', 'RELEVANCE'])
+        .optional()
+        .describe('Sort key. Valid values: CREATION_DATE, ID, LAST_EDIT_DATE, RELEVANCE.'),
     reverse: z.boolean().optional().describe('Reverse the order of the list.'),
     query: z.string().optional().describe('Filter query using Shopify search syntax.')
 });

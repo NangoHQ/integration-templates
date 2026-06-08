@@ -1,0 +1,151 @@
+{
+  "nango": {
+    "getMetadata": {
+      "project_id": "309484"
+    },
+    "batchSave": {
+      "EventDefinition": [
+        {
+          "id": "019e8cf4-5a29-75a2-970f-40e0711eaba8",
+          "name": "$identify",
+          "description": "",
+          "created_at": "2026-06-03T10:08:04.653683Z",
+          "updated_at": "2026-06-03T10:08:39.437238Z",
+          "last_seen_at": "2026-06-03T10:10:38.635717Z",
+          "verified": false,
+          "hidden": false,
+          "enforcement_mode": "allow",
+          "is_action": false,
+          "post_to_slack": false,
+          "tags": []
+        },
+        {
+          "id": "019e8cf6-6948-72e1-9c33-1a7404ee23fe",
+          "name": "nango-test-event",
+          "created_at": "2026-06-03T10:10:19.596664Z",
+          "last_seen_at": "2026-06-03T10:10:23.260922Z",
+          "enforcement_mode": "allow",
+          "is_action": false,
+          "post_to_slack": false,
+          "tags": []
+        },
+        {
+          "id": "019e8cf5-9e08-7c12-b6f7-63d10bc81ba5",
+          "name": "$set",
+          "created_at": "2026-06-03T10:09:27.565158Z",
+          "last_seen_at": "2026-06-03T10:18:45.704853Z",
+          "enforcement_mode": "allow",
+          "is_action": false,
+          "post_to_slack": false,
+          "tags": []
+        }
+      ]
+    },
+    "batchDelete": {
+      "EventDefinition": []
+    }
+  },
+  "api": {
+    "get": {
+      "/api/projects/309484/event_definitions/": {
+        "response": {
+          "count": 3,
+          "next": null,
+          "previous": null,
+          "results": [
+            {
+              "id": "019e8cf4-5a29-75a2-970f-40e0711eaba8",
+              "name": "$identify",
+              "owner": null,
+              "description": "",
+              "created_at": "2026-06-03T10:08:04.653683Z",
+              "updated_at": "2026-06-03T10:08:39.437238Z",
+              "updated_by": null,
+              "last_seen_at": "2026-06-03T10:10:38.635717Z",
+              "verified": false,
+              "verified_at": null,
+              "verified_by": null,
+              "hidden": false,
+              "enforcement_mode": "allow",
+              "primary_property": null,
+              "is_action": false,
+              "post_to_slack": false,
+              "default_columns": [],
+              "media_preview_urls": [],
+              "tags": []
+            },
+            {
+              "id": "019e8cf6-6948-72e1-9c33-1a7404ee23fe",
+              "name": "nango-test-event",
+              "owner": null,
+              "description": null,
+              "created_at": "2026-06-03T10:10:19.596664Z",
+              "updated_at": null,
+              "updated_by": null,
+              "last_seen_at": "2026-06-03T10:10:23.260922Z",
+              "verified": null,
+              "verified_at": null,
+              "verified_by": null,
+              "hidden": null,
+              "enforcement_mode": "allow",
+              "primary_property": null,
+              "is_action": false,
+              "post_to_slack": false,
+              "default_columns": [],
+              "media_preview_urls": [],
+              "tags": []
+            },
+            {
+              "id": "019e8cf5-9e08-7c12-b6f7-63d10bc81ba5",
+              "name": "$set",
+              "owner": null,
+              "description": null,
+              "created_at": "2026-06-03T10:09:27.565158Z",
+              "updated_at": null,
+              "updated_by": null,
+              "last_seen_at": "2026-06-03T10:18:45.704853Z",
+              "verified": null,
+              "verified_at": null,
+              "verified_by": null,
+              "hidden": null,
+              "enforcement_mode": "allow",
+              "primary_property": null,
+              "is_action": false,
+              "post_to_slack": false,
+              "default_columns": [],
+              "media_preview_urls": [],
+              "tags": []
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 03 Jun 2026 10:21:28 GMT",
+          "content-type": "application/json",
+          "content-length": "1383",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4991",
+          "x-ratelimit-reset": "1780482136",
+          "etag": "W/\"567-lMDJ1KGfPmh4tLsQIkIiwlhHRvc\""
+        },
+        "hash": "c699dad149eab212d57211ba9dcf8cf71461daa7",
+        "request": {
+          "params": {
+            "limit": "100",
+            "offset": "0"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,46 +1,80 @@
-import { createAction } from 'nango';
-import type { SharePointSite } from '../types.js';
-import { toSite } from '../mappers/to-site.js';
-
-import { SharepointSites } from '../models.js';
 import { z } from 'zod';
+import { createAction } from 'nango';
 
-/**
- * Retrieves SharePoint sites using NangoAction, maps them to Site objects,
- * and returns the mapped sites.
- *
- * @param nango An instance of NangoAction for handling listing of sites.
- * @returns An array of Site objects representing SharePoint sites
- */
+const InputSchema = z.object({
+    cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.')
+});
+
+const ProviderSiteSchema = z.object({
+    id: z.string(),
+    name: z.string().nullable().optional(),
+    displayName: z.string().nullable().optional(),
+    description: z.string().nullable().optional(),
+    webUrl: z.string().nullable().optional(),
+    createdDateTime: z.string().nullable().optional(),
+    lastModifiedDateTime: z.string().nullable().optional()
+});
+
+const ProviderResponseSchema = z.object({
+    value: z.array(ProviderSiteSchema).optional(),
+    '@odata.nextLink': z.string().optional()
+});
+
+const SiteSchema = z.object({
+    id: z.string(),
+    name: z.string().optional(),
+    displayName: z.string().optional(),
+    description: z.string().optional(),
+    webUrl: z.string().optional(),
+    createdDateTime: z.string().optional(),
+    lastModifiedDateTime: z.string().optional()
+});
+
+const OutputSchema = z.object({
+    sites: z.array(SiteSchema),
+    nextCursor: z.string().optional()
+});
+
 const action = createAction({
-    description:
-        'This action will be used to display a list of sites to the end-user, who will pick the ones he wants to sync.\nThe connection metadata should be set based on the file selection.',
-    version: '3.0.0',
-
+    description: 'List SharePoint sites for user selection workflows.',
+    version: '4.0.0',
     endpoint: {
-        method: 'GET',
-        path: '/list-sites'
+        method: 'POST',
+        path: '/actions/list-shared-sites'
     },
+    input: InputSchema,
+    output: OutputSchema,
+    scopes: ['Sites.Read.All'],
 
-    input: z.void(),
-    output: SharepointSites,
-    scopes: ['Sites.Read.All', 'Sites.Selected', 'offline_access'],
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        let endpoint = '/v1.0/sites';
 
-    exec: async (nango): Promise<SharepointSites> => {
-        const response = await nango.get<{ value: SharePointSite[] }>({
-            endpoint: 'v1.0/sites',
-            params: {
-                search: '*'
-            },
+        if (input.cursor) {
+            const url = new URL(input.cursor);
+            endpoint = url.pathname + url.search;
+        }
+
+        const response = await nango.get({
+            // https://learn.microsoft.com/graph/api/site-search
+            endpoint,
+            ...(input.cursor ? {} : { params: { search: '*' } }),
             retries: 3
         });
 
-        const { value: sites } = response.data;
-
-        const mappedSites = sites.map(toSite);
+        const providerResponse = ProviderResponseSchema.parse(response.data);
 
         return {
-            sitesToSync: mappedSites
+            sites:
+                providerResponse.value?.map((site) => ({
+                    id: site.id,
+                    ...(site.name != null && { name: site.name }),
+                    ...(site.displayName != null && { displayName: site.displayName }),
+                    ...(site.description != null && { description: site.description }),
+                    ...(site.webUrl != null && { webUrl: site.webUrl }),
+                    ...(site.createdDateTime != null && { createdDateTime: site.createdDateTime }),
+                    ...(site.lastModifiedDateTime != null && { lastModifiedDateTime: site.lastModifiedDateTime })
+                })) ?? [],
+            ...(providerResponse['@odata.nextLink'] != null && { nextCursor: providerResponse['@odata.nextLink'] })
         };
     }
 });

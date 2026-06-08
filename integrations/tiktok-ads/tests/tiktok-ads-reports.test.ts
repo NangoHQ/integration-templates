@@ -1,4 +1,4 @@
-import { afterEach, vi, expect, it, describe, beforeEach } from 'vitest';
+import { afterEach, beforeEach, vi, expect, it, describe } from 'vitest';
 
 import createSync from '../syncs/reports.js';
 

@@ -1,0 +1,472 @@
+{
+  "nango": {
+    "batchSave": {
+      "Task": [
+        {
+          "id": "1",
+          "name": "Office planning",
+          "project_id": 1,
+          "project_name": "Office Design",
+          "stage_id": 3,
+          "stage_name": "Done",
+          "write_date": "2026-06-03T08:17:00.849110"
+        },
+        {
+          "id": "2",
+          "name": "Lunch Room: kitchen",
+          "project_id": 1,
+          "project_name": "Office Design",
+          "stage_id": 3,
+          "stage_name": "Done",
+          "write_date": "2026-06-03T08:17:00.849110"
+        },
+        {
+          "id": "3",
+          "name": "Noise Reduction",
+          "project_id": 1,
+          "project_name": "Office Design",
+          "stage_id": 3,
+          "stage_name": "Done",
+          "write_date": "2026-06-03T08:17:00.849110"
+        },
+        {
+          "id": "4",
+          "name": "Modifications asked by the customer",
+          "project_id": 1,
+          "project_name": "Office Design",
+          "stage_id": 3,
+          "stage_name": "Done",
+          "write_date": "2026-06-03T08:17:00.849110"
+        },
+        {
+          "id": "5",
+          "name": "Energy Certificate",
+          "project_id": 1,
+          "project_name": "Office Design",
+          "stage_id": 2,
+          "stage_name": "In Progress",
+          "write_date": "2026-06-03T08:17:00.849110"
+        },
+        {
+          "id": "7",
+          "name": "Room 2: Decoration",
+          "project_id": 1,
+          "project_name": "Office Design",
+          "stage_id": 2,
+          "stage_name": "In Progress",
+          "write_date": "2026-06-03T08:17:00.849110"
+        },
+        {
+          "id": "9",
+          "name": "Meeting Room Furnitures",
+          "project_id": 1,
+          "project_name": "Office Design",
+          "stage_id": 2,
+          "stage_name": "In Progress",
+          "write_date": "2026-06-03T08:17:00.849110"
+        },
+        {
+          "id": "14",
+          "name": "Daily stand-up meeting - Send minutes",
+          "project_id": 1,
+          "project_name": "Office Design",
+          "stage_id": 2,
+          "stage_name": "In Progress",
+          "write_date": "2026-06-03T08:17:00.849110"
+        },
+        {
+          "id": "16",
+          "name": "Daily Meetings summary",
+          "project_id": 1,
+          "project_name": "Office Design",
+          "stage_id": 2,
+          "stage_name": "In Progress",
+          "write_date": "2026-06-03T08:17:00.849110"
+        },
+        {
+          "id": "18",
+          "name": "Minutes",
+          "project_id": 1,
+          "project_name": "Office Design",
+          "stage_id": 2,
+          "stage_name": "In Progress",
+          "write_date": "2026-06-03T08:17:00.849110"
+        },
+        {
+          "id": "20",
+          "name": "Plywood requirement",
+          "project_id": 1,
+          "project_name": "Office Design",
+          "stage_id": 3,
+          "stage_name": "Done",
+          "write_date": "2026-06-03T08:17:00.849110"
+        },
+        {
+          "id": "22",
+          "name": "Basic outline",
+          "project_id": 2,
+          "project_name": "Research & Development",
+          "stage_id": 3,
+          "stage_name": "Done",
+          "write_date": "2026-06-03T08:17:00.849110"
+        },
+        {
+          "id": "23",
+          "name": "Planning and budget",
+          "project_id": 2,
+          "project_name": "Research & Development",
+          "stage_id": 3,
+          "stage_name": "Done",
+          "write_date": "2026-06-03T08:17:00.849110"
+        },
+        {
+          "id": "24",
+          "name": "User interface improvements",
+          "project_id": 2,
+          "project_name": "Research & Development",
+          "stage_id": 2,
+          "stage_name": "In Progress",
+          "write_date": "2026-06-03T08:17:00.849110"
+        },
+        {
+          "id": "25",
+          "name": "Social network integration",
+          "project_id": 2,
+          "project_name": "Research & Development",
+          "stage_id": 2,
+          "stage_name": "In Progress",
+          "write_date": "2026-06-03T08:17:00.849110"
+        },
+        {
+          "id": "26",
+          "name": "Create new components",
+          "project_id": 2,
+          "project_name": "Research & Development",
+          "stage_id": 2,
+          "stage_name": "In Progress",
+          "write_date": "2026-06-03T08:17:00.849110"
+        },
+        {
+          "id": "27",
+          "name": "New portal system",
+          "project_id": 2,
+          "project_name": "Research & Development",
+          "stage_id": 3,
+          "stage_name": "Done",
+          "write_date": "2026-06-03T08:17:00.849110"
+        },
+        {
+          "id": "28",
+          "name": "Usability review",
+          "project_id": 2,
+          "project_name": "Research & Development",
+          "stage_id": 1,
+          "stage_name": "New",
+          "write_date": "2026-06-03T08:17:00.849110"
+        },
+        {
+          "id": "29",
+          "name": "Document management",
+          "project_id": 2,
+          "project_name": "Research & Development",
+          "stage_id": 1,
+          "stage_name": "New",
+          "write_date": "2026-06-03T08:17:00.849110"
+        },
+        {
+          "id": "30",
+          "name": "Unit Testing",
+          "project_id": 2,
+          "project_name": "Research & Development",
+          "stage_id": 1,
+          "stage_name": "New",
+          "write_date": "2026-06-03T08:17:00.849110"
+        },
+        {
+          "id": "32",
+          "name": "Entry Hall",
+          "project_id": 3,
+          "project_name": "Renovations",
+          "stage_id": 3,
+          "stage_name": "Done",
+          "write_date": "2026-06-03T08:17:00.849110"
+        },
+        {
+          "id": "33",
+          "name": "Check Lift",
+          "project_id": 3,
+          "project_name": "Renovations",
+          "stage_id": 3,
+          "stage_name": "Done",
+          "write_date": "2026-06-03T08:17:00.849110"
+        },
+        {
+          "id": "34",
+          "name": "Room 1: Paint",
+          "project_id": 3,
+          "project_name": "Renovations",
+          "stage_id": 3,
+          "stage_name": "Done",
+          "write_date": "2026-06-03T08:17:00.849110"
+        },
+        {
+          "id": "35",
+          "name": "Bathroom",
+          "project_id": 3,
+          "project_name": "Renovations",
+          "stage_id": 3,
+          "stage_name": "Done",
+          "write_date": "2026-06-03T08:17:00.849110"
+        },
+        {
+          "id": "37",
+          "name": "Buy a gift for Marc Demo's birthday",
+          "write_date": "2026-06-03T08:17:00.849110"
+        },
+        {
+          "id": "38",
+          "name": "Change left screen cable",
+          "write_date": "2026-06-03T08:17:00.849110"
+        },
+        {
+          "id": "39",
+          "name": "Clean kitchen fridge",
+          "write_date": "2026-06-03T08:17:00.849110"
+        },
+        {
+          "id": "40",
+          "name": "Check employees lunch accounts",
+          "write_date": "2026-06-03T08:17:00.849110"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Task": []
+    }
+  },
+  "api": {
+    "get": {
+      "/1.0/project.task": [
+        {
+          "response": {
+            "records": [
+              {
+                "id": 1,
+                "name": "Office planning",
+                "project_id": [1, "Office Design"],
+                "stage_id": [3, "Done"],
+                "write_date": "2026-06-03T08:17:00.849110"
+              },
+              {
+                "id": 2,
+                "name": "Lunch Room: kitchen",
+                "project_id": [1, "Office Design"],
+                "stage_id": [3, "Done"],
+                "write_date": "2026-06-03T08:17:00.849110"
+              },
+              {
+                "id": 3,
+                "name": "Noise Reduction",
+                "project_id": [1, "Office Design"],
+                "stage_id": [3, "Done"],
+                "write_date": "2026-06-03T08:17:00.849110"
+              },
+              {
+                "id": 4,
+                "name": "Modifications asked by the customer",
+                "project_id": [1, "Office Design"],
+                "stage_id": [3, "Done"],
+                "write_date": "2026-06-03T08:17:00.849110"
+              },
+              {
+                "id": 5,
+                "name": "Energy Certificate",
+                "project_id": [1, "Office Design"],
+                "stage_id": [2, "In Progress"],
+                "write_date": "2026-06-03T08:17:00.849110"
+              },
+              {
+                "id": 7,
+                "name": "Room 2: Decoration",
+                "project_id": [1, "Office Design"],
+                "stage_id": [2, "In Progress"],
+                "write_date": "2026-06-03T08:17:00.849110"
+              },
+              {
+                "id": 9,
+                "name": "Meeting Room Furnitures",
+                "project_id": [1, "Office Design"],
+                "stage_id": [2, "In Progress"],
+                "write_date": "2026-06-03T08:17:00.849110"
+              },
+              {
+                "id": 14,
+                "name": "Daily stand-up meeting - Send minutes",
+                "project_id": [1, "Office Design"],
+                "stage_id": [2, "In Progress"],
+                "write_date": "2026-06-03T08:17:00.849110"
+              },
+              {
+                "id": 16,
+                "name": "Daily Meetings summary",
+                "project_id": [1, "Office Design"],
+                "stage_id": [2, "In Progress"],
+                "write_date": "2026-06-03T08:17:00.849110"
+              },
+              {
+                "id": 18,
+                "name": "Minutes",
+                "project_id": [1, "Office Design"],
+                "stage_id": [2, "In Progress"],
+                "write_date": "2026-06-03T08:17:00.849110"
+              },
+              {
+                "id": 20,
+                "name": "Plywood requirement",
+                "project_id": [1, "Office Design"],
+                "stage_id": [3, "Done"],
+                "write_date": "2026-06-03T08:17:00.849110"
+              },
+              {
+                "id": 22,
+                "name": "Basic outline",
+                "project_id": [2, "Research & Development"],
+                "stage_id": [3, "Done"],
+                "write_date": "2026-06-03T08:17:00.849110"
+              },
+              {
+                "id": 23,
+                "name": "Planning and budget",
+                "project_id": [2, "Research & Development"],
+                "stage_id": [3, "Done"],
+                "write_date": "2026-06-03T08:17:00.849110"
+              },
+              {
+                "id": 24,
+                "name": "User interface improvements",
+                "project_id": [2, "Research & Development"],
+                "stage_id": [2, "In Progress"],
+                "write_date": "2026-06-03T08:17:00.849110"
+              },
+              {
+                "id": 25,
+                "name": "Social network integration",
+                "project_id": [2, "Research & Development"],
+                "stage_id": [2, "In Progress"],
+                "write_date": "2026-06-03T08:17:00.849110"
+              },
+              {
+                "id": 26,
+                "name": "Create new components",
+                "project_id": [2, "Research & Development"],
+                "stage_id": [2, "In Progress"],
+                "write_date": "2026-06-03T08:17:00.849110"
+              },
+              {
+                "id": 27,
+                "name": "New portal system",
+                "project_id": [2, "Research & Development"],
+                "stage_id": [3, "Done"],
+                "write_date": "2026-06-03T08:17:00.849110"
+              },
+              {
+                "id": 28,
+                "name": "Usability review",
+                "project_id": [2, "Research & Development"],
+                "stage_id": [1, "New"],
+                "write_date": "2026-06-03T08:17:00.849110"
+              },
+              {
+                "id": 29,
+                "name": "Document management",
+                "project_id": [2, "Research & Development"],
+                "stage_id": [1, "New"],
+                "write_date": "2026-06-03T08:17:00.849110"
+              },
+              {
+                "id": 30,
+                "name": "Unit Testing",
+                "project_id": [2, "Research & Development"],
+                "stage_id": [1, "New"],
+                "write_date": "2026-06-03T08:17:00.849110"
+              },
+              {
+                "id": 32,
+                "name": "Entry Hall",
+                "project_id": [3, "Renovations"],
+                "stage_id": [3, "Done"],
+                "write_date": "2026-06-03T08:17:00.849110"
+              },
+              {
+                "id": 33,
+                "name": "Check Lift",
+                "project_id": [3, "Renovations"],
+                "stage_id": [3, "Done"],
+                "write_date": "2026-06-03T08:17:00.849110"
+              },
+              {
+                "id": 34,
+                "name": "Room 1: Paint",
+                "project_id": [3, "Renovations"],
+                "stage_id": [3, "Done"],
+                "write_date": "2026-06-03T08:17:00.849110"
+              },
+              {
+                "id": 35,
+                "name": "Bathroom",
+                "project_id": [3, "Renovations"],
+                "stage_id": [3, "Done"],
+                "write_date": "2026-06-03T08:17:00.849110"
+              },
+              {
+                "id": 37,
+                "name": "Buy a gift for Marc Demo's birthday",
+                "project_id": false,
+                "stage_id": false,
+                "write_date": "2026-06-03T08:17:00.849110"
+              },
+              {
+                "id": 38,
+                "name": "Change left screen cable",
+                "project_id": false,
+                "stage_id": false,
+                "write_date": "2026-06-03T08:17:00.849110"
+              },
+              {
+                "id": 39,
+                "name": "Clean kitchen fridge",
+                "project_id": false,
+                "stage_id": false,
+                "write_date": "2026-06-03T08:17:00.849110"
+              },
+              {
+                "id": 40,
+                "name": "Check employees lunch accounts",
+                "project_id": false,
+                "stage_id": false,
+                "write_date": "2026-06-03T08:17:00.849110"
+              }
+            ],
+            "count": 28
+          },
+          "status": 200,
+          "headers": {
+            "content-type": "application/json",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4999",
+            "x-ratelimit-reset": "1780477098"
+          },
+          "hash": "3b29c4b04d6f45b2908006de263d2552de77c492",
+          "request": {
+            "params": {
+              "fields": "['id','name','project_id','stage_id','write_date']",
+              "limit": "100",
+              "offset": "0",
+              "order": "write_date asc, id asc"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

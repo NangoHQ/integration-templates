@@ -1,0 +1,761 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "id": 22,
+        "title": {
+          "id": null,
+          "label": "Financial Analyst"
+        },
+        "postedDate": "2026-04-22T20:21:18+00:00",
+        "location": {
+          "id": 18352,
+          "label": "Salt Lake City, Utah",
+          "address": {
+            "name": "Remote Worker",
+            "description": null,
+            "addressLine1": " ",
+            "addressLine2": null,
+            "city": "Salt Lake City",
+            "state": "Utah",
+            "zipcode": "84042",
+            "country": "United States",
+            "phoneNumber": null
+          }
+        },
+        "department": {
+          "id": 18259,
+          "label": "Finance"
+        },
+        "status": {
+          "id": 1,
+          "label": "Open"
+        },
+        "hiringLead": {
+          "employeeId": 83,
+          "firstName": "Preston",
+          "lastName": "Wilder",
+          "avatar": "https://resources.bamboohr.com/images/photo_person_160x160.png",
+          "jobTitle": {
+            "id": null,
+            "label": null
+          }
+        },
+        "newApplicantsCount": 3,
+        "activeApplicantsCount": 3,
+        "totalApplicantsCount": 3,
+        "postingUrl": "https://nagoinc.bamboohr.com/jobs/view.php?id=22"
+      },
+      {
+        "id": 21,
+        "title": {
+          "id": null,
+          "label": "Marketing Manager"
+        },
+        "postedDate": "2026-04-22T16:05:02+00:00",
+        "location": {
+          "id": 18243,
+          "label": "Vancouver, British Columbia",
+          "address": {
+            "name": "Vancouver, Canada",
+            "description": null,
+            "addressLine1": "720 Granville St",
+            "addressLine2": null,
+            "city": "Vancouver",
+            "state": "British Columbia",
+            "zipcode": "V6Z 1E4",
+            "country": "Canada",
+            "phoneNumber": null
+          }
+        },
+        "department": {
+          "id": 18256,
+          "label": "Marketing"
+        },
+        "status": {
+          "id": 1,
+          "label": "Open"
+        },
+        "hiringLead": {
+          "employeeId": 11,
+          "firstName": "Daniel",
+          "lastName": "Vance",
+          "avatar": "https://images7.bamboohr.com/787978/photos/11-5-4.jpg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9pbWFnZXM3LmJhbWJvb2hyLmNvbS83ODc5NzgvKiIsIkNvbmRpdGlvbiI6eyJEYXRlR3JlYXRlclRoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc4MDA2NDMxMn0sIkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzgyNjU2MzIyfX19XX0_&Signature=ZYstl~qEAnEC5drcjEBfja8PDnO7Q5x~Od0Fh9JmUcgaVZng~VAjNdoH~bvXazgv-I9Xew96Tvjw~fXjGsi6K9Q1iLxjtj~bANmP2gX-qA27YCIFmPoT57O9-WH1yB2AkJH-8c4YgEdoDZzvhXx8BS9q5Xf0GbsuBZebDRrMwhSCVJhQtH7vARovGupOglGT9-LjWIr9IurBfY3ss1feHC7Fooi31Bjr1BfKyHpO4u5FuX4vDXjfDDjx-eSmHjRhZ8YNXUkTHHa9fkqhBZ-5Ahnsx5K3S0CMsDWuCi7Y-Q8taXohyrH4P~y9mgrjlfZTQJX5cGhRaKKq0QbDKEivvQ__&Key-Pair-Id=K3R4N4FU6US991",
+          "jobTitle": {
+            "id": null,
+            "label": null
+          }
+        },
+        "newApplicantsCount": 1,
+        "activeApplicantsCount": 2,
+        "totalApplicantsCount": 2,
+        "postingUrl": "https://nagoinc.bamboohr.com/jobs/view.php?id=21"
+      },
+      {
+        "id": 20,
+        "title": {
+          "id": null,
+          "label": "Software Engineer"
+        },
+        "postedDate": "2026-04-22T20:22:25+00:00",
+        "location": {
+          "id": 18240,
+          "label": "Sydney, New South Wales",
+          "address": {
+            "name": "Sydney, Australia",
+            "description": null,
+            "addressLine1": "201 Elizabeth St",
+            "addressLine2": null,
+            "city": "Sydney",
+            "state": "New South Wales",
+            "zipcode": "2000",
+            "country": "Australia",
+            "phoneNumber": null
+          }
+        },
+        "department": {
+          "id": 18264,
+          "label": "Product"
+        },
+        "status": {
+          "id": 1,
+          "label": "Open"
+        },
+        "hiringLead": {
+          "employeeId": 14,
+          "firstName": "Maja",
+          "lastName": "Andev",
+          "avatar": "https://images7.bamboohr.com/787978/photos/14-5-4.jpg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9pbWFnZXM3LmJhbWJvb2hyLmNvbS83ODc5NzgvKiIsIkNvbmRpdGlvbiI6eyJEYXRlR3JlYXRlclRoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc4MDA2NDMxMn0sIkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzgyNjU2MzIyfX19XX0_&Signature=ZYstl~qEAnEC5drcjEBfja8PDnO7Q5x~Od0Fh9JmUcgaVZng~VAjNdoH~bvXazgv-I9Xew96Tvjw~fXjGsi6K9Q1iLxjtj~bANmP2gX-qA27YCIFmPoT57O9-WH1yB2AkJH-8c4YgEdoDZzvhXx8BS9q5Xf0GbsuBZebDRrMwhSCVJhQtH7vARovGupOglGT9-LjWIr9IurBfY3ss1feHC7Fooi31Bjr1BfKyHpO4u5FuX4vDXjfDDjx-eSmHjRhZ8YNXUkTHHa9fkqhBZ-5Ahnsx5K3S0CMsDWuCi7Y-Q8taXohyrH4P~y9mgrjlfZTQJX5cGhRaKKq0QbDKEivvQ__&Key-Pair-Id=K3R4N4FU6US991",
+          "jobTitle": {
+            "id": null,
+            "label": null
+          }
+        },
+        "newApplicantsCount": 0,
+        "activeApplicantsCount": 4,
+        "totalApplicantsCount": 6,
+        "postingUrl": "https://nagoinc.bamboohr.com/jobs/view.php?id=20"
+      },
+      {
+        "id": 19,
+        "title": {
+          "id": null,
+          "label": "General Application"
+        },
+        "postedDate": "2026-03-28T21:43:35+00:00",
+        "location": {
+          "id": 18235,
+          "label": "Lindon, Utah",
+          "address": {
+            "name": "Salt Lake City, Utah",
+            "description": null,
+            "addressLine1": "335 South 560 West",
+            "addressLine2": null,
+            "city": "Lindon",
+            "state": "Utah",
+            "zipcode": "84042",
+            "country": "United States",
+            "phoneNumber": null
+          }
+        },
+        "department": {
+          "id": 18234,
+          "label": "Human Resources"
+        },
+        "status": {
+          "id": 1,
+          "label": "Open"
+        },
+        "hiringLead": {
+          "employeeId": 8,
+          "firstName": "Victor",
+          "lastName": "Nango",
+          "avatar": "https://resources.bamboohr.com/images/photo_person_160x160.png",
+          "jobTitle": {
+            "id": null,
+            "label": null
+          }
+        },
+        "newApplicantsCount": 3,
+        "activeApplicantsCount": 7,
+        "totalApplicantsCount": 13,
+        "postingUrl": "https://nagoinc.bamboohr.com/jobs/view.php?id=19"
+      },
+      {
+        "id": 18,
+        "title": {
+          "id": null,
+          "label": "Videographer"
+        },
+        "postedDate": "2026-05-29T08:20:49+00:00",
+        "location": {
+          "id": 18235,
+          "label": "Lindon, Utah",
+          "address": {
+            "name": "Salt Lake City, Utah",
+            "description": null,
+            "addressLine1": "335 South 560 West",
+            "addressLine2": null,
+            "city": "Lindon",
+            "state": "Utah",
+            "zipcode": "84042",
+            "country": "United States",
+            "phoneNumber": null
+          }
+        },
+        "department": {
+          "id": 18256,
+          "label": "Marketing"
+        },
+        "status": {
+          "id": 2,
+          "label": "Draft"
+        },
+        "hiringLead": {
+          "employeeId": 15,
+          "firstName": "Trent",
+          "lastName": "Walsh",
+          "avatar": "https://images7.bamboohr.com/787978/photos/15-5-4.jpg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9pbWFnZXM3LmJhbWJvb2hyLmNvbS83ODc5NzgvKiIsIkNvbmRpdGlvbiI6eyJEYXRlR3JlYXRlclRoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc4MDA2NDMxMn0sIkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzgyNjU2MzIyfX19XX0_&Signature=ZYstl~qEAnEC5drcjEBfja8PDnO7Q5x~Od0Fh9JmUcgaVZng~VAjNdoH~bvXazgv-I9Xew96Tvjw~fXjGsi6K9Q1iLxjtj~bANmP2gX-qA27YCIFmPoT57O9-WH1yB2AkJH-8c4YgEdoDZzvhXx8BS9q5Xf0GbsuBZebDRrMwhSCVJhQtH7vARovGupOglGT9-LjWIr9IurBfY3ss1feHC7Fooi31Bjr1BfKyHpO4u5FuX4vDXjfDDjx-eSmHjRhZ8YNXUkTHHa9fkqhBZ-5Ahnsx5K3S0CMsDWuCi7Y-Q8taXohyrH4P~y9mgrjlfZTQJX5cGhRaKKq0QbDKEivvQ__&Key-Pair-Id=K3R4N4FU6US991",
+          "jobTitle": {
+            "id": null,
+            "label": null
+          }
+        },
+        "newApplicantsCount": null,
+        "activeApplicantsCount": null,
+        "totalApplicantsCount": 0,
+        "postingUrl": "https://nagoinc.bamboohr.com/jobs/view.php?id=18"
+      },
+      {
+        "id": 17,
+        "title": {
+          "id": null,
+          "label": "Account Executive"
+        },
+        "postedDate": "2025-12-18T21:31:31+00:00",
+        "location": {
+          "id": 18243,
+          "label": "Vancouver, British Columbia",
+          "address": {
+            "name": "Vancouver, Canada",
+            "description": null,
+            "addressLine1": "720 Granville St",
+            "addressLine2": null,
+            "city": "Vancouver",
+            "state": "British Columbia",
+            "zipcode": "V6Z 1E4",
+            "country": "Canada",
+            "phoneNumber": null
+          }
+        },
+        "department": {
+          "id": 18249,
+          "label": "Sales"
+        },
+        "status": {
+          "id": 3,
+          "label": "On Hold"
+        },
+        "hiringLead": {
+          "employeeId": 11,
+          "firstName": "Daniel",
+          "lastName": "Vance",
+          "avatar": "https://images7.bamboohr.com/787978/photos/11-5-4.jpg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9pbWFnZXM3LmJhbWJvb2hyLmNvbS83ODc5NzgvKiIsIkNvbmRpdGlvbiI6eyJEYXRlR3JlYXRlclRoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc4MDA2NDMxMn0sIkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzgyNjU2MzIyfX19XX0_&Signature=ZYstl~qEAnEC5drcjEBfja8PDnO7Q5x~Od0Fh9JmUcgaVZng~VAjNdoH~bvXazgv-I9Xew96Tvjw~fXjGsi6K9Q1iLxjtj~bANmP2gX-qA27YCIFmPoT57O9-WH1yB2AkJH-8c4YgEdoDZzvhXx8BS9q5Xf0GbsuBZebDRrMwhSCVJhQtH7vARovGupOglGT9-LjWIr9IurBfY3ss1feHC7Fooi31Bjr1BfKyHpO4u5FuX4vDXjfDDjx-eSmHjRhZ8YNXUkTHHa9fkqhBZ-5Ahnsx5K3S0CMsDWuCi7Y-Q8taXohyrH4P~y9mgrjlfZTQJX5cGhRaKKq0QbDKEivvQ__&Key-Pair-Id=K3R4N4FU6US991",
+          "jobTitle": {
+            "id": null,
+            "label": null
+          }
+        },
+        "newApplicantsCount": 3,
+        "activeApplicantsCount": 4,
+        "totalApplicantsCount": 4,
+        "postingUrl": "https://nagoinc.bamboohr.com/jobs/view.php?id=17"
+      },
+      {
+        "id": 15,
+        "title": {
+          "id": null,
+          "label": "IT Security Engineer"
+        },
+        "postedDate": "2026-04-22T20:20:12+00:00",
+        "location": {
+          "id": 18238,
+          "label": "Mayfair, London, City of",
+          "address": {
+            "name": "London, UK",
+            "description": null,
+            "addressLine1": "2/3 Conduit St",
+            "addressLine2": null,
+            "city": "Mayfair",
+            "state": "London, City of",
+            "zipcode": "W1S 2BX",
+            "country": "United Kingdom",
+            "phoneNumber": null
+          }
+        },
+        "department": {
+          "id": 18251,
+          "label": "IT"
+        },
+        "status": {
+          "id": 1,
+          "label": "Open"
+        },
+        "hiringLead": {
+          "employeeId": 12,
+          "firstName": "Eric",
+          "lastName": "Asture",
+          "avatar": "https://images7.bamboohr.com/787978/photos/12-5-4.jpg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9pbWFnZXM3LmJhbWJvb2hyLmNvbS83ODc5NzgvKiIsIkNvbmRpdGlvbiI6eyJEYXRlR3JlYXRlclRoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc4MDA2NDMxMn0sIkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzgyNjU2MzIyfX19XX0_&Signature=ZYstl~qEAnEC5drcjEBfja8PDnO7Q5x~Od0Fh9JmUcgaVZng~VAjNdoH~bvXazgv-I9Xew96Tvjw~fXjGsi6K9Q1iLxjtj~bANmP2gX-qA27YCIFmPoT57O9-WH1yB2AkJH-8c4YgEdoDZzvhXx8BS9q5Xf0GbsuBZebDRrMwhSCVJhQtH7vARovGupOglGT9-LjWIr9IurBfY3ss1feHC7Fooi31Bjr1BfKyHpO4u5FuX4vDXjfDDjx-eSmHjRhZ8YNXUkTHHa9fkqhBZ-5Ahnsx5K3S0CMsDWuCi7Y-Q8taXohyrH4P~y9mgrjlfZTQJX5cGhRaKKq0QbDKEivvQ__&Key-Pair-Id=K3R4N4FU6US991",
+          "jobTitle": {
+            "id": null,
+            "label": null
+          }
+        },
+        "newApplicantsCount": 0,
+        "activeApplicantsCount": 4,
+        "totalApplicantsCount": 4,
+        "postingUrl": "https://nagoinc.bamboohr.com/jobs/view.php?id=15"
+      },
+      {
+        "id": 14,
+        "title": {
+          "id": null,
+          "label": "Customer Success Advocate"
+        },
+        "postedDate": "2025-12-18T21:25:15+00:00",
+        "location": {
+          "id": 18235,
+          "label": "Lindon, Utah",
+          "address": {
+            "name": "Salt Lake City, Utah",
+            "description": null,
+            "addressLine1": "335 South 560 West",
+            "addressLine2": null,
+            "city": "Lindon",
+            "state": "Utah",
+            "zipcode": "84042",
+            "country": "United States",
+            "phoneNumber": null
+          }
+        },
+        "department": {
+          "id": 18253,
+          "label": "Customer Success"
+        },
+        "status": {
+          "id": 4,
+          "label": "Filled"
+        },
+        "hiringLead": {
+          "employeeId": 13,
+          "firstName": "Cheryl",
+          "lastName": "Barnet",
+          "avatar": "https://images7.bamboohr.com/787978/photos/13-5-4.jpg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9pbWFnZXM3LmJhbWJvb2hyLmNvbS83ODc5NzgvKiIsIkNvbmRpdGlvbiI6eyJEYXRlR3JlYXRlclRoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc4MDA2NDMxMn0sIkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzgyNjU2MzIyfX19XX0_&Signature=ZYstl~qEAnEC5drcjEBfja8PDnO7Q5x~Od0Fh9JmUcgaVZng~VAjNdoH~bvXazgv-I9Xew96Tvjw~fXjGsi6K9Q1iLxjtj~bANmP2gX-qA27YCIFmPoT57O9-WH1yB2AkJH-8c4YgEdoDZzvhXx8BS9q5Xf0GbsuBZebDRrMwhSCVJhQtH7vARovGupOglGT9-LjWIr9IurBfY3ss1feHC7Fooi31Bjr1BfKyHpO4u5FuX4vDXjfDDjx-eSmHjRhZ8YNXUkTHHa9fkqhBZ-5Ahnsx5K3S0CMsDWuCi7Y-Q8taXohyrH4P~y9mgrjlfZTQJX5cGhRaKKq0QbDKEivvQ__&Key-Pair-Id=K3R4N4FU6US991",
+          "jobTitle": {
+            "id": null,
+            "label": null
+          }
+        },
+        "newApplicantsCount": 0,
+        "activeApplicantsCount": 5,
+        "totalApplicantsCount": 7,
+        "postingUrl": "https://nagoinc.bamboohr.com/jobs/view.php?id=14"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1/applicant_tracking/jobs": {
+        "response": [
+          {
+            "id": 22,
+            "title": {
+              "id": null,
+              "label": "Financial Analyst"
+            },
+            "postedDate": "2026-04-22T20:21:18+00:00",
+            "location": {
+              "id": 18352,
+              "label": "Salt Lake City, Utah",
+              "address": {
+                "name": "Remote Worker",
+                "description": null,
+                "addressLine1": " ",
+                "addressLine2": null,
+                "city": "Salt Lake City",
+                "state": "Utah",
+                "zipcode": "84042",
+                "country": "United States",
+                "phoneNumber": null
+              }
+            },
+            "department": {
+              "id": 18259,
+              "label": "Finance"
+            },
+            "status": {
+              "id": 1,
+              "label": "Open"
+            },
+            "hiringLead": {
+              "employeeId": 83,
+              "firstName": "Preston",
+              "lastName": "Wilder",
+              "avatar": "https://resources.bamboohr.com/images/photo_person_160x160.png",
+              "jobTitle": {
+                "id": null,
+                "label": null
+              }
+            },
+            "newApplicantsCount": 3,
+            "activeApplicantsCount": 3,
+            "totalApplicantsCount": 3,
+            "postingUrl": "https://nagoinc.bamboohr.com/jobs/view.php?id=22"
+          },
+          {
+            "id": 21,
+            "title": {
+              "id": null,
+              "label": "Marketing Manager"
+            },
+            "postedDate": "2026-04-22T16:05:02+00:00",
+            "location": {
+              "id": 18243,
+              "label": "Vancouver, British Columbia",
+              "address": {
+                "name": "Vancouver, Canada",
+                "description": null,
+                "addressLine1": "720 Granville St",
+                "addressLine2": null,
+                "city": "Vancouver",
+                "state": "British Columbia",
+                "zipcode": "V6Z 1E4",
+                "country": "Canada",
+                "phoneNumber": null
+              }
+            },
+            "department": {
+              "id": 18256,
+              "label": "Marketing"
+            },
+            "status": {
+              "id": 1,
+              "label": "Open"
+            },
+            "hiringLead": {
+              "employeeId": 11,
+              "firstName": "Daniel",
+              "lastName": "Vance",
+              "avatar": "https://images7.bamboohr.com/787978/photos/11-5-4.jpg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9pbWFnZXM3LmJhbWJvb2hyLmNvbS83ODc5NzgvKiIsIkNvbmRpdGlvbiI6eyJEYXRlR3JlYXRlclRoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc4MDA2NDMxMn0sIkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzgyNjU2MzIyfX19XX0_&Signature=ZYstl~qEAnEC5drcjEBfja8PDnO7Q5x~Od0Fh9JmUcgaVZng~VAjNdoH~bvXazgv-I9Xew96Tvjw~fXjGsi6K9Q1iLxjtj~bANmP2gX-qA27YCIFmPoT57O9-WH1yB2AkJH-8c4YgEdoDZzvhXx8BS9q5Xf0GbsuBZebDRrMwhSCVJhQtH7vARovGupOglGT9-LjWIr9IurBfY3ss1feHC7Fooi31Bjr1BfKyHpO4u5FuX4vDXjfDDjx-eSmHjRhZ8YNXUkTHHa9fkqhBZ-5Ahnsx5K3S0CMsDWuCi7Y-Q8taXohyrH4P~y9mgrjlfZTQJX5cGhRaKKq0QbDKEivvQ__&Key-Pair-Id=K3R4N4FU6US991",
+              "jobTitle": {
+                "id": null,
+                "label": null
+              }
+            },
+            "newApplicantsCount": 1,
+            "activeApplicantsCount": 2,
+            "totalApplicantsCount": 2,
+            "postingUrl": "https://nagoinc.bamboohr.com/jobs/view.php?id=21"
+          },
+          {
+            "id": 20,
+            "title": {
+              "id": null,
+              "label": "Software Engineer"
+            },
+            "postedDate": "2026-04-22T20:22:25+00:00",
+            "location": {
+              "id": 18240,
+              "label": "Sydney, New South Wales",
+              "address": {
+                "name": "Sydney, Australia",
+                "description": null,
+                "addressLine1": "201 Elizabeth St",
+                "addressLine2": null,
+                "city": "Sydney",
+                "state": "New South Wales",
+                "zipcode": "2000",
+                "country": "Australia",
+                "phoneNumber": null
+              }
+            },
+            "department": {
+              "id": 18264,
+              "label": "Product"
+            },
+            "status": {
+              "id": 1,
+              "label": "Open"
+            },
+            "hiringLead": {
+              "employeeId": 14,
+              "firstName": "Maja",
+              "lastName": "Andev",
+              "avatar": "https://images7.bamboohr.com/787978/photos/14-5-4.jpg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9pbWFnZXM3LmJhbWJvb2hyLmNvbS83ODc5NzgvKiIsIkNvbmRpdGlvbiI6eyJEYXRlR3JlYXRlclRoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc4MDA2NDMxMn0sIkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzgyNjU2MzIyfX19XX0_&Signature=ZYstl~qEAnEC5drcjEBfja8PDnO7Q5x~Od0Fh9JmUcgaVZng~VAjNdoH~bvXazgv-I9Xew96Tvjw~fXjGsi6K9Q1iLxjtj~bANmP2gX-qA27YCIFmPoT57O9-WH1yB2AkJH-8c4YgEdoDZzvhXx8BS9q5Xf0GbsuBZebDRrMwhSCVJhQtH7vARovGupOglGT9-LjWIr9IurBfY3ss1feHC7Fooi31Bjr1BfKyHpO4u5FuX4vDXjfDDjx-eSmHjRhZ8YNXUkTHHa9fkqhBZ-5Ahnsx5K3S0CMsDWuCi7Y-Q8taXohyrH4P~y9mgrjlfZTQJX5cGhRaKKq0QbDKEivvQ__&Key-Pair-Id=K3R4N4FU6US991",
+              "jobTitle": {
+                "id": null,
+                "label": null
+              }
+            },
+            "newApplicantsCount": 0,
+            "activeApplicantsCount": 4,
+            "totalApplicantsCount": 6,
+            "postingUrl": "https://nagoinc.bamboohr.com/jobs/view.php?id=20"
+          },
+          {
+            "id": 19,
+            "title": {
+              "id": null,
+              "label": "General Application"
+            },
+            "postedDate": "2026-03-28T21:43:35+00:00",
+            "location": {
+              "id": 18235,
+              "label": "Lindon, Utah",
+              "address": {
+                "name": "Salt Lake City, Utah",
+                "description": null,
+                "addressLine1": "335 South 560 West",
+                "addressLine2": null,
+                "city": "Lindon",
+                "state": "Utah",
+                "zipcode": "84042",
+                "country": "United States",
+                "phoneNumber": null
+              }
+            },
+            "department": {
+              "id": 18234,
+              "label": "Human Resources"
+            },
+            "status": {
+              "id": 1,
+              "label": "Open"
+            },
+            "hiringLead": {
+              "employeeId": 8,
+              "firstName": "Victor",
+              "lastName": "Nango",
+              "avatar": "https://resources.bamboohr.com/images/photo_person_160x160.png",
+              "jobTitle": {
+                "id": null,
+                "label": null
+              }
+            },
+            "newApplicantsCount": 3,
+            "activeApplicantsCount": 7,
+            "totalApplicantsCount": 13,
+            "postingUrl": "https://nagoinc.bamboohr.com/jobs/view.php?id=19"
+          },
+          {
+            "id": 18,
+            "title": {
+              "id": null,
+              "label": "Videographer"
+            },
+            "postedDate": "2026-05-29T08:20:49+00:00",
+            "location": {
+              "id": 18235,
+              "label": "Lindon, Utah",
+              "address": {
+                "name": "Salt Lake City, Utah",
+                "description": null,
+                "addressLine1": "335 South 560 West",
+                "addressLine2": null,
+                "city": "Lindon",
+                "state": "Utah",
+                "zipcode": "84042",
+                "country": "United States",
+                "phoneNumber": null
+              }
+            },
+            "department": {
+              "id": 18256,
+              "label": "Marketing"
+            },
+            "status": {
+              "id": 2,
+              "label": "Draft"
+            },
+            "hiringLead": {
+              "employeeId": 15,
+              "firstName": "Trent",
+              "lastName": "Walsh",
+              "avatar": "https://images7.bamboohr.com/787978/photos/15-5-4.jpg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9pbWFnZXM3LmJhbWJvb2hyLmNvbS83ODc5NzgvKiIsIkNvbmRpdGlvbiI6eyJEYXRlR3JlYXRlclRoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc4MDA2NDMxMn0sIkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzgyNjU2MzIyfX19XX0_&Signature=ZYstl~qEAnEC5drcjEBfja8PDnO7Q5x~Od0Fh9JmUcgaVZng~VAjNdoH~bvXazgv-I9Xew96Tvjw~fXjGsi6K9Q1iLxjtj~bANmP2gX-qA27YCIFmPoT57O9-WH1yB2AkJH-8c4YgEdoDZzvhXx8BS9q5Xf0GbsuBZebDRrMwhSCVJhQtH7vARovGupOglGT9-LjWIr9IurBfY3ss1feHC7Fooi31Bjr1BfKyHpO4u5FuX4vDXjfDDjx-eSmHjRhZ8YNXUkTHHa9fkqhBZ-5Ahnsx5K3S0CMsDWuCi7Y-Q8taXohyrH4P~y9mgrjlfZTQJX5cGhRaKKq0QbDKEivvQ__&Key-Pair-Id=K3R4N4FU6US991",
+              "jobTitle": {
+                "id": null,
+                "label": null
+              }
+            },
+            "newApplicantsCount": null,
+            "activeApplicantsCount": null,
+            "totalApplicantsCount": 0,
+            "postingUrl": "https://nagoinc.bamboohr.com/jobs/view.php?id=18"
+          },
+          {
+            "id": 17,
+            "title": {
+              "id": null,
+              "label": "Account Executive"
+            },
+            "postedDate": "2025-12-18T21:31:31+00:00",
+            "location": {
+              "id": 18243,
+              "label": "Vancouver, British Columbia",
+              "address": {
+                "name": "Vancouver, Canada",
+                "description": null,
+                "addressLine1": "720 Granville St",
+                "addressLine2": null,
+                "city": "Vancouver",
+                "state": "British Columbia",
+                "zipcode": "V6Z 1E4",
+                "country": "Canada",
+                "phoneNumber": null
+              }
+            },
+            "department": {
+              "id": 18249,
+              "label": "Sales"
+            },
+            "status": {
+              "id": 3,
+              "label": "On Hold"
+            },
+            "hiringLead": {
+              "employeeId": 11,
+              "firstName": "Daniel",
+              "lastName": "Vance",
+              "avatar": "https://images7.bamboohr.com/787978/photos/11-5-4.jpg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9pbWFnZXM3LmJhbWJvb2hyLmNvbS83ODc5NzgvKiIsIkNvbmRpdGlvbiI6eyJEYXRlR3JlYXRlclRoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc4MDA2NDMxMn0sIkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzgyNjU2MzIyfX19XX0_&Signature=ZYstl~qEAnEC5drcjEBfja8PDnO7Q5x~Od0Fh9JmUcgaVZng~VAjNdoH~bvXazgv-I9Xew96Tvjw~fXjGsi6K9Q1iLxjtj~bANmP2gX-qA27YCIFmPoT57O9-WH1yB2AkJH-8c4YgEdoDZzvhXx8BS9q5Xf0GbsuBZebDRrMwhSCVJhQtH7vARovGupOglGT9-LjWIr9IurBfY3ss1feHC7Fooi31Bjr1BfKyHpO4u5FuX4vDXjfDDjx-eSmHjRhZ8YNXUkTHHa9fkqhBZ-5Ahnsx5K3S0CMsDWuCi7Y-Q8taXohyrH4P~y9mgrjlfZTQJX5cGhRaKKq0QbDKEivvQ__&Key-Pair-Id=K3R4N4FU6US991",
+              "jobTitle": {
+                "id": null,
+                "label": null
+              }
+            },
+            "newApplicantsCount": 3,
+            "activeApplicantsCount": 4,
+            "totalApplicantsCount": 4,
+            "postingUrl": "https://nagoinc.bamboohr.com/jobs/view.php?id=17"
+          },
+          {
+            "id": 15,
+            "title": {
+              "id": null,
+              "label": "IT Security Engineer"
+            },
+            "postedDate": "2026-04-22T20:20:12+00:00",
+            "location": {
+              "id": 18238,
+              "label": "Mayfair, London, City of",
+              "address": {
+                "name": "London, UK",
+                "description": null,
+                "addressLine1": "2/3 Conduit St",
+                "addressLine2": null,
+                "city": "Mayfair",
+                "state": "London, City of",
+                "zipcode": "W1S 2BX",
+                "country": "United Kingdom",
+                "phoneNumber": null
+              }
+            },
+            "department": {
+              "id": 18251,
+              "label": "IT"
+            },
+            "status": {
+              "id": 1,
+              "label": "Open"
+            },
+            "hiringLead": {
+              "employeeId": 12,
+              "firstName": "Eric",
+              "lastName": "Asture",
+              "avatar": "https://images7.bamboohr.com/787978/photos/12-5-4.jpg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9pbWFnZXM3LmJhbWJvb2hyLmNvbS83ODc5NzgvKiIsIkNvbmRpdGlvbiI6eyJEYXRlR3JlYXRlclRoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc4MDA2NDMxMn0sIkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzgyNjU2MzIyfX19XX0_&Signature=ZYstl~qEAnEC5drcjEBfja8PDnO7Q5x~Od0Fh9JmUcgaVZng~VAjNdoH~bvXazgv-I9Xew96Tvjw~fXjGsi6K9Q1iLxjtj~bANmP2gX-qA27YCIFmPoT57O9-WH1yB2AkJH-8c4YgEdoDZzvhXx8BS9q5Xf0GbsuBZebDRrMwhSCVJhQtH7vARovGupOglGT9-LjWIr9IurBfY3ss1feHC7Fooi31Bjr1BfKyHpO4u5FuX4vDXjfDDjx-eSmHjRhZ8YNXUkTHHa9fkqhBZ-5Ahnsx5K3S0CMsDWuCi7Y-Q8taXohyrH4P~y9mgrjlfZTQJX5cGhRaKKq0QbDKEivvQ__&Key-Pair-Id=K3R4N4FU6US991",
+              "jobTitle": {
+                "id": null,
+                "label": null
+              }
+            },
+            "newApplicantsCount": 0,
+            "activeApplicantsCount": 4,
+            "totalApplicantsCount": 4,
+            "postingUrl": "https://nagoinc.bamboohr.com/jobs/view.php?id=15"
+          },
+          {
+            "id": 14,
+            "title": {
+              "id": null,
+              "label": "Customer Success Advocate"
+            },
+            "postedDate": "2025-12-18T21:25:15+00:00",
+            "location": {
+              "id": 18235,
+              "label": "Lindon, Utah",
+              "address": {
+                "name": "Salt Lake City, Utah",
+                "description": null,
+                "addressLine1": "335 South 560 West",
+                "addressLine2": null,
+                "city": "Lindon",
+                "state": "Utah",
+                "zipcode": "84042",
+                "country": "United States",
+                "phoneNumber": null
+              }
+            },
+            "department": {
+              "id": 18253,
+              "label": "Customer Success"
+            },
+            "status": {
+              "id": 4,
+              "label": "Filled"
+            },
+            "hiringLead": {
+              "employeeId": 13,
+              "firstName": "Cheryl",
+              "lastName": "Barnet",
+              "avatar": "https://images7.bamboohr.com/787978/photos/13-5-4.jpg?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9pbWFnZXM3LmJhbWJvb2hyLmNvbS83ODc5NzgvKiIsIkNvbmRpdGlvbiI6eyJEYXRlR3JlYXRlclRoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc4MDA2NDMxMn0sIkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzgyNjU2MzIyfX19XX0_&Signature=ZYstl~qEAnEC5drcjEBfja8PDnO7Q5x~Od0Fh9JmUcgaVZng~VAjNdoH~bvXazgv-I9Xew96Tvjw~fXjGsi6K9Q1iLxjtj~bANmP2gX-qA27YCIFmPoT57O9-WH1yB2AkJH-8c4YgEdoDZzvhXx8BS9q5Xf0GbsuBZebDRrMwhSCVJhQtH7vARovGupOglGT9-LjWIr9IurBfY3ss1feHC7Fooi31Bjr1BfKyHpO4u5FuX4vDXjfDDjx-eSmHjRhZ8YNXUkTHHa9fkqhBZ-5Ahnsx5K3S0CMsDWuCi7Y-Q8taXohyrH4P~y9mgrjlfZTQJX5cGhRaKKq0QbDKEivvQ__&Key-Pair-Id=K3R4N4FU6US991",
+              "jobTitle": {
+                "id": null,
+                "label": null
+              }
+            },
+            "newApplicantsCount": 0,
+            "activeApplicantsCount": 5,
+            "totalApplicantsCount": 7,
+            "postingUrl": "https://nagoinc.bamboohr.com/jobs/view.php?id=14"
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Fri, 29 May 2026 14:20:49 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubdomains;",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4843",
+          "x-ratelimit-reset": "1780064473",
+          "server": "nginx",
+          "cache-control": "no-cache, private",
+          "x-request-id": "141031235372008240225153058943771009880",
+          "vary": "Authorization,User-Agent"
+        },
+        "hash": "3907785beee2cd9ea7d63d0158af512cdfad6b78",
+        "request": {}
+      }
+    }
+  }
+}

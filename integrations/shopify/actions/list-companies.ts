@@ -5,9 +5,9 @@ const InputSchema = z.object({
     first: z.number().int().min(1).max(250).optional().describe('Number of records to return. Max 250.'),
     after: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
     sortKey: z
-        .enum(['ID', 'NAME', 'CREATED_AT', 'UPDATED_AT', 'CUSTOMER_SINCE'])
+        .enum(['CREATED_AT', 'ID', 'NAME', 'ORDER_COUNT', 'SINCE_DATE', 'TOTAL_SPENT', 'UPDATED_AT'])
         .optional()
-        .describe('Sort key for the underlying list. Valid values: ID, NAME, CREATED_AT, UPDATED_AT, CUSTOMER_SINCE.'),
+        .describe('Sort key for the underlying list. Valid values: CREATED_AT, ID, NAME, ORDER_COUNT, SINCE_DATE, TOTAL_SPENT, UPDATED_AT.'),
     reverse: z.boolean().optional().describe('Reverse the order of the underlying list.'),
     query: z.string().optional().describe('A filter made up of terms, connectives, modifiers, and comparators.')
 });
