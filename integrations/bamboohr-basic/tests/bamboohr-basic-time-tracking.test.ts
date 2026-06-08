@@ -1,9 +1,14 @@
-import { afterEach, vi, expect, it, describe } from 'vitest';
+import { afterEach, beforeEach, vi, expect, it, describe } from 'vitest';
 
 import createSync from '../syncs/time-tracking.js';
 
 describe('bamboohr time-tracking tests', () => {
     const models = 'TimeTrackingEntry'.split(',');
+
+    beforeEach(() => {
+        vi.useFakeTimers();
+        vi.setSystemTime(new Date('2026-06-02'));
+    });
 
     const createTestContext = () => {
         const nangoMock = new global.vitest.NangoSyncMock({
@@ -21,6 +26,7 @@ describe('bamboohr time-tracking tests', () => {
     afterEach(() => {
         vi.clearAllMocks();
         vi.restoreAllMocks();
+        vi.useRealTimers();
     });
 
     it('should get, map correctly the data and batchSave the result', async () => {
