@@ -105,10 +105,10 @@
           "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=cdc89369-dffd-474e-a8a2-912cbef308ed-1780570290\"",
           "cf-ray": "a06661fd09be1bed-PDX"
         },
-        "hash": "4a026fd6e5959cd576e3f77a8de5bcb314d26a39",
+        "hash": "90d2d49cce40fbc6160a7714c1399ce216b4e061",
         "request": {
           "data": {
-            "query": "query Metaobjects($type: String!, $first: Int, $after: String, $sortKey: String, $reverse: Boolean) {\n                    metaobjects(type: $type, first: $first, after: $after, sortKey: $sortKey, reverse: $reverse) {\n                        nodes {\n                            id\n                            handle\n                            type\n                            displayName\n                            updatedAt\n                            createdAt\n                            fields {\n                                key\n                                value\n                                jsonValue\n                                type\n                            }\n                        }\n                        pageInfo {\n                            hasNextPage\n                            endCursor\n                        }\n                    }\n                }",
+            "query": "query Metaobjects($type: String!, $first: Int, $after: String, $sortKey: MetaobjectSortKeys, $reverse: Boolean) {\n                    metaobjects(type: $type, first: $first, after: $after, sortKey: $sortKey, reverse: $reverse) {\n                        nodes {\n                            id\n                            handle\n                            type\n                            displayName\n                            updatedAt\n                            createdAt\n                            fields {\n                                key\n                                value\n                                jsonValue\n                                type\n                            }\n                        }\n                        pageInfo {\n                            hasNextPage\n                            endCursor\n                        }\n                    }\n                }",
             "variables": {
               "type": "nango_test_type",
               "first": 3

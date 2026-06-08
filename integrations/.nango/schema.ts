@@ -73496,9 +73496,9 @@ export interface ActionInput_shopify_listcollections {
    */
   after?: string | undefined;
   /**
-   * Sort key. Valid values: ID, TITLE, UPDATED_AT, RELEVANCE.
+   * Sort key. Valid values: ID, RELEVANCE, SORT_ORDER, TITLE, UPDATED_AT.
    */
-  sortKey?: 'ID' | 'TITLE' | 'UPDATED_AT' | 'RELEVANCE' | undefined;
+  sortKey?: 'ID' | 'RELEVANCE' | 'SORT_ORDER' | 'TITLE' | 'UPDATED_AT' | undefined;
   /**
    * Reverse the order of the underlying list. Default: false
    */
@@ -73530,9 +73530,9 @@ export interface ActionInput_shopify_listcompanies {
    */
   after?: string | undefined;
   /**
-   * Sort key for the underlying list. Valid values: ID, NAME, CREATED_AT, UPDATED_AT, CUSTOMER_SINCE.
+   * Sort key for the underlying list. Valid values: CREATED_AT, ID, NAME, ORDER_COUNT, SINCE_DATE, TOTAL_SPENT, UPDATED_AT.
    */
-  sortKey?: 'ID' | 'NAME' | 'CREATED_AT' | 'UPDATED_AT' | 'CUSTOMER_SINCE' | undefined;
+  sortKey?: 'CREATED_AT' | 'ID' | 'NAME' | 'ORDER_COUNT' | 'SINCE_DATE' | 'TOTAL_SPENT' | 'UPDATED_AT' | undefined;
   /**
    * Reverse the order of the underlying list.
    */
@@ -73568,9 +73568,9 @@ export interface ActionInput_shopify_listcustomersegments {
    */
   after?: string | undefined;
   /**
-   * Sort key. Valid values: CREATION_DATE, ID, LAST_EDIT_DATE, NAME.
+   * Sort key. Valid values: CREATION_DATE, ID, LAST_EDIT_DATE, RELEVANCE.
    */
-  sortKey?: 'CREATION_DATE' | 'ID' | 'LAST_EDIT_DATE' | 'NAME' | undefined;
+  sortKey?: 'CREATION_DATE' | 'ID' | 'LAST_EDIT_DATE' | 'RELEVANCE' | undefined;
   /**
    * Reverse the order of the list.
    */
