@@ -1,0 +1,181 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "id": "gid://shopify/Collection/322860220553",
+        "title": "Home page",
+        "handle": "frontpage",
+        "updatedAt": "2026-06-04T08:49:55Z",
+        "descriptionHtml": "",
+        "sortOrder": "BEST_SELLING"
+      },
+      {
+        "id": "gid://shopify/Collection/322860253321",
+        "title": "Automated Collection",
+        "handle": "automated-collection",
+        "updatedAt": "2026-06-04T08:50:26Z",
+        "descriptionHtml": "",
+        "sortOrder": "BEST_SELLING"
+      },
+      {
+        "id": "gid://shopify/Collection/322860286089",
+        "title": "Hydrogen",
+        "handle": "hydrogen",
+        "updatedAt": "2026-06-04T08:49:59Z",
+        "descriptionHtml": "",
+        "sortOrder": "BEST_SELLING"
+      },
+      {
+        "id": "gid://shopify/Collection/322861891721",
+        "title": "Test Collection for Delete",
+        "handle": "test-collection-for-delete",
+        "updatedAt": "2026-06-04T09:38:44Z",
+        "descriptionHtml": "",
+        "sortOrder": "BEST_SELLING"
+      },
+      {
+        "id": "gid://shopify/Collection/322861924489",
+        "title": "Test Collection for Delete",
+        "handle": "test-collection-for-delete-1",
+        "updatedAt": "2026-06-04T09:38:49Z",
+        "descriptionHtml": "",
+        "sortOrder": "BEST_SELLING"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/admin/api/2025-04/graphql.json": {
+        "response": {
+          "data": {
+            "collections": {
+              "edges": [
+                {
+                  "node": {
+                    "id": "gid://shopify/Collection/322860220553",
+                    "title": "Home page",
+                    "handle": "frontpage",
+                    "updatedAt": "2026-06-04T08:49:55Z",
+                    "descriptionHtml": "",
+                    "sortOrder": "BEST_SELLING",
+                    "templateSuffix": null
+                  },
+                  "cursor": "eyJsYXN0X2lkIjozMjI4NjAyMjA1NTMsImxhc3RfdmFsdWUiOiIzMjI4NjAyMjA1NTMifQ=="
+                },
+                {
+                  "node": {
+                    "id": "gid://shopify/Collection/322860253321",
+                    "title": "Automated Collection",
+                    "handle": "automated-collection",
+                    "updatedAt": "2026-06-04T08:50:26Z",
+                    "descriptionHtml": "",
+                    "sortOrder": "BEST_SELLING",
+                    "templateSuffix": null
+                  },
+                  "cursor": "eyJsYXN0X2lkIjozMjI4NjAyNTMzMjEsImxhc3RfdmFsdWUiOiIzMjI4NjAyNTMzMjEifQ=="
+                },
+                {
+                  "node": {
+                    "id": "gid://shopify/Collection/322860286089",
+                    "title": "Hydrogen",
+                    "handle": "hydrogen",
+                    "updatedAt": "2026-06-04T08:49:59Z",
+                    "descriptionHtml": "",
+                    "sortOrder": "BEST_SELLING",
+                    "templateSuffix": null
+                  },
+                  "cursor": "eyJsYXN0X2lkIjozMjI4NjAyODYwODksImxhc3RfdmFsdWUiOiIzMjI4NjAyODYwODkifQ=="
+                },
+                {
+                  "node": {
+                    "id": "gid://shopify/Collection/322861891721",
+                    "title": "Test Collection for Delete",
+                    "handle": "test-collection-for-delete",
+                    "updatedAt": "2026-06-04T09:38:44Z",
+                    "descriptionHtml": "",
+                    "sortOrder": "BEST_SELLING",
+                    "templateSuffix": null
+                  },
+                  "cursor": "eyJsYXN0X2lkIjozMjI4NjE4OTE3MjEsImxhc3RfdmFsdWUiOiIzMjI4NjE4OTE3MjEifQ=="
+                },
+                {
+                  "node": {
+                    "id": "gid://shopify/Collection/322861924489",
+                    "title": "Test Collection for Delete",
+                    "handle": "test-collection-for-delete-1",
+                    "updatedAt": "2026-06-04T09:38:49Z",
+                    "descriptionHtml": "",
+                    "sortOrder": "BEST_SELLING",
+                    "templateSuffix": null
+                  },
+                  "cursor": "eyJsYXN0X2lkIjozMjI4NjE5MjQ0ODksImxhc3RfdmFsdWUiOiIzMjI4NjE5MjQ0ODkifQ=="
+                }
+              ],
+              "pageInfo": {
+                "hasNextPage": false,
+                "endCursor": "eyJsYXN0X2lkIjozMjI4NjE5MjQ0ODksImxhc3RfdmFsdWUiOiIzMjI4NjE5MjQ0ODkifQ=="
+              }
+            }
+          },
+          "extensions": {
+            "cost": {
+              "requestedQueryCost": 6,
+              "actualQueryCost": 4,
+              "throttleStatus": {
+                "maximumAvailable": 4000,
+                "currentlyAvailable": 3996,
+                "restoreRate": 200
+              }
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 04 Jun 2026 09:39:30 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=7889238",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4936",
+          "x-ratelimit-reset": "1780566010",
+          "vary": "Accept-Encoding,Sec-Fetch-Site",
+          "referrer-policy": "origin-when-cross-origin",
+          "cf-cache-status": "DYNAMIC",
+          "x-stats-userid": "",
+          "x-stats-apiclientid": "376951341057",
+          "x-stats-apipermissionid": "695964696713",
+          "x-shopify-api-version": "2025-07",
+          "x-shopify-api-version-warning": "https://shopify.dev/concepts/about-apis/versioning",
+          "content-language": "en",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "x-shopify-api-gql-engine": "cardinal",
+          "x-dc": "gcp-us-west1,gcp-us-east1,gcp-us-east1",
+          "x-request-id": "5e0a9cbd-5181-4b13-afc0-85e1c80cbb36-1780565970",
+          "server-timing": "processing;dur=45, verdict_flag_enabled;desc=\"count=14\";dur=0.591, graphql;desc=\"admin/query/other\", _y;desc=\"492473d2-63da-4951-b420-ed94b3df2b82\", _s;desc=\"4e5ac665-b842-4165-9d61-aa4a7177c973\"",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=963HYyJMTCUHcL77fW0Cv4NWPN5wizFqUP%2BWv21EQIPmv36bsni%2Bi7LzVHStaOmkV93V4mwkhqmjxXdDnWRxgGPXdPsehC%2BC0UgTy0aS5zdENCfVrE2qcd%2FqA1jFGrUR7TNWCttjGHQ%3D\"}]}",
+          "server": "cloudflare",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.01,\"max_age\":604800}",
+          "content-security-policy": "default-src 'self' data: blob: 'unsafe-inline' 'unsafe-eval' https://* shopify-pos://*; block-all-mixed-content; child-src 'self' https://* shopify-pos://*; connect-src 'self' wss://* https://*; frame-ancestors 'none'; img-src 'self' data: blob: https:; script-src https://cdn.shopify.com https://cdn.shopifycdn.net https://checkout.pci.shopifyinc.com https://checkout.pci.shopifyinc.com/build/04ed4e1/card_fields.js https://api.stripe.com https://mpsnare.iesnare.com https://appcenter.intuit.com https://www.paypal.com https://js.braintreegateway.com https://c.paypal.com https://maps.googleapis.com https://www.google-analytics.com https://v.shopify.com 'self' 'unsafe-inline' 'unsafe-eval'; upgrade-insecure-requests; report-uri /csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=5e0a9cbd-5181-4b13-afc0-85e1c80cbb36-1780565970; report-to shopify-csp",
+          "x-permitted-cross-domain-policies": "none",
+          "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=5e0a9cbd-5181-4b13-afc0-85e1c80cbb36-1780565970\"",
+          "cf-ray": "a065f880ebc5b18c-PDX"
+        },
+        "hash": "bb3d01ec2857f64565f3592fa5516c70f98dcf57",
+        "request": {
+          "data": "sha1:74c1e2ee27409b62378a08437c776eb9d825e472"
+        }
+      }
+    }
+  }
+}

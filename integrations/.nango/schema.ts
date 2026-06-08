@@ -3107,17 +3107,14 @@ export interface SyncMetadata_airtable_records {
 export interface Table {
   id: string;
   name: string;
-  baseId: string;
-  baseName: string;
-  primaryFieldId: string;
-  fields: ({  id: string;
-  name: string;
-  type: string;
-  description?: string | undefined;
-  options?: {  [key: string]: unknown | undefined;};})[];
-  views: ({  id: string;
-  name: string;
-  type: string;})[];
+  database_name: string;
+  schema_name: string;
+  rows?: number | undefined;
+  bytes?: number | undefined;
+  is_external?: string | undefined;
+  is_iceberg?: string | undefined;
+  change_tracking?: string | undefined;
+  owner?: string | undefined;
 };
 
 export interface View {
@@ -5397,13 +5394,15 @@ export interface ActionOutput_anrok_voidtransaction {
 
 export interface File {
   id: string;
-  object?: string | undefined;
-  bytes?: number | undefined;
-  created_at?: number | undefined;
-  filename?: string | undefined;
-  purpose?: string | undefined;
-  status?: string | undefined;
-  status_details?: string | undefined;
+  mediaContentType: string;
+  preview?: {  url?: string | undefined;
+  width?: number | undefined;
+  height?: number | undefined;
+  status?: string | undefined;};
+  url?: string | undefined;
+  alt?: string | undefined;
+  createdAt: string;
+  updatedAt: string;
 };
 
 export interface MessageBatch {
@@ -7200,23 +7199,15 @@ export interface ActionOutput_apollo_updatetask {
 
 export interface Project {
   id: string;
-  name: string;
-  state?: string | undefined;
-  status?: {  id: string;
-  name: string;
-  type: string;
-  color?: string | undefined;};
-  progress?: number | undefined;
-  startDate?: string | undefined;
-  targetDate?: string | undefined;
-  createdAt: string;
-  updatedAt: string;
-  lead?: {  id: string;
+  uuid?: string | undefined;
+  organization?: string | undefined;
   name?: string | undefined;
-  email?: string | undefined;};
-  teams?: ({  id: string;
-  key?: string | undefined;
-  name?: string | undefined;})[];
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  timezone?: string | undefined;
+  is_demo?: boolean | undefined;
+  ingested_event?: boolean | undefined;
+  access_control?: boolean | undefined;
 };
 
 export interface SyncMetadata_asana_projects {
@@ -8799,11 +8790,6 @@ export interface SyncMetadata_ashby_candidates {
 export interface Department {
   id: string;
   name?: string | undefined;
-  externalName?: string | undefined;
-  isArchived?: boolean | undefined;
-  parentId?: string | undefined;
-  createdAt?: string | undefined;
-  updatedAt?: string | undefined;
 };
 
 export interface Interview {
@@ -9811,17 +9797,48 @@ export interface ActionOutput_ashby_updatecandidate {
 
 export interface Company {
   id: string;
-  name?: string | undefined;
-  company_id?: string | undefined;
-  created_at?: number | undefined;
-  updated_at?: number | undefined;
-  session_count?: number | undefined;
-  monthly_spend?: number | undefined;
-  user_count?: number | undefined;
-  plan?: string | undefined;
-  size?: number | undefined;
-  website?: string | undefined;
-  industry?: string | undefined;
+  name: string;
+  note?: string | undefined;
+  externalId?: string | undefined;
+  createdAt: string;
+  updatedAt: string;
+  customerSince: string;
+  mainContactId?: string | undefined;
+  mainContactTitle?: string | undefined;
+  mainContactCustomerFirstName?: string | undefined;
+  mainContactCustomerLastName?: string | undefined;
+  mainContactCustomerEmail?: string | undefined;
+  mainContactCustomerPhone?: string | undefined;
+  totalSpentAmount?: string | undefined;
+  totalSpentCurrencyCode?: string | undefined;
+  contacts?: ({  id: string;
+  title?: string | undefined;
+  isMainContact: boolean;
+  customerFirstName?: string | undefined;
+  customerLastName?: string | undefined;
+  customerEmail?: string | undefined;
+  customerPhone?: string | undefined;})[];
+  locations?: ({  id: string;
+  name: string;
+  externalId?: string | undefined;
+  note?: string | undefined;
+  phone?: string | undefined;
+  createdAt: string;
+  updatedAt: string;
+  shippingAddress1?: string | undefined;
+  shippingAddress2?: string | undefined;
+  shippingCity?: string | undefined;
+  shippingProvince?: string | undefined;
+  shippingCountry?: string | undefined;
+  shippingZip?: string | undefined;
+  shippingPhone?: string | undefined;
+  billingAddress1?: string | undefined;
+  billingAddress2?: string | undefined;
+  billingCity?: string | undefined;
+  billingProvince?: string | undefined;
+  billingCountry?: string | undefined;
+  billingZip?: string | undefined;
+  billingPhone?: string | undefined;})[];
 };
 
 export interface ListEntry {
@@ -9876,17 +9893,12 @@ export interface AttioObject {
 
 export interface Person {
   id: string;
-  name: string;
-  emails?: ({  value: string;
-  primary?: boolean | undefined;
-  label?: string | undefined;})[];
-  phones?: ({  value: string;
-  primary?: boolean | undefined;
-  label?: string | undefined;})[];
-  org_id?: number | undefined;
-  owner_id?: number | undefined;
-  add_time?: string | undefined;
-  update_time: string;
+  name?: string | undefined;
+  distinct_ids?: string[] | undefined;
+  properties?: {  [key: string]: unknown | undefined;};
+  created_at?: string | undefined;
+  uuid?: string | undefined;
+  last_seen_at?: string | undefined;
 };
 
 export interface Record {
@@ -11188,18 +11200,15 @@ export interface RolePermission {
 export interface Role {
   id: string;
   name: string;
-  color?: number | undefined;
-  colors?: {  primary_color: number;
-  secondary_color?: number | undefined;
-  tertiary_color?: number | undefined;};
-  hoist?: boolean | undefined;
-  icon?: string | undefined;
-  unicode_emoji?: string | undefined;
-  position?: number | undefined;
-  permissions?: string | undefined;
-  managed?: boolean | undefined;
-  mentionable?: boolean | undefined;
-  flags?: number | undefined;
+  is_default?: boolean | undefined;
+  is_current?: boolean | undefined;
+  is_inherited?: boolean | undefined;
+  assigned_to_users?: number | undefined;
+  granted_to_roles?: number | undefined;
+  granted_roles?: number | undefined;
+  created_on: string;
+  owner?: string | undefined;
+  comment?: string | undefined;
 };
 
 export interface UserBlock {
@@ -13925,124 +13934,1636 @@ export interface ActionOutput_aws_iam_deleteuser {
   success: boolean;
 };
 
-export interface BamboohrEmployee {
+export interface Applicant {
   id: string;
-  employeeNumber: string;
+  appliedDate?: string | undefined;
+  statusId?: number | undefined;
+  statusLabel?: string | undefined;
+  rating?: number | undefined;
+  applicantId?: number | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  avatar?: string | undefined;
+  email?: string | undefined;
+  source?: string | undefined;
+  jobId?: number | undefined;
+  jobTitleId?: number | undefined;
+  jobTitleLabel?: string | undefined;
+};
+
+export interface CompanyFile {
+  id: string;
+  name?: string | undefined;
+  original_file_name?: string | undefined;
+  size?: string | undefined;
+  date_created?: string | undefined;
+  created_by?: string | undefined;
+  share_with_employees?: string | undefined;
+  can_rename_file?: string | undefined;
+  can_delete_file?: string | undefined;
+  category_id?: string | undefined;
+  category_name?: string | undefined;
+};
+
+export interface EmployeeFile {
+  id: string;
+  employeeId: string;
+  categoryId?: number | undefined;
+  categoryName?: string | undefined;
+  name?: string | undefined;
+  originalFileName?: string | undefined;
+  size?: number | undefined;
+  dateCreated?: string | undefined;
+  createdBy?: string | undefined;
+  shareWithEmployee?: string | undefined;
+};
+
+export interface EmployeeTableRow {
+  id: string;
+  employee_id: string;
+  table: string;
+  last_changed?: string | undefined;
+  data: {  [key: string]: unknown | undefined;};
+};
+
+export interface SyncMetadata_bamboohr_basic_employeetablerows {
+  table?: string | undefined;
+};
+
+export interface Employee {
+  id: string;
+  worker_id?: string | undefined;
+  employee_id?: string | undefined;
+  contingent_worker_id?: string | undefined;
+  user_id?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  hire_date?: string | undefined;
+  termination_date?: string | undefined;
+  active?: boolean | undefined;
+  job_title?: string | undefined;
+  department?: string | undefined;
+  location?: string | undefined;
+  manager_id?: string | undefined;
+  employment_type?: string | undefined;
+  last_updated?: string | undefined;
+};
+
+export interface Goal {
+  id: string;
+  name: string;
+  color?: string | undefined;
+  date_created: string;
+  date_updated: string;
+  creator: number;
+  team_id: string;
+  pretty_id?: string | undefined;
+  archived?: boolean | undefined;
+  description?: string | undefined;
+  multiple_owners?: boolean | undefined;
+  due_date?: string | undefined;
+  start_date?: string | undefined;
+  folder_id?: string | undefined;
+  members: number[];
+  owners: number[];
+  percent_completed?: number | undefined;
+  pretty_url?: string | undefined;
+};
+
+export interface JobOpening {
+  id: string;
+  title?: string | undefined;
+  titleId?: string | undefined;
+  postedDate?: string | undefined;
+  locationId?: string | undefined;
+  locationLabel?: string | undefined;
+  departmentId?: string | undefined;
+  departmentLabel?: string | undefined;
+  statusId?: string | undefined;
+  statusLabel?: string | undefined;
+  hiringLeadEmployeeId?: string | undefined;
+  hiringLeadFirstName?: string | undefined;
+  hiringLeadLastName?: string | undefined;
+  hiringLeadAvatar?: string | undefined;
+  newApplicantsCount?: number | undefined;
+  activeApplicantsCount?: number | undefined;
+  totalApplicantsCount?: number | undefined;
+  postingUrl?: string | undefined;
+};
+
+export interface Location {
+  id: string;
+  name: string;
+  inactive?: boolean | undefined;
+  location_type?: string | undefined;
+  time_zone?: string | undefined;
+  usage?: string | undefined;
+  last_updated?: string | undefined;
+};
+
+export interface TimeOffRequest {
+  id: string;
+  employeeId?: string | undefined;
+  status?: string | undefined;
+  statusLastChanged?: string | undefined;
+  name?: string | undefined;
+  start?: string | undefined;
+  end?: string | undefined;
+  created?: string | undefined;
+  timeOffTypeId?: string | undefined;
+  timeOffTypeName?: string | undefined;
+  amountUnit?: string | undefined;
+  amount?: string | undefined;
+  notesEmployee?: string | undefined;
+  notesManager?: string | undefined;
+};
+
+export interface TimeOffType {
+  id: string;
+  name: string;
+  units?: string | undefined;
+  color?: string | undefined;
+  icon?: string | undefined;
+  source?: string | undefined;
+};
+
+export interface TimeTrackingEntry {
+  id: string;
+  employeeId: string;
+  type?: string | undefined;
+  date?: string | undefined;
+  start?: string | undefined;
+  end?: string | undefined;
+  timezone?: string | undefined;
+  hours?: number | undefined;
+  note?: string | undefined;
+  projectInfo?: unknown | undefined;
+  approvedAt?: string | undefined;
+  approved?: boolean | undefined;
+};
+
+export interface TrainingRecord {
+  id: string;
+  employeeId: string;
+  completed?: string | undefined;
+  trainingTypeId?: string | undefined;
+  notes?: string | undefined;
+  instructor?: string | undefined;
+  credits?: string | undefined;
+  hours?: string | undefined;
+  cost?: string | undefined;
+  attachments?: unknown[] | undefined;
+};
+
+export interface ActionInput_bamboohr_basic_createapplicant {
+  /**
+   * The first name of the candidate. Example: "John"
+   */
   firstName: string;
+  /**
+   * The last name of the candidate. Example: "Doe"
+   */
   lastName: string;
-  dateOfBirth: string;
-  address1: string;
-  bestEmail: string;
-  workEmail: string;
-  jobTitle: string;
-  hireDate: string;
-  supervisorId: string;
-  supervisor: string;
-  createdByUserId: string;
-  department: string;
-  division: string;
-  employmentHistoryStatus: string;
-  gender: string;
-  country: string;
-  city: string;
-  location: string;
-  state: string;
-  maritalStatus: string;
-  exempt: string;
-  payRate: string;
-  payType: string;
-  payPer: string;
-  ssn: string;
-  workPhone: string;
-  homePhone: string;
+  /**
+   * The id of the job opening for the candidate application. Example: 22
+   */
+  jobId: number;
+  /**
+   * The email address of the candidate. Must be a valid email address.
+   */
+  email?: string | undefined;
+  /**
+   * The phone number of the candidate.
+   */
+  phoneNumber?: string | undefined;
+  /**
+   * The source of the candidate application, e.g. LinkedIn, Indeed, etc.
+   */
+  source?: string | undefined;
+  /**
+   * The street address of the candidate.
+   */
+  address?: string | undefined;
+  /**
+   * The city of the candidate.
+   */
+  city?: string | undefined;
+  /**
+   * The state or province of the candidate. Accepts state name, abbreviation, or ISO code.
+   */
+  state?: string | undefined;
+  /**
+   * The zip code or postal code of the candidate.
+   */
+  zip?: string | undefined;
+  /**
+   * The country of the candidate. Accepts country name or ISO code.
+   */
+  country?: string | undefined;
+  /**
+   * The LinkedIn profile URL of the candidate.
+   */
+  linkedinUrl?: string | undefined;
+  /**
+   * The available start date of the candidate. Format: Y-m-d (e.g. 2024-06-01).
+   */
+  dateAvailable?: string | undefined;
+  /**
+   * The desired salary of the candidate.
+   */
+  desiredSalary?: string | undefined;
+  /**
+   * The person or entity that referred the candidate.
+   */
+  referredBy?: string | undefined;
+  /**
+   * The personal website, blog, or online portfolio of the candidate.
+   */
+  websiteUrl?: string | undefined;
+  /**
+   * The highest completed education level of the candidate.
+   */
+  highestEducation?: string | undefined;
+  /**
+   * The college or university of the candidate.
+   */
+  collegeName?: string | undefined;
+  /**
+   * A list of references supplied by the candidate.
+   */
+  references?: string | undefined;
 };
 
-export interface SyncMetadata_bamboohr_basic_employees {
+export interface ActionOutput_bamboohr_basic_createapplicant {
+  result: string;
+  candidateId: number;
 };
 
-export interface SyncMetadata_bamboohr_basic_unifiedemployees {
+export interface ActionInput_bamboohr_basic_createemployeegoal {
+  /**
+   * The employee ID with whom the goal is associated. Example: 123
+   */
+  employeeId: number;
+  /**
+   * The title of the goal
+   */
+  title: string;
+  /**
+   * A detailed description of the goal
+   */
+  description?: string | undefined;
+  /**
+   * The due date for the goal in YYYY-MM-DD format
+   */
+  dueDate: string;
+  /**
+   * Initial percentage of completion for a simple goal (0-100). Defaults to 0 if omitted. Ignored when milestones is provided.
+   */
+  percentComplete?: number | undefined;
+  /**
+   * The date when the goal was completed in YYYY-MM-DD format. Only valid when percentComplete is 100.
+   */
+  completionDate?: string | undefined;
+  /**
+   * List of employee IDs with whom the goal is shared. Must include the employee ID of the goal owner.
+   */
+  sharedWithEmployeeIds: number[];
+  /**
+   * ID of the option this goal aligns with
+   */
+  alignsWithOptionId?: number | undefined;
+  /**
+   * Optional. Provide a non-empty array of milestone objects to create a milestone-based goal. Omit this field to create a simple goal.
+   */
+  milestones?: ({  title: string;})[] | undefined;
+};
+
+export interface ActionOutput_bamboohr_basic_createemployeegoal {
+  id?: string | undefined;
+  title?: string | undefined;
+  description?: string | undefined;
+  percentComplete?: number | undefined;
+  alignsWithOptionId?: string | undefined;
+  sharedWithEmployeeIds?: number[] | undefined;
+  dueDate?: string | undefined;
+  completionDate?: string | undefined;
+  lastChangedDateTime?: string | undefined;
+  status?: 'in_progress' | 'completed' | 'closed' | undefined;
+  milestones?: ({  id?: number | undefined;
+  employeeGoalId?: number | undefined;
+  title?: string | undefined;
+  currentValue?: number | undefined;
+  startValue?: number | undefined;
+  endValue?: number | undefined;
+  completedDateTime?: string | undefined;
+  lastUpdateDateTime?: string | undefined;
+  lastUpdateUserId?: number | undefined;})[];
+  actions?: {  canEditGoalProgressBar?: boolean | undefined;
+  canEditGoalMilestoneProgressBar?: boolean | undefined;};
+};
+
+export interface ActionInput_bamboohr_basic_createemployeetablerow {
+  /**
+   * Employee ID. Example: "123"
+   */
+  employee_id: string;
+  /**
+   * The API name of the table to add a row to. Example: "jobInfo"
+   */
+  table: string;
+  /**
+   * Dictionary of table field names and values for the new row.
+   */
+  fields: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_bamboohr_basic_createemployeetablerow {
+  success: boolean;
+  employee_id: string;
+  table: string;
+};
+
+export interface ActionInput_bamboohr_basic_createemployeetraining {
+  /**
+   * Employee ID. Example: "4"
+   */
+  employeeId: string;
+  /**
+   * Completion date in yyyy-mm-dd format. Example: "2026-05-29"
+   */
+  completed: string;
+  /**
+   * Training type ID. Example: 14
+   */
+  type: number;
+  /**
+   * Name of the training instructor.
+   */
+  instructor?: string | undefined;
+  /**
+   * Number of hours for the training.
+   */
+  hours?: number | undefined;
+  /**
+   * Credits earned for the training.
+   */
+  credits?: number | undefined;
+  /**
+   * Optional notes about the training record.
+   */
+  notes?: string | undefined;
+  /**
+   * Optional cost for the training record.
+   */
+  cost?: {  /**
+   * ISO 4217 currency code (e.g. "USD").
+   */
+  currency: string;
+  /**
+   * Monetary amount as a decimal string (e.g. "100.00").
+   */
+  amount: string;} | undefined;
+};
+
+export interface ActionOutput_bamboohr_basic_createemployeetraining {
+  id: string;
+  employeeId: string;
+  completed: string;
+  notes?: string | undefined;
+  instructor?: string | undefined;
+  credits?: string | undefined;
+  hours?: string | undefined;
+  cost?: string | undefined;
+  type?: string | number | undefined;
 };
 
 export interface ActionInput_bamboohr_basic_createemployee {
+  /**
+   * Legal first name. Example: "John"
+   */
   firstName: string;
+  /**
+   * Legal last name. Example: "Doe"
+   */
   lastName: string;
-  employeeNumber?: string | undefined;
-  dateOfBirth?: string | undefined;
-  address1?: string | undefined;
-  bestEmail?: string | undefined;
+  /**
+   * Work email address. Example: "john.doe@example.com"
+   */
   workEmail?: string | undefined;
+  /**
+   * Job title. Example: "Software Engineer"
+   */
   jobTitle?: string | undefined;
-  hireDate?: string | undefined;
-  supervisorId?: string | undefined;
-  supervisor?: string | undefined;
-  createdByUserId?: string | undefined;
+  /**
+   * Department name. Example: "Engineering"
+   */
   department?: string | undefined;
-  division?: string | undefined;
-  employmentHistoryStatus?: string | undefined;
-  gender?: string | undefined;
-  country?: string | undefined;
-  city?: string | undefined;
-  location?: string | undefined;
-  state?: string | undefined;
-  maritalStatus?: string | undefined;
-  exempt?: string | undefined;
-  payRate?: string | undefined;
-  payType?: string | undefined;
-  payPer?: string | undefined;
-  ssn?: string | undefined;
-  workPhone?: string | undefined;
-  homePhone?: string | undefined;
+  /**
+   * Hire date in YYYY-MM-DD format. Example: "2024-01-15"
+   */
+  hireDate?: string | undefined;
 };
 
 export interface ActionOutput_bamboohr_basic_createemployee {
+  /**
+   * Employee ID. Example: "123"
+   */
+  id: string;
+  firstName: string;
+  lastName: string;
+  workEmail?: string | undefined;
+  jobTitle?: string | undefined;
+  department?: string | undefined;
+  hireDate?: string | undefined;
+};
+
+export interface ActionInput_bamboohr_basic_createtimeoffrequest {
+  /**
+   * The ID of the employee to create the time off request for. Example: 123
+   */
+  employeeId: number;
+  /**
+   * The initial status of the request.
+   */
+  status: 'approved' | 'denied' | 'declined' | 'requested';
+  /**
+   * Start date in YYYY-MM-DD format. Example: 2026-04-15
+   */
+  start: string;
+  /**
+   * End date in YYYY-MM-DD format. Must be on or after the start date. Example: 2026-04-18
+   */
+  end: string;
+  /**
+   * The ID of the time off type for this request. Example: 1
+   */
+  timeOffTypeId: number;
+  /**
+   * Total hours or days requested. Ignored when dates is provided.
+   */
+  amount?: number | undefined;
+  /**
+   * The ID of a previous time off request to supersede.
+   */
+  previousRequest?: number | undefined;
+  /**
+   * Optional notes from the employee or manager.
+   */
+  notes?: {  employee?: string | undefined;
+  manager?: string | undefined;};
+  /**
+   * Optional per-day breakdown mapping YYYY-MM-DD to amount.
+   */
+  dates?: {  [key: string]: string;} | undefined;
+};
+
+export interface ActionOutput_bamboohr_basic_createtimeoffrequest {
+  id: string;
+  employeeId: string;
   status: string;
+  start: string;
+  end: string;
+  timeOffTypeId?: string | undefined;
+  timeOffTypeName?: string | undefined;
+  name?: string | undefined;
+  amount?: {  unit: string;
+  amount: string;} | undefined;
+  notes?: ({  [key: string]: string;})[] | undefined;
+  dates?: {  [key: string]: string;} | undefined;
+};
+
+export interface ActionInput_bamboohr_basic_createwebhook {
+  /**
+   * The name of the webhook. Example: "Employee Updates"
+   */
+  name: string;
+  /**
+   * A list of fields to monitor. Required when events includes employee.updated or employee_with_fields.updated, or when events is omitted.
+   */
+  monitorFields?: string[] | undefined;
+  /**
+   * An object map of field ID or alias to the external name used in the webhook payload. Example: {"firstName": "First Name"}
+   */
+  postFields?: {  [key: string]: string;} | undefined;
+  /**
+   * The URL the webhook should send data to. Must begin with https://. Example: "https://example.com/webhook"
+   */
+  url: string;
+  /**
+   * The payload format the webhook uses.
+   */
+  format: 'json' | 'form-encoded';
+  /**
+   * If set to true, the company domain will be added to the webhook request header.
+   */
+  includeCompanyDomain?: boolean | undefined;
+  /**
+   * Events that trigger this webhook. Defaults to employee_with_fields events if not specified.
+   */
+  events?: string[] | undefined;
+};
+
+export interface ActionOutput_bamboohr_basic_createwebhook {
+  id: string;
+  name: string;
+  created?: string | undefined;
+  lastSent?: string | undefined;
+  monitorFields?: string[] | undefined;
+  postFields?: {  [key: string]: string;} | undefined;
+  url: string;
+  format: string;
+  privateKey?: string | undefined;
+};
+
+export interface ActionInput_bamboohr_basic_deletecompanyfile {
+  /**
+   * The ID of the company file to delete. Example: 123
+   */
+  fileId: number;
+};
+
+export interface ActionOutput_bamboohr_basic_deletecompanyfile {
+  success: boolean;
+  fileId: number;
+};
+
+export interface ActionInput_bamboohr_basic_deleteemployeefile {
+  /**
+   * The ID of the employee whose file is being deleted. Use 0 to default to the employee associated with the API key.
+   */
+  employeeId: string | number;
+  /**
+   * The ID of the employee file to delete.
+   */
+  fileId: string | number;
+};
+
+export interface ActionOutput_bamboohr_basic_deleteemployeefile {
+  success: boolean;
+  employeeId: string | number;
+  fileId: string | number;
+};
+
+export interface ActionInput_bamboohr_basic_deleteemployeegoal {
+  /**
+   * Employee ID. Example: "123"
+   */
+  employeeId: string;
+  /**
+   * Goal ID. Example: "456"
+   */
+  goalId: string;
+};
+
+export interface ActionOutput_bamboohr_basic_deleteemployeegoal {
+  success: boolean;
+  employeeId: string;
+  goalId: string;
+};
+
+export interface ActionInput_bamboohr_basic_deleteemployeetablerow {
+  /**
+   * The BambooHR employee ID. Example: "123"
+   */
+  employeeId: string;
+  /**
+   * The API name of the table containing the row to delete. Example: "jobInfo", "compensation", or "customTabularField"
+   */
+  table: string;
+  /**
+   * The ID of the specific row to delete. Example: "456"
+   */
+  rowId: string;
+};
+
+export interface ActionOutput_bamboohr_basic_deleteemployeetablerow {
+  success: boolean;
+  message?: string | undefined;
+};
+
+export interface ActionInput_bamboohr_basic_deleteemployeetraining {
+  /**
+   * The ID of the training record to delete. Example: 123
+   */
+  trainingRecordId: number;
+};
+
+export interface ActionOutput_bamboohr_basic_deleteemployeetraining {
+  success: boolean;
+  trainingRecordId: number;
+};
+
+export interface ActionInput_bamboohr_basic_deleteemployee {
+  /**
+   * The BambooHR employee ID to delete. Example: "123"
+   */
+  employeeId: string;
+};
+
+export interface ActionOutput_bamboohr_basic_deleteemployee {
+  success: boolean;
+  employeeId: string;
+};
+
+export interface ActionInput_bamboohr_basic_deletetimeoffrequest {
+  /**
+   * The ID of the time off request to delete. Example: "12345"
+   */
+  request_id: string;
+};
+
+export interface ActionOutput_bamboohr_basic_deletetimeoffrequest {
+  success: boolean;
+  request_id: string;
+};
+
+export interface ActionInput_bamboohr_basic_deletetimetrackingentry {
+  /**
+   * Employee ID. Example: "123"
+   */
+  employeeId: string;
+  /**
+   * Time tracking entry ID. Example: "456"
+   */
+  entryId: string;
+};
+
+export interface ActionOutput_bamboohr_basic_deletetimetrackingentry {
+  success: boolean;
+};
+
+export interface ActionInput_bamboohr_basic_deletewebhook {
+  /**
+   * The ID of the webhook to delete. Example: 123
+   */
+  webhookId: number;
+};
+
+export interface ActionOutput_bamboohr_basic_deletewebhook {
+  success: boolean;
+};
+
+export interface ActionInput_bamboohr_basic_getapplicant {
+  /**
+   * Application ID. Example: 123
+   */
+  applicationId: number;
+};
+
+export interface ActionOutput_bamboohr_basic_getapplicant {
+  id: number;
+  appliedDate: string;
+  status: {  id: number;
+  label: string;
+  dateChanged?: string | undefined;
+  changedByUser?: {  id: number;
+  firstName: string;
+  lastName: string;
+  avatar: string;
+  jobTitle: {  id: number;
+  label: string;};} | undefined;};
+  rating?: number | undefined;
+  resumeFileId?: number | undefined;
+  coverLetterFileId?: number | undefined;
+  attachmentCount?: number | undefined;
+  attachments?: ({  id: number;
+  name: string;
+  fileUrl: string;})[] | undefined;
+  movedTo?: ({})[] | undefined;
+  movedFrom?: ({})[] | undefined;
+  alsoConsideredForCount?: number | undefined;
+  duplicateApplicationCount?: number | undefined;
+  referredBy?: string | undefined;
+  desiredSalary?: string | undefined;
+  commentCount?: number | undefined;
+  emailCount?: number | undefined;
+  eventCount?: number | undefined;
+  questionsAndAnswers?: ({  question: {  id: number;
+  label: string;};
+  answer: {  id: number;
+  label: string;};
+  hasRevisions?: boolean | undefined;
+  isArchived?: boolean | undefined;
+  archivedDate?: string | undefined;
+  editedDate?: string | undefined;
+  editedEndDate?: string | undefined;})[];
+  applicationReferences?: string | undefined;
+  applicant: {  id: number;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phoneNumber?: string | undefined;
+  avatar?: string | undefined;
+  source?: string | undefined;
+  twitterUsername?: string | undefined;
+  address?: {  addressLine1?: string | undefined;
+  addressLine2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  zipcode?: string | undefined;
+  country?: string | undefined;};
+  linkedinUrl?: string | undefined;
+  websiteUrl?: string | undefined;
+  availableStartDate?: string | undefined;
+  education?: {  institution?: string | undefined;
+  level?: {  id: number;
+  label: string;} | undefined;};};
+  job: {  id: number;
+  title: {  id: number;
+  label: string;};
+  hiringLead?: {  employeeId: number;
+  firstName: string;
+  lastName: string;
+  avatar?: string | undefined;
+  jobTitle?: {  id: number;
+  label: string;} | undefined;};};
+};
+
+export interface ActionInput_bamboohr_basic_getcompanyfile {
+  /**
+   * Company file ID. Example: 172
+   */
+  fileId: number;
+};
+
+export interface ActionOutput_bamboohr_basic_getcompanyfile {
+  id: number;
+  name?: string | undefined;
+  originalFileName?: string | undefined;
+  size?: string | undefined;
+  contentType?: string | undefined;
+  content?: string | undefined;
+};
+
+export interface ActionInput_bamboohr_basic_getcompanyreport {
+  /**
+   * A label for the report. Included in the response and used as the file name for downloaded reports.
+   */
+  title?: string | undefined;
+  /**
+   * Array of field IDs to include as columns in the report. Maximum of 400 fields.
+   */
+  fields: string[];
+  /**
+   * Whether to restrict historical fields to current values only. Defaults to true.
+   */
+  onlyCurrent?: boolean | undefined;
+  filters?: {  lastChanged?: {  /**
+   * ISO 8601 date-time to filter employees by last-modified date. Example: "2024-01-01T00:00:00Z"
+   */
+  value: string;
+  /**
+   * Whether to include employees with no last-changed date.
+   */
+  includeNull?: 'yes' | 'no' | undefined;};
+  /**
+   * Restrict results to specific employee IDs.
+   */
+  employeeIds?: string[] | undefined;
+  /**
+   * Whether to apply standard duplicate row filtering. Defaults to enabled.
+   */
+  filterDuplicates?: 'yes' | 'no' | undefined;};
+};
+
+export interface ActionOutput_bamboohr_basic_getcompanyreport {
+  title: string;
+  fields: ({  id: string;
+  type: string;
+  name: string;})[];
+  employees: ({  id: string;})[];
+};
+
+export interface ActionInput_bamboohr_basic_getemployeefile {
+  /**
+   * The ID of the employee whose file is being retrieved. Use "0" to resolve to the employee associated with the API key.
+   */
+  employeeId: string;
+  /**
+   * The ID of the employee file to download.
+   */
+  fileId: string;
+};
+
+export interface ActionOutput_bamboohr_basic_getemployeefile {
+  id: string;
+  employeeId: string;
+  /**
+   * Base64-encoded file content.
+   */
+  content: string;
+  /**
+   * MIME type of the file.
+   */
+  contentType: string;
+  /**
+   * Original filename from Content-Disposition header.
+   */
+  filename: string;
+  /**
+   * Size of the file in bytes.
+   */
+  size: number;
+};
+
+export interface ActionInput_bamboohr_basic_getemployeetablerow {
+  /**
+   * The employee ID. Example: "123"
+   */
+  employeeId: string;
+  /**
+   * The API name of the table. Example: "jobInfo", "compensation", "employmentStatus"
+   */
+  table: string;
+  /**
+   * The ID of the specific row to retrieve.
+   */
+  rowId: string;
+};
+
+export interface ActionOutput_bamboohr_basic_getemployeetablerow {
+};
+
+export interface ActionInput_bamboohr_basic_getemployee {
+  /**
+   * The employee ID. Example: "123"
+   */
+  employeeId: string;
+  /**
+   * Comma-separated list of fields to include in the response. When omitted, only the employee id is returned.
+   */
+  fields?: string[] | undefined;
+  /**
+   * When true (default), returns only currently effective values from historical tables.
+   */
+  onlyCurrent?: boolean | undefined;
+};
+
+export interface ActionOutput_bamboohr_basic_getemployee {
   id: string;
 };
 
-export type ActionInput_bamboohr_basic_fetchfields = void
+export interface ActionInput_bamboohr_basic_getsavedreport {
+  /**
+   * The numeric ID of the saved custom report to execute. Example: 42
+   */
+  reportId: number;
+};
 
-export interface ActionOutput_bamboohr_basic_fetchfields {
-  0: {  id: string;
-  type: string;
+export interface ActionOutput_bamboohr_basic_getsavedreport {
+  title?: string | undefined;
+  fields?: ({  id?: string | undefined;
+  type?: string | undefined;
+  name?: string | undefined;})[];
+  rows?: ({  [key: string]: unknown | undefined;})[];
+};
+
+export interface ActionInput_bamboohr_basic_gettimeoffbalance {
+  /**
+   * The ID of the employee to get time off balances for. Example: "123"
+   */
+  employeeId: string;
+  /**
+   * The start date for the balance calculation window, in YYYY-MM-DD format.
+   */
+  startDate?: string | undefined;
+  /**
+   * The date to calculate the time off balance as of, in YYYY-MM-DD format. Defaults to company today if not provided.
+   */
+  endDate?: string | undefined;
+  /**
+   * Number of decimal places for balance and usedYearToDate values. Minimum 0, maximum 4. Defaults to 2.
+   */
+  precision?: number | undefined;
+};
+
+export interface ActionOutput_bamboohr_basic_gettimeoffbalance {
+  balances: ({  timeOffType: number | string;
   name: string;
-  alias?: string | undefined;
-  options?: ({  id: number;
-  name: string;})[] | undefined;};
+  units: string;
+  balance: number | string;
+  end?: string | undefined;
+  policyType?: string | undefined;
+  usedYearToDate?: number | string | undefined;})[];
+};
+
+export interface ActionInput_bamboohr_basic_gettimeoffrequest {
+  /**
+   * The time off request ID. Example: 1348
+   */
+  requestId: number;
+};
+
+export interface ActionOutput_bamboohr_basic_gettimeoffrequest {
+  id: number;
+  employeeId?: number | undefined;
+  name?: string | undefined;
+  start?: string | undefined;
+  end?: string | undefined;
+  created?: string | undefined;
+  status?: {  lastChanged?: string | undefined;
+  lastChangedByUserId?: number | undefined;
+  status?: string | undefined;};
+  type?: {  id?: number | undefined;
+  name?: string | undefined;
+  icon?: string | undefined;};
+  amount?: {  unit?: string | undefined;
+  amount?: number | undefined;};
+  actions?: {  view?: boolean | undefined;
+  edit?: boolean | undefined;
+  cancel?: boolean | undefined;
+  approve?: boolean | undefined;
+  deny?: boolean | undefined;
+  bypass?: boolean | undefined;};
+  dates?: {  [key: string]: number;} | undefined;
+  notes?: {  employee?: string | undefined;
+  manager?: string | undefined;};
+};
+
+export interface ActionInput_bamboohr_basic_getuser {
+  /**
+   * BambooHR user ID. Example: "123"
+   */
+  userId: string;
+};
+
+export interface ActionOutput_bamboohr_basic_getuser {
+  id?: number | string | undefined;
+  employeeId?: number | string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  email?: string | undefined;
+  status?: string | undefined;
+  lastLogin?: string | undefined;
+};
+
+export interface ActionInput_bamboohr_basic_listapplicants {
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * A Job ID to limit results to.
+   */
+  job_id?: number | undefined;
+  /**
+   * One or more application status IDs to filter by, comma-separated (e.g. "1,2,3").
+   */
+  application_status_id?: string | undefined;
+  /**
+   * One or more application status group codes to filter by, comma-separated (e.g. "NEW,ACTIVE"). Allowed values: ALL, ALL_ACTIVE, NEW, ACTIVE, INACTIVE, HIRED.
+   */
+  application_status?: string | undefined;
+  /**
+   * One or more position status groups to filter by, comma-separated (e.g. "Draft,Open"). Allowed values: ALL, DRAFT_AND_OPEN, Open, Filled, Draft, Deleted, On Hold, Canceled.
+   */
+  job_status_groups?: string | undefined;
+  /**
+   * A general search criteria by which to find applications.
+   */
+  search_string?: string | undefined;
+  /**
+   * A specific field to sort the results by. Allowed values: first_name, job_title, rating, phone, status, last_updated, created_date.
+   */
+  sort_by?: string | undefined;
+  /**
+   * Order by which to sort results. Allowed values: ASC, DESC.
+   */
+  sort_order?: string | undefined;
+  /**
+   * Only return applications submitted after this UTC timestamp. Format: Y-m-d H:i:s (e.g. "2024-01-01 13:00:00").
+   */
+  new_since?: string | undefined;
+};
+
+export interface ActionOutput_bamboohr_basic_listapplicants {
+  items: ({  id?: number | undefined;
+  applied_date?: string | undefined;
+  status?: {  id?: number | undefined;
+  label?: string | undefined;};
+  rating?: number | undefined;
+  applicant?: {  id?: number | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  avatar?: string | undefined;
+  email?: string | undefined;
+  source?: string | undefined;};
+  job?: {  id?: number | undefined;
+  title?: {  id?: number | undefined;
+  label?: string | undefined;};};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_bamboohr_basic_listcompanyfiles {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_bamboohr_basic_listcompanyfiles {
+  categories: ({  id: string;
+  name?: string | undefined;
+  canUploadFiles?: string | undefined;
+  files?: ({  id: string;
+  name?: string | undefined;
+  fileUrl?: string | undefined;
+  originalFileName?: string | undefined;
+  size?: string | undefined;
+  dateCreated?: string | undefined;
+  dateUpdated?: string | undefined;
+  createdBy?: string | undefined;
+  shareWithEmployees?: string | undefined;
+  shareWithCompany?: string | undefined;
+  employeeAccess?: string | undefined;
+  canRenameFile?: string | undefined;
+  canDeleteFile?: string | undefined;})[];})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_bamboohr_basic_listdepartments {
+};
+
+export interface ActionOutput_bamboohr_basic_listdepartments {
+  departments: ({  id: string | number;
+  name: string;
+  archived?: string | undefined;})[];
+};
+
+export interface ActionInput_bamboohr_basic_listdatasetfields {
+  /**
+   * Dataset name to list fields for. Example: "employee"
+   */
+  datasetName?: string | undefined;
+};
+
+export interface ActionOutput_bamboohr_basic_listdatasetfields {
+  fields: ({  name: string;
+  label: string;
+  parentName?: string | undefined;
+  entityName?: string | undefined;})[];
+};
+
+export interface ActionInput_bamboohr_basic_listemployeefields {
+};
+
+export interface ActionOutput_bamboohr_basic_listemployeefields {
+  fields: ({  id: string;
+  name: string;
+  type?: string | undefined;
+  deprecated?: boolean | undefined;})[];
+};
+
+export interface ActionInput_bamboohr_basic_listemployeefiles {
+  /**
+   * The ID of the employee whose files are being listed. Use 0 to resolve to the employee associated with the API key.
+   */
+  employeeId: string;
+};
+
+export interface ActionOutput_bamboohr_basic_listemployeefiles {
+  employeeId: number;
+  categories?: ({  id: number;
+  name: string;
+  canRenameCategory?: string | undefined;
+  canDeleteCategory?: string | undefined;
+  canUploadFiles?: string | undefined;
+  displayIfEmpty?: string | undefined;
+  files?: ({  id: number;
+  name: string;
+  originalFileName?: string | undefined;
+  size?: number | undefined;
+  dateCreated?: string | undefined;
+  createdBy?: string | undefined;
+  shareWithEmployee?: string | undefined;
+  canRenameFile?: string | undefined;
+  canDeleteFile?: string | undefined;
+  canChangeShareWithEmployeeFieldValue?: string | undefined;})[];})[];
+};
+
+export interface ActionInput_bamboohr_basic_listemployeegoals {
+  /**
+   * The employee ID to whom the goals are assigned. Example: "123"
+   */
+  employeeId: string;
+  /**
+   * Goal status filter. Use status-inProgress for active goals, status-completed for completed goals, status-closed for closed goals, and status-all for all goals including closed.
+   */
+  filter?: 'status-inProgress' | 'status-completed' | 'status-closed' | 'status-all' | undefined;
+};
+
+export interface ActionOutput_bamboohr_basic_listemployeegoals {
+  goals: ({  id: string;
+  title: string;
+  description?: string | undefined;
+  percentComplete?: number | undefined;
+  alignsWithOptionId?: string | undefined;
+  sharedWithEmployeeIds?: number[] | undefined;
+  dueDate?: string | undefined;
+  completionDate?: string | undefined;
+  lastChangedDateTime?: string | undefined;
+  status?: string | undefined;
+  milestones?: ({  id: number;
+  employeeGoalId: number;
+  title: string;
+  currentValue?: number | undefined;
+  startValue?: number | undefined;
+  endValue?: number | undefined;
+  completedDateTime?: string | undefined;
+  lastUpdateDateTime?: string | undefined;
+  lastUpdateUserId?: number | undefined;})[];
+  actions?: {  canEditGoalProgressBar?: boolean | undefined;
+  canEditGoalMilestoneProgressBar?: boolean | undefined;};})[];
+};
+
+export interface ActionInput_bamboohr_basic_listemployeetablerows {
+  /**
+   * The employee ID. Use the special value "all" to retrieve table data for all employees the API user has access to.
+   */
+  employeeId: string;
+  /**
+   * The API name of the table to retrieve. Examples: jobInfo, compensation, employmentStatus, contacts, emergencyContacts, dependents, employeeEducation.
+   */
+  table: string;
+};
+
+export interface ActionOutput_bamboohr_basic_listemployeetablerows {
+  rows: ({  id: string;})[];
+};
+
+export interface ActionInput_bamboohr_basic_listemployeetraining {
+  /**
+   * The ID of the employee to get a list of trainings for. Example: 123
+   */
+  employee_id: number;
+  /**
+   * Optional training type ID to filter records.
+   */
+  training_type_id?: number | undefined;
+};
+
+export interface ActionOutput_bamboohr_basic_listemployeetraining {
+  items: ({  id: string;
+  employeeId?: string | undefined;
+  completed?: string | undefined;
+  notes?: string | undefined;
+  instructor?: string | undefined;
+  credits?: string | undefined;
+  hours?: string | undefined;
+  cost?: string | undefined;
+  type?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_bamboohr_basic_listemployees {
+  /**
+   * When true, only employees whose hire date and employment-status effective date are on or before today are returned. Defaults to true.
+   */
+  onlyCurrent?: boolean | undefined;
+  /**
+   * Pagination cursor from a previous response. Not used by this endpoint; present for API consistency.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_bamboohr_basic_listemployees {
+  employees: ({  id: string;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_bamboohr_basic_listjobopenings {
+  /**
+   * One or more status groups to filter by, comma-separated. Allowed: ALL, DRAFT_AND_OPEN, Open, Filled, Draft, Deleted, On Hold, Canceled
+   */
+  status_groups?: string | undefined;
+  /**
+   * One or more status IDs to filter by, comma-separated
+   */
+  status_ids?: string | undefined;
+  sort_by?: 'count' | 'title' | 'lead' | 'created' | 'status' | undefined;
+  sort_order?: 'ASC' | 'DESC' | undefined;
+  /**
+   * Pagination cursor
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_bamboohr_basic_listjobopenings {
+  items: ({  id: number;
+  title?: {  id?: number | undefined;
+  label?: string | undefined;};
+  postedDate?: string | undefined;
+  location?: {  id?: number | undefined;
+  label?: string | undefined;
+  address?: {  [key: string]: unknown | undefined;};};
+  department?: {  id?: number | undefined;
+  label?: string | undefined;};
+  status?: {  id?: number | undefined;
+  label?: string | undefined;};
+  hiringLead?: {  employeeId?: number | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  avatar?: string | undefined;
+  jobTitle?: {  [key: string]: unknown | undefined;};};
+  newApplicantsCount?: number | undefined;
+  activeApplicantsCount?: number | undefined;
+  totalApplicantsCount?: number | undefined;
+  postingUrl?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_bamboohr_basic_listjobtitles {
+};
+
+export interface ActionOutput_bamboohr_basic_listjobtitles {
+  options: ({  id: string;
+  name: string;
+  archived?: string | undefined;})[];
+};
+
+export interface ActionInput_bamboohr_basic_listlocations {
+};
+
+export interface ActionOutput_bamboohr_basic_listlocations {
+  locations: ({  id: number;
+  name: string;
+  archived?: string | undefined;
+  createdDate?: string | undefined;
+  archivedDate?: string | undefined;
+  manageable?: string | undefined;
+  frequency?: string | undefined;})[];
+};
+
+export interface ActionInput_bamboohr_basic_listtimeoffrequests {
+  /**
+   * Start date filter. Only include requests that end on or after this date. YYYY-MM-DD format. Example: "2026-01-01"
+   */
+  start: string;
+  /**
+   * End date filter. Only include requests that start on or before this date. YYYY-MM-DD format. Example: "2026-12-31"
+   */
+  end: string;
+  /**
+   * A particular request ID to limit the response to.
+   */
+  id?: number | undefined;
+  /**
+   * Limit to requests the caller can view, approve, or only their own requests. Defaults to view.
+   */
+  action?: 'view' | 'approve' | 'myRequests' | undefined;
+  /**
+   * A particular employee ID to limit the response to.
+   */
+  employeeId?: number | undefined;
+  /**
+   * A comma-separated list of time off type IDs to filter by.
+   */
+  type?: string | undefined;
+  /**
+   * A comma-separated list of request status values to filter by. Accepted values are approved, denied, superceded, requested, and canceled.
+   */
+  status?: string | undefined;
+  /**
+   * When set to any truthy value, omits the notes object from each request in the response.
+   */
+  excludeNote?: string | undefined;
+};
+
+export interface ActionOutput_bamboohr_basic_listtimeoffrequests {
+  items: ({  id: string;
+  employeeId: string;
+  status: {  status: string;
+  lastChanged?: string | undefined;
+  lastChangedByUserId?: string | undefined;};
+  name: string;
+  start: string;
+  end: string;
+  created?: string | undefined;
+  type: {  id: string;
+  name: string;
+  icon?: string | undefined;};
+  amount: {  unit: string;
+  amount: string;};
+  actions?: {  view?: boolean | undefined;
+  edit?: boolean | undefined;
+  cancel?: boolean | undefined;
+  approve?: boolean | undefined;
+  deny?: boolean | undefined;
+  bypass?: boolean | undefined;};
+  dates?: {  [key: string]: string;} | undefined;
+  notes?: {  [key: string]: string;} | undefined;})[];
+};
+
+export interface ActionInput_bamboohr_basic_listtimeofftypes {
+};
+
+export interface ActionOutput_bamboohr_basic_listtimeofftypes {
+  items: ({  id: string;
+  name: string;
+  units?: string | undefined;
+  color?: string | undefined;
+  icon?: string | undefined;
+  source?: string | undefined;})[];
+};
+
+export interface ActionInput_bamboohr_basic_listtimetrackingentries {
+  /**
+   * Employee ID. Example: "123"
+   */
+  employeeId: string;
+  /**
+   * Start date in YYYY-MM-DD format. Example: "2024-01-01"
+   */
+  start: string;
+  /**
+   * End date in YYYY-MM-DD format. Example: "2024-01-31"
+   */
+  end: string;
+  /**
+   * Pagination cursor. Not used by this API.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_bamboohr_basic_listtimetrackingentries {
+  items: ({  id: string;
+  employeeId?: string | undefined;
+  type?: string | undefined;
+  date?: string | undefined;
+  start?: string | undefined;
+  end?: string | undefined;
+  timezone?: string | undefined;
+  hours?: number | undefined;
+  note?: string | undefined;
+  projectId?: string | undefined;
+  taskId?: string | undefined;
+  approved?: boolean | undefined;
+  approvedAt?: string | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_bamboohr_basic_listtrainingtypes {
+};
+
+export interface ActionOutput_bamboohr_basic_listtrainingtypes {
+  [key: string]: {  id: string;
+  name: string;
+  renewable: boolean;
+  frequency?: string | number | undefined;
+  dueFromHireDate?: unknown[] | {  unit: string;
+  amount: string;} | undefined;
+  required: boolean;
+  category?: unknown[] | {  id: string;
+  name: string;} | undefined;
+  linkUrl?: string | undefined;
+  description?: string | undefined;
+  allowEmployeesToMarkComplete: boolean;};
+};
+
+export interface ActionInput_bamboohr_basic_listusers {
+};
+
+export interface ActionOutput_bamboohr_basic_listusers {
+  users: ({  id?: number | undefined;
+  employeeId?: number | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  email?: string | undefined;
+  status?: string | undefined;
+  lastLogin?: string | undefined;})[];
+};
+
+export interface ActionInput_bamboohr_basic_listwebhooks {
+};
+
+export interface ActionOutput_bamboohr_basic_listwebhooks {
+  webhooks: ({  /**
+   * The ID of the webhook. Example: "123"
+   */
+  id: string;
+  /**
+   * The name of the webhook.
+   */
+  name: string;
+  /**
+   * The creation date of the webhook.
+   */
+  created: string;
+  /**
+   * The date the webhook was last sent, or null if never sent.
+   */
+  lastSent: string;
+  /**
+   * The URL of the webhook.
+   */
+  url: string;})[];
+};
+
+export interface ActionInput_bamboohr_basic_updateemployeegoal {
+  /**
+   * Employee ID with whom the goal is associated. Example: 123
+   */
+  employeeId: number;
+  /**
+   * Goal ID for the specified employee. Example: 456
+   */
+  goalId: number;
+  /**
+   * The title of the goal
+   */
+  title: string;
+  /**
+   * A detailed description of the goal
+   */
+  description?: string | undefined;
+  /**
+   * The due date for the goal in YYYY-MM-DD format
+   */
+  dueDate: string;
+  /**
+   * The percentage of completion for the goal (0-100)
+   */
+  percentComplete?: number | undefined;
+  /**
+   * The date the goal was completed in YYYY-MM-DD format
+   */
+  completionDate?: string | undefined;
+  /**
+   * List of employee IDs with whom the goal is shared. Must include the employee ID of the goal owner.
+   */
+  sharedWithEmployeeIds: number[];
+  /**
+   * The option ID that aligns with this goal
+   */
+  alignsWithOptionId?: string | undefined;
+};
+
+export interface ActionOutput_bamboohr_basic_updateemployeegoal {
+  id: string;
+  title: string;
+  description?: string | undefined;
+  percentComplete: number;
+  alignsWithOptionId?: string | undefined;
+  sharedWithEmployeeIds: number[];
+  dueDate: string;
+  completionDate?: string | undefined;
+  lastChangedDateTime?: string | undefined;
+  status: 'in_progress' | 'completed' | 'closed';
+  milestones?: ({  id: number;
+  employeeGoalId: number;
+  title: string;
+  currentValue?: number | undefined;
+  startValue?: number | undefined;
+  endValue?: number | undefined;
+  completedDateTime?: string | undefined;
+  lastUpdateDateTime: string;
+  lastUpdateUserId: number;})[];
+  actions?: {  canEditGoalProgressBar: boolean;
+  canEditGoalMilestoneProgressBar: boolean;} | undefined;
+};
+
+export interface ActionInput_bamboohr_basic_updateemployeetablerow {
+  /**
+   * The employee ID. Example: "123"
+   */
+  employeeId: string;
+  /**
+   * The API name of the table containing the row to update. Example: "employmentStatus"
+   */
+  table: string;
+  /**
+   * The ID of the row to update. Example: "456"
+   */
+  rowId: string;
+  /**
+   * Dictionary of table field names and values to update.
+   */
+  fields: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_bamboohr_basic_updateemployeetablerow {
+  employeeId: string;
+  table: string;
+  rowId: string;
+  updated: boolean;
+};
+
+export interface ActionInput_bamboohr_basic_updateemployeetraining {
+  /**
+   * The ID of the training record to update. Example: "123"
+   */
+  trainingRecordId: string | number;
+  /**
+   * Completion date in yyyy-mm-dd format. Example: "2024-01-15"
+   */
+  completed: string;
+  cost?: {  /**
+   * ISO 4217 currency code. Example: "USD"
+   */
+  currency?: string | undefined;
+  /**
+   * Monetary amount as a decimal string. Example: "100.00"
+   */
+  amount?: string | undefined;};
+  /**
+   * Name of the training instructor
+   */
+  instructor?: string | undefined;
+  /**
+   * Number of hours for the training
+   */
+  hours?: string | number | undefined;
+  /**
+   * Credits earned for the training
+   */
+  credits?: string | number | undefined;
+  /**
+   * Optional notes about the training record
+   */
+  notes?: string | undefined;
+};
+
+export interface ActionOutput_bamboohr_basic_updateemployeetraining {
+  trainingRecordId: string;
+  employeeId?: string | undefined;
+  completed?: string | undefined;
+  notes?: string | undefined;
+  instructor?: string | undefined;
+  credits?: string | undefined;
+  hours?: string | undefined;
+  cost?: string | undefined;
+  trainingTypeId?: string | undefined;
 };
 
 export interface ActionInput_bamboohr_basic_updateemployee {
-  id: string;
+  /**
+   * The employee ID. Example: "123"
+   */
+  employeeId: string;
   firstName?: string | undefined;
   lastName?: string | undefined;
-  employeeNumber?: string | undefined;
-  dateOfBirth?: string | undefined;
-  address1?: string | undefined;
-  bestEmail?: string | undefined;
   workEmail?: string | undefined;
   jobTitle?: string | undefined;
-  hireDate?: string | undefined;
-  supervisorId?: string | undefined;
-  supervisor?: string | undefined;
-  createdByUserId?: string | undefined;
   department?: string | undefined;
   division?: string | undefined;
-  employmentHistoryStatus?: string | undefined;
-  gender?: string | undefined;
-  country?: string | undefined;
-  city?: string | undefined;
   location?: string | undefined;
-  state?: string | undefined;
-  maritalStatus?: string | undefined;
-  exempt?: string | undefined;
-  payRate?: string | undefined;
-  payType?: string | undefined;
-  payPer?: string | undefined;
-  ssn?: string | undefined;
-  workPhone?: string | undefined;
+  /**
+   * Hire date in YYYY-MM-DD format. Example: "2024-01-15"
+   */
+  hireDate?: string | undefined;
+  mobilePhone?: string | undefined;
   homePhone?: string | undefined;
+  workPhone?: string | undefined;
+  address1?: string | undefined;
+  address2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  zipcode?: string | undefined;
+  country?: string | undefined;
 };
 
 export interface ActionOutput_bamboohr_basic_updateemployee {
+  id: string;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  status?: string | undefined;
+  workEmail?: string | undefined;
+  jobTitle?: string | undefined;
+  department?: string | undefined;
+  division?: string | undefined;
+  location?: string | undefined;
+  hireDate?: string | undefined;
+  mobilePhone?: string | undefined;
+  homePhone?: string | undefined;
+  workPhone?: string | undefined;
+  address1?: string | undefined;
+  address2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  zipcode?: string | undefined;
+  country?: string | undefined;
+};
+
+export interface ActionInput_bamboohr_basic_updatetimeoffrequeststatus {
+  /**
+   * The ID of the time off request to update. Example: "123"
+   */
+  requestId: string;
+  /**
+   * The new status for the time off request.
+   */
+  status: 'approved' | 'denied' | 'declined' | 'canceled' | 'cancelled';
+  /**
+   * A note to attach to the change in status.
+   */
+  note?: string | undefined;
+};
+
+export interface ActionOutput_bamboohr_basic_updatetimeoffrequeststatus {
+  success: boolean;
+  requestId: string;
   status: string;
 };
 
@@ -16998,27 +18519,6 @@ export interface SyncMetadata_clickup_comments {
 
 export interface SyncMetadata_clickup_folders {
   team_id: string;
-};
-
-export interface Goal {
-  id: string;
-  name: string;
-  color?: string | undefined;
-  date_created: string;
-  date_updated: string;
-  creator: number;
-  team_id: string;
-  pretty_id?: string | undefined;
-  archived?: boolean | undefined;
-  description?: string | undefined;
-  multiple_owners?: boolean | undefined;
-  due_date?: string | undefined;
-  start_date?: string | undefined;
-  folder_id?: string | undefined;
-  members: number[];
-  owners: number[];
-  percent_completed?: number | undefined;
-  pretty_url?: string | undefined;
 };
 
 export interface SyncMetadata_clickup_goals {
@@ -25180,16 +26680,6 @@ export interface SyncMetadata_gem_jobstages {
 export interface SyncMetadata_gem_jobs {
 };
 
-export interface Location {
-  id: string;
-  name: string;
-  inactive?: boolean | undefined;
-  location_type?: string | undefined;
-  time_zone?: string | undefined;
-  usage?: string | undefined;
-  last_updated?: string | undefined;
-};
-
 export interface SyncMetadata_gem_locations {
 };
 
@@ -25553,19 +27043,12 @@ export interface Repository {
 };
 
 export interface FileMetadata {
-  siteId: string;
   id: string;
-  name: string;
-  etag: string;
-  cTag: string;
-  is_folder: boolean;
-  mime_type: string | null;
   path: string;
-  raw_source?: any | undefined;
-  updated_at: string;
-  download_url: string | null;
-  created_at: string;
-  blob_size: number;
+  sha: string;
+  type: 'blob' | 'tree' | 'commit';
+  mode: string;
+  size?: number | undefined;
 };
 
 export interface SyncMetadata_github_repositoryfiles {
@@ -34586,15 +36069,17 @@ export interface SyncMetadata_google_drive_documents {
 
 export interface Permission {
   id: string;
-  fileId: string;
+  itemId: string;
   permissionId: string;
-  type: string;
-  role: string;
-  displayName?: string | undefined;
-  emailAddress?: string | undefined;
-  domain?: string | undefined;
-  allowFileDiscovery?: boolean | undefined;
-  deleted?: boolean | undefined;
+  roles?: string[] | undefined;
+  grantedToV2?: {  [key: string]: unknown | undefined;};
+  grantedToIdentitiesV2?: ({  [key: string]: unknown | undefined;})[];
+  link?: {  [key: string]: unknown | undefined;};
+  invitation?: {  [key: string]: unknown | undefined;};
+  shareId?: string | undefined;
+  expirationDateTime?: string | undefined;
+  hasPassword?: boolean | undefined;
+  inheritedFrom?: {  [key: string]: unknown | undefined;};
 };
 
 export interface SharedDrive {
@@ -39959,12 +41444,14 @@ export interface ConversationPart {
 
 export interface Collection {
   id: string;
-  name?: string | undefined;
+  title?: string | undefined;
+  handle?: string | undefined;
   description?: string | undefined;
-  url?: string | undefined;
-  created_at?: number | undefined;
-  updated_at?: number | undefined;
-  workspace_id?: string | undefined;
+  updated_at?: string | undefined;
+  sort_order?: string | undefined;
+  collection_type?: string | undefined;
+  published_on_current_publication?: boolean | undefined;
+  template_suffix?: string | undefined;
 };
 
 export interface Segment {
@@ -49187,11 +50674,23 @@ export interface Board {
 
 export interface Column {
   id: string;
-  board_id: string;
-  column_id: string;
-  title: string;
-  type: string;
-  settings_str?: string | undefined;
+  database_name: string;
+  schema_name: string;
+  table_name: string;
+  column_name: string;
+  ordinal_position?: number | undefined;
+  data_type?: string | undefined;
+  data_type_type?: string | undefined;
+  data_type_precision?: number | undefined;
+  data_type_scale?: number | undefined;
+  data_type_byte_length?: number | undefined;
+  data_type_length?: number | undefined;
+  nullable?: boolean | undefined;
+  default_value?: string | undefined;
+  kind?: string | undefined;
+  expression?: string | undefined;
+  comment?: string | undefined;
+  autoincrement?: string | undefined;
 };
 
 export interface Subitem {
@@ -52085,6 +53584,172 @@ export interface ActionOutput_notion_updatepage {
   last_edited_by?: unknown | undefined;
 };
 
+export interface CrmLead {
+  id: string;
+  name?: string | undefined;
+  partner_name?: string | undefined;
+  email_from?: string | undefined;
+  stage_id?: string | undefined;
+  stage_name?: string | undefined;
+  write_date?: string | undefined;
+};
+
+export interface Invoice {
+  id: string;
+  InvoiceNumber?: string | undefined;
+  Status?: string | undefined;
+  Type?: string | undefined;
+  ContactID?: string | undefined;
+  ContactName?: string | undefined;
+  Date?: string | undefined;
+  DueDate?: string | undefined;
+  Total?: number | undefined;
+  SubTotal?: number | undefined;
+  TotalTax?: number | undefined;
+  AmountDue?: number | undefined;
+  AmountPaid?: number | undefined;
+  AmountCredited?: number | undefined;
+  UpdatedDateUTC?: string | undefined;
+  CurrencyCode?: string | undefined;
+};
+
+export interface SaleOrder {
+  id: string;
+  name?: string | undefined;
+  partner_id?: string | undefined;
+  partner_name?: string | undefined;
+  amount_total?: number | undefined;
+  state?: string | undefined;
+  write_date?: string | undefined;
+};
+
+export interface ActionInput_odoo_cc_createrecord {
+  /**
+   * Odoo model name. Example: "res.partner"
+   */
+  model: string;
+  /**
+   * Field values for the new record
+   */
+  values: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_odoo_cc_createrecord {
+  id: number;
+};
+
+export interface ActionInput_odoo_cc_deleterecord {
+  /**
+   * Odoo model name. Example: "res.partner"
+   */
+  model: string;
+  /**
+   * Record ID to delete. Example: 10
+   */
+  id: number;
+};
+
+export interface ActionOutput_odoo_cc_deleterecord {
+  success: boolean;
+  model: string;
+  id: number;
+};
+
+export interface ActionInput_odoo_cc_executekw {
+  /**
+   * Odoo model name. Example: "res.partner"
+   */
+  model: string;
+  /**
+   * Method name to execute. Example: "search_count"
+   */
+  method: string;
+  /**
+   * Positional arguments as a JSON array.
+   */
+  args?: unknown[] | undefined;
+  /**
+   * Keyword arguments as a JSON object.
+   */
+  kwargs?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_odoo_cc_executekw {
+  /**
+   * The raw result returned by the Odoo method.
+   */
+  result?: unknown | undefined;
+};
+
+export interface ActionInput_odoo_cc_getrecordfields {
+  /**
+   * Odoo model name. Example: "res.partner"
+   */
+  model: string;
+};
+
+export interface ActionOutput_odoo_cc_getrecordfields {
+  model: string;
+  fields: {  [key: string]: {  string?: string | undefined;
+  type?: string | undefined;
+  required?: boolean | undefined;};};
+};
+
+export interface ActionInput_odoo_cc_searchreadrecords {
+  /**
+   * Odoo model name. Example: "res.partner"
+   */
+  model: string;
+  /**
+   * Odoo domain filter as a Python list string. Example: "[['is_company','=',true]]"
+   */
+  domain?: string | undefined;
+  /**
+   * Field names to return. Example: ["id","name","email"]
+   */
+  fields?: string[] | undefined;
+  /**
+   * Maximum number of records to return. Default: 100
+   */
+  limit?: number | undefined;
+  /**
+   * Number of records to skip
+   */
+  offset?: number | undefined;
+  /**
+   * Sort order. Example: "write_date desc"
+   */
+  order?: string | undefined;
+  /**
+   * ISO datetime string; if provided adds a write_date filter to the domain
+   */
+  write_date?: string | undefined;
+};
+
+export interface ActionOutput_odoo_cc_searchreadrecords {
+  count: number;
+  records: ({  [key: string]: unknown | undefined;})[];
+};
+
+export interface ActionInput_odoo_cc_updaterecord {
+  /**
+   * Odoo model name. Example: "res.partner"
+   */
+  model: string;
+  /**
+   * Record ID to update. Example: 10
+   */
+  id: number;
+  /**
+   * Fields to update. Example: { "phone": "123-456-7890" }
+   */
+  fields: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_odoo_cc_updaterecord {
+  success: boolean;
+};
+
 export interface SyncMetadata_okta_users {
 };
 
@@ -52155,16 +53820,16 @@ export interface ActionOutput_okta_removeusergroup {
 
 export interface DriveItem {
   id: string;
+  driveId: string;
   name?: string | undefined;
+  parentId?: string | undefined;
+  path?: string | undefined;
   size?: number | undefined;
+  webUrl?: string | undefined;
   createdDateTime?: string | undefined;
   lastModifiedDateTime?: string | undefined;
-  webUrl?: string | undefined;
-  downloadUrl?: string | undefined;
-  file?: {} | undefined;
-  folder?: {} | undefined;
-  parentReference?: {  id?: string | undefined;};
-  deleted?: {} | undefined;
+  folder?: boolean | undefined;
+  file?: boolean | undefined;
 };
 
 export interface FolderChild {
@@ -52275,17 +53940,20 @@ export interface SelectedUserFile {
 
 export interface UserFile {
   id: string;
+  driveId: string;
+  itemId: string;
+  driveType?: string | undefined;
   name?: string | undefined;
   size?: number | undefined;
+  webUrl?: string | undefined;
   createdDateTime?: string | undefined;
   lastModifiedDateTime?: string | undefined;
-  webUrl?: string | undefined;
-  downloadUrl?: string | undefined;
-  mimeType?: string | undefined;
-  isFolder?: boolean | undefined;
-  childCount?: number | undefined;
-  parentId?: string | undefined;
+  createdByDisplayName?: string | undefined;
+  lastModifiedByDisplayName?: string | undefined;
+  parentDriveId?: string | undefined;
+  parentItemId?: string | undefined;
   parentPath?: string | undefined;
+  fileType?: string | undefined;
 };
 
 export interface ActionInput_one_drive_copyitem {
@@ -52874,13 +54542,16 @@ export interface ActionOutput_one_drive_uploadsmallfile {
 
 export interface UserFileSelection {
   id: string;
-  fileId: string;
   name?: string | undefined;
-  size?: number | undefined;
   webUrl?: string | undefined;
-  downloadUrl?: string | undefined;
-  createdDateTime?: string | undefined;
+  size?: number | undefined;
   lastModifiedDateTime?: string | undefined;
+  createdDateTime?: string | undefined;
+  driveId: string;
+  mimeType?: string | undefined;
+  parentReference?: {  driveId: string;
+  id: string;
+  path?: string | undefined;};
 };
 
 export interface ActionInput_one_drive_personal_createfolder {
@@ -54355,27 +56026,6 @@ export interface ActionOutput_openai_updatevectorstore {
   expires_after?: {  anchor: 'last_active_at';
   days: number;} | undefined;
   metadata?: {  [key: string]: unknown | undefined;};
-};
-
-export interface Employee {
-  id: string;
-  worker_id?: string | undefined;
-  employee_id?: string | undefined;
-  contingent_worker_id?: string | undefined;
-  user_id?: string | undefined;
-  first_name?: string | undefined;
-  last_name?: string | undefined;
-  email?: string | undefined;
-  phone?: string | undefined;
-  hire_date?: string | undefined;
-  termination_date?: string | undefined;
-  active?: boolean | undefined;
-  job_title?: string | undefined;
-  department?: string | undefined;
-  location?: string | undefined;
-  manager_id?: string | undefined;
-  employment_type?: string | undefined;
-  last_updated?: string | undefined;
 };
 
 export interface SyncMetadata_oracle_hcm_employees {
@@ -58560,6 +60210,3698 @@ export interface ActionOutput_pipedrive_updatestage {
   pipeline_deal_probability?: boolean | undefined;
 };
 
+export interface Action {
+  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  tags?: string[] | undefined;
+  post_to_slack?: boolean | undefined;
+  slack_message_format?: string | undefined;
+  steps?: ({  event?: string | undefined;
+  properties?: ({  key: string;
+  type?: string | undefined;
+  value?: unknown | undefined;
+  operator?: string | undefined;})[];
+  selector?: string | undefined;
+  selector_regex?: string | undefined;
+  tag_name?: string | undefined;
+  text?: string | undefined;
+  text_matching?: string | undefined;
+  href?: string | undefined;
+  href_matching?: string | undefined;
+  url?: string | undefined;
+  url_matching?: string | undefined;})[];
+  created_at: string;
+  created_by?: {  id: number;
+  uuid?: string | undefined;
+  distinct_id?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  is_email_verified?: boolean | undefined;
+  hedgehog_config?: unknown | undefined;
+  role_at_organization?: string | undefined;};
+  deleted?: boolean | undefined;
+  is_calculating?: boolean | undefined;
+  last_calculated_at?: string | undefined;
+  team_id?: number | undefined;
+  is_action?: boolean | undefined;
+  bytecode_error?: string | undefined;
+  pinned_at?: string | undefined;
+  creation_context?: string | undefined;
+  user_access_level?: string | undefined;
+};
+
+export interface SyncMetadata_posthog_actions {
+  project_id: string;
+};
+
+export interface Annotation {
+  id: string;
+  content?: string | undefined;
+  date_marker?: string | undefined;
+  creation_type?: string | undefined;
+  dashboard_item?: number | undefined;
+  dashboard_id?: number | undefined;
+  dashboard_name?: string | undefined;
+  insight_short_id?: string | undefined;
+  insight_name?: string | undefined;
+  insight_derived_name?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  deleted?: boolean | undefined;
+  scope?: string | undefined;
+};
+
+export interface SyncMetadata_posthog_annotations {
+  project_id: string;
+};
+
+export interface Cohort {
+  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  created_at?: string | undefined;
+  last_calculation?: string | undefined;
+  deleted?: boolean | undefined;
+  is_static?: boolean | undefined;
+  cohort_type?: string | undefined;
+  count?: number | undefined;
+  is_calculating?: boolean | undefined;
+  errors_calculating?: number | undefined;
+  created_by_id?: number | undefined;
+  created_by_email?: string | undefined;
+};
+
+export interface SyncMetadata_posthog_cohorts {
+  project_id: string;
+};
+
+export interface Dashboard {
+  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  pinned?: boolean | undefined;
+  created_at?: string | undefined;
+  created_by?: unknown | undefined;
+  last_accessed_at?: string | undefined;
+  last_viewed_at?: string | undefined;
+  is_shared?: boolean | undefined;
+  deleted?: boolean | undefined;
+  creation_mode?: string | undefined;
+  tags?: string[] | undefined;
+  restriction_level?: number | undefined;
+  effective_restriction_level?: number | undefined;
+  effective_privilege_level?: number | undefined;
+  user_access_level?: string | undefined;
+  access_control_version?: string | undefined;
+  last_refresh?: string | undefined;
+  team_id?: number | undefined;
+};
+
+export interface SyncMetadata_posthog_dashboards {
+  project_id: string;
+};
+
+export interface EarlyAccessFeature {
+  id: string;
+  name: string;
+  description?: string | undefined;
+  stage: string;
+  documentation_url?: string | undefined;
+  payload?: {  [key: string]: unknown | undefined;};
+  created_at: string;
+  feature_flag_id?: number | undefined;
+  feature_flag_key?: string | undefined;
+};
+
+export interface SyncMetadata_posthog_earlyaccessfeatures {
+  project_id: string;
+};
+
+export interface EventDefinition {
+  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  last_seen_at?: string | undefined;
+  last_updated_at?: string | undefined;
+  verified?: boolean | undefined;
+  verified_at?: string | undefined;
+  hidden?: boolean | undefined;
+  enforcement_mode?: string | undefined;
+  primary_property?: string | undefined;
+  is_action?: boolean | undefined;
+  action_id?: number | undefined;
+  post_to_slack?: boolean | undefined;
+  tags?: string[] | undefined;
+};
+
+export interface SyncMetadata_posthog_eventdefinitions {
+  project_id: string;
+};
+
+export interface SyncMetadata_posthog_events {
+  project_id: string;
+};
+
+export interface Experiment {
+  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  start_date?: string | undefined;
+  end_date?: string | undefined;
+  feature_flag_key?: string | undefined;
+  feature_flag?: unknown | undefined;
+  holdout?: unknown | undefined;
+  holdout_id?: number | undefined;
+  exposure_cohort?: number | undefined;
+  parameters?: unknown | undefined;
+  secondary_metrics?: unknown | undefined;
+  saved_metrics?: unknown | undefined;
+  saved_metrics_ids?: unknown | undefined;
+  filters?: unknown | undefined;
+  archived?: boolean | undefined;
+  deleted?: boolean | undefined;
+  created_by?: unknown | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  type?: string | undefined;
+  exposure_criteria?: unknown | undefined;
+  metrics?: unknown | undefined;
+  metrics_secondary?: unknown | undefined;
+  stats_config?: unknown | undefined;
+  scheduling_config?: unknown | undefined;
+  conclusion?: string | undefined;
+  conclusion_comment?: string | undefined;
+  primary_metrics_ordered_uuids?: string[] | undefined;
+  secondary_metrics_ordered_uuids?: string[] | undefined;
+  only_count_matured_users?: boolean | undefined;
+  status?: string | undefined;
+  user_access_level?: string | undefined;
+};
+
+export interface SyncMetadata_posthog_experiments {
+  /**
+   * PostHog project ID
+   */
+  project_id: string;
+};
+
+export interface FeatureFlag {
+  id: string;
+  key: string;
+  name?: string | undefined;
+  active?: boolean | undefined;
+  deleted?: boolean | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  filters?: {  [key: string]: unknown | undefined;};
+  version?: number | undefined;
+  tags?: string[] | undefined;
+  ensure_experience_continuity?: boolean | undefined;
+  experiment_set?: number[] | undefined;
+  surveys?: unknown | undefined;
+  features?: unknown | undefined;
+  usage_dashboard?: number | undefined;
+  analytics_dashboards?: number[] | undefined;
+  has_enriched_analytics?: boolean | undefined;
+  is_remote_configuration?: boolean | undefined;
+  evaluation_runtime?: string | undefined;
+  bucketing_identifier?: string | undefined;
+  last_called_at?: string | undefined;
+  status?: string | undefined;
+  user_access_level?: string | undefined;
+};
+
+export interface SyncMetadata_posthog_featureflags {
+  project_id: string;
+};
+
+export interface Insight {
+  id: string;
+  short_id: string;
+  name?: string | undefined;
+  derived_name?: string | undefined;
+  query?: unknown | undefined;
+  deleted: boolean;
+  dashboards?: number[] | undefined;
+  last_refresh?: string | undefined;
+  created_at: string;
+  updated_at: string;
+  description?: string | undefined;
+  tags?: string[] | undefined;
+  favorited: boolean;
+  last_modified_at: string;
+  is_sample?: boolean | undefined;
+};
+
+export interface SyncMetadata_posthog_insights {
+  project_id?: string | undefined;
+};
+
+export interface SyncMetadata_posthog_persons {
+  project_id: string;
+};
+
+export interface SessionRecording {
+  id: string;
+  distinct_id?: string | undefined;
+  viewed?: boolean | undefined;
+  viewers?: string[] | undefined;
+  recording_duration?: number | undefined;
+  active_seconds?: number | undefined;
+  inactive_seconds?: number | undefined;
+  start_time?: string | undefined;
+  end_time?: string | undefined;
+  click_count?: number | undefined;
+  keypress_count?: number | undefined;
+  mouse_activity_count?: number | undefined;
+  console_log_count?: number | undefined;
+  console_warn_count?: number | undefined;
+  console_error_count?: number | undefined;
+  start_url?: string | undefined;
+  person?: {  id: number;
+  name?: string | undefined;
+  distinct_ids?: string[] | undefined;
+  properties?: unknown | undefined;
+  created_at?: string | undefined;
+  uuid?: string | undefined;
+  last_seen_at?: string | undefined;};
+  retention_period_days?: number | undefined;
+  expiry_time?: string | undefined;
+  recording_ttl?: number | undefined;
+  snapshot_source?: string | undefined;
+  snapshot_library?: string | undefined;
+  ongoing?: boolean | undefined;
+  activity_score?: number | undefined;
+  has_summary?: boolean | undefined;
+  summary_outcome?: {  description?: string | undefined;
+  success?: boolean | undefined;};
+  external_references?: unknown[] | undefined;
+};
+
+export interface SyncMetadata_posthog_sessionrecordings {
+  project_id: string;
+};
+
+export interface Survey {
+  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  type?: string | undefined;
+  schedule?: string | undefined;
+  linked_flag_id?: number | undefined;
+  linked_insight_id?: number | undefined;
+  targeting_flag_id?: number | undefined;
+  questions?: unknown | undefined;
+  conditions?: unknown | undefined;
+  appearance?: unknown | undefined;
+  created_at?: string | undefined;
+  start_date?: string | undefined;
+  end_date?: string | undefined;
+  archived?: boolean | undefined;
+  responses_limit?: number | undefined;
+  iteration_count?: number | undefined;
+  iteration_frequency_days?: number | undefined;
+  current_iteration?: number | undefined;
+  current_iteration_start_date?: string | undefined;
+  enable_partial_responses?: boolean | undefined;
+  enable_iframe_embedding?: boolean | undefined;
+  base_language?: string | undefined;
+};
+
+export interface SyncMetadata_posthog_surveys {
+  project_id: string;
+};
+
+export interface ActionInput_posthog_captureevent {
+  /**
+   * PostHog project API key (token) for the Capture API.
+   */
+  api_key: string;
+  /**
+   * Name of the event to capture.
+   */
+  event: string;
+  /**
+   * Unique identifier for the user or entity.
+   */
+  distinct_id: string;
+  /**
+   * Additional event properties.
+   */
+  properties?: {  [key: string]: unknown | undefined;};
+  /**
+   * ISO 8601 timestamp for the event. Defaults to now if omitted.
+   */
+  timestamp?: string | undefined;
+};
+
+export interface ActionOutput_posthog_captureevent {
+  status?: string | number | undefined;
+};
+
+export interface ActionInput_posthog_createaction {
+  /**
+   * PostHog project ID. Example: 309484
+   */
+  project_id: number;
+  /**
+   * Name of the action. Example: "Clicked Sign Up Button"
+   */
+  name: string;
+  description?: string | undefined;
+  tags?: string[] | undefined;
+  post_to_slack?: boolean | undefined;
+  slack_message_format?: string | undefined;
+  steps?: ({  event?: string | undefined;
+  properties?: ({  key: string;
+  type: string;
+  value: string | number | boolean | ({  0: string;
+  1: number;
+  2: boolean;})[];
+  operator: string;})[] | undefined;
+  selector?: string | undefined;
+  selector_regex?: string | undefined;
+  tag_name?: string | undefined;
+  text?: string | undefined;
+  text_matching?: string | undefined;
+  href?: string | undefined;
+  href_matching?: string | undefined;
+  url?: string | undefined;
+  url_matching?: string | undefined;})[];
+};
+
+export interface ActionOutput_posthog_createaction {
+  id: number;
+  name: string;
+  description?: string | undefined;
+  tags?: string[] | undefined;
+  post_to_slack?: boolean | undefined;
+  slack_message_format?: string | undefined;
+  steps?: ({  event?: string | undefined;
+  properties?: ({  key: string;
+  type: string;
+  value: string | number | boolean | ({  0: string;
+  1: number;
+  2: boolean;})[];
+  operator: string;})[] | undefined;
+  selector?: string | undefined;
+  selector_regex?: string | undefined;
+  tag_name?: string | undefined;
+  text?: string | undefined;
+  text_matching?: string | undefined;
+  href?: string | undefined;
+  href_matching?: string | undefined;
+  url?: string | undefined;
+  url_matching?: string | undefined;})[];
+  created_at?: string | undefined;
+  deleted?: boolean | undefined;
+  is_calculating?: boolean | undefined;
+  last_calculated_at?: string | undefined;
+  team_id?: number | undefined;
+  is_action?: boolean | undefined;
+  bytecode_error?: string | undefined;
+  pinned_at?: string | undefined;
+  creation_context?: string | undefined;
+  user_access_level?: string | undefined;
+};
+
+export interface ActionInput_posthog_createalert {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Insight ID to monitor. Example: 9038220
+   */
+  insight: number;
+  /**
+   * Name of the alert.
+   */
+  name: string;
+  /**
+   * Condition type.
+   */
+  condition_type: 'absolute_value' | 'relative_increase' | 'relative_decrease';
+  /**
+   * Threshold type.
+   */
+  threshold_type: 'absolute' | 'percentage';
+  /**
+   * Lower bound of the threshold.
+   */
+  threshold_lower?: number | undefined;
+  /**
+   * Upper bound of the threshold.
+   */
+  threshold_upper?: number | undefined;
+  calculation_interval?: 'every_15_minutes' | 'hourly' | 'daily' | 'weekly' | 'monthly' | undefined;
+  subscribed_users?: number[] | undefined;
+  config_series_index?: number | undefined;
+  config_check_ongoing_interval?: boolean | undefined;
+  enabled?: boolean | undefined;
+  skip_weekend?: boolean | undefined;
+  snoozed_until?: string | undefined;
+  detector_config?: {  [key: string]: unknown | undefined;};
+  schedule_restriction?: {  [key: string]: unknown | undefined;};
+  investigation_agent_enabled?: boolean | undefined;
+  investigation_gates_notifications?: boolean | undefined;
+  investigation_inconclusive_action?: string | undefined;
+};
+
+export interface ActionOutput_posthog_createalert {
+  id: string;
+  name: string;
+  insight_id: number;
+  state: string;
+  enabled: boolean;
+  calculation_interval: string;
+  condition_type?: string | undefined;
+  threshold_type?: string | undefined;
+  threshold_lower?: number | undefined;
+  threshold_upper?: number | undefined;
+  config_series_index?: number | undefined;
+  config_check_ongoing_interval?: boolean | undefined;
+  subscribed_users: number[];
+  created_at: string;
+  snoozed_until?: string | undefined;
+  skip_weekend?: boolean | undefined;
+  detector_config?: {  [key: string]: unknown | undefined;};
+  schedule_restriction?: {  [key: string]: unknown | undefined;};
+  investigation_agent_enabled?: boolean | undefined;
+  investigation_gates_notifications?: boolean | undefined;
+  investigation_inconclusive_action?: string | undefined;
+};
+
+export interface ActionInput_posthog_createannotation {
+  /**
+   * PostHog project ID. Example: 309484
+   */
+  project_id: number;
+  /**
+   * Annotation content. Example: "Deployment v1.2.0"
+   */
+  content: string;
+  /**
+   * ISO 8601 timestamp for the annotation. Example: "2024-01-15T10:00:00Z"
+   */
+  date_marker?: string | undefined;
+  /**
+   * Creation type. Example: "USR"
+   */
+  creation_type?: string | undefined;
+  /**
+   * Dashboard item ID to associate with the annotation.
+   */
+  dashboard_item?: number | undefined;
+  /**
+   * Dashboard ID to associate with the annotation.
+   */
+  dashboard_id?: number | undefined;
+  /**
+   * Whether the annotation is deleted.
+   */
+  deleted?: boolean | undefined;
+  /**
+   * Scope of the annotation. Example: "dashboard_item" or "project"
+   */
+  scope?: string | undefined;
+};
+
+export interface ActionOutput_posthog_createannotation {
+  id: number;
+  content?: string | undefined;
+  date_marker?: string | undefined;
+  creation_type?: string | undefined;
+  dashboard_item?: number | undefined;
+  dashboard_id?: number | undefined;
+  dashboard_name?: string | undefined;
+  insight_short_id?: string | undefined;
+  insight_name?: string | undefined;
+  insight_derived_name?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  deleted?: boolean | undefined;
+  scope?: string | undefined;
+};
+
+export interface ActionInput_posthog_createcohort {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Cohort name. Example: "Power Users"
+   */
+  name: string;
+  /**
+   * Cohort description.
+   */
+  description?: string | undefined;
+  /**
+   * Cohort filter definitions.
+   */
+  filters?: {  properties: {  type: string;
+  values: ({  [key: string]: unknown | undefined;})[];};};
+  /**
+   * Whether this is a static cohort.
+   */
+  is_static?: boolean | undefined;
+  /**
+   * Cohort type. Example: "static" or "dynamic".
+   */
+  cohort_type?: string | undefined;
+  /**
+   * Soft delete flag.
+   */
+  deleted?: boolean | undefined;
+  /**
+   * Alternative query definition.
+   */
+  query?: unknown | undefined;
+  /**
+   * Folder ID to create the cohort in.
+   */
+  _create_in_folder?: string | undefined;
+  /**
+   * Person IDs to add to a static cohort on creation.
+   */
+  _create_static_person_ids?: string[] | undefined;
+};
+
+export interface ActionOutput_posthog_createcohort {
+  id: number;
+  name?: string | undefined;
+  description?: string | undefined;
+  filters?: unknown | undefined;
+  is_static: boolean;
+  cohort_type?: string | undefined;
+  created_at?: string | undefined;
+  count?: number | undefined;
+  is_calculating: boolean;
+  deleted: boolean;
+};
+
+export interface ActionInput_posthog_createdashboard {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Dashboard name.
+   */
+  name: string;
+  /**
+   * Dashboard description.
+   */
+  description?: string | undefined;
+  /**
+   * Whether the dashboard is pinned.
+   */
+  pinned?: boolean | undefined;
+  /**
+   * Dashboard tags.
+   */
+  tags?: string[] | undefined;
+  /**
+   * Template to use for the dashboard.
+   */
+  use_template?: string | undefined;
+  /**
+   * Existing dashboard ID to duplicate.
+   */
+  use_dashboard?: number | undefined;
+  /**
+   * Whether to delete insights when duplicating.
+   */
+  delete_insights?: boolean | undefined;
+  /**
+   * Data color theme ID.
+   */
+  data_color_theme_id?: number | undefined;
+};
+
+export interface ActionOutput_posthog_createdashboard {
+  id: number;
+  name: string;
+  description?: string | undefined;
+  pinned?: boolean | undefined;
+  created_at?: string | undefined;
+  team_id?: number | undefined;
+  deleted?: boolean | undefined;
+  is_shared?: boolean | undefined;
+  creation_mode?: string | undefined;
+  filters?: unknown | undefined;
+  variables?: unknown | undefined;
+  data_color_theme_id?: number | undefined;
+  tags?: unknown[] | undefined;
+  restriction_level?: number | undefined;
+  effective_restriction_level?: number | undefined;
+  effective_privilege_level?: number | undefined;
+  user_access_level?: string | undefined;
+  access_control_version?: string | undefined;
+  last_refresh?: string | undefined;
+  quick_filter_ids?: string[] | undefined;
+  tiles?: unknown[] | undefined;
+};
+
+export interface ActionInput_posthog_createearlyaccessfeature {
+  /**
+   * PostHog project ID. Example: 309484
+   */
+  project_id: number;
+  /**
+   * Name of the early access feature. Example: "Beta Feature"
+   */
+  name: string;
+  /**
+   * Description of the feature. Example: "New dashboard beta"
+   */
+  description?: string | undefined;
+  /**
+   * Release stage. Examples: "draft", "concept", "alpha", "beta", "general_availability"
+   */
+  stage?: string | undefined;
+  /**
+   * URL to documentation. Example: "https://docs.example.com"
+   */
+  documentation_url?: string | undefined;
+  /**
+   * Custom payload object.
+   */
+  payload?: unknown | undefined;
+  /**
+   * ID of the associated feature flag. Example: 700471
+   */
+  feature_flag_id?: number | undefined;
+  /**
+   * Folder to create the feature in.
+   */
+  _create_in_folder?: string | undefined;
+};
+
+export interface ActionOutput_posthog_createearlyaccessfeature {
+  id: string;
+  name: string;
+  description?: string | undefined;
+  stage: string;
+  documentation_url?: string | undefined;
+  payload?: unknown | undefined;
+  created_at: string;
+  feature_flag_id?: number | undefined;
+  feature_flag?: {  id: number;
+  key?: string | undefined;};
+};
+
+export interface ActionInput_posthog_createexperiment {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Experiment name. Example: "Homepage CTA Test"
+   */
+  name: string;
+  /**
+   * Feature flag key to link to this experiment. Example: "homepage-cta-v2"
+   */
+  feature_flag_key: string;
+  /**
+   * Optional description of the experiment.
+   */
+  description?: string | undefined;
+  /**
+   * ISO 8601 start date. Example: "2024-01-15T00:00:00Z"
+   */
+  start_date?: string | undefined;
+  /**
+   * ISO 8601 end date. Example: "2024-01-30T00:00:00Z"
+   */
+  end_date?: string | undefined;
+  holdout_id?: number | undefined;
+  parameters?: {  feature_flag_variants?: ({  key: string;
+  name?: string | undefined;
+  rollout_percentage?: number | undefined;})[];
+  excluded_variants?: string[] | undefined;
+  minimum_detectable_effect?: number | undefined;
+  rollout_percentage?: number | undefined;};
+  secondary_metrics?: ({  [key: string]: unknown | undefined;})[];
+  saved_metrics_ids?: number[] | undefined;
+  filters?: {  [key: string]: unknown | undefined;};
+  archived?: boolean | undefined;
+  deleted?: boolean | undefined;
+  type?: string | undefined;
+  exposure_criteria?: {  [key: string]: unknown | undefined;};
+  metrics?: ({  [key: string]: unknown | undefined;})[];
+  metrics_secondary?: ({  [key: string]: unknown | undefined;})[];
+  stats_config?: {  [key: string]: unknown | undefined;};
+  scheduling_config?: {  [key: string]: unknown | undefined;};
+  allow_unknown_events?: boolean | undefined;
+  _create_in_folder?: string | undefined;
+  conclusion?: string | undefined;
+  conclusion_comment?: string | undefined;
+  primary_metrics_ordered_uuids?: string[] | undefined;
+  secondary_metrics_ordered_uuids?: string[] | undefined;
+  only_count_matured_users?: boolean | undefined;
+  update_feature_flag_params?: boolean | undefined;
+};
+
+export interface ActionOutput_posthog_createexperiment {
+  id: number;
+  name: string;
+  description?: string | undefined;
+  start_date?: string | undefined;
+  end_date?: string | undefined;
+  feature_flag_key: string;
+  feature_flag?: {  [key: string]: unknown | undefined;};
+  holdout_id?: number | undefined;
+  parameters?: {  [key: string]: unknown | undefined;};
+  secondary_metrics?: unknown | undefined;
+  saved_metrics?: ({  [key: string]: unknown | undefined;})[];
+  saved_metrics_ids?: unknown[] | undefined;
+  filters?: unknown | undefined;
+  archived?: boolean | undefined;
+  deleted?: boolean | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  type?: string | undefined;
+  exposure_criteria?: {  [key: string]: unknown | undefined;};
+  metrics?: ({  [key: string]: unknown | undefined;})[];
+  metrics_secondary?: ({  [key: string]: unknown | undefined;})[];
+  stats_config?: {  [key: string]: unknown | undefined;};
+  scheduling_config?: {  [key: string]: unknown | undefined;};
+  allow_unknown_events?: boolean | undefined;
+  _create_in_folder?: string | undefined;
+  conclusion?: string | undefined;
+  conclusion_comment?: string | undefined;
+  primary_metrics_ordered_uuids?: unknown[] | undefined;
+  secondary_metrics_ordered_uuids?: unknown[] | undefined;
+  only_count_matured_users?: boolean | undefined;
+  update_feature_flag_params?: boolean | undefined;
+  status?: string | undefined;
+  user_access_level?: string | undefined;
+};
+
+export interface ActionInput_posthog_createfeatureflag {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Unique key for the feature flag. Example: "my-new-flag"
+   */
+  key: string;
+  /**
+   * Display name for the feature flag.
+   */
+  name?: string | undefined;
+  /**
+   * Filter conditions for the feature flag.
+   */
+  filters?: {  [key: string]: unknown | undefined;};
+  /**
+   * Whether the feature flag is active.
+   */
+  active?: boolean | undefined;
+  /**
+   * Tags to associate with the feature flag.
+   */
+  tags?: string[] | undefined;
+  /**
+   * Evaluation contexts for the feature flag.
+   */
+  evaluation_contexts?: ({  [key: string]: unknown | undefined;})[];
+};
+
+export interface ActionOutput_posthog_createfeatureflag {
+  id: number;
+  key: string;
+  name?: string | undefined;
+  active?: boolean | undefined;
+  deleted?: boolean | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  filters?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_posthog_createinsight {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Name of the insight. Example: "Page views trend"
+   */
+  name: string;
+  /**
+   * PostHog query object. Example: {"kind":"InsightVizNode","source":{"kind":"TrendsQuery","series":[{"kind":"EventsNode","event":"$pageview"}]}}
+   */
+  query: {  [key: string]: unknown | undefined;};
+  /**
+   * Description of the insight.
+   */
+  description?: string | undefined;
+  /**
+   * Tags for the insight.
+   */
+  tags?: string[] | undefined;
+  /**
+   * Dashboard IDs to add the insight to.
+   */
+  dashboards?: number[] | undefined;
+  /**
+   * Whether the insight is favorited.
+   */
+  favorited?: boolean | undefined;
+  /**
+   * Display order of the insight.
+   */
+  order?: number | undefined;
+  /**
+   * Derived name of the insight.
+   */
+  derived_name?: string | undefined;
+};
+
+export interface ActionOutput_posthog_createinsight {
+  id: number;
+  short_id: string;
+  name?: string | undefined;
+  derived_name?: string | undefined;
+  description?: string | undefined;
+  query?: {  [key: string]: unknown | undefined;};
+  order?: number | undefined;
+  deleted?: boolean | undefined;
+  dashboards?: number[] | undefined;
+  tags?: string[] | undefined;
+  favorited?: boolean | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+};
+
+export interface ActionInput_posthog_createperson {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Distinct ID for the person. Example: "user_123"
+   */
+  distinct_id: string;
+  /**
+   * Person properties to set. Example: {"email": "user@example.com"}
+   */
+  properties?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_posthog_createperson {
+  id: string;
+  name?: string | undefined;
+  distinct_ids: string[];
+  properties?: {  [key: string]: unknown | undefined;};
+  created_at?: string | undefined;
+  uuid?: string | undefined;
+  last_seen_at?: string | undefined;
+};
+
+export interface ActionInput_posthog_createsurvey {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Name of the survey.
+   */
+  name: string;
+  /**
+   * Survey type. Examples: "popover", "api", "widget", "external_survey"
+   */
+  type: string;
+  description?: string | undefined;
+  questions?: ({  /**
+   * Question type. Examples: "open", "multiple_choice", "single_choice", "rating", "link"
+   */
+  type: string;
+  /**
+   * The question text.
+   */
+  question: string;
+  id?: string | undefined;
+  description?: string | undefined;
+  optional?: boolean | undefined;
+  buttonText?: string | undefined;
+  /**
+   * For rating questions. Examples: "number", "emoji"
+   */
+  display?: string | undefined;
+  /**
+   * For rating questions. Examples: 2, 3, 5, 7, 10
+   */
+  scale?: number | undefined;
+  lowerBoundLabel?: string | undefined;
+  upperBoundLabel?: string | undefined;
+  /**
+   * For multiple/single choice questions.
+   */
+  choices?: string[] | undefined;
+  /**
+   * For link questions.
+   */
+  link?: string | undefined;
+  hasOpenChoice?: boolean | undefined;
+  shuffleOptions?: boolean | undefined;})[];
+  appearance?: {  [key: string]: unknown | undefined;};
+  conditions?: {  [key: string]: unknown | undefined;};
+  /**
+   * ISO 8601 timestamp. Example: "2024-01-01T00:00:00Z"
+   */
+  start_date?: string | undefined;
+  /**
+   * ISO 8601 timestamp. Example: "2024-12-31T23:59:59Z"
+   */
+  end_date?: string | undefined;
+  linked_flag_id?: number | undefined;
+  linked_insight_id?: number | undefined;
+  targeting_flag_filters?: {  [key: string]: unknown | undefined;};
+  archived?: boolean | undefined;
+  schedule?: string | undefined;
+};
+
+export interface ActionOutput_posthog_createsurvey {
+  id: string;
+  name: string;
+  description?: string | undefined;
+  type: string;
+  schedule?: string | undefined;
+  linked_flag_id?: number | undefined;
+  linked_insight_id?: number | undefined;
+  targeting_flag_id?: number | undefined;
+  questions?: unknown[] | undefined;
+  conditions?: {  [key: string]: unknown | undefined;};
+  appearance?: {  [key: string]: unknown | undefined;};
+  created_at: string;
+  start_date?: string | undefined;
+  end_date?: string | undefined;
+  archived?: boolean | undefined;
+};
+
+export interface ActionInput_posthog_deleteaction {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Action ID to delete. Example: 275761
+   */
+  id: number;
+};
+
+export interface ActionOutput_posthog_deleteaction {
+  success: boolean;
+  id: number;
+};
+
+export interface ActionInput_posthog_deletealert {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Alert ID to delete. Example: "019e8d62-1ef1-0000-c642-6a68245a8aac"
+   */
+  id: string;
+};
+
+export interface ActionOutput_posthog_deletealert {
+  success: boolean;
+};
+
+export interface ActionInput_posthog_deleteannotation {
+  /**
+   * PostHog project ID. Example: 309484
+   */
+  project_id: number;
+  /**
+   * Annotation ID to delete. Example: 339256
+   */
+  annotation_id: number;
+};
+
+export interface ActionOutput_posthog_deleteannotation {
+  id: number;
+  content?: string | undefined;
+  date_marker?: string | undefined;
+  creation_type?: string | undefined;
+  dashboard_item?: number | undefined;
+  dashboard_id?: number | undefined;
+  dashboard_name?: string | undefined;
+  insight_short_id?: string | undefined;
+  insight_name?: string | undefined;
+  insight_derived_name?: string | undefined;
+  created_by?: {  id: number;
+  uuid: string;
+  distinct_id: string;
+  first_name: string;
+  last_name: string;
+  email: string;
+  is_email_verified: boolean;
+  hedgehog_config?: {  [key: string]: unknown | undefined;};
+  role_at_organization?: string | undefined;};
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  deleted?: boolean | undefined;
+  scope?: string | undefined;
+};
+
+export interface ActionInput_posthog_deletecohort {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Cohort ID. Example: 342249
+   */
+  cohort_id: number;
+};
+
+export interface ActionOutput_posthog_deletecohort {
+  id: number;
+  deleted: boolean;
+  name?: string | undefined;
+};
+
+export interface ActionInput_posthog_deletedashboard {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Dashboard ID. Example: 1663108
+   */
+  id: number;
+};
+
+export interface ActionOutput_posthog_deletedashboard {
+  id: number;
+  deleted?: boolean | undefined;
+  name?: string | undefined;
+};
+
+export interface ActionInput_posthog_deleteearlyaccessfeature {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Early access feature ID. Example: "497f6eca-6276-4993-bfeb-53cbbbba6f08"
+   */
+  id: string;
+};
+
+export interface ActionOutput_posthog_deleteearlyaccessfeature {
+  success: boolean;
+  id: string;
+};
+
+export interface ActionInput_posthog_deletefeatureflag {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Feature flag ID. Example: 700472
+   */
+  id: number;
+};
+
+export interface ActionOutput_posthog_deletefeatureflag {
+  id: number;
+  key?: string | undefined;
+  deleted?: boolean | undefined;
+};
+
+export interface ActionInput_posthog_deleteinsight {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Insight ID. Example: 9037904
+   */
+  id: number;
+};
+
+export interface ActionOutput_posthog_deleteinsight {
+  id: number;
+  short_id: string;
+  name?: string | undefined;
+  derived_name?: string | undefined;
+  deleted?: boolean | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+};
+
+export interface ActionInput_posthog_deleteperson {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * PostHog person ID. Example: "623209ad-6b83-5d5c-9e25-df49eba324bb"
+   */
+  person_id: string;
+};
+
+export interface ActionOutput_posthog_deleteperson {
+  success: boolean;
+  person_id: string;
+};
+
+export interface ActionInput_posthog_deletesurvey {
+  /**
+   * Survey ID. Example: "497f6eca-6276-4993-bfeb-53cbbbba6f08"
+   */
+  id: string;
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+};
+
+export interface ActionOutput_posthog_deletesurvey {
+  success: boolean;
+};
+
+export interface ActionInput_posthog_getaction {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Action ID. Example: 123
+   */
+  id: number;
+};
+
+export interface ActionOutput_posthog_getaction {
+  id: number;
+  name?: string | undefined;
+  description?: string | undefined;
+  tags?: string[] | undefined;
+  post_to_slack?: boolean | undefined;
+  slack_message_format?: string | undefined;
+  steps?: ({  event?: string | undefined;
+  properties?: ({  key?: string | undefined;
+  type?: string | undefined;
+  value?: string | number | boolean | ({  0: string;
+  1: number;
+  2: boolean;})[] | undefined;
+  operator?: string | undefined;})[];
+  selector?: string | undefined;
+  selector_regex?: string | undefined;
+  tag_name?: string | undefined;
+  text?: string | undefined;
+  text_matching?: string | undefined;
+  href?: string | undefined;
+  href_matching?: string | undefined;
+  url?: string | undefined;
+  url_matching?: string | undefined;})[];
+  created_at?: string | undefined;
+  created_by?: {  id?: number | undefined;
+  uuid?: string | undefined;
+  distinct_id?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  is_email_verified?: boolean | undefined;
+  hedgehog_config?: {} | undefined;
+  role_at_organization?: string | undefined;};
+  deleted?: boolean | undefined;
+  is_calculating?: boolean | undefined;
+  last_calculated_at?: string | undefined;
+  team_id?: number | undefined;
+  is_action?: boolean | undefined;
+  bytecode_error?: string | undefined;
+  pinned_at?: string | undefined;
+  creation_context?: string | undefined;
+  _create_in_folder?: string | undefined;
+  user_access_level?: string | undefined;
+};
+
+export interface ActionInput_posthog_getalert {
+  /**
+   * Alert ID. Example: "497f6eca-6276-4993-bfeb-53cbbbba6f08"
+   */
+  id: string;
+  /**
+   * Project ID. Example: "309484"
+   */
+  project_id: string;
+};
+
+export interface ActionOutput_posthog_getalert {
+  id: string;
+  created_by?: {  id: number;
+  uuid: string;
+  distinct_id: string;
+  first_name: string;
+  last_name: string;
+  email: string;
+  is_email_verified?: boolean | undefined;
+  hedgehog_config?: {  [key: string]: unknown | undefined;};
+  role_at_organization?: string | undefined;};
+  created_at?: string | undefined;
+  insight?: {  id?: number | undefined;};
+  name?: string | undefined;
+  subscribed_users?: number[] | undefined;
+  threshold?: {  id: string;
+  created_at: string;
+  name: string;
+  configuration?: {  type?: string | undefined;
+  bounds?: unknown | undefined;};};
+  condition?: {  type?: string | undefined;};
+  state?: string | undefined;
+  enabled?: boolean | undefined;
+  last_notified_at?: string | undefined;
+  last_checked_at?: string | undefined;
+  next_check_at?: string | undefined;
+  checks?: ({  id: string;
+  created_at: string;
+  calculated_value?: number | undefined;
+  state?: string | undefined;
+  targets_notified?: boolean | undefined;
+  anomaly_scores?: unknown | undefined;
+  triggered_points?: unknown | undefined;
+  triggered_dates?: unknown | undefined;
+  interval?: string | undefined;
+  triggered_metadata?: unknown | undefined;
+  investigation_status?: string | undefined;
+  investigation_verdict?: string | undefined;
+  investigation_summary?: string | undefined;
+  investigation_notebook_short_id?: string | undefined;
+  notification_sent_at?: string | undefined;
+  notification_suppressed_by_agent?: boolean | undefined;})[];
+  checks_total?: number | undefined;
+  config?: {  type?: string | undefined;
+  series_index?: number | undefined;
+  check_ongoing_interval?: unknown | undefined;};
+  detector_config?: {  detectors?: ({  preprocessing?: unknown | undefined;
+  threshold?: unknown | undefined;
+  type?: string | undefined;
+  window?: unknown | undefined;})[];
+  operator?: string | undefined;
+  type?: string | undefined;};
+  calculation_interval?: string | undefined;
+  snoozed_until?: string | undefined;
+  skip_weekend?: boolean | undefined;
+  schedule_restriction?: {  blocked_windows?: ({  start?: string | undefined;
+  end?: string | undefined;})[];};
+  last_value?: number | undefined;
+  investigation_agent_enabled?: boolean | undefined;
+  investigation_gates_notifications?: boolean | undefined;
+  investigation_inconclusive_action?: string | undefined;
+};
+
+export interface ActionInput_posthog_getannotation {
+  /**
+   * PostHog project ID. Example: 309484
+   */
+  project_id: number;
+  /**
+   * Annotation ID. Example: 339256
+   */
+  id: number;
+};
+
+export interface ActionOutput_posthog_getannotation {
+  id: number;
+  content: string;
+  date_marker?: string | undefined;
+  scope?: string | undefined;
+  creation_type?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  dashboard_item?: number | undefined;
+  created_by?: {  id: number;
+  uuid: string;
+  distinct_id: string;
+  first_name: string;
+  email: string;} | undefined;
+};
+
+export interface ActionInput_posthog_getcohort {
+  /**
+   * Cohort ID. Example: 342249
+   */
+  id: number;
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+};
+
+export interface ActionOutput_posthog_getcohort {
+  id: number;
+  name?: string | undefined;
+  description?: string | undefined;
+  groups?: unknown | undefined;
+  deleted?: boolean | undefined;
+  filters?: {  properties?: {  type?: string | undefined;
+  values?: ({  bytecode?: unknown | undefined;
+  bytecode_error?: unknown | undefined;
+  conditionHash?: unknown | undefined;
+  type?: string | undefined;
+  key?: string | undefined;
+  value?: string | undefined;
+  event_type?: string | undefined;
+  time_value?: unknown | undefined;
+  time_interval?: unknown | undefined;
+  negation?: boolean | undefined;
+  operator?: unknown | undefined;
+  operator_value?: unknown | undefined;
+  seq_time_interval?: unknown | undefined;
+  seq_time_value?: unknown | undefined;
+  seq_event?: unknown | undefined;
+  seq_event_type?: unknown | undefined;
+  total_periods?: unknown | undefined;
+  min_periods?: unknown | undefined;
+  event_filters?: unknown | undefined;
+  explicit_datetime?: unknown | undefined;
+  explicit_datetime_to?: unknown | undefined;})[];};};
+  query?: unknown | undefined;
+  version?: number | undefined;
+  pending_version?: number | undefined;
+  is_calculating?: boolean | undefined;
+  created_by?: {  id?: number | undefined;
+  uuid?: string | undefined;
+  distinct_id?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  is_email_verified?: boolean | undefined;
+  hedgehog_config?: {  [key: string]: unknown | undefined;};
+  role_at_organization?: string | undefined;};
+  created_at?: string | undefined;
+  last_calculation?: string | undefined;
+  last_backfill_person_properties_at?: string | undefined;
+  errors_calculating?: number | undefined;
+  last_error_message?: string | undefined;
+  count?: number | undefined;
+  is_static?: boolean | undefined;
+  cohort_type?: string | undefined;
+  experiment_set?: number[] | undefined;
+  _create_in_folder?: string | undefined;
+  _create_static_person_ids?: unknown[] | undefined;
+};
+
+export interface ActionInput_posthog_getdashboard {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Dashboard ID. Example: 1663108
+   */
+  id: number;
+};
+
+export interface ActionOutput_posthog_getdashboard {
+  id: number;
+  name?: string | undefined;
+  description?: string | undefined;
+  pinned?: boolean | undefined;
+  created_at?: string | undefined;
+  created_by?: {  id: number;
+  uuid?: string | undefined;
+  distinct_id?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  is_email_verified?: boolean | undefined;
+  hedgehog_config?: unknown | undefined;
+  role_at_organization?: string | undefined;};
+  last_accessed_at?: string | undefined;
+  last_viewed_at?: string | undefined;
+  is_shared?: boolean | undefined;
+  deleted?: boolean | undefined;
+  creation_mode?: string | undefined;
+  filters?: unknown | undefined;
+  variables?: unknown | undefined;
+  breakdown_colors?: unknown | undefined;
+  data_color_theme_id?: unknown | undefined;
+  tags?: unknown[] | undefined;
+  restriction_level?: number | undefined;
+  effective_restriction_level?: number | undefined;
+  effective_privilege_level?: number | undefined;
+  user_access_level?: string | undefined;
+  access_control_version?: string | undefined;
+  last_refresh?: string | undefined;
+  persisted_filters?: unknown | undefined;
+  persisted_variables?: unknown | undefined;
+  team_id?: number | undefined;
+  quick_filter_ids?: string[] | undefined;
+  tiles?: ({  [key: string]: unknown | undefined;})[];
+  use_template?: string | undefined;
+  use_dashboard?: number | undefined;
+  delete_insights?: boolean | undefined;
+  _create_in_folder?: string | undefined;
+};
+
+export interface ActionInput_posthog_getearlyaccessfeature {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Early access feature ID. Example: "019e8d60-fbc1-0000-d729-cb62a5d65a45"
+   */
+  id: string;
+};
+
+export interface ActionOutput_posthog_getearlyaccessfeature {
+  id: string;
+  feature_flag: {  id: number;
+  team_id: number;
+  name: string;
+  key: string;
+  filters: {  [key: string]: unknown | undefined;};
+  deleted: boolean;
+  active: boolean;
+  ensure_experience_continuity: boolean;
+  version: number;
+  evaluation_runtime: string;
+  bucketing_identifier: string;
+  evaluation_contexts: string[];};
+  name: string;
+  description?: string | undefined;
+  stage: string;
+  documentation_url?: string | undefined;
+  payload?: {  [key: string]: unknown | undefined;};
+  created_at: string;
+};
+
+export interface ActionInput_posthog_geteventdefinition {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Event definition ID. Example: "019e8cf4-5a29-75a2-970f-40e0711eaba8"
+   */
+  id: string;
+};
+
+export interface ActionOutput_posthog_geteventdefinition {
+  id: string;
+  name: string;
+  owner?: number | undefined;
+  description?: string | undefined;
+  tags?: string[] | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  updated_by?: {  id: number;
+  uuid: string;
+  distinct_id: string;
+  first_name: string;
+  last_name: string;
+  email: string;
+  is_email_verified: boolean;
+  hedgehog_config: {  [key: string]: unknown | undefined;};
+  role_at_organization: string;};
+  last_seen_at?: string | undefined;
+  last_updated_at?: string | undefined;
+  verified?: boolean | undefined;
+  verified_at?: string | undefined;
+  verified_by?: {  id: number;
+  uuid: string;
+  distinct_id: string;
+  first_name: string;
+  last_name: string;
+  email: string;
+  is_email_verified: boolean;
+  hedgehog_config: {  [key: string]: unknown | undefined;};
+  role_at_organization: string;};
+  hidden?: boolean | undefined;
+  enforcement_mode?: string | undefined;
+  primary_property?: string | undefined;
+  is_action?: boolean | undefined;
+  action_id?: number | undefined;
+  is_calculating?: boolean | undefined;
+  last_calculated_at?: string | undefined;
+  created_by?: {  id: number;
+  uuid: string;
+  distinct_id: string;
+  first_name: string;
+  last_name: string;
+  email: string;
+  is_email_verified: boolean;
+  hedgehog_config: {  [key: string]: unknown | undefined;};
+  role_at_organization: string;};
+  post_to_slack?: boolean | undefined;
+  default_columns?: string[] | undefined;
+  media_preview_urls?: string[] | undefined;
+};
+
+export interface ActionInput_posthog_getevent {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Event ID. Example: "019e8cf4-b6c4-7ec7-bf3c-d7deb1549ae7"
+   */
+  id: string;
+};
+
+export interface ActionOutput_posthog_getevent {
+  id: string;
+  distinct_id?: string | undefined;
+  properties?: {  [key: string]: unknown | undefined;};
+  event?: string | undefined;
+  timestamp?: string | undefined;
+  person?: {  [key: string]: unknown | undefined;};
+  elements?: ({  event?: string | undefined;
+  text?: string | undefined;
+  tag_name?: string | undefined;
+  attr_class?: string[] | undefined;
+  href?: string | undefined;
+  attr_id?: string | undefined;
+  nth_child?: number | undefined;
+  nth_of_type?: number | undefined;
+  attributes?: {  [key: string]: unknown | undefined;};
+  order?: number | undefined;})[];
+  elements_chain?: string | undefined;
+};
+
+export interface ActionInput_posthog_getexperiment {
+  /**
+   * Experiment ID. Example: 123
+   */
+  id: number;
+  /**
+   * PostHog project ID. Example: 309484
+   */
+  project_id: number;
+};
+
+export interface ActionOutput_posthog_getexperiment {
+  id: number;
+  name: string;
+  description?: string | undefined;
+  start_date?: string | undefined;
+  end_date?: string | undefined;
+  feature_flag_key: string;
+  feature_flag?: {  [key: string]: unknown | undefined;};
+  holdout?: {  [key: string]: unknown | undefined;};
+  holdout_id?: number | undefined;
+  exposure_cohort?: number | undefined;
+  parameters?: {  [key: string]: unknown | undefined;};
+  secondary_metrics?: unknown | undefined;
+  saved_metrics?: ({  [key: string]: unknown | undefined;})[];
+  saved_metrics_ids?: unknown[] | undefined;
+  filters?: unknown | undefined;
+  archived?: boolean | undefined;
+  deleted?: boolean | undefined;
+  created_by?: {  [key: string]: unknown | undefined;};
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  type?: string | undefined;
+  exposure_criteria?: {  [key: string]: unknown | undefined;};
+  metrics?: ({  [key: string]: unknown | undefined;})[];
+  metrics_secondary?: ({  [key: string]: unknown | undefined;})[];
+  stats_config?: unknown | undefined;
+  scheduling_config?: unknown | undefined;
+  allow_unknown_events?: boolean | undefined;
+  conclusion?: string | undefined;
+  conclusion_comment?: string | undefined;
+  primary_metrics_ordered_uuids?: unknown | undefined;
+  secondary_metrics_ordered_uuids?: unknown | undefined;
+  only_count_matured_users?: boolean | undefined;
+  update_feature_flag_params?: boolean | undefined;
+  status?: string | undefined;
+  user_access_level?: string | undefined;
+};
+
+export interface ActionInput_posthog_getfeatureflag {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Feature flag ID. Example: 700471
+   */
+  id: number;
+};
+
+export interface ActionOutput_posthog_getfeatureflag {
+  id: number;
+  name?: string | undefined;
+  key?: string | undefined;
+  filters?: unknown | undefined;
+  deleted?: boolean | undefined;
+  active?: boolean | undefined;
+  created_by?: {  id?: number | undefined;
+  uuid?: string | undefined;
+  distinct_id?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  is_email_verified?: boolean | undefined;
+  hedgehog_config?: unknown | undefined;
+  role_at_organization?: string | undefined;};
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  version?: number | undefined;
+  last_modified_by?: {  id?: number | undefined;
+  uuid?: string | undefined;
+  distinct_id?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  is_email_verified?: boolean | undefined;
+  hedgehog_config?: unknown | undefined;
+  role_at_organization?: string | undefined;};
+  ensure_experience_continuity?: boolean | undefined;
+  experiment_set?: number[] | undefined;
+  experiment_set_metadata?: unknown[] | undefined;
+  surveys?: unknown | undefined;
+  features?: unknown | undefined;
+  rollback_conditions?: unknown | undefined;
+  performed_rollback?: boolean | undefined;
+  can_edit?: boolean | undefined;
+  tags?: string[] | undefined;
+  evaluation_contexts?: unknown[] | undefined;
+  usage_dashboard?: number | undefined;
+  analytics_dashboards?: number[] | undefined;
+  has_enriched_analytics?: boolean | undefined;
+  user_access_level?: string | undefined;
+  creation_context?: string | undefined;
+  is_remote_configuration?: boolean | undefined;
+  has_encrypted_payloads?: boolean | undefined;
+  status?: string | undefined;
+  evaluation_runtime?: string | undefined;
+  bucketing_identifier?: string | undefined;
+  last_called_at?: string | undefined;
+  _create_in_folder?: string | undefined;
+  _should_create_usage_dashboard?: boolean | undefined;
+  is_used_in_replay_settings?: boolean | undefined;
+};
+
+export interface ActionInput_posthog_getinsight {
+  /**
+   * PostHog project ID. Example: 309484
+   */
+  project_id: number;
+  /**
+   * Insight ID. Example: 9038220
+   */
+  insight_id: number;
+};
+
+export interface ActionOutput_posthog_getinsight {
+  id: number;
+  short_id: string;
+  name?: string | undefined;
+  derived_name?: string | undefined;
+  query?: unknown | undefined;
+  order?: number | undefined;
+  deleted: boolean;
+  dashboards?: number[] | undefined;
+  dashboard_tiles?: ({  id: number;
+  dashboard_id: number;
+  deleted?: boolean | undefined;})[];
+  last_refresh?: string | undefined;
+  cache_target_age?: string | undefined;
+  next_allowed_client_refresh?: string | undefined;
+  result?: unknown | undefined;
+  hasMore?: boolean | undefined;
+  columns?: string[] | undefined;
+  created_at: string;
+  created_by?: unknown | undefined;
+  description?: string | undefined;
+  updated_at: string;
+  tags?: unknown[] | undefined;
+  favorited?: boolean | undefined;
+  last_modified_at?: string | undefined;
+  last_modified_by?: unknown | undefined;
+  is_sample?: boolean | undefined;
+  effective_restriction_level?: number | undefined;
+  effective_privilege_level?: number | undefined;
+  user_access_level?: string | undefined;
+  timezone?: string | undefined;
+  is_cached?: boolean | undefined;
+  query_status?: unknown | undefined;
+  hogql?: string | undefined;
+  types?: unknown[] | undefined;
+  resolved_date_range?: {  date_from: string;
+  date_to: string;} | undefined;
+  _create_in_folder?: string | undefined;
+  alerts?: unknown[] | undefined;
+  last_viewed_at?: string | undefined;
+};
+
+export interface ActionInput_posthog_getperson {
+  /**
+   * PostHog project ID. Example: 309484
+   */
+  project_id: number;
+  /**
+   * Person ID (numeric ID or UUID). Example: "28326788283"
+   */
+  id: string;
+};
+
+export interface ActionOutput_posthog_getperson {
+  id: number;
+  name?: string | undefined;
+  distinct_ids: string[];
+  properties?: {  [key: string]: unknown | undefined;};
+  created_at: string;
+  uuid: string;
+  last_seen_at?: string | undefined;
+};
+
+export interface ActionInput_posthog_getproject {
+  /**
+   * Project ID. Example: 309484
+   */
+  project_id: number;
+};
+
+export interface ActionOutput_posthog_getproject {
+  id: number;
+  uuid: string;
+  organization: string;
+  name: string;
+  product_description?: string | undefined;
+  created_at: string;
+  updated_at: string;
+};
+
+export interface ActionInput_posthog_getpropertydefinition {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Property definition ID (UUID). Example: "497f6eca-6276-4993-bfeb-53cbbbba6f08"
+   */
+  id: string;
+};
+
+export interface ActionOutput_posthog_getpropertydefinition {
+  id: string;
+  name: string;
+  description?: string | undefined;
+  tags?: string[] | undefined;
+  is_numerical?: boolean | undefined;
+  updated_at?: string | undefined;
+  updated_by?: {  id: number;
+  uuid: string;
+  distinct_id: string;
+  first_name: string;
+  last_name: string;
+  email: string;
+  is_email_verified: boolean;
+  hedgehog_config: {  [key: string]: unknown | undefined;};
+  role_at_organization: string;};
+  is_seen_on_filtered_events?: boolean | undefined;
+  property_type?: string | undefined;
+  verified?: boolean | undefined;
+  verified_at?: string | undefined;
+  verified_by?: {  id: number;
+  uuid: string;
+  distinct_id: string;
+  first_name: string;
+  last_name: string;
+  email: string;
+  is_email_verified: boolean;
+  hedgehog_config: {  [key: string]: unknown | undefined;};
+  role_at_organization: string;};
+  hidden?: boolean | undefined;
+};
+
+export interface ActionInput_posthog_getsurvey {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Survey ID. Example: "019e8d61-0fbf-0000-0ddc-95116dc0275e"
+   */
+  id: string;
+};
+
+export interface ActionOutput_posthog_getsurvey {
+  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  type?: string | undefined;
+  schedule?: string | undefined;
+  linked_flag?: {  [key: string]: unknown | undefined;};
+  linked_flag_id?: number | undefined;
+  linked_insight_id?: number | undefined;
+  targeting_flag?: {  [key: string]: unknown | undefined;};
+  internal_targeting_flag?: {  [key: string]: unknown | undefined;};
+  questions?: unknown[] | undefined;
+  conditions?: {  [key: string]: unknown | undefined;};
+  appearance?: unknown | undefined;
+  created_at?: string | undefined;
+  created_by?: {  [key: string]: unknown | undefined;};
+  start_date?: string | undefined;
+  end_date?: string | undefined;
+  archived?: boolean | undefined;
+  responses_limit?: number | undefined;
+  feature_flag_keys?: ({  [key: string]: unknown | undefined;})[];
+  iteration_count?: number | undefined;
+  iteration_frequency_days?: number | undefined;
+  iteration_start_dates?: string[] | undefined;
+  current_iteration?: number | undefined;
+  current_iteration_start_date?: string | undefined;
+  response_sampling_start_date?: string | undefined;
+  response_sampling_interval_type?: string | undefined;
+  response_sampling_interval?: number | undefined;
+  response_sampling_limit?: number | undefined;
+  response_sampling_daily_limits?: unknown | undefined;
+  enable_partial_responses?: boolean | undefined;
+  enable_iframe_embedding?: boolean | undefined;
+  base_language?: string | undefined;
+  translations?: unknown | undefined;
+  user_access_level?: string | undefined;
+  form_content?: unknown | undefined;
+};
+
+export interface ActionInput_posthog_identifyperson {
+  /**
+   * The distinct ID of the person to identify. Example: "user@example.com"
+   */
+  distinct_id: string;
+  /**
+   * Properties to set on the person via $set. Example: {"email": "user@example.com"}
+   */
+  properties?: {  [key: string]: unknown | undefined;};
+  /**
+   * The PostHog project ID. Example: 309484
+   */
+  project_id: number;
+};
+
+export interface ActionOutput_posthog_identifyperson {
+  status: string;
+  distinct_id: string;
+};
+
+export interface ActionInput_posthog_listactions {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Pagination cursor (offset value) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results to return per page.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_posthog_listactions {
+  items: ({  id: number;
+  name?: string | undefined;
+  description?: string | undefined;
+  tags?: string[] | undefined;
+  post_to_slack?: boolean | undefined;
+  slack_message_format?: string | undefined;
+  steps?: ({  event?: string | undefined;
+  properties?: ({  key?: string | undefined;
+  type?: string | undefined;
+  value?: string | number | boolean | ({  0: string;
+  1: number;
+  2: boolean;})[] | undefined;
+  operator?: string | undefined;})[];
+  selector?: string | undefined;
+  selector_regex?: string | undefined;
+  tag_name?: string | undefined;
+  text?: string | undefined;
+  text_matching?: string | undefined;
+  href?: string | undefined;
+  href_matching?: string | undefined;
+  url?: string | undefined;
+  url_matching?: string | undefined;})[];
+  created_at?: string | undefined;
+  created_by?: {  id?: number | undefined;
+  uuid?: string | undefined;
+  distinct_id?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  is_email_verified?: boolean | undefined;
+  hedgehog_config?: {  [key: string]: unknown | undefined;};
+  role_at_organization?: string | undefined;};
+  deleted?: boolean | undefined;
+  is_calculating?: boolean | undefined;
+  last_calculated_at?: string | undefined;
+  team_id?: number | undefined;
+  is_action?: boolean | undefined;
+  bytecode_error?: string | undefined;
+  pinned_at?: string | undefined;
+  creation_context?: string | undefined;
+  _create_in_folder?: string | undefined;
+  user_access_level?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_posthog_listalerts {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Pagination offset from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Example: 10
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_posthog_listalerts {
+  items: ({  id: string;
+  created_at?: string | undefined;
+  name?: string | undefined;
+  enabled?: boolean | undefined;
+  state?: string | undefined;
+  last_notified_at?: string | undefined;
+  last_checked_at?: string | undefined;
+  next_check_at?: string | undefined;
+  checks_total?: number | undefined;
+  last_value?: number | undefined;
+  calculation_interval?: string | undefined;
+  snoozed_until?: string | undefined;
+  skip_weekend?: boolean | undefined;
+  investigation_agent_enabled?: boolean | undefined;
+  investigation_gates_notifications?: boolean | undefined;
+  investigation_inconclusive_action?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_posthog_listannotations {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Pagination offset cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results to return per page.
+   */
+  limit?: number | undefined;
+  /**
+   * Search query string to filter annotations.
+   */
+  search?: string | undefined;
+};
+
+export interface ActionOutput_posthog_listannotations {
+  results: ({  id: number;
+  content?: string | undefined;
+  date_marker?: string | undefined;
+  creation_type?: string | undefined;
+  dashboard_item?: number | undefined;
+  dashboard_id?: number | undefined;
+  dashboard_name?: string | undefined;
+  insight_short_id?: string | undefined;
+  insight_name?: string | undefined;
+  insight_derived_name?: string | undefined;
+  created_by?: {  id: number;
+  uuid: string;
+  distinct_id?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  is_email_verified?: boolean | undefined;
+  hedgehog_config?: {  [key: string]: unknown | undefined;};
+  role_at_organization?: string | undefined;};
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  deleted?: boolean | undefined;
+  scope?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_posthog_listcohorts {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Pagination cursor (offset) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results to return per page. Example: 100
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_posthog_listcohorts {
+  items: ({  id: number;
+  name?: string | undefined;
+  description?: string | undefined;
+  deleted?: boolean | undefined;
+  is_calculating?: boolean | undefined;
+  created_at?: string | undefined;
+  last_calculation?: string | undefined;
+  count?: number | undefined;
+  is_static?: boolean | undefined;
+  cohort_type?: string | undefined;
+  errors_calculating?: number | undefined;
+  last_error_message?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_posthog_listdashboards {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Number of results per page. Example: 20
+   */
+  limit?: number | undefined;
+  /**
+   * Search query string
+   */
+  search?: string | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_posthog_listdashboards {
+  items: ({  id: number;
+  name: string;
+  description?: string | undefined;
+  pinned?: boolean | undefined;
+  created_at: string;
+  created_by?: {  id: number;
+  uuid: string;
+  distinct_id: string;
+  first_name: string;
+  last_name: string;
+  email: string;
+  is_email_verified: boolean;
+  role_at_organization?: string | undefined;};
+  last_accessed_at?: string | undefined;
+  last_viewed_at?: string | undefined;
+  is_shared?: boolean | undefined;
+  deleted?: boolean | undefined;
+  creation_mode?: string | undefined;
+  tags?: unknown[] | undefined;
+  restriction_level?: number | undefined;
+  effective_restriction_level?: number | undefined;
+  effective_privilege_level?: number | undefined;
+  user_access_level?: string | undefined;
+  last_refresh?: string | undefined;
+  team_id?: number | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_posthog_listearlyaccessfeatures {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Maximum number of results to return per page. Example: 100
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor (offset value) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_posthog_listearlyaccessfeatures {
+  count?: number | undefined;
+  next_cursor?: string | undefined;
+  previous_cursor?: string | undefined;
+  results: ({  id: string;
+  feature_flag?: {  id: number;
+  team_id?: number | undefined;
+  name?: string | undefined;
+  key?: string | undefined;
+  filters?: {  [key: string]: unknown | undefined;};
+  deleted?: boolean | undefined;
+  active?: boolean | undefined;
+  ensure_experience_continuity?: boolean | undefined;
+  version?: number | undefined;
+  evaluation_runtime?: string | undefined;
+  bucketing_identifier?: string | undefined;
+  evaluation_contexts?: string[] | undefined;};
+  name?: string | undefined;
+  description?: string | undefined;
+  stage?: string | undefined;
+  documentation_url?: string | undefined;
+  payload?: unknown | undefined;
+  created_at?: string | undefined;})[];
+};
+
+export interface ActionInput_posthog_listeventdefinitions {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Exclude hidden event definitions
+   */
+  exclude_hidden?: boolean | undefined;
+  /**
+   * Exclude stale event definitions
+   */
+  exclude_stale?: boolean | undefined;
+  /**
+   * Maximum number of results per page
+   */
+  limit?: number | undefined;
+  /**
+   * Offset for pagination
+   */
+  offset?: number | undefined;
+  /**
+   * Pagination cursor (offset) from the previous response. Overrides offset if provided.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_posthog_listeventdefinitions {
+  count: number;
+  next_cursor?: string | undefined;
+  previous_cursor?: string | undefined;
+  results: ({  id: string;
+  name: string;
+  owner?: number | undefined;
+  description?: string | undefined;
+  tags?: string[] | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  updated_by?: {  id?: number | undefined;
+  uuid?: string | undefined;
+  distinct_id?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  is_email_verified?: boolean | undefined;
+  hedgehog_config?: {  [key: string]: unknown | undefined;};
+  role_at_organization?: string | undefined;};
+  last_seen_at?: string | undefined;
+  last_updated_at?: string | undefined;
+  verified?: boolean | undefined;
+  verified_at?: string | undefined;
+  verified_by?: {  id?: number | undefined;
+  uuid?: string | undefined;
+  distinct_id?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  is_email_verified?: boolean | undefined;
+  hedgehog_config?: {  [key: string]: unknown | undefined;};
+  role_at_organization?: string | undefined;};
+  hidden?: boolean | undefined;
+  enforcement_mode?: string | undefined;
+  primary_property?: string | undefined;
+  is_action?: boolean | undefined;
+  action_id?: number | undefined;
+  is_calculating?: boolean | undefined;
+  last_calculated_at?: string | undefined;
+  created_by?: {  id?: number | undefined;
+  uuid?: string | undefined;
+  distinct_id?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  is_email_verified?: boolean | undefined;
+  hedgehog_config?: {  [key: string]: unknown | undefined;};
+  role_at_organization?: string | undefined;};
+  post_to_slack?: boolean | undefined;
+  default_columns?: string[] | undefined;
+  media_preview_urls?: string[] | undefined;})[];
+};
+
+export interface ActionInput_posthog_listevents {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Only fetch events after this ISO 8601 timestamp.
+   */
+  after?: string | undefined;
+  /**
+   * Only fetch events before this ISO 8601 timestamp.
+   */
+  before?: string | undefined;
+  /**
+   * Filter by distinct_id.
+   */
+  distinct_id?: string | undefined;
+  /**
+   * Filter by event name.
+   */
+  event?: string | undefined;
+  /**
+   * Number of results per page.
+   */
+  limit?: number | undefined;
+  /**
+   * Offset for pagination.
+   */
+  offset?: number | undefined;
+  /**
+   * Filter by person_id.
+   */
+  person_id?: string | undefined;
+  /**
+   * JSON-encoded property filters.
+   */
+  properties?: string | undefined;
+  /**
+   * Pagination cursor from the previous response next URL.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_posthog_listevents {
+  events: ({  id: string;
+  distinct_id: string;
+  properties?: {  [key: string]: unknown | undefined;};
+  event: string;
+  timestamp: string;
+  person?: unknown | undefined;
+  elements?: unknown[] | undefined;
+  elements_chain?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_posthog_listexperiments {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Pagination cursor (offset) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Example: 20
+   */
+  limit?: number | undefined;
+  /**
+   * Filter by status. One of: all, complete, draft, paused, running, stopped
+   */
+  status?: string | undefined;
+  /**
+   * Filter by archived state
+   */
+  archived?: boolean | undefined;
+  /**
+   * Search query string
+   */
+  search?: string | undefined;
+};
+
+export interface ActionOutput_posthog_listexperiments {
+  experiments: ({  id: number;
+  name: string;
+  description?: string | undefined;
+  start_date?: string | undefined;
+  end_date?: string | undefined;
+  feature_flag_key?: string | undefined;
+  status?: string | undefined;
+  archived?: boolean | undefined;
+  deleted?: boolean | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_posthog_listfeatureflags {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Pagination cursor (offset) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results to return per page.
+   */
+  limit?: number | undefined;
+  /**
+   * Filter by active status. One of: "STALE", "false", "true".
+   */
+  active?: string | undefined;
+  /**
+   * Filter by creator user ID.
+   */
+  created_by_id?: string | undefined;
+  /**
+   * Filter by evaluation runtime. One of: "both", "client", "server".
+   */
+  evaluation_runtime?: string | undefined;
+  /**
+   * Excluded properties filter.
+   */
+  excluded_properties?: string | undefined;
+  /**
+   * Filter by evaluation contexts. One of: "false", "true".
+   */
+  has_evaluation_contexts?: string | undefined;
+  /**
+   * Search query string.
+   */
+  search?: string | undefined;
+  /**
+   * Filter by tags.
+   */
+  tags?: string | undefined;
+  /**
+   * Filter by flag type. One of: "boolean", "experiment", "multivariant", "remote_config".
+   */
+  type?: string | undefined;
+};
+
+export interface ActionOutput_posthog_listfeatureflags {
+  items: ({  id: number;
+  name?: string | undefined;
+  key: string;
+  filters?: {  [key: string]: unknown | undefined;};
+  deleted?: boolean | undefined;
+  active?: boolean | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  version?: number | undefined;
+  tags?: string[] | undefined;
+  ensure_experience_continuity?: boolean | undefined;
+  experiment_set?: number[] | undefined;
+  is_remote_configuration?: boolean | undefined;
+  evaluation_runtime?: string | undefined;
+  status?: string | undefined;})[];
+  count: number;
+  next_cursor?: string | undefined;
+  previous_cursor?: string | undefined;
+};
+
+export interface ActionInput_posthog_listinsights {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Number of results to return per page. Example: 100
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor (offset) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Filter to saved insights only.
+   */
+  saved?: boolean | undefined;
+  /**
+   * Search string to filter insights by name or description.
+   */
+  search?: string | undefined;
+  /**
+   * Filter by insight short_id. Example: "ylBVGgvc"
+   */
+  short_id?: string | undefined;
+  /**
+   * Filter by insight type. One of: FUNNELS, JSON, LIFECYCLE, PATHS, RETENTION, SQL, STICKINESS, TRENDS
+   */
+  insight?: string | undefined;
+  /**
+   * Filter to favorited insights only.
+   */
+  favorited?: boolean | undefined;
+};
+
+export interface ActionOutput_posthog_listinsights {
+  items: ({  id: number;
+  short_id: string;
+  name?: string | undefined;
+  derived_name?: string | undefined;
+  query?: unknown | undefined;
+  order?: number | undefined;
+  deleted?: boolean | undefined;
+  dashboards?: number[] | undefined;
+  dashboard_tiles?: unknown[] | undefined;
+  last_refresh?: string | undefined;
+  cache_target_age?: string | undefined;
+  next_allowed_client_refresh?: string | undefined;
+  result?: unknown | undefined;
+  hasMore?: boolean | undefined;
+  columns?: string[] | undefined;
+  created_at?: string | undefined;
+  created_by?: {  id: number;
+  uuid?: string | undefined;
+  distinct_id?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  is_email_verified?: boolean | undefined;
+  hedgehog_config?: unknown | undefined;
+  role_at_organization?: string | undefined;};
+  description?: string | undefined;
+  updated_at?: string | undefined;
+  tags?: unknown[] | undefined;
+  favorited?: boolean | undefined;
+  last_modified_at?: string | undefined;
+  last_modified_by?: {  id: number;
+  uuid?: string | undefined;
+  distinct_id?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  is_email_verified?: boolean | undefined;
+  hedgehog_config?: unknown | undefined;
+  role_at_organization?: string | undefined;};
+  is_sample?: boolean | undefined;
+  effective_restriction_level?: number | undefined;
+  effective_privilege_level?: number | undefined;
+  user_access_level?: string | undefined;
+  timezone?: string | undefined;
+  is_cached?: boolean | undefined;
+  query_status?: unknown | undefined;
+  hogql?: string | undefined;
+  types?: unknown[] | undefined;
+  resolved_date_range?: {  date_from?: string | undefined;
+  date_to?: string | undefined;};
+  alerts?: unknown[] | undefined;
+  last_viewed_at?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_posthog_listpersons {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Filter by distinct ID.
+   */
+  distinct_id?: string | undefined;
+  /**
+   * Filter by email.
+   */
+  email?: string | undefined;
+  /**
+   * Search query string.
+   */
+  search?: string | undefined;
+  /**
+   * Filter by properties.
+   */
+  properties?: unknown[] | undefined;
+  /**
+   * Number of results to return per page.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_posthog_listpersons {
+  persons: ({  id: string;
+  name?: string | undefined;
+  distinct_ids?: string[] | undefined;
+  properties?: {  [key: string]: unknown | undefined;};
+  created_at?: string | undefined;
+  uuid?: string | undefined;
+  last_seen_at?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_posthog_listprojects {
+  /**
+   * Pagination offset from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results to return per page.
+   */
+  limit?: number | undefined;
+  /**
+   * Search query string.
+   */
+  search?: string | undefined;
+};
+
+export interface ActionOutput_posthog_listprojects {
+  items: ({  id: number;
+  uuid: string;
+  organization: string;
+  api_token: string;
+  name: string;
+  completed_snippet_onboarding?: boolean | undefined;
+  has_completed_onboarding_for?: unknown | undefined;
+  ingested_event?: boolean | undefined;
+  is_demo?: boolean | undefined;
+  timezone?: string | undefined;
+  access_control?: boolean | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_posthog_listpropertydefinitions {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page.
+   */
+  limit?: number | undefined;
+  /**
+   * Search query string.
+   */
+  search?: string | undefined;
+  /**
+   * Property type filter. Defaults to "event".
+   */
+  type?: 'event' | 'person' | 'group' | 'session' | undefined;
+  /**
+   * Comma-separated event names to filter by.
+   */
+  event_names?: string | undefined;
+  /**
+   * Exclude core properties.
+   */
+  exclude_core_properties?: boolean | undefined;
+  /**
+   * Exclude hidden properties.
+   */
+  exclude_hidden?: boolean | undefined;
+  /**
+   * Filter to numerical properties only.
+   */
+  is_numerical?: boolean | undefined;
+  /**
+   * Filter to verified properties only.
+   */
+  verified?: boolean | undefined;
+};
+
+export interface ActionOutput_posthog_listpropertydefinitions {
+  items: ({  id: string;
+  name: string;
+  description?: string | undefined;
+  tags?: string[] | undefined;
+  is_numerical?: boolean | undefined;
+  updated_at?: string | undefined;
+  updated_by?: {  id?: number | undefined;
+  uuid?: string | undefined;
+  distinct_id?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  is_email_verified?: boolean | undefined;
+  hedgehog_config?: {  [key: string]: unknown | undefined;};
+  role_at_organization?: string | undefined;};
+  is_seen_on_filtered_events?: boolean | undefined;
+  property_type?: string | undefined;
+  verified?: boolean | undefined;
+  verified_at?: string | undefined;
+  verified_by?: {  id?: number | undefined;
+  uuid?: string | undefined;
+  distinct_id?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  is_email_verified?: boolean | undefined;
+  hedgehog_config?: {  [key: string]: unknown | undefined;};
+  role_at_organization?: string | undefined;};
+  hidden?: boolean | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_posthog_listsessionrecordings {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Number of results to return per page.
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor (offset) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_posthog_listsessionrecordings {
+  items: ({  id: string;
+  distinct_id: string;
+  viewed?: boolean | undefined;
+  viewers?: string[] | undefined;
+  recording_duration?: number | undefined;
+  active_seconds?: number | undefined;
+  inactive_seconds?: number | undefined;
+  start_time?: string | undefined;
+  end_time?: string | undefined;
+  click_count?: number | undefined;
+  keypress_count?: number | undefined;
+  mouse_activity_count?: number | undefined;
+  console_log_count?: number | undefined;
+  console_warn_count?: number | undefined;
+  console_error_count?: number | undefined;
+  start_url?: string | undefined;
+  person?: {  id?: number | undefined;
+  name?: string | undefined;
+  distinct_ids?: string[] | undefined;
+  properties?: unknown | undefined;
+  created_at?: string | undefined;
+  uuid?: string | undefined;
+  last_seen_at?: string | undefined;};
+  retention_period_days?: number | undefined;
+  expiry_time?: string | undefined;
+  recording_ttl?: number | undefined;
+  snapshot_source?: string | undefined;
+  snapshot_library?: string | undefined;
+  ongoing?: boolean | undefined;
+  activity_score?: number | undefined;
+  has_summary?: boolean | undefined;
+  summary_outcome?: {  description?: string | undefined;
+  success?: boolean | undefined;};
+  external_references?: unknown[] | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_posthog_listsurveys {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Pagination cursor (offset) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum number of surveys to return per page.
+   */
+  limit?: number | undefined;
+  /**
+   * Search query to filter surveys by name.
+   */
+  search?: string | undefined;
+  /**
+   * Filter to archived surveys only.
+   */
+  archived?: boolean | undefined;
+};
+
+export interface ActionOutput_posthog_listsurveys {
+  items: ({  id: string;
+  name: string;
+  description?: string | undefined;
+  type?: string | undefined;
+  schedule?: string | undefined;
+  linked_flag_id?: number | undefined;
+  linked_insight_id?: number | undefined;
+  targeting_flag_id?: number | undefined;
+  questions?: unknown | undefined;
+  conditions?: unknown | undefined;
+  appearance?: unknown | undefined;
+  created_at?: string | undefined;
+  start_date?: string | undefined;
+  end_date?: string | undefined;
+  archived?: boolean | undefined;
+  responses_limit?: number | undefined;
+  iteration_count?: number | undefined;
+  iteration_frequency_days?: number | undefined;
+  current_iteration?: number | undefined;
+  current_iteration_start_date?: string | undefined;
+  enable_partial_responses?: boolean | undefined;
+  enable_iframe_embedding?: boolean | undefined;
+  base_language?: string | undefined;
+  user_access_level?: string | undefined;})[];
+  next?: string | undefined;
+};
+
+export interface ActionInput_posthog_updateaction {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Action ID. Example: 275761
+   */
+  id: number;
+  /**
+   * Action name. Set to null to clear.
+   */
+  name?: string | undefined;
+  /**
+   * Action description.
+   */
+  description?: string | undefined;
+  /**
+   * Tags to attach to the action.
+   */
+  tags?: string[] | undefined;
+  /**
+   * Whether to post to Slack.
+   */
+  post_to_slack?: boolean | undefined;
+  /**
+   * Slack message format string.
+   */
+  slack_message_format?: string | undefined;
+  /**
+   * Action steps.
+   */
+  steps?: ({  event?: string | undefined;
+  properties?: ({  key: string;
+  type: string;
+  value: string | number | boolean | ({  0: string;
+  1: number;
+  2: boolean;})[];
+  operator: string;})[] | undefined;
+  selector?: string | undefined;
+  selector_regex?: string | undefined;
+  tag_name?: string | undefined;
+  text?: string | undefined;
+  text_matching?: string | undefined;
+  href?: string | undefined;
+  href_matching?: string | undefined;
+  url?: string | undefined;
+  url_matching?: string | undefined;})[];
+  /**
+   * Whether the action is deleted.
+   */
+  deleted?: boolean | undefined;
+  /**
+   * ISO timestamp to pin the action. Set to null to unpin.
+   */
+  pinned_at?: string | undefined;
+  /**
+   * ISO timestamp of last calculation.
+   */
+  last_calculated_at?: string | undefined;
+  /**
+   * Folder ID to create the action in.
+   */
+  _create_in_folder?: string | undefined;
+};
+
+export interface ActionOutput_posthog_updateaction {
+  id: number;
+  name?: string | undefined;
+  description?: string | undefined;
+  tags?: string[] | undefined;
+  post_to_slack?: boolean | undefined;
+  slack_message_format?: string | undefined;
+  steps?: ({  event?: string | undefined;
+  properties?: ({  key: string;
+  type: string;
+  value: string | number | boolean | ({  0: string;
+  1: number;
+  2: boolean;})[];
+  operator: string;})[] | undefined;
+  selector?: string | undefined;
+  selector_regex?: string | undefined;
+  tag_name?: string | undefined;
+  text?: string | undefined;
+  text_matching?: string | undefined;
+  href?: string | undefined;
+  href_matching?: string | undefined;
+  url?: string | undefined;
+  url_matching?: string | undefined;})[];
+  created_at?: string | undefined;
+  created_by?: {  id: number;
+  uuid: string;
+  distinct_id: string;
+  first_name: string;
+  last_name: string;
+  email: string;
+  is_email_verified: boolean;
+  hedgehog_config?: unknown | undefined;
+  role_at_organization: string;};
+  deleted?: boolean | undefined;
+  is_calculating?: boolean | undefined;
+  last_calculated_at?: string | undefined;
+  team_id?: number | undefined;
+  is_action?: boolean | undefined;
+  bytecode_error?: string | undefined;
+  pinned_at?: string | undefined;
+  creation_context?: string | undefined;
+  _create_in_folder?: string | undefined;
+  user_access_level?: string | undefined;
+};
+
+export interface ActionInput_posthog_updatealert {
+  /**
+   * Alert ID. Example: "019e8d60-cb63-0000-f88c-60b06ee41715"
+   */
+  id: string;
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  insight?: number | undefined;
+  name?: string | undefined;
+  subscribed_users?: number[] | undefined;
+  threshold?: {  [key: string]: unknown | undefined;};
+  condition?: {  [key: string]: unknown | undefined;};
+  enabled?: boolean | undefined;
+  config?: {  [key: string]: unknown | undefined;};
+  detector_config?: {  [key: string]: unknown | undefined;};
+  calculation_interval?: string | undefined;
+  snoozed_until?: string | undefined;
+  skip_weekend?: boolean | undefined;
+  schedule_restriction?: {  [key: string]: unknown | undefined;};
+  investigation_agent_enabled?: boolean | undefined;
+  investigation_gates_notifications?: boolean | undefined;
+  investigation_inconclusive_action?: string | undefined;
+};
+
+export interface ActionOutput_posthog_updatealert {
+  id: string;
+  created_by: {  id: number;
+  uuid: string;
+  distinct_id: string;
+  first_name: string;
+  last_name: string;
+  email: string;
+  is_email_verified: boolean;
+  hedgehog_config?: unknown | undefined;
+  role_at_organization: string;};
+  created_at: string;
+  insight: {  id: number;
+  short_id: string;
+  name: string;
+  derived_name: string;
+  filters: {  [key: string]: unknown | undefined;};
+  query?: unknown | undefined;
+  dashboards: unknown[];
+  dashboard_tiles: unknown[];
+  description: string;
+  last_refresh: string;
+  refreshing: boolean;
+  saved: boolean;
+  updated_at: string;
+  created_by: {  id: number;
+  uuid: string;
+  distinct_id: string;
+  first_name: string;
+  last_name: string;
+  email: string;
+  is_email_verified: boolean;
+  hedgehog_config?: unknown | undefined;
+  role_at_organization: string;};
+  created_at: string;
+  last_modified_at: string;
+  favorited: boolean;
+  user_access_level: string;
+  last_viewed_at: string;
+  tags: unknown[];};
+  name: string;
+  subscribed_users: number[];
+  threshold: {  id: string;
+  created_at: string;
+  name: string;
+  configuration: {  type: string;
+  bounds?: {  [key: string]: unknown | undefined;};};};
+  condition: {  type: string;};
+  state: string;
+  enabled: boolean;
+  last_notified_at: string;
+  last_checked_at: string;
+  next_check_at: string;
+  config: {  type: string;
+  series_index: number;
+  check_ongoing_interval?: boolean | undefined;};
+  detector_config: {  [key: string]: unknown | undefined;};
+  calculation_interval: string;
+  snoozed_until: string;
+  skip_weekend: boolean;
+  schedule_restriction: {  [key: string]: unknown | undefined;};
+  last_value: number;
+  investigation_agent_enabled: boolean;
+  investigation_gates_notifications: boolean;
+  investigation_inconclusive_action: string;
+};
+
+export interface ActionInput_posthog_updateannotation {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Annotation ID. Example: 339256
+   */
+  id: number;
+  /**
+   * Annotation text content
+   */
+  content?: string | undefined;
+  /**
+   * ISO timestamp for the annotation marker. Example: "2024-01-15T00:00:00Z"
+   */
+  date_marker?: string | undefined;
+  /**
+   * Creation type. Example: "USR"
+   */
+  creation_type?: string | undefined;
+  /**
+   * Dashboard item (insight) ID this annotation is attached to
+   */
+  dashboard_item?: number | undefined;
+  /**
+   * Dashboard ID this annotation is attached to
+   */
+  dashboard_id?: number | undefined;
+  /**
+   * Whether the annotation is deleted
+   */
+  deleted?: boolean | undefined;
+  /**
+   * Scope of the annotation. Example: "dashboard_item" or "project"
+   */
+  scope?: string | undefined;
+};
+
+export interface ActionOutput_posthog_updateannotation {
+  id: number;
+  content?: string | undefined;
+  date_marker?: string | undefined;
+  creation_type?: string | undefined;
+  dashboard_item?: number | undefined;
+  dashboard_id?: number | undefined;
+  dashboard_name?: string | undefined;
+  insight_short_id?: string | undefined;
+  insight_name?: string | undefined;
+  insight_derived_name?: string | undefined;
+  created_by?: {  id: number;
+  uuid?: string | undefined;
+  distinct_id?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  is_email_verified?: boolean | undefined;
+  hedgehog_config?: {  [key: string]: unknown | undefined;};
+  role_at_organization?: string | undefined;};
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  deleted?: boolean | undefined;
+  scope?: string | undefined;
+};
+
+export interface ActionInput_posthog_updatecohort {
+  /**
+   * PostHog project ID. Example: 309484
+   */
+  project_id: number;
+  /**
+   * Cohort ID. Example: 342249
+   */
+  id: number;
+  /**
+   * Cohort name. Set to null to clear.
+   */
+  name?: string | undefined;
+  /**
+   * Cohort description.
+   */
+  description?: string | undefined;
+  /**
+   * Soft-delete the cohort.
+   */
+  deleted?: boolean | undefined;
+  /**
+   * Cohort filters object.
+   */
+  filters?: {  [key: string]: unknown | undefined;};
+  /**
+   * Cohort query.
+   */
+  query?: unknown | undefined;
+  /**
+   * Whether the cohort is static.
+   */
+  is_static?: boolean | undefined;
+  /**
+   * Cohort type.
+   */
+  cohort_type?: string | undefined;
+};
+
+export interface ActionOutput_posthog_updatecohort {
+  id: number;
+  name?: string | undefined;
+  description?: string | undefined;
+  groups?: unknown | undefined;
+  deleted: boolean;
+  filters?: {  [key: string]: unknown | undefined;};
+  query?: unknown | undefined;
+  version?: number | undefined;
+  pending_version?: number | undefined;
+  is_calculating?: boolean | undefined;
+  created_at?: string | undefined;
+  last_calculation?: string | undefined;
+  errors_calculating?: number | undefined;
+  last_error_message?: string | undefined;
+  count?: number | undefined;
+  is_static?: boolean | undefined;
+  cohort_type?: string | undefined;
+  experiment_set?: number[] | undefined;
+  _create_in_folder?: string | undefined;
+  _create_static_person_ids?: unknown[] | undefined;
+};
+
+export interface ActionInput_posthog_updatedashboard {
+  /**
+   * PostHog project ID. Example: 309484
+   */
+  project_id: number;
+  /**
+   * Dashboard ID. Example: 1663108
+   */
+  id: number;
+  /**
+   * Dashboard name. Set to null to clear.
+   */
+  name?: string | undefined;
+  /**
+   * Dashboard description
+   */
+  description?: string | undefined;
+  /**
+   * Whether the dashboard is pinned
+   */
+  pinned?: boolean | undefined;
+  /**
+   * ISO timestamp of last access
+   */
+  last_accessed_at?: string | undefined;
+  /**
+   * Soft-delete flag
+   */
+  deleted?: boolean | undefined;
+  /**
+   * Breakdown colors configuration
+   */
+  breakdown_colors?: unknown | undefined;
+  /**
+   * Data color theme ID
+   */
+  data_color_theme_id?: number | undefined;
+  /**
+   * Dashboard tags
+   */
+  tags?: unknown[] | undefined;
+  /**
+   * Restriction level
+   */
+  restriction_level?: number | undefined;
+  /**
+   * ISO timestamp of last refresh
+   */
+  last_refresh?: string | undefined;
+  /**
+   * Quick filter insight IDs
+   */
+  quick_filter_ids?: string[] | undefined;
+  /**
+   * Template name
+   */
+  use_template?: string | undefined;
+  /**
+   * ID of dashboard to copy from
+   */
+  use_dashboard?: number | undefined;
+  /**
+   * Whether to delete insights when copying
+   */
+  delete_insights?: boolean | undefined;
+  /**
+   * Folder to create the dashboard in
+   */
+  _create_in_folder?: string | undefined;
+};
+
+export interface ActionOutput_posthog_updatedashboard {
+  id: number;
+  name?: string | undefined;
+  description?: string | undefined;
+  pinned?: boolean | undefined;
+  created_at?: string | undefined;
+  created_by?: {  [key: string]: unknown | undefined;};
+  last_accessed_at?: string | undefined;
+  last_viewed_at?: string | undefined;
+  is_shared?: boolean | undefined;
+  deleted?: boolean | undefined;
+  creation_mode?: string | undefined;
+  filters?: {  [key: string]: unknown | undefined;};
+  variables?: {  [key: string]: unknown | undefined;};
+  breakdown_colors?: unknown | undefined;
+  data_color_theme_id?: number | undefined;
+  tags?: unknown[] | undefined;
+  restriction_level?: number | undefined;
+  effective_restriction_level?: number | undefined;
+  effective_privilege_level?: number | undefined;
+  user_access_level?: string | undefined;
+  access_control_version?: string | undefined;
+  last_refresh?: string | undefined;
+  persisted_filters?: {  [key: string]: unknown | undefined;};
+  persisted_variables?: {  [key: string]: unknown | undefined;};
+  team_id?: number | undefined;
+  quick_filter_ids?: unknown[] | undefined;
+  tiles?: unknown[] | undefined;
+  use_template?: string | undefined;
+  use_dashboard?: number | undefined;
+  delete_insights?: boolean | undefined;
+  _create_in_folder?: string | undefined;
+};
+
+export interface ActionInput_posthog_updateearlyaccessfeature {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Early access feature ID. Example: "497f6eca-6276-4993-bfeb-53cbbbba6f08"
+   */
+  id: string;
+  /**
+   * Name of the early access feature.
+   */
+  name?: string | undefined;
+  /**
+   * Description of the early access feature.
+   */
+  description?: string | undefined;
+  /**
+   * Stage of the early access feature.
+   */
+  stage?: 'draft' | 'concept' | 'alpha' | 'beta' | 'general-availability' | undefined;
+  /**
+   * URL to documentation for the early access feature.
+   */
+  documentation_url?: string | undefined;
+};
+
+export interface ActionOutput_posthog_updateearlyaccessfeature {
+  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  stage?: string | undefined;
+  documentation_url?: string | undefined;
+  payload?: unknown | undefined;
+  created_at?: string | undefined;
+  feature_flag_id?: number | undefined;
+};
+
+export interface ActionInput_posthog_updateexperiment {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Experiment ID. Example: 123
+   */
+  id: number;
+  /**
+   * Experiment name
+   */
+  name?: string | undefined;
+  /**
+   * Experiment description
+   */
+  description?: string | undefined;
+  /**
+   * Start date in ISO 8601 format. Example: 2019-08-24T14:15:22Z
+   */
+  start_date?: string | undefined;
+  /**
+   * End date in ISO 8601 format. Example: 2019-08-24T14:15:22Z
+   */
+  end_date?: string | undefined;
+  /**
+   * Feature flag key
+   */
+  feature_flag_key?: string | undefined;
+  /**
+   * Whether the experiment is archived
+   */
+  archived?: boolean | undefined;
+  /**
+   * Experiment conclusion. Example: won, lost, inconclusive
+   */
+  conclusion?: string | undefined;
+  /**
+   * Comment explaining the conclusion
+   */
+  conclusion_comment?: string | undefined;
+};
+
+export interface ActionOutput_posthog_updateexperiment {
+  id: number;
+  name: string;
+  description?: string | undefined;
+  start_date?: string | undefined;
+  end_date?: string | undefined;
+  feature_flag_key: string;
+  holdout_id?: number | undefined;
+  exposure_cohort?: number | undefined;
+  archived?: boolean | undefined;
+  deleted?: boolean | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  type?: string | undefined;
+  conclusion?: string | undefined;
+  conclusion_comment?: string | undefined;
+  status?: string | undefined;
+  allow_unknown_events?: boolean | undefined;
+  only_count_matured_users?: boolean | undefined;
+  update_feature_flag_params?: boolean | undefined;
+};
+
+export interface ActionInput_posthog_updatefeatureflag {
+  /**
+   * Feature flag ID. Example: 700471
+   */
+  id: number;
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Name of the feature flag.
+   */
+  name?: string | undefined;
+  /**
+   * Unique key for the feature flag.
+   */
+  key?: string | undefined;
+  /**
+   * Whether the feature flag is active.
+   */
+  active?: boolean | undefined;
+  /**
+   * Filter conditions for the feature flag.
+   */
+  filters?: {  [key: string]: unknown | undefined;};
+  /**
+   * Tags associated with the feature flag.
+   */
+  tags?: string[] | undefined;
+  /**
+   * Evaluation contexts for the feature flag.
+   */
+  evaluation_contexts?: ({  [key: string]: unknown | undefined;})[];
+};
+
+export interface ActionOutput_posthog_updatefeatureflag {
+  id: number;
+  name: string;
+  key: string;
+  filters?: {  [key: string]: unknown | undefined;};
+  deleted?: boolean | undefined;
+  active?: boolean | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  version?: number | undefined;
+  tags?: string[] | undefined;
+  ensure_experience_continuity?: boolean | undefined;
+  can_edit?: boolean | undefined;
+  status?: string | undefined;
+  evaluation_runtime?: string | undefined;
+};
+
+export interface ActionInput_posthog_updateinsight {
+  /**
+   * Insight ID. Example: 9037904
+   */
+  id: number;
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Insight name. Pass null to clear.
+   */
+  name?: string | undefined;
+  derived_name?: string | undefined;
+  /**
+   * Insight description. Pass null to clear.
+   */
+  description?: string | undefined;
+  query?: unknown | undefined;
+  order?: number | undefined;
+  deleted?: boolean | undefined;
+  dashboards?: number[] | undefined;
+  tags?: string[] | undefined;
+  favorited?: boolean | undefined;
+  _create_in_folder?: string | undefined;
+};
+
+export interface ActionOutput_posthog_updateinsight {
+  id: number;
+  short_id: string;
+  name?: string | undefined;
+  derived_name?: string | undefined;
+  description?: string | undefined;
+  query?: unknown | undefined;
+  order?: number | undefined;
+  deleted?: boolean | undefined;
+  dashboards?: number[] | undefined;
+  tags?: string[] | undefined;
+  favorited?: boolean | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+};
+
+export interface ActionInput_posthog_updateperson {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Person ID (numeric ID or UUID). Example: "28326843662" or "1842ea50-563c-5ead-88e8-88d3ad56983d"
+   */
+  person_id: string;
+  /**
+   * Properties to update on the person
+   */
+  properties?: {} | undefined;
+};
+
+export interface ActionOutput_posthog_updateperson {
+  id: number;
+  name?: string | undefined;
+  distinct_ids?: string[] | undefined;
+  properties?: {} | undefined;
+  created_at?: string | undefined;
+  uuid?: string | undefined;
+  last_seen_at?: string | undefined;
+};
+
+export interface ActionInput_posthog_updatepropertydefinition {
+  /**
+   * PostHog project ID. Example: "309484"
+   */
+  project_id: string;
+  /**
+   * Property definition ID. Example: "497f6eca-6276-4993-bfeb-53cbbbba6f08"
+   */
+  id: string;
+  /**
+   * Description of the property definition.
+   */
+  description?: string | undefined;
+  /**
+   * Tags associated with the property definition.
+   */
+  tags?: string[] | undefined;
+  /**
+   * Type of the property. Example: "DateTime", "String", "Numeric"
+   */
+  property_type?: string | undefined;
+  /**
+   * Whether the property definition is verified.
+   */
+  verified?: boolean | undefined;
+  /**
+   * Whether the property definition is hidden.
+   */
+  hidden?: boolean | undefined;
+};
+
+export interface ActionOutput_posthog_updatepropertydefinition {
+  id: string;
+  name: string;
+  description?: string | undefined;
+  tags?: string[] | undefined;
+  is_numerical?: boolean | undefined;
+  updated_at?: string | undefined;
+  updated_by?: {  id: number;
+  uuid: string;
+  distinct_id: string;
+  first_name: string;
+  last_name: string;
+  email: string;
+  is_email_verified: boolean;
+  hedgehog_config: {  [key: string]: unknown | undefined;};
+  role_at_organization: string;};
+  is_seen_on_filtered_events?: boolean | undefined;
+  property_type?: string | undefined;
+  verified?: boolean | undefined;
+  verified_at?: string | undefined;
+  verified_by?: {  id: number;
+  uuid: string;
+  distinct_id: string;
+  first_name: string;
+  last_name: string;
+  email: string;
+  is_email_verified: boolean;
+  hedgehog_config: {  [key: string]: unknown | undefined;};
+  role_at_organization: string;};
+  hidden?: boolean | undefined;
+};
+
+export interface ActionInput_posthog_updatesurvey {
+  /**
+   * PostHog project ID. Example: 309484
+   */
+  project_id: number;
+  /**
+   * Survey ID to update. Example: "019e8d61-0fbf-0000-0ddc-95116dc0275e"
+   */
+  survey_id: string;
+  /**
+   * Survey name
+   */
+  name?: string | undefined;
+  /**
+   * Survey description
+   */
+  description?: string | undefined;
+  /**
+   * Survey type (e.g. popover, api)
+   */
+  type?: string | undefined;
+  /**
+   * Survey schedule
+   */
+  schedule?: string | undefined;
+  /**
+   * Linked feature flag ID
+   */
+  linked_flag_id?: number | undefined;
+  /**
+   * Linked insight ID
+   */
+  linked_insight_id?: number | undefined;
+  /**
+   * Targeting flag ID
+   */
+  targeting_flag_id?: number | undefined;
+  /**
+   * Targeting flag filters
+   */
+  targeting_flag_filters?: {  [key: string]: unknown | undefined;};
+  /**
+   * Remove targeting flag
+   */
+  remove_targeting_flag?: boolean | undefined;
+  /**
+   * Survey questions
+   */
+  questions?: ({  [key: string]: unknown | undefined;})[];
+  /**
+   * Survey conditions
+   */
+  conditions?: {  [key: string]: unknown | undefined;};
+  /**
+   * Survey appearance settings
+   */
+  appearance?: {  [key: string]: unknown | undefined;};
+  /**
+   * Start date ISO string
+   */
+  start_date?: string | undefined;
+  /**
+   * End date ISO string
+   */
+  end_date?: string | undefined;
+  /**
+   * Archive status
+   */
+  archived?: boolean | undefined;
+  /**
+   * Response limit
+   */
+  responses_limit?: number | undefined;
+  /**
+   * Iteration count
+   */
+  iteration_count?: number | undefined;
+  /**
+   * Iteration frequency in days
+   */
+  iteration_frequency_days?: number | undefined;
+  /**
+   * Iteration start dates
+   */
+  iteration_start_dates?: string[] | undefined;
+  /**
+   * Current iteration number
+   */
+  current_iteration?: number | undefined;
+  /**
+   * Current iteration start date
+   */
+  current_iteration_start_date?: string | undefined;
+  /**
+   * Response sampling start date
+   */
+  response_sampling_start_date?: string | undefined;
+  /**
+   * Response sampling interval type
+   */
+  response_sampling_interval_type?: string | undefined;
+  /**
+   * Response sampling interval
+   */
+  response_sampling_interval?: number | undefined;
+  /**
+   * Response sampling limit
+   */
+  response_sampling_limit?: number | undefined;
+  /**
+   * Response sampling daily limits
+   */
+  response_sampling_daily_limits?: {  [key: string]: unknown | undefined;};
+  /**
+   * Enable partial responses
+   */
+  enable_partial_responses?: boolean | undefined;
+  /**
+   * Enable iframe embedding
+   */
+  enable_iframe_embedding?: boolean | undefined;
+  /**
+   * Base language code
+   */
+  base_language?: string | undefined;
+  /**
+   * Translations object
+   */
+  translations?: {  [key: string]: unknown | undefined;};
+  /**
+   * Form content
+   */
+  form_content?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_posthog_updatesurvey {
+  id: string;
+  name: string;
+  description?: string | undefined;
+  type: string;
+  schedule?: string | undefined;
+  linked_flag?: {  id: number;
+  team_id: number;
+  name: string;
+  key: string;
+  filters?: {  [key: string]: unknown | undefined;};
+  deleted: boolean;
+  active: boolean;
+  ensure_experience_continuity: boolean;
+  version: number;
+  evaluation_runtime: string;
+  bucketing_identifier: string;
+  evaluation_contexts: string[];};
+  linked_flag_id?: number | undefined;
+  linked_insight_id?: number | undefined;
+  targeting_flag?: {  id: number;
+  team_id: number;
+  name: string;
+  key: string;
+  filters?: {  [key: string]: unknown | undefined;};
+  deleted: boolean;
+  active: boolean;
+  ensure_experience_continuity: boolean;
+  version: number;
+  evaluation_runtime: string;
+  bucketing_identifier: string;
+  evaluation_contexts: string[];};
+  internal_targeting_flag?: {  id: number;
+  team_id: number;
+  name: string;
+  key: string;
+  filters?: {  [key: string]: unknown | undefined;};
+  deleted: boolean;
+  active: boolean;
+  ensure_experience_continuity: boolean;
+  version: number;
+  evaluation_runtime: string;
+  bucketing_identifier: string;
+  evaluation_contexts: string[];};
+  targeting_flag_id?: number | undefined;
+  targeting_flag_filters?: {  [key: string]: unknown | undefined;};
+  remove_targeting_flag?: boolean | undefined;
+  questions?: ({  [key: string]: unknown | undefined;})[];
+  conditions?: {  [key: string]: unknown | undefined;};
+  appearance?: {  [key: string]: unknown | undefined;};
+  created_at: string;
+  created_by?: {  id: number;
+  uuid: string;
+  distinct_id: string;
+  first_name: string;
+  last_name: string;
+  email: string;
+  is_email_verified: boolean;
+  hedgehog_config?: unknown | undefined;
+  role_at_organization: string;};
+  start_date?: string | undefined;
+  end_date?: string | undefined;
+  archived: boolean;
+  responses_limit?: number | undefined;
+  iteration_count?: number | undefined;
+  iteration_frequency_days?: number | undefined;
+  iteration_start_dates?: string[] | undefined;
+  current_iteration?: number | undefined;
+  current_iteration_start_date?: string | undefined;
+  response_sampling_start_date?: string | undefined;
+  response_sampling_interval_type?: string | undefined;
+  response_sampling_interval?: number | undefined;
+  response_sampling_limit?: number | undefined;
+  response_sampling_daily_limits?: {  [key: string]: unknown | undefined;};
+  enable_partial_responses?: boolean | undefined;
+  enable_iframe_embedding?: boolean | undefined;
+  base_language?: string | undefined;
+  translations?: {  [key: string]: unknown | undefined;};
+  form_content?: {  [key: string]: unknown | undefined;};
+};
+
 export interface BillPayment {
   id: string;
   active?: boolean | undefined;
@@ -58704,25 +64046,6 @@ export interface Estimate {
   shipping_address?: {  [key: string]: unknown | undefined;};
   line_items?: ({  [key: string]: unknown | undefined;})[];
   last_updated_time: string;
-};
-
-export interface Invoice {
-  id: string;
-  InvoiceNumber?: string | undefined;
-  Status?: string | undefined;
-  Type?: string | undefined;
-  ContactID?: string | undefined;
-  ContactName?: string | undefined;
-  Date?: string | undefined;
-  DueDate?: string | undefined;
-  Total?: number | undefined;
-  SubTotal?: number | undefined;
-  TotalTax?: number | undefined;
-  AmountDue?: number | undefined;
-  AmountPaid?: number | undefined;
-  AmountCredited?: number | undefined;
-  UpdatedDateUTC?: string | undefined;
-  CurrencyCode?: string | undefined;
 };
 
 export interface Item {
@@ -63598,70 +68921,2265 @@ export interface SyncMetadata_sap_success_factors_locations {
 export interface SyncMetadata_sap_success_factors_unifiedemployees {
 };
 
+export interface ContentType {
+  id: string;
+  siteId: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  group?: string | undefined;
+  hidden?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  sealed?: boolean | undefined;
+  isBuiltIn?: boolean | undefined;
+  parentId?: string | undefined;
+  base?: {  id?: string | undefined;
+  name?: string | undefined;
+  description?: string | undefined;
+  group?: string | undefined;
+  hidden?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  sealed?: boolean | undefined;};
+};
+
+export interface DriveItemVersion {
+  id: string;
+  itemId: string;
+  driveId: string;
+  siteId: string;
+  versionId: string;
+  size?: number | undefined;
+  lastModifiedDateTime?: string | undefined;
+  lastModifiedByDisplayName?: string | undefined;
+};
+
+export interface SyncMetadata_sharepoint_online_driveitemversions {
+  drives?: ({  siteId: string;
+  driveId: string;})[] | undefined;
+};
+
+export interface SyncMetadata_sharepoint_online_driveitems {
+  driveIds?: string[] | undefined;
+};
+
+export interface Drive {
+  id: string;
+  siteId: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  driveType?: string | undefined;
+  webUrl?: string | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+};
+
+export interface SyncMetadata_sharepoint_online_drives {
+  siteIds?: string[] | undefined;
+};
+
+export interface ListColumn {
+  id: string;
+  siteId: string;
+  listId: string;
+  name?: string | undefined;
+  displayName?: string | undefined;
+  description?: string | undefined;
+  columnType?: string | undefined;
+  hidden?: boolean | undefined;
+  required?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  indexed?: boolean | undefined;
+  enforceUniqueValues?: boolean | undefined;
+};
+
+export interface ListItem {
+  id: string;
+  siteId: string;
+  listId: string;
+  itemId: string;
+  name?: string | undefined;
+  webUrl?: string | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  contentTypeId?: string | undefined;
+  contentTypeName?: string | undefined;
+  fields?: {  [key: string]: unknown | undefined;};
+};
+
+export interface SyncMetadata_sharepoint_online_lists {
+  site_ids?: string[] | undefined;
+};
+
+export interface SyncMetadata_sharepoint_online_permissions {
+  drives: ({  siteId: string;
+  driveId: string;})[];
+};
+
+export interface SharedSiteFile {
+  id: string;
+  siteId: string;
+  driveId: string;
+  itemId: string;
+  name?: string | undefined;
+  webUrl?: string | undefined;
+  size?: number | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  parentId?: string | undefined;
+  parentPath?: string | undefined;
+};
+
 export interface SyncMetadata_sharepoint_online_sharedsitesselection {
-  sharedSites: string[];
-  pickedFiles: ({  siteId: string;
-  fileIds: string[];})[];
+  sharedSites?: string[] | undefined;
+  pickedFiles?: string[] | undefined;
 };
 
-export interface UserFileMetadata {
-  siteId: string;
+export interface SiteColumn {
   id: string;
-  name: string;
-  etag: string;
-  cTag: string;
-  is_folder: boolean;
-  mime_type: string | null;
-  path: string;
-  raw_source: {};
-  updated_at: string;
-  download_url: string | null;
-  created_at: string;
-  blob_size: number;
-};
-
-export interface SyncMetadata_sharepoint_online_userfiles {
-};
-
-export interface SelectedUserFileMetadata {
+  columnId: string;
   siteId: string;
+  name?: string | undefined;
+  displayName?: string | undefined;
+  description?: string | undefined;
+  columnGroup?: string | undefined;
+  hidden?: boolean | undefined;
+  indexed?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  required?: boolean | undefined;
+  enforceUniqueValues?: boolean | undefined;
+  type?: string | undefined;
+  text?: {  [key: string]: unknown | undefined;};
+  number?: {  [key: string]: unknown | undefined;};
+  boolean?: {  [key: string]: unknown | undefined;};
+  dateTime?: {  [key: string]: unknown | undefined;};
+  choice?: {  [key: string]: unknown | undefined;};
+  lookup?: {  [key: string]: unknown | undefined;};
+  personOrGroup?: {  [key: string]: unknown | undefined;};
+  calculated?: {  [key: string]: unknown | undefined;};
+  currency?: {  [key: string]: unknown | undefined;};
+  hyperlinkOrPicture?: {  [key: string]: unknown | undefined;};
+  term?: {  [key: string]: unknown | undefined;};
+  thumbnail?: {  [key: string]: unknown | undefined;};
+  geolocation?: {  [key: string]: unknown | undefined;};
+  validation?: {  [key: string]: unknown | undefined;};
+  defaultValue?: {  [key: string]: unknown | undefined;};
+  sourceContentType?: {  [key: string]: unknown | undefined;};
+};
+
+export interface SyncMetadata_sharepoint_online_sitecolumns {
+  siteIds: string[];
+};
+
+export interface SitePage {
   id: string;
-  name: string;
-  etag: string;
-  cTag: string;
-  is_folder: boolean;
-  mime_type: string | null;
-  path: string;
-  raw_source: {};
-  updated_at: string;
-  download_url: string | null;
-  created_at: string;
-  blob_size: number;
+  title?: string | undefined;
+  publishingState?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+};
+
+export interface SyncMetadata_sharepoint_online_sitepages {
+  selectedSites?: string[] | undefined;
+};
+
+export interface Site {
+  id: string;
+  displayName?: string | undefined;
+  name?: string | undefined;
+  webUrl?: string | undefined;
+  description?: string | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  siteCollectionHostname?: string | undefined;
+};
+
+export interface SyncMetadata_sharepoint_online_sites {
+  siteIds?: string[] | undefined;
+  sitePaths?: string[] | undefined;
+  searchTerms?: string[] | undefined;
+};
+
+export interface Subsite {
+  id: string;
+  name?: string | undefined;
+  displayName?: string | undefined;
+  description?: string | undefined;
+  webUrl?: string | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  parentSiteId?: string | undefined;
 };
 
 export interface SyncMetadata_sharepoint_online_userfilesselection {
-  sharedSites: string[];
-  pickedFiles: ({  siteId: string;
-  fileIds: string[];})[];
+  sharedSites?: string[] | undefined;
+  pickedFiles?: ({  driveId: string;
+  id: string;})[] | undefined;
 };
 
-export interface ActionInput_sharepoint_online_fetchfile {
+export interface ActionInput_sharepoint_online_addcontenttypetolist {
+  /**
+   * SharePoint site ID. Example: "hostname, guid1, guid2"
+   */
   siteId: string;
+  /**
+   * SharePoint list ID. Example: "list-guid"
+   */
+  listId: string;
+  /**
+   * Content type ID to add. Provide this or contentTypeUrl. Example: "0x0100D7B64D4E96D446B8B27A7FB63C94B3E2"
+   */
+  contentTypeId?: string | undefined;
+  /**
+   * Full content type URL to add. Provide this or contentTypeId. Example: "https://graph.microsoft.com/v1.0/sites/{siteId}/contentTypes/{contentTypeId}"
+   */
+  contentTypeUrl?: string | undefined;
+};
+
+export interface ActionOutput_sharepoint_online_addcontenttypetolist {
+  id?: string | undefined;
+  name?: string | undefined;
+  description?: string | undefined;
+  group?: string | undefined;
+  parentId?: string | undefined;
+  hidden?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  sealed?: boolean | undefined;
+};
+
+export interface ActionInput_sharepoint_online_adddriveitempermission {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,siteId,webId"
+   */
+  siteId: string;
+  /**
+   * Drive ID. Example: "b!isEncodedDriveId"
+   */
+  driveId: string;
+  /**
+   * Drive item ID. Example: "01H2W2E3E4E5E6E7E8E9E0E1"
+   */
+  itemId: string;
+  /**
+   * Recipients to invite.
+   */
+  recipients: ({  /**
+   * The email address for the recipient.
+   */
+  email?: string | undefined;
+  /**
+   * The alias of the domain object.
+   */
+  alias?: string | undefined;
+  /**
+   * The unique identifier for the recipient in the directory.
+   */
+  objectId?: string | undefined;})[];
+  /**
+   * Roles to grant, e.g. ["read"] or ["write"].
+   */
+  roles: string[];
+  /**
+   * Optional message included in the sharing invitation.
+   */
+  message?: string | undefined;
+  /**
+   * Whether the recipient must sign in.
+   */
+  requireSignIn?: boolean | undefined;
+  /**
+   * Whether to send a sharing invitation notification.
+   */
+  sendInvitation?: boolean | undefined;
+};
+
+export interface ActionOutput_sharepoint_online_adddriveitempermission {
+  permissions: ({  id: string;
+  roles: string[];
+  grantedToUserId?: string | undefined;
+  grantedToUserDisplayName?: string | undefined;
+  invitationEmail?: string | undefined;
+  invitationSignInRequired?: boolean | undefined;
+  expirationDateTime?: string | undefined;
+  shareId?: string | undefined;
+  hasPassword?: boolean | undefined;})[];
+};
+
+export interface ActionInput_sharepoint_online_copydriveitem {
+  /**
+   * SharePoint site ID. Example: "nangodevelopers.sharepoint.com,4c97403e-1663-4673-90fa-d2f8690b4510,29d15734-3d19-43f6-976b-43ece3ff81a8"
+   */
+  siteId: string;
+  /**
+   * Source drive ID. Example: "b!PkCXTGMWc0aQ-tL4aQtFEDRX0SkZPfZDl2tD7OP_gahvi-nd5TAvTJG6KTmx6Mm0"
+   */
+  driveId: string;
+  /**
+   * Source drive item ID. Example: "01RFYLAYAB3LJFGWGL6NFZAM6DHUS3QPWZ"
+   */
+  itemId: string;
+  /**
+   * Destination drive ID. Example: "b!PkCXTGMWc0aQ-tL4aQtFEDRX0SkZPfZDl2tD7OP_gahvi-nd5TAvTJG6KTmx6Mm0"
+   */
+  parentDriveId: string;
+  /**
+   * Destination parent folder item ID. Example: "01RFYLAYF6Y2GOVW7725BZO354PWSELRRZ"
+   */
+  parentItemId: string;
+  /**
+   * Optional new name for the copy. Example: "nango-copy-test-copy.txt"
+   */
+  name?: string | undefined;
+  /**
+   * If true, only copy children of a folder.
+   */
+  childrenOnly?: boolean | undefined;
+  /**
+   * If true, preserve all version history.
+   */
+  includeAllVersionHistory?: boolean | undefined;
+  /**
+   * How to handle name conflicts.
+   */
+  conflictBehavior?: 'fail' | 'replace' | 'rename' | undefined;
+};
+
+export interface ActionOutput_sharepoint_online_copydriveitem {
+  status: string;
+  monitorUrl?: string | undefined;
+  operationId?: string | undefined;
+};
+
+export interface ActionInput_sharepoint_online_createcontenttype {
+  /**
+   * SharePoint site ID. Example: "nangodevelopers.sharepoint.com,1d6e1722-9330-4b30-aa92-b73f215d9420,413c102d-9557-4a8d-8a68-bbb499015216"
+   */
+  siteId: string;
+  /**
+   * Name of the content type.
+   */
+  name: string;
+  /**
+   * Description of the content type.
+   */
+  description?: string | undefined;
+  /**
+   * Group name for the content type.
+   */
+  group?: string | undefined;
+  /**
+   * Base content type reference. Defaults to Item (0x01) if omitted.
+   */
+  base?: {  /**
+   * Base content type ID. Example: "0x01" for Item, "0x0101" for Document.
+   */
+  id: string;} | undefined;
+};
+
+export interface ActionOutput_sharepoint_online_createcontenttype {
+  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  group?: string | undefined;
+  parentId?: string | undefined;
+  base?: {  id?: string | undefined;
+  name?: string | undefined;};
+};
+
+export interface ActionInput_sharepoint_online_createdrivefolder {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,site-id,web-id"
+   */
+  siteId: string;
+  /**
+   * Drive (document library) ID. Example: "b!1234567890abcdef"
+   */
+  driveId: string;
+  /**
+   * Parent item ID where the folder will be created. Example: "0123456789abcdef"
+   */
+  parentItemId: string;
+  /**
+   * Name of the new folder. Example: "New Folder"
+   */
+  name: string;
+  /**
+   * Conflict behavior if a folder with the same name exists. Defaults to "rename".
+   */
+  conflictBehavior?: 'rename' | 'fail' | 'replace' | undefined;
+};
+
+export interface ActionOutput_sharepoint_online_createdrivefolder {
+  id: string;
+  name: string;
+  webUrl?: string | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  size?: number | undefined;
+  parentReference?: {  driveId?: string | undefined;
+  id?: string | undefined;
+  path?: string | undefined;};
+  folder?: {  childCount?: number | undefined;};
+};
+
+export interface ActionInput_sharepoint_online_createdriveuploadsession {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,1234abc"
+   */
+  siteId: string;
+  /**
+   * Drive ID. Example: "b!1234567890"
+   */
+  driveId: string;
+  /**
+   * Parent drive item ID. Example: "01ABC123DEF"
+   */
+  parentItemId: string;
+  /**
+   * Name of the file to upload. Example: "document.pdf"
+   */
+  fileName: string;
+  /**
+   * Conflict behavior if the file already exists. Default: "fail"
+   */
+  conflictBehavior?: 'fail' | 'replace' | 'rename' | undefined;
+  /**
+   * If true, the final creation requires an explicit completion request. Default: false
+   */
+  deferCommit?: boolean | undefined;
+  /**
+   * Size of the file in bytes. Only available for OneDrive personal.
+   */
+  fileSize?: number | undefined;
+  /**
+   * Description of the file. Only available for OneDrive personal.
+   */
+  description?: string | undefined;
+};
+
+export interface ActionOutput_sharepoint_online_createdriveuploadsession {
+  uploadUrl: string;
+  expirationDateTime: string;
+  nextExpectedRanges?: string[] | undefined;
+};
+
+export interface ActionInput_sharepoint_online_createlistcolumn {
+  /**
+   * SharePoint site ID. Example: "nangodevelopers.sharepoint.com,ff9cef8d-d0e4-4638-a6a6-d5374e2b31e1,d12a8199-c77a-4e48-a193-2e1288b26f13"
+   */
+  siteId: string;
+  /**
+   * SharePoint list ID. Example: "c662d085-19c0-4514-b514-d2acbdb8a4e4"
+   */
+  listId: string;
+  /**
+   * API-facing name of the column. Example: "TestColumn"
+   */
+  name: string;
+  /**
+   * User-facing name of the column. Example: "Test Column"
+   */
+  displayName?: string | undefined;
+  /**
+   * User-facing description of the column.
+   */
+  description?: string | undefined;
+  /**
+   * Text column settings.
+   */
+  text?: {} | undefined;
+  /**
+   * Number column settings.
+   */
+  number?: {} | undefined;
+  /**
+   * Choice column settings.
+   */
+  choice?: {} | undefined;
+  /**
+   * DateTime column settings.
+   */
+  dateTime?: {} | undefined;
+  /**
+   * Boolean column settings.
+   */
+  boolean?: {} | undefined;
+  /**
+   * Currency column settings.
+   */
+  currency?: {} | undefined;
+  /**
+   * Person or group column settings.
+   */
+  personOrGroup?: {} | undefined;
+  /**
+   * Lookup column settings.
+   */
+  lookup?: {} | undefined;
+  /**
+   * Hyperlink or picture column settings.
+   */
+  hyperlinkOrPicture?: {} | undefined;
+  /**
+   * Calculated column settings.
+   */
+  calculated?: {} | undefined;
+  /**
+   * Term column settings.
+   */
+  term?: {} | undefined;
+  /**
+   * Geolocation column settings.
+   */
+  geolocation?: {} | undefined;
+  /**
+   * Whether column values must be unique.
+   */
+  enforceUniqueValues?: boolean | undefined;
+  /**
+   * Whether the column is hidden in the UI.
+   */
+  hidden?: boolean | undefined;
+  /**
+   * Whether the column is indexed for search and sort.
+   */
+  indexed?: boolean | undefined;
+  /**
+   * Whether the column value is required.
+   */
+  required?: boolean | undefined;
+  /**
+   * Whether the column values can be modified.
+   */
+  readOnly?: boolean | undefined;
+  /**
+   * Group name for organizing site columns.
+   */
+  columnGroup?: string | undefined;
+  /**
+   * Default value for the column.
+   */
+  defaultValue?: {} | undefined;
+  /**
+   * Validation formula and message for the column.
+   */
+  validation?: {} | undefined;
+};
+
+export interface ActionOutput_sharepoint_online_createlistcolumn {
+  id: string;
+  name: string;
+  displayName?: string | undefined;
+  description?: string | undefined;
+  text?: {  [key: string]: unknown | undefined;};
+  number?: {  [key: string]: unknown | undefined;};
+  choice?: {  [key: string]: unknown | undefined;};
+  dateTime?: {  [key: string]: unknown | undefined;};
+  boolean?: {  [key: string]: unknown | undefined;};
+  currency?: {  [key: string]: unknown | undefined;};
+  personOrGroup?: {  [key: string]: unknown | undefined;};
+  lookup?: {  [key: string]: unknown | undefined;};
+  hyperlinkOrPicture?: {  [key: string]: unknown | undefined;};
+  calculated?: {  [key: string]: unknown | undefined;};
+  term?: {  [key: string]: unknown | undefined;};
+  geolocation?: {  [key: string]: unknown | undefined;};
+  enforceUniqueValues?: boolean | undefined;
+  hidden?: boolean | undefined;
+  indexed?: boolean | undefined;
+  required?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  columnGroup?: string | undefined;
+  defaultValue?: {  [key: string]: unknown | undefined;};
+  validation?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_sharepoint_online_createlistitem {
+  /**
+   * SharePoint site ID. Example: "nangodevelopers.sharepoint.com,ff9cef8d-d0e4-4638-a6a6-d5374e2b31e1,d12a8199-c77a-4e48-a193-2e1288b26f13"
+   */
+  siteId: string;
+  /**
+   * SharePoint list ID. Example: "dde98b6f-30e5-4c2f-91ba-2939b1e8c9b4"
+   */
+  listId: string;
+  /**
+   * Field values that match the list schema.
+   */
+  fields: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_sharepoint_online_createlistitem {
+  id: string;
+  name?: string | undefined;
+  webUrl?: string | undefined;
+  createdDateTime?: string | undefined;
+  createdBy?: {  user?: {  displayName?: string | undefined;
+  id?: string | undefined;};};
+  lastModifiedDateTime?: string | undefined;
+  lastModifiedBy?: {  user?: {  displayName?: string | undefined;
+  id?: string | undefined;};};
+  fields?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_sharepoint_online_createlist {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,12345678-1234-1234-1234-123456789012,00000000-0000-0000-0000-000000000000"
+   */
+  siteId: string;
+  /**
+   * Display name of the list
+   */
+  displayName: string;
+  /**
+   * Description of the list
+   */
+  description?: string | undefined;
+  /**
+   * List template. Example: "genericList", "documentLibrary", "survey", "links", "announcements". Defaults to "genericList"
+   */
+  template?: string | undefined;
+  /**
+   * Optional column definitions to create with the list
+   */
+  columns?: ({  name: string;
+  text?: {} | undefined;
+  number?: {} | undefined;
+  dateTime?: {} | undefined;
+  choice?: {} | undefined;
+  boolean?: {} | undefined;
+  hyperlinkOrPicture?: {} | undefined;
+  personOrGroup?: {} | undefined;
+  lookup?: {} | undefined;
+  currency?: {} | undefined;})[];
+  /**
+   * Whether content types are enabled for the list
+   */
+  contentTypesEnabled?: boolean | undefined;
+};
+
+export interface ActionOutput_sharepoint_online_createlist {
+  id: string;
+  displayName: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  webUrl?: string | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  template?: string | undefined;
+  contentTypesEnabled?: boolean | undefined;
+  hidden?: boolean | undefined;
+  columns?: ({})[] | undefined;
+};
+
+export interface ActionInput_sharepoint_online_createsharinglink {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,12345678-1234-1234-1234-123456789012"
+   */
+  siteId: string;
+  /**
+   * Drive ID. Example: "b!1234567890abcdefghijklmnopqrstuvwxyz"
+   */
+  driveId: string;
+  /**
+   * Drive item ID. Example: "0123456789abcdefghijklmnopqrstuvwxyz"
+   */
+  itemId: string;
+  /**
+   * The type of sharing link to create.
+   */
+  type: 'view' | 'edit' | 'embed';
+  /**
+   * The scope of access granted by the sharing link.
+   */
+  scope: 'anonymous' | 'organization';
+};
+
+export interface ActionOutput_sharepoint_online_createsharinglink {
+  id?: string | undefined;
+  roles?: string[] | undefined;
+  shareId?: string | undefined;
+  hasPassword?: boolean | undefined;
+  link?: {  type?: string | undefined;
+  scope?: string | undefined;
+  webUrl?: string | undefined;
+  preventsDownload?: boolean | undefined;};
+};
+
+export interface ActionInput_sharepoint_online_createsitecolumn {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,12345678-1234-1234-1234-123456789012,12345678-1234-1234-1234-123456789012"
+   */
+  siteId: string;
+  /**
+   * The API-facing name of the column.
+   */
+  name: string;
+  /**
+   * The user-facing description of the column.
+   */
+  description?: string | undefined;
+  /**
+   * Text column type configuration.
+   */
+  text?: {  allowMultipleLines?: boolean | undefined;
+  appendChangesToExistingText?: boolean | undefined;
+  linesForEditing?: number | undefined;
+  maxLength?: number | undefined;};
+  /**
+   * Number column type configuration.
+   */
+  number?: {  decimalPlaces?: string | undefined;
+  displayAs?: string | undefined;
+  maximum?: number | undefined;
+  minimum?: number | undefined;};
+  /**
+   * DateTime column type configuration.
+   */
+  dateTime?: {  displayAs?: string | undefined;
+  format?: string | undefined;};
+  /**
+   * Choice column type configuration.
+   */
+  choice?: {  allowTextEntry?: boolean | undefined;
+  choices?: string[] | undefined;
+  displayAs?: string | undefined;};
+};
+
+export interface ActionOutput_sharepoint_online_createsitecolumn {
+  id?: string | undefined;
+  name?: string | undefined;
+  displayName?: string | undefined;
+  description?: string | undefined;
+  text?: {  [key: string]: unknown | undefined;};
+  number?: {  [key: string]: unknown | undefined;};
+  dateTime?: {  [key: string]: unknown | undefined;};
+  choice?: {  [key: string]: unknown | undefined;};
+  hidden?: boolean | undefined;
+  indexed?: boolean | undefined;
+  enforceUniqueValues?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  required?: boolean | undefined;
+  columnGroup?: string | undefined;
+};
+
+export interface ActionInput_sharepoint_online_createsitepage {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,5a58bb09-1d8d-4e19-8eb3-196471ad0dd9,9f2ec061-1f39-4f4c-9390-3210abbaa8b0"
+   */
+  siteId: string;
+  /**
+   * Page file name. Example: "test.aspx"
+   */
+  name: string;
+  /**
+   * Page title. Example: "My New Page"
+   */
+  title: string;
+  /**
+   * Page layout type. Example: "article"
+   */
+  pageLayout: string;
+  showComments?: boolean | undefined;
+  showRecommendedPages?: boolean | undefined;
+  titleArea?: {  enableGradientEffect?: boolean | undefined;
+  imageWebUrl?: string | undefined;
+  layout?: string | undefined;
+  showAuthor?: boolean | undefined;
+  showPublishedDate?: boolean | undefined;
+  showTextBlockAboveTitle?: boolean | undefined;
+  textAboveTitle?: string | undefined;
+  textAlignment?: string | undefined;
+  imageSourceType?: number | undefined;
+  title?: string | undefined;};
+  canvasLayout?: {  horizontalSections?: ({  layout?: string | undefined;
+  id?: string | undefined;
+  emphasis?: string | undefined;
+  columns?: ({  id?: string | undefined;
+  width?: number | undefined;
+  webparts?: ({  id?: string | undefined;
+  innerHtml?: string | undefined;
+  webPartType?: string | undefined;})[];})[];})[];};
+};
+
+export interface ActionOutput_sharepoint_online_createsitepage {
+  id: string;
+  name?: string | undefined;
+  webUrl?: string | undefined;
+  title?: string | undefined;
+  pageLayout?: string | undefined;
+  showComments?: boolean | undefined;
+  showRecommendedPages?: boolean | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+};
+
+export interface ActionInput_sharepoint_online_deletecontenttype {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,12345678-1234-1234-1234-123456789012,abcdef12-3456-7890-abcd-ef1234567890"
+   */
+  siteId: string;
+  /**
+   * SharePoint content type ID. Example: "0x0101009D1CB325DA4B6BDA4F5C51B469A07A12"
+   */
+  contentTypeId: string;
+};
+
+export interface ActionOutput_sharepoint_online_deletecontenttype {
+  success: boolean;
+};
+
+export interface ActionInput_sharepoint_online_deletedriveitem {
+  /**
+   * The unique identifier of the SharePoint site. Example: "nango.sharepoint.com,1d123d45-1234-12d4-1d34-12d1234d12d1,12d12345-12d1-12d4-12d4-12d1234d12d1"
+   */
+  siteId: string;
+  /**
+   * The unique identifier of the drive. Example: "b!1d123d4512d412d412d412d1234d12d1d12d1234d12d412d1234d12d12d12d"
+   */
+  driveId: string;
+  /**
+   * The unique identifier of the drive item. Example: "0123456789ABC!123"
+   */
   itemId: string;
 };
 
-export interface ActionOutput_sharepoint_online_fetchfile {
-  id: string;
-  download_url: string | null;
+export interface ActionOutput_sharepoint_online_deletedriveitem {
+  success: boolean;
 };
 
-export type ActionInput_sharepoint_online_listsharedsites = void
+export interface ActionInput_sharepoint_online_deletelistcolumn {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,12345678-1234-1234-1234-123456789012,abcdef12-3456-7890-abcd-ef1234567890"
+   */
+  siteId: string;
+  /**
+   * SharePoint list ID. Example: "12345678-1234-1234-1234-123456789012"
+   */
+  listId: string;
+  /**
+   * SharePoint column definition ID. Example: "12345678-1234-1234-1234-123456789012"
+   */
+  columnId: string;
+};
+
+export interface ActionOutput_sharepoint_online_deletelistcolumn {
+  success: boolean;
+};
+
+export interface ActionInput_sharepoint_online_deletelistitem {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,12345678-1234-1234-1234-123456789012,98765432-1234-1234-1234-123456789012"
+   */
+  siteId: string;
+  /**
+   * SharePoint list ID. Example: "12345678-1234-1234-1234-123456789012"
+   */
+  listId: string;
+  /**
+   * SharePoint list item ID. Example: "1"
+   */
+  itemId: string;
+};
+
+export interface ActionOutput_sharepoint_online_deletelistitem {
+  success: boolean;
+};
+
+export interface ActionInput_sharepoint_online_deletelist {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,12345678-1234-1234-1234-123456789012,abcdef12-3456-7890-abcd-ef1234567890"
+   */
+  siteId: string;
+  /**
+   * SharePoint list ID. Example: "12345678-1234-1234-1234-123456789012"
+   */
+  listId: string;
+};
+
+export interface ActionOutput_sharepoint_online_deletelist {
+  siteId: string;
+  listId: string;
+};
+
+export interface ActionInput_sharepoint_online_deletesitecolumn {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,00000000-0000-0000-0000-000000000000,00000000-0000-0000-0000-000000000000"
+   */
+  siteId: string;
+  /**
+   * Site column ID (GUID). Example: "00000000-0000-0000-0000-000000000000"
+   */
+  columnId: string;
+};
+
+export interface ActionOutput_sharepoint_online_deletesitecolumn {
+  success: boolean;
+};
+
+export interface ActionInput_sharepoint_online_deletesitepage {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,2c7126d0-5f53-4b7b-9a3e-0b5c2e7d1f3a,1"
+   */
+  siteId: string;
+  /**
+   * SharePoint site page ID. Example: "2"
+   */
+  pageId: string;
+};
+
+export interface ActionOutput_sharepoint_online_deletesitepage {
+  siteId: string;
+  pageId: string;
+  success: boolean;
+};
+
+export interface ActionInput_sharepoint_online_downloaddriveitemcontent {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,site-id"
+   */
+  siteId: string;
+  /**
+   * Drive ID. Example: "drive-id"
+   */
+  driveId: string;
+  /**
+   * Drive item ID. Example: "item-id"
+   */
+  itemId: string;
+};
+
+export interface ActionOutput_sharepoint_online_downloaddriveitemcontent {
+  /**
+   * Base64-encoded file content
+   */
+  content: string;
+  /**
+   * File size in bytes
+   */
+  size: number;
+  /**
+   * MIME type of the file
+   */
+  mimeType?: string | undefined;
+};
+
+export interface ActionInput_sharepoint_online_getcontenttype {
+  /**
+   * The unique identifier of the SharePoint site. Example: "contoso.sharepoint.com,12345678-1234-1234-1234-123456789012"
+   */
+  siteId: string;
+  /**
+   * The unique identifier of the content type. Example: "0x0101"
+   */
+  contentTypeId: string;
+};
+
+export interface ActionOutput_sharepoint_online_getcontenttype {
+  id?: string | undefined;
+  name?: string | undefined;
+  description?: string | undefined;
+  group?: string | undefined;
+  hidden?: boolean | undefined;
+  isBuiltIn?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  sealed?: boolean | undefined;
+  propagateChanges?: boolean | undefined;
+  parentId?: string | undefined;
+  associatedHubsUrls?: string[] | undefined;
+  order?: {  default?: boolean | undefined;
+  position?: number | undefined;};
+  inheritedFrom?: {  id?: string | undefined;
+  name?: string | undefined;
+  path?: string | undefined;
+  shareId?: string | undefined;
+  sharepointIds?: {  [key: string]: unknown | undefined;};};
+  base?: {  id?: string | undefined;
+  name?: string | undefined;
+  description?: string | undefined;
+  group?: string | undefined;};
+  baseTypes?: ({  id?: string | undefined;
+  name?: string | undefined;
+  description?: string | undefined;
+  group?: string | undefined;})[];
+  columns?: ({  id?: string | undefined;
+  name?: string | undefined;
+  displayName?: string | undefined;
+  description?: string | undefined;
+  columnGroup?: string | undefined;
+  type?: string | undefined;
+  hidden?: boolean | undefined;
+  indexed?: boolean | undefined;
+  required?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  enforceUniqueValues?: boolean | undefined;
+  isDeletable?: boolean | undefined;
+  isReorderable?: boolean | undefined;
+  isSealed?: boolean | undefined;
+  propagateChanges?: boolean | undefined;
+  text?: {  [key: string]: unknown | undefined;};
+  number?: {  [key: string]: unknown | undefined;};
+  dateTime?: {  [key: string]: unknown | undefined;};
+  boolean?: {  [key: string]: unknown | undefined;};
+  choice?: {  [key: string]: unknown | undefined;};
+  lookup?: {  [key: string]: unknown | undefined;};
+  personOrGroup?: {  [key: string]: unknown | undefined;};
+  currency?: {  [key: string]: unknown | undefined;};
+  calculated?: {  [key: string]: unknown | undefined;};
+  hyperlinkOrPicture?: {  [key: string]: unknown | undefined;};
+  term?: {  [key: string]: unknown | undefined;};
+  thumbnail?: {  [key: string]: unknown | undefined;};
+  geolocation?: {  [key: string]: unknown | undefined;};
+  contentApprovalStatus?: {  [key: string]: unknown | undefined;};
+  defaultValue?: {  [key: string]: unknown | undefined;};
+  validation?: {  [key: string]: unknown | undefined;};
+  sourceContentType?: {  [key: string]: unknown | undefined;};
+  sourceColumn?: {  [key: string]: unknown | undefined;};})[];
+  columnLinks?: ({  [key: string]: unknown | undefined;})[];
+  columnPositions?: ({  id?: string | undefined;
+  name?: string | undefined;
+  displayName?: string | undefined;
+  description?: string | undefined;
+  columnGroup?: string | undefined;
+  type?: string | undefined;
+  hidden?: boolean | undefined;
+  indexed?: boolean | undefined;
+  required?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  enforceUniqueValues?: boolean | undefined;
+  isDeletable?: boolean | undefined;
+  isReorderable?: boolean | undefined;
+  isSealed?: boolean | undefined;
+  propagateChanges?: boolean | undefined;
+  text?: {  [key: string]: unknown | undefined;};
+  number?: {  [key: string]: unknown | undefined;};
+  dateTime?: {  [key: string]: unknown | undefined;};
+  boolean?: {  [key: string]: unknown | undefined;};
+  choice?: {  [key: string]: unknown | undefined;};
+  lookup?: {  [key: string]: unknown | undefined;};
+  personOrGroup?: {  [key: string]: unknown | undefined;};
+  currency?: {  [key: string]: unknown | undefined;};
+  calculated?: {  [key: string]: unknown | undefined;};
+  hyperlinkOrPicture?: {  [key: string]: unknown | undefined;};
+  term?: {  [key: string]: unknown | undefined;};
+  thumbnail?: {  [key: string]: unknown | undefined;};
+  geolocation?: {  [key: string]: unknown | undefined;};
+  contentApprovalStatus?: {  [key: string]: unknown | undefined;};
+  defaultValue?: {  [key: string]: unknown | undefined;};
+  validation?: {  [key: string]: unknown | undefined;};
+  sourceContentType?: {  [key: string]: unknown | undefined;};
+  sourceColumn?: {  [key: string]: unknown | undefined;};})[];
+};
+
+export interface ActionInput_sharepoint_online_getdriveitemthumbnail {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,siteId,webId"
+   */
+  siteId: string;
+  /**
+   * Drive ID. Example: "b!driveId"
+   */
+  driveId: string;
+  /**
+   * Drive item ID. Example: "01NKDM7HMOJTVYMDOSXFDK2QJDXCDI3WUK"
+   */
+  itemId: string;
+};
+
+export interface ActionOutput_sharepoint_online_getdriveitemthumbnail {
+  thumbnailSets: ({  id: string;
+  small?: {  height?: number | undefined;
+  width?: number | undefined;
+  url?: string | undefined;};
+  medium?: {  height?: number | undefined;
+  width?: number | undefined;
+  url?: string | undefined;};
+  large?: {  height?: number | undefined;
+  width?: number | undefined;
+  url?: string | undefined;};})[];
+};
+
+export interface ActionInput_sharepoint_online_getdriveitem {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,1a2b3c4d,1a2b3c4d-5e6f-7g8h-9i0j-1k2l3m4n5o6p"
+   */
+  siteId: string;
+  /**
+   * Drive ID. Example: "b!1a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p7q8r9s0t1u2v3w4x5y6z7a8b9c0d1e2f"
+   */
+  driveId: string;
+  /**
+   * Drive item ID. Example: "01A2B3C4D5E6F7G8H9I0J1K2L3M4N5O6P7Q8R9S0T1U2V3W4X5Y6Z7A8B9C0D1E2F"
+   */
+  itemId: string;
+};
+
+export interface ActionOutput_sharepoint_online_getdriveitem {
+  id: string;
+  name?: string | undefined;
+  size?: number | undefined;
+  webUrl?: string | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  mimeType?: string | undefined;
+  folderChildCount?: number | undefined;
+  parentDriveId?: string | undefined;
+  parentItemId?: string | undefined;
+  parentPath?: string | undefined;
+  createdByDisplayName?: string | undefined;
+  lastModifiedByDisplayName?: string | undefined;
+};
+
+export interface ActionInput_sharepoint_online_getdrive {
+  /**
+   * SharePoint site ID. Example: "nangodevelopers.sharepoint.com,1d6e..."
+   */
+  siteId: string;
+  /**
+   * SharePoint drive ID. Example: "b!IhduHTCTMEuqkrc..."
+   */
+  driveId: string;
+};
+
+export interface ActionOutput_sharepoint_online_getdrive {
+  id: string;
+  name: string;
+  driveType: string;
+  webUrl: string;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  description?: string | undefined;
+  ownerGroupId?: string | undefined;
+  ownerGroupName?: string | undefined;
+  ownerUserId?: string | undefined;
+  ownerUserName?: string | undefined;
+  quotaDeleted?: number | undefined;
+  quotaRemaining?: number | undefined;
+  quotaState?: string | undefined;
+  quotaTotal?: number | undefined;
+  quotaUsed?: number | undefined;
+};
+
+export interface ActionInput_sharepoint_online_getlistitem {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,site-id"
+   */
+  siteId: string;
+  /**
+   * SharePoint list ID. Example: "list-id"
+   */
+  listId: string;
+  /**
+   * SharePoint list item ID. Example: "1"
+   */
+  itemId: string;
+  /**
+   * Whether to expand the fields property to include custom column values.
+   */
+  expandFields?: boolean | undefined;
+};
+
+export interface ActionOutput_sharepoint_online_getlistitem {
+  id: string;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  webUrl?: string | undefined;
+  createdBy?: {  user?: {  displayName?: string | undefined;
+  email?: string | undefined;};};
+  lastModifiedBy?: {  user?: {  displayName?: string | undefined;
+  email?: string | undefined;};};
+  parentReference?: {  id?: string | undefined;
+  siteId?: string | undefined;};
+  contentType?: {  id?: string | undefined;
+  name?: string | undefined;};
+  fields?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_sharepoint_online_getlist {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,abc123,def456"
+   */
+  siteId: string;
+  /**
+   * SharePoint list ID. Example: "12345678-1234-1234-1234-123456789012"
+   */
+  listId: string;
+};
+
+export interface ActionOutput_sharepoint_online_getlist {
+  id: string;
+  displayName?: string | undefined;
+  description?: string | undefined;
+  name?: string | undefined;
+  webUrl?: string | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  template?: string | undefined;
+  contentTypesEnabled?: boolean | undefined;
+  hidden?: boolean | undefined;
+};
+
+export interface ActionInput_sharepoint_online_getsitepage {
+  /**
+   * SharePoint site ID. Example: "7f50f45e-714a-4264-9c59-3bf43ea4db8f"
+   */
+  siteId: string;
+  /**
+   * Site page ID. Example: "df69e386-6c58-4df2-afc0-ab6327d5b202"
+   */
+  pageId: string;
+};
+
+export interface ActionOutput_sharepoint_online_getsitepage {
+  id: string;
+  name?: string | undefined;
+  title?: string | undefined;
+  webUrl?: string | undefined;
+  description?: string | undefined;
+  eTag?: string | undefined;
+  pageLayout?: string | undefined;
+  promotionKind?: string | undefined;
+  showComments?: boolean | undefined;
+  showRecommendedPages?: boolean | undefined;
+  thumbnailWebUrl?: string | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  createdBy?: {  user?: {  displayName?: string | undefined;
+  email?: string | undefined;};};
+  lastModifiedBy?: {  user?: {  displayName?: string | undefined;
+  email?: string | undefined;};};
+  contentType?: {  id?: string | undefined;
+  name?: string | undefined;};
+  parentReference?: {  listId?: string | undefined;
+  siteId?: string | undefined;};
+  publishingState?: {  level?: string | undefined;
+  versionId?: string | undefined;};
+  reactions?: {  commentCount?: number | undefined;};
+  titleArea?: unknown | undefined;
+  canvasLayout?: unknown | undefined;
+};
+
+export interface ActionInput_sharepoint_online_getsite {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,2C712604-1370-44E7-A1F5-426573FDA80A,2D224884-BFCC-4BE3-A6D9-B8C87A8A1234"
+   */
+  siteId?: string | undefined;
+  /**
+   * SharePoint hostname. Example: "contoso.sharepoint.com"
+   */
+  hostname?: string | undefined;
+  /**
+   * Server-relative URL path of the site. Example: "/sites/hr"
+   */
+  path?: string | undefined;
+};
+
+export interface ActionOutput_sharepoint_online_getsite {
+  id: string;
+  name?: string | undefined;
+  displayName?: string | undefined;
+  description?: string | undefined;
+  webUrl?: string | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  siteCollection?: {  hostname?: string | undefined;};
+};
+
+export interface ActionInput_sharepoint_online_listcontenttypes {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,12345678-1234-1234-1234-123456789012,12345678-1234-1234-1234-123456789012"
+   */
+  siteId: string;
+};
+
+export interface ActionOutput_sharepoint_online_listcontenttypes {
+  contentTypes: ({  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  group?: string | undefined;
+  base?: {  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  group?: string | undefined;};})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_sharepoint_online_listdrivechildren {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,12345,67890"
+   */
+  siteId: string;
+  /**
+   * Drive ID. Example: "b!abc123"
+   */
+  driveId: string;
+  /**
+   * Drive item ID of the folder. Omit to list root children. Example: "0127NLFRHGEUS6RLKWZVGZQZCMF3DVTGWG"
+   */
+  itemId?: string | undefined;
+  /**
+   * Pagination cursor from the previous response (@odata.nextLink). Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_sharepoint_online_listdrivechildren {
+  items: ({  id: string;
+  name: string;
+  webUrl?: string | undefined;
+  size?: number | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  file?: {} | undefined;
+  folder?: {} | undefined;
+  parentReference?: {} | undefined;})[];
+  /**
+   * URL for the next page of results. Absent when there are no more pages.
+   */
+  nextLink?: string | undefined;
+};
+
+export interface ActionInput_sharepoint_online_listdriveitempermissions {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,12345678-1234-1234-1234-123456789012,abcdef12-3456-7890-abcd-ef1234567890"
+   */
+  site_id: string;
+  /**
+   * Drive ID. Example: "b!abcdef1234567890abcdef1234567890abcdef12"
+   */
+  drive_id: string;
+  /**
+   * Drive item ID. Example: "1234567890ABC!123"
+   */
+  item_id: string;
+};
+
+export interface ActionOutput_sharepoint_online_listdriveitempermissions {
+  permissions: ({  id: string;
+  roles?: string[] | undefined;
+  grantedTo?: {  user?: {  id?: string | undefined;
+  displayName?: string | undefined;};
+  application?: {  id?: string | undefined;
+  displayName?: string | undefined;};
+  device?: {  id?: string | undefined;
+  displayName?: string | undefined;};
+  group?: {  id?: string | undefined;
+  displayName?: string | undefined;};};
+  grantedToIdentities?: ({  user?: {  id?: string | undefined;
+  displayName?: string | undefined;};
+  application?: {  id?: string | undefined;
+  displayName?: string | undefined;};
+  device?: {  id?: string | undefined;
+  displayName?: string | undefined;};
+  group?: {  id?: string | undefined;
+  displayName?: string | undefined;};})[];
+  grantedToV2?: {  user?: {  id?: string | undefined;
+  displayName?: string | undefined;};
+  application?: {  id?: string | undefined;
+  displayName?: string | undefined;};
+  device?: {  id?: string | undefined;
+  displayName?: string | undefined;};
+  group?: {  id?: string | undefined;
+  displayName?: string | undefined;};
+  siteUser?: {  id?: string | undefined;
+  displayName?: string | undefined;
+  loginName?: string | undefined;};
+  siteGroup?: {  id?: string | undefined;
+  displayName?: string | undefined;
+  loginName?: string | undefined;};};
+  grantedToIdentitiesV2?: ({  user?: {  id?: string | undefined;
+  displayName?: string | undefined;};
+  application?: {  id?: string | undefined;
+  displayName?: string | undefined;};
+  device?: {  id?: string | undefined;
+  displayName?: string | undefined;};
+  group?: {  id?: string | undefined;
+  displayName?: string | undefined;};
+  siteUser?: {  id?: string | undefined;
+  displayName?: string | undefined;
+  loginName?: string | undefined;};
+  siteGroup?: {  id?: string | undefined;
+  displayName?: string | undefined;
+  loginName?: string | undefined;};})[];
+  inheritedFrom?: {  driveId?: string | undefined;
+  id?: string | undefined;
+  path?: string | undefined;
+  shareId?: string | undefined;};
+  invitation?: {  email?: string | undefined;
+  signInRequired?: boolean | undefined;};
+  link?: {  webUrl?: string | undefined;
+  type?: string | undefined;
+  scope?: string | undefined;
+  application?: {  id?: string | undefined;
+  displayName?: string | undefined;};};
+  shareId?: string | undefined;
+  expirationDateTime?: string | undefined;
+  hasPassword?: boolean | undefined;})[];
+};
+
+export interface ActionInput_sharepoint_online_listdriveitemversions {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,1dabc234-5678-90ab-cdef-1234567890ab,1dabc234-5678-90ab-cdef-1234567890ab"
+   */
+  site_id: string;
+  /**
+   * Drive ID. Example: "b!isEncodedDriveId"
+   */
+  drive_id: string;
+  /**
+   * Drive item ID. Example: "01A2B3C4D5E6F7G8H9I0J1K2L3M4N5O6P7Q8R9S0T1U2V3W4X5Y6Z"
+   */
+  item_id: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_sharepoint_online_listdriveitemversions {
+  items: ({  id: string;
+  size?: number | undefined;
+  lastModifiedDateTime?: string | undefined;
+  lastModifiedBy?: {  user?: {  displayName?: string | undefined;
+  email?: string | undefined;};};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_sharepoint_online_listdrives {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,abc123"
+   */
+  siteId: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_sharepoint_online_listdrives {
+  items: ({  id: string;
+  name: string;
+  driveType?: string | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  webUrl?: string | undefined;
+  description?: string | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_sharepoint_online_listlistcolumns {
+  /**
+   * SharePoint site ID. Example: "nangodevelopers.sharepoint.com,1d6e1722-9330-4b30-aa92-b73f215d9420,413c102d-9557-4a8d-8a68-bbb499015216"
+   */
+  siteId: string;
+  /**
+   * SharePoint list ID. Example: "eca0d94a-d37a-46ee-9fa4-340a2e0c39f2"
+   */
+  listId: string;
+  /**
+   * Pagination cursor (the @odata.nextLink URL from the previous response). Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_sharepoint_online_listlistcolumns {
+  columns: ({  id: string;
+  name: string;
+  displayName: string;
+  description?: string | undefined;
+  columnGroup?: string | undefined;
+  hidden?: boolean | undefined;
+  indexed?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  required?: boolean | undefined;
+  enforceUniqueValues?: boolean | undefined;})[];
+  /**
+   * The @odata.nextLink URL for the next page of results, if any.
+   */
+  nextLink?: string | undefined;
+};
+
+export interface ActionInput_sharepoint_online_listlistcontenttypes {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,00000000-0000-0000-0000-000000000000,00000000-0000-0000-0000-000000000000"
+   */
+  siteId: string;
+  /**
+   * SharePoint list ID. Example: "00000000-0000-0000-0000-000000000000"
+   */
+  listId: string;
+  /**
+   * Pagination cursor from the previous response (@odata.nextLink). Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_sharepoint_online_listlistcontenttypes {
+  items: ({  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  group?: string | undefined;
+  hidden?: boolean | undefined;
+  isBuiltIn?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  sealed?: boolean | undefined;
+  parentId?: string | undefined;
+  base?: {  id?: string | undefined;
+  name?: string | undefined;};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_sharepoint_online_listlistitems {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,2C712604-1370-44E7-A1F5-426573FDA80A,2D2244C3-251A-49EA-93A8-39E1C3A060FE"
+   */
+  siteId: string;
+  /**
+   * SharePoint list ID. Example: "243bca4b-4e5e-45af-b37d-25f6135a740d"
+   */
+  listId: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Whether to expand the fields property for each list item.
+   */
+  expandFields?: boolean | undefined;
+  /**
+   * Comma-separated column names to select when expanding fields. Requires expandFields to be true. Example: "Name,Color,Quantity"
+   */
+  fieldSelectors?: string | undefined;
+  /**
+   * Number of items to return per page (1-999).
+   */
+  top?: number | undefined;
+};
+
+export interface ActionOutput_sharepoint_online_listlistitems {
+  items: ({  id: string;
+  contentType?: {  id?: string | undefined;
+  name?: string | undefined;};
+  createdBy?: {  [key: string]: unknown | undefined;};
+  createdDateTime?: string | undefined;
+  deleted?: {  [key: string]: unknown | undefined;};
+  description?: string | undefined;
+  eTag?: string | undefined;
+  lastModifiedBy?: {  [key: string]: unknown | undefined;};
+  lastModifiedDateTime?: string | undefined;
+  name?: string | undefined;
+  parentReference?: {  [key: string]: unknown | undefined;};
+  sharepointIds?: {  [key: string]: unknown | undefined;};
+  webUrl?: string | undefined;
+  fields?: {  [key: string]: unknown | undefined;};})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_sharepoint_online_listlists {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,site-id,web-id"
+   */
+  siteId: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_sharepoint_online_listlists {
+  items: ({  id: string;
+  name?: string | undefined;
+  displayName?: string | undefined;
+  description?: string | undefined;
+  webUrl?: string | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  listTemplate?: string | undefined;
+  hidden?: boolean | undefined;
+  contentTypesEnabled?: boolean | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_sharepoint_online_listsharedsites {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
 
 export interface ActionOutput_sharepoint_online_listsharedsites {
-  sitesToSync: ({  id: string;
+  sites: ({  id: string;
+  name?: string | undefined;
+  displayName?: string | undefined;
+  description?: string | undefined;
+  webUrl?: string | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_sharepoint_online_listsitecolumns {
+  /**
+   * The ID of the SharePoint site.
+   */
+  siteId: string;
+  /**
+   * Pagination cursor from a previous response.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_sharepoint_online_listsitecolumns {
+  columns: ({  id?: string | undefined;
+  name?: string | undefined;
+  displayName?: string | undefined;
+  description?: string | undefined;
+  hidden?: boolean | undefined;
+  indexed?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  required?: boolean | undefined;
+  text?: {  allowMultipleLines?: boolean | undefined;
+  appendChangesToExistingText?: boolean | undefined;
+  linesForEditing?: number | undefined;
+  maxLength?: number | undefined;};})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_sharepoint_online_listsitepages {
+  /**
+   * SharePoint site ID. Example: "7f50f45e-714a-4264-9c59-3bf43ea4db8f"
+   */
+  siteId: string;
+  /**
+   * Pagination cursor from the previous response (@odata.nextLink). Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_sharepoint_online_listsitepages {
+  items: ({  id: string;
+  name?: string | undefined;
+  webUrl?: string | undefined;
+  title?: string | undefined;
+  pageLayout?: string | undefined;
+  promotionKind?: string | undefined;
+  showComments?: boolean | undefined;
+  showRecommendedPages?: boolean | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  thumbnailWebUrl?: string | undefined;
+  createdBy?: {  user?: {  displayName?: string | undefined;
+  email?: string | undefined;};};
+  lastModifiedBy?: {  user?: {  displayName?: string | undefined;
+  email?: string | undefined;};};
+  publishingState?: {  level?: string | undefined;
+  versionId?: string | undefined;
+  checkedOutBy?: {  user?: {  displayName?: string | undefined;
+  email?: string | undefined;};};};
+  reactions?: {  commentCount?: number | undefined;
+  likeCount?: number | undefined;};
+  titleArea?: unknown | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_sharepoint_online_publishsitepage {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,site-id"
+   */
+  siteId: string;
+  /**
+   * Site page ID. Example: "page-id-guid"
+   */
+  pageId: string;
+};
+
+export interface ActionOutput_sharepoint_online_publishsitepage {
+  success: boolean;
+  siteId: string;
+  pageId: string;
+};
+
+export interface ActionInput_sharepoint_online_removedriveitempermission {
+  /**
+   * The ID of the SharePoint site. Example: "contoso.sharepoint.com,1bc25372-6eb2-4c3c-8237-809c7c4b2800,2e1554b0-6b7f-4e52-85ff-725d9f9a9c6e"
+   */
+  siteId: string;
+  /**
+   * The ID of the drive. Example: "b!yX8juNup80KqhYTKaqNlebaaLNrjw1VNhQ0el-3iEoQAiQ9Qf7W1Q5g"
+   */
+  driveId: string;
+  /**
+   * The ID of the drive item. Example: "01X2JKGDJW5WBDKAXEFREIJSKIQATQZ5VE"
+   */
+  itemId: string;
+  /**
+   * The ID of the permission to remove. Example: "1"
+   */
+  permissionId: string;
+};
+
+export interface ActionOutput_sharepoint_online_removedriveitempermission {
+  success: boolean;
+};
+
+export interface ActionInput_sharepoint_online_restoredriveitemversion {
+  /**
+   * SharePoint site ID. Example: "nangodevelopers.sharepoint.com,4c97403e-1663-4673-90fa-d2f8690b4510,29d15734-3d19-43f6-976b-43ece3ff81a8"
+   */
+  siteId: string;
+  /**
+   * Drive ID. Example: "b!PkCXTGMWc0aQ-tL4aQtFEDRX0SkZPfZDl2tD7OP_gahvi-nd5TAvTJG6KTmx6Mm0"
+   */
+  driveId: string;
+  /**
+   * Drive item ID. Example: "01RFYLAYF2MHKA54O4TZDL5SKCE4MJLIUJ"
+   */
+  itemId: string;
+  /**
+   * Version ID to restore. Example: "1.0"
+   */
+  versionId: string;
+};
+
+export interface ActionOutput_sharepoint_online_restoredriveitemversion {
+  success: true;
+};
+
+export interface ActionInput_sharepoint_online_searchdriveitems {
+  /**
+   * The ID of the SharePoint site. Example: "contoso.sharepoint.com,12345678-1234-1234-1234-123456789012,12345678-1234-1234-1234-123456789012"
+   */
+  siteId: string;
+  /**
+   * The ID of the drive within the site. Example: "b!1234567890abcdef"
+   */
+  driveId: string;
+  /**
+   * The query text used to search for items. Example: "budget"
+   */
+  query: string;
+  /**
+   * Maximum number of items to return per page. Default: 50
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_sharepoint_online_searchdriveitems {
+  items: ({  id: string;
+  name?: string | undefined;
+  webUrl?: string | undefined;
+  size?: number | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  folder?: {  childCount?: number | undefined;};
+  file?: {  mimeType?: string | undefined;};
+  parentReference?: {  driveId?: string | undefined;
+  id?: string | undefined;
+  path?: string | undefined;};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_sharepoint_online_searchsites {
+  /**
+   * Search keyword. Example: "contoso"
+   */
+  query: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_sharepoint_online_searchsites {
+  items: ({  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  webUrl?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_sharepoint_online_updatedriveitempermission {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,12345678-1234-1234-1234-123456789012,12345678-1234-1234-1234-123456789012"
+   */
+  siteId: string;
+  /**
+   * Drive ID. Example: "b!1234567890abcdef1234567890abcdef"
+   */
+  driveId: string;
+  /**
+   * Drive item ID. Example: "01ABCDEFGHIJKLMNOPQRSTUVWX"
+   */
+  itemId: string;
+  /**
+   * Permission ID to update. Example: "1234567890abcdef"
+   */
+  permissionId: string;
+  /**
+   * Roles to assign. Example: ["write"]
+   */
+  roles: string[];
+};
+
+export interface ActionOutput_sharepoint_online_updatedriveitempermission {
+  id: string;
+  roles: string[];
+  grantedTo?: {  user?: {  displayName?: string | undefined;
+  id?: string | undefined;};
+  group?: {  displayName?: string | undefined;
+  id?: string | undefined;};};
+  grantedToIdentities?: ({  user?: {  displayName?: string | undefined;
+  id?: string | undefined;};
+  group?: {  displayName?: string | undefined;
+  id?: string | undefined;};})[];
+  link?: {  type?: string | undefined;
+  scope?: string | undefined;
+  webUrl?: string | undefined;};
+  shareId?: string | undefined;
+  expirationDateTime?: string | undefined;
+  hasPassword?: boolean | undefined;
+};
+
+export interface ActionInput_sharepoint_online_updatedriveitem {
+  /**
+   * SharePoint site ID. Example: "nangodevelopers.sharepoint.com,ff9cef8d-d0e4-4638-a6a6-d5374e2b31e1,d12a8199-c77a-4e48-a193-2e1288b26f13"
+   */
+  siteId: string;
+  /**
+   * Drive ID. Example: "b!PkCXTGMWc0aQ-tL4aQtFEDRX0SkZPfZDl2tD7OP_gahvi-nd5TAvTJG6KTmx6Mm0"
+   */
+  driveId: string;
+  /**
+   * Drive item ID. Example: "01RFYLAYF2MHKA54O4TZDL5SKCE4MJLIUJ"
+   */
+  itemId: string;
+  /**
+   * New name for the drive item.
+   */
+  name?: string | undefined;
+  /**
+   * Parent reference for moving the item.
+   */
+  parentReference?: {  /**
+   * ID of the target parent folder to move the item into.
+   */
+  id?: string | undefined;};
+};
+
+export interface ActionOutput_sharepoint_online_updatedriveitem {
+  id: string;
+  name?: string | undefined;
+  webUrl?: string | undefined;
+  size?: number | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  parentReference?: {  id?: string | undefined;
+  driveId?: string | undefined;
+  path?: string | undefined;
+  name?: string | undefined;};
+  file?: {} | undefined;
+  folder?: {} | undefined;
+};
+
+export interface ActionInput_sharepoint_online_updatelistcolumn {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,12345678-1234-1234-1234-123456789012,abcdef12-1234-1234-1234-123456789012"
+   */
+  siteId: string;
+  /**
+   * SharePoint list ID. Example: "12345678-1234-1234-1234-123456789012"
+   */
+  listId: string;
+  /**
+   * SharePoint column ID. Example: "12345678-1234-1234-1234-123456789012"
+   */
+  columnId: string;
+  /**
+   * The columnDefinition properties to update.
+   */
+  columnDefinition: {};
+};
+
+export interface ActionOutput_sharepoint_online_updatelistcolumn {
+  id?: string | undefined;
+  name?: string | undefined;
+  displayName?: string | undefined;
+  description?: string | undefined;
+  required?: boolean | undefined;
+  hidden?: boolean | undefined;
+  indexed?: boolean | undefined;
+  enforceUniqueValues?: boolean | undefined;
+  columnGroup?: string | undefined;
+};
+
+export interface ActionInput_sharepoint_online_updatelistitem {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,site-id"
+   */
+  site_id: string;
+  /**
+   * SharePoint list ID. Example: "list-id"
+   */
+  list_id: string;
+  /**
+   * SharePoint list item ID. Example: "1"
+   */
+  item_id: string;
+  /**
+   * Field values keyed by internal column name.
+   */
+  fields: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_sharepoint_online_updatelistitem {
+  site_id: string;
+  list_id: string;
+  item_id: string;
+  fields: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_sharepoint_online_updatelist {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,550e8400-e29b-41d4-a716-446655440000,6f8d1c89-3b96-41d4-a78c-1234567890ab"
+   */
+  siteId: string;
+  /**
+   * List ID. Example: "550e8400-e29b-41d4-a716-446655440000"
+   */
+  listId: string;
+  /**
+   * New display name for the list.
+   */
+  displayName?: string | undefined;
+  /**
+   * New description for the list.
+   */
+  description?: string | undefined;
+};
+
+export interface ActionOutput_sharepoint_online_updatelist {
+  id: string;
+  displayName?: string | undefined;
+  description?: string | undefined;
+  name?: string | undefined;
+  webUrl?: string | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  eTag?: string | undefined;
+  list?: {  hidden?: boolean | undefined;
+  template?: string | undefined;};
+};
+
+export interface ActionInput_sharepoint_online_updatesitecolumn {
+  /**
+   * SharePoint site ID. Example: "hostname,guid1,guid2"
+   */
+  siteId: string;
+  /**
+   * Column ID. Example: "973ae66e-25b9-4c4a-a79c-ff14439de0ea"
+   */
+  columnId: string;
+  displayName?: string | undefined;
+  description?: string | undefined;
+  hidden?: boolean | undefined;
+  indexed?: boolean | undefined;
+  required?: boolean | undefined;
+  enforceUniqueValues?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  columnGroup?: string | undefined;
+  text?: {  allowMultipleLines?: boolean | undefined;
+  appendChangesToExistingText?: boolean | undefined;
+  linesForEditing?: number | undefined;
+  maxLength?: number | undefined;};
+  number?: {  decimalPlaces?: string | undefined;
+  displayAs?: string | undefined;
+  maximum?: number | undefined;
+  minimum?: number | undefined;};
+  choice?: {  choices?: string[] | undefined;
+  displayAs?: string | undefined;};
+  dateTime?: {  displayAs?: string | undefined;
+  format?: string | undefined;};
+  personOrGroup?: {  allowMultipleSelection?: boolean | undefined;
+  displayAs?: string | undefined;
+  chooseFromType?: string | undefined;};
+  lookup?: {  allowMultipleValues?: boolean | undefined;
+  allowUnlimitedLength?: boolean | undefined;
+  columnName?: string | undefined;
+  listId?: string | undefined;
+  primaryLookupColumnId?: string | undefined;};
+};
+
+export interface ActionOutput_sharepoint_online_updatesitecolumn {
+  id: string;
   name: string;
-  createdDateTime: string;
-  webUrl: string;})[];
+  displayName?: string | undefined;
+  description?: string | undefined;
+  hidden?: boolean | undefined;
+  indexed?: boolean | undefined;
+  required?: boolean | undefined;
+  enforceUniqueValues?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  columnGroup?: string | undefined;
+  text?: {  allowMultipleLines?: boolean | undefined;
+  appendChangesToExistingText?: boolean | undefined;
+  linesForEditing?: number | undefined;
+  maxLength?: number | undefined;};
+  number?: {  decimalPlaces?: string | undefined;
+  displayAs?: string | undefined;
+  maximum?: number | undefined;
+  minimum?: number | undefined;};
+  choice?: {  choices?: string[] | undefined;
+  displayAs?: string | undefined;};
+  dateTime?: {  displayAs?: string | undefined;
+  format?: string | undefined;};
+  personOrGroup?: {  allowMultipleSelection?: boolean | undefined;
+  displayAs?: string | undefined;
+  chooseFromType?: string | undefined;};
+  lookup?: {  allowMultipleValues?: boolean | undefined;
+  allowUnlimitedLength?: boolean | undefined;
+  columnName?: string | undefined;
+  listId?: string | undefined;
+  primaryLookupColumnId?: string | undefined;};
+};
+
+export interface ActionInput_sharepoint_online_updatesitepage {
+  /**
+   * SharePoint site ID. Example: "7f50f45e-714a-4264-9c59-3bf43ea4db8f"
+   */
+  siteId: string;
+  /**
+   * SharePoint site page ID. Example: "df69e386-6c58-4df2-afc0-ab6327d5b202"
+   */
+  pageId: string;
+  /**
+   * Title of the site page.
+   */
+  title?: string | undefined;
+  /**
+   * Description of the site page.
+   */
+  description?: string | undefined;
+  /**
+   * Whether to show comments at the bottom of the page.
+   */
+  showComments?: boolean | undefined;
+  /**
+   * Whether to show recommended pages at the bottom of the page.
+   */
+  showRecommendedPages?: boolean | undefined;
+  /**
+   * URL of the site page thumbnail image.
+   */
+  thumbnailWebUrl?: string | undefined;
+  /**
+   * Promotion kind of the page. Values: page, newsPost.
+   */
+  promotionKind?: string | undefined;
+  /**
+   * Title area configuration.
+   */
+  titleArea?: {} | undefined;
+  /**
+   * Canvas layout configuration.
+   */
+  canvasLayout?: {} | undefined;
+};
+
+export interface ActionOutput_sharepoint_online_updatesitepage {
+  id: string;
+  name?: string | undefined;
+  webUrl?: string | undefined;
+  title?: string | undefined;
+  description?: string | undefined;
+  pageLayout?: string | undefined;
+  showComments?: boolean | undefined;
+  showRecommendedPages?: boolean | undefined;
+  thumbnailWebUrl?: string | undefined;
+  promotionKind?: string | undefined;
+  createdBy?: {  displayName?: string | undefined;
+  email?: string | undefined;};
+  lastModifiedBy?: {  displayName?: string | undefined;
+  email?: string | undefined;};
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  publishingState?: {  level?: string | undefined;
+  versionId?: string | undefined;};
+  titleArea?: {  enableGradientEffect?: boolean | undefined;
+  imageWebUrl?: string | undefined;
+  layout?: string | undefined;
+  showAuthor?: boolean | undefined;
+  showPublishedDate?: boolean | undefined;
+  showTextBlockAboveTitle?: boolean | undefined;
+  textAboveTitle?: string | undefined;
+  textAlignment?: string | undefined;
+  title?: string | undefined;
+  imageSourceType?: number | undefined;};
+};
+
+export interface ActionInput_sharepoint_online_uploaddriveitem {
+  /**
+   * SharePoint site ID. Example: "contoso.sharepoint.com,1d2f3g4h,5i6j7k8l"
+   */
+  siteId: string;
+  /**
+   * Drive ID. Example: "b!abc123def456"
+   */
+  driveId: string;
+  /**
+   * Parent item ID. Example: "01ABC123DEF456"
+   */
+  parentItemId: string;
+  /**
+   * Name of the file to upload. Example: "report.txt"
+   */
+  fileName: string;
+  /**
+   * File content encoded as base64
+   */
+  content: string;
+  /**
+   * Content-Type of the file. Defaults to application/octet-stream
+   */
+  contentType?: string | undefined;
+};
+
+export interface ActionOutput_sharepoint_online_uploaddriveitem {
+  id: string;
+  name?: string | undefined;
+  size?: number | undefined;
+  webUrl?: string | undefined;
+  createdDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+};
+
+export interface AbandonedCheckout {
+  id: string;
+  name: string;
+  abandonedCheckoutUrl: string;
+  createdAt: string;
+  updatedAt: string;
+  completedAt?: string | undefined;
+  customerEmail?: string | undefined;
+  customerFirstName?: string | undefined;
+  customerLastName?: string | undefined;
+  billingAddressCountry?: string | undefined;
+  shippingAddressCountry?: string | undefined;
+  lineItems?: ({  id: string;
+  title?: string | undefined;
+  quantity: number;
+  sku?: string | undefined;
+  originalUnitPrice?: number | undefined;
+  originalUnitPriceCurrency?: string | undefined;})[];
+  totalPrice?: number | undefined;
+  totalPriceCurrency?: string | undefined;
+  subtotalPrice?: number | undefined;
+  subtotalPriceCurrency?: string | undefined;
+  discountCodes?: string[] | undefined;
+};
+
+export interface Discount {
+  id: string;
+  title: string;
+  summary?: string | undefined;
+  status: string;
+  updatedAt: string;
+};
+
+export interface FulfillmentOrder {
+  id: string;
+  status?: string | undefined;
+  requestStatus?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  orderId?: string | undefined;
+  orderName?: string | undefined;
+  assignedLocationId?: string | undefined;
+  assignedLocationName?: string | undefined;
+  destinationAddress1?: string | undefined;
+  destinationAddress2?: string | undefined;
+  destinationCity?: string | undefined;
+  destinationCompany?: string | undefined;
+  destinationCountryCode?: string | undefined;
+  destinationFirstName?: string | undefined;
+  destinationLastName?: string | undefined;
+  destinationPhone?: string | undefined;
+  destinationProvince?: string | undefined;
+  destinationZip?: string | undefined;
+};
+
+export interface GiftCard {
+  id: string;
+  balance: {  amount: string;
+  currencyCode: string;};
+  initialValue: {  amount: string;
+  currencyCode: string;};
+  maskedCode: string;
+  customer?: {  id?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  email?: string | undefined;};
+  expiresOn?: string | undefined;
+  createdAt: string;
+};
+
+export interface InventoryItem {
+  id: string;
+  sku?: string | undefined;
+  tracked: boolean;
+  unitCost?: {  amount?: string | undefined;
+  currencyCode?: string | undefined;};
+  countryCodeOfOrigin?: string | undefined;
+  harmonizedSystemCode?: string | undefined;
+  updatedAt?: string | undefined;
+  variant?: {  id: string;
+  title?: string | undefined;
+  displayName?: string | undefined;
+  productId?: string | undefined;
+  productTitle?: string | undefined;};
+};
+
+export interface InventoryLevel {
+  id: string;
+  inventoryItemId: string;
+  locationId: string;
+  quantities?: ({  name: string;
+  quantity: number;})[] | undefined;
+};
+
+export interface Market {
+  id: string;
+  name: string;
+  handle: string;
+  enabled?: boolean | undefined;
+  status?: string | undefined;
+  regions?: ({  name: string;
+  code?: string | undefined;})[];
+  currencySettings?: {  baseCurrencyCode?: string | undefined;
+  localCurrencies?: boolean | undefined;
+  roundingEnabled?: boolean | undefined;};
+  webPresence?: {  id?: string | undefined;
+  domain?: string | undefined;
+  subfolderSuffix?: string | undefined;
+  rootUrls?: ({  locale: string;
+  url: string;})[] | undefined;};
+};
+
+export interface Metaobject {
+  id: string;
+  handle: string;
+  type: string;
+  displayName: string;
+  updatedAt: string;
+  createdAt: string;
+  fields?: ({  key: string;
+  value?: string | undefined;
+  jsonValue?: unknown | undefined;})[];
+};
+
+export interface SyncMetadata_shopify_metaobjects {
+  types: string[];
 };
 
 export interface Order {
@@ -63726,7 +71244,4162 @@ export interface Order {
   refunds?: unknown[] | undefined;
 };
 
-export interface SyncMetadata_shopify_orders {
+export interface Return {
+  id: string;
+  status: string;
+  orderId: string;
+  createdAt: string;
+  returnLineItems?: ({  id: string;
+  quantity?: number | undefined;})[];
+  refunds?: ({  id: string;
+  totalRefunded?: string | undefined;
+  currencyCode?: string | undefined;})[];
+};
+
+export interface UrlRedirect {
+  id: string;
+  path: string;
+  target: string;
+};
+
+export interface ActionInput_shopify_acceptfulfillmentrequest {
+  /**
+   * The ID of the fulfillment order associated with the fulfillment request. Example: "gid://shopify/FulfillmentOrder/1046000778"
+   */
+  id: string;
+  /**
+   * An optional reason for accepting the fulfillment request.
+   */
+  message?: string | undefined;
+};
+
+export interface ActionOutput_shopify_acceptfulfillmentrequest {
+  fulfillmentOrder?: {  id: string;
+  status?: string | undefined;
+  requestStatus?: string | undefined;};
+  userErrors: ({  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_activateautomaticdiscount {
+  /**
+   * The ID of the automatic discount to activate. Example: gid://shopify/DiscountAutomaticNode/123
+   */
+  id: string;
+};
+
+export interface ActionOutput_shopify_activateautomaticdiscount {
+  status?: string | undefined;
+  userErrors?: ({  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_activatediscountcode {
+  /**
+   * The ID of the code discount to activate. Example: "gid://shopify/DiscountCodeNode/206265824"
+   */
+  id: string;
+};
+
+export interface ActionOutput_shopify_activatediscountcode {
+  activated: boolean;
+  userErrors: ({  field?: string[] | undefined;
+  code?: string | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_activateinventoryitematlocation {
+  /**
+   * The ID of the inventory item to activate. Example: "gid://shopify/InventoryItem/43729076"
+   */
+  inventoryItemId: string;
+  /**
+   * The ID of the location where the inventory item should be activated. Example: "gid://shopify/Location/346779380"
+   */
+  locationId: string;
+  /**
+   * The initial on_hand quantity of the inventory item being activated at the location.
+   */
+  onHand?: number | undefined;
+  /**
+   * The initial available quantity of the inventory item being activated at the location.
+   */
+  available?: number | undefined;
+};
+
+export interface ActionOutput_shopify_activateinventoryitematlocation {
+  inventoryLevel?: {  id: string;
+  canDeactivate?: boolean | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  item?: {  id: string;} | undefined;
+  location?: {  id: string;} | undefined;
+  quantities?: ({  name: string;
+  quantity: number;})[] | undefined;};
+  userErrors: ({  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_adjustinventoryquantities {
+  /**
+   * The reason for the adjustment. Example: "correction"
+   */
+  reason: string;
+  /**
+   * The inventory quantity name to adjust. Example: "available"
+   */
+  name: string;
+  /**
+   * Optional URI referencing the source document.
+   */
+  referenceDocumentUri?: string | undefined;
+  /**
+   * The list of inventory changes to apply.
+   */
+  changes: ({  /**
+   * The amount to change the quantity by. Can be negative.
+   */
+  delta: number;
+  /**
+   * The inventory item ID. Example: "gid://shopify/InventoryItem/30322695"
+   */
+  inventoryItemId: string;
+  /**
+   * The location ID. Example: "gid://shopify/Location/124656943"
+   */
+  locationId: string;
+  /**
+   * Optional expected current quantity for optimistic concurrency.
+   */
+  changeFromQuantity?: number | undefined;})[];
+};
+
+export interface ActionOutput_shopify_adjustinventoryquantities {
+  success: boolean;
+  userErrors: ({  field?: string[] | undefined;
+  message: string;})[];
+  inventoryAdjustmentGroup?: {  createdAt?: string | undefined;
+  reason?: string | undefined;
+  referenceDocumentUri?: string | undefined;
+  changes?: ({  name: string;
+  delta: number;})[] | undefined;};
+};
+
+export interface ActionInput_shopify_approvereturn {
+  /**
+   * The globally-unique ID of the return to approve. Example: "gid://shopify/Return/945000959"
+   */
+  return_id: string;
+  /**
+   * Whether to notify the customer when the return request is approved.
+   */
+  notify_customer?: boolean | undefined;
+};
+
+export interface ActionOutput_shopify_approvereturn {
+  return: {  id: string;
+  name: string;
+  status: string;
+  created_at?: string | undefined;
+  order_id: string;};
+  user_errors: ({  code?: string | undefined;
+  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_cancelfulfillmentrequest {
+  /**
+   * The ID of the fulfillment order to cancel. Example: "gid://shopify/FulfillmentOrder/1046000804"
+   */
+  fulfillmentOrderId: string;
+  /**
+   * An optional message. Note: the Shopify fulfillmentOrderCancel mutation does not currently accept a message parameter.
+   */
+  message?: string | undefined;
+};
+
+export interface ActionOutput_shopify_cancelfulfillmentrequest {
+  fulfillmentOrder?: {  id: string;
+  status?: string | undefined;
+  requestStatus?: string | undefined;};
+  replacementFulfillmentOrder?: {  id: string;
+  status?: string | undefined;
+  requestStatus?: string | undefined;};
+  userErrors: ({  field?: string | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_cancelfulfillment {
+  /**
+   * The ID of the fulfillment to cancel. Example: "gid://shopify/Fulfillment/1234567890"
+   */
+  fulfillmentId: string;
+};
+
+export interface ActionOutput_shopify_cancelfulfillment {
+  status?: string | undefined;
+  userErrors: ({  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_cancelorder {
+  /**
+   * The Shopify order ID or GID. Example: "gid://shopify/Order/1234567890" or "1234567890"
+   */
+  orderId: string;
+  /**
+   * The cancellation reason. Example: "CUSTOMER"
+   */
+  reason: string;
+  /**
+   * Whether to refund the original payment methods.
+   */
+  refund?: boolean | undefined;
+  /**
+   * Whether to restock the inventory committed to the order.
+   */
+  restock?: boolean | undefined;
+};
+
+export interface ActionOutput_shopify_cancelorder {
+  job?: {  id: string;
+  done: boolean;} | undefined;
+  orderCancelUserErrors?: ({  field?: string[] | undefined;
+  message: string;
+  code?: string | undefined;})[];
+  userErrors?: ({  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_cancelreturn {
+  /**
+   * The ID of the return to cancel. Example: "gid://shopify/Return/123"
+   */
+  returnId: string;
+};
+
+export interface ActionOutput_shopify_cancelreturn {
+  return?: {  id: string;
+  status?: string | undefined;};
+  userErrors?: ({  code?: string | undefined;
+  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_closeorder {
+  /**
+   * The ID of the order to close. Example: "gid://shopify/Order/1234567890"
+   */
+  orderId: string;
+};
+
+export interface ActionOutput_shopify_closeorder {
+  order?: {  id: string;
+  name?: string | undefined;
+  closed?: boolean | undefined;
+  closedAt?: string | undefined;};
+  userErrors: ({  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_closereturn {
+  /**
+   * The globally-unique ID of the return to close. Example: "gid://shopify/Return/1234567890"
+   */
+  id: string;
+};
+
+export interface ActionOutput_shopify_closereturn {
+  return?: {  id: string;
+  name: string;
+  status: string;
+  createdAt: string;
+  closedAt?: string | undefined;
+  totalQuantity: number;
+  order?: {  id: string;
+  name: string;} | undefined;};
+  userErrors: ({  code?: string | undefined;
+  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_completedraftorder {
+  /**
+   * The ID of the draft order to complete. Example: "gid://shopify/DraftOrder/1234567890"
+   */
+  draftOrderId: string;
+  /**
+   * Whether the order should be created with payment pending.
+   */
+  paymentPending?: boolean | undefined;
+};
+
+export interface ActionOutput_shopify_completedraftorder {
+  draftOrderId?: string | undefined;
+  orderId?: string | undefined;
+};
+
+export interface ActionInput_shopify_createautomaticdiscountbxgy {
+  /**
+   * The discount name. Example: "Buy one, get one free"
+   */
+  title: string;
+  /**
+   * The date and time when the discount becomes active. Example: "2025-01-01T00:00:00Z"
+   */
+  startsAt: string;
+  /**
+   * The date and time when the discount expires. Example: "2025-12-31T23:59:59Z"
+   */
+  endsAt?: string | undefined;
+  customerBuys: {  items: {  collections?: {  add?: string[] | undefined;
+  remove?: string[] | undefined;};
+  products?: {  productsToAdd?: string[] | undefined;
+  productsToRemove?: string[] | undefined;
+  productVariantsToAdd?: string[] | undefined;
+  productVariantsToRemove?: string[] | undefined;};};
+  value: {  /**
+   * The quantity of prerequisite items. Example: "1"
+   */
+  quantity: string;};
+  isOneTimePurchase?: boolean | undefined;
+  isSubscription?: boolean | undefined;};
+  customerGets: {  items: {  collections?: {  add?: string[] | undefined;
+  remove?: string[] | undefined;};
+  products?: {  productsToAdd?: string[] | undefined;
+  productsToRemove?: string[] | undefined;
+  productVariantsToAdd?: string[] | undefined;
+  productVariantsToRemove?: string[] | undefined;};};
+  value: {  discountOnQuantity: {  effect: {  /**
+   * The percentage value of the discount. Value must be between 0.00 - 1.00. Example: 1
+   */
+  percentage: number;};
+  /**
+   * The quantity of items that are discounted. Example: "1"
+   */
+  quantity: string;};};
+  appliesOnOneTimePurchase?: boolean | undefined;
+  appliesOnSubscription?: boolean | undefined;};
+  combinesWith?: {  orderDiscounts?: boolean | undefined;
+  productDiscounts?: boolean | undefined;
+  shippingDiscounts?: boolean | undefined;};
+  context?: {  all?: boolean | undefined;
+  customers?: {  add?: string[] | undefined;
+  remove?: string[] | undefined;};
+  customerSegments?: {  add?: string[] | undefined;
+  remove?: string[] | undefined;};};
+  tags?: string[] | undefined;
+  /**
+   * The maximum number of times the discount can be applied to an order. Example: "1"
+   */
+  usesPerOrderLimit?: string | undefined;
+};
+
+export interface ActionOutput_shopify_createautomaticdiscountbxgy {
+  automaticDiscountNode?: {  id: string;
+  title?: string | undefined;
+  startsAt?: string | undefined;
+  endsAt?: string | undefined;
+  status?: string | undefined;
+  summary?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;};
+  userErrors: ({  field?: string[] | undefined;
+  message: string;
+  code?: string | undefined;})[];
+};
+
+export interface ActionInput_shopify_createautomaticdiscountfreeshipping {
+  /**
+   * The discount title. Example: "FREESHIPPING50"
+   */
+  title: string;
+  /**
+   * ISO 8601 datetime when the discount becomes active. Example: "2025-01-01T00:00:00Z"
+   */
+  startsAt: string;
+  /**
+   * ISO 8601 datetime when the discount expires. Example: "2025-12-31T23:59:59Z"
+   */
+  endsAt?: string | undefined;
+  /**
+   * Whether the discount applies on regular one-time-purchase items.
+   */
+  appliesOnOneTimePurchase?: boolean | undefined;
+  /**
+   * Whether the discount applies on subscription items.
+   */
+  appliesOnSubscription?: boolean | undefined;
+  /**
+   * Discount classes that can combine with this shipping discount.
+   */
+  combinesWith?: {  orderDiscounts?: boolean | undefined;
+  productDiscounts?: boolean | undefined;
+  shippingDiscounts?: boolean | undefined;};
+  /**
+   * Context defining which buyers can use the discount.
+   */
+  context?: {  all?: boolean | undefined;
+  customerIds?: {  add?: string[] | undefined;
+  remove?: string[] | undefined;};
+  customerSegments?: {  add?: string[] | undefined;
+  remove?: string[] | undefined;};};
+  /**
+   * Destinations where the discount applies.
+   */
+  destination?: {  all?: boolean | undefined;
+  countries?: {  add?: string[] | undefined;
+  remove?: string[] | undefined;};};
+  /**
+   * Maximum shipping price that qualifies for the discount. Example: "200"
+   */
+  maximumShippingPrice?: string | undefined;
+  /**
+   * Minimum subtotal or quantity required for the discount.
+   */
+  minimumRequirement?: {  quantity?: {  greaterThanOrEqualToQuantity: string;} | undefined;
+  subtotal?: {  greaterThanOrEqualToSubtotal: string;} | undefined;};
+  /**
+   * Number of billing cycles for subscription-based discounts. 0 means indefinite.
+   */
+  recurringCycleLimit?: number | undefined;
+  /**
+   * Searchable keywords associated with the discount.
+   */
+  tags?: string[] | undefined;
+};
+
+export interface ActionOutput_shopify_createautomaticdiscountfreeshipping {
+  automaticDiscountNode?: {  id: string;} | undefined;
+  userErrors: ({  field?: string[] | undefined;
+  message: string;
+  code?: string | undefined;
+  extraInfo?: string | undefined;})[];
+};
+
+export interface ActionInput_shopify_createautomaticdiscount {
+  title: string;
+  startsAt: string;
+  customerGets: {  [key: string]: unknown | undefined;};
+  endsAt?: string | undefined;
+  combinesWith?: {  [key: string]: unknown | undefined;};
+  minimumRequirement?: {  [key: string]: unknown | undefined;};
+  context?: {  [key: string]: unknown | undefined;};
+  recurringCycleLimit?: number | undefined;
+  usageLimit?: number | undefined;
+  appliesOncePerCustomer?: boolean | undefined;
+  customerSelection?: {  [key: string]: unknown | undefined;};
+  tags?: string[] | undefined;
+};
+
+export interface ActionOutput_shopify_createautomaticdiscount {
+  id: string;
+  automaticDiscount?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_shopify_createcollection {
+  /**
+   * The title of the collection.
+   */
+  title: string;
+  /**
+   * The description of the collection, in HTML format.
+   */
+  descriptionHtml?: string | undefined;
+  /**
+   * A unique human-friendly string for the collection.
+   */
+  handle?: string | undefined;
+  /**
+   * The image associated with the collection.
+   */
+  image?: {  altText?: string | undefined;
+  id?: string | undefined;
+  src?: string | undefined;};
+  /**
+   * The metafields to associate with the collection.
+   */
+  metafields?: ({  id?: string | undefined;
+  key?: string | undefined;
+  namespace?: string | undefined;
+  type?: string | undefined;
+  value?: string | undefined;})[];
+  /**
+   * Initial list of collection product IDs. Only valid without rules.
+   */
+  products?: string[] | undefined;
+  /**
+   * Whether to redirect after a new handle has been provided.
+   */
+  redirectNewHandle?: boolean | undefined;
+  /**
+   * The rules used to assign products to the collection.
+   */
+  ruleSet?: {  appliedDisjunctively: boolean;
+  rules: ({  column: string;
+  condition: string;
+  conditionObjectId?: string | undefined;
+  relation: string;})[];};
+  /**
+   * SEO information for the collection.
+   */
+  seo?: {  description?: string | undefined;
+  title?: string | undefined;};
+  /**
+   * The order in which the collection products are sorted.
+   */
+  sortOrder?: string | undefined;
+  /**
+   * The theme template used when viewing the collection in a store.
+   */
+  templateSuffix?: string | undefined;
+  /**
+   * The publications to which the collection will be published.
+   */
+  publications?: ({  publicationId?: string | undefined;})[];
+};
+
+export interface ActionOutput_shopify_createcollection {
+  /**
+   * The globally unique ID of the collection.
+   */
+  id: string;
+  /**
+   * The title of the collection.
+   */
+  title: string;
+  /**
+   * The description of the collection, in HTML format.
+   */
+  descriptionHtml?: string | undefined;
+  /**
+   * A unique human-friendly string for the collection.
+   */
+  handle?: string | undefined;
+  /**
+   * The order in which the collection products are sorted.
+   */
+  sortOrder?: string | undefined;
+  /**
+   * The date and time when the collection was last updated.
+   */
+  updatedAt?: string | undefined;
+};
+
+export interface ActionInput_shopify_createcompany {
+  company: {  name: string;
+  externalId?: string | undefined;
+  note?: string | undefined;
+  customerSince?: string | undefined;};
+  companyContact?: {  email?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  locale?: string | undefined;
+  phone?: string | undefined;
+  title?: string | undefined;};
+  companyLocation?: {  name?: string | undefined;
+  externalId?: string | undefined;
+  note?: string | undefined;
+  phone?: string | undefined;
+  locale?: string | undefined;
+  billingSameAsShipping?: boolean | undefined;
+  billingAddress?: {  address1?: string | undefined;
+  address2?: string | undefined;
+  city?: string | undefined;
+  countryCode?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  phone?: string | undefined;
+  recipient?: string | undefined;
+  zip?: string | undefined;
+  zoneCode?: string | undefined;};
+  shippingAddress?: {  address1?: string | undefined;
+  address2?: string | undefined;
+  city?: string | undefined;
+  countryCode?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  phone?: string | undefined;
+  recipient?: string | undefined;
+  zip?: string | undefined;
+  zoneCode?: string | undefined;};
+  taxExempt?: boolean | undefined;
+  taxExemptions?: string[] | undefined;
+  taxRegistrationId?: string | undefined;
+  buyerExperienceConfiguration?: {  checkoutToDraft?: boolean | undefined;
+  deposit?: {  percentage: number;} | undefined;
+  editableShippingAddress?: boolean | undefined;
+  paymentTermsTemplateId?: string | undefined;};};
+};
+
+export interface ActionOutput_shopify_createcompany {
+  company?: {  id: string;
+  name: string;
+  externalId?: string | undefined;
+  createdAt: string;
+  updatedAt: string;
+  customerSince?: string | undefined;
+  note?: string | undefined;
+  mainContact?: {  id: string;
+  customer?: {  id: string;
+  email?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;};};
+  locations?: ({  id: string;
+  name: string;})[] | undefined;
+  contacts?: ({  id: string;
+  email?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;})[];};
+  userErrors: ({  field?: string[] | undefined;
+  message: string;
+  code?: string | undefined;})[];
+};
+
+export interface ActionInput_shopify_createcustomer {
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  tags?: string[] | undefined;
+  addresses?: ({  address1?: string | undefined;
+  address2?: string | undefined;
+  city?: string | undefined;
+  company?: string | undefined;
+  countryCode?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  phone?: string | undefined;
+  provinceCode?: string | undefined;
+  zip?: string | undefined;})[];
+  taxExempt?: boolean | undefined;
+  note?: string | undefined;
+  locale?: string | undefined;
+};
+
+export interface ActionOutput_shopify_createcustomer {
+  success: boolean;
+};
+
+export interface ActionInput_shopify_creatediscountcodebasic {
+  /**
+   * The discount name that displays to merchants in the Shopify admin and to customers.
+   */
+  title: string;
+  /**
+   * The code that customers use to apply the discount.
+   */
+  code: string;
+  /**
+   * The date and time when the discount becomes active. ISO 8601 format.
+   */
+  startsAt: string;
+  /**
+   * The date and time when the discount expires. For no expiration, use null or omit.
+   */
+  endsAt?: string | undefined;
+  /**
+   * The context defining which buyers can use the discount. Required unless using deprecated customerSelection.
+   */
+  context?: {  all?: 'ALL' | undefined;
+  customers?: {  add?: string[] | undefined;};
+  customerSegments?: {  add?: string[] | undefined;};
+  markets?: {  add?: string[] | undefined;};};
+  /**
+   * Deprecated. Use context instead.
+   */
+  customerSelection?: {  all?: boolean | undefined;
+  customers?: {  add?: string[] | undefined;};};
+  /**
+   * The items that qualify for the discount and the total value of the discount.
+   */
+  customerGets: {  value: {  discountAmount?: {  amount: string | number;
+  appliesOnEachItem?: boolean | undefined;};
+  percentage?: number | undefined;};
+  items: {  all?: boolean | undefined;
+  products?: {  add?: string[] | undefined;};
+  collections?: {  add?: string[] | undefined;};};};
+  /**
+   * Whether a customer can only use the discount once.
+   */
+  appliesOncePerCustomer?: boolean | undefined;
+  combinesWith?: {  orderDiscounts?: boolean | undefined;
+  productDiscounts?: boolean | undefined;
+  shippingDiscounts?: boolean | undefined;
+  productDiscountsWithTagsOnSameCartLine?: string[] | undefined;};
+  minimumRequirement?: {  quantity?: {  greaterThanOrEqualToQuantity: string;} | undefined;
+  subtotal?: {  greaterThanOrEqualToSubtotal: string;} | undefined;};
+  /**
+   * The number of billing cycles for subscription-based discounts. 0 means indefinitely.
+   */
+  recurringCycleLimit?: number | undefined;
+  /**
+   * Searchable keywords associated with the discount.
+   */
+  tags?: string[] | undefined;
+  /**
+   * The maximum number of times the discount can be redeemed. Null for unlimited.
+   */
+  usageLimit?: number | undefined;
+};
+
+export interface ActionOutput_shopify_creatediscountcodebasic {
+  id: string;
+  codeDiscount?: {  title?: string | undefined;
+  codes?: {  nodes: ({  code: string;})[];} | undefined;
+  startsAt?: string | undefined;
+  endsAt?: string | undefined;
+  appliesOncePerCustomer?: boolean | undefined;};
+};
+
+export interface ActionInput_shopify_creatediscountcodebxgy {
+  /**
+   * The code that customers use to apply the discount.
+   */
+  code: string;
+  /**
+   * The discount's name that displays to merchants and customers.
+   */
+  title: string;
+  /**
+   * The date and time when the discount becomes active. Example: "2026-01-01T00:00:00Z"
+   */
+  startsAt: string;
+  /**
+   * The date and time when the discount expires.
+   */
+  endsAt?: string | undefined;
+  /**
+   * Whether a customer can only use the discount once.
+   */
+  appliesOncePerCustomer?: boolean | undefined;
+  /**
+   * The discount classes that can combine with this discount.
+   */
+  combinesWith?: {  [key: string]: unknown | undefined;};
+  /**
+   * The context defining which buyers can use the discount.
+   */
+  context: {  all?: string | undefined;
+  customers?: {  add?: string[] | undefined;
+  remove?: string[] | undefined;};
+  customerSegments?: {  add?: string[] | undefined;
+  remove?: string[] | undefined;};};
+  /**
+   * The items eligible for the discount and the required quantity.
+   */
+  customerBuys: {  isOneTimePurchase?: boolean | undefined;
+  isSubscription?: boolean | undefined;
+  items?: {  collections?: {  add?: string[] | undefined;
+  remove?: string[] | undefined;};
+  products?: {  productsToAdd?: string[] | undefined;
+  productsToRemove?: string[] | undefined;
+  productVariantsToAdd?: string[] | undefined;
+  productVariantsToRemove?: string[] | undefined;};};
+  value?: {  amount?: string | undefined;
+  quantity?: string | undefined;};};
+  /**
+   * The items that qualify for the discount and the total value.
+   */
+  customerGets: {  appliesOnOneTimePurchase?: boolean | undefined;
+  appliesOnSubscription?: boolean | undefined;
+  items?: {  collections?: {  add?: string[] | undefined;
+  remove?: string[] | undefined;};
+  products?: {  productsToAdd?: string[] | undefined;
+  productsToRemove?: string[] | undefined;
+  productVariantsToAdd?: string[] | undefined;
+  productVariantsToRemove?: string[] | undefined;};};
+  value?: {  discountOnQuantity?: {  effect?: {  amount?: string | undefined;
+  percentage?: number | undefined;};
+  quantity?: string | undefined;};};};
+  /**
+   * Searchable keywords associated with the discount.
+   */
+  tags?: string[] | undefined;
+  /**
+   * The maximum number of times the discount can be redeemed.
+   */
+  usageLimit?: number | undefined;
+  /**
+   * The maximum number of times the discount can be applied to an order.
+   */
+  usesPerOrderLimit?: number | undefined;
+};
+
+export interface ActionOutput_shopify_creatediscountcodebxgy {
+  codeDiscountNode?: {  id?: string | undefined;
+  codeDiscount?: {  [key: string]: unknown | undefined;};};
+  userErrors: ({  field?: string[] | undefined;
+  code?: string | undefined;
+  message?: string | undefined;})[];
+};
+
+export interface ActionInput_shopify_creatediscountcodefreeshipping {
+  /**
+   * The code that customers use to apply the discount. Example: "FreeShipping"
+   */
+  code: string;
+  /**
+   * The discount name that displays to merchants and customers. Example: "Free Shipping Promo"
+   */
+  title: string;
+  /**
+   * The date and time when the discount becomes active. Example: "2022-06-22T21:12:07.000Z"
+   */
+  startsAt: string;
+  context?: {  customerSegments?: {  add: string[];} | undefined;
+  customers?: {  add: string[];} | undefined;
+  all?: string | undefined;};
+  /**
+   * Deprecated. Use context instead.
+   */
+  customerSelection?: {  [key: string]: unknown | undefined;};
+  destination?: {  all?: boolean | undefined;
+  countries?: {  add: string[];} | undefined;};
+  minimumRequirement?: {  subtotal?: {  greaterThanOrEqualToSubtotal: number;} | undefined;
+  quantity?: {  greaterThanOrEqualToQuantity: number;} | undefined;};
+  /**
+   * The maximum shipping price that qualifies for free shipping.
+   */
+  maximumShippingPrice?: number | undefined;
+  /**
+   * The date and time when the discount expires.
+   */
+  endsAt?: string | undefined;
+  appliesOncePerCustomer?: boolean | undefined;
+  appliesOnOneTimePurchase?: boolean | undefined;
+  appliesOnSubscription?: boolean | undefined;
+  combinesWith?: {  productDiscounts?: boolean | undefined;
+  orderDiscounts?: boolean | undefined;
+  shippingDiscounts?: boolean | undefined;};
+  recurringCycleLimit?: number | undefined;
+  tags?: string[] | undefined;
+  usageLimit?: number | undefined;
+};
+
+export interface ActionOutput_shopify_creatediscountcodefreeshipping {
+  codeDiscountNode?: {  id: string;
+  codeDiscount?: {  [key: string]: unknown | undefined;};};
+  userErrors: ({  field?: string[] | undefined;
+  code?: string | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_createfile {
+  files: ({  alt?: string | undefined;
+  contentType?: string | undefined;
+  duplicateResolutionMode?: string | undefined;
+  filename?: string | undefined;
+  originalSource: string;})[];
+};
+
+export interface ActionOutput_shopify_createfile {
+  files?: unknown[] | undefined;
+  userErrors: ({  code?: string | undefined;
+  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_creategiftcard {
+  /**
+   * The initial value of the gift card. Example: "100.0"
+   */
+  initialValue: string;
+  /**
+   * The gift card code. Must be 8-20 alphanumeric characters. Example: "ABCD1234"
+   */
+  code?: string | undefined;
+  /**
+   * The expiration date of the gift card in ISO 8601 format (YYYY-MM-DD). Example: "2026-12-31"
+   */
+  expiresOn?: string | undefined;
+  /**
+   * The ID of the customer to assign the gift card to. Example: "gid://shopify/Customer/123456789"
+   */
+  customerId?: string | undefined;
+  /**
+   * An internal note associated with the gift card. Example: "Refund for Order #1"
+   */
+  note?: string | undefined;
+  /**
+   * The suffix of the Liquid template used to render the gift card online. Example: "birthday"
+   */
+  templateSuffix?: string | undefined;
+};
+
+export interface ActionOutput_shopify_creategiftcard {
+  giftCard?: {  id: string;
+  balance?: {  amount: string;
+  currencyCode?: string | undefined;};
+  initialValue?: {  amount: string;
+  currencyCode?: string | undefined;};
+  expiresOn?: string | undefined;
+  note?: string | undefined;
+  customerId?: string | undefined;
+  enabled?: boolean | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  lastCharacters?: string | undefined;
+  maskedCode?: string | undefined;
+  templateSuffix?: string | undefined;};
+  giftCardCode?: string | undefined;
+  userErrors: ({  message: string;
+  field?: string[] | undefined;
+  code?: string | undefined;})[];
+};
+
+export interface ActionInput_shopify_createmarket {
+  /**
+   * The name of the market. Not shown to customers.
+   */
+  name: string;
+  /**
+   * A unique identifier for the market.
+   */
+  handle?: string | undefined;
+  /**
+   * Regions to include in the market condition.
+   */
+  regions?: ({  countryCode: string;})[] | undefined;
+};
+
+export interface ActionOutput_shopify_createmarket {
+  market?: {  id: string;
+  handle: string;
+  name: string;
+  status?: string | undefined;};
+  userErrors: ({  field?: string[] | undefined;
+  message: string;
+  code?: string | undefined;})[];
+};
+
+export interface ActionInput_shopify_createmetafielddefinition {
+  /**
+   * The human-readable name for the metafield definition.
+   */
+  name: string;
+  /**
+   * The resource type that the metafield definition is attached to. Example: "PRODUCT"
+   */
+  ownerType: string;
+  /**
+   * The container for a group of metafields. Example: "custom"
+   */
+  namespace: string;
+  /**
+   * The unique identifier for the metafield definition within its namespace. Example: "material"
+   */
+  key: string;
+  /**
+   * The type of data that the metafield will store. Example: "single_line_text_field"
+   */
+  type: string;
+  /**
+   * The description for the metafield definition.
+   */
+  description?: string | undefined;
+  /**
+   * Validation options for the metafield definition.
+   */
+  validations?: ({  name: string;
+  value: string;})[] | undefined;
+  /**
+   * Whether to pin the metafield definition.
+   */
+  pin?: boolean | undefined;
+  /**
+   * Whether the metafield definition can be used as a collection condition.
+   */
+  useAsCollectionCondition?: boolean | undefined;
+  /**
+   * Access settings for the metafield definition.
+   */
+  access?: {  admin?: string | undefined;};
+};
+
+export interface ActionOutput_shopify_createmetafielddefinition {
+  id: string;
+  name: string;
+  namespace: string;
+  key: string;
+  ownerType: string;
+  type: string;
+  description?: string | undefined;
+  useAsCollectionCondition?: boolean | undefined;
+};
+
+export interface ActionInput_shopify_createmetaobjectdefinition {
+  /**
+   * Unique type identifier for the metaobject. Example: "color-swatch"
+   */
+  type: string;
+  /**
+   * Human-readable display name for the metaobject definition. Example: "Color swatch"
+   */
+  displayName: string;
+  /**
+   * Field definitions for the metaobject.
+   */
+  fieldDefinitions: ({  name: string;
+  key: string;
+  type: string;
+  validations?: ({  name: string;
+  value: string;})[] | undefined;})[];
+};
+
+export interface ActionOutput_shopify_createmetaobjectdefinition {
+  id: string;
+  name: string;
+  type: string;
+  fieldDefinitions?: ({  name: string;
+  key: string;})[] | undefined;
+};
+
+export interface ActionInput_shopify_createmetaobject {
+  /**
+   * The type of the metaobject. Must match an existing metaobject definition type.
+   */
+  type: string;
+  /**
+   * A unique handle for the metaobject. Auto-generated when omitted.
+   */
+  handle?: string | undefined;
+  /**
+   * Values for fields mapped by key to the metaobject definition.
+   */
+  fields?: ({  key: string;
+  value: string;})[] | undefined;
+};
+
+export interface ActionOutput_shopify_createmetaobject {
+  id: string;
+  type: string;
+  handle: string;
+  displayName: string;
+  fields: ({  key: string;
+  value?: string | undefined;
+  type: string;})[];
+};
+
+export interface ActionInput_shopify_createproductmedia {
+  /**
+   * Shopify product ID. Example: gid://shopify/Product/121709582
+   */
+  productId: string;
+  /**
+   * List of media inputs to attach to the product
+   */
+  media: ({  /**
+   * Alt text for the media
+   */
+  alt?: string | undefined;
+  /**
+   * Media content type. Examples: IMAGE, EXTERNAL_VIDEO, VIDEO, MODEL_3D
+   */
+  mediaContentType: string;
+  /**
+   * Original source URL of the media object
+   */
+  originalSource: string;})[];
+};
+
+export interface ActionOutput_shopify_createproductmedia {
+  media?: ({  id?: string | undefined;
+  alt?: string | undefined;
+  mediaContentType?: string | undefined;
+  status?: string | undefined;
+  image?: {  url?: string | undefined;};})[];
+  mediaUserErrors?: ({  field?: string[] | undefined;
+  message: string;})[];
+  product?: {  id: string;
+  title?: string | undefined;};
+};
+
+export interface ActionInput_shopify_createproductoptions {
+  /**
+   * The ID of the product to update. Example: "gid://shopify/Product/20995642"
+   */
+  productId: string;
+  options: ({  name: string;
+  position?: number | undefined;
+  values: ({  name: string;
+  linkedMetafieldValue?: string | undefined;})[];})[];
+  /**
+   * The variant strategy. Example: "LEAVE_AS_IS" or "CREATE"
+   */
+  variantStrategy?: string | undefined;
+};
+
+export interface ActionOutput_shopify_createproductoptions {
+  options: ({  id: string;
+  name: string;
+  position: number;
+  values: string[];
+  optionValues?: ({  id?: string | undefined;
+  name: string;
+  hasVariants: boolean;})[];})[];
+  userErrors: ({  code?: string | undefined;
+  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_createproductvariants {
+  /**
+   * Shopify product ID. Example: "gid://shopify/Product/123"
+   */
+  productId: string;
+  strategy?: 'DEFAULT' | 'REMOVE_STANDALONE_VARIANT' | undefined;
+  variants: ({  price?: string | number | undefined;
+  compareAtPrice?: string | number | undefined;
+  optionValues?: ({  name?: string | undefined;
+  optionName?: string | undefined;
+  optionId?: string | undefined;
+  id?: string | undefined;})[];
+  inventoryItem?: {  sku?: string | undefined;
+  cost?: string | number | undefined;};
+  inventoryPolicy?: 'DENY' | 'CONTINUE' | undefined;
+  mediaId?: string | undefined;
+  mediaSrc?: string[] | undefined;
+  metafields?: ({  namespace: string;
+  key: string;
+  type: string;
+  value: string;})[] | undefined;})[];
+  media?: ({  mediaContentType: 'IMAGE' | 'VIDEO' | 'MODEL_3D' | 'EXTERNAL_VIDEO';
+  alt?: string | undefined;
+  originalSource?: string | undefined;})[];
+};
+
+export interface ActionOutput_shopify_createproductvariants {
+  productVariants: ({  id: string;
+  title: string;
+  price?: string | undefined;
+  compareAtPrice?: string | undefined;
+  selectedOptions?: ({  name: string;
+  value: string;})[] | undefined;})[];
+  userErrors: ({  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_createproduct {
+  title: string;
+  descriptionHtml?: string | undefined;
+  vendor?: string | undefined;
+  productType?: string | undefined;
+  tags?: string[] | undefined;
+  status?: 'ACTIVE' | 'ARCHIVED' | 'DRAFT' | undefined;
+  handle?: string | undefined;
+  seo?: {  title?: string | undefined;
+  description?: string | undefined;};
+  productOptions?: ({  name: string;
+  values: ({  name: string;})[];})[] | undefined;
+};
+
+export interface ActionOutput_shopify_createproduct {
+  id: string;
+  title: string;
+  handle?: string | undefined;
+  descriptionHtml?: string | undefined;
+  productType?: string | undefined;
+  vendor?: string | undefined;
+  status?: string | undefined;
+  tags?: string[] | undefined;
+  seo?: {  title?: string | undefined;
+  description?: string | undefined;};
+};
+
+export interface ActionInput_shopify_createrefund {
+  orderId: string;
+  refundLineItems?: ({  lineItemId: string;
+  quantity: number;
+  restockType?: string | undefined;
+  locationId?: string | undefined;})[];
+  shipping?: {  amount?: string | undefined;
+  fullRefund?: boolean | undefined;};
+  transactions?: ({  orderId: string;
+  parentId?: string | undefined;
+  kind: string;
+  gateway: string;
+  amount: string;})[];
+  duties?: ({  dutyId: string;
+  refundType?: string | undefined;})[];
+  note?: string | undefined;
+  notify?: boolean | undefined;
+  allowOverRefunding?: boolean | undefined;
+  currency?: string | undefined;
+  discrepancyReason?: string | undefined;
+  processedAt?: string | undefined;
+  idempotencyKey?: string | undefined;
+};
+
+export interface ActionOutput_shopify_createrefund {
+  refund?: {  id?: string | undefined;
+  note?: string | undefined;
+  createdAt?: string | undefined;
+  processedAt?: string | undefined;
+  totalRefundedSet?: {  presentmentMoney?: {  amount?: string | undefined;
+  currencyCode?: string | undefined;};
+  shopMoney?: {  amount?: string | undefined;
+  currencyCode?: string | undefined;};};};
+  userErrors?: ({  field?: string[] | undefined;
+  message?: string | undefined;})[];
+};
+
+export interface ActionInput_shopify_createreturn {
+  /**
+   * The ID of the order to be returned. Example: gid://shopify/Order/1234567890
+   */
+  orderId: string;
+  /**
+   * The return line items list to be handled.
+   */
+  returnLineItems: ({  /**
+   * The ID of the fulfillment line item to be returned. Example: gid://shopify/FulfillmentLineItem/1234567890
+   */
+  fulfillmentLineItemId: string;
+  /**
+   * The quantity of the item to be returned.
+   */
+  quantity: number;
+  /**
+   * The ID of a ReturnReasonDefinition.
+   */
+  returnReasonDefinitionId?: string | undefined;
+  /**
+   * A note about the reason that the item is being returned. Maximum length: 255 characters.
+   */
+  returnReasonNote?: string | undefined;
+  /**
+   * Deprecated. Use returnReasonDefinitionId instead.
+   */
+  returnReason?: string | undefined;})[];
+  /**
+   * Whether to notify the customer about the return.
+   */
+  notifyCustomer?: boolean | undefined;
+};
+
+export interface ActionOutput_shopify_createreturn {
+  return?: {  id: string;
+  name: string;
+  status: string;
+  orderId: string;
+  totalQuantity?: number | undefined;};
+  userErrors: ({  field: string[];
+  message: string;
+  code?: string | undefined;})[];
+};
+
+export interface ActionInput_shopify_createstagedupload {
+  /**
+   * Array of staged upload inputs.
+   */
+  uploads: ({  /**
+   * The file name and extension. Example: "product-hero-image.jpg"
+   */
+  filename: string;
+  /**
+   * The file MIME type. Example: "image/jpeg"
+   */
+  mimeType: string;
+  /**
+   * The intended Shopify resource type. Example: "IMAGE"
+   */
+  resource: 'BULK_MUTATION_VARIABLES' | 'COLLECTION_IMAGE' | 'DISPUTE_FILE_UPLOAD' | 'FILE' | 'IMAGE' | 'MODEL_3D' | 'RETURN_LABEL' | 'SHOP_IMAGE' | 'URL_REDIRECT_IMPORT' | 'VIDEO' | 'PRODUCT_IMAGE';
+  /**
+   * The file size in bytes. Required for VIDEO and MODEL_3D resources.
+   */
+  fileSize?: string | undefined;
+  /**
+   * The HTTP method for the upload request. Defaults to PUT.
+   */
+  httpMethod?: 'POST' | 'PUT' | undefined;})[];
+};
+
+export interface ActionOutput_shopify_createstagedupload {
+  stagedTargets: ({  url: string;
+  resourceUrl?: string | undefined;
+  parameters: ({  name: string;
+  value: string;})[];})[];
+};
+
+export interface ActionInput_shopify_createurlredirect {
+  /**
+   * The old path to be redirected from. Example: "/old-path"
+   */
+  path: string;
+  /**
+   * The target location where the user will be redirected to. Example: "/new-path"
+   */
+  target: string;
+};
+
+export interface ActionOutput_shopify_createurlredirect {
+  urlRedirect?: {  id: string;
+  path: string;
+  target: string;} | undefined;
+  userErrors: ({  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_createwebhooksubscription {
+  /**
+   * The webhook topic enum value. Example: ORDERS_CREATE
+   */
+  topic: string;
+  webhookSubscription: {  /**
+   * The HTTPS URL to send webhooks to
+   */
+  callbackUrl: string;
+  /**
+   * Payload format (JSON or XML)
+   */
+  format?: string | undefined;
+  /**
+   * Fields to include in the webhook payload
+   */
+  includeFields?: string[] | undefined;};
+};
+
+export interface ActionOutput_shopify_createwebhooksubscription {
+  webhookSubscription?: {  id?: string | undefined;
+  topic?: string | undefined;
+  callbackUrl?: string | undefined;
+  format?: string | undefined;
+  includeFields?: string[] | undefined;};
+  userErrors: ({  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_deactivateautomaticdiscount {
+  /**
+   * The ID of the automatic discount to deactivate. Example: "gid://shopify/DiscountAutomaticNode/123"
+   */
+  discountNodeId: string;
+};
+
+export interface ActionOutput_shopify_deactivateautomaticdiscount {
+  status?: string | undefined;
+  startsAt?: string | undefined;
+  endsAt?: string | undefined;
+  userErrors?: ({  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_deactivatediscountcode {
+  /**
+   * The globally unique ID of the discount code node to deactivate. Example: gid://shopify/DiscountCodeNode/123
+   */
+  discountNodeId: string;
+};
+
+export interface ActionOutput_shopify_deactivatediscountcode {
+  status?: string | undefined;
+  userErrors: ({  field?: string[] | undefined;
+  code?: string | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_deactivateinventoryitematlocation {
+  /**
+   * The GID of the inventory level to deactivate. Example: "gid://shopify/InventoryLevel/123456789?inventory_item_id=987654321"
+   */
+  inventory_level_id: string;
+};
+
+export interface ActionOutput_shopify_deactivateinventoryitematlocation {
+  deactivated: boolean;
+  user_errors?: ({  message: string;})[] | undefined;
+};
+
+export interface ActionInput_shopify_declinereturn {
+  /**
+   * The globally-unique ID of the return to decline. Example: gid://shopify/Return/123
+   */
+  returnId: string;
+  /**
+   * The reason the return request is being declined.
+   */
+  declineReason: 'FINAL_SALE' | 'OTHER' | 'RETURN_PERIOD_ENDED';
+  /**
+   * The notification message sent to the customer about the declined return request.
+   */
+  declineNote?: string | undefined;
+  /**
+   * Whether to notify the customer when the return request is declined.
+   */
+  notifyCustomer?: boolean | undefined;
+};
+
+export interface ActionOutput_shopify_declinereturn {
+  return: {  id: string;
+  status: string;
+  name?: string | undefined;
+  decline?: {  reason?: string | undefined;
+  note?: string | undefined;};
+  order?: {  id: string;} | undefined;};
+  userErrors: ({  code: string;
+  field: string[];
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_deleteautomaticdiscount {
+  /**
+   * The ID of the automatic discount to delete. Example: "gid://shopify/DiscountAutomaticNode/123"
+   */
+  id: string;
+};
+
+export interface ActionOutput_shopify_deleteautomaticdiscount {
+  success: boolean;
+  deletedAutomaticDiscountId?: string | undefined;
+  userErrors?: ({  field?: string[] | undefined;
+  code?: string | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_deletecollection {
+  /**
+   * The GraphQL ID of the collection to delete. Example: "gid://shopify/Collection/1009501285"
+   */
+  id: string;
+};
+
+export interface ActionOutput_shopify_deletecollection {
+  deletedCollectionId?: string | undefined;
+  userErrors: ({  field: string[];
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_deletecustomer {
+  /**
+   * The GID of the customer to delete. Example: gid://shopify/Customer/1234567890
+   */
+  customerId: string;
+};
+
+export interface ActionOutput_shopify_deletecustomer {
+  deleted: boolean;
+  deletedCustomerId?: string | undefined;
+  userErrors?: ({  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_deletediscountcode {
+  /**
+   * The ID of the code discount to delete. Example: "gid://shopify/DiscountCodeNode/123"
+   */
+  id: string;
+};
+
+export interface ActionOutput_shopify_deletediscountcode {
+  deletedCodeDiscountId?: string | undefined;
+  userErrors: ({  field?: string[] | undefined;
+  code?: string | undefined;
+  message?: string | undefined;})[];
+};
+
+export interface ActionInput_shopify_deletedraftorder {
+  /**
+   * Draft order GID. Example: "gid://shopify/DraftOrder/1234567890"
+   */
+  id: string;
+};
+
+export interface ActionOutput_shopify_deletedraftorder {
+  deletedId?: string | undefined;
+  userErrors: ({  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_deletefiles {
+  /**
+   * Array of Shopify file GIDs to delete. Example: ["gid://shopify/MediaImage/123"]
+   */
+  fileIds: string[];
+};
+
+export interface ActionOutput_shopify_deletefiles {
+  deletedFileIds?: string[] | undefined;
+  userErrors?: ({  field?: string[] | undefined;
+  message: string;
+  code?: string | undefined;})[];
+};
+
+export interface ActionInput_shopify_deletemarket {
+  /**
+   * The ID of the market to delete. Example: "gid://shopify/Market/1234567890"
+   */
+  market_id: string;
+};
+
+export interface ActionOutput_shopify_deletemarket {
+  success: boolean;
+  deleted_id?: string | undefined;
+  user_errors: ({  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_deletemetafielddefinition {
+  /**
+   * The global ID of the metafield definition to delete. Example: "gid://shopify/MetafieldDefinition/1071456130"
+   */
+  id: string;
+  /**
+   * Whether to delete all associated metafields. Must be true when deleting definitions under the $app namespace.
+   */
+  deleteAllAssociatedMetafields?: boolean | undefined;
+};
+
+export interface ActionOutput_shopify_deletemetafielddefinition {
+  deletedDefinitionId?: string | undefined;
+  userErrors: ({  field?: string[] | undefined;
+  message?: string | undefined;
+  code?: string | undefined;})[];
+};
+
+export interface ActionInput_shopify_deletemetafields {
+  /**
+   * A list of metafield identifiers to delete. At least one identifier is required.
+   */
+  metafields: ({  /**
+   * The globally unique ID of the resource that owns the metafield. Example: "gid://shopify/Product/1234567890"
+   */
+  ownerId: string;
+  /**
+   * The namespace of the metafield. Example: "custom"
+   */
+  namespace: string;
+  /**
+   * The key of the metafield. Example: "warranty_info"
+   */
+  key: string;})[];
+};
+
+export interface ActionOutput_shopify_deletemetafields {
+  deletedMetafields?: ({  key: string;
+  namespace: string;
+  ownerId: string;})[] | undefined;
+  userErrors?: ({  field: string[];
+  message: string;})[] | undefined;
+};
+
+export interface ActionInput_shopify_deletemetaobjectdefinition {
+  /**
+   * The ID of the metaobject definition to delete. Example: "gid://shopify/MetaobjectDefinition/123"
+   */
+  id: string;
+};
+
+export interface ActionOutput_shopify_deletemetaobjectdefinition {
+  deletedId?: string | undefined;
+  userErrors: ({  field?: string[] | undefined;
+  message?: string | undefined;
+  code?: string | undefined;})[];
+};
+
+export interface ActionInput_shopify_deletemetaobject {
+  /**
+   * The ID of the metaobject to delete. Example: "gid://shopify/Metaobject/515107504"
+   */
+  id: string;
+};
+
+export interface ActionOutput_shopify_deletemetaobject {
+  deletedId?: string | undefined;
+  userErrors: ({  field?: string[] | undefined;
+  message: string;
+  code?: string | undefined;})[];
+};
+
+export interface ActionInput_shopify_deleteproductmedia {
+  /**
+   * Shopify product ID. Example: "gid://shopify/Product/123"
+   */
+  productId: string;
+  /**
+   * Shopify media IDs to delete. Example: ["gid://shopify/MediaImage/456"]
+   */
+  mediaIds: string[];
+};
+
+export interface ActionOutput_shopify_deleteproductmedia {
+  deletedMediaIds?: string[] | undefined;
+  deletedProductImageIds?: string[] | undefined;
+  productId: string;
+};
+
+export interface ActionInput_shopify_deleteproductoptions {
+  /**
+   * ID of the product from which to delete options. Example: "gid://shopify/Product/1234567890"
+   */
+  productId: string;
+  /**
+   * IDs of the options to delete from the product. Example: ["gid://shopify/ProductOption/123"]
+   */
+  options: string[];
+  /**
+   * Deletion strategy. DEFAULT: option may only have one value. NON_DESTRUCTIVE: multiple values allowed if no variants deleted. POSITION: deletes duplicate variants highest position first.
+   */
+  strategy?: 'DEFAULT' | 'NON_DESTRUCTIVE' | 'POSITION' | undefined;
+};
+
+export interface ActionOutput_shopify_deleteproductoptions {
+  deletedOptionsIds?: string[] | undefined;
+  userErrors: ({  field?: string[] | undefined;
+  message: string;
+  code?: string | undefined;})[];
+};
+
+export interface ActionInput_shopify_deleteproductvariants {
+  /**
+   * The GraphQL global ID of the product. Example: "gid://shopify/Product/20995642"
+   */
+  product_id: string;
+  /**
+   * An array of GraphQL global IDs of the product variants to delete. Example: ["gid://shopify/ProductVariant/30322695"]
+   */
+  variant_ids: string[];
+};
+
+export interface ActionOutput_shopify_deleteproductvariants {
+  product_id?: string | undefined;
+  product_title?: string | undefined;
+  deleted_variant_ids: string[];
+};
+
+export interface ActionInput_shopify_deleteproduct {
+  /**
+   * The GraphQL ID (GID) of the product to delete. Example: "gid://shopify/Product/123"
+   */
+  productId: string;
+};
+
+export interface ActionOutput_shopify_deleteproduct {
+  deletedProductId?: string | undefined;
+  userErrors: ({  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_deleteurlredirect {
+  /**
+   * The ID of the URL redirect to delete. Example: "gid://shopify/UrlRedirect/905192165"
+   */
+  id: string;
+};
+
+export interface ActionOutput_shopify_deleteurlredirect {
+  deletedUrlRedirectId?: string | undefined;
+  userErrors: ({  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_deletewebhooksubscription {
+  /**
+   * The ID of the webhook subscription to delete. Example: "gid://shopify/WebhookSubscription/1234567890"
+   */
+  id: string;
+};
+
+export interface ActionOutput_shopify_deletewebhooksubscription {
+  id?: string | undefined;
+  userErrors: ({  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_disablegiftcard {
+  /**
+   * The ID of the gift card to disable. Example: "gid://shopify/GiftCard/123456789"
+   */
+  id: string;
+};
+
+export interface ActionOutput_shopify_disablegiftcard {
+  gift_card?: {  id: string;
+  enabled: boolean;
+  deactivated_at?: string | undefined;
+  balance?: {  amount: string;
+  currency_code: string;} | undefined;
+  initial_value?: {  amount: string;
+  currency_code: string;} | undefined;
+  masked_code?: string | undefined;
+  last_characters?: string | undefined;
+  expires_on?: string | undefined;
+  note?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;};
+  user_errors: ({  message: string;
+  field?: string[] | undefined;
+  code?: string | undefined;})[];
+};
+
+export interface ActionInput_shopify_generatecustomeractivationurl {
+  /**
+   * The ID of the customer that the URL is generated for. Example: "gid://shopify/Customer/105906728"
+   */
+  customerId: string;
+};
+
+export interface ActionOutput_shopify_generatecustomeractivationurl {
+  accountActivationUrl?: string | undefined;
+  userErrors: ({  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_getcollection {
+  /**
+   * The GraphQL ID of the collection. Example: "gid://shopify/Collection/841564295"
+   */
+  collectionId: string;
+};
+
+export interface ActionOutput_shopify_getcollection {
+  id: string;
+  title: string;
+  handle: string;
+  description?: string | undefined;
+  descriptionHtml?: string | undefined;
+  updatedAt: string;
+  sortOrder: string;
+  image?: {  url: string;
+  height?: number | undefined;
+  width?: number | undefined;};
+  ruleSet?: {  appliedDisjunctively: boolean;
+  rules: ({  column: string;
+  relation: string;
+  condition: string;})[];} | undefined;
+  seo?: {  title?: string | undefined;
+  description?: string | undefined;};
+};
+
+export interface ActionInput_shopify_getcompany {
+  /**
+   * The GraphQL ID of the company. Example: "gid://shopify/Company/123"
+   */
+  id: string;
+};
+
+export interface ActionOutput_shopify_getcompany {
+  name: string;
+  externalId?: string | undefined;
+  contactCount?: number | undefined;
+  locationCount?: number | undefined;
+  mainContact?: {  id: string;
+  title?: string | undefined;
+  customer?: {  id: string;
+  email?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;};};
+  locations?: ({  id: string;
+  name: string;
+  externalId?: string | undefined;})[];
+};
+
+export interface ActionInput_shopify_getcustomersegment {
+  /**
+   * GraphQL ID of the segment. Example: "gid://shopify/Segment/1234567890"
+   */
+  id: string;
+};
+
+export interface ActionOutput_shopify_getcustomersegment {
+  name: string;
+  query: string;
+  creationDate: string;
+  lastEditDate: string;
+};
+
+export interface ActionInput_shopify_getdiscount {
+  /**
+   * The GraphQL ID of the DiscountNode. Example: "gid://shopify/DiscountNode/123456789"
+   */
+  id: string;
+};
+
+export interface ActionOutput_shopify_getdiscount {
+  id: string;
+  type: string;
+  title: string;
+  status: string;
+  summary?: string | undefined;
+};
+
+export interface ActionInput_shopify_getfile {
+  /**
+   * The GraphQL ID of the Shopify file. Example: "gid://shopify/MediaImage/1234567890"
+   */
+  id: string;
+};
+
+export interface ActionOutput_shopify_getfile {
+  preview?: {  image?: {  url?: string | undefined;};};
+  url?: string | undefined;
+  alt?: string | undefined;
+  mediaContentType?: string | undefined;
+  createdAt?: string | undefined;
+};
+
+export interface ActionInput_shopify_getinventoryitem {
+  /**
+   * The GraphQL ID of the inventory item. Example: "gid://shopify/InventoryItem/1234567890"
+   */
+  id: string;
+};
+
+export interface ActionOutput_shopify_getinventoryitem {
+  id: string;
+  sku?: string | undefined;
+  tracked: boolean;
+  inventoryLevels?: ({  id: string;
+  location: {  id: string;
+  name: string;};
+  quantities: ({  name: string;
+  quantity: number;})[];})[] | undefined;
+};
+
+export interface ActionInput_shopify_getlocation {
+  /**
+   * Shopify GraphQL location ID. Example: "gid://shopify/Location/1234567890"
+   */
+  id: string;
+};
+
+export interface ActionOutput_shopify_getlocation {
+  id: string;
+  name: string;
+  address: {  address1?: string | undefined;
+  address2?: string | undefined;
+  city?: string | undefined;
+  country?: string | undefined;
+  countryCode?: string | undefined;
+  formatted?: string[] | undefined;
+  latitude?: number | undefined;
+  longitude?: number | undefined;
+  phone?: string | undefined;
+  province?: string | undefined;
+  provinceCode?: string | undefined;
+  zip?: string | undefined;};
+  fulfillsOnlineOrders: boolean;
+  isActive: boolean;
+};
+
+export interface ActionInput_shopify_getmarket {
+  /**
+   * The GraphQL ID of the market. Example: "gid://shopify/Market/1"
+   */
+  id: string;
+};
+
+export interface ActionOutput_shopify_getmarket {
+  name?: string | undefined;
+  handle?: string | undefined;
+  enabled?: boolean | undefined;
+  regions?: ({  id: string;
+  name: string;
+  code: string;})[] | undefined;
+  webPresence?: {  id?: string | undefined;
+  domain?: {  host?: string | undefined;};
+  subfolderSuffix?: string | undefined;
+  defaultLocale?: {  locale?: string | undefined;};
+  rootUrls?: ({  locale?: string | undefined;
+  url?: string | undefined;})[];};
+  currencySettings?: {  baseCurrency?: {  currencyCode: string;
+  currencyName: string;
+  enabled: boolean;} | undefined;
+  localCurrencies?: boolean | undefined;
+  roundingEnabled?: boolean | undefined;};
+};
+
+export interface ActionInput_shopify_getmetaobjectbyhandle {
+  /**
+   * The type of the metaobject. Example: "test_item"
+   */
+  type: string;
+  /**
+   * The unique handle of the metaobject. Example: "test-item-001"
+   */
+  handle: string;
+};
+
+export interface ActionOutput_shopify_getmetaobjectbyhandle {
+  metadata: {  id: string;
+  handle: string;
+  type: string;
+  displayName?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;};
+  capabilities: {  publishable?: {  status?: string | undefined;};
+  onlineStore?: {  templateSuffix?: string | undefined;};};
+  fields: ({  key: string;
+  type: string;
+  value?: string | undefined;
+  jsonValue?: unknown | undefined;})[];
+};
+
+export interface ActionInput_shopify_getmetaobject {
+  /**
+   * The GraphQL ID of the metaobject. Example: "gid://shopify/Metaobject/123"
+   */
+  id: string;
+};
+
+export interface ActionOutput_shopify_getmetaobject {
+  id: string;
+  type: string;
+  handle: string;
+  capabilities: {  publishable?: {  status: string;} | undefined;};
+  fields: ({  key: string;
+  type: string;
+  value?: string | undefined;})[];
+};
+
+export interface ActionInput_shopify_getorderbyidentifier {
+  /**
+   * The globally-unique ID of the order. Example: "gid://shopify/Order/1234567890"
+   */
+  id?: string | undefined;
+  /**
+   * The custom ID of the order using a unique metafield value.
+   */
+  customId?: {  /**
+   * The key for the metafield.
+   */
+  key: string;
+  /**
+   * The container the metafield belongs to.
+   */
+  namespace?: string | undefined;
+  /**
+   * The value of the metafield.
+   */
+  value: string;};
+};
+
+export interface ActionOutput_shopify_getorderbyidentifier {
+  id: string;
+  legacyResourceId?: string | undefined;
+  name: string;
+  confirmationNumber?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  note?: string | undefined;
+  displayFinancialStatus?: string | undefined;
+  displayFulfillmentStatus: string;
+  closed: boolean;
+  cancelledAt?: string | undefined;
+  cancelReason?: string | undefined;
+  fullyPaid: boolean;
+  refundable: boolean;
+  fulfillable: boolean;
+  requiresShipping: boolean;
+  createdAt: string;
+  processedAt: string;
+  currencyCode: string;
+  presentmentCurrencyCode: string;
+  currentTotalPriceSet: {  shopMoney: {  amount: string;
+  currencyCode: string;};
+  presentmentMoney: {  amount: string;
+  currencyCode: string;};};
+  currentSubtotalPriceSet: {  shopMoney: {  amount: string;
+  currencyCode: string;};
+  presentmentMoney: {  amount: string;
+  currencyCode: string;};};
+  currentTotalTaxSet: {  shopMoney: {  amount: string;
+  currencyCode: string;};
+  presentmentMoney: {  amount: string;
+  currencyCode: string;};};
+  currentTotalDiscountsSet: {  shopMoney: {  amount: string;
+  currencyCode: string;};
+  presentmentMoney: {  amount: string;
+  currencyCode: string;};};
+  currentShippingPriceSet: {  shopMoney: {  amount: string;
+  currencyCode: string;};
+  presentmentMoney: {  amount: string;
+  currencyCode: string;};};
+  originalTotalPriceSet: {  shopMoney: {  amount: string;
+  currencyCode: string;};
+  presentmentMoney: {  amount: string;
+  currencyCode: string;};};
+  netPaymentSet: {  shopMoney: {  amount: string;
+  currencyCode: string;};
+  presentmentMoney: {  amount: string;
+  currencyCode: string;};};
+  customer?: {  id: string;
+  email?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  phone?: string | undefined;};
+  shippingAddress?: {  firstName?: string | undefined;
+  lastName?: string | undefined;
+  address1?: string | undefined;
+  address2?: string | undefined;
+  city?: string | undefined;
+  province?: string | undefined;
+  country?: string | undefined;
+  zip?: string | undefined;
+  phone?: string | undefined;};
+  billingAddress?: {  firstName?: string | undefined;
+  lastName?: string | undefined;
+  address1?: string | undefined;
+  address2?: string | undefined;
+  city?: string | undefined;
+  province?: string | undefined;
+  country?: string | undefined;
+  zip?: string | undefined;
+  phone?: string | undefined;};
+  lineItems: ({  id: string;
+  title: string;
+  variantTitle?: string | undefined;
+  name: string;
+  quantity: number;
+  currentQuantity: number;
+  unfulfilledQuantity: number;
+  refundableQuantity: number;
+  nonFulfillableQuantity: number;
+  sku?: string | undefined;
+  vendor?: string | undefined;
+  requiresShipping: boolean;
+  isGiftCard: boolean;
+  taxable: boolean;
+  originalUnitPriceSet: {  shopMoney: {  amount: string;
+  currencyCode: string;};
+  presentmentMoney: {  amount: string;
+  currencyCode: string;};};
+  originalTotalSet: {  shopMoney: {  amount: string;
+  currencyCode: string;};
+  presentmentMoney: {  amount: string;
+  currencyCode: string;};};
+  discountedTotalSet: {  shopMoney: {  amount: string;
+  currencyCode: string;};
+  presentmentMoney: {  amount: string;
+  currencyCode: string;};};
+  totalDiscountSet: {  shopMoney: {  amount: string;
+  currencyCode: string;};
+  presentmentMoney: {  amount: string;
+  currencyCode: string;};};
+  variant?: {  id?: string | undefined;
+  title?: string | undefined;
+  sku?: string | undefined;};})[];
+};
+
+export interface ActionInput_shopify_getorder {
+  /**
+   * The GraphQL ID of the order. Example: "gid://shopify/Order/1234567890"
+   */
+  id: string;
+};
+
+export interface ActionOutput_shopify_getorder {
+  id: string;
+  name: string;
+  createdAt: string;
+  updatedAt?: string | undefined;
+  displayFinancialStatus?: string | undefined;
+  displayFulfillmentStatus: string;
+  customer?: {  id: string;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  email?: string | undefined;};
+  lineItems: ({  id: string;
+  title: string;
+  quantity: number;
+  variant?: {  id: string;
+  title?: string | undefined;};})[];
+};
+
+export interface ActionInput_shopify_getproductbyidentifier {
+  /**
+   * The handle of the product. Example: "black-sunglasses"
+   */
+  handle?: string | undefined;
+  /**
+   * The globally-unique ID of the product. Example: "gid://shopify/Product/123"
+   */
+  id?: string | undefined;
+  /**
+   * The custom ID of the product using a unique metafield value.
+   */
+  custom_id?: {  namespace?: string | undefined;
+  key: string;
+  value: string;};
+};
+
+export interface ActionOutput_shopify_getproductbyidentifier {
+  id: string;
+  title: string;
+  handle: string;
+  description: string;
+  descriptionHtml: string;
+  status: string;
+  productType: string;
+  vendor?: string | undefined;
+  tags: string[];
+  createdAt: string;
+  updatedAt: string;
+  publishedAt?: string | undefined;
+  totalInventory?: number | undefined;
+  tracksInventory: boolean;
+  options: ({  name: string;
+  values: string[];})[];
+  variants: ({  id: string;
+  title: string;
+  sku?: string | undefined;
+  price: string;
+  position?: number | undefined;})[];
+  featuredMedia?: {  preview?: {  image: {  url: string;};} | undefined;};
+  seo?: {  title?: string | undefined;
+  description?: string | undefined;};
+  priceRangeV2?: {  minVariantPrice: {  amount: string;
+  currencyCode: string;};
+  maxVariantPrice: {  amount: string;
+  currencyCode: string;};} | undefined;
+  isGiftCard: boolean;
+  hasOnlyDefaultVariant: boolean;
+  onlineStoreUrl?: string | undefined;
+  templateSuffix?: string | undefined;
+};
+
+export interface ActionInput_shopify_getproduct {
+  /**
+   * Shopify GraphQL product ID. Example: "gid://shopify/Product/8651795562633"
+   */
+  id: string;
+};
+
+export interface ActionOutput_shopify_getproduct {
+  id: string;
+  title: string;
+  description?: string | undefined;
+  handle?: string | undefined;
+  productType?: string | undefined;
+  vendor?: string | undefined;
+  status?: string | undefined;
+  totalInventory?: number | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  variants?: ({  id: string;
+  title: string;
+  sku?: string | undefined;
+  price: string;
+  barcode?: string | undefined;
+  inventoryQuantity?: number | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;})[];
+  media?: ({  id: string;
+  alt?: string | undefined;
+  url?: string | undefined;})[];
+};
+
+export interface ActionInput_shopify_getreturn {
+  /**
+   * The globally-unique GraphQL ID of the return to retrieve. Example: "gid://shopify/Return/945000954"
+   */
+  id: string;
+};
+
+export interface ActionOutput_shopify_getreturn {
+  id: string;
+  status: string;
+  name?: string | undefined;
+  order?: {  id: string;} | undefined;
+  returnLineItems?: ({  id: string;
+  quantity: number;
+  returnReason?: string | undefined;
+  returnReasonNote?: string | undefined;
+  fulfillmentLineItem?: {  lineItem?: {  name?: string | undefined;};};})[];
+  refunds?: ({  id: string;
+  createdAt?: string | undefined;
+  totalRefundedSet?: {  shopMoney?: {  amount?: string | undefined;
+  currencyCode?: string | undefined;};
+  presentmentMoney?: {  amount?: string | undefined;
+  currencyCode?: string | undefined;};};})[];
+};
+
+export interface ActionInput_shopify_getshop {
+};
+
+export interface ActionOutput_shopify_getshop {
+  name: string;
+  email?: string | undefined;
+  myshopifyDomain?: string | undefined;
+  currencyCode?: string | undefined;
+  plan?: {  displayName?: string | undefined;
+  partnerDevelopment?: boolean | undefined;
+  shopifyPlus?: boolean | undefined;};
+};
+
+export interface ActionInput_shopify_holdfulfillmentorder {
+  /**
+   * The ID of the fulfillment order to place on hold. Example: "gid://shopify/FulfillmentOrder/1046001480"
+   */
+  fulfillmentOrderId: string;
+  hold: {  /**
+   * The reason for the fulfillment hold.
+   */
+  reason: 'AWAITING_PAYMENT' | 'AWAITING_RETURN_ITEMS' | 'HIGH_RISK_OF_FRAUD' | 'INCORRECT_ADDRESS' | 'INVENTORY_OUT_OF_STOCK' | 'ONLINE_STORE_POST_PURCHASE_CROSS_SELL' | 'OTHER' | 'UNKNOWN_DELIVERY_DATE';
+  /**
+   * Whether the merchant receives a notification about the fulfillment hold. Defaults to false.
+   */
+  notifyMerchant?: boolean | undefined;
+  /**
+   * Additional information about the fulfillment hold reason.
+   */
+  reasonNotes?: string | undefined;
+  /**
+   * A unique identifier for the hold applied by the app.
+   */
+  handle?: string | undefined;};
+};
+
+export interface ActionOutput_shopify_holdfulfillmentorder {
+  fulfillmentOrder?: {  id: string;
+  status?: string | undefined;
+  requestStatus?: string | undefined;
+  fulfillmentHolds?: ({  reason: string;
+  reasonNotes?: string | undefined;})[];};
+  remainingFulfillmentOrder?: {  id: string;} | undefined;
+  userErrors: ({  code?: string | undefined;
+  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_listabandonedcheckouts {
+  /**
+   * Number of items to return. Max 250. Default: 50
+   */
+  first?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  after?: string | undefined;
+  /**
+   * Shopify search query filter. Example: created_at:>2024-01-01 or updated_at:>2024-01-01
+   */
+  query?: string | undefined;
+};
+
+export interface ActionOutput_shopify_listabandonedcheckouts {
+  items: ({  id: string;
+  abandoned_checkout_url?: string | undefined;
+  billing_address?: {  country?: string | undefined;};
+  completed_at?: string | undefined;
+  created_at: string;
+  customer?: {  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;};
+  name: string;
+  shipping_address?: {  country?: string | undefined;};
+  updated_at: string;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_shopify_listcollections {
+  /**
+   * Number of collections to return. Max 250. Example: 10
+   */
+  first?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  after?: string | undefined;
+  /**
+   * Sort key. Valid values: ID, RELEVANCE, SORT_ORDER, TITLE, UPDATED_AT.
+   */
+  sortKey?: 'ID' | 'RELEVANCE' | 'SORT_ORDER' | 'TITLE' | 'UPDATED_AT' | undefined;
+  /**
+   * Reverse the order of the underlying list. Default: false
+   */
+  reverse?: boolean | undefined;
+  /**
+   * Filter query using Shopify API search syntax. Example: "collection_type:smart"
+   */
+  query?: string | undefined;
+};
+
+export interface ActionOutput_shopify_listcollections {
+  items: ({  id: string;
+  title?: string | undefined;
+  handle?: string | undefined;
+  updatedAt?: string | undefined;
+  descriptionHtml?: string | undefined;
+  sortOrder?: string | undefined;
+  templateSuffix?: string | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_shopify_listcompanies {
+  /**
+   * Number of records to return. Max 250.
+   */
+  first?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  after?: string | undefined;
+  /**
+   * Sort key for the underlying list. Valid values: CREATED_AT, ID, NAME, ORDER_COUNT, SINCE_DATE, TOTAL_SPENT, UPDATED_AT.
+   */
+  sortKey?: 'CREATED_AT' | 'ID' | 'NAME' | 'ORDER_COUNT' | 'SINCE_DATE' | 'TOTAL_SPENT' | 'UPDATED_AT' | undefined;
+  /**
+   * Reverse the order of the underlying list.
+   */
+  reverse?: boolean | undefined;
+  /**
+   * A filter made up of terms, connectives, modifiers, and comparators.
+   */
+  query?: string | undefined;
+};
+
+export interface ActionOutput_shopify_listcompanies {
+  companies: ({  id: string;
+  name: string;
+  externalId?: string | undefined;
+  createdAt: string;
+  updatedAt: string;
+  customerSince?: string | undefined;
+  note?: string | undefined;
+  totalSpent?: {  amount: string;
+  currencyCode: string;} | undefined;
+  ordersCount?: number | undefined;
+  locationsCount?: number | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_shopify_listcustomersegments {
+  /**
+   * Number of segments to return. Maximum 250.
+   */
+  first?: number | undefined;
+  /**
+   * Pagination cursor from the previous response.
+   */
+  after?: string | undefined;
+  /**
+   * Sort key. Valid values: CREATION_DATE, ID, LAST_EDIT_DATE, RELEVANCE.
+   */
+  sortKey?: 'CREATION_DATE' | 'ID' | 'LAST_EDIT_DATE' | 'RELEVANCE' | undefined;
+  /**
+   * Reverse the order of the list.
+   */
+  reverse?: boolean | undefined;
+  /**
+   * Filter query using Shopify search syntax.
+   */
+  query?: string | undefined;
+};
+
+export interface ActionOutput_shopify_listcustomersegments {
+  segments: ({  id: string;
+  name: string;
+  creationDate?: string | undefined;
+  lastEditDate?: string | undefined;
+  query?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_shopify_listdiscounts {
+  /**
+   * The number of discount nodes to return (max 250). Default: 50.
+   */
+  first?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  after?: string | undefined;
+  /**
+   * A filter query string using Shopify API search syntax.
+   */
+  query?: string | undefined;
+  /**
+   * The ID of a saved search to use as the filter query.
+   */
+  savedSearchId?: string | undefined;
+};
+
+export interface ActionOutput_shopify_listdiscounts {
+  nodes: ({  id: string;
+  __typename?: string | undefined;
+  discount?: {  [key: string]: unknown | undefined;};})[];
+  /**
+   * Pagination cursor to fetch the next page. Omit if there are no more pages.
+   */
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_shopify_listevents {
+  /**
+   * Number of events to return. Max 250. Default: 50.
+   */
+  first?: number | undefined;
+  /**
+   * Pagination cursor from the previous response.
+   */
+  after?: string | undefined;
+  /**
+   * Sort key for events. Default: ID.
+   */
+  sortKey?: 'ID' | 'CREATED_AT' | undefined;
+  /**
+   * Reverse the order of the results. Default: false.
+   */
+  reverse?: boolean | undefined;
+  /**
+   * Search query string for filtering events.
+   */
+  query?: string | undefined;
+  /**
+   * Filter by subject type. Example: PRODUCT, ORDER, COLLECTION.
+   */
+  subjectType?: string | undefined;
+};
+
+export interface ActionOutput_shopify_listevents {
+  events: ({  id: string;
+  action: string;
+  appTitle?: string | undefined;
+  attributeToApp: boolean;
+  attributeToUser: boolean;
+  createdAt: string;
+  criticalAlert: boolean;
+  message: string;
+  arguments?: unknown[] | undefined;
+  subjectId?: string | undefined;
+  subjectType?: string | undefined;
+  additionalContent?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_shopify_listfiles {
+  /**
+   * Number of files to fetch. Example: 50
+   */
+  first?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  after?: string | undefined;
+  /**
+   * Sort key for the files. Example: ID
+   */
+  sortKey?: string | undefined;
+  /**
+   * Reverse the order of the underlying list.
+   */
+  reverse?: boolean | undefined;
+  /**
+   * Filter query string. Example: media_type:IMAGE
+   */
+  query?: string | undefined;
+};
+
+export interface ActionOutput_shopify_listfiles {
+  files: ({  id: string;
+  alt?: string | undefined;
+  mediaContentType?: string | undefined;
+  url?: string | undefined;
+  preview?: {  image?: {  url?: string | undefined;};};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_shopify_listinventorylevels {
+  /**
+   * Shopify location GID to filter inventory levels by. Example: "gid://shopify/Location/346779380"
+   */
+  locationId?: string | undefined;
+  /**
+   * Shopify inventory item GID to filter inventory levels by. Example: "gid://shopify/InventoryItem/30322695"
+   */
+  inventoryItemId?: string | undefined;
+  /**
+   * Number of inventory levels to return per page. Max 250. Defaults to 50.
+   */
+  first?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  after?: string | undefined;
+  /**
+   * Optional query filter for inventory levels. Example: "id:>=1234"
+   */
+  query?: string | undefined;
+};
+
+export interface ActionOutput_shopify_listinventorylevels {
+  inventoryLevels: ({  id: string;
+  quantities: ({  name: string;
+  quantity: number;})[];
+  inventoryItem: {  id: string;
+  sku?: string | undefined;};
+  location: {  id: string;
+  name?: string | undefined;};})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_shopify_listlocations {
+  /**
+   * The number of locations to return. Maximum 250.
+   */
+  first?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  after?: string | undefined;
+  /**
+   * Whether to include deactivated locations.
+   */
+  includeInactive?: boolean | undefined;
+  /**
+   * Filter locations by name.
+   */
+  name?: string | undefined;
+};
+
+export interface ActionOutput_shopify_listlocations {
+  locations: ({  id: string;
+  name: string;
+  address?: {  address1?: string | undefined;
+  address2?: string | undefined;
+  city?: string | undefined;
+  province?: string | undefined;
+  country?: string | undefined;
+  zip?: string | undefined;
+  phone?: string | undefined;
+  formatted?: string[] | undefined;};
+  isActive: boolean;
+  createdAt: string;
+  updatedAt: string;
+  legacyResourceId?: string | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_shopify_listmarkets {
+  /**
+   * The number of markets to return. Max 250. Default: 50
+   */
+  first?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  after?: string | undefined;
+  /**
+   * Reverse the order of the underlying list.
+   */
+  reverse?: boolean | undefined;
+};
+
+export interface ActionOutput_shopify_listmarkets {
+  items: ({  id: string;
+  name: string;
+  handle: string;
+  status: string;
+  type: string;
+  enabled: boolean;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_shopify_listmetafielddefinitions {
+  /**
+   * The resource type that the metafield definition is attached to. Example: "PRODUCT"
+   */
+  owner_type: string;
+  /**
+   * The first n elements from the paginated list. Max 250.
+   */
+  first?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  after?: string | undefined;
+  /**
+   * Filter metafield definitions by namespace.
+   */
+  namespace?: string | undefined;
+  /**
+   * Filter by pinned status. Values: ANY, PINNED, UNPINNED.
+   */
+  pinned_status?: string | undefined;
+};
+
+export interface ActionOutput_shopify_listmetafielddefinitions {
+  definitions: ({  id: string;
+  name: string;
+  namespace: string;
+  key: string;
+  description?: string | undefined;
+  owner_type: string;
+  type: {  name: string;};
+  pinned_position?: number | undefined;
+  use_as_collection_condition?: boolean | undefined;
+  validation_status?: string | undefined;
+  validations?: ({  name: string;
+  value?: string | undefined;})[];
+  metafields_count?: number | undefined;
+  access?: {  admin?: string | undefined;
+  customer_account?: string | undefined;
+  storefront?: string | undefined;};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_shopify_listmetaobjectdefinitions {
+  /**
+   * The number of metaobject definitions to return. Max 250. Example: 10
+   */
+  first?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  after?: string | undefined;
+};
+
+export interface ActionOutput_shopify_listmetaobjectdefinitions {
+  items: ({  id: string;
+  name: string;
+  type: string;
+  description?: string | undefined;
+  displayNameKey?: string | undefined;
+  createdAt: string;
+  updatedAt: string;
+  metaobjectsCount: number;
+  fieldDefinitions?: ({  key: string;
+  name: string;
+  typeName?: string | undefined;})[];})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_shopify_listmetaobjects {
+  /**
+   * The type of the metaobjects to query. Example: "app:author"
+   */
+  type: string;
+  /**
+   * The number of metaobjects to return. Max 250. Example: 10
+   */
+  first?: number | undefined;
+  /**
+   * The cursor to fetch the next page. Example: "eyJsYXN0X2lkIjo5NzE2NjI1MzB9"
+   */
+  after?: string | undefined;
+  /**
+   * The key to sort by. Valid values: ID, TYPE, UPDATED_AT, DISPLAY_NAME.
+   */
+  sortKey?: 'ID' | 'TYPE' | 'UPDATED_AT' | 'DISPLAY_NAME' | undefined;
+  /**
+   * Reverse the order of the results.
+   */
+  reverse?: boolean | undefined;
+};
+
+export interface ActionOutput_shopify_listmetaobjects {
+  items: ({  id: string;
+  handle: string;
+  type: string;
+  displayName: string;
+  updatedAt: string;
+  createdAt: string;
+  fields: ({  key: string;
+  value?: string | undefined;
+  jsonValue?: unknown | undefined;
+  type: string;})[];})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_shopify_listproducts {
+  /**
+   * Number of products to return (1-250). Default: 50.
+   */
+  first?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  after?: string | undefined;
+  /**
+   * Sort key for the product list.
+   */
+  sortKey?: 'CREATED_AT' | 'ID' | 'INVENTORY_TOTAL' | 'PRODUCT_TYPE' | 'PUBLISHED_AT' | 'RELEVANCE' | 'TITLE' | 'UPDATED_AT' | 'VENDOR' | undefined;
+  /**
+   * Reverse the order of the results.
+   */
+  reverse?: boolean | undefined;
+  /**
+   * Search query string using Shopify API search syntax.
+   */
+  query?: string | undefined;
+};
+
+export interface ActionOutput_shopify_listproducts {
+  products: ({  id: string;
+  title: string;
+  handle?: string | undefined;
+  description?: string | undefined;
+  vendor?: string | undefined;
+  productType?: string | undefined;
+  status?: string | undefined;
+  tags?: string[] | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  publishedAt?: string | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_shopify_listpublications {
+  /**
+   * The number of publications to return. Max 250.
+   */
+  first?: number | undefined;
+  /**
+   * Pagination cursor from the previous response.
+   */
+  after?: string | undefined;
+};
+
+export interface ActionOutput_shopify_listpublications {
+  publications: ({  id: string;
+  name: string;
+  app: {  id: string;
+  title?: string | undefined;};})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_shopify_listurlredirects {
+  /**
+   * The number of URL redirects to return. Max 250. Example: 10
+   */
+  first?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  after?: string | undefined;
+  /**
+   * A filter query for URL redirects. Example: "path:/old-path"
+   */
+  query?: string | undefined;
+};
+
+export interface ActionOutput_shopify_listurlredirects {
+  items: ({  id: string;
+  path: string;
+  target: string;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_shopify_listwebhooksubscriptions {
+  /**
+   * The number of webhook subscriptions to return (1-250). Default: 50.
+   */
+  first?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  after?: string | undefined;
+  /**
+   * List of webhook subscription topics to filter by.
+   */
+  topics?: string[] | undefined;
+  /**
+   * Callback URL to filter by.
+   */
+  callbackUrl?: string | undefined;
+};
+
+export interface ActionOutput_shopify_listwebhooksubscriptions {
+  items: ({  id: string;
+  topic: string;
+  uri: string;
+  format: string;
+  createdAt: string;
+  updatedAt: string;
+  legacyResourceId: string;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_shopify_markorderaspaid {
+  /**
+   * Shopify order ID. Example: "gid://shopify/Order/148977776" or "148977776"
+   */
+  orderId: string;
+};
+
+export interface ActionOutput_shopify_markorderaspaid {
+  order?: {  id: string;
+  name: string;
+  canMarkAsPaid: boolean;
+  displayFinancialStatus: string;
+  totalPrice: string;
+  totalOutstandingSet?: {  shopMoney?: {  amount: string;
+  currencyCode: string;} | undefined;};};
+  userErrors: ({  field: string[];
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_movefulfillmentorder {
+  /**
+   * The ID of the fulfillment order to be moved. Example: "gid://shopify/FulfillmentOrder/940656279"
+   */
+  fulfillmentOrderId: string;
+  /**
+   * The ID of the location where the fulfillment order will be moved. Example: "gid://shopify/Location/346779380"
+   */
+  newLocationId: string;
+};
+
+export interface ActionOutput_shopify_movefulfillmentorder {
+  originalFulfillmentOrder?: {  id: string;
+  status?: string | undefined;
+  requestStatus?: string | undefined;
+  assignedLocation?: {  name?: string | undefined;};};
+  movedFulfillmentOrder?: {  id: string;
+  status?: string | undefined;
+  requestStatus?: string | undefined;
+  assignedLocation?: {  name?: string | undefined;};};
+  remainingFulfillmentOrder?: {  id: string;
+  status?: string | undefined;
+  requestStatus?: string | undefined;
+  assignedLocation?: {  name?: string | undefined;};};
+  userErrors?: ({  field?: string[] | undefined;
+  message?: string | undefined;})[];
+};
+
+export interface ActionInput_shopify_moveinventoryquantities {
+  /**
+   * Quantity to move. Example: 5
+   */
+  quantity: number;
+  /**
+   * Source location ID. Example: gid://shopify/Location/123456789
+   */
+  fromLocationId: string;
+  /**
+   * Destination location ID. Example: gid://shopify/Location/987654321
+   */
+  toLocationId: string;
+  /**
+   * Inventory item ID. Example: gid://shopify/InventoryItem/30322695
+   */
+  inventoryItemId: string;
+  /**
+   * Reason for the move. Defaults to "relocation"
+   */
+  reason?: string | undefined;
+  /**
+   * Reference document URI. Defaults to a generated URI
+   */
+  referenceDocumentUri?: string | undefined;
+  /**
+   * Quantity name to move. Defaults to "available"
+   */
+  quantityName?: string | undefined;
+};
+
+export interface ActionOutput_shopify_moveinventoryquantities {
+  userErrors: ({  field?: string[] | undefined;
+  message: string;
+  code?: string | undefined;})[];
+  inventoryAdjustmentGroup?: {  createdAt?: string | undefined;
+  reason?: string | undefined;
+  referenceDocumentUri?: string | undefined;
+  changes?: ({  name: string;
+  delta: number;})[] | undefined;};
+};
+
+export interface ActionInput_shopify_openorder {
+  /**
+   * Shopify order ID. Example: "gid://shopify/Order/123" or "123"
+   */
+  order_id: string;
+};
+
+export interface ActionOutput_shopify_openorder {
+  order?: {  id: string;
+  name?: string | undefined;
+  email?: string | undefined;
+  displayFulfillmentStatus?: string | undefined;
+  displayFinancialStatus?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  cancelledAt?: string | undefined;
+  cancelReason?: string | undefined;
+  confirmed?: boolean | undefined;
+  closed?: boolean | undefined;
+  closedAt?: string | undefined;
+  customer?: {  displayName?: string | undefined;
+  email?: string | undefined;};};
+  userErrors: ({  field: string[];
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_publishresource {
+  /**
+   * The resource GID to publish. Example: "gid://shopify/Product/558169081"
+   */
+  id: string;
+  /**
+   * Array of PublicationInput objects
+   */
+  input: ({  /**
+   * ID of the publication. Example: "gid://shopify/Publication/762454635"
+   */
+  publicationId: string;
+  /**
+   * The date and time that the resource was published. Example: "2026-01-01T00:00:00Z"
+   */
+  publishDate?: string | undefined;})[];
+};
+
+export interface ActionOutput_shopify_publishresource {
+  resource?: {  id?: string | undefined;
+  title?: string | undefined;
+  availablePublicationsCount?: {  count?: number | undefined;};
+  resourcePublicationsCount?: {  count?: number | undefined;};};
+  userErrors: ({  field?: string[] | undefined;
+  message?: string | undefined;})[];
+};
+
+export interface ActionInput_shopify_rejectfulfillmentrequest {
+  /**
+   * The ID of the fulfillment order. Example: "gid://shopify/FulfillmentOrder/1046000786"
+   */
+  fulfillment_order_id: string;
+  /**
+   * An optional array of line item rejection details. If none are provided, all line items will be assumed to be unfulfillable.
+   */
+  line_items?: ({  /**
+   * The ID of the rejected line item. Example: "gid://shopify/FulfillmentOrderLineItem/123"
+   */
+  fulfillment_order_line_item_id: string;
+  /**
+   * The rejection message of the line item.
+   */
+  message?: string | undefined;})[];
+  /**
+   * An optional reason for rejecting the fulfillment request.
+   */
+  message?: string | undefined;
+  /**
+   * The reason for the fulfillment order rejection.
+   */
+  reason?: 'INCORRECT_ADDRESS' | 'INCORRECT_PRODUCT_INFO' | 'INELIGIBLE_PRODUCT' | 'INTERNATIONAL_SHIPPING_UNAVAILABLE' | 'INVALID_CONTACT_INFORMATION' | 'INVALID_SKU' | 'INVENTORY_OUT_OF_STOCK' | 'MERCHANT_BLOCKED_OR_SUSPENDED' | 'MISSING_CUSTOMS_INFO' | 'ORDER_TOO_LARGE' | 'OTHER' | 'PACKAGE_PREFERENCE_NOT_SET' | 'PAYMENT_DECLINED' | 'UNDELIVERABLE_DESTINATION' | undefined;
+};
+
+export interface ActionOutput_shopify_rejectfulfillmentrequest {
+  fulfillment_order?: {  id: string;
+  status?: string | undefined;
+  request_status?: string | undefined;};
+  user_errors: ({  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_releasefulfillmenthold {
+  /**
+   * The ID of the fulfillment order for which to release the fulfillment hold. Example: "gid://shopify/FulfillmentOrder/564786110"
+   */
+  fulfillmentOrderId: string;
+  /**
+   * A configurable ID used to track the automation system releasing this hold.
+   */
+  externalId?: string | undefined;
+  /**
+   * The IDs of the fulfillment holds to release. If not supplied, all holds for the fulfillment order will be released.
+   */
+  holdIds?: string[] | undefined;
+};
+
+export interface ActionOutput_shopify_releasefulfillmenthold {
+  fulfillmentOrder?: {  id: string;
+  status?: string | undefined;
+  requestStatus?: string | undefined;};
+  userErrors: ({  field?: string[] | undefined;
+  message: string;
+  code?: string | undefined;})[];
+};
+
+export interface ActionInput_shopify_sendcustomeraccountinvite {
+  /**
+   * The Shopify GID of the customer to invite. Example: "gid://shopify/Customer/105906728"
+   */
+  customerId: string;
+  /**
+   * Optional custom message to include in the invitation email.
+   */
+  customMessage?: string | undefined;
+};
+
+export interface ActionOutput_shopify_sendcustomeraccountinvite {
+  customer?: {  id: string;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  displayName?: string | undefined;
+  state?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;};
+  userErrors: ({  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_senddraftorderinvoice {
+  /**
+   * The globally unique ID of the draft order to send the invoice for. Example: gid://shopify/DraftOrder/123456789
+   */
+  id: string;
+  /**
+   * Optional email customization fields.
+   */
+  email?: {  bcc?: string[] | undefined;
+  body?: string | undefined;
+  customMessage?: string | undefined;
+  from?: string | undefined;
+  subject?: string | undefined;
+  to?: string | undefined;};
+};
+
+export interface ActionOutput_shopify_senddraftorderinvoice {
+  draftOrder?: {  id: string;
+  name?: string | undefined;
+  status?: string | undefined;
+  email?: string | undefined;
+  invoiceSentAt?: string | undefined;
+  invoiceUrl?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  completedAt?: string | undefined;
+  currencyCode?: string | undefined;
+  taxesIncluded?: boolean | undefined;
+  taxExempt?: boolean | undefined;
+  note2?: string | undefined;
+  tags?: string[] | undefined;
+  customer?: {  id?: string | undefined;
+  email?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;};
+  shippingAddress?: {  firstName?: string | undefined;
+  lastName?: string | undefined;
+  address1?: string | undefined;
+  address2?: string | undefined;
+  city?: string | undefined;
+  province?: string | undefined;
+  country?: string | undefined;
+  zip?: string | undefined;
+  phone?: string | undefined;
+  company?: string | undefined;
+  name?: string | undefined;};
+  billingAddress?: {  firstName?: string | undefined;
+  lastName?: string | undefined;
+  address1?: string | undefined;
+  address2?: string | undefined;
+  city?: string | undefined;
+  province?: string | undefined;
+  country?: string | undefined;
+  zip?: string | undefined;
+  phone?: string | undefined;
+  company?: string | undefined;
+  name?: string | undefined;};
+  lineItems?: {  edges?: ({  node?: {  id?: string | undefined;
+  name?: string | undefined;
+  quantity?: number | undefined;
+  sku?: string | undefined;
+  variant?: {  id?: string | undefined;
+  title?: string | undefined;};};})[];};};
+  userErrors: ({  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_setcustomeremailmarketingconsent {
+  /**
+   * Shopify customer ID. Example: "gid://shopify/Customer/1234567890" or "1234567890"
+   */
+  customer_id: string;
+  /**
+   * The email marketing state to set.
+   */
+  marketing_state: 'SUBSCRIBED' | 'UNSUBSCRIBED' | 'PENDING';
+  /**
+   * The latest ISO date and time when the customer consented or objected. Example: "2026-01-15T10:00:00Z"
+   */
+  consent_updated_at?: string | undefined;
+  /**
+   * The opt-in level at the time of subscribing. Example: "CONFIRMED_OPT_IN"
+   */
+  marketing_opt_in_level?: string | undefined;
+  /**
+   * The location ID where the customer consented. Example: "gid://shopify/Location/1234567890"
+   */
+  source_location_id?: string | undefined;
+};
+
+export interface ActionOutput_shopify_setcustomeremailmarketingconsent {
+  customer_id: string;
+  email?: string | undefined;
+  display_name?: string | undefined;
+  marketing_state?: string | undefined;
+  consent_updated_at?: string | undefined;
+  marketing_opt_in_level?: string | undefined;
+};
+
+export interface ActionInput_shopify_setinventoryquantities {
+  /**
+   * The name of the quantity to change.
+   */
+  name: 'available' | 'on_hand';
+  /**
+   * The inventory item quantities to set.
+   */
+  quantities: ({  /**
+   * Global ID of the inventory item. Example: gid://shopify/InventoryItem/1234567890
+   */
+  inventoryItemId: string;
+  /**
+   * Global ID of the location. Example: gid://shopify/Location/1234567890
+   */
+  locationId: string;
+  /**
+   * The absolute quantity to set.
+   */
+  quantity: number;
+  /**
+   * Expected current quantity for compare-and-swap safety. Pass null or omit to skip the CAS check.
+   */
+  changeFromQuantity?: number | undefined;})[];
+  /**
+   * The reason for the quantity change. Example: correction, received, damaged, etc.
+   */
+  reason: string;
+  /**
+   * URI representing the source of the inventory change.
+   */
+  referenceDocumentUri?: string | undefined;
+};
+
+export interface ActionOutput_shopify_setinventoryquantities {
+  inventoryAdjustmentGroup?: {  createdAt?: string | undefined;
+  reason: string;
+  referenceDocumentUri?: string | undefined;
+  changes: ({  name: string;
+  delta: number;
+  quantityAfterChange?: number | undefined;})[];};
+};
+
+export interface ActionInput_shopify_setmetafields {
+  /**
+   * List of metafields to set. Maximum of 25.
+   */
+  metafields: ({  /**
+   * The unique key for the metafield. Example: "materials"
+   */
+  key: string;
+  /**
+   * The namespace for the metafield. Example: "my_fields"
+   */
+  namespace: string;
+  /**
+   * The global ID of the resource that owns the metafield. Example: "gid://shopify/Product/20995642"
+   */
+  ownerId: string;
+  /**
+   * The metafield type. Example: "single_line_text_field"
+   */
+  type: string;
+  /**
+   * The value of the metafield.
+   */
+  value: string;
+  /**
+   * Optional compare digest for atomic updates. Set to null for new metafields.
+   */
+  compareDigest?: string | undefined;})[];
+};
+
+export interface ActionOutput_shopify_setmetafields {
+  metafields: ({  key: string;
+  namespace: string;
+  value: string;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  compare_digest?: string | undefined;})[];
+  user_errors: ({  field?: string[] | undefined;
+  message: string;
+  code?: string | undefined;})[];
+};
+
+export interface ActionInput_shopify_tagsadd {
+  /**
+   * The Shopify global ID of the resource to add tags to. Example: "gid://shopify/Product/20995642"
+   */
+  id: string;
+  /**
+   * Tags to add. Can be a single string (comma-separated) or an array of strings.
+   */
+  tags: string | string[];
+};
+
+export interface ActionOutput_shopify_tagsadd {
+  id: string;
+  tags_added: string[];
+};
+
+export interface ActionInput_shopify_tagsremove {
+  /**
+   * The global ID of the Shopify resource to remove tags from. Example: "gid://shopify/Customer/544365967"
+   */
+  id: string;
+  /**
+   * The tags to remove from the resource. Example: ["tag1", "tag2"]
+   */
+  tags: string[];
+};
+
+export interface ActionOutput_shopify_tagsremove {
+  /**
+   * The global ID of the resource that was updated.
+   */
+  id: string;
+  /**
+   * Any errors that occurred during the mutation.
+   */
+  user_errors: ({  message: string;})[];
+};
+
+export interface ActionInput_shopify_unpublishresource {
+  /**
+   * Resource GID to unpublish. Example: "gid://shopify/Product/108828309"
+   */
+  id: string;
+  /**
+   * Array of PublicationInput objects specifying publications to unpublish from.
+   */
+  input: ({  /**
+   * Publication GID. Example: "gid://shopify/Publication/762454635"
+   */
+  publicationId?: string | undefined;
+  /**
+   * Channel GID. Example: "gid://shopify/Channel/762454635"
+   */
+  channelId?: string | undefined;
+  /**
+   * Publish date in ISO 8601 format. Example: "2024-11-14T11:45:48-05:00"
+   */
+  publishDate?: string | undefined;})[];
+};
+
+export interface ActionOutput_shopify_unpublishresource {
+  publishable?: {  [key: string]: unknown | undefined;};
+  userErrors: ({  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_updateautomaticdiscountbxgy {
+  /**
+   * The ID of the automatic BXGY discount to update. Example: "gid://shopify/DiscountAutomaticNode/123"
+   */
+  id: string;
+  automaticBxgyDiscount: {  title?: string | undefined;
+  startsAt?: string | undefined;
+  endsAt?: string | undefined;
+  customerBuys?: {} | undefined;
+  customerGets?: {} | undefined;
+  combinesWith?: {} | undefined;
+  context?: {} | undefined;
+  tags?: string[] | undefined;
+  usesPerOrderLimit?: string | undefined;};
+};
+
+export interface ActionOutput_shopify_updateautomaticdiscountbxgy {
+  automaticDiscountNode?: {  id: string;
+  automaticDiscount?: {  title?: string | undefined;
+  startsAt?: string | undefined;
+  endsAt?: string | undefined;
+  status?: string | undefined;
+  summary?: string | undefined;
+  usesPerOrderLimit?: number | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;};};
+  userErrors: ({  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_updateautomaticdiscountfreeshipping {
+  /**
+   * The ID of the automatic free shipping discount to update. Example: "gid://shopify/DiscountAutomaticNode/1057856655"
+   */
+  id: string;
+  freeShippingAutomaticDiscount: {  title?: string | undefined;
+  startsAt?: string | undefined;
+  endsAt?: string | undefined;
+  minimumRequirement?: {  quantity?: {  greaterThanOrEqualToQuantity?: string | undefined;};
+  subtotal?: {  greaterThanOrEqualToSubtotal?: string | undefined;};};
+  destination?: {  all?: boolean | undefined;
+  countries?: ({  code: string;
+  include?: boolean | undefined;})[];};
+  context?: {  [key: string]: unknown | undefined;};};
+};
+
+export interface ActionOutput_shopify_updateautomaticdiscountfreeshipping {
+  automaticDiscountNode?: {  id: string;
+  automaticDiscount?: {  title?: string | undefined;
+  startsAt?: string | undefined;
+  endsAt?: string | undefined;};};
+  userErrors: ({  field?: string[] | undefined;
+  message: string;
+  code?: string | undefined;})[];
+};
+
+export interface ActionInput_shopify_updateautomaticdiscount {
+  /**
+   * The ID of the automatic amount off discount to update. Example: "gid://shopify/DiscountAutomaticNode/123"
+   */
+  id: string;
+  automaticBasicDiscount: {  title?: string | undefined;
+  startsAt?: string | undefined;
+  endsAt?: string | undefined;
+  customerGets?: {  [key: string]: unknown | undefined;};
+  minimumRequirement?: {  [key: string]: unknown | undefined;};
+  combinesWith?: {  [key: string]: unknown | undefined;};
+  recurringCycleLimit?: number | undefined;
+  tags?: string[] | undefined;
+  context?: {  [key: string]: unknown | undefined;};};
+};
+
+export interface ActionOutput_shopify_updateautomaticdiscount {
+  /**
+   * The ID of the updated automatic discount node.
+   */
+  id: string;
+  /**
+   * List of user errors returned by Shopify.
+   */
+  userErrors?: ({  field: string[];
+  code: string;
+  message: string;})[] | undefined;
+};
+
+export interface ActionInput_shopify_updatecollection {
+  /**
+   * The Shopify global ID of the collection. Example: "gid://shopify/Collection/123456789"
+   */
+  id: string;
+  title?: string | undefined;
+  descriptionHtml?: string | undefined;
+  handle?: string | undefined;
+  image?: {  src: string;
+  altText?: string | undefined;};
+  seo?: {  title?: string | undefined;
+  description?: string | undefined;};
+  sortOrder?: string | undefined;
+  templateSuffix?: string | undefined;
+  redirectNewHandle?: boolean | undefined;
+};
+
+export interface ActionOutput_shopify_updatecollection {
+  id: string;
+  title?: string | undefined;
+  description?: string | undefined;
+  handle?: string | undefined;
+  image?: {  src?: string | undefined;
+  altText?: string | undefined;};
+  seo?: {  title?: string | undefined;
+  description?: string | undefined;};
+  sortOrder?: string | undefined;
+  templateSuffix?: string | undefined;
+  userErrors?: ({  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_updatecompany {
+  /**
+   * The ID of the company to be updated. Example: "gid://shopify/Company/1234567890"
+   */
+  companyId: string;
+  /**
+   * The name of the company.
+   */
+  name?: string | undefined;
+  /**
+   * A note about the company. Pass null to clear.
+   */
+  note?: string | undefined;
+  /**
+   * A unique externally-supplied ID for the company. Pass null to clear.
+   */
+  externalId?: string | undefined;
+  /**
+   * The date and time (ISO 8601 format) at which the company became the customer. Pass null to clear.
+   */
+  customerSince?: string | undefined;
+};
+
+export interface ActionOutput_shopify_updatecompany {
+  company?: {  id: string;
+  name: string;
+  createdAt: string;
+  customerSince: string;
+  externalId: string;
+  note: string;
+  updatedAt: string;} | undefined;
+  userErrors: ({  code: string;
+  field: string[];
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_updatediscountcodebasic {
+  /**
+   * The ID of the discount code node to update. Example: "gid://shopify/DiscountCodeNode/123"
+   */
+  id: string;
+  basicCodeDiscount: {  appliesOncePerCustomer?: boolean | undefined;
+  code?: string | undefined;
+  combinesWith?: {  orderDiscounts?: boolean | undefined;
+  productDiscounts?: boolean | undefined;
+  shippingDiscounts?: boolean | undefined;
+  productDiscountsWithTagsOnSameCartLine?: ({  tag: string;})[] | undefined;};
+  context?: {  customerSegments?: {  add?: string[] | undefined;
+  remove?: string[] | undefined;};
+  customers?: {  add?: string[] | undefined;
+  remove?: string[] | undefined;};
+  all?: string | undefined;};
+  customerGets?: {  items?: {  all?: boolean | undefined;
+  products?: {  productsToAdd?: string[] | undefined;
+  productsToRemove?: string[] | undefined;};
+  collections?: {  collectionsToAdd?: string[] | undefined;
+  collectionsToRemove?: string[] | undefined;};
+  variants?: {  variantsToAdd?: string[] | undefined;
+  variantsToRemove?: string[] | undefined;};};
+  value?: {  percentage?: number | undefined;
+  fixedAmount?: number | undefined;};};
+  endsAt?: string | undefined;
+  minimumRequirement?: {  quantity?: {  greaterThanOrEqualToQuantity?: number | undefined;};
+  subtotal?: {  greaterThanOrEqualToSubtotal?: number | undefined;};};
+  recurringCycleLimit?: number | undefined;
+  startsAt?: string | undefined;
+  tags?: string[] | undefined;
+  title?: string | undefined;
+  usageLimit?: number | undefined;};
+};
+
+export interface ActionOutput_shopify_updatediscountcodebasic {
+  codeDiscountNode?: {  id: string;
+  codeDiscount?: {  title?: string | undefined;
+  status?: string | undefined;
+  startsAt?: string | undefined;
+  endsAt?: string | undefined;
+  usageLimit?: number | undefined;
+  appliesOncePerCustomer?: boolean | undefined;
+  recurringCycleLimit?: number | undefined;};};
+  userErrors: ({  code?: string | undefined;
+  extraInfo?: string | undefined;
+  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_updatediscountcodebxgy {
+  /**
+   * The ID of the BXGY code discount to update. Example: "gid://shopify/DiscountCodeNode/123"
+   */
+  id: string;
+  /**
+   * The input data used to update the BXGY code discount. Mirrors Shopify DiscountCodeBxgyInput.
+   */
+  bxgyCodeDiscount: {};
+};
+
+export interface ActionOutput_shopify_updatediscountcodebxgy {
+  codeDiscountNode?: {} | undefined;
+  userErrors: ({  field?: string[] | undefined;
+  code?: string | undefined;
+  message: string;
+  extraInfo?: string | undefined;})[];
+};
+
+export interface ActionInput_shopify_updatediscountcodefreeshipping {
+  /**
+   * The ID of the discount code to update. Example: gid://shopify/DiscountCodeNode/123456789
+   */
+  id: string;
+  freeShippingCodeDiscount: {  appliesOncePerCustomer?: boolean | undefined;
+  appliesOnOneTimePurchase?: boolean | undefined;
+  appliesOnSubscription?: boolean | undefined;
+  code?: string | undefined;
+  combinesWith?: {  orderDiscounts?: boolean | undefined;
+  productDiscounts?: boolean | undefined;
+  shippingDiscounts?: boolean | undefined;};
+  context?: {  all?: string | undefined;
+  customers?: {  add?: string[] | undefined;
+  remove?: string[] | undefined;};
+  customerSegments?: {  add?: string[] | undefined;
+  remove?: string[] | undefined;};};
+  customerSelection?: {  all?: string | undefined;
+  customers?: {  add?: string[] | undefined;
+  remove?: string[] | undefined;};
+  customerSegments?: {  add?: string[] | undefined;
+  remove?: string[] | undefined;};};
+  destination?: {  all?: boolean | undefined;
+  countries?: {  add?: string[] | undefined;
+  includeRestOfWorld?: boolean | undefined;
+  remove?: string[] | undefined;};};
+  endsAt?: string | undefined;
+  maximumShippingPrice?: number | undefined;
+  minimumRequirement?: {  subtotal?: {  greaterThanOrEqualToSubtotal?: number | undefined;};
+  quantity?: {  greaterThanOrEqualToQuantity?: number | undefined;};};
+  recurringCycleLimit?: number | undefined;
+  startsAt?: string | undefined;
+  tags?: string[] | undefined;
+  title?: string | undefined;
+  usageLimit?: number | undefined;};
+};
+
+export interface ActionOutput_shopify_updatediscountcodefreeshipping {
+  codeDiscountNode?: {  id: string;
+  codeDiscount?: unknown | undefined;};
+  userErrors: ({  field?: string[] | undefined;
+  code?: string | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_updatefile {
+  /**
+   * Array of file update inputs.
+   */
+  files: ({  /**
+   * The globally-unique ID of the file to update. Example: gid://shopify/MediaImage/1234567890
+   */
+  id: string;
+  /**
+   * The alt text description of the file.
+   */
+  alt?: string | undefined;
+  /**
+   * The name of the file including its extension.
+   */
+  filename?: string | undefined;
+  /**
+   * The source URL from which to update a media image or generic file.
+   */
+  originalSource?: string | undefined;
+  /**
+   * The source URL from which to update the media preview image.
+   */
+  previewImageSource?: string | undefined;
+  /**
+   * The IDs of product references to add to the file.
+   */
+  referencesToAdd?: string[] | undefined;
+  /**
+   * The IDs of product references to remove from the file.
+   */
+  referencesToRemove?: string[] | undefined;})[];
+};
+
+export interface ActionOutput_shopify_updatefile {
+  files?: ({  id: string;
+  alt?: string | undefined;
+  createdAt: string;
+  fileStatus: string;
+  updatedAt: string;})[];
+  userErrors?: ({  field?: string[] | undefined;
+  message: string;
+  code?: string | undefined;})[];
+};
+
+export interface ActionInput_shopify_updatefulfillmenttracking {
+  /**
+   * The ID of the fulfillment. Example: "gid://shopify/Fulfillment/255858046"
+   */
+  fulfillmentId: string;
+  /**
+   * The name of the tracking company. Example: "UPS"
+   */
+  trackingCompany?: string | undefined;
+  /**
+   * The tracking number. Example: "1Z001985YW99744790"
+   */
+  trackingNumber?: string | undefined;
+  /**
+   * The tracking URL. Example: "https://www.ups.com/track?tracknum=1Z001985YW99744790"
+   */
+  trackingUrl?: string | undefined;
+  /**
+   * Whether the customer will be notified of this update and future updates for the fulfillment.
+   */
+  notifyCustomer?: boolean | undefined;
+};
+
+export interface ActionOutput_shopify_updatefulfillmenttracking {
+  id: string;
+  status?: string | undefined;
+  trackingInfo?: ({  company?: string | undefined;
+  number?: string | undefined;
+  url?: string | undefined;})[];
+};
+
+export interface ActionInput_shopify_updategiftcard {
+  /**
+   * The ID of the gift card to update. Example: "gid://shopify/GiftCard/123"
+   */
+  id: string;
+  /**
+   * The expiration date of the gift card. Pass null to clear. Example: "2025-12-31"
+   */
+  expiresOn?: string | undefined;
+  /**
+   * A note associated with the gift card. Pass null to clear.
+   */
+  note?: string | undefined;
+  /**
+   * The ID of the customer to assign the gift card to. Pass null to clear. Example: "gid://shopify/Customer/456"
+   */
+  customerId?: string | undefined;
+};
+
+export interface ActionOutput_shopify_updategiftcard {
+  giftCard?: {  id: string;
+  balance?: {  amount: string;
+  currencyCode: string;} | undefined;
+  createdAt?: string | undefined;
+  customer?: {  id?: string | undefined;};
+  deactivatedAt?: string | undefined;
+  enabled?: boolean | undefined;
+  expiresOn?: string | undefined;
+  initialValue?: {  amount: string;
+  currencyCode: string;} | undefined;
+  lastCharacters?: string | undefined;
+  maskedCode?: string | undefined;
+  note?: string | undefined;
+  templateSuffix?: string | undefined;
+  updatedAt?: string | undefined;};
+  userErrors: ({  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_updateinventoryitem {
+  /**
+   * The ID of the inventory item to update. Example: "gid://shopify/InventoryItem/43729076"
+   */
+  id: string;
+  /**
+   * The SKU of the inventory item.
+   */
+  sku?: string | undefined;
+  /**
+   * Whether inventory levels are tracked for the item.
+   */
+  tracked?: boolean | undefined;
+  /**
+   * Whether the inventory item requires shipping.
+   */
+  requiresShipping?: boolean | undefined;
+  /**
+   * The unit cost associated with the inventory item.
+   */
+  cost?: number | undefined;
+  /**
+   * The ISO 3166-1 alpha-2 country code of where the item originated from.
+   */
+  countryCodeOfOrigin?: string | undefined;
+  /**
+   * The ISO 3166-2 alpha-2 province code of where the item originated from.
+   */
+  provinceCodeOfOrigin?: string | undefined;
+  /**
+   * The harmonized system code of the inventory item.
+   */
+  harmonizedSystemCode?: string | undefined;
+  /**
+   * List of country-specific harmonized system codes.
+   */
+  countryHarmonizedSystemCodes?: ({  countryCode: string;
+  harmonizedSystemCode: string;})[] | undefined;
+};
+
+export interface ActionOutput_shopify_updateinventoryitem {
+  id: string;
+  sku?: string | undefined;
+  tracked: boolean;
+  requiresShipping: boolean;
+  cost?: number | undefined;
+  countryCodeOfOrigin?: string | undefined;
+  provinceCodeOfOrigin?: string | undefined;
+  harmonizedSystemCode?: string | undefined;
+};
+
+export interface ActionInput_shopify_updatemarket {
+  /**
+   * The globally-unique ID of the market to update. Example: "gid://shopify/Market/73827535"
+   */
+  id: string;
+  /**
+   * A unique identifier for the market. Example: "ca"
+   */
+  handle?: string | undefined;
+  /**
+   * The name of the market. Not shown to customers.
+   */
+  name?: string | undefined;
+  /**
+   * The status of the market.
+   */
+  status?: 'ACTIVE' | 'DRAFT' | 'INACTIVE' | undefined;
+  /**
+   * Catalog IDs to include in the market.
+   */
+  catalogsToAdd?: string[] | undefined;
+  /**
+   * Catalog IDs to remove from the market.
+   */
+  catalogsToDelete?: string[] | undefined;
+  /**
+   * The web presences to add to the market.
+   */
+  webPresencesToAdd?: string[] | undefined;
+  /**
+   * The web presences to remove from the market.
+   */
+  webPresencesToDelete?: string[] | undefined;
+  /**
+   * The conditions to update.
+   */
+  conditions?: {  [key: string]: unknown | undefined;};
+  /**
+   * Currency settings for the market.
+   */
+  currencySettings?: {  [key: string]: unknown | undefined;};
+  /**
+   * The strategy used to determine how prices are displayed to the customer.
+   */
+  priceInclusions?: {  [key: string]: unknown | undefined;};
+  /**
+   * Whether to update duplicate region or wildcard markets status to draft.
+   */
+  makeDuplicateUniqueMarketsDraft?: boolean | undefined;
+  /**
+   * Remove any currency settings that are defined for the market.
+   */
+  removeCurrencySettings?: boolean | undefined;
+  /**
+   * The price inclusions to remove from the market.
+   */
+  removePriceInclusions?: boolean | undefined;
+};
+
+export interface ActionOutput_shopify_updatemarket {
+  market?: {  id: string;
+  handle: string;
+  name: string;
+  status: string;
+  type?: string | undefined;};
+  userErrors: ({  field?: string[] | undefined;
+  message: string;
+  code?: string | undefined;})[];
+};
+
+export interface ActionInput_shopify_updatemetafielddefinition {
+  /**
+   * The ID of the metafield definition to update. Example: "gid://shopify/MetafieldDefinition/1234567890"
+   */
+  id: string;
+  /**
+   * The human-readable name for the metafield definition.
+   */
+  name?: string | undefined;
+  /**
+   * The description for the metafield definition.
+   */
+  description?: string | undefined;
+  /**
+   * The access settings for the metafield definition.
+   */
+  access?: {  admin?: 'MERCHANT_READ' | 'MERCHANT_READ_WRITE' | undefined;
+  storefront?: 'NONE' | 'PUBLIC_READ' | undefined;
+  customerAccount?: 'NONE' | 'READ' | 'READ_WRITE' | undefined;};
+  /**
+   * Whether to pin the metafield definition.
+   */
+  pin?: boolean | undefined;
+  /**
+   * A list of validation options for the metafields that belong to the definition.
+   */
+  validations?: ({  name: string;
+  value: string;})[] | undefined;
+};
+
+export interface ActionOutput_shopify_updatemetafielddefinition {
+  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  namespace?: string | undefined;
+  key?: string | undefined;
+  owner_type?: string | undefined;
+  type?: string | undefined;
+  access?: {  admin?: string | undefined;
+  storefront?: string | undefined;
+  customerAccount?: string | undefined;};
+};
+
+export interface ActionInput_shopify_updatemetaobjectdefinition {
+  /**
+   * Metaobject definition ID. Example: gid://shopify/MetaobjectDefinition/123
+   */
+  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  displayNameKey?: string | undefined;
+  access?: {  admin?: string | undefined;
+  storefront?: string | undefined;};
+  capabilities?: {  [key: string]: unknown | undefined;};
+  resetFieldOrder?: boolean | undefined;
+  fieldDefinitions?: ({  create?: {  key: string;
+  name: string;
+  type: string;
+  description?: string | undefined;
+  required?: boolean | undefined;
+  validations?: ({  name: string;
+  value?: string | undefined;})[];};
+  update?: {  key: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  required?: boolean | undefined;
+  validations?: ({  name: string;
+  value?: string | undefined;})[];};
+  delete?: {  key: string;} | undefined;})[];
+};
+
+export interface ActionOutput_shopify_updatemetaobjectdefinition {
+  metaobjectDefinition?: {  id?: string | undefined;
+  name?: string | undefined;
+  type?: string | undefined;
+  description?: string | undefined;
+  displayNameKey?: string | undefined;
+  access?: {  admin?: string | undefined;
+  storefront?: string | undefined;};
+  fieldDefinitions?: ({  name?: string | undefined;
+  key?: string | undefined;
+  type?: {  name?: string | undefined;};
+  validations?: ({  name: string;
+  value?: string | undefined;})[];})[];};
+  userErrors?: ({  field?: string[] | undefined;
+  message: string;
+  code?: string | undefined;})[];
+};
+
+export interface ActionInput_shopify_updatemetaobject {
+  /**
+   * The globally unique ID of the metaobject to update. Example: "gid://shopify/Metaobject/123"
+   */
+  id: string;
+  /**
+   * A new unique handle for the metaobject.
+   */
+  handle?: string | undefined;
+  /**
+   * Field values to update. Each entry maps a field key to its new value.
+   */
+  fields?: ({  key: string;
+  value: string;})[] | undefined;
+};
+
+export interface ActionOutput_shopify_updatemetaobject {
+  id: string;
+  handle: string;
+  type: string;
+  displayName: string;
+  updatedAt: string;
+  fields: ({  key: string;
+  value?: string | undefined;})[];
+};
+
+export interface ActionInput_shopify_updateorder {
+  /**
+   * The ID of the order to update. Example: "gid://shopify/Order/123456789"
+   */
+  id: string;
+  /**
+   * A new customer email address for the order. Overwrites the existing email address.
+   */
+  email?: string | undefined;
+  /**
+   * The new contents for the note associated with the order. Overwrites the existing note.
+   */
+  note?: string | undefined;
+  /**
+   * The new purchase order number for the order.
+   */
+  poNumber?: string | undefined;
+  /**
+   * A new list of tags for the order. Overwrites the existing tags.
+   */
+  tags?: string[] | undefined;
+  /**
+   * The new shipping address for the order. Overwrites the existing shipping address.
+   */
+  shippingAddress?: {  address1?: string | undefined;
+  address2?: string | undefined;
+  city?: string | undefined;
+  company?: string | undefined;
+  countryCode?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  phone?: string | undefined;
+  provinceCode?: string | undefined;
+  zip?: string | undefined;};
+  /**
+   * A new list of custom attributes for the order. Overwrites the existing custom attributes.
+   */
+  customAttributes?: ({  key: string;
+  value: string;})[] | undefined;
+};
+
+export interface ActionOutput_shopify_updateorder {
+  id: string;
+  userErrors: ({  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_updateproductmedia {
+  /**
+   * Product ID. Example: "gid://shopify/Product/123"
+   */
+  productId: string;
+  media: ({  /**
+   * Media ID. Example: "gid://shopify/MediaImage/123"
+   */
+  id: string;
+  /**
+   * Alt text for the media
+   */
+  alt?: string | undefined;
+  /**
+   * Preview image source URL
+   */
+  previewImageSource?: string | undefined;})[];
+};
+
+export interface ActionOutput_shopify_updateproductmedia {
+  productId?: string | undefined;
+  media?: ({  id: string;
+  alt?: string | undefined;
+  status?: string | undefined;
+  image?: {  url?: string | undefined;};})[];
+  mediaUserErrors?: ({  field?: string[] | undefined;
+  message: string;
+  code?: string | undefined;})[];
+};
+
+export interface ActionInput_shopify_updateproductoptions {
+  /**
+   * The ID of the product. Example: "gid://shopify/Product/123"
+   */
+  productId: string;
+  /**
+   * The options to update.
+   */
+  options: ({  /**
+   * The ID of the option to update. Example: "gid://shopify/ProductOption/123"
+   */
+  id: string;
+  /**
+   * The new name of the option.
+   */
+  name?: string | undefined;
+  /**
+   * The new position of the option.
+   */
+  position?: number | undefined;
+  /**
+   * New option values to create.
+   */
+  valuesToAdd?: ({  /**
+   * The name of the new option value.
+   */
+  name: string;})[] | undefined;
+  /**
+   * Existing option values to update.
+   */
+  valuesToUpdate?: ({  /**
+   * The ID of the option value to update. Example: "gid://shopify/ProductOptionValue/123"
+   */
+  id: string;
+  /**
+   * The new name of the option value.
+   */
+  name?: string | undefined;})[];
+  /**
+   * IDs of existing option values to delete.
+   */
+  valuesToDelete?: string[] | undefined;})[];
+};
+
+export interface ActionOutput_shopify_updateproductoptions {
+  productId: string;
+  options: ({  id: string;
+  name: string;
+  position?: number | undefined;
+  values?: string[] | undefined;
+  optionValues?: ({  id: string;
+  name: string;
+  hasVariants?: boolean | undefined;})[];})[];
+  userErrors: ({  field?: string[] | undefined;
+  message: string;
+  code?: string | undefined;})[];
+};
+
+export interface ActionInput_shopify_updateproductvariants {
+  /**
+   * The Shopify GID of the product. Example: gid://shopify/Product/1234567890
+   */
+  productId: string;
+  allowPartialUpdates?: boolean | undefined;
+  variants: ({  /**
+   * The Shopify GID of the variant to update. Example: gid://shopify/ProductVariant/1234567890
+   */
+  id: string;
+  barcode?: string | undefined;
+  compareAtPrice?: string | undefined;
+  price?: string | undefined;
+  sku?: string | undefined;
+  taxable?: boolean | undefined;
+  inventoryPolicy?: string | undefined;
+  mediaId?: string | undefined;
+  mediaSrc?: string[] | undefined;
+  optionValues?: ({  id?: string | undefined;
+  name?: string | undefined;
+  optionName?: string | undefined;
+  optionId?: string | undefined;})[];
+  metafields?: ({  id?: string | undefined;
+  namespace?: string | undefined;
+  key?: string | undefined;
+  value?: string | undefined;
+  type?: string | undefined;})[];})[];
+  media?: ({  originalSource: string;
+  alt?: string | undefined;
+  mediaContentType: string;})[];
+};
+
+export interface ActionOutput_shopify_updateproductvariants {
+  productId: string;
+  variants: ({  id: string;
+  title?: string | undefined;
+  price?: string | undefined;
+  sku?: string | undefined;
+  barcode?: string | undefined;
+  selectedOptions?: ({  name: string;
+  value: string;})[] | undefined;})[];
+  userErrors: ({  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_updateproduct {
+  /**
+   * Product GID. Example: "gid://shopify/Product/123456789"
+   */
+  id: string;
+  title?: string | undefined;
+  descriptionHtml?: string | undefined;
+  vendor?: string | undefined;
+  productType?: string | undefined;
+  status?: 'ACTIVE' | 'ARCHIVED' | 'DRAFT' | undefined;
+  tags?: string[] | undefined;
+  handle?: string | undefined;
+};
+
+export interface ActionOutput_shopify_updateproduct {
+  id?: string | undefined;
+  title?: string | undefined;
+  userErrors: ({  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_updateurlredirect {
+  /**
+   * The ID of the URL redirect to update. Example: "gid://shopify/UrlRedirect/1234567890"
+   */
+  id: string;
+  /**
+   * The old path to be redirected from.
+   */
+  path?: string | undefined;
+  /**
+   * The target location where the user will be redirected to.
+   */
+  target?: string | undefined;
+};
+
+export interface ActionOutput_shopify_updateurlredirect {
+  urlRedirect?: {  id: string;
+  path: string;
+  target: string;} | undefined;
+  userErrors: ({  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_updatewebhooksubscription {
+  /**
+   * The ID of the webhook subscription to update. Example: "gid://shopify/WebhookSubscription/123"
+   */
+  id: string;
+  /**
+   * A constraint using search syntax to filter webhooks.
+   */
+  filter?: string | undefined;
+  /**
+   * The format in which the webhook subscription should send the data.
+   */
+  format?: string | undefined;
+  /**
+   * The list of fields to be included in the webhook subscription.
+   */
+  includeFields?: string[] | undefined;
+  /**
+   * The list of namespaces for metafields to include in the webhook subscription.
+   */
+  metafieldNamespaces?: string[] | undefined;
+  /**
+   * A human-readable name for the webhook subscription.
+   */
+  name?: string | undefined;
+  /**
+   * The URI where the webhook subscription should send events.
+   */
+  uri?: string | undefined;
+};
+
+export interface ActionOutput_shopify_updatewebhooksubscription {
+  webhookSubscription?: {  id: string;
+  topic: string;
+  uri: string;
+  filter?: string | undefined;
+  format: string;
+  name?: string | undefined;
+  includeFields?: string[] | undefined;
+  metafieldNamespaces?: string[] | undefined;};
+  userErrors: ({  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_upsertmetaobject {
+  /**
+   * The metaobject definition type. Example: "color"
+   */
+  type: string;
+  /**
+   * The unique handle within the metaobject type. Example: "indigo-swatch"
+   */
+  handle: string;
+  /**
+   * Field values to set on the metaobject.
+   */
+  fields: ({  /**
+   * The field key. Example: "hex"
+   */
+  key: string;
+  /**
+   * The field value. Example: "#4B0082"
+   */
+  value: string;})[];
+};
+
+export interface ActionOutput_shopify_upsertmetaobject {
+  id: string;
+  handle: string;
+  type: string;
+  fields: ({  key: string;
+  value?: string | undefined;})[];
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
 };
 
 export interface SyncMetadata_slack_channels {
@@ -66242,6 +77915,421 @@ export interface ActionOutput_splitwise_updateexpense {
   medium?: string | undefined;
   large?: string | undefined;};
   custom_picture?: boolean | undefined;};
+};
+
+export interface Database {
+  id: string;
+  name: string;
+  created_on?: string | undefined;
+  kind?: string | undefined;
+  owner?: string | undefined;
+  comment?: string | undefined;
+};
+
+export interface QueryResult {
+  id: string;
+  row_data: {  [key: string]: unknown | undefined;};
+};
+
+export interface SyncMetadata_snowflake_jwt_queryresults {
+  query: string;
+  incremental_column: string;
+  id_column: string;
+  database?: string | undefined;
+  schema?: string | undefined;
+  warehouse?: string | undefined;
+  role?: string | undefined;
+};
+
+export interface Schema {
+  /**
+   * Composite identifier: database_name/schema_name
+   */
+  id: string;
+  database_name: string;
+  name: string;
+  created_on?: string | undefined;
+  schema_owner?: string | undefined;
+  comment?: string | undefined;
+  retention_time?: string | undefined;
+};
+
+export interface SyncMetadata_snowflake_jwt_tables {
+  schemas?: string[] | undefined;
+};
+
+export interface SyncMetadata_snowflake_jwt_views {
+  schemas?: ({  database: string;
+  schema: string;})[] | undefined;
+};
+
+export interface ActionInput_snowflake_jwt_cancelstatement {
+  /**
+   * The statement handle returned by Snowflake when a statement is submitted. Example: "01c4d2c3-0001-e881-001c-d6c3000130ea"
+   */
+  statement_handle: string;
+};
+
+export interface ActionOutput_snowflake_jwt_cancelstatement {
+  code: string;
+  message: string;
+};
+
+export interface ActionInput_snowflake_jwt_executestatement {
+  statement: string;
+  timeout?: number | undefined;
+  warehouse?: string | undefined;
+  database?: string | undefined;
+  schema?: string | undefined;
+  role?: string | undefined;
+  bindings?: {  [key: string]: {  type: string;
+  value: string;};} | undefined;
+};
+
+export interface ActionOutput_snowflake_jwt_executestatement {
+  code: string;
+  sqlState?: string | undefined;
+  message: string;
+  statementHandle: string;
+  statementHandles?: string[] | undefined;
+  statementStatusUrl: string;
+  createdOn?: number | undefined;
+  resultSetMetaData?: {  numRows?: number | undefined;
+  format?: string | undefined;
+  rowType?: ({  name: string;
+  database?: string | undefined;
+  schema?: string | undefined;
+  table?: string | undefined;
+  type: string;
+  scale?: number | undefined;
+  precision?: number | undefined;
+  length?: number | undefined;
+  nullable: boolean;
+  byteLength?: number | undefined;
+  collation?: string | undefined;})[];
+  partitionInfo?: ({  rowCount: number;
+  uncompressedSize: number;
+  compressedSize?: number | undefined;})[];};
+  data?: unknown[] | undefined;
+  stats?: {  numRowsInserted?: number | undefined;
+  numRowsUpdated?: number | undefined;
+  numRowsDeleted?: number | undefined;
+  numDuplicateRowsUpdated?: number | undefined;
+  numRowsUnloaded?: number | undefined;
+  numBytesUnloaded?: number | undefined;};
+};
+
+export interface ActionInput_snowflake_jwt_getstatementresult {
+  /**
+   * The statement handle returned by the execute-statement endpoint. Example: "01c4d2c3-0001-e881-001c-d6c3000130ea"
+   */
+  statement_handle: string;
+  /**
+   * The partition number to fetch. Defaults to 0.
+   */
+  partition?: number | undefined;
+};
+
+export interface ActionOutput_snowflake_jwt_getstatementresult {
+  statement_handle: string;
+  statement_state?: string | undefined;
+  num_rows?: number | undefined;
+  columns?: ({  name: string;
+  type: string;
+  precision?: number | undefined;
+  scale?: number | undefined;
+  byte_length?: number | undefined;
+  length?: number | undefined;
+  nullable?: boolean | undefined;})[];
+  rows?: unknown[] | undefined;
+  next_partition_num?: number | undefined;
+};
+
+export interface ActionInput_snowflake_jwt_getstatementstatus {
+  /**
+   * The handle of the SQL statement to check. Example: "01c4d2c3-0001-e881-001c-d6c3000130ea"
+   */
+  statementHandle: string;
+};
+
+export interface ActionOutput_snowflake_jwt_getstatementstatus {
+  statementHandle: string;
+  sqlState?: string | undefined;
+  message?: string | undefined;
+  code?: string | undefined;
+  createdOn?: number | undefined;
+  statementStatusUrl?: string | undefined;
+  resultSetMetaData?: {  numRows?: number | undefined;
+  format?: string | undefined;
+  rowType?: ({  name: string;
+  type: string;
+  database?: string | undefined;
+  schema?: string | undefined;
+  table?: string | undefined;
+  scale?: number | undefined;
+  precision?: number | undefined;
+  length?: number | undefined;
+  byteLength?: number | undefined;
+  nullable?: boolean | undefined;
+  collation?: string | undefined;})[];
+  partitionInfo?: ({  rowCount: number;
+  uncompressedSize: number;
+  compressedSize?: number | undefined;})[];};
+  data?: unknown[] | undefined;
+};
+
+export interface ActionInput_snowflake_jwt_listcolumns {
+  /**
+   * Database name. Example: "NANGO_TEST_DB"
+   */
+  database: string;
+  /**
+   * Schema name. Example: "SALES"
+   */
+  schema: string;
+  /**
+   * Table name. Example: "CUSTOMERS"
+   */
+  table: string;
+};
+
+export interface ActionOutput_snowflake_jwt_listcolumns {
+  columns: ({  table_name: string;
+  schema_name: string;
+  column_name: string;
+  data_type: string;
+  nullable: boolean;
+  default?: string | undefined;
+  kind: string;
+  autoincrement?: string | undefined;})[];
+};
+
+export interface ActionInput_snowflake_jwt_listdatabases {
+};
+
+export interface ActionOutput_snowflake_jwt_listdatabases {
+  databases: ({  created_on?: string | undefined;
+  name: string;
+  is_default?: string | undefined;
+  is_current?: string | undefined;
+  origin?: string | undefined;
+  owner?: string | undefined;
+  comment?: string | undefined;
+  retention_time?: string | undefined;
+  kind?: string | undefined;})[];
+};
+
+export interface ActionInput_snowflake_jwt_listroles {
+};
+
+export interface ActionOutput_snowflake_jwt_listroles {
+  roles: ({  created_on?: string | undefined;
+  name: string;
+  is_default: boolean;
+  is_current: boolean;
+  is_inherited: boolean;
+  assigned_to_users?: number | undefined;
+  granted_to_roles?: number | undefined;
+  granted_roles?: number | undefined;
+  owner?: string | undefined;
+  comment?: string | undefined;})[];
+};
+
+export interface ActionInput_snowflake_jwt_listschemas {
+  /**
+   * Database name. Example: "NANGO_TEST_DB"
+   */
+  database: string;
+};
+
+export interface ActionOutput_snowflake_jwt_listschemas {
+  schemas: ({  /**
+   * Schema creation timestamp in ISO 8601 format
+   */
+  created_on?: string | undefined;
+  /**
+   * Schema name
+   */
+  name: string;
+  /**
+   * Whether this is the default schema
+   */
+  is_default: boolean;
+  /**
+   * Whether this is the current schema
+   */
+  is_current: boolean;
+  /**
+   * Database name
+   */
+  database_name: string;
+  /**
+   * Owner of the schema
+   */
+  owner: string;
+  /**
+   * Comment on the schema
+   */
+  comment?: string | undefined;
+  /**
+   * Retention time in days
+   */
+  retention_time?: string | undefined;})[];
+};
+
+export interface ActionInput_snowflake_jwt_liststages {
+  /**
+   * Database name. Example: "NANGO_TEST_DB"
+   */
+  database: string;
+};
+
+export interface ActionOutput_snowflake_jwt_liststages {
+  stages: ({  created_on?: string | undefined;
+  name?: string | undefined;
+  database_name?: string | undefined;
+  schema_name?: string | undefined;
+  url?: string | undefined;
+  has_credentials?: string | undefined;
+  has_encryption_key?: string | undefined;
+  owner?: string | undefined;
+  comment?: string | undefined;
+  region?: string | undefined;
+  type?: string | undefined;
+  cloud?: string | undefined;})[];
+};
+
+export interface ActionInput_snowflake_jwt_liststreams {
+  /**
+   * Database name to list streams from. Example: "NANGO_TEST_DB"
+   */
+  database: string;
+};
+
+export interface ActionOutput_snowflake_jwt_liststreams {
+  streams: ({  created_on?: string | undefined;
+  name?: string | undefined;
+  database_name?: string | undefined;
+  schema_name?: string | undefined;
+  owner?: string | undefined;
+  comment?: string | undefined;
+  table_name?: string | undefined;
+  source_type?: string | undefined;
+  type?: string | undefined;
+  stale?: string | undefined;
+  mode?: string | undefined;})[];
+};
+
+export interface ActionInput_snowflake_jwt_listtables {
+  /**
+   * Database name. Example: "NANGO_TEST_DB"
+   */
+  database: string;
+  /**
+   * Schema name. Example: "SALES"
+   */
+  schema: string;
+};
+
+export interface ActionOutput_snowflake_jwt_listtables {
+  tables: ({  created_on?: string | undefined;
+  name: string;
+  database_name?: string | undefined;
+  schema_name?: string | undefined;
+  kind?: string | undefined;
+  rows?: number | undefined;
+  bytes?: number | undefined;
+  owner?: string | undefined;
+  retention_time?: number | undefined;
+  is_external?: string | undefined;
+  is_iceberg?: string | undefined;})[];
+};
+
+export interface ActionInput_snowflake_jwt_listtasks {
+  /**
+   * Database name to list tasks from. Example: "NANGO_TEST_DB"
+   */
+  database: string;
+};
+
+export interface ActionOutput_snowflake_jwt_listtasks {
+  tasks: ({  created_on?: string | undefined;
+  name?: string | undefined;
+  database_name?: string | undefined;
+  schema_name?: string | undefined;
+  owner?: string | undefined;
+  warehouse?: string | undefined;
+  schedule?: string | undefined;
+  state?: string | undefined;
+  definition?: string | undefined;
+  condition?: string | undefined;})[];
+};
+
+export interface ActionInput_snowflake_jwt_listusers {
+};
+
+export interface ActionOutput_snowflake_jwt_listusers {
+  items: ({  name: string;
+  created_on?: string | undefined;
+  login_name?: string | undefined;
+  display_name?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  disabled?: boolean | undefined;
+  must_change_password?: boolean | undefined;
+  default_warehouse?: string | undefined;
+  default_role?: string | undefined;
+  has_password?: boolean | undefined;
+  has_rsa_public_key?: boolean | undefined;
+  last_success_login?: string | undefined;
+  type?: string | undefined;})[];
+};
+
+export interface ActionInput_snowflake_jwt_listviews {
+  /**
+   * Database name. Example: "NANGO_TEST_DB"
+   */
+  database_name: string;
+  /**
+   * Schema name. Example: "SALES"
+   */
+  schema_name: string;
+};
+
+export interface ActionOutput_snowflake_jwt_listviews {
+  items: ({  created_on: string;
+  name: string;
+  database_name: string;
+  schema_name: string;
+  owner?: string | undefined;
+  comment?: string | undefined;
+  text?: string | undefined;
+  is_secure: boolean;
+  is_materialized: boolean;
+  change_tracking?: string | undefined;})[];
+};
+
+export interface ActionInput_snowflake_jwt_listwarehouses {
+};
+
+export interface ActionOutput_snowflake_jwt_listwarehouses {
+  warehouses: ({  name: string;
+  state: string;
+  type: string;
+  size: string;
+  min_cluster_count: number;
+  max_cluster_count: number;
+  started_clusters: number;
+  running: number;
+  queued: number;
+  is_default: boolean;
+  is_current: boolean;
+  auto_suspend: number;
+  auto_resume: boolean;
+  owner: string;
+  enable_query_acceleration: boolean;
+  resource_monitor?: string | undefined;})[];
 };
 
 export interface Album {

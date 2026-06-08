@@ -1,0 +1,399 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "id": "gid://shopify/MetaobjectDefinition/19316375689",
+        "name": "Test Item",
+        "type": "test_item",
+        "createdAt": "2026-06-04T09:40:35Z",
+        "updatedAt": "2026-06-04T09:40:35Z",
+        "metaobjectsCount": 6,
+        "fieldDefinitions": [
+          {
+            "key": "title",
+            "name": "Title",
+            "typeName": "single_line_text_field"
+          },
+          {
+            "key": "description",
+            "name": "Description",
+            "typeName": "multi_line_text_field"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/MetaobjectDefinition/19316441225",
+        "name": "Test Agent Def",
+        "type": "test-agent-def-174904",
+        "createdAt": "2026-06-04T09:40:55Z",
+        "updatedAt": "2026-06-04T09:40:55Z",
+        "metaobjectsCount": 0,
+        "fieldDefinitions": [
+          {
+            "key": "title",
+            "name": "Title",
+            "typeName": "single_line_text_field"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/MetaobjectDefinition/19316473993",
+        "name": "Test Agent Def Save",
+        "type": "test-agent-def-save-174904",
+        "createdAt": "2026-06-04T09:41:20Z",
+        "updatedAt": "2026-06-04T09:41:20Z",
+        "metaobjectsCount": 0,
+        "fieldDefinitions": [
+          {
+            "key": "title",
+            "name": "Title",
+            "typeName": "single_line_text_field"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/MetaobjectDefinition/19316506761",
+        "name": "Test Definition",
+        "type": "test_definition",
+        "createdAt": "2026-06-04T09:41:24Z",
+        "updatedAt": "2026-06-04T09:41:24Z",
+        "metaobjectsCount": 0,
+        "fieldDefinitions": [
+          {
+            "key": "title",
+            "name": "Title",
+            "typeName": "single_line_text_field"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/MetaobjectDefinition/19316539529",
+        "name": "Test Object",
+        "type": "test_object",
+        "createdAt": "2026-06-04T09:41:26Z",
+        "updatedAt": "2026-06-04T09:41:26Z",
+        "metaobjectsCount": 1,
+        "fieldDefinitions": [
+          {
+            "key": "title",
+            "name": "Title",
+            "typeName": "single_line_text_field"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/MetaobjectDefinition/19316670601",
+        "name": "Nango Test Type",
+        "type": "nango_test_type",
+        "createdAt": "2026-06-04T09:44:04Z",
+        "updatedAt": "2026-06-04T09:44:04Z",
+        "metaobjectsCount": 1,
+        "fieldDefinitions": [
+          {
+            "key": "title",
+            "name": "Title",
+            "typeName": "single_line_text_field"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/MetaobjectDefinition/19318341769",
+        "name": "Test Color",
+        "type": "test-color-04",
+        "createdAt": "2026-06-04T10:47:43Z",
+        "updatedAt": "2026-06-04T10:47:43Z",
+        "metaobjectsCount": 0,
+        "fieldDefinitions": [
+          {
+            "key": "hex",
+            "name": "Hex",
+            "typeName": "single_line_text_field"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/MetaobjectDefinition/19318636681",
+        "name": "Test Color",
+        "type": "test-color-05",
+        "createdAt": "2026-06-04T10:47:58Z",
+        "updatedAt": "2026-06-04T10:47:58Z",
+        "metaobjectsCount": 0,
+        "fieldDefinitions": [
+          {
+            "key": "hex",
+            "name": "Hex",
+            "typeName": "single_line_text_field"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/MetaobjectDefinition/19319554185",
+        "name": "Nango Test Color",
+        "type": "nango_test_color",
+        "createdAt": "2026-06-04T11:17:54Z",
+        "updatedAt": "2026-06-04T11:17:54Z",
+        "metaobjectsCount": 1,
+        "fieldDefinitions": [
+          {
+            "key": "hex",
+            "name": "Hex",
+            "typeName": "single_line_text_field"
+          }
+        ]
+      }
+    ],
+    "nextCursor": "eyJsYXN0X2lkIjoxOTMxOTU1NDE4NSwibGFzdF92YWx1ZSI6IjE5MzE5NTU0MTg1In0="
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/admin/api/2026-04/graphql.json": {
+        "response": {
+          "data": {
+            "metaobjectDefinitions": {
+              "pageInfo": {
+                "hasNextPage": false,
+                "endCursor": "eyJsYXN0X2lkIjoxOTMxOTU1NDE4NSwibGFzdF92YWx1ZSI6IjE5MzE5NTU0MTg1In0="
+              },
+              "nodes": [
+                {
+                  "id": "gid://shopify/MetaobjectDefinition/19316375689",
+                  "name": "Test Item",
+                  "type": "test_item",
+                  "description": null,
+                  "displayNameKey": null,
+                  "createdAt": "2026-06-04T09:40:35Z",
+                  "updatedAt": "2026-06-04T09:40:35Z",
+                  "metaobjectsCount": 6,
+                  "fieldDefinitions": [
+                    {
+                      "key": "title",
+                      "name": "Title",
+                      "type": {
+                        "name": "single_line_text_field"
+                      }
+                    },
+                    {
+                      "key": "description",
+                      "name": "Description",
+                      "type": {
+                        "name": "multi_line_text_field"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "gid://shopify/MetaobjectDefinition/19316441225",
+                  "name": "Test Agent Def",
+                  "type": "test-agent-def-174904",
+                  "description": null,
+                  "displayNameKey": null,
+                  "createdAt": "2026-06-04T09:40:55Z",
+                  "updatedAt": "2026-06-04T09:40:55Z",
+                  "metaobjectsCount": 0,
+                  "fieldDefinitions": [
+                    {
+                      "key": "title",
+                      "name": "Title",
+                      "type": {
+                        "name": "single_line_text_field"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "gid://shopify/MetaobjectDefinition/19316473993",
+                  "name": "Test Agent Def Save",
+                  "type": "test-agent-def-save-174904",
+                  "description": null,
+                  "displayNameKey": null,
+                  "createdAt": "2026-06-04T09:41:20Z",
+                  "updatedAt": "2026-06-04T09:41:20Z",
+                  "metaobjectsCount": 0,
+                  "fieldDefinitions": [
+                    {
+                      "key": "title",
+                      "name": "Title",
+                      "type": {
+                        "name": "single_line_text_field"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "gid://shopify/MetaobjectDefinition/19316506761",
+                  "name": "Test Definition",
+                  "type": "test_definition",
+                  "description": null,
+                  "displayNameKey": null,
+                  "createdAt": "2026-06-04T09:41:24Z",
+                  "updatedAt": "2026-06-04T09:41:24Z",
+                  "metaobjectsCount": 0,
+                  "fieldDefinitions": [
+                    {
+                      "key": "title",
+                      "name": "Title",
+                      "type": {
+                        "name": "single_line_text_field"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "gid://shopify/MetaobjectDefinition/19316539529",
+                  "name": "Test Object",
+                  "type": "test_object",
+                  "description": null,
+                  "displayNameKey": null,
+                  "createdAt": "2026-06-04T09:41:26Z",
+                  "updatedAt": "2026-06-04T09:41:26Z",
+                  "metaobjectsCount": 1,
+                  "fieldDefinitions": [
+                    {
+                      "key": "title",
+                      "name": "Title",
+                      "type": {
+                        "name": "single_line_text_field"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "gid://shopify/MetaobjectDefinition/19316670601",
+                  "name": "Nango Test Type",
+                  "type": "nango_test_type",
+                  "description": null,
+                  "displayNameKey": null,
+                  "createdAt": "2026-06-04T09:44:04Z",
+                  "updatedAt": "2026-06-04T09:44:04Z",
+                  "metaobjectsCount": 1,
+                  "fieldDefinitions": [
+                    {
+                      "key": "title",
+                      "name": "Title",
+                      "type": {
+                        "name": "single_line_text_field"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "gid://shopify/MetaobjectDefinition/19318341769",
+                  "name": "Test Color",
+                  "type": "test-color-04",
+                  "description": null,
+                  "displayNameKey": null,
+                  "createdAt": "2026-06-04T10:47:43Z",
+                  "updatedAt": "2026-06-04T10:47:43Z",
+                  "metaobjectsCount": 0,
+                  "fieldDefinitions": [
+                    {
+                      "key": "hex",
+                      "name": "Hex",
+                      "type": {
+                        "name": "single_line_text_field"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "gid://shopify/MetaobjectDefinition/19318636681",
+                  "name": "Test Color",
+                  "type": "test-color-05",
+                  "description": null,
+                  "displayNameKey": null,
+                  "createdAt": "2026-06-04T10:47:58Z",
+                  "updatedAt": "2026-06-04T10:47:58Z",
+                  "metaobjectsCount": 0,
+                  "fieldDefinitions": [
+                    {
+                      "key": "hex",
+                      "name": "Hex",
+                      "type": {
+                        "name": "single_line_text_field"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "gid://shopify/MetaobjectDefinition/19319554185",
+                  "name": "Nango Test Color",
+                  "type": "nango_test_color",
+                  "description": null,
+                  "displayNameKey": null,
+                  "createdAt": "2026-06-04T11:17:54Z",
+                  "updatedAt": "2026-06-04T11:17:54Z",
+                  "metaobjectsCount": 1,
+                  "fieldDefinitions": [
+                    {
+                      "key": "hex",
+                      "name": "Hex",
+                      "type": {
+                        "name": "single_line_text_field"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "extensions": {
+            "cost": {
+              "requestedQueryCost": 14,
+              "actualQueryCost": 13,
+              "throttleStatus": {
+                "maximumAvailable": 4000,
+                "currentlyAvailable": 3987,
+                "restoreRate": 200
+              }
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 04 Jun 2026 11:18:19 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=7889238",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4866",
+          "x-ratelimit-reset": "1780571898",
+          "vary": "Accept-Encoding,Sec-Fetch-Site",
+          "referrer-policy": "origin-when-cross-origin",
+          "cf-cache-status": "DYNAMIC",
+          "x-stats-userid": "",
+          "x-stats-apiclientid": "376951341057",
+          "x-stats-apipermissionid": "695964696713",
+          "x-shopify-api-version": "2026-04",
+          "content-language": "en",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "x-shopify-api-gql-engine": "cardinal",
+          "x-dc": "gcp-us-west1,gcp-us-east1,gcp-us-east1",
+          "x-request-id": "8b6bc89b-fffc-4762-b901-5dacab40048a-1780571898",
+          "server-timing": "processing;dur=62, verdict_flag_enabled;desc=\"count=11\";dur=0.462, graphql;desc=\"admin/query/other\", _y;desc=\"c8b02e03-5176-4d4a-862f-5acec60e5731\", _s;desc=\"46bff7b0-9e82-45ad-ba8a-c25cde259a4e\"",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=wZoiwaWem%2Fq77pW36NAI4r9P0QH%2FM34ZIa6VkiK3W5ow9%2FNU6xsbXc%2Bl94zeU2l6Afl6R7qSHXaGrq0nHPvBBtt%2BbAfhEzQjWQ13T8vALP%2F9qIbhEWXq3AULXx%2FOWpRXPFmD6oLt3mQ%3D\"}]}",
+          "server": "cloudflare",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.01,\"max_age\":604800}",
+          "content-security-policy": "default-src 'self' data: blob: 'unsafe-inline' 'unsafe-eval' https://* shopify-pos://*; block-all-mixed-content; child-src 'self' https://* shopify-pos://*; connect-src 'self' wss://* https://*; frame-ancestors 'none'; img-src 'self' data: blob: https:; script-src https://cdn.shopify.com https://cdn.shopifycdn.net https://checkout.pci.shopifyinc.com https://checkout.pci.shopifyinc.com/build/04ed4e1/card_fields.js https://api.stripe.com https://mpsnare.iesnare.com https://appcenter.intuit.com https://www.paypal.com https://js.braintreegateway.com https://c.paypal.com https://maps.googleapis.com https://www.google-analytics.com https://v.shopify.com 'self' 'unsafe-inline' 'unsafe-eval'; upgrade-insecure-requests; report-uri /csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=8b6bc89b-fffc-4762-b901-5dacab40048a-1780571898; report-to shopify-csp",
+          "x-permitted-cross-domain-policies": "none",
+          "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=8b6bc89b-fffc-4762-b901-5dacab40048a-1780571898\"",
+          "cf-ray": "a066893fbb3b5ed3-PDX"
+        },
+        "hash": "18db3dc6c57a886a70da8add1b70f3b3d6128929",
+        "request": {
+          "data": "sha1:4f4b210eb23e4622baee23c90165b736dc0528da"
+        }
+      }
+    }
+  }
+}

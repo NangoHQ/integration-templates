@@ -1,0 +1,192 @@
+{
+  "nango": {
+    "getMetadata": {
+      "project_id": "309484"
+    },
+    "batchSave": {
+      "EarlyAccessFeature": [
+        {
+          "id": "019e8d66-f7bd-0000-e620-38c1c3bd6623",
+          "name": "Nango Test EAF Integration 1780488790",
+          "description": "",
+          "stage": "draft",
+          "documentation_url": "",
+          "payload": {},
+          "created_at": "2026-06-03T12:13:16.096158Z",
+          "feature_flag_id": 700588,
+          "feature_flag_key": "nango-test-eaf-integration-1780488790"
+        },
+        {
+          "id": "019e8d66-2206-0000-7993-f8eede82b525",
+          "name": "Nango Test EAF Integration",
+          "description": "",
+          "stage": "draft",
+          "documentation_url": "",
+          "payload": {},
+          "created_at": "2026-06-03T12:12:21.385881Z",
+          "feature_flag_id": 700586,
+          "feature_flag_key": "nango-test-eaf-integration"
+        },
+        {
+          "id": "019e8d60-fbc1-0000-d729-cb62a5d65a45",
+          "name": "Nango Test Early Access Feature",
+          "description": "Created for testing the get early access feature action",
+          "stage": "beta",
+          "documentation_url": "",
+          "payload": {},
+          "created_at": "2026-06-03T12:06:43.908011Z",
+          "feature_flag_id": 700574,
+          "feature_flag_key": "nango-test-early-access-feature"
+        }
+      ]
+    },
+    "batchDelete": {
+      "EarlyAccessFeature": []
+    }
+  },
+  "api": {
+    "get": {
+      "/api/projects/309484/early_access_feature/": {
+        "response": {
+          "count": 3,
+          "next": null,
+          "previous": null,
+          "results": [
+            {
+              "id": "019e8d66-f7bd-0000-e620-38c1c3bd6623",
+              "feature_flag": {
+                "id": 700588,
+                "team_id": 309484,
+                "name": "Feature Flag for Early Access Feature Nango Test EAF Integration 1780488790",
+                "key": "nango-test-eaf-integration-1780488790",
+                "filters": {
+                  "groups": [
+                    {
+                      "variant": null,
+                      "properties": [],
+                      "rollout_percentage": 0,
+                      "aggregation_group_type_index": null
+                    }
+                  ],
+                  "aggregation_group_type_index": null
+                },
+                "deleted": false,
+                "active": true,
+                "ensure_experience_continuity": false,
+                "version": 1,
+                "evaluation_runtime": "all",
+                "bucketing_identifier": "distinct_id",
+                "evaluation_contexts": []
+              },
+              "name": "Nango Test EAF Integration 1780488790",
+              "description": "",
+              "stage": "draft",
+              "documentation_url": "",
+              "payload": {},
+              "created_at": "2026-06-03T12:13:16.096158Z"
+            },
+            {
+              "id": "019e8d66-2206-0000-7993-f8eede82b525",
+              "feature_flag": {
+                "id": 700586,
+                "team_id": 309484,
+                "name": "Feature Flag for Early Access Feature Nango Test EAF Integration",
+                "key": "nango-test-eaf-integration",
+                "filters": {
+                  "groups": [
+                    {
+                      "variant": null,
+                      "properties": [],
+                      "rollout_percentage": 0,
+                      "aggregation_group_type_index": null
+                    }
+                  ],
+                  "aggregation_group_type_index": null
+                },
+                "deleted": false,
+                "active": true,
+                "ensure_experience_continuity": false,
+                "version": 1,
+                "evaluation_runtime": "all",
+                "bucketing_identifier": "distinct_id",
+                "evaluation_contexts": []
+              },
+              "name": "Nango Test EAF Integration",
+              "description": "",
+              "stage": "draft",
+              "documentation_url": "",
+              "payload": {},
+              "created_at": "2026-06-03T12:12:21.385881Z"
+            },
+            {
+              "id": "019e8d60-fbc1-0000-d729-cb62a5d65a45",
+              "feature_flag": {
+                "id": 700574,
+                "team_id": 309484,
+                "name": "Feature Flag for Early Access Feature Nango Test Early Access Feature",
+                "key": "nango-test-early-access-feature",
+                "filters": {
+                  "groups": [
+                    {
+                      "variant": null,
+                      "properties": [],
+                      "rollout_percentage": 0,
+                      "aggregation_group_type_index": null
+                    }
+                  ],
+                  "feature_enrollment": true,
+                  "aggregation_group_type_index": null
+                },
+                "deleted": false,
+                "active": true,
+                "ensure_experience_continuity": false,
+                "version": 1,
+                "evaluation_runtime": "all",
+                "bucketing_identifier": "distinct_id",
+                "evaluation_contexts": []
+              },
+              "name": "Nango Test Early Access Feature",
+              "description": "Created for testing the get early access feature action",
+              "stage": "beta",
+              "documentation_url": "",
+              "payload": {},
+              "created_at": "2026-06-03T12:06:43.908011Z"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 03 Jun 2026 12:25:14 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4987",
+          "x-ratelimit-reset": "1780489537",
+          "allow": "GET, POST, HEAD, OPTIONS",
+          "content-security-policy": "default-src 'none'",
+          "vary": "origin, Cookie, Accept-Encoding",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "cross-origin-opener-policy": "same-origin",
+          "server": "envoy",
+          "x-envoy-upstream-service-time": "49"
+        },
+        "hash": "7d262b8ee37dccebeb27463dc56cd780dab52872",
+        "request": {
+          "params": {
+            "limit": "100"
+          }
+        }
+      }
+    }
+  }
+}

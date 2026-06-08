@@ -1,0 +1,531 @@
+{
+  "nango": {
+    "batchSave": {
+      "SaleOrder": [
+        {
+          "id": "1",
+          "name": "S00001",
+          "partner_id": "10",
+          "partner_name": "Acme Corporation",
+          "amount_total": 2001,
+          "state": "draft",
+          "write_date": "2026-06-03T08:17:09.436781"
+        },
+        {
+          "id": "2",
+          "name": "S00002",
+          "partner_id": "12",
+          "partner_name": "Ready Mat",
+          "amount_total": 3389.63,
+          "state": "draft",
+          "write_date": "2026-06-03T08:17:09.436781"
+        },
+        {
+          "id": "3",
+          "name": "S00003",
+          "partner_id": "12",
+          "partner_name": "Ready Mat",
+          "amount_total": 434.13,
+          "state": "draft",
+          "write_date": "2026-06-03T08:17:09.436781"
+        },
+        {
+          "id": "4",
+          "name": "S00004",
+          "partner_id": "11",
+          "partner_name": "Gemini Furniture",
+          "amount_total": 2576,
+          "state": "sale",
+          "write_date": "2026-06-03T08:17:09.436781"
+        },
+        {
+          "id": "5",
+          "name": "S00005",
+          "partner_id": "10",
+          "partner_name": "Acme Corporation",
+          "amount_total": 465.75,
+          "state": "draft",
+          "write_date": "2026-06-03T08:17:09.436781"
+        },
+        {
+          "id": "6",
+          "name": "S00006",
+          "partner_id": "15",
+          "partner_name": "Lumber Inc",
+          "amount_total": 862.5,
+          "state": "sale",
+          "write_date": "2026-06-03T08:17:09.436781"
+        },
+        {
+          "id": "7",
+          "name": "S00007",
+          "partner_id": "11",
+          "partner_name": "Gemini Furniture",
+          "amount_total": 1961.9,
+          "state": "sale",
+          "write_date": "2026-06-03T08:17:09.436781"
+        },
+        {
+          "id": "8",
+          "name": "S00008",
+          "partner_id": "11",
+          "partner_name": "Gemini Furniture",
+          "amount_total": 531.3,
+          "state": "sale",
+          "write_date": "2026-06-03T08:17:09.436781"
+        },
+        {
+          "id": "9",
+          "name": "S00009",
+          "partner_id": "11",
+          "partner_name": "Gemini Furniture",
+          "amount_total": 752.11,
+          "state": "sale",
+          "write_date": "2026-06-03T08:17:09.436781"
+        },
+        {
+          "id": "10",
+          "name": "S00010",
+          "partner_id": "11",
+          "partner_name": "Gemini Furniture",
+          "amount_total": 863.65,
+          "state": "sale",
+          "write_date": "2026-06-03T08:17:09.436781"
+        },
+        {
+          "id": "11",
+          "name": "S00011",
+          "partner_id": "11",
+          "partner_name": "Gemini Furniture",
+          "amount_total": 1260.98,
+          "state": "sale",
+          "write_date": "2026-06-03T08:17:09.436781"
+        },
+        {
+          "id": "12",
+          "name": "S00012",
+          "partner_id": "11",
+          "partner_name": "Gemini Furniture",
+          "amount_total": 639.4,
+          "state": "sale",
+          "write_date": "2026-06-03T08:17:09.436781"
+        },
+        {
+          "id": "13",
+          "name": "S00013",
+          "partner_id": "11",
+          "partner_name": "Gemini Furniture",
+          "amount_total": 477.83,
+          "state": "sale",
+          "write_date": "2026-06-03T08:17:09.436781"
+        },
+        {
+          "id": "14",
+          "name": "S00014",
+          "partner_id": "11",
+          "partner_name": "Gemini Furniture",
+          "amount_total": 1819.3,
+          "state": "sale",
+          "write_date": "2026-06-03T08:17:09.436781"
+        },
+        {
+          "id": "15",
+          "name": "S00015",
+          "partner_id": "11",
+          "partner_name": "Gemini Furniture",
+          "amount_total": 1772.73,
+          "state": "sale",
+          "write_date": "2026-06-03T08:17:09.436781"
+        },
+        {
+          "id": "16",
+          "name": "S00016",
+          "partner_id": "11",
+          "partner_name": "Gemini Furniture",
+          "amount_total": 1364.48,
+          "state": "sale",
+          "write_date": "2026-06-03T08:17:09.436781"
+        },
+        {
+          "id": "17",
+          "name": "S00017",
+          "partner_id": "11",
+          "partner_name": "Gemini Furniture",
+          "amount_total": 1093.65,
+          "state": "sale",
+          "write_date": "2026-06-03T08:17:09.436781"
+        },
+        {
+          "id": "18",
+          "name": "S00018",
+          "partner_id": "11",
+          "partner_name": "Gemini Furniture",
+          "amount_total": 955.65,
+          "state": "sale",
+          "write_date": "2026-06-03T08:17:09.436781"
+        },
+        {
+          "id": "19",
+          "name": "S00019",
+          "partner_id": "8",
+          "partner_name": "YourCompany, Joel Willis",
+          "amount_total": 2001,
+          "state": "sent",
+          "write_date": "2026-06-03T08:17:09.436781"
+        },
+        {
+          "id": "20",
+          "name": "S00020",
+          "partner_id": "8",
+          "partner_name": "YourCompany, Joel Willis",
+          "amount_total": 3389.63,
+          "state": "sale",
+          "write_date": "2026-06-03T08:17:09.436781"
+        },
+        {
+          "id": "21",
+          "name": "S00021",
+          "partner_id": "11",
+          "partner_name": "Gemini Furniture",
+          "amount_total": 2501.25,
+          "state": "sale",
+          "write_date": "2026-06-03T08:17:09.436781"
+        },
+        {
+          "id": "22",
+          "name": "S00022",
+          "partner_id": "11",
+          "partner_name": "Gemini Furniture",
+          "amount_total": 1696.25,
+          "state": "sale",
+          "write_date": "2026-06-03T08:17:09.436781"
+        },
+        {
+          "id": "23",
+          "name": "S00023",
+          "partner_id": "11",
+          "partner_name": "Gemini Furniture",
+          "amount_total": 5002.5,
+          "state": "sale",
+          "write_date": "2026-06-03T08:17:09.436781"
+        },
+        {
+          "id": "24",
+          "name": "S00024",
+          "partner_id": "11",
+          "partner_name": "Gemini Furniture",
+          "amount_total": 2288.5,
+          "state": "sale",
+          "write_date": "2026-06-03T08:17:09.436781"
+        }
+      ]
+    },
+    "batchDelete": {
+      "SaleOrder": []
+    }
+  },
+  "api": {
+    "get": {
+      "/1.0/sale.order": {
+        "response": {
+          "records": [
+            {
+              "id": 1,
+              "name": "S00001",
+              "partner_id": [
+                10,
+                "Acme Corporation"
+              ],
+              "amount_total": 2001,
+              "state": "draft",
+              "write_date": "2026-06-03T08:17:09.436781"
+            },
+            {
+              "id": 2,
+              "name": "S00002",
+              "partner_id": [
+                12,
+                "Ready Mat"
+              ],
+              "amount_total": 3389.63,
+              "state": "draft",
+              "write_date": "2026-06-03T08:17:09.436781"
+            },
+            {
+              "id": 3,
+              "name": "S00003",
+              "partner_id": [
+                12,
+                "Ready Mat"
+              ],
+              "amount_total": 434.13,
+              "state": "draft",
+              "write_date": "2026-06-03T08:17:09.436781"
+            },
+            {
+              "id": 4,
+              "name": "S00004",
+              "partner_id": [
+                11,
+                "Gemini Furniture"
+              ],
+              "amount_total": 2576,
+              "state": "sale",
+              "write_date": "2026-06-03T08:17:09.436781"
+            },
+            {
+              "id": 5,
+              "name": "S00005",
+              "partner_id": [
+                10,
+                "Acme Corporation"
+              ],
+              "amount_total": 465.75,
+              "state": "draft",
+              "write_date": "2026-06-03T08:17:09.436781"
+            },
+            {
+              "id": 6,
+              "name": "S00006",
+              "partner_id": [
+                15,
+                "Lumber Inc"
+              ],
+              "amount_total": 862.5,
+              "state": "sale",
+              "write_date": "2026-06-03T08:17:09.436781"
+            },
+            {
+              "id": 7,
+              "name": "S00007",
+              "partner_id": [
+                11,
+                "Gemini Furniture"
+              ],
+              "amount_total": 1961.9,
+              "state": "sale",
+              "write_date": "2026-06-03T08:17:09.436781"
+            },
+            {
+              "id": 8,
+              "name": "S00008",
+              "partner_id": [
+                11,
+                "Gemini Furniture"
+              ],
+              "amount_total": 531.3,
+              "state": "sale",
+              "write_date": "2026-06-03T08:17:09.436781"
+            },
+            {
+              "id": 9,
+              "name": "S00009",
+              "partner_id": [
+                11,
+                "Gemini Furniture"
+              ],
+              "amount_total": 752.11,
+              "state": "sale",
+              "write_date": "2026-06-03T08:17:09.436781"
+            },
+            {
+              "id": 10,
+              "name": "S00010",
+              "partner_id": [
+                11,
+                "Gemini Furniture"
+              ],
+              "amount_total": 863.65,
+              "state": "sale",
+              "write_date": "2026-06-03T08:17:09.436781"
+            },
+            {
+              "id": 11,
+              "name": "S00011",
+              "partner_id": [
+                11,
+                "Gemini Furniture"
+              ],
+              "amount_total": 1260.98,
+              "state": "sale",
+              "write_date": "2026-06-03T08:17:09.436781"
+            },
+            {
+              "id": 12,
+              "name": "S00012",
+              "partner_id": [
+                11,
+                "Gemini Furniture"
+              ],
+              "amount_total": 639.4,
+              "state": "sale",
+              "write_date": "2026-06-03T08:17:09.436781"
+            },
+            {
+              "id": 13,
+              "name": "S00013",
+              "partner_id": [
+                11,
+                "Gemini Furniture"
+              ],
+              "amount_total": 477.83,
+              "state": "sale",
+              "write_date": "2026-06-03T08:17:09.436781"
+            },
+            {
+              "id": 14,
+              "name": "S00014",
+              "partner_id": [
+                11,
+                "Gemini Furniture"
+              ],
+              "amount_total": 1819.3,
+              "state": "sale",
+              "write_date": "2026-06-03T08:17:09.436781"
+            },
+            {
+              "id": 15,
+              "name": "S00015",
+              "partner_id": [
+                11,
+                "Gemini Furniture"
+              ],
+              "amount_total": 1772.73,
+              "state": "sale",
+              "write_date": "2026-06-03T08:17:09.436781"
+            },
+            {
+              "id": 16,
+              "name": "S00016",
+              "partner_id": [
+                11,
+                "Gemini Furniture"
+              ],
+              "amount_total": 1364.48,
+              "state": "sale",
+              "write_date": "2026-06-03T08:17:09.436781"
+            },
+            {
+              "id": 17,
+              "name": "S00017",
+              "partner_id": [
+                11,
+                "Gemini Furniture"
+              ],
+              "amount_total": 1093.65,
+              "state": "sale",
+              "write_date": "2026-06-03T08:17:09.436781"
+            },
+            {
+              "id": 18,
+              "name": "S00018",
+              "partner_id": [
+                11,
+                "Gemini Furniture"
+              ],
+              "amount_total": 955.65,
+              "state": "sale",
+              "write_date": "2026-06-03T08:17:09.436781"
+            },
+            {
+              "id": 19,
+              "name": "S00019",
+              "partner_id": [
+                8,
+                "YourCompany, Joel Willis"
+              ],
+              "amount_total": 2001,
+              "state": "sent",
+              "write_date": "2026-06-03T08:17:09.436781"
+            },
+            {
+              "id": 20,
+              "name": "S00020",
+              "partner_id": [
+                8,
+                "YourCompany, Joel Willis"
+              ],
+              "amount_total": 3389.63,
+              "state": "sale",
+              "write_date": "2026-06-03T08:17:09.436781"
+            },
+            {
+              "id": 21,
+              "name": "S00021",
+              "partner_id": [
+                11,
+                "Gemini Furniture"
+              ],
+              "amount_total": 2501.25,
+              "state": "sale",
+              "write_date": "2026-06-03T08:17:09.436781"
+            },
+            {
+              "id": 22,
+              "name": "S00022",
+              "partner_id": [
+                11,
+                "Gemini Furniture"
+              ],
+              "amount_total": 1696.25,
+              "state": "sale",
+              "write_date": "2026-06-03T08:17:09.436781"
+            },
+            {
+              "id": 23,
+              "name": "S00023",
+              "partner_id": [
+                11,
+                "Gemini Furniture"
+              ],
+              "amount_total": 5002.5,
+              "state": "sale",
+              "write_date": "2026-06-03T08:17:09.436781"
+            },
+            {
+              "id": 24,
+              "name": "S00024",
+              "partner_id": [
+                11,
+                "Gemini Furniture"
+              ],
+              "amount_total": 2288.5,
+              "state": "sale",
+              "write_date": "2026-06-03T08:17:09.436781"
+            }
+          ],
+          "count": 24
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 03 Jun 2026 08:50:52 GMT",
+          "content-type": "application/json",
+          "content-length": "3740",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4992",
+          "x-ratelimit-reset": "1780476698",
+          "etag": "W/\"e9c-G/4CEVo+kVvnM0W12V//URp7Ye4\""
+        },
+        "hash": "a03231689ae091eb63e2bba4109e9630a060a535",
+        "request": {
+          "params": {
+            "fields": "['id','name','partner_id','amount_total','state','write_date']",
+            "limit": "100",
+            "offset": "0",
+            "order": "write_date asc,id asc"
+          }
+        }
+      }
+    }
+  }
+}

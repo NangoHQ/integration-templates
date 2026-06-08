@@ -1,0 +1,168 @@
+{
+  "input": {
+    "project_id": "309484",
+    "person_id": "de65dff0-e076-5958-a41c-3cf26b0fbd72",
+    "properties": {
+      "nango_test_dryrun": "saved_value"
+    }
+  },
+  "output": {
+    "id": 28326839147,
+    "name": "test-user-123",
+    "distinct_ids": [
+      "test-user-123"
+    ],
+    "properties": {
+      "$geoip_latitude": 59.3784,
+      "$geoip_city_name": "Karlstad",
+      "$geoip_longitude": 13.5123,
+      "$geoip_time_zone": "Europe/Stockholm",
+      "nango_test_dryrun": "validation_value",
+      "$geoip_postal_code": "650 02",
+      "$creator_event_uuid": "019e8cf6-2949-7751-80d5-70ada475322b",
+      "$geoip_country_code": "SE",
+      "$geoip_country_name": "Sweden",
+      "$geoip_continent_code": "EU",
+      "$geoip_continent_name": "Europe",
+      "$geoip_accuracy_radius": 20,
+      "$geoip_city_confidence": null,
+      "$initial_geoip_latitude": 45.8401,
+      "$initial_geoip_city_name": "Boardman",
+      "$initial_geoip_longitude": -119.705,
+      "$initial_geoip_time_zone": "America/Los_Angeles",
+      "$geoip_subdivision_1_code": "S",
+      "$geoip_subdivision_1_name": "Värmland County",
+      "$geoip_subdivision_2_code": null,
+      "$geoip_subdivision_2_name": null,
+      "$initial_geoip_postal_code": "97818",
+      "$initial_geoip_country_code": "US",
+      "$initial_geoip_country_name": "United States",
+      "$initial_geoip_continent_code": "NA",
+      "$initial_geoip_continent_name": "North America",
+      "$initial_geoip_accuracy_radius": 20,
+      "$initial_geoip_city_confidence": null,
+      "$initial_geoip_subdivision_1_code": "OR",
+      "$initial_geoip_subdivision_1_name": "Oregon",
+      "$initial_geoip_subdivision_2_code": null,
+      "$initial_geoip_subdivision_2_name": null
+    },
+    "created_at": "2026-06-03T10:10:03.209000Z",
+    "uuid": "de65dff0-e076-5958-a41c-3cf26b0fbd72",
+    "last_seen_at": "2026-06-03T10:00:00Z"
+  },
+  "nango": {
+    "getConnection": {}
+  },
+  "api": {
+    "patch": {
+      "/api/projects/309484/persons/de65dff0-e076-5958-a41c-3cf26b0fbd72/": {
+        "response": "",
+        "status": 200,
+        "headers": {
+          "date": "Wed, 03 Jun 2026 10:18:37 GMT",
+          "content-type": "application/octet-stream",
+          "content-length": "0",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4959",
+          "x-ratelimit-reset": "1780481936",
+          "etag": "W/\"0-2jmj7l5rSw0yVb/vlWAYkK/YBwk\""
+        },
+        "hash": "81a1e13ed681093507e88f36b67a26a18d8e6f5e",
+        "request": {
+          "data": {
+            "properties": {
+              "nango_test_dryrun": "saved_value"
+            }
+          }
+        }
+      }
+    },
+    "get": {
+      "/api/projects/309484/persons/de65dff0-e076-5958-a41c-3cf26b0fbd72/": {
+        "response": {
+          "id": 28326839147,
+          "name": "test-user-123",
+          "distinct_ids": [
+            "test-user-123"
+          ],
+          "properties": {
+            "$geoip_latitude": 59.3784,
+            "$geoip_city_name": "Karlstad",
+            "$geoip_longitude": 13.5123,
+            "$geoip_time_zone": "Europe/Stockholm",
+            "nango_test_dryrun": "validation_value",
+            "$geoip_postal_code": "650 02",
+            "$creator_event_uuid": "019e8cf6-2949-7751-80d5-70ada475322b",
+            "$geoip_country_code": "SE",
+            "$geoip_country_name": "Sweden",
+            "$geoip_continent_code": "EU",
+            "$geoip_continent_name": "Europe",
+            "$geoip_accuracy_radius": 20,
+            "$geoip_city_confidence": null,
+            "$initial_geoip_latitude": 45.8401,
+            "$initial_geoip_city_name": "Boardman",
+            "$initial_geoip_longitude": -119.705,
+            "$initial_geoip_time_zone": "America/Los_Angeles",
+            "$geoip_subdivision_1_code": "S",
+            "$geoip_subdivision_1_name": "Värmland County",
+            "$geoip_subdivision_2_code": null,
+            "$geoip_subdivision_2_name": null,
+            "$initial_geoip_postal_code": "97818",
+            "$initial_geoip_country_code": "US",
+            "$initial_geoip_country_name": "United States",
+            "$initial_geoip_continent_code": "NA",
+            "$initial_geoip_continent_name": "North America",
+            "$initial_geoip_accuracy_radius": 20,
+            "$initial_geoip_city_confidence": null,
+            "$initial_geoip_subdivision_1_code": "OR",
+            "$initial_geoip_subdivision_1_name": "Oregon",
+            "$initial_geoip_subdivision_2_code": null,
+            "$initial_geoip_subdivision_2_name": null
+          },
+          "created_at": "2026-06-03T10:10:03.209000Z",
+          "uuid": "de65dff0-e076-5958-a41c-3cf26b0fbd72",
+          "last_seen_at": "2026-06-03T10:00:00Z"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 03 Jun 2026 10:18:37 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4958",
+          "x-ratelimit-reset": "1780481936",
+          "vary": "Accept, origin, Cookie, Accept-Encoding",
+          "allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS",
+          "server-timing": "django;dur=74, pg;dur=16, pg_max;dur=3, ch;dur=0, ch_max;dur=0, pg_count;desc=\"7\", pg_slow;desc=\"0\", ch_count;desc=\"0\", ch_slow;desc=\"0\"",
+          "content-security-policy": "default-src 'none'",
+          "referrer-policy": "same-origin",
+          "cross-origin-opener-policy": "same-origin",
+          "server": "envoy",
+          "x-envoy-upstream-service-time": "77"
+        },
+        "hash": "d6873354f0b7242e3252da6b9daf1dc539178db3",
+        "request": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,563 @@
+{
+  "input": {},
+  "output": {
+    "nodes": [
+      {
+        "id": "gid://shopify/DiscountCodeNode/1298166087817",
+        "__typename": "DiscountNode",
+        "discount": {
+          "__typename": "DiscountCodeFreeShipping",
+          "title": "FREESHIPPING2026",
+          "summary": "Free shipping on one-time purchase products • Minimum quantity of 3 • For all countries • Applies to shipping rates under $100.00",
+          "status": "ACTIVE"
+        }
+      },
+      {
+        "id": "gid://shopify/DiscountAutomaticNode/1298166120585",
+        "__typename": "DiscountNode",
+        "discount": {
+          "__typename": "DiscountAutomaticBasic",
+          "title": "Buy three, get 30 percent off",
+          "summary": "30% off The Complete Snowboard (Ice) • Minimum quantity of 3",
+          "status": "EXPIRED"
+        }
+      },
+      {
+        "id": "gid://shopify/DiscountAutomaticNode/1298166153353",
+        "__typename": "DiscountNode",
+        "discount": {
+          "__typename": "DiscountAutomaticBxgy",
+          "title": "Buy one, get the second 10 percent off",
+          "summary": "Buy 1 item, get 1 item at 10% off",
+          "status": "ACTIVE"
+        }
+      },
+      {
+        "id": "gid://shopify/DiscountAutomaticNode/1298169266313",
+        "__typename": "DiscountNode",
+        "discount": {
+          "__typename": "DiscountAutomaticFreeShipping",
+          "title": "Test Free Shipping",
+          "summary": "Free shipping on all products • For all countries",
+          "status": "ACTIVE"
+        }
+      },
+      {
+        "id": "gid://shopify/DiscountAutomaticNode/1298169299081",
+        "__typename": "DiscountNode",
+        "discount": {
+          "__typename": "DiscountAutomaticFreeShipping",
+          "title": "Test Free Shipping 1780565905",
+          "summary": "Free shipping on all products • For all countries",
+          "status": "ACTIVE"
+        }
+      },
+      {
+        "id": "gid://shopify/DiscountAutomaticNode/1298169462921",
+        "__typename": "DiscountNode",
+        "discount": {
+          "__typename": "DiscountAutomaticBxgy",
+          "title": "Buy Gift Card Get Snowboard",
+          "summary": "Buy 1 item, get 1 item free",
+          "status": "ACTIVE"
+        }
+      },
+      {
+        "id": "gid://shopify/DiscountAutomaticNode/1298169495689",
+        "__typename": "DiscountNode",
+        "discount": {
+          "__typename": "DiscountAutomaticBxgy",
+          "title": "Buy Gift Card Get Snowboard 2026-06-04T00-00-00Z",
+          "summary": "Buy 1 item, get 1 item free",
+          "status": "ACTIVE"
+        }
+      },
+      {
+        "id": "gid://shopify/DiscountAutomaticNode/1298169659529",
+        "__typename": "DiscountNode",
+        "discount": {
+          "__typename": "DiscountAutomaticBasic",
+          "title": "Test Automatic Discount",
+          "summary": "$5.00 off entire order",
+          "status": "ACTIVE"
+        }
+      },
+      {
+        "id": "gid://shopify/DiscountCodeNode/1298169823369",
+        "__typename": "DiscountNode",
+        "discount": {
+          "__typename": "DiscountCodeBasic",
+          "title": "Basic Test Discount",
+          "summary": "10% off one-time purchase products",
+          "status": "ACTIVE"
+        }
+      },
+      {
+        "id": "gid://shopify/DiscountAutomaticNode/1298169888905",
+        "__typename": "DiscountNode",
+        "discount": {
+          "__typename": "DiscountAutomaticBasic",
+          "title": "Test Automatic Discount 2026-06-04T09-45-00Z",
+          "summary": "$5.00 off entire order",
+          "status": "ACTIVE"
+        }
+      },
+      {
+        "id": "gid://shopify/DiscountCodeNode/1298169921673",
+        "__typename": "DiscountNode",
+        "discount": {
+          "__typename": "DiscountCodeBasic",
+          "title": "Basic Test Discount",
+          "summary": "10% off one-time purchase products",
+          "status": "ACTIVE"
+        }
+      },
+      {
+        "id": "gid://shopify/DiscountCodeNode/1298169954441",
+        "__typename": "DiscountNode",
+        "discount": {
+          "__typename": "DiscountCodeBasic",
+          "title": "Basic Test Discount",
+          "summary": "10% off one-time purchase products",
+          "status": "ACTIVE"
+        }
+      },
+      {
+        "id": "gid://shopify/DiscountCodeNode/1298170085513",
+        "__typename": "DiscountNode",
+        "discount": {
+          "__typename": "DiscountCodeBasic",
+          "title": "Basic Test Discount",
+          "summary": "10% off one-time purchase products",
+          "status": "ACTIVE"
+        }
+      },
+      {
+        "id": "gid://shopify/DiscountCodeNode/1298170118281",
+        "__typename": "DiscountNode",
+        "discount": {
+          "__typename": "DiscountCodeBasic",
+          "title": "Basic Test Discount",
+          "summary": "10% off one-time purchase products",
+          "status": "ACTIVE"
+        }
+      },
+      {
+        "id": "gid://shopify/DiscountCodeNode/1298170249353",
+        "__typename": "DiscountNode",
+        "discount": {
+          "__typename": "DiscountCodeFreeShipping",
+          "title": "Agent Test Free Shipping",
+          "summary": "Free shipping on one-time purchase products • For all countries",
+          "status": "ACTIVE"
+        }
+      },
+      {
+        "id": "gid://shopify/DiscountCodeNode/1298170314889",
+        "__typename": "DiscountNode",
+        "discount": {
+          "__typename": "DiscountCodeFreeShipping",
+          "title": "Agent Test Free Shipping",
+          "summary": "Free shipping on one-time purchase products • For all countries",
+          "status": "ACTIVE"
+        }
+      },
+      {
+        "id": "gid://shopify/DiscountAutomaticNode/1298170511497",
+        "__typename": "DiscountNode",
+        "discount": {
+          "__typename": "DiscountAutomaticBxgy",
+          "title": "Buy one, get one free",
+          "summary": "Buy 1 item, get 1 item free",
+          "status": "ACTIVE"
+        }
+      },
+      {
+        "id": "gid://shopify/DiscountCodeNode/1298170609801",
+        "__typename": "DiscountNode",
+        "discount": {
+          "__typename": "DiscountCodeBasic",
+          "title": "Test Basic Discount",
+          "summary": "10% off one-time purchase products",
+          "status": "ACTIVE"
+        }
+      },
+      {
+        "id": "gid://shopify/DiscountAutomaticNode/1298170642569",
+        "__typename": "DiscountNode",
+        "discount": {
+          "__typename": "DiscountAutomaticBxgy",
+          "title": "Buy one, get one free Test 2026-06-04",
+          "summary": "Buy 1 item, get 1 item free",
+          "status": "ACTIVE"
+        }
+      },
+      {
+        "id": "gid://shopify/DiscountCodeNode/1298170740873",
+        "__typename": "DiscountNode",
+        "discount": {
+          "__typename": "DiscountCodeBasic",
+          "title": "Test Basic Discount",
+          "summary": "10% off one-time purchase products",
+          "status": "ACTIVE"
+        }
+      },
+      {
+        "id": "gid://shopify/DiscountCodeNode/1298170839177",
+        "__typename": "DiscountNode",
+        "discount": {
+          "__typename": "DiscountCodeBasic",
+          "title": "Test Basic Discount",
+          "summary": "10% off one-time purchase products",
+          "status": "ACTIVE"
+        }
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/admin/api/2026-04/graphql.json": {
+        "response": {
+          "data": {
+            "discountNodes": {
+              "edges": [
+                {
+                  "node": {
+                    "id": "gid://shopify/DiscountCodeNode/1298166087817",
+                    "__typename": "DiscountNode",
+                    "discount": {
+                      "__typename": "DiscountCodeFreeShipping",
+                      "title": "FREESHIPPING2026",
+                      "summary": "Free shipping on one-time purchase products • Minimum quantity of 3 • For all countries • Applies to shipping rates under $100.00",
+                      "status": "ACTIVE"
+                    }
+                  },
+                  "cursor": "eyJsYXN0X2lkIjoxMjk4MTY2MDg3ODE3LCJsYXN0X3ZhbHVlIjoiMTI5ODE2NjA4NzgxNyJ9"
+                },
+                {
+                  "node": {
+                    "id": "gid://shopify/DiscountAutomaticNode/1298166120585",
+                    "__typename": "DiscountNode",
+                    "discount": {
+                      "__typename": "DiscountAutomaticBasic",
+                      "title": "Buy three, get 30 percent off",
+                      "summary": "30% off The Complete Snowboard (Ice) • Minimum quantity of 3",
+                      "status": "EXPIRED"
+                    }
+                  },
+                  "cursor": "eyJsYXN0X2lkIjoxMjk4MTY2MTIwNTg1LCJsYXN0X3ZhbHVlIjoiMTI5ODE2NjEyMDU4NSJ9"
+                },
+                {
+                  "node": {
+                    "id": "gid://shopify/DiscountAutomaticNode/1298166153353",
+                    "__typename": "DiscountNode",
+                    "discount": {
+                      "__typename": "DiscountAutomaticBxgy",
+                      "title": "Buy one, get the second 10 percent off",
+                      "summary": "Buy 1 item, get 1 item at 10% off",
+                      "status": "ACTIVE"
+                    }
+                  },
+                  "cursor": "eyJsYXN0X2lkIjoxMjk4MTY2MTUzMzUzLCJsYXN0X3ZhbHVlIjoiMTI5ODE2NjE1MzM1MyJ9"
+                },
+                {
+                  "node": {
+                    "id": "gid://shopify/DiscountAutomaticNode/1298169266313",
+                    "__typename": "DiscountNode",
+                    "discount": {
+                      "__typename": "DiscountAutomaticFreeShipping",
+                      "title": "Test Free Shipping",
+                      "summary": "Free shipping on all products • For all countries",
+                      "status": "ACTIVE"
+                    }
+                  },
+                  "cursor": "eyJsYXN0X2lkIjoxMjk4MTY5MjY2MzEzLCJsYXN0X3ZhbHVlIjoiMTI5ODE2OTI2NjMxMyJ9"
+                },
+                {
+                  "node": {
+                    "id": "gid://shopify/DiscountAutomaticNode/1298169299081",
+                    "__typename": "DiscountNode",
+                    "discount": {
+                      "__typename": "DiscountAutomaticFreeShipping",
+                      "title": "Test Free Shipping 1780565905",
+                      "summary": "Free shipping on all products • For all countries",
+                      "status": "ACTIVE"
+                    }
+                  },
+                  "cursor": "eyJsYXN0X2lkIjoxMjk4MTY5Mjk5MDgxLCJsYXN0X3ZhbHVlIjoiMTI5ODE2OTI5OTA4MSJ9"
+                },
+                {
+                  "node": {
+                    "id": "gid://shopify/DiscountAutomaticNode/1298169462921",
+                    "__typename": "DiscountNode",
+                    "discount": {
+                      "__typename": "DiscountAutomaticBxgy",
+                      "title": "Buy Gift Card Get Snowboard",
+                      "summary": "Buy 1 item, get 1 item free",
+                      "status": "ACTIVE"
+                    }
+                  },
+                  "cursor": "eyJsYXN0X2lkIjoxMjk4MTY5NDYyOTIxLCJsYXN0X3ZhbHVlIjoiMTI5ODE2OTQ2MjkyMSJ9"
+                },
+                {
+                  "node": {
+                    "id": "gid://shopify/DiscountAutomaticNode/1298169495689",
+                    "__typename": "DiscountNode",
+                    "discount": {
+                      "__typename": "DiscountAutomaticBxgy",
+                      "title": "Buy Gift Card Get Snowboard 2026-06-04T00-00-00Z",
+                      "summary": "Buy 1 item, get 1 item free",
+                      "status": "ACTIVE"
+                    }
+                  },
+                  "cursor": "eyJsYXN0X2lkIjoxMjk4MTY5NDk1Njg5LCJsYXN0X3ZhbHVlIjoiMTI5ODE2OTQ5NTY4OSJ9"
+                },
+                {
+                  "node": {
+                    "id": "gid://shopify/DiscountAutomaticNode/1298169659529",
+                    "__typename": "DiscountNode",
+                    "discount": {
+                      "__typename": "DiscountAutomaticBasic",
+                      "title": "Test Automatic Discount",
+                      "summary": "$5.00 off entire order",
+                      "status": "ACTIVE"
+                    }
+                  },
+                  "cursor": "eyJsYXN0X2lkIjoxMjk4MTY5NjU5NTI5LCJsYXN0X3ZhbHVlIjoiMTI5ODE2OTY1OTUyOSJ9"
+                },
+                {
+                  "node": {
+                    "id": "gid://shopify/DiscountCodeNode/1298169823369",
+                    "__typename": "DiscountNode",
+                    "discount": {
+                      "__typename": "DiscountCodeBasic",
+                      "title": "Basic Test Discount",
+                      "summary": "10% off one-time purchase products",
+                      "status": "ACTIVE"
+                    }
+                  },
+                  "cursor": "eyJsYXN0X2lkIjoxMjk4MTY5ODIzMzY5LCJsYXN0X3ZhbHVlIjoiMTI5ODE2OTgyMzM2OSJ9"
+                },
+                {
+                  "node": {
+                    "id": "gid://shopify/DiscountAutomaticNode/1298169888905",
+                    "__typename": "DiscountNode",
+                    "discount": {
+                      "__typename": "DiscountAutomaticBasic",
+                      "title": "Test Automatic Discount 2026-06-04T09-45-00Z",
+                      "summary": "$5.00 off entire order",
+                      "status": "ACTIVE"
+                    }
+                  },
+                  "cursor": "eyJsYXN0X2lkIjoxMjk4MTY5ODg4OTA1LCJsYXN0X3ZhbHVlIjoiMTI5ODE2OTg4ODkwNSJ9"
+                },
+                {
+                  "node": {
+                    "id": "gid://shopify/DiscountCodeNode/1298169921673",
+                    "__typename": "DiscountNode",
+                    "discount": {
+                      "__typename": "DiscountCodeBasic",
+                      "title": "Basic Test Discount",
+                      "summary": "10% off one-time purchase products",
+                      "status": "ACTIVE"
+                    }
+                  },
+                  "cursor": "eyJsYXN0X2lkIjoxMjk4MTY5OTIxNjczLCJsYXN0X3ZhbHVlIjoiMTI5ODE2OTkyMTY3MyJ9"
+                },
+                {
+                  "node": {
+                    "id": "gid://shopify/DiscountCodeNode/1298169954441",
+                    "__typename": "DiscountNode",
+                    "discount": {
+                      "__typename": "DiscountCodeBasic",
+                      "title": "Basic Test Discount",
+                      "summary": "10% off one-time purchase products",
+                      "status": "ACTIVE"
+                    }
+                  },
+                  "cursor": "eyJsYXN0X2lkIjoxMjk4MTY5OTU0NDQxLCJsYXN0X3ZhbHVlIjoiMTI5ODE2OTk1NDQ0MSJ9"
+                },
+                {
+                  "node": {
+                    "id": "gid://shopify/DiscountCodeNode/1298170085513",
+                    "__typename": "DiscountNode",
+                    "discount": {
+                      "__typename": "DiscountCodeBasic",
+                      "title": "Basic Test Discount",
+                      "summary": "10% off one-time purchase products",
+                      "status": "ACTIVE"
+                    }
+                  },
+                  "cursor": "eyJsYXN0X2lkIjoxMjk4MTcwMDg1NTEzLCJsYXN0X3ZhbHVlIjoiMTI5ODE3MDA4NTUxMyJ9"
+                },
+                {
+                  "node": {
+                    "id": "gid://shopify/DiscountCodeNode/1298170118281",
+                    "__typename": "DiscountNode",
+                    "discount": {
+                      "__typename": "DiscountCodeBasic",
+                      "title": "Basic Test Discount",
+                      "summary": "10% off one-time purchase products",
+                      "status": "ACTIVE"
+                    }
+                  },
+                  "cursor": "eyJsYXN0X2lkIjoxMjk4MTcwMTE4MjgxLCJsYXN0X3ZhbHVlIjoiMTI5ODE3MDExODI4MSJ9"
+                },
+                {
+                  "node": {
+                    "id": "gid://shopify/DiscountCodeNode/1298170249353",
+                    "__typename": "DiscountNode",
+                    "discount": {
+                      "__typename": "DiscountCodeFreeShipping",
+                      "title": "Agent Test Free Shipping",
+                      "summary": "Free shipping on one-time purchase products • For all countries",
+                      "status": "ACTIVE"
+                    }
+                  },
+                  "cursor": "eyJsYXN0X2lkIjoxMjk4MTcwMjQ5MzUzLCJsYXN0X3ZhbHVlIjoiMTI5ODE3MDI0OTM1MyJ9"
+                },
+                {
+                  "node": {
+                    "id": "gid://shopify/DiscountCodeNode/1298170314889",
+                    "__typename": "DiscountNode",
+                    "discount": {
+                      "__typename": "DiscountCodeFreeShipping",
+                      "title": "Agent Test Free Shipping",
+                      "summary": "Free shipping on one-time purchase products • For all countries",
+                      "status": "ACTIVE"
+                    }
+                  },
+                  "cursor": "eyJsYXN0X2lkIjoxMjk4MTcwMzE0ODg5LCJsYXN0X3ZhbHVlIjoiMTI5ODE3MDMxNDg4OSJ9"
+                },
+                {
+                  "node": {
+                    "id": "gid://shopify/DiscountAutomaticNode/1298170511497",
+                    "__typename": "DiscountNode",
+                    "discount": {
+                      "__typename": "DiscountAutomaticBxgy",
+                      "title": "Buy one, get one free",
+                      "summary": "Buy 1 item, get 1 item free",
+                      "status": "ACTIVE"
+                    }
+                  },
+                  "cursor": "eyJsYXN0X2lkIjoxMjk4MTcwNTExNDk3LCJsYXN0X3ZhbHVlIjoiMTI5ODE3MDUxMTQ5NyJ9"
+                },
+                {
+                  "node": {
+                    "id": "gid://shopify/DiscountCodeNode/1298170609801",
+                    "__typename": "DiscountNode",
+                    "discount": {
+                      "__typename": "DiscountCodeBasic",
+                      "title": "Test Basic Discount",
+                      "summary": "10% off one-time purchase products",
+                      "status": "ACTIVE"
+                    }
+                  },
+                  "cursor": "eyJsYXN0X2lkIjoxMjk4MTcwNjA5ODAxLCJsYXN0X3ZhbHVlIjoiMTI5ODE3MDYwOTgwMSJ9"
+                },
+                {
+                  "node": {
+                    "id": "gid://shopify/DiscountAutomaticNode/1298170642569",
+                    "__typename": "DiscountNode",
+                    "discount": {
+                      "__typename": "DiscountAutomaticBxgy",
+                      "title": "Buy one, get one free Test 2026-06-04",
+                      "summary": "Buy 1 item, get 1 item free",
+                      "status": "ACTIVE"
+                    }
+                  },
+                  "cursor": "eyJsYXN0X2lkIjoxMjk4MTcwNjQyNTY5LCJsYXN0X3ZhbHVlIjoiMTI5ODE3MDY0MjU2OSJ9"
+                },
+                {
+                  "node": {
+                    "id": "gid://shopify/DiscountCodeNode/1298170740873",
+                    "__typename": "DiscountNode",
+                    "discount": {
+                      "__typename": "DiscountCodeBasic",
+                      "title": "Test Basic Discount",
+                      "summary": "10% off one-time purchase products",
+                      "status": "ACTIVE"
+                    }
+                  },
+                  "cursor": "eyJsYXN0X2lkIjoxMjk4MTcwNzQwODczLCJsYXN0X3ZhbHVlIjoiMTI5ODE3MDc0MDg3MyJ9"
+                },
+                {
+                  "node": {
+                    "id": "gid://shopify/DiscountCodeNode/1298170839177",
+                    "__typename": "DiscountNode",
+                    "discount": {
+                      "__typename": "DiscountCodeBasic",
+                      "title": "Test Basic Discount",
+                      "summary": "10% off one-time purchase products",
+                      "status": "ACTIVE"
+                    }
+                  },
+                  "cursor": "eyJsYXN0X2lkIjoxMjk4MTcwODM5MTc3LCJsYXN0X3ZhbHVlIjoiMTI5ODE3MDgzOTE3NyJ9"
+                }
+              ],
+              "pageInfo": {
+                "hasNextPage": false,
+                "endCursor": "eyJsYXN0X2lkIjoxMjk4MTcwODM5MTc3LCJsYXN0X3ZhbHVlIjoiMTI5ODE3MDgzOTE3NyJ9"
+              }
+            }
+          },
+          "extensions": {
+            "cost": {
+              "requestedQueryCost": 23,
+              "actualQueryCost": 12,
+              "throttleStatus": {
+                "maximumAvailable": 4000,
+                "currentlyAvailable": 3988,
+                "restoreRate": 200
+              }
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 04 Jun 2026 10:51:32 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=7889238",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4891",
+          "x-ratelimit-reset": "1780570340",
+          "vary": "Accept-Encoding,Sec-Fetch-Site",
+          "referrer-policy": "origin-when-cross-origin",
+          "cf-cache-status": "DYNAMIC",
+          "x-stats-userid": "",
+          "x-stats-apiclientid": "376951341057",
+          "x-stats-apipermissionid": "695964696713",
+          "x-shopify-api-version": "2026-04",
+          "content-language": "en",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "x-shopify-api-gql-engine": "cardinal",
+          "x-dc": "gcp-us-west1,gcp-us-east1,gcp-us-east1",
+          "x-request-id": "0a683875-3ff9-4c7a-9874-734236ef41a3-1780570292",
+          "server-timing": "processing;dur=73, verdict_flag_enabled;desc=\"count=12\";dur=0.573, graphql;desc=\"admin/query/other\", _y;desc=\"e35c3624-43a5-4b6d-9228-5c6573eeb4a9\", _s;desc=\"eee7a637-337b-413f-88f6-d8f5ae8b4f40\"",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=XfJcmq%2F4Idj1JFdrs%2FaMZv14k7yfiqLvMW%2BA4P%2BMeKlmC7IwNPbQ2rXRL0ftbG8mpyOuFpAiDs90b%2Fta%2BXziQ5EN0SLeyf7tHSUX6V%2FJu8BcUjYTLPu76XAWh7dlZvT9fAp8H6NV8yY%3D\"}]}",
+          "server": "cloudflare",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.01,\"max_age\":604800}",
+          "content-security-policy": "default-src 'self' data: blob: 'unsafe-inline' 'unsafe-eval' https://* shopify-pos://*; block-all-mixed-content; child-src 'self' https://* shopify-pos://*; connect-src 'self' wss://* https://*; frame-ancestors 'none'; img-src 'self' data: blob: https:; script-src https://cdn.shopify.com https://cdn.shopifycdn.net https://checkout.pci.shopifyinc.com https://checkout.pci.shopifyinc.com/build/04ed4e1/card_fields.js https://api.stripe.com https://mpsnare.iesnare.com https://appcenter.intuit.com https://www.paypal.com https://js.braintreegateway.com https://c.paypal.com https://maps.googleapis.com https://www.google-analytics.com https://v.shopify.com 'self' 'unsafe-inline' 'unsafe-eval'; upgrade-insecure-requests; report-uri /csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=0a683875-3ff9-4c7a-9874-734236ef41a3-1780570292; report-to shopify-csp",
+          "x-permitted-cross-domain-policies": "none",
+          "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=0a683875-3ff9-4c7a-9874-734236ef41a3-1780570292\"",
+          "cf-ray": "a06662088f1bf820-PDX"
+        },
+        "hash": "98a6a4aacb87f4bf6a81261a226696fcbb87e0ca",
+        "request": {
+          "data": "sha1:f29c1141e4c6c94d27ec5fcd3e0b8c34a5610c54"
+        }
+      }
+    }
+  }
+}

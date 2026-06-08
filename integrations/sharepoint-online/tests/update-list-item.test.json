@@ -1,0 +1,109 @@
+{
+  "input": {
+    "site_id": "nangodevelopers.sharepoint.com,1d6e1722-9330-4b30-aa92-b73f215d9420,413c102d-9557-4a8d-8a68-bbb499015216",
+    "list_id": "5c7a7ebb-19c7-4143-9e33-d91d07c7e65c",
+    "item_id": "1",
+    "fields": {
+      "Title": "Updated Test Event"
+    }
+  },
+  "output": {
+    "site_id": "nangodevelopers.sharepoint.com,1d6e1722-9330-4b30-aa92-b73f215d9420,413c102d-9557-4a8d-8a68-bbb499015216",
+    "list_id": "5c7a7ebb-19c7-4143-9e33-d91d07c7e65c",
+    "item_id": "1",
+    "fields": {
+      "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#sites('nangodevelopers.sharepoint.com%2C1d6e1722-9330-4b30-aa92-b73f215d9420%2C413c102d-9557-4a8d-8a68-bbb499015216')/lists('5c7a7ebb-19c7-4143-9e33-d91d07c7e65c')/items('1')/fields/$entity",
+      "@odata.etag": "\"3d050401-716b-4db3-91de-1be6f842b506,3\"",
+      "id": "1",
+      "ContentType": "Event",
+      "Title": "Updated Test Event",
+      "Modified": "2026-06-03T15:08:34Z",
+      "Created": "2026-06-03T15:07:35Z",
+      "AuthorLookupId": "11",
+      "EditorLookupId": "11",
+      "_UIVersionString": "1.0",
+      "Attachments": false,
+      "Edit": "",
+      "LinkTitleNoMenu": "Updated Test Event",
+      "LinkTitle": "Updated Test Event",
+      "ItemChildCount": "0",
+      "FolderChildCount": "0",
+      "_ComplianceFlags": "",
+      "_ComplianceTag": "",
+      "_ComplianceTagWrittenTime": "",
+      "_ComplianceTagUserId": "",
+      "AppAuthorLookupId": "6",
+      "AppEditorLookupId": "6",
+      "EventDate": "2026-06-03T15:07:35Z",
+      "EndDate": "2026-06-03T15:07:35Z",
+      "fRecurrence": false
+    }
+  },
+  "nango": {},
+  "api": {
+    "patch": {
+      "/v1.0/sites/nangodevelopers.sharepoint.com%2C1d6e1722-9330-4b30-aa92-b73f215d9420%2C413c102d-9557-4a8d-8a68-bbb499015216/lists/5c7a7ebb-19c7-4143-9e33-d91d07c7e65c/items/1/fields": {
+        "response": {
+          "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#sites('nangodevelopers.sharepoint.com%2C1d6e1722-9330-4b30-aa92-b73f215d9420%2C413c102d-9557-4a8d-8a68-bbb499015216')/lists('5c7a7ebb-19c7-4143-9e33-d91d07c7e65c')/items('1')/fields/$entity",
+          "@odata.etag": "\"3d050401-716b-4db3-91de-1be6f842b506,3\"",
+          "id": "1",
+          "ContentType": "Event",
+          "Title": "Updated Test Event",
+          "Modified": "2026-06-03T15:08:34Z",
+          "Created": "2026-06-03T15:07:35Z",
+          "AuthorLookupId": "11",
+          "EditorLookupId": "11",
+          "_UIVersionString": "1.0",
+          "Attachments": false,
+          "Edit": "",
+          "LinkTitleNoMenu": "Updated Test Event",
+          "LinkTitle": "Updated Test Event",
+          "ItemChildCount": "0",
+          "FolderChildCount": "0",
+          "_ComplianceFlags": "",
+          "_ComplianceTag": "",
+          "_ComplianceTagWrittenTime": "",
+          "_ComplianceTagUserId": "",
+          "AppAuthorLookupId": "6",
+          "AppEditorLookupId": "6",
+          "EventDate": "2026-06-03T15:07:35Z",
+          "EndDate": "2026-06-03T15:07:35Z",
+          "fRecurrence": false
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 03 Jun 2026 15:08:34 GMT",
+          "content-type": "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false;charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4860",
+          "x-ratelimit-reset": "1780499326",
+          "cache-control": "no-cache",
+          "etag": "\"3d050401-716b-4db3-91de-1be6f842b506,3\"",
+          "vary": "Accept-Encoding",
+          "request-id": "08c2e045-95d9-4f24-b944-52680efad7b9",
+          "client-request-id": "08c2e045-95d9-4f24-b944-52680efad7b9",
+          "x-ms-ags-diagnostic": "{\"ServerInfo\":{\"DataCenter\":\"West US 2\",\"Slice\":\"E\",\"Ring\":\"4\",\"ScaleUnit\":\"004\",\"RoleInstance\":\"MW2PEPF00014097\"}}",
+          "splogid": "44031aa2-40b6-d000-715d-7dd57a641d6f",
+          "odata-version": "4.0"
+        },
+        "hash": "02412793fbf6757c039970f1a4f2cf6e2b692010",
+        "request": {
+          "data": {
+            "Title": "Updated Test Event"
+          }
+        }
+      }
+    }
+  }
+}
