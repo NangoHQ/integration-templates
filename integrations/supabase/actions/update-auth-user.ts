@@ -79,7 +79,7 @@ const action = createAction({
         const connectionConfig = connection.connection_config;
         const projectUrl =
             connectionConfig != null && typeof connectionConfig === 'object' && 'projectUrl' in connectionConfig ? connectionConfig['projectUrl'] : undefined;
-        const baseUrlOverride = typeof projectUrl === 'string' && projectUrl.startsWith('http') ? projectUrl : undefined;
+        const baseUrlOverride = typeof projectUrl === 'string' ? (projectUrl.startsWith('http') ? projectUrl : `https://${projectUrl}`) : undefined;
 
         const updateBody: Record<string, unknown> = {};
         if (input.email !== undefined) updateBody['email'] = input.email;

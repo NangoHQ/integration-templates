@@ -28,7 +28,11 @@ const action = createAction({
             projectUrl: z.string().optional()
         });
         const connectionConfig = connectionConfigSchema.parse(connection.connection_config || {});
-        const baseUrlOverride = connectionConfig.projectUrl?.startsWith('http') ? connectionConfig.projectUrl : undefined;
+        const baseUrlOverride = connectionConfig.projectUrl
+            ? connectionConfig.projectUrl.startsWith('http')
+                ? connectionConfig.projectUrl
+                : `https://${connectionConfig.projectUrl}`
+            : undefined;
 
         const response = await nango.post({
             // https://supabase.com/docs/reference/api

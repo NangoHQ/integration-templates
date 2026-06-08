@@ -43,7 +43,7 @@ const action = createAction({
         ) {
             projectUrl = connection.connection_config['projectUrl'];
         }
-        const baseUrlOverride = projectUrl?.startsWith('http') ? projectUrl : undefined;
+        const baseUrlOverride = projectUrl ? (projectUrl.startsWith('http') ? projectUrl : `https://${projectUrl}`) : undefined;
 
         const headers: Record<string, string> = {};
         if (input.returnRepresentation) {

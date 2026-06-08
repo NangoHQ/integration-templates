@@ -45,7 +45,7 @@ const action = createAction({
         const connection = await nango.getConnection();
         const configResult = ConnectionConfigSchema.safeParse(connection.connection_config);
         const projectUrl = configResult.success ? configResult.data.projectUrl : undefined;
-        const baseUrlOverride = projectUrl?.startsWith('http') ? projectUrl : undefined;
+        const baseUrlOverride = projectUrl ? (projectUrl.startsWith('http') ? projectUrl : `https://${projectUrl}`) : undefined;
 
         const response = await nango.get({
             // https://supabase.com/docs/reference/api/storage-list-buckets

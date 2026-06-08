@@ -56,7 +56,7 @@ const sync = createSync({
         const connection = await nango.getConnection();
         const parsedConfig = ConnectionConfigSchema.safeParse(connection.connection_config ?? {});
         const projectUrl = parsedConfig.success ? parsedConfig.data.projectUrl : undefined;
-        const baseUrlOverride = typeof projectUrl === 'string' && projectUrl.startsWith('http') ? projectUrl : undefined;
+        const baseUrlOverride = typeof projectUrl === 'string' ? (projectUrl.startsWith('http') ? projectUrl : `https://${projectUrl}`) : undefined;
         let nextPage = checkpoint?.page ?? 1;
 
         const proxyConfig: ProxyConfiguration = {

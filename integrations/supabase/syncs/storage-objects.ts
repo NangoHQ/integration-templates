@@ -77,7 +77,7 @@ const sync = createSync({
         const connection = await nango.getConnection();
         const parsedConfig = ConnectionConfigSchema.safeParse(connection.connection_config ?? {});
         const projectUrl = parsedConfig.success ? parsedConfig.data.projectUrl : undefined;
-        const baseUrlOverride = typeof projectUrl === 'string' && projectUrl.startsWith('http') ? projectUrl : undefined;
+        const baseUrlOverride = typeof projectUrl === 'string' ? (projectUrl.startsWith('http') ? projectUrl : `https://${projectUrl}`) : undefined;
 
         const parseCheckpointList = (value: string, label: string): string[] => {
             const parsed = CheckpointListSchema.safeParse(JSON.parse(value));
@@ -87,10 +87,6 @@ const sync = createSync({
 
             return parsed.data;
         };
-
-        // Blocker: listing objects requires walking every bucket/prefix and does not expose
-        // an updated_after filter, cursor, or deleted-record feed. Use a checkpointed full refresh.
-        await nango.trackDeletesStart('StorageObject');
 
         // https://supabase.com/docs/reference/api/storage-list-buckets
         const bucketsResponse = await nango.get({
@@ -103,6 +99,10 @@ const sync = createSync({
         if (!Array.isArray(bucketsData)) {
             throw new Error('Buckets response is not an array');
         }
+
+        // Blocker: listing objects requires walking every bucket/prefix and does not expose
+        // an updated_after filter, cursor, or deleted-record feed. Use a checkpointed full refresh.
+        await nango.trackDeletesStart('StorageObject');
 
         const buckets = bucketsData.map((item) => BucketSchema.parse(item)).sort((a, b) => a.id.localeCompare(b.id));
         const existingBucketIds = new Set(buckets.map((bucket) => bucket.id));

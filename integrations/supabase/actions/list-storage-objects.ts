@@ -4,8 +4,8 @@ import { createAction } from 'nango';
 const InputSchema = z.object({
     bucket_id: z.string().describe('Storage bucket ID. Example: "nango-test-public"'),
     prefix: z.string().optional().describe('Folder path prefix to filter objects. Example: "docs/"'),
-    limit: z.number().min(1).max(1000).optional().describe('Maximum number of objects to return. Default: 100'),
-    offset: z.number().min(0).optional().describe('Offset for pagination. Default: 0')
+    limit: z.number().int().min(1).max(1000).optional().describe('Maximum number of objects to return. Default: 100'),
+    offset: z.number().int().min(0).optional().describe('Offset for pagination. Default: 0')
 });
 
 const ProviderMetadataSchema = z
@@ -72,7 +72,7 @@ const action = createAction({
             rawConfig && typeof rawConfig === 'object' && 'projectUrl' in rawConfig && typeof rawConfig['projectUrl'] === 'string'
                 ? rawConfig['projectUrl']
                 : undefined;
-        const baseUrlOverride = projectUrl && projectUrl.startsWith('http') ? projectUrl : undefined;
+        const baseUrlOverride = projectUrl ? (projectUrl.startsWith('http') ? projectUrl : `https://${projectUrl}`) : undefined;
 
         const limit = input.limit ?? 100;
         const offset = input.offset ?? 0;

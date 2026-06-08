@@ -40,7 +40,7 @@ const action = createAction({
             typeof connectionConfig['projectUrl'] === 'string'
                 ? connectionConfig['projectUrl']
                 : undefined;
-        const baseUrlOverride = projectUrl?.startsWith('http') ? projectUrl : undefined;
+        const baseUrlOverride = projectUrl ? (projectUrl.startsWith('http') ? projectUrl : `https://${projectUrl}`) : undefined;
 
         const response = await nango.post({
             // https://supabase.com/docs/reference/api/storage

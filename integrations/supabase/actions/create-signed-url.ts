@@ -4,7 +4,7 @@ import { createAction } from 'nango';
 const InputSchema = z.object({
     bucket_id: z.string().describe('Storage bucket ID. Example: "nango-test-private"'),
     path: z.string().describe('Object path within the bucket. Example: "data/sample.txt"'),
-    expires_in: z.number().optional().describe('Expiry time in seconds. Defaults to 3600.')
+    expires_in: z.number().int().positive().optional().describe('Expiry time in seconds. Defaults to 3600.')
 });
 
 const OutputSchema = z.object({

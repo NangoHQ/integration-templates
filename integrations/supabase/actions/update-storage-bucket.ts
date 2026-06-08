@@ -35,7 +35,7 @@ const action = createAction({
         if (typeof connectionConfig === 'object' && connectionConfig !== null && 'projectUrl' in connectionConfig) {
             projectUrl = connectionConfig['projectUrl'];
         }
-        const baseUrlOverride = typeof projectUrl === 'string' && projectUrl.startsWith('http') ? projectUrl : undefined;
+        const baseUrlOverride = typeof projectUrl === 'string' ? (projectUrl.startsWith('http') ? projectUrl : `https://${projectUrl}`) : undefined;
 
         const data: Record<string, unknown> = {};
         if (input.public !== undefined) {

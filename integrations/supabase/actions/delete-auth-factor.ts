@@ -2,8 +2,8 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    user_id: z.string().describe('User ID. Example: "a02e344e-4eba-473d-b299-b751cbd1fa2c"'),
-    factor_id: z.string().describe('MFA factor ID to delete. Example: "factor-uuid"')
+    user_id: z.string().uuid().describe('User UUID. Example: "a02e344e-4eba-473d-b299-b751cbd1fa2c"'),
+    factor_id: z.string().uuid().describe('MFA factor UUID to delete. Example: "b1c2d3e4-f5a6-7890-1234-567890abcdef"')
 });
 
 const ProviderFactorSchema = z.object({
@@ -41,7 +41,7 @@ const action = createAction({
         const connectionConfig = connection.connection_config;
         const projectUrl =
             connectionConfig && typeof connectionConfig === 'object' && 'projectUrl' in connectionConfig ? connectionConfig['projectUrl'] : undefined;
-        const baseUrlOverride = typeof projectUrl === 'string' && projectUrl.startsWith('http') ? projectUrl : undefined;
+        const baseUrlOverride = typeof projectUrl === 'string' ? (projectUrl.startsWith('http') ? projectUrl : `https://${projectUrl}`) : undefined;
 
         // https://supabase.com/docs/reference/api
         const listResponse = await nango.get({

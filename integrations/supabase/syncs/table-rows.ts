@@ -2,6 +2,13 @@ import { createSync } from 'nango';
 import type { ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
+const RawRowSchema = z
+    .object({
+        id: z.union([z.string(), z.number()]),
+        updated_at: z.string().optional()
+    })
+    .passthrough();
+
 const TableRowSchema = z
     .object({
         id: z.string(),
@@ -76,7 +83,7 @@ const sync = createSync({
         const connection = await nango.getConnection();
         const connectionConfig = ConnectionConfigSchema.safeParse(connection.connection_config);
         const projectUrl = connectionConfig.success ? connectionConfig.data.projectUrl : undefined;
-        const baseUrlOverride = projectUrl?.startsWith('http') ? projectUrl : undefined;
+        const baseUrlOverride = projectUrl ? (projectUrl.startsWith('http') ? projectUrl : `https://${projectUrl}`) : undefined;
 
         const table = metadata.table;
         const checkpointColumn = metadata.checkpoint_column ?? 'id';
@@ -135,7 +142,7 @@ const sync = createSync({
 
             const rows: Array<z.infer<typeof TableRowSchema>> = [];
             for (const item of page) {
-                const parsed = TableRowSchema.safeParse(item);
+                const parsed = RawRowSchema.safeParse(item);
                 if (!parsed.success) {
                     throw new Error(`Invalid row from PostgREST: ${parsed.error.message}`);
                 }
@@ -144,7 +151,7 @@ const sync = createSync({
                     throw new Error('Rows must include updated_at when checkpoint_column is updated_at');
                 }
 
-                rows.push(parsed.data);
+                rows.push({ ...parsed.data, id: String(parsed.data.id) });
             }
 
             if (rows.length === 0) {

@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    user_id: z.string().describe('The UUID of the Supabase Auth user whose MFA factors to list. Example: "a02e344e-4eba-473d-b299-b751cbd1fa2c"')
+    user_id: z.string().uuid().describe('The UUID of the Supabase Auth user whose MFA factors to list. Example: "a02e344e-4eba-473d-b299-b751cbd1fa2c"')
 });
 
 const ProviderFactorSchema = z.object({
@@ -51,7 +51,7 @@ const action = createAction({
                 projectUrl = maybeUrl;
             }
         }
-        const baseUrlOverride = projectUrl?.startsWith('http') ? projectUrl : undefined;
+        const baseUrlOverride = projectUrl ? (projectUrl.startsWith('http') ? projectUrl : `https://${projectUrl}`) : undefined;
 
         // https://supabase.com/docs/reference/api/admin-list-user-factors
         const response = await nango.get({

@@ -13,6 +13,7 @@ const InputSchema = z.object({
         ])
         .describe('Type of link to generate.'),
     email: z.string().describe('Email address of the user.'),
+    new_email: z.string().optional().describe('New email address for email_change_current and email_change_new link types.'),
     redirect_to: z.string().optional().describe('Optional redirect URL after verification.'),
     data: z.record(z.string(), z.unknown()).optional().describe('Optional extra metadata to attach to the user.')
 });
@@ -68,17 +69,29 @@ const action = createAction({
             typeof connectionConfig === 'object' && connectionConfig !== null && 'projectUrl' in connectionConfig
                 ? String(connectionConfig['projectUrl'])
                 : undefined;
-        const baseUrlOverride = projectUrl?.startsWith('http') ? projectUrl : undefined;
+        const baseUrlOverride = projectUrl ? (projectUrl.startsWith('http') ? projectUrl : `https://${projectUrl}`) : undefined;
+
+        if ((input.type === 'email_change_current' || input.type === 'email_change_new') && !input.new_email) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: `new_email is required when type is "${input.type}".`
+            });
+        }
 
         const body: {
             type: string;
             email: string;
+            new_email?: string;
             redirect_to?: string;
             data?: Record<string, unknown>;
         } = {
             type: input.type,
             email: input.email
         };
+
+        if (input.new_email !== undefined) {
+            body.new_email = input.new_email;
+        }
 
         if (input.redirect_to !== undefined) {
             body.redirect_to = input.redirect_to;

@@ -1,15 +1,19 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const InputSchema = z.object({
-    email: z.string().email(),
-    password: z.string().optional(),
-    phone: z.string().optional(),
-    email_confirm: z.boolean().optional(),
-    phone_confirm: z.boolean().optional(),
-    user_metadata: z.record(z.string(), z.unknown()).optional(),
-    app_metadata: z.record(z.string(), z.unknown()).optional()
-});
+const InputSchema = z
+    .object({
+        email: z.string().email().optional(),
+        password: z.string().optional(),
+        phone: z.string().optional(),
+        email_confirm: z.boolean().optional(),
+        phone_confirm: z.boolean().optional(),
+        user_metadata: z.record(z.string(), z.unknown()).optional(),
+        app_metadata: z.record(z.string(), z.unknown()).optional()
+    })
+    .refine((data) => data.email !== undefined || data.phone !== undefined, {
+        message: 'Either email or phone must be provided.'
+    });
 
 const ProviderUserSchema = z.object({
     id: z.string(),
@@ -78,14 +82,14 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const connection = await nango.getConnection();
         const projectUrl = connection.connection_config?.['projectUrl'];
-        const baseUrlOverride = typeof projectUrl === 'string' && projectUrl.startsWith('http') ? projectUrl : undefined;
+        const baseUrlOverride = typeof projectUrl === 'string' ? (projectUrl.startsWith('http') ? projectUrl : `https://${projectUrl}`) : undefined;
 
         // https://supabase.com/docs/reference/api/admin-create-user
         const response = await nango.post({
             endpoint: '/auth/v1/admin/users',
             baseUrlOverride,
             data: {
-                email: input.email,
+                ...(input.email !== undefined && { email: input.email }),
                 ...(input.password !== undefined && { password: input.password }),
                 ...(input.phone !== undefined && { phone: input.phone }),
                 ...(input.email_confirm !== undefined && { email_confirm: input.email_confirm }),

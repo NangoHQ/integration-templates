@@ -13,17 +13,7 @@ const ProviderBucketSchema = z.object({
     type: z.string().optional().nullable()
 });
 
-const BucketSchema = z.object({
-    id: z.string(),
-    name: z.string(),
-    public: z.boolean(),
-    owner: z.string(),
-    file_size_limit: z.number().optional().nullable(),
-    allowed_mime_types: z.array(z.string()).optional().nullable(),
-    created_at: z.string(),
-    updated_at: z.string(),
-    type: z.string().optional().nullable()
-});
+const BucketSchema = ProviderBucketSchema;
 
 const CheckpointSchema = z.object({
     offset: z.number().int().min(0)
@@ -57,7 +47,7 @@ const sync = createSync({
         ) {
             projectUrl = connection.connection_config['projectUrl'];
         }
-        const baseUrlOverride = typeof projectUrl === 'string' && projectUrl.startsWith('http') ? projectUrl : undefined;
+        const baseUrlOverride = typeof projectUrl === 'string' ? (projectUrl.startsWith('http') ? projectUrl : `https://${projectUrl}`) : undefined;
         let nextOffset = checkpoint?.offset ?? 0;
 
         // Blocker: GET /storage/v1/bucket supports limit, offset, sortColumn, sortOrder, and search

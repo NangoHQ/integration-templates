@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 import type { ProxyConfiguration } from 'nango';
 
 const InputSchema = z.object({
-    user_id: z.string().describe('The UUID of the auth user to delete. Example: "afece930-4935-43c3-9484-46bc38da98f7"')
+    user_id: z.string().uuid().describe('The UUID of the auth user to delete. Example: "afece930-4935-43c3-9484-46bc38da98f7"')
 });
 
 const OutputSchema = z.object({
@@ -23,11 +23,16 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const connection = await nango.getConnection();
+        const projectUrl = connection.connection_config?.['projectUrl'];
+        const baseUrlOverride = typeof projectUrl === 'string' ? (projectUrl.startsWith('http') ? projectUrl : `https://${projectUrl}`) : undefined;
+
         const encodedUserId = encodeURIComponent(input.user_id);
 
         const config: ProxyConfiguration = {
             // https://supabase.com/docs/reference/api/delete-a-user
             endpoint: `/auth/v1/admin/users/${encodedUserId}`,
+            baseUrlOverride,
             retries: 3
         };
 

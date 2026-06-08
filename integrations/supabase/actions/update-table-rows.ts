@@ -40,7 +40,7 @@ const action = createAction({
         const rawConfig = typeof connection.connection_config === 'object' && connection.connection_config !== null ? connection.connection_config : {};
         const connectionConfig = ConnectionConfigSchema.parse(rawConfig);
         const projectUrl = connectionConfig.projectUrl;
-        const baseUrlOverride = projectUrl?.startsWith('http') ? projectUrl : undefined;
+        const baseUrlOverride = projectUrl ? (projectUrl.startsWith('http') ? projectUrl : `https://${projectUrl}`) : undefined;
 
         // https://supabase.com/docs/reference/api/patch-tablerows
         const response = await nango.patch({

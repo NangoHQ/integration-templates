@@ -58,7 +58,11 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const connection = await nango.getConnection();
         const connectionConfig = ConnectionConfigSchema.parse(connection.connection_config || {});
-        const baseUrlOverride = connectionConfig.projectUrl?.startsWith('http') ? connectionConfig.projectUrl : undefined;
+        const baseUrlOverride = connectionConfig.projectUrl
+            ? connectionConfig.projectUrl.startsWith('http')
+                ? connectionConfig.projectUrl
+                : `https://${connectionConfig.projectUrl}`
+            : undefined;
 
         if (input.new_path !== undefined) {
             const response = await nango.post({

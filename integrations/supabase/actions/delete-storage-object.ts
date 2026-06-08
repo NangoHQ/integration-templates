@@ -42,7 +42,7 @@ const action = createAction({
         const connectionConfig = connection.connection_config;
         const projectUrl =
             typeof connectionConfig === 'object' && connectionConfig !== null && 'projectUrl' in connectionConfig ? connectionConfig['projectUrl'] : undefined;
-        const baseUrlOverride = typeof projectUrl === 'string' && projectUrl.startsWith('http') ? projectUrl : undefined;
+        const baseUrlOverride = typeof projectUrl === 'string' ? (projectUrl.startsWith('http') ? projectUrl : `https://${projectUrl}`) : undefined;
 
         // https://supabase.com/docs/reference/api
         const response = await nango.delete({

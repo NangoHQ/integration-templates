@@ -82872,7 +82872,7 @@ export interface ActionOutput_supabase_copystorageobject {
 };
 
 export interface ActionInput_supabase_createauthuser {
-  email: string;
+  email?: string | undefined;
   password?: string | undefined;
   phone?: string | undefined;
   email_confirm?: boolean | undefined;
@@ -83014,11 +83014,11 @@ export interface ActionOutput_supabase_createstorageobject {
 
 export interface ActionInput_supabase_deleteauthfactor {
   /**
-   * User ID. Example: "a02e344e-4eba-473d-b299-b751cbd1fa2c"
+   * User UUID. Example: "a02e344e-4eba-473d-b299-b751cbd1fa2c"
    */
   user_id: string;
   /**
-   * MFA factor ID to delete. Example: "factor-uuid"
+   * MFA factor UUID to delete. Example: "b1c2d3e4-f5a6-7890-1234-567890abcdef"
    */
   factor_id: string;
 };
@@ -83109,6 +83109,10 @@ export interface ActionInput_supabase_generateauthlink {
    * Email address of the user.
    */
   email: string;
+  /**
+   * New email address for email_change_current and email_change_new link types.
+   */
+  new_email?: string | undefined;
   /**
    * Optional redirect URL after verification.
    */
@@ -83299,7 +83303,7 @@ export interface ActionOutput_supabase_listauthusers {
   app_metadata?: {} | undefined;
   user_metadata?: {} | undefined;
   factors?: ({})[] | undefined;
-  identities?: null | undefined;})[];
+  identities?: ({})[] | null | undefined;})[];
   total?: number | undefined;
   next_page?: number | undefined;
 };

@@ -50,7 +50,7 @@ const action = createAction({
         });
         const connectionConfig = connectionConfigSchema.parse(connection.connection_config || {});
         const projectUrl = connectionConfig.projectUrl;
-        const baseUrlOverride = projectUrl?.startsWith('http') ? projectUrl : undefined;
+        const baseUrlOverride = projectUrl ? (projectUrl.startsWith('http') ? projectUrl : `https://${projectUrl}`) : undefined;
 
         const response = await nango.get({
             // https://supabase.com/docs/reference/api

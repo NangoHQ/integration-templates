@@ -71,25 +71,39 @@ const action = createAction({
         }
 
         // https://supabase.com/docs/reference/api/storage-listobjects
-        const response = await nango.post({
-            endpoint: `/storage/v1/object/list/${encodeURIComponent(input.bucketId)}`,
-            data: {
-                prefix: folderPrefix,
-                limit: 100
-            },
-            retries: 3,
-            baseUrlOverride
-        });
+        const pageSize = 100;
+        let offset = 0;
+        let match: z.infer<typeof ProviderListItemSchema> | undefined;
 
-        const items = z.array(ProviderListItemSchema).safeParse(response.data);
-        if (!items.success) {
-            throw new nango.ActionError({
-                type: 'provider_error',
-                message: 'Unexpected response format from the storage list API.'
+        while (!match) {
+            const response = await nango.post({
+                endpoint: `/storage/v1/object/list/${encodeURIComponent(input.bucketId)}`,
+                data: {
+                    prefix: folderPrefix,
+                    limit: pageSize,
+                    offset
+                },
+                retries: 3,
+                baseUrlOverride
             });
+
+            const items = z.array(ProviderListItemSchema).safeParse(response.data);
+            if (!items.success) {
+                throw new nango.ActionError({
+                    type: 'provider_error',
+                    message: 'Unexpected response format from the storage list API.'
+                });
+            }
+
+            match = items.data.find((item) => item.name === fileName);
+
+            if (!match && items.data.length < pageSize) {
+                break;
+            }
+
+            offset += pageSize;
         }
 
-        const match = items.data.find((item) => item.name === fileName);
         if (match === undefined) {
             throw new nango.ActionError({
                 type: 'not_found',

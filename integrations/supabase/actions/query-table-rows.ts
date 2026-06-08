@@ -12,8 +12,8 @@ const InputSchema = z.object({
     select: z.string().optional().describe('Columns to select. Example: "id,name,value"'),
     filters: z.array(FilterSchema).optional().describe('PostgREST filters'),
     order: z.string().optional().describe('Order by clause. Example: "name.desc"'),
-    limit: z.number().int().optional().describe('Maximum rows to return. Example: 100'),
-    offset: z.number().int().optional().describe('Number of rows to skip. Example: 0'),
+    limit: z.number().int().positive().optional().describe('Maximum rows to return. Example: 100'),
+    offset: z.number().int().min(0).optional().describe('Number of rows to skip. Example: 0'),
     count: z.boolean().optional().describe('Return total row count')
 });
 
@@ -45,7 +45,7 @@ const action = createAction({
         const rawConfig = connection.connection_config ?? {};
         const connectionConfig = ConnectionConfigSchema.parse(rawConfig);
         const projectUrl = connectionConfig.projectUrl;
-        const baseUrlOverride = projectUrl?.startsWith('http') ? projectUrl : undefined;
+        const baseUrlOverride = projectUrl ? (projectUrl.startsWith('http') ? projectUrl : `https://${projectUrl}`) : undefined;
 
         const params: Record<string, string> = {};
         if (input['select'] !== undefined) {
@@ -54,7 +54,15 @@ const action = createAction({
         if (input['order'] !== undefined) {
             params['order'] = input['order'];
         }
+        const seenColumns = new Set<string>();
         for (const filter of input['filters'] || []) {
+            if (seenColumns.has(filter.column)) {
+                throw new nango.ActionError({
+                    type: 'invalid_input',
+                    message: `Duplicate filter column "${filter.column}". Use a single filter per column or combine conditions with PostgREST "and" syntax.`
+                });
+            }
+            seenColumns.add(filter.column);
             params[filter.column] = `${filter.operator}.${filter.value}`;
         }
 

@@ -45,7 +45,7 @@ const action = createAction({
             if (input.args) {
                 for (const [key, value] of Object.entries(input.args)) {
                     if (value !== undefined && value !== null) {
-                        getParams[key] = String(value);
+                        getParams[key] = typeof value === 'object' ? JSON.stringify(value) : String(value);
                     }
                 }
             }
