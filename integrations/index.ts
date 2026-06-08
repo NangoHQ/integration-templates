@@ -2627,6 +2627,31 @@ import './smartsheet/actions/create-user.js';
 import './smartsheet/actions/delete-user.js';
 import './smartsheet/actions/disable-user.js';
 
+// -- Integration: splitwise
+import './splitwise/syncs/comments.js';
+import './splitwise/syncs/expenses.js';
+import './splitwise/syncs/friends.js';
+import './splitwise/syncs/groups.js';
+import './splitwise/actions/create-comment.js';
+import './splitwise/actions/create-expense.js';
+import './splitwise/actions/create-friend.js';
+import './splitwise/actions/create-group.js';
+import './splitwise/actions/delete-comment.js';
+import './splitwise/actions/delete-expense.js';
+import './splitwise/actions/delete-friend.js';
+import './splitwise/actions/delete-group.js';
+import './splitwise/actions/get-current-user.js';
+import './splitwise/actions/get-expense.js';
+import './splitwise/actions/get-friend.js';
+import './splitwise/actions/get-group.js';
+import './splitwise/actions/list-categories.js';
+import './splitwise/actions/list-comments.js';
+import './splitwise/actions/list-currencies.js';
+import './splitwise/actions/list-expenses.js';
+import './splitwise/actions/list-friends.js';
+import './splitwise/actions/list-groups.js';
+import './splitwise/actions/update-expense.js';
+
 // -- Integration: snowflake-jwt
 import './snowflake-jwt/syncs/columns.js';
 import './snowflake-jwt/syncs/databases.js';

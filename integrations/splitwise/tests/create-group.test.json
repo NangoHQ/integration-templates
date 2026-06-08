@@ -1,0 +1,369 @@
+{
+  "input": {
+    "name": "Test Group"
+  },
+  "output": {
+    "id": 98454600,
+    "name": "Test Group",
+    "updated_at": "2026-06-05T14:01:50Z",
+    "simplify_by_default": false,
+    "members": [
+      {
+        "id": 121534786,
+        "first_name": "Nango",
+        "last_name": "Developer",
+        "email": "api@nango.dev",
+        "registration_status": "confirmed",
+        "picture": {
+          "small": "https://s3.amazonaws.com/splitwise/uploads/user/default_avatars/avatar-orange25-50px.png",
+          "medium": "https://s3.amazonaws.com/splitwise/uploads/user/default_avatars/avatar-orange25-100px.png",
+          "large": "https://s3.amazonaws.com/splitwise/uploads/user/default_avatars/avatar-orange25-200px.png"
+        },
+        "custom_picture": false,
+        "balance": []
+      }
+    ],
+    "original_debts": [],
+    "simplified_debts": [],
+    "avatar": {
+      "xxlarge": "https://s3.amazonaws.com/splitwise/uploads/group/default_avatars/avatar-teal35-other-1000px.png",
+      "xlarge": "https://s3.amazonaws.com/splitwise/uploads/group/default_avatars/avatar-teal35-other-500px.png",
+      "large": "https://s3.amazonaws.com/splitwise/uploads/group/default_avatars/avatar-teal35-other-200px.png",
+      "medium": "https://s3.amazonaws.com/splitwise/uploads/group/default_avatars/avatar-teal35-other-100px.png",
+      "small": "https://s3.amazonaws.com/splitwise/uploads/group/default_avatars/avatar-teal35-other-50px.png"
+    },
+    "custom_avatar": false,
+    "cover_photo": {
+      "xxlarge": "https://s3.amazonaws.com/splitwise/uploads/group/default_cover_photos/teal-other-1000px.png",
+      "xlarge": "https://s3.amazonaws.com/splitwise/uploads/group/default_cover_photos/teal-other-500px.png"
+    },
+    "invite_link": "https://www.splitwise.com/join/8iFM3dgUpRv+20cwua"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/api/v3.0/create_group": {
+        "response": {
+          "group": {
+            "id": 98454600,
+            "name": "Test Group",
+            "created_at": "2026-06-05T14:01:50Z",
+            "updated_at": "2026-06-05T14:01:50Z",
+            "members": [
+              {
+                "id": 121534786,
+                "first_name": "Nango",
+                "last_name": "Developer",
+                "picture": {
+                  "small": "https://s3.amazonaws.com/splitwise/uploads/user/default_avatars/avatar-orange25-50px.png",
+                  "medium": "https://s3.amazonaws.com/splitwise/uploads/user/default_avatars/avatar-orange25-100px.png",
+                  "large": "https://s3.amazonaws.com/splitwise/uploads/user/default_avatars/avatar-orange25-200px.png"
+                },
+                "custom_picture": false,
+                "email": "api@nango.dev",
+                "registration_status": "confirmed",
+                "balance": []
+              }
+            ],
+            "simplify_by_default": false,
+            "original_debts": [],
+            "simplified_debts": [],
+            "whiteboard": null,
+            "whiteboard_lock_version": 0,
+            "whiteboard_updated_at": null,
+            "whiteboard_updated_by": null,
+            "group_type": null,
+            "invite_link": "https://www.splitwise.com/join/8iFM3dgUpRv+20cwua",
+            "group_reminders": null,
+            "avatar": {
+              "small": "https://s3.amazonaws.com/splitwise/uploads/group/default_avatars/avatar-teal35-other-50px.png",
+              "medium": "https://s3.amazonaws.com/splitwise/uploads/group/default_avatars/avatar-teal35-other-100px.png",
+              "large": "https://s3.amazonaws.com/splitwise/uploads/group/default_avatars/avatar-teal35-other-200px.png",
+              "xlarge": "https://s3.amazonaws.com/splitwise/uploads/group/default_avatars/avatar-teal35-other-500px.png",
+              "xxlarge": "https://s3.amazonaws.com/splitwise/uploads/group/default_avatars/avatar-teal35-other-1000px.png",
+              "original": null
+            },
+            "tall_avatar": {
+              "xlarge": "https://s3.amazonaws.com/splitwise/uploads/group/default_tall_avatars/avatar-teal35-other-288px.png",
+              "large": "https://s3.amazonaws.com/splitwise/uploads/group/default_tall_avatars/avatar-teal35-other-192px.png"
+            },
+            "custom_avatar": false,
+            "cover_photo": {
+              "xxlarge": "https://s3.amazonaws.com/splitwise/uploads/group/default_cover_photos/teal-other-1000px.png",
+              "xlarge": "https://s3.amazonaws.com/splitwise/uploads/group/default_cover_photos/teal-other-500px.png"
+            }
+          },
+          "metadata": {
+            "features": {
+              "cash": {
+                "visible": true,
+                "enabled": true
+              },
+              "paypal": {
+                "visible": true,
+                "enabled": false,
+                "behavior": {
+                  "order": 4,
+                  "name": "PayPal",
+                  "button": {
+                    "color": "#ffffff",
+                    "icon": "https://assets.splitwise.com/assets/api/payment_icon/button/paypal-f239cb2759329ec2a4374e2cda999035ddc43f23016e106f0ba7e8c005ebd804.png"
+                  },
+                  "requirements": {
+                    "enabled": {
+                      "recipient_valid_email_address_required": true,
+                      "supported_currencies": [
+                        "AUD",
+                        "BRL",
+                        "CAD",
+                        "CHF",
+                        "CNY",
+                        "CZK",
+                        "DKK",
+                        "EUR",
+                        "GBP",
+                        "HKD",
+                        "HUF",
+                        "ILS",
+                        "JPY",
+                        "MXN",
+                        "MYR",
+                        "NOK",
+                        "NZD",
+                        "PHP",
+                        "PLN",
+                        "RUB",
+                        "SEK",
+                        "SGD",
+                        "THB",
+                        "TWD",
+                        "USD"
+                      ]
+                    }
+                  },
+                  "alert_dialog": {
+                    "title": null,
+                    "content": "You must verify your Splitwise account to settle up via this service.",
+                    "url": "https://www.splitwise.com/verify_account?verify_type=add_phone"
+                  }
+                },
+                "feature_type": "payment_service"
+              },
+              "pro_settings": {
+                "visible": true
+              },
+              "hand_delivery_controlled_regions": {
+                "visible": true,
+                "behavior": {
+                  "countries": [
+                    "SG",
+                    "IL"
+                  ]
+                }
+              },
+              "search": {
+                "visible": true,
+                "enabled": false,
+                "behavior": {
+                  "webview": {
+                    "url": "/subscriptions/new?ad_variant=search"
+                  }
+                }
+              },
+              "currency_conversion": {
+                "visible": true,
+                "enabled": false,
+                "behavior": {
+                  "webview": {
+                    "url": "/subscriptions/new?ad_variant=currency_conversion"
+                  }
+                }
+              },
+              "charts": {
+                "visible": true,
+                "enabled": false,
+                "behavior": {
+                  "webview": {
+                    "url": "/subscriptions/new?ad_variant=charts"
+                  }
+                }
+              },
+              "receipt_scanning": {
+                "visible": true,
+                "enabled": false,
+                "behavior": {
+                  "webview": {
+                    "url": "/subscriptions/new?ad_variant=receipt_scanning"
+                  },
+                  "theme": "pro",
+                  "scan_fab_visible": false
+                }
+              },
+              "expense_details_chart": {
+                "visible": true,
+                "tracking": false,
+                "behavior": {
+                  "height": 110
+                }
+              },
+              "default_splits": {
+                "visible": true,
+                "enabled": false,
+                "behavior": {
+                  "webview": {
+                    "url": "/subscriptions/new?ad_variant=default_splits"
+                  }
+                }
+              },
+              "pro_settings_ad": {
+                "visible": true,
+                "enabled": false,
+                "behavior": {
+                  "webview": {
+                    "url": "/subscriptions/new?ad_variant=account_navbar_ad"
+                  }
+                },
+                "tracking": false
+              },
+              "splitwise_hiring_promo": {
+                "visible": true
+              },
+              "contact_us": {
+                "visible": true,
+                "method": "email"
+              },
+              "splitcodes": {
+                "visible": true
+              },
+              "group_totals": {
+                "visible": true
+              },
+              "receipt_upload": {
+                "visible": true
+              },
+              "relationship_export": {
+                "visible": true
+              },
+              "balance_alerts": {
+                "visible": true,
+                "enabled": false,
+                "behavior": {
+                  "webview": {
+                    "url": "/subscriptions/new?ad_variant=balance_alerts"
+                  }
+                }
+              },
+              "settle_up_reminders": {
+                "visible": true,
+                "enabled": false,
+                "behavior": {
+                  "webview": {
+                    "url": "/subscriptions/new?ad_variant=settle_up_reminders"
+                  }
+                }
+              },
+              "trip_dates": {
+                "visible": true
+              },
+              "add_expense": {
+                "visible": true,
+                "enabled": false,
+                "behavior": {
+                  "webview": {
+                    "url": "/subscriptions/new?ad_variant=add_expense",
+                    "expiration": "2026-06-05T21:00:00Z"
+                  }
+                }
+              },
+              "wallet_hide_feature_status_no_FS": {
+                "visible": true
+              },
+              "pro_account_card": {
+                "visible": true,
+                "enabled": false,
+                "behavior": {
+                  "pro_ad": {
+                    "image": "https://assets.splitwise.com/assets/pro/gem@2x-b8ed5f1adf904267f3f950f1111a6b655f2a452091ed22f62d03c19d6c9418b5.png",
+                    "body": "Do more with <strong>Splitwise</strong> Pro.",
+                    "cta_button": {
+                      "title": "Get Splitwise Pro"
+                    },
+                    "campaign_id": "pro"
+                  },
+                  "webview": {
+                    "url": "/subscriptions"
+                  }
+                }
+              },
+              "pro_duo_settings_upsell": {
+                "visible": true,
+                "enabled": false,
+                "behavior": {
+                  "webview": {
+                    "url": "/subscriptions/new?ad_variant=pro_duo_settings_upsell"
+                  },
+                  "title": "Pro Duo",
+                  "description": "Get Splitwise Pro benefits for two people, including unlimited expenses, spending charts, and more.",
+                  "cta_button": {
+                    "title": "Upgrade to Pro Duo",
+                    "theme": "pro"
+                  }
+                }
+              }
+            },
+            "event_tracking": {},
+            "split_tests": {
+              "send_reminder_2020_03": "through_splitwise_or_direct",
+              "group_specific_reminders_on_create_2022_11": "extra_settings",
+              "add_expense_pro_2023_07": "enabled",
+              "group_specific_reminders_pro_2023_07": "pro_upsell"
+            },
+            "modules": {}
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 05 Jun 2026 14:01:50 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=2592000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4925",
+          "x-ratelimit-reset": "1780668110",
+          "cache-control": "no-store",
+          "content-disposition": "inline; filename=\"response.json\"",
+          "etag": "W/\"e271369b7a5a28716e6d56e1bfa527d9\"",
+          "expires": "Fri, 01 Jan 1990 00:00:00 GMT",
+          "nel": "{\"report_to\":\"heroku-nel\",\"response_headers\":[\"Via\"],\"max_age\":3600,\"success_fraction\":0.01,\"failure_fraction\":0.1}",
+          "pragma": "no-cache",
+          "referrer-policy": "origin",
+          "report-to": "{\"group\":\"heroku-nel\",\"endpoints\":[{\"url\":\"https://nel.heroku.com/reports?s=2ZfUGLy%2BqarzWzkFVffRM6ocwEkqLORLTgVzi7oOqa8%3D\\u0026sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add\\u0026ts=1780668110\"}],\"max_age\":3600}",
+          "reporting-endpoints": "heroku-nel=\"https://nel.heroku.com/reports?s=2ZfUGLy%2BqarzWzkFVffRM6ocwEkqLORLTgVzi7oOqa8%3D&sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&ts=1780668110\"",
+          "server": "cloudflare",
+          "vary": "Accept-Encoding",
+          "via": "2.0 heroku-router",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "2cab66d3-0280-0c35-f786-6f67153c1c46",
+          "x-runtime": "0.252923",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a06fb62a39b79811-PDX"
+        },
+        "hash": "f28b11df730028bea689406285a870868b620ac9",
+        "request": {
+          "data": {
+            "name": "Test Group"
+          }
+        }
+      }
+    }
+  }
+}

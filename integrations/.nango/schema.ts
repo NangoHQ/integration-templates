@@ -77089,6 +77089,834 @@ export interface ActionOutput_smartsheet_disableuser {
   success: boolean;
 };
 
+export interface Expense {
+  id: string;
+  cost?: string | undefined;
+  description?: string | undefined;
+  details?: string | undefined;
+  date?: string | undefined;
+  repeat_interval?: string | undefined;
+  currency_code?: string | undefined;
+  category_id?: number | undefined;
+  group_id?: number | undefined;
+  friendship_id?: number | undefined;
+  expense_bundle_id?: number | undefined;
+  repeats?: boolean | undefined;
+  email_reminder?: boolean | undefined;
+  email_reminder_in_advance?: string | undefined;
+  next_repeat?: string | undefined;
+  comments_count?: number | undefined;
+  payment?: boolean | undefined;
+  transaction_confirmed?: boolean | undefined;
+  repayments?: ({  from: number;
+  to: number;
+  amount: string;})[] | undefined;
+  created_at?: string | undefined;
+  created_by?: {  [key: string]: unknown | undefined;};
+  updated_at?: string | undefined;
+  updated_by?: {  [key: string]: unknown | undefined;};
+  deleted_at?: string | undefined;
+  deleted_by?: {  [key: string]: unknown | undefined;};
+  category?: {  id: number;
+  name: string;} | undefined;
+  receipt?: {  large?: string | undefined;
+  original?: string | undefined;};
+  users?: ({  [key: string]: unknown | undefined;})[];
+  comments?: ({  [key: string]: unknown | undefined;})[];
+};
+
+export interface Friend {
+  id: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  registration_status?: string | undefined;
+  picture?: {  small?: string | undefined;
+  medium?: string | undefined;
+  large?: string | undefined;};
+  custom_picture?: boolean | undefined;
+  balance?: ({  currency_code: string;
+  amount: string;})[] | undefined;
+  groups?: ({  group_id: number;
+  balance: ({  currency_code: string;
+  amount: string;})[];})[] | undefined;
+  updated_at: string;
+};
+
+export interface ActionInput_splitwise_createcomment {
+  /**
+   * Expense ID to comment on. Example: 5123
+   */
+  expense_id: number;
+  /**
+   * Comment content. Example: "Does this include the delivery fee?"
+   */
+  content: string;
+};
+
+export interface ActionOutput_splitwise_createcomment {
+  id: number;
+  content: string;
+  comment_type: string;
+  relation_type: string;
+  relation_id: number;
+  created_at: string;
+  deleted_at?: string | undefined;
+  user?: {  id: number;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  picture?: {  medium?: string | undefined;};};
+};
+
+export interface ActionInput_splitwise_createexpense {
+  /**
+   * Cost of the expense as a string with 2 decimal places. Example: "10.00"
+   */
+  cost: string;
+  /**
+   * Short description of the expense
+   */
+  description: string;
+  /**
+   * Group ID, or 0 for non-group expenses
+   */
+  group_id: number;
+  /**
+   * Currency code, e.g. "USD"
+   */
+  currency_code?: string | undefined;
+  /**
+   * Category ID from get_categories
+   */
+  category_id?: number | undefined;
+  /**
+   * Date of the expense in ISO 8601 format. Example: "2026-06-05T13:00:00Z"
+   */
+  date?: string | undefined;
+  /**
+   * Notes for the expense
+   */
+  details?: string | undefined;
+  /**
+   * If true, split equally among group members (requires group_id)
+   */
+  split_equally?: boolean | undefined;
+  /**
+   * List of users with shares (required unless split_equally is true)
+   */
+  users?: ({  /**
+   * User ID
+   */
+  user_id: number;
+  /**
+   * Amount paid by this user, e.g. "10.00"
+   */
+  paid_share: string;
+  /**
+   * Amount owed by this user, e.g. "5.00"
+   */
+  owed_share: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;})[];
+};
+
+export interface ActionOutput_splitwise_createexpense {
+  id: number;
+  group_id?: number | undefined;
+  friendship_id?: number | undefined;
+  expense_bundle_id?: number | undefined;
+  description: string;
+  repeats?: boolean | undefined;
+  repeat_interval?: string | undefined;
+  email_reminder?: boolean | undefined;
+  email_reminder_in_advance?: number | undefined;
+  next_repeat?: string | undefined;
+  details?: string | undefined;
+  comments_count?: number | undefined;
+  payment?: boolean | undefined;
+  transaction_confirmed?: boolean | undefined;
+  cost: string;
+  currency_code: string;
+  repayments?: ({  from: number;
+  to: number;
+  amount: string;})[] | undefined;
+  date?: string | undefined;
+  created_at?: string | undefined;
+  created_by?: {  id: number;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  picture?: {  small?: string | undefined;
+  medium?: string | undefined;
+  large?: string | undefined;};};
+  updated_at?: string | undefined;
+  updated_by?: {  id: number;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  picture?: {  small?: string | undefined;
+  medium?: string | undefined;
+  large?: string | undefined;};};
+  deleted_at?: string | undefined;
+  deleted_by?: {  id: number;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  picture?: {  small?: string | undefined;
+  medium?: string | undefined;
+  large?: string | undefined;};};
+  category?: {  id: number;
+  name: string;} | undefined;
+  receipt?: {  large?: string | undefined;
+  original?: string | undefined;};
+  users?: ({  user_id: number;
+  paid_share: string;
+  owed_share: string;
+  net_balance?: string | undefined;
+  user?: {  id: number;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  picture?: {  medium?: string | undefined;};};})[];
+};
+
+export interface ActionInput_splitwise_createfriend {
+  /**
+   * Email address of the friend to add. Example: "ada@example.com"
+   */
+  user_email: string;
+  /**
+   * First name of the friend. Example: "Ada"
+   */
+  user_first_name: string;
+  /**
+   * Last name of the friend. Example: "Lovelace"
+   */
+  user_last_name?: string | undefined;
+};
+
+export interface ActionOutput_splitwise_createfriend {
+  id: number;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  registration_status?: string | undefined;
+  picture?: {  small?: string | undefined;
+  medium?: string | undefined;
+  large?: string | undefined;};
+  custom_picture?: boolean | undefined;
+  groups?: ({  group_id: number;
+  balance: ({  currency_code?: string | undefined;
+  amount?: string | undefined;})[];})[];
+  balance?: ({  currency_code?: string | undefined;
+  amount?: string | undefined;})[];
+  updated_at?: string | undefined;
+};
+
+export interface ActionInput_splitwise_creategroup {
+  /**
+   * Group name. Example: "The Brain Trust"
+   */
+  name: string;
+  /**
+   * What is the group used for?
+   */
+  group_type?: 'home' | 'trip' | 'couple' | 'other' | 'apartment' | 'house' | undefined;
+  /**
+   * Turn on simplify debts?
+   */
+  simplify_by_default?: boolean | undefined;
+  /**
+   * Users to add to the group. The current user is added by default.
+   */
+  users?: ({  /**
+   * User ID of an existing user to add. Example: 5823
+   */
+  user_id?: number | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;})[];
+};
+
+export interface ActionOutput_splitwise_creategroup {
+  id: number;
+  name: string;
+  group_type?: string | undefined;
+  updated_at?: string | undefined;
+  simplify_by_default?: boolean | undefined;
+  members?: ({  id: number;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  registration_status?: string | undefined;
+  picture?: {  small?: string | undefined;
+  medium?: string | undefined;
+  large?: string | undefined;};
+  custom_picture?: boolean | undefined;
+  balance?: ({  currency_code: string;
+  amount: string;})[] | undefined;})[];
+  original_debts?: ({  from: number;
+  to: number;
+  amount: string;
+  currency_code: string;})[] | undefined;
+  simplified_debts?: ({  from: number;
+  to: number;
+  amount: string;
+  currency_code: string;})[] | undefined;
+  avatar?: {  original?: string | undefined;
+  xxlarge?: string | undefined;
+  xlarge?: string | undefined;
+  large?: string | undefined;
+  medium?: string | undefined;
+  small?: string | undefined;};
+  custom_avatar?: boolean | undefined;
+  cover_photo?: {  xxlarge?: string | undefined;
+  xlarge?: string | undefined;};
+  invite_link?: string | undefined;
+};
+
+export interface ActionInput_splitwise_deletecomment {
+  /**
+   * Comment ID to delete. Example: 79800950
+   */
+  id: number;
+};
+
+export interface ActionOutput_splitwise_deletecomment {
+  id: number;
+  content?: string | undefined;
+  comment_type?: string | undefined;
+  relation_type?: string | undefined;
+  relation_id?: number | undefined;
+  created_at?: string | undefined;
+  deleted_at?: string | undefined;
+  user?: {  id?: number | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  picture?: {  medium?: string | undefined;};};
+};
+
+export interface ActionInput_splitwise_deleteexpense {
+  /**
+   * ID of the expense to delete. Example: 51023
+   */
+  expense_id: number;
+};
+
+export interface ActionOutput_splitwise_deleteexpense {
+  success: boolean;
+  expense_id: number;
+  archived: boolean;
+};
+
+export interface ActionInput_splitwise_deletefriend {
+  /**
+   * User ID of the friend to delete. Example: 12345
+   */
+  friend_id: number;
+};
+
+export interface ActionOutput_splitwise_deletefriend {
+  success: boolean;
+  error?: string | undefined;
+};
+
+export interface ActionInput_splitwise_deletegroup {
+  /**
+   * Group ID to delete. Example: 321
+   */
+  id: number;
+};
+
+export interface ActionOutput_splitwise_deletegroup {
+  success: boolean;
+};
+
+export interface ActionInput_splitwise_getcurrentuser {
+};
+
+export interface ActionOutput_splitwise_getcurrentuser {
+  id: number;
+  first_name: string;
+  last_name: string;
+  email: string;
+  registration_status: string;
+  picture?: {  small?: string | undefined;
+  medium?: string | undefined;
+  large?: string | undefined;};
+  custom_picture: boolean;
+  notifications_read?: string | undefined;
+  notifications_count?: number | undefined;
+  notifications?: {  added_as_friend?: boolean | undefined;};
+  default_currency?: string | undefined;
+  locale?: string | undefined;
+};
+
+export interface ActionInput_splitwise_getexpense {
+  /**
+   * Expense ID. Example: 51023
+   */
+  id: number;
+};
+
+export interface ActionOutput_splitwise_getexpense {
+  cost: string;
+  description: string;
+  details?: string | undefined;
+  date: string;
+  repeat_interval?: string | undefined;
+  currency_code?: string | undefined;
+  category_id?: number | undefined;
+  id: number;
+  group_id?: number | undefined;
+  friendship_id?: number | undefined;
+  expense_bundle_id?: number | undefined;
+  repeats?: boolean | undefined;
+  email_reminder?: boolean | undefined;
+  email_reminder_in_advance?: unknown | undefined;
+  next_repeat?: string | undefined;
+  comments_count?: number | undefined;
+  payment?: boolean | undefined;
+  transaction_confirmed?: boolean | undefined;
+  repayments?: ({  from: number;
+  to: number;
+  amount: string;})[] | undefined;
+  created_at?: string | undefined;
+  created_by?: {  id: number;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  registration_status?: string | undefined;
+  picture?: {  small?: string | undefined;
+  medium?: string | undefined;
+  large?: string | undefined;};
+  custom_picture?: boolean | undefined;};
+  updated_at?: string | undefined;
+  updated_by?: {  id: number;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  registration_status?: string | undefined;
+  picture?: {  small?: string | undefined;
+  medium?: string | undefined;
+  large?: string | undefined;};
+  custom_picture?: boolean | undefined;};
+  deleted_at?: string | undefined;
+  deleted_by?: {  id: number;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  registration_status?: string | undefined;
+  picture?: {  small?: string | undefined;
+  medium?: string | undefined;
+  large?: string | undefined;};
+  custom_picture?: boolean | undefined;};
+  category?: {  id: number;
+  name: string;} | undefined;
+  receipt?: {  large: string;
+  original: string;} | undefined;
+  users?: ({  user?: {  id: number;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  picture?: {  medium?: string | undefined;};};
+  user_id: number;
+  paid_share: string;
+  owed_share: string;
+  net_balance: string;})[];
+  comments?: ({  id: number;
+  content?: string | undefined;
+  comment_type?: string | undefined;
+  relation_type?: string | undefined;
+  relation_id?: number | undefined;
+  created_at?: string | undefined;
+  deleted_at?: string | undefined;
+  user?: {  id: number;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  picture?: {  medium?: string | undefined;};};})[];
+};
+
+export interface ActionInput_splitwise_getfriend {
+  /**
+   * User ID of the friend. Example: 123
+   */
+  id: number;
+};
+
+export interface ActionOutput_splitwise_getfriend {
+  id: number;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  registration_status?: string | undefined;
+  picture?: {  small?: string | undefined;
+  medium?: string | undefined;
+  large?: string | undefined;};
+  custom_picture?: boolean | undefined;
+  groups?: ({  group_id: number;
+  balance: ({  currency_code: string;
+  amount: string;})[];})[] | undefined;
+  balance?: ({  currency_code: string;
+  amount: string;})[] | undefined;
+  updated_at?: string | undefined;
+};
+
+export interface ActionInput_splitwise_getgroup {
+  /**
+   * Group ID. Example: 321
+   */
+  id: number;
+};
+
+export interface ActionOutput_splitwise_getgroup {
+  id: number;
+  name: string;
+  group_type?: string | undefined;
+  updated_at?: string | undefined;
+  simplify_by_default?: boolean | undefined;
+  members?: ({  id: number;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  registration_status?: string | undefined;
+  picture?: {  small?: string | undefined;
+  medium?: string | undefined;
+  large?: string | undefined;};
+  custom_picture?: boolean | undefined;
+  balance?: ({  currency_code: string;
+  amount: string;})[] | undefined;})[];
+  original_debts?: ({  from: number;
+  to: number;
+  amount: string;
+  currency_code: string;})[] | undefined;
+  simplified_debts?: ({  from: number;
+  to: number;
+  amount: string;
+  currency_code: string;})[] | undefined;
+  avatar?: {  original?: string | undefined;
+  xxlarge?: string | undefined;
+  xlarge?: string | undefined;
+  large?: string | undefined;
+  medium?: string | undefined;
+  small?: string | undefined;};
+  custom_avatar?: boolean | undefined;
+  cover_photo?: {  xxlarge?: string | undefined;
+  xlarge?: string | undefined;};
+  invite_link?: string | undefined;
+};
+
+export interface ActionInput_splitwise_listcategories {
+};
+
+export interface ActionOutput_splitwise_listcategories {
+  categories: ({  id: number;
+  name: string;
+  icon?: string | undefined;
+  icon_types?: {  [key: string]: {  [key: string]: string;};} | undefined;
+  subcategories?: ({  id: number;
+  name: string;
+  icon?: string | undefined;
+  icon_types?: {  [key: string]: {  [key: string]: string;};} | undefined;})[];})[];
+};
+
+export interface ActionInput_splitwise_listcomments {
+  /**
+   * Expense ID. Example: 855870953
+   */
+  expense_id: number;
+};
+
+export interface ActionOutput_splitwise_listcomments {
+  comments: ({  id: number;
+  content: string;
+  comment_type?: string | undefined;
+  relation_type?: string | undefined;
+  relation_id?: number | undefined;
+  created_at?: string | undefined;
+  deleted_at?: string | undefined;
+  user?: {  id: number;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  picture?: {  medium?: string | undefined;};};})[];
+};
+
+export interface ActionInput_splitwise_listcurrencies {
+};
+
+export interface ActionOutput_splitwise_listcurrencies {
+  currencies: ({  currency_code: string;
+  unit?: string | undefined;})[];
+};
+
+export interface ActionInput_splitwise_listexpenses {
+  /**
+   * Pagination cursor (offset) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of expenses to return. Defaults to 20.
+   */
+  limit?: number | undefined;
+  /**
+   * If provided, only expenses in that group will be returned.
+   */
+  group_id?: number | undefined;
+  /**
+   * ID of another user. If provided, only expenses between the current and provided user will be returned.
+   */
+  friend_id?: number | undefined;
+  /**
+   * ISO 8601 datetime. Return expenses later than this date.
+   */
+  dated_after?: string | undefined;
+  /**
+   * ISO 8601 datetime. Return expenses earlier than this date.
+   */
+  dated_before?: string | undefined;
+  /**
+   * Return expenses updated after this date.
+   */
+  updated_after?: string | undefined;
+  /**
+   * Return expenses updated before this date.
+   */
+  updated_before?: string | undefined;
+};
+
+export interface ActionOutput_splitwise_listexpenses {
+  expenses: ({  id: number;
+  group_id?: number | undefined;
+  friendship_id?: number | undefined;
+  description?: string | undefined;
+  repeats?: boolean | undefined;
+  repeat_interval?: string | undefined;
+  details?: string | undefined;
+  comments_count?: number | undefined;
+  payment?: boolean | undefined;
+  transaction_confirmed?: boolean | undefined;
+  cost?: string | undefined;
+  currency_code?: string | undefined;
+  repayments?: ({  from?: number | undefined;
+  to?: number | undefined;
+  amount?: string | undefined;})[];
+  date?: string | undefined;
+  created_at?: string | undefined;
+  created_by?: {  id: number;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  picture?: {  small?: string | undefined;
+  medium?: string | undefined;
+  large?: string | undefined;};};
+  updated_at?: string | undefined;
+  updated_by?: {  id: number;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  picture?: {  small?: string | undefined;
+  medium?: string | undefined;
+  large?: string | undefined;};};
+  deleted_at?: string | undefined;
+  deleted_by?: {  id: number;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  picture?: {  small?: string | undefined;
+  medium?: string | undefined;
+  large?: string | undefined;};};
+  category?: {  id?: number | undefined;
+  name?: string | undefined;};
+  receipt?: {  large?: string | undefined;
+  original?: string | undefined;};
+  users?: ({  user?: {  id?: number | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  picture?: {  medium?: string | undefined;};};
+  user_id?: number | undefined;
+  paid_share?: string | undefined;
+  owed_share?: string | undefined;
+  net_balance?: string | undefined;})[];})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_splitwise_listfriends {
+};
+
+export interface ActionOutput_splitwise_listfriends {
+  friends: ({  id: number;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  registration_status?: string | undefined;
+  picture?: {  small?: string | undefined;
+  medium?: string | undefined;
+  large?: string | undefined;};
+  custom_picture?: boolean | undefined;
+  groups?: ({  group_id: number;
+  balance: ({  currency_code: string;
+  amount: string;})[];})[] | undefined;
+  balance?: ({  currency_code: string;
+  amount: string;})[] | undefined;
+  updated_at?: string | undefined;})[];
+};
+
+export interface ActionInput_splitwise_listgroups {
+};
+
+export interface ActionOutput_splitwise_listgroups {
+  groups: ({  id: number;
+  name?: string | undefined;
+  group_type?: string | null | undefined;
+  updated_at?: string | undefined;
+  simplify_by_default?: boolean | undefined;
+  members?: ({  id: number;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  registration_status?: string | undefined;
+  picture?: {  small?: string | undefined;
+  medium?: string | undefined;
+  large?: string | undefined;};
+  custom_picture?: boolean | undefined;
+  balance?: ({  currency_code?: string | undefined;
+  amount?: string | undefined;})[];})[];
+  original_debts?: ({  from?: number | undefined;
+  to?: number | undefined;
+  amount?: string | undefined;
+  currency_code?: string | undefined;})[];
+  simplified_debts?: ({  from?: number | undefined;
+  to?: number | undefined;
+  amount?: string | undefined;
+  currency_code?: string | undefined;})[];
+  avatar?: {  original?: string | null | undefined;
+  xxlarge?: string | undefined;
+  xlarge?: string | undefined;
+  large?: string | undefined;
+  medium?: string | undefined;
+  small?: string | undefined;};
+  custom_avatar?: boolean | undefined;
+  cover_photo?: {  xxlarge?: string | undefined;
+  xlarge?: string | undefined;};
+  invite_link?: string | undefined;})[];
+};
+
+export interface ActionInput_splitwise_updateexpense {
+  /**
+   * ID of the expense to update. Example: 51023
+   */
+  id: number;
+  /**
+   * A string representation of a decimal value, limited to 2 decimal places. Example: "25.00"
+   */
+  cost?: string | undefined;
+  /**
+   * A short description of the expense. Example: "Grocery run"
+   */
+  description?: string | undefined;
+  /**
+   * Also known as "notes."
+   */
+  details?: string | undefined;
+  /**
+   * The date and time the expense took place. Example: "2012-05-02T13:00:00Z"
+   */
+  date?: string | undefined;
+  /**
+   * How often the expense repeats.
+   */
+  repeat_interval?: 'never' | 'weekly' | 'fortnightly' | 'monthly' | 'yearly' | undefined;
+  /**
+   * A currency code. Must be in the list from get_currencies. Example: "USD"
+   */
+  currency_code?: string | undefined;
+  /**
+   * A category id from get_categories. Example: 15
+   */
+  category_id?: number | undefined;
+  /**
+   * The group to put this expense in, or 0 to create an expense outside of a group. Example: 391
+   */
+  group_id?: number | undefined;
+  /**
+   * List of user shares. If any values are supplied, all shares for the expense will be overwritten.
+   */
+  users?: ({  /**
+   * User ID. Example: 54123
+   */
+  user_id?: number | undefined;
+  /**
+   * First name of the user. Example: "Neu"
+   */
+  first_name?: string | undefined;
+  /**
+   * Last name of the user. Example: "Yewzer"
+   */
+  last_name?: string | undefined;
+  /**
+   * Email of the user. Example: "neuyewxyz@example.com"
+   */
+  email?: string | undefined;
+  /**
+   * Decimal amount as a string with 2 decimal places. Example: "25.00"
+   */
+  paid_share?: string | undefined;
+  /**
+   * Decimal amount as a string with 2 decimal places. Example: "13.55"
+   */
+  owed_share?: string | undefined;})[];
+};
+
+export interface ActionOutput_splitwise_updateexpense {
+  id: number;
+  cost: string;
+  description: string;
+  details?: string | undefined;
+  date: string;
+  repeat_interval?: string | undefined;
+  currency_code?: string | undefined;
+  category_id?: number | undefined;
+  group_id?: number | undefined;
+  friendship_id?: number | undefined;
+  expense_bundle_id?: number | undefined;
+  repeats?: boolean | undefined;
+  email_reminder?: boolean | undefined;
+  email_reminder_in_advance?: string | number | undefined;
+  next_repeat?: string | undefined;
+  comments_count?: number | undefined;
+  payment?: boolean | undefined;
+  transaction_confirmed?: boolean | undefined;
+  repayments?: ({  from: number;
+  to: number;
+  amount: string;})[] | undefined;
+  created_at?: string | undefined;
+  created_by?: {  id: number;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  registration_status?: string | undefined;
+  picture?: {  small?: string | undefined;
+  medium?: string | undefined;
+  large?: string | undefined;};
+  custom_picture?: boolean | undefined;};
+  updated_at?: string | undefined;
+  updated_by?: {  id: number;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  registration_status?: string | undefined;
+  picture?: {  small?: string | undefined;
+  medium?: string | undefined;
+  large?: string | undefined;};
+  custom_picture?: boolean | undefined;};
+  deleted_at?: string | undefined;
+  deleted_by?: {  id: number;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  registration_status?: string | undefined;
+  picture?: {  small?: string | undefined;
+  medium?: string | undefined;
+  large?: string | undefined;};
+  custom_picture?: boolean | undefined;};
+};
+
 export interface Database {
   id: string;
   name: string;

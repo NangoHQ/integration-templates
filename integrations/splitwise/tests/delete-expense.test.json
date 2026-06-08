@@ -1,0 +1,58 @@
+{
+  "input": {
+    "expense_id": 4499525865
+  },
+  "output": {
+    "success": true,
+    "expense_id": 4499525865,
+    "archived": true
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/api/v3.0/delete_expense/4499525865": {
+        "response": {
+          "success": true,
+          "errors": {}
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 05 Jun 2026 14:05:21 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "28",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=2592000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4978",
+          "x-ratelimit-reset": "1780668353",
+          "cache-control": "no-store",
+          "content-disposition": "inline; filename=\"response.json\"",
+          "etag": "W/\"42c881e19b15da575b62716350752f79\"",
+          "expires": "Fri, 01 Jan 1990 00:00:00 GMT",
+          "nel": "{\"report_to\":\"heroku-nel\",\"response_headers\":[\"Via\"],\"max_age\":3600,\"success_fraction\":0.01,\"failure_fraction\":0.1}",
+          "pragma": "no-cache",
+          "referrer-policy": "origin",
+          "report-to": "{\"group\":\"heroku-nel\",\"endpoints\":[{\"url\":\"https://nel.heroku.com/reports?s=8IwLNWgAyB787ypTao3kBe8u%2FGckpGJecJBYKxo%2BjOA%3D\\u0026sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add\\u0026ts=1780668320\"}],\"max_age\":3600}",
+          "reporting-endpoints": "heroku-nel=\"https://nel.heroku.com/reports?s=8IwLNWgAyB787ypTao3kBe8u%2FGckpGJecJBYKxo%2BjOA%3D&sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&ts=1780668320\"",
+          "server": "cloudflare",
+          "via": "2.0 heroku-router",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "3084d591-2e52-de1c-f936-6a0a6a96d33b",
+          "x-runtime": "0.096065",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a06fbb4d8edd3e6d-PDX"
+        },
+        "hash": "48f5070d4822d039c269a022863550ffa0f74326",
+        "request": {}
+      }
+    }
+  }
+}
