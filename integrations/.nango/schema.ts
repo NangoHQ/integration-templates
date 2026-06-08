@@ -646,23 +646,14 @@ export interface Contact {
 
 export interface CustomField {
   id: string;
-  title?: string | undefined;
-  descript?: string | undefined;
-  type?: string | undefined;
-  isrequired?: string | undefined;
-  perstag?: string | undefined;
-  defval?: unknown | undefined;
-  show_in_list?: string | undefined;
-  rows?: string | undefined;
-  cols?: string | undefined;
-  visible?: string | undefined;
-  service?: string | undefined;
-  ordernum?: string | undefined;
-  cdate?: string | undefined;
-  udate?: string | undefined;
-  options?: unknown[] | undefined;
-  relations?: unknown[] | undefined;
-  links?: {  [key: string]: string;} | undefined;
+  boardId: string;
+  name: string;
+  type: string;
+  pos?: number | undefined;
+  options?: ({  id: string;
+  value?: string | undefined;
+  color?: string | undefined;
+  pos?: number | undefined;})[];
 };
 
 export interface DealGroup {
@@ -19897,19 +19888,17 @@ export interface ActionOutput_clickup_updatetimeentry {
 
 export interface Attachment {
   id: string;
-  status?: string | undefined;
-  title?: string | undefined;
-  createdAt?: string | undefined;
-  pageId?: string | undefined;
-  blogPostId?: string | undefined;
-  customContentId?: string | undefined;
-  mediaType?: string | undefined;
-  mediaTypeDescription?: string | undefined;
-  comment?: string | undefined;
-  fileId?: string | undefined;
-  fileSize?: number | undefined;
-  webuiLink?: string | undefined;
-  downloadLink?: string | undefined;
+  bytes?: string | undefined;
+  date?: string | undefined;
+  edgeColor?: string | undefined;
+  idMember?: string | undefined;
+  isUpload?: boolean | undefined;
+  mimeType?: string | undefined;
+  name?: string | undefined;
+  url?: string | undefined;
+  pos?: number | undefined;
+  idCard?: string | undefined;
+  idBoard?: string | undefined;
 };
 
 export interface SyncMetadata_confluence_attachments {
@@ -37015,14 +37004,10 @@ export interface Filter {
 
 export interface Label {
   id: string;
-  name: string;
-  messageListVisibility?: 'hide' | 'show' | undefined;
-  labelListVisibility?: 'labelHide' | 'labelShow' | 'labelShowIfUnread' | undefined;
-  type?: 'system' | 'user' | undefined;
-  messagesTotal?: number | undefined;
-  messagesUnread?: number | undefined;
-  threadsTotal?: number | undefined;
-  threadsUnread?: number | undefined;
+  idBoard: string;
+  name?: string | undefined;
+  color?: string | undefined;
+  uses?: number | undefined;
 };
 
 export interface SendAsAlias {
@@ -46550,38 +46535,12 @@ export interface SyncMetadata_luma_listevents {
 
 export interface Member {
   id: string;
-  email_address?: string | undefined;
-  unique_email_id?: string | undefined;
-  contact_id?: string | undefined;
-  full_name?: string | undefined;
-  web_id?: number | undefined;
-  email_type?: string | undefined;
-  status?: string | undefined;
-  unsubscribe_reason?: string | undefined;
-  consents_to_one_to_one_messaging?: boolean | undefined;
-  merge_fields?: {  [key: string]: unknown | undefined;};
-  interests?: {  [key: string]: unknown | undefined;};
-  ip_signup?: string | undefined;
-  timestamp_signup?: string | undefined;
-  ip_opt?: string | undefined;
-  timestamp_opt?: string | undefined;
-  member_rating?: number | undefined;
-  last_changed?: string | undefined;
-  language?: string | undefined;
-  vip?: boolean | undefined;
-  email_client?: string | undefined;
-  location?: {  latitude?: number | undefined;
-  longitude?: number | undefined;
-  gmtoff?: number | undefined;
-  dstoff?: number | undefined;
-  country_code?: string | undefined;
-  timezone?: string | undefined;
-  region?: string | undefined;};
-  source?: string | undefined;
-  tags_count?: number | undefined;
-  tags?: ({  id?: number | undefined;
-  name?: string | undefined;})[];
-  list_id?: string | undefined;
+  fullName?: string | undefined;
+  username?: string | undefined;
+  email?: string | undefined;
+  avatarUrl?: string | undefined;
+  initials?: string | undefined;
+  url?: string | undefined;
 };
 
 export interface Store {
@@ -50664,12 +50623,18 @@ export interface ActionOutput_microsoft_teams_updatechannel {
 export interface Board {
   id: string;
   name: string;
-  description?: string | undefined;
-  state: string;
-  board_kind: string;
-  updated_at: string;
-  workspace_id?: string | undefined;
+  desc?: string | undefined;
+  closed: boolean;
+  idOrganization?: string | undefined;
   url: string;
+  shortUrl: string;
+  dateLastActivity?: string | undefined;
+  dateLastView?: string | undefined;
+  pinned?: boolean | undefined;
+  subscribed?: boolean | undefined;
+  idMemberCreator?: string | undefined;
+  starred?: boolean | undefined;
+  shortLink?: string | undefined;
 };
 
 export interface Column {
@@ -60212,44 +60177,13 @@ export interface ActionOutput_pipedrive_updatestage {
 
 export interface Action {
   id: string;
-  name?: string | undefined;
-  description?: string | undefined;
-  tags?: string[] | undefined;
-  post_to_slack?: boolean | undefined;
-  slack_message_format?: string | undefined;
-  steps?: ({  event?: string | undefined;
-  properties?: ({  key: string;
+  idMemberCreator?: string | undefined;
   type?: string | undefined;
-  value?: unknown | undefined;
-  operator?: string | undefined;})[];
-  selector?: string | undefined;
-  selector_regex?: string | undefined;
-  tag_name?: string | undefined;
-  text?: string | undefined;
-  text_matching?: string | undefined;
-  href?: string | undefined;
-  href_matching?: string | undefined;
-  url?: string | undefined;
-  url_matching?: string | undefined;})[];
-  created_at: string;
-  created_by?: {  id: number;
-  uuid?: string | undefined;
-  distinct_id?: string | undefined;
-  first_name?: string | undefined;
-  last_name?: string | undefined;
-  email?: string | undefined;
-  is_email_verified?: boolean | undefined;
-  hedgehog_config?: unknown | undefined;
-  role_at_organization?: string | undefined;};
-  deleted?: boolean | undefined;
-  is_calculating?: boolean | undefined;
-  last_calculated_at?: string | undefined;
-  team_id?: number | undefined;
-  is_action?: boolean | undefined;
-  bytecode_error?: string | undefined;
-  pinned_at?: string | undefined;
-  creation_context?: string | undefined;
-  user_access_level?: string | undefined;
+  date: string;
+  data?: {  [key: string]: unknown | undefined;};
+  display?: {  [key: string]: unknown | undefined;};
+  memberCreator?: {  [key: string]: unknown | undefined;};
+  limits?: {  [key: string]: unknown | undefined;};
 };
 
 export interface SyncMetadata_posthog_actions {
@@ -86605,6 +86539,1184 @@ export interface ActionOutput_tiktok_personal_queryvideos {
   comment_count?: number | undefined;
   share_count?: number | undefined;
   view_count?: number | undefined;})[];
+};
+
+export interface Card {
+  /**
+   * Trello card ID
+   */
+  id: string;
+  /**
+   * Card name
+   */
+  name: string;
+  /**
+   * Card description
+   */
+  desc?: string | undefined;
+  /**
+   * Whether the card is closed or archived
+   */
+  closed: boolean;
+  /**
+   * ISO 8601 timestamp of last activity
+   */
+  dateLastActivity: string;
+  /**
+   * ISO 8601 due date
+   */
+  due?: string | undefined;
+  /**
+   * Whether the due date is complete
+   */
+  dueComplete?: boolean | undefined;
+  /**
+   * ID of the board the card belongs to
+   */
+  idBoard: string;
+  /**
+   * ID of the list the card belongs to
+   */
+  idList: string;
+  /**
+   * Member IDs assigned to the card
+   */
+  idMembers?: string[] | undefined;
+  /**
+   * Label IDs on the card
+   */
+  idLabels?: string[] | undefined;
+  /**
+   * Checklist IDs on the card
+   */
+  idChecklists?: string[] | undefined;
+  /**
+   * Position of the card in the list
+   */
+  pos: number;
+  /**
+   * Short link identifier
+   */
+  shortLink: string;
+  /**
+   * Short URL
+   */
+  shortUrl: string;
+  /**
+   * Full URL
+   */
+  url: string;
+  /**
+   * Whether the current user is subscribed
+   */
+  subscribed?: boolean | undefined;
+};
+
+export interface Checklist {
+  id: string;
+  name?: string | undefined;
+  idBoard?: string | undefined;
+  idCard?: string | undefined;
+  pos?: number | undefined;
+  checkItems?: ({  id: string;
+  name?: string | undefined;
+  state?: string | undefined;
+  pos?: number | undefined;
+  idChecklist?: string | undefined;})[];
+};
+
+export interface ActionInput_trello_addcardcomment {
+  /**
+   * Card ID. Example: "6a26f2fdbc520ab9f45a5214"
+   */
+  cardId: string;
+  /**
+   * Comment text. Example: "This is a comment."
+   */
+  text: string;
+};
+
+export interface ActionOutput_trello_addcardcomment {
+  id: string;
+  cardId: string;
+  memberId: string;
+  text: string;
+  date: string;
+};
+
+export interface ActionInput_trello_addchecklistitem {
+  /**
+   * Checklist ID. Example: "6a26f332aa39a5f5b4c671bf"
+   */
+  checklistId: string;
+  /**
+   * Name of the checklist item.
+   */
+  name: string;
+  /**
+   * Position of the item. Example: "bottom", "top", or a number.
+   */
+  pos?: string | number | undefined;
+  /**
+   * Whether the item is checked. Defaults to false.
+   */
+  checked?: boolean | undefined;
+};
+
+export interface ActionOutput_trello_addchecklistitem {
+  id: string;
+  name: string;
+  state: string;
+  pos: number;
+  type?: string | undefined;
+  due?: string | undefined;
+  dueReminder?: number | undefined;
+  idMember?: string | undefined;
+};
+
+export interface ActionInput_trello_createattachment {
+  /**
+   * The ID of the card to attach to. Example: "5abbe4b7ddc1b351ef961414"
+   */
+  cardId: string;
+  /**
+   * The name of the attachment. Example: "Nango Docs"
+   */
+  name?: string | undefined;
+  /**
+   * The URL of the attachment. Example: "https://docs.nango.dev"
+   */
+  url: string;
+  /**
+   * The MIME type of the attachment. Example: "text/html"
+   */
+  mimeType?: string | undefined;
+};
+
+export interface ActionOutput_trello_createattachment {
+  id: string;
+  name?: string | undefined;
+  url?: string | undefined;
+  mimeType?: string | undefined;
+  date?: string | undefined;
+  isUpload?: boolean | undefined;
+  pos?: number | undefined;
+};
+
+export interface ActionInput_trello_createboard {
+  /**
+   * Name of the board. Example: "Project Roadmap"
+   */
+  name: string;
+  /**
+   * Description for the board. Example: "Q3 planning board"
+   */
+  desc?: string | undefined;
+  /**
+   * ID of the organization to create the board in. Example: "6a26ebb15b58213488fb7401"
+   */
+  idOrganization?: string | undefined;
+  /**
+   * Whether to add the default set of lists (To Do, Doing, Done). Defaults to true.
+   */
+  defaultLists?: boolean | undefined;
+  /**
+   * Permission level of the board. Example: "private"
+   */
+  prefs_permissionLevel?: 'private' | 'org' | 'public' | undefined;
+};
+
+export interface ActionOutput_trello_createboard {
+  id: string;
+  name: string;
+  desc?: string | undefined;
+  idOrganization?: string | undefined;
+  url?: string | undefined;
+  shortUrl?: string | undefined;
+  closed?: boolean | undefined;
+  pinned?: boolean | undefined;
+  starred?: boolean | undefined;
+  permissionLevel?: string | undefined;
+};
+
+export interface ActionInput_trello_createcard {
+  /**
+   * The ID of the list the card should be created in. Example: "5f3c8c1c3f8f7e8b7c8b9c0a"
+   */
+  idList: string;
+  /**
+   * The name of the card. Example: "My new card"
+   */
+  name: string;
+  /**
+   * The description of the card. Example: "This is a description"
+   */
+  desc?: string | undefined;
+  /**
+   * The due date of the card in ISO 8601 format. Example: "2024-01-01T00:00:00.000Z"
+   */
+  due?: string | undefined;
+  /**
+   * Array of label IDs to attach to the card. Example: ["5f3c8c1c3f8f7e8b7c8b9c0a"]
+   */
+  idLabels?: string[] | undefined;
+  /**
+   * Array of member IDs to attach to the card. Example: ["5f3c8c1c3f8f7e8b7c8b9c0a"]
+   */
+  idMembers?: string[] | undefined;
+};
+
+export interface ActionOutput_trello_createcard {
+  id: string;
+  name: string;
+  desc?: string | undefined;
+  due?: string | undefined;
+  idList: string;
+  idBoard?: string | undefined;
+  idLabels?: string[] | undefined;
+  idMembers?: string[] | undefined;
+  url?: string | undefined;
+  shortUrl?: string | undefined;
+};
+
+export interface ActionInput_trello_createlist {
+  /**
+   * The name of the list. Example: "To Do"
+   */
+  name: string;
+  /**
+   * The ID of the board to create the list on. Example: "6a26ebb3cd5f60a53a585978"
+   */
+  idBoard: string;
+  /**
+   * The position of the list. Example: "top", "bottom", or a number.
+   */
+  pos?: string | number | undefined;
+};
+
+export interface ActionOutput_trello_createlist {
+  id: string;
+  name: string;
+  idBoard: string;
+  pos: number;
+  closed?: boolean | undefined;
+  subscribed?: boolean | undefined;
+};
+
+export interface ActionInput_trello_deleteattachment {
+  /**
+   * The ID of the card. Example: "5f3d9e4e3f4e3f4e3f4e3f4e"
+   */
+  cardId: string;
+  /**
+   * The ID of the attachment. Example: "5f3d9e4e3f4e3f4e3f4e3f4e"
+   */
+  attachmentId: string;
+};
+
+export interface ActionOutput_trello_deleteattachment {
+  id: string;
+  name?: string | undefined;
+  url?: string | undefined;
+};
+
+export interface ActionInput_trello_deleteboard {
+  /**
+   * The ID of the board to delete. Example: "6a26f2fbd1ccaa2cb9602757"
+   */
+  id: string;
+};
+
+export interface ActionOutput_trello_deleteboard {
+  id: string;
+  success: boolean;
+};
+
+export interface ActionInput_trello_deletecard {
+  /**
+   * The ID of the card to delete. Example: "6a26f3127128c2af2fd32b1b"
+   */
+  id: string;
+};
+
+export interface ActionOutput_trello_deletecard {
+  success: true;
+};
+
+export interface ActionInput_trello_deletechecklistitem {
+  /**
+   * The ID of the checklist. Example: "6a26f332aa39a5f5b4c671bf"
+   */
+  checklistId: string;
+  /**
+   * The ID of the check item to delete. Example: "6a26f6348bb9f2f466b322ea"
+   */
+  checkItemId: string;
+};
+
+export interface ActionOutput_trello_deletechecklistitem {
+  id: string;
+  success: boolean;
+};
+
+export interface ActionInput_trello_deletechecklist {
+  /**
+   * The ID of the checklist to delete. Example: "6a26f33578a03d1e69753e61"
+   */
+  id: string;
+};
+
+export interface ActionOutput_trello_deletechecklist {
+  id: string;
+  success: boolean;
+};
+
+export interface ActionInput_trello_deletecomment {
+  /**
+   * The ID of the card containing the comment. Example: "5abbe4b7ddc1b351ef961414"
+   */
+  card_id: string;
+  /**
+   * The ID of the commentCard action to delete. Example: "5abbe4b7ddc1b351ef961414"
+   */
+  action_id: string;
+};
+
+export interface ActionOutput_trello_deletecomment {
+  success: boolean;
+  id?: string | undefined;
+};
+
+export interface ActionInput_trello_deletelabel {
+  /**
+   * The ID of the label to delete. Example: "6a26f31a38499a69b58916df"
+   */
+  id: string;
+};
+
+export interface ActionOutput_trello_deletelabel {
+  id: string;
+  success: boolean;
+};
+
+export interface ActionInput_trello_deletelist {
+  /**
+   * The ID of the list to archive. Example: "6a26f315d65f93eeac0b1b11"
+   */
+  id: string;
+};
+
+export interface ActionOutput_trello_deletelist {
+  id: string;
+  name?: string | undefined;
+  closed?: boolean | undefined;
+  boardId?: string | undefined;
+  pos?: number | undefined;
+};
+
+export interface ActionInput_trello_getattachment {
+  /**
+   * The ID of the Trello card. Example: "6a26f2fdbc520ab9f45a5214"
+   */
+  cardId: string;
+  /**
+   * The ID of the attachment. Example: "6a26f33c2f4cc3d61199de43"
+   */
+  attachmentId: string;
+};
+
+export interface ActionOutput_trello_getattachment {
+  id: string;
+  bytes?: number | undefined;
+  date?: string | undefined;
+  edgeColor?: string | undefined;
+  idMember?: string | undefined;
+  isUpload?: boolean | undefined;
+  mimeType?: string | undefined;
+  name?: string | undefined;
+  previews?: ({  id?: string | undefined;
+  scaled?: boolean | undefined;
+  url?: string | undefined;
+  bytes?: number | undefined;
+  height?: number | undefined;
+  width?: number | undefined;})[];
+  url?: string | undefined;
+  pos?: number | undefined;
+};
+
+export interface ActionInput_trello_getboard {
+  /**
+   * Board ID. Example: "5abbe4b7ddc1b351ef961414"
+   */
+  id: string;
+};
+
+export interface ActionOutput_trello_getboard {
+  id: string;
+  name: string;
+  desc?: string | undefined;
+  closed?: boolean | undefined;
+  idMemberCreator?: string | undefined;
+  idOrganization?: string | undefined;
+  pinned?: boolean | undefined;
+  url?: string | undefined;
+  shortUrl?: string | undefined;
+  starred?: boolean | undefined;
+  subscribed?: boolean | undefined;
+  dateLastActivity?: string | undefined;
+  dateLastView?: string | undefined;
+  shortLink?: string | undefined;
+  creationMethod?: string | undefined;
+  enterpriseOwned?: boolean | undefined;
+  ixUpdate?: number | undefined;
+  labelNames?: {  [key: string]: string;} | undefined;
+  prefs?: {} | undefined;
+};
+
+export interface ActionInput_trello_getcard {
+  /**
+   * The ID of the card to retrieve. Example: "5abbe4b7ddc1b351ef961414"
+   */
+  id: string;
+};
+
+export interface ActionOutput_trello_getcard {
+  id: string;
+  name: string;
+  desc?: string | undefined;
+  closed?: boolean | undefined;
+  dateLastActivity?: string | undefined;
+  due?: string | undefined;
+  dueComplete?: boolean | undefined;
+  idBoard: string;
+  idList: string;
+  idMembers?: string[] | undefined;
+  idLabels?: ({  id: string;
+  idBoard: string;
+  name: string;
+  color?: string | undefined;})[];
+  idChecklists?: string[] | undefined;
+  labels?: string[] | undefined;
+  pos?: number | undefined;
+  shortLink?: string | undefined;
+  shortUrl?: string | undefined;
+  url?: string | undefined;
+  subscribed?: boolean | undefined;
+  cover?: {  color?: string | undefined;
+  idUploadedBackground?: string | boolean | null | undefined;
+  size?: string | undefined;
+  brightness?: string | undefined;
+  isTemplate?: boolean | undefined;};
+};
+
+export interface ActionInput_trello_getchecklistitem {
+  /**
+   * The ID of the checklist. Example: "6a26f332aa39a5f5b4c671bf"
+   */
+  checklistId: string;
+  /**
+   * The ID of the check item. Example: "6a26f370f88b34e822126264"
+   */
+  checkItemId: string;
+};
+
+export interface ActionOutput_trello_getchecklistitem {
+  id: string;
+  name: string;
+  state: string;
+  pos?: string | number | undefined;
+  idChecklist: string;
+  nameData?: {} | undefined;
+  due?: string | undefined;
+  dueReminder?: number | undefined;
+  idMember?: string | undefined;
+};
+
+export interface ActionInput_trello_getchecklist {
+  /**
+   * The ID of the checklist to retrieve. Example: "6a26f332aa39a5f5b4c671bf"
+   */
+  id: string;
+};
+
+export interface ActionOutput_trello_getchecklist {
+  id: string;
+  name: string;
+  idBoard: string;
+  idCard: string;
+  pos: number;
+  checkItems?: ({  id: string;
+  name: string;
+  state: string;
+  idChecklist: string;
+  pos: number;
+  due?: string | undefined;
+  idMember?: string | undefined;})[];
+};
+
+export interface ActionInput_trello_getlabel {
+  /**
+   * The ID of the label to retrieve. Example: "6a26f2ed8e7484b03cb90f9b"
+   */
+  id: string;
+};
+
+export interface ActionOutput_trello_getlabel {
+  id: string;
+  idBoard: string;
+  name: string;
+  color?: string | undefined;
+};
+
+export interface ActionInput_trello_getlist {
+  /**
+   * The ID of the list to retrieve. Example: "5abbe4b7ddc1b351ef961414"
+   */
+  id: string;
+};
+
+export interface ActionOutput_trello_getlist {
+  id: string;
+  name?: string | undefined;
+  closed?: boolean | undefined;
+  pos?: number | undefined;
+  softLimit?: string | undefined;
+  idBoard?: string | undefined;
+  subscribed?: boolean | undefined;
+  limits?: unknown | undefined;
+};
+
+export interface ActionInput_trello_getmember {
+  /**
+   * Member ID. Use "me" for the authenticated user. Example: "5abbe4b7ddc1b351ef961414"
+   */
+  id: string;
+};
+
+export interface ActionOutput_trello_getmember {
+  id: string;
+  username: string;
+  fullName?: string | undefined;
+  avatarUrl?: string | undefined;
+  email?: string | undefined;
+  confirmed?: boolean | undefined;
+  memberType?: string | undefined;
+  url?: string | undefined;
+  initials?: string | undefined;
+  bio?: string | undefined;
+  idBoards?: string[] | undefined;
+  idOrganizations?: string[] | undefined;
+};
+
+export interface ActionInput_trello_getorganization {
+  /**
+   * The ID of the organization (workspace). Example: "6a26ebb15b58213488fb7401"
+   */
+  id: string;
+};
+
+export interface ActionOutput_trello_getorganization {
+  id: string;
+  name?: string | undefined;
+  displayName?: string | undefined;
+  dateLastActivity?: string | undefined;
+  prefs?: {  [key: string]: unknown | undefined;};
+  idEnterprise?: string | undefined;
+  offering?: string | undefined;
+  url?: string | undefined;
+  idBoards?: string[] | undefined;
+  memberships?: unknown[] | undefined;
+  premiumFeatures?: string[] | undefined;
+};
+
+export interface ActionInput_trello_listattachments {
+  /**
+   * The ID of the Trello card. Example: "5d0b4f5060d98f6d3f5c6a1a"
+   */
+  cardId: string;
+  /**
+   * Filter for attachments. Valid values: all, cover.
+   */
+  filter?: 'all' | 'cover' | undefined;
+};
+
+export interface ActionOutput_trello_listattachments {
+  attachments: ({  id: string;
+  bytes?: number | undefined;
+  date?: string | undefined;
+  edgeColor?: string | undefined;
+  idMember?: string | undefined;
+  isUpload?: boolean | undefined;
+  mimeType?: string | undefined;
+  name?: string | undefined;
+  pos?: number | undefined;
+  previews?: ({  id?: string | undefined;
+  bytes?: number | undefined;
+  url?: string | undefined;
+  width?: number | undefined;
+  height?: number | undefined;
+  scaled?: boolean | undefined;})[];
+  url?: string | undefined;})[];
+};
+
+export interface ActionInput_trello_listboardactions {
+  /**
+   * Board ID. Example: "6a26ebb3cd5f60a53a585978"
+   */
+  board_id: string;
+  /**
+   * Comma-separated action types to filter. Example: "commentCard,updateCard"
+   */
+  filter?: string | undefined;
+  /**
+   * Maximum number of actions to return (max 1000).
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor: action ID or ISO date before which to return results.
+   */
+  before?: string | undefined;
+  /**
+   * Action ID or ISO date after which to return results.
+   */
+  since?: string | undefined;
+};
+
+export interface ActionOutput_trello_listboardactions {
+  actions: ({  id: string;
+  idMemberCreator?: string | undefined;
+  data?: {  text?: string | undefined;
+  card?: {  id?: string | undefined;
+  name?: string | undefined;
+  idShort?: number | undefined;
+  shortLink?: string | undefined;};
+  board?: {  id?: string | undefined;
+  name?: string | undefined;
+  shortLink?: string | undefined;};
+  list?: {  id?: string | undefined;
+  name?: string | undefined;};
+  listAfter?: {  id?: string | undefined;
+  name?: string | undefined;};
+  listBefore?: {  id?: string | undefined;
+  name?: string | undefined;};
+  member?: {  id?: string | undefined;
+  username?: string | undefined;
+  fullName?: string | undefined;};
+  old?: {  [key: string]: unknown | undefined;};
+  attachment?: {  id?: string | undefined;
+  name?: string | undefined;
+  url?: string | undefined;};};
+  type: string;
+  date: string;
+  memberCreator?: {  id?: string | undefined;
+  username?: string | undefined;
+  fullName?: string | undefined;};})[];
+  /**
+   * Cursor for the next page: pass as `before` to get older actions.
+   */
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_trello_listboards {
+  /**
+   * Filter boards by status. Example: "open"
+   */
+  filter?: 'all' | 'open' | 'closed' | undefined;
+  /**
+   * Comma-separated list of board fields to include. Example: "name,desc,url"
+   */
+  fields?: string | undefined;
+};
+
+export interface ActionOutput_trello_listboards {
+  boards: ({  id: string;
+  name: string;
+  desc?: string | undefined;
+  url?: string | undefined;
+  shortUrl?: string | undefined;
+  idOrganization?: string | undefined;
+  closed?: boolean | undefined;
+  dateLastActivity?: string | undefined;})[];
+};
+
+export interface ActionInput_trello_listcardactions {
+  /**
+   * Trello card ID. Example: "6a26f2fdbc520ab9f45a5214"
+   */
+  cardId: string;
+  /**
+   * Comma-separated action types to filter. Example: "commentCard,updateCard"
+   */
+  filter?: string | undefined;
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_trello_listcardactions {
+  actions: ({  id: string;
+  idMemberCreator: string;
+  type: string;
+  date: string;
+  data: {  [key: string]: unknown | undefined;};
+  memberCreator?: {  id: string;
+  fullName?: string | undefined;
+  username?: string | undefined;};})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_trello_listcards {
+  /**
+   * Board ID. Example: "6a26ebb3cd5f60a53a585978"
+   */
+  boardId: string;
+  /**
+   * Filter for cards. Example: "all"
+   */
+  filter?: 'all' | 'open' | 'closed' | undefined;
+  /**
+   * Comma-separated list of fields to return. Example: "name,id"
+   */
+  fields?: string | undefined;
+};
+
+export interface ActionOutput_trello_listcards {
+  cards: ({  id: string;
+  name?: string | undefined;
+  desc?: string | undefined;
+  closed?: boolean | undefined;
+  idBoard?: string | undefined;
+  idList?: string | undefined;
+  idMembers?: string[] | undefined;
+  idLabels?: string[] | undefined;
+  idChecklists?: string[] | undefined;
+  pos?: number | undefined;
+  due?: string | undefined;
+  dueComplete?: boolean | undefined;
+  dateLastActivity?: string | undefined;
+  shortUrl?: string | undefined;
+  url?: string | undefined;
+  labels?: ({  id?: string | undefined;
+  name?: string | undefined;
+  color?: string | undefined;})[];})[];
+};
+
+export interface ActionInput_trello_listchecklists {
+  /**
+   * The ID of the Trello card. Example: "6a26f2fdbc520ab9f45a5214"
+   */
+  card_id: string;
+};
+
+export interface ActionOutput_trello_listchecklists {
+  checklists: ({  id: string;
+  name: string;
+  id_card: string;
+  id_board: string;
+  pos: number;
+  check_items: ({  id: string;
+  name: string;
+  state: string;
+  id_checklist: string;
+  pos: number;
+  due?: string | undefined;
+  id_member?: string | undefined;})[];})[];
+};
+
+export interface ActionInput_trello_listlabels {
+  /**
+   * Board ID. Example: "6a26ebb3cd5f60a53a585978"
+   */
+  boardId: string;
+  /**
+   * Maximum number of labels to return. Max 1000.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_trello_listlabels {
+  labels: ({  id: string;
+  idBoard?: string | undefined;
+  name?: string | undefined;
+  color?: string | undefined;})[];
+};
+
+export interface ActionInput_trello_listlists {
+  /**
+   * The ID of the board to list lists from. Example: "6a26ebb3cd5f60a53a585978"
+   */
+  boardId: string;
+  /**
+   * Filter for lists. One of: all, open, closed.
+   */
+  filter?: 'all' | 'open' | 'closed' | undefined;
+};
+
+export interface ActionOutput_trello_listlists {
+  lists: ({  id: string;
+  name: string;
+  closed: boolean;
+  pos: number;
+  idBoard?: string | undefined;
+  subscribed?: boolean | undefined;})[];
+};
+
+export interface ActionInput_trello_listmembers {
+  /**
+   * The ID of the Trello board. Example: "6a26ebb3cd5f60a53a585978"
+   */
+  boardId: string;
+};
+
+export interface ActionOutput_trello_listmembers {
+  members: ({  id: string;
+  fullName?: string | undefined;
+  username?: string | undefined;
+  avatarHash?: string | undefined;
+  initials?: string | undefined;
+  memberType?: string | undefined;
+  email?: string | undefined;
+  url?: string | undefined;
+  confirmed?: boolean | undefined;
+  bio?: string | undefined;
+  avatarUrl?: string | undefined;
+  status?: string | undefined;
+  gravatarHash?: string | undefined;
+  idOrganizations?: string[] | undefined;
+  idEnterprisesAdmin?: string[] | undefined;})[];
+};
+
+export interface ActionInput_trello_listorganizations {
+  /**
+   * Maximum number of organizations to return per page.
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_trello_listorganizations {
+  items: ({  id: string;
+  name?: string | undefined;
+  displayName?: string | undefined;
+  dateLastActivity?: string | undefined;
+  url?: string | undefined;
+  idEnterprise?: string | undefined;
+  offering?: string | undefined;
+  idBoards?: string[] | undefined;
+  memberships?: unknown[] | undefined;
+  premiumFeatures?: string[] | undefined;
+  prefs?: {  [key: string]: unknown | undefined;};})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_trello_movecard {
+  /**
+   * The ID of the card to move. Example: "5f3c2b1a4b3d2a1c8e4f5g6h"
+   */
+  id: string;
+  /**
+   * The ID of the list to move the card to. Example: "5f3c2b1a4b3d2a1c8e4f5g6i"
+   */
+  idList?: string | undefined;
+  /**
+   * The ID of the board to move the card to. Example: "5f3c2b1a4b3d2a1c8e4f5g6j"
+   */
+  idBoard?: string | undefined;
+};
+
+export interface ActionOutput_trello_movecard {
+  id: string;
+  name?: string | undefined;
+  idList?: string | undefined;
+  idBoard?: string | undefined;
+};
+
+export interface ActionInput_trello_updateboard {
+  /**
+   * Board ID. Example: "6a26ebb3cd5f60a53a585978"
+   */
+  id: string;
+  /**
+   * Name of the board
+   */
+  name?: string | undefined;
+  /**
+   * Description of the board
+   */
+  desc?: string | undefined;
+  /**
+   * Whether the board is closed
+   */
+  closed?: boolean | undefined;
+  /**
+   * Permission level. Example: "private", "org", "public"
+   */
+  prefs_permissionLevel?: string | undefined;
+  /**
+   * Voting preference. Example: "disabled", "members", "org", "public"
+   */
+  prefs_voting?: string | undefined;
+  /**
+   * Comments preference. Example: "disabled", "members", "org", "public", "observers"
+   */
+  prefs_comments?: string | undefined;
+};
+
+export interface ActionOutput_trello_updateboard {
+  id: string;
+  name: string;
+  desc: string;
+  closed: boolean;
+  url?: string | undefined;
+  shortUrl?: string | undefined;
+  prefs_permissionLevel?: string | undefined;
+  prefs_voting?: string | undefined;
+  prefs_comments?: string | undefined;
+};
+
+export interface ActionInput_trello_updatecard {
+  /**
+   * Card ID. Example: "6a26f2fdbc520ab9f45a5214"
+   */
+  id: string;
+  /**
+   * New name for the card.
+   */
+  name?: string | undefined;
+  /**
+   * New description for the card. Pass null to clear.
+   */
+  desc?: string | undefined;
+  /**
+   * Whether the card is closed (archived).
+   */
+  closed?: boolean | undefined;
+  /**
+   * Due date in ISO 8601 format. Pass null to clear.
+   */
+  due?: string | undefined;
+  /**
+   * Whether the due date is marked complete.
+   */
+  dueComplete?: boolean | undefined;
+  /**
+   * ID of the list to move the card to.
+   */
+  idList?: string | undefined;
+  /**
+   * ID of the board to move the card to.
+   */
+  idBoard?: string | undefined;
+  /**
+   * Label IDs to set on the card.
+   */
+  idLabels?: string[] | undefined;
+  /**
+   * Member IDs to set on the card.
+   */
+  idMembers?: string[] | undefined;
+};
+
+export interface ActionOutput_trello_updatecard {
+  id: string;
+  name: string;
+  desc?: string | undefined;
+  closed: boolean;
+  due?: string | undefined;
+  dueComplete?: boolean | undefined;
+  idList: string;
+  idBoard: string;
+  idLabels?: string[] | undefined;
+  idMembers?: string[] | undefined;
+  labels?: ({  id: string;
+  idBoard: string;
+  name?: string | undefined;
+  color?: string | undefined;})[];
+  pos: number;
+  dateLastActivity?: string | undefined;
+  shortLink?: string | undefined;
+  shortUrl?: string | undefined;
+  url?: string | undefined;
+};
+
+export interface ActionInput_trello_updatechecklistitem {
+  /**
+   * Card ID. Example: "6a26f2fdbc520ab9f45a5214"
+   */
+  cardId: string;
+  /**
+   * Checklist item ID. Example: "6a26f370f88b34e822126264"
+   */
+  checklistItemId: string;
+  /**
+   * New name for the checklist item.
+   */
+  name?: string | undefined;
+  /**
+   * State of the checklist item.
+   */
+  state?: 'complete' | 'incomplete' | undefined;
+  /**
+   * Position of the checklist item.
+   */
+  pos?: string | number | undefined;
+  /**
+   * Due date for the checklist item.
+   */
+  due?: string | undefined;
+  /**
+   * Member ID to assign to the checklist item.
+   */
+  idMember?: string | undefined;
+};
+
+export interface ActionOutput_trello_updatechecklistitem {
+  id: string;
+  name?: string | undefined;
+  state?: string | undefined;
+  idChecklist?: string | undefined;
+  pos?: string | number | undefined;
+  due?: string | undefined;
+  idMember?: string | undefined;
+};
+
+export interface ActionInput_trello_updatechecklist {
+  /**
+   * Checklist ID. Example: "6a26f332aa39a5f5b4c671bf"
+   */
+  id: string;
+  /**
+   * New name for the checklist
+   */
+  name?: string | undefined;
+  /**
+   * Position of the checklist on the card. Example: "top", "bottom", or 16384
+   */
+  pos?: string | number | undefined;
+};
+
+export interface ActionOutput_trello_updatechecklist {
+  id: string;
+  name: string;
+  idBoard: string;
+  idCard: string;
+  pos: number;
+};
+
+export interface ActionInput_trello_updatecomment {
+  /**
+   * The ID of the card containing the comment. Example: "6a26f2fdbc520ab9f45a5214"
+   */
+  cardId: string;
+  /**
+   * The ID of the commentCard action to update. Example: "6a26f3375b582134880a0182"
+   */
+  actionId: string;
+  /**
+   * The new text for the comment.
+   */
+  text: string;
+};
+
+export interface ActionOutput_trello_updatecomment {
+  id: string;
+  idMemberCreator?: string | undefined;
+  text?: string | undefined;
+  cardId?: string | undefined;
+  cardName?: string | undefined;
+  boardId?: string | undefined;
+  boardName?: string | undefined;
+  type?: string | undefined;
+  date?: string | undefined;
+};
+
+export interface ActionInput_trello_updatelabel {
+  /**
+   * Label ID. Example: "6a26f31a38499a69b58916df"
+   */
+  id: string;
+  /**
+   * Name of the label.
+   */
+  name?: string | undefined;
+  /**
+   * Color of the label.
+   */
+  color?: string | undefined;
+};
+
+export interface ActionOutput_trello_updatelabel {
+  id: string;
+  name?: string | undefined;
+  color?: string | undefined;
+};
+
+export interface ActionInput_trello_updatelist {
+  /**
+   * The ID of the list to update. Example: "5abbe4b7ee6c1d1ed5210aaa"
+   */
+  id: string;
+  /**
+   * The new name for the list.
+   */
+  name?: string | undefined;
+  /**
+   * Whether the list should be closed (archived).
+   */
+  closed?: boolean | undefined;
+  /**
+   * The position of the list. Can be a number or "top" / "bottom".
+   */
+  pos?: number | string | undefined;
+  /**
+   * Whether the authenticated user is subscribed to the list.
+   */
+  subscribed?: boolean | undefined;
+};
+
+export interface ActionOutput_trello_updatelist {
+  id: string;
+  name: string;
+  closed: boolean;
+  idBoard: string;
+  pos: number;
+  subscribed?: boolean | undefined;
+};
+
+export interface ActionInput_trello_updateorganization {
+  /**
+   * Organization ID. Example: "6a26ebb15b58213488fb7401"
+   */
+  id: string;
+  /**
+   * Display name of the organization
+   */
+  displayName?: string | undefined;
+  /**
+   * Description of the organization
+   */
+  desc?: string | undefined;
+  /**
+   * Short name of the organization
+   */
+  name?: string | undefined;
+  /**
+   * Website URL of the organization
+   */
+  website?: string | undefined;
+};
+
+export interface ActionOutput_trello_updateorganization {
+  id: string;
+  name?: string | undefined;
+  displayName?: string | undefined;
+  desc?: string | undefined;
+  website?: string | undefined;
+  url?: string | undefined;
 };
 
 export interface LikedTweet {

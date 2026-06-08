@@ -1,0 +1,47 @@
+import { z } from 'zod';
+import { createAction } from 'nango';
+
+const InputSchema = z.object({
+    id: z.string().describe('The ID of the checklist to delete. Example: "6a26f33578a03d1e69753e61"')
+});
+
+const OutputSchema = z.object({
+    id: z.string(),
+    success: z.boolean()
+});
+
+const action = createAction({
+    description: 'Permanently delete a Trello checklist.',
+    version: '1.0.0',
+    endpoint: {
+        method: 'POST',
+        path: '/actions/delete-checklist',
+        group: 'Checklists'
+    },
+    input: InputSchema,
+    output: OutputSchema,
+    scopes: ['read', 'write'],
+
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const response = await nango.delete({
+            // https://developer.atlassian.com/cloud/trello/rest/api-group-checklists/#api-checklists-id-delete
+            endpoint: `/1/checklists/${encodeURIComponent(input.id)}`,
+            retries: 1
+        });
+
+        if (response.data && typeof response.data === 'object' && 'id' in response.data && typeof response.data.id === 'string') {
+            return {
+                id: response.data.id,
+                success: true
+            };
+        }
+
+        return {
+            id: input.id,
+            success: true
+        };
+    }
+});
+
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
+export default action;
