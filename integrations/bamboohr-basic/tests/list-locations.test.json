@@ -1,0 +1,2925 @@
+{
+  "input": {},
+  "output": {
+    "locations": [
+      {
+        "id": 18238,
+        "name": "London, UK",
+        "archived": "no",
+        "createdDate": "2025-12-18T19:22:19+00:00",
+        "archivedDate": null,
+        "manageable": "yes"
+      },
+      {
+        "id": 18352,
+        "name": "Remote Worker",
+        "archived": "no",
+        "createdDate": "2026-02-03T17:40:27+00:00",
+        "archivedDate": null,
+        "manageable": "yes"
+      },
+      {
+        "id": 18235,
+        "name": "Salt Lake City, Utah",
+        "archived": "no",
+        "createdDate": "2025-12-18T19:22:19+00:00",
+        "archivedDate": null,
+        "manageable": "yes"
+      },
+      {
+        "id": 18240,
+        "name": "Sydney, Australia",
+        "archived": "no",
+        "createdDate": "2025-12-18T19:22:20+00:00",
+        "archivedDate": null,
+        "manageable": "yes"
+      },
+      {
+        "id": 18243,
+        "name": "Vancouver, Canada",
+        "archived": "no",
+        "createdDate": "2025-12-18T19:22:20+00:00",
+        "archivedDate": null,
+        "manageable": "yes"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1/meta/lists": {
+        "response": [
+          {
+            "id": 3440,
+            "fieldId": 16,
+            "manageable": "yes",
+            "multiple": "no",
+            "name": "Employment Status",
+            "options": [
+              {
+                "id": 18160,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "Contractor"
+              },
+              {
+                "id": 18158,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "Full-Time"
+              },
+              {
+                "id": 18354,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": null,
+                "archivedDate": null,
+                "name": "Furloughed"
+              },
+              {
+                "id": 18343,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2026-04-09T22:33:48+00:00",
+                "archivedDate": null,
+                "name": "Intern"
+              },
+              {
+                "id": 18159,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "Part-Time"
+              },
+              {
+                "id": 18161,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "Terminated"
+              }
+            ],
+            "alias": "employmentHistoryStatus"
+          },
+          {
+            "id": 3441,
+            "fieldId": 17,
+            "manageable": "yes",
+            "multiple": "no",
+            "name": "Job Title",
+            "options": [
+              {
+                "id": 18276,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:22:20+00:00",
+                "archivedDate": null,
+                "name": "Account Executive"
+              },
+              {
+                "id": 18295,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:22:20+00:00",
+                "archivedDate": null,
+                "name": "Accountant"
+              },
+              {
+                "id": 18335,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-20T16:07:57+00:00",
+                "archivedDate": null,
+                "name": "Associate HR Administrator"
+              },
+              {
+                "id": 18270,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:22:20+00:00",
+                "archivedDate": null,
+                "name": "Benefits Administrator"
+              },
+              {
+                "id": 18254,
+                "archived": "yes",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:22:20+00:00",
+                "archivedDate": "2025-12-19T21:34:44+00:00",
+                "name": "Chief Culture Officer"
+              },
+              {
+                "id": 18421,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2026-04-22T16:24:42+00:00",
+                "archivedDate": null,
+                "name": "Chief Executive Officer"
+              },
+              {
+                "id": 18258,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:22:20+00:00",
+                "archivedDate": null,
+                "name": "Chief Financial Officer"
+              },
+              {
+                "id": 18250,
+                "archived": "yes",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:22:20+00:00",
+                "archivedDate": "2025-12-19T21:35:10+00:00",
+                "name": "Chief Information Officer"
+              },
+              {
+                "id": 18247,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:22:20+00:00",
+                "archivedDate": null,
+                "name": "Chief Operating Officer"
+              },
+              {
+                "id": 18245,
+                "archived": "yes",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:22:20+00:00",
+                "archivedDate": "2025-12-19T21:35:19+00:00",
+                "name": "Chief People Officer"
+              },
+              {
+                "id": 18248,
+                "archived": "yes",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:22:20+00:00",
+                "archivedDate": "2025-12-19T21:35:28+00:00",
+                "name": "Chief Revenue Officer"
+              },
+              {
+                "id": 18262,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:22:20+00:00",
+                "archivedDate": null,
+                "name": "Compliance Auditor"
+              },
+              {
+                "id": 18260,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:22:20+00:00",
+                "archivedDate": null,
+                "name": "Content Marketer"
+              },
+              {
+                "id": 18284,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:22:20+00:00",
+                "archivedDate": null,
+                "name": "Controller"
+              },
+              {
+                "id": 18332,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-19T22:55:17+00:00",
+                "archivedDate": null,
+                "name": "Corporate Trainer"
+              },
+              {
+                "id": 18272,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:22:20+00:00",
+                "archivedDate": null,
+                "name": "Curriculum Designer"
+              },
+              {
+                "id": 18283,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:22:20+00:00",
+                "archivedDate": null,
+                "name": "Customer Care Trainer"
+              },
+              {
+                "id": 18326,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-19T22:22:45+00:00",
+                "archivedDate": null,
+                "name": "Customer Education Manager"
+              },
+              {
+                "id": 18303,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T21:15:59+00:00",
+                "archivedDate": null,
+                "name": "Customer Implementation Manager"
+              },
+              {
+                "id": 18266,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:22:20+00:00",
+                "archivedDate": null,
+                "name": "Customer Retention Manager"
+              },
+              {
+                "id": 18274,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:22:20+00:00",
+                "archivedDate": null,
+                "name": "Customer Success Advocate"
+              },
+              {
+                "id": 18291,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:22:20+00:00",
+                "archivedDate": null,
+                "name": "Demand Generation Manager"
+              },
+              {
+                "id": 18327,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-19T22:23:27+00:00",
+                "archivedDate": null,
+                "name": "Director of Customer Success"
+              },
+              {
+                "id": 18232,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:22:19+00:00",
+                "archivedDate": null,
+                "name": "Director of HR"
+              },
+              {
+                "id": 18267,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:22:20+00:00",
+                "archivedDate": null,
+                "name": "Director of IT"
+              },
+              {
+                "id": 18329,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-19T22:32:31+00:00",
+                "archivedDate": null,
+                "name": "Director of Marketing"
+              },
+              {
+                "id": 18275,
+                "archived": "yes",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:22:20+00:00",
+                "archivedDate": "2025-12-19T21:35:38+00:00",
+                "name": "Director of Talent Management"
+              },
+              {
+                "id": 18261,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:22:20+00:00",
+                "archivedDate": null,
+                "name": "Executive Assistant"
+              },
+              {
+                "id": 18294,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:22:20+00:00",
+                "archivedDate": null,
+                "name": "Financial Analyst"
+              },
+              {
+                "id": 18244,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:22:20+00:00",
+                "archivedDate": null,
+                "name": "Founder and CEO"
+              },
+              {
+                "id": 18278,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:22:20+00:00",
+                "archivedDate": null,
+                "name": "Front End Developer"
+              },
+              {
+                "id": 18305,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T21:37:44+00:00",
+                "archivedDate": null,
+                "name": "General Application"
+              },
+              {
+                "id": 18236,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:22:19+00:00",
+                "archivedDate": null,
+                "name": "HR Administrator"
+              },
+              {
+                "id": 18281,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:22:20+00:00",
+                "archivedDate": null,
+                "name": "HR Specialist"
+              },
+              {
+                "id": 18293,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:22:20+00:00",
+                "archivedDate": null,
+                "name": "Instructional Designer"
+              },
+              {
+                "id": 18304,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T21:27:49+00:00",
+                "archivedDate": null,
+                "name": "IT Security Engineer"
+              },
+              {
+                "id": 18290,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:22:20+00:00",
+                "archivedDate": null,
+                "name": "Multimedia Manager"
+              },
+              {
+                "id": 18268,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:22:20+00:00",
+                "archivedDate": null,
+                "name": "Product Manager"
+              },
+              {
+                "id": 18292,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:22:20+00:00",
+                "archivedDate": null,
+                "name": "QA Tester"
+              },
+              {
+                "id": 18282,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:22:20+00:00",
+                "archivedDate": null,
+                "name": "Sales Director"
+              },
+              {
+                "id": 18269,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:22:20+00:00",
+                "archivedDate": null,
+                "name": "Sales Team Lead"
+              },
+              {
+                "id": 18273,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:22:20+00:00",
+                "archivedDate": null,
+                "name": "Sales Trainer"
+              },
+              {
+                "id": 18263,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:22:20+00:00",
+                "archivedDate": null,
+                "name": "Senior Developer"
+              },
+              {
+                "id": 18289,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:22:20+00:00",
+                "archivedDate": null,
+                "name": "Social Media Marketer"
+              },
+              {
+                "id": 18265,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:22:20+00:00",
+                "archivedDate": null,
+                "name": "Software Engineer"
+              },
+              {
+                "id": 18271,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:22:20+00:00",
+                "archivedDate": null,
+                "name": "Software Implementation Specialist"
+              },
+              {
+                "id": 18331,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-19T22:54:53+00:00",
+                "archivedDate": null,
+                "name": "Sr. Director of Learning"
+              },
+              {
+                "id": 18330,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-19T22:33:00+00:00",
+                "archivedDate": null,
+                "name": "Sr. Director of Marketing"
+              },
+              {
+                "id": 18320,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-19T21:19:37+00:00",
+                "archivedDate": null,
+                "name": "Sr. Director of Product"
+              },
+              {
+                "id": 18316,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-19T21:05:58+00:00",
+                "archivedDate": null,
+                "name": "Sr. Director of Sales"
+              },
+              {
+                "id": 18321,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-19T21:56:30+00:00",
+                "archivedDate": null,
+                "name": "Sr. Director of UI/UX"
+              },
+              {
+                "id": 18334,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-20T16:06:34+00:00",
+                "archivedDate": null,
+                "name": "Sr. HR Administrator"
+              },
+              {
+                "id": 18322,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-19T21:57:05+00:00",
+                "archivedDate": null,
+                "name": "Sr. Manager of UI"
+              },
+              {
+                "id": 18277,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:22:20+00:00",
+                "archivedDate": null,
+                "name": "Systems Genius"
+              },
+              {
+                "id": 18241,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:22:20+00:00",
+                "archivedDate": null,
+                "name": "Technical Recruiter"
+              },
+              {
+                "id": 18333,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-19T22:55:36+00:00",
+                "archivedDate": null,
+                "name": "Training Manager"
+              },
+              {
+                "id": 18279,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:22:20+00:00",
+                "archivedDate": null,
+                "name": "UX Designer"
+              },
+              {
+                "id": 18288,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:22:20+00:00",
+                "archivedDate": null,
+                "name": "Videographer"
+              },
+              {
+                "id": 18252,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:22:20+00:00",
+                "archivedDate": null,
+                "name": "VP Customer Success"
+              },
+              {
+                "id": 18257,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:22:20+00:00",
+                "archivedDate": null,
+                "name": "VP Learning and Development"
+              },
+              {
+                "id": 18328,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-19T22:23:59+00:00",
+                "archivedDate": null,
+                "name": "VP of Customer Success"
+              },
+              {
+                "id": 18318,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-19T21:10:18+00:00",
+                "archivedDate": null,
+                "name": "VP of IT"
+              },
+              {
+                "id": 18255,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:22:20+00:00",
+                "archivedDate": null,
+                "name": "VP of Marketing"
+              },
+              {
+                "id": 18323,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-19T22:03:52+00:00",
+                "archivedDate": null,
+                "name": "VP of People"
+              },
+              {
+                "id": 18280,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:22:20+00:00",
+                "archivedDate": null,
+                "name": "VP of Product"
+              },
+              {
+                "id": 18315,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-19T21:04:21+00:00",
+                "archivedDate": null,
+                "name": "VP of Sales"
+              },
+              {
+                "id": 18298,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T20:05:46+00:00",
+                "archivedDate": null,
+                "name": "VP of UI Design"
+              },
+              {
+                "id": 18286,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:22:20+00:00",
+                "archivedDate": null,
+                "name": "Web Designer"
+              },
+              {
+                "id": 18285,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:22:20+00:00",
+                "archivedDate": null,
+                "name": "Writer"
+              }
+            ],
+            "alias": "jobTitle"
+          },
+          {
+            "id": 3442,
+            "fieldId": 18,
+            "manageable": "no",
+            "multiple": "no",
+            "name": "Location",
+            "options": [
+              {
+                "id": 18238,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:22:19+00:00",
+                "archivedDate": null,
+                "name": "London, UK"
+              },
+              {
+                "id": 18352,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2026-02-03T17:40:27+00:00",
+                "archivedDate": null,
+                "name": "Remote Worker"
+              },
+              {
+                "id": 18235,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:22:19+00:00",
+                "archivedDate": null,
+                "name": "Salt Lake City, Utah"
+              },
+              {
+                "id": 18240,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:22:20+00:00",
+                "archivedDate": null,
+                "name": "Sydney, Australia"
+              },
+              {
+                "id": 18243,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:22:20+00:00",
+                "archivedDate": null,
+                "name": "Vancouver, Canada"
+              }
+            ],
+            "alias": "location"
+          },
+          {
+            "id": 3443,
+            "fieldId": 4,
+            "manageable": "yes",
+            "multiple": "no",
+            "name": "Department",
+            "options": [
+              {
+                "id": 18473,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2026-06-04T17:57:56+00:00",
+                "archivedDate": null,
+                "name": "Company"
+              },
+              {
+                "id": 18253,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:22:20+00:00",
+                "archivedDate": null,
+                "name": "Customer Success"
+              },
+              {
+                "id": 18259,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:22:20+00:00",
+                "archivedDate": null,
+                "name": "Finance"
+              },
+              {
+                "id": 18234,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:22:19+00:00",
+                "archivedDate": null,
+                "name": "Human Resources"
+              },
+              {
+                "id": 18251,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:22:20+00:00",
+                "archivedDate": null,
+                "name": "IT"
+              },
+              {
+                "id": 18256,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:22:20+00:00",
+                "archivedDate": null,
+                "name": "Marketing"
+              },
+              {
+                "id": 18242,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:22:20+00:00",
+                "archivedDate": null,
+                "name": "Operations"
+              },
+              {
+                "id": 18264,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:22:20+00:00",
+                "archivedDate": null,
+                "name": "Product"
+              },
+              {
+                "id": 18249,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:22:20+00:00",
+                "archivedDate": null,
+                "name": "Sales"
+              },
+              {
+                "id": 18287,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:22:20+00:00",
+                "archivedDate": null,
+                "name": "UX"
+              }
+            ],
+            "alias": "department"
+          },
+          {
+            "id": 3444,
+            "fieldId": 1359,
+            "manageable": "no",
+            "multiple": "no",
+            "name": "FLSA Code",
+            "options": [
+              {
+                "id": 18162,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "Exempt"
+              },
+              {
+                "id": 18163,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "Non-exempt"
+              }
+            ],
+            "alias": "flsaCode"
+          },
+          {
+            "id": 3446,
+            "fieldId": 4313,
+            "manageable": "no",
+            "multiple": "no",
+            "name": "Termination Type",
+            "options": [
+              {
+                "id": 18166,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "Death"
+              },
+              {
+                "id": 18164,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "Resignation (Voluntary)"
+              },
+              {
+                "id": 18165,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "Termination (Involuntary)"
+              }
+            ]
+          },
+          {
+            "id": 3448,
+            "fieldId": 4314,
+            "manageable": "yes",
+            "multiple": "no",
+            "name": "Termination Reason",
+            "options": [
+              {
+                "id": 18167,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "Attendance"
+              },
+              {
+                "id": 18420,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2026-04-18T22:18:36+00:00",
+                "archivedDate": null,
+                "name": "End of Season"
+              },
+              {
+                "id": 18231,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T17:14:46+00:00",
+                "archivedDate": null,
+                "name": "Life Happens"
+              },
+              {
+                "id": 18229,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T17:14:44+00:00",
+                "archivedDate": null,
+                "name": "Not a Fit"
+              },
+              {
+                "id": 18230,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T17:14:44+00:00",
+                "archivedDate": null,
+                "name": "Other"
+              },
+              {
+                "id": 18168,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "Other employment"
+              },
+              {
+                "id": 18169,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "Performance"
+              },
+              {
+                "id": 18170,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "Relocation"
+              }
+            ]
+          },
+          {
+            "id": 3450,
+            "fieldId": 4315,
+            "manageable": "no",
+            "multiple": "no",
+            "name": "Eligible For Re-hire",
+            "options": [
+              {
+                "id": 18172,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "No"
+              },
+              {
+                "id": 18173,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "Upon review"
+              },
+              {
+                "id": 18171,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "Yes"
+              }
+            ]
+          },
+          {
+            "id": 3451,
+            "fieldId": 37,
+            "manageable": "yes",
+            "multiple": "no",
+            "name": "Driver Classification",
+            "options": [
+              {
+                "id": 18176,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "Cannot transport clients"
+              },
+              {
+                "id": 18174,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "Company and personal"
+              },
+              {
+                "id": 18175,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "Company only"
+              }
+            ]
+          },
+          {
+            "id": 3452,
+            "fieldId": 1355,
+            "manageable": "yes",
+            "multiple": "no",
+            "name": "Division",
+            "options": [
+              {
+                "id": 18239,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:22:20+00:00",
+                "archivedDate": null,
+                "name": "Asia-Pacific"
+              },
+              {
+                "id": 18237,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:22:19+00:00",
+                "archivedDate": null,
+                "name": "Europe"
+              },
+              {
+                "id": 18233,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:22:19+00:00",
+                "archivedDate": null,
+                "name": "North America"
+              },
+              {
+                "id": 18246,
+                "archived": "yes",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:22:20+00:00",
+                "archivedDate": "2025-12-18T20:21:03+00:00",
+                "name": "Western States"
+              }
+            ],
+            "alias": "division"
+          },
+          {
+            "id": 3453,
+            "fieldId": 1037,
+            "manageable": "no",
+            "multiple": "no",
+            "name": "Ethnicity",
+            "options": [
+              {
+                "id": 18177,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "American Indian or Alaska Native"
+              },
+              {
+                "id": 18178,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "Asian"
+              },
+              {
+                "id": 18179,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "Black or African American"
+              },
+              {
+                "id": 18422,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": null,
+                "archivedDate": null,
+                "name": "Decline to answer"
+              },
+              {
+                "id": 18180,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "Hispanic or Latino"
+              },
+              {
+                "id": 18438,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-11-30T14:39:53+00:00",
+                "archivedDate": null,
+                "name": "Middle Eastern or North African"
+              },
+              {
+                "id": 18181,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "Native Hawaiian or Other Pacific Islander"
+              },
+              {
+                "id": 18182,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "Two or More Races"
+              },
+              {
+                "id": 18183,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "White"
+              }
+            ],
+            "alias": "ethnicity"
+          },
+          {
+            "id": 3454,
+            "fieldId": 157,
+            "manageable": "no",
+            "multiple": "no",
+            "name": "EEO Job Category",
+            "options": [
+              {
+                "id": 18189,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "Administrative Support Workers"
+              },
+              {
+                "id": 18190,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "Craft Workers"
+              },
+              {
+                "id": 18184,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "Executive/Senior Level Officials and Managers"
+              },
+              {
+                "id": 18185,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "First/Mid Level Officials and Managers"
+              },
+              {
+                "id": 18192,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "Laborers and Helpers"
+              },
+              {
+                "id": 18191,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "Operatives"
+              },
+              {
+                "id": 18186,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "Professionals"
+              },
+              {
+                "id": 18188,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "Sales Workers"
+              },
+              {
+                "id": 18193,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "Service Workers"
+              },
+              {
+                "id": 18187,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "Technicians"
+              }
+            ],
+            "alias": "eeo"
+          },
+          {
+            "id": 3455,
+            "fieldId": 4001,
+            "manageable": "no",
+            "multiple": "yes",
+            "name": "Veteran Status",
+            "options": [
+              {
+                "id": 18196,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "Active Duty Wartime or Campaign Badge Veteran"
+              },
+              {
+                "id": 18194,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "Armed Forces Service Medal Veteran"
+              },
+              {
+                "id": 18195,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "Disabled Veteran"
+              },
+              {
+                "id": 18197,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "Recently Separated Veteran"
+              }
+            ]
+          },
+          {
+            "id": 3456,
+            "fieldId": 160,
+            "manageable": "yes",
+            "multiple": "no",
+            "name": "Emergency Contact Relationship",
+            "options": [
+              {
+                "id": 18198,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "Brother"
+              },
+              {
+                "id": 18199,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "Daughter"
+              },
+              {
+                "id": 18200,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "Father"
+              },
+              {
+                "id": 18201,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "Friend"
+              },
+              {
+                "id": 18202,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "Husband"
+              },
+              {
+                "id": 18203,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "Mother"
+              },
+              {
+                "id": 18204,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "Sister"
+              },
+              {
+                "id": 18205,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "Son"
+              },
+              {
+                "id": 18206,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "Wife"
+              }
+            ]
+          },
+          {
+            "id": 3457,
+            "fieldId": 4166,
+            "manageable": "no",
+            "multiple": "no",
+            "name": "Benefit Class: Change Reason",
+            "options": [
+              {
+                "id": 18207,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "Disability"
+              },
+              {
+                "id": 18208,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "Military leave"
+              },
+              {
+                "id": 18210,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "No Reason"
+              },
+              {
+                "id": 18209,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "Reduction in hours"
+              }
+            ],
+            "alias": "benefitClassChangeReason"
+          },
+          {
+            "id": 3458,
+            "fieldId": 4017,
+            "manageable": "yes",
+            "multiple": "no",
+            "name": "Compensation Change Reason",
+            "options": [
+              {
+                "id": 18325,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-19T22:15:41+00:00",
+                "archivedDate": null,
+                "name": "Annual Pay Increase"
+              },
+              {
+                "id": 18317,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-19T21:07:20+00:00",
+                "archivedDate": null,
+                "name": "NA"
+              },
+              {
+                "id": 18472,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2026-06-04T17:57:00+00:00",
+                "archivedDate": null,
+                "name": "New Hire"
+              },
+              {
+                "id": 18357,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2026-03-25T16:07:32+00:00",
+                "archivedDate": null,
+                "name": "Pay increase"
+              },
+              {
+                "id": 18296,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:24:42+00:00",
+                "archivedDate": null,
+                "name": "Promotion"
+              },
+              {
+                "id": 18297,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T19:24:43+00:00",
+                "archivedDate": null,
+                "name": "Relocated"
+              },
+              {
+                "id": 18324,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-19T22:06:10+00:00",
+                "archivedDate": null,
+                "name": "Title Change"
+              }
+            ],
+            "alias": "payChangeReason"
+          },
+          {
+            "id": 3459,
+            "fieldId": 4050,
+            "manageable": "yes",
+            "multiple": "no",
+            "name": "Training Category",
+            "options": [
+              {
+                "id": 18356,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2026-03-25T15:32:28+00:00",
+                "archivedDate": null,
+                "name": "BambooHR Product Training"
+              },
+              {
+                "id": 18353,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2026-03-25T18:35:51+00:00",
+                "archivedDate": null,
+                "name": "COVID-19"
+              },
+              {
+                "id": 18437,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2026-01-26T18:29:13+00:00",
+                "archivedDate": null,
+                "name": "Quarterly Training"
+              },
+              {
+                "id": 18436,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-10T20:57:46+00:00",
+                "archivedDate": null,
+                "name": "Required Annual Trainings"
+              }
+            ]
+          },
+          {
+            "id": 3460,
+            "fieldId": 4153,
+            "manageable": "yes",
+            "multiple": "no",
+            "name": "Bonus: Reason",
+            "options": [
+              {
+                "id": 18433,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2026-02-28T20:32:02+00:00",
+                "archivedDate": null,
+                "name": "Performance"
+              }
+            ],
+            "alias": "bonusReason"
+          },
+          {
+            "id": 3461,
+            "fieldId": 4160,
+            "manageable": "yes",
+            "multiple": "no",
+            "name": "ADP Company Code",
+            "options": [],
+            "alias": "adpCompanyCode"
+          },
+          {
+            "id": 3462,
+            "fieldId": 4165,
+            "manageable": "yes",
+            "multiple": "no",
+            "name": "Benefit Class: Class",
+            "options": [],
+            "alias": "benefitClassClass"
+          },
+          {
+            "id": 3463,
+            "fieldId": 4167,
+            "manageable": "yes",
+            "multiple": "no",
+            "name": "Job Information: Change Reason",
+            "options": []
+          },
+          {
+            "id": 3464,
+            "fieldId": 4170,
+            "manageable": "yes",
+            "multiple": "no",
+            "name": "Visa",
+            "options": [
+              {
+                "id": 18211,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "B1"
+              },
+              {
+                "id": 18212,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "B2"
+              },
+              {
+                "id": 18213,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "H1B"
+              },
+              {
+                "id": 18214,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "H2B"
+              },
+              {
+                "id": 18215,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "L1A"
+              },
+              {
+                "id": 18216,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "L1B"
+              },
+              {
+                "id": 18217,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "Permanent Resident"
+              },
+              {
+                "id": 18218,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "TN1"
+              }
+            ]
+          },
+          {
+            "id": 3465,
+            "fieldId": 4294,
+            "manageable": "yes",
+            "multiple": "no",
+            "name": "Degree",
+            "options": [
+              {
+                "id": 18219,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "Associate's"
+              },
+              {
+                "id": 18220,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "Bachelor's"
+              },
+              {
+                "id": 18222,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "Doctorate"
+              },
+              {
+                "id": 18221,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "Master's"
+              }
+            ]
+          },
+          {
+            "id": 3466,
+            "fieldId": 4290,
+            "manageable": "yes",
+            "multiple": "no",
+            "name": "Benefit Group",
+            "options": [],
+            "alias": "benefitGroup"
+          },
+          {
+            "id": 3467,
+            "fieldId": 4332,
+            "manageable": "no",
+            "multiple": "no",
+            "name": "Disability",
+            "options": [
+              {
+                "id": 18224,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "No, I don't have a disability"
+              },
+              {
+                "id": 18223,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-15T22:28:38+00:00",
+                "archivedDate": null,
+                "name": "Yes, I have a disability (or previously had a disability)"
+              }
+            ]
+          },
+          {
+            "id": 3468,
+            "fieldId": 4339,
+            "manageable": "yes",
+            "multiple": "no",
+            "name": "Secondary Language",
+            "options": [
+              {
+                "id": 18225,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T16:22:03+00:00",
+                "archivedDate": null,
+                "name": "French"
+              },
+              {
+                "id": 18226,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T16:22:03+00:00",
+                "archivedDate": null,
+                "name": "German"
+              },
+              {
+                "id": 18360,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2026-04-18T16:21:27+00:00",
+                "archivedDate": null,
+                "name": "Japanese"
+              },
+              {
+                "id": 18227,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T16:22:03+00:00",
+                "archivedDate": null,
+                "name": "Mandarin"
+              },
+              {
+                "id": 18228,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-18T16:22:03+00:00",
+                "archivedDate": null,
+                "name": "Spanish"
+              }
+            ],
+            "alias": "customSecondaryLanguage1"
+          },
+          {
+            "id": 3469,
+            "fieldId": 4372,
+            "manageable": "yes",
+            "multiple": "no",
+            "name": "Asset Category",
+            "options": [
+              {
+                "id": 18306,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-19T20:54:11+00:00",
+                "archivedDate": null,
+                "name": "Building Key"
+              },
+              {
+                "id": 18337,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2026-01-03T22:45:10+00:00",
+                "archivedDate": null,
+                "name": "Cell Phone"
+              },
+              {
+                "id": 18307,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-19T20:54:11+00:00",
+                "archivedDate": null,
+                "name": "Cellular Phone"
+              },
+              {
+                "id": 18308,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-19T20:54:11+00:00",
+                "archivedDate": null,
+                "name": "Computer"
+              },
+              {
+                "id": 18338,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2026-01-03T22:45:11+00:00",
+                "archivedDate": null,
+                "name": "Corporate Card"
+              },
+              {
+                "id": 18336,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2026-01-03T22:45:10+00:00",
+                "archivedDate": null,
+                "name": "Desk Phone"
+              },
+              {
+                "id": 18359,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2026-03-28T20:14:25+00:00",
+                "archivedDate": null,
+                "name": "Hardware"
+              },
+              {
+                "id": 18358,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2026-03-28T19:26:24+00:00",
+                "archivedDate": null,
+                "name": "Monitor"
+              },
+              {
+                "id": 18309,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-19T20:54:11+00:00",
+                "archivedDate": null,
+                "name": "Software"
+              }
+            ]
+          },
+          {
+            "id": 3470,
+            "fieldId": 4378,
+            "manageable": "yes",
+            "multiple": "no",
+            "name": "Shirt size",
+            "options": [
+              {
+                "id": 18310,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-19T20:54:49+00:00",
+                "archivedDate": null,
+                "name": "1. Small"
+              },
+              {
+                "id": 18311,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-19T20:54:49+00:00",
+                "archivedDate": null,
+                "name": "2. Medium"
+              },
+              {
+                "id": 18312,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-19T20:54:49+00:00",
+                "archivedDate": null,
+                "name": "3. Large"
+              },
+              {
+                "id": 18313,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-19T20:54:49+00:00",
+                "archivedDate": null,
+                "name": "4. XLarge"
+              },
+              {
+                "id": 18314,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-12-19T20:54:49+00:00",
+                "archivedDate": null,
+                "name": "5. XXLarge"
+              }
+            ],
+            "alias": "customShirtsize"
+          },
+          {
+            "id": 3471,
+            "fieldId": 4380,
+            "manageable": "yes",
+            "multiple": "no",
+            "name": "Card Type",
+            "options": [
+              {
+                "id": 18342,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": null,
+                "archivedDate": null,
+                "name": "American Express"
+              },
+              {
+                "id": 18341,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": null,
+                "archivedDate": null,
+                "name": "Discover"
+              },
+              {
+                "id": 18340,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": null,
+                "archivedDate": null,
+                "name": "MasterCard"
+              },
+              {
+                "id": 18339,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": null,
+                "archivedDate": null,
+                "name": "Visa"
+              }
+            ]
+          },
+          {
+            "id": 3472,
+            "fieldId": 4386,
+            "manageable": "no",
+            "multiple": "no",
+            "name": "Pay Schedule",
+            "options": [
+              {
+                "id": 18346,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": null,
+                "archivedDate": null,
+                "name": "Every other week"
+              },
+              {
+                "id": 18347,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": null,
+                "archivedDate": null,
+                "name": "Twice a month"
+              }
+            ],
+            "alias": "paySchedule"
+          },
+          {
+            "id": 3474,
+            "fieldId": 4390,
+            "manageable": "yes",
+            "multiple": "no",
+            "name": "Nationality",
+            "options": [],
+            "alias": "nationality"
+          },
+          {
+            "id": 3475,
+            "fieldId": 4412,
+            "manageable": "yes",
+            "multiple": "no",
+            "name": "Shirt Size",
+            "options": [],
+            "alias": "shirtSize"
+          },
+          {
+            "id": 3476,
+            "fieldId": 4413,
+            "manageable": "yes",
+            "multiple": "no",
+            "name": "T-Shirt Size",
+            "options": [],
+            "alias": "tShirtSize"
+          },
+          {
+            "id": 3477,
+            "fieldId": 4414,
+            "manageable": "yes",
+            "multiple": "no",
+            "name": "Jacket Size",
+            "options": [],
+            "alias": "jacketSize"
+          },
+          {
+            "id": 3478,
+            "fieldId": 4415,
+            "manageable": "yes",
+            "multiple": "no",
+            "name": "Notice Period",
+            "options": [],
+            "alias": "noticePeriod"
+          },
+          {
+            "id": 3479,
+            "fieldId": 4416,
+            "manageable": "yes",
+            "multiple": "no",
+            "name": "Team",
+            "options": [],
+            "alias": "team"
+          },
+          {
+            "id": 3480,
+            "fieldId": 4420,
+            "manageable": "yes",
+            "multiple": "no",
+            "name": "Driver License: Classification",
+            "options": []
+          },
+          {
+            "id": 3481,
+            "fieldId": 4423,
+            "manageable": "yes",
+            "multiple": "no",
+            "name": "Certifications: Title",
+            "options": []
+          },
+          {
+            "id": 3482,
+            "fieldId": 4433,
+            "manageable": "yes",
+            "multiple": "no",
+            "name": "Stock Options: Plan",
+            "options": []
+          },
+          {
+            "id": 3483,
+            "fieldId": 4436,
+            "manageable": "yes",
+            "multiple": "no",
+            "name": "Assets: Category",
+            "options": []
+          },
+          {
+            "id": 3486,
+            "fieldId": 4463,
+            "manageable": "no",
+            "multiple": "no",
+            "name": "Vaccination Status",
+            "options": [
+              {
+                "id": 18388,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2026-04-08T18:06:51+00:00",
+                "archivedDate": null,
+                "name": "Not Vaccinated"
+              },
+              {
+                "id": 18387,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2026-04-08T18:06:51+00:00",
+                "archivedDate": null,
+                "name": "Partially Vaccinated"
+              },
+              {
+                "id": 18386,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2026-04-08T18:06:51+00:00",
+                "archivedDate": null,
+                "name": "Vaccinated"
+              }
+            ],
+            "alias": "vaccinationStatus"
+          },
+          {
+            "id": 3487,
+            "fieldId": 4464,
+            "manageable": "yes",
+            "multiple": "no",
+            "name": "Vaccine Received",
+            "options": [
+              {
+                "id": 18389,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2026-04-08T18:06:51+00:00",
+                "archivedDate": null,
+                "name": "Johnson & Johnson"
+              },
+              {
+                "id": 18390,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2026-04-08T18:06:51+00:00",
+                "archivedDate": null,
+                "name": "Moderna"
+              },
+              {
+                "id": 18391,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2026-04-08T18:06:51+00:00",
+                "archivedDate": null,
+                "name": "Pfizer-BioNTech"
+              }
+            ],
+            "alias": "vaccineReceived"
+          },
+          {
+            "id": 3488,
+            "fieldId": 4468,
+            "manageable": "no",
+            "multiple": "no",
+            "name": "Testing Tracker: Results",
+            "options": [
+              {
+                "id": 18394,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2026-04-12T17:56:49+00:00",
+                "archivedDate": null,
+                "name": "Inconclusive"
+              },
+              {
+                "id": 18393,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2026-04-12T17:56:49+00:00",
+                "archivedDate": null,
+                "name": "Negative"
+              },
+              {
+                "id": 18392,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2026-04-12T17:56:49+00:00",
+                "archivedDate": null,
+                "name": "Positive"
+              }
+            ]
+          },
+          {
+            "id": 3489,
+            "fieldId": 4469,
+            "manageable": "no",
+            "multiple": "no",
+            "name": "Testing Tracker: Test Type",
+            "options": [
+              {
+                "id": 18398,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2026-04-12T17:56:49+00:00",
+                "archivedDate": null,
+                "name": "Antibody"
+              },
+              {
+                "id": 18397,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2026-04-12T17:56:49+00:00",
+                "archivedDate": null,
+                "name": "Antigen"
+              },
+              {
+                "id": 18396,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2026-04-12T17:56:49+00:00",
+                "archivedDate": null,
+                "name": "PCR Nasal Swab"
+              },
+              {
+                "id": 18395,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2026-04-12T17:56:49+00:00",
+                "archivedDate": null,
+                "name": "PCR Saliva"
+              },
+              {
+                "id": 18399,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2026-04-12T17:56:49+00:00",
+                "archivedDate": null,
+                "name": "Unknown"
+              }
+            ]
+          },
+          {
+            "id": 3490,
+            "fieldId": 4470,
+            "manageable": "yes",
+            "multiple": "no",
+            "name": "Testing Tracker: Testing Reason",
+            "options": [
+              {
+                "id": 18400,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2026-04-12T17:56:49+00:00",
+                "archivedDate": null,
+                "name": "Exempt"
+              },
+              {
+                "id": 18401,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2026-04-12T17:56:49+00:00",
+                "archivedDate": null,
+                "name": "Exposure"
+              },
+              {
+                "id": 18402,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2026-04-12T17:56:49+00:00",
+                "archivedDate": null,
+                "name": "Not Vaccinated"
+              },
+              {
+                "id": 18403,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2026-04-12T17:56:49+00:00",
+                "archivedDate": null,
+                "name": "Showing Symptoms"
+              }
+            ]
+          },
+          {
+            "id": 3491,
+            "fieldId": 4475,
+            "manageable": "no",
+            "multiple": "no",
+            "name": "Vaccination History: Vaccination Status",
+            "options": [
+              {
+                "id": 18407,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2026-04-12T17:56:49+00:00",
+                "archivedDate": null,
+                "name": "Booster"
+              },
+              {
+                "id": 18404,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2026-04-12T17:56:49+00:00",
+                "archivedDate": null,
+                "name": "Not Vaccinated"
+              },
+              {
+                "id": 18405,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2026-04-12T17:56:49+00:00",
+                "archivedDate": null,
+                "name": "Partially Vaccinated"
+              },
+              {
+                "id": 18406,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2026-04-12T17:56:49+00:00",
+                "archivedDate": null,
+                "name": "Vaccinated"
+              }
+            ]
+          },
+          {
+            "id": 3492,
+            "fieldId": 4477,
+            "manageable": "yes",
+            "multiple": "no",
+            "name": "Vaccination History: Vaccine Received",
+            "options": [
+              {
+                "id": 18411,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2026-04-12T17:56:49+00:00",
+                "archivedDate": null,
+                "name": "Astrazeneca"
+              },
+              {
+                "id": 18410,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2026-04-12T17:56:49+00:00",
+                "archivedDate": null,
+                "name": "Johnson & Johnson"
+              },
+              {
+                "id": 18409,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2026-04-12T17:56:49+00:00",
+                "archivedDate": null,
+                "name": "Moderna"
+              },
+              {
+                "id": 18408,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2026-04-12T17:56:49+00:00",
+                "archivedDate": null,
+                "name": "Pfizer-BioNTech"
+              }
+            ]
+          },
+          {
+            "id": 3493,
+            "fieldId": 4478,
+            "manageable": "no",
+            "multiple": "no",
+            "name": "Vaccination History: Dosage",
+            "options": [
+              {
+                "id": 18414,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2026-04-12T17:56:49+00:00",
+                "archivedDate": null,
+                "name": "Booster"
+              },
+              {
+                "id": 18412,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2026-04-12T17:56:49+00:00",
+                "archivedDate": null,
+                "name": "First Dose"
+              },
+              {
+                "id": 18413,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2026-04-12T17:56:49+00:00",
+                "archivedDate": null,
+                "name": "Second Dose"
+              }
+            ]
+          },
+          {
+            "id": 3494,
+            "fieldId": 4484,
+            "manageable": "yes",
+            "multiple": "no",
+            "name": "Vaccination Exemptions: Exemption Reason",
+            "options": [
+              {
+                "id": 18415,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2026-04-12T17:56:49+00:00",
+                "archivedDate": null,
+                "name": "Medical"
+              },
+              {
+                "id": 18416,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2026-04-12T17:56:49+00:00",
+                "archivedDate": null,
+                "name": "Religious"
+              }
+            ]
+          },
+          {
+            "id": 3495,
+            "fieldId": 4489,
+            "manageable": "yes",
+            "multiple": "no",
+            "name": "Exposure Tracker: Vaccination Status",
+            "options": [
+              {
+                "id": 18419,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2026-04-12T17:56:50+00:00",
+                "archivedDate": null,
+                "name": "Not Vaccinated"
+              },
+              {
+                "id": 18418,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2026-04-12T17:56:50+00:00",
+                "archivedDate": null,
+                "name": "Partially Vaccinated"
+              },
+              {
+                "id": 18417,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2026-04-12T17:56:50+00:00",
+                "archivedDate": null,
+                "name": "Vaccinated"
+              }
+            ]
+          },
+          {
+            "id": 3496,
+            "fieldId": 4509,
+            "manageable": "no",
+            "multiple": "no",
+            "name": "Regrettable or Non-Regrettable",
+            "options": [
+              {
+                "id": 18424,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2026-04-29T19:05:40+00:00",
+                "archivedDate": null,
+                "name": "Non-Regrettable"
+              },
+              {
+                "id": 18423,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2026-04-29T19:05:40+00:00",
+                "archivedDate": null,
+                "name": "Regrettable"
+              }
+            ]
+          },
+          {
+            "id": 3497,
+            "fieldId": 4515,
+            "manageable": "no",
+            "multiple": "no",
+            "name": "Equity: Grant Type",
+            "options": [
+              {
+                "id": 18425,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2026-03-30T19:16:09+00:00",
+                "archivedDate": null,
+                "name": "ISO"
+              },
+              {
+                "id": 18429,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2026-03-30T19:16:09+00:00",
+                "archivedDate": null,
+                "name": "MIU"
+              },
+              {
+                "id": 18426,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2026-03-30T19:16:09+00:00",
+                "archivedDate": null,
+                "name": "NSO"
+              },
+              {
+                "id": 18428,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2026-03-30T19:16:09+00:00",
+                "archivedDate": null,
+                "name": "RSA"
+              },
+              {
+                "id": 18427,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2026-03-30T19:16:09+00:00",
+                "archivedDate": null,
+                "name": "RSU"
+              }
+            ]
+          },
+          {
+            "id": 3498,
+            "fieldId": 4519,
+            "manageable": "no",
+            "multiple": "no",
+            "name": "Equity: Vesting Schedule",
+            "options": [
+              {
+                "id": 18432,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2026-03-30T19:16:09+00:00",
+                "archivedDate": null,
+                "name": "Annually"
+              },
+              {
+                "id": 18430,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2026-03-30T19:16:09+00:00",
+                "archivedDate": null,
+                "name": "Monthly"
+              },
+              {
+                "id": 18431,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2026-03-30T19:16:09+00:00",
+                "archivedDate": null,
+                "name": "Quarterly"
+              }
+            ]
+          },
+          {
+            "id": 3499,
+            "fieldId": 4549,
+            "manageable": "yes",
+            "multiple": "yes",
+            "name": "Teams",
+            "options": [],
+            "alias": "teams"
+          },
+          {
+            "id": 3500,
+            "fieldId": 4566,
+            "manageable": "no",
+            "multiple": "no",
+            "name": "State Tax Work Address Type",
+            "options": []
+          },
+          {
+            "id": 3501,
+            "fieldId": 4567,
+            "manageable": "no",
+            "multiple": "no",
+            "name": "Work In Tax State",
+            "options": []
+          },
+          {
+            "id": 3502,
+            "fieldId": 4568,
+            "manageable": "no",
+            "multiple": "no",
+            "name": "Work In Tax Unemployment State",
+            "options": []
+          },
+          {
+            "id": 3503,
+            "fieldId": 4569,
+            "manageable": "no",
+            "multiple": "no",
+            "name": "State Withholding Type",
+            "options": []
+          },
+          {
+            "id": 3504,
+            "fieldId": 4570,
+            "manageable": "no",
+            "multiple": "no",
+            "name": "State Unemployment Insurance Type",
+            "options": []
+          },
+          {
+            "id": 3505,
+            "fieldId": 4574,
+            "manageable": "no",
+            "multiple": "no",
+            "name": "Employee",
+            "options": []
+          },
+          {
+            "id": 3506,
+            "fieldId": 4575,
+            "manageable": "no",
+            "multiple": "no",
+            "name": "Project",
+            "options": []
+          },
+          {
+            "id": 3507,
+            "fieldId": 4576,
+            "manageable": "no",
+            "multiple": "no",
+            "name": "Task",
+            "options": []
+          },
+          {
+            "id": 3508,
+            "fieldId": 4588,
+            "manageable": "no",
+            "multiple": "no",
+            "name": "National Insurance Category",
+            "options": [
+              {
+                "id": 18439,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2025-12-11T21:35:33+00:00",
+                "archivedDate": null,
+                "name": "A - All employees, apart from those eligible for another category"
+              },
+              {
+                "id": 18440,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2025-12-11T21:35:33+00:00",
+                "archivedDate": null,
+                "name": "B - Married/widowed women eligible for reduced NI"
+              },
+              {
+                "id": 18441,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2025-12-11T21:35:33+00:00",
+                "archivedDate": null,
+                "name": "C - Over the State Pension age"
+              },
+              {
+                "id": 18442,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2025-12-11T21:35:33+00:00",
+                "archivedDate": null,
+                "name": "D - Investment Zone + can defer NI"
+              },
+              {
+                "id": 18443,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2025-12-11T21:35:33+00:00",
+                "archivedDate": null,
+                "name": "E - Investment Zone + married/widowed women eligible for reduced NI"
+              },
+              {
+                "id": 18444,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2025-12-11T21:35:33+00:00",
+                "archivedDate": null,
+                "name": "F - All eligible Freeport employees, apart from those in another Freeport category"
+              },
+              {
+                "id": 18445,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2025-12-11T21:35:33+00:00",
+                "archivedDate": null,
+                "name": "I - Freeport + married/widowed women eligible for reduced NI"
+              },
+              {
+                "id": 18446,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2025-12-11T21:35:33+00:00",
+                "archivedDate": null,
+                "name": "J - Employees who can defer NI"
+              },
+              {
+                "id": 18447,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2025-12-11T21:35:33+00:00",
+                "archivedDate": null,
+                "name": "K - Investment Zone + over the State Pension age"
+              },
+              {
+                "id": 18448,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2025-12-11T21:35:33+00:00",
+                "archivedDate": null,
+                "name": "L - Freeport + can defer NI"
+              },
+              {
+                "id": 18449,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2025-12-11T21:35:33+00:00",
+                "archivedDate": null,
+                "name": "N - All eligible Investment Zone employees, apart from those in another Investment Zone category"
+              },
+              {
+                "id": 18450,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2025-12-11T21:35:33+00:00",
+                "archivedDate": null,
+                "name": "S - Freeport + over the State Pension age"
+              },
+              {
+                "id": 18451,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2025-12-11T21:35:33+00:00",
+                "archivedDate": null,
+                "name": "V - Veteran in the first 12 months of civilian employment"
+              },
+              {
+                "id": 18452,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2025-12-11T21:35:33+00:00",
+                "archivedDate": null,
+                "name": "X - No NI payable (e.g. employee under 16 years old)"
+              }
+            ],
+            "alias": "nationalInsuranceCategoryId"
+          },
+          {
+            "id": 3509,
+            "fieldId": 4589,
+            "manageable": "yes",
+            "multiple": "no",
+            "name": "Employment Type",
+            "options": [
+              {
+                "id": 18453,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2025-11-20T18:21:10+00:00",
+                "archivedDate": null,
+                "name": "Casual"
+              },
+              {
+                "id": 18454,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2025-11-20T18:21:10+00:00",
+                "archivedDate": null,
+                "name": "Consultant"
+              },
+              {
+                "id": 18455,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2025-11-20T18:21:10+00:00",
+                "archivedDate": null,
+                "name": "Contractor"
+              },
+              {
+                "id": 18456,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2025-11-20T18:21:10+00:00",
+                "archivedDate": null,
+                "name": "Full-time"
+              },
+              {
+                "id": 18457,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2025-11-20T18:21:10+00:00",
+                "archivedDate": null,
+                "name": "Intern"
+              },
+              {
+                "id": 18458,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2025-11-20T18:21:10+00:00",
+                "archivedDate": null,
+                "name": "Part-time"
+              },
+              {
+                "id": 18459,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2025-11-20T18:21:10+00:00",
+                "archivedDate": null,
+                "name": "Seasonal"
+              },
+              {
+                "id": 18460,
+                "archived": "no",
+                "manageable": "no",
+                "createdDate": "2025-11-20T18:21:10+00:00",
+                "archivedDate": null,
+                "name": "Temporary"
+              }
+            ]
+          },
+          {
+            "id": 3510,
+            "fieldId": 4592,
+            "manageable": "yes",
+            "multiple": "no",
+            "name": "Category",
+            "options": [
+              {
+                "id": 18462,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-11-21T21:05:17+00:00",
+                "archivedDate": null,
+                "name": "Gas"
+              },
+              {
+                "id": 18461,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-11-21T21:05:17+00:00",
+                "archivedDate": null,
+                "name": "Lunch"
+              },
+              {
+                "id": 18463,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-11-21T21:05:17+00:00",
+                "archivedDate": null,
+                "name": "Per Diem"
+              },
+              {
+                "id": 18464,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-11-21T21:05:17+00:00",
+                "archivedDate": null,
+                "name": "Travel"
+              }
+            ]
+          },
+          {
+            "id": 3511,
+            "fieldId": 4594,
+            "manageable": "yes",
+            "multiple": "no",
+            "name": "Receipt Attached",
+            "options": [
+              {
+                "id": 18466,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-11-21T21:05:17+00:00",
+                "archivedDate": null,
+                "name": "No"
+              },
+              {
+                "id": 18465,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-11-21T21:05:17+00:00",
+                "archivedDate": null,
+                "name": "Yes"
+              }
+            ]
+          },
+          {
+            "id": 3512,
+            "fieldId": 4595,
+            "manageable": "yes",
+            "multiple": "no",
+            "name": "Finance Approval",
+            "options": [
+              {
+                "id": 18469,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-11-21T21:05:17+00:00",
+                "archivedDate": null,
+                "name": "Declined"
+              },
+              {
+                "id": 18468,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-11-21T21:05:17+00:00",
+                "archivedDate": null,
+                "name": "Pending"
+              },
+              {
+                "id": 18467,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-11-21T21:05:17+00:00",
+                "archivedDate": null,
+                "name": "Yes"
+              }
+            ]
+          },
+          {
+            "id": 3513,
+            "fieldId": 4603,
+            "manageable": "yes",
+            "multiple": "no",
+            "name": "Approval",
+            "options": [
+              {
+                "id": 18471,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-11-21T21:09:33+00:00",
+                "archivedDate": null,
+                "name": "No"
+              },
+              {
+                "id": 18470,
+                "archived": "no",
+                "manageable": "yes",
+                "createdDate": "2025-11-21T21:09:33+00:00",
+                "archivedDate": null,
+                "name": "Yes"
+              }
+            ]
+          },
+          {
+            "fieldId": 4043,
+            "manageable": "no",
+            "multiple": "no",
+            "name": "Pay Group",
+            "options": [],
+            "alias": "payGroup"
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Fri, 29 May 2026 14:17:50 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubdomains;",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4912",
+          "x-ratelimit-reset": "1780064292",
+          "server": "nginx",
+          "cache-control": "no-cache, private",
+          "x-request-id": "141031221269395312691959965167524251514",
+          "vary": "Authorization,User-Agent"
+        },
+        "hash": "fe6d01241e51f93cf588fb0eafa01c074342ed77",
+        "request": {
+          "params": {
+            "format": "json"
+          }
+        }
+      }
+    }
+  }
+}
