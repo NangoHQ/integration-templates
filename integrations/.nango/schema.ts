@@ -5397,13 +5397,15 @@ export interface ActionOutput_anrok_voidtransaction {
 
 export interface File {
   id: string;
-  object?: string | undefined;
-  bytes?: number | undefined;
-  created_at?: number | undefined;
-  filename?: string | undefined;
-  purpose?: string | undefined;
-  status?: string | undefined;
-  status_details?: string | undefined;
+  mediaContentType: string;
+  preview?: {  url?: string | undefined;
+  width?: number | undefined;
+  height?: number | undefined;
+  status?: string | undefined;};
+  url?: string | undefined;
+  alt?: string | undefined;
+  createdAt: string;
+  updatedAt: string;
 };
 
 export interface MessageBatch {
@@ -9798,17 +9800,48 @@ export interface ActionOutput_ashby_updatecandidate {
 
 export interface Company {
   id: string;
-  name?: string | undefined;
-  company_id?: string | undefined;
-  created_at?: number | undefined;
-  updated_at?: number | undefined;
-  session_count?: number | undefined;
-  monthly_spend?: number | undefined;
-  user_count?: number | undefined;
-  plan?: string | undefined;
-  size?: number | undefined;
-  website?: string | undefined;
-  industry?: string | undefined;
+  name: string;
+  note?: string | undefined;
+  externalId?: string | undefined;
+  createdAt: string;
+  updatedAt: string;
+  customerSince: string;
+  mainContactId?: string | undefined;
+  mainContactTitle?: string | undefined;
+  mainContactCustomerFirstName?: string | undefined;
+  mainContactCustomerLastName?: string | undefined;
+  mainContactCustomerEmail?: string | undefined;
+  mainContactCustomerPhone?: string | undefined;
+  totalSpentAmount?: string | undefined;
+  totalSpentCurrencyCode?: string | undefined;
+  contacts?: ({  id: string;
+  title?: string | undefined;
+  isMainContact: boolean;
+  customerFirstName?: string | undefined;
+  customerLastName?: string | undefined;
+  customerEmail?: string | undefined;
+  customerPhone?: string | undefined;})[];
+  locations?: ({  id: string;
+  name: string;
+  externalId?: string | undefined;
+  note?: string | undefined;
+  phone?: string | undefined;
+  createdAt: string;
+  updatedAt: string;
+  shippingAddress1?: string | undefined;
+  shippingAddress2?: string | undefined;
+  shippingCity?: string | undefined;
+  shippingProvince?: string | undefined;
+  shippingCountry?: string | undefined;
+  shippingZip?: string | undefined;
+  shippingPhone?: string | undefined;
+  billingAddress1?: string | undefined;
+  billingAddress2?: string | undefined;
+  billingCity?: string | undefined;
+  billingProvince?: string | undefined;
+  billingCountry?: string | undefined;
+  billingZip?: string | undefined;
+  billingPhone?: string | undefined;})[];
 };
 
 export interface ListEntry {
@@ -41417,12 +41450,14 @@ export interface ConversationPart {
 
 export interface Collection {
   id: string;
-  name?: string | undefined;
+  title?: string | undefined;
+  handle?: string | undefined;
   description?: string | undefined;
-  url?: string | undefined;
-  created_at?: number | undefined;
-  updated_at?: number | undefined;
-  workspace_id?: string | undefined;
+  updated_at?: string | undefined;
+  sort_order?: string | undefined;
+  collection_type?: string | undefined;
+  published_on_current_publication?: boolean | undefined;
+  template_suffix?: string | undefined;
 };
 
 export interface Segment {
@@ -71013,6 +71048,134 @@ export interface ActionOutput_sharepoint_online_uploaddriveitem {
   lastModifiedDateTime?: string | undefined;
 };
 
+export interface AbandonedCheckout {
+  id: string;
+  name: string;
+  abandonedCheckoutUrl: string;
+  createdAt: string;
+  updatedAt: string;
+  completedAt?: string | undefined;
+  customerEmail?: string | undefined;
+  customerFirstName?: string | undefined;
+  customerLastName?: string | undefined;
+  billingAddressCountry?: string | undefined;
+  shippingAddressCountry?: string | undefined;
+  lineItems?: ({  id: string;
+  title?: string | undefined;
+  quantity: number;
+  sku?: string | undefined;
+  originalUnitPrice?: number | undefined;
+  originalUnitPriceCurrency?: string | undefined;})[];
+  totalPrice?: number | undefined;
+  totalPriceCurrency?: string | undefined;
+  subtotalPrice?: number | undefined;
+  subtotalPriceCurrency?: string | undefined;
+  discountCodes?: string[] | undefined;
+};
+
+export interface Discount {
+  id: string;
+  title: string;
+  summary?: string | undefined;
+  status: string;
+  updatedAt: string;
+};
+
+export interface FulfillmentOrder {
+  id: string;
+  status?: string | undefined;
+  requestStatus?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  orderId?: string | undefined;
+  orderName?: string | undefined;
+  assignedLocationId?: string | undefined;
+  assignedLocationName?: string | undefined;
+  destinationAddress1?: string | undefined;
+  destinationAddress2?: string | undefined;
+  destinationCity?: string | undefined;
+  destinationCompany?: string | undefined;
+  destinationCountryCode?: string | undefined;
+  destinationFirstName?: string | undefined;
+  destinationLastName?: string | undefined;
+  destinationPhone?: string | undefined;
+  destinationProvince?: string | undefined;
+  destinationZip?: string | undefined;
+};
+
+export interface GiftCard {
+  id: string;
+  balance: {  amount: string;
+  currencyCode: string;};
+  initialValue: {  amount: string;
+  currencyCode: string;};
+  maskedCode: string;
+  customer?: {  id?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  email?: string | undefined;};
+  expiresOn?: string | undefined;
+  createdAt: string;
+};
+
+export interface InventoryItem {
+  id: string;
+  sku?: string | undefined;
+  tracked: boolean;
+  unitCost?: {  amount?: string | undefined;
+  currencyCode?: string | undefined;};
+  countryCodeOfOrigin?: string | undefined;
+  harmonizedSystemCode?: string | undefined;
+  updatedAt?: string | undefined;
+  variant?: {  id: string;
+  title?: string | undefined;
+  displayName?: string | undefined;
+  productId?: string | undefined;
+  productTitle?: string | undefined;};
+};
+
+export interface InventoryLevel {
+  id: string;
+  inventoryItemId: string;
+  locationId: string;
+  quantities?: ({  name: string;
+  quantity: number;})[] | undefined;
+};
+
+export interface Market {
+  id: string;
+  name: string;
+  handle: string;
+  enabled?: boolean | undefined;
+  status?: string | undefined;
+  regions?: ({  name: string;
+  code?: string | undefined;})[];
+  currencySettings?: {  baseCurrencyCode?: string | undefined;
+  localCurrencies?: boolean | undefined;
+  roundingEnabled?: boolean | undefined;};
+  webPresence?: {  id?: string | undefined;
+  domain?: string | undefined;
+  subfolderSuffix?: string | undefined;
+  rootUrls?: ({  locale: string;
+  url: string;})[] | undefined;};
+};
+
+export interface Metaobject {
+  id: string;
+  handle: string;
+  type: string;
+  displayName: string;
+  updatedAt: string;
+  createdAt: string;
+  fields?: ({  key: string;
+  value?: string | undefined;
+  jsonValue?: unknown | undefined;})[];
+};
+
+export interface SyncMetadata_shopify_metaobjects {
+  types: string[];
+};
+
 export interface Order {
   id: string;
   parent_id?: string | undefined;
@@ -71075,7 +71238,4162 @@ export interface Order {
   refunds?: unknown[] | undefined;
 };
 
-export interface SyncMetadata_shopify_orders {
+export interface Return {
+  id: string;
+  status: string;
+  orderId: string;
+  createdAt: string;
+  returnLineItems?: ({  id: string;
+  quantity?: number | undefined;})[];
+  refunds?: ({  id: string;
+  totalRefunded?: string | undefined;
+  currencyCode?: string | undefined;})[];
+};
+
+export interface UrlRedirect {
+  id: string;
+  path: string;
+  target: string;
+};
+
+export interface ActionInput_shopify_acceptfulfillmentrequest {
+  /**
+   * The ID of the fulfillment order associated with the fulfillment request. Example: "gid://shopify/FulfillmentOrder/1046000778"
+   */
+  id: string;
+  /**
+   * An optional reason for accepting the fulfillment request.
+   */
+  message?: string | undefined;
+};
+
+export interface ActionOutput_shopify_acceptfulfillmentrequest {
+  fulfillmentOrder?: {  id: string;
+  status?: string | undefined;
+  requestStatus?: string | undefined;};
+  userErrors: ({  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_activateautomaticdiscount {
+  /**
+   * The ID of the automatic discount to activate. Example: gid://shopify/DiscountAutomaticNode/123
+   */
+  id: string;
+};
+
+export interface ActionOutput_shopify_activateautomaticdiscount {
+  status?: string | undefined;
+  userErrors?: ({  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_activatediscountcode {
+  /**
+   * The ID of the code discount to activate. Example: "gid://shopify/DiscountCodeNode/206265824"
+   */
+  id: string;
+};
+
+export interface ActionOutput_shopify_activatediscountcode {
+  activated: boolean;
+  userErrors: ({  field?: string[] | undefined;
+  code?: string | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_activateinventoryitematlocation {
+  /**
+   * The ID of the inventory item to activate. Example: "gid://shopify/InventoryItem/43729076"
+   */
+  inventoryItemId: string;
+  /**
+   * The ID of the location where the inventory item should be activated. Example: "gid://shopify/Location/346779380"
+   */
+  locationId: string;
+  /**
+   * The initial on_hand quantity of the inventory item being activated at the location.
+   */
+  onHand?: number | undefined;
+  /**
+   * The initial available quantity of the inventory item being activated at the location.
+   */
+  available?: number | undefined;
+};
+
+export interface ActionOutput_shopify_activateinventoryitematlocation {
+  inventoryLevel?: {  id: string;
+  canDeactivate?: boolean | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  item?: {  id: string;} | undefined;
+  location?: {  id: string;} | undefined;
+  quantities?: ({  name: string;
+  quantity: number;})[] | undefined;};
+  userErrors: ({  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_adjustinventoryquantities {
+  /**
+   * The reason for the adjustment. Example: "correction"
+   */
+  reason: string;
+  /**
+   * The inventory quantity name to adjust. Example: "available"
+   */
+  name: string;
+  /**
+   * Optional URI referencing the source document.
+   */
+  referenceDocumentUri?: string | undefined;
+  /**
+   * The list of inventory changes to apply.
+   */
+  changes: ({  /**
+   * The amount to change the quantity by. Can be negative.
+   */
+  delta: number;
+  /**
+   * The inventory item ID. Example: "gid://shopify/InventoryItem/30322695"
+   */
+  inventoryItemId: string;
+  /**
+   * The location ID. Example: "gid://shopify/Location/124656943"
+   */
+  locationId: string;
+  /**
+   * Optional expected current quantity for optimistic concurrency.
+   */
+  changeFromQuantity?: number | undefined;})[];
+};
+
+export interface ActionOutput_shopify_adjustinventoryquantities {
+  success: boolean;
+  userErrors: ({  field?: string[] | undefined;
+  message: string;})[];
+  inventoryAdjustmentGroup?: {  createdAt?: string | undefined;
+  reason?: string | undefined;
+  referenceDocumentUri?: string | undefined;
+  changes?: ({  name: string;
+  delta: number;})[] | undefined;};
+};
+
+export interface ActionInput_shopify_approvereturn {
+  /**
+   * The globally-unique ID of the return to approve. Example: "gid://shopify/Return/945000959"
+   */
+  return_id: string;
+  /**
+   * Whether to notify the customer when the return request is approved.
+   */
+  notify_customer?: boolean | undefined;
+};
+
+export interface ActionOutput_shopify_approvereturn {
+  return: {  id: string;
+  name: string;
+  status: string;
+  created_at?: string | undefined;
+  order_id: string;};
+  user_errors: ({  code?: string | undefined;
+  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_cancelfulfillmentrequest {
+  /**
+   * The ID of the fulfillment order to cancel. Example: "gid://shopify/FulfillmentOrder/1046000804"
+   */
+  fulfillmentOrderId: string;
+  /**
+   * An optional message. Note: the Shopify fulfillmentOrderCancel mutation does not currently accept a message parameter.
+   */
+  message?: string | undefined;
+};
+
+export interface ActionOutput_shopify_cancelfulfillmentrequest {
+  fulfillmentOrder?: {  id: string;
+  status?: string | undefined;
+  requestStatus?: string | undefined;};
+  replacementFulfillmentOrder?: {  id: string;
+  status?: string | undefined;
+  requestStatus?: string | undefined;};
+  userErrors: ({  field?: string | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_cancelfulfillment {
+  /**
+   * The ID of the fulfillment to cancel. Example: "gid://shopify/Fulfillment/1234567890"
+   */
+  fulfillmentId: string;
+};
+
+export interface ActionOutput_shopify_cancelfulfillment {
+  status?: string | undefined;
+  userErrors: ({  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_cancelorder {
+  /**
+   * The Shopify order ID or GID. Example: "gid://shopify/Order/1234567890" or "1234567890"
+   */
+  orderId: string;
+  /**
+   * The cancellation reason. Example: "CUSTOMER"
+   */
+  reason: string;
+  /**
+   * Whether to refund the original payment methods.
+   */
+  refund?: boolean | undefined;
+  /**
+   * Whether to restock the inventory committed to the order.
+   */
+  restock?: boolean | undefined;
+};
+
+export interface ActionOutput_shopify_cancelorder {
+  job?: {  id: string;
+  done: boolean;} | undefined;
+  orderCancelUserErrors?: ({  field?: string[] | undefined;
+  message: string;
+  code?: string | undefined;})[];
+  userErrors?: ({  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_cancelreturn {
+  /**
+   * The ID of the return to cancel. Example: "gid://shopify/Return/123"
+   */
+  returnId: string;
+};
+
+export interface ActionOutput_shopify_cancelreturn {
+  return?: {  id: string;
+  status?: string | undefined;};
+  userErrors?: ({  code?: string | undefined;
+  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_closeorder {
+  /**
+   * The ID of the order to close. Example: "gid://shopify/Order/1234567890"
+   */
+  orderId: string;
+};
+
+export interface ActionOutput_shopify_closeorder {
+  order?: {  id: string;
+  name?: string | undefined;
+  closed?: boolean | undefined;
+  closedAt?: string | undefined;};
+  userErrors: ({  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_closereturn {
+  /**
+   * The globally-unique ID of the return to close. Example: "gid://shopify/Return/1234567890"
+   */
+  id: string;
+};
+
+export interface ActionOutput_shopify_closereturn {
+  return?: {  id: string;
+  name: string;
+  status: string;
+  createdAt: string;
+  closedAt?: string | undefined;
+  totalQuantity: number;
+  order?: {  id: string;
+  name: string;} | undefined;};
+  userErrors: ({  code?: string | undefined;
+  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_completedraftorder {
+  /**
+   * The ID of the draft order to complete. Example: "gid://shopify/DraftOrder/1234567890"
+   */
+  draftOrderId: string;
+  /**
+   * Whether the order should be created with payment pending.
+   */
+  paymentPending?: boolean | undefined;
+};
+
+export interface ActionOutput_shopify_completedraftorder {
+  draftOrderId?: string | undefined;
+  orderId?: string | undefined;
+};
+
+export interface ActionInput_shopify_createautomaticdiscountbxgy {
+  /**
+   * The discount name. Example: "Buy one, get one free"
+   */
+  title: string;
+  /**
+   * The date and time when the discount becomes active. Example: "2025-01-01T00:00:00Z"
+   */
+  startsAt: string;
+  /**
+   * The date and time when the discount expires. Example: "2025-12-31T23:59:59Z"
+   */
+  endsAt?: string | undefined;
+  customerBuys: {  items: {  collections?: {  add?: string[] | undefined;
+  remove?: string[] | undefined;};
+  products?: {  productsToAdd?: string[] | undefined;
+  productsToRemove?: string[] | undefined;
+  productVariantsToAdd?: string[] | undefined;
+  productVariantsToRemove?: string[] | undefined;};};
+  value: {  /**
+   * The quantity of prerequisite items. Example: "1"
+   */
+  quantity: string;};
+  isOneTimePurchase?: boolean | undefined;
+  isSubscription?: boolean | undefined;};
+  customerGets: {  items: {  collections?: {  add?: string[] | undefined;
+  remove?: string[] | undefined;};
+  products?: {  productsToAdd?: string[] | undefined;
+  productsToRemove?: string[] | undefined;
+  productVariantsToAdd?: string[] | undefined;
+  productVariantsToRemove?: string[] | undefined;};};
+  value: {  discountOnQuantity: {  effect: {  /**
+   * The percentage value of the discount. Value must be between 0.00 - 1.00. Example: 1
+   */
+  percentage: number;};
+  /**
+   * The quantity of items that are discounted. Example: "1"
+   */
+  quantity: string;};};
+  appliesOnOneTimePurchase?: boolean | undefined;
+  appliesOnSubscription?: boolean | undefined;};
+  combinesWith?: {  orderDiscounts?: boolean | undefined;
+  productDiscounts?: boolean | undefined;
+  shippingDiscounts?: boolean | undefined;};
+  context?: {  all?: boolean | undefined;
+  customers?: {  add?: string[] | undefined;
+  remove?: string[] | undefined;};
+  customerSegments?: {  add?: string[] | undefined;
+  remove?: string[] | undefined;};};
+  tags?: string[] | undefined;
+  /**
+   * The maximum number of times the discount can be applied to an order. Example: "1"
+   */
+  usesPerOrderLimit?: string | undefined;
+};
+
+export interface ActionOutput_shopify_createautomaticdiscountbxgy {
+  automaticDiscountNode?: {  id: string;
+  title?: string | undefined;
+  startsAt?: string | undefined;
+  endsAt?: string | undefined;
+  status?: string | undefined;
+  summary?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;};
+  userErrors: ({  field?: string[] | undefined;
+  message: string;
+  code?: string | undefined;})[];
+};
+
+export interface ActionInput_shopify_createautomaticdiscountfreeshipping {
+  /**
+   * The discount title. Example: "FREESHIPPING50"
+   */
+  title: string;
+  /**
+   * ISO 8601 datetime when the discount becomes active. Example: "2025-01-01T00:00:00Z"
+   */
+  startsAt: string;
+  /**
+   * ISO 8601 datetime when the discount expires. Example: "2025-12-31T23:59:59Z"
+   */
+  endsAt?: string | undefined;
+  /**
+   * Whether the discount applies on regular one-time-purchase items.
+   */
+  appliesOnOneTimePurchase?: boolean | undefined;
+  /**
+   * Whether the discount applies on subscription items.
+   */
+  appliesOnSubscription?: boolean | undefined;
+  /**
+   * Discount classes that can combine with this shipping discount.
+   */
+  combinesWith?: {  orderDiscounts?: boolean | undefined;
+  productDiscounts?: boolean | undefined;
+  shippingDiscounts?: boolean | undefined;};
+  /**
+   * Context defining which buyers can use the discount.
+   */
+  context?: {  all?: boolean | undefined;
+  customerIds?: {  add?: string[] | undefined;
+  remove?: string[] | undefined;};
+  customerSegments?: {  add?: string[] | undefined;
+  remove?: string[] | undefined;};};
+  /**
+   * Destinations where the discount applies.
+   */
+  destination?: {  all?: boolean | undefined;
+  countries?: {  add?: string[] | undefined;
+  remove?: string[] | undefined;};};
+  /**
+   * Maximum shipping price that qualifies for the discount. Example: "200"
+   */
+  maximumShippingPrice?: string | undefined;
+  /**
+   * Minimum subtotal or quantity required for the discount.
+   */
+  minimumRequirement?: {  quantity?: {  greaterThanOrEqualToQuantity: string;} | undefined;
+  subtotal?: {  greaterThanOrEqualToSubtotal: string;} | undefined;};
+  /**
+   * Number of billing cycles for subscription-based discounts. 0 means indefinite.
+   */
+  recurringCycleLimit?: number | undefined;
+  /**
+   * Searchable keywords associated with the discount.
+   */
+  tags?: string[] | undefined;
+};
+
+export interface ActionOutput_shopify_createautomaticdiscountfreeshipping {
+  automaticDiscountNode?: {  id: string;} | undefined;
+  userErrors: ({  field?: string[] | undefined;
+  message: string;
+  code?: string | undefined;
+  extraInfo?: string | undefined;})[];
+};
+
+export interface ActionInput_shopify_createautomaticdiscount {
+  title: string;
+  startsAt: string;
+  customerGets: {  [key: string]: unknown | undefined;};
+  endsAt?: string | undefined;
+  combinesWith?: {  [key: string]: unknown | undefined;};
+  minimumRequirement?: {  [key: string]: unknown | undefined;};
+  context?: {  [key: string]: unknown | undefined;};
+  recurringCycleLimit?: number | undefined;
+  usageLimit?: number | undefined;
+  appliesOncePerCustomer?: boolean | undefined;
+  customerSelection?: {  [key: string]: unknown | undefined;};
+  tags?: string[] | undefined;
+};
+
+export interface ActionOutput_shopify_createautomaticdiscount {
+  id: string;
+  automaticDiscount?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_shopify_createcollection {
+  /**
+   * The title of the collection.
+   */
+  title: string;
+  /**
+   * The description of the collection, in HTML format.
+   */
+  descriptionHtml?: string | undefined;
+  /**
+   * A unique human-friendly string for the collection.
+   */
+  handle?: string | undefined;
+  /**
+   * The image associated with the collection.
+   */
+  image?: {  altText?: string | undefined;
+  id?: string | undefined;
+  src?: string | undefined;};
+  /**
+   * The metafields to associate with the collection.
+   */
+  metafields?: ({  id?: string | undefined;
+  key?: string | undefined;
+  namespace?: string | undefined;
+  type?: string | undefined;
+  value?: string | undefined;})[];
+  /**
+   * Initial list of collection product IDs. Only valid without rules.
+   */
+  products?: string[] | undefined;
+  /**
+   * Whether to redirect after a new handle has been provided.
+   */
+  redirectNewHandle?: boolean | undefined;
+  /**
+   * The rules used to assign products to the collection.
+   */
+  ruleSet?: {  appliedDisjunctively: boolean;
+  rules: ({  column: string;
+  condition: string;
+  conditionObjectId?: string | undefined;
+  relation: string;})[];};
+  /**
+   * SEO information for the collection.
+   */
+  seo?: {  description?: string | undefined;
+  title?: string | undefined;};
+  /**
+   * The order in which the collection products are sorted.
+   */
+  sortOrder?: string | undefined;
+  /**
+   * The theme template used when viewing the collection in a store.
+   */
+  templateSuffix?: string | undefined;
+  /**
+   * The publications to which the collection will be published.
+   */
+  publications?: ({  publicationId?: string | undefined;})[];
+};
+
+export interface ActionOutput_shopify_createcollection {
+  /**
+   * The globally unique ID of the collection.
+   */
+  id: string;
+  /**
+   * The title of the collection.
+   */
+  title: string;
+  /**
+   * The description of the collection, in HTML format.
+   */
+  descriptionHtml?: string | undefined;
+  /**
+   * A unique human-friendly string for the collection.
+   */
+  handle?: string | undefined;
+  /**
+   * The order in which the collection products are sorted.
+   */
+  sortOrder?: string | undefined;
+  /**
+   * The date and time when the collection was last updated.
+   */
+  updatedAt?: string | undefined;
+};
+
+export interface ActionInput_shopify_createcompany {
+  company: {  name: string;
+  externalId?: string | undefined;
+  note?: string | undefined;
+  customerSince?: string | undefined;};
+  companyContact?: {  email?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  locale?: string | undefined;
+  phone?: string | undefined;
+  title?: string | undefined;};
+  companyLocation?: {  name?: string | undefined;
+  externalId?: string | undefined;
+  note?: string | undefined;
+  phone?: string | undefined;
+  locale?: string | undefined;
+  billingSameAsShipping?: boolean | undefined;
+  billingAddress?: {  address1?: string | undefined;
+  address2?: string | undefined;
+  city?: string | undefined;
+  countryCode?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  phone?: string | undefined;
+  recipient?: string | undefined;
+  zip?: string | undefined;
+  zoneCode?: string | undefined;};
+  shippingAddress?: {  address1?: string | undefined;
+  address2?: string | undefined;
+  city?: string | undefined;
+  countryCode?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  phone?: string | undefined;
+  recipient?: string | undefined;
+  zip?: string | undefined;
+  zoneCode?: string | undefined;};
+  taxExempt?: boolean | undefined;
+  taxExemptions?: string[] | undefined;
+  taxRegistrationId?: string | undefined;
+  buyerExperienceConfiguration?: {  checkoutToDraft?: boolean | undefined;
+  deposit?: {  percentage: number;} | undefined;
+  editableShippingAddress?: boolean | undefined;
+  paymentTermsTemplateId?: string | undefined;};};
+};
+
+export interface ActionOutput_shopify_createcompany {
+  company?: {  id: string;
+  name: string;
+  externalId?: string | undefined;
+  createdAt: string;
+  updatedAt: string;
+  customerSince?: string | undefined;
+  note?: string | undefined;
+  mainContact?: {  id: string;
+  customer?: {  id: string;
+  email?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;};};
+  locations?: ({  id: string;
+  name: string;})[] | undefined;
+  contacts?: ({  id: string;
+  email?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;})[];};
+  userErrors: ({  field?: string[] | undefined;
+  message: string;
+  code?: string | undefined;})[];
+};
+
+export interface ActionInput_shopify_createcustomer {
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  tags?: string[] | undefined;
+  addresses?: ({  address1?: string | undefined;
+  address2?: string | undefined;
+  city?: string | undefined;
+  company?: string | undefined;
+  countryCode?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  phone?: string | undefined;
+  provinceCode?: string | undefined;
+  zip?: string | undefined;})[];
+  taxExempt?: boolean | undefined;
+  note?: string | undefined;
+  locale?: string | undefined;
+};
+
+export interface ActionOutput_shopify_createcustomer {
+  success: boolean;
+};
+
+export interface ActionInput_shopify_creatediscountcodebasic {
+  /**
+   * The discount name that displays to merchants in the Shopify admin and to customers.
+   */
+  title: string;
+  /**
+   * The code that customers use to apply the discount.
+   */
+  code: string;
+  /**
+   * The date and time when the discount becomes active. ISO 8601 format.
+   */
+  startsAt: string;
+  /**
+   * The date and time when the discount expires. For no expiration, use null or omit.
+   */
+  endsAt?: string | undefined;
+  /**
+   * The context defining which buyers can use the discount. Required unless using deprecated customerSelection.
+   */
+  context?: {  all?: 'ALL' | undefined;
+  customers?: {  add?: string[] | undefined;};
+  customerSegments?: {  add?: string[] | undefined;};
+  markets?: {  add?: string[] | undefined;};};
+  /**
+   * Deprecated. Use context instead.
+   */
+  customerSelection?: {  all?: boolean | undefined;
+  customers?: {  add?: string[] | undefined;};};
+  /**
+   * The items that qualify for the discount and the total value of the discount.
+   */
+  customerGets: {  value: {  discountAmount?: {  amount: string | number;
+  appliesOnEachItem?: boolean | undefined;};
+  percentage?: number | undefined;};
+  items: {  all?: boolean | undefined;
+  products?: {  add?: string[] | undefined;};
+  collections?: {  add?: string[] | undefined;};};};
+  /**
+   * Whether a customer can only use the discount once.
+   */
+  appliesOncePerCustomer?: boolean | undefined;
+  combinesWith?: {  orderDiscounts?: boolean | undefined;
+  productDiscounts?: boolean | undefined;
+  shippingDiscounts?: boolean | undefined;
+  productDiscountsWithTagsOnSameCartLine?: string[] | undefined;};
+  minimumRequirement?: {  quantity?: {  greaterThanOrEqualToQuantity: string;} | undefined;
+  subtotal?: {  greaterThanOrEqualToSubtotal: string;} | undefined;};
+  /**
+   * The number of billing cycles for subscription-based discounts. 0 means indefinitely.
+   */
+  recurringCycleLimit?: number | undefined;
+  /**
+   * Searchable keywords associated with the discount.
+   */
+  tags?: string[] | undefined;
+  /**
+   * The maximum number of times the discount can be redeemed. Null for unlimited.
+   */
+  usageLimit?: number | undefined;
+};
+
+export interface ActionOutput_shopify_creatediscountcodebasic {
+  id: string;
+  codeDiscount?: {  title?: string | undefined;
+  codes?: {  nodes: ({  code: string;})[];} | undefined;
+  startsAt?: string | undefined;
+  endsAt?: string | undefined;
+  appliesOncePerCustomer?: boolean | undefined;};
+};
+
+export interface ActionInput_shopify_creatediscountcodebxgy {
+  /**
+   * The code that customers use to apply the discount.
+   */
+  code: string;
+  /**
+   * The discount's name that displays to merchants and customers.
+   */
+  title: string;
+  /**
+   * The date and time when the discount becomes active. Example: "2026-01-01T00:00:00Z"
+   */
+  startsAt: string;
+  /**
+   * The date and time when the discount expires.
+   */
+  endsAt?: string | undefined;
+  /**
+   * Whether a customer can only use the discount once.
+   */
+  appliesOncePerCustomer?: boolean | undefined;
+  /**
+   * The discount classes that can combine with this discount.
+   */
+  combinesWith?: {  [key: string]: unknown | undefined;};
+  /**
+   * The context defining which buyers can use the discount.
+   */
+  context: {  all?: string | undefined;
+  customers?: {  add?: string[] | undefined;
+  remove?: string[] | undefined;};
+  customerSegments?: {  add?: string[] | undefined;
+  remove?: string[] | undefined;};};
+  /**
+   * The items eligible for the discount and the required quantity.
+   */
+  customerBuys: {  isOneTimePurchase?: boolean | undefined;
+  isSubscription?: boolean | undefined;
+  items?: {  collections?: {  add?: string[] | undefined;
+  remove?: string[] | undefined;};
+  products?: {  productsToAdd?: string[] | undefined;
+  productsToRemove?: string[] | undefined;
+  productVariantsToAdd?: string[] | undefined;
+  productVariantsToRemove?: string[] | undefined;};};
+  value?: {  amount?: string | undefined;
+  quantity?: string | undefined;};};
+  /**
+   * The items that qualify for the discount and the total value.
+   */
+  customerGets: {  appliesOnOneTimePurchase?: boolean | undefined;
+  appliesOnSubscription?: boolean | undefined;
+  items?: {  collections?: {  add?: string[] | undefined;
+  remove?: string[] | undefined;};
+  products?: {  productsToAdd?: string[] | undefined;
+  productsToRemove?: string[] | undefined;
+  productVariantsToAdd?: string[] | undefined;
+  productVariantsToRemove?: string[] | undefined;};};
+  value?: {  discountOnQuantity?: {  effect?: {  amount?: string | undefined;
+  percentage?: number | undefined;};
+  quantity?: string | undefined;};};};
+  /**
+   * Searchable keywords associated with the discount.
+   */
+  tags?: string[] | undefined;
+  /**
+   * The maximum number of times the discount can be redeemed.
+   */
+  usageLimit?: number | undefined;
+  /**
+   * The maximum number of times the discount can be applied to an order.
+   */
+  usesPerOrderLimit?: number | undefined;
+};
+
+export interface ActionOutput_shopify_creatediscountcodebxgy {
+  codeDiscountNode?: {  id?: string | undefined;
+  codeDiscount?: {  [key: string]: unknown | undefined;};};
+  userErrors: ({  field?: string[] | undefined;
+  code?: string | undefined;
+  message?: string | undefined;})[];
+};
+
+export interface ActionInput_shopify_creatediscountcodefreeshipping {
+  /**
+   * The code that customers use to apply the discount. Example: "FreeShipping"
+   */
+  code: string;
+  /**
+   * The discount name that displays to merchants and customers. Example: "Free Shipping Promo"
+   */
+  title: string;
+  /**
+   * The date and time when the discount becomes active. Example: "2022-06-22T21:12:07.000Z"
+   */
+  startsAt: string;
+  context?: {  customerSegments?: {  add: string[];} | undefined;
+  customers?: {  add: string[];} | undefined;
+  all?: string | undefined;};
+  /**
+   * Deprecated. Use context instead.
+   */
+  customerSelection?: {  [key: string]: unknown | undefined;};
+  destination?: {  all?: boolean | undefined;
+  countries?: {  add: string[];} | undefined;};
+  minimumRequirement?: {  subtotal?: {  greaterThanOrEqualToSubtotal: number;} | undefined;
+  quantity?: {  greaterThanOrEqualToQuantity: number;} | undefined;};
+  /**
+   * The maximum shipping price that qualifies for free shipping.
+   */
+  maximumShippingPrice?: number | undefined;
+  /**
+   * The date and time when the discount expires.
+   */
+  endsAt?: string | undefined;
+  appliesOncePerCustomer?: boolean | undefined;
+  appliesOnOneTimePurchase?: boolean | undefined;
+  appliesOnSubscription?: boolean | undefined;
+  combinesWith?: {  productDiscounts?: boolean | undefined;
+  orderDiscounts?: boolean | undefined;
+  shippingDiscounts?: boolean | undefined;};
+  recurringCycleLimit?: number | undefined;
+  tags?: string[] | undefined;
+  usageLimit?: number | undefined;
+};
+
+export interface ActionOutput_shopify_creatediscountcodefreeshipping {
+  codeDiscountNode?: {  id: string;
+  codeDiscount?: {  [key: string]: unknown | undefined;};};
+  userErrors: ({  field?: string[] | undefined;
+  code?: string | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_createfile {
+  files: ({  alt?: string | undefined;
+  contentType?: string | undefined;
+  duplicateResolutionMode?: string | undefined;
+  filename?: string | undefined;
+  originalSource: string;})[];
+};
+
+export interface ActionOutput_shopify_createfile {
+  files?: unknown[] | undefined;
+  userErrors: ({  code?: string | undefined;
+  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_creategiftcard {
+  /**
+   * The initial value of the gift card. Example: "100.0"
+   */
+  initialValue: string;
+  /**
+   * The gift card code. Must be 8-20 alphanumeric characters. Example: "ABCD1234"
+   */
+  code?: string | undefined;
+  /**
+   * The expiration date of the gift card in ISO 8601 format (YYYY-MM-DD). Example: "2026-12-31"
+   */
+  expiresOn?: string | undefined;
+  /**
+   * The ID of the customer to assign the gift card to. Example: "gid://shopify/Customer/123456789"
+   */
+  customerId?: string | undefined;
+  /**
+   * An internal note associated with the gift card. Example: "Refund for Order #1"
+   */
+  note?: string | undefined;
+  /**
+   * The suffix of the Liquid template used to render the gift card online. Example: "birthday"
+   */
+  templateSuffix?: string | undefined;
+};
+
+export interface ActionOutput_shopify_creategiftcard {
+  giftCard?: {  id: string;
+  balance?: {  amount: string;
+  currencyCode?: string | undefined;};
+  initialValue?: {  amount: string;
+  currencyCode?: string | undefined;};
+  expiresOn?: string | undefined;
+  note?: string | undefined;
+  customerId?: string | undefined;
+  enabled?: boolean | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  lastCharacters?: string | undefined;
+  maskedCode?: string | undefined;
+  templateSuffix?: string | undefined;};
+  giftCardCode?: string | undefined;
+  userErrors: ({  message: string;
+  field?: string[] | undefined;
+  code?: string | undefined;})[];
+};
+
+export interface ActionInput_shopify_createmarket {
+  /**
+   * The name of the market. Not shown to customers.
+   */
+  name: string;
+  /**
+   * A unique identifier for the market.
+   */
+  handle?: string | undefined;
+  /**
+   * Regions to include in the market condition.
+   */
+  regions?: ({  countryCode: string;})[] | undefined;
+};
+
+export interface ActionOutput_shopify_createmarket {
+  market?: {  id: string;
+  handle: string;
+  name: string;
+  status?: string | undefined;};
+  userErrors: ({  field?: string[] | undefined;
+  message: string;
+  code?: string | undefined;})[];
+};
+
+export interface ActionInput_shopify_createmetafielddefinition {
+  /**
+   * The human-readable name for the metafield definition.
+   */
+  name: string;
+  /**
+   * The resource type that the metafield definition is attached to. Example: "PRODUCT"
+   */
+  ownerType: string;
+  /**
+   * The container for a group of metafields. Example: "custom"
+   */
+  namespace: string;
+  /**
+   * The unique identifier for the metafield definition within its namespace. Example: "material"
+   */
+  key: string;
+  /**
+   * The type of data that the metafield will store. Example: "single_line_text_field"
+   */
+  type: string;
+  /**
+   * The description for the metafield definition.
+   */
+  description?: string | undefined;
+  /**
+   * Validation options for the metafield definition.
+   */
+  validations?: ({  name: string;
+  value: string;})[] | undefined;
+  /**
+   * Whether to pin the metafield definition.
+   */
+  pin?: boolean | undefined;
+  /**
+   * Whether the metafield definition can be used as a collection condition.
+   */
+  useAsCollectionCondition?: boolean | undefined;
+  /**
+   * Access settings for the metafield definition.
+   */
+  access?: {  admin?: string | undefined;};
+};
+
+export interface ActionOutput_shopify_createmetafielddefinition {
+  id: string;
+  name: string;
+  namespace: string;
+  key: string;
+  ownerType: string;
+  type: string;
+  description?: string | undefined;
+  useAsCollectionCondition?: boolean | undefined;
+};
+
+export interface ActionInput_shopify_createmetaobjectdefinition {
+  /**
+   * Unique type identifier for the metaobject. Example: "color-swatch"
+   */
+  type: string;
+  /**
+   * Human-readable display name for the metaobject definition. Example: "Color swatch"
+   */
+  displayName: string;
+  /**
+   * Field definitions for the metaobject.
+   */
+  fieldDefinitions: ({  name: string;
+  key: string;
+  type: string;
+  validations?: ({  name: string;
+  value: string;})[] | undefined;})[];
+};
+
+export interface ActionOutput_shopify_createmetaobjectdefinition {
+  id: string;
+  name: string;
+  type: string;
+  fieldDefinitions?: ({  name: string;
+  key: string;})[] | undefined;
+};
+
+export interface ActionInput_shopify_createmetaobject {
+  /**
+   * The type of the metaobject. Must match an existing metaobject definition type.
+   */
+  type: string;
+  /**
+   * A unique handle for the metaobject. Auto-generated when omitted.
+   */
+  handle?: string | undefined;
+  /**
+   * Values for fields mapped by key to the metaobject definition.
+   */
+  fields?: ({  key: string;
+  value: string;})[] | undefined;
+};
+
+export interface ActionOutput_shopify_createmetaobject {
+  id: string;
+  type: string;
+  handle: string;
+  displayName: string;
+  fields: ({  key: string;
+  value?: string | undefined;
+  type: string;})[];
+};
+
+export interface ActionInput_shopify_createproductmedia {
+  /**
+   * Shopify product ID. Example: gid://shopify/Product/121709582
+   */
+  productId: string;
+  /**
+   * List of media inputs to attach to the product
+   */
+  media: ({  /**
+   * Alt text for the media
+   */
+  alt?: string | undefined;
+  /**
+   * Media content type. Examples: IMAGE, EXTERNAL_VIDEO, VIDEO, MODEL_3D
+   */
+  mediaContentType: string;
+  /**
+   * Original source URL of the media object
+   */
+  originalSource: string;})[];
+};
+
+export interface ActionOutput_shopify_createproductmedia {
+  media?: ({  id?: string | undefined;
+  alt?: string | undefined;
+  mediaContentType?: string | undefined;
+  status?: string | undefined;
+  image?: {  url?: string | undefined;};})[];
+  mediaUserErrors?: ({  field?: string[] | undefined;
+  message: string;})[];
+  product?: {  id: string;
+  title?: string | undefined;};
+};
+
+export interface ActionInput_shopify_createproductoptions {
+  /**
+   * The ID of the product to update. Example: "gid://shopify/Product/20995642"
+   */
+  productId: string;
+  options: ({  name: string;
+  position?: number | undefined;
+  values: ({  name: string;
+  linkedMetafieldValue?: string | undefined;})[];})[];
+  /**
+   * The variant strategy. Example: "LEAVE_AS_IS" or "CREATE"
+   */
+  variantStrategy?: string | undefined;
+};
+
+export interface ActionOutput_shopify_createproductoptions {
+  options: ({  id: string;
+  name: string;
+  position: number;
+  values: string[];
+  optionValues?: ({  id?: string | undefined;
+  name: string;
+  hasVariants: boolean;})[];})[];
+  userErrors: ({  code?: string | undefined;
+  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_createproductvariants {
+  /**
+   * Shopify product ID. Example: "gid://shopify/Product/123"
+   */
+  productId: string;
+  strategy?: 'DEFAULT' | 'REMOVE_STANDALONE_VARIANT' | undefined;
+  variants: ({  price?: string | number | undefined;
+  compareAtPrice?: string | number | undefined;
+  optionValues?: ({  name?: string | undefined;
+  optionName?: string | undefined;
+  optionId?: string | undefined;
+  id?: string | undefined;})[];
+  inventoryItem?: {  sku?: string | undefined;
+  cost?: string | number | undefined;};
+  inventoryPolicy?: 'DENY' | 'CONTINUE' | undefined;
+  mediaId?: string | undefined;
+  mediaSrc?: string[] | undefined;
+  metafields?: ({  namespace: string;
+  key: string;
+  type: string;
+  value: string;})[] | undefined;})[];
+  media?: ({  mediaContentType: 'IMAGE' | 'VIDEO' | 'MODEL_3D' | 'EXTERNAL_VIDEO';
+  alt?: string | undefined;
+  originalSource?: string | undefined;})[];
+};
+
+export interface ActionOutput_shopify_createproductvariants {
+  productVariants: ({  id: string;
+  title: string;
+  price?: string | undefined;
+  compareAtPrice?: string | undefined;
+  selectedOptions?: ({  name: string;
+  value: string;})[] | undefined;})[];
+  userErrors: ({  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_createproduct {
+  title: string;
+  descriptionHtml?: string | undefined;
+  vendor?: string | undefined;
+  productType?: string | undefined;
+  tags?: string[] | undefined;
+  status?: 'ACTIVE' | 'ARCHIVED' | 'DRAFT' | undefined;
+  handle?: string | undefined;
+  seo?: {  title?: string | undefined;
+  description?: string | undefined;};
+  productOptions?: ({  name: string;
+  values: ({  name: string;})[];})[] | undefined;
+};
+
+export interface ActionOutput_shopify_createproduct {
+  id: string;
+  title: string;
+  handle?: string | undefined;
+  descriptionHtml?: string | undefined;
+  productType?: string | undefined;
+  vendor?: string | undefined;
+  status?: string | undefined;
+  tags?: string[] | undefined;
+  seo?: {  title?: string | undefined;
+  description?: string | undefined;};
+};
+
+export interface ActionInput_shopify_createrefund {
+  orderId: string;
+  refundLineItems?: ({  lineItemId: string;
+  quantity: number;
+  restockType?: string | undefined;
+  locationId?: string | undefined;})[];
+  shipping?: {  amount?: string | undefined;
+  fullRefund?: boolean | undefined;};
+  transactions?: ({  orderId: string;
+  parentId?: string | undefined;
+  kind: string;
+  gateway: string;
+  amount: string;})[];
+  duties?: ({  dutyId: string;
+  refundType?: string | undefined;})[];
+  note?: string | undefined;
+  notify?: boolean | undefined;
+  allowOverRefunding?: boolean | undefined;
+  currency?: string | undefined;
+  discrepancyReason?: string | undefined;
+  processedAt?: string | undefined;
+  idempotencyKey?: string | undefined;
+};
+
+export interface ActionOutput_shopify_createrefund {
+  refund?: {  id?: string | undefined;
+  note?: string | undefined;
+  createdAt?: string | undefined;
+  processedAt?: string | undefined;
+  totalRefundedSet?: {  presentmentMoney?: {  amount?: string | undefined;
+  currencyCode?: string | undefined;};
+  shopMoney?: {  amount?: string | undefined;
+  currencyCode?: string | undefined;};};};
+  userErrors?: ({  field?: string[] | undefined;
+  message?: string | undefined;})[];
+};
+
+export interface ActionInput_shopify_createreturn {
+  /**
+   * The ID of the order to be returned. Example: gid://shopify/Order/1234567890
+   */
+  orderId: string;
+  /**
+   * The return line items list to be handled.
+   */
+  returnLineItems: ({  /**
+   * The ID of the fulfillment line item to be returned. Example: gid://shopify/FulfillmentLineItem/1234567890
+   */
+  fulfillmentLineItemId: string;
+  /**
+   * The quantity of the item to be returned.
+   */
+  quantity: number;
+  /**
+   * The ID of a ReturnReasonDefinition.
+   */
+  returnReasonDefinitionId?: string | undefined;
+  /**
+   * A note about the reason that the item is being returned. Maximum length: 255 characters.
+   */
+  returnReasonNote?: string | undefined;
+  /**
+   * Deprecated. Use returnReasonDefinitionId instead.
+   */
+  returnReason?: string | undefined;})[];
+  /**
+   * Whether to notify the customer about the return.
+   */
+  notifyCustomer?: boolean | undefined;
+};
+
+export interface ActionOutput_shopify_createreturn {
+  return?: {  id: string;
+  name: string;
+  status: string;
+  orderId: string;
+  totalQuantity?: number | undefined;};
+  userErrors: ({  field: string[];
+  message: string;
+  code?: string | undefined;})[];
+};
+
+export interface ActionInput_shopify_createstagedupload {
+  /**
+   * Array of staged upload inputs.
+   */
+  uploads: ({  /**
+   * The file name and extension. Example: "product-hero-image.jpg"
+   */
+  filename: string;
+  /**
+   * The file MIME type. Example: "image/jpeg"
+   */
+  mimeType: string;
+  /**
+   * The intended Shopify resource type. Example: "IMAGE"
+   */
+  resource: 'BULK_MUTATION_VARIABLES' | 'COLLECTION_IMAGE' | 'DISPUTE_FILE_UPLOAD' | 'FILE' | 'IMAGE' | 'MODEL_3D' | 'RETURN_LABEL' | 'SHOP_IMAGE' | 'URL_REDIRECT_IMPORT' | 'VIDEO' | 'PRODUCT_IMAGE';
+  /**
+   * The file size in bytes. Required for VIDEO and MODEL_3D resources.
+   */
+  fileSize?: string | undefined;
+  /**
+   * The HTTP method for the upload request. Defaults to PUT.
+   */
+  httpMethod?: 'POST' | 'PUT' | undefined;})[];
+};
+
+export interface ActionOutput_shopify_createstagedupload {
+  stagedTargets: ({  url: string;
+  resourceUrl?: string | undefined;
+  parameters: ({  name: string;
+  value: string;})[];})[];
+};
+
+export interface ActionInput_shopify_createurlredirect {
+  /**
+   * The old path to be redirected from. Example: "/old-path"
+   */
+  path: string;
+  /**
+   * The target location where the user will be redirected to. Example: "/new-path"
+   */
+  target: string;
+};
+
+export interface ActionOutput_shopify_createurlredirect {
+  urlRedirect?: {  id: string;
+  path: string;
+  target: string;} | undefined;
+  userErrors: ({  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_createwebhooksubscription {
+  /**
+   * The webhook topic enum value. Example: ORDERS_CREATE
+   */
+  topic: string;
+  webhookSubscription: {  /**
+   * The HTTPS URL to send webhooks to
+   */
+  callbackUrl: string;
+  /**
+   * Payload format (JSON or XML)
+   */
+  format?: string | undefined;
+  /**
+   * Fields to include in the webhook payload
+   */
+  includeFields?: string[] | undefined;};
+};
+
+export interface ActionOutput_shopify_createwebhooksubscription {
+  webhookSubscription?: {  id?: string | undefined;
+  topic?: string | undefined;
+  callbackUrl?: string | undefined;
+  format?: string | undefined;
+  includeFields?: string[] | undefined;};
+  userErrors: ({  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_deactivateautomaticdiscount {
+  /**
+   * The ID of the automatic discount to deactivate. Example: "gid://shopify/DiscountAutomaticNode/123"
+   */
+  discountNodeId: string;
+};
+
+export interface ActionOutput_shopify_deactivateautomaticdiscount {
+  status?: string | undefined;
+  startsAt?: string | undefined;
+  endsAt?: string | undefined;
+  userErrors?: ({  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_deactivatediscountcode {
+  /**
+   * The globally unique ID of the discount code node to deactivate. Example: gid://shopify/DiscountCodeNode/123
+   */
+  discountNodeId: string;
+};
+
+export interface ActionOutput_shopify_deactivatediscountcode {
+  status?: string | undefined;
+  userErrors: ({  field?: string[] | undefined;
+  code?: string | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_deactivateinventoryitematlocation {
+  /**
+   * The GID of the inventory level to deactivate. Example: "gid://shopify/InventoryLevel/123456789?inventory_item_id=987654321"
+   */
+  inventory_level_id: string;
+};
+
+export interface ActionOutput_shopify_deactivateinventoryitematlocation {
+  deactivated: boolean;
+  user_errors?: ({  message: string;})[] | undefined;
+};
+
+export interface ActionInput_shopify_declinereturn {
+  /**
+   * The globally-unique ID of the return to decline. Example: gid://shopify/Return/123
+   */
+  returnId: string;
+  /**
+   * The reason the return request is being declined.
+   */
+  declineReason: 'FINAL_SALE' | 'OTHER' | 'RETURN_PERIOD_ENDED';
+  /**
+   * The notification message sent to the customer about the declined return request.
+   */
+  declineNote?: string | undefined;
+  /**
+   * Whether to notify the customer when the return request is declined.
+   */
+  notifyCustomer?: boolean | undefined;
+};
+
+export interface ActionOutput_shopify_declinereturn {
+  return: {  id: string;
+  status: string;
+  name?: string | undefined;
+  decline?: {  reason?: string | undefined;
+  note?: string | undefined;};
+  order?: {  id: string;} | undefined;};
+  userErrors: ({  code: string;
+  field: string[];
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_deleteautomaticdiscount {
+  /**
+   * The ID of the automatic discount to delete. Example: "gid://shopify/DiscountAutomaticNode/123"
+   */
+  id: string;
+};
+
+export interface ActionOutput_shopify_deleteautomaticdiscount {
+  success: boolean;
+  deletedAutomaticDiscountId?: string | undefined;
+  userErrors?: ({  field?: string[] | undefined;
+  code?: string | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_deletecollection {
+  /**
+   * The GraphQL ID of the collection to delete. Example: "gid://shopify/Collection/1009501285"
+   */
+  id: string;
+};
+
+export interface ActionOutput_shopify_deletecollection {
+  deletedCollectionId?: string | undefined;
+  userErrors: ({  field: string[];
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_deletecustomer {
+  /**
+   * The GID of the customer to delete. Example: gid://shopify/Customer/1234567890
+   */
+  customerId: string;
+};
+
+export interface ActionOutput_shopify_deletecustomer {
+  deleted: boolean;
+  deletedCustomerId?: string | undefined;
+  userErrors?: ({  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_deletediscountcode {
+  /**
+   * The ID of the code discount to delete. Example: "gid://shopify/DiscountCodeNode/123"
+   */
+  id: string;
+};
+
+export interface ActionOutput_shopify_deletediscountcode {
+  deletedCodeDiscountId?: string | undefined;
+  userErrors: ({  field?: string[] | undefined;
+  code?: string | undefined;
+  message?: string | undefined;})[];
+};
+
+export interface ActionInput_shopify_deletedraftorder {
+  /**
+   * Draft order GID. Example: "gid://shopify/DraftOrder/1234567890"
+   */
+  id: string;
+};
+
+export interface ActionOutput_shopify_deletedraftorder {
+  deletedId?: string | undefined;
+  userErrors: ({  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_deletefiles {
+  /**
+   * Array of Shopify file GIDs to delete. Example: ["gid://shopify/MediaImage/123"]
+   */
+  fileIds: string[];
+};
+
+export interface ActionOutput_shopify_deletefiles {
+  deletedFileIds?: string[] | undefined;
+  userErrors?: ({  field?: string[] | undefined;
+  message: string;
+  code?: string | undefined;})[];
+};
+
+export interface ActionInput_shopify_deletemarket {
+  /**
+   * The ID of the market to delete. Example: "gid://shopify/Market/1234567890"
+   */
+  market_id: string;
+};
+
+export interface ActionOutput_shopify_deletemarket {
+  success: boolean;
+  deleted_id?: string | undefined;
+  user_errors: ({  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_deletemetafielddefinition {
+  /**
+   * The global ID of the metafield definition to delete. Example: "gid://shopify/MetafieldDefinition/1071456130"
+   */
+  id: string;
+  /**
+   * Whether to delete all associated metafields. Must be true when deleting definitions under the $app namespace.
+   */
+  deleteAllAssociatedMetafields?: boolean | undefined;
+};
+
+export interface ActionOutput_shopify_deletemetafielddefinition {
+  deletedDefinitionId?: string | undefined;
+  userErrors: ({  field?: string[] | undefined;
+  message?: string | undefined;
+  code?: string | undefined;})[];
+};
+
+export interface ActionInput_shopify_deletemetafields {
+  /**
+   * A list of metafield identifiers to delete. At least one identifier is required.
+   */
+  metafields: ({  /**
+   * The globally unique ID of the resource that owns the metafield. Example: "gid://shopify/Product/1234567890"
+   */
+  ownerId: string;
+  /**
+   * The namespace of the metafield. Example: "custom"
+   */
+  namespace: string;
+  /**
+   * The key of the metafield. Example: "warranty_info"
+   */
+  key: string;})[];
+};
+
+export interface ActionOutput_shopify_deletemetafields {
+  deletedMetafields?: ({  key: string;
+  namespace: string;
+  ownerId: string;})[] | undefined;
+  userErrors?: ({  field: string[];
+  message: string;})[] | undefined;
+};
+
+export interface ActionInput_shopify_deletemetaobjectdefinition {
+  /**
+   * The ID of the metaobject definition to delete. Example: "gid://shopify/MetaobjectDefinition/123"
+   */
+  id: string;
+};
+
+export interface ActionOutput_shopify_deletemetaobjectdefinition {
+  deletedId?: string | undefined;
+  userErrors: ({  field?: string[] | undefined;
+  message?: string | undefined;
+  code?: string | undefined;})[];
+};
+
+export interface ActionInput_shopify_deletemetaobject {
+  /**
+   * The ID of the metaobject to delete. Example: "gid://shopify/Metaobject/515107504"
+   */
+  id: string;
+};
+
+export interface ActionOutput_shopify_deletemetaobject {
+  deletedId?: string | undefined;
+  userErrors: ({  field?: string[] | undefined;
+  message: string;
+  code?: string | undefined;})[];
+};
+
+export interface ActionInput_shopify_deleteproductmedia {
+  /**
+   * Shopify product ID. Example: "gid://shopify/Product/123"
+   */
+  productId: string;
+  /**
+   * Shopify media IDs to delete. Example: ["gid://shopify/MediaImage/456"]
+   */
+  mediaIds: string[];
+};
+
+export interface ActionOutput_shopify_deleteproductmedia {
+  deletedMediaIds?: string[] | undefined;
+  deletedProductImageIds?: string[] | undefined;
+  productId: string;
+};
+
+export interface ActionInput_shopify_deleteproductoptions {
+  /**
+   * ID of the product from which to delete options. Example: "gid://shopify/Product/1234567890"
+   */
+  productId: string;
+  /**
+   * IDs of the options to delete from the product. Example: ["gid://shopify/ProductOption/123"]
+   */
+  options: string[];
+  /**
+   * Deletion strategy. DEFAULT: option may only have one value. NON_DESTRUCTIVE: multiple values allowed if no variants deleted. POSITION: deletes duplicate variants highest position first.
+   */
+  strategy?: 'DEFAULT' | 'NON_DESTRUCTIVE' | 'POSITION' | undefined;
+};
+
+export interface ActionOutput_shopify_deleteproductoptions {
+  deletedOptionsIds?: string[] | undefined;
+  userErrors: ({  field?: string[] | undefined;
+  message: string;
+  code?: string | undefined;})[];
+};
+
+export interface ActionInput_shopify_deleteproductvariants {
+  /**
+   * The GraphQL global ID of the product. Example: "gid://shopify/Product/20995642"
+   */
+  product_id: string;
+  /**
+   * An array of GraphQL global IDs of the product variants to delete. Example: ["gid://shopify/ProductVariant/30322695"]
+   */
+  variant_ids: string[];
+};
+
+export interface ActionOutput_shopify_deleteproductvariants {
+  product_id?: string | undefined;
+  product_title?: string | undefined;
+  deleted_variant_ids: string[];
+};
+
+export interface ActionInput_shopify_deleteproduct {
+  /**
+   * The GraphQL ID (GID) of the product to delete. Example: "gid://shopify/Product/123"
+   */
+  productId: string;
+};
+
+export interface ActionOutput_shopify_deleteproduct {
+  deletedProductId?: string | undefined;
+  userErrors: ({  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_deleteurlredirect {
+  /**
+   * The ID of the URL redirect to delete. Example: "gid://shopify/UrlRedirect/905192165"
+   */
+  id: string;
+};
+
+export interface ActionOutput_shopify_deleteurlredirect {
+  deletedUrlRedirectId?: string | undefined;
+  userErrors: ({  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_deletewebhooksubscription {
+  /**
+   * The ID of the webhook subscription to delete. Example: "gid://shopify/WebhookSubscription/1234567890"
+   */
+  id: string;
+};
+
+export interface ActionOutput_shopify_deletewebhooksubscription {
+  id?: string | undefined;
+  userErrors: ({  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_disablegiftcard {
+  /**
+   * The ID of the gift card to disable. Example: "gid://shopify/GiftCard/123456789"
+   */
+  id: string;
+};
+
+export interface ActionOutput_shopify_disablegiftcard {
+  gift_card?: {  id: string;
+  enabled: boolean;
+  deactivated_at?: string | undefined;
+  balance?: {  amount: string;
+  currency_code: string;} | undefined;
+  initial_value?: {  amount: string;
+  currency_code: string;} | undefined;
+  masked_code?: string | undefined;
+  last_characters?: string | undefined;
+  expires_on?: string | undefined;
+  note?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;};
+  user_errors: ({  message: string;
+  field?: string[] | undefined;
+  code?: string | undefined;})[];
+};
+
+export interface ActionInput_shopify_generatecustomeractivationurl {
+  /**
+   * The ID of the customer that the URL is generated for. Example: "gid://shopify/Customer/105906728"
+   */
+  customerId: string;
+};
+
+export interface ActionOutput_shopify_generatecustomeractivationurl {
+  accountActivationUrl?: string | undefined;
+  userErrors: ({  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_getcollection {
+  /**
+   * The GraphQL ID of the collection. Example: "gid://shopify/Collection/841564295"
+   */
+  collectionId: string;
+};
+
+export interface ActionOutput_shopify_getcollection {
+  id: string;
+  title: string;
+  handle: string;
+  description?: string | undefined;
+  descriptionHtml?: string | undefined;
+  updatedAt: string;
+  sortOrder: string;
+  image?: {  url: string;
+  height?: number | undefined;
+  width?: number | undefined;};
+  ruleSet?: {  appliedDisjunctively: boolean;
+  rules: ({  column: string;
+  relation: string;
+  condition: string;})[];} | undefined;
+  seo?: {  title?: string | undefined;
+  description?: string | undefined;};
+};
+
+export interface ActionInput_shopify_getcompany {
+  /**
+   * The GraphQL ID of the company. Example: "gid://shopify/Company/123"
+   */
+  id: string;
+};
+
+export interface ActionOutput_shopify_getcompany {
+  name: string;
+  externalId?: string | undefined;
+  contactCount?: number | undefined;
+  locationCount?: number | undefined;
+  mainContact?: {  id: string;
+  title?: string | undefined;
+  customer?: {  id: string;
+  email?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;};};
+  locations?: ({  id: string;
+  name: string;
+  externalId?: string | undefined;})[];
+};
+
+export interface ActionInput_shopify_getcustomersegment {
+  /**
+   * GraphQL ID of the segment. Example: "gid://shopify/Segment/1234567890"
+   */
+  id: string;
+};
+
+export interface ActionOutput_shopify_getcustomersegment {
+  name: string;
+  query: string;
+  creationDate: string;
+  lastEditDate: string;
+};
+
+export interface ActionInput_shopify_getdiscount {
+  /**
+   * The GraphQL ID of the DiscountNode. Example: "gid://shopify/DiscountNode/123456789"
+   */
+  id: string;
+};
+
+export interface ActionOutput_shopify_getdiscount {
+  id: string;
+  type: string;
+  title: string;
+  status: string;
+  summary?: string | undefined;
+};
+
+export interface ActionInput_shopify_getfile {
+  /**
+   * The GraphQL ID of the Shopify file. Example: "gid://shopify/MediaImage/1234567890"
+   */
+  id: string;
+};
+
+export interface ActionOutput_shopify_getfile {
+  preview?: {  image?: {  url?: string | undefined;};};
+  url?: string | undefined;
+  alt?: string | undefined;
+  mediaContentType?: string | undefined;
+  createdAt?: string | undefined;
+};
+
+export interface ActionInput_shopify_getinventoryitem {
+  /**
+   * The GraphQL ID of the inventory item. Example: "gid://shopify/InventoryItem/1234567890"
+   */
+  id: string;
+};
+
+export interface ActionOutput_shopify_getinventoryitem {
+  id: string;
+  sku?: string | undefined;
+  tracked: boolean;
+  inventoryLevels?: ({  id: string;
+  location: {  id: string;
+  name: string;};
+  quantities: ({  name: string;
+  quantity: number;})[];})[] | undefined;
+};
+
+export interface ActionInput_shopify_getlocation {
+  /**
+   * Shopify GraphQL location ID. Example: "gid://shopify/Location/1234567890"
+   */
+  id: string;
+};
+
+export interface ActionOutput_shopify_getlocation {
+  id: string;
+  name: string;
+  address: {  address1?: string | undefined;
+  address2?: string | undefined;
+  city?: string | undefined;
+  country?: string | undefined;
+  countryCode?: string | undefined;
+  formatted?: string[] | undefined;
+  latitude?: number | undefined;
+  longitude?: number | undefined;
+  phone?: string | undefined;
+  province?: string | undefined;
+  provinceCode?: string | undefined;
+  zip?: string | undefined;};
+  fulfillsOnlineOrders: boolean;
+  isActive: boolean;
+};
+
+export interface ActionInput_shopify_getmarket {
+  /**
+   * The GraphQL ID of the market. Example: "gid://shopify/Market/1"
+   */
+  id: string;
+};
+
+export interface ActionOutput_shopify_getmarket {
+  name?: string | undefined;
+  handle?: string | undefined;
+  enabled?: boolean | undefined;
+  regions?: ({  id: string;
+  name: string;
+  code: string;})[] | undefined;
+  webPresence?: {  id?: string | undefined;
+  domain?: {  host?: string | undefined;};
+  subfolderSuffix?: string | undefined;
+  defaultLocale?: {  locale?: string | undefined;};
+  rootUrls?: ({  locale?: string | undefined;
+  url?: string | undefined;})[];};
+  currencySettings?: {  baseCurrency?: {  currencyCode: string;
+  currencyName: string;
+  enabled: boolean;} | undefined;
+  localCurrencies?: boolean | undefined;
+  roundingEnabled?: boolean | undefined;};
+};
+
+export interface ActionInput_shopify_getmetaobjectbyhandle {
+  /**
+   * The type of the metaobject. Example: "test_item"
+   */
+  type: string;
+  /**
+   * The unique handle of the metaobject. Example: "test-item-001"
+   */
+  handle: string;
+};
+
+export interface ActionOutput_shopify_getmetaobjectbyhandle {
+  metadata: {  id: string;
+  handle: string;
+  type: string;
+  displayName?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;};
+  capabilities: {  publishable?: {  status?: string | undefined;};
+  onlineStore?: {  templateSuffix?: string | undefined;};};
+  fields: ({  key: string;
+  type: string;
+  value?: string | undefined;
+  jsonValue?: unknown | undefined;})[];
+};
+
+export interface ActionInput_shopify_getmetaobject {
+  /**
+   * The GraphQL ID of the metaobject. Example: "gid://shopify/Metaobject/123"
+   */
+  id: string;
+};
+
+export interface ActionOutput_shopify_getmetaobject {
+  id: string;
+  type: string;
+  handle: string;
+  capabilities: {  publishable?: {  status: string;} | undefined;};
+  fields: ({  key: string;
+  type: string;
+  value?: string | undefined;})[];
+};
+
+export interface ActionInput_shopify_getorderbyidentifier {
+  /**
+   * The globally-unique ID of the order. Example: "gid://shopify/Order/1234567890"
+   */
+  id?: string | undefined;
+  /**
+   * The custom ID of the order using a unique metafield value.
+   */
+  customId?: {  /**
+   * The key for the metafield.
+   */
+  key: string;
+  /**
+   * The container the metafield belongs to.
+   */
+  namespace?: string | undefined;
+  /**
+   * The value of the metafield.
+   */
+  value: string;};
+};
+
+export interface ActionOutput_shopify_getorderbyidentifier {
+  id: string;
+  legacyResourceId?: string | undefined;
+  name: string;
+  confirmationNumber?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  note?: string | undefined;
+  displayFinancialStatus?: string | undefined;
+  displayFulfillmentStatus: string;
+  closed: boolean;
+  cancelledAt?: string | undefined;
+  cancelReason?: string | undefined;
+  fullyPaid: boolean;
+  refundable: boolean;
+  fulfillable: boolean;
+  requiresShipping: boolean;
+  createdAt: string;
+  processedAt: string;
+  currencyCode: string;
+  presentmentCurrencyCode: string;
+  currentTotalPriceSet: {  shopMoney: {  amount: string;
+  currencyCode: string;};
+  presentmentMoney: {  amount: string;
+  currencyCode: string;};};
+  currentSubtotalPriceSet: {  shopMoney: {  amount: string;
+  currencyCode: string;};
+  presentmentMoney: {  amount: string;
+  currencyCode: string;};};
+  currentTotalTaxSet: {  shopMoney: {  amount: string;
+  currencyCode: string;};
+  presentmentMoney: {  amount: string;
+  currencyCode: string;};};
+  currentTotalDiscountsSet: {  shopMoney: {  amount: string;
+  currencyCode: string;};
+  presentmentMoney: {  amount: string;
+  currencyCode: string;};};
+  currentShippingPriceSet: {  shopMoney: {  amount: string;
+  currencyCode: string;};
+  presentmentMoney: {  amount: string;
+  currencyCode: string;};};
+  originalTotalPriceSet: {  shopMoney: {  amount: string;
+  currencyCode: string;};
+  presentmentMoney: {  amount: string;
+  currencyCode: string;};};
+  netPaymentSet: {  shopMoney: {  amount: string;
+  currencyCode: string;};
+  presentmentMoney: {  amount: string;
+  currencyCode: string;};};
+  customer?: {  id: string;
+  email?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  phone?: string | undefined;};
+  shippingAddress?: {  firstName?: string | undefined;
+  lastName?: string | undefined;
+  address1?: string | undefined;
+  address2?: string | undefined;
+  city?: string | undefined;
+  province?: string | undefined;
+  country?: string | undefined;
+  zip?: string | undefined;
+  phone?: string | undefined;};
+  billingAddress?: {  firstName?: string | undefined;
+  lastName?: string | undefined;
+  address1?: string | undefined;
+  address2?: string | undefined;
+  city?: string | undefined;
+  province?: string | undefined;
+  country?: string | undefined;
+  zip?: string | undefined;
+  phone?: string | undefined;};
+  lineItems: ({  id: string;
+  title: string;
+  variantTitle?: string | undefined;
+  name: string;
+  quantity: number;
+  currentQuantity: number;
+  unfulfilledQuantity: number;
+  refundableQuantity: number;
+  nonFulfillableQuantity: number;
+  sku?: string | undefined;
+  vendor?: string | undefined;
+  requiresShipping: boolean;
+  isGiftCard: boolean;
+  taxable: boolean;
+  originalUnitPriceSet: {  shopMoney: {  amount: string;
+  currencyCode: string;};
+  presentmentMoney: {  amount: string;
+  currencyCode: string;};};
+  originalTotalSet: {  shopMoney: {  amount: string;
+  currencyCode: string;};
+  presentmentMoney: {  amount: string;
+  currencyCode: string;};};
+  discountedTotalSet: {  shopMoney: {  amount: string;
+  currencyCode: string;};
+  presentmentMoney: {  amount: string;
+  currencyCode: string;};};
+  totalDiscountSet: {  shopMoney: {  amount: string;
+  currencyCode: string;};
+  presentmentMoney: {  amount: string;
+  currencyCode: string;};};
+  variant?: {  id?: string | undefined;
+  title?: string | undefined;
+  sku?: string | undefined;};})[];
+};
+
+export interface ActionInput_shopify_getorder {
+  /**
+   * The GraphQL ID of the order. Example: "gid://shopify/Order/1234567890"
+   */
+  id: string;
+};
+
+export interface ActionOutput_shopify_getorder {
+  id: string;
+  name: string;
+  createdAt: string;
+  updatedAt?: string | undefined;
+  displayFinancialStatus?: string | undefined;
+  displayFulfillmentStatus: string;
+  customer?: {  id: string;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  email?: string | undefined;};
+  lineItems: ({  id: string;
+  title: string;
+  quantity: number;
+  variant?: {  id: string;
+  title?: string | undefined;};})[];
+};
+
+export interface ActionInput_shopify_getproductbyidentifier {
+  /**
+   * The handle of the product. Example: "black-sunglasses"
+   */
+  handle?: string | undefined;
+  /**
+   * The globally-unique ID of the product. Example: "gid://shopify/Product/123"
+   */
+  id?: string | undefined;
+  /**
+   * The custom ID of the product using a unique metafield value.
+   */
+  custom_id?: {  namespace?: string | undefined;
+  key: string;
+  value: string;};
+};
+
+export interface ActionOutput_shopify_getproductbyidentifier {
+  id: string;
+  title: string;
+  handle: string;
+  description: string;
+  descriptionHtml: string;
+  status: string;
+  productType: string;
+  vendor?: string | undefined;
+  tags: string[];
+  createdAt: string;
+  updatedAt: string;
+  publishedAt?: string | undefined;
+  totalInventory?: number | undefined;
+  tracksInventory: boolean;
+  options: ({  name: string;
+  values: string[];})[];
+  variants: ({  id: string;
+  title: string;
+  sku?: string | undefined;
+  price: string;
+  position?: number | undefined;})[];
+  featuredMedia?: {  preview?: {  image: {  url: string;};} | undefined;};
+  seo?: {  title?: string | undefined;
+  description?: string | undefined;};
+  priceRangeV2?: {  minVariantPrice: {  amount: string;
+  currencyCode: string;};
+  maxVariantPrice: {  amount: string;
+  currencyCode: string;};} | undefined;
+  isGiftCard: boolean;
+  hasOnlyDefaultVariant: boolean;
+  onlineStoreUrl?: string | undefined;
+  templateSuffix?: string | undefined;
+};
+
+export interface ActionInput_shopify_getproduct {
+  /**
+   * Shopify GraphQL product ID. Example: "gid://shopify/Product/8651795562633"
+   */
+  id: string;
+};
+
+export interface ActionOutput_shopify_getproduct {
+  id: string;
+  title: string;
+  description?: string | undefined;
+  handle?: string | undefined;
+  productType?: string | undefined;
+  vendor?: string | undefined;
+  status?: string | undefined;
+  totalInventory?: number | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  variants?: ({  id: string;
+  title: string;
+  sku?: string | undefined;
+  price: string;
+  barcode?: string | undefined;
+  inventoryQuantity?: number | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;})[];
+  media?: ({  id: string;
+  alt?: string | undefined;
+  url?: string | undefined;})[];
+};
+
+export interface ActionInput_shopify_getreturn {
+  /**
+   * The globally-unique GraphQL ID of the return to retrieve. Example: "gid://shopify/Return/945000954"
+   */
+  id: string;
+};
+
+export interface ActionOutput_shopify_getreturn {
+  id: string;
+  status: string;
+  name?: string | undefined;
+  order?: {  id: string;} | undefined;
+  returnLineItems?: ({  id: string;
+  quantity: number;
+  returnReason?: string | undefined;
+  returnReasonNote?: string | undefined;
+  fulfillmentLineItem?: {  lineItem?: {  name?: string | undefined;};};})[];
+  refunds?: ({  id: string;
+  createdAt?: string | undefined;
+  totalRefundedSet?: {  shopMoney?: {  amount?: string | undefined;
+  currencyCode?: string | undefined;};
+  presentmentMoney?: {  amount?: string | undefined;
+  currencyCode?: string | undefined;};};})[];
+};
+
+export interface ActionInput_shopify_getshop {
+};
+
+export interface ActionOutput_shopify_getshop {
+  name: string;
+  email?: string | undefined;
+  myshopifyDomain?: string | undefined;
+  currencyCode?: string | undefined;
+  plan?: {  displayName?: string | undefined;
+  partnerDevelopment?: boolean | undefined;
+  shopifyPlus?: boolean | undefined;};
+};
+
+export interface ActionInput_shopify_holdfulfillmentorder {
+  /**
+   * The ID of the fulfillment order to place on hold. Example: "gid://shopify/FulfillmentOrder/1046001480"
+   */
+  fulfillmentOrderId: string;
+  hold: {  /**
+   * The reason for the fulfillment hold.
+   */
+  reason: 'AWAITING_PAYMENT' | 'AWAITING_RETURN_ITEMS' | 'HIGH_RISK_OF_FRAUD' | 'INCORRECT_ADDRESS' | 'INVENTORY_OUT_OF_STOCK' | 'ONLINE_STORE_POST_PURCHASE_CROSS_SELL' | 'OTHER' | 'UNKNOWN_DELIVERY_DATE';
+  /**
+   * Whether the merchant receives a notification about the fulfillment hold. Defaults to false.
+   */
+  notifyMerchant?: boolean | undefined;
+  /**
+   * Additional information about the fulfillment hold reason.
+   */
+  reasonNotes?: string | undefined;
+  /**
+   * A unique identifier for the hold applied by the app.
+   */
+  handle?: string | undefined;};
+};
+
+export interface ActionOutput_shopify_holdfulfillmentorder {
+  fulfillmentOrder?: {  id: string;
+  status?: string | undefined;
+  requestStatus?: string | undefined;
+  fulfillmentHolds?: ({  reason: string;
+  reasonNotes?: string | undefined;})[];};
+  remainingFulfillmentOrder?: {  id: string;} | undefined;
+  userErrors: ({  code?: string | undefined;
+  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_listabandonedcheckouts {
+  /**
+   * Number of items to return. Max 250. Default: 50
+   */
+  first?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  after?: string | undefined;
+  /**
+   * Shopify search query filter. Example: created_at:>2024-01-01 or updated_at:>2024-01-01
+   */
+  query?: string | undefined;
+};
+
+export interface ActionOutput_shopify_listabandonedcheckouts {
+  items: ({  id: string;
+  abandoned_checkout_url?: string | undefined;
+  billing_address?: {  country?: string | undefined;};
+  completed_at?: string | undefined;
+  created_at: string;
+  customer?: {  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;};
+  name: string;
+  shipping_address?: {  country?: string | undefined;};
+  updated_at: string;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_shopify_listcollections {
+  /**
+   * Number of collections to return. Max 250. Example: 10
+   */
+  first?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  after?: string | undefined;
+  /**
+   * Sort key. Valid values: ID, RELEVANCE, SORT_ORDER, TITLE, UPDATED_AT.
+   */
+  sortKey?: 'ID' | 'RELEVANCE' | 'SORT_ORDER' | 'TITLE' | 'UPDATED_AT' | undefined;
+  /**
+   * Reverse the order of the underlying list. Default: false
+   */
+  reverse?: boolean | undefined;
+  /**
+   * Filter query using Shopify API search syntax. Example: "collection_type:smart"
+   */
+  query?: string | undefined;
+};
+
+export interface ActionOutput_shopify_listcollections {
+  items: ({  id: string;
+  title?: string | undefined;
+  handle?: string | undefined;
+  updatedAt?: string | undefined;
+  descriptionHtml?: string | undefined;
+  sortOrder?: string | undefined;
+  templateSuffix?: string | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_shopify_listcompanies {
+  /**
+   * Number of records to return. Max 250.
+   */
+  first?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  after?: string | undefined;
+  /**
+   * Sort key for the underlying list. Valid values: CREATED_AT, ID, NAME, ORDER_COUNT, SINCE_DATE, TOTAL_SPENT, UPDATED_AT.
+   */
+  sortKey?: 'CREATED_AT' | 'ID' | 'NAME' | 'ORDER_COUNT' | 'SINCE_DATE' | 'TOTAL_SPENT' | 'UPDATED_AT' | undefined;
+  /**
+   * Reverse the order of the underlying list.
+   */
+  reverse?: boolean | undefined;
+  /**
+   * A filter made up of terms, connectives, modifiers, and comparators.
+   */
+  query?: string | undefined;
+};
+
+export interface ActionOutput_shopify_listcompanies {
+  companies: ({  id: string;
+  name: string;
+  externalId?: string | undefined;
+  createdAt: string;
+  updatedAt: string;
+  customerSince?: string | undefined;
+  note?: string | undefined;
+  totalSpent?: {  amount: string;
+  currencyCode: string;} | undefined;
+  ordersCount?: number | undefined;
+  locationsCount?: number | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_shopify_listcustomersegments {
+  /**
+   * Number of segments to return. Maximum 250.
+   */
+  first?: number | undefined;
+  /**
+   * Pagination cursor from the previous response.
+   */
+  after?: string | undefined;
+  /**
+   * Sort key. Valid values: CREATION_DATE, ID, LAST_EDIT_DATE, RELEVANCE.
+   */
+  sortKey?: 'CREATION_DATE' | 'ID' | 'LAST_EDIT_DATE' | 'RELEVANCE' | undefined;
+  /**
+   * Reverse the order of the list.
+   */
+  reverse?: boolean | undefined;
+  /**
+   * Filter query using Shopify search syntax.
+   */
+  query?: string | undefined;
+};
+
+export interface ActionOutput_shopify_listcustomersegments {
+  segments: ({  id: string;
+  name: string;
+  creationDate?: string | undefined;
+  lastEditDate?: string | undefined;
+  query?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_shopify_listdiscounts {
+  /**
+   * The number of discount nodes to return (max 250). Default: 50.
+   */
+  first?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  after?: string | undefined;
+  /**
+   * A filter query string using Shopify API search syntax.
+   */
+  query?: string | undefined;
+  /**
+   * The ID of a saved search to use as the filter query.
+   */
+  savedSearchId?: string | undefined;
+};
+
+export interface ActionOutput_shopify_listdiscounts {
+  nodes: ({  id: string;
+  __typename?: string | undefined;
+  discount?: {  [key: string]: unknown | undefined;};})[];
+  /**
+   * Pagination cursor to fetch the next page. Omit if there are no more pages.
+   */
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_shopify_listevents {
+  /**
+   * Number of events to return. Max 250. Default: 50.
+   */
+  first?: number | undefined;
+  /**
+   * Pagination cursor from the previous response.
+   */
+  after?: string | undefined;
+  /**
+   * Sort key for events. Default: ID.
+   */
+  sortKey?: 'ID' | 'CREATED_AT' | undefined;
+  /**
+   * Reverse the order of the results. Default: false.
+   */
+  reverse?: boolean | undefined;
+  /**
+   * Search query string for filtering events.
+   */
+  query?: string | undefined;
+  /**
+   * Filter by subject type. Example: PRODUCT, ORDER, COLLECTION.
+   */
+  subjectType?: string | undefined;
+};
+
+export interface ActionOutput_shopify_listevents {
+  events: ({  id: string;
+  action: string;
+  appTitle?: string | undefined;
+  attributeToApp: boolean;
+  attributeToUser: boolean;
+  createdAt: string;
+  criticalAlert: boolean;
+  message: string;
+  arguments?: unknown[] | undefined;
+  subjectId?: string | undefined;
+  subjectType?: string | undefined;
+  additionalContent?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_shopify_listfiles {
+  /**
+   * Number of files to fetch. Example: 50
+   */
+  first?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  after?: string | undefined;
+  /**
+   * Sort key for the files. Example: ID
+   */
+  sortKey?: string | undefined;
+  /**
+   * Reverse the order of the underlying list.
+   */
+  reverse?: boolean | undefined;
+  /**
+   * Filter query string. Example: media_type:IMAGE
+   */
+  query?: string | undefined;
+};
+
+export interface ActionOutput_shopify_listfiles {
+  files: ({  id: string;
+  alt?: string | undefined;
+  mediaContentType?: string | undefined;
+  url?: string | undefined;
+  preview?: {  image?: {  url?: string | undefined;};};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_shopify_listinventorylevels {
+  /**
+   * Shopify location GID to filter inventory levels by. Example: "gid://shopify/Location/346779380"
+   */
+  locationId?: string | undefined;
+  /**
+   * Shopify inventory item GID to filter inventory levels by. Example: "gid://shopify/InventoryItem/30322695"
+   */
+  inventoryItemId?: string | undefined;
+  /**
+   * Number of inventory levels to return per page. Max 250. Defaults to 50.
+   */
+  first?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  after?: string | undefined;
+  /**
+   * Optional query filter for inventory levels. Example: "id:>=1234"
+   */
+  query?: string | undefined;
+};
+
+export interface ActionOutput_shopify_listinventorylevels {
+  inventoryLevels: ({  id: string;
+  quantities: ({  name: string;
+  quantity: number;})[];
+  inventoryItem: {  id: string;
+  sku?: string | undefined;};
+  location: {  id: string;
+  name?: string | undefined;};})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_shopify_listlocations {
+  /**
+   * The number of locations to return. Maximum 250.
+   */
+  first?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  after?: string | undefined;
+  /**
+   * Whether to include deactivated locations.
+   */
+  includeInactive?: boolean | undefined;
+  /**
+   * Filter locations by name.
+   */
+  name?: string | undefined;
+};
+
+export interface ActionOutput_shopify_listlocations {
+  locations: ({  id: string;
+  name: string;
+  address?: {  address1?: string | undefined;
+  address2?: string | undefined;
+  city?: string | undefined;
+  province?: string | undefined;
+  country?: string | undefined;
+  zip?: string | undefined;
+  phone?: string | undefined;
+  formatted?: string[] | undefined;};
+  isActive: boolean;
+  createdAt: string;
+  updatedAt: string;
+  legacyResourceId?: string | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_shopify_listmarkets {
+  /**
+   * The number of markets to return. Max 250. Default: 50
+   */
+  first?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  after?: string | undefined;
+  /**
+   * Reverse the order of the underlying list.
+   */
+  reverse?: boolean | undefined;
+};
+
+export interface ActionOutput_shopify_listmarkets {
+  items: ({  id: string;
+  name: string;
+  handle: string;
+  status: string;
+  type: string;
+  enabled: boolean;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_shopify_listmetafielddefinitions {
+  /**
+   * The resource type that the metafield definition is attached to. Example: "PRODUCT"
+   */
+  owner_type: string;
+  /**
+   * The first n elements from the paginated list. Max 250.
+   */
+  first?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  after?: string | undefined;
+  /**
+   * Filter metafield definitions by namespace.
+   */
+  namespace?: string | undefined;
+  /**
+   * Filter by pinned status. Values: ANY, PINNED, UNPINNED.
+   */
+  pinned_status?: string | undefined;
+};
+
+export interface ActionOutput_shopify_listmetafielddefinitions {
+  definitions: ({  id: string;
+  name: string;
+  namespace: string;
+  key: string;
+  description?: string | undefined;
+  owner_type: string;
+  type: {  name: string;};
+  pinned_position?: number | undefined;
+  use_as_collection_condition?: boolean | undefined;
+  validation_status?: string | undefined;
+  validations?: ({  name: string;
+  value?: string | undefined;})[];
+  metafields_count?: number | undefined;
+  access?: {  admin?: string | undefined;
+  customer_account?: string | undefined;
+  storefront?: string | undefined;};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_shopify_listmetaobjectdefinitions {
+  /**
+   * The number of metaobject definitions to return. Max 250. Example: 10
+   */
+  first?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  after?: string | undefined;
+};
+
+export interface ActionOutput_shopify_listmetaobjectdefinitions {
+  items: ({  id: string;
+  name: string;
+  type: string;
+  description?: string | undefined;
+  displayNameKey?: string | undefined;
+  createdAt: string;
+  updatedAt: string;
+  metaobjectsCount: number;
+  fieldDefinitions?: ({  key: string;
+  name: string;
+  typeName?: string | undefined;})[];})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_shopify_listmetaobjects {
+  /**
+   * The type of the metaobjects to query. Example: "app:author"
+   */
+  type: string;
+  /**
+   * The number of metaobjects to return. Max 250. Example: 10
+   */
+  first?: number | undefined;
+  /**
+   * The cursor to fetch the next page. Example: "eyJsYXN0X2lkIjo5NzE2NjI1MzB9"
+   */
+  after?: string | undefined;
+  /**
+   * The key to sort by. Valid values: ID, TYPE, UPDATED_AT, DISPLAY_NAME.
+   */
+  sortKey?: 'ID' | 'TYPE' | 'UPDATED_AT' | 'DISPLAY_NAME' | undefined;
+  /**
+   * Reverse the order of the results.
+   */
+  reverse?: boolean | undefined;
+};
+
+export interface ActionOutput_shopify_listmetaobjects {
+  items: ({  id: string;
+  handle: string;
+  type: string;
+  displayName: string;
+  updatedAt: string;
+  createdAt: string;
+  fields: ({  key: string;
+  value?: string | undefined;
+  jsonValue?: unknown | undefined;
+  type: string;})[];})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_shopify_listproducts {
+  /**
+   * Number of products to return (1-250). Default: 50.
+   */
+  first?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  after?: string | undefined;
+  /**
+   * Sort key for the product list.
+   */
+  sortKey?: 'CREATED_AT' | 'ID' | 'INVENTORY_TOTAL' | 'PRODUCT_TYPE' | 'PUBLISHED_AT' | 'RELEVANCE' | 'TITLE' | 'UPDATED_AT' | 'VENDOR' | undefined;
+  /**
+   * Reverse the order of the results.
+   */
+  reverse?: boolean | undefined;
+  /**
+   * Search query string using Shopify API search syntax.
+   */
+  query?: string | undefined;
+};
+
+export interface ActionOutput_shopify_listproducts {
+  products: ({  id: string;
+  title: string;
+  handle?: string | undefined;
+  description?: string | undefined;
+  vendor?: string | undefined;
+  productType?: string | undefined;
+  status?: string | undefined;
+  tags?: string[] | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  publishedAt?: string | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_shopify_listpublications {
+  /**
+   * The number of publications to return. Max 250.
+   */
+  first?: number | undefined;
+  /**
+   * Pagination cursor from the previous response.
+   */
+  after?: string | undefined;
+};
+
+export interface ActionOutput_shopify_listpublications {
+  publications: ({  id: string;
+  name: string;
+  app: {  id: string;
+  title?: string | undefined;};})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_shopify_listurlredirects {
+  /**
+   * The number of URL redirects to return. Max 250. Example: 10
+   */
+  first?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  after?: string | undefined;
+  /**
+   * A filter query for URL redirects. Example: "path:/old-path"
+   */
+  query?: string | undefined;
+};
+
+export interface ActionOutput_shopify_listurlredirects {
+  items: ({  id: string;
+  path: string;
+  target: string;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_shopify_listwebhooksubscriptions {
+  /**
+   * The number of webhook subscriptions to return (1-250). Default: 50.
+   */
+  first?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  after?: string | undefined;
+  /**
+   * List of webhook subscription topics to filter by.
+   */
+  topics?: string[] | undefined;
+  /**
+   * Callback URL to filter by.
+   */
+  callbackUrl?: string | undefined;
+};
+
+export interface ActionOutput_shopify_listwebhooksubscriptions {
+  items: ({  id: string;
+  topic: string;
+  uri: string;
+  format: string;
+  createdAt: string;
+  updatedAt: string;
+  legacyResourceId: string;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_shopify_markorderaspaid {
+  /**
+   * Shopify order ID. Example: "gid://shopify/Order/148977776" or "148977776"
+   */
+  orderId: string;
+};
+
+export interface ActionOutput_shopify_markorderaspaid {
+  order?: {  id: string;
+  name: string;
+  canMarkAsPaid: boolean;
+  displayFinancialStatus: string;
+  totalPrice: string;
+  totalOutstandingSet?: {  shopMoney?: {  amount: string;
+  currencyCode: string;} | undefined;};};
+  userErrors: ({  field: string[];
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_movefulfillmentorder {
+  /**
+   * The ID of the fulfillment order to be moved. Example: "gid://shopify/FulfillmentOrder/940656279"
+   */
+  fulfillmentOrderId: string;
+  /**
+   * The ID of the location where the fulfillment order will be moved. Example: "gid://shopify/Location/346779380"
+   */
+  newLocationId: string;
+};
+
+export interface ActionOutput_shopify_movefulfillmentorder {
+  originalFulfillmentOrder?: {  id: string;
+  status?: string | undefined;
+  requestStatus?: string | undefined;
+  assignedLocation?: {  name?: string | undefined;};};
+  movedFulfillmentOrder?: {  id: string;
+  status?: string | undefined;
+  requestStatus?: string | undefined;
+  assignedLocation?: {  name?: string | undefined;};};
+  remainingFulfillmentOrder?: {  id: string;
+  status?: string | undefined;
+  requestStatus?: string | undefined;
+  assignedLocation?: {  name?: string | undefined;};};
+  userErrors?: ({  field?: string[] | undefined;
+  message?: string | undefined;})[];
+};
+
+export interface ActionInput_shopify_moveinventoryquantities {
+  /**
+   * Quantity to move. Example: 5
+   */
+  quantity: number;
+  /**
+   * Source location ID. Example: gid://shopify/Location/123456789
+   */
+  fromLocationId: string;
+  /**
+   * Destination location ID. Example: gid://shopify/Location/987654321
+   */
+  toLocationId: string;
+  /**
+   * Inventory item ID. Example: gid://shopify/InventoryItem/30322695
+   */
+  inventoryItemId: string;
+  /**
+   * Reason for the move. Defaults to "relocation"
+   */
+  reason?: string | undefined;
+  /**
+   * Reference document URI. Defaults to a generated URI
+   */
+  referenceDocumentUri?: string | undefined;
+  /**
+   * Quantity name to move. Defaults to "available"
+   */
+  quantityName?: string | undefined;
+};
+
+export interface ActionOutput_shopify_moveinventoryquantities {
+  userErrors: ({  field?: string[] | undefined;
+  message: string;
+  code?: string | undefined;})[];
+  inventoryAdjustmentGroup?: {  createdAt?: string | undefined;
+  reason?: string | undefined;
+  referenceDocumentUri?: string | undefined;
+  changes?: ({  name: string;
+  delta: number;})[] | undefined;};
+};
+
+export interface ActionInput_shopify_openorder {
+  /**
+   * Shopify order ID. Example: "gid://shopify/Order/123" or "123"
+   */
+  order_id: string;
+};
+
+export interface ActionOutput_shopify_openorder {
+  order?: {  id: string;
+  name?: string | undefined;
+  email?: string | undefined;
+  displayFulfillmentStatus?: string | undefined;
+  displayFinancialStatus?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  cancelledAt?: string | undefined;
+  cancelReason?: string | undefined;
+  confirmed?: boolean | undefined;
+  closed?: boolean | undefined;
+  closedAt?: string | undefined;
+  customer?: {  displayName?: string | undefined;
+  email?: string | undefined;};};
+  userErrors: ({  field: string[];
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_publishresource {
+  /**
+   * The resource GID to publish. Example: "gid://shopify/Product/558169081"
+   */
+  id: string;
+  /**
+   * Array of PublicationInput objects
+   */
+  input: ({  /**
+   * ID of the publication. Example: "gid://shopify/Publication/762454635"
+   */
+  publicationId: string;
+  /**
+   * The date and time that the resource was published. Example: "2026-01-01T00:00:00Z"
+   */
+  publishDate?: string | undefined;})[];
+};
+
+export interface ActionOutput_shopify_publishresource {
+  resource?: {  id?: string | undefined;
+  title?: string | undefined;
+  availablePublicationsCount?: {  count?: number | undefined;};
+  resourcePublicationsCount?: {  count?: number | undefined;};};
+  userErrors: ({  field?: string[] | undefined;
+  message?: string | undefined;})[];
+};
+
+export interface ActionInput_shopify_rejectfulfillmentrequest {
+  /**
+   * The ID of the fulfillment order. Example: "gid://shopify/FulfillmentOrder/1046000786"
+   */
+  fulfillment_order_id: string;
+  /**
+   * An optional array of line item rejection details. If none are provided, all line items will be assumed to be unfulfillable.
+   */
+  line_items?: ({  /**
+   * The ID of the rejected line item. Example: "gid://shopify/FulfillmentOrderLineItem/123"
+   */
+  fulfillment_order_line_item_id: string;
+  /**
+   * The rejection message of the line item.
+   */
+  message?: string | undefined;})[];
+  /**
+   * An optional reason for rejecting the fulfillment request.
+   */
+  message?: string | undefined;
+  /**
+   * The reason for the fulfillment order rejection.
+   */
+  reason?: 'INCORRECT_ADDRESS' | 'INCORRECT_PRODUCT_INFO' | 'INELIGIBLE_PRODUCT' | 'INTERNATIONAL_SHIPPING_UNAVAILABLE' | 'INVALID_CONTACT_INFORMATION' | 'INVALID_SKU' | 'INVENTORY_OUT_OF_STOCK' | 'MERCHANT_BLOCKED_OR_SUSPENDED' | 'MISSING_CUSTOMS_INFO' | 'ORDER_TOO_LARGE' | 'OTHER' | 'PACKAGE_PREFERENCE_NOT_SET' | 'PAYMENT_DECLINED' | 'UNDELIVERABLE_DESTINATION' | undefined;
+};
+
+export interface ActionOutput_shopify_rejectfulfillmentrequest {
+  fulfillment_order?: {  id: string;
+  status?: string | undefined;
+  request_status?: string | undefined;};
+  user_errors: ({  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_releasefulfillmenthold {
+  /**
+   * The ID of the fulfillment order for which to release the fulfillment hold. Example: "gid://shopify/FulfillmentOrder/564786110"
+   */
+  fulfillmentOrderId: string;
+  /**
+   * A configurable ID used to track the automation system releasing this hold.
+   */
+  externalId?: string | undefined;
+  /**
+   * The IDs of the fulfillment holds to release. If not supplied, all holds for the fulfillment order will be released.
+   */
+  holdIds?: string[] | undefined;
+};
+
+export interface ActionOutput_shopify_releasefulfillmenthold {
+  fulfillmentOrder?: {  id: string;
+  status?: string | undefined;
+  requestStatus?: string | undefined;};
+  userErrors: ({  field?: string[] | undefined;
+  message: string;
+  code?: string | undefined;})[];
+};
+
+export interface ActionInput_shopify_sendcustomeraccountinvite {
+  /**
+   * The Shopify GID of the customer to invite. Example: "gid://shopify/Customer/105906728"
+   */
+  customerId: string;
+  /**
+   * Optional custom message to include in the invitation email.
+   */
+  customMessage?: string | undefined;
+};
+
+export interface ActionOutput_shopify_sendcustomeraccountinvite {
+  customer?: {  id: string;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  displayName?: string | undefined;
+  state?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;};
+  userErrors: ({  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_senddraftorderinvoice {
+  /**
+   * The globally unique ID of the draft order to send the invoice for. Example: gid://shopify/DraftOrder/123456789
+   */
+  id: string;
+  /**
+   * Optional email customization fields.
+   */
+  email?: {  bcc?: string[] | undefined;
+  body?: string | undefined;
+  customMessage?: string | undefined;
+  from?: string | undefined;
+  subject?: string | undefined;
+  to?: string | undefined;};
+};
+
+export interface ActionOutput_shopify_senddraftorderinvoice {
+  draftOrder?: {  id: string;
+  name?: string | undefined;
+  status?: string | undefined;
+  email?: string | undefined;
+  invoiceSentAt?: string | undefined;
+  invoiceUrl?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  completedAt?: string | undefined;
+  currencyCode?: string | undefined;
+  taxesIncluded?: boolean | undefined;
+  taxExempt?: boolean | undefined;
+  note2?: string | undefined;
+  tags?: string[] | undefined;
+  customer?: {  id?: string | undefined;
+  email?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;};
+  shippingAddress?: {  firstName?: string | undefined;
+  lastName?: string | undefined;
+  address1?: string | undefined;
+  address2?: string | undefined;
+  city?: string | undefined;
+  province?: string | undefined;
+  country?: string | undefined;
+  zip?: string | undefined;
+  phone?: string | undefined;
+  company?: string | undefined;
+  name?: string | undefined;};
+  billingAddress?: {  firstName?: string | undefined;
+  lastName?: string | undefined;
+  address1?: string | undefined;
+  address2?: string | undefined;
+  city?: string | undefined;
+  province?: string | undefined;
+  country?: string | undefined;
+  zip?: string | undefined;
+  phone?: string | undefined;
+  company?: string | undefined;
+  name?: string | undefined;};
+  lineItems?: {  edges?: ({  node?: {  id?: string | undefined;
+  name?: string | undefined;
+  quantity?: number | undefined;
+  sku?: string | undefined;
+  variant?: {  id?: string | undefined;
+  title?: string | undefined;};};})[];};};
+  userErrors: ({  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_setcustomeremailmarketingconsent {
+  /**
+   * Shopify customer ID. Example: "gid://shopify/Customer/1234567890" or "1234567890"
+   */
+  customer_id: string;
+  /**
+   * The email marketing state to set.
+   */
+  marketing_state: 'SUBSCRIBED' | 'UNSUBSCRIBED' | 'PENDING';
+  /**
+   * The latest ISO date and time when the customer consented or objected. Example: "2026-01-15T10:00:00Z"
+   */
+  consent_updated_at?: string | undefined;
+  /**
+   * The opt-in level at the time of subscribing. Example: "CONFIRMED_OPT_IN"
+   */
+  marketing_opt_in_level?: string | undefined;
+  /**
+   * The location ID where the customer consented. Example: "gid://shopify/Location/1234567890"
+   */
+  source_location_id?: string | undefined;
+};
+
+export interface ActionOutput_shopify_setcustomeremailmarketingconsent {
+  customer_id: string;
+  email?: string | undefined;
+  display_name?: string | undefined;
+  marketing_state?: string | undefined;
+  consent_updated_at?: string | undefined;
+  marketing_opt_in_level?: string | undefined;
+};
+
+export interface ActionInput_shopify_setinventoryquantities {
+  /**
+   * The name of the quantity to change.
+   */
+  name: 'available' | 'on_hand';
+  /**
+   * The inventory item quantities to set.
+   */
+  quantities: ({  /**
+   * Global ID of the inventory item. Example: gid://shopify/InventoryItem/1234567890
+   */
+  inventoryItemId: string;
+  /**
+   * Global ID of the location. Example: gid://shopify/Location/1234567890
+   */
+  locationId: string;
+  /**
+   * The absolute quantity to set.
+   */
+  quantity: number;
+  /**
+   * Expected current quantity for compare-and-swap safety. Pass null or omit to skip the CAS check.
+   */
+  changeFromQuantity?: number | undefined;})[];
+  /**
+   * The reason for the quantity change. Example: correction, received, damaged, etc.
+   */
+  reason: string;
+  /**
+   * URI representing the source of the inventory change.
+   */
+  referenceDocumentUri?: string | undefined;
+};
+
+export interface ActionOutput_shopify_setinventoryquantities {
+  inventoryAdjustmentGroup?: {  createdAt?: string | undefined;
+  reason: string;
+  referenceDocumentUri?: string | undefined;
+  changes: ({  name: string;
+  delta: number;
+  quantityAfterChange?: number | undefined;})[];};
+};
+
+export interface ActionInput_shopify_setmetafields {
+  /**
+   * List of metafields to set. Maximum of 25.
+   */
+  metafields: ({  /**
+   * The unique key for the metafield. Example: "materials"
+   */
+  key: string;
+  /**
+   * The namespace for the metafield. Example: "my_fields"
+   */
+  namespace: string;
+  /**
+   * The global ID of the resource that owns the metafield. Example: "gid://shopify/Product/20995642"
+   */
+  ownerId: string;
+  /**
+   * The metafield type. Example: "single_line_text_field"
+   */
+  type: string;
+  /**
+   * The value of the metafield.
+   */
+  value: string;
+  /**
+   * Optional compare digest for atomic updates. Set to null for new metafields.
+   */
+  compareDigest?: string | undefined;})[];
+};
+
+export interface ActionOutput_shopify_setmetafields {
+  metafields: ({  key: string;
+  namespace: string;
+  value: string;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  compare_digest?: string | undefined;})[];
+  user_errors: ({  field?: string[] | undefined;
+  message: string;
+  code?: string | undefined;})[];
+};
+
+export interface ActionInput_shopify_tagsadd {
+  /**
+   * The Shopify global ID of the resource to add tags to. Example: "gid://shopify/Product/20995642"
+   */
+  id: string;
+  /**
+   * Tags to add. Can be a single string (comma-separated) or an array of strings.
+   */
+  tags: string | string[];
+};
+
+export interface ActionOutput_shopify_tagsadd {
+  id: string;
+  tags_added: string[];
+};
+
+export interface ActionInput_shopify_tagsremove {
+  /**
+   * The global ID of the Shopify resource to remove tags from. Example: "gid://shopify/Customer/544365967"
+   */
+  id: string;
+  /**
+   * The tags to remove from the resource. Example: ["tag1", "tag2"]
+   */
+  tags: string[];
+};
+
+export interface ActionOutput_shopify_tagsremove {
+  /**
+   * The global ID of the resource that was updated.
+   */
+  id: string;
+  /**
+   * Any errors that occurred during the mutation.
+   */
+  user_errors: ({  message: string;})[];
+};
+
+export interface ActionInput_shopify_unpublishresource {
+  /**
+   * Resource GID to unpublish. Example: "gid://shopify/Product/108828309"
+   */
+  id: string;
+  /**
+   * Array of PublicationInput objects specifying publications to unpublish from.
+   */
+  input: ({  /**
+   * Publication GID. Example: "gid://shopify/Publication/762454635"
+   */
+  publicationId?: string | undefined;
+  /**
+   * Channel GID. Example: "gid://shopify/Channel/762454635"
+   */
+  channelId?: string | undefined;
+  /**
+   * Publish date in ISO 8601 format. Example: "2024-11-14T11:45:48-05:00"
+   */
+  publishDate?: string | undefined;})[];
+};
+
+export interface ActionOutput_shopify_unpublishresource {
+  publishable?: {  [key: string]: unknown | undefined;};
+  userErrors: ({  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_updateautomaticdiscountbxgy {
+  /**
+   * The ID of the automatic BXGY discount to update. Example: "gid://shopify/DiscountAutomaticNode/123"
+   */
+  id: string;
+  automaticBxgyDiscount: {  title?: string | undefined;
+  startsAt?: string | undefined;
+  endsAt?: string | undefined;
+  customerBuys?: {} | undefined;
+  customerGets?: {} | undefined;
+  combinesWith?: {} | undefined;
+  context?: {} | undefined;
+  tags?: string[] | undefined;
+  usesPerOrderLimit?: string | undefined;};
+};
+
+export interface ActionOutput_shopify_updateautomaticdiscountbxgy {
+  automaticDiscountNode?: {  id: string;
+  automaticDiscount?: {  title?: string | undefined;
+  startsAt?: string | undefined;
+  endsAt?: string | undefined;
+  status?: string | undefined;
+  summary?: string | undefined;
+  usesPerOrderLimit?: number | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;};};
+  userErrors: ({  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_updateautomaticdiscountfreeshipping {
+  /**
+   * The ID of the automatic free shipping discount to update. Example: "gid://shopify/DiscountAutomaticNode/1057856655"
+   */
+  id: string;
+  freeShippingAutomaticDiscount: {  title?: string | undefined;
+  startsAt?: string | undefined;
+  endsAt?: string | undefined;
+  minimumRequirement?: {  quantity?: {  greaterThanOrEqualToQuantity?: string | undefined;};
+  subtotal?: {  greaterThanOrEqualToSubtotal?: string | undefined;};};
+  destination?: {  all?: boolean | undefined;
+  countries?: ({  code: string;
+  include?: boolean | undefined;})[];};
+  context?: {  [key: string]: unknown | undefined;};};
+};
+
+export interface ActionOutput_shopify_updateautomaticdiscountfreeshipping {
+  automaticDiscountNode?: {  id: string;
+  automaticDiscount?: {  title?: string | undefined;
+  startsAt?: string | undefined;
+  endsAt?: string | undefined;};};
+  userErrors: ({  field?: string[] | undefined;
+  message: string;
+  code?: string | undefined;})[];
+};
+
+export interface ActionInput_shopify_updateautomaticdiscount {
+  /**
+   * The ID of the automatic amount off discount to update. Example: "gid://shopify/DiscountAutomaticNode/123"
+   */
+  id: string;
+  automaticBasicDiscount: {  title?: string | undefined;
+  startsAt?: string | undefined;
+  endsAt?: string | undefined;
+  customerGets?: {  [key: string]: unknown | undefined;};
+  minimumRequirement?: {  [key: string]: unknown | undefined;};
+  combinesWith?: {  [key: string]: unknown | undefined;};
+  recurringCycleLimit?: number | undefined;
+  tags?: string[] | undefined;
+  context?: {  [key: string]: unknown | undefined;};};
+};
+
+export interface ActionOutput_shopify_updateautomaticdiscount {
+  /**
+   * The ID of the updated automatic discount node.
+   */
+  id: string;
+  /**
+   * List of user errors returned by Shopify.
+   */
+  userErrors?: ({  field: string[];
+  code: string;
+  message: string;})[] | undefined;
+};
+
+export interface ActionInput_shopify_updatecollection {
+  /**
+   * The Shopify global ID of the collection. Example: "gid://shopify/Collection/123456789"
+   */
+  id: string;
+  title?: string | undefined;
+  descriptionHtml?: string | undefined;
+  handle?: string | undefined;
+  image?: {  src: string;
+  altText?: string | undefined;};
+  seo?: {  title?: string | undefined;
+  description?: string | undefined;};
+  sortOrder?: string | undefined;
+  templateSuffix?: string | undefined;
+  redirectNewHandle?: boolean | undefined;
+};
+
+export interface ActionOutput_shopify_updatecollection {
+  id: string;
+  title?: string | undefined;
+  description?: string | undefined;
+  handle?: string | undefined;
+  image?: {  src?: string | undefined;
+  altText?: string | undefined;};
+  seo?: {  title?: string | undefined;
+  description?: string | undefined;};
+  sortOrder?: string | undefined;
+  templateSuffix?: string | undefined;
+  userErrors?: ({  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_updatecompany {
+  /**
+   * The ID of the company to be updated. Example: "gid://shopify/Company/1234567890"
+   */
+  companyId: string;
+  /**
+   * The name of the company.
+   */
+  name?: string | undefined;
+  /**
+   * A note about the company. Pass null to clear.
+   */
+  note?: string | undefined;
+  /**
+   * A unique externally-supplied ID for the company. Pass null to clear.
+   */
+  externalId?: string | undefined;
+  /**
+   * The date and time (ISO 8601 format) at which the company became the customer. Pass null to clear.
+   */
+  customerSince?: string | undefined;
+};
+
+export interface ActionOutput_shopify_updatecompany {
+  company?: {  id: string;
+  name: string;
+  createdAt: string;
+  customerSince: string;
+  externalId: string;
+  note: string;
+  updatedAt: string;} | undefined;
+  userErrors: ({  code: string;
+  field: string[];
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_updatediscountcodebasic {
+  /**
+   * The ID of the discount code node to update. Example: "gid://shopify/DiscountCodeNode/123"
+   */
+  id: string;
+  basicCodeDiscount: {  appliesOncePerCustomer?: boolean | undefined;
+  code?: string | undefined;
+  combinesWith?: {  orderDiscounts?: boolean | undefined;
+  productDiscounts?: boolean | undefined;
+  shippingDiscounts?: boolean | undefined;
+  productDiscountsWithTagsOnSameCartLine?: ({  tag: string;})[] | undefined;};
+  context?: {  customerSegments?: {  add?: string[] | undefined;
+  remove?: string[] | undefined;};
+  customers?: {  add?: string[] | undefined;
+  remove?: string[] | undefined;};
+  all?: string | undefined;};
+  customerGets?: {  items?: {  all?: boolean | undefined;
+  products?: {  productsToAdd?: string[] | undefined;
+  productsToRemove?: string[] | undefined;};
+  collections?: {  collectionsToAdd?: string[] | undefined;
+  collectionsToRemove?: string[] | undefined;};
+  variants?: {  variantsToAdd?: string[] | undefined;
+  variantsToRemove?: string[] | undefined;};};
+  value?: {  percentage?: number | undefined;
+  fixedAmount?: number | undefined;};};
+  endsAt?: string | undefined;
+  minimumRequirement?: {  quantity?: {  greaterThanOrEqualToQuantity?: number | undefined;};
+  subtotal?: {  greaterThanOrEqualToSubtotal?: number | undefined;};};
+  recurringCycleLimit?: number | undefined;
+  startsAt?: string | undefined;
+  tags?: string[] | undefined;
+  title?: string | undefined;
+  usageLimit?: number | undefined;};
+};
+
+export interface ActionOutput_shopify_updatediscountcodebasic {
+  codeDiscountNode?: {  id: string;
+  codeDiscount?: {  title?: string | undefined;
+  status?: string | undefined;
+  startsAt?: string | undefined;
+  endsAt?: string | undefined;
+  usageLimit?: number | undefined;
+  appliesOncePerCustomer?: boolean | undefined;
+  recurringCycleLimit?: number | undefined;};};
+  userErrors: ({  code?: string | undefined;
+  extraInfo?: string | undefined;
+  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_updatediscountcodebxgy {
+  /**
+   * The ID of the BXGY code discount to update. Example: "gid://shopify/DiscountCodeNode/123"
+   */
+  id: string;
+  /**
+   * The input data used to update the BXGY code discount. Mirrors Shopify DiscountCodeBxgyInput.
+   */
+  bxgyCodeDiscount: {};
+};
+
+export interface ActionOutput_shopify_updatediscountcodebxgy {
+  codeDiscountNode?: {} | undefined;
+  userErrors: ({  field?: string[] | undefined;
+  code?: string | undefined;
+  message: string;
+  extraInfo?: string | undefined;})[];
+};
+
+export interface ActionInput_shopify_updatediscountcodefreeshipping {
+  /**
+   * The ID of the discount code to update. Example: gid://shopify/DiscountCodeNode/123456789
+   */
+  id: string;
+  freeShippingCodeDiscount: {  appliesOncePerCustomer?: boolean | undefined;
+  appliesOnOneTimePurchase?: boolean | undefined;
+  appliesOnSubscription?: boolean | undefined;
+  code?: string | undefined;
+  combinesWith?: {  orderDiscounts?: boolean | undefined;
+  productDiscounts?: boolean | undefined;
+  shippingDiscounts?: boolean | undefined;};
+  context?: {  all?: string | undefined;
+  customers?: {  add?: string[] | undefined;
+  remove?: string[] | undefined;};
+  customerSegments?: {  add?: string[] | undefined;
+  remove?: string[] | undefined;};};
+  customerSelection?: {  all?: string | undefined;
+  customers?: {  add?: string[] | undefined;
+  remove?: string[] | undefined;};
+  customerSegments?: {  add?: string[] | undefined;
+  remove?: string[] | undefined;};};
+  destination?: {  all?: boolean | undefined;
+  countries?: {  add?: string[] | undefined;
+  includeRestOfWorld?: boolean | undefined;
+  remove?: string[] | undefined;};};
+  endsAt?: string | undefined;
+  maximumShippingPrice?: number | undefined;
+  minimumRequirement?: {  subtotal?: {  greaterThanOrEqualToSubtotal?: number | undefined;};
+  quantity?: {  greaterThanOrEqualToQuantity?: number | undefined;};};
+  recurringCycleLimit?: number | undefined;
+  startsAt?: string | undefined;
+  tags?: string[] | undefined;
+  title?: string | undefined;
+  usageLimit?: number | undefined;};
+};
+
+export interface ActionOutput_shopify_updatediscountcodefreeshipping {
+  codeDiscountNode?: {  id: string;
+  codeDiscount?: unknown | undefined;};
+  userErrors: ({  field?: string[] | undefined;
+  code?: string | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_updatefile {
+  /**
+   * Array of file update inputs.
+   */
+  files: ({  /**
+   * The globally-unique ID of the file to update. Example: gid://shopify/MediaImage/1234567890
+   */
+  id: string;
+  /**
+   * The alt text description of the file.
+   */
+  alt?: string | undefined;
+  /**
+   * The name of the file including its extension.
+   */
+  filename?: string | undefined;
+  /**
+   * The source URL from which to update a media image or generic file.
+   */
+  originalSource?: string | undefined;
+  /**
+   * The source URL from which to update the media preview image.
+   */
+  previewImageSource?: string | undefined;
+  /**
+   * The IDs of product references to add to the file.
+   */
+  referencesToAdd?: string[] | undefined;
+  /**
+   * The IDs of product references to remove from the file.
+   */
+  referencesToRemove?: string[] | undefined;})[];
+};
+
+export interface ActionOutput_shopify_updatefile {
+  files?: ({  id: string;
+  alt?: string | undefined;
+  createdAt: string;
+  fileStatus: string;
+  updatedAt: string;})[];
+  userErrors?: ({  field?: string[] | undefined;
+  message: string;
+  code?: string | undefined;})[];
+};
+
+export interface ActionInput_shopify_updatefulfillmenttracking {
+  /**
+   * The ID of the fulfillment. Example: "gid://shopify/Fulfillment/255858046"
+   */
+  fulfillmentId: string;
+  /**
+   * The name of the tracking company. Example: "UPS"
+   */
+  trackingCompany?: string | undefined;
+  /**
+   * The tracking number. Example: "1Z001985YW99744790"
+   */
+  trackingNumber?: string | undefined;
+  /**
+   * The tracking URL. Example: "https://www.ups.com/track?tracknum=1Z001985YW99744790"
+   */
+  trackingUrl?: string | undefined;
+  /**
+   * Whether the customer will be notified of this update and future updates for the fulfillment.
+   */
+  notifyCustomer?: boolean | undefined;
+};
+
+export interface ActionOutput_shopify_updatefulfillmenttracking {
+  id: string;
+  status?: string | undefined;
+  trackingInfo?: ({  company?: string | undefined;
+  number?: string | undefined;
+  url?: string | undefined;})[];
+};
+
+export interface ActionInput_shopify_updategiftcard {
+  /**
+   * The ID of the gift card to update. Example: "gid://shopify/GiftCard/123"
+   */
+  id: string;
+  /**
+   * The expiration date of the gift card. Pass null to clear. Example: "2025-12-31"
+   */
+  expiresOn?: string | undefined;
+  /**
+   * A note associated with the gift card. Pass null to clear.
+   */
+  note?: string | undefined;
+  /**
+   * The ID of the customer to assign the gift card to. Pass null to clear. Example: "gid://shopify/Customer/456"
+   */
+  customerId?: string | undefined;
+};
+
+export interface ActionOutput_shopify_updategiftcard {
+  giftCard?: {  id: string;
+  balance?: {  amount: string;
+  currencyCode: string;} | undefined;
+  createdAt?: string | undefined;
+  customer?: {  id?: string | undefined;};
+  deactivatedAt?: string | undefined;
+  enabled?: boolean | undefined;
+  expiresOn?: string | undefined;
+  initialValue?: {  amount: string;
+  currencyCode: string;} | undefined;
+  lastCharacters?: string | undefined;
+  maskedCode?: string | undefined;
+  note?: string | undefined;
+  templateSuffix?: string | undefined;
+  updatedAt?: string | undefined;};
+  userErrors: ({  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_updateinventoryitem {
+  /**
+   * The ID of the inventory item to update. Example: "gid://shopify/InventoryItem/43729076"
+   */
+  id: string;
+  /**
+   * The SKU of the inventory item.
+   */
+  sku?: string | undefined;
+  /**
+   * Whether inventory levels are tracked for the item.
+   */
+  tracked?: boolean | undefined;
+  /**
+   * Whether the inventory item requires shipping.
+   */
+  requiresShipping?: boolean | undefined;
+  /**
+   * The unit cost associated with the inventory item.
+   */
+  cost?: number | undefined;
+  /**
+   * The ISO 3166-1 alpha-2 country code of where the item originated from.
+   */
+  countryCodeOfOrigin?: string | undefined;
+  /**
+   * The ISO 3166-2 alpha-2 province code of where the item originated from.
+   */
+  provinceCodeOfOrigin?: string | undefined;
+  /**
+   * The harmonized system code of the inventory item.
+   */
+  harmonizedSystemCode?: string | undefined;
+  /**
+   * List of country-specific harmonized system codes.
+   */
+  countryHarmonizedSystemCodes?: ({  countryCode: string;
+  harmonizedSystemCode: string;})[] | undefined;
+};
+
+export interface ActionOutput_shopify_updateinventoryitem {
+  id: string;
+  sku?: string | undefined;
+  tracked: boolean;
+  requiresShipping: boolean;
+  cost?: number | undefined;
+  countryCodeOfOrigin?: string | undefined;
+  provinceCodeOfOrigin?: string | undefined;
+  harmonizedSystemCode?: string | undefined;
+};
+
+export interface ActionInput_shopify_updatemarket {
+  /**
+   * The globally-unique ID of the market to update. Example: "gid://shopify/Market/73827535"
+   */
+  id: string;
+  /**
+   * A unique identifier for the market. Example: "ca"
+   */
+  handle?: string | undefined;
+  /**
+   * The name of the market. Not shown to customers.
+   */
+  name?: string | undefined;
+  /**
+   * The status of the market.
+   */
+  status?: 'ACTIVE' | 'DRAFT' | 'INACTIVE' | undefined;
+  /**
+   * Catalog IDs to include in the market.
+   */
+  catalogsToAdd?: string[] | undefined;
+  /**
+   * Catalog IDs to remove from the market.
+   */
+  catalogsToDelete?: string[] | undefined;
+  /**
+   * The web presences to add to the market.
+   */
+  webPresencesToAdd?: string[] | undefined;
+  /**
+   * The web presences to remove from the market.
+   */
+  webPresencesToDelete?: string[] | undefined;
+  /**
+   * The conditions to update.
+   */
+  conditions?: {  [key: string]: unknown | undefined;};
+  /**
+   * Currency settings for the market.
+   */
+  currencySettings?: {  [key: string]: unknown | undefined;};
+  /**
+   * The strategy used to determine how prices are displayed to the customer.
+   */
+  priceInclusions?: {  [key: string]: unknown | undefined;};
+  /**
+   * Whether to update duplicate region or wildcard markets status to draft.
+   */
+  makeDuplicateUniqueMarketsDraft?: boolean | undefined;
+  /**
+   * Remove any currency settings that are defined for the market.
+   */
+  removeCurrencySettings?: boolean | undefined;
+  /**
+   * The price inclusions to remove from the market.
+   */
+  removePriceInclusions?: boolean | undefined;
+};
+
+export interface ActionOutput_shopify_updatemarket {
+  market?: {  id: string;
+  handle: string;
+  name: string;
+  status: string;
+  type?: string | undefined;};
+  userErrors: ({  field?: string[] | undefined;
+  message: string;
+  code?: string | undefined;})[];
+};
+
+export interface ActionInput_shopify_updatemetafielddefinition {
+  /**
+   * The ID of the metafield definition to update. Example: "gid://shopify/MetafieldDefinition/1234567890"
+   */
+  id: string;
+  /**
+   * The human-readable name for the metafield definition.
+   */
+  name?: string | undefined;
+  /**
+   * The description for the metafield definition.
+   */
+  description?: string | undefined;
+  /**
+   * The access settings for the metafield definition.
+   */
+  access?: {  admin?: 'MERCHANT_READ' | 'MERCHANT_READ_WRITE' | undefined;
+  storefront?: 'NONE' | 'PUBLIC_READ' | undefined;
+  customerAccount?: 'NONE' | 'READ' | 'READ_WRITE' | undefined;};
+  /**
+   * Whether to pin the metafield definition.
+   */
+  pin?: boolean | undefined;
+  /**
+   * A list of validation options for the metafields that belong to the definition.
+   */
+  validations?: ({  name: string;
+  value: string;})[] | undefined;
+};
+
+export interface ActionOutput_shopify_updatemetafielddefinition {
+  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  namespace?: string | undefined;
+  key?: string | undefined;
+  owner_type?: string | undefined;
+  type?: string | undefined;
+  access?: {  admin?: string | undefined;
+  storefront?: string | undefined;
+  customerAccount?: string | undefined;};
+};
+
+export interface ActionInput_shopify_updatemetaobjectdefinition {
+  /**
+   * Metaobject definition ID. Example: gid://shopify/MetaobjectDefinition/123
+   */
+  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  displayNameKey?: string | undefined;
+  access?: {  admin?: string | undefined;
+  storefront?: string | undefined;};
+  capabilities?: {  [key: string]: unknown | undefined;};
+  resetFieldOrder?: boolean | undefined;
+  fieldDefinitions?: ({  create?: {  key: string;
+  name: string;
+  type: string;
+  description?: string | undefined;
+  required?: boolean | undefined;
+  validations?: ({  name: string;
+  value?: string | undefined;})[];};
+  update?: {  key: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  required?: boolean | undefined;
+  validations?: ({  name: string;
+  value?: string | undefined;})[];};
+  delete?: {  key: string;} | undefined;})[];
+};
+
+export interface ActionOutput_shopify_updatemetaobjectdefinition {
+  metaobjectDefinition?: {  id?: string | undefined;
+  name?: string | undefined;
+  type?: string | undefined;
+  description?: string | undefined;
+  displayNameKey?: string | undefined;
+  access?: {  admin?: string | undefined;
+  storefront?: string | undefined;};
+  fieldDefinitions?: ({  name?: string | undefined;
+  key?: string | undefined;
+  type?: {  name?: string | undefined;};
+  validations?: ({  name: string;
+  value?: string | undefined;})[];})[];};
+  userErrors?: ({  field?: string[] | undefined;
+  message: string;
+  code?: string | undefined;})[];
+};
+
+export interface ActionInput_shopify_updatemetaobject {
+  /**
+   * The globally unique ID of the metaobject to update. Example: "gid://shopify/Metaobject/123"
+   */
+  id: string;
+  /**
+   * A new unique handle for the metaobject.
+   */
+  handle?: string | undefined;
+  /**
+   * Field values to update. Each entry maps a field key to its new value.
+   */
+  fields?: ({  key: string;
+  value: string;})[] | undefined;
+};
+
+export interface ActionOutput_shopify_updatemetaobject {
+  id: string;
+  handle: string;
+  type: string;
+  displayName: string;
+  updatedAt: string;
+  fields: ({  key: string;
+  value?: string | undefined;})[];
+};
+
+export interface ActionInput_shopify_updateorder {
+  /**
+   * The ID of the order to update. Example: "gid://shopify/Order/123456789"
+   */
+  id: string;
+  /**
+   * A new customer email address for the order. Overwrites the existing email address.
+   */
+  email?: string | undefined;
+  /**
+   * The new contents for the note associated with the order. Overwrites the existing note.
+   */
+  note?: string | undefined;
+  /**
+   * The new purchase order number for the order.
+   */
+  poNumber?: string | undefined;
+  /**
+   * A new list of tags for the order. Overwrites the existing tags.
+   */
+  tags?: string[] | undefined;
+  /**
+   * The new shipping address for the order. Overwrites the existing shipping address.
+   */
+  shippingAddress?: {  address1?: string | undefined;
+  address2?: string | undefined;
+  city?: string | undefined;
+  company?: string | undefined;
+  countryCode?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  phone?: string | undefined;
+  provinceCode?: string | undefined;
+  zip?: string | undefined;};
+  /**
+   * A new list of custom attributes for the order. Overwrites the existing custom attributes.
+   */
+  customAttributes?: ({  key: string;
+  value: string;})[] | undefined;
+};
+
+export interface ActionOutput_shopify_updateorder {
+  id: string;
+  userErrors: ({  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_updateproductmedia {
+  /**
+   * Product ID. Example: "gid://shopify/Product/123"
+   */
+  productId: string;
+  media: ({  /**
+   * Media ID. Example: "gid://shopify/MediaImage/123"
+   */
+  id: string;
+  /**
+   * Alt text for the media
+   */
+  alt?: string | undefined;
+  /**
+   * Preview image source URL
+   */
+  previewImageSource?: string | undefined;})[];
+};
+
+export interface ActionOutput_shopify_updateproductmedia {
+  productId?: string | undefined;
+  media?: ({  id: string;
+  alt?: string | undefined;
+  status?: string | undefined;
+  image?: {  url?: string | undefined;};})[];
+  mediaUserErrors?: ({  field?: string[] | undefined;
+  message: string;
+  code?: string | undefined;})[];
+};
+
+export interface ActionInput_shopify_updateproductoptions {
+  /**
+   * The ID of the product. Example: "gid://shopify/Product/123"
+   */
+  productId: string;
+  /**
+   * The options to update.
+   */
+  options: ({  /**
+   * The ID of the option to update. Example: "gid://shopify/ProductOption/123"
+   */
+  id: string;
+  /**
+   * The new name of the option.
+   */
+  name?: string | undefined;
+  /**
+   * The new position of the option.
+   */
+  position?: number | undefined;
+  /**
+   * New option values to create.
+   */
+  valuesToAdd?: ({  /**
+   * The name of the new option value.
+   */
+  name: string;})[] | undefined;
+  /**
+   * Existing option values to update.
+   */
+  valuesToUpdate?: ({  /**
+   * The ID of the option value to update. Example: "gid://shopify/ProductOptionValue/123"
+   */
+  id: string;
+  /**
+   * The new name of the option value.
+   */
+  name?: string | undefined;})[];
+  /**
+   * IDs of existing option values to delete.
+   */
+  valuesToDelete?: string[] | undefined;})[];
+};
+
+export interface ActionOutput_shopify_updateproductoptions {
+  productId: string;
+  options: ({  id: string;
+  name: string;
+  position?: number | undefined;
+  values?: string[] | undefined;
+  optionValues?: ({  id: string;
+  name: string;
+  hasVariants?: boolean | undefined;})[];})[];
+  userErrors: ({  field?: string[] | undefined;
+  message: string;
+  code?: string | undefined;})[];
+};
+
+export interface ActionInput_shopify_updateproductvariants {
+  /**
+   * The Shopify GID of the product. Example: gid://shopify/Product/1234567890
+   */
+  productId: string;
+  allowPartialUpdates?: boolean | undefined;
+  variants: ({  /**
+   * The Shopify GID of the variant to update. Example: gid://shopify/ProductVariant/1234567890
+   */
+  id: string;
+  barcode?: string | undefined;
+  compareAtPrice?: string | undefined;
+  price?: string | undefined;
+  sku?: string | undefined;
+  taxable?: boolean | undefined;
+  inventoryPolicy?: string | undefined;
+  mediaId?: string | undefined;
+  mediaSrc?: string[] | undefined;
+  optionValues?: ({  id?: string | undefined;
+  name?: string | undefined;
+  optionName?: string | undefined;
+  optionId?: string | undefined;})[];
+  metafields?: ({  id?: string | undefined;
+  namespace?: string | undefined;
+  key?: string | undefined;
+  value?: string | undefined;
+  type?: string | undefined;})[];})[];
+  media?: ({  originalSource: string;
+  alt?: string | undefined;
+  mediaContentType: string;})[];
+};
+
+export interface ActionOutput_shopify_updateproductvariants {
+  productId: string;
+  variants: ({  id: string;
+  title?: string | undefined;
+  price?: string | undefined;
+  sku?: string | undefined;
+  barcode?: string | undefined;
+  selectedOptions?: ({  name: string;
+  value: string;})[] | undefined;})[];
+  userErrors: ({  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_updateproduct {
+  /**
+   * Product GID. Example: "gid://shopify/Product/123456789"
+   */
+  id: string;
+  title?: string | undefined;
+  descriptionHtml?: string | undefined;
+  vendor?: string | undefined;
+  productType?: string | undefined;
+  status?: 'ACTIVE' | 'ARCHIVED' | 'DRAFT' | undefined;
+  tags?: string[] | undefined;
+  handle?: string | undefined;
+};
+
+export interface ActionOutput_shopify_updateproduct {
+  id?: string | undefined;
+  title?: string | undefined;
+  userErrors: ({  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_updateurlredirect {
+  /**
+   * The ID of the URL redirect to update. Example: "gid://shopify/UrlRedirect/1234567890"
+   */
+  id: string;
+  /**
+   * The old path to be redirected from.
+   */
+  path?: string | undefined;
+  /**
+   * The target location where the user will be redirected to.
+   */
+  target?: string | undefined;
+};
+
+export interface ActionOutput_shopify_updateurlredirect {
+  urlRedirect?: {  id: string;
+  path: string;
+  target: string;} | undefined;
+  userErrors: ({  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_updatewebhooksubscription {
+  /**
+   * The ID of the webhook subscription to update. Example: "gid://shopify/WebhookSubscription/123"
+   */
+  id: string;
+  /**
+   * A constraint using search syntax to filter webhooks.
+   */
+  filter?: string | undefined;
+  /**
+   * The format in which the webhook subscription should send the data.
+   */
+  format?: string | undefined;
+  /**
+   * The list of fields to be included in the webhook subscription.
+   */
+  includeFields?: string[] | undefined;
+  /**
+   * The list of namespaces for metafields to include in the webhook subscription.
+   */
+  metafieldNamespaces?: string[] | undefined;
+  /**
+   * A human-readable name for the webhook subscription.
+   */
+  name?: string | undefined;
+  /**
+   * The URI where the webhook subscription should send events.
+   */
+  uri?: string | undefined;
+};
+
+export interface ActionOutput_shopify_updatewebhooksubscription {
+  webhookSubscription?: {  id: string;
+  topic: string;
+  uri: string;
+  filter?: string | undefined;
+  format: string;
+  name?: string | undefined;
+  includeFields?: string[] | undefined;
+  metafieldNamespaces?: string[] | undefined;};
+  userErrors: ({  field?: string[] | undefined;
+  message: string;})[];
+};
+
+export interface ActionInput_shopify_upsertmetaobject {
+  /**
+   * The metaobject definition type. Example: "color"
+   */
+  type: string;
+  /**
+   * The unique handle within the metaobject type. Example: "indigo-swatch"
+   */
+  handle: string;
+  /**
+   * Field values to set on the metaobject.
+   */
+  fields: ({  /**
+   * The field key. Example: "hex"
+   */
+  key: string;
+  /**
+   * The field value. Example: "#4B0082"
+   */
+  value: string;})[];
+};
+
+export interface ActionOutput_shopify_upsertmetaobject {
+  id: string;
+  handle: string;
+  type: string;
+  fields: ({  key: string;
+  value?: string | undefined;})[];
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
 };
 
 export interface SyncMetadata_slack_channels {

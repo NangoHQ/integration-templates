@@ -1,0 +1,455 @@
+{
+  "nango": {
+    "batchSave": {
+      "UrlRedirect": [
+        {
+          "id": "gid://shopify/UrlRedirect/468331888777",
+          "path": "/test-rest-redirect-2026-06-04",
+          "target": "/pages/test-target"
+        },
+        {
+          "id": "gid://shopify/UrlRedirect/468332085385",
+          "path": "/test-redirect-2026-06-04-unique",
+          "target": "/pages/test-target-unique"
+        },
+        {
+          "id": "gid://shopify/UrlRedirect/468332118153",
+          "path": "/test-redirect-2026-06-04-save",
+          "target": "/pages/test-target-save"
+        },
+        {
+          "id": "gid://shopify/UrlRedirect/468334968969",
+          "path": "/test-old-path-12345",
+          "target": "/collections/all"
+        },
+        {
+          "id": "gid://shopify/UrlRedirect/468335132809",
+          "path": "/test-redirect-unique-42",
+          "target": "/collections/all"
+        },
+        {
+          "id": "gid://shopify/UrlRedirect/468335165577",
+          "path": "/test-redirect-save-99",
+          "target": "/collections/all"
+        },
+        {
+          "id": "gid://shopify/UrlRedirect/468374782089",
+          "path": "/updated-test-path-2026",
+          "target": "/collections/sale"
+        }
+      ]
+    },
+    "batchDelete": {
+      "UrlRedirect": []
+    }
+  },
+  "api": {
+    "post": {
+      "/admin/api/2026-07/graphql.json": [
+        {
+          "response": {
+            "data": {
+              "urlRedirects": {
+                "nodes": [
+                  {
+                    "id": "gid://shopify/UrlRedirect/468331888777",
+                    "path": "/test-rest-redirect-2026-06-04",
+                    "target": "/pages/test-target"
+                  },
+                  {
+                    "id": "gid://shopify/UrlRedirect/468332085385",
+                    "path": "/test-redirect-2026-06-04-unique",
+                    "target": "/pages/test-target-unique"
+                  }
+                ],
+                "pageInfo": {
+                  "hasNextPage": true,
+                  "endCursor": "eyJsYXN0X2lkIjo0NjgzMzIwODUzODUsImxhc3RfdmFsdWUiOiI0NjgzMzIwODUzODUifQ=="
+                }
+              }
+            },
+            "extensions": {
+              "cost": {
+                "requestedQueryCost": 3,
+                "actualQueryCost": 3,
+                "throttleStatus": {
+                  "maximumAvailable": 4000,
+                  "currentlyAvailable": 3997,
+                  "restoreRate": 200
+                }
+              }
+            }
+          },
+          "status": 200,
+          "headers": {
+            "date": "Thu, 04 Jun 2026 13:59:33 GMT",
+            "content-type": "application/json; charset=utf-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "1; mode=block",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "DENY",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=7889238",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4984",
+            "x-ratelimit-reset": "1780581603",
+            "vary": "Accept-Encoding,Sec-Fetch-Site",
+            "referrer-policy": "origin-when-cross-origin",
+            "cf-cache-status": "DYNAMIC",
+            "x-stats-userid": "",
+            "x-stats-apiclientid": "376951341057",
+            "x-stats-apipermissionid": "695964696713",
+            "x-shopify-api-version": "2026-07",
+            "content-language": "en",
+            "alt-svc": "h3=\":443\"; ma=86400",
+            "x-shopify-api-gql-engine": "cardinal",
+            "x-dc": "gcp-us-west1,gcp-us-east1,gcp-us-east1",
+            "x-request-id": "b48b41a5-51ef-41cc-a02c-af970ecbd489-1780581573",
+            "server-timing": "processing;dur=34, verdict_flag_enabled;desc=\"count=9\";dur=0.306, graphql;desc=\"admin/query/other\", _y;desc=\"f85809a3-ac69-4e4d-9270-e8b4873e7671\", _s;desc=\"3fc8c3eb-02d9-43da-b5a2-0f15fbf9e847\"",
+            "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=7WZ%2F%2BPCgYuZ8E4OyJsoweGoNdR3l1a1ip8qa5yJVua3BBR84wvi%2BTpLD4dZs7Mfo9fHyRBh%2FBXYhjVHcslgxQpRU95xq6QEu101dp3PKOcvbE0urCqTQpY3bDCHVNJ0NaM9ur8iEY7I%3D\"}]}",
+            "server": "cloudflare",
+            "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.01,\"max_age\":604800}",
+            "content-security-policy": "default-src 'self' data: blob: 'unsafe-inline' 'unsafe-eval' https://* shopify-pos://*; block-all-mixed-content; child-src 'self' https://* shopify-pos://*; connect-src 'self' wss://* https://*; frame-ancestors 'none'; img-src 'self' data: blob: https:; script-src https://cdn.shopify.com https://cdn.shopifycdn.net https://checkout.pci.shopifyinc.com https://checkout.pci.shopifyinc.com/build/04ed4e1/card_fields.js https://api.stripe.com https://mpsnare.iesnare.com https://appcenter.intuit.com https://www.paypal.com https://js.braintreegateway.com https://c.paypal.com https://maps.googleapis.com https://www.google-analytics.com https://v.shopify.com 'self' 'unsafe-inline' 'unsafe-eval'; upgrade-insecure-requests; report-uri /csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=b48b41a5-51ef-41cc-a02c-af970ecbd489-1780581573; report-to shopify-csp",
+            "x-permitted-cross-domain-policies": "none",
+            "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=b48b41a5-51ef-41cc-a02c-af970ecbd489-1780581573\"",
+            "cf-ray": "a06775710bddac0d-PDX"
+          },
+          "hash": "3c6442730365ec4b5733ea3dc5c60c2ab37f1758",
+          "request": {
+            "data": {
+              "query": "\n                    query urlRedirects($first: Int!, $after: String) {\n                        urlRedirects(first: $first, after: $after) {\n                            nodes {\n                                id\n                                path\n                                target\n                            }\n                            pageInfo {\n                                hasNextPage\n                                endCursor\n                            }\n                        }\n                    }\n                ",
+              "variables": {
+                "first": 2
+              }
+            }
+          }
+        },
+        {
+          "response": {
+            "data": {
+              "urlRedirects": {
+                "nodes": [
+                  {
+                    "id": "gid://shopify/UrlRedirect/468332118153",
+                    "path": "/test-redirect-2026-06-04-save",
+                    "target": "/pages/test-target-save"
+                  },
+                  {
+                    "id": "gid://shopify/UrlRedirect/468334968969",
+                    "path": "/test-old-path-12345",
+                    "target": "/collections/all"
+                  }
+                ],
+                "pageInfo": {
+                  "hasNextPage": true,
+                  "endCursor": "eyJsYXN0X2lkIjo0NjgzMzQ5Njg5NjksImxhc3RfdmFsdWUiOiI0NjgzMzQ5Njg5NjkifQ=="
+                }
+              }
+            },
+            "extensions": {
+              "cost": {
+                "requestedQueryCost": 3,
+                "actualQueryCost": 3,
+                "throttleStatus": {
+                  "maximumAvailable": 4000,
+                  "currentlyAvailable": 3997,
+                  "restoreRate": 200
+                }
+              }
+            }
+          },
+          "status": 200,
+          "headers": {
+            "date": "Thu, 04 Jun 2026 13:59:34 GMT",
+            "content-type": "application/json; charset=utf-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "1; mode=block",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "DENY",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=7889238",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4983",
+            "x-ratelimit-reset": "1780581603",
+            "vary": "Accept-Encoding,Sec-Fetch-Site",
+            "referrer-policy": "origin-when-cross-origin",
+            "cf-cache-status": "DYNAMIC",
+            "x-stats-userid": "",
+            "x-stats-apiclientid": "376951341057",
+            "x-stats-apipermissionid": "695964696713",
+            "x-shopify-api-version": "2026-07",
+            "content-language": "en",
+            "alt-svc": "h3=\":443\"; ma=86400",
+            "x-shopify-api-gql-engine": "cardinal",
+            "x-dc": "gcp-us-west1,gcp-us-east1,gcp-us-east1",
+            "x-request-id": "2c271874-8d2a-4b5c-a064-7275f00f11fe-1780581573",
+            "server-timing": "processing;dur=39, verdict_flag_enabled;desc=\"count=9\";dur=0.335, graphql;desc=\"admin/query/other\", _y;desc=\"ca25a18b-4a09-4409-8ee4-8436e252d90e\", _s;desc=\"3c1927f7-5dd8-4d2b-87fc-329dfd4b0cc2\"",
+            "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=CxJS2v1X82XCsr6%2Bboz6EMHDcKmFcRgyS3SIlzz%2BnT5%2FX7VkPhv5ol4vqwQwHYo%2BYz38G02uJzPWOrWAGfbay%2FgAUTpZgUMdraDGGfQHRbXEUOPU%2BsoiDvHSc3m3FVvJyfWU2I1ZGE8%3D\"}]}",
+            "server": "cloudflare",
+            "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.01,\"max_age\":604800}",
+            "content-security-policy": "default-src 'self' data: blob: 'unsafe-inline' 'unsafe-eval' https://* shopify-pos://*; block-all-mixed-content; child-src 'self' https://* shopify-pos://*; connect-src 'self' wss://* https://*; frame-ancestors 'none'; img-src 'self' data: blob: https:; script-src https://cdn.shopify.com https://cdn.shopifycdn.net https://checkout.pci.shopifyinc.com https://checkout.pci.shopifyinc.com/build/04ed4e1/card_fields.js https://api.stripe.com https://mpsnare.iesnare.com https://appcenter.intuit.com https://www.paypal.com https://js.braintreegateway.com https://c.paypal.com https://maps.googleapis.com https://www.google-analytics.com https://v.shopify.com 'self' 'unsafe-inline' 'unsafe-eval'; upgrade-insecure-requests; report-uri /csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=2c271874-8d2a-4b5c-a064-7275f00f11fe-1780581573; report-to shopify-csp",
+            "x-permitted-cross-domain-policies": "none",
+            "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=2c271874-8d2a-4b5c-a064-7275f00f11fe-1780581573\"",
+            "cf-ray": "a0677574a837dabf-PDX"
+          },
+          "hash": "b5afe3548ae202e7328e230e01289970132b5fa7",
+          "request": {
+            "data": {
+              "query": "\n                    query urlRedirects($first: Int!, $after: String) {\n                        urlRedirects(first: $first, after: $after) {\n                            nodes {\n                                id\n                                path\n                                target\n                            }\n                            pageInfo {\n                                hasNextPage\n                                endCursor\n                            }\n                        }\n                    }\n                ",
+              "variables": {
+                "first": 2,
+                "after": "eyJsYXN0X2lkIjo0NjgzMzIwODUzODUsImxhc3RfdmFsdWUiOiI0NjgzMzIwODUzODUifQ=="
+              }
+            }
+          }
+        },
+        {
+          "response": {
+            "data": {
+              "urlRedirects": {
+                "nodes": [
+                  {
+                    "id": "gid://shopify/UrlRedirect/468335132809",
+                    "path": "/test-redirect-unique-42",
+                    "target": "/collections/all"
+                  },
+                  {
+                    "id": "gid://shopify/UrlRedirect/468335165577",
+                    "path": "/test-redirect-save-99",
+                    "target": "/collections/all"
+                  }
+                ],
+                "pageInfo": {
+                  "hasNextPage": true,
+                  "endCursor": "eyJsYXN0X2lkIjo0NjgzMzUxNjU1NzcsImxhc3RfdmFsdWUiOiI0NjgzMzUxNjU1NzcifQ=="
+                }
+              }
+            },
+            "extensions": {
+              "cost": {
+                "requestedQueryCost": 3,
+                "actualQueryCost": 3,
+                "throttleStatus": {
+                  "maximumAvailable": 4000,
+                  "currentlyAvailable": 3997,
+                  "restoreRate": 200
+                }
+              }
+            }
+          },
+          "status": 200,
+          "headers": {
+            "date": "Thu, 04 Jun 2026 13:59:34 GMT",
+            "content-type": "application/json; charset=utf-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "1; mode=block",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "DENY",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=7889238",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4982",
+            "x-ratelimit-reset": "1780581603",
+            "vary": "Accept-Encoding,Sec-Fetch-Site",
+            "referrer-policy": "origin-when-cross-origin",
+            "cf-cache-status": "DYNAMIC",
+            "x-stats-userid": "",
+            "x-stats-apiclientid": "376951341057",
+            "x-stats-apipermissionid": "695964696713",
+            "x-shopify-api-version": "2026-07",
+            "content-language": "en",
+            "alt-svc": "h3=\":443\"; ma=86400",
+            "x-shopify-api-gql-engine": "cardinal",
+            "x-dc": "gcp-us-west1,gcp-us-east1,gcp-us-east1",
+            "x-request-id": "bcddd15b-89e0-4d3f-a4c2-c3b1ae7aaeed-1780581574",
+            "server-timing": "processing;dur=39, verdict_flag_enabled;desc=\"count=9\";dur=0.391, graphql;desc=\"admin/query/other\", _y;desc=\"fa4158df-ecfe-4d0a-95fc-a19b2cc22746\", _s;desc=\"8f806065-16c2-41fa-abe1-949ade0d0f01\"",
+            "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=6ssVGxHlktSItHhiBby6J%2BtBYxHgzdO8HjRXbNFIJg0aMtDpxcyETG2E34OmTSer%2FMhKPYtmJV0ETjXx23eJObwDIT3nz6PDjB4An7vQOY8T5U3BK6CvLNtL%2FFDWIIEa3d2iNhzJzOg%3D\"}]}",
+            "server": "cloudflare",
+            "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.01,\"max_age\":604800}",
+            "content-security-policy": "default-src 'self' data: blob: 'unsafe-inline' 'unsafe-eval' https://* shopify-pos://*; block-all-mixed-content; child-src 'self' https://* shopify-pos://*; connect-src 'self' wss://* https://*; frame-ancestors 'none'; img-src 'self' data: blob: https:; script-src https://cdn.shopify.com https://cdn.shopifycdn.net https://checkout.pci.shopifyinc.com https://checkout.pci.shopifyinc.com/build/04ed4e1/card_fields.js https://api.stripe.com https://mpsnare.iesnare.com https://appcenter.intuit.com https://www.paypal.com https://js.braintreegateway.com https://c.paypal.com https://maps.googleapis.com https://www.google-analytics.com https://v.shopify.com 'self' 'unsafe-inline' 'unsafe-eval'; upgrade-insecure-requests; report-uri /csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=bcddd15b-89e0-4d3f-a4c2-c3b1ae7aaeed-1780581574; report-to shopify-csp",
+            "x-permitted-cross-domain-policies": "none",
+            "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=bcddd15b-89e0-4d3f-a4c2-c3b1ae7aaeed-1780581574\"",
+            "cf-ray": "a06775784cddb298-PDX"
+          },
+          "hash": "07fefe393fcaa5c80420787ad7335322c0a0221c",
+          "request": {
+            "data": {
+              "query": "\n                    query urlRedirects($first: Int!, $after: String) {\n                        urlRedirects(first: $first, after: $after) {\n                            nodes {\n                                id\n                                path\n                                target\n                            }\n                            pageInfo {\n                                hasNextPage\n                                endCursor\n                            }\n                        }\n                    }\n                ",
+              "variables": {
+                "first": 2,
+                "after": "eyJsYXN0X2lkIjo0NjgzMzQ5Njg5NjksImxhc3RfdmFsdWUiOiI0NjgzMzQ5Njg5NjkifQ=="
+              }
+            }
+          }
+        },
+        {
+          "response": {
+            "data": {
+              "urlRedirects": {
+                "nodes": [
+                  {
+                    "id": "gid://shopify/UrlRedirect/468374782089",
+                    "path": "/updated-test-path-2026",
+                    "target": "/collections/sale"
+                  }
+                ],
+                "pageInfo": {
+                  "hasNextPage": false,
+                  "endCursor": "eyJsYXN0X2lkIjo0NjgzNzQ3ODIwODksImxhc3RfdmFsdWUiOiI0NjgzNzQ3ODIwODkifQ=="
+                }
+              }
+            },
+            "extensions": {
+              "cost": {
+                "requestedQueryCost": 3,
+                "actualQueryCost": 3,
+                "throttleStatus": {
+                  "maximumAvailable": 4000,
+                  "currentlyAvailable": 3997,
+                  "restoreRate": 200
+                }
+              }
+            }
+          },
+          "status": 200,
+          "headers": {
+            "date": "Thu, 04 Jun 2026 13:59:35 GMT",
+            "content-type": "application/json; charset=utf-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "1; mode=block",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "DENY",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=7889238",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4981",
+            "x-ratelimit-reset": "1780581603",
+            "vary": "Accept-Encoding,Sec-Fetch-Site",
+            "referrer-policy": "origin-when-cross-origin",
+            "cf-cache-status": "DYNAMIC",
+            "x-stats-userid": "",
+            "x-stats-apiclientid": "376951341057",
+            "x-stats-apipermissionid": "695964696713",
+            "x-shopify-api-version": "2026-07",
+            "content-language": "en",
+            "alt-svc": "h3=\":443\"; ma=86400",
+            "x-shopify-api-gql-engine": "cardinal",
+            "x-dc": "gcp-us-west1,gcp-us-east1,gcp-us-east1",
+            "x-request-id": "b6b243e4-f7c0-475c-94ce-1345597d972c-1780581575",
+            "server-timing": "processing;dur=39, verdict_flag_enabled;desc=\"count=9\";dur=0.399, graphql;desc=\"admin/query/other\", _y;desc=\"14f10836-3b31-4239-a46b-0748b585dae8\", _s;desc=\"e4f83bb0-8f89-4eb5-9175-2a88162c9227\"",
+            "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=c6%2B%2FgB1Yvq7%2BgbZqtk3x7SuixA4fQRkehKOSQno7tr6LeNghqWCm7%2BoqNyVQmWYnm6ySfByjXRVCaQQJ46nSpbcCAB4QTf4RE7H8c8cOE8GIKNIU4xzuDwLsdDjdgkaFhosbuP2OM5M%3D\"}]}",
+            "server": "cloudflare",
+            "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.01,\"max_age\":604800}",
+            "content-security-policy": "default-src 'self' data: blob: 'unsafe-inline' 'unsafe-eval' https://* shopify-pos://*; block-all-mixed-content; child-src 'self' https://* shopify-pos://*; connect-src 'self' wss://* https://*; frame-ancestors 'none'; img-src 'self' data: blob: https:; script-src https://cdn.shopify.com https://cdn.shopifycdn.net https://checkout.pci.shopifyinc.com https://checkout.pci.shopifyinc.com/build/04ed4e1/card_fields.js https://api.stripe.com https://mpsnare.iesnare.com https://appcenter.intuit.com https://www.paypal.com https://js.braintreegateway.com https://c.paypal.com https://maps.googleapis.com https://www.google-analytics.com https://v.shopify.com 'self' 'unsafe-inline' 'unsafe-eval'; upgrade-insecure-requests; report-uri /csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=b6b243e4-f7c0-475c-94ce-1345597d972c-1780581575; report-to shopify-csp",
+            "x-permitted-cross-domain-policies": "none",
+            "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=b6b243e4-f7c0-475c-94ce-1345597d972c-1780581575\"",
+            "cf-ray": "a067757d3d98dd6a-PDX"
+          },
+          "hash": "5d74c4f73c9980d03e10610c22e348ae3e09c97b",
+          "request": {
+            "data": {
+              "query": "\n                    query urlRedirects($first: Int!, $after: String) {\n                        urlRedirects(first: $first, after: $after) {\n                            nodes {\n                                id\n                                path\n                                target\n                            }\n                            pageInfo {\n                                hasNextPage\n                                endCursor\n                            }\n                        }\n                    }\n                ",
+              "variables": {
+                "first": 2,
+                "after": "eyJsYXN0X2lkIjo0NjgzMzUxNjU1NzcsImxhc3RfdmFsdWUiOiI0NjgzMzUxNjU1NzcifQ=="
+              }
+            }
+          }
+        },
+        {
+          "response": {
+            "data": {
+              "urlRedirects": {
+                "nodes": [],
+                "pageInfo": {
+                  "hasNextPage": false,
+                  "endCursor": null
+                }
+              }
+            },
+            "extensions": {
+              "cost": {
+                "requestedQueryCost": 3,
+                "actualQueryCost": 3,
+                "throttleStatus": {
+                  "maximumAvailable": 4000,
+                  "currentlyAvailable": 3997,
+                  "restoreRate": 200
+                }
+              }
+            }
+          },
+          "status": 200,
+          "headers": {
+            "date": "Thu, 04 Jun 2026 13:59:35 GMT",
+            "content-type": "application/json; charset=utf-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "1; mode=block",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "DENY",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=7889238",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4980",
+            "x-ratelimit-reset": "1780581603",
+            "vary": "Accept-Encoding,Sec-Fetch-Site",
+            "referrer-policy": "origin-when-cross-origin",
+            "cf-cache-status": "DYNAMIC",
+            "x-stats-userid": "",
+            "x-stats-apiclientid": "376951341057",
+            "x-stats-apipermissionid": "695964696713",
+            "x-shopify-api-version": "2026-07",
+            "content-language": "en",
+            "alt-svc": "h3=\":443\"; ma=86400",
+            "x-shopify-api-gql-engine": "cardinal",
+            "x-dc": "gcp-us-west1,gcp-us-east1,gcp-us-east1",
+            "x-request-id": "921f0e92-a9b8-4c61-a425-295af085cf29-1780581575",
+            "server-timing": "processing;dur=35, verdict_flag_enabled;desc=\"count=9\";dur=0.29, graphql;desc=\"admin/query/other\", _y;desc=\"e5999724-4ac7-4943-8bf9-c20fae5cc00b\", _s;desc=\"bf8e0bc3-037b-42ff-a307-409d175ec910\"",
+            "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=gI8Ku5eDZ5Pp2ppc%2FxWolIiDYTwXUjnoeHZ8S2BcHNQcNl1aYWMRJkNXbzRUY%2BMhdlsyiUnBboYDfYFAg%2FyQ1u9%2BJ%2FKnQUKudFnpvY6LTX0j7dMDQGE9EItqhTRiWqQb3f4pvR8xfSI%3D\"}]}",
+            "server": "cloudflare",
+            "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.01,\"max_age\":604800}",
+            "content-security-policy": "default-src 'self' data: blob: 'unsafe-inline' 'unsafe-eval' https://* shopify-pos://*; block-all-mixed-content; child-src 'self' https://* shopify-pos://*; connect-src 'self' wss://* https://*; frame-ancestors 'none'; img-src 'self' data: blob: https:; script-src https://cdn.shopify.com https://cdn.shopifycdn.net https://checkout.pci.shopifyinc.com https://checkout.pci.shopifyinc.com/build/04ed4e1/card_fields.js https://api.stripe.com https://mpsnare.iesnare.com https://appcenter.intuit.com https://www.paypal.com https://js.braintreegateway.com https://c.paypal.com https://maps.googleapis.com https://www.google-analytics.com https://v.shopify.com 'self' 'unsafe-inline' 'unsafe-eval'; upgrade-insecure-requests; report-uri /csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=921f0e92-a9b8-4c61-a425-295af085cf29-1780581575; report-to shopify-csp",
+            "x-permitted-cross-domain-policies": "none",
+            "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=921f0e92-a9b8-4c61-a425-295af085cf29-1780581575\"",
+            "cf-ray": "a067758099645ed8-PDX"
+          },
+          "hash": "a1db64f14d923cdcc871c3d80c040b456cf4957e",
+          "request": {
+            "data": {
+              "query": "\n                    query urlRedirects($first: Int!, $after: String) {\n                        urlRedirects(first: $first, after: $after) {\n                            nodes {\n                                id\n                                path\n                                target\n                            }\n                            pageInfo {\n                                hasNextPage\n                                endCursor\n                            }\n                        }\n                    }\n                ",
+              "variables": {
+                "first": 2,
+                "after": "eyJsYXN0X2lkIjo0NjgzNzQ3ODIwODksImxhc3RfdmFsdWUiOiI0NjgzNzQ3ODIwODkifQ=="
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

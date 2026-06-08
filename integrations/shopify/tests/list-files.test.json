@@ -1,0 +1,713 @@
+{
+  "input": {},
+  "output": {
+    "files": [
+      {
+        "id": "gid://shopify/MediaImage/31220341670025",
+        "alt": "Updated alt text",
+        "mediaContentType": "IMAGE",
+        "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/theme_cover_image.jpg?v=1780562995",
+        "preview": {
+          "image": {
+            "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/theme_cover_image.jpg?v=1780562995"
+          }
+        }
+      },
+      {
+        "id": "gid://shopify/MediaImage/31220341702793",
+        "alt": "Updated alt text via Nango action",
+        "mediaContentType": "IMAGE",
+        "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/gift_card.png?v=1780562996",
+        "preview": {
+          "image": {
+            "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/gift_card.png?v=1780562996"
+          }
+        }
+      },
+      {
+        "id": "gid://shopify/MediaImage/31220341735561",
+        "alt": "Top and bottom view of a snowboard. The top view shows a centred hexagonal logo for Hydrogen that\n          appears to radiate outwards, as well as some overlapping hexagons at the bottom. The bottom view shows an\n          abstract angular grid in purples.",
+        "mediaContentType": "IMAGE",
+        "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/snowboard_purple_hydrogen.png?v=1780562996",
+        "preview": {
+          "image": {
+            "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/snowboard_purple_hydrogen.png?v=1780562996"
+          }
+        }
+      },
+      {
+        "id": "gid://shopify/MediaImage/31220341768329",
+        "alt": "Top and bottom view of a snowboard.The top view shows the text “hydrogen” in overlapping blue,\n          pink and black font. The bottom view is a purple to blue gradient with white geometric pattern overlay.",
+        "mediaContentType": "IMAGE",
+        "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/Main_5127218a-8f6c-498f-b489-09242c0fab0a.jpg?v=1780562995",
+        "preview": {
+          "image": {
+            "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/Main_5127218a-8f6c-498f-b489-09242c0fab0a.jpg?v=1780562995"
+          }
+        }
+      },
+      {
+        "id": "gid://shopify/MediaImage/31220341801097",
+        "alt": "Top and bottom view of a snowboard. The top view shows stylized hydrogen bonds and the bottom view shows \"H2\" in a brush script typeface.",
+        "mediaContentType": "IMAGE",
+        "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/Main_0a40b01b-5021-48c1-80d1-aa8ab4876d3d.jpg?v=1780562995",
+        "preview": {
+          "image": {
+            "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/Main_0a40b01b-5021-48c1-80d1-aa8ab4876d3d.jpg?v=1780562995"
+          }
+        }
+      },
+      {
+        "id": "gid://shopify/MediaImage/31220341833865",
+        "alt": "The top and bottom view of a snowboard. The top has view is turquoise and black with graphics of\n        trees. The bottom view is turquoise with the word hydrogen written in cursive.",
+        "mediaContentType": "IMAGE",
+        "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/Main.jpg?v=1780562995",
+        "preview": {
+          "image": {
+            "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/Main.jpg?v=1780562995"
+          }
+        }
+      },
+      {
+        "id": "gid://shopify/MediaImage/31220341932169",
+        "alt": "a small cube of wax",
+        "mediaContentType": "IMAGE",
+        "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/sample-normal-wax.png?v=1780562996",
+        "preview": {
+          "image": {
+            "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/sample-normal-wax.png?v=1780562996"
+          }
+        }
+      },
+      {
+        "id": "gid://shopify/MediaImage/31220341964937",
+        "alt": "Top and bottom view of a snowboard. The top view shows pixelated clouds, with the top-most one being\n        the shape of the Shopify bag logo. The bottom view has a pixelated cloudy sky with blue, pink and purple\n        colours.",
+        "mediaContentType": "IMAGE",
+        "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/snowboard_sky.png?v=1780562996",
+        "preview": {
+          "image": {
+            "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/snowboard_sky.png?v=1780562996"
+          }
+        }
+      },
+      {
+        "id": "gid://shopify/MediaImage/31220341997705",
+        "alt": "Top and bottom view of a snowboard. The top view shows a toggle at the top in shades of blue and\n        yellow. The bottom view shows an abstract illustration of toggles in blues and yellows.",
+        "mediaContentType": "IMAGE",
+        "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/Main_f44a9605-cd62-464d-b095-d45cdaa0d0d7.jpg?v=1780562996",
+        "preview": {
+          "image": {
+            "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/Main_f44a9605-cd62-464d-b095-d45cdaa0d0d7.jpg?v=1780562996"
+          }
+        }
+      },
+      {
+        "id": "gid://shopify/ExternalVideo/31220342030473",
+        "alt": "Video of the Snowboard.",
+        "mediaContentType": "EXTERNAL_VIDEO",
+        "url": "https://youtu.be/0jeoo7Ol3aI",
+        "preview": {
+          "image": {
+            "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/preview_images/hqdefault.jpg?v=1780562995"
+          }
+        }
+      },
+      {
+        "id": "gid://shopify/MediaImage/31220342063241",
+        "alt": "The top view and bottom view of a snowboard. The top view is black with a singular peach cube.\n        The bottom view has a graphic of a stack of blocks in a gradient from light blue, to pink to peach.",
+        "mediaContentType": "IMAGE",
+        "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/Main_c8ff0b5d-c712-429a-be00-b29bd55cbc9d.jpg?v=1780562995",
+        "preview": {
+          "image": {
+            "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/Main_c8ff0b5d-c712-429a-be00-b29bd55cbc9d.jpg?v=1780562995"
+          }
+        }
+      },
+      {
+        "id": "gid://shopify/MediaImage/31220342096009",
+        "alt": "The top and bottom view of a snowboard.The top view is a gradient light purple and dark purple\n        with a cube geometric pattern. The bottom view blue with light blue octagon geometric pattern.",
+        "mediaContentType": "IMAGE",
+        "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/Main_52f8e304-92d9-4a36-82af-50df8fe31c69.jpg?v=1780562996",
+        "preview": {
+          "image": {
+            "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/Main_52f8e304-92d9-4a36-82af-50df8fe31c69.jpg?v=1780562996"
+          }
+        }
+      },
+      {
+        "id": "gid://shopify/MediaImage/31220342128777",
+        "alt": "Top and bottom view of a snowboard. The top view shows abstract circles and lines in shades of\n          teal. The bottom view shows abstract circles and lines in shades of purple and blue with the text “SHOPIFY”\n          in a sans serif typeface on top.",
+        "mediaContentType": "IMAGE",
+        "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/Main_589fc064-24a2-4236-9eaf-13b2bd35d21d.jpg?v=1780562996",
+        "preview": {
+          "image": {
+            "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/Main_589fc064-24a2-4236-9eaf-13b2bd35d21d.jpg?v=1780562996"
+          }
+        }
+      },
+      {
+        "id": "gid://shopify/MediaImage/31220342259849",
+        "alt": "Top and bottom view of a snowboard. The top view shows a pixelated Shopify bag logo and a\n        pixelated character reviewing a clipboard with a questioning expression with a bright green-blue background.\n        The bottom view is a pattern of many pixel characters with a bright green-blue background.",
+        "mediaContentType": "IMAGE",
+        "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/Main_0a4e9096-021a-4c1e-8750-24b233166a12.jpg?v=1780562996",
+        "preview": {
+          "image": {
+            "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/Main_0a4e9096-021a-4c1e-8750-24b233166a12.jpg?v=1780562996"
+          }
+        }
+      },
+      {
+        "id": "gid://shopify/MediaImage/31220342292617",
+        "alt": "Top and bottom view of a snowboard. The top view shows an illustration with varied outlined shapes\n        in black. The bottom view shows a black box character with an H pointing, and surrounded by black outlined\n        illustrative elements.",
+        "mediaContentType": "IMAGE",
+        "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/Main_9129b69a-0c7b-4f66-b6cf-c4222f18028a.jpg?v=1780562996",
+        "preview": {
+          "image": {
+            "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/Main_9129b69a-0c7b-4f66-b6cf-c4222f18028a.jpg?v=1780562996"
+          }
+        }
+      },
+      {
+        "id": "gid://shopify/MediaImage/31220342325385",
+        "alt": "Top and bottom view of a snowboard. The top view shows 7 stacked hexagons and the bottom view\n          shows a small, centred hexagonal logo for Hydrogen.",
+        "mediaContentType": "IMAGE",
+        "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/Main_b9e0da7f-db89-4d41-83f0-7f417b02831d.jpg?v=1780562996",
+        "preview": {
+          "image": {
+            "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/Main_b9e0da7f-db89-4d41-83f0-7f417b02831d.jpg?v=1780562996"
+          }
+        }
+      },
+      {
+        "id": "gid://shopify/MediaImage/31220342358153",
+        "alt": "Top and bottom view of a snowboard. The top view shows a stylized scene of trees, mountains, sky and a sun in red colours. The bottom view has blue wavy lines in the background with the text \"Oxygen\" in a stylized script typeface.",
+        "mediaContentType": "IMAGE",
+        "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/Main_d624f226-0a89-4fe1-b333-0d1548b43c06.jpg?v=1780562997",
+        "preview": {
+          "image": {
+            "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/Main_d624f226-0a89-4fe1-b333-0d1548b43c06.jpg?v=1780562997"
+          }
+        }
+      },
+      {
+        "id": "gid://shopify/MediaImage/31220342390921",
+        "alt": "Top and bottom view of a snowboard. The top view shows a stylized scene of water, trees, mountains, sky and a moon in blue colours. The bottom view has a blue liquid, drippy background with the text \"liquid\" in a stylized script typeface.",
+        "mediaContentType": "IMAGE",
+        "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/Main_b13ad453-477c-4ed1-9b43-81f3345adfd6.jpg?v=1780562998",
+        "preview": {
+          "image": {
+            "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/Main_b13ad453-477c-4ed1-9b43-81f3345adfd6.jpg?v=1780562998"
+          }
+        }
+      },
+      {
+        "id": "gid://shopify/MediaImage/31220443775113",
+        "alt": "Test image",
+        "mediaContentType": "IMAGE"
+      },
+      {
+        "id": "gid://shopify/MediaImage/31220444463241",
+        "alt": "Test image",
+        "mediaContentType": "IMAGE"
+      },
+      {
+        "id": "gid://shopify/MediaImage/31220446789769",
+        "alt": "Test image from Nango",
+        "mediaContentType": "IMAGE",
+        "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/600x400.png?v=1780566209",
+        "preview": {
+          "image": {
+            "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/600x400.png?v=1780566209"
+          }
+        }
+      },
+      {
+        "id": "gid://shopify/MediaImage/31220449640585",
+        "alt": "Test image",
+        "mediaContentType": "IMAGE"
+      },
+      {
+        "id": "gid://shopify/MediaImage/31220450263177",
+        "alt": "Test image from Nango",
+        "mediaContentType": "IMAGE",
+        "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/600x400_8fa3402b-5ee0-4d75-8ede-0f994f3a46f4.png?v=1780566263",
+        "preview": {
+          "image": {
+            "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/600x400_8fa3402b-5ee0-4d75-8ede-0f994f3a46f4.png?v=1780566263"
+          }
+        }
+      },
+      {
+        "id": "gid://shopify/MediaImage/31220450295945",
+        "alt": "Test image",
+        "mediaContentType": "IMAGE"
+      },
+      {
+        "id": "gid://shopify/MediaImage/31220450984073",
+        "alt": "Test image from Nango",
+        "mediaContentType": "IMAGE",
+        "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/600x400_37c16d76-a269-4e3b-a93a-83c54a5570b7.png?v=1780566279",
+        "preview": {
+          "image": {
+            "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/600x400_37c16d76-a269-4e3b-a93a-83c54a5570b7.png?v=1780566279"
+          }
+        }
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/admin/api/2026-04/graphql.json": {
+        "response": {
+          "data": {
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "__typename": "MediaImage",
+                    "id": "gid://shopify/MediaImage/31220341670025",
+                    "alt": "Updated alt text",
+                    "preview": {
+                      "image": {
+                        "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/theme_cover_image.jpg?v=1780562995"
+                      }
+                    },
+                    "mediaContentType": "IMAGE",
+                    "image": {
+                      "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/theme_cover_image.jpg?v=1780562995"
+                    }
+                  }
+                },
+                {
+                  "node": {
+                    "__typename": "MediaImage",
+                    "id": "gid://shopify/MediaImage/31220341702793",
+                    "alt": "Updated alt text via Nango action",
+                    "preview": {
+                      "image": {
+                        "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/gift_card.png?v=1780562996"
+                      }
+                    },
+                    "mediaContentType": "IMAGE",
+                    "image": {
+                      "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/gift_card.png?v=1780562996"
+                    }
+                  }
+                },
+                {
+                  "node": {
+                    "__typename": "MediaImage",
+                    "id": "gid://shopify/MediaImage/31220341735561",
+                    "alt": "Top and bottom view of a snowboard. The top view shows a centred hexagonal logo for Hydrogen that\n          appears to radiate outwards, as well as some overlapping hexagons at the bottom. The bottom view shows an\n          abstract angular grid in purples.",
+                    "preview": {
+                      "image": {
+                        "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/snowboard_purple_hydrogen.png?v=1780562996"
+                      }
+                    },
+                    "mediaContentType": "IMAGE",
+                    "image": {
+                      "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/snowboard_purple_hydrogen.png?v=1780562996"
+                    }
+                  }
+                },
+                {
+                  "node": {
+                    "__typename": "MediaImage",
+                    "id": "gid://shopify/MediaImage/31220341768329",
+                    "alt": "Top and bottom view of a snowboard.The top view shows the text “hydrogen” in overlapping blue,\n          pink and black font. The bottom view is a purple to blue gradient with white geometric pattern overlay.",
+                    "preview": {
+                      "image": {
+                        "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/Main_5127218a-8f6c-498f-b489-09242c0fab0a.jpg?v=1780562995"
+                      }
+                    },
+                    "mediaContentType": "IMAGE",
+                    "image": {
+                      "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/Main_5127218a-8f6c-498f-b489-09242c0fab0a.jpg?v=1780562995"
+                    }
+                  }
+                },
+                {
+                  "node": {
+                    "__typename": "MediaImage",
+                    "id": "gid://shopify/MediaImage/31220341801097",
+                    "alt": "Top and bottom view of a snowboard. The top view shows stylized hydrogen bonds and the bottom view shows \"H2\" in a brush script typeface.",
+                    "preview": {
+                      "image": {
+                        "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/Main_0a40b01b-5021-48c1-80d1-aa8ab4876d3d.jpg?v=1780562995"
+                      }
+                    },
+                    "mediaContentType": "IMAGE",
+                    "image": {
+                      "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/Main_0a40b01b-5021-48c1-80d1-aa8ab4876d3d.jpg?v=1780562995"
+                    }
+                  }
+                },
+                {
+                  "node": {
+                    "__typename": "MediaImage",
+                    "id": "gid://shopify/MediaImage/31220341833865",
+                    "alt": "The top and bottom view of a snowboard. The top has view is turquoise and black with graphics of\n        trees. The bottom view is turquoise with the word hydrogen written in cursive.",
+                    "preview": {
+                      "image": {
+                        "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/Main.jpg?v=1780562995"
+                      }
+                    },
+                    "mediaContentType": "IMAGE",
+                    "image": {
+                      "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/Main.jpg?v=1780562995"
+                    }
+                  }
+                },
+                {
+                  "node": {
+                    "__typename": "MediaImage",
+                    "id": "gid://shopify/MediaImage/31220341932169",
+                    "alt": "a small cube of wax",
+                    "preview": {
+                      "image": {
+                        "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/sample-normal-wax.png?v=1780562996"
+                      }
+                    },
+                    "mediaContentType": "IMAGE",
+                    "image": {
+                      "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/sample-normal-wax.png?v=1780562996"
+                    }
+                  }
+                },
+                {
+                  "node": {
+                    "__typename": "MediaImage",
+                    "id": "gid://shopify/MediaImage/31220341964937",
+                    "alt": "Top and bottom view of a snowboard. The top view shows pixelated clouds, with the top-most one being\n        the shape of the Shopify bag logo. The bottom view has a pixelated cloudy sky with blue, pink and purple\n        colours.",
+                    "preview": {
+                      "image": {
+                        "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/snowboard_sky.png?v=1780562996"
+                      }
+                    },
+                    "mediaContentType": "IMAGE",
+                    "image": {
+                      "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/snowboard_sky.png?v=1780562996"
+                    }
+                  }
+                },
+                {
+                  "node": {
+                    "__typename": "MediaImage",
+                    "id": "gid://shopify/MediaImage/31220341997705",
+                    "alt": "Top and bottom view of a snowboard. The top view shows a toggle at the top in shades of blue and\n        yellow. The bottom view shows an abstract illustration of toggles in blues and yellows.",
+                    "preview": {
+                      "image": {
+                        "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/Main_f44a9605-cd62-464d-b095-d45cdaa0d0d7.jpg?v=1780562996"
+                      }
+                    },
+                    "mediaContentType": "IMAGE",
+                    "image": {
+                      "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/Main_f44a9605-cd62-464d-b095-d45cdaa0d0d7.jpg?v=1780562996"
+                    }
+                  }
+                },
+                {
+                  "node": {
+                    "__typename": "ExternalVideo",
+                    "id": "gid://shopify/ExternalVideo/31220342030473",
+                    "alt": "Video of the Snowboard.",
+                    "preview": {
+                      "image": {
+                        "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/preview_images/hqdefault.jpg?v=1780562995"
+                      }
+                    },
+                    "mediaContentType": "EXTERNAL_VIDEO",
+                    "originUrl": "https://youtu.be/0jeoo7Ol3aI"
+                  }
+                },
+                {
+                  "node": {
+                    "__typename": "MediaImage",
+                    "id": "gid://shopify/MediaImage/31220342063241",
+                    "alt": "The top view and bottom view of a snowboard. The top view is black with a singular peach cube.\n        The bottom view has a graphic of a stack of blocks in a gradient from light blue, to pink to peach.",
+                    "preview": {
+                      "image": {
+                        "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/Main_c8ff0b5d-c712-429a-be00-b29bd55cbc9d.jpg?v=1780562995"
+                      }
+                    },
+                    "mediaContentType": "IMAGE",
+                    "image": {
+                      "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/Main_c8ff0b5d-c712-429a-be00-b29bd55cbc9d.jpg?v=1780562995"
+                    }
+                  }
+                },
+                {
+                  "node": {
+                    "__typename": "MediaImage",
+                    "id": "gid://shopify/MediaImage/31220342096009",
+                    "alt": "The top and bottom view of a snowboard.The top view is a gradient light purple and dark purple\n        with a cube geometric pattern. The bottom view blue with light blue octagon geometric pattern.",
+                    "preview": {
+                      "image": {
+                        "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/Main_52f8e304-92d9-4a36-82af-50df8fe31c69.jpg?v=1780562996"
+                      }
+                    },
+                    "mediaContentType": "IMAGE",
+                    "image": {
+                      "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/Main_52f8e304-92d9-4a36-82af-50df8fe31c69.jpg?v=1780562996"
+                    }
+                  }
+                },
+                {
+                  "node": {
+                    "__typename": "MediaImage",
+                    "id": "gid://shopify/MediaImage/31220342128777",
+                    "alt": "Top and bottom view of a snowboard. The top view shows abstract circles and lines in shades of\n          teal. The bottom view shows abstract circles and lines in shades of purple and blue with the text “SHOPIFY”\n          in a sans serif typeface on top.",
+                    "preview": {
+                      "image": {
+                        "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/Main_589fc064-24a2-4236-9eaf-13b2bd35d21d.jpg?v=1780562996"
+                      }
+                    },
+                    "mediaContentType": "IMAGE",
+                    "image": {
+                      "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/Main_589fc064-24a2-4236-9eaf-13b2bd35d21d.jpg?v=1780562996"
+                    }
+                  }
+                },
+                {
+                  "node": {
+                    "__typename": "MediaImage",
+                    "id": "gid://shopify/MediaImage/31220342259849",
+                    "alt": "Top and bottom view of a snowboard. The top view shows a pixelated Shopify bag logo and a\n        pixelated character reviewing a clipboard with a questioning expression with a bright green-blue background.\n        The bottom view is a pattern of many pixel characters with a bright green-blue background.",
+                    "preview": {
+                      "image": {
+                        "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/Main_0a4e9096-021a-4c1e-8750-24b233166a12.jpg?v=1780562996"
+                      }
+                    },
+                    "mediaContentType": "IMAGE",
+                    "image": {
+                      "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/Main_0a4e9096-021a-4c1e-8750-24b233166a12.jpg?v=1780562996"
+                    }
+                  }
+                },
+                {
+                  "node": {
+                    "__typename": "MediaImage",
+                    "id": "gid://shopify/MediaImage/31220342292617",
+                    "alt": "Top and bottom view of a snowboard. The top view shows an illustration with varied outlined shapes\n        in black. The bottom view shows a black box character with an H pointing, and surrounded by black outlined\n        illustrative elements.",
+                    "preview": {
+                      "image": {
+                        "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/Main_9129b69a-0c7b-4f66-b6cf-c4222f18028a.jpg?v=1780562996"
+                      }
+                    },
+                    "mediaContentType": "IMAGE",
+                    "image": {
+                      "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/Main_9129b69a-0c7b-4f66-b6cf-c4222f18028a.jpg?v=1780562996"
+                    }
+                  }
+                },
+                {
+                  "node": {
+                    "__typename": "MediaImage",
+                    "id": "gid://shopify/MediaImage/31220342325385",
+                    "alt": "Top and bottom view of a snowboard. The top view shows 7 stacked hexagons and the bottom view\n          shows a small, centred hexagonal logo for Hydrogen.",
+                    "preview": {
+                      "image": {
+                        "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/Main_b9e0da7f-db89-4d41-83f0-7f417b02831d.jpg?v=1780562996"
+                      }
+                    },
+                    "mediaContentType": "IMAGE",
+                    "image": {
+                      "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/Main_b9e0da7f-db89-4d41-83f0-7f417b02831d.jpg?v=1780562996"
+                    }
+                  }
+                },
+                {
+                  "node": {
+                    "__typename": "MediaImage",
+                    "id": "gid://shopify/MediaImage/31220342358153",
+                    "alt": "Top and bottom view of a snowboard. The top view shows a stylized scene of trees, mountains, sky and a sun in red colours. The bottom view has blue wavy lines in the background with the text \"Oxygen\" in a stylized script typeface.",
+                    "preview": {
+                      "image": {
+                        "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/Main_d624f226-0a89-4fe1-b333-0d1548b43c06.jpg?v=1780562997"
+                      }
+                    },
+                    "mediaContentType": "IMAGE",
+                    "image": {
+                      "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/Main_d624f226-0a89-4fe1-b333-0d1548b43c06.jpg?v=1780562997"
+                    }
+                  }
+                },
+                {
+                  "node": {
+                    "__typename": "MediaImage",
+                    "id": "gid://shopify/MediaImage/31220342390921",
+                    "alt": "Top and bottom view of a snowboard. The top view shows a stylized scene of water, trees, mountains, sky and a moon in blue colours. The bottom view has a blue liquid, drippy background with the text \"liquid\" in a stylized script typeface.",
+                    "preview": {
+                      "image": {
+                        "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/Main_b13ad453-477c-4ed1-9b43-81f3345adfd6.jpg?v=1780562998"
+                      }
+                    },
+                    "mediaContentType": "IMAGE",
+                    "image": {
+                      "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/Main_b13ad453-477c-4ed1-9b43-81f3345adfd6.jpg?v=1780562998"
+                    }
+                  }
+                },
+                {
+                  "node": {
+                    "__typename": "MediaImage",
+                    "id": "gid://shopify/MediaImage/31220443775113",
+                    "alt": "Test image",
+                    "preview": {
+                      "image": null
+                    },
+                    "mediaContentType": "IMAGE",
+                    "image": null
+                  }
+                },
+                {
+                  "node": {
+                    "__typename": "MediaImage",
+                    "id": "gid://shopify/MediaImage/31220444463241",
+                    "alt": "Test image",
+                    "preview": {
+                      "image": null
+                    },
+                    "mediaContentType": "IMAGE",
+                    "image": null
+                  }
+                },
+                {
+                  "node": {
+                    "__typename": "MediaImage",
+                    "id": "gid://shopify/MediaImage/31220446789769",
+                    "alt": "Test image from Nango",
+                    "preview": {
+                      "image": {
+                        "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/600x400.png?v=1780566209"
+                      }
+                    },
+                    "mediaContentType": "IMAGE",
+                    "image": {
+                      "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/600x400.png?v=1780566209"
+                    }
+                  }
+                },
+                {
+                  "node": {
+                    "__typename": "MediaImage",
+                    "id": "gid://shopify/MediaImage/31220449640585",
+                    "alt": "Test image",
+                    "preview": {
+                      "image": null
+                    },
+                    "mediaContentType": "IMAGE",
+                    "image": null
+                  }
+                },
+                {
+                  "node": {
+                    "__typename": "MediaImage",
+                    "id": "gid://shopify/MediaImage/31220450263177",
+                    "alt": "Test image from Nango",
+                    "preview": {
+                      "image": {
+                        "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/600x400_8fa3402b-5ee0-4d75-8ede-0f994f3a46f4.png?v=1780566263"
+                      }
+                    },
+                    "mediaContentType": "IMAGE",
+                    "image": {
+                      "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/600x400_8fa3402b-5ee0-4d75-8ede-0f994f3a46f4.png?v=1780566263"
+                    }
+                  }
+                },
+                {
+                  "node": {
+                    "__typename": "MediaImage",
+                    "id": "gid://shopify/MediaImage/31220450295945",
+                    "alt": "Test image",
+                    "preview": {
+                      "image": null
+                    },
+                    "mediaContentType": "IMAGE",
+                    "image": null
+                  }
+                },
+                {
+                  "node": {
+                    "__typename": "MediaImage",
+                    "id": "gid://shopify/MediaImage/31220450984073",
+                    "alt": "Test image from Nango",
+                    "preview": {
+                      "image": {
+                        "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/600x400_37c16d76-a269-4e3b-a93a-83c54a5570b7.png?v=1780566279"
+                      }
+                    },
+                    "mediaContentType": "IMAGE",
+                    "image": {
+                      "url": "https://cdn.shopify.com/s/files/1/0768/7005/8121/files/600x400_37c16d76-a269-4e3b-a93a-83c54a5570b7.png?v=1780566279"
+                    }
+                  }
+                }
+              ],
+              "pageInfo": {
+                "hasNextPage": false,
+                "endCursor": "eyJsYXN0X2lkIjozMTIyMDQ1MDk4NDA3MywibGFzdF92YWx1ZSI6IjMxMjIwNDUwOTg0MDczIn0="
+              }
+            }
+          },
+          "extensions": {
+            "cost": {
+              "requestedQueryCost": 30,
+              "actualQueryCost": 20,
+              "throttleStatus": {
+                "maximumAvailable": 4000,
+                "currentlyAvailable": 3980,
+                "restoreRate": 200
+              }
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 04 Jun 2026 10:53:08 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=7889238",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4642",
+          "x-ratelimit-reset": "1780570400",
+          "vary": "Accept-Encoding,Sec-Fetch-Site",
+          "referrer-policy": "origin-when-cross-origin",
+          "cf-cache-status": "DYNAMIC",
+          "x-stats-userid": "",
+          "x-stats-apiclientid": "376951341057",
+          "x-stats-apipermissionid": "695964696713",
+          "x-shopify-api-version": "2026-04",
+          "content-language": "en",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "x-shopify-api-gql-engine": "cardinal",
+          "x-dc": "gcp-us-west1,gcp-us-east1,gcp-us-east1",
+          "x-request-id": "b9af5ddf-7987-47ed-94c0-d6bd6c182fc0-1780570388",
+          "server-timing": "processing;dur=56, verdict_flag_enabled;desc=\"count=10\";dur=0.45, graphql;desc=\"admin/query/other\", _y;desc=\"1fcb8129-c49b-4cb4-8098-515de32aca59\", _s;desc=\"0c198e63-19e7-46cd-9763-0131ce3841ac\"",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=v%2FJvOUgDv09%2BXpwQnfZBeSQ4um40WdFd2Q%2BVYE7HotB4RRl9U9iZmhPBvP8Wkqf9G6BZ8Q5B18QclCqsgAAS84JL4kk73fZ7JyRkbuDdyhTNpBkhQzEvtG9QOCw8LA%2FTMnEgjGuWm7s%3D\"}]}",
+          "server": "cloudflare",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.01,\"max_age\":604800}",
+          "content-security-policy": "default-src 'self' data: blob: 'unsafe-inline' 'unsafe-eval' https://* shopify-pos://*; block-all-mixed-content; child-src 'self' https://* shopify-pos://*; connect-src 'self' wss://* https://*; frame-ancestors 'none'; img-src 'self' data: blob: https:; script-src https://cdn.shopify.com https://cdn.shopifycdn.net https://checkout.pci.shopifyinc.com https://checkout.pci.shopifyinc.com/build/04ed4e1/card_fields.js https://api.stripe.com https://mpsnare.iesnare.com https://appcenter.intuit.com https://www.paypal.com https://js.braintreegateway.com https://c.paypal.com https://maps.googleapis.com https://www.google-analytics.com https://v.shopify.com 'self' 'unsafe-inline' 'unsafe-eval'; upgrade-insecure-requests; report-uri /csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=b9af5ddf-7987-47ed-94c0-d6bd6c182fc0-1780570388; report-to shopify-csp",
+          "x-permitted-cross-domain-policies": "none",
+          "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=b9af5ddf-7987-47ed-94c0-d6bd6c182fc0-1780570388\"",
+          "cf-ray": "a066645e38cef820-PDX"
+        },
+        "hash": "c09185f915a05633e7d67a280911177f84ef36ac",
+        "request": {
+          "data": "sha1:b5bafc9f350617b5e01b610772eb773deda059c1"
+        }
+      }
+    }
+  }
+}

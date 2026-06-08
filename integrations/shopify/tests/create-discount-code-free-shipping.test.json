@@ -1,0 +1,131 @@
+{
+  "input": {
+    "code": "FS-AGENT-2026-002",
+    "title": "Agent Test Free Shipping",
+    "startsAt": "2026-01-01T00:00:00.000Z",
+    "context": {
+      "all": "ALL"
+    },
+    "destination": {
+      "all": true
+    }
+  },
+  "output": {
+    "codeDiscountNode": {
+      "id": "gid://shopify/DiscountCodeNode/1298170314889",
+      "codeDiscount": {
+        "title": "Agent Test Free Shipping",
+        "startsAt": "2026-01-01T00:00:00Z",
+        "endsAt": null,
+        "maximumShippingPrice": null,
+        "customerSelection": {
+          "allCustomers": true
+        },
+        "destinationSelection": {
+          "allCountries": true
+        },
+        "minimumRequirement": null,
+        "codes": {
+          "nodes": [
+            {
+              "code": "FS-AGENT-2026-002"
+            }
+          ]
+        }
+      }
+    },
+    "userErrors": []
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/admin/api/2026-04/graphql.json": {
+        "response": {
+          "data": {
+            "discountCodeFreeShippingCreate": {
+              "codeDiscountNode": {
+                "id": "gid://shopify/DiscountCodeNode/1298170314889",
+                "codeDiscount": {
+                  "title": "Agent Test Free Shipping",
+                  "startsAt": "2026-01-01T00:00:00Z",
+                  "endsAt": null,
+                  "maximumShippingPrice": null,
+                  "customerSelection": {
+                    "allCustomers": true
+                  },
+                  "destinationSelection": {
+                    "allCountries": true
+                  },
+                  "minimumRequirement": null,
+                  "codes": {
+                    "nodes": [
+                      {
+                        "code": "FS-AGENT-2026-002"
+                      }
+                    ]
+                  }
+                }
+              },
+              "userErrors": []
+            }
+          },
+          "extensions": {
+            "cost": {
+              "requestedQueryCost": 20,
+              "actualQueryCost": 17,
+              "throttleStatus": {
+                "maximumAvailable": 4000,
+                "currentlyAvailable": 3983,
+                "restoreRate": 200
+              }
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 04 Jun 2026 09:49:18 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=7889238",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4973",
+          "x-ratelimit-reset": "1780566613",
+          "vary": "Accept-Encoding,Sec-Fetch-Site",
+          "referrer-policy": "origin-when-cross-origin",
+          "cf-cache-status": "DYNAMIC",
+          "x-stats-userid": "",
+          "x-stats-apiclientid": "376951341057",
+          "x-stats-apipermissionid": "695964696713",
+          "x-shopify-api-version": "2026-04",
+          "content-language": "en",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "x-shopify-api-gql-engine": "cardinal",
+          "x-shopify-api-deprecated-reason": "DiscountCodeFreeShipping.customerSelection",
+          "x-dc": "gcp-us-west1,gcp-us-east1,gcp-us-east1",
+          "x-request-id": "5d3b5372-333a-4ccf-923d-1afa54bc2858-1780566558",
+          "server-timing": "processing;dur=122, verdict_flag_enabled;desc=\"count=18\";dur=1.19, graphql;desc=\"admin/mutation/other\", _y;desc=\"fd5d422f-c52b-4bef-a307-785ec43c6302\", _s;desc=\"ff1bb15b-ef3e-4159-bdfb-8d524b0c4bf7\"",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=YlhwOpRzigwhZ7ZyTT9JpDCk%2FKewaQ3J1eSV%2FC6QsrxqhOEZ%2B%2FTWmFHx5V7BtT3h0lIxYJ%2Fi6HwEF3iakstIKbqNfsu4DIHGonqQT2u27LFtF%2FOm1Ut5jgFG3ZFY0u5fy5CjnEgXK%2B4%3D\"}]}",
+          "server": "cloudflare",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.01,\"max_age\":604800}",
+          "content-security-policy": "default-src 'self' data: blob: 'unsafe-inline' 'unsafe-eval' https://* shopify-pos://*; block-all-mixed-content; child-src 'self' https://* shopify-pos://*; connect-src 'self' wss://* https://*; frame-ancestors 'none'; img-src 'self' data: blob: https:; script-src https://cdn.shopify.com https://cdn.shopifycdn.net https://checkout.pci.shopifyinc.com https://checkout.pci.shopifyinc.com/build/04ed4e1/card_fields.js https://api.stripe.com https://mpsnare.iesnare.com https://appcenter.intuit.com https://www.paypal.com https://js.braintreegateway.com https://c.paypal.com https://maps.googleapis.com https://www.google-analytics.com https://v.shopify.com 'self' 'unsafe-inline' 'unsafe-eval'; upgrade-insecure-requests; report-uri /csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=5d3b5372-333a-4ccf-923d-1afa54bc2858-1780566558; report-to shopify-csp",
+          "x-permitted-cross-domain-policies": "none",
+          "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=5d3b5372-333a-4ccf-923d-1afa54bc2858-1780566558\"",
+          "cf-ray": "a06606dcf943758f-PDX"
+        },
+        "hash": "8b977fe97c8c6d550ac39eb2108b4760879100ef",
+        "request": {
+          "data": "sha1:253eb20b7a8adf863eeefe231d8bebadb8326684"
+        }
+      }
+    }
+  }
+}
