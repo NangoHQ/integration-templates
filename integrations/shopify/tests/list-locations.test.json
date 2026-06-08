@@ -1,0 +1,158 @@
+{
+  "input": {},
+  "output": {
+    "locations": [
+      {
+        "id": "gid://shopify/Location/87063199881",
+        "name": "My Custom Location",
+        "address": {
+          "address1": "123 Main St",
+          "city": "Toronto",
+          "province": "Ontario",
+          "country": "Canada",
+          "zip": "A1A 1A1",
+          "phone": "555-5555",
+          "formatted": [
+            "123 Main St",
+            "Toronto ON A1A 1A1",
+            "Canada"
+          ]
+        },
+        "isActive": true,
+        "createdAt": "2026-06-04T08:49:53Z",
+        "updatedAt": "2026-06-04T08:49:54Z",
+        "legacyResourceId": "87063199881"
+      },
+      {
+        "id": "gid://shopify/Location/87063167113",
+        "name": "Shop location",
+        "address": {
+          "country": "United States",
+          "formatted": [
+            "United States"
+          ]
+        },
+        "isActive": true,
+        "createdAt": "2026-06-04T08:49:32Z",
+        "updatedAt": "2026-06-04T08:49:32Z",
+        "legacyResourceId": "87063167113"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/admin/api/2025-04/graphql.json": {
+        "response": {
+          "data": {
+            "locations": {
+              "nodes": [
+                {
+                  "id": "gid://shopify/Location/87063199881",
+                  "name": "My Custom Location",
+                  "address": {
+                    "address1": "123 Main St",
+                    "address2": null,
+                    "city": "Toronto",
+                    "province": "Ontario",
+                    "country": "Canada",
+                    "zip": "A1A 1A1",
+                    "phone": "555-5555",
+                    "formatted": [
+                      "123 Main St",
+                      "Toronto ON A1A 1A1",
+                      "Canada"
+                    ]
+                  },
+                  "isActive": true,
+                  "createdAt": "2026-06-04T08:49:53Z",
+                  "updatedAt": "2026-06-04T08:49:54Z",
+                  "legacyResourceId": "87063199881"
+                },
+                {
+                  "id": "gid://shopify/Location/87063167113",
+                  "name": "Shop location",
+                  "address": {
+                    "address1": null,
+                    "address2": null,
+                    "city": null,
+                    "province": null,
+                    "country": "United States",
+                    "zip": null,
+                    "phone": null,
+                    "formatted": [
+                      "United States"
+                    ]
+                  },
+                  "isActive": true,
+                  "createdAt": "2026-06-04T08:49:32Z",
+                  "updatedAt": "2026-06-04T08:49:32Z",
+                  "legacyResourceId": "87063167113"
+                }
+              ],
+              "pageInfo": {
+                "hasNextPage": false,
+                "endCursor": "eyJsYXN0X2lkIjo4NzA2MzE2NzExMywibGFzdF92YWx1ZSI6IlNob3AgbG9jYXRpb24ifQ=="
+              }
+            }
+          },
+          "extensions": {
+            "cost": {
+              "requestedQueryCost": 9,
+              "actualQueryCost": 3,
+              "throttleStatus": {
+                "maximumAvailable": 4000,
+                "currentlyAvailable": 3997,
+                "restoreRate": 200
+              }
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 04 Jun 2026 10:50:13 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=7889238",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4782",
+          "x-ratelimit-reset": "1780570219",
+          "vary": "Accept-Encoding,Sec-Fetch-Site",
+          "referrer-policy": "origin-when-cross-origin",
+          "cf-cache-status": "DYNAMIC",
+          "x-stats-userid": "",
+          "x-stats-apiclientid": "376951341057",
+          "x-stats-apipermissionid": "695964696713",
+          "x-shopify-api-version": "2025-07",
+          "x-shopify-api-version-warning": "https://shopify.dev/concepts/about-apis/versioning",
+          "content-language": "en",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "x-shopify-api-gql-engine": "cardinal",
+          "x-dc": "gcp-us-west1,gcp-us-east1,gcp-us-east1",
+          "x-request-id": "064350bc-20b7-4ee0-b788-7df3fc229a4d-1780570213",
+          "server-timing": "processing;dur=49, verdict_flag_enabled;desc=\"count=13\";dur=0.589, graphql;desc=\"admin/query/other\", _y;desc=\"9cac15c7-1411-454f-8ee2-fe3be3296cac\", _s;desc=\"c654ac04-d805-45df-88da-d6e8d80e1c3b\"",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=vO1%2BzpA7bJHV3dq8MLXZmz5hUxKEDTbGSWYgcAytdXayGcRGGsYsKKzfyHQ%2Fsb3TUBEjROkDzl91znT8MURLVcoDiIEseo85b1o2kzd2R8WfBJIXz4S42kIj7xEQwZZKp9zVPn9qOlk%3D\"}]}",
+          "server": "cloudflare",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.01,\"max_age\":604800}",
+          "content-security-policy": "default-src 'self' data: blob: 'unsafe-inline' 'unsafe-eval' https://* shopify-pos://*; block-all-mixed-content; child-src 'self' https://* shopify-pos://*; connect-src 'self' wss://* https://*; frame-ancestors 'none'; img-src 'self' data: blob: https:; script-src https://cdn.shopify.com https://cdn.shopifycdn.net https://checkout.pci.shopifyinc.com https://checkout.pci.shopifyinc.com/build/04ed4e1/card_fields.js https://api.stripe.com https://mpsnare.iesnare.com https://appcenter.intuit.com https://www.paypal.com https://js.braintreegateway.com https://c.paypal.com https://maps.googleapis.com https://www.google-analytics.com https://v.shopify.com 'self' 'unsafe-inline' 'unsafe-eval'; upgrade-insecure-requests; report-uri /csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=064350bc-20b7-4ee0-b788-7df3fc229a4d-1780570213; report-to shopify-csp",
+          "x-permitted-cross-domain-policies": "none",
+          "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=064350bc-20b7-4ee0-b788-7df3fc229a4d-1780570213\"",
+          "cf-ray": "a06660179890ff0a-PDX"
+        },
+        "hash": "deaf939d0d02a3a76ed5a2e15b86859729c3e4ef",
+        "request": {
+          "data": "sha1:68c4bce245931f0d955f7eb56105d62f5f0288c3"
+        }
+      }
+    }
+  }
+}

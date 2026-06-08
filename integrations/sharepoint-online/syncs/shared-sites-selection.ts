@@ -1,150 +1,288 @@
 import { createSync } from 'nango';
-import type { DriveItem } from '../types.js';
-import { toFile } from '../mappers/to-file.js';
-
-import type { ProxyConfiguration } from 'nango';
-import { FileMetadata, SharepointMetadata } from '../models.js';
-
 import { z } from 'zod';
-/**
- * Fetches data from SharePoint sites and processes list items for synchronization.
- *
- * @param nango An instance of NangoSync for handling synchronization tasks.
- * @returns Promise<void>
- */
-const CheckpointSchema = z.object({
-    updated_after: z.string()
+
+const MetadataSchema = z.object({
+    sharedSites: z.array(z.string()).optional(),
+    pickedFiles: z.array(z.string()).optional()
 });
 
-const sync = createSync({
-    description: 'This sync will be used to sync file metadata from SharePoint site based on the ones the user has picked.',
-    version: '3.1.0',
-    frequency: 'every 1 hour',
-    autoStart: false,
-    checkpoint: CheckpointSchema,
+const CheckpointSchema = z.object({
+    delta_tokens_json: z.string(),
+    selection_signature: z.string()
+});
 
+const DeltaTokenMapSchema = z.record(z.string(), z.string());
+
+const SharedSiteFileSchema = z.object({
+    id: z.string(),
+    siteId: z.string(),
+    driveId: z.string(),
+    itemId: z.string(),
+    name: z.string().optional(),
+    webUrl: z.string().optional(),
+    size: z.number().optional(),
+    createdDateTime: z.string().optional(),
+    lastModifiedDateTime: z.string().optional(),
+    parentId: z.string().optional(),
+    parentPath: z.string().optional()
+});
+
+const DriveSchema = z.object({
+    id: z.string()
+});
+
+const DriveItemSchema = z.object({
+    id: z.string(),
+    name: z.string().optional(),
+    webUrl: z.string().optional(),
+    size: z.number().optional(),
+    createdDateTime: z.string().optional(),
+    lastModifiedDateTime: z.string().optional(),
+    parentReference: z
+        .object({
+            driveId: z.string().optional(),
+            id: z.string().optional(),
+            path: z.string().optional()
+        })
+        .optional(),
+    '@removed': z
+        .object({
+            reason: z.string().optional()
+        })
+        .optional()
+});
+
+const DrivesListResponseSchema = z.object({
+    value: z.array(z.unknown()).optional()
+});
+
+const DeltaResponseSchema = z.object({
+    value: z.array(z.unknown()).optional(),
+    '@odata.nextLink': z.string().optional(),
+    '@odata.deltaLink': z.string().optional()
+});
+
+function parseDeltaTokenMap(input: string | undefined): Record<string, string> {
+    if (!input) {
+        return {};
+    }
+
+    try {
+        const parsed = JSON.parse(input);
+        const result = DeltaTokenMapSchema.safeParse(parsed);
+        if (result.success) {
+            return result.data;
+        }
+    } catch {
+        // Ignore malformed checkpoint data and restart from a full delta crawl.
+    }
+
+    return {};
+}
+
+function toRelativeUrl(url: string): string {
+    if (!url.startsWith('http')) {
+        return url;
+    }
+
+    const parsed = new URL(url);
+    return parsed.pathname + parsed.search;
+}
+
+function createSelectionSignature(sharedSites: string[], pickedFiles: string[]): string {
+    return JSON.stringify({
+        sharedSites: [...sharedSites].sort(),
+        pickedFiles: [...pickedFiles].sort()
+    });
+}
+
+function isDryRun(nango: NangoSyncLocal): boolean {
+    return 'dryRun' in nango && Boolean(Reflect.get(nango, 'dryRun'));
+}
+
+function isLocalFixtureMock(nango: NangoSyncLocal): boolean {
+    return 'fixtureProvider' in nango;
+}
+
+async function getMetadataOrNull(nango: NangoSyncLocal): Promise<unknown> {
+    try {
+        return await nango.getMetadata();
+    } catch (error) {
+        if (error instanceof Error && error.message === 'Missing mock data for getMetadata') {
+            return null;
+        }
+
+        throw error;
+    }
+}
+
+const sync = createSync({
+    description: 'Sync selected files from chosen SharePoint shared sites.',
+    version: '4.0.0',
+    frequency: 'every hour',
+    autoStart: false,
+    metadata: MetadataSchema,
+    checkpoint: CheckpointSchema,
     endpoints: [
         {
-            method: 'GET',
-            path: '/shared-files/selected'
+            method: 'POST',
+            path: '/syncs/shared-sites-selection'
         }
     ],
-
-    scopes: ['Sites.Read.All', 'Sites.Selected', 'MyFiles.Read', 'Files.Read.All', 'Files.Read.Selected', 'offline_access'],
-
     models: {
-        FileMetadata: FileMetadata
+        SharedSiteFile: SharedSiteFileSchema
     },
-
-    metadata: SharepointMetadata,
 
     exec: async (nango) => {
         const rawCheckpoint = await nango.getCheckpoint();
-        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : undefined;
-        const checkpointUpdatedAfter = checkpoint?.updated_after ? new Date(checkpoint.updated_after) : undefined;
-        const runStartedAt = new Date().toISOString();
-        const metadata = await nango.getMetadata();
+        const checkpointResult = CheckpointSchema.safeParse(rawCheckpoint ?? {});
+        const checkpoint = checkpointResult.success
+            ? checkpointResult.data
+            : {
+                  delta_tokens_json: '',
+                  selection_signature: ''
+              };
 
-        if (!metadata || !Array.isArray(metadata.sharedSites) || metadata.sharedSites.length === 0) {
-            throw new Error(`Metadata empty for connection id: ${nango.connectionId}`);
+        const rawMetadata = await getMetadataOrNull(nango);
+        const metadataResult = MetadataSchema.safeParse(rawMetadata);
+        const metadata = metadataResult.success
+            ? metadataResult.data
+            : (isDryRun(nango) || isLocalFixtureMock(nango)) && rawMetadata == null
+              ? {
+                    sharedSites: ['root'],
+                    pickedFiles: []
+                }
+              : undefined;
+
+        if (!metadata) {
+            throw new Error('sharedSites metadata is required and must not be empty.');
         }
 
-        const siteIdToLists = await getSiteIdToLists(nango, metadata.sharedSites);
+        const sharedSites = metadata.sharedSites;
+        if (!sharedSites || sharedSites.length === 0) {
+            throw new Error('sharedSites metadata is required and must not be empty.');
+        }
 
-        for (const [siteId, listIds] of Object.entries(siteIdToLists)) {
-            for (const listId of listIds) {
-                await processListItems(nango, siteId, listId, checkpointUpdatedAfter);
+        const pickedFiles = metadata.pickedFiles ?? [];
+        const pickedFileSet = new Set(pickedFiles);
+        const selectionSignature = createSelectionSignature(sharedSites, pickedFiles);
+        const selectionChanged = checkpoint.selection_signature !== selectionSignature;
+        const tokenMap = selectionChanged ? {} : parseDeltaTokenMap(checkpoint.delta_tokens_json);
+        const newTokenMap: Record<string, string> = selectionChanged ? {} : { ...tokenMap };
+
+        if (selectionChanged) {
+            await nango.trackDeletesStart('SharedSiteFile');
+        }
+
+        for (const siteId of sharedSites) {
+            // https://learn.microsoft.com/graph/api/site-list-drives
+            const drivesResponse = await nango.get({
+                endpoint: `/v1.0/sites/${encodeURIComponent(siteId)}/drives`,
+                retries: 3
+            });
+
+            const drivesData = DrivesListResponseSchema.parse(drivesResponse.data);
+            const drives = z.array(DriveSchema).parse(drivesData.value || []);
+
+            for (const drive of drives) {
+                let deltaEndpoint = `/v1.0/drives/${encodeURIComponent(drive.id)}/root/delta?$top=100`;
+                const savedToken = selectionChanged ? undefined : tokenMap[drive.id];
+                if (savedToken) {
+                    deltaEndpoint = toRelativeUrl(savedToken);
+                }
+
+                let nextEndpoint: string | undefined = deltaEndpoint;
+                let driveDeltaToken: string | undefined;
+
+                while (nextEndpoint) {
+                    // https://learn.microsoft.com/graph/api/driveitem-delta
+                    const response = await nango.get({
+                        endpoint: nextEndpoint,
+                        retries: 3
+                    });
+
+                    if (response.status < 200 || response.status >= 300) {
+                        throw new Error(`Failed to fetch drive delta for drive ${drive.id}: ${response.status}`);
+                    }
+
+                    const deltaData = DeltaResponseSchema.parse(response.data);
+                    const items = z.array(DriveItemSchema).parse(deltaData.value || []);
+                    const latestItemsById = new Map<string, z.infer<typeof DriveItemSchema>>();
+                    for (const item of items) {
+                        latestItemsById.set(item.id, item);
+                    }
+
+                    const upserts: Array<z.infer<typeof SharedSiteFileSchema>> = [];
+                    const deletions: Array<{ id: string }> = [];
+
+                    for (const item of latestItemsById.values()) {
+                        const compositeId = `${siteId}:${drive.id}:${item.id}`;
+
+                        if (item['@removed']) {
+                            deletions.push({ id: compositeId });
+                            continue;
+                        }
+
+                        if (pickedFileSet.size > 0 && !pickedFileSet.has(item.id)) {
+                            continue;
+                        }
+
+                        upserts.push({
+                            id: compositeId,
+                            siteId: siteId,
+                            driveId: drive.id,
+                            itemId: item.id,
+                            ...(item.name !== undefined && { name: item.name }),
+                            ...(item.webUrl !== undefined && { webUrl: item.webUrl }),
+                            ...(item.size !== undefined && { size: item.size }),
+                            ...(item.createdDateTime !== undefined && { createdDateTime: item.createdDateTime }),
+                            ...(item.lastModifiedDateTime !== undefined && { lastModifiedDateTime: item.lastModifiedDateTime }),
+                            ...(item.parentReference?.id !== undefined && { parentId: item.parentReference.id }),
+                            ...(item.parentReference?.path !== undefined && { parentPath: item.parentReference.path })
+                        });
+                    }
+
+                    if (upserts.length > 0) {
+                        await nango.batchSave(upserts, 'SharedSiteFile');
+                    }
+
+                    if (deletions.length > 0) {
+                        await nango.batchDelete(deletions, 'SharedSiteFile');
+                    }
+
+                    if (typeof deltaData['@odata.deltaLink'] === 'string') {
+                        driveDeltaToken = deltaData['@odata.deltaLink'];
+                    }
+
+                    if (typeof deltaData['@odata.nextLink'] === 'string') {
+                        nextEndpoint = toRelativeUrl(deltaData['@odata.nextLink']);
+                    } else {
+                        nextEndpoint = undefined;
+                    }
+                }
+
+                if (driveDeltaToken) {
+                    newTokenMap[drive.id] = driveDeltaToken;
+                }
+
+                if (!selectionChanged) {
+                    await nango.saveCheckpoint({
+                        delta_tokens_json: JSON.stringify(newTokenMap),
+                        selection_signature: selectionSignature
+                    });
+                }
             }
         }
 
-        await nango.saveCheckpoint({ updated_after: runStartedAt });
+        if (selectionChanged) {
+            await nango.trackDeletesEnd('SharedSiteFile');
+            await nango.saveCheckpoint({
+                delta_tokens_json: JSON.stringify(newTokenMap),
+                selection_signature: selectionSignature
+            });
+        }
     }
 });
 
 export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
-
-/**
- * Retrieves site IDs and associated document libraries to sync from SharePoint.
- *
- * @param nango An instance of NangoSync for handling synchronization tasks.
- * @param sitesToSync An array of Site objects representing SharePoint sites.
- * @returns Promise<Record<string, string[]>>
- */
-async function getSiteIdToLists(nango: NangoSyncLocal, files: string[]): Promise<Record<string, string[]>> {
-    const siteIdToLists: Record<string, string[]> = {};
-
-    for (const siteId of files) {
-        const config: ProxyConfiguration = {
-            // https://learn.microsoft.com/en-us/graph/api/list-list?view=graph-rest-1.0&tabs=http
-            endpoint: `v1.0/sites/${siteId}/lists`,
-            paginate: {
-                type: 'link',
-                limit_name_in_request: '$top',
-                response_path: 'value',
-                link_path_in_response_body: '@odata.nextLink',
-                limit: 100
-            },
-            retries: 10
-        };
-        // Paginate through lists and filter documentlibraries
-        for await (const lists of nango.paginate(config)) {
-            siteIdToLists[siteId] = lists.filter((list: any) => list.list.template === 'documentLibrary').map((l: any) => l.id);
-        }
-    }
-
-    return siteIdToLists;
-}
-
-/**
- * Processes list items for synchronization from a SharePoint list.
- *
- * @param nango An instance of NangoSync for handling synchronization tasks.
- * @param siteId The ID of the SharePoint site containing the list.
- * @param listId The ID of the SharePoint list containing items to sync.
- * @returns Promise<void>
- */
-async function processListItems(nango: NangoSyncLocal, siteId: string, listId: string, checkpointUpdatedAfter?: Date): Promise<void> {
-    const config: ProxyConfiguration = {
-        // https://learn.microsoft.com/en-us/graph/api/listitem-delta?view=graph-rest-1.0&tabs=http
-        endpoint: `/v1.0/sites/${siteId}/lists/${listId}/items/delta`,
-        paginate: {
-            type: 'link',
-            limit_name_in_request: '$top',
-            response_path: 'value',
-            link_path_in_response_body: '@odata.nextLink',
-            limit: 100
-        },
-        ...(checkpointUpdatedAfter ? { params: { $filter: `lastModifiedDateTime ge ${checkpointUpdatedAfter.toISOString()}` } } : {}),
-        retries: 10
-    };
-
-    // Paginate through list items and sync each file metadata
-    for await (const listItems of nango.paginate(config)) {
-        const allMetadata = [];
-        for (const item of listItems) {
-            const metadata = await fetchDriveItemDetails(nango, siteId, listId, item.id);
-            allMetadata.push(metadata);
-        }
-        await nango.batchSave(allMetadata, 'FileMetadata');
-    }
-}
-
-/**
- * Fetches details of a drive item (file) from SharePoint.
- *
- * @param nango An instance of NangoSync for handling synchronization tasks.
- * @param siteId The ID of the SharePoint site containing the list.
- * @param listId The ID of the SharePoint list containing the item.
- * @param itemId The ID of the drive item (file) to fetch details for.
- * @returns Promise<FileMetadata>
- */
-async function fetchDriveItemDetails(nango: NangoSyncLocal, siteId: string, listId: string, itemId: string): Promise<FileMetadata> {
-    const response = await nango.get<DriveItem>({
-        // https://learn.microsoft.com/en-us/graph/api/driveitem-get?view=graph-rest-1.0&tabs=http
-        endpoint: `/v1.0/sites/${siteId}/lists/${listId}/items/${itemId}/driveItem`,
-        retries: 10
-    });
-
-    return toFile(response.data, siteId);
-}

@@ -1,0 +1,3959 @@
+{
+  "nango": {
+    "getMetadata": {
+      "table": "jobInfo"
+    },
+    "batchSave": {
+      "EmployeeTableRow": [
+        {
+          "id": "4-jobInfo-2023-03-03-0",
+          "employee_id": "4",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:29:44Z",
+          "data": {
+            "date": "2023-03-03",
+            "location": "Salt Lake City, Utah",
+            "department": "Human Resources",
+            "division": "North America",
+            "jobTitle": "Associate HR Administrator",
+            "reportsTo": "Jennifer Caldwell",
+            "teams": null
+          }
+        },
+        {
+          "id": "4-jobInfo-2024-03-02-1",
+          "employee_id": "4",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:29:44Z",
+          "data": {
+            "date": "2024-03-02",
+            "location": "Salt Lake City, Utah",
+            "department": "Human Resources",
+            "division": "North America",
+            "jobTitle": "HR Administrator",
+            "reportsTo": "Jennifer Caldwell",
+            "teams": null
+          }
+        },
+        {
+          "id": "4-jobInfo-2025-03-03-2",
+          "employee_id": "4",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:29:44Z",
+          "data": {
+            "date": "2025-03-03",
+            "location": "Salt Lake City, Utah",
+            "department": "Human Resources",
+            "division": "North America",
+            "jobTitle": "Sr. HR Administrator",
+            "reportsTo": "Jennifer Caldwell",
+            "teams": null
+          }
+        },
+        {
+          "id": "5-jobInfo-2025-11-01-0",
+          "employee_id": "5",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:22:45Z",
+          "data": {
+            "date": "2025-11-01",
+            "location": "London, UK",
+            "department": "Human Resources",
+            "division": "Europe",
+            "jobTitle": "HR Administrator",
+            "reportsTo": "Jennifer Caldwell",
+            "teams": null
+          }
+        },
+        {
+          "id": "6-jobInfo-2025-07-04-0",
+          "employee_id": "6",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-07-04",
+            "location": "Sydney, Australia",
+            "department": "Human Resources",
+            "division": "Asia-Pacific",
+            "jobTitle": "HR Administrator",
+            "reportsTo": "Jennifer Caldwell",
+            "teams": null
+          }
+        },
+        {
+          "id": "7-jobInfo-2025-09-03-0",
+          "employee_id": "7",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-09-03",
+            "location": "Vancouver, Canada",
+            "department": "Human Resources",
+            "division": "North America",
+            "jobTitle": "HR Administrator",
+            "reportsTo": "Jennifer Caldwell",
+            "teams": null
+          }
+        },
+        {
+          "id": "8-jobInfo-2023-02-01-0",
+          "employee_id": "8",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:21:04Z",
+          "data": {
+            "date": "2023-02-01",
+            "location": "Salt Lake City, Utah",
+            "department": "Operations",
+            "division": "North America",
+            "jobTitle": "HR Administrator",
+            "reportsTo": "",
+            "teams": null
+          }
+        },
+        {
+          "id": "8-jobInfo-2026-01-26-1",
+          "employee_id": "8",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:21:04Z",
+          "data": {
+            "date": "2026-01-26",
+            "location": "Salt Lake City, Utah",
+            "department": "Operations",
+            "division": "North America",
+            "jobTitle": "Sr. HR Administrator",
+            "reportsTo": "",
+            "teams": null
+          }
+        },
+        {
+          "id": "8-jobInfo-2026-05-18-2",
+          "employee_id": "8",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:21:04Z",
+          "data": {
+            "date": "2026-05-18",
+            "location": "Salt Lake City, Utah",
+            "department": "Operations",
+            "division": "North America",
+            "jobTitle": "Sr. HR Administrator",
+            "reportsTo": "Ben Peterson",
+            "teams": "[]"
+          }
+        },
+        {
+          "id": "9-jobInfo-2023-02-05-0",
+          "employee_id": "9",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:20:36Z",
+          "data": {
+            "date": "2023-02-05",
+            "location": "Salt Lake City, Utah",
+            "department": "Human Resources",
+            "division": "North America",
+            "jobTitle": "Director of HR",
+            "reportsTo": "Victor Nango",
+            "teams": null
+          }
+        },
+        {
+          "id": "9-jobInfo-2025-02-05-1",
+          "employee_id": "9",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:20:36Z",
+          "data": {
+            "date": "2025-02-05",
+            "location": "Salt Lake City, Utah",
+            "department": "Human Resources",
+            "division": "North America",
+            "jobTitle": "VP of People",
+            "reportsTo": "Victor Nango",
+            "teams": null
+          }
+        },
+        {
+          "id": "10-jobInfo-2023-03-11-0",
+          "employee_id": "10",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2023-03-11",
+            "location": "Salt Lake City, Utah",
+            "department": "Operations",
+            "division": "North America",
+            "jobTitle": "Chief Operating Officer",
+            "reportsTo": "Victor Nango",
+            "teams": null
+          }
+        },
+        {
+          "id": "11-jobInfo-2023-02-01-0",
+          "employee_id": "11",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:22:48Z",
+          "data": {
+            "date": "2023-02-01",
+            "location": "Salt Lake City, Utah",
+            "department": "Sales",
+            "division": "North America",
+            "jobTitle": "Sr. Director of Sales",
+            "reportsTo": "Victor Nango",
+            "teams": null
+          }
+        },
+        {
+          "id": "11-jobInfo-2024-02-03-1",
+          "employee_id": "11",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:22:48Z",
+          "data": {
+            "date": "2024-02-03",
+            "location": "Salt Lake City, Utah",
+            "department": "Sales",
+            "division": "North America",
+            "jobTitle": "VP of Sales",
+            "reportsTo": "Victor Nango",
+            "teams": null
+          }
+        },
+        {
+          "id": "12-jobInfo-2024-11-09-0",
+          "employee_id": "12",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2024-11-09",
+            "location": "Salt Lake City, Utah",
+            "department": "IT",
+            "division": "North America",
+            "jobTitle": "VP of IT",
+            "reportsTo": "Victor Nango",
+            "teams": null
+          }
+        },
+        {
+          "id": "12-jobInfo-2023-02-01-1",
+          "employee_id": "12",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2023-02-01",
+            "location": "Salt Lake City, Utah",
+            "department": "IT",
+            "division": "North America",
+            "jobTitle": "Director of IT",
+            "reportsTo": "Victor Nango",
+            "teams": null
+          }
+        },
+        {
+          "id": "13-jobInfo-2024-02-01-0",
+          "employee_id": "13",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2024-02-01",
+            "location": "Salt Lake City, Utah",
+            "department": "Customer Success",
+            "division": "North America",
+            "jobTitle": "Director of Customer Success",
+            "reportsTo": "Victor Nango",
+            "teams": null
+          }
+        },
+        {
+          "id": "13-jobInfo-2023-02-01-1",
+          "employee_id": "13",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2023-02-01",
+            "location": "Salt Lake City, Utah",
+            "department": "Customer Success",
+            "division": "North America",
+            "jobTitle": "Customer Education Manager",
+            "reportsTo": "Victor Nango",
+            "teams": null
+          }
+        },
+        {
+          "id": "13-jobInfo-2025-02-05-2",
+          "employee_id": "13",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-02-05",
+            "location": "Salt Lake City, Utah",
+            "department": "Customer Success",
+            "division": "North America",
+            "jobTitle": "VP of Customer Success",
+            "reportsTo": "Victor Nango",
+            "teams": null
+          }
+        },
+        {
+          "id": "14-jobInfo-2023-02-01-0",
+          "employee_id": "14",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2023-02-01",
+            "location": "Salt Lake City, Utah",
+            "department": "Product",
+            "division": "North America",
+            "jobTitle": "Sr. Director of Product",
+            "reportsTo": "Victor Nango",
+            "teams": null
+          }
+        },
+        {
+          "id": "14-jobInfo-2025-04-19-1",
+          "employee_id": "14",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-04-19",
+            "location": "Salt Lake City, Utah",
+            "department": "Product",
+            "division": "North America",
+            "jobTitle": "VP of Product",
+            "reportsTo": "Victor Nango",
+            "teams": null
+          }
+        },
+        {
+          "id": "15-jobInfo-2023-02-01-0",
+          "employee_id": "15",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2023-02-01",
+            "location": "Salt Lake City, Utah",
+            "department": "Marketing",
+            "division": "North America",
+            "jobTitle": "Director of Marketing",
+            "reportsTo": "Victor Nango",
+            "teams": null
+          }
+        },
+        {
+          "id": "15-jobInfo-2024-02-01-1",
+          "employee_id": "15",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2024-02-01",
+            "location": "Salt Lake City, Utah",
+            "department": "Marketing",
+            "division": "North America",
+            "jobTitle": "Sr. Director of Marketing",
+            "reportsTo": "Victor Nango",
+            "teams": null
+          }
+        },
+        {
+          "id": "15-jobInfo-2025-02-01-2",
+          "employee_id": "15",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-02-01",
+            "location": "Salt Lake City, Utah",
+            "department": "Marketing",
+            "division": "North America",
+            "jobTitle": "VP of Marketing",
+            "reportsTo": "Victor Nango",
+            "teams": null
+          }
+        },
+        {
+          "id": "16-jobInfo-2023-02-01-0",
+          "employee_id": "16",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2023-02-01",
+            "location": "Salt Lake City, Utah",
+            "department": "Operations",
+            "division": "North America",
+            "jobTitle": "Training Manager",
+            "reportsTo": "Victor Nango",
+            "teams": null
+          }
+        },
+        {
+          "id": "16-jobInfo-2024-02-01-1",
+          "employee_id": "16",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2024-02-01",
+            "location": "Salt Lake City, Utah",
+            "department": "Operations",
+            "division": "North America",
+            "jobTitle": "Sr. Director of Learning",
+            "reportsTo": "Victor Nango",
+            "teams": null
+          }
+        },
+        {
+          "id": "16-jobInfo-2025-02-01-2",
+          "employee_id": "16",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-02-01",
+            "location": "Salt Lake City, Utah",
+            "department": "Operations",
+            "division": "North America",
+            "jobTitle": "VP Learning and Development",
+            "reportsTo": "Victor Nango",
+            "teams": null
+          }
+        },
+        {
+          "id": "17-jobInfo-2023-03-12-0",
+          "employee_id": "17",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2023-03-12",
+            "location": "Salt Lake City, Utah",
+            "department": "Finance",
+            "division": "North America",
+            "jobTitle": "Chief Financial Officer",
+            "reportsTo": "Victor Nango",
+            "teams": null
+          }
+        },
+        {
+          "id": "18-jobInfo-2025-12-02-0",
+          "employee_id": "18",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-12-02",
+            "location": "Salt Lake City, Utah",
+            "department": "Marketing",
+            "division": "North America",
+            "jobTitle": "Content Marketer",
+            "reportsTo": "Trent Walsh",
+            "teams": null
+          }
+        },
+        {
+          "id": "19-jobInfo-2025-12-02-0",
+          "employee_id": "19",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-12-02",
+            "location": "Salt Lake City, Utah",
+            "department": "Operations",
+            "division": "North America",
+            "jobTitle": "Executive Assistant",
+            "reportsTo": "Ryota Saito",
+            "teams": null
+          }
+        },
+        {
+          "id": "22-jobInfo-2025-11-01-0",
+          "employee_id": "22",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-11-01",
+            "location": "London, UK",
+            "department": "Product",
+            "division": "Europe",
+            "jobTitle": "Software Engineer",
+            "reportsTo": "Norma Reed",
+            "teams": null
+          }
+        },
+        {
+          "id": "22-jobInfo-2026-02-03-1",
+          "employee_id": "22",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2026-02-03",
+            "location": "Remote Worker",
+            "department": "Product",
+            "division": "North America",
+            "jobTitle": "Software Engineer",
+            "reportsTo": "Charlotte Abbott",
+            "teams": null
+          }
+        },
+        {
+          "id": "23-jobInfo-2024-10-04-0",
+          "employee_id": "23",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2024-10-04",
+            "location": "Salt Lake City, Utah",
+            "department": "Marketing",
+            "division": "North America",
+            "jobTitle": "Content Marketer",
+            "reportsTo": "Trent Walsh",
+            "teams": null
+          }
+        },
+        {
+          "id": "23-jobInfo-2026-02-03-1",
+          "employee_id": "23",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2026-02-03",
+            "location": "Salt Lake City, Utah",
+            "department": "Marketing",
+            "division": "North America",
+            "jobTitle": "Content Marketer",
+            "reportsTo": "Charlotte Abbott",
+            "teams": null
+          }
+        },
+        {
+          "id": "24-jobInfo-2025-09-03-0",
+          "employee_id": "24",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-09-03",
+            "location": "Vancouver, Canada",
+            "department": "Sales",
+            "division": "North America",
+            "jobTitle": "Sales Director",
+            "reportsTo": "Daniel Vance",
+            "teams": null
+          }
+        },
+        {
+          "id": "24-jobInfo-2026-02-03-1",
+          "employee_id": "24",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2026-02-03",
+            "location": "Salt Lake City, Utah",
+            "department": "Sales",
+            "division": "North America",
+            "jobTitle": "Sales Director",
+            "reportsTo": "Charlotte Abbott",
+            "teams": null
+          }
+        },
+        {
+          "id": "25-jobInfo-2025-02-01-0",
+          "employee_id": "25",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-02-01",
+            "location": "Salt Lake City, Utah",
+            "department": "IT",
+            "division": "North America",
+            "jobTitle": "Director of IT",
+            "reportsTo": "Eric Asture",
+            "teams": null
+          }
+        },
+        {
+          "id": "25-jobInfo-2026-02-03-1",
+          "employee_id": "25",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2026-02-03",
+            "location": "Salt Lake City, Utah",
+            "department": "IT",
+            "division": "North America",
+            "jobTitle": "Director of IT",
+            "reportsTo": "Charlotte Abbott",
+            "teams": null
+          }
+        },
+        {
+          "id": "26-jobInfo-2025-11-01-0",
+          "employee_id": "26",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-11-01",
+            "location": "Salt Lake City, Utah",
+            "department": "Customer Success",
+            "division": "North America",
+            "jobTitle": "Customer Retention Manager",
+            "reportsTo": "Cheryl Barnet",
+            "teams": null
+          }
+        },
+        {
+          "id": "26-jobInfo-2026-02-03-1",
+          "employee_id": "26",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2026-02-03",
+            "location": "Salt Lake City, Utah",
+            "department": "Customer Success",
+            "division": "North America",
+            "jobTitle": "Customer Retention Manager",
+            "reportsTo": "Charlotte Abbott",
+            "teams": null
+          }
+        },
+        {
+          "id": "27-jobInfo-2025-08-03-0",
+          "employee_id": "27",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-08-03",
+            "location": "Salt Lake City, Utah",
+            "department": "Sales",
+            "division": "North America",
+            "jobTitle": "Sales Team Lead",
+            "reportsTo": "Bob Jackson",
+            "teams": null
+          }
+        },
+        {
+          "id": "27-jobInfo-2026-02-03-1",
+          "employee_id": "27",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2026-02-03",
+            "location": "Salt Lake City, Utah",
+            "department": "Sales",
+            "division": "North America",
+            "jobTitle": "Sales Team Lead",
+            "reportsTo": "Daniel Vance",
+            "teams": null
+          }
+        },
+        {
+          "id": "28-jobInfo-2025-06-03-0",
+          "employee_id": "28",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-06-03",
+            "location": "Salt Lake City, Utah",
+            "department": "Customer Success",
+            "division": "North America",
+            "jobTitle": "Customer Success Advocate",
+            "reportsTo": "Amy Granger",
+            "teams": null
+          }
+        },
+        {
+          "id": "28-jobInfo-2026-02-03-1",
+          "employee_id": "28",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2026-02-03",
+            "location": "Salt Lake City, Utah",
+            "department": "Customer Success",
+            "division": "North America",
+            "jobTitle": "Customer Success Advocate",
+            "reportsTo": "Charlotte Abbott",
+            "teams": null
+          }
+        },
+        {
+          "id": "29-jobInfo-2025-02-01-0",
+          "employee_id": "29",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-02-01",
+            "location": "Salt Lake City, Utah",
+            "department": "Human Resources",
+            "division": "North America",
+            "jobTitle": "Benefits Administrator",
+            "reportsTo": "Charlotte Abbott",
+            "teams": null
+          }
+        },
+        {
+          "id": "30-jobInfo-2025-09-03-0",
+          "employee_id": "30",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-09-03",
+            "location": "Vancouver, Canada",
+            "department": "Marketing",
+            "division": "North America",
+            "jobTitle": "Social Media Marketer",
+            "reportsTo": "Trent Walsh",
+            "teams": null
+          }
+        },
+        {
+          "id": "30-jobInfo-2026-02-03-1",
+          "employee_id": "30",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2026-02-03",
+            "location": "Salt Lake City, Utah",
+            "department": "Marketing",
+            "division": "North America",
+            "jobTitle": "Social Media Marketer",
+            "reportsTo": "Trent Walsh",
+            "teams": null
+          }
+        },
+        {
+          "id": "31-jobInfo-2025-10-04-0",
+          "employee_id": "31",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-10-04",
+            "location": "Salt Lake City, Utah",
+            "department": "Operations",
+            "division": "North America",
+            "jobTitle": "Curriculum Designer",
+            "reportsTo": "Jake Bryan",
+            "teams": null
+          }
+        },
+        {
+          "id": "31-jobInfo-2026-02-03-1",
+          "employee_id": "31",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2026-02-03",
+            "location": "Salt Lake City, Utah",
+            "department": "Operations",
+            "division": "North America",
+            "jobTitle": "Curriculum Designer",
+            "reportsTo": "Charlotte Abbott",
+            "teams": null
+          }
+        },
+        {
+          "id": "32-jobInfo-2025-03-03-0",
+          "employee_id": "32",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-03-03",
+            "location": "Salt Lake City, Utah",
+            "department": "Sales",
+            "division": "North America",
+            "jobTitle": "Sales Team Lead",
+            "reportsTo": "Nate Walker",
+            "teams": null
+          }
+        },
+        {
+          "id": "32-jobInfo-2026-02-03-1",
+          "employee_id": "32",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2026-02-03",
+            "location": "Salt Lake City, Utah",
+            "department": "Sales",
+            "division": "North America",
+            "jobTitle": "Sales Team Lead",
+            "reportsTo": "Daniel Vance",
+            "teams": null
+          }
+        },
+        {
+          "id": "33-jobInfo-2025-12-02-0",
+          "employee_id": "33",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-12-02",
+            "location": "Salt Lake City, Utah",
+            "department": "Operations",
+            "division": "North America",
+            "jobTitle": "Sales Trainer",
+            "reportsTo": "Jake Bryan",
+            "teams": null
+          }
+        },
+        {
+          "id": "34-jobInfo-2025-03-03-0",
+          "employee_id": "34",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-03-03",
+            "location": "Salt Lake City, Utah",
+            "department": "Customer Success",
+            "division": "North America",
+            "jobTitle": "Customer Success Advocate",
+            "reportsTo": "Melany Olsen",
+            "teams": null
+          }
+        },
+        {
+          "id": "35-jobInfo-2025-06-03-0",
+          "employee_id": "35",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-06-03",
+            "location": "Salt Lake City, Utah",
+            "department": "Customer Success",
+            "division": "North America",
+            "jobTitle": "Customer Success Advocate",
+            "reportsTo": "Melany Olsen",
+            "teams": null
+          }
+        },
+        {
+          "id": "36-jobInfo-2024-08-02-0",
+          "employee_id": "36",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2024-08-02",
+            "location": "Salt Lake City, Utah",
+            "department": "Customer Success",
+            "division": "North America",
+            "jobTitle": "Customer Retention Manager",
+            "reportsTo": "Cheryl Barnet",
+            "teams": null
+          }
+        },
+        {
+          "id": "37-jobInfo-2025-11-01-0",
+          "employee_id": "37",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-11-01",
+            "location": "London, UK",
+            "department": "Human Resources",
+            "division": "Europe",
+            "jobTitle": "Benefits Administrator",
+            "reportsTo": "Ashley Adams",
+            "teams": null
+          }
+        },
+        {
+          "id": "38-jobInfo-2025-08-03-0",
+          "employee_id": "38",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-08-03",
+            "location": "London, UK",
+            "department": "Sales",
+            "division": "Europe",
+            "jobTitle": "Sales Team Lead",
+            "reportsTo": "Karin Petty",
+            "teams": null
+          }
+        },
+        {
+          "id": "39-jobInfo-2025-05-04-0",
+          "employee_id": "39",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-05-04",
+            "location": "London, UK",
+            "department": "Product",
+            "division": "Europe",
+            "jobTitle": "Senior Developer",
+            "reportsTo": "Liam Raynott",
+            "teams": null
+          }
+        },
+        {
+          "id": "40-jobInfo-2025-04-03-0",
+          "employee_id": "40",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-04-03",
+            "location": "Salt Lake City, Utah",
+            "department": "Sales",
+            "division": "North America",
+            "jobTitle": "Account Executive",
+            "reportsTo": "Bob Jackson",
+            "teams": null
+          }
+        },
+        {
+          "id": "41-jobInfo-2025-06-03-0",
+          "employee_id": "41",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-06-03",
+            "location": "Salt Lake City, Utah",
+            "department": "Product",
+            "division": "North America",
+            "jobTitle": "Software Engineer",
+            "reportsTo": "Amy Granger",
+            "teams": null
+          }
+        },
+        {
+          "id": "42-jobInfo-2025-06-03-0",
+          "employee_id": "42",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-06-03",
+            "location": "Salt Lake City, Utah",
+            "department": "Product",
+            "division": "North America",
+            "jobTitle": "Senior Developer",
+            "reportsTo": "Cameron Hill",
+            "teams": null
+          }
+        },
+        {
+          "id": "43-jobInfo-2025-06-03-0",
+          "employee_id": "43",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-06-03",
+            "location": "Salt Lake City, Utah",
+            "department": "IT",
+            "division": "North America",
+            "jobTitle": "Systems Genius",
+            "reportsTo": "Eric Asture",
+            "teams": null
+          }
+        },
+        {
+          "id": "44-jobInfo-2025-08-03-0",
+          "employee_id": "44",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-08-03",
+            "location": "Salt Lake City, Utah",
+            "department": "Product",
+            "division": "North America",
+            "jobTitle": "Front End Developer",
+            "reportsTo": "Cameron Hill",
+            "teams": null
+          }
+        },
+        {
+          "id": "45-jobInfo-2025-03-03-0",
+          "employee_id": "45",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-03-03",
+            "location": "Salt Lake City, Utah",
+            "department": "Product",
+            "division": "North America",
+            "jobTitle": "UX Designer",
+            "reportsTo": "Norma Reed",
+            "teams": null
+          }
+        },
+        {
+          "id": "46-jobInfo-2025-11-01-0",
+          "employee_id": "46",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-11-01",
+            "location": "London, UK",
+            "department": "Sales",
+            "division": "Europe",
+            "jobTitle": "Account Executive",
+            "reportsTo": "Karin Petty",
+            "teams": null
+          }
+        },
+        {
+          "id": "47-jobInfo-2025-02-01-0",
+          "employee_id": "47",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-02-01",
+            "location": "Salt Lake City, Utah",
+            "department": "Product",
+            "division": "North America",
+            "jobTitle": "VP of Product",
+            "reportsTo": "Maja Andev",
+            "teams": null
+          }
+        },
+        {
+          "id": "48-jobInfo-2025-11-01-0",
+          "employee_id": "48",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-11-01",
+            "location": "London, UK",
+            "department": "Human Resources",
+            "division": "Europe",
+            "jobTitle": "HR Specialist",
+            "reportsTo": "Ashley Adams",
+            "teams": null
+          }
+        },
+        {
+          "id": "49-jobInfo-2025-02-01-0",
+          "employee_id": "49",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-02-01",
+            "location": "Salt Lake City, Utah",
+            "department": "Sales",
+            "division": "North America",
+            "jobTitle": "Sales Director",
+            "reportsTo": "Daniel Vance",
+            "teams": null
+          }
+        },
+        {
+          "id": "50-jobInfo-2025-06-03-0",
+          "employee_id": "50",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-06-03",
+            "location": "Salt Lake City, Utah",
+            "department": "Customer Success",
+            "division": "North America",
+            "jobTitle": "Customer Success Advocate",
+            "reportsTo": "Amy Granger",
+            "teams": null
+          }
+        },
+        {
+          "id": "51-jobInfo-2025-11-01-0",
+          "employee_id": "51",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-11-01",
+            "location": "Sydney, Australia",
+            "department": "Human Resources",
+            "division": "Asia-Pacific",
+            "jobTitle": "Benefits Administrator",
+            "reportsTo": "Christina Agluinda",
+            "teams": null
+          }
+        },
+        {
+          "id": "52-jobInfo-2025-10-04-0",
+          "employee_id": "52",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-10-04",
+            "location": "Salt Lake City, Utah",
+            "department": "Sales",
+            "division": "North America",
+            "jobTitle": "Sales Director",
+            "reportsTo": "Daniel Vance",
+            "teams": null
+          }
+        },
+        {
+          "id": "53-jobInfo-2025-10-04-0",
+          "employee_id": "53",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-10-04",
+            "location": "Salt Lake City, Utah",
+            "department": "Operations",
+            "division": "North America",
+            "jobTitle": "Customer Care Trainer",
+            "reportsTo": "Jake Bryan",
+            "teams": null
+          }
+        },
+        {
+          "id": "54-jobInfo-2025-07-04-0",
+          "employee_id": "54",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-07-04",
+            "location": "Sydney, Australia",
+            "department": "Customer Success",
+            "division": "Asia-Pacific",
+            "jobTitle": "Software Implementation Specialist",
+            "reportsTo": "Lindsay Hadaway",
+            "teams": null
+          }
+        },
+        {
+          "id": "55-jobInfo-2025-05-04-0",
+          "employee_id": "55",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-05-04",
+            "location": "Salt Lake City, Utah",
+            "department": "Finance",
+            "division": "North America",
+            "jobTitle": "Controller",
+            "reportsTo": "Dorothy Chou",
+            "teams": null
+          }
+        },
+        {
+          "id": "56-jobInfo-2024-11-01-0",
+          "employee_id": "56",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2024-11-01",
+            "location": "Sydney, Australia",
+            "department": "IT",
+            "division": "Asia-Pacific",
+            "jobTitle": "IT Security Engineer",
+            "reportsTo": "Eric Asture",
+            "teams": null
+          }
+        },
+        {
+          "id": "57-jobInfo-2025-05-04-0",
+          "employee_id": "57",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-05-04",
+            "location": "Salt Lake City, Utah",
+            "department": "Product",
+            "division": "North America",
+            "jobTitle": "Product Manager",
+            "reportsTo": "Michael Jarsdel",
+            "teams": null
+          }
+        },
+        {
+          "id": "58-jobInfo-2025-05-04-0",
+          "employee_id": "58",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-05-04",
+            "location": "Salt Lake City, Utah",
+            "department": "Marketing",
+            "division": "North America",
+            "jobTitle": "Writer",
+            "reportsTo": "Trent Walsh",
+            "teams": null
+          }
+        },
+        {
+          "id": "59-jobInfo-2025-06-03-0",
+          "employee_id": "59",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-06-03",
+            "location": "Salt Lake City, Utah",
+            "department": "Human Resources",
+            "division": "North America",
+            "jobTitle": "Technical Recruiter",
+            "reportsTo": "Charlotte Abbott",
+            "teams": null
+          }
+        },
+        {
+          "id": "60-jobInfo-2025-06-03-0",
+          "employee_id": "60",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-06-03",
+            "location": "Salt Lake City, Utah",
+            "department": "Customer Success",
+            "division": "North America",
+            "jobTitle": "Software Implementation Specialist",
+            "reportsTo": "Ellen Karren",
+            "teams": null
+          }
+        },
+        {
+          "id": "61-jobInfo-2025-09-03-0",
+          "employee_id": "61",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-09-03",
+            "location": "Vancouver, Canada",
+            "department": "Human Resources",
+            "division": "North America",
+            "jobTitle": "Technical Recruiter",
+            "reportsTo": "Shannon Anderson",
+            "teams": null
+          }
+        },
+        {
+          "id": "62-jobInfo-2024-11-01-0",
+          "employee_id": "62",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2024-11-01",
+            "location": "Salt Lake City, Utah",
+            "department": "Marketing",
+            "division": "North America",
+            "jobTitle": "Social Media Marketer",
+            "reportsTo": "Trent Walsh",
+            "teams": null
+          }
+        },
+        {
+          "id": "63-jobInfo-2025-03-03-0",
+          "employee_id": "63",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-03-03",
+            "location": "London, UK",
+            "department": "Human Resources",
+            "division": "Europe",
+            "jobTitle": "Technical Recruiter",
+            "reportsTo": "Ashley Adams",
+            "teams": null
+          }
+        },
+        {
+          "id": "64-jobInfo-2025-08-03-0",
+          "employee_id": "64",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-08-03",
+            "location": "Salt Lake City, Utah",
+            "department": "Sales",
+            "division": "North America",
+            "jobTitle": "Account Executive",
+            "reportsTo": "Nate Walker",
+            "teams": null
+          }
+        },
+        {
+          "id": "65-jobInfo-2025-11-01-0",
+          "employee_id": "65",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-11-01",
+            "location": "London, UK",
+            "department": "Customer Success",
+            "division": "Europe",
+            "jobTitle": "Software Implementation Specialist",
+            "reportsTo": "Ellen Karren",
+            "teams": null
+          }
+        },
+        {
+          "id": "66-jobInfo-2025-09-03-0",
+          "employee_id": "66",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-09-03",
+            "location": "Vancouver, Canada",
+            "department": "Customer Success",
+            "division": "North America",
+            "jobTitle": "Software Implementation Specialist",
+            "reportsTo": "Ellen Karren",
+            "teams": null
+          }
+        },
+        {
+          "id": "67-jobInfo-2025-08-03-0",
+          "employee_id": "67",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-08-03",
+            "location": "Salt Lake City, Utah",
+            "department": "Product",
+            "division": "North America",
+            "jobTitle": "Front End Developer",
+            "reportsTo": "Cameron Hill",
+            "teams": null
+          }
+        },
+        {
+          "id": "68-jobInfo-2025-11-01-0",
+          "employee_id": "68",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-11-01",
+            "location": "London, UK",
+            "department": "Marketing",
+            "division": "Europe",
+            "jobTitle": "Social Media Marketer",
+            "reportsTo": "Trent Walsh",
+            "teams": null
+          }
+        },
+        {
+          "id": "69-jobInfo-2025-04-03-0",
+          "employee_id": "69",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-04-03",
+            "location": "London, UK",
+            "department": "Sales",
+            "division": "Europe",
+            "jobTitle": "Sales Director",
+            "reportsTo": "Daniel Vance",
+            "teams": null
+          }
+        },
+        {
+          "id": "70-jobInfo-2025-04-03-0",
+          "employee_id": "70",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-04-03",
+            "location": "Salt Lake City, Utah",
+            "department": "Customer Success",
+            "division": "North America",
+            "jobTitle": "Customer Success Advocate",
+            "reportsTo": "Melany Olsen",
+            "teams": null
+          }
+        },
+        {
+          "id": "71-jobInfo-2025-04-03-0",
+          "employee_id": "71",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-04-03",
+            "location": "Salt Lake City, Utah",
+            "department": "Product",
+            "division": "North America",
+            "jobTitle": "Front End Developer",
+            "reportsTo": "Liam Raynott",
+            "teams": null
+          }
+        },
+        {
+          "id": "72-jobInfo-2025-04-03-0",
+          "employee_id": "72",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-04-03",
+            "location": "Salt Lake City, Utah",
+            "department": "Customer Success",
+            "division": "North America",
+            "jobTitle": "Software Implementation Specialist",
+            "reportsTo": "Ellen Karren",
+            "teams": null
+          }
+        },
+        {
+          "id": "73-jobInfo-2025-12-02-0",
+          "employee_id": "73",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-12-02",
+            "location": "Salt Lake City, Utah",
+            "department": "Marketing",
+            "division": "North America",
+            "jobTitle": "Demand Generation Manager",
+            "reportsTo": "Trent Walsh",
+            "teams": null
+          }
+        },
+        {
+          "id": "74-jobInfo-2025-01-01-0",
+          "employee_id": "74",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-01-01",
+            "location": "Salt Lake City, Utah",
+            "department": "Product",
+            "division": "North America",
+            "jobTitle": "Product Manager",
+            "reportsTo": "Michael Jarsdel",
+            "teams": null
+          }
+        },
+        {
+          "id": "75-jobInfo-2025-03-03-0",
+          "employee_id": "75",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-03-03",
+            "location": "Sydney, Australia",
+            "department": "Human Resources",
+            "division": "Asia-Pacific",
+            "jobTitle": "Technical Recruiter",
+            "reportsTo": "Christina Agluinda",
+            "teams": null
+          }
+        },
+        {
+          "id": "76-jobInfo-2024-07-03-0",
+          "employee_id": "76",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2024-07-03",
+            "location": "London, UK",
+            "department": "Sales",
+            "division": "Europe",
+            "jobTitle": "Account Executive",
+            "reportsTo": "Karin Petty",
+            "teams": null
+          }
+        },
+        {
+          "id": "77-jobInfo-2025-07-04-0",
+          "employee_id": "77",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-07-04",
+            "location": "Sydney, Australia",
+            "department": "Sales",
+            "division": "Asia-Pacific",
+            "jobTitle": "Account Executive",
+            "reportsTo": "Michael Fernandez",
+            "teams": null
+          }
+        },
+        {
+          "id": "78-jobInfo-2025-01-01-0",
+          "employee_id": "78",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-01-01",
+            "location": "Salt Lake City, Utah",
+            "department": "Product",
+            "division": "North America",
+            "jobTitle": "Web Designer",
+            "reportsTo": "Norma Reed",
+            "teams": null
+          }
+        },
+        {
+          "id": "79-jobInfo-2025-12-02-0",
+          "employee_id": "79",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-12-02",
+            "location": "Salt Lake City, Utah",
+            "department": "Customer Success",
+            "division": "North America",
+            "jobTitle": "Software Implementation Specialist",
+            "reportsTo": "Ellen Karren",
+            "teams": null
+          }
+        },
+        {
+          "id": "80-jobInfo-2025-11-01-0",
+          "employee_id": "80",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-11-01",
+            "location": "London, UK",
+            "department": "IT",
+            "division": "Europe",
+            "jobTitle": "IT Security Engineer",
+            "reportsTo": "Eric Asture",
+            "teams": null
+          }
+        },
+        {
+          "id": "81-jobInfo-2025-04-03-0",
+          "employee_id": "81",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-04-03",
+            "location": "Salt Lake City, Utah",
+            "department": "Sales",
+            "division": "North America",
+            "jobTitle": "Account Executive",
+            "reportsTo": "Bob Jackson",
+            "teams": null
+          }
+        },
+        {
+          "id": "82-jobInfo-2024-06-02-0",
+          "employee_id": "82",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2024-06-02",
+            "location": "Salt Lake City, Utah",
+            "department": "Sales",
+            "division": "North America",
+            "jobTitle": "Account Executive",
+            "reportsTo": "Bob Jackson",
+            "teams": null
+          }
+        },
+        {
+          "id": "83-jobInfo-2025-12-02-0",
+          "employee_id": "83",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-12-02",
+            "location": "Salt Lake City, Utah",
+            "department": "Sales",
+            "division": "North America",
+            "jobTitle": "Account Executive",
+            "reportsTo": "Nate Walker",
+            "teams": null
+          }
+        },
+        {
+          "id": "84-jobInfo-2025-01-01-0",
+          "employee_id": "84",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-01-01",
+            "location": "Salt Lake City, Utah",
+            "department": "Marketing",
+            "division": "North America",
+            "jobTitle": "Social Media Marketer",
+            "reportsTo": "Trent Walsh",
+            "teams": null
+          }
+        },
+        {
+          "id": "85-jobInfo-2025-12-02-0",
+          "employee_id": "85",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-12-02",
+            "location": "Sydney, Australia",
+            "department": "Human Resources",
+            "division": "Asia-Pacific",
+            "jobTitle": "Director of Talent Management",
+            "reportsTo": "Christina Agluinda",
+            "teams": null
+          }
+        },
+        {
+          "id": "86-jobInfo-2025-12-02-0",
+          "employee_id": "86",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-12-02",
+            "location": "Salt Lake City, Utah",
+            "department": "Sales",
+            "division": "North America",
+            "jobTitle": "Account Executive",
+            "reportsTo": "Bob Jackson",
+            "teams": null
+          }
+        },
+        {
+          "id": "87-jobInfo-2025-12-02-0",
+          "employee_id": "87",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-12-02",
+            "location": "Salt Lake City, Utah",
+            "department": "Product",
+            "division": "North America",
+            "jobTitle": "Front End Developer",
+            "reportsTo": "Liam Raynott",
+            "teams": null
+          }
+        },
+        {
+          "id": "88-jobInfo-2025-04-03-0",
+          "employee_id": "88",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-04-03",
+            "location": "Salt Lake City, Utah",
+            "department": "Sales",
+            "division": "North America",
+            "jobTitle": "Sales Team Lead",
+            "reportsTo": "Trey Pickard",
+            "teams": null
+          }
+        },
+        {
+          "id": "89-jobInfo-2025-11-01-0",
+          "employee_id": "89",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-11-01",
+            "location": "London, UK",
+            "department": "Sales",
+            "division": "Europe",
+            "jobTitle": "Account Executive",
+            "reportsTo": "Karin Petty",
+            "teams": null
+          }
+        },
+        {
+          "id": "90-jobInfo-2025-09-03-0",
+          "employee_id": "90",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-09-03",
+            "location": "Vancouver, Canada",
+            "department": "Sales",
+            "division": "North America",
+            "jobTitle": "Account Executive",
+            "reportsTo": "Zack Miller",
+            "teams": null
+          }
+        },
+        {
+          "id": "91-jobInfo-2025-10-04-0",
+          "employee_id": "91",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-10-04",
+            "location": "Salt Lake City, Utah",
+            "department": "Operations",
+            "division": "North America",
+            "jobTitle": "Instructional Designer",
+            "reportsTo": "Jake Bryan",
+            "teams": null
+          }
+        },
+        {
+          "id": "92-jobInfo-2025-11-01-0",
+          "employee_id": "92",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-11-01",
+            "location": "London, UK",
+            "department": "Finance",
+            "division": "Europe",
+            "jobTitle": "Financial Analyst",
+            "reportsTo": "Dorothy Chou",
+            "teams": null
+          }
+        },
+        {
+          "id": "93-jobInfo-2025-09-03-0",
+          "employee_id": "93",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-09-03",
+            "location": "Vancouver, Canada",
+            "department": "Finance",
+            "division": "North America",
+            "jobTitle": "Accountant",
+            "reportsTo": "Dorothy Chou",
+            "teams": null
+          }
+        },
+        {
+          "id": "94-jobInfo-2025-04-03-0",
+          "employee_id": "94",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-04-03",
+            "location": "Salt Lake City, Utah",
+            "department": "Product",
+            "division": "North America",
+            "jobTitle": "UX Designer",
+            "reportsTo": "Norma Reed",
+            "teams": null
+          }
+        },
+        {
+          "id": "95-jobInfo-2025-11-01-0",
+          "employee_id": "95",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-11-01",
+            "location": "Salt Lake City, Utah",
+            "department": "Customer Success",
+            "division": "North America",
+            "jobTitle": "Customer Implementation Manager",
+            "reportsTo": "Cheryl Barnet",
+            "teams": null
+          }
+        },
+        {
+          "id": "96-jobInfo-2025-05-04-0",
+          "employee_id": "96",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-05-04",
+            "location": "Vancouver, Canada",
+            "department": "Sales",
+            "division": "North America",
+            "jobTitle": "Account Executive",
+            "reportsTo": "Zack Miller",
+            "teams": null
+          }
+        },
+        {
+          "id": "97-jobInfo-2025-04-03-0",
+          "employee_id": "97",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-04-03",
+            "location": "Salt Lake City, Utah",
+            "department": "Sales",
+            "division": "North America",
+            "jobTitle": "Account Executive",
+            "reportsTo": "Nate Walker",
+            "teams": null
+          }
+        },
+        {
+          "id": "98-jobInfo-2025-09-03-0",
+          "employee_id": "98",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-09-03",
+            "location": "Vancouver, Canada",
+            "department": "Customer Success",
+            "division": "North America",
+            "jobTitle": "Software Implementation Specialist",
+            "reportsTo": "Ellen Karren",
+            "teams": null
+          }
+        },
+        {
+          "id": "99-jobInfo-2025-07-04-0",
+          "employee_id": "99",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-07-04",
+            "location": "Sydney, Australia",
+            "department": "Sales",
+            "division": "Asia-Pacific",
+            "jobTitle": "Sales Director",
+            "reportsTo": "Daniel Vance",
+            "teams": null
+          }
+        },
+        {
+          "id": "100-jobInfo-2025-10-04-0",
+          "employee_id": "100",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-10-04",
+            "location": "Salt Lake City, Utah",
+            "department": "Sales",
+            "division": "North America",
+            "jobTitle": "Account Executive",
+            "reportsTo": "Trey Pickard",
+            "teams": null
+          }
+        },
+        {
+          "id": "101-jobInfo-2025-11-01-0",
+          "employee_id": "101",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-11-01",
+            "location": "Salt Lake City, Utah",
+            "department": "Product",
+            "division": "North America",
+            "jobTitle": "Web Designer",
+            "reportsTo": "Norma Reed",
+            "teams": null
+          }
+        },
+        {
+          "id": "102-jobInfo-2025-09-03-0",
+          "employee_id": "102",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-09-03",
+            "location": "Vancouver, Canada",
+            "department": "Human Resources",
+            "division": "North America",
+            "jobTitle": "Benefits Administrator",
+            "reportsTo": "Shannon Anderson",
+            "teams": null
+          }
+        },
+        {
+          "id": "103-jobInfo-2025-05-04-0",
+          "employee_id": "103",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-05-04",
+            "location": "Salt Lake City, Utah",
+            "department": "Sales",
+            "division": "North America",
+            "jobTitle": "Account Executive",
+            "reportsTo": "Trey Pickard",
+            "teams": null
+          }
+        },
+        {
+          "id": "104-jobInfo-2025-10-04-0",
+          "employee_id": "104",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2025-10-04",
+            "location": "Salt Lake City, Utah",
+            "department": "Human Resources",
+            "division": "North America",
+            "jobTitle": "Benefits Administrator",
+            "reportsTo": "Charlotte Abbott",
+            "teams": null
+          }
+        },
+        {
+          "id": "105-jobInfo-2023-02-14-0",
+          "employee_id": "105",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2023-02-14",
+            "location": "Salt Lake City, Utah",
+            "department": "Product",
+            "division": "North America",
+            "jobTitle": "Sr. Manager of UI",
+            "reportsTo": "Maja Andev",
+            "teams": null
+          }
+        },
+        {
+          "id": "105-jobInfo-2024-08-11-1",
+          "employee_id": "105",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2024-08-11",
+            "location": "Salt Lake City, Utah",
+            "department": "Product",
+            "division": "North America",
+            "jobTitle": "Sr. Director of UI/UX",
+            "reportsTo": "Maja Andev",
+            "teams": null
+          }
+        },
+        {
+          "id": "106-jobInfo-2026-04-21-0",
+          "employee_id": "106",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2026-04-21",
+            "location": "Sydney, Australia",
+            "department": "Customer Success",
+            "division": "Asia-Pacific",
+            "jobTitle": "Compliance Auditor",
+            "reportsTo": "Dorothy Chou",
+            "teams": null
+          }
+        },
+        {
+          "id": "107-jobInfo-2026-03-17-0",
+          "employee_id": "107",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2026-03-17",
+            "location": "Salt Lake City, Utah",
+            "department": "Product",
+            "division": "North America",
+            "jobTitle": "Senior Developer",
+            "reportsTo": "Maja Andev",
+            "teams": null
+          }
+        },
+        {
+          "id": "108-jobInfo-2026-04-21-0",
+          "employee_id": "108",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2026-04-21",
+            "location": "Salt Lake City, Utah",
+            "department": "Human Resources",
+            "division": "",
+            "jobTitle": "Account Executive",
+            "reportsTo": "Trent Walsh",
+            "teams": null
+          }
+        },
+        {
+          "id": "108-jobInfo-2026-01-26-1",
+          "employee_id": "108",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2026-01-26",
+            "location": "",
+            "department": "",
+            "division": "North America",
+            "jobTitle": "",
+            "reportsTo": "",
+            "teams": null
+          }
+        },
+        {
+          "id": "108-jobInfo-2026-01-26-2",
+          "employee_id": "108",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2026-01-26",
+            "location": "",
+            "department": "",
+            "division": "North America",
+            "jobTitle": "",
+            "reportsTo": "",
+            "teams": null
+          }
+        },
+        {
+          "id": "109-jobInfo-2026-04-22-0",
+          "employee_id": "109",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2026-04-22",
+            "location": "Sydney, Australia",
+            "department": "Sales",
+            "division": "Asia-Pacific",
+            "jobTitle": "Account Executive",
+            "reportsTo": "Karin Petty",
+            "teams": null
+          }
+        },
+        {
+          "id": "110-jobInfo-2026-05-21-0",
+          "employee_id": "110",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2026-05-21",
+            "location": "Sydney, Australia",
+            "department": "Product",
+            "division": "",
+            "jobTitle": "Software Engineer",
+            "reportsTo": "Maja Andev",
+            "teams": null
+          }
+        },
+        {
+          "id": "110-jobInfo-2026-01-26-1",
+          "employee_id": "110",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2026-01-26",
+            "location": "",
+            "department": "",
+            "division": "Asia-Pacific",
+            "jobTitle": "",
+            "reportsTo": "",
+            "teams": null
+          }
+        },
+        {
+          "id": "110-jobInfo-2026-01-26-2",
+          "employee_id": "110",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2026-01-26",
+            "location": "",
+            "department": "",
+            "division": "Asia-Pacific",
+            "jobTitle": "",
+            "reportsTo": "",
+            "teams": null
+          }
+        },
+        {
+          "id": "111-jobInfo-2026-05-10-0",
+          "employee_id": "111",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2026-05-10",
+            "location": "Salt Lake City, Utah",
+            "department": "Human Resources",
+            "division": "",
+            "jobTitle": "Corporate Trainer",
+            "reportsTo": "Victor Nango",
+            "teams": null
+          }
+        },
+        {
+          "id": "111-jobInfo-2026-01-26-1",
+          "employee_id": "111",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2026-01-26",
+            "location": "",
+            "department": "",
+            "division": "North America",
+            "jobTitle": "",
+            "reportsTo": "",
+            "teams": null
+          }
+        },
+        {
+          "id": "111-jobInfo-2026-01-26-2",
+          "employee_id": "111",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2026-01-26",
+            "location": "",
+            "department": "",
+            "division": "North America",
+            "jobTitle": "",
+            "reportsTo": "",
+            "teams": null
+          }
+        },
+        {
+          "id": "112-jobInfo-2026-03-23-0",
+          "employee_id": "112",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2026-03-23",
+            "location": "",
+            "department": "",
+            "division": "",
+            "jobTitle": "",
+            "reportsTo": "",
+            "teams": null
+          }
+        },
+        {
+          "id": "113-jobInfo-2026-05-18-0",
+          "employee_id": "113",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2026-05-18",
+            "location": "Salt Lake City, Utah",
+            "department": "Company",
+            "division": "North America",
+            "jobTitle": "Chief Executive Officer",
+            "reportsTo": "",
+            "teams": null
+          }
+        },
+        {
+          "id": "114-jobInfo-2026-06-22-0",
+          "employee_id": "114",
+          "table": "jobInfo",
+          "last_changed": "2026-05-29T14:00:14Z",
+          "data": {
+            "date": "2026-06-22",
+            "location": "Salt Lake City, Utah",
+            "department": "Product",
+            "division": "North America",
+            "jobTitle": "Product Manager",
+            "reportsTo": "Maja Andev",
+            "teams": null
+          }
+        }
+      ]
+    },
+    "batchDelete": {
+      "EmployeeTableRow": []
+    }
+  },
+  "api": {
+    "get": {
+      "/v1/employees/changed/tables/jobInfo": {
+        "response": {
+          "table": "jobInfo",
+          "employees": {
+            "4": {
+              "lastChanged": "2026-05-29T14:29:44Z",
+              "rows": [
+                {
+                  "date": "2023-03-03",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Human Resources",
+                  "division": "North America",
+                  "jobTitle": "Associate HR Administrator",
+                  "reportsTo": "Jennifer Caldwell",
+                  "teams": null
+                },
+                {
+                  "date": "2024-03-02",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Human Resources",
+                  "division": "North America",
+                  "jobTitle": "HR Administrator",
+                  "reportsTo": "Jennifer Caldwell",
+                  "teams": null
+                },
+                {
+                  "date": "2025-03-03",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Human Resources",
+                  "division": "North America",
+                  "jobTitle": "Sr. HR Administrator",
+                  "reportsTo": "Jennifer Caldwell",
+                  "teams": null
+                }
+              ]
+            },
+            "5": {
+              "lastChanged": "2026-05-29T14:22:45Z",
+              "rows": [
+                {
+                  "date": "2025-11-01",
+                  "location": "London, UK",
+                  "department": "Human Resources",
+                  "division": "Europe",
+                  "jobTitle": "HR Administrator",
+                  "reportsTo": "Jennifer Caldwell",
+                  "teams": null
+                }
+              ]
+            },
+            "6": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-07-04",
+                  "location": "Sydney, Australia",
+                  "department": "Human Resources",
+                  "division": "Asia-Pacific",
+                  "jobTitle": "HR Administrator",
+                  "reportsTo": "Jennifer Caldwell",
+                  "teams": null
+                }
+              ]
+            },
+            "7": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-09-03",
+                  "location": "Vancouver, Canada",
+                  "department": "Human Resources",
+                  "division": "North America",
+                  "jobTitle": "HR Administrator",
+                  "reportsTo": "Jennifer Caldwell",
+                  "teams": null
+                }
+              ]
+            },
+            "8": {
+              "lastChanged": "2026-05-29T14:21:04Z",
+              "rows": [
+                {
+                  "date": "2023-02-01",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Operations",
+                  "division": "North America",
+                  "jobTitle": "HR Administrator",
+                  "reportsTo": "",
+                  "teams": null
+                },
+                {
+                  "date": "2026-01-26",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Operations",
+                  "division": "North America",
+                  "jobTitle": "Sr. HR Administrator",
+                  "reportsTo": "",
+                  "teams": null
+                },
+                {
+                  "date": "2026-05-18",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Operations",
+                  "division": "North America",
+                  "jobTitle": "Sr. HR Administrator",
+                  "reportsTo": "Ben Peterson",
+                  "teams": "[]"
+                }
+              ]
+            },
+            "9": {
+              "lastChanged": "2026-05-29T14:20:36Z",
+              "rows": [
+                {
+                  "date": "2023-02-05",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Human Resources",
+                  "division": "North America",
+                  "jobTitle": "Director of HR",
+                  "reportsTo": "Victor Nango",
+                  "teams": null
+                },
+                {
+                  "date": "2025-02-05",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Human Resources",
+                  "division": "North America",
+                  "jobTitle": "VP of People",
+                  "reportsTo": "Victor Nango",
+                  "teams": null
+                }
+              ]
+            },
+            "10": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2023-03-11",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Operations",
+                  "division": "North America",
+                  "jobTitle": "Chief Operating Officer",
+                  "reportsTo": "Victor Nango",
+                  "teams": null
+                }
+              ]
+            },
+            "11": {
+              "lastChanged": "2026-05-29T14:22:48Z",
+              "rows": [
+                {
+                  "date": "2023-02-01",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Sales",
+                  "division": "North America",
+                  "jobTitle": "Sr. Director of Sales",
+                  "reportsTo": "Victor Nango",
+                  "teams": null
+                },
+                {
+                  "date": "2024-02-03",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Sales",
+                  "division": "North America",
+                  "jobTitle": "VP of Sales",
+                  "reportsTo": "Victor Nango",
+                  "teams": null
+                }
+              ]
+            },
+            "12": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2024-11-09",
+                  "location": "Salt Lake City, Utah",
+                  "department": "IT",
+                  "division": "North America",
+                  "jobTitle": "VP of IT",
+                  "reportsTo": "Victor Nango",
+                  "teams": null
+                },
+                {
+                  "date": "2023-02-01",
+                  "location": "Salt Lake City, Utah",
+                  "department": "IT",
+                  "division": "North America",
+                  "jobTitle": "Director of IT",
+                  "reportsTo": "Victor Nango",
+                  "teams": null
+                }
+              ]
+            },
+            "13": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2024-02-01",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Customer Success",
+                  "division": "North America",
+                  "jobTitle": "Director of Customer Success",
+                  "reportsTo": "Victor Nango",
+                  "teams": null
+                },
+                {
+                  "date": "2023-02-01",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Customer Success",
+                  "division": "North America",
+                  "jobTitle": "Customer Education Manager",
+                  "reportsTo": "Victor Nango",
+                  "teams": null
+                },
+                {
+                  "date": "2025-02-05",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Customer Success",
+                  "division": "North America",
+                  "jobTitle": "VP of Customer Success",
+                  "reportsTo": "Victor Nango",
+                  "teams": null
+                }
+              ]
+            },
+            "14": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2023-02-01",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Product",
+                  "division": "North America",
+                  "jobTitle": "Sr. Director of Product",
+                  "reportsTo": "Victor Nango",
+                  "teams": null
+                },
+                {
+                  "date": "2025-04-19",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Product",
+                  "division": "North America",
+                  "jobTitle": "VP of Product",
+                  "reportsTo": "Victor Nango",
+                  "teams": null
+                }
+              ]
+            },
+            "15": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2023-02-01",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Marketing",
+                  "division": "North America",
+                  "jobTitle": "Director of Marketing",
+                  "reportsTo": "Victor Nango",
+                  "teams": null
+                },
+                {
+                  "date": "2024-02-01",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Marketing",
+                  "division": "North America",
+                  "jobTitle": "Sr. Director of Marketing",
+                  "reportsTo": "Victor Nango",
+                  "teams": null
+                },
+                {
+                  "date": "2025-02-01",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Marketing",
+                  "division": "North America",
+                  "jobTitle": "VP of Marketing",
+                  "reportsTo": "Victor Nango",
+                  "teams": null
+                }
+              ]
+            },
+            "16": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2023-02-01",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Operations",
+                  "division": "North America",
+                  "jobTitle": "Training Manager",
+                  "reportsTo": "Victor Nango",
+                  "teams": null
+                },
+                {
+                  "date": "2024-02-01",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Operations",
+                  "division": "North America",
+                  "jobTitle": "Sr. Director of Learning",
+                  "reportsTo": "Victor Nango",
+                  "teams": null
+                },
+                {
+                  "date": "2025-02-01",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Operations",
+                  "division": "North America",
+                  "jobTitle": "VP Learning and Development",
+                  "reportsTo": "Victor Nango",
+                  "teams": null
+                }
+              ]
+            },
+            "17": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2023-03-12",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Finance",
+                  "division": "North America",
+                  "jobTitle": "Chief Financial Officer",
+                  "reportsTo": "Victor Nango",
+                  "teams": null
+                }
+              ]
+            },
+            "18": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-12-02",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Marketing",
+                  "division": "North America",
+                  "jobTitle": "Content Marketer",
+                  "reportsTo": "Trent Walsh",
+                  "teams": null
+                }
+              ]
+            },
+            "19": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-12-02",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Operations",
+                  "division": "North America",
+                  "jobTitle": "Executive Assistant",
+                  "reportsTo": "Ryota Saito",
+                  "teams": null
+                }
+              ]
+            },
+            "22": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-11-01",
+                  "location": "London, UK",
+                  "department": "Product",
+                  "division": "Europe",
+                  "jobTitle": "Software Engineer",
+                  "reportsTo": "Norma Reed",
+                  "teams": null
+                },
+                {
+                  "date": "2026-02-03",
+                  "location": "Remote Worker",
+                  "department": "Product",
+                  "division": "North America",
+                  "jobTitle": "Software Engineer",
+                  "reportsTo": "Charlotte Abbott",
+                  "teams": null
+                }
+              ]
+            },
+            "23": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2024-10-04",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Marketing",
+                  "division": "North America",
+                  "jobTitle": "Content Marketer",
+                  "reportsTo": "Trent Walsh",
+                  "teams": null
+                },
+                {
+                  "date": "2026-02-03",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Marketing",
+                  "division": "North America",
+                  "jobTitle": "Content Marketer",
+                  "reportsTo": "Charlotte Abbott",
+                  "teams": null
+                }
+              ]
+            },
+            "24": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-09-03",
+                  "location": "Vancouver, Canada",
+                  "department": "Sales",
+                  "division": "North America",
+                  "jobTitle": "Sales Director",
+                  "reportsTo": "Daniel Vance",
+                  "teams": null
+                },
+                {
+                  "date": "2026-02-03",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Sales",
+                  "division": "North America",
+                  "jobTitle": "Sales Director",
+                  "reportsTo": "Charlotte Abbott",
+                  "teams": null
+                }
+              ]
+            },
+            "25": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-02-01",
+                  "location": "Salt Lake City, Utah",
+                  "department": "IT",
+                  "division": "North America",
+                  "jobTitle": "Director of IT",
+                  "reportsTo": "Eric Asture",
+                  "teams": null
+                },
+                {
+                  "date": "2026-02-03",
+                  "location": "Salt Lake City, Utah",
+                  "department": "IT",
+                  "division": "North America",
+                  "jobTitle": "Director of IT",
+                  "reportsTo": "Charlotte Abbott",
+                  "teams": null
+                }
+              ]
+            },
+            "26": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-11-01",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Customer Success",
+                  "division": "North America",
+                  "jobTitle": "Customer Retention Manager",
+                  "reportsTo": "Cheryl Barnet",
+                  "teams": null
+                },
+                {
+                  "date": "2026-02-03",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Customer Success",
+                  "division": "North America",
+                  "jobTitle": "Customer Retention Manager",
+                  "reportsTo": "Charlotte Abbott",
+                  "teams": null
+                }
+              ]
+            },
+            "27": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-08-03",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Sales",
+                  "division": "North America",
+                  "jobTitle": "Sales Team Lead",
+                  "reportsTo": "Bob Jackson",
+                  "teams": null
+                },
+                {
+                  "date": "2026-02-03",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Sales",
+                  "division": "North America",
+                  "jobTitle": "Sales Team Lead",
+                  "reportsTo": "Daniel Vance",
+                  "teams": null
+                }
+              ]
+            },
+            "28": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-06-03",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Customer Success",
+                  "division": "North America",
+                  "jobTitle": "Customer Success Advocate",
+                  "reportsTo": "Amy Granger",
+                  "teams": null
+                },
+                {
+                  "date": "2026-02-03",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Customer Success",
+                  "division": "North America",
+                  "jobTitle": "Customer Success Advocate",
+                  "reportsTo": "Charlotte Abbott",
+                  "teams": null
+                }
+              ]
+            },
+            "29": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-02-01",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Human Resources",
+                  "division": "North America",
+                  "jobTitle": "Benefits Administrator",
+                  "reportsTo": "Charlotte Abbott",
+                  "teams": null
+                }
+              ]
+            },
+            "30": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-09-03",
+                  "location": "Vancouver, Canada",
+                  "department": "Marketing",
+                  "division": "North America",
+                  "jobTitle": "Social Media Marketer",
+                  "reportsTo": "Trent Walsh",
+                  "teams": null
+                },
+                {
+                  "date": "2026-02-03",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Marketing",
+                  "division": "North America",
+                  "jobTitle": "Social Media Marketer",
+                  "reportsTo": "Trent Walsh",
+                  "teams": null
+                }
+              ]
+            },
+            "31": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-10-04",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Operations",
+                  "division": "North America",
+                  "jobTitle": "Curriculum Designer",
+                  "reportsTo": "Jake Bryan",
+                  "teams": null
+                },
+                {
+                  "date": "2026-02-03",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Operations",
+                  "division": "North America",
+                  "jobTitle": "Curriculum Designer",
+                  "reportsTo": "Charlotte Abbott",
+                  "teams": null
+                }
+              ]
+            },
+            "32": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-03-03",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Sales",
+                  "division": "North America",
+                  "jobTitle": "Sales Team Lead",
+                  "reportsTo": "Nate Walker",
+                  "teams": null
+                },
+                {
+                  "date": "2026-02-03",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Sales",
+                  "division": "North America",
+                  "jobTitle": "Sales Team Lead",
+                  "reportsTo": "Daniel Vance",
+                  "teams": null
+                }
+              ]
+            },
+            "33": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-12-02",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Operations",
+                  "division": "North America",
+                  "jobTitle": "Sales Trainer",
+                  "reportsTo": "Jake Bryan",
+                  "teams": null
+                }
+              ]
+            },
+            "34": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-03-03",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Customer Success",
+                  "division": "North America",
+                  "jobTitle": "Customer Success Advocate",
+                  "reportsTo": "Melany Olsen",
+                  "teams": null
+                }
+              ]
+            },
+            "35": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-06-03",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Customer Success",
+                  "division": "North America",
+                  "jobTitle": "Customer Success Advocate",
+                  "reportsTo": "Melany Olsen",
+                  "teams": null
+                }
+              ]
+            },
+            "36": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2024-08-02",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Customer Success",
+                  "division": "North America",
+                  "jobTitle": "Customer Retention Manager",
+                  "reportsTo": "Cheryl Barnet",
+                  "teams": null
+                }
+              ]
+            },
+            "37": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-11-01",
+                  "location": "London, UK",
+                  "department": "Human Resources",
+                  "division": "Europe",
+                  "jobTitle": "Benefits Administrator",
+                  "reportsTo": "Ashley Adams",
+                  "teams": null
+                }
+              ]
+            },
+            "38": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-08-03",
+                  "location": "London, UK",
+                  "department": "Sales",
+                  "division": "Europe",
+                  "jobTitle": "Sales Team Lead",
+                  "reportsTo": "Karin Petty",
+                  "teams": null
+                }
+              ]
+            },
+            "39": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-05-04",
+                  "location": "London, UK",
+                  "department": "Product",
+                  "division": "Europe",
+                  "jobTitle": "Senior Developer",
+                  "reportsTo": "Liam Raynott",
+                  "teams": null
+                }
+              ]
+            },
+            "40": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-04-03",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Sales",
+                  "division": "North America",
+                  "jobTitle": "Account Executive",
+                  "reportsTo": "Bob Jackson",
+                  "teams": null
+                }
+              ]
+            },
+            "41": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-06-03",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Product",
+                  "division": "North America",
+                  "jobTitle": "Software Engineer",
+                  "reportsTo": "Amy Granger",
+                  "teams": null
+                }
+              ]
+            },
+            "42": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-06-03",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Product",
+                  "division": "North America",
+                  "jobTitle": "Senior Developer",
+                  "reportsTo": "Cameron Hill",
+                  "teams": null
+                }
+              ]
+            },
+            "43": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-06-03",
+                  "location": "Salt Lake City, Utah",
+                  "department": "IT",
+                  "division": "North America",
+                  "jobTitle": "Systems Genius",
+                  "reportsTo": "Eric Asture",
+                  "teams": null
+                }
+              ]
+            },
+            "44": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-08-03",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Product",
+                  "division": "North America",
+                  "jobTitle": "Front End Developer",
+                  "reportsTo": "Cameron Hill",
+                  "teams": null
+                }
+              ]
+            },
+            "45": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-03-03",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Product",
+                  "division": "North America",
+                  "jobTitle": "UX Designer",
+                  "reportsTo": "Norma Reed",
+                  "teams": null
+                }
+              ]
+            },
+            "46": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-11-01",
+                  "location": "London, UK",
+                  "department": "Sales",
+                  "division": "Europe",
+                  "jobTitle": "Account Executive",
+                  "reportsTo": "Karin Petty",
+                  "teams": null
+                }
+              ]
+            },
+            "47": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-02-01",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Product",
+                  "division": "North America",
+                  "jobTitle": "VP of Product",
+                  "reportsTo": "Maja Andev",
+                  "teams": null
+                }
+              ]
+            },
+            "48": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-11-01",
+                  "location": "London, UK",
+                  "department": "Human Resources",
+                  "division": "Europe",
+                  "jobTitle": "HR Specialist",
+                  "reportsTo": "Ashley Adams",
+                  "teams": null
+                }
+              ]
+            },
+            "49": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-02-01",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Sales",
+                  "division": "North America",
+                  "jobTitle": "Sales Director",
+                  "reportsTo": "Daniel Vance",
+                  "teams": null
+                }
+              ]
+            },
+            "50": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-06-03",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Customer Success",
+                  "division": "North America",
+                  "jobTitle": "Customer Success Advocate",
+                  "reportsTo": "Amy Granger",
+                  "teams": null
+                }
+              ]
+            },
+            "51": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-11-01",
+                  "location": "Sydney, Australia",
+                  "department": "Human Resources",
+                  "division": "Asia-Pacific",
+                  "jobTitle": "Benefits Administrator",
+                  "reportsTo": "Christina Agluinda",
+                  "teams": null
+                }
+              ]
+            },
+            "52": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-10-04",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Sales",
+                  "division": "North America",
+                  "jobTitle": "Sales Director",
+                  "reportsTo": "Daniel Vance",
+                  "teams": null
+                }
+              ]
+            },
+            "53": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-10-04",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Operations",
+                  "division": "North America",
+                  "jobTitle": "Customer Care Trainer",
+                  "reportsTo": "Jake Bryan",
+                  "teams": null
+                }
+              ]
+            },
+            "54": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-07-04",
+                  "location": "Sydney, Australia",
+                  "department": "Customer Success",
+                  "division": "Asia-Pacific",
+                  "jobTitle": "Software Implementation Specialist",
+                  "reportsTo": "Lindsay Hadaway",
+                  "teams": null
+                }
+              ]
+            },
+            "55": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-05-04",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Finance",
+                  "division": "North America",
+                  "jobTitle": "Controller",
+                  "reportsTo": "Dorothy Chou",
+                  "teams": null
+                }
+              ]
+            },
+            "56": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2024-11-01",
+                  "location": "Sydney, Australia",
+                  "department": "IT",
+                  "division": "Asia-Pacific",
+                  "jobTitle": "IT Security Engineer",
+                  "reportsTo": "Eric Asture",
+                  "teams": null
+                }
+              ]
+            },
+            "57": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-05-04",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Product",
+                  "division": "North America",
+                  "jobTitle": "Product Manager",
+                  "reportsTo": "Michael Jarsdel",
+                  "teams": null
+                }
+              ]
+            },
+            "58": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-05-04",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Marketing",
+                  "division": "North America",
+                  "jobTitle": "Writer",
+                  "reportsTo": "Trent Walsh",
+                  "teams": null
+                }
+              ]
+            },
+            "59": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-06-03",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Human Resources",
+                  "division": "North America",
+                  "jobTitle": "Technical Recruiter",
+                  "reportsTo": "Charlotte Abbott",
+                  "teams": null
+                }
+              ]
+            },
+            "60": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-06-03",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Customer Success",
+                  "division": "North America",
+                  "jobTitle": "Software Implementation Specialist",
+                  "reportsTo": "Ellen Karren",
+                  "teams": null
+                }
+              ]
+            },
+            "61": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-09-03",
+                  "location": "Vancouver, Canada",
+                  "department": "Human Resources",
+                  "division": "North America",
+                  "jobTitle": "Technical Recruiter",
+                  "reportsTo": "Shannon Anderson",
+                  "teams": null
+                }
+              ]
+            },
+            "62": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2024-11-01",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Marketing",
+                  "division": "North America",
+                  "jobTitle": "Social Media Marketer",
+                  "reportsTo": "Trent Walsh",
+                  "teams": null
+                }
+              ]
+            },
+            "63": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-03-03",
+                  "location": "London, UK",
+                  "department": "Human Resources",
+                  "division": "Europe",
+                  "jobTitle": "Technical Recruiter",
+                  "reportsTo": "Ashley Adams",
+                  "teams": null
+                }
+              ]
+            },
+            "64": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-08-03",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Sales",
+                  "division": "North America",
+                  "jobTitle": "Account Executive",
+                  "reportsTo": "Nate Walker",
+                  "teams": null
+                }
+              ]
+            },
+            "65": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-11-01",
+                  "location": "London, UK",
+                  "department": "Customer Success",
+                  "division": "Europe",
+                  "jobTitle": "Software Implementation Specialist",
+                  "reportsTo": "Ellen Karren",
+                  "teams": null
+                }
+              ]
+            },
+            "66": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-09-03",
+                  "location": "Vancouver, Canada",
+                  "department": "Customer Success",
+                  "division": "North America",
+                  "jobTitle": "Software Implementation Specialist",
+                  "reportsTo": "Ellen Karren",
+                  "teams": null
+                }
+              ]
+            },
+            "67": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-08-03",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Product",
+                  "division": "North America",
+                  "jobTitle": "Front End Developer",
+                  "reportsTo": "Cameron Hill",
+                  "teams": null
+                }
+              ]
+            },
+            "68": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-11-01",
+                  "location": "London, UK",
+                  "department": "Marketing",
+                  "division": "Europe",
+                  "jobTitle": "Social Media Marketer",
+                  "reportsTo": "Trent Walsh",
+                  "teams": null
+                }
+              ]
+            },
+            "69": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-04-03",
+                  "location": "London, UK",
+                  "department": "Sales",
+                  "division": "Europe",
+                  "jobTitle": "Sales Director",
+                  "reportsTo": "Daniel Vance",
+                  "teams": null
+                }
+              ]
+            },
+            "70": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-04-03",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Customer Success",
+                  "division": "North America",
+                  "jobTitle": "Customer Success Advocate",
+                  "reportsTo": "Melany Olsen",
+                  "teams": null
+                }
+              ]
+            },
+            "71": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-04-03",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Product",
+                  "division": "North America",
+                  "jobTitle": "Front End Developer",
+                  "reportsTo": "Liam Raynott",
+                  "teams": null
+                }
+              ]
+            },
+            "72": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-04-03",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Customer Success",
+                  "division": "North America",
+                  "jobTitle": "Software Implementation Specialist",
+                  "reportsTo": "Ellen Karren",
+                  "teams": null
+                }
+              ]
+            },
+            "73": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-12-02",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Marketing",
+                  "division": "North America",
+                  "jobTitle": "Demand Generation Manager",
+                  "reportsTo": "Trent Walsh",
+                  "teams": null
+                }
+              ]
+            },
+            "74": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-01-01",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Product",
+                  "division": "North America",
+                  "jobTitle": "Product Manager",
+                  "reportsTo": "Michael Jarsdel",
+                  "teams": null
+                }
+              ]
+            },
+            "75": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-03-03",
+                  "location": "Sydney, Australia",
+                  "department": "Human Resources",
+                  "division": "Asia-Pacific",
+                  "jobTitle": "Technical Recruiter",
+                  "reportsTo": "Christina Agluinda",
+                  "teams": null
+                }
+              ]
+            },
+            "76": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2024-07-03",
+                  "location": "London, UK",
+                  "department": "Sales",
+                  "division": "Europe",
+                  "jobTitle": "Account Executive",
+                  "reportsTo": "Karin Petty",
+                  "teams": null
+                }
+              ]
+            },
+            "77": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-07-04",
+                  "location": "Sydney, Australia",
+                  "department": "Sales",
+                  "division": "Asia-Pacific",
+                  "jobTitle": "Account Executive",
+                  "reportsTo": "Michael Fernandez",
+                  "teams": null
+                }
+              ]
+            },
+            "78": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-01-01",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Product",
+                  "division": "North America",
+                  "jobTitle": "Web Designer",
+                  "reportsTo": "Norma Reed",
+                  "teams": null
+                }
+              ]
+            },
+            "79": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-12-02",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Customer Success",
+                  "division": "North America",
+                  "jobTitle": "Software Implementation Specialist",
+                  "reportsTo": "Ellen Karren",
+                  "teams": null
+                }
+              ]
+            },
+            "80": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-11-01",
+                  "location": "London, UK",
+                  "department": "IT",
+                  "division": "Europe",
+                  "jobTitle": "IT Security Engineer",
+                  "reportsTo": "Eric Asture",
+                  "teams": null
+                }
+              ]
+            },
+            "81": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-04-03",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Sales",
+                  "division": "North America",
+                  "jobTitle": "Account Executive",
+                  "reportsTo": "Bob Jackson",
+                  "teams": null
+                }
+              ]
+            },
+            "82": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2024-06-02",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Sales",
+                  "division": "North America",
+                  "jobTitle": "Account Executive",
+                  "reportsTo": "Bob Jackson",
+                  "teams": null
+                }
+              ]
+            },
+            "83": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-12-02",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Sales",
+                  "division": "North America",
+                  "jobTitle": "Account Executive",
+                  "reportsTo": "Nate Walker",
+                  "teams": null
+                }
+              ]
+            },
+            "84": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-01-01",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Marketing",
+                  "division": "North America",
+                  "jobTitle": "Social Media Marketer",
+                  "reportsTo": "Trent Walsh",
+                  "teams": null
+                }
+              ]
+            },
+            "85": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-12-02",
+                  "location": "Sydney, Australia",
+                  "department": "Human Resources",
+                  "division": "Asia-Pacific",
+                  "jobTitle": "Director of Talent Management",
+                  "reportsTo": "Christina Agluinda",
+                  "teams": null
+                }
+              ]
+            },
+            "86": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-12-02",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Sales",
+                  "division": "North America",
+                  "jobTitle": "Account Executive",
+                  "reportsTo": "Bob Jackson",
+                  "teams": null
+                }
+              ]
+            },
+            "87": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-12-02",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Product",
+                  "division": "North America",
+                  "jobTitle": "Front End Developer",
+                  "reportsTo": "Liam Raynott",
+                  "teams": null
+                }
+              ]
+            },
+            "88": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-04-03",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Sales",
+                  "division": "North America",
+                  "jobTitle": "Sales Team Lead",
+                  "reportsTo": "Trey Pickard",
+                  "teams": null
+                }
+              ]
+            },
+            "89": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-11-01",
+                  "location": "London, UK",
+                  "department": "Sales",
+                  "division": "Europe",
+                  "jobTitle": "Account Executive",
+                  "reportsTo": "Karin Petty",
+                  "teams": null
+                }
+              ]
+            },
+            "90": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-09-03",
+                  "location": "Vancouver, Canada",
+                  "department": "Sales",
+                  "division": "North America",
+                  "jobTitle": "Account Executive",
+                  "reportsTo": "Zack Miller",
+                  "teams": null
+                }
+              ]
+            },
+            "91": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-10-04",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Operations",
+                  "division": "North America",
+                  "jobTitle": "Instructional Designer",
+                  "reportsTo": "Jake Bryan",
+                  "teams": null
+                }
+              ]
+            },
+            "92": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-11-01",
+                  "location": "London, UK",
+                  "department": "Finance",
+                  "division": "Europe",
+                  "jobTitle": "Financial Analyst",
+                  "reportsTo": "Dorothy Chou",
+                  "teams": null
+                }
+              ]
+            },
+            "93": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-09-03",
+                  "location": "Vancouver, Canada",
+                  "department": "Finance",
+                  "division": "North America",
+                  "jobTitle": "Accountant",
+                  "reportsTo": "Dorothy Chou",
+                  "teams": null
+                }
+              ]
+            },
+            "94": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-04-03",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Product",
+                  "division": "North America",
+                  "jobTitle": "UX Designer",
+                  "reportsTo": "Norma Reed",
+                  "teams": null
+                }
+              ]
+            },
+            "95": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-11-01",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Customer Success",
+                  "division": "North America",
+                  "jobTitle": "Customer Implementation Manager",
+                  "reportsTo": "Cheryl Barnet",
+                  "teams": null
+                }
+              ]
+            },
+            "96": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-05-04",
+                  "location": "Vancouver, Canada",
+                  "department": "Sales",
+                  "division": "North America",
+                  "jobTitle": "Account Executive",
+                  "reportsTo": "Zack Miller",
+                  "teams": null
+                }
+              ]
+            },
+            "97": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-04-03",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Sales",
+                  "division": "North America",
+                  "jobTitle": "Account Executive",
+                  "reportsTo": "Nate Walker",
+                  "teams": null
+                }
+              ]
+            },
+            "98": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-09-03",
+                  "location": "Vancouver, Canada",
+                  "department": "Customer Success",
+                  "division": "North America",
+                  "jobTitle": "Software Implementation Specialist",
+                  "reportsTo": "Ellen Karren",
+                  "teams": null
+                }
+              ]
+            },
+            "99": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-07-04",
+                  "location": "Sydney, Australia",
+                  "department": "Sales",
+                  "division": "Asia-Pacific",
+                  "jobTitle": "Sales Director",
+                  "reportsTo": "Daniel Vance",
+                  "teams": null
+                }
+              ]
+            },
+            "100": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-10-04",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Sales",
+                  "division": "North America",
+                  "jobTitle": "Account Executive",
+                  "reportsTo": "Trey Pickard",
+                  "teams": null
+                }
+              ]
+            },
+            "101": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-11-01",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Product",
+                  "division": "North America",
+                  "jobTitle": "Web Designer",
+                  "reportsTo": "Norma Reed",
+                  "teams": null
+                }
+              ]
+            },
+            "102": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-09-03",
+                  "location": "Vancouver, Canada",
+                  "department": "Human Resources",
+                  "division": "North America",
+                  "jobTitle": "Benefits Administrator",
+                  "reportsTo": "Shannon Anderson",
+                  "teams": null
+                }
+              ]
+            },
+            "103": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-05-04",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Sales",
+                  "division": "North America",
+                  "jobTitle": "Account Executive",
+                  "reportsTo": "Trey Pickard",
+                  "teams": null
+                }
+              ]
+            },
+            "104": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2025-10-04",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Human Resources",
+                  "division": "North America",
+                  "jobTitle": "Benefits Administrator",
+                  "reportsTo": "Charlotte Abbott",
+                  "teams": null
+                }
+              ]
+            },
+            "105": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2023-02-14",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Product",
+                  "division": "North America",
+                  "jobTitle": "Sr. Manager of UI",
+                  "reportsTo": "Maja Andev",
+                  "teams": null
+                },
+                {
+                  "date": "2024-08-11",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Product",
+                  "division": "North America",
+                  "jobTitle": "Sr. Director of UI/UX",
+                  "reportsTo": "Maja Andev",
+                  "teams": null
+                }
+              ]
+            },
+            "106": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2026-04-21",
+                  "location": "Sydney, Australia",
+                  "department": "Customer Success",
+                  "division": "Asia-Pacific",
+                  "jobTitle": "Compliance Auditor",
+                  "reportsTo": "Dorothy Chou",
+                  "teams": null
+                }
+              ]
+            },
+            "107": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2026-03-17",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Product",
+                  "division": "North America",
+                  "jobTitle": "Senior Developer",
+                  "reportsTo": "Maja Andev",
+                  "teams": null
+                }
+              ]
+            },
+            "108": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2026-04-21",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Human Resources",
+                  "division": "",
+                  "jobTitle": "Account Executive",
+                  "reportsTo": "Trent Walsh",
+                  "teams": null
+                },
+                {
+                  "date": "2026-01-26",
+                  "location": "",
+                  "department": "",
+                  "division": "North America",
+                  "jobTitle": "",
+                  "reportsTo": "",
+                  "teams": null
+                },
+                {
+                  "date": "2026-01-26",
+                  "location": "",
+                  "department": "",
+                  "division": "North America",
+                  "jobTitle": "",
+                  "reportsTo": "",
+                  "teams": null
+                }
+              ]
+            },
+            "109": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2026-04-22",
+                  "location": "Sydney, Australia",
+                  "department": "Sales",
+                  "division": "Asia-Pacific",
+                  "jobTitle": "Account Executive",
+                  "reportsTo": "Karin Petty",
+                  "teams": null
+                }
+              ]
+            },
+            "110": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2026-05-21",
+                  "location": "Sydney, Australia",
+                  "department": "Product",
+                  "division": "",
+                  "jobTitle": "Software Engineer",
+                  "reportsTo": "Maja Andev",
+                  "teams": null
+                },
+                {
+                  "date": "2026-01-26",
+                  "location": "",
+                  "department": "",
+                  "division": "Asia-Pacific",
+                  "jobTitle": "",
+                  "reportsTo": "",
+                  "teams": null
+                },
+                {
+                  "date": "2026-01-26",
+                  "location": "",
+                  "department": "",
+                  "division": "Asia-Pacific",
+                  "jobTitle": "",
+                  "reportsTo": "",
+                  "teams": null
+                }
+              ]
+            },
+            "111": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2026-05-10",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Human Resources",
+                  "division": "",
+                  "jobTitle": "Corporate Trainer",
+                  "reportsTo": "Victor Nango",
+                  "teams": null
+                },
+                {
+                  "date": "2026-01-26",
+                  "location": "",
+                  "department": "",
+                  "division": "North America",
+                  "jobTitle": "",
+                  "reportsTo": "",
+                  "teams": null
+                },
+                {
+                  "date": "2026-01-26",
+                  "location": "",
+                  "department": "",
+                  "division": "North America",
+                  "jobTitle": "",
+                  "reportsTo": "",
+                  "teams": null
+                }
+              ]
+            },
+            "112": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2026-03-23",
+                  "location": "",
+                  "department": "",
+                  "division": "",
+                  "jobTitle": "",
+                  "reportsTo": "",
+                  "teams": null
+                }
+              ]
+            },
+            "113": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2026-05-18",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Company",
+                  "division": "North America",
+                  "jobTitle": "Chief Executive Officer",
+                  "reportsTo": "",
+                  "teams": null
+                }
+              ]
+            },
+            "114": {
+              "lastChanged": "2026-05-29T14:00:14Z",
+              "rows": [
+                {
+                  "date": "2026-06-22",
+                  "location": "Salt Lake City, Utah",
+                  "department": "Product",
+                  "division": "North America",
+                  "jobTitle": "Product Manager",
+                  "reportsTo": "Maja Andev",
+                  "teams": null
+                }
+              ]
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 29 May 2026 14:29:45 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubdomains;",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4979",
+          "x-ratelimit-reset": "1780065028",
+          "server": "nginx",
+          "cache-control": "no-cache, private",
+          "x-request-id": "141031277917531510386952334632406237440",
+          "vary": "Authorization,User-Agent"
+        },
+        "hash": "365e972815986eed2fb97b7588a6c33efa233103",
+        "request": {
+          "params": {
+            "since": "1970-01-01T00:00:00Z"
+          }
+        }
+      }
+    }
+  }
+}

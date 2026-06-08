@@ -1,0 +1,3433 @@
+{
+  "nango": {
+    "batchSave": {
+      "Product": [
+        {
+          "id": "gid://shopify/Product/8651795988617",
+          "title": "The Multi-location Snowboard",
+          "handle": "the-multi-location-snowboard",
+          "description": "",
+          "vendor": "NangoDev",
+          "productType": "snowboard",
+          "status": "ACTIVE",
+          "tags": [
+            "Premium",
+            "Snow",
+            "Snowboard",
+            "Sport",
+            "Winter"
+          ],
+          "createdAt": "2026-06-04T08:49:54Z",
+          "updatedAt": "2026-06-04T08:49:57Z",
+          "publishedAt": "2026-06-04T08:49:55Z",
+          "seo": {},
+          "options": [
+            {
+              "id": "gid://shopify/ProductOption/11151659106441",
+              "name": "Title",
+              "values": [
+                "Default Title"
+              ]
+            }
+          ],
+          "variants": [
+            {
+              "id": "gid://shopify/ProductVariant/46840090427529",
+              "title": "Default Title",
+              "price": "729.95",
+              "inventoryQuantity": 100,
+              "createdAt": "2026-06-04T08:49:55Z",
+              "updatedAt": "2026-06-04T08:49:55Z"
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/Product/8651796021385",
+          "title": "The Multi-managed Snowboard",
+          "handle": "the-multi-managed-snowboard",
+          "description": "",
+          "vendor": "Multi-managed Vendor",
+          "productType": "snowboard",
+          "status": "ACTIVE",
+          "tags": [
+            "Premium",
+            "Snow",
+            "Snowboard",
+            "Sport",
+            "Winter"
+          ],
+          "createdAt": "2026-06-04T08:49:54Z",
+          "updatedAt": "2026-06-04T08:49:57Z",
+          "publishedAt": "2026-06-04T08:49:55Z",
+          "seo": {},
+          "options": [
+            {
+              "id": "gid://shopify/ProductOption/11151659139209",
+              "name": "Title",
+              "values": [
+                "Default Title"
+              ]
+            }
+          ],
+          "variants": [
+            {
+              "id": "gid://shopify/ProductVariant/46840090460297",
+              "title": "Default Title",
+              "sku": "sku-managed-1",
+              "price": "629.95",
+              "inventoryQuantity": 100,
+              "createdAt": "2026-06-04T08:49:55Z",
+              "updatedAt": "2026-06-04T08:49:55Z"
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/Product/8651796054153",
+          "title": "The 3p Fulfilled Snowboard",
+          "handle": "the-3p-fulfilled-snowboard",
+          "description": "",
+          "vendor": "NangoDev",
+          "productType": "snowboard",
+          "status": "ACTIVE",
+          "tags": [
+            "Accessory",
+            "Sport",
+            "Winter"
+          ],
+          "createdAt": "2026-06-04T08:49:54Z",
+          "updatedAt": "2026-06-04T08:49:57Z",
+          "publishedAt": "2026-06-04T08:49:56Z",
+          "seo": {},
+          "options": [
+            {
+              "id": "gid://shopify/ProductOption/11151659171977",
+              "name": "Title",
+              "values": [
+                "Default Title"
+              ]
+            }
+          ],
+          "variants": [
+            {
+              "id": "gid://shopify/ProductVariant/46840090493065",
+              "title": "Default Title",
+              "sku": "sku-hosted-1",
+              "price": "2629.95",
+              "inventoryQuantity": 20,
+              "createdAt": "2026-06-04T08:49:55Z",
+              "updatedAt": "2026-06-04T08:49:55Z"
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/Product/8651795824777",
+          "title": "The Compare at Price Snowboard",
+          "handle": "the-compare-at-price-snowboard",
+          "description": "",
+          "vendor": "NangoDev",
+          "productType": "snowboard",
+          "status": "ACTIVE",
+          "tags": [
+            "Accessory",
+            "Sport",
+            "Winter"
+          ],
+          "createdAt": "2026-06-04T08:49:53Z",
+          "updatedAt": "2026-06-04T08:49:58Z",
+          "publishedAt": "2026-06-04T08:49:55Z",
+          "seo": {},
+          "options": [
+            {
+              "id": "gid://shopify/ProductOption/11151658942601",
+              "name": "Title",
+              "values": [
+                "Default Title"
+              ]
+            }
+          ],
+          "variants": [
+            {
+              "id": "gid://shopify/ProductVariant/46840090034313",
+              "title": "Default Title",
+              "price": "785.95",
+              "compareAtPrice": "885.95",
+              "inventoryQuantity": 10,
+              "createdAt": "2026-06-04T08:49:54Z",
+              "updatedAt": "2026-06-04T08:49:54Z"
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/Product/8651795923081",
+          "title": "The Complete Snowboard",
+          "handle": "the-complete-snowboard",
+          "description": "This PREMIUM snowboard is so SUPERDUPER awesome!",
+          "vendor": "Snowboard Vendor",
+          "productType": "snowboard",
+          "status": "ACTIVE",
+          "tags": [
+            "Premium",
+            "Snow",
+            "Snowboard",
+            "Sport",
+            "Winter"
+          ],
+          "createdAt": "2026-06-04T08:49:54Z",
+          "updatedAt": "2026-06-04T08:49:58Z",
+          "publishedAt": "2026-06-04T08:49:55Z",
+          "seo": {
+            "title": "Complete Snowboard",
+            "description": "snowboard winter sport snowboarding"
+          },
+          "options": [
+            {
+              "id": "gid://shopify/ProductOption/11151659040905",
+              "name": "Color",
+              "values": [
+                "Ice",
+                "Dawn",
+                "Powder",
+                "Electric",
+                "Sunset"
+              ]
+            }
+          ],
+          "variants": [
+            {
+              "id": "gid://shopify/ProductVariant/46840090165385",
+              "title": "Ice",
+              "price": "699.95",
+              "inventoryQuantity": 10,
+              "createdAt": "2026-06-04T08:49:54Z",
+              "updatedAt": "2026-06-04T08:49:54Z"
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46840090198153",
+              "title": "Dawn",
+              "price": "699.95",
+              "inventoryQuantity": 10,
+              "createdAt": "2026-06-04T08:49:54Z",
+              "updatedAt": "2026-06-04T08:49:54Z"
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46840090230921",
+              "title": "Powder",
+              "price": "699.95",
+              "inventoryQuantity": 10,
+              "createdAt": "2026-06-04T08:49:54Z",
+              "updatedAt": "2026-06-04T08:49:54Z"
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46840090263689",
+              "title": "Electric",
+              "price": "699.95",
+              "inventoryQuantity": 10,
+              "createdAt": "2026-06-04T08:49:54Z",
+              "updatedAt": "2026-06-04T08:49:54Z"
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46840090296457",
+              "title": "Sunset",
+              "price": "699.95",
+              "inventoryQuantity": 10,
+              "createdAt": "2026-06-04T08:49:54Z",
+              "updatedAt": "2026-06-04T08:49:54Z"
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/Product/8651795890313",
+          "title": "The Hidden Snowboard",
+          "handle": "the-hidden-snowboard",
+          "description": "",
+          "vendor": "Snowboard Vendor",
+          "productType": "snowboard",
+          "status": "ACTIVE",
+          "tags": [
+            "Premium",
+            "Snow",
+            "Snowboard",
+            "Sport",
+            "Winter"
+          ],
+          "createdAt": "2026-06-04T08:49:53Z",
+          "updatedAt": "2026-06-04T08:50:01Z",
+          "seo": {
+            "title": "Hidden Snowboard",
+            "description": "hidden snowboard winter sport snowboarding"
+          },
+          "options": [
+            {
+              "id": "gid://shopify/ProductOption/11151659008137",
+              "name": "Title",
+              "values": [
+                "Default Title"
+              ]
+            }
+          ],
+          "variants": [
+            {
+              "id": "gid://shopify/ProductVariant/46840090067081",
+              "title": "Default Title",
+              "price": "749.95",
+              "inventoryQuantity": 50,
+              "createdAt": "2026-06-04T08:49:54Z",
+              "updatedAt": "2026-06-04T08:49:54Z"
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/Product/8651795857545",
+          "title": "The Archived Snowboard",
+          "handle": "the-archived-snowboard",
+          "description": "",
+          "vendor": "Snowboard Vendor",
+          "productType": "snowboard",
+          "status": "ARCHIVED",
+          "tags": [
+            "Archived",
+            "Premium",
+            "Snow",
+            "Snowboard",
+            "Sport",
+            "Winter"
+          ],
+          "createdAt": "2026-06-04T08:49:53Z",
+          "updatedAt": "2026-06-04T08:50:04Z",
+          "seo": {},
+          "options": [
+            {
+              "id": "gid://shopify/ProductOption/11151658975369",
+              "name": "Title",
+              "values": [
+                "Default Title"
+              ]
+            }
+          ],
+          "variants": [
+            {
+              "id": "gid://shopify/ProductVariant/46840089804937",
+              "title": "Default Title",
+              "price": "629.95",
+              "inventoryQuantity": 50,
+              "createdAt": "2026-06-04T08:49:54Z",
+              "updatedAt": "2026-06-04T08:49:54Z"
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/Product/8651795759241",
+          "title": "The Out of Stock Snowboard",
+          "handle": "the-out-of-stock-snowboard",
+          "description": "",
+          "vendor": "NangoDev",
+          "productType": "snowboard",
+          "status": "ACTIVE",
+          "tags": [
+            "Accessory",
+            "Sport",
+            "Winter"
+          ],
+          "createdAt": "2026-06-04T08:49:53Z",
+          "updatedAt": "2026-06-04T08:50:08Z",
+          "publishedAt": "2026-06-04T08:49:55Z",
+          "seo": {},
+          "options": [
+            {
+              "id": "gid://shopify/ProductOption/11151658909833",
+              "name": "Title",
+              "values": [
+                "Default Title"
+              ]
+            }
+          ],
+          "variants": [
+            {
+              "id": "gid://shopify/ProductVariant/46840090132617",
+              "title": "Default Title",
+              "price": "885.95",
+              "inventoryQuantity": 0,
+              "createdAt": "2026-06-04T08:49:54Z",
+              "updatedAt": "2026-06-04T08:49:54Z"
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/Product/8651796086921",
+          "title": "The Collection Snowboard: Oxygen",
+          "handle": "the-collection-snowboard-oxygen",
+          "description": "",
+          "vendor": "Hydrogen Vendor",
+          "productType": "snowboard",
+          "status": "ACTIVE",
+          "tags": [
+            "Accessory",
+            "Sport",
+            "Winter"
+          ],
+          "createdAt": "2026-06-04T08:49:55Z",
+          "updatedAt": "2026-06-04T08:50:08Z",
+          "publishedAt": "2026-06-04T08:49:57Z",
+          "seo": {},
+          "options": [
+            {
+              "id": "gid://shopify/ProductOption/11151659204745",
+              "name": "Title",
+              "values": [
+                "Default Title"
+              ]
+            }
+          ],
+          "variants": [
+            {
+              "id": "gid://shopify/ProductVariant/46840090525833",
+              "title": "Default Title",
+              "price": "1025.00",
+              "inventoryQuantity": 50,
+              "createdAt": "2026-06-04T08:49:55Z",
+              "updatedAt": "2026-06-04T08:49:55Z"
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/Product/8651796119689",
+          "title": "The Collection Snowboard: Liquid",
+          "handle": "the-collection-snowboard-liquid",
+          "description": "",
+          "vendor": "Hydrogen Vendor",
+          "productType": "snowboard",
+          "status": "ACTIVE",
+          "tags": [
+            "Accessory",
+            "Sport",
+            "Winter"
+          ],
+          "createdAt": "2026-06-04T08:49:56Z",
+          "updatedAt": "2026-06-04T08:50:08Z",
+          "publishedAt": "2026-06-04T08:49:57Z",
+          "seo": {},
+          "options": [
+            {
+              "id": "gid://shopify/ProductOption/11151659237513",
+              "name": "Title",
+              "values": [
+                "Default Title"
+              ]
+            }
+          ],
+          "variants": [
+            {
+              "id": "gid://shopify/ProductVariant/46840090591369",
+              "title": "Default Title",
+              "price": "749.95",
+              "inventoryQuantity": 50,
+              "createdAt": "2026-06-04T08:49:56Z",
+              "updatedAt": "2026-06-04T08:49:56Z"
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/Product/8651813060745",
+          "title": "Delete Option Test Product",
+          "handle": "delete-option-test-product",
+          "description": "",
+          "vendor": "NangoDev",
+          "productType": "",
+          "status": "ACTIVE",
+          "tags": [],
+          "createdAt": "2026-06-04T09:39:39Z",
+          "updatedAt": "2026-06-04T09:39:57Z",
+          "seo": {},
+          "options": [
+            {
+              "id": "gid://shopify/ProductOption/11151678800009",
+              "name": "Color",
+              "values": [
+                "Red"
+              ]
+            }
+          ],
+          "variants": [
+            {
+              "id": "gid://shopify/ProductVariant/46840155570313",
+              "title": "Red",
+              "price": "0.00",
+              "inventoryQuantity": 0,
+              "createdAt": "2026-06-04T09:39:39Z",
+              "updatedAt": "2026-06-04T09:39:57Z"
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/Product/8651813486729",
+          "title": "Delete Option Test Product 2",
+          "handle": "delete-option-test-product-2",
+          "description": "",
+          "vendor": "NangoDev",
+          "productType": "",
+          "status": "ACTIVE",
+          "tags": [],
+          "createdAt": "2026-06-04T09:40:08Z",
+          "updatedAt": "2026-06-04T09:40:16Z",
+          "seo": {},
+          "options": [
+            {
+              "id": "gid://shopify/ProductOption/11151679357065",
+              "name": "Color",
+              "values": [
+                "Red"
+              ]
+            }
+          ],
+          "variants": [
+            {
+              "id": "gid://shopify/ProductVariant/46840155963529",
+              "title": "Red",
+              "price": "0.00",
+              "inventoryQuantity": 0,
+              "createdAt": "2026-06-04T09:40:08Z",
+              "updatedAt": "2026-06-04T09:40:17Z"
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/Product/8651813748873",
+          "title": "Nango Test Product for Variant Deletion",
+          "handle": "nango-test-product-for-variant-deletion",
+          "description": "",
+          "vendor": "NangoDev",
+          "productType": "Test",
+          "status": "ACTIVE",
+          "tags": [],
+          "createdAt": "2026-06-04T09:40:46Z",
+          "updatedAt": "2026-06-04T09:40:53Z",
+          "seo": {},
+          "options": [
+            {
+              "id": "gid://shopify/ProductOption/11151679651977",
+              "name": "Title",
+              "values": [
+                "Default Title"
+              ]
+            }
+          ],
+          "variants": [
+            {
+              "id": "gid://shopify/ProductVariant/46840156291209",
+              "title": "Default Title",
+              "price": "0.00",
+              "inventoryQuantity": 0,
+              "createdAt": "2026-06-04T09:40:46Z",
+              "updatedAt": "2026-06-04T09:40:47Z"
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/Product/8651812864137",
+          "title": "Nango Test Product",
+          "handle": "nango-test-product",
+          "description": "",
+          "vendor": "NangoDev",
+          "productType": "",
+          "status": "ACTIVE",
+          "tags": [],
+          "createdAt": "2026-06-04T09:39:02Z",
+          "updatedAt": "2026-06-04T09:43:07Z",
+          "seo": {},
+          "options": [
+            {
+              "id": "gid://shopify/ProductOption/11151678603401",
+              "name": "Title",
+              "values": [
+                "Small",
+                "Medium",
+                "Large"
+              ]
+            }
+          ],
+          "variants": [
+            {
+              "id": "gid://shopify/ProductVariant/46840155373705",
+              "title": "Small",
+              "price": "0.00",
+              "inventoryQuantity": 0,
+              "createdAt": "2026-06-04T09:39:02Z",
+              "updatedAt": "2026-06-04T09:39:02Z"
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46840157307017",
+              "title": "Medium",
+              "price": "19.99",
+              "inventoryQuantity": 0,
+              "createdAt": "2026-06-04T09:43:02Z",
+              "updatedAt": "2026-06-04T09:43:02Z"
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46840157339785",
+              "title": "Large",
+              "price": "24.99",
+              "inventoryQuantity": 0,
+              "createdAt": "2026-06-04T09:43:02Z",
+              "updatedAt": "2026-06-04T09:43:02Z"
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/Product/8651795726473",
+          "title": "Selling Plans Ski Wax",
+          "handle": "selling-plans-ski-wax",
+          "description": "",
+          "vendor": "NangoDev",
+          "productType": "accessories",
+          "status": "ACTIVE",
+          "tags": [
+            "Accessory",
+            "Sport",
+            "Winter"
+          ],
+          "createdAt": "2026-06-04T08:49:53Z",
+          "updatedAt": "2026-06-04T09:43:43Z",
+          "publishedAt": "2026-06-04T08:49:55Z",
+          "seo": {},
+          "options": [
+            {
+              "id": "gid://shopify/ProductOption/11151658844297",
+              "name": "Title",
+              "values": [
+                "Selling Plans Ski Wax",
+                "Special Selling Plans Ski Wax",
+                "Sample Selling Plans Ski Wax"
+              ]
+            }
+          ],
+          "variants": [
+            {
+              "id": "gid://shopify/ProductVariant/46840089936009",
+              "title": "Selling Plans Ski Wax",
+              "price": "24.95",
+              "inventoryQuantity": 10,
+              "createdAt": "2026-06-04T08:49:54Z",
+              "updatedAt": "2026-06-04T08:49:55Z"
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46840089968777",
+              "title": "Special Selling Plans Ski Wax",
+              "price": "49.95",
+              "inventoryQuantity": 10,
+              "createdAt": "2026-06-04T08:49:54Z",
+              "updatedAt": "2026-06-04T08:49:55Z"
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46840090001545",
+              "title": "Sample Selling Plans Ski Wax",
+              "price": "9.95",
+              "inventoryQuantity": 10,
+              "createdAt": "2026-06-04T08:49:54Z",
+              "updatedAt": "2026-06-04T08:49:55Z"
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/Product/8651814666377",
+          "title": "Nango Test Product",
+          "handle": "nango-test-product-1",
+          "description": "A test product created by Nango",
+          "vendor": "Nango",
+          "productType": "Testing",
+          "status": "ACTIVE",
+          "tags": [
+            "nango",
+            "test"
+          ],
+          "createdAt": "2026-06-04T09:43:43Z",
+          "updatedAt": "2026-06-04T09:43:49Z",
+          "seo": {},
+          "options": [
+            {
+              "id": "gid://shopify/ProductOption/11151680667785",
+              "name": "Title",
+              "values": [
+                "Default Title"
+              ]
+            }
+          ],
+          "variants": [
+            {
+              "id": "gid://shopify/ProductVariant/46840157503625",
+              "title": "Default Title",
+              "price": "0.00",
+              "inventoryQuantity": 0,
+              "createdAt": "2026-06-04T09:43:43Z",
+              "updatedAt": "2026-06-04T09:43:43Z"
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/Product/8651814797449",
+          "title": "Nango Test Product",
+          "handle": "nango-test-product-3",
+          "description": "A test product created by Nango",
+          "vendor": "Nango",
+          "productType": "Testing",
+          "status": "ACTIVE",
+          "tags": [
+            "nango",
+            "test"
+          ],
+          "createdAt": "2026-06-04T09:43:56Z",
+          "updatedAt": "2026-06-04T09:44:08Z",
+          "seo": {},
+          "options": [
+            {
+              "id": "gid://shopify/ProductOption/11151680798857",
+              "name": "Title",
+              "values": [
+                "Default Title"
+              ]
+            }
+          ],
+          "variants": [
+            {
+              "id": "gid://shopify/ProductVariant/46840157634697",
+              "title": "Default Title",
+              "price": "0.00",
+              "inventoryQuantity": 0,
+              "createdAt": "2026-06-04T09:43:56Z",
+              "updatedAt": "2026-06-04T09:43:57Z"
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/Product/8651814731913",
+          "title": "Nango Test Product 2",
+          "handle": "nango-test-product-2",
+          "description": "",
+          "vendor": "NangoDev",
+          "productType": "",
+          "status": "ACTIVE",
+          "tags": [],
+          "createdAt": "2026-06-04T09:43:54Z",
+          "updatedAt": "2026-06-04T09:46:47Z",
+          "seo": {},
+          "options": [
+            {
+              "id": "gid://shopify/ProductOption/11151680733321",
+              "name": "Title",
+              "values": [
+                "Special",
+                "ValidateTest",
+                "ValidateTest2",
+                "SaveTest1"
+              ]
+            }
+          ],
+          "variants": [
+            {
+              "id": "gid://shopify/ProductVariant/46840157667465",
+              "title": "Special",
+              "price": "29.99",
+              "inventoryQuantity": 0,
+              "createdAt": "2026-06-04T09:44:03Z",
+              "updatedAt": "2026-06-04T09:44:03Z"
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46840157831305",
+              "title": "ValidateTest",
+              "price": "29.99",
+              "inventoryQuantity": 0,
+              "createdAt": "2026-06-04T09:44:27Z",
+              "updatedAt": "2026-06-04T09:44:27Z"
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46840158486665",
+              "title": "ValidateTest2",
+              "price": "29.99",
+              "inventoryQuantity": 0,
+              "createdAt": "2026-06-04T09:46:29Z",
+              "updatedAt": "2026-06-04T09:46:29Z"
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46840158879881",
+              "title": "SaveTest1",
+              "price": "29.99",
+              "inventoryQuantity": 0,
+              "createdAt": "2026-06-04T09:46:39Z",
+              "updatedAt": "2026-06-04T09:46:39Z"
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/Product/8651795660937",
+          "title": "The Collection Snowboard: Hydrogen",
+          "handle": "the-collection-snowboard-hydrogen",
+          "description": "",
+          "vendor": "Hydrogen Vendor",
+          "productType": "snowboard",
+          "status": "ACTIVE",
+          "tags": [
+            "Accessory",
+            "Sport",
+            "Winter"
+          ],
+          "createdAt": "2026-06-04T08:49:53Z",
+          "updatedAt": "2026-06-04T09:46:48Z",
+          "publishedAt": "2026-06-04T08:49:57Z",
+          "seo": {},
+          "options": [
+            {
+              "id": "gid://shopify/ProductOption/11151658778761",
+              "name": "Title",
+              "values": [
+                "Default Title"
+              ]
+            }
+          ],
+          "variants": [
+            {
+              "id": "gid://shopify/ProductVariant/46840089903241",
+              "title": "Default Title",
+              "price": "600.00",
+              "inventoryQuantity": 50,
+              "createdAt": "2026-06-04T08:49:54Z",
+              "updatedAt": "2026-06-04T08:49:54Z"
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/Product/8651815616649",
+          "title": "Test Deactivation Product",
+          "handle": "test-deactivation-product",
+          "description": "",
+          "vendor": "NangoDev",
+          "productType": "Test",
+          "status": "ACTIVE",
+          "tags": [],
+          "createdAt": "2026-06-04T09:47:04Z",
+          "updatedAt": "2026-06-04T09:47:11Z",
+          "seo": {},
+          "options": [
+            {
+              "id": "gid://shopify/ProductOption/11151681683593",
+              "name": "Title",
+              "values": [
+                "Default Title"
+              ]
+            }
+          ],
+          "variants": [
+            {
+              "id": "gid://shopify/ProductVariant/46840159076489",
+              "title": "Default Title",
+              "price": "0.00",
+              "inventoryQuantity": 0,
+              "createdAt": "2026-06-04T09:47:04Z",
+              "updatedAt": "2026-06-04T09:47:04Z"
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/Product/8651814338697",
+          "title": "Nango Test Product for Deletion",
+          "handle": "nango-test-product-for-deletion",
+          "description": "",
+          "vendor": "NangoDev",
+          "productType": "",
+          "status": "ACTIVE",
+          "tags": [],
+          "createdAt": "2026-06-04T09:42:14Z",
+          "updatedAt": "2026-06-04T09:49:43Z",
+          "publishedAt": "2026-06-04T09:42:14Z",
+          "seo": {},
+          "options": [
+            {
+              "id": "gid://shopify/ProductOption/11151680274569",
+              "name": "Title",
+              "values": [
+                "Default Title"
+              ]
+            }
+          ],
+          "variants": [
+            {
+              "id": "gid://shopify/ProductVariant/46840157995145",
+              "title": "Default Title",
+              "price": "1.00",
+              "inventoryQuantity": 0,
+              "createdAt": "2026-06-04T09:45:17Z",
+              "updatedAt": "2026-06-04T09:45:17Z"
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/Product/8651816829065",
+          "title": "Test Product",
+          "handle": "test-product",
+          "description": "",
+          "vendor": "NangoDev",
+          "productType": "",
+          "status": "ACTIVE",
+          "tags": [],
+          "createdAt": "2026-06-04T09:50:05Z",
+          "updatedAt": "2026-06-04T09:50:18Z",
+          "seo": {},
+          "options": [
+            {
+              "id": "gid://shopify/ProductOption/11151682896009",
+              "name": "Title",
+              "values": [
+                "Default Title"
+              ]
+            }
+          ],
+          "variants": [
+            {
+              "id": "gid://shopify/ProductVariant/46840160878729",
+              "title": "Default Title",
+              "price": "0.00",
+              "inventoryQuantity": 0,
+              "createdAt": "2026-06-04T09:50:05Z",
+              "updatedAt": "2026-06-04T09:50:06Z"
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/Product/8651816861833",
+          "title": "Test Product",
+          "handle": "test-product-1",
+          "description": "",
+          "vendor": "NangoDev",
+          "productType": "",
+          "status": "ACTIVE",
+          "tags": [],
+          "createdAt": "2026-06-04T09:50:18Z",
+          "updatedAt": "2026-06-04T09:50:28Z",
+          "seo": {},
+          "options": [
+            {
+              "id": "gid://shopify/ProductOption/11151682928777",
+              "name": "Title",
+              "values": [
+                "Default Title"
+              ]
+            }
+          ],
+          "variants": [
+            {
+              "id": "gid://shopify/ProductVariant/46840161697929",
+              "title": "Default Title",
+              "price": "0.00",
+              "inventoryQuantity": 0,
+              "createdAt": "2026-06-04T09:50:19Z",
+              "updatedAt": "2026-06-04T09:50:19Z"
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/Product/8651816960137",
+          "title": "Test Product",
+          "handle": "test-product-2",
+          "description": "",
+          "vendor": "NangoDev",
+          "productType": "",
+          "status": "ACTIVE",
+          "tags": [],
+          "createdAt": "2026-06-04T09:50:36Z",
+          "updatedAt": "2026-06-04T09:50:53Z",
+          "seo": {},
+          "options": [
+            {
+              "id": "gid://shopify/ProductOption/11151683027081",
+              "name": "Title",
+              "values": [
+                "Default Title"
+              ]
+            }
+          ],
+          "variants": [
+            {
+              "id": "gid://shopify/ProductVariant/46840161796233",
+              "title": "Default Title",
+              "price": "0.00",
+              "inventoryQuantity": 0,
+              "createdAt": "2026-06-04T09:50:36Z",
+              "updatedAt": "2026-06-04T09:50:36Z"
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/Product/8651818074249",
+          "title": "Test Product",
+          "handle": "test-product-3",
+          "description": "",
+          "vendor": "NangoDev",
+          "productType": "",
+          "status": "ACTIVE",
+          "tags": [],
+          "createdAt": "2026-06-04T09:52:40Z",
+          "updatedAt": "2026-06-04T09:52:49Z",
+          "seo": {},
+          "options": [
+            {
+              "id": "gid://shopify/ProductOption/11151684206729",
+              "name": "Title",
+              "values": [
+                "Default Title"
+              ]
+            }
+          ],
+          "variants": [
+            {
+              "id": "gid://shopify/ProductVariant/46840162910345",
+              "title": "Default Title",
+              "price": "0.00",
+              "inventoryQuantity": 0,
+              "createdAt": "2026-06-04T09:52:40Z",
+              "updatedAt": "2026-06-04T09:52:41Z"
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/Product/8651795693705",
+          "title": "The Draft Snowboard",
+          "handle": "the-draft-snowboard",
+          "description": "",
+          "vendor": "Snowboard Vendor",
+          "productType": "snowboard",
+          "status": "DRAFT",
+          "tags": [],
+          "createdAt": "2026-06-04T08:49:53Z",
+          "updatedAt": "2026-06-04T09:55:47Z",
+          "seo": {},
+          "options": [
+            {
+              "id": "gid://shopify/ProductOption/11151658811529",
+              "name": "Title",
+              "values": [
+                "Default Title"
+              ]
+            }
+          ],
+          "variants": [
+            {
+              "id": "gid://shopify/ProductVariant/46840089575561",
+              "title": "Default Title",
+              "price": "2629.95",
+              "inventoryQuantity": 28,
+              "createdAt": "2026-06-04T08:49:54Z",
+              "updatedAt": "2026-06-04T09:55:38Z"
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/Product/8651819352201",
+          "title": "Test Product for Refund",
+          "handle": "test-product-for-refund",
+          "description": "",
+          "vendor": "NangoDev",
+          "productType": "",
+          "status": "ACTIVE",
+          "tags": [],
+          "createdAt": "2026-06-04T09:57:02Z",
+          "updatedAt": "2026-06-04T09:57:07Z",
+          "publishedAt": "2026-06-04T09:57:02Z",
+          "seo": {},
+          "options": [
+            {
+              "id": "gid://shopify/ProductOption/11151685582985",
+              "name": "Title",
+              "values": [
+                "Default Title"
+              ]
+            }
+          ],
+          "variants": [
+            {
+              "id": "gid://shopify/ProductVariant/46840164352137",
+              "title": "Default Title",
+              "price": "10.00",
+              "inventoryQuantity": 0,
+              "createdAt": "2026-06-04T09:57:02Z",
+              "updatedAt": "2026-06-04T09:57:02Z"
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/Product/8651840716937",
+          "title": "Nango Test Product",
+          "handle": "nango-test-product-4",
+          "description": "",
+          "vendor": "NangoDev",
+          "productType": "",
+          "status": "ACTIVE",
+          "tags": [
+            "dryrun",
+            "nango-test"
+          ],
+          "createdAt": "2026-06-04T10:48:57Z",
+          "updatedAt": "2026-06-04T10:49:17Z",
+          "seo": {},
+          "options": [
+            {
+              "id": "gid://shopify/ProductOption/11151708323977",
+              "name": "Title",
+              "values": [
+                "Default Title"
+              ]
+            }
+          ],
+          "variants": [
+            {
+              "id": "gid://shopify/ProductVariant/46840223662217",
+              "title": "Default Title",
+              "price": "0.00",
+              "inventoryQuantity": 0,
+              "createdAt": "2026-06-04T10:48:58Z",
+              "updatedAt": "2026-06-04T10:48:58Z"
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/Product/8651841372297",
+          "title": "Test Product",
+          "handle": "test-product-4",
+          "description": "",
+          "vendor": "NangoDev",
+          "productType": "",
+          "status": "ACTIVE",
+          "tags": [],
+          "createdAt": "2026-06-04T10:50:39Z",
+          "updatedAt": "2026-06-04T10:50:43Z",
+          "seo": {},
+          "options": [
+            {
+              "id": "gid://shopify/ProductOption/11151708979337",
+              "name": "Title",
+              "values": [
+                "Default Title"
+              ]
+            }
+          ],
+          "variants": [
+            {
+              "id": "gid://shopify/ProductVariant/46840224120969",
+              "title": "Default Title",
+              "price": "0.00",
+              "inventoryQuantity": 0,
+              "createdAt": "2026-06-04T10:50:39Z",
+              "updatedAt": "2026-06-04T10:50:40Z"
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/Product/8651841470601",
+          "title": "Updated Test Product",
+          "handle": "test-product-for-update-action",
+          "description": "",
+          "vendor": "NangoDev",
+          "productType": "",
+          "status": "ACTIVE",
+          "tags": [],
+          "createdAt": "2026-06-04T10:50:51Z",
+          "updatedAt": "2026-06-04T10:51:12Z",
+          "seo": {},
+          "options": [
+            {
+              "id": "gid://shopify/ProductOption/11151709077641",
+              "name": "Title",
+              "values": [
+                "Default Title"
+              ]
+            }
+          ],
+          "variants": [
+            {
+              "id": "gid://shopify/ProductVariant/46840224219273",
+              "title": "Default Title",
+              "price": "0.00",
+              "inventoryQuantity": 0,
+              "createdAt": "2026-06-04T10:50:51Z",
+              "updatedAt": "2026-06-04T10:50:51Z"
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/Product/8651795792009",
+          "title": "The Videographer Snowboard",
+          "handle": "the-videographer-snowboard",
+          "description": "",
+          "vendor": "NangoDev",
+          "productType": "snowboard",
+          "status": "ACTIVE",
+          "tags": [],
+          "createdAt": "2026-06-04T08:49:53Z",
+          "updatedAt": "2026-06-04T10:51:38Z",
+          "publishedAt": "2026-06-04T08:49:54Z",
+          "seo": {},
+          "options": [
+            {
+              "id": "gid://shopify/ProductOption/11151658877065",
+              "name": "Title",
+              "values": [
+                "Default Title"
+              ]
+            }
+          ],
+          "variants": [
+            {
+              "id": "gid://shopify/ProductVariant/46840089608329",
+              "title": "Default Title",
+              "sku": "TEST-SKU-001",
+              "price": "885.95",
+              "inventoryQuantity": 66,
+              "createdAt": "2026-06-04T08:49:54Z",
+              "updatedAt": "2026-06-04T10:51:38Z"
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/Product/8651795628169",
+          "title": "The Minimal Snowboard",
+          "handle": "the-minimal-snowboard",
+          "description": "",
+          "vendor": "NangoDev",
+          "productType": "",
+          "status": "ACTIVE",
+          "tags": [],
+          "createdAt": "2026-06-04T08:49:53Z",
+          "updatedAt": "2026-06-04T11:17:02Z",
+          "publishedAt": "2026-06-04T11:17:02Z",
+          "seo": {},
+          "options": [
+            {
+              "id": "gid://shopify/ProductOption/11151680438409",
+              "name": "Color",
+              "values": [
+                "Blue"
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductOption/11151680602249",
+              "name": "Size",
+              "values": [
+                "Small"
+              ]
+            }
+          ],
+          "variants": [
+            {
+              "id": "gid://shopify/ProductVariant/46840089641097",
+              "title": "Blue / Small",
+              "price": "885.95",
+              "inventoryQuantity": 50,
+              "createdAt": "2026-06-04T08:49:54Z",
+              "updatedAt": "2026-06-04T09:48:18Z"
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/Product/8651795562633",
+          "title": "Gift Card",
+          "handle": "gift-card",
+          "description": "This is a gift card for the store",
+          "vendor": "Snowboard Vendor",
+          "productType": "giftcard",
+          "status": "ACTIVE",
+          "tags": [],
+          "createdAt": "2026-06-04T08:49:53Z",
+          "updatedAt": "2026-06-04T11:20:36Z",
+          "category": {
+            "id": "gid://shopify/TaxonomyCategory/gc",
+            "name": "Gift Cards"
+          },
+          "seo": {},
+          "options": [
+            {
+              "id": "gid://shopify/ProductOption/11151658680457",
+              "name": "Denominations",
+              "values": [
+                "$10",
+                "$25",
+                "$50",
+                "$100"
+              ]
+            }
+          ],
+          "variants": [
+            {
+              "id": "gid://shopify/ProductVariant/46840089673865",
+              "title": "$10",
+              "price": "10.00",
+              "inventoryQuantity": 0,
+              "createdAt": "2026-06-04T08:49:54Z",
+              "updatedAt": "2026-06-04T08:49:54Z"
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46840089706633",
+              "title": "$25",
+              "price": "25.00",
+              "inventoryQuantity": 0,
+              "createdAt": "2026-06-04T08:49:54Z",
+              "updatedAt": "2026-06-04T08:49:54Z"
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46840089739401",
+              "title": "$50",
+              "price": "50.00",
+              "inventoryQuantity": 0,
+              "createdAt": "2026-06-04T08:49:54Z",
+              "updatedAt": "2026-06-04T08:49:54Z"
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46840089772169",
+              "title": "$100",
+              "price": "100.00",
+              "inventoryQuantity": 0,
+              "createdAt": "2026-06-04T08:49:54Z",
+              "updatedAt": "2026-06-04T08:49:54Z"
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/Product/8651795595401",
+          "title": "The Inventory Not Tracked Snowboard",
+          "handle": "the-inventory-not-tracked-snowboard",
+          "description": "",
+          "vendor": "NangoDev",
+          "productType": "snowboard",
+          "status": "ACTIVE",
+          "tags": [
+            "Accessory",
+            "Sport",
+            "Winter"
+          ],
+          "createdAt": "2026-06-04T08:49:53Z",
+          "updatedAt": "2026-06-04T11:20:53Z",
+          "publishedAt": "2026-06-04T08:49:55Z",
+          "seo": {},
+          "options": [
+            {
+              "id": "gid://shopify/ProductOption/11151658713225",
+              "name": "Title",
+              "values": [
+                "Default Title"
+              ]
+            }
+          ],
+          "variants": [
+            {
+              "id": "gid://shopify/ProductVariant/46840089870473",
+              "title": "Default Title",
+              "sku": "sku-untracked-1",
+              "price": "99.99",
+              "inventoryQuantity": -2,
+              "createdAt": "2026-06-04T08:49:54Z",
+              "updatedAt": "2026-06-04T11:20:53Z"
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/Product/8651905826953",
+          "title": "Test Product",
+          "handle": "test-product-5",
+          "description": "",
+          "vendor": "NangoDev",
+          "productType": "",
+          "status": "ACTIVE",
+          "tags": [],
+          "createdAt": "2026-06-04T12:54:39Z",
+          "updatedAt": "2026-06-04T12:54:58Z",
+          "publishedAt": "2026-06-04T12:54:39Z",
+          "seo": {},
+          "options": [
+            {
+              "id": "gid://shopify/ProductOption/11151803285641",
+              "name": "Title",
+              "values": [
+                "Default Title"
+              ]
+            }
+          ],
+          "variants": [
+            {
+              "id": "gid://shopify/ProductVariant/46840382980233",
+              "title": "Default Title",
+              "price": "10.00",
+              "inventoryQuantity": -1,
+              "createdAt": "2026-06-04T12:54:40Z",
+              "updatedAt": "2026-06-04T12:54:59Z"
+            }
+          ]
+        }
+      ]
+    },
+    "batchDelete": {
+      "Product": []
+    }
+  },
+  "api": {
+    "post": {
+      "/admin/api/2025-01/graphql.json": [
+        {
+          "response": {
+            "data": {
+              "products": {
+                "edges": [
+                  {
+                    "node": {
+                      "id": "gid://shopify/Product/8651795988617",
+                      "title": "The Multi-location Snowboard",
+                      "handle": "the-multi-location-snowboard",
+                      "description": "",
+                      "vendor": "NangoDev",
+                      "productType": "snowboard",
+                      "status": "ACTIVE",
+                      "tags": [
+                        "Premium",
+                        "Snow",
+                        "Snowboard",
+                        "Sport",
+                        "Winter"
+                      ],
+                      "createdAt": "2026-06-04T08:49:54Z",
+                      "updatedAt": "2026-06-04T08:49:57Z",
+                      "publishedAt": "2026-06-04T08:49:55Z",
+                      "category": null,
+                      "seo": {
+                        "title": null,
+                        "description": null
+                      },
+                      "options": [
+                        {
+                          "id": "gid://shopify/ProductOption/11151659106441",
+                          "name": "Title",
+                          "values": [
+                            "Default Title"
+                          ]
+                        }
+                      ],
+                      "variants": {
+                        "edges": [
+                          {
+                            "node": {
+                              "id": "gid://shopify/ProductVariant/46840090427529",
+                              "title": "Default Title",
+                              "sku": null,
+                              "price": "729.95",
+                              "compareAtPrice": null,
+                              "inventoryQuantity": 100,
+                              "barcode": null,
+                              "createdAt": "2026-06-04T08:49:55Z",
+                              "updatedAt": "2026-06-04T08:49:55Z"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "cursor": "eyJsYXN0X2lkIjo4NjUxNzk1OTg4NjE3LCJsYXN0X3ZhbHVlIjoiMjAyNi0wNi0wNCAwODo0OTo1Ny4wMDAwMDAifQ=="
+                  },
+                  {
+                    "node": {
+                      "id": "gid://shopify/Product/8651796021385",
+                      "title": "The Multi-managed Snowboard",
+                      "handle": "the-multi-managed-snowboard",
+                      "description": "",
+                      "vendor": "Multi-managed Vendor",
+                      "productType": "snowboard",
+                      "status": "ACTIVE",
+                      "tags": [
+                        "Premium",
+                        "Snow",
+                        "Snowboard",
+                        "Sport",
+                        "Winter"
+                      ],
+                      "createdAt": "2026-06-04T08:49:54Z",
+                      "updatedAt": "2026-06-04T08:49:57Z",
+                      "publishedAt": "2026-06-04T08:49:55Z",
+                      "category": null,
+                      "seo": {
+                        "title": null,
+                        "description": null
+                      },
+                      "options": [
+                        {
+                          "id": "gid://shopify/ProductOption/11151659139209",
+                          "name": "Title",
+                          "values": [
+                            "Default Title"
+                          ]
+                        }
+                      ],
+                      "variants": {
+                        "edges": [
+                          {
+                            "node": {
+                              "id": "gid://shopify/ProductVariant/46840090460297",
+                              "title": "Default Title",
+                              "sku": "sku-managed-1",
+                              "price": "629.95",
+                              "compareAtPrice": null,
+                              "inventoryQuantity": 100,
+                              "barcode": null,
+                              "createdAt": "2026-06-04T08:49:55Z",
+                              "updatedAt": "2026-06-04T08:49:55Z"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "cursor": "eyJsYXN0X2lkIjo4NjUxNzk2MDIxMzg1LCJsYXN0X3ZhbHVlIjoiMjAyNi0wNi0wNCAwODo0OTo1Ny4wMDAwMDAifQ=="
+                  },
+                  {
+                    "node": {
+                      "id": "gid://shopify/Product/8651796054153",
+                      "title": "The 3p Fulfilled Snowboard",
+                      "handle": "the-3p-fulfilled-snowboard",
+                      "description": "",
+                      "vendor": "NangoDev",
+                      "productType": "snowboard",
+                      "status": "ACTIVE",
+                      "tags": [
+                        "Accessory",
+                        "Sport",
+                        "Winter"
+                      ],
+                      "createdAt": "2026-06-04T08:49:54Z",
+                      "updatedAt": "2026-06-04T08:49:57Z",
+                      "publishedAt": "2026-06-04T08:49:56Z",
+                      "category": null,
+                      "seo": {
+                        "title": null,
+                        "description": null
+                      },
+                      "options": [
+                        {
+                          "id": "gid://shopify/ProductOption/11151659171977",
+                          "name": "Title",
+                          "values": [
+                            "Default Title"
+                          ]
+                        }
+                      ],
+                      "variants": {
+                        "edges": [
+                          {
+                            "node": {
+                              "id": "gid://shopify/ProductVariant/46840090493065",
+                              "title": "Default Title",
+                              "sku": "sku-hosted-1",
+                              "price": "2629.95",
+                              "compareAtPrice": null,
+                              "inventoryQuantity": 20,
+                              "barcode": null,
+                              "createdAt": "2026-06-04T08:49:55Z",
+                              "updatedAt": "2026-06-04T08:49:55Z"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "cursor": "eyJsYXN0X2lkIjo4NjUxNzk2MDU0MTUzLCJsYXN0X3ZhbHVlIjoiMjAyNi0wNi0wNCAwODo0OTo1Ny4wMDAwMDAifQ=="
+                  },
+                  {
+                    "node": {
+                      "id": "gid://shopify/Product/8651795824777",
+                      "title": "The Compare at Price Snowboard",
+                      "handle": "the-compare-at-price-snowboard",
+                      "description": "",
+                      "vendor": "NangoDev",
+                      "productType": "snowboard",
+                      "status": "ACTIVE",
+                      "tags": [
+                        "Accessory",
+                        "Sport",
+                        "Winter"
+                      ],
+                      "createdAt": "2026-06-04T08:49:53Z",
+                      "updatedAt": "2026-06-04T08:49:58Z",
+                      "publishedAt": "2026-06-04T08:49:55Z",
+                      "category": null,
+                      "seo": {
+                        "title": null,
+                        "description": null
+                      },
+                      "options": [
+                        {
+                          "id": "gid://shopify/ProductOption/11151658942601",
+                          "name": "Title",
+                          "values": [
+                            "Default Title"
+                          ]
+                        }
+                      ],
+                      "variants": {
+                        "edges": [
+                          {
+                            "node": {
+                              "id": "gid://shopify/ProductVariant/46840090034313",
+                              "title": "Default Title",
+                              "sku": null,
+                              "price": "785.95",
+                              "compareAtPrice": "885.95",
+                              "inventoryQuantity": 10,
+                              "barcode": null,
+                              "createdAt": "2026-06-04T08:49:54Z",
+                              "updatedAt": "2026-06-04T08:49:54Z"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "cursor": "eyJsYXN0X2lkIjo4NjUxNzk1ODI0Nzc3LCJsYXN0X3ZhbHVlIjoiMjAyNi0wNi0wNCAwODo0OTo1OC4wMDAwMDAifQ=="
+                  },
+                  {
+                    "node": {
+                      "id": "gid://shopify/Product/8651795923081",
+                      "title": "The Complete Snowboard",
+                      "handle": "the-complete-snowboard",
+                      "description": "This PREMIUM snowboard is so SUPERDUPER awesome!",
+                      "vendor": "Snowboard Vendor",
+                      "productType": "snowboard",
+                      "status": "ACTIVE",
+                      "tags": [
+                        "Premium",
+                        "Snow",
+                        "Snowboard",
+                        "Sport",
+                        "Winter"
+                      ],
+                      "createdAt": "2026-06-04T08:49:54Z",
+                      "updatedAt": "2026-06-04T08:49:58Z",
+                      "publishedAt": "2026-06-04T08:49:55Z",
+                      "category": null,
+                      "seo": {
+                        "title": "Complete Snowboard",
+                        "description": "snowboard winter sport snowboarding"
+                      },
+                      "options": [
+                        {
+                          "id": "gid://shopify/ProductOption/11151659040905",
+                          "name": "Color",
+                          "values": [
+                            "Ice",
+                            "Dawn",
+                            "Powder",
+                            "Electric",
+                            "Sunset"
+                          ]
+                        }
+                      ],
+                      "variants": {
+                        "edges": [
+                          {
+                            "node": {
+                              "id": "gid://shopify/ProductVariant/46840090165385",
+                              "title": "Ice",
+                              "sku": null,
+                              "price": "699.95",
+                              "compareAtPrice": null,
+                              "inventoryQuantity": 10,
+                              "barcode": null,
+                              "createdAt": "2026-06-04T08:49:54Z",
+                              "updatedAt": "2026-06-04T08:49:54Z"
+                            }
+                          },
+                          {
+                            "node": {
+                              "id": "gid://shopify/ProductVariant/46840090198153",
+                              "title": "Dawn",
+                              "sku": null,
+                              "price": "699.95",
+                              "compareAtPrice": null,
+                              "inventoryQuantity": 10,
+                              "barcode": null,
+                              "createdAt": "2026-06-04T08:49:54Z",
+                              "updatedAt": "2026-06-04T08:49:54Z"
+                            }
+                          },
+                          {
+                            "node": {
+                              "id": "gid://shopify/ProductVariant/46840090230921",
+                              "title": "Powder",
+                              "sku": null,
+                              "price": "699.95",
+                              "compareAtPrice": null,
+                              "inventoryQuantity": 10,
+                              "barcode": null,
+                              "createdAt": "2026-06-04T08:49:54Z",
+                              "updatedAt": "2026-06-04T08:49:54Z"
+                            }
+                          },
+                          {
+                            "node": {
+                              "id": "gid://shopify/ProductVariant/46840090263689",
+                              "title": "Electric",
+                              "sku": null,
+                              "price": "699.95",
+                              "compareAtPrice": null,
+                              "inventoryQuantity": 10,
+                              "barcode": null,
+                              "createdAt": "2026-06-04T08:49:54Z",
+                              "updatedAt": "2026-06-04T08:49:54Z"
+                            }
+                          },
+                          {
+                            "node": {
+                              "id": "gid://shopify/ProductVariant/46840090296457",
+                              "title": "Sunset",
+                              "sku": null,
+                              "price": "699.95",
+                              "compareAtPrice": null,
+                              "inventoryQuantity": 10,
+                              "barcode": null,
+                              "createdAt": "2026-06-04T08:49:54Z",
+                              "updatedAt": "2026-06-04T08:49:54Z"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "cursor": "eyJsYXN0X2lkIjo4NjUxNzk1OTIzMDgxLCJsYXN0X3ZhbHVlIjoiMjAyNi0wNi0wNCAwODo0OTo1OC4wMDAwMDAifQ=="
+                  },
+                  {
+                    "node": {
+                      "id": "gid://shopify/Product/8651795890313",
+                      "title": "The Hidden Snowboard",
+                      "handle": "the-hidden-snowboard",
+                      "description": "",
+                      "vendor": "Snowboard Vendor",
+                      "productType": "snowboard",
+                      "status": "ACTIVE",
+                      "tags": [
+                        "Premium",
+                        "Snow",
+                        "Snowboard",
+                        "Sport",
+                        "Winter"
+                      ],
+                      "createdAt": "2026-06-04T08:49:53Z",
+                      "updatedAt": "2026-06-04T08:50:01Z",
+                      "publishedAt": null,
+                      "category": null,
+                      "seo": {
+                        "title": "Hidden Snowboard",
+                        "description": "hidden snowboard winter sport snowboarding"
+                      },
+                      "options": [
+                        {
+                          "id": "gid://shopify/ProductOption/11151659008137",
+                          "name": "Title",
+                          "values": [
+                            "Default Title"
+                          ]
+                        }
+                      ],
+                      "variants": {
+                        "edges": [
+                          {
+                            "node": {
+                              "id": "gid://shopify/ProductVariant/46840090067081",
+                              "title": "Default Title",
+                              "sku": null,
+                              "price": "749.95",
+                              "compareAtPrice": null,
+                              "inventoryQuantity": 50,
+                              "barcode": null,
+                              "createdAt": "2026-06-04T08:49:54Z",
+                              "updatedAt": "2026-06-04T08:49:54Z"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "cursor": "eyJsYXN0X2lkIjo4NjUxNzk1ODkwMzEzLCJsYXN0X3ZhbHVlIjoiMjAyNi0wNi0wNCAwODo1MDowMS4wMDAwMDAifQ=="
+                  },
+                  {
+                    "node": {
+                      "id": "gid://shopify/Product/8651795857545",
+                      "title": "The Archived Snowboard",
+                      "handle": "the-archived-snowboard",
+                      "description": "",
+                      "vendor": "Snowboard Vendor",
+                      "productType": "snowboard",
+                      "status": "ARCHIVED",
+                      "tags": [
+                        "Archived",
+                        "Premium",
+                        "Snow",
+                        "Snowboard",
+                        "Sport",
+                        "Winter"
+                      ],
+                      "createdAt": "2026-06-04T08:49:53Z",
+                      "updatedAt": "2026-06-04T08:50:04Z",
+                      "publishedAt": null,
+                      "category": null,
+                      "seo": {
+                        "title": null,
+                        "description": null
+                      },
+                      "options": [
+                        {
+                          "id": "gid://shopify/ProductOption/11151658975369",
+                          "name": "Title",
+                          "values": [
+                            "Default Title"
+                          ]
+                        }
+                      ],
+                      "variants": {
+                        "edges": [
+                          {
+                            "node": {
+                              "id": "gid://shopify/ProductVariant/46840089804937",
+                              "title": "Default Title",
+                              "sku": null,
+                              "price": "629.95",
+                              "compareAtPrice": null,
+                              "inventoryQuantity": 50,
+                              "barcode": null,
+                              "createdAt": "2026-06-04T08:49:54Z",
+                              "updatedAt": "2026-06-04T08:49:54Z"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "cursor": "eyJsYXN0X2lkIjo4NjUxNzk1ODU3NTQ1LCJsYXN0X3ZhbHVlIjoiMjAyNi0wNi0wNCAwODo1MDowNC4wMDAwMDAifQ=="
+                  },
+                  {
+                    "node": {
+                      "id": "gid://shopify/Product/8651795759241",
+                      "title": "The Out of Stock Snowboard",
+                      "handle": "the-out-of-stock-snowboard",
+                      "description": "",
+                      "vendor": "NangoDev",
+                      "productType": "snowboard",
+                      "status": "ACTIVE",
+                      "tags": [
+                        "Accessory",
+                        "Sport",
+                        "Winter"
+                      ],
+                      "createdAt": "2026-06-04T08:49:53Z",
+                      "updatedAt": "2026-06-04T08:50:08Z",
+                      "publishedAt": "2026-06-04T08:49:55Z",
+                      "category": null,
+                      "seo": {
+                        "title": null,
+                        "description": null
+                      },
+                      "options": [
+                        {
+                          "id": "gid://shopify/ProductOption/11151658909833",
+                          "name": "Title",
+                          "values": [
+                            "Default Title"
+                          ]
+                        }
+                      ],
+                      "variants": {
+                        "edges": [
+                          {
+                            "node": {
+                              "id": "gid://shopify/ProductVariant/46840090132617",
+                              "title": "Default Title",
+                              "sku": null,
+                              "price": "885.95",
+                              "compareAtPrice": null,
+                              "inventoryQuantity": 0,
+                              "barcode": null,
+                              "createdAt": "2026-06-04T08:49:54Z",
+                              "updatedAt": "2026-06-04T08:49:54Z"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "cursor": "eyJsYXN0X2lkIjo4NjUxNzk1NzU5MjQxLCJsYXN0X3ZhbHVlIjoiMjAyNi0wNi0wNCAwODo1MDowOC4wMDAwMDAifQ=="
+                  },
+                  {
+                    "node": {
+                      "id": "gid://shopify/Product/8651796086921",
+                      "title": "The Collection Snowboard: Oxygen",
+                      "handle": "the-collection-snowboard-oxygen",
+                      "description": "",
+                      "vendor": "Hydrogen Vendor",
+                      "productType": "snowboard",
+                      "status": "ACTIVE",
+                      "tags": [
+                        "Accessory",
+                        "Sport",
+                        "Winter"
+                      ],
+                      "createdAt": "2026-06-04T08:49:55Z",
+                      "updatedAt": "2026-06-04T08:50:08Z",
+                      "publishedAt": "2026-06-04T08:49:57Z",
+                      "category": null,
+                      "seo": {
+                        "title": null,
+                        "description": null
+                      },
+                      "options": [
+                        {
+                          "id": "gid://shopify/ProductOption/11151659204745",
+                          "name": "Title",
+                          "values": [
+                            "Default Title"
+                          ]
+                        }
+                      ],
+                      "variants": {
+                        "edges": [
+                          {
+                            "node": {
+                              "id": "gid://shopify/ProductVariant/46840090525833",
+                              "title": "Default Title",
+                              "sku": null,
+                              "price": "1025.00",
+                              "compareAtPrice": null,
+                              "inventoryQuantity": 50,
+                              "barcode": null,
+                              "createdAt": "2026-06-04T08:49:55Z",
+                              "updatedAt": "2026-06-04T08:49:55Z"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "cursor": "eyJsYXN0X2lkIjo4NjUxNzk2MDg2OTIxLCJsYXN0X3ZhbHVlIjoiMjAyNi0wNi0wNCAwODo1MDowOC4wMDAwMDAifQ=="
+                  },
+                  {
+                    "node": {
+                      "id": "gid://shopify/Product/8651796119689",
+                      "title": "The Collection Snowboard: Liquid",
+                      "handle": "the-collection-snowboard-liquid",
+                      "description": "",
+                      "vendor": "Hydrogen Vendor",
+                      "productType": "snowboard",
+                      "status": "ACTIVE",
+                      "tags": [
+                        "Accessory",
+                        "Sport",
+                        "Winter"
+                      ],
+                      "createdAt": "2026-06-04T08:49:56Z",
+                      "updatedAt": "2026-06-04T08:50:08Z",
+                      "publishedAt": "2026-06-04T08:49:57Z",
+                      "category": null,
+                      "seo": {
+                        "title": null,
+                        "description": null
+                      },
+                      "options": [
+                        {
+                          "id": "gid://shopify/ProductOption/11151659237513",
+                          "name": "Title",
+                          "values": [
+                            "Default Title"
+                          ]
+                        }
+                      ],
+                      "variants": {
+                        "edges": [
+                          {
+                            "node": {
+                              "id": "gid://shopify/ProductVariant/46840090591369",
+                              "title": "Default Title",
+                              "sku": null,
+                              "price": "749.95",
+                              "compareAtPrice": null,
+                              "inventoryQuantity": 50,
+                              "barcode": null,
+                              "createdAt": "2026-06-04T08:49:56Z",
+                              "updatedAt": "2026-06-04T08:49:56Z"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "cursor": "eyJsYXN0X2lkIjo4NjUxNzk2MTE5Njg5LCJsYXN0X3ZhbHVlIjoiMjAyNi0wNi0wNCAwODo1MDowOC4wMDAwMDAifQ=="
+                  },
+                  {
+                    "node": {
+                      "id": "gid://shopify/Product/8651813060745",
+                      "title": "Delete Option Test Product",
+                      "handle": "delete-option-test-product",
+                      "description": "",
+                      "vendor": "NangoDev",
+                      "productType": "",
+                      "status": "ACTIVE",
+                      "tags": [],
+                      "createdAt": "2026-06-04T09:39:39Z",
+                      "updatedAt": "2026-06-04T09:39:57Z",
+                      "publishedAt": null,
+                      "category": null,
+                      "seo": {
+                        "title": null,
+                        "description": null
+                      },
+                      "options": [
+                        {
+                          "id": "gid://shopify/ProductOption/11151678800009",
+                          "name": "Color",
+                          "values": [
+                            "Red"
+                          ]
+                        }
+                      ],
+                      "variants": {
+                        "edges": [
+                          {
+                            "node": {
+                              "id": "gid://shopify/ProductVariant/46840155570313",
+                              "title": "Red",
+                              "sku": null,
+                              "price": "0.00",
+                              "compareAtPrice": null,
+                              "inventoryQuantity": 0,
+                              "barcode": null,
+                              "createdAt": "2026-06-04T09:39:39Z",
+                              "updatedAt": "2026-06-04T09:39:57Z"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "cursor": "eyJsYXN0X2lkIjo4NjUxODEzMDYwNzQ1LCJsYXN0X3ZhbHVlIjoiMjAyNi0wNi0wNCAwOTozOTo1Ny4wMDAwMDAifQ=="
+                  },
+                  {
+                    "node": {
+                      "id": "gid://shopify/Product/8651813486729",
+                      "title": "Delete Option Test Product 2",
+                      "handle": "delete-option-test-product-2",
+                      "description": "",
+                      "vendor": "NangoDev",
+                      "productType": "",
+                      "status": "ACTIVE",
+                      "tags": [],
+                      "createdAt": "2026-06-04T09:40:08Z",
+                      "updatedAt": "2026-06-04T09:40:16Z",
+                      "publishedAt": null,
+                      "category": null,
+                      "seo": {
+                        "title": null,
+                        "description": null
+                      },
+                      "options": [
+                        {
+                          "id": "gid://shopify/ProductOption/11151679357065",
+                          "name": "Color",
+                          "values": [
+                            "Red"
+                          ]
+                        }
+                      ],
+                      "variants": {
+                        "edges": [
+                          {
+                            "node": {
+                              "id": "gid://shopify/ProductVariant/46840155963529",
+                              "title": "Red",
+                              "sku": null,
+                              "price": "0.00",
+                              "compareAtPrice": null,
+                              "inventoryQuantity": 0,
+                              "barcode": null,
+                              "createdAt": "2026-06-04T09:40:08Z",
+                              "updatedAt": "2026-06-04T09:40:17Z"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "cursor": "eyJsYXN0X2lkIjo4NjUxODEzNDg2NzI5LCJsYXN0X3ZhbHVlIjoiMjAyNi0wNi0wNCAwOTo0MDoxNi4wMDAwMDAifQ=="
+                  },
+                  {
+                    "node": {
+                      "id": "gid://shopify/Product/8651813748873",
+                      "title": "Nango Test Product for Variant Deletion",
+                      "handle": "nango-test-product-for-variant-deletion",
+                      "description": "",
+                      "vendor": "NangoDev",
+                      "productType": "Test",
+                      "status": "ACTIVE",
+                      "tags": [],
+                      "createdAt": "2026-06-04T09:40:46Z",
+                      "updatedAt": "2026-06-04T09:40:53Z",
+                      "publishedAt": null,
+                      "category": null,
+                      "seo": {
+                        "title": null,
+                        "description": null
+                      },
+                      "options": [
+                        {
+                          "id": "gid://shopify/ProductOption/11151679651977",
+                          "name": "Title",
+                          "values": [
+                            "Default Title"
+                          ]
+                        }
+                      ],
+                      "variants": {
+                        "edges": [
+                          {
+                            "node": {
+                              "id": "gid://shopify/ProductVariant/46840156291209",
+                              "title": "Default Title",
+                              "sku": null,
+                              "price": "0.00",
+                              "compareAtPrice": null,
+                              "inventoryQuantity": 0,
+                              "barcode": null,
+                              "createdAt": "2026-06-04T09:40:46Z",
+                              "updatedAt": "2026-06-04T09:40:47Z"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "cursor": "eyJsYXN0X2lkIjo4NjUxODEzNzQ4ODczLCJsYXN0X3ZhbHVlIjoiMjAyNi0wNi0wNCAwOTo0MDo1My4wMDAwMDAifQ=="
+                  },
+                  {
+                    "node": {
+                      "id": "gid://shopify/Product/8651812864137",
+                      "title": "Nango Test Product",
+                      "handle": "nango-test-product",
+                      "description": "",
+                      "vendor": "NangoDev",
+                      "productType": "",
+                      "status": "ACTIVE",
+                      "tags": [],
+                      "createdAt": "2026-06-04T09:39:02Z",
+                      "updatedAt": "2026-06-04T09:43:07Z",
+                      "publishedAt": null,
+                      "category": null,
+                      "seo": {
+                        "title": null,
+                        "description": null
+                      },
+                      "options": [
+                        {
+                          "id": "gid://shopify/ProductOption/11151678603401",
+                          "name": "Title",
+                          "values": [
+                            "Small",
+                            "Medium",
+                            "Large"
+                          ]
+                        }
+                      ],
+                      "variants": {
+                        "edges": [
+                          {
+                            "node": {
+                              "id": "gid://shopify/ProductVariant/46840155373705",
+                              "title": "Small",
+                              "sku": null,
+                              "price": "0.00",
+                              "compareAtPrice": null,
+                              "inventoryQuantity": 0,
+                              "barcode": null,
+                              "createdAt": "2026-06-04T09:39:02Z",
+                              "updatedAt": "2026-06-04T09:39:02Z"
+                            }
+                          },
+                          {
+                            "node": {
+                              "id": "gid://shopify/ProductVariant/46840157307017",
+                              "title": "Medium",
+                              "sku": null,
+                              "price": "19.99",
+                              "compareAtPrice": null,
+                              "inventoryQuantity": 0,
+                              "barcode": null,
+                              "createdAt": "2026-06-04T09:43:02Z",
+                              "updatedAt": "2026-06-04T09:43:02Z"
+                            }
+                          },
+                          {
+                            "node": {
+                              "id": "gid://shopify/ProductVariant/46840157339785",
+                              "title": "Large",
+                              "sku": null,
+                              "price": "24.99",
+                              "compareAtPrice": null,
+                              "inventoryQuantity": 0,
+                              "barcode": null,
+                              "createdAt": "2026-06-04T09:43:02Z",
+                              "updatedAt": "2026-06-04T09:43:02Z"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "cursor": "eyJsYXN0X2lkIjo4NjUxODEyODY0MTM3LCJsYXN0X3ZhbHVlIjoiMjAyNi0wNi0wNCAwOTo0MzowNy4wMDAwMDAifQ=="
+                  },
+                  {
+                    "node": {
+                      "id": "gid://shopify/Product/8651795726473",
+                      "title": "Selling Plans Ski Wax",
+                      "handle": "selling-plans-ski-wax",
+                      "description": "",
+                      "vendor": "NangoDev",
+                      "productType": "accessories",
+                      "status": "ACTIVE",
+                      "tags": [
+                        "Accessory",
+                        "Sport",
+                        "Winter"
+                      ],
+                      "createdAt": "2026-06-04T08:49:53Z",
+                      "updatedAt": "2026-06-04T09:43:43Z",
+                      "publishedAt": "2026-06-04T08:49:55Z",
+                      "category": null,
+                      "seo": {
+                        "title": null,
+                        "description": null
+                      },
+                      "options": [
+                        {
+                          "id": "gid://shopify/ProductOption/11151658844297",
+                          "name": "Title",
+                          "values": [
+                            "Selling Plans Ski Wax",
+                            "Special Selling Plans Ski Wax",
+                            "Sample Selling Plans Ski Wax"
+                          ]
+                        }
+                      ],
+                      "variants": {
+                        "edges": [
+                          {
+                            "node": {
+                              "id": "gid://shopify/ProductVariant/46840089936009",
+                              "title": "Selling Plans Ski Wax",
+                              "sku": null,
+                              "price": "24.95",
+                              "compareAtPrice": null,
+                              "inventoryQuantity": 10,
+                              "barcode": null,
+                              "createdAt": "2026-06-04T08:49:54Z",
+                              "updatedAt": "2026-06-04T08:49:55Z"
+                            }
+                          },
+                          {
+                            "node": {
+                              "id": "gid://shopify/ProductVariant/46840089968777",
+                              "title": "Special Selling Plans Ski Wax",
+                              "sku": null,
+                              "price": "49.95",
+                              "compareAtPrice": null,
+                              "inventoryQuantity": 10,
+                              "barcode": null,
+                              "createdAt": "2026-06-04T08:49:54Z",
+                              "updatedAt": "2026-06-04T08:49:55Z"
+                            }
+                          },
+                          {
+                            "node": {
+                              "id": "gid://shopify/ProductVariant/46840090001545",
+                              "title": "Sample Selling Plans Ski Wax",
+                              "sku": null,
+                              "price": "9.95",
+                              "compareAtPrice": null,
+                              "inventoryQuantity": 10,
+                              "barcode": null,
+                              "createdAt": "2026-06-04T08:49:54Z",
+                              "updatedAt": "2026-06-04T08:49:55Z"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "cursor": "eyJsYXN0X2lkIjo4NjUxNzk1NzI2NDczLCJsYXN0X3ZhbHVlIjoiMjAyNi0wNi0wNCAwOTo0Mzo0My4wMDAwMDAifQ=="
+                  },
+                  {
+                    "node": {
+                      "id": "gid://shopify/Product/8651814666377",
+                      "title": "Nango Test Product",
+                      "handle": "nango-test-product-1",
+                      "description": "A test product created by Nango",
+                      "vendor": "Nango",
+                      "productType": "Testing",
+                      "status": "ACTIVE",
+                      "tags": [
+                        "nango",
+                        "test"
+                      ],
+                      "createdAt": "2026-06-04T09:43:43Z",
+                      "updatedAt": "2026-06-04T09:43:49Z",
+                      "publishedAt": null,
+                      "category": null,
+                      "seo": {
+                        "title": null,
+                        "description": null
+                      },
+                      "options": [
+                        {
+                          "id": "gid://shopify/ProductOption/11151680667785",
+                          "name": "Title",
+                          "values": [
+                            "Default Title"
+                          ]
+                        }
+                      ],
+                      "variants": {
+                        "edges": [
+                          {
+                            "node": {
+                              "id": "gid://shopify/ProductVariant/46840157503625",
+                              "title": "Default Title",
+                              "sku": null,
+                              "price": "0.00",
+                              "compareAtPrice": null,
+                              "inventoryQuantity": 0,
+                              "barcode": null,
+                              "createdAt": "2026-06-04T09:43:43Z",
+                              "updatedAt": "2026-06-04T09:43:43Z"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "cursor": "eyJsYXN0X2lkIjo4NjUxODE0NjY2Mzc3LCJsYXN0X3ZhbHVlIjoiMjAyNi0wNi0wNCAwOTo0Mzo0OS4wMDAwMDAifQ=="
+                  },
+                  {
+                    "node": {
+                      "id": "gid://shopify/Product/8651814797449",
+                      "title": "Nango Test Product",
+                      "handle": "nango-test-product-3",
+                      "description": "A test product created by Nango",
+                      "vendor": "Nango",
+                      "productType": "Testing",
+                      "status": "ACTIVE",
+                      "tags": [
+                        "nango",
+                        "test"
+                      ],
+                      "createdAt": "2026-06-04T09:43:56Z",
+                      "updatedAt": "2026-06-04T09:44:08Z",
+                      "publishedAt": null,
+                      "category": null,
+                      "seo": {
+                        "title": null,
+                        "description": null
+                      },
+                      "options": [
+                        {
+                          "id": "gid://shopify/ProductOption/11151680798857",
+                          "name": "Title",
+                          "values": [
+                            "Default Title"
+                          ]
+                        }
+                      ],
+                      "variants": {
+                        "edges": [
+                          {
+                            "node": {
+                              "id": "gid://shopify/ProductVariant/46840157634697",
+                              "title": "Default Title",
+                              "sku": null,
+                              "price": "0.00",
+                              "compareAtPrice": null,
+                              "inventoryQuantity": 0,
+                              "barcode": null,
+                              "createdAt": "2026-06-04T09:43:56Z",
+                              "updatedAt": "2026-06-04T09:43:57Z"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "cursor": "eyJsYXN0X2lkIjo4NjUxODE0Nzk3NDQ5LCJsYXN0X3ZhbHVlIjoiMjAyNi0wNi0wNCAwOTo0NDowOC4wMDAwMDAifQ=="
+                  },
+                  {
+                    "node": {
+                      "id": "gid://shopify/Product/8651814731913",
+                      "title": "Nango Test Product 2",
+                      "handle": "nango-test-product-2",
+                      "description": "",
+                      "vendor": "NangoDev",
+                      "productType": "",
+                      "status": "ACTIVE",
+                      "tags": [],
+                      "createdAt": "2026-06-04T09:43:54Z",
+                      "updatedAt": "2026-06-04T09:46:47Z",
+                      "publishedAt": null,
+                      "category": null,
+                      "seo": {
+                        "title": null,
+                        "description": null
+                      },
+                      "options": [
+                        {
+                          "id": "gid://shopify/ProductOption/11151680733321",
+                          "name": "Title",
+                          "values": [
+                            "Special",
+                            "ValidateTest",
+                            "ValidateTest2",
+                            "SaveTest1"
+                          ]
+                        }
+                      ],
+                      "variants": {
+                        "edges": [
+                          {
+                            "node": {
+                              "id": "gid://shopify/ProductVariant/46840157667465",
+                              "title": "Special",
+                              "sku": null,
+                              "price": "29.99",
+                              "compareAtPrice": null,
+                              "inventoryQuantity": 0,
+                              "barcode": null,
+                              "createdAt": "2026-06-04T09:44:03Z",
+                              "updatedAt": "2026-06-04T09:44:03Z"
+                            }
+                          },
+                          {
+                            "node": {
+                              "id": "gid://shopify/ProductVariant/46840157831305",
+                              "title": "ValidateTest",
+                              "sku": null,
+                              "price": "29.99",
+                              "compareAtPrice": null,
+                              "inventoryQuantity": 0,
+                              "barcode": null,
+                              "createdAt": "2026-06-04T09:44:27Z",
+                              "updatedAt": "2026-06-04T09:44:27Z"
+                            }
+                          },
+                          {
+                            "node": {
+                              "id": "gid://shopify/ProductVariant/46840158486665",
+                              "title": "ValidateTest2",
+                              "sku": null,
+                              "price": "29.99",
+                              "compareAtPrice": null,
+                              "inventoryQuantity": 0,
+                              "barcode": null,
+                              "createdAt": "2026-06-04T09:46:29Z",
+                              "updatedAt": "2026-06-04T09:46:29Z"
+                            }
+                          },
+                          {
+                            "node": {
+                              "id": "gid://shopify/ProductVariant/46840158879881",
+                              "title": "SaveTest1",
+                              "sku": null,
+                              "price": "29.99",
+                              "compareAtPrice": null,
+                              "inventoryQuantity": 0,
+                              "barcode": null,
+                              "createdAt": "2026-06-04T09:46:39Z",
+                              "updatedAt": "2026-06-04T09:46:39Z"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "cursor": "eyJsYXN0X2lkIjo4NjUxODE0NzMxOTEzLCJsYXN0X3ZhbHVlIjoiMjAyNi0wNi0wNCAwOTo0Njo0Ny4wMDAwMDAifQ=="
+                  },
+                  {
+                    "node": {
+                      "id": "gid://shopify/Product/8651795660937",
+                      "title": "The Collection Snowboard: Hydrogen",
+                      "handle": "the-collection-snowboard-hydrogen",
+                      "description": "",
+                      "vendor": "Hydrogen Vendor",
+                      "productType": "snowboard",
+                      "status": "ACTIVE",
+                      "tags": [
+                        "Accessory",
+                        "Sport",
+                        "Winter"
+                      ],
+                      "createdAt": "2026-06-04T08:49:53Z",
+                      "updatedAt": "2026-06-04T09:46:48Z",
+                      "publishedAt": "2026-06-04T08:49:57Z",
+                      "category": null,
+                      "seo": {
+                        "title": null,
+                        "description": null
+                      },
+                      "options": [
+                        {
+                          "id": "gid://shopify/ProductOption/11151658778761",
+                          "name": "Title",
+                          "values": [
+                            "Default Title"
+                          ]
+                        }
+                      ],
+                      "variants": {
+                        "edges": [
+                          {
+                            "node": {
+                              "id": "gid://shopify/ProductVariant/46840089903241",
+                              "title": "Default Title",
+                              "sku": null,
+                              "price": "600.00",
+                              "compareAtPrice": null,
+                              "inventoryQuantity": 50,
+                              "barcode": null,
+                              "createdAt": "2026-06-04T08:49:54Z",
+                              "updatedAt": "2026-06-04T08:49:54Z"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "cursor": "eyJsYXN0X2lkIjo4NjUxNzk1NjYwOTM3LCJsYXN0X3ZhbHVlIjoiMjAyNi0wNi0wNCAwOTo0Njo0OC4wMDAwMDAifQ=="
+                  },
+                  {
+                    "node": {
+                      "id": "gid://shopify/Product/8651815616649",
+                      "title": "Test Deactivation Product",
+                      "handle": "test-deactivation-product",
+                      "description": "",
+                      "vendor": "NangoDev",
+                      "productType": "Test",
+                      "status": "ACTIVE",
+                      "tags": [],
+                      "createdAt": "2026-06-04T09:47:04Z",
+                      "updatedAt": "2026-06-04T09:47:11Z",
+                      "publishedAt": null,
+                      "category": null,
+                      "seo": {
+                        "title": null,
+                        "description": null
+                      },
+                      "options": [
+                        {
+                          "id": "gid://shopify/ProductOption/11151681683593",
+                          "name": "Title",
+                          "values": [
+                            "Default Title"
+                          ]
+                        }
+                      ],
+                      "variants": {
+                        "edges": [
+                          {
+                            "node": {
+                              "id": "gid://shopify/ProductVariant/46840159076489",
+                              "title": "Default Title",
+                              "sku": null,
+                              "price": "0.00",
+                              "compareAtPrice": null,
+                              "inventoryQuantity": 0,
+                              "barcode": null,
+                              "createdAt": "2026-06-04T09:47:04Z",
+                              "updatedAt": "2026-06-04T09:47:04Z"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "cursor": "eyJsYXN0X2lkIjo4NjUxODE1NjE2NjQ5LCJsYXN0X3ZhbHVlIjoiMjAyNi0wNi0wNCAwOTo0NzoxMS4wMDAwMDAifQ=="
+                  },
+                  {
+                    "node": {
+                      "id": "gid://shopify/Product/8651814338697",
+                      "title": "Nango Test Product for Deletion",
+                      "handle": "nango-test-product-for-deletion",
+                      "description": "",
+                      "vendor": "NangoDev",
+                      "productType": "",
+                      "status": "ACTIVE",
+                      "tags": [],
+                      "createdAt": "2026-06-04T09:42:14Z",
+                      "updatedAt": "2026-06-04T09:49:43Z",
+                      "publishedAt": "2026-06-04T09:42:14Z",
+                      "category": null,
+                      "seo": {
+                        "title": null,
+                        "description": null
+                      },
+                      "options": [
+                        {
+                          "id": "gid://shopify/ProductOption/11151680274569",
+                          "name": "Title",
+                          "values": [
+                            "Default Title"
+                          ]
+                        }
+                      ],
+                      "variants": {
+                        "edges": [
+                          {
+                            "node": {
+                              "id": "gid://shopify/ProductVariant/46840157995145",
+                              "title": "Default Title",
+                              "sku": null,
+                              "price": "1.00",
+                              "compareAtPrice": null,
+                              "inventoryQuantity": 0,
+                              "barcode": null,
+                              "createdAt": "2026-06-04T09:45:17Z",
+                              "updatedAt": "2026-06-04T09:45:17Z"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "cursor": "eyJsYXN0X2lkIjo4NjUxODE0MzM4Njk3LCJsYXN0X3ZhbHVlIjoiMjAyNi0wNi0wNCAwOTo0OTo0My4wMDAwMDAifQ=="
+                  },
+                  {
+                    "node": {
+                      "id": "gid://shopify/Product/8651816829065",
+                      "title": "Test Product",
+                      "handle": "test-product",
+                      "description": "",
+                      "vendor": "NangoDev",
+                      "productType": "",
+                      "status": "ACTIVE",
+                      "tags": [],
+                      "createdAt": "2026-06-04T09:50:05Z",
+                      "updatedAt": "2026-06-04T09:50:18Z",
+                      "publishedAt": null,
+                      "category": null,
+                      "seo": {
+                        "title": null,
+                        "description": null
+                      },
+                      "options": [
+                        {
+                          "id": "gid://shopify/ProductOption/11151682896009",
+                          "name": "Title",
+                          "values": [
+                            "Default Title"
+                          ]
+                        }
+                      ],
+                      "variants": {
+                        "edges": [
+                          {
+                            "node": {
+                              "id": "gid://shopify/ProductVariant/46840160878729",
+                              "title": "Default Title",
+                              "sku": null,
+                              "price": "0.00",
+                              "compareAtPrice": null,
+                              "inventoryQuantity": 0,
+                              "barcode": null,
+                              "createdAt": "2026-06-04T09:50:05Z",
+                              "updatedAt": "2026-06-04T09:50:06Z"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "cursor": "eyJsYXN0X2lkIjo4NjUxODE2ODI5MDY1LCJsYXN0X3ZhbHVlIjoiMjAyNi0wNi0wNCAwOTo1MDoxOC4wMDAwMDAifQ=="
+                  },
+                  {
+                    "node": {
+                      "id": "gid://shopify/Product/8651816861833",
+                      "title": "Test Product",
+                      "handle": "test-product-1",
+                      "description": "",
+                      "vendor": "NangoDev",
+                      "productType": "",
+                      "status": "ACTIVE",
+                      "tags": [],
+                      "createdAt": "2026-06-04T09:50:18Z",
+                      "updatedAt": "2026-06-04T09:50:28Z",
+                      "publishedAt": null,
+                      "category": null,
+                      "seo": {
+                        "title": null,
+                        "description": null
+                      },
+                      "options": [
+                        {
+                          "id": "gid://shopify/ProductOption/11151682928777",
+                          "name": "Title",
+                          "values": [
+                            "Default Title"
+                          ]
+                        }
+                      ],
+                      "variants": {
+                        "edges": [
+                          {
+                            "node": {
+                              "id": "gid://shopify/ProductVariant/46840161697929",
+                              "title": "Default Title",
+                              "sku": null,
+                              "price": "0.00",
+                              "compareAtPrice": null,
+                              "inventoryQuantity": 0,
+                              "barcode": null,
+                              "createdAt": "2026-06-04T09:50:19Z",
+                              "updatedAt": "2026-06-04T09:50:19Z"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "cursor": "eyJsYXN0X2lkIjo4NjUxODE2ODYxODMzLCJsYXN0X3ZhbHVlIjoiMjAyNi0wNi0wNCAwOTo1MDoyOC4wMDAwMDAifQ=="
+                  },
+                  {
+                    "node": {
+                      "id": "gid://shopify/Product/8651816960137",
+                      "title": "Test Product",
+                      "handle": "test-product-2",
+                      "description": "",
+                      "vendor": "NangoDev",
+                      "productType": "",
+                      "status": "ACTIVE",
+                      "tags": [],
+                      "createdAt": "2026-06-04T09:50:36Z",
+                      "updatedAt": "2026-06-04T09:50:53Z",
+                      "publishedAt": null,
+                      "category": null,
+                      "seo": {
+                        "title": null,
+                        "description": null
+                      },
+                      "options": [
+                        {
+                          "id": "gid://shopify/ProductOption/11151683027081",
+                          "name": "Title",
+                          "values": [
+                            "Default Title"
+                          ]
+                        }
+                      ],
+                      "variants": {
+                        "edges": [
+                          {
+                            "node": {
+                              "id": "gid://shopify/ProductVariant/46840161796233",
+                              "title": "Default Title",
+                              "sku": null,
+                              "price": "0.00",
+                              "compareAtPrice": null,
+                              "inventoryQuantity": 0,
+                              "barcode": null,
+                              "createdAt": "2026-06-04T09:50:36Z",
+                              "updatedAt": "2026-06-04T09:50:36Z"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "cursor": "eyJsYXN0X2lkIjo4NjUxODE2OTYwMTM3LCJsYXN0X3ZhbHVlIjoiMjAyNi0wNi0wNCAwOTo1MDo1My4wMDAwMDAifQ=="
+                  },
+                  {
+                    "node": {
+                      "id": "gid://shopify/Product/8651818074249",
+                      "title": "Test Product",
+                      "handle": "test-product-3",
+                      "description": "",
+                      "vendor": "NangoDev",
+                      "productType": "",
+                      "status": "ACTIVE",
+                      "tags": [],
+                      "createdAt": "2026-06-04T09:52:40Z",
+                      "updatedAt": "2026-06-04T09:52:49Z",
+                      "publishedAt": null,
+                      "category": null,
+                      "seo": {
+                        "title": null,
+                        "description": null
+                      },
+                      "options": [
+                        {
+                          "id": "gid://shopify/ProductOption/11151684206729",
+                          "name": "Title",
+                          "values": [
+                            "Default Title"
+                          ]
+                        }
+                      ],
+                      "variants": {
+                        "edges": [
+                          {
+                            "node": {
+                              "id": "gid://shopify/ProductVariant/46840162910345",
+                              "title": "Default Title",
+                              "sku": null,
+                              "price": "0.00",
+                              "compareAtPrice": null,
+                              "inventoryQuantity": 0,
+                              "barcode": null,
+                              "createdAt": "2026-06-04T09:52:40Z",
+                              "updatedAt": "2026-06-04T09:52:41Z"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "cursor": "eyJsYXN0X2lkIjo4NjUxODE4MDc0MjQ5LCJsYXN0X3ZhbHVlIjoiMjAyNi0wNi0wNCAwOTo1Mjo0OS4wMDAwMDAifQ=="
+                  },
+                  {
+                    "node": {
+                      "id": "gid://shopify/Product/8651795693705",
+                      "title": "The Draft Snowboard",
+                      "handle": "the-draft-snowboard",
+                      "description": "",
+                      "vendor": "Snowboard Vendor",
+                      "productType": "snowboard",
+                      "status": "DRAFT",
+                      "tags": [],
+                      "createdAt": "2026-06-04T08:49:53Z",
+                      "updatedAt": "2026-06-04T09:55:47Z",
+                      "publishedAt": null,
+                      "category": null,
+                      "seo": {
+                        "title": null,
+                        "description": null
+                      },
+                      "options": [
+                        {
+                          "id": "gid://shopify/ProductOption/11151658811529",
+                          "name": "Title",
+                          "values": [
+                            "Default Title"
+                          ]
+                        }
+                      ],
+                      "variants": {
+                        "edges": [
+                          {
+                            "node": {
+                              "id": "gid://shopify/ProductVariant/46840089575561",
+                              "title": "Default Title",
+                              "sku": null,
+                              "price": "2629.95",
+                              "compareAtPrice": null,
+                              "inventoryQuantity": 28,
+                              "barcode": null,
+                              "createdAt": "2026-06-04T08:49:54Z",
+                              "updatedAt": "2026-06-04T09:55:38Z"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "cursor": "eyJsYXN0X2lkIjo4NjUxNzk1NjkzNzA1LCJsYXN0X3ZhbHVlIjoiMjAyNi0wNi0wNCAwOTo1NTo0Ny4wMDAwMDAifQ=="
+                  },
+                  {
+                    "node": {
+                      "id": "gid://shopify/Product/8651819352201",
+                      "title": "Test Product for Refund",
+                      "handle": "test-product-for-refund",
+                      "description": "",
+                      "vendor": "NangoDev",
+                      "productType": "",
+                      "status": "ACTIVE",
+                      "tags": [],
+                      "createdAt": "2026-06-04T09:57:02Z",
+                      "updatedAt": "2026-06-04T09:57:07Z",
+                      "publishedAt": "2026-06-04T09:57:02Z",
+                      "category": null,
+                      "seo": {
+                        "title": null,
+                        "description": null
+                      },
+                      "options": [
+                        {
+                          "id": "gid://shopify/ProductOption/11151685582985",
+                          "name": "Title",
+                          "values": [
+                            "Default Title"
+                          ]
+                        }
+                      ],
+                      "variants": {
+                        "edges": [
+                          {
+                            "node": {
+                              "id": "gid://shopify/ProductVariant/46840164352137",
+                              "title": "Default Title",
+                              "sku": null,
+                              "price": "10.00",
+                              "compareAtPrice": null,
+                              "inventoryQuantity": 0,
+                              "barcode": null,
+                              "createdAt": "2026-06-04T09:57:02Z",
+                              "updatedAt": "2026-06-04T09:57:02Z"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "cursor": "eyJsYXN0X2lkIjo4NjUxODE5MzUyMjAxLCJsYXN0X3ZhbHVlIjoiMjAyNi0wNi0wNCAwOTo1NzowNy4wMDAwMDAifQ=="
+                  },
+                  {
+                    "node": {
+                      "id": "gid://shopify/Product/8651840716937",
+                      "title": "Nango Test Product",
+                      "handle": "nango-test-product-4",
+                      "description": "",
+                      "vendor": "NangoDev",
+                      "productType": "",
+                      "status": "ACTIVE",
+                      "tags": [
+                        "dryrun",
+                        "nango-test"
+                      ],
+                      "createdAt": "2026-06-04T10:48:57Z",
+                      "updatedAt": "2026-06-04T10:49:17Z",
+                      "publishedAt": null,
+                      "category": null,
+                      "seo": {
+                        "title": null,
+                        "description": null
+                      },
+                      "options": [
+                        {
+                          "id": "gid://shopify/ProductOption/11151708323977",
+                          "name": "Title",
+                          "values": [
+                            "Default Title"
+                          ]
+                        }
+                      ],
+                      "variants": {
+                        "edges": [
+                          {
+                            "node": {
+                              "id": "gid://shopify/ProductVariant/46840223662217",
+                              "title": "Default Title",
+                              "sku": null,
+                              "price": "0.00",
+                              "compareAtPrice": null,
+                              "inventoryQuantity": 0,
+                              "barcode": null,
+                              "createdAt": "2026-06-04T10:48:58Z",
+                              "updatedAt": "2026-06-04T10:48:58Z"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "cursor": "eyJsYXN0X2lkIjo4NjUxODQwNzE2OTM3LCJsYXN0X3ZhbHVlIjoiMjAyNi0wNi0wNCAxMDo0OToxNy4wMDAwMDAifQ=="
+                  },
+                  {
+                    "node": {
+                      "id": "gid://shopify/Product/8651841372297",
+                      "title": "Test Product",
+                      "handle": "test-product-4",
+                      "description": "",
+                      "vendor": "NangoDev",
+                      "productType": "",
+                      "status": "ACTIVE",
+                      "tags": [],
+                      "createdAt": "2026-06-04T10:50:39Z",
+                      "updatedAt": "2026-06-04T10:50:43Z",
+                      "publishedAt": null,
+                      "category": null,
+                      "seo": {
+                        "title": null,
+                        "description": null
+                      },
+                      "options": [
+                        {
+                          "id": "gid://shopify/ProductOption/11151708979337",
+                          "name": "Title",
+                          "values": [
+                            "Default Title"
+                          ]
+                        }
+                      ],
+                      "variants": {
+                        "edges": [
+                          {
+                            "node": {
+                              "id": "gid://shopify/ProductVariant/46840224120969",
+                              "title": "Default Title",
+                              "sku": null,
+                              "price": "0.00",
+                              "compareAtPrice": null,
+                              "inventoryQuantity": 0,
+                              "barcode": null,
+                              "createdAt": "2026-06-04T10:50:39Z",
+                              "updatedAt": "2026-06-04T10:50:40Z"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "cursor": "eyJsYXN0X2lkIjo4NjUxODQxMzcyMjk3LCJsYXN0X3ZhbHVlIjoiMjAyNi0wNi0wNCAxMDo1MDo0My4wMDAwMDAifQ=="
+                  },
+                  {
+                    "node": {
+                      "id": "gid://shopify/Product/8651841470601",
+                      "title": "Updated Test Product",
+                      "handle": "test-product-for-update-action",
+                      "description": "",
+                      "vendor": "NangoDev",
+                      "productType": "",
+                      "status": "ACTIVE",
+                      "tags": [],
+                      "createdAt": "2026-06-04T10:50:51Z",
+                      "updatedAt": "2026-06-04T10:51:12Z",
+                      "publishedAt": null,
+                      "category": null,
+                      "seo": {
+                        "title": null,
+                        "description": null
+                      },
+                      "options": [
+                        {
+                          "id": "gid://shopify/ProductOption/11151709077641",
+                          "name": "Title",
+                          "values": [
+                            "Default Title"
+                          ]
+                        }
+                      ],
+                      "variants": {
+                        "edges": [
+                          {
+                            "node": {
+                              "id": "gid://shopify/ProductVariant/46840224219273",
+                              "title": "Default Title",
+                              "sku": null,
+                              "price": "0.00",
+                              "compareAtPrice": null,
+                              "inventoryQuantity": 0,
+                              "barcode": null,
+                              "createdAt": "2026-06-04T10:50:51Z",
+                              "updatedAt": "2026-06-04T10:50:51Z"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "cursor": "eyJsYXN0X2lkIjo4NjUxODQxNDcwNjAxLCJsYXN0X3ZhbHVlIjoiMjAyNi0wNi0wNCAxMDo1MToxMi4wMDAwMDAifQ=="
+                  },
+                  {
+                    "node": {
+                      "id": "gid://shopify/Product/8651795792009",
+                      "title": "The Videographer Snowboard",
+                      "handle": "the-videographer-snowboard",
+                      "description": "",
+                      "vendor": "NangoDev",
+                      "productType": "snowboard",
+                      "status": "ACTIVE",
+                      "tags": [],
+                      "createdAt": "2026-06-04T08:49:53Z",
+                      "updatedAt": "2026-06-04T10:51:38Z",
+                      "publishedAt": "2026-06-04T08:49:54Z",
+                      "category": null,
+                      "seo": {
+                        "title": null,
+                        "description": null
+                      },
+                      "options": [
+                        {
+                          "id": "gid://shopify/ProductOption/11151658877065",
+                          "name": "Title",
+                          "values": [
+                            "Default Title"
+                          ]
+                        }
+                      ],
+                      "variants": {
+                        "edges": [
+                          {
+                            "node": {
+                              "id": "gid://shopify/ProductVariant/46840089608329",
+                              "title": "Default Title",
+                              "sku": "TEST-SKU-001",
+                              "price": "885.95",
+                              "compareAtPrice": null,
+                              "inventoryQuantity": 66,
+                              "barcode": null,
+                              "createdAt": "2026-06-04T08:49:54Z",
+                              "updatedAt": "2026-06-04T10:51:38Z"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "cursor": "eyJsYXN0X2lkIjo4NjUxNzk1NzkyMDA5LCJsYXN0X3ZhbHVlIjoiMjAyNi0wNi0wNCAxMDo1MTozOC4wMDAwMDAifQ=="
+                  },
+                  {
+                    "node": {
+                      "id": "gid://shopify/Product/8651795628169",
+                      "title": "The Minimal Snowboard",
+                      "handle": "the-minimal-snowboard",
+                      "description": "",
+                      "vendor": "NangoDev",
+                      "productType": "",
+                      "status": "ACTIVE",
+                      "tags": [],
+                      "createdAt": "2026-06-04T08:49:53Z",
+                      "updatedAt": "2026-06-04T11:17:02Z",
+                      "publishedAt": "2026-06-04T11:17:02Z",
+                      "category": null,
+                      "seo": {
+                        "title": null,
+                        "description": null
+                      },
+                      "options": [
+                        {
+                          "id": "gid://shopify/ProductOption/11151680438409",
+                          "name": "Color",
+                          "values": [
+                            "Blue"
+                          ]
+                        },
+                        {
+                          "id": "gid://shopify/ProductOption/11151680602249",
+                          "name": "Size",
+                          "values": [
+                            "Small"
+                          ]
+                        }
+                      ],
+                      "variants": {
+                        "edges": [
+                          {
+                            "node": {
+                              "id": "gid://shopify/ProductVariant/46840089641097",
+                              "title": "Blue / Small",
+                              "sku": null,
+                              "price": "885.95",
+                              "compareAtPrice": null,
+                              "inventoryQuantity": 50,
+                              "barcode": null,
+                              "createdAt": "2026-06-04T08:49:54Z",
+                              "updatedAt": "2026-06-04T09:48:18Z"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "cursor": "eyJsYXN0X2lkIjo4NjUxNzk1NjI4MTY5LCJsYXN0X3ZhbHVlIjoiMjAyNi0wNi0wNCAxMToxNzowMi4wMDAwMDAifQ=="
+                  },
+                  {
+                    "node": {
+                      "id": "gid://shopify/Product/8651795562633",
+                      "title": "Gift Card",
+                      "handle": "gift-card",
+                      "description": "This is a gift card for the store",
+                      "vendor": "Snowboard Vendor",
+                      "productType": "giftcard",
+                      "status": "ACTIVE",
+                      "tags": [],
+                      "createdAt": "2026-06-04T08:49:53Z",
+                      "updatedAt": "2026-06-04T11:20:36Z",
+                      "publishedAt": null,
+                      "category": {
+                        "id": "gid://shopify/TaxonomyCategory/gc",
+                        "name": "Gift Cards"
+                      },
+                      "seo": {
+                        "title": null,
+                        "description": null
+                      },
+                      "options": [
+                        {
+                          "id": "gid://shopify/ProductOption/11151658680457",
+                          "name": "Denominations",
+                          "values": [
+                            "$10",
+                            "$25",
+                            "$50",
+                            "$100"
+                          ]
+                        }
+                      ],
+                      "variants": {
+                        "edges": [
+                          {
+                            "node": {
+                              "id": "gid://shopify/ProductVariant/46840089673865",
+                              "title": "$10",
+                              "sku": null,
+                              "price": "10.00",
+                              "compareAtPrice": null,
+                              "inventoryQuantity": 0,
+                              "barcode": null,
+                              "createdAt": "2026-06-04T08:49:54Z",
+                              "updatedAt": "2026-06-04T08:49:54Z"
+                            }
+                          },
+                          {
+                            "node": {
+                              "id": "gid://shopify/ProductVariant/46840089706633",
+                              "title": "$25",
+                              "sku": null,
+                              "price": "25.00",
+                              "compareAtPrice": null,
+                              "inventoryQuantity": 0,
+                              "barcode": null,
+                              "createdAt": "2026-06-04T08:49:54Z",
+                              "updatedAt": "2026-06-04T08:49:54Z"
+                            }
+                          },
+                          {
+                            "node": {
+                              "id": "gid://shopify/ProductVariant/46840089739401",
+                              "title": "$50",
+                              "sku": null,
+                              "price": "50.00",
+                              "compareAtPrice": null,
+                              "inventoryQuantity": 0,
+                              "barcode": null,
+                              "createdAt": "2026-06-04T08:49:54Z",
+                              "updatedAt": "2026-06-04T08:49:54Z"
+                            }
+                          },
+                          {
+                            "node": {
+                              "id": "gid://shopify/ProductVariant/46840089772169",
+                              "title": "$100",
+                              "sku": null,
+                              "price": "100.00",
+                              "compareAtPrice": null,
+                              "inventoryQuantity": 0,
+                              "barcode": null,
+                              "createdAt": "2026-06-04T08:49:54Z",
+                              "updatedAt": "2026-06-04T08:49:54Z"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "cursor": "eyJsYXN0X2lkIjo4NjUxNzk1NTYyNjMzLCJsYXN0X3ZhbHVlIjoiMjAyNi0wNi0wNCAxMToyMDozNi4wMDAwMDAifQ=="
+                  },
+                  {
+                    "node": {
+                      "id": "gid://shopify/Product/8651795595401",
+                      "title": "The Inventory Not Tracked Snowboard",
+                      "handle": "the-inventory-not-tracked-snowboard",
+                      "description": "",
+                      "vendor": "NangoDev",
+                      "productType": "snowboard",
+                      "status": "ACTIVE",
+                      "tags": [
+                        "Accessory",
+                        "Sport",
+                        "Winter"
+                      ],
+                      "createdAt": "2026-06-04T08:49:53Z",
+                      "updatedAt": "2026-06-04T11:20:53Z",
+                      "publishedAt": "2026-06-04T08:49:55Z",
+                      "category": null,
+                      "seo": {
+                        "title": null,
+                        "description": null
+                      },
+                      "options": [
+                        {
+                          "id": "gid://shopify/ProductOption/11151658713225",
+                          "name": "Title",
+                          "values": [
+                            "Default Title"
+                          ]
+                        }
+                      ],
+                      "variants": {
+                        "edges": [
+                          {
+                            "node": {
+                              "id": "gid://shopify/ProductVariant/46840089870473",
+                              "title": "Default Title",
+                              "sku": "sku-untracked-1",
+                              "price": "99.99",
+                              "compareAtPrice": null,
+                              "inventoryQuantity": -2,
+                              "barcode": null,
+                              "createdAt": "2026-06-04T08:49:54Z",
+                              "updatedAt": "2026-06-04T11:20:53Z"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "cursor": "eyJsYXN0X2lkIjo4NjUxNzk1NTk1NDAxLCJsYXN0X3ZhbHVlIjoiMjAyNi0wNi0wNCAxMToyMDo1My4wMDAwMDAifQ=="
+                  },
+                  {
+                    "node": {
+                      "id": "gid://shopify/Product/8651905826953",
+                      "title": "Test Product",
+                      "handle": "test-product-5",
+                      "description": "",
+                      "vendor": "NangoDev",
+                      "productType": "",
+                      "status": "ACTIVE",
+                      "tags": [],
+                      "createdAt": "2026-06-04T12:54:39Z",
+                      "updatedAt": "2026-06-04T12:54:58Z",
+                      "publishedAt": "2026-06-04T12:54:39Z",
+                      "category": null,
+                      "seo": {
+                        "title": null,
+                        "description": null
+                      },
+                      "options": [
+                        {
+                          "id": "gid://shopify/ProductOption/11151803285641",
+                          "name": "Title",
+                          "values": [
+                            "Default Title"
+                          ]
+                        }
+                      ],
+                      "variants": {
+                        "edges": [
+                          {
+                            "node": {
+                              "id": "gid://shopify/ProductVariant/46840382980233",
+                              "title": "Default Title",
+                              "sku": null,
+                              "price": "10.00",
+                              "compareAtPrice": null,
+                              "inventoryQuantity": -1,
+                              "barcode": null,
+                              "createdAt": "2026-06-04T12:54:40Z",
+                              "updatedAt": "2026-06-04T12:54:59Z"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "cursor": "eyJsYXN0X2lkIjo4NjUxOTA1ODI2OTUzLCJsYXN0X3ZhbHVlIjoiMjAyNi0wNi0wNCAxMjo1NDo1OC4wMDAwMDAifQ=="
+                  }
+                ],
+                "pageInfo": {
+                  "hasNextPage": false,
+                  "endCursor": "eyJsYXN0X2lkIjo4NjUxOTA1ODI2OTUzLCJsYXN0X3ZhbHVlIjoiMjAyNi0wNi0wNCAxMjo1NDo1OC4wMDAwMDAifQ=="
+                }
+              }
+            },
+            "extensions": {
+              "cost": {
+                "requestedQueryCost": 107,
+                "actualQueryCost": 32,
+                "throttleStatus": {
+                  "maximumAvailable": 4000,
+                  "currentlyAvailable": 3968,
+                  "restoreRate": 200
+                }
+              }
+            }
+          },
+          "status": 200,
+          "headers": {
+            "date": "Thu, 04 Jun 2026 13:58:07 GMT",
+            "content-type": "application/json; charset=utf-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "1; mode=block",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "DENY",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=7889238",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4987",
+            "x-ratelimit-reset": "1780581529",
+            "vary": "Accept-Encoding,Sec-Fetch-Site",
+            "referrer-policy": "origin-when-cross-origin",
+            "cf-cache-status": "DYNAMIC",
+            "x-stats-userid": "",
+            "x-stats-apiclientid": "376951341057",
+            "x-stats-apipermissionid": "695964696713",
+            "x-shopify-api-version": "2025-07",
+            "x-shopify-api-version-warning": "https://shopify.dev/concepts/about-apis/versioning",
+            "content-language": "en",
+            "alt-svc": "h3=\":443\"; ma=86400",
+            "x-shopify-api-gql-engine": "cardinal",
+            "x-dc": "gcp-us-west1,gcp-us-east1,gcp-us-east1",
+            "x-request-id": "ebc82f8f-0a1f-4c40-805c-8a254d4a4ea1-1780581486",
+            "server-timing": "processing;dur=139, verdict_flag_enabled;desc=\"count=20\";dur=1.741, graphql;desc=\"admin/query/other\", _y;desc=\"6dd47da8-b53d-471e-a3d7-bdd556f776c3\", _s;desc=\"eb265003-1950-4135-950e-9d804485427d\"",
+            "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=Bcb50HQ78OjAB1RgcKYgyj2uCzwsxQIvTaReOxuVQAxysihPGksYtcXXZ4lyrZ0uhTFqEEO6RIufslKZc2Qqd5ktgX2p6xdSVb1ASNFo3PSjXG6mkuPwbypq%2F35QYeS4l339C5xlqtM%3D\"}]}",
+            "server": "cloudflare",
+            "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.01,\"max_age\":604800}",
+            "content-security-policy": "default-src 'self' data: blob: 'unsafe-inline' 'unsafe-eval' https://* shopify-pos://*; block-all-mixed-content; child-src 'self' https://* shopify-pos://*; connect-src 'self' wss://* https://*; frame-ancestors 'none'; img-src 'self' data: blob: https:; script-src https://cdn.shopify.com https://cdn.shopifycdn.net https://checkout.pci.shopifyinc.com https://checkout.pci.shopifyinc.com/build/04ed4e1/card_fields.js https://api.stripe.com https://mpsnare.iesnare.com https://appcenter.intuit.com https://www.paypal.com https://js.braintreegateway.com https://c.paypal.com https://maps.googleapis.com https://www.google-analytics.com https://v.shopify.com 'self' 'unsafe-inline' 'unsafe-eval'; upgrade-insecure-requests; report-uri /csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=ebc82f8f-0a1f-4c40-805c-8a254d4a4ea1-1780581486; report-to shopify-csp",
+            "x-permitted-cross-domain-policies": "none",
+            "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=ebc82f8f-0a1f-4c40-805c-8a254d4a4ea1-1780581486\"",
+            "cf-ray": "a06773544f93ac0d-PDX"
+          },
+          "hash": "0f46f8d8930a88757bd3c6f465d89c5038435e81",
+          "request": {
+            "data": "sha1:03c57e38d2d055531941f8047491598d4de9279d"
+          }
+        },
+        {
+          "response": {
+            "data": {
+              "products": {
+                "edges": [],
+                "pageInfo": {
+                  "hasNextPage": false,
+                  "endCursor": null
+                }
+              }
+            },
+            "extensions": {
+              "cost": {
+                "requestedQueryCost": 107,
+                "actualQueryCost": 2,
+                "throttleStatus": {
+                  "maximumAvailable": 4000,
+                  "currentlyAvailable": 3998,
+                  "restoreRate": 200
+                }
+              }
+            }
+          },
+          "status": 200,
+          "headers": {
+            "date": "Thu, 04 Jun 2026 13:58:07 GMT",
+            "content-type": "application/json; charset=utf-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "1; mode=block",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "DENY",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=7889238",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4986",
+            "x-ratelimit-reset": "1780581529",
+            "vary": "Accept-Encoding,Sec-Fetch-Site",
+            "referrer-policy": "origin-when-cross-origin",
+            "cf-cache-status": "DYNAMIC",
+            "x-stats-userid": "",
+            "x-stats-apiclientid": "376951341057",
+            "x-stats-apipermissionid": "695964696713",
+            "x-shopify-api-version": "2025-07",
+            "x-shopify-api-version-warning": "https://shopify.dev/concepts/about-apis/versioning",
+            "content-language": "en",
+            "alt-svc": "h3=\":443\"; ma=86400",
+            "x-shopify-api-gql-engine": "cardinal",
+            "x-dc": "gcp-us-west1,gcp-us-east1,gcp-us-east1",
+            "x-request-id": "3cca2c87-0211-4afb-8e64-4e835f909f1d-1780581487",
+            "server-timing": "processing;dur=42, verdict_flag_enabled;desc=\"count=14\";dur=0.547, graphql;desc=\"admin/query/other\", _y;desc=\"6794cd6e-8ca0-4672-bd13-09db6afa594d\", _s;desc=\"8c68d851-1ea7-4883-a775-2af10baf51c3\"",
+            "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=mFyhOIDuJvPATRHQodqNZasglRHYz4KztIAZuPce6XBziScA55MIWXIZgaVOCwGzw%2BRZiXi8d7%2BHFjHMwsoyqJNgLz5zw3MO%2FupNPyRcMSOX1ZEI1ETkUHphVbAAEQasYEthsFAVVj4%3D\"}]}",
+            "server": "cloudflare",
+            "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.01,\"max_age\":604800}",
+            "content-security-policy": "default-src 'self' data: blob: 'unsafe-inline' 'unsafe-eval' https://* shopify-pos://*; block-all-mixed-content; child-src 'self' https://* shopify-pos://*; connect-src 'self' wss://* https://*; frame-ancestors 'none'; img-src 'self' data: blob: https:; script-src https://cdn.shopify.com https://cdn.shopifycdn.net https://checkout.pci.shopifyinc.com https://checkout.pci.shopifyinc.com/build/04ed4e1/card_fields.js https://api.stripe.com https://mpsnare.iesnare.com https://appcenter.intuit.com https://www.paypal.com https://js.braintreegateway.com https://c.paypal.com https://maps.googleapis.com https://www.google-analytics.com https://v.shopify.com 'self' 'unsafe-inline' 'unsafe-eval'; upgrade-insecure-requests; report-uri /csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=3cca2c87-0211-4afb-8e64-4e835f909f1d-1780581487; report-to shopify-csp",
+            "x-permitted-cross-domain-policies": "none",
+            "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=3cca2c87-0211-4afb-8e64-4e835f909f1d-1780581487\"",
+            "cf-ray": "a06773587865dabf-PDX"
+          },
+          "hash": "afa6e0633ca51187a68902f44c04760aace284a1",
+          "request": {
+            "data": "sha1:4b89c69b8e60daeeb3a72e8b25c74d057bc406e9"
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,120 @@
+{
+  "input": {
+    "id": 700471,
+    "name": "Nango Test Flag A Updated",
+    "project_id": "309484"
+  },
+  "output": {
+    "id": 700471,
+    "name": "Nango Test Flag A Updated",
+    "key": "nango-test-flag-a",
+    "filters": {
+      "groups": []
+    },
+    "deleted": false,
+    "active": true,
+    "created_at": "2026-06-03T09:53:05.763590Z",
+    "updated_at": "2026-06-03T10:11:53.384737Z",
+    "version": 4,
+    "tags": [],
+    "ensure_experience_continuity": false,
+    "can_edit": true,
+    "status": "ACTIVE",
+    "evaluation_runtime": "all"
+  },
+  "nango": {},
+  "api": {
+    "patch": {
+      "/api/projects/309484/feature_flags/700471/": {
+        "response": {
+          "id": 700471,
+          "name": "Nango Test Flag A Updated",
+          "key": "nango-test-flag-a",
+          "filters": {
+            "groups": []
+          },
+          "deleted": false,
+          "active": true,
+          "created_by": {
+            "id": 411781,
+            "uuid": "019c439e-fd4f-0000-dc37-5baa50dfcff6",
+            "distinct_id": "xQi0eQjuEyQ8RFio14FSc5gE3wC5wOKUM7lm3FFRMyR",
+            "first_name": "Nango Developer",
+            "last_name": "",
+            "email": "api@nango.dev",
+            "is_email_verified": true,
+            "hedgehog_config": null,
+            "role_at_organization": ""
+          },
+          "created_at": "2026-06-03T09:53:05.763590Z",
+          "updated_at": "2026-06-03T10:11:53.384737Z",
+          "version": 4,
+          "last_modified_by": {
+            "id": 411781,
+            "uuid": "019c439e-fd4f-0000-dc37-5baa50dfcff6",
+            "distinct_id": "xQi0eQjuEyQ8RFio14FSc5gE3wC5wOKUM7lm3FFRMyR",
+            "first_name": "Nango Developer",
+            "last_name": "",
+            "email": "api@nango.dev",
+            "is_email_verified": true,
+            "hedgehog_config": null,
+            "role_at_organization": ""
+          },
+          "ensure_experience_continuity": false,
+          "experiment_set": [],
+          "experiment_set_metadata": [],
+          "surveys": [],
+          "features": [],
+          "rollback_conditions": null,
+          "performed_rollback": false,
+          "can_edit": true,
+          "usage_dashboard": 1663105,
+          "analytics_dashboards": [],
+          "has_enriched_analytics": false,
+          "user_access_level": "manager",
+          "is_remote_configuration": false,
+          "has_encrypted_payloads": false,
+          "status": "ACTIVE",
+          "evaluation_runtime": "all",
+          "bucketing_identifier": "distinct_id",
+          "last_called_at": null,
+          "is_used_in_replay_settings": false,
+          "evaluation_contexts": [],
+          "tags": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 03 Jun 2026 10:11:53 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4994",
+          "x-ratelimit-reset": "1780481570",
+          "allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS",
+          "content-security-policy": "default-src 'none'",
+          "vary": "origin, Cookie, Accept-Encoding",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "cross-origin-opener-policy": "same-origin",
+          "server": "envoy",
+          "x-envoy-upstream-service-time": "163"
+        },
+        "hash": "b5956f48cfa1c74f3afe1dc2b23683df1157f59b",
+        "request": {
+          "data": {
+            "name": "Nango Test Flag A Updated"
+          }
+        }
+      }
+    }
+  }
+}

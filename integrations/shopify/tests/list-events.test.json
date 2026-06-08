@@ -1,0 +1,253 @@
+{
+  "input": {
+    "first": 5
+  },
+  "output": {
+    "events": [
+      {
+        "id": "gid://shopify/BasicEvent/169009558061193",
+        "action": "create",
+        "attributeToApp": false,
+        "attributeToUser": false,
+        "createdAt": "2026-06-04T08:49:36Z",
+        "criticalAlert": false,
+        "message": "Blog was created: <a href=\"https://admin.shopify.com/store/nangodev/admin/blogs/99564486793\">News</a>.",
+        "arguments": [
+          "News"
+        ],
+        "subjectId": "gid://shopify/Blog/99564486793",
+        "subjectType": "BLOG",
+        "additionalContent": "null"
+      },
+      {
+        "id": "gid://shopify/BasicEvent/169009558487177",
+        "action": "create",
+        "attributeToApp": false,
+        "attributeToUser": false,
+        "createdAt": "2026-06-04T08:49:36Z",
+        "criticalAlert": false,
+        "message": "Page was created: <a href=\"https://admin.shopify.com/store/nangodev/admin/pages/135143587977\">Contact</a>.",
+        "arguments": [
+          "Contact"
+        ],
+        "subjectId": "gid://shopify/Page/135143587977",
+        "subjectType": "PAGE",
+        "additionalContent": "null"
+      },
+      {
+        "id": "gid://shopify/BasicEvent/169009558716553",
+        "action": "published",
+        "attributeToApp": false,
+        "attributeToUser": false,
+        "createdAt": "2026-06-04T08:49:36Z",
+        "criticalAlert": false,
+        "message": "Collection was published on Online Store: <a href=\"https://admin.shopify.com/store/nangodev/admin/collections/322860220553\">Home page</a>.",
+        "arguments": [
+          "Home page"
+        ],
+        "subjectId": "gid://shopify/Collection/322860220553",
+        "subjectType": "COLLECTION",
+        "additionalContent": "null"
+      },
+      {
+        "id": "gid://shopify/BasicEvent/169009558749321",
+        "action": "create",
+        "attributeToApp": false,
+        "attributeToUser": false,
+        "createdAt": "2026-06-04T08:49:36Z",
+        "criticalAlert": false,
+        "message": "Collection was created: <a href=\"https://admin.shopify.com/store/nangodev/admin/collections/322860220553\">Home page</a>.",
+        "arguments": [
+          "Home page"
+        ],
+        "subjectId": "gid://shopify/Collection/322860220553",
+        "subjectType": "COLLECTION",
+        "additionalContent": "null"
+      },
+      {
+        "id": "gid://shopify/BasicEvent/169009558814857",
+        "action": "published",
+        "attributeToApp": false,
+        "attributeToUser": false,
+        "createdAt": "2026-06-04T08:49:37Z",
+        "criticalAlert": false,
+        "message": "Collection was published on Point of Sale: <a href=\"https://admin.shopify.com/store/nangodev/admin/collections/322860220553\">Home page</a>.",
+        "arguments": [
+          "Home page"
+        ],
+        "subjectId": "gid://shopify/Collection/322860220553",
+        "subjectType": "COLLECTION",
+        "additionalContent": "null"
+      }
+    ],
+    "next_cursor": "eyJsYXN0X2lkIjoxNjkwMDk1NTg4MTQ4NTcsImxhc3RfdmFsdWUiOiIxNjkwMDk1NTg4MTQ4NTcifQ=="
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/admin/api/2025-10/graphql.json": {
+        "response": {
+          "data": {
+            "events": {
+              "edges": [
+                {
+                  "cursor": "eyJsYXN0X2lkIjoxNjkwMDk1NTgwNjExOTMsImxhc3RfdmFsdWUiOiIxNjkwMDk1NTgwNjExOTMifQ==",
+                  "node": {
+                    "id": "gid://shopify/BasicEvent/169009558061193",
+                    "action": "create",
+                    "appTitle": null,
+                    "attributeToApp": false,
+                    "attributeToUser": false,
+                    "createdAt": "2026-06-04T08:49:36Z",
+                    "criticalAlert": false,
+                    "message": "Blog was created: <a href=\"https://admin.shopify.com/store/nangodev/admin/blogs/99564486793\">News</a>.",
+                    "arguments": [
+                      "News"
+                    ],
+                    "subjectId": "gid://shopify/Blog/99564486793",
+                    "subjectType": "BLOG",
+                    "additionalContent": "null"
+                  }
+                },
+                {
+                  "cursor": "eyJsYXN0X2lkIjoxNjkwMDk1NTg0ODcxNzcsImxhc3RfdmFsdWUiOiIxNjkwMDk1NTg0ODcxNzcifQ==",
+                  "node": {
+                    "id": "gid://shopify/BasicEvent/169009558487177",
+                    "action": "create",
+                    "appTitle": null,
+                    "attributeToApp": false,
+                    "attributeToUser": false,
+                    "createdAt": "2026-06-04T08:49:36Z",
+                    "criticalAlert": false,
+                    "message": "Page was created: <a href=\"https://admin.shopify.com/store/nangodev/admin/pages/135143587977\">Contact</a>.",
+                    "arguments": [
+                      "Contact"
+                    ],
+                    "subjectId": "gid://shopify/Page/135143587977",
+                    "subjectType": "PAGE",
+                    "additionalContent": "null"
+                  }
+                },
+                {
+                  "cursor": "eyJsYXN0X2lkIjoxNjkwMDk1NTg3MTY1NTMsImxhc3RfdmFsdWUiOiIxNjkwMDk1NTg3MTY1NTMifQ==",
+                  "node": {
+                    "id": "gid://shopify/BasicEvent/169009558716553",
+                    "action": "published",
+                    "appTitle": null,
+                    "attributeToApp": false,
+                    "attributeToUser": false,
+                    "createdAt": "2026-06-04T08:49:36Z",
+                    "criticalAlert": false,
+                    "message": "Collection was published on Online Store: <a href=\"https://admin.shopify.com/store/nangodev/admin/collections/322860220553\">Home page</a>.",
+                    "arguments": [
+                      "Home page"
+                    ],
+                    "subjectId": "gid://shopify/Collection/322860220553",
+                    "subjectType": "COLLECTION",
+                    "additionalContent": "null"
+                  }
+                },
+                {
+                  "cursor": "eyJsYXN0X2lkIjoxNjkwMDk1NTg3NDkzMjEsImxhc3RfdmFsdWUiOiIxNjkwMDk1NTg3NDkzMjEifQ==",
+                  "node": {
+                    "id": "gid://shopify/BasicEvent/169009558749321",
+                    "action": "create",
+                    "appTitle": null,
+                    "attributeToApp": false,
+                    "attributeToUser": false,
+                    "createdAt": "2026-06-04T08:49:36Z",
+                    "criticalAlert": false,
+                    "message": "Collection was created: <a href=\"https://admin.shopify.com/store/nangodev/admin/collections/322860220553\">Home page</a>.",
+                    "arguments": [
+                      "Home page"
+                    ],
+                    "subjectId": "gid://shopify/Collection/322860220553",
+                    "subjectType": "COLLECTION",
+                    "additionalContent": "null"
+                  }
+                },
+                {
+                  "cursor": "eyJsYXN0X2lkIjoxNjkwMDk1NTg4MTQ4NTcsImxhc3RfdmFsdWUiOiIxNjkwMDk1NTg4MTQ4NTcifQ==",
+                  "node": {
+                    "id": "gid://shopify/BasicEvent/169009558814857",
+                    "action": "published",
+                    "appTitle": null,
+                    "attributeToApp": false,
+                    "attributeToUser": false,
+                    "createdAt": "2026-06-04T08:49:37Z",
+                    "criticalAlert": false,
+                    "message": "Collection was published on Point of Sale: <a href=\"https://admin.shopify.com/store/nangodev/admin/collections/322860220553\">Home page</a>.",
+                    "arguments": [
+                      "Home page"
+                    ],
+                    "subjectId": "gid://shopify/Collection/322860220553",
+                    "subjectType": "COLLECTION",
+                    "additionalContent": "null"
+                  }
+                }
+              ],
+              "pageInfo": {
+                "hasNextPage": true,
+                "endCursor": "eyJsYXN0X2lkIjoxNjkwMDk1NTg4MTQ4NTcsImxhc3RfdmFsdWUiOiIxNjkwMDk1NTg4MTQ4NTcifQ=="
+              }
+            }
+          },
+          "extensions": {
+            "cost": {
+              "requestedQueryCost": 5,
+              "actualQueryCost": 5,
+              "throttleStatus": {
+                "maximumAvailable": 4000,
+                "currentlyAvailable": 3995,
+                "restoreRate": 200
+              }
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 04 Jun 2026 09:44:44 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=7889238",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4889",
+          "x-ratelimit-reset": "1780566312",
+          "vary": "Accept-Encoding,Sec-Fetch-Site",
+          "referrer-policy": "origin-when-cross-origin",
+          "cf-cache-status": "DYNAMIC",
+          "x-stats-userid": "",
+          "x-stats-apiclientid": "376951341057",
+          "x-stats-apipermissionid": "695964696713",
+          "x-shopify-api-version": "2025-10",
+          "content-language": "en",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "x-shopify-api-gql-engine": "cardinal",
+          "x-dc": "gcp-us-west1,gcp-us-east1,gcp-us-east1",
+          "x-request-id": "66a2fa61-51dc-4bea-836b-1e01f1e4ae15-1780566283",
+          "server-timing": "processing;dur=757, verdict_flag_enabled;desc=\"count=9\";dur=0.945, graphql;desc=\"admin/query/other\", _y;desc=\"cad2a29b-410c-459c-91e2-b041d35af89d\", _s;desc=\"8f6abfc8-b4a0-473f-b36c-e3460994aac2\"",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=2Wt2ZkWUp4J%2BbPDpmJtA93%2FS2etH4Ha%2FdqVXH6eBIMZqMtsaK%2BmQ1QVDX2yLU%2F%2BosJ%2Bm2LDtnLxeD%2Fsy6M5uwjyRcIEfnmjXO7yfDOIDl0skA0l0vqgwqZNCfRHau7NArtxTJsjnTWM%3D\"}]}",
+          "server": "cloudflare",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.01,\"max_age\":604800}",
+          "content-security-policy": "default-src 'self' data: blob: 'unsafe-inline' 'unsafe-eval' https://* shopify-pos://*; block-all-mixed-content; child-src 'self' https://* shopify-pos://*; connect-src 'self' wss://* https://*; frame-ancestors 'none'; img-src 'self' data: blob: https:; script-src https://cdn.shopify.com https://cdn.shopifycdn.net https://checkout.pci.shopifyinc.com https://checkout.pci.shopifyinc.com/build/04ed4e1/card_fields.js https://api.stripe.com https://mpsnare.iesnare.com https://appcenter.intuit.com https://www.paypal.com https://js.braintreegateway.com https://c.paypal.com https://maps.googleapis.com https://www.google-analytics.com https://v.shopify.com 'self' 'unsafe-inline' 'unsafe-eval'; upgrade-insecure-requests; report-uri /csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=66a2fa61-51dc-4bea-836b-1e01f1e4ae15-1780566283; report-to shopify-csp",
+          "x-permitted-cross-domain-policies": "none",
+          "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=66a2fa61-51dc-4bea-836b-1e01f1e4ae15-1780566283\"",
+          "cf-ray": "a06600268b668bee-PDX"
+        },
+        "hash": "aa9edea89a1900ba24ef3c8816c6a8085512bdb4",
+        "request": {
+          "data": "sha1:2c3c1f043f95b5f900f566ee8e95608ffe079635"
+        }
+      }
+    }
+  }
+}

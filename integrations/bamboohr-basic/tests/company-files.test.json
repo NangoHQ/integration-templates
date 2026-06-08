@@ -1,0 +1,547 @@
+{
+  "nango": {
+    "batchSave": {
+      "CompanyFile": [
+        {
+          "id": "220",
+          "name": "4 Ways the BambooHR ATS Improves the Hiring Process",
+          "original_file_name": "4 Ways the BambooHR ATS Improves the Hiring Process.pdf",
+          "size": "855128",
+          "date_created": "2026-04-18T22:30:07+0000",
+          "created_by": "Victor Nango",
+          "share_with_employees": "no",
+          "can_rename_file": "yes",
+          "can_delete_file": "yes",
+          "category_id": "179",
+          "category_name": "BambooHR"
+        },
+        {
+          "id": "223",
+          "name": "5 Payroll Pain Points Solved by TRAXPayroll",
+          "original_file_name": "5 Payroll Pain Points.pdf",
+          "size": "523971",
+          "date_created": "2026-04-18T22:50:24+0000",
+          "created_by": "Victor Nango",
+          "share_with_employees": "no",
+          "can_rename_file": "yes",
+          "can_delete_file": "yes",
+          "category_id": "179",
+          "category_name": "BambooHR"
+        },
+        {
+          "id": "219",
+          "name": "BambooHR Definitive Guide to Company Culture ",
+          "original_file_name": "The Definitive Guide to Company Culture.pdf",
+          "size": "2360726",
+          "date_created": "2026-04-18T22:26:41+0000",
+          "created_by": "Victor Nango",
+          "share_with_employees": "no",
+          "can_rename_file": "yes",
+          "can_delete_file": "yes",
+          "category_id": "179",
+          "category_name": "BambooHR"
+        },
+        {
+          "id": "221",
+          "name": "BambooHR Top Tips for Managing Time-Off Requests ",
+          "original_file_name": "top tips for managing time-off requests - infographic.pdf",
+          "size": "737281",
+          "date_created": "2026-04-18T22:31:07+0000",
+          "created_by": "Victor Nango",
+          "share_with_employees": "no",
+          "can_rename_file": "yes",
+          "can_delete_file": "yes",
+          "category_id": "179",
+          "category_name": "BambooHR"
+        },
+        {
+          "id": "217",
+          "name": "Five Ways BambooHR Elevates Your Performance Management",
+          "original_file_name": "Five Ways BambooHR Elevates Your Performance Management.pdf",
+          "size": "411076",
+          "date_created": "2026-04-18T22:26:41+0000",
+          "created_by": "Victor Nango",
+          "share_with_employees": "no",
+          "can_rename_file": "yes",
+          "can_delete_file": "yes",
+          "category_id": "179",
+          "category_name": "BambooHR"
+        },
+        {
+          "id": "222",
+          "name": "What your Executive Team Wants from HR Reports",
+          "original_file_name": "Top HR reports july 2019.pdf",
+          "size": "1390987",
+          "date_created": "2026-04-18T22:48:23+0000",
+          "created_by": "Victor Nango",
+          "share_with_employees": "no",
+          "can_rename_file": "yes",
+          "can_delete_file": "yes",
+          "category_id": "179",
+          "category_name": "BambooHR"
+        },
+        {
+          "id": "218",
+          "name": "Why Should You Update Your Time-Tracking Process ",
+          "original_file_name": "Why Should You Update Your Time-Tracking Process infographic.pdf",
+          "size": "1075188",
+          "date_created": "2026-04-18T22:26:41+0000",
+          "created_by": "Victor Nango",
+          "share_with_employees": "no",
+          "can_rename_file": "yes",
+          "can_delete_file": "yes",
+          "category_id": "179",
+          "category_name": "BambooHR"
+        },
+        {
+          "id": "229",
+          "name": "Benefits_Data_Post-Upgrade.csv",
+          "original_file_name": "Benefits_Data_Post-Upgrade.csv",
+          "size": "37951",
+          "date_created": "2026-04-19T23:41:48+0000",
+          "share_with_employees": "no",
+          "can_rename_file": "no",
+          "can_delete_file": "no",
+          "category_id": "181",
+          "category_name": "Benefits Upgrade"
+        },
+        {
+          "id": "228",
+          "name": "Benefits_Data_Pre-Upgrade.csv",
+          "original_file_name": "Benefits_Data_Pre-Upgrade.csv",
+          "size": "37951",
+          "date_created": "2026-04-19T23:41:06+0000",
+          "share_with_employees": "no",
+          "can_rename_file": "no",
+          "can_delete_file": "no",
+          "category_id": "181",
+          "category_name": "Benefits Upgrade"
+        },
+        {
+          "id": "198",
+          "name": "BambooHR Trial Check-in.pdf",
+          "original_file_name": "Trial Check-in.pdf",
+          "size": "94141",
+          "date_created": "2026-03-28T20:30:18+0000",
+          "share_with_employees": "no",
+          "can_rename_file": "yes",
+          "can_delete_file": "yes",
+          "category_id": "174",
+          "category_name": "Company Files"
+        },
+        {
+          "id": "172",
+          "name": "Company Handbook.pdf",
+          "original_file_name": "Company Handbook.pdf",
+          "size": "134126",
+          "date_created": "2025-12-29T15:20:29+0000",
+          "share_with_employees": "no",
+          "can_rename_file": "yes",
+          "can_delete_file": "yes",
+          "category_id": "174",
+          "category_name": "Company Files"
+        },
+        {
+          "id": "677",
+          "name": "Sample-Company-401k-Policy.pdf",
+          "original_file_name": "Sample-Company-401k-Policy.pdf",
+          "size": "70483",
+          "date_created": "2026-03-29T23:05:42+0000",
+          "created_by": "Victor Nango",
+          "share_with_employees": "yes",
+          "can_rename_file": "yes",
+          "can_delete_file": "yes",
+          "category_id": "174",
+          "category_name": "Company Files"
+        },
+        {
+          "id": "679",
+          "name": "Sample-Company-Benefits-Summary.pdf",
+          "original_file_name": "Sample-Company-Benefits-Summary.pdf",
+          "size": "70233",
+          "date_created": "2026-03-29T23:05:42+0000",
+          "created_by": "Victor Nango",
+          "share_with_employees": "yes",
+          "can_rename_file": "yes",
+          "can_delete_file": "yes",
+          "category_id": "174",
+          "category_name": "Company Files"
+        },
+        {
+          "id": "676",
+          "name": "Sample-Company-Expense-Reimbursement-Policy.pdf",
+          "original_file_name": "Sample-Company-Expense-Reimbursement-Policy.pdf",
+          "size": "65138",
+          "date_created": "2026-03-29T23:05:42+0000",
+          "created_by": "Victor Nango",
+          "share_with_employees": "yes",
+          "can_rename_file": "yes",
+          "can_delete_file": "yes",
+          "category_id": "174",
+          "category_name": "Company Files"
+        },
+        {
+          "id": "678",
+          "name": "Sample-Company-Handbook.pdf",
+          "original_file_name": "Sample-Company-Handbook.pdf",
+          "size": "86587",
+          "date_created": "2026-03-29T23:05:42+0000",
+          "created_by": "Victor Nango",
+          "share_with_employees": "yes",
+          "can_rename_file": "yes",
+          "can_delete_file": "yes",
+          "category_id": "174",
+          "category_name": "Company Files"
+        },
+        {
+          "id": "681",
+          "name": "Sample-Performance-Management-&-Disciplinary-Action.pdf",
+          "original_file_name": "Sample-Performance-Management-&-Disciplinary-Action.pdf",
+          "size": "82522",
+          "date_created": "2026-04-12T07:22:15+0000",
+          "created_by": "Victor Nango",
+          "share_with_employees": "yes",
+          "can_rename_file": "yes",
+          "can_delete_file": "yes",
+          "category_id": "174",
+          "category_name": "Company Files"
+        },
+        {
+          "id": "164",
+          "name": "Australia Standard Choice Form.pdf",
+          "original_file_name": "Australia Standard Choice Form.pdf",
+          "size": "323487",
+          "date_created": "2025-12-26T15:15:33+0000",
+          "share_with_employees": "no",
+          "can_rename_file": "yes",
+          "can_delete_file": "yes",
+          "category_id": "175",
+          "category_name": "New Hire Forms"
+        },
+        {
+          "id": "165",
+          "name": "Australia Taxfile Declaration Form.pdf",
+          "original_file_name": "Australia Taxfile Declaration Form.pdf",
+          "size": "411434",
+          "date_created": "2025-12-26T15:15:33+0000",
+          "share_with_employees": "no",
+          "can_rename_file": "yes",
+          "can_delete_file": "yes",
+          "category_id": "175",
+          "category_name": "New Hire Forms"
+        },
+        {
+          "id": "182",
+          "name": "Background_Check_Auth.pdf",
+          "original_file_name": "Background_Check_Auth.pdf",
+          "size": "63060",
+          "date_created": "2026-05-01T16:52:22+0000",
+          "created_by": "Victor Nango",
+          "share_with_employees": "no",
+          "can_rename_file": "yes",
+          "can_delete_file": "yes",
+          "category_id": "175",
+          "category_name": "New Hire Forms"
+        },
+        {
+          "id": "163",
+          "name": "Fair-Work-Information-Statement.pdf",
+          "original_file_name": "Fair-Work-Information-Statement.pdf",
+          "size": "225421",
+          "date_created": "2025-12-26T15:13:32+0000",
+          "share_with_employees": "no",
+          "can_rename_file": "yes",
+          "can_delete_file": "yes",
+          "category_id": "175",
+          "category_name": "New Hire Forms"
+        }
+      ]
+    },
+    "batchDelete": {
+      "CompanyFile": []
+    }
+  },
+  "api": {
+    "get": {
+      "/v1/files/view": {
+        "response": {
+          "categories": [
+            {
+              "id": 179,
+              "canUploadFiles": "yes",
+              "name": "BambooHR",
+              "files": [
+                {
+                  "id": 220,
+                  "name": "4 Ways the BambooHR ATS Improves the Hiring Process",
+                  "originalFileName": "4 Ways the BambooHR ATS Improves the Hiring Process.pdf",
+                  "size": "855128",
+                  "dateCreated": "2026-04-18T22:30:07+0000",
+                  "createdBy": "Victor Nango",
+                  "shareWithEmployees": "no",
+                  "canRenameFile": "yes",
+                  "canDeleteFile": "yes"
+                },
+                {
+                  "id": 223,
+                  "name": "5 Payroll Pain Points Solved by TRAXPayroll",
+                  "originalFileName": "5 Payroll Pain Points.pdf",
+                  "size": "523971",
+                  "dateCreated": "2026-04-18T22:50:24+0000",
+                  "createdBy": "Victor Nango",
+                  "shareWithEmployees": "no",
+                  "canRenameFile": "yes",
+                  "canDeleteFile": "yes"
+                },
+                {
+                  "id": 219,
+                  "name": "BambooHR Definitive Guide to Company Culture ",
+                  "originalFileName": "The Definitive Guide to Company Culture.pdf",
+                  "size": "2360726",
+                  "dateCreated": "2026-04-18T22:26:41+0000",
+                  "createdBy": "Victor Nango",
+                  "shareWithEmployees": "no",
+                  "canRenameFile": "yes",
+                  "canDeleteFile": "yes"
+                },
+                {
+                  "id": 221,
+                  "name": "BambooHR Top Tips for Managing Time-Off Requests ",
+                  "originalFileName": "top tips for managing time-off requests - infographic.pdf",
+                  "size": "737281",
+                  "dateCreated": "2026-04-18T22:31:07+0000",
+                  "createdBy": "Victor Nango",
+                  "shareWithEmployees": "no",
+                  "canRenameFile": "yes",
+                  "canDeleteFile": "yes"
+                },
+                {
+                  "id": 217,
+                  "name": "Five Ways BambooHR Elevates Your Performance Management",
+                  "originalFileName": "Five Ways BambooHR Elevates Your Performance Management.pdf",
+                  "size": "411076",
+                  "dateCreated": "2026-04-18T22:26:41+0000",
+                  "createdBy": "Victor Nango",
+                  "shareWithEmployees": "no",
+                  "canRenameFile": "yes",
+                  "canDeleteFile": "yes"
+                },
+                {
+                  "id": 222,
+                  "name": "What your Executive Team Wants from HR Reports",
+                  "originalFileName": "Top HR reports july 2019.pdf",
+                  "size": "1390987",
+                  "dateCreated": "2026-04-18T22:48:23+0000",
+                  "createdBy": "Victor Nango",
+                  "shareWithEmployees": "no",
+                  "canRenameFile": "yes",
+                  "canDeleteFile": "yes"
+                },
+                {
+                  "id": 218,
+                  "name": "Why Should You Update Your Time-Tracking Process ",
+                  "originalFileName": "Why Should You Update Your Time-Tracking Process infographic.pdf",
+                  "size": "1075188",
+                  "dateCreated": "2026-04-18T22:26:41+0000",
+                  "createdBy": "Victor Nango",
+                  "shareWithEmployees": "no",
+                  "canRenameFile": "yes",
+                  "canDeleteFile": "yes"
+                }
+              ]
+            },
+            {
+              "id": 181,
+              "canUploadFiles": "no",
+              "name": "Benefits Upgrade",
+              "files": [
+                {
+                  "id": 229,
+                  "name": "Benefits_Data_Post-Upgrade.csv",
+                  "originalFileName": "Benefits_Data_Post-Upgrade.csv",
+                  "size": "37951",
+                  "dateCreated": "2026-04-19T23:41:48+0000",
+                  "createdBy": null,
+                  "shareWithEmployees": "no",
+                  "canRenameFile": "no",
+                  "canDeleteFile": "no"
+                },
+                {
+                  "id": 228,
+                  "name": "Benefits_Data_Pre-Upgrade.csv",
+                  "originalFileName": "Benefits_Data_Pre-Upgrade.csv",
+                  "size": "37951",
+                  "dateCreated": "2026-04-19T23:41:06+0000",
+                  "createdBy": null,
+                  "shareWithEmployees": "no",
+                  "canRenameFile": "no",
+                  "canDeleteFile": "no"
+                }
+              ]
+            },
+            {
+              "id": 174,
+              "canUploadFiles": "yes",
+              "name": "Company Files",
+              "files": [
+                {
+                  "id": 198,
+                  "name": "BambooHR Trial Check-in.pdf",
+                  "originalFileName": "Trial Check-in.pdf",
+                  "size": "94141",
+                  "dateCreated": "2026-03-28T20:30:18+0000",
+                  "createdBy": null,
+                  "shareWithEmployees": "no",
+                  "canRenameFile": "yes",
+                  "canDeleteFile": "yes"
+                },
+                {
+                  "id": 172,
+                  "name": "Company Handbook.pdf",
+                  "originalFileName": "Company Handbook.pdf",
+                  "size": "134126",
+                  "dateCreated": "2025-12-29T15:20:29+0000",
+                  "createdBy": null,
+                  "shareWithEmployees": "no",
+                  "canRenameFile": "yes",
+                  "canDeleteFile": "yes"
+                },
+                {
+                  "id": 677,
+                  "name": "Sample-Company-401k-Policy.pdf",
+                  "originalFileName": "Sample-Company-401k-Policy.pdf",
+                  "size": "70483",
+                  "dateCreated": "2026-03-29T23:05:42+0000",
+                  "createdBy": "Victor Nango",
+                  "shareWithEmployees": "yes",
+                  "canRenameFile": "yes",
+                  "canDeleteFile": "yes"
+                },
+                {
+                  "id": 679,
+                  "name": "Sample-Company-Benefits-Summary.pdf",
+                  "originalFileName": "Sample-Company-Benefits-Summary.pdf",
+                  "size": "70233",
+                  "dateCreated": "2026-03-29T23:05:42+0000",
+                  "createdBy": "Victor Nango",
+                  "shareWithEmployees": "yes",
+                  "canRenameFile": "yes",
+                  "canDeleteFile": "yes"
+                },
+                {
+                  "id": 676,
+                  "name": "Sample-Company-Expense-Reimbursement-Policy.pdf",
+                  "originalFileName": "Sample-Company-Expense-Reimbursement-Policy.pdf",
+                  "size": "65138",
+                  "dateCreated": "2026-03-29T23:05:42+0000",
+                  "createdBy": "Victor Nango",
+                  "shareWithEmployees": "yes",
+                  "canRenameFile": "yes",
+                  "canDeleteFile": "yes"
+                },
+                {
+                  "id": 678,
+                  "name": "Sample-Company-Handbook.pdf",
+                  "originalFileName": "Sample-Company-Handbook.pdf",
+                  "size": "86587",
+                  "dateCreated": "2026-03-29T23:05:42+0000",
+                  "createdBy": "Victor Nango",
+                  "shareWithEmployees": "yes",
+                  "canRenameFile": "yes",
+                  "canDeleteFile": "yes"
+                },
+                {
+                  "id": 681,
+                  "name": "Sample-Performance-Management-&-Disciplinary-Action.pdf",
+                  "originalFileName": "Sample-Performance-Management-&-Disciplinary-Action.pdf",
+                  "size": "82522",
+                  "dateCreated": "2026-04-12T07:22:15+0000",
+                  "createdBy": "Victor Nango",
+                  "shareWithEmployees": "yes",
+                  "canRenameFile": "yes",
+                  "canDeleteFile": "yes"
+                }
+              ]
+            },
+            {
+              "id": 175,
+              "canUploadFiles": "yes",
+              "name": "New Hire Forms",
+              "files": [
+                {
+                  "id": 164,
+                  "name": "Australia Standard Choice Form.pdf",
+                  "originalFileName": "Australia Standard Choice Form.pdf",
+                  "size": "323487",
+                  "dateCreated": "2025-12-26T15:15:33+0000",
+                  "createdBy": null,
+                  "shareWithEmployees": "no",
+                  "canRenameFile": "yes",
+                  "canDeleteFile": "yes"
+                },
+                {
+                  "id": 165,
+                  "name": "Australia Taxfile Declaration Form.pdf",
+                  "originalFileName": "Australia Taxfile Declaration Form.pdf",
+                  "size": "411434",
+                  "dateCreated": "2025-12-26T15:15:33+0000",
+                  "createdBy": null,
+                  "shareWithEmployees": "no",
+                  "canRenameFile": "yes",
+                  "canDeleteFile": "yes"
+                },
+                {
+                  "id": 182,
+                  "name": "Background_Check_Auth.pdf",
+                  "originalFileName": "Background_Check_Auth.pdf",
+                  "size": "63060",
+                  "dateCreated": "2026-05-01T16:52:22+0000",
+                  "createdBy": "Victor Nango",
+                  "shareWithEmployees": "no",
+                  "canRenameFile": "yes",
+                  "canDeleteFile": "yes"
+                },
+                {
+                  "id": 163,
+                  "name": "Fair-Work-Information-Statement.pdf",
+                  "originalFileName": "Fair-Work-Information-Statement.pdf",
+                  "size": "225421",
+                  "dateCreated": "2025-12-26T15:13:32+0000",
+                  "createdBy": null,
+                  "shareWithEmployees": "no",
+                  "canRenameFile": "yes",
+                  "canDeleteFile": "yes"
+                }
+              ]
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 29 May 2026 14:18:21 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubdomains;",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4968",
+          "x-ratelimit-reset": "1780064352",
+          "server": "nginx",
+          "cache-control": "no-cache, private",
+          "x-request-id": "141031223725468350636410643772211897493",
+          "vary": "Authorization,User-Agent"
+        },
+        "hash": "b7af8dd907e6912960d1b62d89acd7d0f1620811",
+        "request": {}
+      }
+    }
+  }
+}

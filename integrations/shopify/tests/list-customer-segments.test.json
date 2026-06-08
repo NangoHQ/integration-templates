@@ -1,0 +1,169 @@
+{
+  "input": {},
+  "output": {
+    "segments": [
+      {
+        "id": "gid://shopify/Segment/516310597769",
+        "name": "Customers who haven't purchased",
+        "creationDate": "2026-06-04T08:49:32Z",
+        "lastEditDate": "2026-06-04T08:49:32Z",
+        "query": "number_of_orders = 0"
+      },
+      {
+        "id": "gid://shopify/Segment/516310630537",
+        "name": "Customers who have purchased more than once",
+        "creationDate": "2026-06-04T08:49:32Z",
+        "lastEditDate": "2026-06-04T08:49:32Z",
+        "query": "number_of_orders > 1"
+      },
+      {
+        "id": "gid://shopify/Segment/516310663305",
+        "name": "Abandoned checkouts in the last 30 days",
+        "creationDate": "2026-06-04T08:49:32Z",
+        "lastEditDate": "2026-06-04T08:49:32Z",
+        "query": "abandoned_checkout_date >= -30d"
+      },
+      {
+        "id": "gid://shopify/Segment/516310696073",
+        "name": "Email subscribers",
+        "creationDate": "2026-06-04T08:49:32Z",
+        "lastEditDate": "2026-06-04T08:49:32Z",
+        "query": "email_subscription_status = 'SUBSCRIBED'"
+      },
+      {
+        "id": "gid://shopify/Segment/516310728841",
+        "name": "Customers who have purchased at least once",
+        "creationDate": "2026-06-04T08:49:32Z",
+        "lastEditDate": "2026-06-04T08:49:32Z",
+        "query": "number_of_orders >= 1"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/admin/api/2025-10/graphql.json": {
+        "response": {
+          "data": {
+            "segments": {
+              "edges": [
+                {
+                  "cursor": "eyJsaW1pdCI6NTAsInNvcnRfZmllbGRzIjoiY3JlYXRlZF9hdCIsInNvcnRfZGlyIjoiYXNjIiwibGFzdF9pZCI6NTE2MzEwNTk3NzY5LCJsYXN0X3ZhbHVlIjpbIjIwMjYtMDYtMDQgMDg6NDk6MzIuMTA1MDY4Il0sImRpcmVjdGlvbiI6Im5leHQifQ==",
+                  "node": {
+                    "id": "gid://shopify/Segment/516310597769",
+                    "name": "Customers who haven't purchased",
+                    "creationDate": "2026-06-04T08:49:32Z",
+                    "lastEditDate": "2026-06-04T08:49:32Z",
+                    "query": "number_of_orders = 0"
+                  }
+                },
+                {
+                  "cursor": "eyJsaW1pdCI6NTAsInNvcnRfZmllbGRzIjoiY3JlYXRlZF9hdCIsInNvcnRfZGlyIjoiYXNjIiwibGFzdF9pZCI6NTE2MzEwNjMwNTM3LCJsYXN0X3ZhbHVlIjpbIjIwMjYtMDYtMDQgMDg6NDk6MzIuMTM1MDY1Il0sImRpcmVjdGlvbiI6Im5leHQifQ==",
+                  "node": {
+                    "id": "gid://shopify/Segment/516310630537",
+                    "name": "Customers who have purchased more than once",
+                    "creationDate": "2026-06-04T08:49:32Z",
+                    "lastEditDate": "2026-06-04T08:49:32Z",
+                    "query": "number_of_orders > 1"
+                  }
+                },
+                {
+                  "cursor": "eyJsaW1pdCI6NTAsInNvcnRfZmllbGRzIjoiY3JlYXRlZF9hdCIsInNvcnRfZGlyIjoiYXNjIiwibGFzdF9pZCI6NTE2MzEwNjYzMzA1LCJsYXN0X3ZhbHVlIjpbIjIwMjYtMDYtMDQgMDg6NDk6MzIuMTYyMzE2Il0sImRpcmVjdGlvbiI6Im5leHQifQ==",
+                  "node": {
+                    "id": "gid://shopify/Segment/516310663305",
+                    "name": "Abandoned checkouts in the last 30 days",
+                    "creationDate": "2026-06-04T08:49:32Z",
+                    "lastEditDate": "2026-06-04T08:49:32Z",
+                    "query": "abandoned_checkout_date >= -30d"
+                  }
+                },
+                {
+                  "cursor": "eyJsaW1pdCI6NTAsInNvcnRfZmllbGRzIjoiY3JlYXRlZF9hdCIsInNvcnRfZGlyIjoiYXNjIiwibGFzdF9pZCI6NTE2MzEwNjk2MDczLCJsYXN0X3ZhbHVlIjpbIjIwMjYtMDYtMDQgMDg6NDk6MzIuMTg5NzUzIl0sImRpcmVjdGlvbiI6Im5leHQifQ==",
+                  "node": {
+                    "id": "gid://shopify/Segment/516310696073",
+                    "name": "Email subscribers",
+                    "creationDate": "2026-06-04T08:49:32Z",
+                    "lastEditDate": "2026-06-04T08:49:32Z",
+                    "query": "email_subscription_status = 'SUBSCRIBED'"
+                  }
+                },
+                {
+                  "cursor": "eyJsaW1pdCI6NTAsInNvcnRfZmllbGRzIjoiY3JlYXRlZF9hdCIsInNvcnRfZGlyIjoiYXNjIiwibGFzdF9pZCI6NTE2MzEwNzI4ODQxLCJsYXN0X3ZhbHVlIjpbIjIwMjYtMDYtMDQgMDg6NDk6MzIuMjE3OTU1Il0sImRpcmVjdGlvbiI6Im5leHQifQ==",
+                  "node": {
+                    "id": "gid://shopify/Segment/516310728841",
+                    "name": "Customers who have purchased at least once",
+                    "creationDate": "2026-06-04T08:49:32Z",
+                    "lastEditDate": "2026-06-04T08:49:32Z",
+                    "query": "number_of_orders >= 1"
+                  }
+                }
+              ],
+              "pageInfo": {
+                "hasNextPage": false
+              }
+            }
+          },
+          "extensions": {
+            "cost": {
+              "requestedQueryCost": 9,
+              "actualQueryCost": 3,
+              "throttleStatus": {
+                "maximumAvailable": 4000,
+                "currentlyAvailable": 3997,
+                "restoreRate": 200
+              }
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 04 Jun 2026 09:49:42 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=7889238",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4838",
+          "x-ratelimit-reset": "1780566613",
+          "vary": "Accept-Encoding,Sec-Fetch-Site",
+          "referrer-policy": "origin-when-cross-origin",
+          "cf-cache-status": "DYNAMIC",
+          "x-stats-userid": "",
+          "x-stats-apiclientid": "376951341057",
+          "x-stats-apipermissionid": "695964696713",
+          "x-shopify-api-version": "2025-10",
+          "content-language": "en",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "x-shopify-api-gql-engine": "cardinal",
+          "x-dc": "gcp-us-west1,gcp-us-east1,gcp-us-east1",
+          "x-request-id": "60a4d71f-35fb-4403-a5ad-0527c7515b1c-1780566582",
+          "server-timing": "processing;dur=36, verdict_flag_enabled;desc=\"count=10\";dur=0.33, graphql;desc=\"admin/query/other\", _y;desc=\"908a2def-f836-4e84-8b05-ebd7ef63a2ea\", _s;desc=\"aea5c1e4-d611-4d39-9041-13ff7a9064cd\"",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=mFXlVvlG8bVQ%2BaLgJXVcfHJsOlNfpm0iNNotuVVg1nOrYu6UqAF9TD3BE2Np9wi%2BwwGHJQY2LsMeFat8Gt%2FMSOEjAR8AOl87yTSlWJ5gzDdcMvYGxl%2BvYjYIojo%2BygTgg%2FHc0hEuzRY%3D\"}]}",
+          "server": "cloudflare",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.01,\"max_age\":604800}",
+          "content-security-policy": "default-src 'self' data: blob: 'unsafe-inline' 'unsafe-eval' https://* shopify-pos://*; block-all-mixed-content; child-src 'self' https://* shopify-pos://*; connect-src 'self' wss://* https://*; frame-ancestors 'none'; img-src 'self' data: blob: https:; script-src https://cdn.shopify.com https://cdn.shopifycdn.net https://checkout.pci.shopifyinc.com https://checkout.pci.shopifyinc.com/build/04ed4e1/card_fields.js https://api.stripe.com https://mpsnare.iesnare.com https://appcenter.intuit.com https://www.paypal.com https://js.braintreegateway.com https://c.paypal.com https://maps.googleapis.com https://www.google-analytics.com https://v.shopify.com 'self' 'unsafe-inline' 'unsafe-eval'; upgrade-insecure-requests; report-uri /csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=60a4d71f-35fb-4403-a5ad-0527c7515b1c-1780566582; report-to shopify-csp",
+          "x-permitted-cross-domain-policies": "none",
+          "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=60a4d71f-35fb-4403-a5ad-0527c7515b1c-1780566582\"",
+          "cf-ray": "a0660774286aef10-PDX"
+        },
+        "hash": "0f45b54524c970447171a2eb6499f658816a9d26",
+        "request": {
+          "data": {
+            "query": "\n            query segments($first: Int, $after: String, $sortKey: SegmentSortKeys, $reverse: Boolean, $query: String) {\n                segments(first: $first, after: $after, sortKey: $sortKey, reverse: $reverse, query: $query) {\n                    edges {\n                        cursor\n                        node {\n                            id\n                            name\n                            creationDate\n                            lastEditDate\n                            query\n                        }\n                    }\n                    pageInfo {\n                        hasNextPage\n                    }\n                }\n            }\n        ",
+            "variables": {
+              "first": 50
+            }
+          }
+        }
+      }
+    }
+  }
+}

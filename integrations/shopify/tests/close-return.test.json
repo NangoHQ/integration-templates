@@ -1,0 +1,98 @@
+{
+  "input": {
+    "id": "gid://shopify/Return/1234567890"
+  },
+  "output": {
+    "userErrors": [
+      {
+        "code": "NOT_FOUND",
+        "field": [
+          "id"
+        ],
+        "message": "Return not found."
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/admin/api/2026-01/graphql.json": {
+        "response": {
+          "data": {
+            "returnClose": {
+              "return": null,
+              "userErrors": [
+                {
+                  "code": "NOT_FOUND",
+                  "field": [
+                    "id"
+                  ],
+                  "message": "Return not found."
+                }
+              ]
+            }
+          },
+          "extensions": {
+            "cost": {
+              "requestedQueryCost": 11,
+              "actualQueryCost": 10,
+              "throttleStatus": {
+                "maximumAvailable": 4000,
+                "currentlyAvailable": 3980,
+                "restoreRate": 200
+              }
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 04 Jun 2026 10:56:56 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=7889238",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4889",
+          "x-ratelimit-reset": "1780570642",
+          "vary": "Accept-Encoding,Sec-Fetch-Site",
+          "referrer-policy": "origin-when-cross-origin",
+          "cf-cache-status": "DYNAMIC",
+          "x-stats-userid": "",
+          "x-stats-apiclientid": "376951341057",
+          "x-stats-apipermissionid": "695964696713",
+          "x-shopify-api-version": "2026-01",
+          "content-language": "en",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "x-shopify-api-gql-engine": "cardinal",
+          "x-dc": "gcp-us-west1,gcp-us-east1,gcp-us-east1",
+          "x-request-id": "477d6bc7-4dfa-41d0-9ede-b7bf35509e0a-1780570616",
+          "server-timing": "processing;dur=51, verdict_flag_enabled;desc=\"count=10\";dur=0.498, graphql;desc=\"admin/mutation/other\", _y;desc=\"e4275ebb-1463-47f3-94ea-e5fe4acf5c81\", _s;desc=\"5834ecff-1a61-4162-8ee3-b7e449cbb39a\"",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=aIslBDYrFyf1Tw%2BIJrzSalFdZ9vC1GI%2BfM1Ma454L5LFn3Q03P1lI0Iu%2Biglh2Xbeh7rXA1MhpayatqgXjwghYAgrFxl2YT5SrWuEl43eSX2hYwMf4dtr4vsuy%2Fl3wJW4YJMdZc92Uo%3D\"}]}",
+          "server": "cloudflare",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.01,\"max_age\":604800}",
+          "content-security-policy": "default-src 'self' data: blob: 'unsafe-inline' 'unsafe-eval' https://* shopify-pos://*; block-all-mixed-content; child-src 'self' https://* shopify-pos://*; connect-src 'self' wss://* https://*; frame-ancestors 'none'; img-src 'self' data: blob: https:; script-src https://cdn.shopify.com https://cdn.shopifycdn.net https://checkout.pci.shopifyinc.com https://checkout.pci.shopifyinc.com/build/04ed4e1/card_fields.js https://api.stripe.com https://mpsnare.iesnare.com https://appcenter.intuit.com https://www.paypal.com https://js.braintreegateway.com https://c.paypal.com https://maps.googleapis.com https://www.google-analytics.com https://v.shopify.com 'self' 'unsafe-inline' 'unsafe-eval'; upgrade-insecure-requests; report-uri /csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=477d6bc7-4dfa-41d0-9ede-b7bf35509e0a-1780570616; report-to shopify-csp",
+          "x-permitted-cross-domain-policies": "none",
+          "reporting-endpoints": "shopify-csp=\"/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=477d6bc7-4dfa-41d0-9ede-b7bf35509e0a-1780570616\"",
+          "cf-ray": "a06669ee4e2111c8-PDX"
+        },
+        "hash": "8c3856c811b6d8506dc93cfd90ca9dbb178d7842",
+        "request": {
+          "data": {
+            "query": "\n            mutation ReturnClose($id: ID!) {\n                returnClose(id: $id) {\n                    return {\n                        id\n                        name\n                        status\n                        createdAt\n                        closedAt\n                        totalQuantity\n                        order {\n                            id\n                            name\n                        }\n                    }\n                    userErrors {\n                        code\n                        field\n                        message\n                    }\n                }\n            }\n        ",
+            "variables": {
+              "id": "gid://shopify/Return/1234567890"
+            }
+          }
+        }
+      }
+    }
+  }
+}
