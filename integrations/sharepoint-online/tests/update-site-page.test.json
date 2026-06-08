@@ -1,0 +1,112 @@
+{
+  "input": {
+    "siteId": "nangodevelopers.sharepoint.com,ff9cef8d-d0e4-4638-a6a6-d5374e2b31e1,d12a8199-c77a-4e48-a193-2e1288b26f13",
+    "pageId": "3ecce7b7-90d5-4e04-b881-65845bac1163",
+    "description": "Updated description via Nango action"
+  },
+  "output": {
+    "id": "3ecce7b7-90d5-4e04-b881-65845bac1163",
+    "name": "Home.aspx",
+    "webUrl": "https://nangodevelopers.sharepoint.com/sites/TestTeam-AddMember3Shared/SitePages/Home.aspx",
+    "title": "Home",
+    "description": "Updated description via Nango action",
+    "pageLayout": "home",
+    "showComments": false,
+    "showRecommendedPages": false,
+    "promotionKind": "page",
+    "createdBy": {
+      "displayName": "System Account"
+    },
+    "lastModifiedBy": {
+      "displayName": "Robin Guldener",
+      "email": "api@nangodevelopers.onmicrosoft.com"
+    },
+    "createdDateTime": "2026-05-01T00:49:38Z",
+    "lastModifiedDateTime": "2026-06-03T15:06:50Z",
+    "publishingState": {
+      "level": "published",
+      "versionId": "3.0"
+    }
+  },
+  "nango": {},
+  "api": {
+    "patch": {
+      "/v1.0/sites/nangodevelopers.sharepoint.com%2Cff9cef8d-d0e4-4638-a6a6-d5374e2b31e1%2Cd12a8199-c77a-4e48-a193-2e1288b26f13/pages/3ecce7b7-90d5-4e04-b881-65845bac1163/microsoft.graph.sitePage": {
+        "response": {
+          "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#sites('nangodevelopers.sharepoint.com%2Cff9cef8d-d0e4-4638-a6a6-d5374e2b31e1%2Cd12a8199-c77a-4e48-a193-2e1288b26f13')/pages/microsoft.graph.sitePage/$entity",
+          "@odata.etag": "\"{3ECCE7B7-90D5-4E04-B881-65845BAC1163},6\"",
+          "eTag": "\"{3ECCE7B7-90D5-4E04-B881-65845BAC1163},6\"",
+          "lastModifiedDateTime": "2026-06-03T15:06:50Z",
+          "createdDateTime": "2026-05-01T00:49:38Z",
+          "description": "Updated description via Nango action",
+          "id": "3ecce7b7-90d5-4e04-b881-65845bac1163",
+          "name": "Home.aspx",
+          "webUrl": "https://nangodevelopers.sharepoint.com/sites/TestTeam-AddMember3Shared/SitePages/Home.aspx",
+          "title": "Home",
+          "pageLayout": "home",
+          "promotionKind": "page",
+          "showComments": false,
+          "showRecommendedPages": false,
+          "contentType": {
+            "id": "0x0101009D1CB255DA76424F860D91F20E6C41180026BB75C38D86FE4F8FD2FDEA609B5A3F",
+            "name": "Site Page"
+          },
+          "createdBy": {
+            "user": {
+              "displayName": "System Account"
+            }
+          },
+          "lastModifiedBy": {
+            "user": {
+              "displayName": "Robin Guldener",
+              "email": "api@nangodevelopers.onmicrosoft.com"
+            }
+          },
+          "parentReference": {
+            "siteId": "ff9cef8d-d0e4-4638-a6a6-d5374e2b31e1"
+          },
+          "publishingState": {
+            "level": "published",
+            "versionId": "3.0"
+          },
+          "reactions": {}
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 03 Jun 2026 15:06:59 GMT",
+          "content-type": "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false;charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4962",
+          "x-ratelimit-reset": "1780499266",
+          "cache-control": "no-store, no-cache",
+          "etag": "\"{3ECCE7B7-90D5-4E04-B881-65845BAC1163},6\"",
+          "vary": "Accept-Encoding",
+          "request-id": "d29262a1-da87-4a17-a44d-09c9102eea78",
+          "client-request-id": "d29262a1-da87-4a17-a44d-09c9102eea78",
+          "x-ms-ags-diagnostic": "{\"ServerInfo\":{\"DataCenter\":\"West US 2\",\"Slice\":\"E\",\"Ring\":\"4\",\"ScaleUnit\":\"000\",\"RoleInstance\":\"CO1PEPF000000E8\"}}",
+          "splogid": "2d031aa2-20a1-d000-715d-7e353768342d",
+          "sprequestduration": "483",
+          "odata-version": "4.0"
+        },
+        "hash": "b672c1453334c65ee792ff90893ed2bd8375fdaa",
+        "request": {
+          "data": {
+            "@odata.type": "#microsoft.graph.sitePage",
+            "description": "Updated description via Nango action"
+          }
+        }
+      }
+    }
+  }
+}

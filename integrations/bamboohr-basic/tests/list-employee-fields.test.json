@@ -1,0 +1,6444 @@
+{
+  "input": {},
+  "output": {
+    "fields": [
+      {
+        "id": "4340.4",
+        "name": "401(k) - Company pays",
+        "type": "text"
+      },
+      {
+        "id": "4559.4",
+        "name": "401(k) - Company pays",
+        "type": "text"
+      },
+      {
+        "id": "4340.7",
+        "name": "401(k) - Company pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4559.7",
+        "name": "401(k) - Company pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4340.2",
+        "name": "401(k) - Coverage",
+        "type": "employee_new_benefit_coverage_type"
+      },
+      {
+        "id": "4559.2",
+        "name": "401(k) - Coverage",
+        "type": "employee_new_benefit_coverage_type"
+      },
+      {
+        "id": "4340.1",
+        "name": "401(k) - Effective date",
+        "type": "date"
+      },
+      {
+        "id": "4559.1",
+        "name": "401(k) - Effective date",
+        "type": "date"
+      },
+      {
+        "id": "4340.5",
+        "name": "401(k) - Eligibility date",
+        "type": "date"
+      },
+      {
+        "id": "4559.5",
+        "name": "401(k) - Eligibility date",
+        "type": "date"
+      },
+      {
+        "id": "4340.3",
+        "name": "401(k) - Employee pays",
+        "type": "text"
+      },
+      {
+        "id": "4559.3",
+        "name": "401(k) - Employee pays",
+        "type": "text"
+      },
+      {
+        "id": "4340.6",
+        "name": "401(k) - Employee pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4559.6",
+        "name": "401(k) - Employee pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4340",
+        "name": "401(k) - Status",
+        "type": "new_benefit_status"
+      },
+      {
+        "id": "4559",
+        "name": "401(k) - Status",
+        "type": "new_benefit_status"
+      },
+      {
+        "id": "4495.4",
+        "name": "401(k) Plan - Company pays",
+        "type": "text"
+      },
+      {
+        "id": "4495.7",
+        "name": "401(k) Plan - Company pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4495.2",
+        "name": "401(k) Plan - Coverage",
+        "type": "employee_new_benefit_coverage_type"
+      },
+      {
+        "id": "4495.1",
+        "name": "401(k) Plan - Effective date",
+        "type": "date"
+      },
+      {
+        "id": "4495.5",
+        "name": "401(k) Plan - Eligibility date",
+        "type": "date"
+      },
+      {
+        "id": "4495.3",
+        "name": "401(k) Plan - Employee pays",
+        "type": "text"
+      },
+      {
+        "id": "4495.6",
+        "name": "401(k) Plan - Employee pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4495",
+        "name": "401(k) Plan - Status",
+        "type": "new_benefit_status"
+      },
+      {
+        "id": "4604.4",
+        "name": "Accident 2026 - Company pays",
+        "type": "text"
+      },
+      {
+        "id": "4604.7",
+        "name": "Accident 2026 - Company pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4604.2",
+        "name": "Accident 2026 - Coverage",
+        "type": "employee_new_benefit_coverage_type"
+      },
+      {
+        "id": "4604.1",
+        "name": "Accident 2026 - Effective date",
+        "type": "date"
+      },
+      {
+        "id": "4604.5",
+        "name": "Accident 2026 - Eligibility date",
+        "type": "date"
+      },
+      {
+        "id": "4604.3",
+        "name": "Accident 2026 - Employee pays",
+        "type": "text"
+      },
+      {
+        "id": "4604.6",
+        "name": "Accident 2026 - Employee pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4604",
+        "name": "Accident 2026 - Status",
+        "type": "new_benefit_status"
+      },
+      {
+        "id": "4503.4",
+        "name": "Accident delete - Company pays",
+        "type": "text"
+      },
+      {
+        "id": "4503.7",
+        "name": "Accident delete - Company pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4503.2",
+        "name": "Accident delete - Coverage",
+        "type": "employee_new_benefit_coverage_type"
+      },
+      {
+        "id": "4503.1",
+        "name": "Accident delete - Effective date",
+        "type": "date"
+      },
+      {
+        "id": "4503.5",
+        "name": "Accident delete - Eligibility date",
+        "type": "date"
+      },
+      {
+        "id": "4503.3",
+        "name": "Accident delete - Employee pays",
+        "type": "text"
+      },
+      {
+        "id": "4503.6",
+        "name": "Accident delete - Employee pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4503",
+        "name": "Accident delete - Status",
+        "type": "new_benefit_status"
+      },
+      {
+        "id": "4175",
+        "name": "Accrual Level Start Date",
+        "type": "date"
+      },
+      {
+        "id": "8",
+        "name": "Address Line 1",
+        "type": "text"
+      },
+      {
+        "id": "9",
+        "name": "Address Line 2",
+        "type": "text"
+      },
+      {
+        "id": "4404",
+        "name": "Allergies",
+        "type": "text"
+      },
+      {
+        "id": "4602",
+        "name": "Allowance (per Mile)",
+        "type": "currency"
+      },
+      {
+        "id": "4602.1",
+        "name": "Allowance (per Mile) - Currency code",
+        "type": "text"
+      },
+      {
+        "id": "4510",
+        "name": "Annual Amount",
+        "type": "currency"
+      },
+      {
+        "id": "4510.1",
+        "name": "Annual Amount - Currency code",
+        "type": "text"
+      },
+      {
+        "id": "4511",
+        "name": "Annual Percentage",
+        "type": "percentage"
+      },
+      {
+        "id": "4546",
+        "name": "Annual Security Training - Completed",
+        "type": "date"
+      },
+      {
+        "id": "4546.2",
+        "name": "Annual Security Training - Due Date",
+        "type": "date"
+      },
+      {
+        "id": "4546.1",
+        "name": "Annual Security Training - Expires",
+        "type": "date"
+      },
+      {
+        "id": "4603",
+        "name": "Approval",
+        "type": "list"
+      },
+      {
+        "id": "4613",
+        "name": "Approved By",
+        "type": "text"
+      },
+      {
+        "id": "4372",
+        "name": "Asset Category",
+        "type": "list"
+      },
+      {
+        "id": "4373",
+        "name": "Asset Description",
+        "type": "text"
+      },
+      {
+        "id": "4458",
+        "name": "BambooHR Advantage Package Demo Video - Completed",
+        "type": "date"
+      },
+      {
+        "id": "4458.2",
+        "name": "BambooHR Advantage Package Demo Video - Due Date",
+        "type": "date"
+      },
+      {
+        "id": "4458.1",
+        "name": "BambooHR Advantage Package Demo Video - Expires",
+        "type": "date"
+      },
+      {
+        "id": "4507.4",
+        "name": "Basic Life - Company pays",
+        "type": "text"
+      },
+      {
+        "id": "4507.7",
+        "name": "Basic Life - Company pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4507.2",
+        "name": "Basic Life - Coverage",
+        "type": "employee_new_benefit_coverage_type"
+      },
+      {
+        "id": "4507.1",
+        "name": "Basic Life - Effective date",
+        "type": "date"
+      },
+      {
+        "id": "4507.5",
+        "name": "Basic Life - Eligibility date",
+        "type": "date"
+      },
+      {
+        "id": "4507.3",
+        "name": "Basic Life - Employee pays",
+        "type": "text"
+      },
+      {
+        "id": "4507.6",
+        "name": "Basic Life - Employee pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4507",
+        "name": "Basic Life - Status",
+        "type": "new_benefit_status"
+      },
+      {
+        "id": "4565.4",
+        "name": "Basic Life 2026 delete - Company pays",
+        "type": "text"
+      },
+      {
+        "id": "4565.7",
+        "name": "Basic Life 2026 delete - Company pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4565.2",
+        "name": "Basic Life 2026 delete - Coverage",
+        "type": "employee_new_benefit_coverage_type"
+      },
+      {
+        "id": "4565.1",
+        "name": "Basic Life 2026 delete - Effective date",
+        "type": "date"
+      },
+      {
+        "id": "4565.5",
+        "name": "Basic Life 2026 delete - Eligibility date",
+        "type": "date"
+      },
+      {
+        "id": "4565.3",
+        "name": "Basic Life 2026 delete - Employee pays",
+        "type": "text"
+      },
+      {
+        "id": "4565.6",
+        "name": "Basic Life 2026 delete - Employee pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4565",
+        "name": "Basic Life 2026 delete - Status",
+        "type": "new_benefit_status"
+      },
+      {
+        "id": "4561.4",
+        "name": "Basic Life Insurance - Company pays",
+        "type": "text"
+      },
+      {
+        "id": "4561.7",
+        "name": "Basic Life Insurance - Company pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4561.2",
+        "name": "Basic Life Insurance - Coverage",
+        "type": "employee_new_benefit_coverage_type"
+      },
+      {
+        "id": "4561.1",
+        "name": "Basic Life Insurance - Effective date",
+        "type": "date"
+      },
+      {
+        "id": "4561.5",
+        "name": "Basic Life Insurance - Eligibility date",
+        "type": "date"
+      },
+      {
+        "id": "4561.3",
+        "name": "Basic Life Insurance - Employee pays",
+        "type": "text"
+      },
+      {
+        "id": "4561.6",
+        "name": "Basic Life Insurance - Employee pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4561",
+        "name": "Basic Life Insurance - Status",
+        "type": "new_benefit_status"
+      },
+      {
+        "id": "1502",
+        "name": "Benefit History",
+        "type": "benefit_history"
+      },
+      {
+        "id": "4354.6",
+        "name": "Bereavement - Adjustments (YTD)",
+        "type": "int"
+      },
+      {
+        "id": "4354.3",
+        "name": "Bereavement - Available Balance",
+        "type": "int"
+      },
+      {
+        "id": "4354.7",
+        "name": "Bereavement - Current balance",
+        "type": "time_off_type"
+      },
+      {
+        "id": "4354.8",
+        "name": "Bereavement - Effective Date",
+        "type": "time_off_type"
+      },
+      {
+        "id": "4354.2",
+        "name": "Bereavement - Policy",
+        "type": "text"
+      },
+      {
+        "id": "4354",
+        "name": "Bereavement - Policy Assigned",
+        "type": "time_off_type_exists"
+      },
+      {
+        "id": "4354.1",
+        "name": "Bereavement - Time accrued",
+        "type": "int"
+      },
+      {
+        "id": "4354.5",
+        "name": "Bereavement - Time scheduled",
+        "type": "int"
+      },
+      {
+        "id": "4354.4",
+        "name": "Bereavement - Time taken (YTD)",
+        "type": "int"
+      },
+      {
+        "id": "6",
+        "name": "Birth Date",
+        "type": "date"
+      },
+      {
+        "id": "4152",
+        "name": "Bonus: Amount",
+        "type": "currency"
+      },
+      {
+        "id": "4152.1",
+        "name": "Bonus: Amount - Currency code",
+        "type": "text"
+      },
+      {
+        "id": "4154",
+        "name": "Bonus: Comment",
+        "type": "textarea"
+      },
+      {
+        "id": "4151",
+        "name": "Bonus: Date",
+        "type": "date"
+      },
+      {
+        "id": "4153",
+        "name": "Bonus: Reason",
+        "type": "list"
+      },
+      {
+        "id": "4353.4",
+        "name": "CA Health Insurance - Company pays",
+        "type": "text"
+      },
+      {
+        "id": "4353.7",
+        "name": "CA Health Insurance - Company pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4353.2",
+        "name": "CA Health Insurance - Coverage",
+        "type": "employee_new_benefit_coverage_type"
+      },
+      {
+        "id": "4353.1",
+        "name": "CA Health Insurance - Effective date",
+        "type": "date"
+      },
+      {
+        "id": "4353.5",
+        "name": "CA Health Insurance - Eligibility date",
+        "type": "date"
+      },
+      {
+        "id": "4353.3",
+        "name": "CA Health Insurance - Employee pays",
+        "type": "text"
+      },
+      {
+        "id": "4353.6",
+        "name": "CA Health Insurance - Employee pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4353",
+        "name": "CA Health Insurance - Status",
+        "type": "new_benefit_status"
+      },
+      {
+        "id": "4592",
+        "name": "Category",
+        "type": "list"
+      },
+      {
+        "id": "10",
+        "name": "City",
+        "type": "text"
+      },
+      {
+        "id": "4293",
+        "name": "College/Institution",
+        "type": "text"
+      },
+      {
+        "id": "4155",
+        "name": "Commission",
+        "type": "commission"
+      },
+      {
+        "id": "4157",
+        "name": "Commission: Amount",
+        "type": "currency"
+      },
+      {
+        "id": "4157.1",
+        "name": "Commission: Amount - Currency code",
+        "type": "text"
+      },
+      {
+        "id": "4158",
+        "name": "Commission: Comment",
+        "type": "textarea"
+      },
+      {
+        "id": "4156",
+        "name": "Commission: Date",
+        "type": "date"
+      },
+      {
+        "id": "4366.6",
+        "name": "Comp/In Lieu Time - Adjustments (YTD)",
+        "type": "int"
+      },
+      {
+        "id": "4366.3",
+        "name": "Comp/In Lieu Time - Available Balance",
+        "type": "int"
+      },
+      {
+        "id": "4366.7",
+        "name": "Comp/In Lieu Time - Current balance",
+        "type": "time_off_type"
+      },
+      {
+        "id": "4366.8",
+        "name": "Comp/In Lieu Time - Effective Date",
+        "type": "time_off_type"
+      },
+      {
+        "id": "4366.2",
+        "name": "Comp/In Lieu Time - Policy",
+        "type": "text"
+      },
+      {
+        "id": "4366",
+        "name": "Comp/In Lieu Time - Policy Assigned",
+        "type": "time_off_type_exists"
+      },
+      {
+        "id": "4366.1",
+        "name": "Comp/In Lieu Time - Time accrued",
+        "type": "int"
+      },
+      {
+        "id": "4366.5",
+        "name": "Comp/In Lieu Time - Time scheduled",
+        "type": "int"
+      },
+      {
+        "id": "4366.4",
+        "name": "Comp/In Lieu Time - Time taken (YTD)",
+        "type": "int"
+      },
+      {
+        "id": "4348",
+        "name": "Company Handbook Quiz - Completed",
+        "type": "date"
+      },
+      {
+        "id": "4348.2",
+        "name": "Company Handbook Quiz - Due Date",
+        "type": "date"
+      },
+      {
+        "id": "4348.1",
+        "name": "Company Handbook Quiz - Expires",
+        "type": "date"
+      },
+      {
+        "id": "4021",
+        "name": "Compensation: Date",
+        "type": "date"
+      },
+      {
+        "id": "4017",
+        "name": "Compensation Change Reason",
+        "type": "list"
+      },
+      {
+        "id": "4045",
+        "name": "Compensation comments",
+        "type": "textarea"
+      },
+      {
+        "id": "4020.1",
+        "name": "Completed - Category",
+        "type": "list"
+      },
+      {
+        "id": "4020.2",
+        "name": "Completed - Completed",
+        "type": "date"
+      },
+      {
+        "id": "4020.3",
+        "name": "Completed - Cost",
+        "type": "currency"
+      },
+      {
+        "id": "4020.4",
+        "name": "Completed - Credits",
+        "type": "int"
+      },
+      {
+        "id": "4020.5",
+        "name": "Completed - Hours",
+        "type": "int"
+      },
+      {
+        "id": "4020.6",
+        "name": "Completed - Instructor",
+        "type": "text"
+      },
+      {
+        "id": "4020.7",
+        "name": "Completed - Notes",
+        "type": "text"
+      },
+      {
+        "id": "4020",
+        "name": "Completed - Title",
+        "type": "training_type"
+      },
+      {
+        "id": "3991",
+        "name": "Country",
+        "type": "country"
+      },
+      {
+        "id": "4453.6",
+        "name": "COVID-19 Related Absence - Adjustments (YTD)",
+        "type": "int"
+      },
+      {
+        "id": "4453.3",
+        "name": "COVID-19 Related Absence - Available Balance",
+        "type": "int"
+      },
+      {
+        "id": "4453.7",
+        "name": "COVID-19 Related Absence - Current balance",
+        "type": "time_off_type"
+      },
+      {
+        "id": "4453.8",
+        "name": "COVID-19 Related Absence - Effective Date",
+        "type": "time_off_type"
+      },
+      {
+        "id": "4453.2",
+        "name": "COVID-19 Related Absence - Policy",
+        "type": "text"
+      },
+      {
+        "id": "4453",
+        "name": "COVID-19 Related Absence - Policy Assigned",
+        "type": "time_off_type_exists"
+      },
+      {
+        "id": "4453.1",
+        "name": "COVID-19 Related Absence - Time accrued",
+        "type": "int"
+      },
+      {
+        "id": "4453.5",
+        "name": "COVID-19 Related Absence - Time scheduled",
+        "type": "int"
+      },
+      {
+        "id": "4453.4",
+        "name": "COVID-19 Related Absence - Time taken (YTD)",
+        "type": "int"
+      },
+      {
+        "id": "4349",
+        "name": "CPR - Completed",
+        "type": "date"
+      },
+      {
+        "id": "4349.2",
+        "name": "CPR - Due Date",
+        "type": "date"
+      },
+      {
+        "id": "4349.1",
+        "name": "CPR - Expires",
+        "type": "date"
+      },
+      {
+        "id": "4573.4",
+        "name": "Critical Illness 2026 - Company pays",
+        "type": "text"
+      },
+      {
+        "id": "4573.7",
+        "name": "Critical Illness 2026 - Company pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4573.2",
+        "name": "Critical Illness 2026 - Coverage",
+        "type": "employee_new_benefit_coverage_type"
+      },
+      {
+        "id": "4573.1",
+        "name": "Critical Illness 2026 - Effective date",
+        "type": "date"
+      },
+      {
+        "id": "4573.5",
+        "name": "Critical Illness 2026 - Eligibility date",
+        "type": "date"
+      },
+      {
+        "id": "4573.3",
+        "name": "Critical Illness 2026 - Employee pays",
+        "type": "text"
+      },
+      {
+        "id": "4573.6",
+        "name": "Critical Illness 2026 - Employee pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4573",
+        "name": "Critical Illness 2026 - Status",
+        "type": "new_benefit_status"
+      },
+      {
+        "id": "4504.4",
+        "name": "Critical Illness delete - Company pays",
+        "type": "text"
+      },
+      {
+        "id": "4504.7",
+        "name": "Critical Illness delete - Company pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4504.2",
+        "name": "Critical Illness delete - Coverage",
+        "type": "employee_new_benefit_coverage_type"
+      },
+      {
+        "id": "4504.1",
+        "name": "Critical Illness delete - Effective date",
+        "type": "date"
+      },
+      {
+        "id": "4504.5",
+        "name": "Critical Illness delete - Eligibility date",
+        "type": "date"
+      },
+      {
+        "id": "4504.3",
+        "name": "Critical Illness delete - Employee pays",
+        "type": "text"
+      },
+      {
+        "id": "4504.6",
+        "name": "Critical Illness delete - Employee pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4504",
+        "name": "Critical Illness delete - Status",
+        "type": "new_benefit_status"
+      },
+      {
+        "id": "4591",
+        "name": "Date",
+        "type": "date"
+      },
+      {
+        "id": "4598",
+        "name": "Date",
+        "type": "date"
+      },
+      {
+        "id": "4611",
+        "name": "Date",
+        "type": "date"
+      },
+      {
+        "id": "4615",
+        "name": "Date",
+        "type": "date"
+      },
+      {
+        "id": "4376",
+        "name": "Date Assigned",
+        "type": "date"
+      },
+      {
+        "id": "4608",
+        "name": "Date Issued",
+        "type": "date"
+      },
+      {
+        "id": "4596",
+        "name": "Date Reimbursed",
+        "type": "date"
+      },
+      {
+        "id": "4377",
+        "name": "Date Returned",
+        "type": "date"
+      },
+      {
+        "id": "4524",
+        "name": "Deductions",
+        "type": "deductions"
+      },
+      {
+        "id": "4294",
+        "name": "Degree",
+        "type": "list"
+      },
+      {
+        "id": "4499.4",
+        "name": "Dental Basic - Company pays",
+        "type": "text"
+      },
+      {
+        "id": "4499.7",
+        "name": "Dental Basic - Company pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4499.2",
+        "name": "Dental Basic - Coverage",
+        "type": "employee_new_benefit_coverage_type"
+      },
+      {
+        "id": "4499.1",
+        "name": "Dental Basic - Effective date",
+        "type": "date"
+      },
+      {
+        "id": "4499.5",
+        "name": "Dental Basic - Eligibility date",
+        "type": "date"
+      },
+      {
+        "id": "4499.3",
+        "name": "Dental Basic - Employee pays",
+        "type": "text"
+      },
+      {
+        "id": "4499.6",
+        "name": "Dental Basic - Employee pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4499",
+        "name": "Dental Basic - Status",
+        "type": "new_benefit_status"
+      },
+      {
+        "id": "4555.4",
+        "name": "Dental Basic 2026 - Company pays",
+        "type": "text"
+      },
+      {
+        "id": "4555.7",
+        "name": "Dental Basic 2026 - Company pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4555.2",
+        "name": "Dental Basic 2026 - Coverage",
+        "type": "employee_new_benefit_coverage_type"
+      },
+      {
+        "id": "4555.1",
+        "name": "Dental Basic 2026 - Effective date",
+        "type": "date"
+      },
+      {
+        "id": "4555.5",
+        "name": "Dental Basic 2026 - Eligibility date",
+        "type": "date"
+      },
+      {
+        "id": "4555.3",
+        "name": "Dental Basic 2026 - Employee pays",
+        "type": "text"
+      },
+      {
+        "id": "4555.6",
+        "name": "Dental Basic 2026 - Employee pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4555",
+        "name": "Dental Basic 2026 - Status",
+        "type": "new_benefit_status"
+      },
+      {
+        "id": "4345.4",
+        "name": "Dental Insurance - Company pays",
+        "type": "text"
+      },
+      {
+        "id": "4345.7",
+        "name": "Dental Insurance - Company pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4345.2",
+        "name": "Dental Insurance - Coverage",
+        "type": "employee_new_benefit_coverage_type"
+      },
+      {
+        "id": "4345.1",
+        "name": "Dental Insurance - Effective date",
+        "type": "date"
+      },
+      {
+        "id": "4345.5",
+        "name": "Dental Insurance - Eligibility date",
+        "type": "date"
+      },
+      {
+        "id": "4345.3",
+        "name": "Dental Insurance - Employee pays",
+        "type": "text"
+      },
+      {
+        "id": "4345.6",
+        "name": "Dental Insurance - Employee pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4345",
+        "name": "Dental Insurance - Status",
+        "type": "new_benefit_status"
+      },
+      {
+        "id": "4500.4",
+        "name": "Dental Plus - Company pays",
+        "type": "text"
+      },
+      {
+        "id": "4500.7",
+        "name": "Dental Plus - Company pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4500.2",
+        "name": "Dental Plus - Coverage",
+        "type": "employee_new_benefit_coverage_type"
+      },
+      {
+        "id": "4500.1",
+        "name": "Dental Plus - Effective date",
+        "type": "date"
+      },
+      {
+        "id": "4500.5",
+        "name": "Dental Plus - Eligibility date",
+        "type": "date"
+      },
+      {
+        "id": "4500.3",
+        "name": "Dental Plus - Employee pays",
+        "type": "text"
+      },
+      {
+        "id": "4500.6",
+        "name": "Dental Plus - Employee pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4500",
+        "name": "Dental Plus - Status",
+        "type": "new_benefit_status"
+      },
+      {
+        "id": "4556.4",
+        "name": "Dental Plus 2026 - Company pays",
+        "type": "text"
+      },
+      {
+        "id": "4556.7",
+        "name": "Dental Plus 2026 - Company pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4556.2",
+        "name": "Dental Plus 2026 - Coverage",
+        "type": "employee_new_benefit_coverage_type"
+      },
+      {
+        "id": "4556.1",
+        "name": "Dental Plus 2026 - Effective date",
+        "type": "date"
+      },
+      {
+        "id": "4556.5",
+        "name": "Dental Plus 2026 - Eligibility date",
+        "type": "date"
+      },
+      {
+        "id": "4556.3",
+        "name": "Dental Plus 2026 - Employee pays",
+        "type": "text"
+      },
+      {
+        "id": "4556.6",
+        "name": "Dental Plus 2026 - Employee pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4556",
+        "name": "Dental Plus 2026 - Status",
+        "type": "new_benefit_status"
+      },
+      {
+        "id": "4",
+        "name": "Department",
+        "type": "list"
+      },
+      {
+        "id": "1928",
+        "name": "Dependent Birth Date",
+        "type": "date"
+      },
+      {
+        "id": "1931",
+        "name": "Dependent City",
+        "type": "text"
+      },
+      {
+        "id": "3992",
+        "name": "Dependent Country",
+        "type": "country"
+      },
+      {
+        "id": "1923",
+        "name": "Dependent First Name",
+        "type": "text"
+      },
+      {
+        "id": "4301",
+        "name": "Dependent Full-Time Student",
+        "type": "checkbox"
+      },
+      {
+        "id": "1927",
+        "name": "Dependent Gender",
+        "type": "gender"
+      },
+      {
+        "id": "1935",
+        "name": "Dependent Home Phone",
+        "type": "phone"
+      },
+      {
+        "id": "1924",
+        "name": "Dependent Last Name",
+        "type": "text"
+      },
+      {
+        "id": "1925",
+        "name": "Dependent Middle Name",
+        "type": "text"
+      },
+      {
+        "id": "1926",
+        "name": "Dependent Relationship",
+        "type": "relationship"
+      },
+      {
+        "id": "1933",
+        "name": "Dependent SSN",
+        "type": "ssn"
+      },
+      {
+        "id": "1932",
+        "name": "Dependent State",
+        "type": "state"
+      },
+      {
+        "id": "1929",
+        "name": "Dependent Street 1",
+        "type": "text"
+      },
+      {
+        "id": "1930",
+        "name": "Dependent Street 2",
+        "type": "text"
+      },
+      {
+        "id": "4300",
+        "name": "Dependent US Citizen",
+        "type": "checkbox"
+      },
+      {
+        "id": "1934",
+        "name": "Dependent ZIP",
+        "type": "text"
+      },
+      {
+        "id": "4599",
+        "name": "Destination",
+        "type": "textarea"
+      },
+      {
+        "id": "4405",
+        "name": "Dietary Restrictions",
+        "type": "textarea"
+      },
+      {
+        "id": "4397",
+        "name": "Direct Deposit",
+        "type": "direct_deposit"
+      },
+      {
+        "id": "4342.4",
+        "name": "Disability - Company pays",
+        "type": "text"
+      },
+      {
+        "id": "4342.7",
+        "name": "Disability - Company pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4342.2",
+        "name": "Disability - Coverage",
+        "type": "employee_new_benefit_coverage_type"
+      },
+      {
+        "id": "4342.1",
+        "name": "Disability - Effective date",
+        "type": "date"
+      },
+      {
+        "id": "4342.5",
+        "name": "Disability - Eligibility date",
+        "type": "date"
+      },
+      {
+        "id": "4342.3",
+        "name": "Disability - Employee pays",
+        "type": "text"
+      },
+      {
+        "id": "4342.6",
+        "name": "Disability - Employee pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4342",
+        "name": "Disability - Status",
+        "type": "new_benefit_status"
+      },
+      {
+        "id": "1355",
+        "name": "Division",
+        "type": "list"
+      },
+      {
+        "id": "157",
+        "name": "EEO Job Category",
+        "type": "list"
+      },
+      {
+        "id": "4315",
+        "name": "Eligible For Re-hire",
+        "type": "list"
+      },
+      {
+        "id": "692",
+        "name": "Emergency Contact City",
+        "type": "text"
+      },
+      {
+        "id": "3993",
+        "name": "Emergency Contact Country",
+        "type": "country"
+      },
+      {
+        "id": "2123",
+        "name": "Emergency Contact Email",
+        "type": "email"
+      },
+      {
+        "id": "159",
+        "name": "Emergency Contact Home Phone",
+        "type": "phone"
+      },
+      {
+        "id": "693",
+        "name": "Emergency Contact Mobile Phone",
+        "type": "phone"
+      },
+      {
+        "id": "158",
+        "name": "Emergency Contact Name",
+        "type": "text"
+      },
+      {
+        "id": "4289",
+        "name": "Emergency Contact Primary",
+        "type": "checkbox"
+      },
+      {
+        "id": "160",
+        "name": "Emergency Contact Relationship",
+        "type": "list"
+      },
+      {
+        "id": "4299",
+        "name": "Emergency Contacts",
+        "type": "employee_contacts"
+      },
+      {
+        "id": "690",
+        "name": "Emergency Contact State",
+        "type": "state"
+      },
+      {
+        "id": "691",
+        "name": "Emergency Contact Street 1",
+        "type": "text"
+      },
+      {
+        "id": "2124",
+        "name": "Emergency Contact Street 2",
+        "type": "text"
+      },
+      {
+        "id": "4063",
+        "name": "Emergency Contact Work Ext",
+        "type": "text"
+      },
+      {
+        "id": "4044",
+        "name": "Emergency Contact Work Phone",
+        "type": "phone"
+      },
+      {
+        "id": "689",
+        "name": "Emergency Contact ZIP Code",
+        "type": "text"
+      },
+      {
+        "id": "636",
+        "name": "Employee #",
+        "type": "employee_number"
+      },
+      {
+        "id": "4298",
+        "name": "Employee Education: End Date",
+        "type": "date"
+      },
+      {
+        "id": "4297",
+        "name": "Employee Education: Start Date",
+        "type": "date"
+      },
+      {
+        "id": "16",
+        "name": "Employment Status",
+        "type": "list"
+      },
+      {
+        "id": "16.1",
+        "name": "Employment Status - FTE",
+        "type": "list"
+      },
+      {
+        "id": "4302",
+        "name": "Employment Status: ACA Full-Time",
+        "type": "aca_status"
+      },
+      {
+        "id": "1936",
+        "name": "Employment Status: Date",
+        "type": "date"
+      },
+      {
+        "id": "4046",
+        "name": "Employment status comments",
+        "type": "textarea"
+      },
+      {
+        "id": "4517",
+        "name": "Equity: # of Equity Granted",
+        "type": "int"
+      },
+      {
+        "id": "4521",
+        "name": "Equity: Cliff Months",
+        "type": "int"
+      },
+      {
+        "id": "4516",
+        "name": "Equity: Custom Grant Type Name",
+        "type": "text"
+      },
+      {
+        "id": "4513",
+        "name": "Equity: Grant Date",
+        "type": "date"
+      },
+      {
+        "id": "4515",
+        "name": "Equity: Grant Type",
+        "type": "list"
+      },
+      {
+        "id": "4518",
+        "name": "Equity: Strike Price",
+        "type": "currency"
+      },
+      {
+        "id": "4518.1",
+        "name": "Equity: Strike Price - Currency code",
+        "type": "text"
+      },
+      {
+        "id": "4520",
+        "name": "Equity: Vesting Months",
+        "type": "int"
+      },
+      {
+        "id": "4519",
+        "name": "Equity: Vesting Schedule",
+        "type": "list"
+      },
+      {
+        "id": "4514",
+        "name": "Equity: Vesting Start Date",
+        "type": "date"
+      },
+      {
+        "id": "1037",
+        "name": "Ethnicity",
+        "type": "list"
+      },
+      {
+        "id": "4173",
+        "name": "Expiration",
+        "type": "date"
+      },
+      {
+        "id": "4609",
+        "name": "Expiration Date",
+        "type": "date"
+      },
+      {
+        "id": "4571",
+        "name": "Extra Pay",
+        "type": "extra_pay"
+      },
+      {
+        "id": "4057",
+        "name": "Facebook URL",
+        "type": "contact_url"
+      },
+      {
+        "id": "4398",
+        "name": "Federal W-4 Withholding",
+        "type": "federal_tax_withholding"
+      },
+      {
+        "id": "4595",
+        "name": "Finance Approval",
+        "type": "list"
+      },
+      {
+        "id": "4350",
+        "name": "First Aid - Completed",
+        "type": "date"
+      },
+      {
+        "id": "4350.2",
+        "name": "First Aid - Due Date",
+        "type": "date"
+      },
+      {
+        "id": "4350.1",
+        "name": "First Aid - Expires",
+        "type": "date"
+      },
+      {
+        "id": "1",
+        "name": "First Name",
+        "type": "text"
+      },
+      {
+        "id": "4363.6",
+        "name": "FMLA - Adjustments (YTD)",
+        "type": "int"
+      },
+      {
+        "id": "4363.3",
+        "name": "FMLA - Available Balance",
+        "type": "int"
+      },
+      {
+        "id": "4363.7",
+        "name": "FMLA - Current balance",
+        "type": "time_off_type"
+      },
+      {
+        "id": "4363.8",
+        "name": "FMLA - Effective Date",
+        "type": "time_off_type"
+      },
+      {
+        "id": "4363.2",
+        "name": "FMLA - Policy",
+        "type": "text"
+      },
+      {
+        "id": "4363",
+        "name": "FMLA - Policy Assigned",
+        "type": "time_off_type_exists"
+      },
+      {
+        "id": "4363.1",
+        "name": "FMLA - Time accrued",
+        "type": "int"
+      },
+      {
+        "id": "4363.5",
+        "name": "FMLA - Time scheduled",
+        "type": "int"
+      },
+      {
+        "id": "4363.4",
+        "name": "FMLA - Time taken (YTD)",
+        "type": "int"
+      },
+      {
+        "id": "4498.4",
+        "name": "FSA-Eligible HMO - Company pays",
+        "type": "text"
+      },
+      {
+        "id": "4498.7",
+        "name": "FSA-Eligible HMO - Company pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4498.2",
+        "name": "FSA-Eligible HMO - Coverage",
+        "type": "employee_new_benefit_coverage_type"
+      },
+      {
+        "id": "4498.1",
+        "name": "FSA-Eligible HMO - Effective date",
+        "type": "date"
+      },
+      {
+        "id": "4498.5",
+        "name": "FSA-Eligible HMO - Eligibility date",
+        "type": "date"
+      },
+      {
+        "id": "4498.3",
+        "name": "FSA-Eligible HMO - Employee pays",
+        "type": "text"
+      },
+      {
+        "id": "4498.6",
+        "name": "FSA-Eligible HMO - Employee pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4498",
+        "name": "FSA-Eligible HMO - Status",
+        "type": "new_benefit_status"
+      },
+      {
+        "id": "4554.4",
+        "name": "FSA-Eligible HMO 2026 - Company pays",
+        "type": "text"
+      },
+      {
+        "id": "4554.7",
+        "name": "FSA-Eligible HMO 2026 - Company pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4554.2",
+        "name": "FSA-Eligible HMO 2026 - Coverage",
+        "type": "employee_new_benefit_coverage_type"
+      },
+      {
+        "id": "4554.1",
+        "name": "FSA-Eligible HMO 2026 - Effective date",
+        "type": "date"
+      },
+      {
+        "id": "4554.5",
+        "name": "FSA-Eligible HMO 2026 - Eligibility date",
+        "type": "date"
+      },
+      {
+        "id": "4554.3",
+        "name": "FSA-Eligible HMO 2026 - Employee pays",
+        "type": "text"
+      },
+      {
+        "id": "4554.6",
+        "name": "FSA-Eligible HMO 2026 - Employee pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4554",
+        "name": "FSA-Eligible HMO 2026 - Status",
+        "type": "new_benefit_status"
+      },
+      {
+        "id": "4612",
+        "name": "Full Plan Description",
+        "type": "textarea"
+      },
+      {
+        "id": "154",
+        "name": "Gender",
+        "type": "gender"
+      },
+      {
+        "id": "4457",
+        "name": "Getting Started in BambooHR - Completed",
+        "type": "date"
+      },
+      {
+        "id": "4457.2",
+        "name": "Getting Started in BambooHR - Due Date",
+        "type": "date"
+      },
+      {
+        "id": "4457.1",
+        "name": "Getting Started in BambooHR - Expires",
+        "type": "date"
+      },
+      {
+        "id": "4296",
+        "name": "GPA",
+        "type": "text"
+      },
+      {
+        "id": "4528.4",
+        "name": "Gym Reimbursement - Company pays",
+        "type": "text"
+      },
+      {
+        "id": "4528.7",
+        "name": "Gym Reimbursement - Company pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4528.2",
+        "name": "Gym Reimbursement - Coverage",
+        "type": "employee_new_benefit_coverage_type"
+      },
+      {
+        "id": "4528.1",
+        "name": "Gym Reimbursement - Effective date",
+        "type": "date"
+      },
+      {
+        "id": "4528.5",
+        "name": "Gym Reimbursement - Eligibility date",
+        "type": "date"
+      },
+      {
+        "id": "4528.3",
+        "name": "Gym Reimbursement - Employee pays",
+        "type": "text"
+      },
+      {
+        "id": "4528.6",
+        "name": "Gym Reimbursement - Employee pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4528",
+        "name": "Gym Reimbursement - Status",
+        "type": "new_benefit_status"
+      },
+      {
+        "id": "4551.4",
+        "name": "Gym Reimbursement Plan delete - Company pays",
+        "type": "text"
+      },
+      {
+        "id": "4551.7",
+        "name": "Gym Reimbursement Plan delete - Company pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4551.2",
+        "name": "Gym Reimbursement Plan delete - Coverage",
+        "type": "employee_new_benefit_coverage_type"
+      },
+      {
+        "id": "4551.1",
+        "name": "Gym Reimbursement Plan delete - Effective date",
+        "type": "date"
+      },
+      {
+        "id": "4551.5",
+        "name": "Gym Reimbursement Plan delete - Eligibility date",
+        "type": "date"
+      },
+      {
+        "id": "4551.3",
+        "name": "Gym Reimbursement Plan delete - Employee pays",
+        "type": "text"
+      },
+      {
+        "id": "4551.6",
+        "name": "Gym Reimbursement Plan delete - Employee pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4551",
+        "name": "Gym Reimbursement Plan delete - Status",
+        "type": "new_benefit_status"
+      },
+      {
+        "id": "4496.4",
+        "name": "HDHP 1 - Company pays",
+        "type": "text"
+      },
+      {
+        "id": "4496.7",
+        "name": "HDHP 1 - Company pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4496.2",
+        "name": "HDHP 1 - Coverage",
+        "type": "employee_new_benefit_coverage_type"
+      },
+      {
+        "id": "4496.1",
+        "name": "HDHP 1 - Effective date",
+        "type": "date"
+      },
+      {
+        "id": "4496.5",
+        "name": "HDHP 1 - Eligibility date",
+        "type": "date"
+      },
+      {
+        "id": "4496.3",
+        "name": "HDHP 1 - Employee pays",
+        "type": "text"
+      },
+      {
+        "id": "4496.6",
+        "name": "HDHP 1 - Employee pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4496",
+        "name": "HDHP 1 - Status",
+        "type": "new_benefit_status"
+      },
+      {
+        "id": "4497.4",
+        "name": "HDHP 2 - Company pays",
+        "type": "text"
+      },
+      {
+        "id": "4497.7",
+        "name": "HDHP 2 - Company pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4497.2",
+        "name": "HDHP 2 - Coverage",
+        "type": "employee_new_benefit_coverage_type"
+      },
+      {
+        "id": "4497.1",
+        "name": "HDHP 2 - Effective date",
+        "type": "date"
+      },
+      {
+        "id": "4497.5",
+        "name": "HDHP 2 - Eligibility date",
+        "type": "date"
+      },
+      {
+        "id": "4497.3",
+        "name": "HDHP 2 - Employee pays",
+        "type": "text"
+      },
+      {
+        "id": "4497.6",
+        "name": "HDHP 2 - Employee pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4497",
+        "name": "HDHP 2 - Status",
+        "type": "new_benefit_status"
+      },
+      {
+        "id": "4553.4",
+        "name": "HDHP Gold 2026 - Company pays",
+        "type": "text"
+      },
+      {
+        "id": "4553.7",
+        "name": "HDHP Gold 2026 - Company pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4553.2",
+        "name": "HDHP Gold 2026 - Coverage",
+        "type": "employee_new_benefit_coverage_type"
+      },
+      {
+        "id": "4553.1",
+        "name": "HDHP Gold 2026 - Effective date",
+        "type": "date"
+      },
+      {
+        "id": "4553.5",
+        "name": "HDHP Gold 2026 - Eligibility date",
+        "type": "date"
+      },
+      {
+        "id": "4553.3",
+        "name": "HDHP Gold 2026 - Employee pays",
+        "type": "text"
+      },
+      {
+        "id": "4553.6",
+        "name": "HDHP Gold 2026 - Employee pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4553",
+        "name": "HDHP Gold 2026 - Status",
+        "type": "new_benefit_status"
+      },
+      {
+        "id": "4552.4",
+        "name": "HDHP Silver 2026 - Company pays",
+        "type": "text"
+      },
+      {
+        "id": "4552.7",
+        "name": "HDHP Silver 2026 - Company pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4552.2",
+        "name": "HDHP Silver 2026 - Coverage",
+        "type": "employee_new_benefit_coverage_type"
+      },
+      {
+        "id": "4552.1",
+        "name": "HDHP Silver 2026 - Effective date",
+        "type": "date"
+      },
+      {
+        "id": "4552.5",
+        "name": "HDHP Silver 2026 - Eligibility date",
+        "type": "date"
+      },
+      {
+        "id": "4552.3",
+        "name": "HDHP Silver 2026 - Employee pays",
+        "type": "text"
+      },
+      {
+        "id": "4552.6",
+        "name": "HDHP Silver 2026 - Employee pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4552",
+        "name": "HDHP Silver 2026 - Status",
+        "type": "new_benefit_status"
+      },
+      {
+        "id": "4560.4",
+        "name": "Healthcare FSA - Company pays",
+        "type": "text"
+      },
+      {
+        "id": "4560.7",
+        "name": "Healthcare FSA - Company pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4560.2",
+        "name": "Healthcare FSA - Coverage",
+        "type": "employee_new_benefit_coverage_type"
+      },
+      {
+        "id": "4560.1",
+        "name": "Healthcare FSA - Effective date",
+        "type": "date"
+      },
+      {
+        "id": "4560.5",
+        "name": "Healthcare FSA - Eligibility date",
+        "type": "date"
+      },
+      {
+        "id": "4560.3",
+        "name": "Healthcare FSA - Employee pays",
+        "type": "text"
+      },
+      {
+        "id": "4560.6",
+        "name": "Healthcare FSA - Employee pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4560",
+        "name": "Healthcare FSA - Status",
+        "type": "new_benefit_status"
+      },
+      {
+        "id": "4351.4",
+        "name": "Health Insurance - CA - Company pays",
+        "type": "text"
+      },
+      {
+        "id": "4351.7",
+        "name": "Health Insurance - CA - Company pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4351.2",
+        "name": "Health Insurance - CA - Coverage",
+        "type": "employee_new_benefit_coverage_type"
+      },
+      {
+        "id": "4351.1",
+        "name": "Health Insurance - CA - Effective date",
+        "type": "date"
+      },
+      {
+        "id": "4351.5",
+        "name": "Health Insurance - CA - Eligibility date",
+        "type": "date"
+      },
+      {
+        "id": "4351.3",
+        "name": "Health Insurance - CA - Employee pays",
+        "type": "text"
+      },
+      {
+        "id": "4351.6",
+        "name": "Health Insurance - CA - Employee pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4351",
+        "name": "Health Insurance - CA - Status",
+        "type": "new_benefit_status"
+      },
+      {
+        "id": "4547",
+        "name": "HIPAA Training - Completed",
+        "type": "date"
+      },
+      {
+        "id": "4547.2",
+        "name": "HIPAA Training - Due Date",
+        "type": "date"
+      },
+      {
+        "id": "4547.1",
+        "name": "HIPAA Training - Expires",
+        "type": "date"
+      },
+      {
+        "id": "3",
+        "name": "Hire Date",
+        "type": "date"
+      },
+      {
+        "id": "1357",
+        "name": "Home Email",
+        "type": "email"
+      },
+      {
+        "id": "14",
+        "name": "Home Phone",
+        "type": "phone"
+      },
+      {
+        "id": "4502.4",
+        "name": "Hospital Indemnity - Company pays",
+        "type": "text"
+      },
+      {
+        "id": "4502.7",
+        "name": "Hospital Indemnity - Company pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4502.2",
+        "name": "Hospital Indemnity - Coverage",
+        "type": "employee_new_benefit_coverage_type"
+      },
+      {
+        "id": "4502.1",
+        "name": "Hospital Indemnity - Effective date",
+        "type": "date"
+      },
+      {
+        "id": "4502.5",
+        "name": "Hospital Indemnity - Eligibility date",
+        "type": "date"
+      },
+      {
+        "id": "4502.3",
+        "name": "Hospital Indemnity - Employee pays",
+        "type": "text"
+      },
+      {
+        "id": "4502.6",
+        "name": "Hospital Indemnity - Employee pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4502",
+        "name": "Hospital Indemnity - Status",
+        "type": "new_benefit_status"
+      },
+      {
+        "id": "4558.4",
+        "name": "Hospital Indemnity 2026 - Company pays",
+        "type": "text"
+      },
+      {
+        "id": "4558.7",
+        "name": "Hospital Indemnity 2026 - Company pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4558.2",
+        "name": "Hospital Indemnity 2026 - Coverage",
+        "type": "employee_new_benefit_coverage_type"
+      },
+      {
+        "id": "4558.1",
+        "name": "Hospital Indemnity 2026 - Effective date",
+        "type": "date"
+      },
+      {
+        "id": "4558.5",
+        "name": "Hospital Indemnity 2026 - Eligibility date",
+        "type": "date"
+      },
+      {
+        "id": "4558.3",
+        "name": "Hospital Indemnity 2026 - Employee pays",
+        "type": "text"
+      },
+      {
+        "id": "4558.6",
+        "name": "Hospital Indemnity 2026 - Employee pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4558",
+        "name": "Hospital Indemnity 2026 - Status",
+        "type": "new_benefit_status"
+      },
+      {
+        "id": "4493",
+        "name": "Hours Per Pay Cycle",
+        "type": "text"
+      },
+      {
+        "id": "4505.4",
+        "name": "HSA - Company pays",
+        "type": "text"
+      },
+      {
+        "id": "4505.7",
+        "name": "HSA - Company pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4505.2",
+        "name": "HSA - Coverage",
+        "type": "employee_new_benefit_coverage_type"
+      },
+      {
+        "id": "4505.1",
+        "name": "HSA - Effective date",
+        "type": "date"
+      },
+      {
+        "id": "4505.5",
+        "name": "HSA - Eligibility date",
+        "type": "date"
+      },
+      {
+        "id": "4505.3",
+        "name": "HSA - Employee pays",
+        "type": "text"
+      },
+      {
+        "id": "4505.6",
+        "name": "HSA - Employee pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4505",
+        "name": "HSA - Status",
+        "type": "new_benefit_status"
+      },
+      {
+        "id": "4621",
+        "name": "Injury Date",
+        "type": "date"
+      },
+      {
+        "id": "4623",
+        "name": "Injury Description",
+        "type": "textarea"
+      },
+      {
+        "id": "4402",
+        "name": "Instagram URL",
+        "type": "contact_url"
+      },
+      {
+        "id": "4172",
+        "name": "Issued",
+        "type": "date"
+      },
+      {
+        "id": "4171",
+        "name": "Issuing country",
+        "type": "country"
+      },
+      {
+        "id": "4047",
+        "name": "Job Information: Date",
+        "type": "date"
+      },
+      {
+        "id": "4622",
+        "name": "Job Site",
+        "type": "text"
+      },
+      {
+        "id": "17",
+        "name": "Job Title",
+        "type": "list"
+      },
+      {
+        "id": "2",
+        "name": "Last Name",
+        "type": "text"
+      },
+      {
+        "id": "4341.4",
+        "name": "Life Insurance - Company pays",
+        "type": "text"
+      },
+      {
+        "id": "4341.7",
+        "name": "Life Insurance - Company pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4341.2",
+        "name": "Life Insurance - Coverage",
+        "type": "employee_new_benefit_coverage_type"
+      },
+      {
+        "id": "4341.1",
+        "name": "Life Insurance - Effective date",
+        "type": "date"
+      },
+      {
+        "id": "4341.5",
+        "name": "Life Insurance - Eligibility date",
+        "type": "date"
+      },
+      {
+        "id": "4341.3",
+        "name": "Life Insurance - Employee pays",
+        "type": "text"
+      },
+      {
+        "id": "4341.6",
+        "name": "Life Insurance - Employee pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4341",
+        "name": "Life Insurance - Status",
+        "type": "new_benefit_status"
+      },
+      {
+        "id": "4058",
+        "name": "LinkedIn URL",
+        "type": "contact_url"
+      },
+      {
+        "id": "18",
+        "name": "Location",
+        "type": "list"
+      },
+      {
+        "id": "4605.4",
+        "name": "Long Term Disability - Company pays",
+        "type": "text"
+      },
+      {
+        "id": "4605.7",
+        "name": "Long Term Disability - Company pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4605.2",
+        "name": "Long Term Disability - Coverage",
+        "type": "employee_new_benefit_coverage_type"
+      },
+      {
+        "id": "4605.1",
+        "name": "Long Term Disability - Effective date",
+        "type": "date"
+      },
+      {
+        "id": "4605.5",
+        "name": "Long Term Disability - Eligibility date",
+        "type": "date"
+      },
+      {
+        "id": "4605.3",
+        "name": "Long Term Disability - Employee pays",
+        "type": "text"
+      },
+      {
+        "id": "4605.6",
+        "name": "Long Term Disability - Employee pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4605",
+        "name": "Long Term Disability - Status",
+        "type": "new_benefit_status"
+      },
+      {
+        "id": "4295",
+        "name": "Major/Specialization",
+        "type": "text"
+      },
+      {
+        "id": "155",
+        "name": "Marital Status",
+        "type": "marital_status"
+      },
+      {
+        "id": "4506.4",
+        "name": "Medical FSA - Company pays",
+        "type": "text"
+      },
+      {
+        "id": "4506.7",
+        "name": "Medical FSA - Company pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4506.2",
+        "name": "Medical FSA - Coverage",
+        "type": "employee_new_benefit_coverage_type"
+      },
+      {
+        "id": "4506.1",
+        "name": "Medical FSA - Effective date",
+        "type": "date"
+      },
+      {
+        "id": "4506.5",
+        "name": "Medical FSA - Eligibility date",
+        "type": "date"
+      },
+      {
+        "id": "4506.3",
+        "name": "Medical FSA - Employee pays",
+        "type": "text"
+      },
+      {
+        "id": "4506.6",
+        "name": "Medical FSA - Employee pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4506",
+        "name": "Medical FSA - Status",
+        "type": "new_benefit_status"
+      },
+      {
+        "id": "5",
+        "name": "Middle Name",
+        "type": "text"
+      },
+      {
+        "id": "13",
+        "name": "Mobile Phone",
+        "type": "phone"
+      },
+      {
+        "id": "4607",
+        "name": "Name",
+        "type": "text"
+      },
+      {
+        "id": "4347",
+        "name": "New Hire Training - Completed",
+        "type": "date"
+      },
+      {
+        "id": "4347.2",
+        "name": "New Hire Training - Due Date",
+        "type": "date"
+      },
+      {
+        "id": "4347.1",
+        "name": "New Hire Training - Expires",
+        "type": "date"
+      },
+      {
+        "id": "4337",
+        "name": "NIN",
+        "type": "text"
+      },
+      {
+        "id": "4174",
+        "name": "Note",
+        "type": "text"
+      },
+      {
+        "id": "4593",
+        "name": "Note",
+        "type": "textarea"
+      },
+      {
+        "id": "4619",
+        "name": "Notes",
+        "type": "textarea"
+      },
+      {
+        "id": "4601",
+        "name": "Odometer Reading End",
+        "type": "int"
+      },
+      {
+        "id": "4600",
+        "name": "Odometer Reading Start",
+        "type": "int"
+      },
+      {
+        "id": "4333",
+        "name": "Original Hire Date",
+        "type": "date"
+      },
+      {
+        "id": "4544",
+        "name": "OSHA Training - Completed",
+        "type": "date"
+      },
+      {
+        "id": "4544.2",
+        "name": "OSHA Training - Due Date",
+        "type": "date"
+      },
+      {
+        "id": "4544.1",
+        "name": "OSHA Training - Expires",
+        "type": "date"
+      },
+      {
+        "id": "4403",
+        "name": "Overtime Rate",
+        "type": "currency"
+      },
+      {
+        "id": "4403.1",
+        "name": "Overtime Rate - Currency code",
+        "type": "text"
+      },
+      {
+        "id": "4042",
+        "name": "Overtime Status",
+        "type": "exempt"
+      },
+      {
+        "id": "4330",
+        "name": "Paid per",
+        "type": "paid_per"
+      },
+      {
+        "id": "19",
+        "name": "Pay rate",
+        "type": "currency"
+      },
+      {
+        "id": "19.1",
+        "name": "Pay rate - Currency code",
+        "type": "text"
+      },
+      {
+        "id": "4331",
+        "name": "Pay Period",
+        "type": "pay_period",
+        "deprecated": true
+      },
+      {
+        "id": "4386",
+        "name": "Pay Schedule",
+        "type": "list"
+      },
+      {
+        "id": "4523",
+        "name": "Paystubs",
+        "type": "pay_stubs"
+      },
+      {
+        "id": "156",
+        "name": "Pay type",
+        "type": "pay_type"
+      },
+      {
+        "id": "4060",
+        "name": "Pinterest URL",
+        "type": "contact_url"
+      },
+      {
+        "id": "1358",
+        "name": "Nickname",
+        "type": "text",
+        "deprecated": true
+      },
+      {
+        "id": "1358",
+        "name": "Preferred Name",
+        "type": "text"
+      },
+      {
+        "id": "4617",
+        "name": "Project Name",
+        "type": "text"
+      },
+      {
+        "id": "4543",
+        "name": "Quarterly Security Training - Completed",
+        "type": "date"
+      },
+      {
+        "id": "4543.2",
+        "name": "Quarterly Security Training - Due Date",
+        "type": "date"
+      },
+      {
+        "id": "4543.1",
+        "name": "Quarterly Security Training - Expires",
+        "type": "date"
+      },
+      {
+        "id": "4594",
+        "name": "Receipt Attached",
+        "type": "list"
+      },
+      {
+        "id": "4509",
+        "name": "Regrettable or Non-Regrettable",
+        "type": "list"
+      },
+      {
+        "id": "91",
+        "name": "Reporting to",
+        "type": "employee"
+      },
+      {
+        "id": "4339",
+        "name": "Secondary Language",
+        "type": "list"
+      },
+      {
+        "id": "1610",
+        "name": "Self-service access",
+        "type": "employee_access"
+      },
+      {
+        "id": "4374",
+        "name": "Serial #",
+        "type": "text"
+      },
+      {
+        "id": "4616",
+        "name": "Severity",
+        "type": "text"
+      },
+      {
+        "id": "4545",
+        "name": "Sexual Harassment Training - Completed",
+        "type": "date"
+      },
+      {
+        "id": "4545.2",
+        "name": "Sexual Harassment Training - Due Date",
+        "type": "date"
+      },
+      {
+        "id": "4545.1",
+        "name": "Sexual Harassment Training - Expires",
+        "type": "date"
+      },
+      {
+        "id": "4378",
+        "name": "Shirt size",
+        "type": "list"
+      },
+      {
+        "id": "4563.4",
+        "name": "Short Term Disability - Company pays",
+        "type": "text"
+      },
+      {
+        "id": "4563.7",
+        "name": "Short Term Disability - Company pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4563.2",
+        "name": "Short Term Disability - Coverage",
+        "type": "employee_new_benefit_coverage_type"
+      },
+      {
+        "id": "4563.1",
+        "name": "Short Term Disability - Effective date",
+        "type": "date"
+      },
+      {
+        "id": "4563.5",
+        "name": "Short Term Disability - Eligibility date",
+        "type": "date"
+      },
+      {
+        "id": "4563.3",
+        "name": "Short Term Disability - Employee pays",
+        "type": "text"
+      },
+      {
+        "id": "4563.6",
+        "name": "Short Term Disability - Employee pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4563",
+        "name": "Short Term Disability - Status",
+        "type": "new_benefit_status"
+      },
+      {
+        "id": "4548.4",
+        "name": "Short Term Disability delete - Company pays",
+        "type": "text"
+      },
+      {
+        "id": "4548.7",
+        "name": "Short Term Disability delete - Company pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4548.2",
+        "name": "Short Term Disability delete - Coverage",
+        "type": "employee_new_benefit_coverage_type"
+      },
+      {
+        "id": "4548.1",
+        "name": "Short Term Disability delete - Effective date",
+        "type": "date"
+      },
+      {
+        "id": "4548.5",
+        "name": "Short Term Disability delete - Eligibility date",
+        "type": "date"
+      },
+      {
+        "id": "4548.3",
+        "name": "Short Term Disability delete - Employee pays",
+        "type": "text"
+      },
+      {
+        "id": "4548.6",
+        "name": "Short Term Disability delete - Employee pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4548",
+        "name": "Short Term Disability delete - Status",
+        "type": "new_benefit_status"
+      },
+      {
+        "id": "4360.6",
+        "name": "Sick - Adjustments (YTD)",
+        "type": "int"
+      },
+      {
+        "id": "4360.3",
+        "name": "Sick - Available Balance",
+        "type": "int"
+      },
+      {
+        "id": "4360.7",
+        "name": "Sick - Current balance",
+        "type": "time_off_type"
+      },
+      {
+        "id": "4360.8",
+        "name": "Sick - Effective Date",
+        "type": "time_off_type"
+      },
+      {
+        "id": "4360.2",
+        "name": "Sick - Policy",
+        "type": "text"
+      },
+      {
+        "id": "4360",
+        "name": "Sick - Policy Assigned",
+        "type": "time_off_type_exists"
+      },
+      {
+        "id": "4360.1",
+        "name": "Sick - Time accrued",
+        "type": "int"
+      },
+      {
+        "id": "4360.5",
+        "name": "Sick - Time scheduled",
+        "type": "int"
+      },
+      {
+        "id": "4360.4",
+        "name": "Sick - Time taken (YTD)",
+        "type": "int"
+      },
+      {
+        "id": "4369",
+        "name": "Sick Full-Time policy - Assigned",
+        "type": "time_off_policy_exists"
+      },
+      {
+        "id": "4369.1",
+        "name": "Sick Full-Time policy - Started on",
+        "type": "date"
+      },
+      {
+        "id": "7",
+        "name": "SSN",
+        "type": "ssn"
+      },
+      {
+        "id": "11",
+        "name": "State",
+        "type": "state"
+      },
+      {
+        "id": "4399",
+        "name": "State W-4 Withholding",
+        "type": "state_tax_withholding"
+      },
+      {
+        "id": "387",
+        "name": "Employment Status",
+        "type": "status",
+        "deprecated": true
+      },
+      {
+        "id": "387",
+        "name": "Status",
+        "type": "status"
+      },
+      {
+        "id": "4618",
+        "name": "Supervisor",
+        "type": "text"
+      },
+      {
+        "id": "4526",
+        "name": "Tax Documents",
+        "type": "tax_documents"
+      },
+      {
+        "id": "4338",
+        "name": "Tax File Number",
+        "type": "text"
+      },
+      {
+        "id": "4549",
+        "name": "Teams",
+        "type": "multilist"
+      },
+      {
+        "id": "4314",
+        "name": "Termination Reason",
+        "type": "list"
+      },
+      {
+        "id": "4313",
+        "name": "Termination Type",
+        "type": "list"
+      },
+      {
+        "id": "4400",
+        "name": "Time Tracking Enabled",
+        "type": "checkbox"
+      },
+      {
+        "id": "4056",
+        "name": "Twitter Feed",
+        "type": "twitter_handle"
+      },
+      {
+        "id": "4352.4",
+        "name": "UK Private Medical Insurance (PMI) - Company pays",
+        "type": "text"
+      },
+      {
+        "id": "4352.7",
+        "name": "UK Private Medical Insurance (PMI) - Company pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4352.2",
+        "name": "UK Private Medical Insurance (PMI) - Coverage",
+        "type": "employee_new_benefit_coverage_type"
+      },
+      {
+        "id": "4352.1",
+        "name": "UK Private Medical Insurance (PMI) - Effective date",
+        "type": "date"
+      },
+      {
+        "id": "4352.5",
+        "name": "UK Private Medical Insurance (PMI) - Eligibility date",
+        "type": "date"
+      },
+      {
+        "id": "4352.3",
+        "name": "UK Private Medical Insurance (PMI) - Employee pays",
+        "type": "text"
+      },
+      {
+        "id": "4352.6",
+        "name": "UK Private Medical Insurance (PMI) - Employee pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4352",
+        "name": "UK Private Medical Insurance (PMI) - Status",
+        "type": "new_benefit_status"
+      },
+      {
+        "id": "4525",
+        "name": "Unemployment Insurance",
+        "type": "unemployment_insurance"
+      },
+      {
+        "id": "4346",
+        "name": "Unlawful Harassment - Completed",
+        "type": "date"
+      },
+      {
+        "id": "4346.2",
+        "name": "Unlawful Harassment - Due Date",
+        "type": "date"
+      },
+      {
+        "id": "4346.1",
+        "name": "Unlawful Harassment - Expires",
+        "type": "date"
+      },
+      {
+        "id": "4344.4",
+        "name": "US Health Insurance - FSA Eligible - Company pays",
+        "type": "text"
+      },
+      {
+        "id": "4344.7",
+        "name": "US Health Insurance - FSA Eligible - Company pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4344.2",
+        "name": "US Health Insurance - FSA Eligible - Coverage",
+        "type": "employee_new_benefit_coverage_type"
+      },
+      {
+        "id": "4344.1",
+        "name": "US Health Insurance - FSA Eligible - Effective date",
+        "type": "date"
+      },
+      {
+        "id": "4344.5",
+        "name": "US Health Insurance - FSA Eligible - Eligibility date",
+        "type": "date"
+      },
+      {
+        "id": "4344.3",
+        "name": "US Health Insurance - FSA Eligible - Employee pays",
+        "type": "text"
+      },
+      {
+        "id": "4344.6",
+        "name": "US Health Insurance - FSA Eligible - Employee pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4344",
+        "name": "US Health Insurance - FSA Eligible - Status",
+        "type": "new_benefit_status"
+      },
+      {
+        "id": "4343.4",
+        "name": "US Health Insurance - HSA Eligible - Company pays",
+        "type": "text"
+      },
+      {
+        "id": "4343.7",
+        "name": "US Health Insurance - HSA Eligible - Company pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4343.2",
+        "name": "US Health Insurance - HSA Eligible - Coverage",
+        "type": "employee_new_benefit_coverage_type"
+      },
+      {
+        "id": "4343.1",
+        "name": "US Health Insurance - HSA Eligible - Effective date",
+        "type": "date"
+      },
+      {
+        "id": "4343.5",
+        "name": "US Health Insurance - HSA Eligible - Eligibility date",
+        "type": "date"
+      },
+      {
+        "id": "4343.3",
+        "name": "US Health Insurance - HSA Eligible - Employee pays",
+        "type": "text"
+      },
+      {
+        "id": "4343.6",
+        "name": "US Health Insurance - HSA Eligible - Employee pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4343",
+        "name": "US Health Insurance - HSA Eligible - Status",
+        "type": "new_benefit_status"
+      },
+      {
+        "id": "4357.6",
+        "name": "Vacation - Adjustments (YTD)",
+        "type": "int"
+      },
+      {
+        "id": "4357.3",
+        "name": "Vacation - Available Balance",
+        "type": "int"
+      },
+      {
+        "id": "4357.7",
+        "name": "Vacation - Current balance",
+        "type": "time_off_type"
+      },
+      {
+        "id": "4357.8",
+        "name": "Vacation - Effective Date",
+        "type": "time_off_type"
+      },
+      {
+        "id": "4357.2",
+        "name": "Vacation - Policy",
+        "type": "text"
+      },
+      {
+        "id": "4357",
+        "name": "Vacation - Policy Assigned",
+        "type": "time_off_type_exists"
+      },
+      {
+        "id": "4357.1",
+        "name": "Vacation - Time accrued",
+        "type": "int"
+      },
+      {
+        "id": "4357.5",
+        "name": "Vacation - Time scheduled",
+        "type": "int"
+      },
+      {
+        "id": "4357.4",
+        "name": "Vacation - Time taken (YTD)",
+        "type": "int"
+      },
+      {
+        "id": "4370",
+        "name": "Vacation Full-Time policy - Assigned",
+        "type": "time_off_policy_exists"
+      },
+      {
+        "id": "4370.1",
+        "name": "Vacation Full-Time policy - Started on",
+        "type": "date"
+      },
+      {
+        "id": "4001",
+        "name": "Veteran Status",
+        "type": "multilist"
+      },
+      {
+        "id": "4170",
+        "name": "Visa",
+        "type": "list"
+      },
+      {
+        "id": "4169",
+        "name": "Visa:Date",
+        "type": "date"
+      },
+      {
+        "id": "4557.4",
+        "name": "Vision 2026 - Company pays",
+        "type": "text"
+      },
+      {
+        "id": "4557.7",
+        "name": "Vision 2026 - Company pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4557.2",
+        "name": "Vision 2026 - Coverage",
+        "type": "employee_new_benefit_coverage_type"
+      },
+      {
+        "id": "4557.1",
+        "name": "Vision 2026 - Effective date",
+        "type": "date"
+      },
+      {
+        "id": "4557.5",
+        "name": "Vision 2026 - Eligibility date",
+        "type": "date"
+      },
+      {
+        "id": "4557.3",
+        "name": "Vision 2026 - Employee pays",
+        "type": "text"
+      },
+      {
+        "id": "4557.6",
+        "name": "Vision 2026 - Employee pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4557",
+        "name": "Vision 2026 - Status",
+        "type": "new_benefit_status"
+      },
+      {
+        "id": "4501.4",
+        "name": "Vision Insurance - Company pays",
+        "type": "text"
+      },
+      {
+        "id": "4501.7",
+        "name": "Vision Insurance - Company pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4501.2",
+        "name": "Vision Insurance - Coverage",
+        "type": "employee_new_benefit_coverage_type"
+      },
+      {
+        "id": "4501.1",
+        "name": "Vision Insurance - Effective date",
+        "type": "date"
+      },
+      {
+        "id": "4501.5",
+        "name": "Vision Insurance - Eligibility date",
+        "type": "date"
+      },
+      {
+        "id": "4501.3",
+        "name": "Vision Insurance - Employee pays",
+        "type": "text"
+      },
+      {
+        "id": "4501.6",
+        "name": "Vision Insurance - Employee pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4501",
+        "name": "Vision Insurance - Status",
+        "type": "new_benefit_status"
+      },
+      {
+        "id": "4508.4",
+        "name": "Voluntary Life - Company pays",
+        "type": "text"
+      },
+      {
+        "id": "4508.7",
+        "name": "Voluntary Life - Company pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4508.2",
+        "name": "Voluntary Life - Coverage",
+        "type": "employee_new_benefit_coverage_type"
+      },
+      {
+        "id": "4508.1",
+        "name": "Voluntary Life - Effective date",
+        "type": "date"
+      },
+      {
+        "id": "4508.5",
+        "name": "Voluntary Life - Eligibility date",
+        "type": "date"
+      },
+      {
+        "id": "4508.3",
+        "name": "Voluntary Life - Employee pays",
+        "type": "text"
+      },
+      {
+        "id": "4508.6",
+        "name": "Voluntary Life - Employee pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4508",
+        "name": "Voluntary Life - Status",
+        "type": "new_benefit_status"
+      },
+      {
+        "id": "4562.4",
+        "name": "Voluntary Life Insurance - Company pays",
+        "type": "text"
+      },
+      {
+        "id": "4562.7",
+        "name": "Voluntary Life Insurance - Company pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4562.2",
+        "name": "Voluntary Life Insurance - Coverage",
+        "type": "employee_new_benefit_coverage_type"
+      },
+      {
+        "id": "4562.1",
+        "name": "Voluntary Life Insurance - Effective date",
+        "type": "date"
+      },
+      {
+        "id": "4562.5",
+        "name": "Voluntary Life Insurance - Eligibility date",
+        "type": "date"
+      },
+      {
+        "id": "4562.3",
+        "name": "Voluntary Life Insurance - Employee pays",
+        "type": "text"
+      },
+      {
+        "id": "4562.6",
+        "name": "Voluntary Life Insurance - Employee pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4562",
+        "name": "Voluntary Life Insurance - Status",
+        "type": "new_benefit_status"
+      },
+      {
+        "id": "4564.4",
+        "name": "Voluntary Life Plan 2026 delete - Company pays",
+        "type": "text"
+      },
+      {
+        "id": "4564.7",
+        "name": "Voluntary Life Plan 2026 delete - Company pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4564.2",
+        "name": "Voluntary Life Plan 2026 delete - Coverage",
+        "type": "employee_new_benefit_coverage_type"
+      },
+      {
+        "id": "4564.1",
+        "name": "Voluntary Life Plan 2026 delete - Effective date",
+        "type": "date"
+      },
+      {
+        "id": "4564.5",
+        "name": "Voluntary Life Plan 2026 delete - Eligibility date",
+        "type": "date"
+      },
+      {
+        "id": "4564.3",
+        "name": "Voluntary Life Plan 2026 delete - Employee pays",
+        "type": "text"
+      },
+      {
+        "id": "4564.6",
+        "name": "Voluntary Life Plan 2026 delete - Employee pays - Currency code",
+        "type": "new_benefit"
+      },
+      {
+        "id": "4564",
+        "name": "Voluntary Life Plan 2026 delete - Status",
+        "type": "new_benefit_status"
+      },
+      {
+        "id": "15",
+        "name": "Work Email",
+        "type": "email"
+      },
+      {
+        "id": "4459",
+        "name": "Workers' Comp Classification",
+        "type": "employee_category"
+      },
+      {
+        "id": "635",
+        "name": "Work Ext.",
+        "type": "text"
+      },
+      {
+        "id": "4452",
+        "name": "Working from home during COVID-19 - Completed",
+        "type": "date"
+      },
+      {
+        "id": "4452.2",
+        "name": "Working from home during COVID-19 - Due Date",
+        "type": "date"
+      },
+      {
+        "id": "4452.1",
+        "name": "Working from home during COVID-19 - Expires",
+        "type": "date"
+      },
+      {
+        "id": "634",
+        "name": "Work Phone",
+        "type": "phone"
+      },
+      {
+        "id": "12",
+        "name": "Zip Code",
+        "type": "text"
+      },
+      {
+        "id": "-38",
+        "name": "Termination Date",
+        "type": "date"
+      },
+      {
+        "id": "-50",
+        "name": "Job Level",
+        "type": "text"
+      },
+      {
+        "id": "-49",
+        "name": "Pay Band",
+        "type": "pay_band"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1/meta/fields": {
+        "response": [
+          {
+            "id": "4340.4",
+            "name": "401(k) - Company pays",
+            "type": "text"
+          },
+          {
+            "id": "4559.4",
+            "name": "401(k) - Company pays",
+            "type": "text"
+          },
+          {
+            "id": "4340.7",
+            "name": "401(k) - Company pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": "4559.7",
+            "name": "401(k) - Company pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": "4340.2",
+            "name": "401(k) - Coverage",
+            "type": "employee_new_benefit_coverage_type"
+          },
+          {
+            "id": "4559.2",
+            "name": "401(k) - Coverage",
+            "type": "employee_new_benefit_coverage_type"
+          },
+          {
+            "id": "4340.1",
+            "name": "401(k) - Effective date",
+            "type": "date"
+          },
+          {
+            "id": "4559.1",
+            "name": "401(k) - Effective date",
+            "type": "date"
+          },
+          {
+            "id": "4340.5",
+            "name": "401(k) - Eligibility date",
+            "type": "date"
+          },
+          {
+            "id": "4559.5",
+            "name": "401(k) - Eligibility date",
+            "type": "date"
+          },
+          {
+            "id": "4340.3",
+            "name": "401(k) - Employee pays",
+            "type": "text"
+          },
+          {
+            "id": "4559.3",
+            "name": "401(k) - Employee pays",
+            "type": "text"
+          },
+          {
+            "id": "4340.6",
+            "name": "401(k) - Employee pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": "4559.6",
+            "name": "401(k) - Employee pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": 4340,
+            "name": "401(k) - Status",
+            "type": "new_benefit_status"
+          },
+          {
+            "id": 4559,
+            "name": "401(k) - Status",
+            "type": "new_benefit_status"
+          },
+          {
+            "id": "4495.4",
+            "name": "401(k) Plan - Company pays",
+            "type": "text"
+          },
+          {
+            "id": "4495.7",
+            "name": "401(k) Plan - Company pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": "4495.2",
+            "name": "401(k) Plan - Coverage",
+            "type": "employee_new_benefit_coverage_type"
+          },
+          {
+            "id": "4495.1",
+            "name": "401(k) Plan - Effective date",
+            "type": "date"
+          },
+          {
+            "id": "4495.5",
+            "name": "401(k) Plan - Eligibility date",
+            "type": "date"
+          },
+          {
+            "id": "4495.3",
+            "name": "401(k) Plan - Employee pays",
+            "type": "text"
+          },
+          {
+            "id": "4495.6",
+            "name": "401(k) Plan - Employee pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": 4495,
+            "name": "401(k) Plan - Status",
+            "type": "new_benefit_status"
+          },
+          {
+            "id": "4604.4",
+            "name": "Accident 2026 - Company pays",
+            "type": "text"
+          },
+          {
+            "id": "4604.7",
+            "name": "Accident 2026 - Company pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": "4604.2",
+            "name": "Accident 2026 - Coverage",
+            "type": "employee_new_benefit_coverage_type"
+          },
+          {
+            "id": "4604.1",
+            "name": "Accident 2026 - Effective date",
+            "type": "date"
+          },
+          {
+            "id": "4604.5",
+            "name": "Accident 2026 - Eligibility date",
+            "type": "date"
+          },
+          {
+            "id": "4604.3",
+            "name": "Accident 2026 - Employee pays",
+            "type": "text"
+          },
+          {
+            "id": "4604.6",
+            "name": "Accident 2026 - Employee pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": 4604,
+            "name": "Accident 2026 - Status",
+            "type": "new_benefit_status"
+          },
+          {
+            "id": "4503.4",
+            "name": "Accident delete - Company pays",
+            "type": "text"
+          },
+          {
+            "id": "4503.7",
+            "name": "Accident delete - Company pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": "4503.2",
+            "name": "Accident delete - Coverage",
+            "type": "employee_new_benefit_coverage_type"
+          },
+          {
+            "id": "4503.1",
+            "name": "Accident delete - Effective date",
+            "type": "date"
+          },
+          {
+            "id": "4503.5",
+            "name": "Accident delete - Eligibility date",
+            "type": "date"
+          },
+          {
+            "id": "4503.3",
+            "name": "Accident delete - Employee pays",
+            "type": "text"
+          },
+          {
+            "id": "4503.6",
+            "name": "Accident delete - Employee pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": 4503,
+            "name": "Accident delete - Status",
+            "type": "new_benefit_status"
+          },
+          {
+            "id": 4175,
+            "name": "Accrual Level Start Date",
+            "type": "date"
+          },
+          {
+            "id": 8,
+            "name": "Address Line 1",
+            "type": "text",
+            "alias": "address1"
+          },
+          {
+            "id": 9,
+            "name": "Address Line 2",
+            "type": "text",
+            "alias": "address2"
+          },
+          {
+            "id": 4404,
+            "name": "Allergies",
+            "type": "text",
+            "alias": "allergies"
+          },
+          {
+            "id": 4602,
+            "name": "Allowance (per Mile)",
+            "type": "currency"
+          },
+          {
+            "id": "4602.1",
+            "name": "Allowance (per Mile) - Currency code",
+            "type": "text"
+          },
+          {
+            "id": 4510,
+            "name": "Annual Amount",
+            "type": "currency",
+            "alias": "amount"
+          },
+          {
+            "id": "4510.1",
+            "name": "Annual Amount - Currency code",
+            "type": "text",
+            "alias": "amount"
+          },
+          {
+            "id": 4511,
+            "name": "Annual Percentage",
+            "type": "percentage",
+            "alias": "percentage"
+          },
+          {
+            "id": 4546,
+            "name": "Annual Security Training - Completed",
+            "type": "date"
+          },
+          {
+            "id": "4546.2",
+            "name": "Annual Security Training - Due Date",
+            "type": "date"
+          },
+          {
+            "id": "4546.1",
+            "name": "Annual Security Training - Expires",
+            "type": "date"
+          },
+          {
+            "id": 4603,
+            "name": "Approval",
+            "type": "list"
+          },
+          {
+            "id": 4613,
+            "name": "Approved By",
+            "type": "text"
+          },
+          {
+            "id": 4372,
+            "name": "Asset Category",
+            "type": "list"
+          },
+          {
+            "id": 4373,
+            "name": "Asset Description",
+            "type": "text"
+          },
+          {
+            "id": 4458,
+            "name": "BambooHR Advantage Package Demo Video - Completed",
+            "type": "date"
+          },
+          {
+            "id": "4458.2",
+            "name": "BambooHR Advantage Package Demo Video - Due Date",
+            "type": "date"
+          },
+          {
+            "id": "4458.1",
+            "name": "BambooHR Advantage Package Demo Video - Expires",
+            "type": "date"
+          },
+          {
+            "id": "4507.4",
+            "name": "Basic Life - Company pays",
+            "type": "text"
+          },
+          {
+            "id": "4507.7",
+            "name": "Basic Life - Company pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": "4507.2",
+            "name": "Basic Life - Coverage",
+            "type": "employee_new_benefit_coverage_type"
+          },
+          {
+            "id": "4507.1",
+            "name": "Basic Life - Effective date",
+            "type": "date"
+          },
+          {
+            "id": "4507.5",
+            "name": "Basic Life - Eligibility date",
+            "type": "date"
+          },
+          {
+            "id": "4507.3",
+            "name": "Basic Life - Employee pays",
+            "type": "text"
+          },
+          {
+            "id": "4507.6",
+            "name": "Basic Life - Employee pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": 4507,
+            "name": "Basic Life - Status",
+            "type": "new_benefit_status"
+          },
+          {
+            "id": "4565.4",
+            "name": "Basic Life 2026 delete - Company pays",
+            "type": "text"
+          },
+          {
+            "id": "4565.7",
+            "name": "Basic Life 2026 delete - Company pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": "4565.2",
+            "name": "Basic Life 2026 delete - Coverage",
+            "type": "employee_new_benefit_coverage_type"
+          },
+          {
+            "id": "4565.1",
+            "name": "Basic Life 2026 delete - Effective date",
+            "type": "date"
+          },
+          {
+            "id": "4565.5",
+            "name": "Basic Life 2026 delete - Eligibility date",
+            "type": "date"
+          },
+          {
+            "id": "4565.3",
+            "name": "Basic Life 2026 delete - Employee pays",
+            "type": "text"
+          },
+          {
+            "id": "4565.6",
+            "name": "Basic Life 2026 delete - Employee pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": 4565,
+            "name": "Basic Life 2026 delete - Status",
+            "type": "new_benefit_status"
+          },
+          {
+            "id": "4561.4",
+            "name": "Basic Life Insurance - Company pays",
+            "type": "text"
+          },
+          {
+            "id": "4561.7",
+            "name": "Basic Life Insurance - Company pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": "4561.2",
+            "name": "Basic Life Insurance - Coverage",
+            "type": "employee_new_benefit_coverage_type"
+          },
+          {
+            "id": "4561.1",
+            "name": "Basic Life Insurance - Effective date",
+            "type": "date"
+          },
+          {
+            "id": "4561.5",
+            "name": "Basic Life Insurance - Eligibility date",
+            "type": "date"
+          },
+          {
+            "id": "4561.3",
+            "name": "Basic Life Insurance - Employee pays",
+            "type": "text"
+          },
+          {
+            "id": "4561.6",
+            "name": "Basic Life Insurance - Employee pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": 4561,
+            "name": "Basic Life Insurance - Status",
+            "type": "new_benefit_status"
+          },
+          {
+            "id": 1502,
+            "name": "Benefit History",
+            "type": "benefit_history"
+          },
+          {
+            "id": "4354.6",
+            "name": "Bereavement - Adjustments (YTD)",
+            "type": "int"
+          },
+          {
+            "id": "4354.3",
+            "name": "Bereavement - Available Balance",
+            "type": "int"
+          },
+          {
+            "id": "4354.7",
+            "name": "Bereavement - Current balance",
+            "type": "time_off_type"
+          },
+          {
+            "id": "4354.8",
+            "name": "Bereavement - Effective Date",
+            "type": "time_off_type"
+          },
+          {
+            "id": "4354.2",
+            "name": "Bereavement - Policy",
+            "type": "text"
+          },
+          {
+            "id": 4354,
+            "name": "Bereavement - Policy Assigned",
+            "type": "time_off_type_exists"
+          },
+          {
+            "id": "4354.1",
+            "name": "Bereavement - Time accrued",
+            "type": "int"
+          },
+          {
+            "id": "4354.5",
+            "name": "Bereavement - Time scheduled",
+            "type": "int"
+          },
+          {
+            "id": "4354.4",
+            "name": "Bereavement - Time taken (YTD)",
+            "type": "int"
+          },
+          {
+            "id": 6,
+            "name": "Birth Date",
+            "type": "date",
+            "alias": "dateOfBirth"
+          },
+          {
+            "id": 4152,
+            "name": "Bonus: Amount",
+            "type": "currency",
+            "alias": "bonusAmount"
+          },
+          {
+            "id": "4152.1",
+            "name": "Bonus: Amount - Currency code",
+            "type": "text",
+            "alias": "bonusAmount"
+          },
+          {
+            "id": 4154,
+            "name": "Bonus: Comment",
+            "type": "textarea",
+            "alias": "bonusComment"
+          },
+          {
+            "id": 4151,
+            "name": "Bonus: Date",
+            "type": "date",
+            "alias": "bonusDate"
+          },
+          {
+            "id": 4153,
+            "name": "Bonus: Reason",
+            "type": "list",
+            "alias": "bonusReason"
+          },
+          {
+            "id": "4353.4",
+            "name": "CA Health Insurance - Company pays",
+            "type": "text"
+          },
+          {
+            "id": "4353.7",
+            "name": "CA Health Insurance - Company pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": "4353.2",
+            "name": "CA Health Insurance - Coverage",
+            "type": "employee_new_benefit_coverage_type"
+          },
+          {
+            "id": "4353.1",
+            "name": "CA Health Insurance - Effective date",
+            "type": "date"
+          },
+          {
+            "id": "4353.5",
+            "name": "CA Health Insurance - Eligibility date",
+            "type": "date"
+          },
+          {
+            "id": "4353.3",
+            "name": "CA Health Insurance - Employee pays",
+            "type": "text"
+          },
+          {
+            "id": "4353.6",
+            "name": "CA Health Insurance - Employee pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": 4353,
+            "name": "CA Health Insurance - Status",
+            "type": "new_benefit_status"
+          },
+          {
+            "id": 4592,
+            "name": "Category",
+            "type": "list"
+          },
+          {
+            "id": 10,
+            "name": "City",
+            "type": "text",
+            "alias": "city"
+          },
+          {
+            "id": 4293,
+            "name": "College/Institution",
+            "type": "text"
+          },
+          {
+            "id": 4155,
+            "name": "Commission",
+            "type": "commission"
+          },
+          {
+            "id": 4157,
+            "name": "Commission: Amount",
+            "type": "currency",
+            "alias": "commissionAmount"
+          },
+          {
+            "id": "4157.1",
+            "name": "Commission: Amount - Currency code",
+            "type": "text",
+            "alias": "commissionAmount"
+          },
+          {
+            "id": 4158,
+            "name": "Commission: Comment",
+            "type": "textarea",
+            "alias": "commissionComment"
+          },
+          {
+            "id": 4156,
+            "name": "Commission: Date",
+            "type": "date",
+            "alias": "commissionDate"
+          },
+          {
+            "id": "4366.6",
+            "name": "Comp/In Lieu Time - Adjustments (YTD)",
+            "type": "int"
+          },
+          {
+            "id": "4366.3",
+            "name": "Comp/In Lieu Time - Available Balance",
+            "type": "int"
+          },
+          {
+            "id": "4366.7",
+            "name": "Comp/In Lieu Time - Current balance",
+            "type": "time_off_type"
+          },
+          {
+            "id": "4366.8",
+            "name": "Comp/In Lieu Time - Effective Date",
+            "type": "time_off_type"
+          },
+          {
+            "id": "4366.2",
+            "name": "Comp/In Lieu Time - Policy",
+            "type": "text"
+          },
+          {
+            "id": 4366,
+            "name": "Comp/In Lieu Time - Policy Assigned",
+            "type": "time_off_type_exists"
+          },
+          {
+            "id": "4366.1",
+            "name": "Comp/In Lieu Time - Time accrued",
+            "type": "int"
+          },
+          {
+            "id": "4366.5",
+            "name": "Comp/In Lieu Time - Time scheduled",
+            "type": "int"
+          },
+          {
+            "id": "4366.4",
+            "name": "Comp/In Lieu Time - Time taken (YTD)",
+            "type": "int"
+          },
+          {
+            "id": 4348,
+            "name": "Company Handbook Quiz - Completed",
+            "type": "date"
+          },
+          {
+            "id": "4348.2",
+            "name": "Company Handbook Quiz - Due Date",
+            "type": "date"
+          },
+          {
+            "id": "4348.1",
+            "name": "Company Handbook Quiz - Expires",
+            "type": "date"
+          },
+          {
+            "id": 4021,
+            "name": "Compensation: Date",
+            "type": "date",
+            "alias": "payRateEffectiveDate"
+          },
+          {
+            "id": 4017,
+            "name": "Compensation Change Reason",
+            "type": "list",
+            "alias": "payChangeReason"
+          },
+          {
+            "id": 4045,
+            "name": "Compensation comments",
+            "type": "textarea"
+          },
+          {
+            "id": "4020.1",
+            "name": "Completed - Category",
+            "type": "list"
+          },
+          {
+            "id": "4020.2",
+            "name": "Completed - Completed",
+            "type": "date"
+          },
+          {
+            "id": "4020.3",
+            "name": "Completed - Cost",
+            "type": "currency"
+          },
+          {
+            "id": "4020.4",
+            "name": "Completed - Credits",
+            "type": "int"
+          },
+          {
+            "id": "4020.5",
+            "name": "Completed - Hours",
+            "type": "int"
+          },
+          {
+            "id": "4020.6",
+            "name": "Completed - Instructor",
+            "type": "text"
+          },
+          {
+            "id": "4020.7",
+            "name": "Completed - Notes",
+            "type": "text"
+          },
+          {
+            "id": 4020,
+            "name": "Completed - Title",
+            "type": "training_type"
+          },
+          {
+            "id": 3991,
+            "name": "Country",
+            "type": "country",
+            "alias": "country"
+          },
+          {
+            "id": "4453.6",
+            "name": "COVID-19 Related Absence - Adjustments (YTD)",
+            "type": "int"
+          },
+          {
+            "id": "4453.3",
+            "name": "COVID-19 Related Absence - Available Balance",
+            "type": "int"
+          },
+          {
+            "id": "4453.7",
+            "name": "COVID-19 Related Absence - Current balance",
+            "type": "time_off_type"
+          },
+          {
+            "id": "4453.8",
+            "name": "COVID-19 Related Absence - Effective Date",
+            "type": "time_off_type"
+          },
+          {
+            "id": "4453.2",
+            "name": "COVID-19 Related Absence - Policy",
+            "type": "text"
+          },
+          {
+            "id": 4453,
+            "name": "COVID-19 Related Absence - Policy Assigned",
+            "type": "time_off_type_exists"
+          },
+          {
+            "id": "4453.1",
+            "name": "COVID-19 Related Absence - Time accrued",
+            "type": "int"
+          },
+          {
+            "id": "4453.5",
+            "name": "COVID-19 Related Absence - Time scheduled",
+            "type": "int"
+          },
+          {
+            "id": "4453.4",
+            "name": "COVID-19 Related Absence - Time taken (YTD)",
+            "type": "int"
+          },
+          {
+            "id": 4349,
+            "name": "CPR - Completed",
+            "type": "date"
+          },
+          {
+            "id": "4349.2",
+            "name": "CPR - Due Date",
+            "type": "date"
+          },
+          {
+            "id": "4349.1",
+            "name": "CPR - Expires",
+            "type": "date"
+          },
+          {
+            "id": "4573.4",
+            "name": "Critical Illness 2026 - Company pays",
+            "type": "text"
+          },
+          {
+            "id": "4573.7",
+            "name": "Critical Illness 2026 - Company pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": "4573.2",
+            "name": "Critical Illness 2026 - Coverage",
+            "type": "employee_new_benefit_coverage_type"
+          },
+          {
+            "id": "4573.1",
+            "name": "Critical Illness 2026 - Effective date",
+            "type": "date"
+          },
+          {
+            "id": "4573.5",
+            "name": "Critical Illness 2026 - Eligibility date",
+            "type": "date"
+          },
+          {
+            "id": "4573.3",
+            "name": "Critical Illness 2026 - Employee pays",
+            "type": "text"
+          },
+          {
+            "id": "4573.6",
+            "name": "Critical Illness 2026 - Employee pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": 4573,
+            "name": "Critical Illness 2026 - Status",
+            "type": "new_benefit_status"
+          },
+          {
+            "id": "4504.4",
+            "name": "Critical Illness delete - Company pays",
+            "type": "text"
+          },
+          {
+            "id": "4504.7",
+            "name": "Critical Illness delete - Company pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": "4504.2",
+            "name": "Critical Illness delete - Coverage",
+            "type": "employee_new_benefit_coverage_type"
+          },
+          {
+            "id": "4504.1",
+            "name": "Critical Illness delete - Effective date",
+            "type": "date"
+          },
+          {
+            "id": "4504.5",
+            "name": "Critical Illness delete - Eligibility date",
+            "type": "date"
+          },
+          {
+            "id": "4504.3",
+            "name": "Critical Illness delete - Employee pays",
+            "type": "text"
+          },
+          {
+            "id": "4504.6",
+            "name": "Critical Illness delete - Employee pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": 4504,
+            "name": "Critical Illness delete - Status",
+            "type": "new_benefit_status"
+          },
+          {
+            "id": 4591,
+            "name": "Date",
+            "type": "date"
+          },
+          {
+            "id": 4598,
+            "name": "Date",
+            "type": "date"
+          },
+          {
+            "id": 4611,
+            "name": "Date",
+            "type": "date"
+          },
+          {
+            "id": 4615,
+            "name": "Date",
+            "type": "date"
+          },
+          {
+            "id": 4376,
+            "name": "Date Assigned",
+            "type": "date"
+          },
+          {
+            "id": 4608,
+            "name": "Date Issued",
+            "type": "date"
+          },
+          {
+            "id": 4596,
+            "name": "Date Reimbursed",
+            "type": "date"
+          },
+          {
+            "id": 4377,
+            "name": "Date Returned",
+            "type": "date"
+          },
+          {
+            "id": 4524,
+            "name": "Deductions",
+            "type": "deductions"
+          },
+          {
+            "id": 4294,
+            "name": "Degree",
+            "type": "list"
+          },
+          {
+            "id": "4499.4",
+            "name": "Dental Basic - Company pays",
+            "type": "text"
+          },
+          {
+            "id": "4499.7",
+            "name": "Dental Basic - Company pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": "4499.2",
+            "name": "Dental Basic - Coverage",
+            "type": "employee_new_benefit_coverage_type"
+          },
+          {
+            "id": "4499.1",
+            "name": "Dental Basic - Effective date",
+            "type": "date"
+          },
+          {
+            "id": "4499.5",
+            "name": "Dental Basic - Eligibility date",
+            "type": "date"
+          },
+          {
+            "id": "4499.3",
+            "name": "Dental Basic - Employee pays",
+            "type": "text"
+          },
+          {
+            "id": "4499.6",
+            "name": "Dental Basic - Employee pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": 4499,
+            "name": "Dental Basic - Status",
+            "type": "new_benefit_status"
+          },
+          {
+            "id": "4555.4",
+            "name": "Dental Basic 2026 - Company pays",
+            "type": "text"
+          },
+          {
+            "id": "4555.7",
+            "name": "Dental Basic 2026 - Company pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": "4555.2",
+            "name": "Dental Basic 2026 - Coverage",
+            "type": "employee_new_benefit_coverage_type"
+          },
+          {
+            "id": "4555.1",
+            "name": "Dental Basic 2026 - Effective date",
+            "type": "date"
+          },
+          {
+            "id": "4555.5",
+            "name": "Dental Basic 2026 - Eligibility date",
+            "type": "date"
+          },
+          {
+            "id": "4555.3",
+            "name": "Dental Basic 2026 - Employee pays",
+            "type": "text"
+          },
+          {
+            "id": "4555.6",
+            "name": "Dental Basic 2026 - Employee pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": 4555,
+            "name": "Dental Basic 2026 - Status",
+            "type": "new_benefit_status"
+          },
+          {
+            "id": "4345.4",
+            "name": "Dental Insurance - Company pays",
+            "type": "text"
+          },
+          {
+            "id": "4345.7",
+            "name": "Dental Insurance - Company pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": "4345.2",
+            "name": "Dental Insurance - Coverage",
+            "type": "employee_new_benefit_coverage_type"
+          },
+          {
+            "id": "4345.1",
+            "name": "Dental Insurance - Effective date",
+            "type": "date"
+          },
+          {
+            "id": "4345.5",
+            "name": "Dental Insurance - Eligibility date",
+            "type": "date"
+          },
+          {
+            "id": "4345.3",
+            "name": "Dental Insurance - Employee pays",
+            "type": "text"
+          },
+          {
+            "id": "4345.6",
+            "name": "Dental Insurance - Employee pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": 4345,
+            "name": "Dental Insurance - Status",
+            "type": "new_benefit_status"
+          },
+          {
+            "id": "4500.4",
+            "name": "Dental Plus - Company pays",
+            "type": "text"
+          },
+          {
+            "id": "4500.7",
+            "name": "Dental Plus - Company pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": "4500.2",
+            "name": "Dental Plus - Coverage",
+            "type": "employee_new_benefit_coverage_type"
+          },
+          {
+            "id": "4500.1",
+            "name": "Dental Plus - Effective date",
+            "type": "date"
+          },
+          {
+            "id": "4500.5",
+            "name": "Dental Plus - Eligibility date",
+            "type": "date"
+          },
+          {
+            "id": "4500.3",
+            "name": "Dental Plus - Employee pays",
+            "type": "text"
+          },
+          {
+            "id": "4500.6",
+            "name": "Dental Plus - Employee pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": 4500,
+            "name": "Dental Plus - Status",
+            "type": "new_benefit_status"
+          },
+          {
+            "id": "4556.4",
+            "name": "Dental Plus 2026 - Company pays",
+            "type": "text"
+          },
+          {
+            "id": "4556.7",
+            "name": "Dental Plus 2026 - Company pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": "4556.2",
+            "name": "Dental Plus 2026 - Coverage",
+            "type": "employee_new_benefit_coverage_type"
+          },
+          {
+            "id": "4556.1",
+            "name": "Dental Plus 2026 - Effective date",
+            "type": "date"
+          },
+          {
+            "id": "4556.5",
+            "name": "Dental Plus 2026 - Eligibility date",
+            "type": "date"
+          },
+          {
+            "id": "4556.3",
+            "name": "Dental Plus 2026 - Employee pays",
+            "type": "text"
+          },
+          {
+            "id": "4556.6",
+            "name": "Dental Plus 2026 - Employee pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": 4556,
+            "name": "Dental Plus 2026 - Status",
+            "type": "new_benefit_status"
+          },
+          {
+            "id": 4,
+            "name": "Department",
+            "type": "list",
+            "alias": "department"
+          },
+          {
+            "id": 1928,
+            "name": "Dependent Birth Date",
+            "type": "date"
+          },
+          {
+            "id": 1931,
+            "name": "Dependent City",
+            "type": "text"
+          },
+          {
+            "id": 3992,
+            "name": "Dependent Country",
+            "type": "country"
+          },
+          {
+            "id": 1923,
+            "name": "Dependent First Name",
+            "type": "text"
+          },
+          {
+            "id": 4301,
+            "name": "Dependent Full-Time Student",
+            "type": "checkbox"
+          },
+          {
+            "id": 1927,
+            "name": "Dependent Gender",
+            "type": "gender"
+          },
+          {
+            "id": 1935,
+            "name": "Dependent Home Phone",
+            "type": "phone"
+          },
+          {
+            "id": 1924,
+            "name": "Dependent Last Name",
+            "type": "text"
+          },
+          {
+            "id": 1925,
+            "name": "Dependent Middle Name",
+            "type": "text"
+          },
+          {
+            "id": 1926,
+            "name": "Dependent Relationship",
+            "type": "relationship"
+          },
+          {
+            "id": 1933,
+            "name": "Dependent SSN",
+            "type": "ssn"
+          },
+          {
+            "id": 1932,
+            "name": "Dependent State",
+            "type": "state"
+          },
+          {
+            "id": 1929,
+            "name": "Dependent Street 1",
+            "type": "text"
+          },
+          {
+            "id": 1930,
+            "name": "Dependent Street 2",
+            "type": "text"
+          },
+          {
+            "id": 4300,
+            "name": "Dependent US Citizen",
+            "type": "checkbox"
+          },
+          {
+            "id": 1934,
+            "name": "Dependent ZIP",
+            "type": "text"
+          },
+          {
+            "id": 4599,
+            "name": "Destination",
+            "type": "textarea"
+          },
+          {
+            "id": 4405,
+            "name": "Dietary Restrictions",
+            "type": "textarea",
+            "alias": "dietaryRestrictions"
+          },
+          {
+            "id": 4397,
+            "name": "Direct Deposit",
+            "type": "direct_deposit"
+          },
+          {
+            "id": "4342.4",
+            "name": "Disability - Company pays",
+            "type": "text"
+          },
+          {
+            "id": "4342.7",
+            "name": "Disability - Company pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": "4342.2",
+            "name": "Disability - Coverage",
+            "type": "employee_new_benefit_coverage_type"
+          },
+          {
+            "id": "4342.1",
+            "name": "Disability - Effective date",
+            "type": "date"
+          },
+          {
+            "id": "4342.5",
+            "name": "Disability - Eligibility date",
+            "type": "date"
+          },
+          {
+            "id": "4342.3",
+            "name": "Disability - Employee pays",
+            "type": "text"
+          },
+          {
+            "id": "4342.6",
+            "name": "Disability - Employee pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": 4342,
+            "name": "Disability - Status",
+            "type": "new_benefit_status"
+          },
+          {
+            "id": 1355,
+            "name": "Division",
+            "type": "list",
+            "alias": "division"
+          },
+          {
+            "id": 157,
+            "name": "EEO Job Category",
+            "type": "list",
+            "alias": "eeo"
+          },
+          {
+            "id": 4315,
+            "name": "Eligible For Re-hire",
+            "type": "list"
+          },
+          {
+            "id": 692,
+            "name": "Emergency Contact City",
+            "type": "text"
+          },
+          {
+            "id": 3993,
+            "name": "Emergency Contact Country",
+            "type": "country"
+          },
+          {
+            "id": 2123,
+            "name": "Emergency Contact Email",
+            "type": "email"
+          },
+          {
+            "id": 159,
+            "name": "Emergency Contact Home Phone",
+            "type": "phone"
+          },
+          {
+            "id": 693,
+            "name": "Emergency Contact Mobile Phone",
+            "type": "phone"
+          },
+          {
+            "id": 158,
+            "name": "Emergency Contact Name",
+            "type": "text"
+          },
+          {
+            "id": 4289,
+            "name": "Emergency Contact Primary",
+            "type": "checkbox"
+          },
+          {
+            "id": 160,
+            "name": "Emergency Contact Relationship",
+            "type": "list"
+          },
+          {
+            "id": 4299,
+            "name": "Emergency Contacts",
+            "type": "employee_contacts"
+          },
+          {
+            "id": 690,
+            "name": "Emergency Contact State",
+            "type": "state"
+          },
+          {
+            "id": 691,
+            "name": "Emergency Contact Street 1",
+            "type": "text"
+          },
+          {
+            "id": 2124,
+            "name": "Emergency Contact Street 2",
+            "type": "text"
+          },
+          {
+            "id": 4063,
+            "name": "Emergency Contact Work Ext",
+            "type": "text"
+          },
+          {
+            "id": 4044,
+            "name": "Emergency Contact Work Phone",
+            "type": "phone"
+          },
+          {
+            "id": 689,
+            "name": "Emergency Contact ZIP Code",
+            "type": "text"
+          },
+          {
+            "id": 636,
+            "name": "Employee #",
+            "type": "employee_number",
+            "alias": "employeeNumber"
+          },
+          {
+            "id": 4298,
+            "name": "Employee Education: End Date",
+            "type": "date"
+          },
+          {
+            "id": 4297,
+            "name": "Employee Education: Start Date",
+            "type": "date"
+          },
+          {
+            "id": 16,
+            "name": "Employment Status",
+            "type": "list",
+            "alias": "employmentHistoryStatus"
+          },
+          {
+            "id": "16.1",
+            "name": "Employment Status - FTE",
+            "type": "list",
+            "alias": "employmentHistoryStatus"
+          },
+          {
+            "id": 4302,
+            "name": "Employment Status: ACA Full-Time",
+            "type": "aca_status",
+            "alias": "acaStatus"
+          },
+          {
+            "id": 1936,
+            "name": "Employment Status: Date",
+            "type": "date",
+            "alias": "employeeStatusDate"
+          },
+          {
+            "id": 4046,
+            "name": "Employment status comments",
+            "type": "textarea"
+          },
+          {
+            "id": 4517,
+            "name": "Equity: # of Equity Granted",
+            "type": "int"
+          },
+          {
+            "id": 4521,
+            "name": "Equity: Cliff Months",
+            "type": "int"
+          },
+          {
+            "id": 4516,
+            "name": "Equity: Custom Grant Type Name",
+            "type": "text"
+          },
+          {
+            "id": 4513,
+            "name": "Equity: Grant Date",
+            "type": "date"
+          },
+          {
+            "id": 4515,
+            "name": "Equity: Grant Type",
+            "type": "list"
+          },
+          {
+            "id": 4518,
+            "name": "Equity: Strike Price",
+            "type": "currency"
+          },
+          {
+            "id": "4518.1",
+            "name": "Equity: Strike Price - Currency code",
+            "type": "text"
+          },
+          {
+            "id": 4520,
+            "name": "Equity: Vesting Months",
+            "type": "int"
+          },
+          {
+            "id": 4519,
+            "name": "Equity: Vesting Schedule",
+            "type": "list"
+          },
+          {
+            "id": 4514,
+            "name": "Equity: Vesting Start Date",
+            "type": "date"
+          },
+          {
+            "id": 1037,
+            "name": "Ethnicity",
+            "type": "list",
+            "alias": "ethnicity"
+          },
+          {
+            "id": 4173,
+            "name": "Expiration",
+            "type": "date"
+          },
+          {
+            "id": 4609,
+            "name": "Expiration Date",
+            "type": "date"
+          },
+          {
+            "id": 4571,
+            "name": "Extra Pay",
+            "type": "extra_pay"
+          },
+          {
+            "id": 4057,
+            "name": "Facebook URL",
+            "type": "contact_url",
+            "alias": "facebook"
+          },
+          {
+            "id": 4398,
+            "name": "Federal W-4 Withholding",
+            "type": "federal_tax_withholding"
+          },
+          {
+            "id": 4595,
+            "name": "Finance Approval",
+            "type": "list"
+          },
+          {
+            "id": 4350,
+            "name": "First Aid - Completed",
+            "type": "date"
+          },
+          {
+            "id": "4350.2",
+            "name": "First Aid - Due Date",
+            "type": "date"
+          },
+          {
+            "id": "4350.1",
+            "name": "First Aid - Expires",
+            "type": "date"
+          },
+          {
+            "id": 1,
+            "name": "First Name",
+            "type": "text",
+            "alias": "firstName"
+          },
+          {
+            "id": "4363.6",
+            "name": "FMLA - Adjustments (YTD)",
+            "type": "int"
+          },
+          {
+            "id": "4363.3",
+            "name": "FMLA - Available Balance",
+            "type": "int"
+          },
+          {
+            "id": "4363.7",
+            "name": "FMLA - Current balance",
+            "type": "time_off_type"
+          },
+          {
+            "id": "4363.8",
+            "name": "FMLA - Effective Date",
+            "type": "time_off_type"
+          },
+          {
+            "id": "4363.2",
+            "name": "FMLA - Policy",
+            "type": "text"
+          },
+          {
+            "id": 4363,
+            "name": "FMLA - Policy Assigned",
+            "type": "time_off_type_exists"
+          },
+          {
+            "id": "4363.1",
+            "name": "FMLA - Time accrued",
+            "type": "int"
+          },
+          {
+            "id": "4363.5",
+            "name": "FMLA - Time scheduled",
+            "type": "int"
+          },
+          {
+            "id": "4363.4",
+            "name": "FMLA - Time taken (YTD)",
+            "type": "int"
+          },
+          {
+            "id": "4498.4",
+            "name": "FSA-Eligible HMO - Company pays",
+            "type": "text"
+          },
+          {
+            "id": "4498.7",
+            "name": "FSA-Eligible HMO - Company pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": "4498.2",
+            "name": "FSA-Eligible HMO - Coverage",
+            "type": "employee_new_benefit_coverage_type"
+          },
+          {
+            "id": "4498.1",
+            "name": "FSA-Eligible HMO - Effective date",
+            "type": "date"
+          },
+          {
+            "id": "4498.5",
+            "name": "FSA-Eligible HMO - Eligibility date",
+            "type": "date"
+          },
+          {
+            "id": "4498.3",
+            "name": "FSA-Eligible HMO - Employee pays",
+            "type": "text"
+          },
+          {
+            "id": "4498.6",
+            "name": "FSA-Eligible HMO - Employee pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": 4498,
+            "name": "FSA-Eligible HMO - Status",
+            "type": "new_benefit_status"
+          },
+          {
+            "id": "4554.4",
+            "name": "FSA-Eligible HMO 2026 - Company pays",
+            "type": "text"
+          },
+          {
+            "id": "4554.7",
+            "name": "FSA-Eligible HMO 2026 - Company pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": "4554.2",
+            "name": "FSA-Eligible HMO 2026 - Coverage",
+            "type": "employee_new_benefit_coverage_type"
+          },
+          {
+            "id": "4554.1",
+            "name": "FSA-Eligible HMO 2026 - Effective date",
+            "type": "date"
+          },
+          {
+            "id": "4554.5",
+            "name": "FSA-Eligible HMO 2026 - Eligibility date",
+            "type": "date"
+          },
+          {
+            "id": "4554.3",
+            "name": "FSA-Eligible HMO 2026 - Employee pays",
+            "type": "text"
+          },
+          {
+            "id": "4554.6",
+            "name": "FSA-Eligible HMO 2026 - Employee pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": 4554,
+            "name": "FSA-Eligible HMO 2026 - Status",
+            "type": "new_benefit_status"
+          },
+          {
+            "id": 4612,
+            "name": "Full Plan Description",
+            "type": "textarea"
+          },
+          {
+            "id": 154,
+            "name": "Gender",
+            "type": "gender",
+            "alias": "gender"
+          },
+          {
+            "id": 4457,
+            "name": "Getting Started in BambooHR - Completed",
+            "type": "date"
+          },
+          {
+            "id": "4457.2",
+            "name": "Getting Started in BambooHR - Due Date",
+            "type": "date"
+          },
+          {
+            "id": "4457.1",
+            "name": "Getting Started in BambooHR - Expires",
+            "type": "date"
+          },
+          {
+            "id": 4296,
+            "name": "GPA",
+            "type": "text"
+          },
+          {
+            "id": "4528.4",
+            "name": "Gym Reimbursement - Company pays",
+            "type": "text"
+          },
+          {
+            "id": "4528.7",
+            "name": "Gym Reimbursement - Company pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": "4528.2",
+            "name": "Gym Reimbursement - Coverage",
+            "type": "employee_new_benefit_coverage_type"
+          },
+          {
+            "id": "4528.1",
+            "name": "Gym Reimbursement - Effective date",
+            "type": "date"
+          },
+          {
+            "id": "4528.5",
+            "name": "Gym Reimbursement - Eligibility date",
+            "type": "date"
+          },
+          {
+            "id": "4528.3",
+            "name": "Gym Reimbursement - Employee pays",
+            "type": "text"
+          },
+          {
+            "id": "4528.6",
+            "name": "Gym Reimbursement - Employee pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": 4528,
+            "name": "Gym Reimbursement - Status",
+            "type": "new_benefit_status"
+          },
+          {
+            "id": "4551.4",
+            "name": "Gym Reimbursement Plan delete - Company pays",
+            "type": "text"
+          },
+          {
+            "id": "4551.7",
+            "name": "Gym Reimbursement Plan delete - Company pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": "4551.2",
+            "name": "Gym Reimbursement Plan delete - Coverage",
+            "type": "employee_new_benefit_coverage_type"
+          },
+          {
+            "id": "4551.1",
+            "name": "Gym Reimbursement Plan delete - Effective date",
+            "type": "date"
+          },
+          {
+            "id": "4551.5",
+            "name": "Gym Reimbursement Plan delete - Eligibility date",
+            "type": "date"
+          },
+          {
+            "id": "4551.3",
+            "name": "Gym Reimbursement Plan delete - Employee pays",
+            "type": "text"
+          },
+          {
+            "id": "4551.6",
+            "name": "Gym Reimbursement Plan delete - Employee pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": 4551,
+            "name": "Gym Reimbursement Plan delete - Status",
+            "type": "new_benefit_status"
+          },
+          {
+            "id": "4496.4",
+            "name": "HDHP 1 - Company pays",
+            "type": "text"
+          },
+          {
+            "id": "4496.7",
+            "name": "HDHP 1 - Company pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": "4496.2",
+            "name": "HDHP 1 - Coverage",
+            "type": "employee_new_benefit_coverage_type"
+          },
+          {
+            "id": "4496.1",
+            "name": "HDHP 1 - Effective date",
+            "type": "date"
+          },
+          {
+            "id": "4496.5",
+            "name": "HDHP 1 - Eligibility date",
+            "type": "date"
+          },
+          {
+            "id": "4496.3",
+            "name": "HDHP 1 - Employee pays",
+            "type": "text"
+          },
+          {
+            "id": "4496.6",
+            "name": "HDHP 1 - Employee pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": 4496,
+            "name": "HDHP 1 - Status",
+            "type": "new_benefit_status"
+          },
+          {
+            "id": "4497.4",
+            "name": "HDHP 2 - Company pays",
+            "type": "text"
+          },
+          {
+            "id": "4497.7",
+            "name": "HDHP 2 - Company pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": "4497.2",
+            "name": "HDHP 2 - Coverage",
+            "type": "employee_new_benefit_coverage_type"
+          },
+          {
+            "id": "4497.1",
+            "name": "HDHP 2 - Effective date",
+            "type": "date"
+          },
+          {
+            "id": "4497.5",
+            "name": "HDHP 2 - Eligibility date",
+            "type": "date"
+          },
+          {
+            "id": "4497.3",
+            "name": "HDHP 2 - Employee pays",
+            "type": "text"
+          },
+          {
+            "id": "4497.6",
+            "name": "HDHP 2 - Employee pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": 4497,
+            "name": "HDHP 2 - Status",
+            "type": "new_benefit_status"
+          },
+          {
+            "id": "4553.4",
+            "name": "HDHP Gold 2026 - Company pays",
+            "type": "text"
+          },
+          {
+            "id": "4553.7",
+            "name": "HDHP Gold 2026 - Company pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": "4553.2",
+            "name": "HDHP Gold 2026 - Coverage",
+            "type": "employee_new_benefit_coverage_type"
+          },
+          {
+            "id": "4553.1",
+            "name": "HDHP Gold 2026 - Effective date",
+            "type": "date"
+          },
+          {
+            "id": "4553.5",
+            "name": "HDHP Gold 2026 - Eligibility date",
+            "type": "date"
+          },
+          {
+            "id": "4553.3",
+            "name": "HDHP Gold 2026 - Employee pays",
+            "type": "text"
+          },
+          {
+            "id": "4553.6",
+            "name": "HDHP Gold 2026 - Employee pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": 4553,
+            "name": "HDHP Gold 2026 - Status",
+            "type": "new_benefit_status"
+          },
+          {
+            "id": "4552.4",
+            "name": "HDHP Silver 2026 - Company pays",
+            "type": "text"
+          },
+          {
+            "id": "4552.7",
+            "name": "HDHP Silver 2026 - Company pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": "4552.2",
+            "name": "HDHP Silver 2026 - Coverage",
+            "type": "employee_new_benefit_coverage_type"
+          },
+          {
+            "id": "4552.1",
+            "name": "HDHP Silver 2026 - Effective date",
+            "type": "date"
+          },
+          {
+            "id": "4552.5",
+            "name": "HDHP Silver 2026 - Eligibility date",
+            "type": "date"
+          },
+          {
+            "id": "4552.3",
+            "name": "HDHP Silver 2026 - Employee pays",
+            "type": "text"
+          },
+          {
+            "id": "4552.6",
+            "name": "HDHP Silver 2026 - Employee pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": 4552,
+            "name": "HDHP Silver 2026 - Status",
+            "type": "new_benefit_status"
+          },
+          {
+            "id": "4560.4",
+            "name": "Healthcare FSA - Company pays",
+            "type": "text"
+          },
+          {
+            "id": "4560.7",
+            "name": "Healthcare FSA - Company pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": "4560.2",
+            "name": "Healthcare FSA - Coverage",
+            "type": "employee_new_benefit_coverage_type"
+          },
+          {
+            "id": "4560.1",
+            "name": "Healthcare FSA - Effective date",
+            "type": "date"
+          },
+          {
+            "id": "4560.5",
+            "name": "Healthcare FSA - Eligibility date",
+            "type": "date"
+          },
+          {
+            "id": "4560.3",
+            "name": "Healthcare FSA - Employee pays",
+            "type": "text"
+          },
+          {
+            "id": "4560.6",
+            "name": "Healthcare FSA - Employee pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": 4560,
+            "name": "Healthcare FSA - Status",
+            "type": "new_benefit_status"
+          },
+          {
+            "id": "4351.4",
+            "name": "Health Insurance - CA - Company pays",
+            "type": "text"
+          },
+          {
+            "id": "4351.7",
+            "name": "Health Insurance - CA - Company pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": "4351.2",
+            "name": "Health Insurance - CA - Coverage",
+            "type": "employee_new_benefit_coverage_type"
+          },
+          {
+            "id": "4351.1",
+            "name": "Health Insurance - CA - Effective date",
+            "type": "date"
+          },
+          {
+            "id": "4351.5",
+            "name": "Health Insurance - CA - Eligibility date",
+            "type": "date"
+          },
+          {
+            "id": "4351.3",
+            "name": "Health Insurance - CA - Employee pays",
+            "type": "text"
+          },
+          {
+            "id": "4351.6",
+            "name": "Health Insurance - CA - Employee pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": 4351,
+            "name": "Health Insurance - CA - Status",
+            "type": "new_benefit_status"
+          },
+          {
+            "id": 4547,
+            "name": "HIPAA Training - Completed",
+            "type": "date"
+          },
+          {
+            "id": "4547.2",
+            "name": "HIPAA Training - Due Date",
+            "type": "date"
+          },
+          {
+            "id": "4547.1",
+            "name": "HIPAA Training - Expires",
+            "type": "date"
+          },
+          {
+            "id": 3,
+            "name": "Hire Date",
+            "type": "date",
+            "alias": "hireDate"
+          },
+          {
+            "id": 1357,
+            "name": "Home Email",
+            "type": "email",
+            "alias": "homeEmail"
+          },
+          {
+            "id": 14,
+            "name": "Home Phone",
+            "type": "phone",
+            "alias": "homePhone"
+          },
+          {
+            "id": "4502.4",
+            "name": "Hospital Indemnity - Company pays",
+            "type": "text"
+          },
+          {
+            "id": "4502.7",
+            "name": "Hospital Indemnity - Company pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": "4502.2",
+            "name": "Hospital Indemnity - Coverage",
+            "type": "employee_new_benefit_coverage_type"
+          },
+          {
+            "id": "4502.1",
+            "name": "Hospital Indemnity - Effective date",
+            "type": "date"
+          },
+          {
+            "id": "4502.5",
+            "name": "Hospital Indemnity - Eligibility date",
+            "type": "date"
+          },
+          {
+            "id": "4502.3",
+            "name": "Hospital Indemnity - Employee pays",
+            "type": "text"
+          },
+          {
+            "id": "4502.6",
+            "name": "Hospital Indemnity - Employee pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": 4502,
+            "name": "Hospital Indemnity - Status",
+            "type": "new_benefit_status"
+          },
+          {
+            "id": "4558.4",
+            "name": "Hospital Indemnity 2026 - Company pays",
+            "type": "text"
+          },
+          {
+            "id": "4558.7",
+            "name": "Hospital Indemnity 2026 - Company pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": "4558.2",
+            "name": "Hospital Indemnity 2026 - Coverage",
+            "type": "employee_new_benefit_coverage_type"
+          },
+          {
+            "id": "4558.1",
+            "name": "Hospital Indemnity 2026 - Effective date",
+            "type": "date"
+          },
+          {
+            "id": "4558.5",
+            "name": "Hospital Indemnity 2026 - Eligibility date",
+            "type": "date"
+          },
+          {
+            "id": "4558.3",
+            "name": "Hospital Indemnity 2026 - Employee pays",
+            "type": "text"
+          },
+          {
+            "id": "4558.6",
+            "name": "Hospital Indemnity 2026 - Employee pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": 4558,
+            "name": "Hospital Indemnity 2026 - Status",
+            "type": "new_benefit_status"
+          },
+          {
+            "id": 4493,
+            "name": "Hours Per Pay Cycle",
+            "type": "text",
+            "alias": "hoursPerPayCycle"
+          },
+          {
+            "id": "4505.4",
+            "name": "HSA - Company pays",
+            "type": "text"
+          },
+          {
+            "id": "4505.7",
+            "name": "HSA - Company pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": "4505.2",
+            "name": "HSA - Coverage",
+            "type": "employee_new_benefit_coverage_type"
+          },
+          {
+            "id": "4505.1",
+            "name": "HSA - Effective date",
+            "type": "date"
+          },
+          {
+            "id": "4505.5",
+            "name": "HSA - Eligibility date",
+            "type": "date"
+          },
+          {
+            "id": "4505.3",
+            "name": "HSA - Employee pays",
+            "type": "text"
+          },
+          {
+            "id": "4505.6",
+            "name": "HSA - Employee pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": 4505,
+            "name": "HSA - Status",
+            "type": "new_benefit_status"
+          },
+          {
+            "id": 4621,
+            "name": "Injury Date",
+            "type": "date"
+          },
+          {
+            "id": 4623,
+            "name": "Injury Description",
+            "type": "textarea"
+          },
+          {
+            "id": 4402,
+            "name": "Instagram URL",
+            "type": "contact_url",
+            "alias": "instagram"
+          },
+          {
+            "id": 4172,
+            "name": "Issued",
+            "type": "date"
+          },
+          {
+            "id": 4171,
+            "name": "Issuing country",
+            "type": "country"
+          },
+          {
+            "id": 4047,
+            "name": "Job Information: Date",
+            "type": "date"
+          },
+          {
+            "id": 4622,
+            "name": "Job Site",
+            "type": "text"
+          },
+          {
+            "id": 17,
+            "name": "Job Title",
+            "type": "list",
+            "alias": "jobTitle"
+          },
+          {
+            "id": 2,
+            "name": "Last Name",
+            "type": "text",
+            "alias": "lastName"
+          },
+          {
+            "id": "4341.4",
+            "name": "Life Insurance - Company pays",
+            "type": "text"
+          },
+          {
+            "id": "4341.7",
+            "name": "Life Insurance - Company pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": "4341.2",
+            "name": "Life Insurance - Coverage",
+            "type": "employee_new_benefit_coverage_type"
+          },
+          {
+            "id": "4341.1",
+            "name": "Life Insurance - Effective date",
+            "type": "date"
+          },
+          {
+            "id": "4341.5",
+            "name": "Life Insurance - Eligibility date",
+            "type": "date"
+          },
+          {
+            "id": "4341.3",
+            "name": "Life Insurance - Employee pays",
+            "type": "text"
+          },
+          {
+            "id": "4341.6",
+            "name": "Life Insurance - Employee pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": 4341,
+            "name": "Life Insurance - Status",
+            "type": "new_benefit_status"
+          },
+          {
+            "id": 4058,
+            "name": "LinkedIn URL",
+            "type": "contact_url",
+            "alias": "linkedIn"
+          },
+          {
+            "id": 18,
+            "name": "Location",
+            "type": "list",
+            "alias": "location"
+          },
+          {
+            "id": "4605.4",
+            "name": "Long Term Disability - Company pays",
+            "type": "text"
+          },
+          {
+            "id": "4605.7",
+            "name": "Long Term Disability - Company pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": "4605.2",
+            "name": "Long Term Disability - Coverage",
+            "type": "employee_new_benefit_coverage_type"
+          },
+          {
+            "id": "4605.1",
+            "name": "Long Term Disability - Effective date",
+            "type": "date"
+          },
+          {
+            "id": "4605.5",
+            "name": "Long Term Disability - Eligibility date",
+            "type": "date"
+          },
+          {
+            "id": "4605.3",
+            "name": "Long Term Disability - Employee pays",
+            "type": "text"
+          },
+          {
+            "id": "4605.6",
+            "name": "Long Term Disability - Employee pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": 4605,
+            "name": "Long Term Disability - Status",
+            "type": "new_benefit_status"
+          },
+          {
+            "id": 4295,
+            "name": "Major/Specialization",
+            "type": "text"
+          },
+          {
+            "id": 155,
+            "name": "Marital Status",
+            "type": "marital_status",
+            "alias": "maritalStatus"
+          },
+          {
+            "id": "4506.4",
+            "name": "Medical FSA - Company pays",
+            "type": "text"
+          },
+          {
+            "id": "4506.7",
+            "name": "Medical FSA - Company pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": "4506.2",
+            "name": "Medical FSA - Coverage",
+            "type": "employee_new_benefit_coverage_type"
+          },
+          {
+            "id": "4506.1",
+            "name": "Medical FSA - Effective date",
+            "type": "date"
+          },
+          {
+            "id": "4506.5",
+            "name": "Medical FSA - Eligibility date",
+            "type": "date"
+          },
+          {
+            "id": "4506.3",
+            "name": "Medical FSA - Employee pays",
+            "type": "text"
+          },
+          {
+            "id": "4506.6",
+            "name": "Medical FSA - Employee pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": 4506,
+            "name": "Medical FSA - Status",
+            "type": "new_benefit_status"
+          },
+          {
+            "id": 5,
+            "name": "Middle Name",
+            "type": "text",
+            "alias": "middleName"
+          },
+          {
+            "id": 13,
+            "name": "Mobile Phone",
+            "type": "phone",
+            "alias": "mobilePhone"
+          },
+          {
+            "id": 4607,
+            "name": "Name",
+            "type": "text"
+          },
+          {
+            "id": 4347,
+            "name": "New Hire Training - Completed",
+            "type": "date"
+          },
+          {
+            "id": "4347.2",
+            "name": "New Hire Training - Due Date",
+            "type": "date"
+          },
+          {
+            "id": "4347.1",
+            "name": "New Hire Training - Expires",
+            "type": "date"
+          },
+          {
+            "id": 4337,
+            "name": "NIN",
+            "type": "text",
+            "alias": "customNIN1"
+          },
+          {
+            "id": 4174,
+            "name": "Note",
+            "type": "text"
+          },
+          {
+            "id": 4593,
+            "name": "Note",
+            "type": "textarea"
+          },
+          {
+            "id": 4619,
+            "name": "Notes",
+            "type": "textarea"
+          },
+          {
+            "id": 4601,
+            "name": "Odometer Reading End",
+            "type": "int"
+          },
+          {
+            "id": 4600,
+            "name": "Odometer Reading Start",
+            "type": "int"
+          },
+          {
+            "id": 4333,
+            "name": "Original Hire Date",
+            "type": "date",
+            "alias": "originalHireDate"
+          },
+          {
+            "id": 4544,
+            "name": "OSHA Training - Completed",
+            "type": "date"
+          },
+          {
+            "id": "4544.2",
+            "name": "OSHA Training - Due Date",
+            "type": "date"
+          },
+          {
+            "id": "4544.1",
+            "name": "OSHA Training - Expires",
+            "type": "date"
+          },
+          {
+            "id": 4403,
+            "name": "Overtime Rate",
+            "type": "currency",
+            "alias": "overtimeRate"
+          },
+          {
+            "id": "4403.1",
+            "name": "Overtime Rate - Currency code",
+            "type": "text",
+            "alias": "overtimeRate"
+          },
+          {
+            "id": 4042,
+            "name": "Overtime Status",
+            "type": "exempt",
+            "alias": "exempt"
+          },
+          {
+            "id": 4330,
+            "name": "Paid per",
+            "type": "paid_per",
+            "alias": "payPer"
+          },
+          {
+            "id": 19,
+            "name": "Pay rate",
+            "type": "currency",
+            "alias": "payRate"
+          },
+          {
+            "id": "19.1",
+            "name": "Pay rate - Currency code",
+            "type": "text",
+            "alias": "payRate"
+          },
+          {
+            "id": 4331,
+            "type": "pay_period",
+            "deprecated": true,
+            "name": "Pay Period",
+            "alias": "payPeriod"
+          },
+          {
+            "id": 4386,
+            "name": "Pay Schedule",
+            "type": "list",
+            "alias": "paySchedule"
+          },
+          {
+            "id": 4523,
+            "name": "Paystubs",
+            "type": "pay_stubs"
+          },
+          {
+            "id": 156,
+            "name": "Pay type",
+            "type": "pay_type",
+            "alias": "payType"
+          },
+          {
+            "id": 4060,
+            "name": "Pinterest URL",
+            "type": "contact_url",
+            "alias": "pinterest"
+          },
+          {
+            "id": 1358,
+            "type": "text",
+            "deprecated": true,
+            "name": "Nickname",
+            "alias": "nickname"
+          },
+          {
+            "id": 1358,
+            "name": "Preferred Name",
+            "type": "text",
+            "alias": "preferredName"
+          },
+          {
+            "id": 4617,
+            "name": "Project Name",
+            "type": "text"
+          },
+          {
+            "id": 4543,
+            "name": "Quarterly Security Training - Completed",
+            "type": "date"
+          },
+          {
+            "id": "4543.2",
+            "name": "Quarterly Security Training - Due Date",
+            "type": "date"
+          },
+          {
+            "id": "4543.1",
+            "name": "Quarterly Security Training - Expires",
+            "type": "date"
+          },
+          {
+            "id": 4594,
+            "name": "Receipt Attached",
+            "type": "list"
+          },
+          {
+            "id": 4509,
+            "name": "Regrettable or Non-Regrettable",
+            "type": "list"
+          },
+          {
+            "id": 91,
+            "name": "Reporting to",
+            "type": "employee",
+            "alias": "reportsTo"
+          },
+          {
+            "id": 4339,
+            "name": "Secondary Language",
+            "type": "list",
+            "alias": "customSecondaryLanguage1"
+          },
+          {
+            "id": 1610,
+            "name": "Self-service access",
+            "type": "employee_access"
+          },
+          {
+            "id": 4374,
+            "name": "Serial #",
+            "type": "text"
+          },
+          {
+            "id": 4616,
+            "name": "Severity",
+            "type": "text"
+          },
+          {
+            "id": 4545,
+            "name": "Sexual Harassment Training - Completed",
+            "type": "date"
+          },
+          {
+            "id": "4545.2",
+            "name": "Sexual Harassment Training - Due Date",
+            "type": "date"
+          },
+          {
+            "id": "4545.1",
+            "name": "Sexual Harassment Training - Expires",
+            "type": "date"
+          },
+          {
+            "id": 4378,
+            "name": "Shirt size",
+            "type": "list",
+            "alias": "customShirtsize"
+          },
+          {
+            "id": "4563.4",
+            "name": "Short Term Disability - Company pays",
+            "type": "text"
+          },
+          {
+            "id": "4563.7",
+            "name": "Short Term Disability - Company pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": "4563.2",
+            "name": "Short Term Disability - Coverage",
+            "type": "employee_new_benefit_coverage_type"
+          },
+          {
+            "id": "4563.1",
+            "name": "Short Term Disability - Effective date",
+            "type": "date"
+          },
+          {
+            "id": "4563.5",
+            "name": "Short Term Disability - Eligibility date",
+            "type": "date"
+          },
+          {
+            "id": "4563.3",
+            "name": "Short Term Disability - Employee pays",
+            "type": "text"
+          },
+          {
+            "id": "4563.6",
+            "name": "Short Term Disability - Employee pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": 4563,
+            "name": "Short Term Disability - Status",
+            "type": "new_benefit_status"
+          },
+          {
+            "id": "4548.4",
+            "name": "Short Term Disability delete - Company pays",
+            "type": "text"
+          },
+          {
+            "id": "4548.7",
+            "name": "Short Term Disability delete - Company pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": "4548.2",
+            "name": "Short Term Disability delete - Coverage",
+            "type": "employee_new_benefit_coverage_type"
+          },
+          {
+            "id": "4548.1",
+            "name": "Short Term Disability delete - Effective date",
+            "type": "date"
+          },
+          {
+            "id": "4548.5",
+            "name": "Short Term Disability delete - Eligibility date",
+            "type": "date"
+          },
+          {
+            "id": "4548.3",
+            "name": "Short Term Disability delete - Employee pays",
+            "type": "text"
+          },
+          {
+            "id": "4548.6",
+            "name": "Short Term Disability delete - Employee pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": 4548,
+            "name": "Short Term Disability delete - Status",
+            "type": "new_benefit_status"
+          },
+          {
+            "id": "4360.6",
+            "name": "Sick - Adjustments (YTD)",
+            "type": "int"
+          },
+          {
+            "id": "4360.3",
+            "name": "Sick - Available Balance",
+            "type": "int"
+          },
+          {
+            "id": "4360.7",
+            "name": "Sick - Current balance",
+            "type": "time_off_type"
+          },
+          {
+            "id": "4360.8",
+            "name": "Sick - Effective Date",
+            "type": "time_off_type"
+          },
+          {
+            "id": "4360.2",
+            "name": "Sick - Policy",
+            "type": "text"
+          },
+          {
+            "id": 4360,
+            "name": "Sick - Policy Assigned",
+            "type": "time_off_type_exists"
+          },
+          {
+            "id": "4360.1",
+            "name": "Sick - Time accrued",
+            "type": "int"
+          },
+          {
+            "id": "4360.5",
+            "name": "Sick - Time scheduled",
+            "type": "int"
+          },
+          {
+            "id": "4360.4",
+            "name": "Sick - Time taken (YTD)",
+            "type": "int"
+          },
+          {
+            "id": 4369,
+            "name": "Sick Full-Time policy - Assigned",
+            "type": "time_off_policy_exists"
+          },
+          {
+            "id": "4369.1",
+            "name": "Sick Full-Time policy - Started on",
+            "type": "date"
+          },
+          {
+            "id": 7,
+            "name": "SSN",
+            "type": "ssn",
+            "alias": "ssn"
+          },
+          {
+            "id": 11,
+            "name": "State",
+            "type": "state",
+            "alias": "state"
+          },
+          {
+            "id": 4399,
+            "name": "State W-4 Withholding",
+            "type": "state_tax_withholding"
+          },
+          {
+            "id": 387,
+            "type": "status",
+            "deprecated": true,
+            "name": "Employment Status",
+            "alias": "employmentStatus"
+          },
+          {
+            "id": 387,
+            "name": "Status",
+            "type": "status",
+            "alias": "status"
+          },
+          {
+            "id": 4618,
+            "name": "Supervisor",
+            "type": "text"
+          },
+          {
+            "id": 4526,
+            "name": "Tax Documents",
+            "type": "tax_documents"
+          },
+          {
+            "id": 4338,
+            "name": "Tax File Number",
+            "type": "text",
+            "alias": "customTaxFileNumber1"
+          },
+          {
+            "id": 4549,
+            "name": "Teams",
+            "type": "multilist",
+            "alias": "teams"
+          },
+          {
+            "id": 4314,
+            "name": "Termination Reason",
+            "type": "list"
+          },
+          {
+            "id": 4313,
+            "name": "Termination Type",
+            "type": "list"
+          },
+          {
+            "id": 4400,
+            "name": "Time Tracking Enabled",
+            "type": "checkbox",
+            "alias": "timeTrackingEnabled"
+          },
+          {
+            "id": 4056,
+            "name": "Twitter Feed",
+            "type": "twitter_handle",
+            "alias": "twitterFeed"
+          },
+          {
+            "id": "4352.4",
+            "name": "UK Private Medical Insurance (PMI) - Company pays",
+            "type": "text"
+          },
+          {
+            "id": "4352.7",
+            "name": "UK Private Medical Insurance (PMI) - Company pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": "4352.2",
+            "name": "UK Private Medical Insurance (PMI) - Coverage",
+            "type": "employee_new_benefit_coverage_type"
+          },
+          {
+            "id": "4352.1",
+            "name": "UK Private Medical Insurance (PMI) - Effective date",
+            "type": "date"
+          },
+          {
+            "id": "4352.5",
+            "name": "UK Private Medical Insurance (PMI) - Eligibility date",
+            "type": "date"
+          },
+          {
+            "id": "4352.3",
+            "name": "UK Private Medical Insurance (PMI) - Employee pays",
+            "type": "text"
+          },
+          {
+            "id": "4352.6",
+            "name": "UK Private Medical Insurance (PMI) - Employee pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": 4352,
+            "name": "UK Private Medical Insurance (PMI) - Status",
+            "type": "new_benefit_status"
+          },
+          {
+            "id": 4525,
+            "name": "Unemployment Insurance",
+            "type": "unemployment_insurance"
+          },
+          {
+            "id": 4346,
+            "name": "Unlawful Harassment - Completed",
+            "type": "date"
+          },
+          {
+            "id": "4346.2",
+            "name": "Unlawful Harassment - Due Date",
+            "type": "date"
+          },
+          {
+            "id": "4346.1",
+            "name": "Unlawful Harassment - Expires",
+            "type": "date"
+          },
+          {
+            "id": "4344.4",
+            "name": "US Health Insurance - FSA Eligible - Company pays",
+            "type": "text"
+          },
+          {
+            "id": "4344.7",
+            "name": "US Health Insurance - FSA Eligible - Company pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": "4344.2",
+            "name": "US Health Insurance - FSA Eligible - Coverage",
+            "type": "employee_new_benefit_coverage_type"
+          },
+          {
+            "id": "4344.1",
+            "name": "US Health Insurance - FSA Eligible - Effective date",
+            "type": "date"
+          },
+          {
+            "id": "4344.5",
+            "name": "US Health Insurance - FSA Eligible - Eligibility date",
+            "type": "date"
+          },
+          {
+            "id": "4344.3",
+            "name": "US Health Insurance - FSA Eligible - Employee pays",
+            "type": "text"
+          },
+          {
+            "id": "4344.6",
+            "name": "US Health Insurance - FSA Eligible - Employee pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": 4344,
+            "name": "US Health Insurance - FSA Eligible - Status",
+            "type": "new_benefit_status"
+          },
+          {
+            "id": "4343.4",
+            "name": "US Health Insurance - HSA Eligible - Company pays",
+            "type": "text"
+          },
+          {
+            "id": "4343.7",
+            "name": "US Health Insurance - HSA Eligible - Company pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": "4343.2",
+            "name": "US Health Insurance - HSA Eligible - Coverage",
+            "type": "employee_new_benefit_coverage_type"
+          },
+          {
+            "id": "4343.1",
+            "name": "US Health Insurance - HSA Eligible - Effective date",
+            "type": "date"
+          },
+          {
+            "id": "4343.5",
+            "name": "US Health Insurance - HSA Eligible - Eligibility date",
+            "type": "date"
+          },
+          {
+            "id": "4343.3",
+            "name": "US Health Insurance - HSA Eligible - Employee pays",
+            "type": "text"
+          },
+          {
+            "id": "4343.6",
+            "name": "US Health Insurance - HSA Eligible - Employee pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": 4343,
+            "name": "US Health Insurance - HSA Eligible - Status",
+            "type": "new_benefit_status"
+          },
+          {
+            "id": "4357.6",
+            "name": "Vacation - Adjustments (YTD)",
+            "type": "int"
+          },
+          {
+            "id": "4357.3",
+            "name": "Vacation - Available Balance",
+            "type": "int"
+          },
+          {
+            "id": "4357.7",
+            "name": "Vacation - Current balance",
+            "type": "time_off_type"
+          },
+          {
+            "id": "4357.8",
+            "name": "Vacation - Effective Date",
+            "type": "time_off_type"
+          },
+          {
+            "id": "4357.2",
+            "name": "Vacation - Policy",
+            "type": "text"
+          },
+          {
+            "id": 4357,
+            "name": "Vacation - Policy Assigned",
+            "type": "time_off_type_exists"
+          },
+          {
+            "id": "4357.1",
+            "name": "Vacation - Time accrued",
+            "type": "int"
+          },
+          {
+            "id": "4357.5",
+            "name": "Vacation - Time scheduled",
+            "type": "int"
+          },
+          {
+            "id": "4357.4",
+            "name": "Vacation - Time taken (YTD)",
+            "type": "int"
+          },
+          {
+            "id": 4370,
+            "name": "Vacation Full-Time policy - Assigned",
+            "type": "time_off_policy_exists"
+          },
+          {
+            "id": "4370.1",
+            "name": "Vacation Full-Time policy - Started on",
+            "type": "date"
+          },
+          {
+            "id": 4001,
+            "name": "Veteran Status",
+            "type": "multilist"
+          },
+          {
+            "id": 4170,
+            "name": "Visa",
+            "type": "list"
+          },
+          {
+            "id": 4169,
+            "name": "Visa:Date",
+            "type": "date"
+          },
+          {
+            "id": "4557.4",
+            "name": "Vision 2026 - Company pays",
+            "type": "text"
+          },
+          {
+            "id": "4557.7",
+            "name": "Vision 2026 - Company pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": "4557.2",
+            "name": "Vision 2026 - Coverage",
+            "type": "employee_new_benefit_coverage_type"
+          },
+          {
+            "id": "4557.1",
+            "name": "Vision 2026 - Effective date",
+            "type": "date"
+          },
+          {
+            "id": "4557.5",
+            "name": "Vision 2026 - Eligibility date",
+            "type": "date"
+          },
+          {
+            "id": "4557.3",
+            "name": "Vision 2026 - Employee pays",
+            "type": "text"
+          },
+          {
+            "id": "4557.6",
+            "name": "Vision 2026 - Employee pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": 4557,
+            "name": "Vision 2026 - Status",
+            "type": "new_benefit_status"
+          },
+          {
+            "id": "4501.4",
+            "name": "Vision Insurance - Company pays",
+            "type": "text"
+          },
+          {
+            "id": "4501.7",
+            "name": "Vision Insurance - Company pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": "4501.2",
+            "name": "Vision Insurance - Coverage",
+            "type": "employee_new_benefit_coverage_type"
+          },
+          {
+            "id": "4501.1",
+            "name": "Vision Insurance - Effective date",
+            "type": "date"
+          },
+          {
+            "id": "4501.5",
+            "name": "Vision Insurance - Eligibility date",
+            "type": "date"
+          },
+          {
+            "id": "4501.3",
+            "name": "Vision Insurance - Employee pays",
+            "type": "text"
+          },
+          {
+            "id": "4501.6",
+            "name": "Vision Insurance - Employee pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": 4501,
+            "name": "Vision Insurance - Status",
+            "type": "new_benefit_status"
+          },
+          {
+            "id": "4508.4",
+            "name": "Voluntary Life - Company pays",
+            "type": "text"
+          },
+          {
+            "id": "4508.7",
+            "name": "Voluntary Life - Company pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": "4508.2",
+            "name": "Voluntary Life - Coverage",
+            "type": "employee_new_benefit_coverage_type"
+          },
+          {
+            "id": "4508.1",
+            "name": "Voluntary Life - Effective date",
+            "type": "date"
+          },
+          {
+            "id": "4508.5",
+            "name": "Voluntary Life - Eligibility date",
+            "type": "date"
+          },
+          {
+            "id": "4508.3",
+            "name": "Voluntary Life - Employee pays",
+            "type": "text"
+          },
+          {
+            "id": "4508.6",
+            "name": "Voluntary Life - Employee pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": 4508,
+            "name": "Voluntary Life - Status",
+            "type": "new_benefit_status"
+          },
+          {
+            "id": "4562.4",
+            "name": "Voluntary Life Insurance - Company pays",
+            "type": "text"
+          },
+          {
+            "id": "4562.7",
+            "name": "Voluntary Life Insurance - Company pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": "4562.2",
+            "name": "Voluntary Life Insurance - Coverage",
+            "type": "employee_new_benefit_coverage_type"
+          },
+          {
+            "id": "4562.1",
+            "name": "Voluntary Life Insurance - Effective date",
+            "type": "date"
+          },
+          {
+            "id": "4562.5",
+            "name": "Voluntary Life Insurance - Eligibility date",
+            "type": "date"
+          },
+          {
+            "id": "4562.3",
+            "name": "Voluntary Life Insurance - Employee pays",
+            "type": "text"
+          },
+          {
+            "id": "4562.6",
+            "name": "Voluntary Life Insurance - Employee pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": 4562,
+            "name": "Voluntary Life Insurance - Status",
+            "type": "new_benefit_status"
+          },
+          {
+            "id": "4564.4",
+            "name": "Voluntary Life Plan 2026 delete - Company pays",
+            "type": "text"
+          },
+          {
+            "id": "4564.7",
+            "name": "Voluntary Life Plan 2026 delete - Company pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": "4564.2",
+            "name": "Voluntary Life Plan 2026 delete - Coverage",
+            "type": "employee_new_benefit_coverage_type"
+          },
+          {
+            "id": "4564.1",
+            "name": "Voluntary Life Plan 2026 delete - Effective date",
+            "type": "date"
+          },
+          {
+            "id": "4564.5",
+            "name": "Voluntary Life Plan 2026 delete - Eligibility date",
+            "type": "date"
+          },
+          {
+            "id": "4564.3",
+            "name": "Voluntary Life Plan 2026 delete - Employee pays",
+            "type": "text"
+          },
+          {
+            "id": "4564.6",
+            "name": "Voluntary Life Plan 2026 delete - Employee pays - Currency code",
+            "type": "new_benefit"
+          },
+          {
+            "id": 4564,
+            "name": "Voluntary Life Plan 2026 delete - Status",
+            "type": "new_benefit_status"
+          },
+          {
+            "id": 15,
+            "name": "Work Email",
+            "type": "email",
+            "alias": "workEmail"
+          },
+          {
+            "id": 4459,
+            "name": "Workers' Comp Classification",
+            "type": "employee_category"
+          },
+          {
+            "id": 635,
+            "name": "Work Ext.",
+            "type": "text",
+            "alias": "workPhoneExtension"
+          },
+          {
+            "id": 4452,
+            "name": "Working from home during COVID-19 - Completed",
+            "type": "date"
+          },
+          {
+            "id": "4452.2",
+            "name": "Working from home during COVID-19 - Due Date",
+            "type": "date"
+          },
+          {
+            "id": "4452.1",
+            "name": "Working from home during COVID-19 - Expires",
+            "type": "date"
+          },
+          {
+            "id": 634,
+            "name": "Work Phone",
+            "type": "phone",
+            "alias": "workPhone"
+          },
+          {
+            "id": 12,
+            "name": "Zip Code",
+            "type": "text",
+            "alias": "zipcode"
+          },
+          {
+            "id": -38,
+            "name": "Termination Date",
+            "type": "date",
+            "alias": "terminationDate"
+          },
+          {
+            "id": -50,
+            "name": "Job Level",
+            "type": "text",
+            "alias": "jobLevel"
+          },
+          {
+            "id": -49,
+            "name": "Pay Band",
+            "type": "pay_band",
+            "alias": "payBand"
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Fri, 29 May 2026 14:14:16 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubdomains;",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4968",
+          "x-ratelimit-reset": "1780064107",
+          "server": "nginx",
+          "cache-control": "no-cache, private",
+          "x-request-id": "141031204235340372120815201188757036202",
+          "vary": "Authorization,User-Agent"
+        },
+        "hash": "90403fde9950ba45ce0f9d9b94fb9d99c8537dc4",
+        "request": {}
+      }
+    }
+  }
+}

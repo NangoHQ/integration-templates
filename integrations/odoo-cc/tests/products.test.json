@@ -1,0 +1,541 @@
+{
+  "nango": {
+    "batchSave": {
+      "Product": [
+        {
+          "id": "36",
+          "name": "Cable Management Box",
+          "list_price": 100,
+          "type": "product",
+          "write_date": "2026-06-03T08:17:02.887141"
+        },
+        {
+          "id": "1",
+          "name": "Restaurant Expenses",
+          "list_price": 14,
+          "type": "service",
+          "write_date": "2026-06-03T08:17:07.412472"
+        },
+        {
+          "id": "2",
+          "name": "Hotel Accommodation",
+          "list_price": 400,
+          "type": "service",
+          "write_date": "2026-06-03T08:17:07.412472"
+        },
+        {
+          "id": "3",
+          "name": "Virtual Interior Design",
+          "list_price": 30.75,
+          "type": "service",
+          "write_date": "2026-06-03T08:17:07.412472"
+        },
+        {
+          "id": "4",
+          "name": "Virtual Home Staging",
+          "list_price": 38.25,
+          "type": "service",
+          "write_date": "2026-06-03T08:17:07.412472"
+        },
+        {
+          "id": "5",
+          "name": "Office Chair",
+          "list_price": 70,
+          "type": "product",
+          "write_date": "2026-06-03T08:17:07.412472"
+        },
+        {
+          "id": "6",
+          "name": "Office Lamp",
+          "list_price": 40,
+          "type": "product",
+          "write_date": "2026-06-03T08:17:07.412472"
+        },
+        {
+          "id": "7",
+          "name": "Office Design Software",
+          "list_price": 280,
+          "type": "product",
+          "write_date": "2026-06-03T08:17:07.412472"
+        },
+        {
+          "id": "8",
+          "name": "Desk Combination",
+          "list_price": 450,
+          "type": "product",
+          "write_date": "2026-06-03T08:17:07.412472"
+        },
+        {
+          "id": "16",
+          "name": "Corner Desk Right Sit",
+          "list_price": 147,
+          "type": "product",
+          "write_date": "2026-06-03T08:17:07.412472"
+        },
+        {
+          "id": "17",
+          "name": "Large Cabinet",
+          "list_price": 320,
+          "type": "product",
+          "write_date": "2026-06-03T08:17:07.412472"
+        },
+        {
+          "id": "18",
+          "name": "Storage Box",
+          "list_price": 15.8,
+          "type": "product",
+          "write_date": "2026-06-03T08:17:07.412472"
+        },
+        {
+          "id": "19",
+          "name": "Large Desk",
+          "list_price": 1799,
+          "type": "product",
+          "write_date": "2026-06-03T08:17:07.412472"
+        },
+        {
+          "id": "20",
+          "name": "Pedal Bin",
+          "list_price": 47,
+          "type": "product",
+          "write_date": "2026-06-03T08:17:07.412472"
+        },
+        {
+          "id": "21",
+          "name": "Cabinet with Doors",
+          "list_price": 140,
+          "type": "product",
+          "write_date": "2026-06-03T08:17:07.412472"
+        },
+        {
+          "id": "25",
+          "name": "Office Chair Black",
+          "list_price": 120.5,
+          "type": "product",
+          "write_date": "2026-06-03T08:17:07.412472"
+        },
+        {
+          "id": "27",
+          "name": "Drawer Black",
+          "list_price": 25,
+          "type": "product",
+          "write_date": "2026-06-03T08:17:07.412472"
+        },
+        {
+          "id": "28",
+          "name": "Flipover",
+          "list_price": 1950,
+          "type": "product",
+          "write_date": "2026-06-03T08:17:07.412472"
+        },
+        {
+          "id": "29",
+          "name": "Desk Stand with Screen",
+          "list_price": 2100,
+          "type": "product",
+          "write_date": "2026-06-03T08:17:07.412472"
+        },
+        {
+          "id": "30",
+          "name": "Individual Workplace",
+          "list_price": 885,
+          "type": "product",
+          "write_date": "2026-06-03T08:17:07.412472"
+        },
+        {
+          "id": "31",
+          "name": "Acoustic Bloc Screens",
+          "list_price": 295,
+          "type": "product",
+          "write_date": "2026-06-03T08:17:07.412472"
+        },
+        {
+          "id": "32",
+          "name": "Drawer",
+          "list_price": 110.5,
+          "type": "product",
+          "write_date": "2026-06-03T08:17:07.412472"
+        },
+        {
+          "id": "33",
+          "name": "Four Person Desk",
+          "list_price": 2350,
+          "type": "product",
+          "write_date": "2026-06-03T08:17:07.412472"
+        },
+        {
+          "id": "34",
+          "name": "Large Meeting Table",
+          "list_price": 4000,
+          "type": "product",
+          "write_date": "2026-06-03T08:17:07.412472"
+        },
+        {
+          "id": "35",
+          "name": "Three-Seat Sofa",
+          "list_price": 1500,
+          "type": "product",
+          "write_date": "2026-06-03T08:17:07.412472"
+        },
+        {
+          "id": "39",
+          "name": "Deposit",
+          "list_price": 150,
+          "type": "service",
+          "write_date": "2026-06-03T08:17:07.412472"
+        },
+        {
+          "id": "12",
+          "name": "Customizable Desk",
+          "list_price": 750,
+          "type": "product",
+          "write_date": "2026-06-03T08:17:09.189413"
+        },
+        {
+          "id": "13",
+          "name": "Customizable Desk",
+          "list_price": 750,
+          "type": "product",
+          "write_date": "2026-06-03T08:17:09.189413"
+        },
+        {
+          "id": "14",
+          "name": "Customizable Desk",
+          "list_price": 750,
+          "type": "product",
+          "write_date": "2026-06-03T08:17:09.189413"
+        },
+        {
+          "id": "23",
+          "name": "Conference Chair",
+          "list_price": 33,
+          "type": "product",
+          "write_date": "2026-06-03T08:17:09.189413"
+        },
+        {
+          "id": "24",
+          "name": "Conference Chair",
+          "list_price": 33,
+          "type": "product",
+          "write_date": "2026-06-03T08:17:09.189413"
+        },
+        {
+          "id": "26",
+          "name": "Corner Desk Left Sit",
+          "list_price": 85,
+          "type": "product",
+          "write_date": "2026-06-03T08:17:09.189413"
+        },
+        {
+          "id": "37",
+          "name": "Customizable Desk",
+          "list_price": 750,
+          "type": "product",
+          "write_date": "2026-06-03T08:17:09.189413"
+        },
+        {
+          "id": "38",
+          "name": "Customizable Desk",
+          "list_price": 750,
+          "type": "product",
+          "write_date": "2026-06-03T08:17:09.189413"
+        },
+        {
+          "id": "40",
+          "name": "Chair floor protection",
+          "list_price": 12,
+          "type": "consu",
+          "write_date": "2026-06-03T08:17:09.189413"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Product": []
+    }
+  },
+  "api": {
+    "get": {
+      "/1.0/product.product": {
+        "response": {
+          "records": [
+            {
+              "id": 36,
+              "name": "Cable Management Box",
+              "list_price": 100,
+              "type": "product",
+              "write_date": "2026-06-03T08:17:02.887141"
+            },
+            {
+              "id": 1,
+              "name": "Restaurant Expenses",
+              "list_price": 14,
+              "type": "service",
+              "write_date": "2026-06-03T08:17:07.412472"
+            },
+            {
+              "id": 2,
+              "name": "Hotel Accommodation",
+              "list_price": 400,
+              "type": "service",
+              "write_date": "2026-06-03T08:17:07.412472"
+            },
+            {
+              "id": 3,
+              "name": "Virtual Interior Design",
+              "list_price": 30.75,
+              "type": "service",
+              "write_date": "2026-06-03T08:17:07.412472"
+            },
+            {
+              "id": 4,
+              "name": "Virtual Home Staging",
+              "list_price": 38.25,
+              "type": "service",
+              "write_date": "2026-06-03T08:17:07.412472"
+            },
+            {
+              "id": 5,
+              "name": "Office Chair",
+              "list_price": 70,
+              "type": "product",
+              "write_date": "2026-06-03T08:17:07.412472"
+            },
+            {
+              "id": 6,
+              "name": "Office Lamp",
+              "list_price": 40,
+              "type": "product",
+              "write_date": "2026-06-03T08:17:07.412472"
+            },
+            {
+              "id": 7,
+              "name": "Office Design Software",
+              "list_price": 280,
+              "type": "product",
+              "write_date": "2026-06-03T08:17:07.412472"
+            },
+            {
+              "id": 8,
+              "name": "Desk Combination",
+              "list_price": 450,
+              "type": "product",
+              "write_date": "2026-06-03T08:17:07.412472"
+            },
+            {
+              "id": 16,
+              "name": "Corner Desk Right Sit",
+              "list_price": 147,
+              "type": "product",
+              "write_date": "2026-06-03T08:17:07.412472"
+            },
+            {
+              "id": 17,
+              "name": "Large Cabinet",
+              "list_price": 320,
+              "type": "product",
+              "write_date": "2026-06-03T08:17:07.412472"
+            },
+            {
+              "id": 18,
+              "name": "Storage Box",
+              "list_price": 15.8,
+              "type": "product",
+              "write_date": "2026-06-03T08:17:07.412472"
+            },
+            {
+              "id": 19,
+              "name": "Large Desk",
+              "list_price": 1799,
+              "type": "product",
+              "write_date": "2026-06-03T08:17:07.412472"
+            },
+            {
+              "id": 20,
+              "name": "Pedal Bin",
+              "list_price": 47,
+              "type": "product",
+              "write_date": "2026-06-03T08:17:07.412472"
+            },
+            {
+              "id": 21,
+              "name": "Cabinet with Doors",
+              "list_price": 140,
+              "type": "product",
+              "write_date": "2026-06-03T08:17:07.412472"
+            },
+            {
+              "id": 25,
+              "name": "Office Chair Black",
+              "list_price": 120.5,
+              "type": "product",
+              "write_date": "2026-06-03T08:17:07.412472"
+            },
+            {
+              "id": 27,
+              "name": "Drawer Black",
+              "list_price": 25,
+              "type": "product",
+              "write_date": "2026-06-03T08:17:07.412472"
+            },
+            {
+              "id": 28,
+              "name": "Flipover",
+              "list_price": 1950,
+              "type": "product",
+              "write_date": "2026-06-03T08:17:07.412472"
+            },
+            {
+              "id": 29,
+              "name": "Desk Stand with Screen",
+              "list_price": 2100,
+              "type": "product",
+              "write_date": "2026-06-03T08:17:07.412472"
+            },
+            {
+              "id": 30,
+              "name": "Individual Workplace",
+              "list_price": 885,
+              "type": "product",
+              "write_date": "2026-06-03T08:17:07.412472"
+            },
+            {
+              "id": 31,
+              "name": "Acoustic Bloc Screens",
+              "list_price": 295,
+              "type": "product",
+              "write_date": "2026-06-03T08:17:07.412472"
+            },
+            {
+              "id": 32,
+              "name": "Drawer",
+              "list_price": 110.5,
+              "type": "product",
+              "write_date": "2026-06-03T08:17:07.412472"
+            },
+            {
+              "id": 33,
+              "name": "Four Person Desk",
+              "list_price": 2350,
+              "type": "product",
+              "write_date": "2026-06-03T08:17:07.412472"
+            },
+            {
+              "id": 34,
+              "name": "Large Meeting Table",
+              "list_price": 4000,
+              "type": "product",
+              "write_date": "2026-06-03T08:17:07.412472"
+            },
+            {
+              "id": 35,
+              "name": "Three-Seat Sofa",
+              "list_price": 1500,
+              "type": "product",
+              "write_date": "2026-06-03T08:17:07.412472"
+            },
+            {
+              "id": 39,
+              "name": "Deposit",
+              "list_price": 150,
+              "type": "service",
+              "write_date": "2026-06-03T08:17:07.412472"
+            },
+            {
+              "id": 12,
+              "name": "Customizable Desk",
+              "list_price": 750,
+              "type": "product",
+              "write_date": "2026-06-03T08:17:09.189413"
+            },
+            {
+              "id": 13,
+              "name": "Customizable Desk",
+              "list_price": 750,
+              "type": "product",
+              "write_date": "2026-06-03T08:17:09.189413"
+            },
+            {
+              "id": 14,
+              "name": "Customizable Desk",
+              "list_price": 750,
+              "type": "product",
+              "write_date": "2026-06-03T08:17:09.189413"
+            },
+            {
+              "id": 23,
+              "name": "Conference Chair",
+              "list_price": 33,
+              "type": "product",
+              "write_date": "2026-06-03T08:17:09.189413"
+            },
+            {
+              "id": 24,
+              "name": "Conference Chair",
+              "list_price": 33,
+              "type": "product",
+              "write_date": "2026-06-03T08:17:09.189413"
+            },
+            {
+              "id": 26,
+              "name": "Corner Desk Left Sit",
+              "list_price": 85,
+              "type": "product",
+              "write_date": "2026-06-03T08:17:09.189413"
+            },
+            {
+              "id": 37,
+              "name": "Customizable Desk",
+              "list_price": 750,
+              "type": "product",
+              "write_date": "2026-06-03T08:17:09.189413"
+            },
+            {
+              "id": 38,
+              "name": "Customizable Desk",
+              "list_price": 750,
+              "type": "product",
+              "write_date": "2026-06-03T08:17:09.189413"
+            },
+            {
+              "id": 40,
+              "name": "Chair floor protection",
+              "list_price": 12,
+              "type": "consu",
+              "write_date": "2026-06-03T08:17:09.189413"
+            }
+          ],
+          "count": 35
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 03 Jun 2026 08:46:53 GMT",
+          "content-type": "application/json",
+          "content-length": "4359",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4978",
+          "x-ratelimit-reset": "1780476432",
+          "etag": "W/\"1107-zIGbV4/z3zLXkQIX0ylVu3DYBFc\""
+        },
+        "hash": "de7bffa736a1f091770be60ee2b0c22db8b72570",
+        "request": {
+          "params": {
+            "fields": "['id','name','list_price','type','write_date']",
+            "limit": "100",
+            "offset": "0",
+            "order": "write_date asc,id asc"
+          }
+        }
+      }
+    }
+  }
+}

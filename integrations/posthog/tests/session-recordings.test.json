@@ -1,0 +1,60 @@
+{
+  "nango": {
+    "getMetadata": {
+      "project_id": "309484"
+    },
+    "batchSave": {
+      "SessionRecording": []
+    },
+    "batchDelete": {
+      "SessionRecording": []
+    }
+  },
+  "api": {
+    "get": {
+      "/api/projects/309484/session_recordings/": {
+        "response": {
+          "results": [],
+          "has_next": false,
+          "version": 4
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 03 Jun 2026 13:51:50 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4977",
+          "x-ratelimit-reset": "1780494714",
+          "server-timing": "load_viewed_recordings_to_exclude;dur=142.93, build_recordings;dur=0.75, load_viewed_recordings;dur=0.53, load_other_viewers_by_recording;dur=0.52, load_persons;dur=0.75, process_persons;dur=0.02, hogql_query;dur=0.0, hogql_variables;dur=0.0, hogql_replace_placeholders;dur=0.0, hogql_max_limit;dur=0.0, hogql__generate_hogql_team;dur=0.0, hogql__generate_hogql_feature_flags;dur=0.0, hogql__generate_hogql_database;dur=20.0, hogql__generate_hogql_filter_system_tables_for_user;dur=0.0, hogql__generate_hogql_modifiers;dur=1.0, hogql__generate_hogql_session_table;dur=1.0, hogql__generate_hogql_virtual_fields_initial_referring_domain_type_initial_domain_type_expr;dur=0.0, hogql__generate_hogql_virtual_fields_initial_referring_domain_type;dur=0.0, hogql__generate_hogql_virtual_fields_initial_channel_type_custom_channel_rules;dur=0.0, hogql__generate_hogql_virtual_fields_initial_channel_type_default_channel_rules_parse;dur=0.0, hogql__generate_hogql_virtual_fields_initial_channel_type_default_channel_rules_replace;dur=4.0, hogql__generate_hogql_virtual_fields_initial_channel_type;dur=4.0, hogql__generate_hogql_virtual_fields_traffic_type_virtual_fields;dur=0.0, hogql__generate_hogql_virtual_fields_revenue_analytics_virtual_fields_revenue;dur=0.0, hogql__generate_hogql_virtual_fields_revenue_analytics_virtual_fields_mrr;dur=0.0, hogql__generate_hogql_virtual_fields_revenue_analytics_virtual_fields;dur=0.0, hogql__generate_hogql_virtual_fields;dur=5.0, hogql__generate_hogql_group_type_mapping;dur=1.0, hogql__generate_hogql_data_warehouse_saved_query_select;dur=3.0, hogql__generate_hogql_data_warehouse_saved_query;dur=3.0, hogql__generate_hogql_endpoint_saved_query;dur=2.0, hogql__generate_hogql_revenue_analytics_views_for_events;dur=2.0, hogql__generate_hogql_revenue_analytics_views_for_schema_sources;dur=2.0, hogql__generate_hogql_revenue_analytics_views;dur=3.0, hogql__generate_hogql_data_warehouse_tables_select;dur=2.0, hogql__generate_hogql_data_warehouse_tables;dur=3.0, hogql__generate_hogql_warehouse_foreign_keys;dur=0.0, hogql__generate_hogql_data_warehouse_joins;dur=1.0, hogql__generate_hogql_clone;dur=0.0, hogql__generate_hogql_prepare_ast_for_printing_load_restricted_properties;dur=6.0, hogql__generate_hogql_prepare_ast_for_printing_resolve_types_printer;dur=0.0, hogql__generate_hogql_prepare_ast_for_printing_resolve_types;dur=2.0, hogql__generate_hogql_prepare_ast_for_printing_workload_detection;dur=0.0, hogql__generate_hogql_prepare_ast_for_printing_projection_pushdown;dur=0.0, hogql__generate_hogql_prepare_ast_for_printing;dur=8.0, hogql__generate_hogql_print_prepared_ast_printer;dur=0.0, hogql__generate_hogql_print_prepared_ast;dur=0.0, hogql__generate_hogql;dur=51.0, hogql_printer;dur=0.0, hogql__generate_clickhouse_sql_prepare_ast_for_printing_load_restricted_properties;dur=5.0, hogql__generate_clickhouse_sql_prepare_ast_for_printing_resolve_types_printer;dur=0.0, hogql__generate_clickhouse_sql_prepare_ast_for_printing_resolve_types;dur=1.0, hogql__generate_clickhouse_sql_prepare_ast_for_printing_workload_detection;dur=0.0, hogql__generate_clickhouse_sql_prepare_ast_for_printing_projection_pushdown;dur=0.0, hogql__generate_clickhouse_sql_prepare_ast_for_printing_resolve_property_types;dur=0.0, hogql__generate_clickhouse_sql_prepare_ast_for_printing_resolve_lazy_tables;dur=0.0, hogql__generate_clickhouse_sql_prepare_ast_for_printing_swap_properties;dur=0.0, hogql__generate_clickhouse_sql_prepare_ast_for_printing;dur=7.0, hogql__generate_clickhouse_sql_print_prepared_ast_printer_printer;dur=0.0, hogql__generate_clickhouse_sql_print_prepared_ast_printer;dur=1.0, hogql__generate_clickhouse_sql_print_prepared_ast;dur=1.0, hogql__generate_clickhouse_sql;dur=8.0, hogql_clickhouse_execute_extract_hogql_features;dur=0.0, hogql_clickhouse_execute;dur=80.0, hogql_;dur=140.0",
+          "allow": "GET, HEAD, OPTIONS",
+          "content-security-policy": "default-src 'none'",
+          "vary": "origin, Cookie, Accept-Encoding",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "cross-origin-opener-policy": "same-origin",
+          "server": "envoy",
+          "x-envoy-upstream-service-time": "209"
+        },
+        "hash": "58171d51be84321c2c5be7c01233aad28603140b",
+        "request": {
+          "params": {
+            "date_from": "all",
+            "limit": "100",
+            "order": "start_time",
+            "order_direction": "ASC"
+          }
+        }
+      }
+    }
+  }
+}

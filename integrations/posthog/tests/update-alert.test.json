@@ -1,0 +1,228 @@
+{
+  "input": {
+    "id": "019e8d60-cb63-0000-f88c-60b06ee41715",
+    "name": "Nango test alert updated via dryrun",
+    "project_id": "309484"
+  },
+  "output": {
+    "id": "019e8d60-cb63-0000-f88c-60b06ee41715",
+    "created_by": {
+      "id": 411781,
+      "uuid": "019c439e-fd4f-0000-dc37-5baa50dfcff6",
+      "distinct_id": "xQi0eQjuEyQ8RFio14FSc5gE3wC5wOKUM7lm3FFRMyR",
+      "first_name": "Nango Developer",
+      "last_name": "",
+      "email": "api@nango.dev",
+      "is_email_verified": true,
+      "hedgehog_config": null,
+      "role_at_organization": ""
+    },
+    "created_at": "2026-06-03T12:06:31.524008Z",
+    "insight": {
+      "id": 9038220,
+      "short_id": "Sg50HIuR",
+      "name": "Nango Test Insight",
+      "derived_name": null,
+      "filters": {},
+      "query": {
+        "kind": "InsightVizNode",
+        "source": {
+          "kind": "TrendsQuery",
+          "series": [
+            {
+              "kind": "EventsNode",
+              "event": "$pageview"
+            }
+          ],
+          "version": 2
+        }
+      },
+      "dashboards": [],
+      "dashboard_tiles": [],
+      "description": "Updated via Nango dryrun",
+      "last_refresh": null,
+      "refreshing": false,
+      "saved": true,
+      "updated_at": "2026-06-03T10:14:41.758862Z",
+      "created_by": {
+        "id": 411781,
+        "uuid": "019c439e-fd4f-0000-dc37-5baa50dfcff6",
+        "distinct_id": "xQi0eQjuEyQ8RFio14FSc5gE3wC5wOKUM7lm3FFRMyR",
+        "first_name": "Nango Developer",
+        "last_name": "",
+        "email": "api@nango.dev",
+        "is_email_verified": true,
+        "hedgehog_config": null,
+        "role_at_organization": ""
+      },
+      "created_at": "2026-06-03T10:10:18.700474Z",
+      "last_modified_at": "2026-06-03T10:14:41.757928Z",
+      "favorited": false,
+      "user_access_level": null,
+      "last_viewed_at": null,
+      "tags": []
+    },
+    "name": "Nango test alert updated via dryrun",
+    "subscribed_users": [],
+    "threshold": {
+      "id": "019e8d60-cb5d-0000-4832-336a681419f8",
+      "created_at": "2026-06-03T12:06:31.517650Z",
+      "name": "",
+      "configuration": {
+        "type": "absolute"
+      }
+    },
+    "condition": {
+      "type": "absolute_value"
+    },
+    "state": "Not firing",
+    "enabled": true,
+    "last_notified_at": null,
+    "last_checked_at": "2026-06-03T12:07:14.358060Z",
+    "next_check_at": "2026-06-04T01:07:14.358081Z",
+    "config": {
+      "type": "TrendsAlertConfig",
+      "series_index": 0,
+      "check_ongoing_interval": false
+    },
+    "detector_config": null,
+    "calculation_interval": "daily",
+    "snoozed_until": null,
+    "skip_weekend": false,
+    "schedule_restriction": null,
+    "last_value": 0,
+    "investigation_agent_enabled": false,
+    "investigation_gates_notifications": false,
+    "investigation_inconclusive_action": "notify"
+  },
+  "nango": {},
+  "api": {
+    "patch": {
+      "/api/projects/309484/alerts/019e8d60-cb63-0000-f88c-60b06ee41715/": {
+        "response": {
+          "id": "019e8d60-cb63-0000-f88c-60b06ee41715",
+          "created_by": {
+            "id": 411781,
+            "uuid": "019c439e-fd4f-0000-dc37-5baa50dfcff6",
+            "distinct_id": "xQi0eQjuEyQ8RFio14FSc5gE3wC5wOKUM7lm3FFRMyR",
+            "first_name": "Nango Developer",
+            "last_name": "",
+            "email": "api@nango.dev",
+            "is_email_verified": true,
+            "hedgehog_config": null,
+            "role_at_organization": ""
+          },
+          "created_at": "2026-06-03T12:06:31.524008Z",
+          "insight": {
+            "id": 9038220,
+            "short_id": "Sg50HIuR",
+            "name": "Nango Test Insight",
+            "derived_name": null,
+            "filters": {},
+            "query": {
+              "kind": "InsightVizNode",
+              "source": {
+                "kind": "TrendsQuery",
+                "series": [
+                  {
+                    "kind": "EventsNode",
+                    "event": "$pageview"
+                  }
+                ],
+                "version": 2
+              }
+            },
+            "dashboards": [],
+            "dashboard_tiles": [],
+            "description": "Updated via Nango dryrun",
+            "last_refresh": null,
+            "refreshing": false,
+            "saved": true,
+            "updated_at": "2026-06-03T10:14:41.758862Z",
+            "created_by": {
+              "id": 411781,
+              "uuid": "019c439e-fd4f-0000-dc37-5baa50dfcff6",
+              "distinct_id": "xQi0eQjuEyQ8RFio14FSc5gE3wC5wOKUM7lm3FFRMyR",
+              "first_name": "Nango Developer",
+              "last_name": "",
+              "email": "api@nango.dev",
+              "is_email_verified": true,
+              "hedgehog_config": null,
+              "role_at_organization": ""
+            },
+            "created_at": "2026-06-03T10:10:18.700474Z",
+            "last_modified_at": "2026-06-03T10:14:41.757928Z",
+            "favorited": false,
+            "user_access_level": null,
+            "last_viewed_at": null,
+            "tags": []
+          },
+          "name": "Nango test alert updated via dryrun",
+          "subscribed_users": [],
+          "threshold": {
+            "id": "019e8d60-cb5d-0000-4832-336a681419f8",
+            "created_at": "2026-06-03T12:06:31.517650Z",
+            "name": "",
+            "configuration": {
+              "type": "absolute"
+            }
+          },
+          "condition": {
+            "type": "absolute_value"
+          },
+          "state": "Not firing",
+          "enabled": true,
+          "last_notified_at": null,
+          "last_checked_at": "2026-06-03T12:07:14.358060Z",
+          "next_check_at": "2026-06-04T01:07:14.358081Z",
+          "config": {
+            "type": "TrendsAlertConfig",
+            "series_index": 0,
+            "check_ongoing_interval": false
+          },
+          "detector_config": null,
+          "calculation_interval": "daily",
+          "snoozed_until": null,
+          "skip_weekend": false,
+          "schedule_restriction": null,
+          "last_value": 0,
+          "investigation_agent_enabled": false,
+          "investigation_gates_notifications": false,
+          "investigation_inconclusive_action": "notify"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 03 Jun 2026 12:15:03 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4992",
+          "x-ratelimit-reset": "1780488950",
+          "allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS",
+          "content-security-policy": "default-src 'none'",
+          "vary": "origin, Cookie, Accept-Encoding",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "cross-origin-opener-policy": "same-origin",
+          "server": "envoy",
+          "x-envoy-upstream-service-time": "196"
+        },
+        "hash": "f386effe60d3506b0bf9bb2450ba77a36bea1e0b",
+        "request": {
+          "data": {
+            "name": "Nango test alert updated via dryrun"
+          }
+        }
+      }
+    }
+  }
+}
