@@ -53596,21 +53596,18 @@ export interface CrmLead {
 
 export interface Invoice {
   id: string;
-  InvoiceNumber?: string | undefined;
-  Status?: string | undefined;
-  Type?: string | undefined;
-  ContactID?: string | undefined;
-  ContactName?: string | undefined;
-  Date?: string | undefined;
-  DueDate?: string | undefined;
-  Total?: number | undefined;
-  SubTotal?: number | undefined;
-  TotalTax?: number | undefined;
-  AmountDue?: number | undefined;
-  AmountPaid?: number | undefined;
-  AmountCredited?: number | undefined;
-  UpdatedDateUTC?: string | undefined;
-  CurrencyCode?: string | undefined;
+  invoice_number?: string | undefined;
+  status?: string | undefined;
+  customer_id?: string | undefined;
+  customer_name?: string | undefined;
+  reference_number?: string | undefined;
+  date?: string | undefined;
+  due_date?: string | undefined;
+  currency_code?: string | undefined;
+  total?: number | undefined;
+  balance?: number | undefined;
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;
 };
 
 export interface SaleOrder {
@@ -63930,26 +63927,20 @@ export interface BillPayment {
 
 export interface Bill {
   id: string;
-  vendorId?: string | undefined;
-  vendorName?: string | undefined;
-  lines?: ({  id?: string | undefined;
-  description?: string | undefined;
-  amount?: number | undefined;
-  detailType?: string | undefined;
-  itemRef?: string | undefined;
-  itemName?: string | undefined;
-  quantity?: number | undefined;
-  unitPrice?: number | undefined;
-  accountRef?: string | undefined;
-  accountName?: string | undefined;})[];
+  vendor_id?: string | undefined;
+  vendor_name?: string | undefined;
+  status?: string | undefined;
+  bill_number?: string | undefined;
+  reference_number?: string | undefined;
+  date?: string | undefined;
+  due_date?: string | undefined;
+  currency_id?: string | undefined;
+  currency_code?: string | undefined;
+  exchange_rate?: number | undefined;
+  total?: number | undefined;
   balance?: number | undefined;
-  dueDate?: string | undefined;
-  txnDate?: string | undefined;
-  totalAmount?: number | undefined;
-  docNumber?: string | undefined;
-  privateNote?: string | undefined;
-  createdAt?: string | undefined;
-  updatedAt?: string | undefined;
+  created_time?: string | undefined;
+  last_modified_time: string;
 };
 
 export interface CreditMemo {
@@ -64024,36 +64015,54 @@ export interface Deposit {
 
 export interface Estimate {
   id: string;
-  estimate_id: string;
-  customer_id?: string | undefined;
-  customer_name?: string | undefined;
-  transaction_date?: string | undefined;
-  expiration_date?: string | undefined;
-  total_amount?: number | undefined;
-  status?: string | undefined;
-  doc_number?: string | undefined;
-  private_note?: string | undefined;
-  sales_term_id?: string | undefined;
-  bill_email?: string | undefined;
-  ship_method?: string | undefined;
-  ship_date?: string | undefined;
-  tracking_num?: string | undefined;
-  class_id?: string | undefined;
-  department_id?: string | undefined;
-  sales_rep_id?: string | undefined;
-  tax_code_id?: string | undefined;
+  estimate_number: string;
+  status: string;
+  customer_id: string;
+  customer_name: string;
+  date: string;
+  expiry_date?: string | undefined;
+  reference_number?: string | undefined;
+  total: number;
+  sub_total?: number | undefined;
+  tax_total?: number | undefined;
+  currency_id?: string | undefined;
+  currency_code?: string | undefined;
+  exchange_rate?: number | undefined;
+  created_time: string;
+  last_modified_time: string;
+  notes?: string | undefined;
+  terms?: string | undefined;
   billing_address?: {  [key: string]: unknown | undefined;};
   shipping_address?: {  [key: string]: unknown | undefined;};
   line_items?: ({  [key: string]: unknown | undefined;})[];
-  last_updated_time: string;
+  custom_fields?: ({  [key: string]: unknown | undefined;})[];
+  tags?: ({  [key: string]: unknown | undefined;})[];
 };
 
 export interface Item {
   id: string;
-  item_code?: string | undefined;
-  name: string;
+  name?: string | undefined;
+  status?: string | undefined;
+  rate?: number | undefined;
+  unit?: string | undefined;
   description?: string | undefined;
-  account_code?: string | undefined;
+  item_type?: string | undefined;
+  product_type?: string | undefined;
+  tax_id?: string | undefined;
+  tax_name?: string | undefined;
+  tax_percentage?: number | undefined;
+  account_id?: string | undefined;
+  account_name?: string | undefined;
+  purchase_rate?: number | undefined;
+  purchase_account_id?: string | undefined;
+  purchase_account_name?: string | undefined;
+  can_be_sold?: boolean | undefined;
+  can_be_purchased?: boolean | undefined;
+  track_inventory?: boolean | undefined;
+  sku?: string | undefined;
+  source?: string | undefined;
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;
 };
 
 export interface JournalEntry {
@@ -64089,20 +64098,30 @@ export interface JournalEntry {
 
 export interface Payment {
   id: string;
+  payment_id?: string | undefined;
+  payment_number?: string | undefined;
+  invoice_numbers?: string | undefined;
   date?: string | undefined;
+  payment_mode?: string | undefined;
   amount?: number | undefined;
-  bank_amount?: number | undefined;
-  reference?: string | undefined;
-  currency_rate?: number | undefined;
-  status: string;
-  payment_type?: string | undefined;
-  updated_date_utc: string;
-  is_reconciled?: boolean | undefined;
-  has_account?: boolean | undefined;
-  invoice_id?: string | undefined;
-  credit_note_id?: string | undefined;
+  bcy_amount?: number | undefined;
+  unused_amount?: number | undefined;
+  bcy_unused_amount?: number | undefined;
   account_id?: string | undefined;
-  batch_payment_id?: string | undefined;
+  account_name?: string | undefined;
+  description?: string | undefined;
+  reference_number?: string | undefined;
+  customer_id?: string | undefined;
+  customer_name?: string | undefined;
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;
+  bcy_refunded_amount?: number | undefined;
+  payment_type?: string | undefined;
+  payment_status?: string | undefined;
+  currency_code?: string | undefined;
+  currency_symbol?: string | undefined;
+  location_id?: string | undefined;
+  location_name?: string | undefined;
 };
 
 export interface Purchase {
@@ -77091,38 +77110,21 @@ export interface ActionOutput_smartsheet_disableuser {
 
 export interface Expense {
   id: string;
-  cost?: string | undefined;
-  description?: string | undefined;
-  details?: string | undefined;
+  expense_id: string;
   date?: string | undefined;
-  repeat_interval?: string | undefined;
+  account_name?: string | undefined;
+  description?: string | undefined;
+  currency_id?: string | undefined;
   currency_code?: string | undefined;
-  category_id?: number | undefined;
-  group_id?: number | undefined;
-  friendship_id?: number | undefined;
-  expense_bundle_id?: number | undefined;
-  repeats?: boolean | undefined;
-  email_reminder?: boolean | undefined;
-  email_reminder_in_advance?: string | undefined;
-  next_repeat?: string | undefined;
-  comments_count?: number | undefined;
-  payment?: boolean | undefined;
-  transaction_confirmed?: boolean | undefined;
-  repayments?: ({  from: number;
-  to: number;
-  amount: string;})[] | undefined;
-  created_at?: string | undefined;
-  created_by?: {  [key: string]: unknown | undefined;};
-  updated_at?: string | undefined;
-  updated_by?: {  [key: string]: unknown | undefined;};
-  deleted_at?: string | undefined;
-  deleted_by?: {  [key: string]: unknown | undefined;};
-  category?: {  id: number;
-  name: string;} | undefined;
-  receipt?: {  large?: string | undefined;
-  original?: string | undefined;};
-  users?: ({  [key: string]: unknown | undefined;})[];
-  comments?: ({  [key: string]: unknown | undefined;})[];
+  bcy_total?: number | undefined;
+  total?: number | undefined;
+  is_billable?: boolean | undefined;
+  reference_number?: string | undefined;
+  customer_id?: string | undefined;
+  customer_name?: string | undefined;
+  status?: string | undefined;
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;
 };
 
 export interface Friend {
@@ -79663,26 +79665,18 @@ export interface CheckoutSession {
 
 export interface CreditNote {
   id: string;
-  Type?: string | undefined;
-  Contact?: unknown | undefined;
-  Date?: string | undefined;
-  DueDate?: string | undefined;
-  Status?: string | undefined;
-  LineAmountTypes?: string | undefined;
-  LineItems?: unknown[] | undefined;
-  SubTotal?: number | undefined;
-  TotalTax?: number | undefined;
-  Total?: number | undefined;
-  UpdatedDateUTC?: string | undefined;
-  CurrencyCode?: string | undefined;
-  CreditNoteID?: string | undefined;
-  CreditNoteNumber?: string | undefined;
-  Reference?: string | undefined;
-  RemainingCredit?: number | undefined;
-  FullyPaidOnDate?: string | undefined;
-  SentToContact?: boolean | undefined;
-  HasAttachments?: boolean | undefined;
-  HasErrors?: boolean | undefined;
+  creditnote_number?: string | undefined;
+  status?: string | undefined;
+  reference_number?: string | undefined;
+  date?: string | undefined;
+  issued_date?: string | undefined;
+  total?: number | undefined;
+  balance?: number | undefined;
+  customer_id?: string | undefined;
+  customer_name?: string | undefined;
+  currency_code?: string | undefined;
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;
 };
 
 export interface InvoiceItem {
@@ -91604,19 +91598,18 @@ export interface Organisation {
 
 export interface PurchaseOrder {
   id: string;
-  purchase_order_number?: string | undefined;
+  purchaseorder_number?: string | undefined;
+  reference_number?: string | undefined;
   date?: string | undefined;
   delivery_date?: string | undefined;
-  expected_arrival_date?: string | undefined;
-  status: string;
-  reference?: string | undefined;
-  sub_total?: number | undefined;
-  total_tax?: number | undefined;
-  total?: number | undefined;
-  updated_date_utc: string;
+  status?: string | undefined;
+  vendor_id?: string | undefined;
+  vendor_name?: string | undefined;
+  currency_id?: string | undefined;
   currency_code?: string | undefined;
-  contact_id?: string | undefined;
-  contact_name?: string | undefined;
+  total?: number | undefined;
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;
 };
 
 export interface ActionInput_xero_createaccount {
@@ -95509,6 +95502,5087 @@ export interface ActionOutput_zendesk_updateuser {
   createdAt?: string | undefined;
   updatedAt?: string | undefined;
   url?: string | undefined;
+};
+
+export interface BankAccount {
+  id: string;
+  account_name?: string | undefined;
+  account_code?: string | undefined;
+  currency_id?: string | undefined;
+  currency_code?: string | undefined;
+  currency_symbol?: string | undefined;
+  price_precision?: number | undefined;
+  account_type?: string | undefined;
+  account_number?: string | undefined;
+  uncategorized_transactions?: number | undefined;
+  total_unprinted_checks?: number | undefined;
+  is_active?: boolean | undefined;
+  is_feeds_subscribed?: boolean | undefined;
+  is_feeds_active?: boolean | undefined;
+  balance?: number | undefined;
+  bank_balance?: number | undefined;
+  bcy_balance?: number | undefined;
+  bank_name?: string | undefined;
+  routing_number?: string | undefined;
+  is_primary_account?: boolean | undefined;
+  is_paypal_account?: boolean | undefined;
+  description?: string | undefined;
+  refresh_status_code?: string | undefined;
+  feeds_last_refresh_date?: string | undefined;
+  service_id?: string | undefined;
+  is_system_account?: boolean | undefined;
+  is_show_warning_for_feeds_refresh?: boolean | undefined;
+};
+
+export interface SyncMetadata_zoho_books_bankaccounts {
+  organization_id: string;
+};
+
+export interface SyncMetadata_zoho_books_bills {
+  organization_id: string;
+};
+
+export interface ChartOfAccount {
+  id: string;
+  account_name: string;
+  account_code?: string | undefined;
+  account_type: string;
+  is_user_created?: boolean | undefined;
+  is_system_account?: boolean | undefined;
+  is_standalone_account?: boolean | undefined;
+  is_active?: boolean | undefined;
+  can_show_in_ze?: boolean | undefined;
+  is_involved_in_transaction?: boolean | undefined;
+  current_balance?: number | undefined;
+  parent_account_id?: string | undefined;
+  parent_account_name?: string | undefined;
+  depth?: string | undefined;
+  has_attachment?: boolean | undefined;
+  is_child_present?: boolean | undefined;
+  child_count?: string | undefined;
+  documents?: string[] | undefined;
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;
+};
+
+export interface SyncMetadata_zoho_books_chartofaccounts {
+  organization_id: string;
+};
+
+export interface SyncMetadata_zoho_books_contacts {
+  organization_id: string;
+};
+
+export interface SyncMetadata_zoho_books_creditnotes {
+  organization_id?: string | undefined;
+};
+
+export interface SyncMetadata_zoho_books_estimates {
+  organization_id: string;
+};
+
+export interface SyncMetadata_zoho_books_expenses {
+  organization_id: string;
+};
+
+export interface SyncMetadata_zoho_books_invoices {
+  organization_id: string;
+};
+
+export interface SyncMetadata_zoho_books_items {
+  organization_id: string;
+};
+
+export interface Journal {
+  id: string;
+  entry_number?: string | undefined;
+  reference_number?: string | undefined;
+  notes?: string | undefined;
+  currency_id?: string | undefined;
+  currency_code?: string | undefined;
+  currency_symbol?: string | undefined;
+  exchange_rate?: number | undefined;
+  journal_date?: string | undefined;
+  journal_type?: string | undefined;
+  vat_treatment?: string | undefined;
+  product_type?: string | undefined;
+  include_in_vat_return?: boolean | undefined;
+  is_bas_adjustment?: boolean | undefined;
+  line_items?: ({  line_id?: string | undefined;
+  account_id?: string | undefined;
+  customer_id?: string | undefined;
+  customer_name?: string | undefined;
+  account_name?: string | undefined;
+  description?: string | undefined;
+  debit_or_credit?: string | undefined;
+  tax_exemption_id?: string | undefined;
+  tax_exemption_type?: string | undefined;
+  tax_exemption_code?: string | undefined;
+  tax_authority_id?: string | undefined;
+  tax_authority_name?: string | undefined;
+  tax_id?: string | undefined;
+  tax_name?: string | undefined;
+  tax_type?: string | undefined;
+  tax_percentage?: string | undefined;
+  amount?: number | undefined;
+  bcy_amount?: number | undefined;
+  acquisition_vat_id?: string | undefined;
+  acquisition_vat_name?: string | undefined;
+  acquisition_vat_percentage?: string | undefined;
+  acquisition_vat_amount?: string | undefined;
+  reverse_charge_vat_id?: string | undefined;
+  reverse_charge_vat_name?: string | undefined;
+  reverse_charge_vat_percentage?: string | undefined;
+  reverse_charge_vat_amount?: string | undefined;
+  tags?: ({  tag_id?: string | undefined;
+  tag_name?: string | undefined;
+  tag_option_id?: string | undefined;
+  tag_option_name?: string | undefined;
+  is_tag_mandatory?: boolean | undefined;})[];
+  location_id?: string | undefined;
+  location_name?: string | undefined;
+  project_id?: string | undefined;
+  project_name?: string | undefined;})[];
+  location_id?: string | undefined;
+  location_name?: string | undefined;
+  line_item_total?: number | undefined;
+  total?: number | undefined;
+  bcy_total?: number | undefined;
+  price_precision?: number | undefined;
+  taxes?: ({  tax_name?: string | undefined;
+  tax_amount?: number | undefined;
+  debit_or_credit?: string | undefined;
+  tax_account?: boolean | undefined;})[];
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;
+  status?: string | undefined;
+  custom_fields?: ({  customfield_id?: string | undefined;
+  value?: string | undefined;})[];
+  tags?: ({  tag_id?: string | undefined;
+  tag_name?: string | undefined;
+  tag_option_id?: string | undefined;
+  tag_option_name?: string | undefined;
+  is_tag_mandatory?: boolean | undefined;})[];
+};
+
+export interface SyncMetadata_zoho_books_journals {
+  organization_id: string;
+};
+
+export interface SyncMetadata_zoho_books_payments {
+  organization_id: string;
+};
+
+export interface Tax {
+  id: string;
+  tax_id?: string | undefined;
+  tax_name?: string | undefined;
+  tax_percentage?: number | undefined;
+  tax_type?: string | undefined;
+  tax_factor?: string | undefined;
+  tax_specific_type?: string | undefined;
+  tax_authority_id?: string | undefined;
+  tax_authority_name?: string | undefined;
+  is_value_added?: boolean | undefined;
+  is_default_tax?: boolean | undefined;
+  is_editable?: boolean | undefined;
+  output_tax_account_name?: string | undefined;
+  purchase_tax_account_name?: string | undefined;
+  tax_account_id?: string | undefined;
+  purchase_tax_account_id?: string | undefined;
+};
+
+export interface SyncMetadata_zoho_books_taxes {
+  organization_id: string;
+};
+
+export interface VendorPayment {
+  id: string;
+  payment_id: string;
+  vendor_id?: string | undefined;
+  vendor_name?: string | undefined;
+  payment_mode?: string | undefined;
+  payment_number?: string | undefined;
+  date?: string | undefined;
+  reference_number?: string | undefined;
+  amount?: number | undefined;
+  balance?: number | undefined;
+  description?: string | undefined;
+  paid_through_account_id?: string | undefined;
+  paid_through_account_name?: string | undefined;
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;
+};
+
+export interface SyncMetadata_zoho_books_vendorpayments {
+  organization_id: string;
+};
+
+export interface ActionInput_zoho_books_createbankaccount {
+  /**
+   * ID of the organization. Example: "927270289"
+   */
+  organization_id: string;
+  /**
+   * Name of the account. Example: "Corporate Account"
+   */
+  account_name: string;
+  /**
+   * Type of the account. Example: "bank", "cash"
+   */
+  account_type: string;
+  /**
+   * Number associated with the Bank Account
+   */
+  account_number?: string | undefined;
+  /**
+   * Code of the Account
+   */
+  account_code?: string | undefined;
+  /**
+   * ID of the Currency associated with the Account
+   */
+  currency_id?: string | undefined;
+  /**
+   * Code of the currency associated with the Bank Account
+   */
+  currency_code?: string | undefined;
+  /**
+   * Description of the Account
+   */
+  description?: string | undefined;
+  /**
+   * Name of the Bank
+   */
+  bank_name?: string | undefined;
+  /**
+   * Routing Number of the Account
+   */
+  routing_number?: string | undefined;
+  /**
+   * Check if the Account is Primary Account in Zoho Books
+   */
+  is_primary_account?: boolean | undefined;
+  /**
+   * Check if the Account is Paypal Account
+   */
+  is_paypal_account?: boolean | undefined;
+  /**
+   * The type of Payment for the Paypal Account. Allowed Values: standard and adaptive
+   */
+  paypal_type?: string | undefined;
+  /**
+   * Email Address of the Paypal account
+   */
+  paypal_email_address?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_createbankaccount {
+  account_id: string;
+  account_name: string;
+  account_code?: string | undefined;
+  currency_id?: string | undefined;
+  currency_code?: string | undefined;
+  currency_symbol?: string | undefined;
+  price_precision?: number | undefined;
+  account_type: string;
+  account_number?: string | undefined;
+  uncategorized_transactions?: number | undefined;
+  total_unprinted_checks?: number | undefined;
+  is_active?: boolean | undefined;
+  is_feeds_subscribed?: boolean | undefined;
+  is_feeds_active?: boolean | undefined;
+  balance?: number | undefined;
+  bank_balance?: number | undefined;
+  bcy_balance?: number | undefined;
+  bank_name?: string | undefined;
+  routing_number?: string | undefined;
+  is_primary_account?: boolean | undefined;
+  is_paypal_account?: boolean | undefined;
+  description?: string | undefined;
+  is_system_account?: boolean | undefined;
+};
+
+export interface ActionInput_zoho_books_createbill {
+  /**
+   * Vendor ID. Example: "260815000000098001"
+   */
+  vendor_id: string;
+  /**
+   * Unique bill number. Example: "BILL-001"
+   */
+  bill_number: string;
+  /**
+   * External reference number
+   */
+  reference_number?: string | undefined;
+  /**
+   * Bill date in yyyy-mm-dd format
+   */
+  date?: string | undefined;
+  /**
+   * Due date in yyyy-mm-dd format
+   */
+  due_date?: string | undefined;
+  /**
+   * Currency ID
+   */
+  currency_id?: string | undefined;
+  /**
+   * Exchange rate to base currency
+   */
+  exchange_rate?: number | undefined;
+  /**
+   * Notes about the bill
+   */
+  notes?: string | undefined;
+  /**
+   * Line items for the bill
+   */
+  line_items?: ({  /**
+   * Item ID. Example: "260815000000100002"
+   */
+  item_id?: string | undefined;
+  /**
+   * Name of the line item
+   */
+  name?: string | undefined;
+  /**
+   * Description of the line item
+   */
+  description?: string | undefined;
+  /**
+   * Chart of accounts ID. Example: "260815000000000388"
+   */
+  account_id?: string | undefined;
+  /**
+   * Unit price of the line item
+   */
+  rate?: number | undefined;
+  /**
+   * Number of units
+   */
+  quantity?: number | undefined;
+  /**
+   * Tax ID for the line item
+   */
+  tax_id?: string | undefined;
+  /**
+   * Unit of measurement
+   */
+  unit?: string | undefined;})[];
+};
+
+export interface ActionOutput_zoho_books_createbill {
+  /**
+   * Unique identifier of the created bill
+   */
+  bill_id: string;
+  vendor_id?: string | undefined;
+  vendor_name?: string | undefined;
+  bill_number?: string | undefined;
+  status?: string | undefined;
+  date?: string | undefined;
+  due_date?: string | undefined;
+  total?: number | undefined;
+  balance?: number | undefined;
+  currency_id?: string | undefined;
+  currency_code?: string | undefined;
+  reference_number?: string | undefined;
+  notes?: string | undefined;
+  line_items?: ({  line_item_id: string;
+  item_id?: string | undefined;
+  name?: string | undefined;
+  description?: string | undefined;
+  account_id?: string | undefined;
+  account_name?: string | undefined;
+  rate?: number | undefined;
+  quantity?: number | undefined;
+  tax_id?: string | undefined;
+  tax_name?: string | undefined;
+  unit?: string | undefined;
+  item_total?: number | undefined;})[];
+};
+
+export interface ActionInput_zoho_books_createchartofaccount {
+  /**
+   * Name of the account. Example: "Notes Payable"
+   */
+  account_name: string;
+  /**
+   * Type of the account. Example: "long_term_liability", "income", "expense"
+   */
+  account_type: string;
+  /**
+   * Code associated with the account
+   */
+  account_code?: string | undefined;
+  /**
+   * ID of the account currency
+   */
+  currency_id?: string | undefined;
+  /**
+   * Description of the account
+   */
+  description?: string | undefined;
+  /**
+   * ID of the parent account
+   */
+  parent_account_id?: string | undefined;
+  /**
+   * Whether to show the account balance on the dashboard
+   */
+  show_on_dashboard?: boolean | undefined;
+  /**
+   * Whether the account can be shown in Zoho Expense
+   */
+  can_show_in_ze?: boolean | undefined;
+  /**
+   * United Kingdom only. Boolean to include an account in VAT returns
+   */
+  include_in_vat_return?: boolean | undefined;
+};
+
+export interface ActionOutput_zoho_books_createchartofaccount {
+  account_id: string;
+  account_name: string;
+  account_code?: string | undefined;
+  account_type: string;
+  currency_id?: string | undefined;
+  currency_code?: string | undefined;
+  description?: string | undefined;
+  is_active?: boolean | undefined;
+  is_system_account?: boolean | undefined;
+  can_show_in_ze?: boolean | undefined;
+  include_in_vat_return?: boolean | undefined;
+  parent_account_id?: string | undefined;
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_createcontact {
+  /**
+   * Display name of the contact. Max-length [200].
+   */
+  contact_name: string;
+  /**
+   * Company name of the contact. Max-length [200].
+   */
+  company_name?: string | undefined;
+  /**
+   * Type of contact: customer or vendor.
+   */
+  contact_type?: 'customer' | 'vendor' | undefined;
+  /**
+   * Email address of the contact.
+   */
+  email?: string | undefined;
+  /**
+   * Phone number of the contact.
+   */
+  phone?: string | undefined;
+  /**
+   * Website of the contact.
+   */
+  website?: string | undefined;
+  /**
+   * Billing address of the contact.
+   */
+  billing_address?: {  attention?: string | undefined;
+  address?: string | undefined;
+  street2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  state_code?: string | undefined;
+  zip?: string | undefined;
+  country?: string | undefined;
+  fax?: string | undefined;
+  phone?: string | undefined;};
+  /**
+   * Shipping address of the contact.
+   */
+  shipping_address?: {  attention?: string | undefined;
+  address?: string | undefined;
+  street2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  state_code?: string | undefined;
+  zip?: string | undefined;
+  country?: string | undefined;
+  fax?: string | undefined;
+  phone?: string | undefined;};
+};
+
+export interface ActionOutput_zoho_books_createcontact {
+  /**
+   * Unique ID of the created contact.
+   */
+  contact_id: string;
+  /**
+   * Display name of the contact.
+   */
+  contact_name: string;
+  /**
+   * Company name of the contact.
+   */
+  company_name?: string | undefined;
+  /**
+   * Type of contact: customer or vendor.
+   */
+  contact_type?: string | undefined;
+  /**
+   * Email address of the contact.
+   */
+  email?: string | undefined;
+  /**
+   * Phone number of the contact.
+   */
+  phone?: string | undefined;
+  /**
+   * Status of the contact.
+   */
+  status?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_createcreditnote {
+  /**
+   * Organization ID. Example: "927270289"
+   */
+  organization_id: string;
+  /**
+   * Customer ID. Example: "260815000000097001"
+   */
+  customer_id: string;
+  /**
+   * Credit note date. Example: "2026-06-09"
+   */
+  date: string;
+  /**
+   * Line items for the credit note
+   */
+  line_items: ({  /**
+   * Item ID. Example: "260815000000100002"
+   */
+  item_id?: string | undefined;
+  /**
+   * Account ID for custom line items. Example: "260815000000000388"
+   */
+  account_id?: string | undefined;
+  description?: string | undefined;
+  quantity?: number | undefined;
+  rate?: number | undefined;
+  tax_id?: string | undefined;})[];
+  /**
+   * Credit note number. Example: "CN-00003"
+   */
+  creditnote_number?: string | undefined;
+  reference_number?: string | undefined;
+  notes?: string | undefined;
+  terms?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_createcreditnote {
+  id: string;
+  creditnote_number?: string | undefined;
+  customer_id?: string | undefined;
+  date?: string | undefined;
+  total?: number | undefined;
+  status?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_createestimate {
+  /**
+   * The ID of the customer for whom the estimate is created. Example: "260815000000097001"
+   */
+  customer_id: string;
+  /**
+   * The ID of the organization. Example: "927270289"
+   */
+  organization_id: string;
+  /**
+   * Line items for the estimate
+   */
+  line_items: ({  /**
+   * Unique identifier of the item. Example: "260815000000100002"
+   */
+  item_id: string;
+  /**
+   * Unit price for the line item
+   */
+  rate: number;
+  /**
+   * Number of units
+   */
+  quantity: number;
+  name?: string | undefined;
+  description?: string | undefined;
+  discount?: number | undefined;
+  tax_id?: string | undefined;})[];
+  estimate_number?: string | undefined;
+  reference_number?: string | undefined;
+  /**
+   * Format: YYYY-MM-DD
+   */
+  date?: string | undefined;
+  /**
+   * Format: YYYY-MM-DD
+   */
+  expiry_date?: string | undefined;
+  notes?: string | undefined;
+  terms?: string | undefined;
+  discount?: number | undefined;
+  is_discount_before_tax?: boolean | undefined;
+  discount_type?: string | undefined;
+  shipping_charge?: number | undefined;
+  adjustment?: number | undefined;
+  adjustment_description?: string | undefined;
+  currency_id?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_createestimate {
+  estimate: {  estimate_id: string;
+  estimate_number?: string | undefined;
+  date?: string | undefined;
+  status?: string | undefined;
+  customer_id?: string | undefined;
+  customer_name?: string | undefined;
+  total?: number | undefined;
+  sub_total?: number | undefined;
+  line_items?: ({  item_id?: string | undefined;
+  line_item_id?: string | undefined;
+  name?: string | undefined;
+  description?: string | undefined;
+  rate?: number | undefined;
+  quantity?: number | undefined;
+  item_total?: number | undefined;})[];};
+};
+
+export interface ActionInput_zoho_books_createexpense {
+  /**
+   * ID of the expense account. Example: "260815000000000388"
+   */
+  account_id: string;
+  /**
+   * Date of the expense in YYYY-MM-DD format. Example: "2026-06-09"
+   */
+  date: string;
+  /**
+   * Amount of the expense. Example: 50.00
+   */
+  amount: number;
+  /**
+   * ID of the account through which the expense is paid. Example: "260815000000102017"
+   */
+  paid_through_account_id: string;
+  /**
+   * Unique identifier of the tax. Example: "260815000000000097"
+   */
+  tax_id?: string | undefined;
+  /**
+   * Description of the expense. Max-length [100]
+   */
+  description?: string | undefined;
+  /**
+   * Reference number of the expense. Max-length [100]
+   */
+  reference_number?: string | undefined;
+  /**
+   * ID of the customer to bill the expense to. Example: "260815000000097001"
+   */
+  customer_id?: string | undefined;
+  /**
+   * ID of the vendor the expense is made to. Example: "260815000000098001"
+   */
+  vendor_id?: string | undefined;
+  /**
+   * Unique identifier of the currency. Example: "260815000000000097"
+   */
+  currency_id?: string | undefined;
+  /**
+   * Exchange rate of the currency with respect to the base currency.
+   */
+  exchange_rate?: number | undefined;
+  /**
+   * ID of the project associated with the customer.
+   */
+  project_id?: string | undefined;
+  /**
+   * Whether the expense is billable to the customer.
+   */
+  is_billable?: boolean | undefined;
+  /**
+   * Whether the tax is inclusive in the amount.
+   */
+  is_inclusive_tax?: boolean | undefined;
+  /**
+   * Line items for the expense.
+   */
+  line_items?: ({  /**
+   * Unique identifier of the line item.
+   */
+  line_item_id?: string | undefined;
+  /**
+   * ID of the expense account for this line item.
+   */
+  account_id: string;
+  /**
+   * Description of the line item. Max-length [100]
+   */
+  description?: string | undefined;
+  /**
+   * Amount of the line item.
+   */
+  amount: number;
+  /**
+   * Unique identifier of the tax for this line item.
+   */
+  tax_id?: string | undefined;
+  /**
+   * Order of the line item in the expense.
+   */
+  item_order?: number | undefined;
+  /**
+   * Type of the expense.
+   */
+  product_type?: string | undefined;
+  /**
+   * ID of the reverse charge tax.
+   */
+  reverse_charge_tax_id?: string | undefined;
+  /**
+   * Tax exemption code.
+   */
+  tax_exemption_code?: string | undefined;
+  /**
+   * Tax exemption ID.
+   */
+  tax_exemption_id?: string | undefined;
+  /**
+   * Location ID.
+   */
+  location_id?: string | undefined;
+  /**
+   * Reporting tags for the line item.
+   */
+  tags?: ({  /**
+   * Tag ID.
+   */
+  tag_id?: string | undefined;
+  /**
+   * Tag Name.
+   */
+  tag_name?: string | undefined;
+  /**
+   * Tag Option ID.
+   */
+  tag_option_id?: string | undefined;
+  /**
+   * Tag Option Name.
+   */
+  tag_option_name?: string | undefined;
+  /**
+   * Whether the tag is mandatory.
+   */
+  is_tag_mandatory?: boolean | undefined;})[];})[];
+  /**
+   * Custom fields for the expense.
+   */
+  custom_fields?: ({  /**
+   * Unique identifier of the Custom Field.
+   */
+  customfield_id?: string | undefined;
+  /**
+   * Value of the Custom Field.
+   */
+  value?: string | undefined;})[];
+  /**
+   * Reporting tags for the expense.
+   */
+  tags?: ({  /**
+   * Tag ID.
+   */
+  tag_id?: string | undefined;
+  /**
+   * Tag Option ID.
+   */
+  tag_option_id?: string | undefined;})[];
+};
+
+export interface ActionOutput_zoho_books_createexpense {
+  /**
+   * Unique identifier of the created expense.
+   */
+  expense_id?: string | undefined;
+  /**
+   * ID of the expense account.
+   */
+  account_id?: string | undefined;
+  /**
+   * Date of the expense.
+   */
+  date?: string | undefined;
+  /**
+   * Amount of the expense.
+   */
+  amount?: number | undefined;
+  /**
+   * Description of the expense.
+   */
+  description?: string | undefined;
+  /**
+   * Reference number of the expense.
+   */
+  reference_number?: string | undefined;
+  /**
+   * ID of the customer.
+   */
+  customer_id?: string | undefined;
+  /**
+   * ID of the vendor.
+   */
+  vendor_id?: string | undefined;
+  /**
+   * ID of the currency.
+   */
+  currency_id?: string | undefined;
+  /**
+   * Exchange rate of the currency.
+   */
+  exchange_rate?: number | undefined;
+  /**
+   * ID of the project.
+   */
+  project_id?: string | undefined;
+  /**
+   * Whether the expense is billable.
+   */
+  is_billable?: boolean | undefined;
+  /**
+   * Whether the tax is inclusive.
+   */
+  is_inclusive_tax?: boolean | undefined;
+  /**
+   * Status of the expense.
+   */
+  status?: string | undefined;
+  /**
+   * Tax amount for the expense.
+   */
+  tax_amount?: number | undefined;
+  /**
+   * Total amount of the expense.
+   */
+  total?: number | undefined;
+  /**
+   * Sub total of the expense.
+   */
+  sub_total?: number | undefined;
+  /**
+   * Base currency total.
+   */
+  bcy_total?: number | undefined;
+  /**
+   * ID of the tax.
+   */
+  tax_id?: string | undefined;
+  /**
+   * Name of the tax.
+   */
+  tax_name?: string | undefined;
+  /**
+   * Tax percentage.
+   */
+  tax_percentage?: number | undefined;
+  /**
+   * ID of the paid through account.
+   */
+  paid_through_account_id?: string | undefined;
+  /**
+   * Name of the paid through account.
+   */
+  paid_through_account_name?: string | undefined;
+  /**
+   * Line items of the expense.
+   */
+  line_items?: ({  line_item_id?: string | undefined;
+  account_id?: string | undefined;
+  description?: string | undefined;
+  amount?: number | undefined;
+  tax_id?: string | undefined;
+  item_order?: number | undefined;
+  product_type?: string | undefined;
+  reverse_charge_tax_id?: string | undefined;
+  tax_exemption_code?: string | undefined;
+  tax_exemption_id?: string | undefined;
+  location_id?: string | undefined;
+  tags?: ({  tag_id?: string | undefined;
+  tag_name?: string | undefined;
+  tag_option_id?: string | undefined;
+  tag_option_name?: string | undefined;
+  is_tag_mandatory?: boolean | undefined;})[];})[];
+  /**
+   * Tags of the expense.
+   */
+  tags?: ({  tag_id?: string | undefined;
+  tag_name?: string | undefined;
+  tag_option_id?: string | undefined;
+  tag_option_name?: string | undefined;
+  is_tag_mandatory?: boolean | undefined;})[];
+  /**
+   * Custom fields of the expense.
+   */
+  custom_fields?: ({  /**
+   * ID of the custom field.
+   */
+  customfield_id?: string | undefined;
+  /**
+   * Value of the custom field.
+   */
+  value?: string | undefined;})[];
+};
+
+export interface ActionInput_zoho_books_createinvoice {
+  /**
+   * Customer ID. Example: "260815000000097001"
+   */
+  customer_id: string;
+  /**
+   * Line items for the invoice.
+   */
+  line_items: ({  /**
+   * Item ID. Example: "260815000000100002"
+   */
+  item_id: string;
+  /**
+   * Quantity of the item. Example: 1
+   */
+  quantity: number;
+  /**
+   * Rate of the item. Example: 100
+   */
+  rate?: number | undefined;
+  /**
+   * Description of the line item.
+   */
+  description?: string | undefined;
+  /**
+   * Tax ID to apply.
+   */
+  tax_id?: string | undefined;})[];
+  /**
+   * Invoice number. Example: "INV-00001"
+   */
+  invoice_number?: string | undefined;
+  /**
+   * Invoice date. Format: yyyy-mm-dd. Example: "2026-06-09"
+   */
+  date?: string | undefined;
+  /**
+   * Due date. Format: yyyy-mm-dd. Example: "2026-06-16"
+   */
+  due_date?: string | undefined;
+  /**
+   * Notes for the invoice.
+   */
+  notes?: string | undefined;
+  /**
+   * Terms and conditions.
+   */
+  terms?: string | undefined;
+  /**
+   * Reference number.
+   */
+  reference_number?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_createinvoice {
+  invoice_id: string;
+  invoice_number: string;
+  customer_id: string;
+  status: string;
+  total?: number | undefined;
+  balance?: number | undefined;
+};
+
+export interface ActionInput_zoho_books_createitem {
+  /**
+   * ID of the organization. Example: "927270289"
+   */
+  organization_id: string;
+  /**
+   * Name of the item. Max-length [100]
+   */
+  name: string;
+  /**
+   * Price of the item.
+   */
+  rate: number;
+  /**
+   * Description for the item. Max-length [2000]
+   */
+  description?: string | undefined;
+  /**
+   * Type of the item. Allowed values: sales, purchases, sales_and_purchases, inventory. Default: sales
+   */
+  item_type?: string | undefined;
+  /**
+   * Unit of measurement for the item.
+   */
+  unit?: string | undefined;
+  /**
+   * ID of the tax to be associated with the item.
+   */
+  tax_id?: string | undefined;
+  /**
+   * SKU value of the item, should be unique throughout the product.
+   */
+  sku?: string | undefined;
+  /**
+   * Specify the type of an item. Allowed values: goods, service, digital_service.
+   */
+  product_type?: string | undefined;
+  /**
+   * ID of the account to which the item has to be associated with.
+   */
+  account_id?: string | undefined;
+  /**
+   * Purchase description for the item.
+   */
+  purchase_description?: string | undefined;
+  /**
+   * Purchase price of the item.
+   */
+  purchase_rate?: number | undefined;
+  /**
+   * ID of the COGS account to which the item has to be associated with.
+   */
+  purchase_account_id?: string | undefined;
+  /**
+   * ID of the stock account to which the item has to be associated with.
+   */
+  inventory_account_id?: string | undefined;
+  /**
+   * Preferred vendor ID.
+   */
+  vendor_id?: string | undefined;
+  /**
+   * Boolean to track the taxability of the item.
+   */
+  is_taxable?: boolean | undefined;
+  /**
+   * ID of the tax exemption. Mandatory if is_taxable is false.
+   */
+  tax_exemption_id?: string | undefined;
+  /**
+   * HSN or SAC code.
+   */
+  hsn_or_sac?: string | undefined;
+  /**
+   * Reorder level of the item.
+   */
+  reorder_level?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_createitem {
+  /**
+   * ID of the created item. Example: "260815000000100002"
+   */
+  item_id: string;
+  name: string;
+  status?: string | undefined;
+  description?: string | undefined;
+  rate?: number | undefined;
+  unit?: string | undefined;
+  tax_id?: string | undefined;
+  tax_name?: string | undefined;
+  tax_percentage?: string | undefined;
+  sku?: string | undefined;
+  product_type?: string | undefined;
+  item_type?: string | undefined;
+  account_id?: string | undefined;
+  account_name?: string | undefined;
+  purchase_description?: string | undefined;
+  purchase_rate?: number | undefined;
+  purchase_account_id?: string | undefined;
+  purchase_account_name?: string | undefined;
+  inventory_account_id?: string | undefined;
+  vendor_id?: string | undefined;
+  vendor_name?: string | undefined;
+  is_taxable?: boolean | undefined;
+  tax_exemption_id?: string | undefined;
+  hsn_or_sac?: string | undefined;
+  reorder_level?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_createjournal {
+  /**
+   * Date of the journal entry in YYYY-MM-DD format. Example: "2026-06-09"
+   */
+  journal_date: string;
+  /**
+   * Reference number for the journal.
+   */
+  reference_number?: string | undefined;
+  /**
+   * Notes for the journal.
+   */
+  notes?: string | undefined;
+  /**
+   * Type of the journal.
+   */
+  journal_type?: 'Cash' | 'Both' | undefined;
+  /**
+   * ID of the currency associated with the journal.
+   */
+  currency_id?: string | undefined;
+  /**
+   * Exchange rate between currencies.
+   */
+  exchange_rate?: number | undefined;
+  /**
+   * Line items for the journal. Must have at least 2 lines and total debits must equal total credits.
+   */
+  line_items: ({  /**
+   * ID of the account for this line item. Example: "260815000000000388"
+   */
+  account_id: string;
+  /**
+   * Whether this line is a debit or credit.
+   */
+  debit_or_credit: 'debit' | 'credit';
+  /**
+   * Amount for this line item.
+   */
+  amount: number;
+  /**
+   * Description for this line item.
+   */
+  description?: string | undefined;
+  /**
+   * Customer ID (required for AR accounts).
+   */
+  customer_id?: string | undefined;
+  /**
+   * Vendor ID (required for AP accounts).
+   */
+  vendor_id?: string | undefined;
+  /**
+   * ID of the tax.
+   */
+  tax_id?: string | undefined;
+  /**
+   * ID of the project.
+   */
+  project_id?: string | undefined;
+  /**
+   * Location ID.
+   */
+  location_id?: string | undefined;})[];
+};
+
+export interface ActionOutput_zoho_books_createjournal {
+  journal_id?: string | undefined;
+  entry_number?: string | undefined;
+  reference_number?: string | undefined;
+  notes?: string | undefined;
+  journal_date?: string | undefined;
+  journal_type?: string | undefined;
+  status?: string | undefined;
+  total?: number | undefined;
+  line_items?: ({  line_id?: string | undefined;
+  account_id?: string | undefined;
+  account_name?: string | undefined;
+  description?: string | undefined;
+  debit_or_credit?: string | undefined;
+  amount?: number | undefined;})[];
+};
+
+export interface ActionInput_zoho_books_createpayment {
+  /**
+   * Customer ID for the payment. Example: "260815000000097001"
+   */
+  customer_id: string;
+  /**
+   * Payment mode: cash, check, creditcard, banktransfer, bankremittance, autotransaction, or others.
+   */
+  payment_mode: string;
+  /**
+   * Total payment amount.
+   */
+  amount: number;
+  /**
+   * Payment date in yyyy-mm-dd format.
+   */
+  date: string;
+  /**
+   * Invoices to apply the payment to.
+   */
+  invoices: ({  /**
+   * Invoice ID to apply payment to. Example: "260815000000101011"
+   */
+  invoice_id: string;
+  /**
+   * Amount applied to this invoice.
+   */
+  amount_applied: number;
+  /**
+   * Tax amount withheld.
+   */
+  tax_amount_withheld?: number | undefined;})[];
+  /**
+   * Reference number for the payment.
+   */
+  reference_number?: string | undefined;
+  /**
+   * Description of the payment.
+   */
+  description?: string | undefined;
+  /**
+   * Cash/bank account ID to deposit the payment into.
+   */
+  account_id?: string | undefined;
+  /**
+   * Exchange rate for the currency.
+   */
+  exchange_rate?: number | undefined;
+  /**
+   * Additional bank charges.
+   */
+  bank_charges?: number | undefined;
+};
+
+export interface ActionOutput_zoho_books_createpayment {
+  /**
+   * Unique ID of the created payment.
+   */
+  payment_id: string;
+  /**
+   * Mode through which payment was made.
+   */
+  payment_mode?: string | undefined;
+  /**
+   * Payment amount.
+   */
+  amount?: number | undefined;
+  /**
+   * Amount refunded.
+   */
+  amount_refunded?: number | undefined;
+  /**
+   * Bank charges.
+   */
+  bank_charges?: number | undefined;
+  /**
+   * Payment date.
+   */
+  date?: string | undefined;
+  /**
+   * Payment status: success or failure.
+   */
+  status?: string | undefined;
+  /**
+   * Reference number.
+   */
+  reference_number?: string | undefined;
+  /**
+   * Payment description.
+   */
+  description?: string | undefined;
+  /**
+   * Customer ID.
+   */
+  customer_id?: string | undefined;
+  /**
+   * Customer name.
+   */
+  customer_name?: string | undefined;
+  /**
+   * Customer email.
+   */
+  email?: string | undefined;
+  /**
+   * Currency code.
+   */
+  currency_code?: string | undefined;
+  /**
+   * Currency symbol.
+   */
+  currency_symbol?: string | undefined;
+  /**
+   * Location ID.
+   */
+  location_id?: string | undefined;
+  /**
+   * Location name.
+   */
+  location_name?: string | undefined;
+  invoices?: ({  invoice_id?: string | undefined;
+  invoice_number?: string | undefined;
+  date?: string | undefined;
+  invoice_amount?: number | undefined;
+  amount_applied?: number | undefined;
+  balance_amount?: number | undefined;
+  tax_amount_withheld?: number | undefined;})[];
+};
+
+export interface ActionInput_zoho_books_createpurchaseorder {
+  /**
+   * Vendor ID. Example: "260815000000098001"
+   */
+  vendor_id: string;
+  /**
+   * At least one line item is required.
+   */
+  line_items: ({  /**
+   * Item ID. Example: "260815000000100002"
+   */
+  item_id: string;
+  /**
+   * Rate per unit. Example: 10
+   */
+  rate: number;
+  /**
+   * Quantity. Example: 2
+   */
+  quantity: number;
+  /**
+   * Description for the line item.
+   */
+  description?: string | undefined;
+  /**
+   * Unit of measurement.
+   */
+  unit?: string | undefined;})[];
+  /**
+   * Purchase order number. Example: "PO-001"
+   */
+  purchaseorder_number?: string | undefined;
+  /**
+   * Purchase order date. Format: YYYY-MM-DD. Example: "2026-06-09"
+   */
+  date?: string | undefined;
+  /**
+   * Reference number.
+   */
+  reference_number?: string | undefined;
+  /**
+   * Notes for the purchase order.
+   */
+  notes?: string | undefined;
+  /**
+   * Terms and conditions.
+   */
+  terms?: string | undefined;
+  /**
+   * Currency ID. Example: "260815000000000097"
+   */
+  currency_id?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_createpurchaseorder {
+  id?: string | undefined;
+  purchaseorder_number?: string | undefined;
+  status?: string | undefined;
+  vendor_id?: string | undefined;
+  vendor_name?: string | undefined;
+  date?: string | undefined;
+  total?: number | undefined;
+  line_items?: ({  line_item_id?: string | undefined;
+  item_id?: string | undefined;
+  name?: string | undefined;
+  description?: string | undefined;
+  rate?: number | undefined;
+  quantity?: number | undefined;
+  unit?: string | undefined;})[];
+};
+
+export interface ActionInput_zoho_books_createvendorpayment {
+  /**
+   * ID of the vendor associated with the payment. Example: "260815000000098001"
+   */
+  vendor_id: string;
+  /**
+   * Total amount of the vendor payment. Example: 100.00
+   */
+  amount: number;
+  /**
+   * ID of the cash/bank account used for the payment. Example: "260815000000102017"
+   */
+  paid_through_account_id: string;
+  /**
+   * Date the payment is made (YYYY-MM-DD). Example: "2026-06-09"
+   */
+  date?: string | undefined;
+  /**
+   * Mode of payment. Example: "cash"
+   */
+  payment_mode?: string | undefined;
+  /**
+   * Description for the vendor payment.
+   */
+  description?: string | undefined;
+  /**
+   * Reference number for the vendor payment. Example: "VP-003"
+   */
+  reference_number?: string | undefined;
+  /**
+   * Bills to apply the payment to.
+   */
+  bills?: ({  /**
+   * ID of the bill to apply the payment to. Example: "260815000000108002"
+   */
+  bill_id: string;
+  /**
+   * Amount applied to the bill. Example: 100.00
+   */
+  amount_applied: number;})[] | undefined;
+};
+
+export interface ActionOutput_zoho_books_createvendorpayment {
+  /**
+   * ID of the created vendor payment.
+   */
+  id: string;
+  /**
+   * ID of the vendor.
+   */
+  vendor_id?: string | undefined;
+  /**
+   * Name of the vendor.
+   */
+  vendor_name?: string | undefined;
+  /**
+   * Total amount of the payment.
+   */
+  amount?: number | undefined;
+  /**
+   * Date of the payment.
+   */
+  date?: string | undefined;
+  /**
+   * Payment mode.
+   */
+  payment_mode?: string | undefined;
+  /**
+   * Reference number.
+   */
+  reference_number?: string | undefined;
+  /**
+   * Description.
+   */
+  description?: string | undefined;
+  /**
+   * ID of the account used for payment.
+   */
+  paid_through_account_id?: string | undefined;
+  /**
+   * Name of the account used for payment.
+   */
+  paid_through_account_name?: string | undefined;
+  /**
+   * Bills the payment was applied to.
+   */
+  bills?: ({  bill_id?: string | undefined;
+  bill_number?: string | undefined;
+  amount_applied?: number | undefined;})[];
+};
+
+export interface ActionInput_zoho_books_deletebankaccount {
+  /**
+   * The ID of the bank account to delete. Example: "260815000000110010"
+   */
+  account_id: string;
+};
+
+export interface ActionOutput_zoho_books_deletebankaccount {
+  success: boolean;
+  message?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_deletebill {
+  /**
+   * Bill ID to delete. Example: "260815000000108002"
+   */
+  bill_id: string;
+};
+
+export interface ActionOutput_zoho_books_deletebill {
+  success: boolean;
+  message?: string | undefined;
+  bill_id?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_deletechartofaccount {
+  /**
+   * ID of the chart of account to delete. Example: "260815000000000388"
+   */
+  account_id: string;
+};
+
+export interface ActionOutput_zoho_books_deletechartofaccount {
+  code: number;
+  message: string;
+};
+
+export interface ActionInput_zoho_books_deletecontact {
+  /**
+   * Contact ID. Example: "260815000000097001"
+   */
+  contact_id: string;
+};
+
+export interface ActionOutput_zoho_books_deletecontact {
+  contact_id: string;
+  success: boolean;
+  message: string;
+};
+
+export interface ActionInput_zoho_books_deletecreditnote {
+  /**
+   * Unique identifier of the credit note. Example: "260815000000111002"
+   */
+  creditnote_id: string;
+  /**
+   * ID of the organization. Example: "927270289"
+   */
+  organization_id: string;
+};
+
+export interface ActionOutput_zoho_books_deletecreditnote {
+  success: boolean;
+  message?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_deleteestimate {
+  /**
+   * Unique identifier of the estimate to delete. Example: "260815000000101017"
+   */
+  estimate_id: string;
+  /**
+   * ID of the Zoho Books organization. Example: "927270289"
+   */
+  organization_id: string;
+};
+
+export interface ActionOutput_zoho_books_deleteestimate {
+  code: number;
+  message: string;
+};
+
+export interface ActionInput_zoho_books_deleteexpense {
+  /**
+   * The expense ID to delete. Example: "260815000000106001"
+   */
+  expense_id: string;
+};
+
+export interface ActionOutput_zoho_books_deleteexpense {
+  success: boolean;
+  message?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_deleteinvoice {
+  /**
+   * The invoice ID to delete. Example: "260815000000101011"
+   */
+  invoice_id: string;
+};
+
+export interface ActionOutput_zoho_books_deleteinvoice {
+  code: number;
+  message: string;
+};
+
+export interface ActionInput_zoho_books_deleteitem {
+  /**
+   * The unique ID of the item to delete. Example: "260815000000100002"
+   */
+  item_id: string;
+};
+
+export interface ActionOutput_zoho_books_deleteitem {
+  success: boolean;
+  item_id: string;
+  message?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_deletejournal {
+  /**
+   * The ID of the manual journal entry to delete. Example: "260815000000115005"
+   */
+  journal_id: string;
+};
+
+export interface ActionOutput_zoho_books_deletejournal {
+  journal_id: string;
+  deleted: boolean;
+};
+
+export interface ActionInput_zoho_books_deletepayment {
+  /**
+   * ID of the customer payment to delete. Example: "260815000000113012"
+   */
+  payment_id: string;
+};
+
+export interface ActionOutput_zoho_books_deletepayment {
+  success: boolean;
+  message?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_deletepurchaseorder {
+  /**
+   * Unique identifier of the purchase order to delete. Example: "260815000000000001"
+   */
+  purchaseorder_id: string;
+};
+
+export interface ActionOutput_zoho_books_deletepurchaseorder {
+  purchaseorder_id: string;
+  code: number;
+  message: string;
+  deleted: boolean;
+};
+
+export interface ActionInput_zoho_books_deletevendorpayment {
+  /**
+   * Vendor payment ID to delete. Example: "260815000000116002"
+   */
+  payment_id: string;
+  /**
+   * Organization ID. Example: "927270289"
+   */
+  organization_id: string;
+};
+
+export interface ActionOutput_zoho_books_deletevendorpayment {
+  success: boolean;
+  message?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_getbankaccount {
+  /**
+   * The bank account ID. Example: "260815000000102017"
+   */
+  account_id: string;
+};
+
+export interface ActionOutput_zoho_books_getbankaccount {
+  account_id: string;
+  account_name?: string | undefined;
+  account_code?: string | undefined;
+  currency_id?: string | undefined;
+  currency_code?: string | undefined;
+  currency_symbol?: string | undefined;
+  price_precision?: number | undefined;
+  account_type?: string | undefined;
+  account_number?: string | undefined;
+  uncategorized_transactions?: number | undefined;
+  total_unprinted_checks?: number | undefined;
+  is_active?: boolean | undefined;
+  is_feeds_subscribed?: boolean | undefined;
+  is_feeds_active?: boolean | undefined;
+  balance?: number | undefined;
+  bank_balance?: number | undefined;
+  bcy_balance?: number | undefined;
+  bank_name?: string | undefined;
+  routing_number?: string | undefined;
+  is_primary_account?: boolean | undefined;
+  is_paypal_account?: boolean | undefined;
+  description?: string | undefined;
+  refresh_status?: string | undefined;
+  service_id?: string | undefined;
+  is_system_account?: boolean | undefined;
+  is_show_warning_for_feeds_refresh?: boolean | undefined;
+};
+
+export interface ActionInput_zoho_books_getbill {
+  /**
+   * The unique ID of the bill to retrieve. Example: "260815000000108002"
+   */
+  bill_id: string;
+};
+
+export interface ActionOutput_zoho_books_getbill {
+  bill_id: string;
+  vendor_id?: string | undefined;
+  vendor_name?: string | undefined;
+  status?: string | undefined;
+  bill_number?: string | undefined;
+  date?: string | undefined;
+  due_date?: string | undefined;
+  currency_id?: string | undefined;
+  currency_code?: string | undefined;
+  exchange_rate?: number | undefined;
+  total?: number | undefined;
+  balance?: number | undefined;
+  line_items?: ({})[] | undefined;
+};
+
+export interface ActionInput_zoho_books_getchartofaccount {
+  /**
+   * ID of the chart of account entry. Example: "260815000000000388"
+   */
+  account_id: string;
+};
+
+export interface ActionOutput_zoho_books_getchartofaccount {
+  account_id?: string | undefined;
+  account_name?: string | undefined;
+  account_code?: string | undefined;
+  is_active?: boolean | undefined;
+  account_type?: string | undefined;
+  currency_id?: string | undefined;
+  currency_code?: string | undefined;
+  description?: string | undefined;
+  is_system_account?: boolean | undefined;
+  is_involved_in_transaction?: boolean | undefined;
+  can_show_in_ze?: boolean | undefined;
+  include_in_vat_return?: boolean | undefined;
+  custom_fields?: ({  customfield_id?: string | undefined;
+  value?: string | undefined;})[];
+  parent_account_id?: string | undefined;
+  documents?: string[] | undefined;
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;
+  is_user_created?: boolean | undefined;
+  is_standalone_account?: boolean | undefined;
+  current_balance?: string | number | undefined;
+  parent_account_name?: string | undefined;
+  depth?: string | undefined;
+  has_attachment?: boolean | undefined;
+  is_child_present?: string | undefined;
+  child_count?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_getcontact {
+  /**
+   * Contact ID. Example: "260815000000097001"
+   */
+  contact_id: string;
+  /**
+   * Organization ID. Example: "927270289"
+   */
+  organization_id: string;
+};
+
+export interface ActionOutput_zoho_books_getcontact {
+  contact_id: string | number;
+  contact_name?: string | undefined;
+  company_name?: string | undefined;
+  contact_type?: string | undefined;
+  status?: string | undefined;
+  customer_sub_type?: string | undefined;
+  credit_limit?: number | undefined;
+  is_portal_enabled?: boolean | undefined;
+  language_code?: string | undefined;
+  is_taxable?: boolean | undefined;
+  tax_id?: string | number | undefined;
+  tax_name?: string | undefined;
+  tax_percentage?: number | undefined;
+  tax_authority_id?: string | number | undefined;
+  tax_exemption_id?: string | number | undefined;
+  tax_authority_name?: string | undefined;
+  tax_exemption_code?: string | undefined;
+  place_of_contact?: string | undefined;
+  gst_no?: string | undefined;
+  vat_treatment?: string | undefined;
+  tax_treatment?: string | undefined;
+  tax_exemption_certificate_number?: string | undefined;
+  tax_regime?: string | undefined;
+  legal_name?: string | undefined;
+  is_tds_registered?: boolean | undefined;
+  gst_treatment?: string | undefined;
+  is_linked_with_zohocrm?: boolean | undefined;
+  website?: string | undefined;
+  owner_id?: string | number | undefined;
+  primary_contact_id?: string | number | undefined;
+  pricebook_id?: string | number | undefined;
+  contact_number?: string | undefined;
+  ignore_auto_number_generation?: boolean | undefined;
+  payment_terms?: number | undefined;
+  payment_terms_label?: string | undefined;
+  currency_id?: string | number | undefined;
+  currency_code?: string | undefined;
+  currency_symbol?: string | undefined;
+  outstanding_receivable_amount?: number | undefined;
+  outstanding_receivable_amount_bcy?: number | undefined;
+  unused_credits_receivable_amount?: number | undefined;
+  unused_credits_receivable_amount_bcy?: number | undefined;
+  billing_address?: {  attention?: string | undefined;
+  address?: string | undefined;
+  street2?: string | undefined;
+  state_code?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  zip?: string | number | undefined;
+  country?: string | undefined;
+  fax?: string | undefined;
+  phone?: string | undefined;};
+  shipping_address?: {  attention?: string | undefined;
+  address?: string | undefined;
+  street2?: string | undefined;
+  state_code?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  zip?: string | number | undefined;
+  country?: string | undefined;
+  fax?: string | undefined;
+  phone?: string | undefined;};
+  facebook?: string | undefined;
+  twitter?: string | undefined;
+  payment_reminder_enabled?: boolean | undefined;
+  notes?: string | undefined;
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;
+  contact_persons?: ({  contact_person_id?: string | number | undefined;
+  salutation?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  mobile?: string | undefined;
+  designation?: string | undefined;
+  department?: string | undefined;
+  skype?: string | undefined;
+  is_primary_contact?: boolean | undefined;
+  enable_portal?: boolean | undefined;
+  communication_preference?: {  is_sms_enabled?: boolean | undefined;
+  is_whatsapp_enabled?: boolean | undefined;};})[];
+  custom_fields?: ({})[] | undefined;
+  default_templates?: {} | undefined;
+  opening_balances?: ({})[] | undefined;
+};
+
+export interface ActionInput_zoho_books_getcreditnote {
+  /**
+   * Credit Note ID. Example: "260815000000111002"
+   */
+  creditnote_id: string;
+};
+
+export interface ActionOutput_zoho_books_getcreditnote {
+  [key: string]: unknown | undefined;
+};
+
+export interface ActionInput_zoho_books_getestimate {
+  /**
+   * Unique identifier of the estimate. Example: "260815000000101017"
+   */
+  estimate_id: string;
+  /**
+   * ID of the Zoho Books organization. If omitted, metadata is used.
+   */
+  organization_id?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_getestimate {
+  estimate_id: string | number;
+  estimate_number?: string | undefined;
+  date?: string | undefined;
+  reference_number?: string | undefined;
+  is_pre_gst?: boolean | undefined;
+  place_of_supply?: string | undefined;
+  gst_no?: string | undefined;
+  gst_treatment?: string | undefined;
+  tax_treatment?: string | undefined;
+  is_reverse_charge_applied?: boolean | undefined;
+  status?: string | undefined;
+  customer_id?: string | number | undefined;
+  customer_name?: string | undefined;
+  contact_persons_associated?: ({  contact_person_id?: string | number | undefined;
+  contact_person_name?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  contact_person_email?: string | undefined;
+  phone?: string | undefined;
+  mobile?: string | undefined;
+  communication_preference?: {  is_email_enabled?: boolean | undefined;
+  is_sms_enabled?: boolean | undefined;
+  is_whatsapp_enabled?: boolean | undefined;};})[];
+  currency_id?: string | number | undefined;
+  currency_code?: string | undefined;
+  exchange_rate?: number | undefined;
+  expiry_date?: string | undefined;
+  discount?: number | undefined;
+  is_discount_before_tax?: boolean | undefined;
+  discount_type?: string | undefined;
+  is_inclusive_tax?: boolean | undefined;
+  is_viewed_by_client?: boolean | undefined;
+  client_viewed_time?: string | undefined;
+  line_items?: ({  item_id?: string | number | undefined;
+  line_item_id?: string | number | undefined;
+  name?: string | undefined;
+  description?: string | undefined;
+  item_order?: number | undefined;
+  product_type?: string | undefined;
+  sat_item_key_code?: string | number | undefined;
+  unitkey_code?: string | undefined;
+  bcy_rate?: number | undefined;
+  rate?: number | undefined;
+  quantity?: number | undefined;
+  unit?: string | undefined;
+  discount_amount?: number | undefined;
+  discount?: number | undefined;
+  tax_id?: string | number | undefined;
+  tds_tax_id?: string | number | undefined;
+  tax_name?: string | undefined;
+  tax_type?: string | undefined;
+  tax_percentage?: number | undefined;
+  tax_treatment_code?: string | undefined;
+  item_total?: number | undefined;
+  location_id?: string | number | undefined;
+  location_name?: string | undefined;
+  tags?: ({  tag_id?: string | undefined;
+  tag_name?: string | undefined;
+  tag_option_id?: string | undefined;
+  tag_option_name?: string | undefined;
+  is_tag_mandatory?: boolean | undefined;})[];})[];
+  location_id?: string | number | undefined;
+  location_name?: string | undefined;
+  shipping_charge?: number | undefined;
+  adjustment?: number | undefined;
+  adjustment_description?: string | undefined;
+  sub_total?: number | undefined;
+  total?: number | undefined;
+  tax_total?: number | undefined;
+  price_precision?: number | undefined;
+  taxes?: ({  tax_name?: string | undefined;
+  tax_amount?: number | undefined;})[];
+  billing_address?: {  address?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  zip?: string | number | undefined;
+  country?: string | undefined;
+  fax?: string | undefined;};
+  shipping_address?: {  address?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  zip?: string | number | undefined;
+  country?: string | undefined;
+  fax?: string | undefined;};
+  custom_fields?: ({  index?: number | undefined;
+  show_on_pdf?: boolean | undefined;
+  value?: string | undefined;
+  label?: string | undefined;})[];
+  template_id?: string | number | undefined;
+  template_name?: string | undefined;
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;
+  salesperson_id?: string | number | undefined;
+  salesperson_name?: string | undefined;
+  project?: {  project_id?: string | number | undefined;
+  project_name?: string | undefined;};
+  tags?: ({  tag_id?: string | undefined;
+  tag_name?: string | undefined;
+  tag_option_id?: string | undefined;
+  tag_option_name?: string | undefined;
+  is_tag_mandatory?: boolean | undefined;})[];
+};
+
+export interface ActionInput_zoho_books_getexpense {
+  /**
+   * Unique identifier of the expense. Example: "260815000000106001"
+   */
+  expense_id: string;
+};
+
+export interface ActionOutput_zoho_books_getexpense {
+  expense: {  expense_id: string;
+  date?: string | undefined;
+  account_id?: string | undefined;
+  account_name?: string | undefined;
+  paid_through_account_id?: string | undefined;
+  paid_through_account_name?: string | undefined;
+  currency_id?: string | undefined;
+  currency_code?: string | undefined;
+  currency_symbol?: string | undefined;
+  amount?: number | undefined;
+  status?: string | undefined;
+  vendor_id?: string | undefined;
+  vendor_name?: string | undefined;
+  description?: string | undefined;
+  reference_number?: string | undefined;
+  is_billable?: boolean | undefined;
+  customer_id?: string | undefined;
+  customer_name?: string | undefined;
+  project_id?: string | undefined;
+  project_name?: string | undefined;
+  receipt_name?: string | undefined;
+  mileage_type?: string | undefined;
+  mileage_rate?: number | undefined;
+  distance?: number | undefined;
+  mileage_unit?: string | undefined;
+  expense_receipt_type?: string | undefined;
+  start_reading?: string | undefined;
+  end_reading?: string | undefined;
+  vehicle_type?: string | undefined;
+  vehicle_name?: string | undefined;
+  vehicle_id?: string | undefined;
+  recurring_expense_id?: string | undefined;
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;
+  tags?: unknown[] | undefined;
+  line_items?: ({  line_item_id?: string | undefined;
+  account_id?: string | undefined;
+  account_name?: string | undefined;
+  description?: string | undefined;
+  tax_amount?: number | undefined;
+  tax_id?: string | undefined;
+  tax_name?: string | undefined;
+  tax_type?: string | undefined;
+  tax_percentage?: number | undefined;
+  item_total?: number | undefined;
+  amount?: number | undefined;
+  item_order?: number | undefined;
+  line_item_taxes?: ({  tax_name?: string | undefined;
+  tax_amount?: number | undefined;
+  tax_id?: string | undefined;
+  tax_percentage?: number | undefined;
+  tax_type?: string | undefined;})[];
+  tags?: unknown[] | undefined;})[];
+  transaction_type?: string | undefined;
+  transaction_type_formatted?: string | undefined;
+  expense_item_id?: string | undefined;
+  documents?: unknown[] | undefined;
+  markup_percent?: number | undefined;
+  tax_id?: string | undefined;
+  tax_name?: string | undefined;
+  tax_percentage?: number | undefined;
+  taxes?: unknown[] | undefined;
+  tax_override_preference?: string | undefined;
+  exchange_rate?: number | undefined;
+  tax_amount?: number | undefined;
+  sub_total?: number | undefined;
+  total?: number | undefined;
+  bcy_total?: number | undefined;
+  is_inclusive_tax?: boolean | undefined;
+  is_personal?: boolean | undefined;
+  expense_receipt_name?: string | undefined;
+  created_by_id?: string | undefined;
+  last_modified_by_id?: string | undefined;
+  employee_id?: string | undefined;
+  employee_name?: string | undefined;
+  employee_email?: string | undefined;
+  expense_type?: string | undefined;
+  invoice_id?: string | undefined;
+  invoice_number?: string | undefined;
+  report_id?: string | undefined;
+  report_name?: string | undefined;
+  report_number?: string | undefined;
+  user_id?: string | undefined;
+  user_name?: string | undefined;
+  user_email?: string | undefined;
+  approver_id?: string | undefined;
+  approver_name?: string | undefined;
+  approver_email?: string | undefined;
+  report_status?: string | undefined;
+  is_reimbursable?: boolean | undefined;
+  trip_id?: string | undefined;
+  trip_number?: string | undefined;
+  location?: string | undefined;
+  merchant_id?: string | undefined;
+  merchant_name?: string | undefined;
+  payment_mode?: string | undefined;
+  template_id?: string | undefined;
+  template_name?: string | undefined;
+  template_type?: string | undefined;
+  page_width?: string | undefined;
+  page_height?: string | undefined;
+  orientation?: string | undefined;
+  custom_fields?: unknown[] | undefined;
+  custom_field_hash?: {  [key: string]: unknown | undefined;};
+  is_recurring_applicable?: boolean | undefined;
+  is_surcharge_applicable?: boolean | undefined;
+  fcy_surcharge_amount?: number | undefined;
+  bcy_surcharge_amount?: number | undefined;
+  zcrm_potential_id?: string | undefined;
+  zcrm_potential_name?: string | undefined;
+  imported_transactions?: unknown[] | undefined;};
+};
+
+export interface ActionInput_zoho_books_getinvoice {
+  /**
+   * Unique identifier of the invoice. Example: "260815000000103001"
+   */
+  invoice_id: string;
+  /**
+   * ID of the organization. Example: "927270289"
+   */
+  organization_id: string;
+};
+
+export interface ActionOutput_zoho_books_getinvoice {
+  /**
+   * Unique identifier of the invoice
+   */
+  invoice_id: string | number;
+  ach_payment_initiated?: boolean | undefined;
+  invoice_number?: string | undefined;
+  is_pre_gst?: boolean | undefined;
+  place_of_supply?: string | undefined;
+  gst_no?: string | undefined;
+  gst_treatment?: string | undefined;
+  cfdi_usage?: string | undefined;
+  vat_treatment?: string | undefined;
+  tax_treatment?: string | undefined;
+  is_reverse_charge_applied?: boolean | undefined;
+  vat_reg_no?: string | undefined;
+  date?: string | undefined;
+  status?: string | undefined;
+  payment_terms?: number | undefined;
+  payment_terms_label?: string | undefined;
+  due_date?: string | undefined;
+  payment_expected_date?: string | undefined;
+  last_payment_date?: string | undefined;
+  reference_number?: string | undefined;
+  customer_id?: string | number | undefined;
+  customer_name?: string | undefined;
+  contact_persons_associated?: ({  contact_person_id?: string | number | undefined;
+  contact_person_name?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  contact_person_email?: string | undefined;
+  phone?: string | undefined;
+  mobile?: string | undefined;
+  communication_preference?: {  is_email_enabled?: boolean | undefined;
+  is_sms_enabled?: boolean | undefined;
+  is_whatsapp_enabled?: boolean | undefined;};})[];
+  currency_id?: string | number | undefined;
+  currency_code?: string | undefined;
+  exchange_rate?: number | undefined;
+  discount?: number | undefined;
+  is_discount_before_tax?: boolean | undefined;
+  discount_type?: string | undefined;
+  is_inclusive_tax?: boolean | undefined;
+  recurring_invoice_id?: string | undefined;
+  is_viewed_by_client?: boolean | undefined;
+  has_attachment?: boolean | undefined;
+  client_viewed_time?: string | undefined;
+  location_id?: string | undefined;
+  location_name?: string | undefined;
+  tags?: ({  tag_id?: string | number | undefined;
+  tag_name?: string | undefined;
+  tag_option_id?: string | number | undefined;
+  tag_option_name?: string | undefined;
+  is_tag_mandatory?: boolean | undefined;})[];
+  line_items?: ({  line_item_id?: string | number | undefined;
+  item_id?: string | number | undefined;
+  project_id?: string | number | undefined;
+  project_name?: string | undefined;
+  time_entry_ids?: unknown[] | undefined;
+  location_id?: string | undefined;
+  location_name?: string | undefined;
+  item_type?: string | undefined;
+  product_type?: string | undefined;
+  expense_id?: string | number | undefined;
+  expense_receipt_name?: string | undefined;
+  name?: string | undefined;
+  description?: string | undefined;
+  item_order?: number | undefined;
+  bcy_rate?: number | undefined;
+  rate?: number | undefined;
+  quantity?: number | undefined;
+  unit?: string | undefined;
+  discount_amount?: number | undefined;
+  discount?: number | undefined;
+  tags?: ({})[] | undefined;
+  tax_id?: string | number | undefined;
+  tax_name?: string | undefined;
+  tax_type?: string | undefined;
+  tax_percentage?: number | undefined;
+  tax_treatment_code?: string | undefined;
+  item_total?: number | undefined;
+  header_name?: string | undefined;
+  header_id?: string | number | undefined;})[];
+  shipping_charge?: number | undefined;
+  adjustment?: number | undefined;
+  adjustment_description?: string | undefined;
+  sub_total?: number | undefined;
+  tax_total?: number | undefined;
+  total?: number | undefined;
+  taxes?: ({  tax_name?: string | undefined;
+  tax_amount?: number | undefined;})[];
+  payment_reminder_enabled?: boolean | undefined;
+  payment_made?: number | undefined;
+  credits_applied?: number | undefined;
+  tax_amount_withheld?: number | undefined;
+  balance?: number | undefined;
+  write_off_amount?: number | undefined;
+  allow_partial_payments?: boolean | undefined;
+  price_precision?: number | undefined;
+  payment_options?: {  payment_gateways?: ({  configured?: boolean | undefined;
+  additional_field1?: string | undefined;
+  gateway_name?: string | undefined;})[];};
+  is_emailed?: boolean | undefined;
+  reminders_sent?: number | undefined;
+  last_reminder_sent_date?: string | undefined;
+  billing_address?: {  address?: string | undefined;
+  street2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  zip?: string | number | undefined;
+  country?: string | undefined;
+  fax?: string | undefined;};
+  shipping_address?: {  address?: string | undefined;
+  street2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  zip?: string | number | undefined;
+  country?: string | undefined;
+  fax?: string | undefined;};
+  notes?: string | undefined;
+  terms?: string | undefined;
+  custom_fields?: ({  customfield_id?: string | number | undefined;
+  value?: string | undefined;})[];
+  template_id?: string | number | undefined;
+  template_name?: string | undefined;
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;
+  attachment_name?: string | undefined;
+  can_send_in_mail?: boolean | undefined;
+  salesperson_id?: string | undefined;
+  salesperson_name?: string | undefined;
+  invoice_url?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_getitem {
+  /**
+   * Item ID. Example: "260815000000100002"
+   */
+  item_id: string;
+};
+
+export interface ActionOutput_zoho_books_getitem {
+  item_id: string;
+  name?: string | undefined;
+  status?: string | undefined;
+  description?: string | undefined;
+  rate?: number | undefined;
+  unit?: string | undefined;
+  tax_id?: string | undefined;
+  purchase_tax_rule_id?: string | undefined;
+  sales_tax_rule_id?: string | undefined;
+  tax_name?: string | undefined;
+  tax_percentage?: string | undefined;
+  tax_type?: string | undefined;
+  hsn_or_sac?: string | undefined;
+  sat_item_key_code?: string | undefined;
+  unitkey_code?: string | undefined;
+  sku?: string | undefined;
+  product_type?: string | undefined;
+  item_tax_preferences?: ({  tax_id?: string | undefined;
+  tax_specification?: string | undefined;})[];
+  custom_fields?: ({  customfield_id?: string | undefined;
+  value?: string | undefined;})[];
+  locations?: ({  location_id?: string | undefined;
+  location_name?: string | undefined;
+  status?: string | undefined;
+  is_primary?: boolean | undefined;
+  location_stock_on_hand?: string | undefined;
+  location_available_stock?: string | undefined;
+  location_actual_available_stock?: string | undefined;})[];
+};
+
+export interface ActionInput_zoho_books_getjournal {
+  /**
+   * ID of the journal to retrieve. Example: "260815000000115005"
+   */
+  journal_id: string;
+};
+
+export interface ActionOutput_zoho_books_getjournal {
+  journal_id: string;
+  entry_number?: string | undefined;
+  reference_number?: string | undefined;
+  notes?: string | undefined;
+  currency_id?: string | undefined;
+  currency_code?: string | undefined;
+  currency_symbol?: string | undefined;
+  exchange_rate?: number | undefined;
+  journal_date?: string | undefined;
+  journal_type?: string | undefined;
+  vat_treatment?: string | undefined;
+  product_type?: string | undefined;
+  include_in_vat_return?: boolean | undefined;
+  is_bas_adjustment?: boolean | undefined;
+  line_items?: ({  line_id?: string | undefined;
+  account_id?: string | undefined;
+  customer_id?: string | undefined;
+  customer_name?: string | undefined;
+  account_name?: string | undefined;
+  description?: string | undefined;
+  debit_or_credit?: string | undefined;
+  tax_exemption_id?: string | undefined;
+  tax_exemption_type?: string | undefined;
+  tax_exemption_code?: string | undefined;
+  tax_authority_id?: string | undefined;
+  tax_authority_name?: string | undefined;
+  tax_id?: string | undefined;
+  tax_name?: string | undefined;
+  tax_type?: string | undefined;
+  tax_percentage?: string | undefined;
+  amount?: number | undefined;
+  bcy_amount?: number | undefined;
+  acquisition_vat_id?: string | undefined;
+  acquisition_vat_name?: string | undefined;
+  acquisition_vat_percentage?: string | undefined;
+  acquisition_vat_amount?: string | undefined;
+  reverse_charge_vat_id?: string | undefined;
+  reverse_charge_vat_name?: string | undefined;
+  reverse_charge_vat_percentage?: string | undefined;
+  reverse_charge_vat_amount?: string | undefined;
+  tags?: ({  tag_id?: string | undefined;
+  tag_option_id?: string | undefined;})[];
+  location_id?: string | undefined;
+  location_name?: string | undefined;
+  project_id?: string | undefined;
+  project_name?: string | undefined;})[];
+  location_id?: string | undefined;
+  location_name?: string | undefined;
+  line_item_total?: number | undefined;
+  total?: number | undefined;
+  bcy_total?: number | undefined;
+  price_precision?: number | undefined;
+  taxes?: ({  tax_name?: string | undefined;
+  tax_amount?: number | undefined;
+  debit_or_credit?: string | undefined;
+  tax_account?: boolean | undefined;})[];
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;
+  status?: string | undefined;
+  custom_fields?: ({  customfield_id?: string | undefined;
+  value?: string | undefined;})[] | string;
+  tags?: ({  tag_id?: string | undefined;
+  tag_name?: string | undefined;
+  tag_option_id?: string | undefined;
+  tag_option_name?: string | undefined;
+  is_tag_mandatory?: boolean | undefined;})[];
+};
+
+export interface ActionInput_zoho_books_getpayment {
+  /**
+   * Customer payment ID. Example: "260815000000113012"
+   */
+  payment_id: string;
+  /**
+   * Zoho Books organization ID. Example: "927270289"
+   */
+  organization_id: string;
+};
+
+export interface ActionOutput_zoho_books_getpayment {
+  payment_id?: string | undefined;
+  payment_mode?: string | undefined;
+  amount?: number | undefined;
+  amount_refunded?: number | undefined;
+  bank_charges?: number | undefined;
+  date?: string | undefined;
+  status?: string | undefined;
+  reference_number?: string | undefined;
+  description?: string | undefined;
+  customer_id?: string | undefined;
+  customer_name?: string | undefined;
+  email?: string | undefined;
+  invoices?: ({  invoice_id?: string | undefined;
+  invoice_number?: string | undefined;
+  date?: string | undefined;
+  invoice_amount?: number | undefined;
+  amount_applied?: number | undefined;
+  balance_amount?: number | undefined;
+  tax_amount_withheld?: number | undefined;})[];
+  currency_code?: string | undefined;
+  currency_symbol?: string | undefined;
+  location_id?: string | undefined;
+  location_name?: string | undefined;
+  tags?: ({  tag_id?: string | undefined;
+  tag_name?: string | undefined;
+  tag_option_id?: string | undefined;
+  tag_option_name?: string | undefined;
+  is_tag_mandatory?: boolean | undefined;})[];
+  custom_fields?: ({  index?: number | undefined;
+  value?: string | undefined;
+  label?: string | undefined;})[];
+};
+
+export interface ActionInput_zoho_books_getpurchaseorder {
+  /**
+   * Unique identifier of the purchase order. Example: "460000000062001"
+   */
+  purchaseorder_id: string;
+};
+
+export interface ActionOutput_zoho_books_getpurchaseorder {
+  code?: number | undefined;
+  message?: string | undefined;
+  purchaseorder?: {  purchaseorder_id?: string | undefined;
+  documents?: ({  document_id?: string | undefined;
+  file_name?: string | undefined;})[];
+  vat_treatment?: string | undefined;
+  gst_no?: string | undefined;
+  gst_treatment?: string | undefined;
+  tax_treatment?: string | undefined;
+  is_pre_gst?: boolean | undefined;
+  source_of_supply?: string | undefined;
+  destination_of_supply?: string | undefined;
+  place_of_supply?: string | undefined;
+  pricebook_id?: number | undefined;
+  pricebook_name?: string | undefined;
+  is_reverse_charge_applied?: boolean | undefined;
+  purchaseorder_number?: string | undefined;
+  date?: string | undefined;
+  expected_delivery_date?: string | undefined;
+  discount?: string | number | undefined;
+  discount_account_id?: string | undefined;
+  is_discount_before_tax?: boolean | undefined;
+  reference_number?: string | undefined;
+  status?: string | undefined;
+  vendor_id?: string | undefined;
+  vendor_name?: string | undefined;
+  crm_owner_id?: string | undefined;
+  contact_persons_associated?: ({  contact_person_id?: number | undefined;
+  contact_person_name?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  contact_person_email?: string | undefined;
+  phone?: string | undefined;
+  mobile?: string | undefined;
+  communication_preference?: {  is_email_enabled?: boolean | undefined;
+  is_whatsapp_enabled?: boolean | undefined;};})[];
+  currency_id?: string | undefined;
+  currency_code?: string | undefined;
+  currency_symbol?: string | undefined;
+  exchange_rate?: number | undefined;
+  delivery_date?: string | undefined;
+  is_emailed?: boolean | undefined;
+  is_inclusive_tax?: boolean | undefined;
+  location_id?: string | undefined;
+  location_name?: string | undefined;
+  line_items?: ({  item_id?: string | undefined;
+  line_item_id?: string | undefined;
+  sku?: string | undefined;
+  location_id?: string | undefined;
+  location_name?: string | undefined;
+  product_type?: string | undefined;
+  reverse_charge_tax_id?: number | undefined;
+  reverse_charge_tax_name?: string | undefined;
+  reverse_charge_tax_percentage?: number | undefined;
+  reverse_charge_tax_amount?: number | undefined;
+  account_id?: string | undefined;
+  account_name?: string | undefined;
+  name?: string | undefined;
+  description?: string | undefined;
+  item_order?: number | undefined;
+  bcy_rate?: number | undefined;
+  unit?: string | undefined;
+  rate?: number | undefined;
+  quantity?: number | undefined;
+  item_total?: number | undefined;
+  item_total_inclusive_of_tax?: number | undefined;
+  tax_exemption_id?: string | undefined;
+  tax_exemption_code?: string | undefined;
+  tax_id?: string | undefined;
+  tax_treatment_code?: string | undefined;
+  tax_name?: string | undefined;
+  tax_type?: string | undefined;
+  tax_percentage?: number | undefined;
+  hsn_or_sac?: string | undefined;
+  acquisition_vat_id?: string | undefined;
+  acquisition_vat_name?: string | undefined;
+  acquisition_vat_percentage?: string | undefined;
+  acquisition_vat_amount?: string | undefined;
+  reverse_charge_vat_id?: string | undefined;
+  reverse_charge_vat_name?: string | undefined;
+  reverse_charge_vat_percentage?: string | undefined;
+  reverse_charge_vat_amount?: string | undefined;
+  tags?: ({  tag_id?: string | undefined;
+  tag_name?: string | undefined;
+  tag_option_id?: string | undefined;
+  tag_option_name?: string | undefined;
+  is_tag_mandatory?: boolean | undefined;})[];
+  item_custom_fields?: ({  customfield_id?: string | undefined;
+  value?: string | undefined;})[];
+  project_id?: string | number | undefined;
+  project_name?: string | undefined;})[];
+  sub_total?: number | undefined;
+  tax_total?: number | undefined;
+  total?: number | undefined;
+  taxes?: string[] | undefined;
+  acquisition_vat_summary?: ({  tax_name?: string | undefined;
+  tax_amount?: number | undefined;})[];
+  acquisition_vat_total?: number | undefined;
+  reverse_charge_vat_summary?: ({  tax_name?: string | undefined;
+  tax_amount?: number | undefined;})[];
+  reverse_charge_vat_total?: number | undefined;
+  billing_address?: {  address?: string | undefined;
+  street2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  zip?: string | undefined;
+  country?: string | undefined;
+  fax?: string | undefined;
+  attention?: string | undefined;};
+  notes?: string | undefined;
+  terms?: string | undefined;
+  ship_via?: string | undefined;
+  ship_via_id?: string | undefined;
+  attention?: string | undefined;
+  delivery_org_address_id?: string | undefined;
+  delivery_customer_id?: string | undefined;
+  delivery_address?: {  zip?: string | undefined;
+  is_verifiable?: boolean | undefined;
+  state?: string | undefined;
+  address1?: string | undefined;
+  address2?: string | undefined;
+  is_valid?: string | undefined;
+  city?: string | undefined;
+  country?: string | undefined;
+  address?: string | undefined;
+  email?: string | undefined;
+  is_primary?: string | undefined;
+  organization_address_id?: string | undefined;
+  phone?: string | undefined;
+  is_verified?: boolean | undefined;};
+  price_precision?: string | number | undefined;
+  custom_fields?: ({  customfield_id?: string | undefined;
+  value?: string | undefined;})[];
+  attachment_name?: string | undefined;
+  can_send_in_mail?: boolean | undefined;
+  template_id?: string | undefined;
+  template_name?: string | undefined;
+  page_width?: string | undefined;
+  page_height?: string | undefined;
+  orientation?: string | undefined;
+  template_type?: string | undefined;
+  created_time?: string | undefined;
+  created_by_id?: string | undefined;
+  last_modified_time?: string | undefined;
+  can_mark_as_bill?: boolean | undefined;
+  can_mark_as_unbill?: boolean | undefined;
+  tags?: ({  tag_id?: string | undefined;
+  tag_name?: string | undefined;
+  tag_option_id?: string | undefined;
+  tag_option_name?: string | undefined;
+  is_tag_mandatory?: boolean | undefined;})[];};
+};
+
+export interface ActionInput_zoho_books_getvendorpayment {
+  /**
+   * Vendor payment ID. Example: "260815000000116002"
+   */
+  payment_id: string;
+};
+
+export interface ActionOutput_zoho_books_getvendorpayment {
+  payment_id?: string | undefined;
+  vendor_id?: string | undefined;
+  vendor_name?: string | undefined;
+  status?: string | undefined;
+  is_online_payment?: boolean | undefined;
+  transfer_type?: string | undefined;
+  payment_mode?: string | undefined;
+  payment_number?: string | number | undefined;
+  payment_number_prefix?: string | undefined;
+  payment_number_suffix?: string | undefined;
+  purpose_code?: string | undefined;
+  description?: string | undefined;
+  date?: string | undefined;
+  reference_number?: string | undefined;
+  exchange_rate?: number | undefined;
+  tax_account_id?: string | undefined;
+  tax_account_name?: string | undefined;
+  tax_amount_withheld?: number | undefined;
+  amount?: number | undefined;
+  bank_charges?: number | undefined;
+  bank_charges_account_id?: string | undefined;
+  bank_charges_account_name?: string | undefined;
+  balance?: number | undefined;
+  currency_id?: string | undefined;
+  currency_code?: string | undefined;
+  currency_symbol?: string | undefined;
+  created_time?: string | undefined;
+  created_by_id?: string | undefined;
+  created_by_name?: string | undefined;
+  last_modified_time?: string | undefined;
+  credit_account_id?: string | undefined;
+  paid_through_account_id?: string | undefined;
+  paid_through_account_name?: string | undefined;
+  paid_through_account_type?: string | undefined;
+  offset_account_id?: string | undefined;
+  offset_account_name?: string | undefined;
+  is_paid_via_print_check?: boolean | undefined;
+  is_ach_payment?: boolean | undefined;
+  ach_payment_status?: string | undefined;
+  gw_reference_number?: string | undefined;
+  check_details?: {  amount_in_words?: string | undefined;
+  check_id?: string | undefined;
+  check_number?: string | undefined;
+  check_status?: string | undefined;
+  memo?: string | undefined;
+  template_id?: string | undefined;
+  retain_txn_in_void_check?: boolean | undefined;};
+  billing_address?: {  address?: string | undefined;
+  street2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  zip?: string | undefined;
+  country?: string | undefined;
+  fax?: string | undefined;
+  phone?: string | undefined;
+  attention?: string | undefined;};
+  comments?: string | ({  comment_id?: string | undefined;
+  description?: string | undefined;
+  commented_by_id?: string | undefined;
+  commented_by?: string | undefined;
+  date?: string | undefined;
+  date_description?: string | undefined;
+  time?: string | undefined;
+  operation_type?: string | undefined;})[];
+  vendorpayment_refunds?: ({  vendorpayment_refund_id?: string | undefined;
+  date?: string | undefined;
+  refund_mode?: string | undefined;
+  reference_number?: string | undefined;
+  description?: string | undefined;
+  amount_bcy?: number | undefined;
+  amount_fcy?: number | undefined;})[];
+  bills?: ({  bill_payment_id?: string | undefined;
+  bill_id?: string | undefined;
+  amount_applied?: number | undefined;
+  tax_amount_withheld?: number | undefined;
+  balance?: number | undefined;
+  bill_number?: string | undefined;
+  date?: string | undefined;
+  due_date?: string | undefined;
+  price_precision?: number | undefined;
+  total?: number | undefined;
+  is_opening_balance?: boolean | undefined;
+  unprocessed_payment_amount?: number | undefined;
+  apply_date?: string | undefined;})[];
+  custom_fields?: ({  custom_field_id?: string | undefined;
+  index?: number | undefined;
+  label?: string | undefined;
+  value?: string | undefined;})[];
+  custom_field_hash?: {  [key: string]: unknown | undefined;};
+  tags?: ({  tag_id?: string | undefined;
+  tag_name?: string | undefined;
+  tag_option_id?: string | undefined;
+  tag_option_name?: string | undefined;
+  is_tag_mandatory?: boolean | undefined;})[];
+  imported_transactions?: string[] | undefined;
+  documents?: string[] | undefined;
+  approvers_list?: unknown[] | undefined;
+  location_id?: string | undefined;
+  location_name?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_listbankaccounts {
+  /**
+   * Organization ID. Example: "927270289"
+   */
+  organization_id: string;
+  /**
+   * Page number to fetch. Defaults to 1.
+   */
+  page?: number | undefined;
+  /**
+   * Number of records per page.
+   */
+  per_page?: number | undefined;
+  /**
+   * Filter by account status.
+   */
+  filter_by?: 'Status.All' | 'Status.Active' | 'Status.Inactive' | undefined;
+  /**
+   * Column to sort results by.
+   */
+  sort_column?: 'account_name' | 'account_type' | 'account_code' | undefined;
+};
+
+export interface ActionOutput_zoho_books_listbankaccounts {
+  items: ({  account_id: string;
+  account_name: string;
+  account_code?: string | undefined;
+  currency_id?: string | undefined;
+  currency_code?: string | undefined;
+  currency_symbol?: string | undefined;
+  price_precision?: number | undefined;
+  account_type: string;
+  account_sub_type?: string | undefined;
+  account_number?: string | undefined;
+  uncategorized_transactions?: number | undefined;
+  total_unprinted_checks?: number | undefined;
+  is_active?: boolean | undefined;
+  is_feeds_subscribed?: boolean | undefined;
+  is_feeds_active?: boolean | undefined;
+  balance?: number | undefined;
+  bank_balance?: number | undefined;
+  bcy_balance?: number | undefined;
+  bank_name?: string | undefined;
+  routing_number?: string | undefined;
+  is_primary_account?: boolean | undefined;
+  is_paypal_account?: boolean | undefined;
+  description?: string | undefined;
+  refresh_status_code?: string | undefined;
+  feeds_last_refresh_date?: string | undefined;
+  service_id?: string | undefined;
+  is_system_account?: boolean | undefined;
+  is_show_warning_for_feeds_refresh?: boolean | undefined;
+  is_direct_paypal?: boolean | undefined;
+  mfa_required?: boolean | undefined;
+  partner_bank_source_formatted?: string | undefined;
+  partner_bank_source?: string | undefined;
+  payout_bank_name?: string | undefined;
+  is_beta_feed?: boolean | undefined;
+  feed_status?: string | undefined;
+  consent_info?: {  consent_remaining_days?: string | undefined;
+  is_consent_expired?: string | undefined;};
+  paypal_type?: string | undefined;
+  paypal_email_address?: string | undefined;})[];
+  next_page?: number | undefined;
+};
+
+export interface ActionInput_zoho_books_listbills {
+  /**
+   * Zoho Books organization ID. Example: "927270289"
+   */
+  organization_id: string;
+  /**
+   * Pagination cursor (page number) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of bills to retrieve per page.
+   */
+  per_page?: number | undefined;
+  /**
+   * Filter bills by vendor ID.
+   */
+  vendor_id?: string | undefined;
+  /**
+   * Filter bills by status: paid, open, overdue, void, partially_paid.
+   */
+  status?: string | undefined;
+  /**
+   * Filter bills by bill number.
+   */
+  bill_number?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_listbills {
+  items: ({  bill_id: string;
+  vendor_id?: string | undefined;
+  vendor_name?: string | undefined;
+  status?: string | undefined;
+  bill_number?: string | undefined;
+  reference_number?: string | undefined;
+  date?: string | undefined;
+  due_date?: string | undefined;
+  due_days?: string | undefined;
+  currency_id?: string | undefined;
+  currency_code?: string | undefined;
+  price_precision?: number | undefined;
+  exchange_rate?: number | undefined;
+  total?: number | undefined;
+  balance?: number | undefined;
+  location_id?: string | undefined;
+  location_name?: string | undefined;
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;
+  attachment_name?: string | undefined;
+  has_attachment?: boolean | undefined;
+  is_tds_applied?: boolean | undefined;
+  is_abn_quoted?: string | undefined;})[];
+  next_page?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_listchartofaccounts {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of records per page.
+   */
+  per_page?: number | undefined;
+  /**
+   * Filter by account type and status. Allowed Values: AccountType.All, AccountType.Active, AccountType.Inactive, AccountType.Asset, AccountType.Liability, AccountType.Equity, AccountType.Income, AccountType.Expense.
+   */
+  filter_by?: string | undefined;
+  /**
+   * Sort accounts. Allowed Values: account_name, account_type, account_code.
+   */
+  sort_column?: string | undefined;
+  /**
+   * Search accounts by account name or code.
+   */
+  search_text?: string | undefined;
+  /**
+   * Search by account name.
+   */
+  account_name?: string | undefined;
+  /**
+   * Search by account code.
+   */
+  account_code?: string | undefined;
+  /**
+   * Search by account ID.
+   */
+  account_id?: string | undefined;
+  /**
+   * Boolean to get current balance of accounts.
+   */
+  showbalance?: boolean | undefined;
+};
+
+export interface ActionOutput_zoho_books_listchartofaccounts {
+  accounts: ({  account_id: string;
+  account_name?: string | undefined;
+  account_code?: string | undefined;
+  account_type?: string | undefined;
+  is_user_created?: boolean | undefined;
+  is_system_account?: boolean | undefined;
+  is_standalone_account?: boolean | undefined;
+  is_active?: boolean | undefined;
+  can_show_in_ze?: boolean | undefined;
+  is_involved_in_transaction?: boolean | undefined;
+  current_balance?: number | undefined;
+  parent_account_id?: string | undefined;
+  parent_account_name?: string | undefined;
+  depth?: number | undefined;
+  has_attachment?: boolean | undefined;
+  is_child_present?: boolean | undefined;
+  child_count?: string | undefined;
+  documents?: string[] | undefined;
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_listcontacts {
+  /**
+   * ID of the organization. Example: "927270289"
+   */
+  organization_id: string;
+  /**
+   * Pagination cursor from the previous response. For Zoho Books, this is the page number. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of records to be fetched per page.
+   */
+  per_page?: number | undefined;
+  /**
+   * Search contacts by contact type. Allowed Values: customer, vendor.
+   */
+  contact_type?: string | undefined;
+  /**
+   * Search contacts by contact name. Max-length 100.
+   */
+  contact_name?: string | undefined;
+  /**
+   * Search contacts by company name. Max-length 100.
+   */
+  company_name?: string | undefined;
+  /**
+   * Search contacts by email of the primary contact person. Max-length 100.
+   */
+  email?: string | undefined;
+  /**
+   * Search contacts by phone number of the primary contact person. Max-length 100.
+   */
+  phone?: string | undefined;
+  /**
+   * Filter contacts by status. Allowed Values: Status.All, Status.Active, Status.Inactive, Status.Duplicate, Status.PortalEnabled, Status.PortalDisabled, Invoice.OverDue, Invoice.Unpaid, Status.CreditLimitExceed and Status.Crm.
+   */
+  filter_by?: string | undefined;
+  /**
+   * Search contacts by contact name or notes. Max-length 100.
+   */
+  search_text?: string | undefined;
+  /**
+   * Sort contacts. Allowed Values: contact_name, first_name, last_name, email, outstanding_receivable_amount, created_time and last_modified_time.
+   */
+  sort_column?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_listcontacts {
+  contacts: ({  contact_id: string;
+  contact_name?: string | undefined;
+  company_name?: string | undefined;
+  contact_type?: string | undefined;
+  status?: string | undefined;
+  payment_terms?: number | undefined;
+  payment_terms_label?: string | undefined;
+  currency_id?: string | undefined;
+  currency_code?: string | undefined;
+  outstanding_receivable_amount?: number | undefined;
+  unused_credits_receivable_amount?: number | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  mobile?: string | undefined;
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;})[];
+  /**
+   * Next page cursor to fetch the following page. Absent if there are no more pages.
+   */
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_listcreditnotes {
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of records per page.
+   */
+  per_page?: number | undefined;
+  /**
+   * Filter by status. Allowed values: open, closed, void, draft.
+   */
+  status?: string | undefined;
+  /**
+   * Filter by customer ID.
+   */
+  customer_id?: string | undefined;
+  /**
+   * Search text across credit note number, customer name, and reference number.
+   */
+  search_text?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_listcreditnotes {
+  items: ({  creditnote_id: string;
+  creditnote_number?: string | undefined;
+  status?: string | undefined;
+  reference_number?: string | undefined;
+  date?: string | undefined;
+  total?: number | undefined;
+  balance?: number | undefined;
+  location_id?: string | undefined;
+  location_name?: string | undefined;
+  customer_id?: string | undefined;
+  customer_name?: string | undefined;
+  currency_id?: string | undefined;
+  currency_code?: string | undefined;
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;
+  is_emailed?: boolean | undefined;})[];
+  /**
+   * Next page cursor if more pages exist.
+   */
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_listcurrencies {
+  /**
+   * ID of the Zoho Books organization. Example: "927270289"
+   */
+  organization_id: string;
+  /**
+   * Pagination cursor (page number) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of records to fetch per page. Default is 200.
+   */
+  per_page?: number | undefined;
+  /**
+   * Filter currencies. Allowed value: Currencies.ExcludeBaseCurrency
+   */
+  filter_by?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_listcurrencies {
+  items: ({  currency_id: string;
+  currency_code: string;
+  currency_name: string;
+  currency_symbol?: string | undefined;
+  price_precision?: number | undefined;
+  currency_format?: string | undefined;
+  is_base_currency?: boolean | undefined;
+  exchange_rate?: number | undefined;
+  effective_date?: string | undefined;})[];
+  next_page?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_listestimates {
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of records per page.
+   */
+  per_page?: number | undefined;
+  /**
+   * Filter by customer ID.
+   */
+  customer_id?: string | undefined;
+  /**
+   * Filter by status: draft, sent, invoiced, accepted, declined, expired.
+   */
+  status?: string | undefined;
+  /**
+   * Keyword search across estimate number, reference number, or customer name.
+   */
+  search_text?: string | undefined;
+  /**
+   * Filter by estimate number.
+   */
+  estimate_number?: string | undefined;
+  /**
+   * Filter by estimate date.
+   */
+  date?: string | undefined;
+  /**
+   * Filter estimates with date on or after yyyy-mm-dd.
+   */
+  date_start?: string | undefined;
+  /**
+   * Filter estimates with date on or before yyyy-mm-dd.
+   */
+  date_end?: string | undefined;
+  /**
+   * Sort by: customer_name, estimate_number, date, total, created_time.
+   */
+  sort_column?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_listestimates {
+  estimates: ({  estimate_id: string;
+  customer_name?: string | undefined;
+  customer_id?: string | undefined;
+  company_name?: string | undefined;
+  status?: string | undefined;
+  current_sub_status_id?: string | undefined;
+  current_sub_status?: string | undefined;
+  color_code?: string | undefined;
+  estimate_number?: string | undefined;
+  reference_number?: string | undefined;
+  date?: string | undefined;
+  currency_id?: string | undefined;
+  currency_code?: string | undefined;
+  total?: number | undefined;
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;
+  accepted_date?: string | undefined;
+  declined_date?: string | undefined;
+  expiry_date?: string | undefined;
+  has_attachment?: boolean | undefined;
+  is_viewed_by_client?: boolean | undefined;
+  client_viewed_time?: string | undefined;
+  is_emailed?: boolean | undefined;
+  template_type?: string | undefined;
+  template_id?: string | undefined;
+  salesperson_id?: string | undefined;
+  salesperson_name?: string | undefined;
+  zcrm_potential_id?: string | undefined;
+  zcrm_potential_name?: string | undefined;
+  tags?: unknown[] | undefined;})[];
+  next_page?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_listexpenses {
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of records per page. Max 200.
+   */
+  per_page?: number | undefined;
+  /**
+   * Filter by vendor ID.
+   */
+  vendor_id?: string | undefined;
+  /**
+   * Filter by customer ID.
+   */
+  customer_id?: string | undefined;
+  /**
+   * Filter by expense status. Values: unbilled, invoiced, reimbursed, non-billable, billable.
+   */
+  status?: string | undefined;
+  /**
+   * Filter by expense date range start (yyyy-mm-dd).
+   */
+  date_start?: string | undefined;
+  /**
+   * Filter by expense date range end (yyyy-mm-dd).
+   */
+  date_end?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_listexpenses {
+  items: ({  expense_id: string;
+  date?: string | undefined;
+  account_id?: string | undefined;
+  account_name?: string | undefined;
+  description?: string | undefined;
+  amount?: number | undefined;
+  currency_code?: string | undefined;
+  status?: string | undefined;
+  vendor_id?: string | undefined;
+  vendor_name?: string | undefined;
+  customer_id?: string | undefined;
+  customer_name?: string | undefined;
+  reference_number?: string | undefined;
+  is_billable?: boolean | undefined;
+  project_id?: string | undefined;
+  project_name?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_listinvoices {
+  /**
+   * Organization ID. Example: "10234695"
+   */
+  organization_id: string;
+  /**
+   * Pagination cursor (page number) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Records per page. Default: 200. Max: 200.
+   */
+  per_page?: number | undefined;
+  /**
+   * Search by invoice number. Example: "INV-00001"
+   */
+  invoice_number?: string | undefined;
+  /**
+   * Search by customer ID. Example: "260815000000097001"
+   */
+  customer_id?: string | undefined;
+  /**
+   * Filter by status: sent, draft, overdue, paid, void, unpaid, partially_paid, viewed
+   */
+  status?: string | undefined;
+  /**
+   * Exact invoice date (yyyy-mm-dd).
+   */
+  date?: string | undefined;
+  /**
+   * Invoice date on or after (yyyy-mm-dd).
+   */
+  date_start?: string | undefined;
+  /**
+   * Invoice date on or before (yyyy-mm-dd).
+   */
+  date_end?: string | undefined;
+  /**
+   * Due date (yyyy-mm-dd).
+   */
+  due_date?: string | undefined;
+  /**
+   * Due date on or after (yyyy-mm-dd).
+   */
+  due_date_start?: string | undefined;
+  /**
+   * Due date on or before (yyyy-mm-dd).
+   */
+  due_date_end?: string | undefined;
+  /**
+   * General search across invoice number, PO, or customer name.
+   */
+  search_text?: string | undefined;
+  /**
+   * Sort by: customer_name, invoice_number, date, due_date, total, balance, created_time.
+   */
+  sort_column?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_listinvoices {
+  invoices: ({  invoice_id?: string | undefined;
+  invoice_number?: string | undefined;
+  customer_id?: string | undefined;
+  customer_name?: string | undefined;
+  status?: string | undefined;
+  date?: string | undefined;
+  due_date?: string | undefined;
+  total?: number | undefined;
+  balance?: number | undefined;
+  currency_code?: string | undefined;
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_listitems {
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Search items by name. Max-length [100].
+   */
+  name?: string | undefined;
+  /**
+   * Filter items by status.
+   */
+  filter_by?: 'Status.All' | 'Status.Active' | 'Status.Inactive' | undefined;
+  /**
+   * Sort items by column.
+   */
+  sort_column?: 'name' | 'rate' | 'tax_name' | undefined;
+  /**
+   * Number of records per page.
+   */
+  per_page?: number | undefined;
+};
+
+export interface ActionOutput_zoho_books_listitems {
+  items: ({  item_id: string;
+  name: string;
+  status: string;
+  description?: string | undefined;
+  rate?: number | undefined;
+  unit?: string | undefined;
+  tax_id?: string | undefined;
+  tax_name?: string | undefined;
+  tax_percentage?: string | undefined;
+  tax_type?: string | undefined;
+  sku?: string | undefined;
+  product_type?: string | undefined;
+  custom_fields?: ({})[] | undefined;})[];
+  /**
+   * Page number for the next page. Omit if there are no more pages.
+   */
+  next_page?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_listjournals {
+  /**
+   * Organization ID. Example: "927270289"
+   */
+  organization_id: string;
+  /**
+   * Pagination cursor (page number) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of records per page. Example: 10
+   */
+  per_page?: number | undefined;
+  /**
+   * Search journals by journal entry number.
+   */
+  entry_number?: string | undefined;
+  /**
+   * Search journals by journal reference number.
+   */
+  reference_number?: string | undefined;
+  /**
+   * Search journals by journal date. Format: YYYY-MM-DD
+   */
+  date?: string | undefined;
+  /**
+   * Search journals by journal notes.
+   */
+  notes?: string | undefined;
+  /**
+   * Filter journals by status. Allowed: draft, published, approved, submitted, rejected.
+   */
+  status?: string | undefined;
+  /**
+   * Filter journals by journal type.
+   */
+  journal_type?: string | undefined;
+  /**
+   * Filter journals by account ID.
+   */
+  account_id?: string | undefined;
+  /**
+   * Search journals using Customer ID.
+   */
+  customer_id?: string | undefined;
+  /**
+   * Search the journals using Vendor ID.
+   */
+  vendor_id?: string | undefined;
+  /**
+   * Filter journals by journal date. Allowed: JournalDate.All, JournalDate.Today, JournalDate.ThisWeek, JournalDate.ThisMonth, JournalDate.ThisQuarter, JournalDate.ThisYear.
+   */
+  filter_by?: string | undefined;
+  /**
+   * Sort journal list. Allowed: journal_date, entry_number, reference_number, total, last_modified_time.
+   */
+  sort_column?: string | undefined;
+  /**
+   * Search journals by text.
+   */
+  search_text?: string | undefined;
+  /**
+   * Comma separated journal IDs. Maximum of 200.
+   */
+  journal_ids?: string | undefined;
+  /**
+   * Filter by journal entity type. Allowed: journal, period_end_journal, consolidation_journal, consolidation_adjustment_journal, elimination_journal, intercompany_journal.
+   */
+  journal_entity_type?: string | undefined;
+  /**
+   * Filter by project ID.
+   */
+  project_id?: string | undefined;
+  /**
+   * Comma separated branch IDs. Maximum of 200.
+   */
+  branch_ids?: string | undefined;
+  /**
+   * Comma separated location IDs. Maximum of 200.
+   */
+  location_ids?: string | undefined;
+  /**
+   * Filter by currency ID.
+   */
+  currency?: string | undefined;
+  /**
+   * Filter by tax ID.
+   */
+  tax_id?: string | undefined;
+  /**
+   * Filter by tax exemption ID.
+   */
+  tax_exemption_id?: string | undefined;
+  /**
+   * Filter by tax authority ID.
+   */
+  tax_authority_id?: string | undefined;
+  /**
+   * Filter by period closure ID.
+   */
+  period_closure_id?: string | undefined;
+  /**
+   * Search the journals using Last Modified Time.
+   */
+  last_modified_time?: string | undefined;
+  /**
+   * Search journals by journal total.
+   */
+  total?: number | undefined;
+  /**
+   * ID of the custom view.
+   */
+  customview_id?: string | undefined;
+  /**
+   * Search journals by account code.
+   */
+  account_code?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_listjournals {
+  items: ({  journal_id: string;
+  journal_date?: string | undefined;
+  entry_number?: string | undefined;
+  reference_number?: string | undefined;
+  currency_id?: string | undefined;
+  notes?: string | undefined;
+  journal_type?: string | undefined;
+  entity_type?: string | undefined;
+  total?: number | undefined;
+  bcy_total?: number | undefined;
+  custom_field?: string | undefined;
+  tags?: ({  tag_id?: string | undefined;
+  tag_name?: string | undefined;
+  tag_option_id?: string | undefined;
+  tag_option_name?: string | undefined;
+  is_tag_mandatory?: boolean | undefined;})[];})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_listpayments {
+  /**
+   * Pagination cursor (page number) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Filter payments by mode. Allowed values: PaymentMode.All, PaymentMode.Check, PaymentMode.Cash, PaymentMode.BankTransfer, PaymentMode.CreditCard, PaymentMode.Stripe, etc.
+   */
+  filter_by?: string | undefined;
+  /**
+   * Filter payments by payment mode.
+   */
+  payment_mode?: string | undefined;
+  /**
+   * Sort column for the results.
+   */
+  sort_column?: string | undefined;
+  /**
+   * Search payments by text. Max length 100.
+   */
+  search_text?: string | undefined;
+  /**
+   * Number of records per page. Max 200.
+   */
+  per_page?: number | undefined;
+};
+
+export interface ActionOutput_zoho_books_listpayments {
+  items: ({  /**
+   * Payment ID. Example: "260815000000114002"
+   */
+  payment_id: string;
+  payment_number?: string | undefined;
+  invoice_numbers?: string | undefined;
+  date?: string | undefined;
+  payment_mode?: string | undefined;
+  payment_mode_formatted?: string | undefined;
+  amount?: number | undefined;
+  bcy_amount?: number | undefined;
+  unused_amount?: number | undefined;
+  bcy_unused_amount?: number | undefined;
+  account_id?: string | undefined;
+  account_name?: string | undefined;
+  description?: string | undefined;
+  reference_number?: string | undefined;
+  customer_id?: string | undefined;
+  customer_name?: string | undefined;
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;
+  last_four_digits?: string | undefined;
+  gateway_transaction_id?: string | undefined;
+  payment_gateway?: string | undefined;
+  bcy_refunded_amount?: number | undefined;
+  applied_invoices?: ({  invoice_id?: string | undefined;
+  invoice_number?: string | undefined;
+  date?: string | undefined;
+  invoice_amount?: number | undefined;
+  amount_applied?: number | undefined;
+  balance_amount?: number | undefined;})[];
+  has_attachment?: boolean | undefined;
+  tags?: ({  tag_id?: string | undefined;
+  tag_name?: string | undefined;
+  tag_option_id?: string | undefined;
+  tag_option_name?: string | undefined;
+  is_tag_mandatory?: boolean | undefined;})[];
+  tax_account_id?: string | undefined;
+  tax_account_name?: string | undefined;
+  tax_amount_withheld?: number | undefined;
+  payment_type?: string | undefined;
+  payment_status?: string | undefined;
+  settlement_status?: string | undefined;
+  sales_channel?: string | undefined;})[];
+  next_page?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_listpurchaseorders {
+  /**
+   * Pagination cursor (page number) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_listpurchaseorders {
+  purchaseorders: ({  purchaseorder_id: string;
+  vendor_id?: string | undefined;
+  vendor_name?: string | undefined;
+  status?: string | undefined;
+  purchaseorder_number?: string | undefined;
+  reference_number?: string | undefined;
+  date?: string | undefined;
+  delivery_date?: string | undefined;
+  currency_id?: string | undefined;
+  currency_code?: string | undefined;
+  price_precision?: number | undefined;
+  total?: number | undefined;
+  has_attachment?: boolean | undefined;
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_listtaxes {
+  /**
+   * Pagination cursor (page number) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of records to be fetched per page.
+   */
+  per_page?: number | undefined;
+  /**
+   * Organization ID for the Zoho Books organization. If omitted, falls back to connection metadata.
+   */
+  organization_id?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_listtaxes {
+  taxes: ({  tax_id: string;
+  tax_name: string;
+  tax_percentage?: number | undefined;
+  tax_type?: string | undefined;
+  tax_factor?: string | undefined;
+  tax_specific_type?: string | undefined;
+  tax_authority_id?: string | undefined;
+  tax_authority_name?: string | undefined;
+  is_value_added?: boolean | undefined;
+  is_default_tax?: boolean | undefined;
+  is_editable?: boolean | undefined;
+  output_tax_account_name?: string | undefined;
+  purchase_tax_account_name?: string | undefined;
+  tax_account_id?: string | undefined;
+  purchase_tax_account_id?: string | undefined;})[];
+  next_page?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_listvendorpayments {
+  /**
+   * Organization ID. Example: "927270289"
+   */
+  organization_id: string;
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of records per page. Default: 200
+   */
+  per_page?: number | undefined;
+  /**
+   * Filter by vendor ID
+   */
+  vendor_id?: string | undefined;
+  /**
+   * Filter by Bill ID
+   */
+  bill_id?: string | undefined;
+  /**
+   * Search by reference number
+   */
+  reference_number?: string | undefined;
+  /**
+   * Search by payment number
+   */
+  payment_number?: string | undefined;
+  /**
+   * Payment date
+   */
+  date?: string | undefined;
+  /**
+   * Payment amount
+   */
+  amount?: number | undefined;
+  /**
+   * Search by payment mode
+   */
+  payment_mode?: string | undefined;
+  /**
+   * Search by vendor name
+   */
+  vendor_name?: string | undefined;
+  /**
+   * Search by reference number, vendor name, or payment description
+   */
+  search_text?: string | undefined;
+  /**
+   * Filter by payment mode. Allowed values: PaymentMode.All, PaymentMode.Check, PaymentMode.Cash, PaymentMode.BankTransfer, PaymentMode.Paypal, PaymentMode.CreditCard, PaymentMode.GoogleCheckout, PaymentMode.Credit, PaymentMode.Authorizenet, PaymentMode.BankRemittance, PaymentMode.Payflowpro, PaymentMode.Others
+   */
+  filter_by?: string | undefined;
+  /**
+   * Sort list. Allowed values: vendor_name, date, reference_number, amount, balance
+   */
+  sort_column?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_listvendorpayments {
+  items: ({  payment_id: string;
+  vendor_id?: string | undefined;
+  vendor_name?: string | undefined;
+  bill_numbers?: string | undefined;
+  payment_mode?: string | undefined;
+  payment_number?: string | number | undefined;
+  description?: string | undefined;
+  date?: string | undefined;
+  reference_number?: string | undefined;
+  exchange_rate?: number | undefined;
+  amount?: number | undefined;
+  bcy_amount?: number | undefined;
+  paid_through_account_id?: string | undefined;
+  paid_through_account_name?: string | undefined;
+  balance?: number | undefined;
+  bcy_balance?: number | undefined;
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;
+  is_paid_via_print_check?: boolean | undefined;
+  has_attachment?: boolean | undefined;
+  is_ach_payment?: boolean | undefined;
+  ach_payment_status?: string | undefined;
+  ach_gw_transaction_id?: string | undefined;
+  tags?: ({  tag_id?: string | undefined;
+  tag_name?: string | undefined;
+  tag_option_id?: string | undefined;
+  tag_option_name?: string | undefined;
+  is_tag_mandatory?: boolean | undefined;})[];
+  check_details?: {} | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_markinvoicesent {
+  /**
+   * Unique identifier of the invoice. Example: "260815000000101011"
+   */
+  invoice_id: string;
+  /**
+   * ID of the organization. Example: "927270289"
+   */
+  organization_id: string;
+};
+
+export interface ActionOutput_zoho_books_markinvoicesent {
+  code: number;
+  message: string;
+};
+
+export interface ActionInput_zoho_books_sendinvoiceemail {
+  /**
+   * The ID of the invoice to email. Example: "260815000000103001"
+   */
+  invoice_id: string;
+  /**
+   * List of recipient email addresses.
+   */
+  to_mail_ids?: string[] | undefined;
+  /**
+   * List of CC email addresses.
+   */
+  cc_mail_ids?: string[] | undefined;
+  /**
+   * Subject of the email.
+   */
+  subject?: string | undefined;
+  /**
+   * Body content of the email.
+   */
+  body?: string | undefined;
+  /**
+   * Whether to include the customer statement.
+   */
+  send_customer_statement?: boolean | undefined;
+  /**
+   * Comma-separated IDs of file attachments to include.
+   */
+  attachments?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_sendinvoiceemail {
+  code?: number | undefined;
+  message?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_updatebankaccount {
+  /**
+   * Unique identifier of the bank account. Example: "260815000000102017"
+   */
+  account_id: string;
+  /**
+   * Organization ID. Example: "927270289"
+   */
+  organization_id: string;
+  /**
+   * Name of the bank account. Example: "Corporate Account"
+   */
+  account_name?: string | undefined;
+  /**
+   * Type of the account. Example: "bank" or "cash"
+   */
+  account_type?: string | undefined;
+  /**
+   * Account number. Example: "80000009823"
+   */
+  account_number?: string | undefined;
+  /**
+   * Account code. Example: "123"
+   */
+  account_code?: string | undefined;
+  /**
+   * Currency ID. Example: "260815000000000097"
+   */
+  currency_id?: string | undefined;
+  /**
+   * Currency code. Example: "USD"
+   */
+  currency_code?: string | undefined;
+  /**
+   * Description of the account. Example: "Salary details."
+   */
+  description?: string | undefined;
+  /**
+   * Name of the bank. Example: "Xavier Bank"
+   */
+  bank_name?: string | undefined;
+  /**
+   * Routing number of the bank. Example: "123456789"
+   */
+  routing_number?: string | undefined;
+  /**
+   * Whether this is the primary account.
+   */
+  is_primary_account?: boolean | undefined;
+  /**
+   * Whether this is a PayPal account.
+   */
+  is_paypal_account?: boolean | undefined;
+  /**
+   * PayPal account type. Example: "personal" or "business"
+   */
+  paypal_type?: string | undefined;
+  /**
+   * PayPal email address. Example: "johnsmith@zilliuminc.com"
+   */
+  paypal_email_address?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_updatebankaccount {
+  account_id: string;
+  account_name?: string | undefined;
+  account_type?: string | undefined;
+  account_number?: string | undefined;
+  account_code?: string | undefined;
+  currency_id?: string | undefined;
+  currency_code?: string | undefined;
+  description?: string | undefined;
+  bank_name?: string | undefined;
+  routing_number?: string | undefined;
+  is_primary_account?: boolean | undefined;
+  is_paypal_account?: boolean | undefined;
+  paypal_type?: string | undefined;
+  paypal_email_address?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_updatebill {
+  bill_id: string;
+  organization_id: string;
+  vendor_id?: string | undefined;
+  currency_id?: string | undefined;
+  vat_treatment?: string | undefined;
+  is_update_customer?: boolean | undefined;
+  purchaseorder_ids?: string[] | undefined;
+  bill_number?: string | undefined;
+  documents?: ({  document_id?: string | undefined;
+  file_name?: string | undefined;})[];
+  source_of_supply?: string | undefined;
+  destination_of_supply?: string | undefined;
+  place_of_supply?: string | undefined;
+  permit_number?: string | undefined;
+  gst_treatment?: string | undefined;
+  tax_treatment?: string | undefined;
+  gst_no?: string | undefined;
+  pricebook_id?: string | undefined;
+  reference_number?: string | undefined;
+  date?: string | undefined;
+  due_date?: string | undefined;
+  payment_terms?: number | undefined;
+  payment_terms_label?: string | undefined;
+  recurring_bill_id?: string | undefined;
+  exchange_rate?: number | undefined;
+  is_item_level_tax_calc?: boolean | undefined;
+  is_inclusive_tax?: boolean | undefined;
+  adjustment?: number | undefined;
+  adjustment_description?: string | undefined;
+  location_id?: string | undefined;
+  custom_fields?: ({  index?: number | undefined;
+  value?: string | undefined;})[];
+  tags?: ({  tag_id?: string | undefined;
+  tag_option_id?: string | undefined;})[];
+  line_items?: ({  purchaseorder_item_id?: string | undefined;
+  line_item_id?: string | undefined;
+  item_id?: string | undefined;
+  name?: string | undefined;
+  account_id?: string | undefined;
+  description?: string | undefined;
+  rate?: number | undefined;
+  hsn_or_sac?: string | undefined;
+  reverse_charge_tax_id?: string | undefined;
+  location_id?: string | undefined;
+  quantity?: number | undefined;
+  tax_id?: string | undefined;
+  tds_tax_id?: string | undefined;
+  tax_treatment_code?: string | undefined;
+  tax_exemption_id?: string | undefined;
+  tax_exemption_code?: string | undefined;
+  item_order?: number | undefined;
+  product_type?: string | undefined;
+  acquisition_vat_id?: string | undefined;
+  reverse_charge_vat_id?: string | undefined;
+  unit?: string | undefined;
+  tags?: ({  tag_id?: string | undefined;
+  tag_option_id?: string | undefined;})[];
+  is_billable?: boolean | undefined;
+  project_id?: string | undefined;
+  customer_id?: string | undefined;
+  item_custom_fields?: ({  custom_field_id?: string | undefined;
+  index?: number | undefined;
+  value?: string | undefined;
+  label?: string | undefined;})[];
+  serial_numbers?: string[] | undefined;})[];
+  taxes?: ({  tax_id?: string | undefined;
+  tax_name?: string | undefined;
+  tax_amount?: number | undefined;})[];
+  notes?: string | undefined;
+  terms?: string | undefined;
+  approvers?: ({  approver_id?: string | undefined;
+  order?: number | undefined;})[];
+};
+
+export interface ActionOutput_zoho_books_updatebill {
+  code: number;
+  message: string;
+  bill?: unknown | undefined;
+};
+
+export interface ActionInput_zoho_books_updatechartofaccount {
+  /**
+   * ID of the account to update. Example: "260815000000000388"
+   */
+  account_id: string;
+  /**
+   * Name of the account
+   */
+  account_name?: string | undefined;
+  /**
+   * Code associated with the account
+   */
+  account_code?: string | undefined;
+  /**
+   * Type of the account. Example: "income"
+   */
+  account_type?: string | undefined;
+  /**
+   * ID of the account currency
+   */
+  currency_id?: string | undefined;
+  /**
+   * Description of the account
+   */
+  description?: string | undefined;
+  /**
+   * Whether to show the account balance on the dashboard
+   */
+  show_on_dashboard?: boolean | undefined;
+  /**
+   * Whether the account can be shown in Zoho Expense
+   */
+  can_show_in_ze?: boolean | undefined;
+  /**
+   * Boolean to include an account in VAT returns
+   */
+  include_in_vat_return?: boolean | undefined;
+  /**
+   * ID of the parent account
+   */
+  parent_account_id?: string | undefined;
+  /**
+   * List of custom fields for the account
+   */
+  custom_fields?: ({  customfield_id: string;
+  value: string;})[] | undefined;
+};
+
+export interface ActionOutput_zoho_books_updatechartofaccount {
+  account_id: string;
+  account_name: string;
+  account_code?: string | undefined;
+  is_active: boolean;
+  account_type: string;
+  currency_id?: string | undefined;
+  currency_code?: string | undefined;
+  description?: string | undefined;
+  is_system_account?: boolean | undefined;
+  is_involved_in_transaction?: boolean | undefined;
+  can_show_in_ze?: boolean | undefined;
+  include_in_vat_return?: boolean | undefined;
+  parent_account_id?: string | undefined;
+  created_time: string;
+  last_modified_time: string;
+  custom_fields?: ({  customfield_id: string;
+  value: string;})[] | undefined;
+};
+
+export interface ActionInput_zoho_books_updatecontact {
+  /**
+   * The ID of the contact to update. Example: "260815000000097001"
+   */
+  contact_id: string;
+  /**
+   * The organization ID for the Zoho Books account. Example: "927270289"
+   */
+  organization_id: string;
+  contact_name?: string | undefined;
+  company_name?: string | undefined;
+  contact_type?: string | undefined;
+  website?: string | undefined;
+  phone?: string | undefined;
+  email?: string | undefined;
+  notes?: string | undefined;
+  billing_address?: {  attention?: string | undefined;
+  address?: string | undefined;
+  street2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  zip?: string | undefined;
+  country?: string | undefined;
+  phone?: string | undefined;};
+  shipping_address?: {  attention?: string | undefined;
+  address?: string | undefined;
+  street2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  zip?: string | undefined;
+  country?: string | undefined;
+  phone?: string | undefined;};
+};
+
+export interface ActionOutput_zoho_books_updatecontact {
+  contact_id: string;
+  contact_name?: string | undefined;
+  company_name?: string | undefined;
+  contact_type?: string | undefined;
+  website?: string | undefined;
+  phone?: string | undefined;
+  email?: string | undefined;
+  status?: string | undefined;
+  notes?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_updatecreditnote {
+  /**
+   * ID of the credit note to update. Example: "260815000000111002"
+   */
+  creditnote_id: string;
+  /**
+   * Zoho Books organization ID. Example: "927270289"
+   */
+  organization_id: string;
+  /**
+   * Customer contact ID. Example: "260815000000097001"
+   */
+  customer_id?: string | undefined;
+  /**
+   * Credit note date in yyyy-mm-dd format. Example: "2024-01-15"
+   */
+  date?: string | undefined;
+  /**
+   * Notes displayed on the credit note. Max-length [5000]
+   */
+  notes?: string | undefined;
+  /**
+   * Terms displayed on the credit note. Max-length [10000]
+   */
+  terms?: string | undefined;
+  /**
+   * Reference number. Max-length [100]
+   */
+  reference_number?: string | undefined;
+  /**
+   * Credit note number. Max-length [100]
+   */
+  creditnote_number?: string | undefined;
+  /**
+   * Currency ID for the credit note
+   */
+  currency_id?: string | undefined;
+  /**
+   * Exchange rate to base currency
+   */
+  exchange_rate?: string | undefined;
+  /**
+   * Set to true to save as draft
+   */
+  is_draft?: boolean | undefined;
+  /**
+   * Line items for the credit note
+   */
+  line_items?: ({  /**
+   * Unique identifier for the item. Example: "260815000000100002"
+   */
+  item_id?: string | undefined;
+  /**
+   * Unique ID of an existing line item to update. Example: "260815000000111002"
+   */
+  line_item_id?: string | undefined;
+  /**
+   * Chart of accounts ID. Example: "260815000000000388"
+   */
+  account_id?: string | undefined;
+  /**
+   * Name of the line item
+   */
+  name?: string | undefined;
+  /**
+   * Description of the line item
+   */
+  description?: string | undefined;
+  /**
+   * Rate per unit
+   */
+  rate?: number | undefined;
+  /**
+   * Number of units
+   */
+  quantity?: number | undefined;
+  /**
+   * Unit of measure. Example: "kgs"
+   */
+  unit?: string | undefined;
+  /**
+   * Discount amount or percentage
+   */
+  discount?: string | number | undefined;
+  /**
+   * Tax ID applied to the line item
+   */
+  tax_id?: string | undefined;})[];
+  /**
+   * Set to true to provide a custom credit note number
+   */
+  ignore_auto_number_generation?: boolean | undefined;
+};
+
+export interface ActionOutput_zoho_books_updatecreditnote {
+  creditnote_id: string;
+  creditnote_number?: string | undefined;
+  date?: string | undefined;
+  status?: string | undefined;
+  customer_id?: string | undefined;
+  customer_name?: string | undefined;
+  total?: number | undefined;
+  balance?: number | undefined;
+  notes?: string | undefined;
+  terms?: string | undefined;
+  reference_number?: string | undefined;
+  currency_code?: string | undefined;
+  currency_symbol?: string | undefined;
+  line_items?: ({  item_id?: string | undefined;
+  line_item_id?: string | undefined;
+  account_id?: string | undefined;
+  account_name?: string | undefined;
+  name?: string | undefined;
+  description?: string | undefined;
+  code?: string | undefined;
+  type?: number | undefined;
+  quantity?: number | undefined;
+  rate?: number | undefined;
+  unit?: string | undefined;
+  discount?: string | number | undefined;
+  tax_id?: string | undefined;
+  tax_name?: string | undefined;
+  tax_amount?: string | undefined;
+  item_total?: number | undefined;
+  product_type?: string | undefined;
+  serial_numbers?: string | undefined;
+  location_id?: string | undefined;
+  location_name?: string | undefined;
+  project_id?: string | undefined;})[];
+  taxes?: ({  tax_id?: string | undefined;
+  tax_name?: string | undefined;
+  tax_amount?: string | undefined;})[];
+  invoices?: ({  invoice_id?: string | undefined;
+  invoice_number?: string | undefined;
+  amount?: number | undefined;})[];
+  billing_address?: {  address?: string | undefined;
+  street2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  zip?: string | number | undefined;
+  country?: string | undefined;
+  fax?: string | undefined;
+  attention?: string | undefined;};
+  shipping_address?: {  address?: string | undefined;
+  street2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  zip?: string | number | undefined;
+  country?: string | undefined;
+  fax?: string | undefined;
+  attention?: string | undefined;};
+  created_time?: string | undefined;
+  updated_time?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_updateestimate {
+  /**
+   * The estimate ID to update. Example: "260815000000101017"
+   */
+  estimate_id: string;
+  /**
+   * Customer ID for the estimate. Example: "260815000000097001"
+   */
+  customer_id?: string | undefined;
+  /**
+   * Estimate date. Example: "2026-06-09"
+   */
+  date?: string | undefined;
+  /**
+   * Expiry date. Example: "2026-06-30"
+   */
+  expiry_date?: string | undefined;
+  /**
+   * Reference number. Example: "REF-001"
+   */
+  reference_number?: string | undefined;
+  /**
+   * Notes for the estimate.
+   */
+  notes?: string | undefined;
+  /**
+   * Terms and conditions.
+   */
+  terms?: string | undefined;
+  /**
+   * Line items for the estimate.
+   */
+  line_items?: ({  item_id?: string | undefined;
+  line_item_id?: string | undefined;
+  name?: string | undefined;
+  description?: string | undefined;
+  rate?: number | undefined;
+  quantity?: number | undefined;
+  discount?: number | undefined;
+  tax_id?: string | undefined;
+  item_order?: number | undefined;})[];
+};
+
+export interface ActionOutput_zoho_books_updateestimate {
+  estimate_id?: string | undefined;
+  estimate_number?: string | undefined;
+  status?: string | undefined;
+  reference_number?: string | undefined;
+  notes?: string | undefined;
+  terms?: string | undefined;
+  date?: string | undefined;
+  expiry_date?: string | undefined;
+  customer_id?: string | undefined;
+  customer_name?: string | undefined;
+  total?: number | undefined;
+  sub_total?: number | undefined;
+};
+
+export interface ActionInput_zoho_books_updateexpense {
+  /**
+   * Unique identifier of the expense. Example: "260815000000106001"
+   */
+  expense_id: string;
+  /**
+   * ID of the expense account. Example: "260815000000000388"
+   */
+  account_id?: string | undefined;
+  /**
+   * Date of the expense. Format: YYYY-MM-DD
+   */
+  date?: string | undefined;
+  /**
+   * Amount of the Expense
+   */
+  amount?: number | undefined;
+  /**
+   * Unique identifier of the tax. Example: "260815000000000097"
+   */
+  tax_id?: string | undefined;
+  /**
+   * Description of the expense. Max-length [100]
+   */
+  description?: string | undefined;
+  /**
+   * Reference number of the expense. Max-length [100]
+   */
+  reference_number?: string | undefined;
+  /**
+   * To specify whether the expense is billable to the customer or not
+   */
+  is_billable?: boolean | undefined;
+  /**
+   * ID of the customer. Example: "260815000000097001"
+   */
+  customer_id?: string | undefined;
+  /**
+   * Unique identifier of the currency. Example: "260815000000000097"
+   */
+  currency_id?: string | undefined;
+  /**
+   * Exchange rate of the currency with respect to the base currency
+   */
+  exchange_rate?: number | undefined;
+  /**
+   * ID of the project associated with the customer
+   */
+  project_id?: string | undefined;
+  /**
+   * ID of the vendor the expense is made to. Example: "260815000000098001"
+   */
+  vendor_id?: string | undefined;
+  /**
+   * ID of the paid through account
+   */
+  paid_through_account_id?: string | undefined;
+  /**
+   * Line items for the expense
+   */
+  line_items?: ({  /**
+   * Unique identifier of the line item. Example: "260815000000106001"
+   */
+  line_item_id?: string | undefined;
+  /**
+   * ID of the expense account. Example: "260815000000000388"
+   */
+  account_id?: string | undefined;
+  /**
+   * Description of the expense line item. Max-length [100]
+   */
+  description?: string | undefined;
+  /**
+   * Amount of the line item
+   */
+  amount?: number | undefined;
+  /**
+   * Unique identifier of the tax. Example: "260815000000000097"
+   */
+  tax_id?: string | undefined;})[];
+  /**
+   * To specify whether the tax is inclusive in the amount or not
+   */
+  is_inclusive_tax?: boolean | undefined;
+};
+
+export interface ActionOutput_zoho_books_updateexpense {
+  expense_id: string;
+  date?: string | undefined;
+  amount?: number | undefined;
+  description?: string | undefined;
+  reference_number?: string | undefined;
+  status?: string | undefined;
+  account_id?: string | undefined;
+  account_name?: string | undefined;
+  customer_id?: string | undefined;
+  customer_name?: string | undefined;
+  currency_id?: string | undefined;
+  currency_code?: string | undefined;
+  exchange_rate?: number | undefined;
+  project_id?: string | undefined;
+  project_name?: string | undefined;
+  vendor_id?: string | undefined;
+  vendor_name?: string | undefined;
+  paid_through_account_id?: string | undefined;
+  paid_through_account_name?: string | undefined;
+  is_billable?: boolean | undefined;
+  is_personal?: boolean | undefined;
+  is_inclusive_tax?: boolean | undefined;
+  tax_id?: string | undefined;
+  tax_name?: string | undefined;
+  tax_percentage?: number | undefined;
+  sub_total?: number | undefined;
+  total?: number | undefined;
+  bcy_total?: number | undefined;
+  tax_amount?: number | undefined;
+};
+
+export interface ActionInput_zoho_books_updateinvoice {
+  /**
+   * Invoice ID. Example: "260815000000101011"
+   */
+  invoice_id: string;
+  /**
+   * Customer ID. Example: "260815000000097001"
+   */
+  customer_id?: string | undefined;
+  /**
+   * Invoice date (yyyy-mm-dd). Example: "2026-06-09"
+   */
+  date?: string | undefined;
+  /**
+   * Due date (yyyy-mm-dd). Example: "2026-06-23"
+   */
+  due_date?: string | undefined;
+  /**
+   * External reference number
+   */
+  reference_number?: string | undefined;
+  /**
+   * Notes for the customer
+   */
+  notes?: string | undefined;
+  /**
+   * Terms & conditions
+   */
+  terms?: string | undefined;
+  /**
+   * Line items to replace existing items
+   */
+  line_items?: ({  /**
+   * Item ID. Example: "260815000000100002"
+   */
+  item_id: string;
+  /**
+   * Line item name
+   */
+  name?: string | undefined;
+  /**
+   * Line item description
+   */
+  description?: string | undefined;
+  /**
+   * Unit rate
+   */
+  rate?: number | undefined;
+  /**
+   * Quantity
+   */
+  quantity?: number | undefined;
+  /**
+   * Unit of measurement
+   */
+  unit?: string | undefined;
+  /**
+   * Tax ID
+   */
+  tax_id?: string | undefined;
+  /**
+   * Discount amount
+   */
+  discount?: number | undefined;
+  /**
+   * Project ID
+   */
+  project_id?: string | undefined;})[];
+};
+
+export interface ActionOutput_zoho_books_updateinvoice {
+  invoice_id: string;
+  invoice_number?: string | undefined;
+  customer_id?: string | undefined;
+  customer_name?: string | undefined;
+  date?: string | undefined;
+  status?: string | undefined;
+  total?: number | undefined;
+  balance?: number | undefined;
+  notes?: string | undefined;
+  terms?: string | undefined;
+  reference_number?: string | undefined;
+  line_items?: ({  line_item_id?: string | undefined;
+  item_id?: string | undefined;
+  name?: string | undefined;
+  description?: string | undefined;
+  rate?: number | undefined;
+  quantity?: number | undefined;
+  unit?: string | undefined;
+  tax_id?: string | undefined;
+  discount?: number | undefined;
+  item_total?: number | undefined;})[];
+};
+
+export interface ActionInput_zoho_books_updateitem {
+  /**
+   * Unique identifier of the item. Example: "260815000000100002"
+   */
+  item_id: string;
+  /**
+   * ID of the organization. Example: "927270289"
+   */
+  organization_id: string;
+  /**
+   * Name of the item. Max-length [100]
+   */
+  name: string;
+  /**
+   * Price of the item.
+   */
+  rate: number;
+  /**
+   * Description for the item. Max-length [2000]
+   */
+  description?: string | undefined;
+  /**
+   * ID of the tax to be associated to the item.
+   */
+  tax_id?: string | undefined;
+  /**
+   * Percent of the tax.
+   */
+  tax_percentage?: string | undefined;
+  /**
+   * SKU value of item, should be unique throughout the product.
+   */
+  sku?: string | undefined;
+  /**
+   * Type of an item. Allowed values: goods, service, digital_service.
+   */
+  product_type?: string | undefined;
+  /**
+   * Type of the item. Allowed values: sales, purchases, sales_and_purchases, inventory.
+   */
+  item_type?: string | undefined;
+  /**
+   * Purchase description for the item.
+   */
+  purchase_description?: string | undefined;
+  /**
+   * Purchase price of the item.
+   */
+  purchase_rate?: string | undefined;
+  /**
+   * ID of the account to which the item has to be associated with.
+   */
+  account_id?: string | undefined;
+  /**
+   * ID of the COGS account to which the item has to be associated with.
+   */
+  purchase_account_id?: string | undefined;
+  /**
+   * ID of the stock account to which the item has to be associated with.
+   */
+  inventory_account_id?: string | undefined;
+  /**
+   * Preferred vendor ID.
+   */
+  vendor_id?: string | undefined;
+  /**
+   * Boolean to track the taxability of the item.
+   */
+  is_taxable?: boolean | undefined;
+  /**
+   * ID of the tax exemption.
+   */
+  tax_exemption_id?: string | undefined;
+  /**
+   * HSN Code.
+   */
+  hsn_or_sac?: string | undefined;
+  /**
+   * Reorder level of the item.
+   */
+  reorder_level?: string | undefined;
+  /**
+   * Avalara tax code.
+   */
+  avatax_tax_code?: string | undefined;
+  /**
+   * Avalara use code.
+   */
+  avatax_use_code?: string | undefined;
+  /**
+   * Id of the purchase tax rule.
+   */
+  purchase_tax_rule_id?: string | undefined;
+  /**
+   * Id of the sales tax rule.
+   */
+  sales_tax_rule_id?: string | undefined;
+  /**
+   * ID of the purchase tax exemption.
+   */
+  purchase_tax_exemption_id?: string | undefined;
+  /**
+   * SAT Item Key Code.
+   */
+  sat_item_key_code?: string | undefined;
+  /**
+   * Unit Key Code.
+   */
+  unitkey_code?: string | undefined;
+  /**
+   * Locations for the item.
+   */
+  locations?: ({  location_id?: string | undefined;
+  initial_stock?: string | undefined;
+  initial_stock_rate?: string | undefined;})[];
+  /**
+   * Tax preferences for the item.
+   */
+  item_tax_preferences?: ({  tax_id?: string | undefined;
+  tax_specification?: string | undefined;})[];
+  /**
+   * Custom fields for an item.
+   */
+  custom_fields?: ({  customfield_id?: string | undefined;
+  value?: string | undefined;})[];
+};
+
+export interface ActionOutput_zoho_books_updateitem {
+  item_id?: string | undefined;
+  name?: string | undefined;
+  status?: string | undefined;
+  description?: string | undefined;
+  rate?: number | undefined;
+  unit?: string | undefined;
+  sku?: string | undefined;
+  product_type?: string | undefined;
+  item_type?: string | undefined;
+  tax_id?: string | undefined;
+  tax_name?: string | undefined;
+  tax_percentage?: string | undefined;
+  tax_type?: string | undefined;
+  account_id?: string | undefined;
+  purchase_account_id?: string | undefined;
+  inventory_account_id?: string | undefined;
+  purchase_description?: string | undefined;
+  purchase_rate?: string | undefined;
+  vendor_id?: string | undefined;
+  is_taxable?: boolean | undefined;
+  tax_exemption_id?: string | undefined;
+  purchase_tax_exemption_id?: string | undefined;
+  hsn_or_sac?: string | undefined;
+  reorder_level?: string | undefined;
+  avatax_tax_code?: string | undefined;
+  avatax_use_code?: string | undefined;
+  purchase_tax_rule_id?: string | undefined;
+  sales_tax_rule_id?: string | undefined;
+  sat_item_key_code?: string | undefined;
+  unitkey_code?: string | undefined;
+  item_tax_preferences?: ({  tax_id?: string | undefined;
+  tax_specification?: string | undefined;})[];
+  locations?: ({  location_id?: string | undefined;
+  location_name?: string | undefined;
+  status?: string | undefined;
+  is_primary?: boolean | undefined;
+  location_stock_on_hand?: string | undefined;
+  location_available_stock?: string | undefined;
+  location_actual_available_stock?: string | undefined;})[];
+  custom_fields?: ({  customfield_id?: string | undefined;
+  value?: string | undefined;})[];
+};
+
+export interface ActionInput_zoho_books_updatejournal {
+  /**
+   * Journal ID. Example: "260815000000115005"
+   */
+  journal_id: string;
+  /**
+   * Organization ID. Example: "927270289"
+   */
+  organization_id: string;
+  /**
+   * Date on which the journal is to be recorded. Example: "2026-06-09"
+   */
+  journal_date: string;
+  /**
+   * Reference number for the journal.
+   */
+  reference_number?: string | undefined;
+  /**
+   * Notes for the journal.
+   */
+  notes?: string | undefined;
+  /**
+   * Type of the journal. Allowed values: Cash, Both.
+   */
+  journal_type?: 'Cash' | 'Both' | undefined;
+  /**
+   * ID of the currency associated with the journal.
+   */
+  currency_id?: string | undefined;
+  /**
+   * Exchange rate between the currencies.
+   */
+  exchange_rate?: number | undefined;
+  /**
+   * Location ID.
+   */
+  location_id?: string | undefined;
+  /**
+   * Line items for the journal.
+   */
+  line_items?: ({  /**
+   * ID of account for which journals are to be recorded.
+   */
+  account_id?: string | undefined;
+  /**
+   * ID of the customer or vendor.
+   */
+  customer_id?: string | undefined;
+  /**
+   * ID of the line.
+   */
+  line_id?: string | undefined;
+  /**
+   * Description at the line item level.
+   */
+  description?: string | undefined;
+  /**
+   * ID of the tax.
+   */
+  tax_id?: string | undefined;
+  /**
+   * Amount to be recorded for the journal.
+   */
+  amount: number;
+  /**
+   * Whether the account needs to be debited or credited.
+   */
+  debit_or_credit: 'debit' | 'credit';
+  /**
+   * Location ID.
+   */
+  location_id?: string | undefined;
+  /**
+   * ID of the project.
+   */
+  project_id?: string | undefined;})[];
+  /**
+   * Custom fields for the journal.
+   */
+  custom_fields?: ({  /**
+   * ID of the custom field.
+   */
+  customfield_id: string;
+  /**
+   * Value of the custom field.
+   */
+  value: string;})[] | undefined;
+  /**
+   * Reporting tags for the journal.
+   */
+  tags?: ({  /**
+   * Tag's ID.
+   */
+  tag_id: string;
+  /**
+   * Tag Option's ID.
+   */
+  tag_option_id: string;})[] | undefined;
+};
+
+export interface ActionOutput_zoho_books_updatejournal {
+  journal_id: string;
+  entry_number: string;
+  reference_number?: string | undefined;
+  notes?: string | undefined;
+  journal_date: string;
+  journal_type?: string | undefined;
+  currency_id?: string | undefined;
+  currency_code?: string | undefined;
+  exchange_rate?: number | undefined;
+  line_items?: ({  line_id?: string | undefined;
+  account_id?: string | undefined;
+  customer_id?: string | undefined;
+  customer_name?: string | undefined;
+  account_name?: string | undefined;
+  description?: string | undefined;
+  debit_or_credit?: string | undefined;
+  tax_id?: string | undefined;
+  tax_name?: string | undefined;
+  amount?: number | undefined;
+  location_id?: string | undefined;
+  location_name?: string | undefined;
+  project_id?: string | undefined;
+  project_name?: string | undefined;})[];
+  location_id?: string | undefined;
+  location_name?: string | undefined;
+  total?: number | undefined;
+  status: string;
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_updatepayment {
+  /**
+   * Payment ID. Example: "260815000000113012"
+   */
+  payment_id: string;
+  /**
+   * Customer ID. Example: "260815000000097001"
+   */
+  customer_id?: string | undefined;
+  /**
+   * Mode of payment. Example: "cash"
+   */
+  payment_mode?: string | undefined;
+  /**
+   * Amount paid.
+   */
+  amount?: number | undefined;
+  /**
+   * Date of payment. Format: yyyy-mm-dd
+   */
+  date?: string | undefined;
+  /**
+   * Reference number for the payment.
+   */
+  reference_number?: string | undefined;
+  /**
+   * Description about the payment.
+   */
+  description?: string | undefined;
+  invoices?: ({  /**
+   * Invoice ID. Example: "260815000000103001"
+   */
+  invoice_id: string;
+  /**
+   * Amount paid for the invoice.
+   */
+  amount_applied: number;
+  /**
+   * Amount withheld for tax.
+   */
+  tax_amount_withheld?: number | undefined;})[];
+  /**
+   * Exchange rate for the currency.
+   */
+  exchange_rate?: number | undefined;
+  /**
+   * Additional bank charges.
+   */
+  bank_charges?: number | undefined;
+  custom_fields?: ({  label?: string | undefined;
+  value?: string | number | undefined;})[];
+  /**
+   * Location ID.
+   */
+  location_id?: string | undefined;
+  /**
+   * ID of the cash/bank account the payment is deposited into.
+   */
+  account_id?: string | undefined;
+  /**
+   * ID of the retainer invoice associated with the payment.
+   */
+  retainerinvoice_id?: string | undefined;
+  tags?: ({  tag_id?: string | undefined;
+  tag_option_id?: string | undefined;})[];
+};
+
+export interface ActionOutput_zoho_books_updatepayment {
+  payment_id: string;
+  payment_mode?: string | undefined;
+  amount?: number | undefined;
+  amount_refunded?: number | undefined;
+  bank_charges?: number | undefined;
+  date?: string | undefined;
+  status?: string | undefined;
+  reference_number?: string | undefined;
+  description?: string | undefined;
+  customer_id?: string | undefined;
+  customer_name?: string | undefined;
+  email?: string | undefined;
+  invoices?: ({  invoice_id: string;
+  invoice_number?: string | undefined;
+  date?: string | undefined;
+  invoice_amount?: number | undefined;
+  amount_applied?: number | undefined;
+  balance_amount?: number | undefined;
+  tax_amount_withheld?: number | undefined;})[];
+  currency_code?: string | undefined;
+  currency_symbol?: string | undefined;
+  location_id?: string | undefined;
+  location_name?: string | undefined;
+  tags?: ({  tag_id?: string | undefined;
+  tag_name?: string | undefined;
+  tag_option_id?: string | undefined;
+  tag_option_name?: string | undefined;
+  is_tag_mandatory?: boolean | undefined;})[];
+  custom_fields?: ({  index?: number | undefined;
+  value?: string | number | undefined;
+  label?: string | undefined;
+  data_type?: string | undefined;})[];
+};
+
+export interface ActionInput_zoho_books_updatepurchaseorder {
+  /**
+   * ID of the purchase order to update. Example: "260815000000062001"
+   */
+  purchaseorder_id: string;
+  /**
+   * Vendor ID. Example: "260815000000098001"
+   */
+  vendor_id: string;
+  /**
+   * Line items for the purchase order.
+   */
+  line_items: ({  /**
+   * Existing line item ID to update; omit to create a new line.
+   */
+  line_item_id?: string | undefined;
+  /**
+   * Item ID. Example: "260815000000100002"
+   */
+  item_id?: string | undefined;
+  /**
+   * Account ID for the line item.
+   */
+  account_id?: string | undefined;
+  /**
+   * Name of the line item.
+   */
+  name?: string | undefined;
+  /**
+   * Description of the line item.
+   */
+  description?: string | undefined;
+  /**
+   * Rate per unit.
+   */
+  rate?: number | undefined;
+  /**
+   * Quantity ordered.
+   */
+  quantity?: number | undefined;
+  /**
+   * Unit of measure.
+   */
+  unit?: string | undefined;
+  /**
+   * Tax ID applicable to the line item.
+   */
+  tax_id?: string | undefined;
+  /**
+   * Display order of the line item.
+   */
+  item_order?: number | undefined;})[];
+  /**
+   * Purchase order number.
+   */
+  purchaseorder_number?: string | undefined;
+  /**
+   * Reference number.
+   */
+  reference_number?: string | undefined;
+  /**
+   * Purchase order date (YYYY-MM-DD).
+   */
+  date?: string | undefined;
+  /**
+   * Expected delivery date (YYYY-MM-DD).
+   */
+  delivery_date?: string | undefined;
+  /**
+   * Due date (YYYY-MM-DD).
+   */
+  due_date?: string | undefined;
+  /**
+   * Currency ID. Example: "260815000000000097"
+   */
+  currency_id?: string | undefined;
+  /**
+   * Exchange rate for the currency.
+   */
+  exchange_rate?: number | undefined;
+  /**
+   * Notes for the vendor.
+   */
+  notes?: string | undefined;
+  /**
+   * Terms and conditions.
+   */
+  terms?: string | undefined;
+  /**
+   * Discount percentage or amount.
+   */
+  discount?: string | undefined;
+  /**
+   * Whether discount is applied before tax.
+   */
+  is_discount_before_tax?: boolean | undefined;
+  /**
+   * Shipping method.
+   */
+  ship_via?: string | undefined;
+  /**
+   * Attention field.
+   */
+  attention?: string | undefined;
+  /**
+   * Whether tax is inclusive.
+   */
+  is_inclusive_tax?: boolean | undefined;
+  /**
+   * Custom fields.
+   */
+  custom_fields?: ({  customfield_id: string;
+  value: string;})[] | undefined;
+  /**
+   * Tags.
+   */
+  tags?: ({  tag_id: string;
+  tag_option_id: string;})[] | undefined;
+};
+
+export interface ActionOutput_zoho_books_updatepurchaseorder {
+  purchaseorder_id: string;
+  purchaseorder_number?: string | undefined;
+  date?: string | undefined;
+  expected_delivery_date?: string | undefined;
+  delivery_date?: string | undefined;
+  due_date?: string | undefined;
+  status?: string | undefined;
+  vendor_id?: string | undefined;
+  vendor_name?: string | undefined;
+  currency_id?: string | undefined;
+  currency_code?: string | undefined;
+  exchange_rate?: number | undefined;
+  reference_number?: string | undefined;
+  notes?: string | undefined;
+  terms?: string | undefined;
+  sub_total?: number | undefined;
+  tax_total?: number | undefined;
+  total?: number | undefined;
+  discount?: string | number | undefined;
+  is_discount_before_tax?: boolean | undefined;
+  is_inclusive_tax?: boolean | undefined;
+  line_items?: ({  line_item_id?: string | undefined;
+  item_id?: string | undefined;
+  account_id?: string | undefined;
+  account_name?: string | undefined;
+  name?: string | undefined;
+  description?: string | undefined;
+  rate?: number | undefined;
+  quantity?: number | undefined;
+  unit?: string | undefined;
+  tax_id?: string | undefined;
+  tax_name?: string | undefined;
+  tax_percentage?: number | undefined;
+  item_total?: number | undefined;
+  item_order?: number | undefined;})[];
+  custom_fields?: ({  customfield_id: string;
+  value: string;})[] | undefined;
+  tags?: ({  tag_id: string;
+  tag_name?: string | undefined;
+  tag_option_id: string;
+  tag_option_name?: string | undefined;})[];
+};
+
+export interface ActionInput_zoho_books_updatevendorpayment {
+  /**
+   * ID of the vendor payment to update. Example: "260815000000116002"
+   */
+  payment_id: string;
+  /**
+   * ID of the vendor associated with the Vendor Payment
+   */
+  vendor_id?: string | undefined;
+  /**
+   * Total Amount of Vendor Payment
+   */
+  amount?: number | undefined;
+  /**
+   * Date the payment is made. Format: yyyy-mm-dd
+   */
+  date?: string | undefined;
+  /**
+   * Exchange rate of the currency
+   */
+  exchange_rate?: number | undefined;
+  /**
+   * ID of the cash/bank account from which the payment is made
+   */
+  paid_through_account_id?: string | undefined;
+  /**
+   * Mode of Vendor Payment
+   */
+  payment_mode?: string | undefined;
+  /**
+   * Description for the Vendor Payment recorded
+   */
+  description?: string | undefined;
+  /**
+   * Reference number for the Vendor Payment recorded
+   */
+  reference_number?: string | undefined;
+  /**
+   * Check if the Bill Payment is paid Via Print Check Option
+   */
+  is_paid_via_print_check?: boolean | undefined;
+  /**
+   * Location ID
+   */
+  location_id?: string | undefined;
+  /**
+   * Individual bill payment details as array
+   */
+  bills?: ({  /**
+   * ID of the Bill Payment
+   */
+  bill_payment_id?: string | undefined;
+  /**
+   * ID of the bill the payment is to be applied
+   */
+  bill_id?: string | undefined;
+  /**
+   * Amount applied to the bill
+   */
+  amount_applied?: number | undefined;
+  /**
+   * Tax Amount Withheld during Bill Payment
+   */
+  tax_amount_withheld?: number | undefined;})[];
+  /**
+   * Reporting tags
+   */
+  tags?: ({  /**
+   * Tag's ID
+   */
+  tag_id?: string | undefined;
+  /**
+   * Tag Option's ID
+   */
+  tag_option_id?: string | undefined;})[];
+  /**
+   * Custom fields associated with the vendor payment
+   */
+  custom_fields?: ({  /**
+   * Index of the Custom Field
+   */
+  index?: number | undefined;
+  /**
+   * Value for the Custom Field
+   */
+  value?: string | undefined;})[];
+};
+
+export interface ActionOutput_zoho_books_updatevendorpayment {
+  code?: number | undefined;
+  message?: string | undefined;
+  vendorpayment?: {  payment_id?: string | undefined;
+  vendor_id?: string | undefined;
+  vendor_name?: string | undefined;
+  payment_mode?: string | undefined;
+  payment_number?: number | undefined;
+  description?: string | undefined;
+  date?: string | undefined;
+  reference_number?: string | undefined;
+  exchange_rate?: number | undefined;
+  tax_amount_withheld?: number | undefined;
+  amount?: number | undefined;
+  balance?: number | undefined;
+  currency_id?: string | undefined;
+  currency_symbol?: string | undefined;
+  location_id?: string | undefined;
+  location_name?: string | undefined;
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;
+  paid_through_account_id?: string | undefined;
+  paid_through_account_name?: string | undefined;
+  paid_through_account_type?: string | undefined;
+  is_paid_via_print_check?: boolean | undefined;
+  is_ach_payment?: boolean | undefined;
+  ach_payment_status?: string | undefined;
+  bills?: ({  bill_payment_id?: string | undefined;
+  bill_id?: string | undefined;
+  amount_applied?: number | undefined;
+  tax_amount_withheld?: number | undefined;})[];
+  tags?: ({  tag_id?: string | undefined;
+  tag_name?: string | undefined;
+  tag_option_id?: string | undefined;
+  tag_option_name?: string | undefined;
+  is_tag_mandatory?: boolean | undefined;})[];
+  custom_fields?: ({  custom_field_id?: string | undefined;
+  index?: number | undefined;
+  label?: string | undefined;
+  value?: string | undefined;})[];};
+};
+
+export interface ActionInput_zoho_books_voidinvoice {
+  /**
+   * Invoice ID to void. Example: "260815000000103001"
+   */
+  invoice_id: string;
+};
+
+export interface ActionOutput_zoho_books_voidinvoice {
+  invoice_id?: string | undefined;
+  invoice_number?: string | undefined;
+  status?: string | undefined;
+  message?: string | undefined;
 };
 
 export interface Call {

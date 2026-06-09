@@ -1,0 +1,34 @@
+{
+    "input": {
+        "contact_id": "260815000000124022"
+    },
+    "output": {
+        "contact_id": "260815000000124022",
+        "success": true,
+        "message": "The customer has been deleted."
+    },
+    "nango": {
+        "getConnection": {},
+        "getMetadata": {
+            "organization_id": "927270289"
+        }
+    },
+    "api": {
+        "delete": {
+            "/books/v3/contacts/260815000000124022": {
+                "response": {
+                    "code": 0,
+                    "message": "The customer has been deleted."
+                },
+                "status": 200,
+                "headers": {},
+                "hash": "15531ffcdeab0748fcdb546f42cbca3e3bd4a59a",
+                "request": {
+                    "params": {
+                        "organization_id": "927270289"
+                    }
+                }
+            }
+        }
+    }
+}

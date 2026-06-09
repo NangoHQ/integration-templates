@@ -1,0 +1,216 @@
+{
+  "input": {
+    "payment_id": "260815000000121007",
+    "description": "Updated via Nango action"
+  },
+  "output": {
+    "code": 0,
+    "message": "The details of the payment made to the vendor have been updated"
+  },
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "organization_id": "927270289"
+    }
+  },
+  "api": {
+    "put": {
+      "/books/v3/vendorpayments/260815000000121007": {
+        "response": {
+          "code": 0,
+          "message": "The details of the payment made to the vendor have been updated",
+          "vendorpayment": {
+            "payment_id": "260815000000121007",
+            "vendor_id": "260815000000099001",
+            "vendor_name": "Gamma Partners",
+            "status": "paid",
+            "is_online_payment": false,
+            "transfer_type": "",
+            "payment_mode": "Cash",
+            "payment_number": "4",
+            "payment_number_prefix": "",
+            "payment_number_suffix": "4",
+            "purpose_code": "",
+            "custom_fields": [],
+            "custom_field_hash": {},
+            "description": "Updated via Nango action",
+            "documents": [],
+            "date": "2026-06-09",
+            "reference_number": "",
+            "exchange_rate": 1,
+            "tds_tax_id": "",
+            "tds_calculation_type": "tds_item_level",
+            "is_tds_amount_in_percent": false,
+            "tax_account_id": "",
+            "tax_account_name": "",
+            "tax_amount_withheld": 0,
+            "amount": 250,
+            "bank_charges": 0,
+            "bank_charges_account_id": "",
+            "bank_charges_account_name": "",
+            "balance": 0,
+            "currency_id": "260815000000000097",
+            "currency_code": "USD",
+            "currency_symbol": "$",
+            "created_time": "2026-06-09T13:15:16-0400",
+            "last_modified_time": "2026-06-09T16:29:08-0400",
+            "created_by_id": "260815000000093001",
+            "created_by_name": "Nango Developer",
+            "credit_account_id": "",
+            "paid_through_account_id": "260815000000000358",
+            "paid_through_account_name": "Undeposited Funds",
+            "paid_through_account_type": "cash",
+            "is_paid_via_print_check": false,
+            "offset_account_id": "260815000000000373",
+            "offset_account_name": "Accounts Payable",
+            "is_ach_payment": false,
+            "ach_payment_status": "",
+            "gw_reference_number": "",
+            "check_details": {
+              "check_id": "",
+              "check_number": "",
+              "memo": "",
+              "amount_in_words": "",
+              "check_status": "",
+              "template_id": "",
+              "retain_txn_in_void_check": true
+            },
+            "billing_address": {
+              "address": "",
+              "street2": "",
+              "city": "",
+              "state": "",
+              "zip": "",
+              "country": "",
+              "fax": "",
+              "phone": "",
+              "attention": ""
+            },
+            "bills": [
+              {
+                "bill_number": "BILL-002",
+                "price_precision": 2,
+                "bill_payment_id": "260815000000121012",
+                "bill_id": "260815000000096003",
+                "is_opening_balance": false,
+                "total": 250,
+                "balance": 0,
+                "unprocessed_payment_amount": 0,
+                "amount_applied": 250,
+                "apply_date": "",
+                "tax_amount_withheld": 0,
+                "date": "2026-06-09",
+                "due_date": "2026-07-09"
+              }
+            ],
+            "vendorpayment_refunds": [],
+            "comments": [
+              {
+                "comment_id": "260815000000096028",
+                "description": "Bill payment details modified",
+                "commented_by_id": "260815000000093001",
+                "commented_by": "Nango Developer",
+                "date": "2026-06-09",
+                "date_description": "few seconds ago",
+                "time": "4:30 PM",
+                "operation_type": "Updated"
+              },
+              {
+                "comment_id": "260815000000117057",
+                "description": "Bill payment details modified",
+                "commented_by_id": "260815000000093001",
+                "commented_by": "Nango Developer",
+                "date": "2026-06-09",
+                "date_description": "few seconds ago",
+                "time": "4:30 PM",
+                "operation_type": "Updated"
+              },
+              {
+                "comment_id": "260815000000112026",
+                "description": "Bill payment details modified",
+                "commented_by_id": "260815000000093001",
+                "commented_by": "Nango Developer",
+                "date": "2026-06-09",
+                "date_description": "few seconds ago",
+                "time": "4:29 PM",
+                "operation_type": "Updated"
+              },
+              {
+                "comment_id": "260815000000119015",
+                "description": "Bill payment details modified",
+                "commented_by_id": "260815000000093001",
+                "commented_by": "Nango Developer",
+                "date": "2026-06-09",
+                "date_description": "about a  minute ago",
+                "time": "4:29 PM",
+                "operation_type": "Updated"
+              },
+              {
+                "comment_id": "260815000000121016",
+                "description": "Payment of amount $250.00 made and applied for BILL-002",
+                "commented_by_id": "260815000000093001",
+                "commented_by": "Nango Developer",
+                "date": "2026-06-09",
+                "date_description": "3 hours ago",
+                "time": "1:15 PM",
+                "operation_type": "Added"
+              }
+            ],
+            "imported_transactions": [],
+            "approvers_list": [],
+            "submitted_date": "",
+            "submitted_by": "",
+            "submitted_by_name": "",
+            "submitted_by_email": "",
+            "submitted_by_photo_url": "",
+            "submitter_id": "",
+            "approver_id": "",
+            "tags": []
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 09 Jun 2026 20:30:09 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=64072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4990",
+          "x-ratelimit-reset": "1781037060",
+          "server": "ZGS",
+          "set-cookie": "REDACTED",
+          "cache-control": "no-store, no-cache, must-revalidate, max-age=0, post-check=0, pre-check=0",
+          "pragma": "no-cache",
+          "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
+          "x-rate-limit-limit": "1000",
+          "x-rate-limit-reset": "26990",
+          "x-rate-limit-remaining": "550",
+          "content-disposition": "attachment;",
+          "allow": "OPTIONS, PUT",
+          "build_version": "Jun_09_2026_9153",
+          "client_build_version": "Jun_09_2026_9153",
+          "server_build_version": "Jun_08_2026_3305/",
+          "vary": "accept-encoding"
+        },
+        "hash": "a17ef4294fc17110082835f1da5556c36d7f6d9f",
+        "request": {
+          "params": {
+            "organization_id": "927270289"
+          },
+          "data": {
+            "description": "Updated via Nango action"
+          }
+        }
+      }
+    }
+  }
+}
