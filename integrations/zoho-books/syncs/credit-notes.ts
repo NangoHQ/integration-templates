@@ -45,7 +45,7 @@ const ProviderCreditNoteSchema = z
         customer_name: z.string().optional(),
         currency_code: z.string().optional(),
         created_time: z.string().optional(),
-        last_modified_time: z.string()
+        last_modified_time: z.string().optional()
     })
     .passthrough();
 

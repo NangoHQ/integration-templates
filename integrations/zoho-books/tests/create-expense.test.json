@@ -4,7 +4,8 @@
     "date": "2026-06-09",
     "amount": 75,
     "paid_through_account_id": "260815000000102017",
-    "description": "Test expense for mock recording"
+    "description": "Test expense for mock recording",
+    "organization_id": "927270289"
   },
   "output": {
     "expense_id": "260815000000110053",
@@ -45,10 +46,7 @@
     "custom_fields": []
   },
   "nango": {
-    "getConnection": {},
-    "getMetadata": {
-      "organization_id": "927270289"
-    }
+    "getConnection": {}
   },
   "api": {
     "post": {

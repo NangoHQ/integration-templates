@@ -1,12 +1,14 @@
 import { z } from 'zod';
 import { createAction, ProxyConfiguration } from 'nango';
 
-const MetadataSchema = z.object({
-    organization_id: z.string().describe('Zoho Books organization ID. Example: "927270289"')
+const OrganizationsResponseSchema = z.object({
+    code: z.number(),
+    organizations: z.array(z.object({ organization_id: z.string() })).optional()
 });
 
 const InputSchema = z.object({
     account_name: z.string().describe('Name of the account. Example: "Notes Payable"'),
+    organization_id: z.string().optional().describe('Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.'),
     account_type: z.string().describe('Type of the account. Example: "long_term_liability", "income", "expense"'),
     account_code: z.string().optional().describe('Code associated with the account'),
     currency_id: z.string().optional().describe('ID of the account currency'),
@@ -75,21 +77,26 @@ const action = createAction({
     },
     input: InputSchema,
     output: OutputSchema,
-    metadata: MetadataSchema,
     scopes: ['ZohoBooks.accountants.CREATE'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const metadata = await nango.getMetadata();
-        const parsedMetadata = MetadataSchema.safeParse(metadata);
-
-        if (!parsedMetadata.success) {
-            throw new nango.ActionError({
-                type: 'invalid_metadata',
-                message: 'organization_id is required in metadata.'
+        let organizationId = input.organization_id;
+        if (!organizationId) {
+            const orgResponse = await nango.get({
+                // https://www.zoho.com/books/api/v3/organizations/#overview
+                endpoint: '/books/v3/organizations',
+                retries: 3
             });
+            const orgData = OrganizationsResponseSchema.parse(orgResponse.data);
+            const firstOrg = orgData.organizations?.[0];
+            if (orgData.code !== 0 || !firstOrg) {
+                throw new nango.ActionError({
+                    type: 'not_found',
+                    message: 'No organizations found for this Zoho Books account.'
+                });
+            }
+            organizationId = firstOrg.organization_id;
         }
-
-        const organizationId = parsedMetadata.data.organization_id;
 
         const config: ProxyConfiguration = {
             // https://www.zoho.com/books/api/v3/chart-of-accounts/#create-an-account
@@ -108,7 +115,7 @@ const action = createAction({
                 ...(input.can_show_in_ze !== undefined && { can_show_in_ze: input.can_show_in_ze }),
                 ...(input.include_in_vat_return !== undefined && { include_in_vat_return: input.include_in_vat_return })
             },
-            retries: 10
+            retries: 3
         };
 
         const response = await nango.post(config);

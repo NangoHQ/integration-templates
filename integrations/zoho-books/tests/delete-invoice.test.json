@@ -1,16 +1,14 @@
 {
   "input": {
-    "invoice_id": "260815000000123016"
+    "invoice_id": "260815000000123016",
+    "organization_id": "927270289"
   },
   "output": {
     "code": 0,
     "message": "The invoice has been deleted."
   },
   "nango": {
-    "getConnection": {},
-    "getMetadata": {
-      "organization_id": "927270289"
-    }
+    "getConnection": {}
   },
   "api": {
     "delete": {

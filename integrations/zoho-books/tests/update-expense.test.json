@@ -1,7 +1,8 @@
 {
   "input": {
     "expense_id": "260815000000106001",
-    "description": "Updated Travel Expense"
+    "description": "Updated Travel Expense",
+    "organization_id": "927270289"
   },
   "output": {
     "expense_id": "260815000000106001",
@@ -35,10 +36,7 @@
     "tax_amount": 0
   },
   "nango": {
-    "getConnection": {},
-    "getMetadata": {
-      "organization_id": "927270289"
-    }
+    "getConnection": {}
   },
   "api": {
     "put": {

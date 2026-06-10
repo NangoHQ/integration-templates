@@ -1,16 +1,14 @@
 {
   "input": {
-    "expense_id": "260815000000102021"
+    "expense_id": "260815000000102021",
+    "organization_id": "927270289"
   },
   "output": {
     "success": true,
     "message": "The expense has been deleted."
   },
   "nango": {
-    "getConnection": {},
-    "getMetadata": {
-      "organization_id": "927270289"
-    }
+    "getConnection": {}
   },
   "api": {
     "delete": {

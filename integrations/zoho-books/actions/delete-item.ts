@@ -1,8 +1,14 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+const OrganizationsResponseSchema = z.object({
+    code: z.number(),
+    organizations: z.array(z.object({ organization_id: z.string() })).optional()
+});
+
 const InputSchema = z.object({
-    item_id: z.string().describe('The unique ID of the item to delete. Example: "260815000000100002"')
+    item_id: z.string().describe('The unique ID of the item to delete. Example: "260815000000100002"'),
+    organization_id: z.string().optional().describe('Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.')
 });
 
 const ProviderDeleteResponseSchema = z.object({
@@ -29,14 +35,22 @@ const action = createAction({
     scopes: ['ZohoBooks.items.DELETE'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const metadata = await nango.getMetadata<{ organization_id?: string }>();
-        const organizationId = metadata?.organization_id;
-
+        let organizationId = input.organization_id;
         if (!organizationId) {
-            throw new nango.ActionError({
-                type: 'missing_metadata',
-                message: 'organization_id is required in metadata.'
+            const orgResponse = await nango.get({
+                // https://www.zoho.com/books/api/v3/organizations/#overview
+                endpoint: '/books/v3/organizations',
+                retries: 3
             });
+            const orgData = OrganizationsResponseSchema.parse(orgResponse.data);
+            const firstOrg = orgData.organizations?.[0];
+            if (orgData.code !== 0 || !firstOrg) {
+                throw new nango.ActionError({
+                    type: 'not_found',
+                    message: 'No organizations found for this Zoho Books account.'
+                });
+            }
+            organizationId = firstOrg.organization_id;
         }
 
         const response = await nango.delete({

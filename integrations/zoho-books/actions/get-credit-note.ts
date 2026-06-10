@@ -1,8 +1,14 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+const OrganizationsResponseSchema = z.object({
+    code: z.number(),
+    organizations: z.array(z.object({ organization_id: z.string() })).optional()
+});
+
 const InputSchema = z.object({
-    creditnote_id: z.string().describe('Credit Note ID. Example: "260815000000111002"')
+    creditnote_id: z.string().describe('Credit Note ID. Example: "260815000000111002"'),
+    organization_id: z.string().optional().describe('Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.')
 });
 
 const CreditNoteSchema = z.record(z.string(), z.unknown());
@@ -25,11 +31,29 @@ const action = createAction({
     scopes: ['ZohoBooks.creditnotes.READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof CreditNoteSchema>> => {
+        let organizationId = input.organization_id;
+        if (!organizationId) {
+            const orgResponse = await nango.get({
+                // https://www.zoho.com/books/api/v3/organizations/#overview
+                endpoint: '/books/v3/organizations',
+                retries: 3
+            });
+            const orgData = OrganizationsResponseSchema.parse(orgResponse.data);
+            const firstOrg = orgData.organizations?.[0];
+            if (orgData.code !== 0 || !firstOrg) {
+                throw new nango.ActionError({
+                    type: 'not_found',
+                    message: 'No organizations found for this Zoho Books account.'
+                });
+            }
+            organizationId = firstOrg.organization_id;
+        }
+
         // https://www.zoho.com/books/api/v3/credit-notes/#get-a-credit-note
         const response = await nango.get({
             endpoint: `/books/v3/creditnotes/${encodeURIComponent(input.creditnote_id)}`,
             params: {
-                organization_id: '927270289'
+                organization_id: organizationId
             },
             retries: 3
         });

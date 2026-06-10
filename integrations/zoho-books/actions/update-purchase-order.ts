@@ -1,6 +1,11 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+const OrganizationsResponseSchema = z.object({
+    code: z.number(),
+    organizations: z.array(z.object({ organization_id: z.string() })).optional()
+});
+
 const LineItemInputSchema = z.object({
     line_item_id: z.string().optional().describe('Existing line item ID to update; omit to create a new line.'),
     item_id: z.string().optional().describe('Item ID. Example: "260815000000100002"'),
@@ -16,6 +21,7 @@ const LineItemInputSchema = z.object({
 
 const InputSchema = z.object({
     purchaseorder_id: z.string().describe('ID of the purchase order to update. Example: "260815000000062001"'),
+    organization_id: z.string().optional().describe('Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.'),
     vendor_id: z.string().describe('Vendor ID. Example: "260815000000098001"'),
     line_items: z.array(LineItemInputSchema).min(1).describe('Line items for the purchase order.'),
     purchaseorder_number: z.string().optional().describe('Purchase order number.'),
@@ -174,7 +180,23 @@ const action = createAction({
     scopes: ['ZohoBooks.purchaseorders.UPDATE'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const organizationId = '927270289';
+        let organizationId = input.organization_id;
+        if (!organizationId) {
+            const orgResponse = await nango.get({
+                // https://www.zoho.com/books/api/v3/organizations/#overview
+                endpoint: '/books/v3/organizations',
+                retries: 3
+            });
+            const orgData = OrganizationsResponseSchema.parse(orgResponse.data);
+            const firstOrg = orgData.organizations?.[0];
+            if (orgData.code !== 0 || !firstOrg) {
+                throw new nango.ActionError({
+                    type: 'not_found',
+                    message: 'No organizations found for this Zoho Books account.'
+                });
+            }
+            organizationId = firstOrg.organization_id;
+        }
 
         const lineItems = input.line_items.map((item) => ({
             ...(item.line_item_id !== undefined && { line_item_id: item.line_item_id }),

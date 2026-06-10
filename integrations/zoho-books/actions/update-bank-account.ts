@@ -1,9 +1,14 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+const OrganizationsResponseSchema = z.object({
+    code: z.number(),
+    organizations: z.array(z.object({ organization_id: z.string() })).optional()
+});
+
 const InputSchema = z.object({
     account_id: z.string().describe('Unique identifier of the bank account. Example: "260815000000102017"'),
-    organization_id: z.string().describe('Organization ID. Example: "927270289"'),
+    organization_id: z.string().optional().describe('Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.'),
     account_name: z.string().optional().describe('Name of the bank account. Example: "Corporate Account"'),
     account_type: z.string().optional().describe('Type of the account. Example: "bank" or "cash"'),
     account_number: z.string().optional().describe('Account number. Example: "80000009823"'),
@@ -68,6 +73,24 @@ const action = createAction({
     scopes: ['ZohoBooks.banking.UPDATE'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        let organizationId = input.organization_id;
+        if (!organizationId) {
+            const orgResponse = await nango.get({
+                // https://www.zoho.com/books/api/v3/organizations/#overview
+                endpoint: '/books/v3/organizations',
+                retries: 3
+            });
+            const orgData = OrganizationsResponseSchema.parse(orgResponse.data);
+            const firstOrg = orgData.organizations?.[0];
+            if (orgData.code !== 0 || !firstOrg) {
+                throw new nango.ActionError({
+                    type: 'not_found',
+                    message: 'No organizations found for this Zoho Books account.'
+                });
+            }
+            organizationId = firstOrg.organization_id;
+        }
+
         const data: Record<string, unknown> = {
             ...(input.account_name !== undefined && { account_name: input.account_name }),
             ...(input.account_type !== undefined && { account_type: input.account_type }),
@@ -88,7 +111,7 @@ const action = createAction({
         const response = await nango.put({
             endpoint: `/books/v3/bankaccounts/${encodeURIComponent(input.account_id)}`,
             params: {
-                organization_id: input.organization_id
+                organization_id: organizationId
             },
             data,
             retries: 3

@@ -1,6 +1,11 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+const OrganizationsResponseSchema = z.object({
+    code: z.number(),
+    organizations: z.array(z.object({ organization_id: z.string() })).optional()
+});
+
 const LineItemInputSchema = z.object({
     item_id: z.string().describe('Unique identifier of the item. Example: "260815000000100002"'),
     rate: z.number().describe('Unit price for the line item'),
@@ -13,7 +18,7 @@ const LineItemInputSchema = z.object({
 
 const InputSchema = z.object({
     customer_id: z.string().describe('The ID of the customer for whom the estimate is created. Example: "260815000000097001"'),
-    organization_id: z.string().describe('The ID of the organization. Example: "927270289"'),
+    organization_id: z.string().optional().describe('Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.'),
     line_items: z.array(LineItemInputSchema).describe('Line items for the estimate'),
     estimate_number: z.string().optional(),
     reference_number: z.string().optional(),
@@ -73,11 +78,29 @@ const action = createAction({
     scopes: ['ZohoBooks.estimates.CREATE'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        let organizationId = input.organization_id;
+        if (!organizationId) {
+            const orgResponse = await nango.get({
+                // https://www.zoho.com/books/api/v3/organizations/#overview
+                endpoint: '/books/v3/organizations',
+                retries: 3
+            });
+            const orgData = OrganizationsResponseSchema.parse(orgResponse.data);
+            const firstOrg = orgData.organizations?.[0];
+            if (orgData.code !== 0 || !firstOrg) {
+                throw new nango.ActionError({
+                    type: 'not_found',
+                    message: 'No organizations found for this Zoho Books account.'
+                });
+            }
+            organizationId = firstOrg.organization_id;
+        }
+
         // https://www.zoho.com/books/api/v3/estimates/#create-an-estimate
         const response = await nango.post({
             endpoint: '/books/v3/estimates',
             params: {
-                organization_id: input.organization_id
+                organization_id: organizationId
             },
             data: {
                 customer_id: input.customer_id,

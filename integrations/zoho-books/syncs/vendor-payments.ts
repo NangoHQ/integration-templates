@@ -48,7 +48,7 @@ const sync = createSync({
     description: 'Sync vendor payments from Zoho Books.',
     version: '1.0.0',
     frequency: 'every hour',
-    autoStart: true,
+    autoStart: false,
     metadata: MetadataSchema,
     checkpoint: CheckpointSchema,
     models: {

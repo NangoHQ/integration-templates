@@ -1,15 +1,13 @@
 {
   "input": {
-    "invoice_id": "260815000000116043"
+    "invoice_id": "260815000000116043",
+    "organization_id": "927270289"
   },
   "output": {
     "message": "Invoice status has been changed to Void."
   },
   "nango": {
-    "getConnection": {},
-    "getMetadata": {
-      "organization_id": "927270289"
-    }
+    "getConnection": {}
   },
   "api": {
     "post": {

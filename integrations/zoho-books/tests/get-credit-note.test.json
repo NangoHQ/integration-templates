@@ -1,6 +1,7 @@
 {
   "input": {
-    "creditnote_id": "260815000000121027"
+    "creditnote_id": "260815000000121027",
+    "organization_id": "927270289"
   },
   "output": {
     "creditnote_id": "260815000000121027",

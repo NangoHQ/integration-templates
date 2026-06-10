@@ -1,13 +1,18 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+const OrganizationsResponseSchema = z.object({
+    code: z.number(),
+    organizations: z.array(z.object({ organization_id: z.string() })).optional()
+});
+
 function isRecord(value: unknown): value is Record<string, unknown> {
     return typeof value === 'object' && value !== null && !Array.isArray(value);
 }
 
 const InputSchema = z.object({
     contact_id: z.string().describe('The ID of the contact to update. Example: "260815000000097001"'),
-    organization_id: z.string().describe('The organization ID for the Zoho Books account. Example: "927270289"'),
+    organization_id: z.string().optional().describe('Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.'),
     contact_name: z.string().optional(),
     company_name: z.string().optional(),
     contact_type: z.string().optional(),
@@ -108,11 +113,29 @@ const action = createAction({
             payload['shipping_address'] = input.shipping_address;
         }
 
+        let organizationId = input.organization_id;
+        if (!organizationId) {
+            const orgResponse = await nango.get({
+                // https://www.zoho.com/books/api/v3/organizations/#overview
+                endpoint: '/books/v3/organizations',
+                retries: 3
+            });
+            const orgData = OrganizationsResponseSchema.parse(orgResponse.data);
+            const firstOrg = orgData.organizations?.[0];
+            if (orgData.code !== 0 || !firstOrg) {
+                throw new nango.ActionError({
+                    type: 'not_found',
+                    message: 'No organizations found for this Zoho Books account.'
+                });
+            }
+            organizationId = firstOrg.organization_id;
+        }
+
         // https://www.zoho.com/books/api/v3/contacts/#update-a-contact
         const response = await nango.put({
             endpoint: `/books/v3/contacts/${encodeURIComponent(input.contact_id)}`,
             params: {
-                organization_id: input.organization_id
+                organization_id: organizationId
             },
             data: payload,
             retries: 10

@@ -1,8 +1,13 @@
 import { z } from 'zod';
 import { createAction, ProxyConfiguration } from 'nango';
 
+const OrganizationsResponseSchema = z.object({
+    code: z.number(),
+    organizations: z.array(z.object({ organization_id: z.string() })).optional()
+});
+
 const InputSchema = z.object({
-    organization_id: z.string().describe('ID of the organization. Example: "927270289"'),
+    organization_id: z.string().optional().describe('Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.'),
     name: z.string().describe('Name of the item. Max-length [100]'),
     rate: z.number().describe('Price of the item.'),
     description: z.string().optional().describe('Description for the item. Max-length [2000]'),
@@ -54,7 +59,7 @@ const ProviderItemSchema = z.object({
 const ProviderResponseSchema = z.object({
     code: z.number(),
     message: z.string().optional(),
-    item: ProviderItemSchema
+    item: ProviderItemSchema.optional()
 });
 
 const OutputSchema = z.object({
@@ -98,11 +103,29 @@ const action = createAction({
     scopes: ['ZohoBooks.settings.CREATE'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        let organizationId = input.organization_id;
+        if (!organizationId) {
+            const orgResponse = await nango.get({
+                // https://www.zoho.com/books/api/v3/organizations/#overview
+                endpoint: '/books/v3/organizations',
+                retries: 3
+            });
+            const orgData = OrganizationsResponseSchema.parse(orgResponse.data);
+            const firstOrg = orgData.organizations?.[0];
+            if (orgData.code !== 0 || !firstOrg) {
+                throw new nango.ActionError({
+                    type: 'not_found',
+                    message: 'No organizations found for this Zoho Books account.'
+                });
+            }
+            organizationId = firstOrg.organization_id;
+        }
+
         const config: ProxyConfiguration = {
             // https://www.zoho.com/books/api/v3/items/#create-an-item
             endpoint: '/books/v3/items',
             params: {
-                organization_id: input.organization_id
+                organization_id: organizationId
             },
             data: {
                 name: input.name,
@@ -147,6 +170,13 @@ const action = createAction({
         }
 
         const item = providerResponse.item;
+
+        if (!item) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: 'Provider did not return an item object.'
+            });
+        }
 
         return {
             item_id: item.item_id,

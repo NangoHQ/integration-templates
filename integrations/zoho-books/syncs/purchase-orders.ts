@@ -112,7 +112,8 @@ const sync = createSync({
 
         const params: Record<string, string | number> = {
             organization_id: organizationId,
-            sort_column: 'created_time'
+            sort_column: 'created_time',
+            sort_order: 'A'
         };
         if (lastModifiedTime) {
             params['last_modified_time'] = lastModifiedTime;

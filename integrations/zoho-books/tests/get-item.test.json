@@ -1,6 +1,7 @@
 {
   "input": {
-    "item_id": "260815000000100002"
+    "item_id": "260815000000100002",
+    "organization_id": "927270289"
   },
   "output": {
     "item_id": "260815000000100002",
@@ -18,10 +19,7 @@
     "custom_fields": []
   },
   "nango": {
-    "getConnection": {},
-    "getMetadata": {
-      "organization_id": "927270289"
-    }
+    "getConnection": {}
   },
   "api": {
     "get": {

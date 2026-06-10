@@ -95720,9 +95720,9 @@ export interface SyncMetadata_zoho_books_vendorpayments {
 
 export interface ActionInput_zoho_books_createbankaccount {
   /**
-   * ID of the organization. Example: "927270289"
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
    */
-  organization_id: string;
+  organization_id?: string | undefined;
   /**
    * Name of the account. Example: "Corporate Account"
    */
@@ -95808,6 +95808,10 @@ export interface ActionInput_zoho_books_createbill {
    * Vendor ID. Example: "260815000000098001"
    */
   vendor_id: string;
+  /**
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   */
+  organization_id?: string | undefined;
   /**
    * Unique bill number. Example: "BILL-001"
    */
@@ -95910,6 +95914,10 @@ export interface ActionInput_zoho_books_createchartofaccount {
    */
   account_name: string;
   /**
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   */
+  organization_id?: string | undefined;
+  /**
    * Type of the account. Example: "long_term_liability", "income", "expense"
    */
   account_type: string;
@@ -95965,6 +95973,10 @@ export interface ActionInput_zoho_books_createcontact {
    * Display name of the contact. Max-length [200].
    */
   contact_name: string;
+  /**
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   */
+  organization_id?: string | undefined;
   /**
    * Company name of the contact. Max-length [200].
    */
@@ -96046,9 +96058,9 @@ export interface ActionOutput_zoho_books_createcontact {
 
 export interface ActionInput_zoho_books_createcreditnote {
   /**
-   * Organization ID. Example: "927270289"
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
    */
-  organization_id: string;
+  organization_id?: string | undefined;
   /**
    * Customer ID. Example: "260815000000097001"
    */
@@ -96096,9 +96108,9 @@ export interface ActionInput_zoho_books_createestimate {
    */
   customer_id: string;
   /**
-   * The ID of the organization. Example: "927270289"
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
    */
-  organization_id: string;
+  organization_id?: string | undefined;
   /**
    * Line items for the estimate
    */
@@ -96162,6 +96174,10 @@ export interface ActionInput_zoho_books_createexpense {
    * ID of the expense account. Example: "260815000000000388"
    */
   account_id: string;
+  /**
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   */
+  organization_id?: string | undefined;
   /**
    * Date of the expense in YYYY-MM-DD format. Example: "2026-06-09"
    */
@@ -96447,6 +96463,10 @@ export interface ActionInput_zoho_books_createinvoice {
    */
   customer_id: string;
   /**
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   */
+  organization_id?: string | undefined;
+  /**
    * Line items for the invoice.
    */
   line_items: ({  /**
@@ -96506,9 +96526,9 @@ export interface ActionOutput_zoho_books_createinvoice {
 
 export interface ActionInput_zoho_books_createitem {
   /**
-   * ID of the organization. Example: "927270289"
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
    */
-  organization_id: string;
+  organization_id?: string | undefined;
   /**
    * Name of the item. Max-length [100]
    */
@@ -96616,6 +96636,10 @@ export interface ActionOutput_zoho_books_createitem {
 
 export interface ActionInput_zoho_books_createjournal {
   /**
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   */
+  organization_id?: string | undefined;
+  /**
    * Date of the journal entry in YYYY-MM-DD format. Example: "2026-06-09"
    */
   journal_date: string;
@@ -96698,6 +96722,10 @@ export interface ActionOutput_zoho_books_createjournal {
 };
 
 export interface ActionInput_zoho_books_createpayment {
+  /**
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   */
+  organization_id?: string | undefined;
   /**
    * Customer ID for the payment. Example: "260815000000097001"
    */
@@ -96827,6 +96855,10 @@ export interface ActionOutput_zoho_books_createpayment {
 
 export interface ActionInput_zoho_books_createpurchaseorder {
   /**
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   */
+  organization_id?: string | undefined;
+  /**
    * Vendor ID. Example: "260815000000098001"
    */
   vendor_id: string;
@@ -96897,6 +96929,10 @@ export interface ActionOutput_zoho_books_createpurchaseorder {
 };
 
 export interface ActionInput_zoho_books_createvendorpayment {
+  /**
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   */
+  organization_id?: string | undefined;
   /**
    * ID of the vendor associated with the payment. Example: "260815000000098001"
    */
@@ -96992,6 +97028,10 @@ export interface ActionInput_zoho_books_deletebankaccount {
    * The ID of the bank account to delete. Example: "260815000000110010"
    */
   account_id: string;
+  /**
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   */
+  organization_id?: string | undefined;
 };
 
 export interface ActionOutput_zoho_books_deletebankaccount {
@@ -97004,6 +97044,10 @@ export interface ActionInput_zoho_books_deletebill {
    * Bill ID to delete. Example: "260815000000108002"
    */
   bill_id: string;
+  /**
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   */
+  organization_id?: string | undefined;
 };
 
 export interface ActionOutput_zoho_books_deletebill {
@@ -97017,6 +97061,10 @@ export interface ActionInput_zoho_books_deletechartofaccount {
    * ID of the chart of account to delete. Example: "260815000000000388"
    */
   account_id: string;
+  /**
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   */
+  organization_id?: string | undefined;
 };
 
 export interface ActionOutput_zoho_books_deletechartofaccount {
@@ -97029,6 +97077,10 @@ export interface ActionInput_zoho_books_deletecontact {
    * Contact ID. Example: "260815000000097001"
    */
   contact_id: string;
+  /**
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   */
+  organization_id?: string | undefined;
 };
 
 export interface ActionOutput_zoho_books_deletecontact {
@@ -97043,9 +97095,9 @@ export interface ActionInput_zoho_books_deletecreditnote {
    */
   creditnote_id: string;
   /**
-   * ID of the organization. Example: "927270289"
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
    */
-  organization_id: string;
+  organization_id?: string | undefined;
 };
 
 export interface ActionOutput_zoho_books_deletecreditnote {
@@ -97059,9 +97111,9 @@ export interface ActionInput_zoho_books_deleteestimate {
    */
   estimate_id: string;
   /**
-   * ID of the Zoho Books organization. Example: "927270289"
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
    */
-  organization_id: string;
+  organization_id?: string | undefined;
 };
 
 export interface ActionOutput_zoho_books_deleteestimate {
@@ -97074,6 +97126,10 @@ export interface ActionInput_zoho_books_deleteexpense {
    * The expense ID to delete. Example: "260815000000106001"
    */
   expense_id: string;
+  /**
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   */
+  organization_id?: string | undefined;
 };
 
 export interface ActionOutput_zoho_books_deleteexpense {
@@ -97086,6 +97142,10 @@ export interface ActionInput_zoho_books_deleteinvoice {
    * The invoice ID to delete. Example: "260815000000101011"
    */
   invoice_id: string;
+  /**
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   */
+  organization_id?: string | undefined;
 };
 
 export interface ActionOutput_zoho_books_deleteinvoice {
@@ -97098,6 +97158,10 @@ export interface ActionInput_zoho_books_deleteitem {
    * The unique ID of the item to delete. Example: "260815000000100002"
    */
   item_id: string;
+  /**
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   */
+  organization_id?: string | undefined;
 };
 
 export interface ActionOutput_zoho_books_deleteitem {
@@ -97111,6 +97175,10 @@ export interface ActionInput_zoho_books_deletejournal {
    * The ID of the manual journal entry to delete. Example: "260815000000115005"
    */
   journal_id: string;
+  /**
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   */
+  organization_id?: string | undefined;
 };
 
 export interface ActionOutput_zoho_books_deletejournal {
@@ -97123,6 +97191,10 @@ export interface ActionInput_zoho_books_deletepayment {
    * ID of the customer payment to delete. Example: "260815000000113012"
    */
   payment_id: string;
+  /**
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   */
+  organization_id?: string | undefined;
 };
 
 export interface ActionOutput_zoho_books_deletepayment {
@@ -97135,6 +97207,10 @@ export interface ActionInput_zoho_books_deletepurchaseorder {
    * Unique identifier of the purchase order to delete. Example: "260815000000000001"
    */
   purchaseorder_id: string;
+  /**
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   */
+  organization_id?: string | undefined;
 };
 
 export interface ActionOutput_zoho_books_deletepurchaseorder {
@@ -97150,9 +97226,9 @@ export interface ActionInput_zoho_books_deletevendorpayment {
    */
   payment_id: string;
   /**
-   * Organization ID. Example: "927270289"
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
    */
-  organization_id: string;
+  organization_id?: string | undefined;
 };
 
 export interface ActionOutput_zoho_books_deletevendorpayment {
@@ -97165,6 +97241,10 @@ export interface ActionInput_zoho_books_getbankaccount {
    * The bank account ID. Example: "260815000000102017"
    */
   account_id: string;
+  /**
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   */
+  organization_id?: string | undefined;
 };
 
 export interface ActionOutput_zoho_books_getbankaccount {
@@ -97201,6 +97281,10 @@ export interface ActionInput_zoho_books_getbill {
    * The unique ID of the bill to retrieve. Example: "260815000000108002"
    */
   bill_id: string;
+  /**
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   */
+  organization_id?: string | undefined;
 };
 
 export interface ActionOutput_zoho_books_getbill {
@@ -97224,6 +97308,10 @@ export interface ActionInput_zoho_books_getchartofaccount {
    * ID of the chart of account entry. Example: "260815000000000388"
    */
   account_id: string;
+  /**
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   */
+  organization_id?: string | undefined;
 };
 
 export interface ActionOutput_zoho_books_getchartofaccount {
@@ -97261,9 +97349,9 @@ export interface ActionInput_zoho_books_getcontact {
    */
   contact_id: string;
   /**
-   * Organization ID. Example: "927270289"
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
    */
-  organization_id: string;
+  organization_id?: string | undefined;
 };
 
 export interface ActionOutput_zoho_books_getcontact {
@@ -97359,6 +97447,10 @@ export interface ActionInput_zoho_books_getcreditnote {
    * Credit Note ID. Example: "260815000000111002"
    */
   creditnote_id: string;
+  /**
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   */
+  organization_id?: string | undefined;
 };
 
 export interface ActionOutput_zoho_books_getcreditnote {
@@ -97371,7 +97463,7 @@ export interface ActionInput_zoho_books_getestimate {
    */
   estimate_id: string;
   /**
-   * ID of the Zoho Books organization. If omitted, metadata is used.
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
    */
   organization_id?: string | undefined;
 };
@@ -97485,6 +97577,10 @@ export interface ActionInput_zoho_books_getexpense {
    * Unique identifier of the expense. Example: "260815000000106001"
    */
   expense_id: string;
+  /**
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   */
+  organization_id?: string | undefined;
 };
 
 export interface ActionOutput_zoho_books_getexpense {
@@ -97607,9 +97703,9 @@ export interface ActionInput_zoho_books_getinvoice {
    */
   invoice_id: string;
   /**
-   * ID of the organization. Example: "927270289"
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
    */
-  organization_id: string;
+  organization_id?: string | undefined;
 };
 
 export interface ActionOutput_zoho_books_getinvoice {
@@ -97751,6 +97847,10 @@ export interface ActionInput_zoho_books_getitem {
    * Item ID. Example: "260815000000100002"
    */
   item_id: string;
+  /**
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   */
+  organization_id?: string | undefined;
 };
 
 export interface ActionOutput_zoho_books_getitem {
@@ -97789,6 +97889,10 @@ export interface ActionInput_zoho_books_getjournal {
    * ID of the journal to retrieve. Example: "260815000000115005"
    */
   journal_id: string;
+  /**
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   */
+  organization_id?: string | undefined;
 };
 
 export interface ActionOutput_zoho_books_getjournal {
@@ -97866,9 +97970,9 @@ export interface ActionInput_zoho_books_getpayment {
    */
   payment_id: string;
   /**
-   * Zoho Books organization ID. Example: "927270289"
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
    */
-  organization_id: string;
+  organization_id?: string | undefined;
 };
 
 export interface ActionOutput_zoho_books_getpayment {
@@ -97910,6 +98014,10 @@ export interface ActionInput_zoho_books_getpurchaseorder {
    * Unique identifier of the purchase order. Example: "460000000062001"
    */
   purchaseorder_id: string;
+  /**
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   */
+  organization_id?: string | undefined;
 };
 
 export interface ActionOutput_zoho_books_getpurchaseorder {
@@ -98071,6 +98179,10 @@ export interface ActionInput_zoho_books_getvendorpayment {
    * Vendor payment ID. Example: "260815000000116002"
    */
   payment_id: string;
+  /**
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   */
+  organization_id?: string | undefined;
 };
 
 export interface ActionOutput_zoho_books_getvendorpayment {
@@ -98177,9 +98289,9 @@ export interface ActionOutput_zoho_books_getvendorpayment {
 
 export interface ActionInput_zoho_books_listbankaccounts {
   /**
-   * Organization ID. Example: "927270289"
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
    */
-  organization_id: string;
+  organization_id?: string | undefined;
   /**
    * Page number to fetch. Defaults to 1.
    */
@@ -98243,9 +98355,9 @@ export interface ActionOutput_zoho_books_listbankaccounts {
 
 export interface ActionInput_zoho_books_listbills {
   /**
-   * Zoho Books organization ID. Example: "927270289"
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
    */
-  organization_id: string;
+  organization_id?: string | undefined;
   /**
    * Pagination cursor (page number) from the previous response. Omit for the first page.
    */
@@ -98292,7 +98404,7 @@ export interface ActionOutput_zoho_books_listbills {
   has_attachment?: boolean | undefined;
   is_tds_applied?: boolean | undefined;
   is_abn_quoted?: string | undefined;})[];
-  next_page?: string | undefined;
+  next_cursor?: string | undefined;
 };
 
 export interface ActionInput_zoho_books_listchartofaccounts {
@@ -98300,6 +98412,10 @@ export interface ActionInput_zoho_books_listchartofaccounts {
    * Pagination cursor from the previous response. Omit for the first page.
    */
   cursor?: string | undefined;
+  /**
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   */
+  organization_id?: string | undefined;
   /**
    * Number of records per page.
    */
@@ -98360,9 +98476,9 @@ export interface ActionOutput_zoho_books_listchartofaccounts {
 
 export interface ActionInput_zoho_books_listcontacts {
   /**
-   * ID of the organization. Example: "927270289"
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
    */
-  organization_id: string;
+  organization_id?: string | undefined;
   /**
    * Pagination cursor from the previous response. For Zoho Books, this is the page number. Omit for the first page.
    */
@@ -98436,6 +98552,10 @@ export interface ActionInput_zoho_books_listcreditnotes {
    */
   cursor?: string | undefined;
   /**
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   */
+  organization_id?: string | undefined;
+  /**
    * Number of records per page.
    */
   per_page?: number | undefined;
@@ -98478,9 +98598,9 @@ export interface ActionOutput_zoho_books_listcreditnotes {
 
 export interface ActionInput_zoho_books_listcurrencies {
   /**
-   * ID of the Zoho Books organization. Example: "927270289"
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
    */
-  organization_id: string;
+  organization_id?: string | undefined;
   /**
    * Pagination cursor (page number) from the previous response. Omit for the first page.
    */
@@ -98513,6 +98633,10 @@ export interface ActionInput_zoho_books_listestimates {
    * Pagination cursor (page number). Omit for the first page.
    */
   cursor?: string | undefined;
+  /**
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   */
+  organization_id?: string | undefined;
   /**
    * Number of records per page.
    */
@@ -98591,6 +98715,10 @@ export interface ActionInput_zoho_books_listexpenses {
    */
   cursor?: string | undefined;
   /**
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   */
+  organization_id?: string | undefined;
+  /**
    * Number of records per page. Max 200.
    */
   per_page?: number | undefined;
@@ -98638,9 +98766,9 @@ export interface ActionOutput_zoho_books_listexpenses {
 
 export interface ActionInput_zoho_books_listinvoices {
   /**
-   * Organization ID. Example: "10234695"
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
    */
-  organization_id: string;
+  organization_id?: string | undefined;
   /**
    * Pagination cursor (page number) from the previous response. Omit for the first page.
    */
@@ -98717,6 +98845,10 @@ export interface ActionInput_zoho_books_listitems {
    */
   cursor?: string | undefined;
   /**
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   */
+  organization_id?: string | undefined;
+  /**
    * Search items by name. Max-length [100].
    */
   name?: string | undefined;
@@ -98756,9 +98888,9 @@ export interface ActionOutput_zoho_books_listitems {
 
 export interface ActionInput_zoho_books_listjournals {
   /**
-   * Organization ID. Example: "927270289"
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
    */
-  organization_id: string;
+  organization_id?: string | undefined;
   /**
    * Pagination cursor (page number) from the previous response. Omit for the first page.
    */
@@ -98899,6 +99031,10 @@ export interface ActionInput_zoho_books_listpayments {
    */
   cursor?: string | undefined;
   /**
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   */
+  organization_id?: string | undefined;
+  /**
    * Filter payments by mode. Allowed values: PaymentMode.All, PaymentMode.Check, PaymentMode.Cash, PaymentMode.BankTransfer, PaymentMode.CreditCard, PaymentMode.Stripe, etc.
    */
   filter_by?: string | undefined;
@@ -98973,6 +99109,10 @@ export interface ActionInput_zoho_books_listpurchaseorders {
    * Pagination cursor (page number) from the previous response. Omit for the first page.
    */
   cursor?: string | undefined;
+  /**
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   */
+  organization_id?: string | undefined;
 };
 
 export interface ActionOutput_zoho_books_listpurchaseorders {
@@ -99004,7 +99144,7 @@ export interface ActionInput_zoho_books_listtaxes {
    */
   per_page?: number | undefined;
   /**
-   * Organization ID for the Zoho Books organization. If omitted, falls back to connection metadata.
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
    */
   organization_id?: string | undefined;
 };
@@ -99030,9 +99170,9 @@ export interface ActionOutput_zoho_books_listtaxes {
 
 export interface ActionInput_zoho_books_listvendorpayments {
   /**
-   * Organization ID. Example: "927270289"
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
    */
-  organization_id: string;
+  organization_id?: string | undefined;
   /**
    * Pagination cursor (page number). Omit for the first page.
    */
@@ -99126,9 +99266,9 @@ export interface ActionInput_zoho_books_markinvoicesent {
    */
   invoice_id: string;
   /**
-   * ID of the organization. Example: "927270289"
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
    */
-  organization_id: string;
+  organization_id?: string | undefined;
 };
 
 export interface ActionOutput_zoho_books_markinvoicesent {
@@ -99141,6 +99281,10 @@ export interface ActionInput_zoho_books_sendinvoiceemail {
    * The ID of the invoice to email. Example: "260815000000103001"
    */
   invoice_id: string;
+  /**
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   */
+  organization_id?: string | undefined;
   /**
    * List of recipient email addresses.
    */
@@ -99178,9 +99322,9 @@ export interface ActionInput_zoho_books_updatebankaccount {
    */
   account_id: string;
   /**
-   * Organization ID. Example: "927270289"
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
    */
-  organization_id: string;
+  organization_id?: string | undefined;
   /**
    * Name of the bank account. Example: "Corporate Account"
    */
@@ -99254,7 +99398,10 @@ export interface ActionOutput_zoho_books_updatebankaccount {
 
 export interface ActionInput_zoho_books_updatebill {
   bill_id: string;
-  organization_id: string;
+  /**
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   */
+  organization_id?: string | undefined;
   vendor_id?: string | undefined;
   currency_id?: string | undefined;
   vat_treatment?: string | undefined;
@@ -99330,7 +99477,7 @@ export interface ActionInput_zoho_books_updatebill {
 export interface ActionOutput_zoho_books_updatebill {
   code: number;
   message: string;
-  bill?: unknown | undefined;
+  bill?: {  [key: string]: unknown | undefined;};
 };
 
 export interface ActionInput_zoho_books_updatechartofaccount {
@@ -99338,6 +99485,10 @@ export interface ActionInput_zoho_books_updatechartofaccount {
    * ID of the account to update. Example: "260815000000000388"
    */
   account_id: string;
+  /**
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   */
+  organization_id?: string | undefined;
   /**
    * Name of the account
    */
@@ -99407,9 +99558,9 @@ export interface ActionInput_zoho_books_updatecontact {
    */
   contact_id: string;
   /**
-   * The organization ID for the Zoho Books account. Example: "927270289"
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
    */
-  organization_id: string;
+  organization_id?: string | undefined;
   contact_name?: string | undefined;
   company_name?: string | undefined;
   contact_type?: string | undefined;
@@ -99453,9 +99604,9 @@ export interface ActionInput_zoho_books_updatecreditnote {
    */
   creditnote_id: string;
   /**
-   * Zoho Books organization ID. Example: "927270289"
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
    */
-  organization_id: string;
+  organization_id?: string | undefined;
   /**
    * Customer contact ID. Example: "260815000000097001"
    */
@@ -99608,6 +99759,10 @@ export interface ActionInput_zoho_books_updateestimate {
    */
   estimate_id: string;
   /**
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   */
+  organization_id?: string | undefined;
+  /**
    * Customer ID for the estimate. Example: "260815000000097001"
    */
   customer_id?: string | undefined;
@@ -99665,6 +99820,10 @@ export interface ActionInput_zoho_books_updateexpense {
    * Unique identifier of the expense. Example: "260815000000106001"
    */
   expense_id: string;
+  /**
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   */
+  organization_id?: string | undefined;
   /**
    * ID of the expense account. Example: "260815000000000388"
    */
@@ -99784,6 +99943,10 @@ export interface ActionInput_zoho_books_updateinvoice {
    */
   invoice_id: string;
   /**
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   */
+  organization_id?: string | undefined;
+  /**
    * Customer ID. Example: "260815000000097001"
    */
   customer_id?: string | undefined;
@@ -99878,9 +100041,9 @@ export interface ActionInput_zoho_books_updateitem {
    */
   item_id: string;
   /**
-   * ID of the organization. Example: "927270289"
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
    */
-  organization_id: string;
+  organization_id?: string | undefined;
   /**
    * Name of the item. Max-length [100]
    */
@@ -100049,9 +100212,9 @@ export interface ActionInput_zoho_books_updatejournal {
    */
   journal_id: string;
   /**
-   * Organization ID. Example: "927270289"
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
    */
-  organization_id: string;
+  organization_id?: string | undefined;
   /**
    * Date on which the journal is to be recorded. Example: "2026-06-09"
    */
@@ -100181,6 +100344,10 @@ export interface ActionInput_zoho_books_updatepayment {
    */
   payment_id: string;
   /**
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   */
+  organization_id?: string | undefined;
+  /**
    * Customer ID. Example: "260815000000097001"
    */
   customer_id?: string | undefined;
@@ -100282,6 +100449,10 @@ export interface ActionInput_zoho_books_updatepurchaseorder {
    * ID of the purchase order to update. Example: "260815000000062001"
    */
   purchaseorder_id: string;
+  /**
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   */
+  organization_id?: string | undefined;
   /**
    * Vendor ID. Example: "260815000000098001"
    */
@@ -100447,6 +100618,10 @@ export interface ActionInput_zoho_books_updatevendorpayment {
    */
   payment_id: string;
   /**
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   */
+  organization_id?: string | undefined;
+  /**
    * ID of the vendor associated with the Vendor Payment
    */
   vendor_id?: string | undefined;
@@ -100536,7 +100711,7 @@ export interface ActionOutput_zoho_books_updatevendorpayment {
   vendor_id?: string | undefined;
   vendor_name?: string | undefined;
   payment_mode?: string | undefined;
-  payment_number?: number | undefined;
+  payment_number?: string | number | undefined;
   description?: string | undefined;
   date?: string | undefined;
   reference_number?: string | undefined;
@@ -100576,6 +100751,10 @@ export interface ActionInput_zoho_books_voidinvoice {
    * Invoice ID to void. Example: "260815000000103001"
    */
   invoice_id: string;
+  /**
+   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   */
+  organization_id?: string | undefined;
 };
 
 export interface ActionOutput_zoho_books_voidinvoice {

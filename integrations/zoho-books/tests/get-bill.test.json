@@ -1,6 +1,7 @@
 {
   "input": {
-    "bill_id": "260815000000108002"
+    "bill_id": "260815000000108002",
+    "organization_id": "927270289"
   },
   "output": {
     "bill_id": "260815000000108002",
@@ -176,10 +177,7 @@
     "tags": []
   },
   "nango": {
-    "getConnection": {},
-    "getMetadata": {
-      "organization_id": "927270289"
-    }
+    "getConnection": {}
   },
   "api": {
     "get": {

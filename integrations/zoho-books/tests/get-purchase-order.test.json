@@ -1,6 +1,7 @@
 {
   "input": {
-    "purchaseorder_id": "260815000000103019"
+    "purchaseorder_id": "260815000000103019",
+    "organization_id": "927270289"
   },
   "output": {
     "code": 0,
@@ -100,10 +101,7 @@
     }
   },
   "nango": {
-    "getConnection": {},
-    "getMetadata": {
-      "organization_id": "927270289"
-    }
+    "getConnection": {}
   },
   "api": {
     "get": {

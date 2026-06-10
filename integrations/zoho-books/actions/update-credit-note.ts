@@ -1,6 +1,11 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+const OrganizationsResponseSchema = z.object({
+    code: z.number(),
+    organizations: z.array(z.object({ organization_id: z.string() })).optional()
+});
+
 const LineItemSchema = z.object({
     item_id: z.string().optional().describe('Unique identifier for the item. Example: "260815000000100002"'),
     line_item_id: z.string().optional().describe('Unique ID of an existing line item to update. Example: "260815000000111002"'),
@@ -16,7 +21,7 @@ const LineItemSchema = z.object({
 
 const InputSchema = z.object({
     creditnote_id: z.string().describe('ID of the credit note to update. Example: "260815000000111002"'),
-    organization_id: z.string().describe('Zoho Books organization ID. Example: "927270289"'),
+    organization_id: z.string().optional().describe('Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.'),
     customer_id: z.string().optional().describe('Customer contact ID. Example: "260815000000097001"'),
     date: z.string().optional().describe('Credit note date in yyyy-mm-dd format. Example: "2024-01-15"'),
     notes: z.string().optional().describe('Notes displayed on the credit note. Max-length [5000]'),
@@ -174,6 +179,24 @@ const action = createAction({
     scopes: ['ZohoBooks.creditnotes.UPDATE'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        let organizationId = input.organization_id;
+        if (!organizationId) {
+            const orgResponse = await nango.get({
+                // https://www.zoho.com/books/api/v3/organizations/#overview
+                endpoint: '/books/v3/organizations',
+                retries: 3
+            });
+            const orgData = OrganizationsResponseSchema.parse(orgResponse.data);
+            const firstOrg = orgData.organizations?.[0];
+            if (orgData.code !== 0 || !firstOrg) {
+                throw new nango.ActionError({
+                    type: 'not_found',
+                    message: 'No organizations found for this Zoho Books account.'
+                });
+            }
+            organizationId = firstOrg.organization_id;
+        }
+
         const body: {
             customer_id?: string;
             date?: string;
@@ -226,7 +249,7 @@ const action = createAction({
         const response = await nango.put({
             endpoint: `/books/v3/creditnotes/${encodeURIComponent(input.creditnote_id)}`,
             params: {
-                organization_id: input.organization_id
+                organization_id: organizationId
             },
             data: body,
             retries: 3

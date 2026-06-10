@@ -1,17 +1,49 @@
 {
   "input": {
     "payment_id": "260815000000121007",
-    "description": "Updated via Nango action"
+    "description": "Updated via Nango action",
+    "organization_id": "927270289"
   },
   "output": {
     "code": 0,
-    "message": "The details of the payment made to the vendor have been updated"
+    "message": "The details of the payment made to the vendor have been updated",
+    "vendorpayment": {
+      "payment_id": "260815000000121007",
+      "vendor_id": "260815000000099001",
+      "vendor_name": "Gamma Partners",
+      "payment_mode": "Cash",
+      "payment_number": "4",
+      "description": "Updated via Nango action",
+      "date": "2026-06-09",
+      "reference_number": "",
+      "exchange_rate": 1,
+      "tax_amount_withheld": 0,
+      "amount": 250,
+      "balance": 0,
+      "currency_id": "260815000000000097",
+      "currency_symbol": "$",
+      "created_time": "2026-06-09T13:15:16-0400",
+      "last_modified_time": "2026-06-09T16:29:08-0400",
+      "paid_through_account_id": "260815000000000358",
+      "paid_through_account_name": "Undeposited Funds",
+      "paid_through_account_type": "cash",
+      "is_paid_via_print_check": false,
+      "is_ach_payment": false,
+      "ach_payment_status": "",
+      "bills": [
+        {
+          "bill_payment_id": "260815000000121012",
+          "bill_id": "260815000000096003",
+          "amount_applied": 250,
+          "tax_amount_withheld": 0
+        }
+      ],
+      "tags": [],
+      "custom_fields": []
+    }
   },
   "nango": {
-    "getConnection": {},
-    "getMetadata": {
-      "organization_id": "927270289"
-    }
+    "getConnection": {}
   },
   "api": {
     "put": {

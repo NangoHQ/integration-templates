@@ -1,7 +1,8 @@
 {
   "input": {
     "payment_id": "260815000000113012",
-    "description": "Updated via Nango action"
+    "description": "Updated via Nango action",
+    "organization_id": "927270289"
   },
   "output": {
     "payment_id": "260815000000113012",
@@ -28,10 +29,7 @@
     "custom_fields": []
   },
   "nango": {
-    "getConnection": {},
-    "getMetadata": {
-      "organization_id": "927270289"
-    }
+    "getConnection": {}
   },
   "api": {
     "put": {

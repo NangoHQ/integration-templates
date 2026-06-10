@@ -1,6 +1,7 @@
 {
   "input": {
-    "account_id": "260815000000102017"
+    "account_id": "260815000000102017",
+    "organization_id": "927270289"
   },
   "output": {
     "account_id": "260815000000102017",
@@ -8,7 +9,7 @@
     "account_code": "",
     "currency_id": "260815000000000099",
     "currency_code": "INR",
-    "currency_symbol": "₹",
+    "currency_symbol": "\u20b9",
     "price_precision": 2,
     "account_type": "bank",
     "account_number": "xxxx6789",
@@ -25,10 +26,7 @@
     "description": "Updated via Nango action"
   },
   "nango": {
-    "getConnection": {},
-    "getMetadata": {
-      "organization_id": "927270289"
-    }
+    "getConnection": {}
   },
   "api": {
     "get": {
@@ -44,7 +42,7 @@
             "generation_number": "",
             "currency_id": "260815000000000099",
             "currency_code": "INR",
-            "currency_symbol": "₹",
+            "currency_symbol": "\u20b9",
             "custom_fields": [],
             "custom_field_hash": {},
             "price_precision": 2,

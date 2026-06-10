@@ -183,68 +183,7 @@
                 "tags": [],
                 "ach_supported": false,
                 "has_attachment": false
-              }
-            ],
-            "page_context": {
-              "page": 1,
-              "per_page": 2,
-              "has_more_page": true,
-              "report_name": "Contacts",
-              "applied_filter": "Status.All",
-              "custom_fields": [],
-              "sort_column": "last_modified_time",
-              "sort_order": "A"
-            }
-          },
-          "status": 200,
-          "headers": {
-            "date": "Tue, 09 Jun 2026 17:19:14 GMT",
-            "content-type": "application/json;charset=UTF-8",
-            "transfer-encoding": "chunked",
-            "connection": "keep-alive",
-            "x-xss-protection": "0",
-            "x-content-type-options": "nosniff",
-            "x-download-options": "noopen",
-            "x-frame-options": "DENY",
-            "x-dns-prefetch-control": "off",
-            "strict-transport-security": "max-age=64072000; includeSubDomains; preload",
-            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
-            "access-control-allow-origin": "*",
-            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
-            "x-ratelimit-limit": "5000",
-            "x-ratelimit-remaining": "4981",
-            "x-ratelimit-reset": "1781025595",
-            "server": "ZGS",
-            "set-cookie": "REDACTED",
-            "cache-control": "no-store, no-cache, must-revalidate, max-age=0, post-check=0, pre-check=0",
-            "pragma": "no-cache",
-            "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
-            "x-rate-limit-limit": "1000",
-            "x-rate-limit-reset": "38445",
-            "x-rate-limit-remaining": "705",
-            "content-disposition": "attachment;",
-            "allow": "OPTIONS, DELETE, POST, GET, PUT",
-            "build_version": "Jun_09_2026_20506",
-            "client_build_version": "Jun_09_2026_20506",
-            "server_build_version": "Jun_08_2026_3305/",
-            "vary": "accept-encoding"
-          },
-          "hash": "7a1683b5ff36aade8fb9b2a46cea77f3c178a758",
-          "request": {
-            "params": {
-              "organization_id": "927270289",
-              "page": "1",
-              "per_page": "2",
-              "sort_column": "last_modified_time",
-              "sort_order": "A"
-            }
-          }
-        },
-        {
-          "response": {
-            "code": 0,
-            "message": "success",
-            "contacts": [
+              },
               {
                 "contact_id": "260815000000109009",
                 "contact_name": "Test Agent Contact",
@@ -342,68 +281,7 @@
                 "tags": [],
                 "ach_supported": false,
                 "has_attachment": false
-              }
-            ],
-            "page_context": {
-              "page": 2,
-              "per_page": 2,
-              "has_more_page": true,
-              "report_name": "Contacts",
-              "applied_filter": "Status.All",
-              "custom_fields": [],
-              "sort_column": "last_modified_time",
-              "sort_order": "A"
-            }
-          },
-          "status": 200,
-          "headers": {
-            "date": "Tue, 09 Jun 2026 17:19:15 GMT",
-            "content-type": "application/json;charset=UTF-8",
-            "transfer-encoding": "chunked",
-            "connection": "keep-alive",
-            "x-xss-protection": "0",
-            "x-content-type-options": "nosniff",
-            "x-download-options": "noopen",
-            "x-frame-options": "DENY",
-            "x-dns-prefetch-control": "off",
-            "strict-transport-security": "max-age=64072000; includeSubDomains; preload",
-            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
-            "access-control-allow-origin": "*",
-            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
-            "x-ratelimit-limit": "5000",
-            "x-ratelimit-remaining": "4977",
-            "x-ratelimit-reset": "1781025595",
-            "server": "ZGS",
-            "set-cookie": "REDACTED",
-            "cache-control": "no-store, no-cache, must-revalidate, max-age=0, post-check=0, pre-check=0",
-            "pragma": "no-cache",
-            "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
-            "x-rate-limit-limit": "1000",
-            "x-rate-limit-reset": "38444",
-            "x-rate-limit-remaining": "704",
-            "content-disposition": "attachment;",
-            "allow": "OPTIONS, DELETE, POST, GET, PUT",
-            "build_version": "Jun_09_2026_20506",
-            "client_build_version": "Jun_09_2026_20506",
-            "server_build_version": "Jun_08_2026_3305/",
-            "vary": "accept-encoding"
-          },
-          "hash": "d6c74df37164173c46acf182dfa1dbbf6c924546",
-          "request": {
-            "params": {
-              "organization_id": "927270289",
-              "page": "2",
-              "per_page": "2",
-              "sort_column": "last_modified_time",
-              "sort_order": "A"
-            }
-          }
-        },
-        {
-          "response": {
-            "code": 0,
-            "message": "success",
-            "contacts": [
+              },
               {
                 "contact_id": "260815000000097001",
                 "contact_name": "Acme Corp",
@@ -504,8 +382,8 @@
               }
             ],
             "page_context": {
-              "page": 3,
-              "per_page": 2,
+              "page": 1,
+              "per_page": 200,
               "has_more_page": false,
               "report_name": "Contacts",
               "applied_filter": "Status.All",
@@ -516,7 +394,7 @@
           },
           "status": 200,
           "headers": {
-            "date": "Tue, 09 Jun 2026 17:19:15 GMT",
+            "date": "Tue, 09 Jun 2026 17:19:14 GMT",
             "content-type": "application/json;charset=UTF-8",
             "transfer-encoding": "chunked",
             "connection": "keep-alive",
@@ -530,7 +408,7 @@
             "access-control-allow-origin": "*",
             "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
             "x-ratelimit-limit": "5000",
-            "x-ratelimit-remaining": "4975",
+            "x-ratelimit-remaining": "4981",
             "x-ratelimit-reset": "1781025595",
             "server": "ZGS",
             "set-cookie": "REDACTED",
@@ -538,8 +416,8 @@
             "pragma": "no-cache",
             "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
             "x-rate-limit-limit": "1000",
-            "x-rate-limit-reset": "38444",
-            "x-rate-limit-remaining": "702",
+            "x-rate-limit-reset": "38445",
+            "x-rate-limit-remaining": "705",
             "content-disposition": "attachment;",
             "allow": "OPTIONS, DELETE, POST, GET, PUT",
             "build_version": "Jun_09_2026_20506",
@@ -547,72 +425,12 @@
             "server_build_version": "Jun_08_2026_3305/",
             "vary": "accept-encoding"
           },
-          "hash": "72391a97120dff79dca758e8b64eeee996539947",
+          "hash": "20c5e2db3faac562e3d04ef742c842d6be678119",
           "request": {
             "params": {
               "organization_id": "927270289",
-              "page": "3",
-              "per_page": "2",
-              "sort_column": "last_modified_time",
-              "sort_order": "A"
-            }
-          }
-        },
-        {
-          "response": {
-            "code": 0,
-            "message": "success",
-            "contacts": [],
-            "page_context": {
-              "page": 4,
-              "per_page": 2,
-              "has_more_page": false,
-              "report_name": "Contacts",
-              "applied_filter": "Status.All",
-              "custom_fields": [],
-              "sort_column": "last_modified_time",
-              "sort_order": "A"
-            }
-          },
-          "status": 200,
-          "headers": {
-            "date": "Tue, 09 Jun 2026 17:19:15 GMT",
-            "content-type": "application/json;charset=UTF-8",
-            "transfer-encoding": "chunked",
-            "connection": "keep-alive",
-            "x-xss-protection": "0",
-            "x-content-type-options": "nosniff",
-            "x-download-options": "noopen",
-            "x-frame-options": "DENY",
-            "x-dns-prefetch-control": "off",
-            "strict-transport-security": "max-age=64072000; includeSubDomains; preload",
-            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
-            "access-control-allow-origin": "*",
-            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
-            "x-ratelimit-limit": "5000",
-            "x-ratelimit-remaining": "4972",
-            "x-ratelimit-reset": "1781025595",
-            "server": "ZGS",
-            "set-cookie": "REDACTED",
-            "cache-control": "no-store, no-cache, must-revalidate, max-age=0, post-check=0, pre-check=0",
-            "pragma": "no-cache",
-            "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
-            "x-rate-limit-limit": "1000",
-            "x-rate-limit-reset": "38444",
-            "x-rate-limit-remaining": "699",
-            "content-disposition": "attachment;",
-            "allow": "OPTIONS, DELETE, POST, GET, PUT",
-            "build_version": "Jun_09_2026_20506",
-            "client_build_version": "Jun_09_2026_20506",
-            "server_build_version": "Jun_08_2026_3305/",
-            "vary": "accept-encoding"
-          },
-          "hash": "52470a35311cef7d5bb66b1ef8f0cc635b600368",
-          "request": {
-            "params": {
-              "organization_id": "927270289",
-              "page": "4",
-              "per_page": "2",
+              "page": "1",
+              "per_page": "200",
               "sort_column": "last_modified_time",
               "sort_order": "A"
             }

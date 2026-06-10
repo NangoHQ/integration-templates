@@ -1,12 +1,14 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const InputSchema = z.object({
-    purchaseorder_id: z.string().describe('Unique identifier of the purchase order to delete. Example: "260815000000000001"')
+const OrganizationsResponseSchema = z.object({
+    code: z.number(),
+    organizations: z.array(z.object({ organization_id: z.string() })).optional()
 });
 
-const MetadataSchema = z.object({
-    organization_id: z.string()
+const InputSchema = z.object({
+    purchaseorder_id: z.string().describe('Unique identifier of the purchase order to delete. Example: "260815000000000001"'),
+    organization_id: z.string().optional().describe('Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.')
 });
 
 const ProviderResponseSchema = z.object({
@@ -34,17 +36,23 @@ const action = createAction({
     scopes: ['ZohoBooks.purchaseorders.DELETE'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const metadata = await nango.getMetadata();
-        const parsedMetadata = MetadataSchema.safeParse(metadata);
-
-        if (!parsedMetadata.success) {
-            throw new nango.ActionError({
-                type: 'invalid_metadata',
-                message: 'organization_id is required in connection metadata.'
+        let organizationId = input.organization_id;
+        if (!organizationId) {
+            const orgResponse = await nango.get({
+                // https://www.zoho.com/books/api/v3/organizations/#overview
+                endpoint: '/books/v3/organizations',
+                retries: 3
             });
+            const orgData = OrganizationsResponseSchema.parse(orgResponse.data);
+            const firstOrg = orgData.organizations?.[0];
+            if (orgData.code !== 0 || !firstOrg) {
+                throw new nango.ActionError({
+                    type: 'not_found',
+                    message: 'No organizations found for this Zoho Books account.'
+                });
+            }
+            organizationId = firstOrg.organization_id;
         }
-
-        const organizationId = parsedMetadata.data.organization_id;
 
         // https://www.zoho.com/books/api/v3/purchase-order/#delete-purchase-order
         const response = await nango.delete({

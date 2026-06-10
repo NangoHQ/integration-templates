@@ -1,16 +1,14 @@
 {
   "input": {
-    "account_id": "260815000000128002"
+    "account_id": "260815000000128002",
+    "organization_id": "927270289"
   },
   "output": {
     "code": 0,
     "message": "The account has been deleted."
   },
   "nango": {
-    "getConnection": {},
-    "getMetadata": {
-      "organization_id": "927270289"
-    }
+    "getConnection": {}
   },
   "api": {
     "delete": {

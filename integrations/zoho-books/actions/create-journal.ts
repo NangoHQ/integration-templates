@@ -1,6 +1,11 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+const OrganizationsResponseSchema = z.object({
+    code: z.number(),
+    organizations: z.array(z.object({ organization_id: z.string() })).optional()
+});
+
 const JournalLineItemSchema = z.object({
     account_id: z.string().describe('ID of the account for this line item. Example: "260815000000000388"'),
     debit_or_credit: z.enum(['debit', 'credit']).describe('Whether this line is a debit or credit.'),
@@ -14,6 +19,7 @@ const JournalLineItemSchema = z.object({
 });
 
 const InputSchema = z.object({
+    organization_id: z.string().optional().describe('Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.'),
     journal_date: z.string().describe('Date of the journal entry in YYYY-MM-DD format. Example: "2026-06-09"'),
     reference_number: z.string().optional().describe('Reference number for the journal.'),
     notes: z.string().optional().describe('Notes for the journal.'),
@@ -171,7 +177,7 @@ const action = createAction({
         const totalDebits = input.line_items.filter((item) => item.debit_or_credit === 'debit').reduce((sum, item) => sum + item.amount, 0);
         const totalCredits = input.line_items.filter((item) => item.debit_or_credit === 'credit').reduce((sum, item) => sum + item.amount, 0);
 
-        if (totalDebits !== totalCredits) {
+        if (Math.abs(totalDebits - totalCredits) > 0.001) {
             throw new nango.ActionError({
                 type: 'validation_error',
                 message: 'Total debits must equal total credits.',
@@ -180,19 +186,22 @@ const action = createAction({
             });
         }
 
-        const metadata = await nango.getMetadata();
-        const metadataResult = z
-            .object({
-                organization_id: z.string().optional()
-            })
-            .safeParse(metadata);
-        const organizationId = metadataResult.success ? metadataResult.data.organization_id : undefined;
-
+        let organizationId = input.organization_id;
         if (!organizationId) {
-            throw new nango.ActionError({
-                type: 'missing_organization_id',
-                message: 'organization_id is required in metadata.'
+            const orgResponse = await nango.get({
+                // https://www.zoho.com/books/api/v3/organizations/#overview
+                endpoint: '/books/v3/organizations',
+                retries: 3
             });
+            const orgData = OrganizationsResponseSchema.parse(orgResponse.data);
+            const firstOrg = orgData.organizations?.[0];
+            if (orgData.code !== 0 || !firstOrg) {
+                throw new nango.ActionError({
+                    type: 'not_found',
+                    message: 'No organizations found for this Zoho Books account.'
+                });
+            }
+            organizationId = firstOrg.organization_id;
         }
 
         const response = await nango.post({

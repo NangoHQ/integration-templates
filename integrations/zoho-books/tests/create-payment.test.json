@@ -9,7 +9,8 @@
         "invoice_id": "260815000000132001",
         "amount_applied": 100
       }
-    ]
+    ],
+    "organization_id": "927270289"
   },
   "output": {
     "payment_id": "260815000000110028",
@@ -34,10 +35,7 @@
     ]
   },
   "nango": {
-    "getConnection": {},
-    "getMetadata": {
-      "organization_id": "927270289"
-    }
+    "getConnection": {}
   },
   "api": {
     "post": {

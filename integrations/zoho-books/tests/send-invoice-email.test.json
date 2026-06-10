@@ -3,17 +3,15 @@
     "invoice_id": "260815000000101011",
     "to_mail_ids": [
       "test@example.com"
-    ]
+    ],
+    "organization_id": "927270289"
   },
   "output": {
     "code": 0,
     "message": "Your invoice has been sent."
   },
   "nango": {
-    "getConnection": {},
-    "getMetadata": {
-      "organization_id": "927270289"
-    }
+    "getConnection": {}
   },
   "api": {
     "post": {

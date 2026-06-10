@@ -1,6 +1,11 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+const OrganizationsResponseSchema = z.object({
+    code: z.number(),
+    organizations: z.array(z.object({ organization_id: z.string() })).optional()
+});
+
 const LineItemSchema = z.object({
     purchaseorder_item_id: z.string().optional(),
     line_item_id: z.string().optional(),
@@ -75,7 +80,7 @@ const ApproverSchema = z.object({
 
 const UpdateBillInputSchema = z.object({
     bill_id: z.string().min(1),
-    organization_id: z.string().min(1),
+    organization_id: z.string().optional().describe('Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.'),
     vendor_id: z.string().optional(),
     currency_id: z.string().optional(),
     vat_treatment: z.string().optional(),
@@ -116,7 +121,7 @@ const UpdateBillOutputSchema = z
     .object({
         code: z.number(),
         message: z.string(),
-        bill: z.unknown()
+        bill: z.record(z.string(), z.unknown()).optional()
     })
     .passthrough();
 
@@ -130,13 +135,31 @@ export default createAction({
     output: UpdateBillOutputSchema,
     scopes: ['ZohoBooks.bills.UPDATE'],
     exec: async (nango, input) => {
-        const { bill_id, organization_id, ...body } = input;
+        const { bill_id, organization_id: inputOrgId, ...body } = input;
+
+        let organizationId = inputOrgId;
+        if (!organizationId) {
+            const orgResponse = await nango.get({
+                // https://www.zoho.com/books/api/v3/organizations/#overview
+                endpoint: '/books/v3/organizations',
+                retries: 3
+            });
+            const orgData = OrganizationsResponseSchema.parse(orgResponse.data);
+            const firstOrg = orgData.organizations?.[0];
+            if (orgData.code !== 0 || !firstOrg) {
+                throw new nango.ActionError({
+                    type: 'not_found',
+                    message: 'No organizations found for this Zoho Books account.'
+                });
+            }
+            organizationId = firstOrg.organization_id;
+        }
 
         // https://www.zoho.com/books/api/v3/bills/#update-a-bill
         const response = await nango.put({
             endpoint: `/books/v3/bills/${encodeURIComponent(bill_id)}`,
             params: {
-                organization_id: organization_id
+                organization_id: organizationId
             },
             data: body,
             retries: 3
@@ -147,6 +170,14 @@ export default createAction({
             throw new nango.ActionError({
                 message: 'Failed to parse update bill response',
                 error: parsed.error.message
+            });
+        }
+
+        if (parsed.data.code !== 0) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: parsed.data.message,
+                code: parsed.data.code
             });
         }
 

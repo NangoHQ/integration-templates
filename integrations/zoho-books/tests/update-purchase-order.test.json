@@ -12,7 +12,8 @@
       }
     ],
     "reference_number": "REF-001",
-    "notes": "Updated via Nango action"
+    "notes": "Updated via Nango action",
+    "organization_id": "927270289"
   },
   "output": {
     "purchaseorder_id": "260815000000127011",

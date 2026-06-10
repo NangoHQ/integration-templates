@@ -68,7 +68,7 @@ const sync = createSync({
                 offset_start_value: 1,
                 offset_calculation_method: 'per-page',
                 limit_name_in_request: 'per_page',
-                limit: 2,
+                limit: 200,
                 response_path: 'contacts'
             },
             retries: 3

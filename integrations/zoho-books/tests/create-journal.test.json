@@ -16,7 +16,8 @@
         "amount": 100,
         "description": "Credit to interest income"
       }
-    ]
+    ],
+    "organization_id": "927270289"
   },
   "output": {
     "journal_id": "260815000000122028",
@@ -47,10 +48,7 @@
     ]
   },
   "nango": {
-    "getConnection": {},
-    "getMetadata": {
-      "organization_id": "927270289"
-    }
+    "getConnection": {}
   },
   "api": {
     "post": {

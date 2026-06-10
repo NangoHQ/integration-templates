@@ -1,6 +1,7 @@
 {
   "input": {
-    "journal_id": "260815000000113035"
+    "journal_id": "260815000000113035",
+    "organization_id": "927270289"
   },
   "output": {
     "journal_id": "260815000000113035",
@@ -110,10 +111,7 @@
     "approver_id": ""
   },
   "nango": {
-    "getConnection": {},
-    "getMetadata": {
-      "organization_id": "927270289"
-    }
+    "getConnection": {}
   },
   "api": {
     "get": {

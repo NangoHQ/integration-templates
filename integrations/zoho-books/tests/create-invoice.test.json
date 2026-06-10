@@ -6,7 +6,8 @@
         "item_id": "260815000000100002",
         "quantity": 1
       }
-    ]
+    ],
+    "organization_id": "927270289"
   },
   "output": {
     "invoice_id": "260815000000124029",
@@ -17,10 +18,7 @@
     "balance": 199.99
   },
   "nango": {
-    "getConnection": {},
-    "getMetadata": {
-      "organization_id": "927270289"
-    }
+    "getConnection": {}
   },
   "api": {
     "post": {

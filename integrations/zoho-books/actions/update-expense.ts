@@ -1,8 +1,9 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const MetadataSchema = z.object({
-    organization_id: z.string().describe('Zoho Books organization ID. Example: "927270289"')
+const OrganizationsResponseSchema = z.object({
+    code: z.number(),
+    organizations: z.array(z.object({ organization_id: z.string() })).optional()
 });
 
 const LineItemInputSchema = z.object({
@@ -15,6 +16,7 @@ const LineItemInputSchema = z.object({
 
 const InputSchema = z.object({
     expense_id: z.string().describe('Unique identifier of the expense. Example: "260815000000106001"'),
+    organization_id: z.string().optional().describe('Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.'),
     account_id: z.string().optional().describe('ID of the expense account. Example: "260815000000000388"'),
     date: z.string().optional().describe('Date of the expense. Format: YYYY-MM-DD'),
     amount: z.number().optional().describe('Amount of the Expense'),
@@ -69,7 +71,7 @@ const ProviderExpenseSchema = z
 const ProviderResponseSchema = z.object({
     code: z.number(),
     message: z.string(),
-    expense: ProviderExpenseSchema
+    expense: ProviderExpenseSchema.optional()
 });
 
 const OutputSchema = z.object({
@@ -117,17 +119,23 @@ const action = createAction({
     scopes: ['ZohoBooks.expenses.UPDATE'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const rawMetadata = await nango.getMetadata();
-        const metadata = MetadataSchema.safeParse(rawMetadata);
-
-        if (!metadata.success) {
-            throw new nango.ActionError({
-                type: 'invalid_metadata',
-                message: 'organization_id is required in metadata.'
+        let organizationId = input.organization_id;
+        if (!organizationId) {
+            const orgResponse = await nango.get({
+                // https://www.zoho.com/books/api/v3/organizations/#overview
+                endpoint: '/books/v3/organizations',
+                retries: 3
             });
+            const orgData = OrganizationsResponseSchema.parse(orgResponse.data);
+            const firstOrg = orgData.organizations?.[0];
+            if (orgData.code !== 0 || !firstOrg) {
+                throw new nango.ActionError({
+                    type: 'not_found',
+                    message: 'No organizations found for this Zoho Books account.'
+                });
+            }
+            organizationId = firstOrg.organization_id;
         }
-
-        const organizationId = metadata.data.organization_id;
 
         const updateBody: Record<string, unknown> = {
             ...(input.account_id !== undefined && { account_id: input.account_id }),
@@ -175,6 +183,13 @@ const action = createAction({
         }
 
         const expense = providerResponse.data.expense;
+
+        if (!expense) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: 'Provider did not return an expense object.'
+            });
+        }
 
         return {
             expense_id: expense.expense_id,

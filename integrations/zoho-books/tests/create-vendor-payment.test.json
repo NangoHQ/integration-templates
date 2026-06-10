@@ -4,7 +4,8 @@
     "amount": 100,
     "paid_through_account_id": "260815000000000358",
     "date": "2026-06-09",
-    "reference_number": "VP-005"
+    "reference_number": "VP-005",
+    "organization_id": "927270289"
   },
   "output": {
     "id": "260815000000120019",
@@ -20,10 +21,7 @@
     "bills": []
   },
   "nango": {
-    "getConnection": {},
-    "getMetadata": {
-      "organization_id": "927270289"
-    }
+    "getConnection": {}
   },
   "api": {
     "post": {

@@ -1,6 +1,11 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+const OrganizationsResponseSchema = z.object({
+    code: z.number(),
+    organizations: z.array(z.object({ organization_id: z.string() })).optional()
+});
+
 const LineItemInputSchema = z.object({
     item_id: z.string().optional().describe('Item ID. Example: "260815000000100002"'),
     name: z.string().optional().describe('Name of the line item'),
@@ -14,6 +19,7 @@ const LineItemInputSchema = z.object({
 
 const InputSchema = z.object({
     vendor_id: z.string().describe('Vendor ID. Example: "260815000000098001"'),
+    organization_id: z.string().optional().describe('Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.'),
     bill_number: z.string().describe('Unique bill number. Example: "BILL-001"'),
     reference_number: z.string().optional().describe('External reference number'),
     date: z.string().optional().describe('Bill date in yyyy-mm-dd format'),
@@ -95,18 +101,22 @@ const action = createAction({
     scopes: ['ZohoBooks.bills.CREATE'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const metadata = await nango.getMetadata();
-        const metadataSchema = z.object({
-            organization_id: z.string().optional()
-        });
-        const parsedMetadata = metadataSchema.safeParse(metadata);
-        const organizationId = parsedMetadata.success ? parsedMetadata.data.organization_id : undefined;
-
+        let organizationId = input.organization_id;
         if (!organizationId) {
-            throw new nango.ActionError({
-                type: 'missing_metadata',
-                message: 'organization_id is required in metadata'
+            const orgResponse = await nango.get({
+                // https://www.zoho.com/books/api/v3/organizations/#overview
+                endpoint: '/books/v3/organizations',
+                retries: 3
             });
+            const orgData = OrganizationsResponseSchema.parse(orgResponse.data);
+            const firstOrg = orgData.organizations?.[0];
+            if (orgData.code !== 0 || !firstOrg) {
+                throw new nango.ActionError({
+                    type: 'not_found',
+                    message: 'No organizations found for this Zoho Books account.'
+                });
+            }
+            organizationId = firstOrg.organization_id;
         }
 
         const body: Record<string, unknown> = {
@@ -185,8 +195,15 @@ const action = createAction({
                   .filter((item): item is Exclude<typeof item, null> => item !== null)
             : [];
 
+        if (!bill['bill_id'] || typeof bill['bill_id'] !== 'string') {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: 'Provider did not return a valid bill_id.'
+            });
+        }
+
         return {
-            bill_id: String(bill['bill_id'] ?? ''),
+            bill_id: bill['bill_id'],
             ...optionalString(bill, 'vendor_id'),
             ...optionalString(bill, 'vendor_name'),
             ...optionalString(bill, 'bill_number'),

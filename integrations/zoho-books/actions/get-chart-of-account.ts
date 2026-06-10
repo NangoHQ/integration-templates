@@ -1,8 +1,14 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+const OrganizationsResponseSchema = z.object({
+    code: z.number(),
+    organizations: z.array(z.object({ organization_id: z.string() })).optional()
+});
+
 const InputSchema = z.object({
-    account_id: z.string().describe('ID of the chart of account entry. Example: "260815000000000388"')
+    account_id: z.string().describe('ID of the chart of account entry. Example: "260815000000000388"'),
+    organization_id: z.string().optional().describe('Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.')
 });
 
 const CustomFieldSchema = z.object({
@@ -161,16 +167,56 @@ const action = createAction({
     scopes: ['ZohoBooks.accountants.READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        let organizationId = input.organization_id;
+        if (!organizationId) {
+            const orgResponse = await nango.get({
+                // https://www.zoho.com/books/api/v3/organizations/#overview
+                endpoint: '/books/v3/organizations',
+                retries: 3
+            });
+            const orgData = OrganizationsResponseSchema.parse(orgResponse.data);
+            const firstOrg = orgData.organizations?.[0];
+            if (orgData.code !== 0 || !firstOrg) {
+                throw new nango.ActionError({
+                    type: 'not_found',
+                    message: 'No organizations found for this Zoho Books account.'
+                });
+            }
+            organizationId = firstOrg.organization_id;
+        }
+
         const response = await nango.get({
             // https://www.zoho.com/books/api/v3/chart-of-accounts/#get-an-account
             endpoint: `/books/v3/chartofaccounts/${encodeURIComponent(input.account_id)}`,
             params: {
-                organization_id: '927270289'
+                organization_id: organizationId
             },
             retries: 3
         });
 
-        if (!response.data) {
+        const ApiResponseSchema = z.object({
+            code: z.number(),
+            message: z.string().optional(),
+            chart_of_account: ProviderChartOfAccountSchema.optional()
+        });
+
+        const parsed = ApiResponseSchema.safeParse(response.data);
+        if (!parsed.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Unexpected response format from Zoho Books API'
+            });
+        }
+
+        if (parsed.data.code !== 0) {
+            throw new nango.ActionError({
+                type: 'api_error',
+                message: parsed.data.message ?? 'Failed to retrieve chart of account',
+                code: parsed.data.code
+            });
+        }
+
+        if (!parsed.data.chart_of_account) {
             throw new nango.ActionError({
                 type: 'not_found',
                 message: 'Chart of account entry not found',
@@ -178,15 +224,7 @@ const action = createAction({
             });
         }
 
-        const data = response.data;
-        let providerData: unknown = data;
-
-        if (data && typeof data === 'object' && 'chart_of_account' in data && typeof data.chart_of_account === 'object' && data.chart_of_account !== null) {
-            providerData = data.chart_of_account;
-        }
-
-        const providerChartOfAccount = ProviderChartOfAccountSchema.parse(providerData);
-        return normalizeChartOfAccount(providerChartOfAccount);
+        return normalizeChartOfAccount(parsed.data.chart_of_account);
     }
 });
 

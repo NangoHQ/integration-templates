@@ -1,10 +1,15 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+const OrganizationsResponseSchema = z.object({
+    code: z.number(),
+    organizations: z.array(z.object({ organization_id: z.string() })).optional()
+});
+
 const InputSchema = z.object({
     cursor: z.string().optional().describe('Pagination cursor (page number) from the previous response. Omit for the first page.'),
     per_page: z.number().optional().describe('Number of records to be fetched per page.'),
-    organization_id: z.string().optional().describe('Organization ID for the Zoho Books organization. If omitted, falls back to connection metadata.')
+    organization_id: z.string().optional().describe('Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.')
 });
 
 const TaxSchema = z.object({
@@ -60,14 +65,22 @@ const action = createAction({
     scopes: ['ZohoBooks.settings.READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const metadata = await nango.getMetadata<{ organization_id?: string }>();
-        const organizationId = input.organization_id ?? metadata?.organization_id;
-
+        let organizationId = input.organization_id;
         if (!organizationId) {
-            throw new nango.ActionError({
-                type: 'missing_organization_id',
-                message: 'organization_id is required in input or connection metadata.'
+            const orgResponse = await nango.get({
+                // https://www.zoho.com/books/api/v3/organizations/#overview
+                endpoint: '/books/v3/organizations',
+                retries: 3
             });
+            const orgData = OrganizationsResponseSchema.parse(orgResponse.data);
+            const firstOrg = orgData.organizations?.[0];
+            if (orgData.code !== 0 || !firstOrg) {
+                throw new nango.ActionError({
+                    type: 'not_found',
+                    message: 'No organizations found for this Zoho Books account.'
+                });
+            }
+            organizationId = firstOrg.organization_id;
         }
 
         const page = input.cursor ?? '1';

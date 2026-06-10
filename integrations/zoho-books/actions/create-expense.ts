@@ -1,8 +1,14 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+const OrganizationsResponseSchema = z.object({
+    code: z.number(),
+    organizations: z.array(z.object({ organization_id: z.string() })).optional()
+});
+
 const InputSchema = z.object({
     account_id: z.string().describe('ID of the expense account. Example: "260815000000000388"'),
+    organization_id: z.string().optional().describe('Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.'),
     date: z.string().describe('Date of the expense in YYYY-MM-DD format. Example: "2026-06-09"'),
     amount: z.number().describe('Amount of the expense. Example: 50.00'),
     paid_through_account_id: z.string().describe('ID of the account through which the expense is paid. Example: "260815000000102017"'),
@@ -232,14 +238,22 @@ const action = createAction({
     scopes: ['ZohoBooks.expenses.CREATE'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const metadata = await nango.getMetadata<{ organization_id?: string }>();
-        const organizationId = metadata?.organization_id;
-
+        let organizationId = input.organization_id;
         if (!organizationId) {
-            throw new nango.ActionError({
-                type: 'invalid_metadata',
-                message: 'organization_id is required in metadata.'
+            const orgResponse = await nango.get({
+                // https://www.zoho.com/books/api/v3/organizations/#overview
+                endpoint: '/books/v3/organizations',
+                retries: 3
             });
+            const orgData = OrganizationsResponseSchema.parse(orgResponse.data);
+            const firstOrg = orgData.organizations?.[0];
+            if (orgData.code !== 0 || !firstOrg) {
+                throw new nango.ActionError({
+                    type: 'not_found',
+                    message: 'No organizations found for this Zoho Books account.'
+                });
+            }
+            organizationId = firstOrg.organization_id;
         }
 
         const response = await nango.post({

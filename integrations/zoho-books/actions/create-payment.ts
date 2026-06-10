@@ -1,6 +1,11 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+const OrganizationsResponseSchema = z.object({
+    code: z.number(),
+    organizations: z.array(z.object({ organization_id: z.string() })).optional()
+});
+
 const InvoicePaymentSchema = z.object({
     invoice_id: z.string().describe('Invoice ID to apply payment to. Example: "260815000000101011"'),
     amount_applied: z.number().describe('Amount applied to this invoice.'),
@@ -8,6 +13,7 @@ const InvoicePaymentSchema = z.object({
 });
 
 const InputSchema = z.object({
+    organization_id: z.string().optional().describe('Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.'),
     customer_id: z.string().describe('Customer ID for the payment. Example: "260815000000097001"'),
     payment_mode: z.string().describe('Payment mode: cash, check, creditcard, banktransfer, bankremittance, autotransaction, or others.'),
     amount: z.number().describe('Total payment amount.'),
@@ -97,14 +103,22 @@ const action = createAction({
     scopes: ['ZohoBooks.customerpayments.CREATE'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const metadata = await nango.getMetadata<{ organization_id?: string }>();
-        const organizationId = metadata?.organization_id;
-
+        let organizationId = input.organization_id;
         if (!organizationId) {
-            throw new nango.ActionError({
-                type: 'missing_metadata',
-                message: 'organization_id is required in connection metadata.'
+            const orgResponse = await nango.get({
+                // https://www.zoho.com/books/api/v3/organizations/#overview
+                endpoint: '/books/v3/organizations',
+                retries: 3
             });
+            const orgData = OrganizationsResponseSchema.parse(orgResponse.data);
+            const firstOrg = orgData.organizations?.[0];
+            if (orgData.code !== 0 || !firstOrg) {
+                throw new nango.ActionError({
+                    type: 'not_found',
+                    message: 'No organizations found for this Zoho Books account.'
+                });
+            }
+            organizationId = firstOrg.organization_id;
         }
 
         const payload = {
@@ -149,8 +163,15 @@ const action = createAction({
 
         const providerPayment = ProviderPaymentSchema.parse(responseData.payment);
 
+        if (!providerPayment.payment_id) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: 'Provider did not return a payment_id.'
+            });
+        }
+
         return {
-            payment_id: providerPayment.payment_id ?? '',
+            payment_id: providerPayment.payment_id,
             payment_mode: providerPayment.payment_mode,
             amount: providerPayment.amount,
             amount_refunded: providerPayment.amount_refunded,

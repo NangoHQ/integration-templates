@@ -1,8 +1,13 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+const OrganizationsResponseSchema = z.object({
+    code: z.number(),
+    organizations: z.array(z.object({ organization_id: z.string() })).optional()
+});
+
 const InputSchema = z.object({
-    organization_id: z.string().describe('Organization ID. Example: "10234695"'),
+    organization_id: z.string().optional().describe('Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.'),
     cursor: z.string().optional().describe('Pagination cursor (page number) from the previous response. Omit for the first page.'),
     per_page: z.number().int().min(1).max(200).optional().describe('Records per page. Default: 200. Max: 200.'),
     invoice_number: z.string().optional().describe('Search by invoice number. Example: "INV-00001"'),
@@ -71,6 +76,24 @@ const action = createAction({
     scopes: ['ZohoBooks.invoices.READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        let organizationId = input.organization_id;
+        if (!organizationId) {
+            const orgResponse = await nango.get({
+                // https://www.zoho.com/books/api/v3/organizations/#overview
+                endpoint: '/books/v3/organizations',
+                retries: 3
+            });
+            const orgData = OrganizationsResponseSchema.parse(orgResponse.data);
+            const firstOrg = orgData.organizations?.[0];
+            if (orgData.code !== 0 || !firstOrg) {
+                throw new nango.ActionError({
+                    type: 'not_found',
+                    message: 'No organizations found for this Zoho Books account.'
+                });
+            }
+            organizationId = firstOrg.organization_id;
+        }
+
         const page = input.cursor ? parseInt(input.cursor, 10) : 1;
         if (isNaN(page) || page < 1) {
             throw new nango.ActionError({
@@ -80,7 +103,7 @@ const action = createAction({
         }
 
         const params: { [key: string]: string | number } = {
-            organization_id: input.organization_id,
+            organization_id: organizationId,
             page: page
         };
 

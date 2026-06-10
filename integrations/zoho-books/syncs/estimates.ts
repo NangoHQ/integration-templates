@@ -95,11 +95,11 @@ const sync = createSync({
         let page = 1;
         let hasMorePage = true;
 
+        let deleteTrackingStarted = false;
+
         // Blocker: the estimates list endpoint documents page-based pagination,
         // filters, and sorting, but no changed-since cursor or last_modified_time
         // query parameter for incremental syncs.
-        await nango.trackDeletesStart('Estimate');
-
         while (hasMorePage) {
             // https://www.zoho.com/books/api/v3/estimates/#list-estimates
             const response = await nango.get({
@@ -117,6 +117,11 @@ const sync = createSync({
             const validated = ListEstimatesResponseSchema.parse(response.data);
             const estimates = validated.estimates;
             const pageContext = validated.page_context;
+
+            if (!deleteTrackingStarted) {
+                await nango.trackDeletesStart('Estimate');
+                deleteTrackingStarted = true;
+            }
 
             if (estimates.length === 0) {
                 break;

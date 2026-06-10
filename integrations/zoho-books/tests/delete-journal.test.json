@@ -1,16 +1,14 @@
 {
   "input": {
-    "journal_id": "260815000000105007"
+    "journal_id": "260815000000105007",
+    "organization_id": "927270289"
   },
   "output": {
     "journal_id": "260815000000105007",
     "deleted": true
   },
   "nango": {
-    "getConnection": {},
-    "getMetadata": {
-      "organization_id": "927270289"
-    }
+    "getConnection": {}
   },
   "api": {
     "delete": {

@@ -1,12 +1,18 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+const OrganizationsResponseSchema = z.object({
+    code: z.number(),
+    organizations: z.array(z.object({ organization_id: z.string() })).optional()
+});
+
 const BillPaymentInputSchema = z.object({
     bill_id: z.string().describe('ID of the bill to apply the payment to. Example: "260815000000108002"'),
     amount_applied: z.number().describe('Amount applied to the bill. Example: 100.00')
 });
 
 const InputSchema = z.object({
+    organization_id: z.string().optional().describe('Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.'),
     vendor_id: z.string().describe('ID of the vendor associated with the payment. Example: "260815000000098001"'),
     amount: z.number().describe('Total amount of the vendor payment. Example: 100.00'),
     paid_through_account_id: z.string().describe('ID of the cash/bank account used for the payment. Example: "260815000000102017"'),
@@ -88,14 +94,22 @@ const action = createAction({
     scopes: ['ZohoBooks.vendorpayments.CREATE'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const metadata = await nango.getMetadata<{ organization_id?: string }>();
-        const organizationId = metadata?.organization_id;
-
+        let organizationId = input.organization_id;
         if (!organizationId) {
-            throw new nango.ActionError({
-                type: 'invalid_metadata',
-                message: 'organization_id is required in metadata.'
+            const orgResponse = await nango.get({
+                // https://www.zoho.com/books/api/v3/organizations/#overview
+                endpoint: '/books/v3/organizations',
+                retries: 3
             });
+            const orgData = OrganizationsResponseSchema.parse(orgResponse.data);
+            const firstOrg = orgData.organizations?.[0];
+            if (orgData.code !== 0 || !firstOrg) {
+                throw new nango.ActionError({
+                    type: 'not_found',
+                    message: 'No organizations found for this Zoho Books account.'
+                });
+            }
+            organizationId = firstOrg.organization_id;
         }
 
         const requestBody: {

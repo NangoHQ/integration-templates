@@ -1,5 +1,7 @@
 {
-  "input": {},
+  "input": {
+    "organization_id": "927270289"
+  },
   "output": {
     "items": [
       {
@@ -47,10 +49,7 @@
     ]
   },
   "nango": {
-    "getConnection": {},
-    "getMetadata": {
-      "organization_id": "927270289"
-    }
+    "getConnection": {}
   },
   "api": {
     "get": {

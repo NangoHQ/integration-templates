@@ -2,7 +2,8 @@
   "input": {
     "contact_name": "Test Save Contact 2",
     "company_name": "Test Corp",
-    "contact_type": "customer"
+    "contact_type": "customer",
+    "organization_id": "927270289"
   },
   "output": {
     "contact_id": "260815000000112011",
@@ -14,10 +15,7 @@
     "status": "active"
   },
   "nango": {
-    "getConnection": {},
-    "getMetadata": {
-      "organization_id": "927270289"
-    }
+    "getConnection": {}
   },
   "api": {
     "post": {

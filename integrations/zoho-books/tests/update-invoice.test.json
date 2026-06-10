@@ -1,7 +1,8 @@
 {
   "input": {
     "invoice_id": "260815000000101011",
-    "notes": "Updated via Nango action"
+    "notes": "Updated via Nango action",
+    "organization_id": "927270289"
   },
   "output": {
     "invoice_id": "260815000000101011",

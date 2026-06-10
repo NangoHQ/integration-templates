@@ -10,7 +10,8 @@
         "quantity": 1,
         "account_id": "260815000000000400"
       }
-    ]
+    ],
+    "organization_id": "927270289"
   },
   "output": {
     "bill_id": "260815000000117048",
@@ -44,10 +45,7 @@
     ]
   },
   "nango": {
-    "getConnection": {},
-    "getMetadata": {
-      "organization_id": "927270289"
-    }
+    "getConnection": {}
   },
   "api": {
     "post": {

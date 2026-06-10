@@ -1,6 +1,11 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+const OrganizationsResponseSchema = z.object({
+    code: z.number(),
+    organizations: z.array(z.object({ organization_id: z.string() })).optional()
+});
+
 const LineItemInputSchema = z.object({
     item_id: z.string().describe('Item ID. Example: "260815000000100002"'),
     rate: z.number().describe('Rate per unit. Example: 10'),
@@ -10,6 +15,7 @@ const LineItemInputSchema = z.object({
 });
 
 const InputSchema = z.object({
+    organization_id: z.string().optional().describe('Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.'),
     vendor_id: z.string().describe('Vendor ID. Example: "260815000000098001"'),
     line_items: z.array(LineItemInputSchema).min(1).describe('At least one line item is required.'),
     purchaseorder_number: z.string().optional().describe('Purchase order number. Example: "PO-001"'),
@@ -71,16 +77,22 @@ const action = createAction({
     scopes: ['ZohoBooks.purchaseorders.CREATE'],
 
     exec: async (nango, input) => {
-        const metadata = await nango.getMetadata();
-        const entries = metadata !== null && typeof metadata === 'object' && !Array.isArray(metadata) ? Object.entries(metadata) : [];
-        const orgEntry = entries.find(([key]) => key === 'organization_id');
-        const organizationId = orgEntry !== undefined && typeof orgEntry[1] === 'string' ? orgEntry[1] : undefined;
-
+        let organizationId = input.organization_id;
         if (!organizationId) {
-            throw new nango.ActionError({
-                type: 'invalid_metadata',
-                message: 'organization_id is required in connection metadata.'
+            const orgResponse = await nango.get({
+                // https://www.zoho.com/books/api/v3/organizations/#overview
+                endpoint: '/books/v3/organizations',
+                retries: 3
             });
+            const orgData = OrganizationsResponseSchema.parse(orgResponse.data);
+            const firstOrg = orgData.organizations?.[0];
+            if (orgData.code !== 0 || !firstOrg) {
+                throw new nango.ActionError({
+                    type: 'not_found',
+                    message: 'No organizations found for this Zoho Books account.'
+                });
+            }
+            organizationId = firstOrg.organization_id;
         }
 
         const requestBody: Record<string, unknown> = {
@@ -125,7 +137,7 @@ const action = createAction({
                 organization_id: organizationId
             },
             data: requestBody,
-            retries: 10
+            retries: 3
         });
 
         const providerResponse = ProviderResponseSchema.safeParse(response.data);

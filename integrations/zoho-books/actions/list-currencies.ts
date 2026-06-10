@@ -1,8 +1,13 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+const OrganizationsResponseSchema = z.object({
+    code: z.number(),
+    organizations: z.array(z.object({ organization_id: z.string() })).optional()
+});
+
 const InputSchema = z.object({
-    organization_id: z.string().describe('ID of the Zoho Books organization. Example: "927270289"'),
+    organization_id: z.string().optional().describe('Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.'),
     cursor: z.string().optional().describe('Pagination cursor (page number) from the previous response. Omit for the first page.'),
     per_page: z.number().optional().describe('Number of records to fetch per page. Default is 200.'),
     filter_by: z.string().optional().describe('Filter currencies. Allowed value: Currencies.ExcludeBaseCurrency')
@@ -51,8 +56,26 @@ const action = createAction({
     scopes: ['ZohoBooks.settings.READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        let organizationId = input.organization_id;
+        if (!organizationId) {
+            const orgResponse = await nango.get({
+                // https://www.zoho.com/books/api/v3/organizations/#overview
+                endpoint: '/books/v3/organizations',
+                retries: 3
+            });
+            const orgData = OrganizationsResponseSchema.parse(orgResponse.data);
+            const firstOrg = orgData.organizations?.[0];
+            if (orgData.code !== 0 || !firstOrg) {
+                throw new nango.ActionError({
+                    type: 'not_found',
+                    message: 'No organizations found for this Zoho Books account.'
+                });
+            }
+            organizationId = firstOrg.organization_id;
+        }
+
         const params: Record<string, string | number> = {
-            organization_id: input.organization_id
+            organization_id: organizationId
         };
 
         if (input.cursor !== undefined) {

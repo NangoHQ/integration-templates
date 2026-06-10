@@ -1,6 +1,7 @@
 {
   "input": {
-    "item_id": "260815000000103026"
+    "item_id": "260815000000103026",
+    "organization_id": "927270289"
   },
   "output": {
     "success": true,
@@ -8,10 +9,7 @@
     "message": "The item has been deleted."
   },
   "nango": {
-    "getConnection": {},
-    "getMetadata": {
-      "organization_id": "927270289"
-    }
+    "getConnection": {}
   },
   "api": {
     "delete": {

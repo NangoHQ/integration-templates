@@ -145,12 +145,12 @@ const sync = createSync({
                     maxLastModifiedTime = account.last_modified_time;
                 }
             }
-        }
 
-        if (maxLastModifiedTime !== checkpoint.last_modified_time) {
-            await nango.saveCheckpoint({
-                last_modified_time: maxLastModifiedTime
-            });
+            if (maxLastModifiedTime !== checkpoint.last_modified_time) {
+                await nango.saveCheckpoint({
+                    last_modified_time: maxLastModifiedTime
+                });
+            }
         }
     }
 });

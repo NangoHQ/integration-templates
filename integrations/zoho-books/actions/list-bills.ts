@@ -1,8 +1,13 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+const OrganizationsResponseSchema = z.object({
+    code: z.number(),
+    organizations: z.array(z.object({ organization_id: z.string() })).optional()
+});
+
 const InputSchema = z.object({
-    organization_id: z.string().describe('Zoho Books organization ID. Example: "927270289"'),
+    organization_id: z.string().optional().describe('Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.'),
     cursor: z.string().optional().describe('Pagination cursor (page number) from the previous response. Omit for the first page.'),
     per_page: z.number().optional().describe('Number of bills to retrieve per page.'),
     vendor_id: z.string().optional().describe('Filter bills by vendor ID.'),
@@ -55,7 +60,7 @@ const ProviderResponseSchema = z.object({
 
 const OutputSchema = z.object({
     items: z.array(ProviderBillSchema),
-    next_page: z.string().optional()
+    next_cursor: z.string().optional()
 });
 
 const action = createAction({
@@ -70,6 +75,24 @@ const action = createAction({
     scopes: ['ZohoBooks.bills.READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        let organizationId = input.organization_id;
+        if (!organizationId) {
+            const orgResponse = await nango.get({
+                // https://www.zoho.com/books/api/v3/organizations/#overview
+                endpoint: '/books/v3/organizations',
+                retries: 3
+            });
+            const orgData = OrganizationsResponseSchema.parse(orgResponse.data);
+            const firstOrg = orgData.organizations?.[0];
+            if (orgData.code !== 0 || !firstOrg) {
+                throw new nango.ActionError({
+                    type: 'not_found',
+                    message: 'No organizations found for this Zoho Books account.'
+                });
+            }
+            organizationId = firstOrg.organization_id;
+        }
+
         const page = input.cursor ? parseInt(input.cursor, 10) : 1;
         if (isNaN(page) || page < 1) {
             throw new nango.ActionError({
@@ -79,7 +102,7 @@ const action = createAction({
         }
 
         const params: Record<string, string | number> = {
-            organization_id: input.organization_id,
+            organization_id: organizationId,
             page: page
         };
 
@@ -104,13 +127,22 @@ const action = createAction({
         });
 
         const providerResponse = ProviderResponseSchema.parse(response.data);
+
+        if (providerResponse.code !== undefined && providerResponse.code !== 0) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: providerResponse.message ?? 'Failed to list bills',
+                code: providerResponse.code
+            });
+        }
+
         const bills = providerResponse.bills ?? [];
         const hasMorePage = providerResponse.page_context?.has_more_page ?? false;
-        const nextPage = hasMorePage ? String(page + 1) : undefined;
+        const nextCursor = hasMorePage ? String(page + 1) : undefined;
 
         return {
             items: bills,
-            ...(nextPage !== undefined && { next_page: nextPage })
+            ...(nextCursor !== undefined && { next_cursor: nextCursor })
         };
     }
 });

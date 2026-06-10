@@ -1,6 +1,7 @@
 {
   "input": {
-    "payment_id": "260815000000121007"
+    "payment_id": "260815000000121007",
+    "organization_id": "927270289"
   },
   "output": {
     "payment_id": "260815000000121007",
@@ -111,10 +112,7 @@
     "approver_id": ""
   },
   "nango": {
-    "getConnection": {},
-    "getMetadata": {
-      "organization_id": "927270289"
-    }
+    "getConnection": {}
   },
   "api": {
     "get": {
