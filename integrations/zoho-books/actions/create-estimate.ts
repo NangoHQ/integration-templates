@@ -75,7 +75,7 @@ const action = createAction({
     },
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['ZohoBooks.estimates.CREATE'],
+    scopes: ['ZohoBooks.estimates.CREATE', 'ZohoBooks.settings.READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         let organizationId = input.organization_id;
@@ -86,14 +86,26 @@ const action = createAction({
                 retries: 3
             });
             const orgData = OrganizationsResponseSchema.parse(orgResponse.data);
-            const firstOrg = orgData.organizations?.[0];
-            if (orgData.code !== 0 || !firstOrg) {
+            if (orgData.code !== 0 || !orgData.organizations || orgData.organizations.length === 0) {
                 throw new nango.ActionError({
                     type: 'not_found',
                     message: 'No organizations found for this Zoho Books account.'
                 });
             }
-            organizationId = firstOrg.organization_id;
+            if (orgData.organizations.length > 1) {
+                throw new nango.ActionError({
+                    type: 'multiple_organizations',
+                    message: `Multiple organizations found (${orgData.organizations.map((o) => o.organization_id).join(', ')}). Provide organization_id in the action input.`
+                });
+            }
+            const singleOrg = orgData.organizations[0];
+            if (!singleOrg) {
+                throw new nango.ActionError({
+                    type: 'not_found',
+                    message: 'No organizations found for this Zoho Books account.'
+                });
+            }
+            organizationId = singleOrg.organization_id;
         }
 
         // https://www.zoho.com/books/api/v3/estimates/#create-an-estimate

@@ -3226,6 +3226,7 @@ import './zoho-books/actions/list-expenses.js';
 import './zoho-books/actions/list-invoices.js';
 import './zoho-books/actions/list-items.js';
 import './zoho-books/actions/list-journals.js';
+import './zoho-books/actions/list-organizations.js';
 import './zoho-books/actions/list-payments.js';
 import './zoho-books/actions/list-purchase-orders.js';
 import './zoho-books/actions/list-taxes.js';

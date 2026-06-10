@@ -99025,6 +99025,43 @@ export interface ActionOutput_zoho_books_listjournals {
   next_cursor?: string | undefined;
 };
 
+export interface ActionInput_zoho_books_listorganizations {
+};
+
+export interface ActionOutput_zoho_books_listorganizations {
+  organizations: ({  organization_id: string;
+  name: string;
+  contact_name?: string | undefined;
+  email?: string | undefined;
+  is_default_org?: boolean | undefined;
+  language_code?: string | undefined;
+  fiscal_year_start_month?: string | undefined;
+  account_created_date?: string | undefined;
+  time_zone?: string | undefined;
+  is_dst_active?: boolean | undefined;
+  date_format?: string | undefined;
+  field_separator?: string | undefined;
+  industry_type?: string | undefined;
+  industry_size?: string | undefined;
+  company_id_label?: string | undefined;
+  company_id_value?: string | undefined;
+  tax_id_label?: string | undefined;
+  tax_id_value?: string | undefined;
+  currency_id?: string | undefined;
+  currency_code?: string | undefined;
+  currency_symbol?: string | undefined;
+  currency_format?: string | undefined;
+  price_precision?: number | undefined;
+  plan_type?: number | undefined;
+  plan_name?: string | undefined;
+  plan_period?: string | undefined;
+  country_code?: string | undefined;
+  country_name?: string | undefined;
+  org_address?: string | undefined;
+  portal_name?: string | undefined;
+  org_settings?: {  is_org_active?: boolean | undefined;};})[];
+};
+
 export interface ActionInput_zoho_books_listpayments {
   /**
    * Pagination cursor (page number) from the previous response. Omit for the first page.
