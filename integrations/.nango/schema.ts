@@ -4153,16 +4153,9 @@ export interface ActionOutput_airtable_upsertrecords {
 
 export interface ApiKey {
   id: string;
-  value: string;
-  createdAt: number;
-  acl: string[];
-  description?: string | undefined;
-  indexes?: string[] | undefined;
-  maxHitsPerQuery?: number | undefined;
-  maxQueriesPerIPPerHour?: number | undefined;
-  queryParameters?: string | undefined;
-  referers?: string[] | undefined;
-  validity?: number | undefined;
+  friendly_name?: string | undefined;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
 };
 
 export interface Index {
@@ -21684,21 +21677,26 @@ export interface Guild {
 
 export interface Message {
   id: string;
-  channel_id: string;
-  channel_name: string;
-  user_id: string;
-  user_name?: string | undefined;
-  text: string;
-  timestamp: string;
-  thread_ts?: string | undefined;
-  parent_ts?: string | undefined;
-  is_thread_reply?: boolean | undefined;
-  reactions?: ({  name: string;
-  count: number;
-  users: string[];})[] | undefined;
-  reply_count?: number | undefined;
-  reply_users?: string[] | undefined;
-  created_at: string;
+  sid: string;
+  account_sid?: string | undefined;
+  api_version?: string | undefined;
+  body?: string | undefined;
+  num_segments?: string | undefined;
+  direction?: string | undefined;
+  from?: string | undefined;
+  to?: string | undefined;
+  date_updated?: string | undefined;
+  price?: string | undefined;
+  error_message?: string | undefined;
+  uri?: string | undefined;
+  num_media?: string | undefined;
+  status?: string | undefined;
+  messaging_service_sid?: string | undefined;
+  date_sent?: string | undefined;
+  date_created?: string | undefined;
+  error_code?: number | undefined;
+  price_unit?: string | undefined;
+  subresource_uris?: {  [key: string]: string;} | undefined;
 };
 
 export interface SyncMetadata_discord_messages {
@@ -26530,28 +26528,17 @@ export interface ActionOutput_freshdesk_deleteuser {
 
 export interface Conversation {
   id: string;
-  name?: string | undefined;
-  created: number;
-  creator?: string | undefined;
-  is_archived: boolean;
-  is_general: boolean;
-  is_channel: boolean;
-  is_group: boolean;
-  is_im: boolean;
-  is_mpim: boolean;
-  is_private: boolean;
-  is_shared: boolean;
-  is_ext_shared: boolean;
-  is_org_shared: boolean;
-  updated: number;
-  num_members?: number | undefined;
-  topic?: {  value: string;
-  creator: string;
-  last_set: number;} | undefined;
-  purpose?: {  value: string;
-  creator: string;
-  last_set: number;} | undefined;
-  members: string[];
+  account_sid?: string | undefined;
+  chat_service_sid?: string | undefined;
+  messaging_service_sid?: string | undefined;
+  friendly_name?: string | undefined;
+  unique_name?: string | undefined;
+  attributes?: string | undefined;
+  state?: string | undefined;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+  url?: string | undefined;
+  links?: {  [key: string]: string;} | undefined;
 };
 
 export interface SyncMetadata_front_conversations {
@@ -86607,6 +86594,2258 @@ export interface ActionOutput_tiktok_personal_queryvideos {
   view_count?: number | undefined;})[];
 };
 
+export interface Call {
+  id: string;
+  subject?: string | undefined;
+  callType?: string | undefined;
+  callPurpose?: string | undefined;
+  callResult?: string | undefined;
+  callDuration?: string | undefined;
+  callDurationInSeconds?: string | undefined;
+  callStartTime?: string | undefined;
+  description?: string | undefined;
+  dialledNumber?: string | undefined;
+  callerId?: string | undefined;
+  reminder?: string | undefined;
+  modifiedTime: string;
+  createdTime?: string | undefined;
+  ownerName?: string | undefined;
+  ownerId?: string | undefined;
+  ownerEmail?: string | undefined;
+  createdByName?: string | undefined;
+  createdById?: string | undefined;
+  modifiedByName?: string | undefined;
+  modifiedById?: string | undefined;
+  relatedToName?: string | undefined;
+  relatedToId?: string | undefined;
+  contactName?: string | undefined;
+  contactId?: string | undefined;
+  tags?: string[] | undefined;
+};
+
+export interface ConferenceParticipant {
+  id: string;
+  call_sid: string;
+  conference_sid: string;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+  end_conference_on_exit?: boolean | undefined;
+  hold?: boolean | undefined;
+  muted?: boolean | undefined;
+  status?: string | undefined;
+};
+
+export interface SyncMetadata_twilio_conferenceparticipants {
+  account_sid?: string | undefined;
+};
+
+export interface Conference {
+  id: string;
+  account_sid?: string | undefined;
+  api_version?: string | undefined;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+  friendly_name?: string | undefined;
+  region?: string | undefined;
+  sid: string;
+  status?: string | undefined;
+  subresource_uris?: {  [key: string]: string;} | undefined;
+  uri?: string | undefined;
+  reason_conference_ended?: string | undefined;
+  call_sid_ending_conference?: string | undefined;
+};
+
+export interface IncomingPhoneNumber {
+  id: string;
+  account_sid?: string | undefined;
+  address_sid?: string | undefined;
+  address_requirements?: string | undefined;
+  api_version?: string | undefined;
+  beta?: boolean | undefined;
+  capabilities?: {  voice?: boolean | undefined;
+  sms?: boolean | undefined;
+  mms?: boolean | undefined;
+  fax?: boolean | undefined;};
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+  emergency_status?: string | undefined;
+  emergency_address_sid?: string | undefined;
+  emergency_address_status?: string | undefined;
+  friendly_name?: string | undefined;
+  identity_sid?: string | undefined;
+  origin?: string | undefined;
+  phone_number?: string | undefined;
+  sid?: string | undefined;
+  sms_application_sid?: string | undefined;
+  sms_fallback_method?: string | undefined;
+  sms_fallback_url?: string | undefined;
+  sms_method?: string | undefined;
+  sms_url?: string | undefined;
+  status?: string | undefined;
+  status_callback?: string | undefined;
+  status_callback_method?: string | undefined;
+  trunk_sid?: string | undefined;
+  type?: string | undefined;
+  uri?: string | undefined;
+  voice_application_sid?: string | undefined;
+  voice_caller_id_lookup?: boolean | undefined;
+  voice_fallback_method?: string | undefined;
+  voice_fallback_url?: string | undefined;
+  voice_method?: string | undefined;
+  voice_receive_mode?: string | undefined;
+  voice_url?: string | undefined;
+  bundle_sid?: string | undefined;
+};
+
+export interface Participant {
+  id: string;
+  conversation_sid: string;
+  account_sid: string;
+  identity?: string | undefined;
+  attributes?: string | undefined;
+  messaging_binding?: {  type?: string | undefined;
+  address?: string | undefined;
+  proxy_address?: string | undefined;};
+  role_sid?: string | undefined;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+  url?: string | undefined;
+};
+
+export interface Queue {
+  /**
+   * Queue SID. Example: QUaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+   */
+  id: string;
+  /**
+   * Account SID. Example: ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+   */
+  account_sid: string;
+  friendly_name?: string | undefined;
+  current_size?: number | undefined;
+  average_wait_time?: number | undefined;
+  max_size?: number | undefined;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+  uri?: string | undefined;
+};
+
+export interface SyncMetadata_twilio_queues {
+  account_sid?: string | undefined;
+};
+
+export interface Recording {
+  id: string;
+  uuid: string;
+  account_id?: string | undefined;
+  host_id?: string | undefined;
+  topic?: string | undefined;
+  type?: number | undefined;
+  start_time?: string | undefined;
+  duration?: number | undefined;
+  total_size?: number | undefined;
+  recording_count?: number | undefined;
+  share_url?: string | undefined;
+};
+
+export interface SyncMetadata_twilio_recordings {
+  account_sid?: string | undefined;
+};
+
+export interface Transcription {
+  id: string;
+  account_sid?: string | undefined;
+  api_version?: string | undefined;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+  duration?: string | undefined;
+  price?: number | undefined;
+  price_unit?: string | undefined;
+  recording_sid?: string | undefined;
+  status?: string | undefined;
+  transcription_text?: string | undefined;
+  type?: string | undefined;
+  uri?: string | undefined;
+};
+
+export interface TwimlApp {
+  id: string;
+  account_sid: string;
+  api_version?: string | undefined;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+  friendly_name?: string | undefined;
+  message_status_callback?: string | undefined;
+  sid: string;
+  sms_fallback_method?: string | undefined;
+  sms_fallback_url?: string | undefined;
+  sms_method?: string | undefined;
+  sms_status_callback?: string | undefined;
+  sms_url?: string | undefined;
+  status_callback?: string | undefined;
+  status_callback_method?: string | undefined;
+  uri?: string | undefined;
+  voice_caller_id_lookup?: boolean | undefined;
+  voice_fallback_method?: string | undefined;
+  voice_fallback_url?: string | undefined;
+  voice_method?: string | undefined;
+  voice_url?: string | undefined;
+  public_application_connect_enabled?: boolean | undefined;
+};
+
+export interface UsageRecord {
+  id: string;
+  account_sid?: string | undefined;
+  api_version?: string | undefined;
+  as_of?: string | undefined;
+  category?: string | undefined;
+  count?: string | undefined;
+  count_unit?: string | undefined;
+  description?: string | undefined;
+  end_date?: string | undefined;
+  price?: string | undefined;
+  price_unit?: string | undefined;
+  start_date?: string | undefined;
+  uri?: string | undefined;
+  usage?: string | undefined;
+  usage_unit?: string | undefined;
+};
+
+export interface VerifyService {
+  id: string;
+  sid: string;
+  account_sid: string;
+  friendly_name?: string | undefined;
+  code_length?: number | undefined;
+  lookup_enabled?: boolean | undefined;
+  psd2_enabled?: boolean | undefined;
+  skip_sms_to_landlines?: boolean | undefined;
+  dtmf_input_required?: boolean | undefined;
+  tts_name?: string | undefined;
+  do_not_share_warning_enabled?: boolean | undefined;
+  custom_code_enabled?: boolean | undefined;
+  push?: {  include_date?: boolean | undefined;
+  apn_credential_sid?: string | undefined;
+  fcm_credential_sid?: string | undefined;};
+  totp?: {  issuer?: string | undefined;
+  time_step?: number | undefined;
+  code_length?: number | undefined;
+  skew?: number | undefined;};
+  whatsapp?: {  msg_service_sid?: string | undefined;
+  from?: string | undefined;};
+  passkeys?: {  relying_party?: {  id?: string | undefined;
+  name?: string | undefined;
+  origins?: string | undefined;};
+  authenticator_attachment?: string | undefined;
+  discoverable_credentials?: string | undefined;
+  user_verification?: string | undefined;};
+  default_template_sid?: string | undefined;
+  verify_event_subscription_enabled?: boolean | undefined;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+  url?: string | undefined;
+  links?: {  [key: string]: string;} | undefined;
+};
+
+export interface ActionInput_twilio_checkverification {
+  /**
+   * The SID of the verification Service. Example: "VA9a01b6fde6aaf381bc6fe7424b7fe293"
+   */
+  service_sid: string;
+  /**
+   * The phone number or email to verify. Example: "+15017122661"
+   */
+  to?: string | undefined;
+  /**
+   * The 4-10 character verification code. Example: "1234"
+   */
+  code?: string | undefined;
+  /**
+   * The SID of the Verification. Example: "VEaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+   */
+  verification_sid?: string | undefined;
+  /**
+   * The amount of the associated PSD2 transaction. Example: "€39.99"
+   */
+  amount?: string | undefined;
+  /**
+   * The payee of the associated PSD2 transaction. Example: "Acme Inc."
+   */
+  payee?: string | undefined;
+};
+
+export interface ActionOutput_twilio_checkverification {
+  sid?: string | undefined;
+  service_sid?: string | undefined;
+  account_sid?: string | undefined;
+  to?: string | undefined;
+  channel?: string | undefined;
+  status?: string | undefined;
+  valid?: boolean | undefined;
+  amount?: string | undefined;
+  payee?: string | undefined;
+  sna_attempts_error_codes?: string[] | undefined;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+};
+
+export interface ActionInput_twilio_createapikey {
+  /**
+   * A descriptive name for the API key. Example: "My App Key"
+   */
+  friendlyName?: string | undefined;
+};
+
+export interface ActionOutput_twilio_createapikey {
+  sid: string;
+  secret: string;
+  friendlyName?: string | undefined;
+};
+
+export interface ActionInput_twilio_createcall {
+  /**
+   * The SID of the Account that will create the resource. Example: "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+   */
+  account_sid: string;
+  /**
+   * The phone number, SIP address, or client identifier to call. Example: "+18777804236"
+   */
+  to: string;
+  /**
+   * The Twilio phone number or client identifier to use as the caller ID. Example: "+19843341706"
+   */
+  from: string;
+  /**
+   * The absolute URL that returns TwiML instructions for the call.
+   */
+  url?: string | undefined;
+  /**
+   * TwiML instructions for the call. Max 4000 characters.
+   */
+  twiml?: string | undefined;
+  /**
+   * The SID of the Application resource that will handle the call.
+   */
+  application_sid?: string | undefined;
+  /**
+   * The HTTP method to use when calling the url parameter.
+   */
+  method?: 'GET' | 'POST' | undefined;
+  /**
+   * The URL to call if an error occurs when requesting or executing the TwiML at url.
+   */
+  fallback_url?: string | undefined;
+  /**
+   * The HTTP method to use for the fallback_url.
+   */
+  fallback_method?: 'GET' | 'POST' | undefined;
+  /**
+   * The URL to call to send status information.
+   */
+  status_callback?: string | undefined;
+  /**
+   * The call progress events to send to the status_callback URL.
+   */
+  status_callback_event?: string[] | undefined;
+  /**
+   * The HTTP method to use when calling the status_callback URL.
+   */
+  status_callback_method?: 'GET' | 'POST' | undefined;
+  /**
+   * The string of keys to dial after connecting, max 32 digits.
+   */
+  send_digits?: string | undefined;
+  /**
+   * The number of seconds to allow the phone to ring before assuming no answer. Default 60, max 600.
+   */
+  timeout?: number | undefined;
+  /**
+   * Whether to record the call.
+   */
+  record?: boolean | undefined;
+  /**
+   * The number of channels in the final recording. Can be mono or dual.
+   */
+  recording_channels?: string | undefined;
+  /**
+   * The URL to call when the recording is available.
+   */
+  recording_status_callback?: string | undefined;
+  /**
+   * The HTTP method for the recording_status_callback URL.
+   */
+  recording_status_callback_method?: 'GET' | 'POST' | undefined;
+  /**
+   * Whether to detect human, answering machine, or fax. Can be Enable or DetectMessageEnd.
+   */
+  machine_detection?: string | undefined;
+  /**
+   * Seconds to attempt answering machine detection before timing out. Default 30.
+   */
+  machine_detection_timeout?: number | undefined;
+  /**
+   * Whether to trim leading and trailing silence. Can be trim-silence or do-not-trim.
+   */
+  trim?: string | undefined;
+  /**
+   * The phone number, SIP address, or Client identifier that made this call.
+   */
+  caller_id?: string | undefined;
+  /**
+   * The audio track to record. Can be inbound, outbound, or both.
+   */
+  recording_track?: string | undefined;
+  /**
+   * The maximum duration of the call in seconds.
+   */
+  time_limit?: number | undefined;
+};
+
+export interface ActionOutput_twilio_createcall {
+  call: {  account_sid: string;
+  annotation?: string | undefined;
+  answered_by?: string | undefined;
+  api_version: string;
+  caller_name?: string | undefined;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+  direction: string;
+  duration?: string | undefined;
+  end_time?: string | undefined;
+  forwarded_from?: string | undefined;
+  from: string;
+  from_formatted: string;
+  group_sid?: string | undefined;
+  parent_call_sid?: string | undefined;
+  phone_number_sid: string;
+  price?: string | undefined;
+  price_unit: string;
+  queue_time?: string | undefined;
+  sid: string;
+  start_time?: string | undefined;
+  status: string;
+  subresource_uris: {  [key: string]: string;};
+  to: string;
+  to_formatted: string;
+  trunk_sid?: string | undefined;
+  uri: string;};
+};
+
+export interface ActionInput_twilio_createconversationmessage {
+  /**
+   * The SID of the Conversation. Example: "CH7455d9a8e3c541da993a275b699d6c83"
+   */
+  ConversationSid: string;
+  /**
+   * The text content of the message. Required if MediaSid is not provided.
+   */
+  Body?: string | undefined;
+  /**
+   * The SID of the Media to include. Required if Body is not provided.
+   */
+  MediaSid?: string | undefined;
+  /**
+   * The identity of the message author. Example: "user_1"
+   */
+  Author?: string | undefined;
+  /**
+   * The ISO 8601 date and time the message was created.
+   */
+  DateCreated?: string | undefined;
+  /**
+   * The ISO 8601 date and time the message was updated.
+   */
+  DateUpdated?: string | undefined;
+  /**
+   * JSON string of custom attributes for the message.
+   */
+  Attributes?: string | undefined;
+};
+
+export interface ActionOutput_twilio_createconversationmessage {
+  sid: string;
+  account_sid?: string | undefined;
+  conversation_sid?: string | undefined;
+  body?: string | undefined;
+  author?: string | undefined;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+  index?: number | undefined;
+  attributes?: string | undefined;
+  media?: unknown[] | undefined;
+  url?: string | undefined;
+  links?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_twilio_createconversationwebhook {
+  /**
+   * The unique ID of the Conversation for this webhook. Example: "CHaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+   */
+  conversationSid: string;
+  /**
+   * The target of this webhook: webhook, studio, or trigger
+   */
+  target: 'webhook' | 'studio' | 'trigger';
+  /**
+   * The absolute url the webhook request should be sent to. Required when target is webhook.
+   */
+  configurationUrl?: string | undefined;
+  /**
+   * The HTTP method to be used when sending a webhook request. Required when target is webhook.
+   */
+  configurationMethod?: 'get' | 'post' | undefined;
+  /**
+   * Comma-separated event names that trigger this webhook. Example: "onMessageAdded,onParticipantAdded"
+   */
+  configurationFilters?: string | undefined;
+};
+
+export interface ActionOutput_twilio_createconversationwebhook {
+  sid: string;
+  accountSid: string;
+  conversationSid: string;
+  target: string;
+  url: string;
+  configuration?: {} | undefined;
+  dateCreated?: string | undefined;
+  dateUpdated?: string | undefined;
+};
+
+export interface ActionInput_twilio_createconversation {
+  /**
+   * Human-readable name for the conversation. Example: "Support Chat"
+   */
+  FriendlyName?: string | undefined;
+  /**
+   * Unique name for the conversation. Example: "support-chat-123"
+   */
+  UniqueName?: string | undefined;
+  /**
+   * ISO 8601 datetime for when the conversation was created. Example: "2024-01-01T00:00:00Z"
+   */
+  DateCreated?: string | undefined;
+  /**
+   * ISO 8601 datetime for when the conversation was last updated. Example: "2024-01-01T00:00:00Z"
+   */
+  DateUpdated?: string | undefined;
+  /**
+   * Messaging Service SID to associate with the conversation. Example: "MGxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+   */
+  MessagingServiceSid?: string | undefined;
+  /**
+   * JSON string of custom attributes. Example: "{\"key\":\"value\"}"
+   */
+  Attributes?: string | undefined;
+  /**
+   * Conversation state.
+   */
+  State?: 'active' | 'closed' | 'inactive' | undefined;
+  /**
+   * ISO 8601 duration for inactive timer. Example: "P1D"
+   */
+  "Timers.Inactive"?: string | undefined;
+  /**
+   * ISO 8601 duration for closed timer. Example: "P1D"
+   */
+  "Timers.Closed"?: string | undefined;
+};
+
+export interface ActionOutput_twilio_createconversation {
+  sid: string;
+  account_sid?: string | undefined;
+  chat_service_sid?: string | undefined;
+  messaging_service_sid?: string | undefined;
+  friendly_name?: string | undefined;
+  unique_name?: string | undefined;
+  attributes?: string | undefined;
+  state?: string | undefined;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+  timers?: {  inactive?: string | undefined;
+  closed?: string | undefined;};
+  url?: string | undefined;
+  links?: {  [key: string]: string;} | undefined;
+};
+
+export interface ActionInput_twilio_createparticipant {
+  /**
+   * The SID of the Conversation to add the participant to. Example: "CHxxx"
+   */
+  conversationSid: string;
+  /**
+   * The unique identity of the user for a chat participant. Example: "user_1"
+   */
+  identity?: string | undefined;
+  /**
+   * The phone number address for an SMS participant. Example: "+1234567890"
+   */
+  messagingBindingAddress?: string | undefined;
+  /**
+   * The Twilio phone number to proxy the SMS participant. Example: "+19843341706"
+   */
+  messagingBindingProxyAddress?: string | undefined;
+};
+
+export interface ActionOutput_twilio_createparticipant {
+  sid: string;
+  accountSid?: string | undefined;
+  conversationSid?: string | undefined;
+  identity?: string | undefined;
+  attributes?: string | undefined;
+  dateCreated?: string | undefined;
+  dateUpdated?: string | undefined;
+  roleSid?: string | undefined;
+  messagingBinding?: {  address?: string | undefined;
+  proxyAddress?: string | undefined;
+  type?: string | undefined;};
+  url?: string | undefined;
+  lastReadMessageIndex?: number | string | undefined;
+  lastReadTimestamp?: string | undefined;
+};
+
+export interface ActionInput_twilio_createqueue {
+  /**
+   * A descriptive string for the queue. Example: "Support Queue"
+   */
+  friendly_name: string;
+  /**
+   * The maximum number of calls allowed in the queue. Default: 100, max: 1000.
+   */
+  max_size?: number | undefined;
+};
+
+export interface ActionOutput_twilio_createqueue {
+  account_sid: string;
+  average_wait_time?: number | undefined;
+  current_size?: number | undefined;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+  friendly_name?: string | undefined;
+  max_size?: number | undefined;
+  sid?: string | undefined;
+  uri?: string | undefined;
+};
+
+export interface ActionInput_twilio_createtwimlapp {
+  /**
+   * The human-readable name of this TwiML application. Example: "My App"
+   */
+  friendly_name: string;
+  /**
+   * The URL to request when a call is made to this application. Example: "https://example.com/voice"
+   */
+  voice_url?: string | undefined;
+  /**
+   * The HTTP method to use when requesting the voice_url. Example: "POST"
+   */
+  voice_method?: string | undefined;
+  /**
+   * The URL to request if the voice_url fails. Example: "https://example.com/voice-fallback"
+   */
+  voice_fallback_url?: string | undefined;
+  /**
+   * The HTTP method to use when requesting the voice_fallback_url. Example: "POST"
+   */
+  voice_fallback_method?: string | undefined;
+  /**
+   * The URL to request when an SMS is sent to this application. Example: "https://example.com/sms"
+   */
+  sms_url?: string | undefined;
+  /**
+   * The HTTP method to use when requesting the sms_url. Example: "POST"
+   */
+  sms_method?: string | undefined;
+  /**
+   * The URL to request for status callbacks. Example: "https://example.com/status"
+   */
+  status_callback?: string | undefined;
+  /**
+   * The HTTP method to use when requesting the status_callback. Example: "POST"
+   */
+  status_callback_method?: string | undefined;
+};
+
+export interface ActionOutput_twilio_createtwimlapp {
+  sid: string;
+  account_sid: string;
+  friendly_name: string;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+  api_version?: string | undefined;
+  voice_url?: string | undefined;
+  voice_method?: string | undefined;
+  voice_fallback_url?: string | undefined;
+  voice_fallback_method?: string | undefined;
+  sms_url?: string | undefined;
+  sms_method?: string | undefined;
+  status_callback?: string | undefined;
+  status_callback_method?: string | undefined;
+  uri?: string | undefined;
+};
+
+export interface ActionInput_twilio_createverification {
+  /**
+   * Twilio Verify Service SID. Example: "VA9a01b6fde6aaf381bc6fe7424b7fe293"
+   */
+  service_sid: string;
+  /**
+   * The phone number or email to verify in E.164 format. Example: "+18777804236"
+   */
+  to: string;
+  /**
+   * The verification channel.
+   */
+  channel: 'sms' | 'call' | 'email' | 'whatsapp';
+};
+
+export interface ActionOutput_twilio_createverification {
+  sid: string;
+  service_sid: string;
+  account_sid: string;
+  to: string;
+  channel: string;
+  status: string;
+  valid?: boolean | undefined;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+  url?: string | undefined;
+};
+
+export interface ActionInput_twilio_deletecall {
+  /**
+   * The unique SID of the Call to delete. Example: "CA6b10957e2080e766c84e850b56e404f3"
+   */
+  callSid: string;
+};
+
+export interface ActionOutput_twilio_deletecall {
+  sid: string;
+  status?: string | undefined;
+  deleted: boolean;
+};
+
+export interface ActionInput_twilio_deleteconversationmessage {
+  /**
+   * The SID of the conversation. Example: "CH7455d9a8e3c541da993a275b699d6c83"
+   */
+  conversationSid: string;
+  /**
+   * The SID of the message to delete. Example: "IMaa48a9f1fa3e4e5e90e74a390fa0fc8d"
+   */
+  messageSid: string;
+};
+
+export interface ActionOutput_twilio_deleteconversationmessage {
+  success: boolean;
+};
+
+export interface ActionInput_twilio_deleteconversation {
+  /**
+   * The unique SID of the conversation to delete. Example: CH7455d9a8e3c541da993a275b699d6c83
+   */
+  conversationSid: string;
+};
+
+export interface ActionOutput_twilio_deleteconversation {
+  success: boolean;
+};
+
+export interface ActionInput_twilio_deletemessagemedia {
+  /**
+   * The SID of the Message resource. Example: SMxxxxx
+   */
+  messageSid: string;
+  /**
+   * The SID of the media resource to delete. Example: MExxxxx
+   */
+  mediaSid: string;
+};
+
+export interface ActionOutput_twilio_deletemessagemedia {
+  success: boolean;
+};
+
+export interface ActionInput_twilio_deletemessage {
+  /**
+   * The unique SID of the message to delete. Example: SM879b8d48ecdd19b5f63172ab88b03e45
+   */
+  messageSid: string;
+};
+
+export interface ActionOutput_twilio_deletemessage {
+  success: boolean;
+};
+
+export interface ActionInput_twilio_deletequeue {
+  /**
+   * The SID of the queue to delete. Example: "QU710d79ddc79e88ff10573c8b8bdd357e"
+   */
+  queueSid: string;
+};
+
+export interface ActionOutput_twilio_deletequeue {
+  success: boolean;
+  queueSid?: string | undefined;
+};
+
+export interface ActionInput_twilio_deleterecording {
+  /**
+   * The unique SID of the recording to delete. Example: "RE1234567890abcdef1234567890abcdef"
+   */
+  recordingSid: string;
+};
+
+export interface ActionOutput_twilio_deleterecording {
+  success: boolean;
+};
+
+export interface ActionInput_twilio_deletetwimlapp {
+  /**
+   * The SID of the TwiML application to delete. Example: "AP6b52759af1ef554ebaba08debc6c99f4"
+   */
+  application_sid: string;
+};
+
+export interface ActionOutput_twilio_deletetwimlapp {
+  success: boolean;
+  application_sid: string;
+};
+
+export interface ActionInput_twilio_getapikey {
+  /**
+   * The SID of the API Key to retrieve. Example: "SKaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+   */
+  sid: string;
+};
+
+export interface ActionOutput_twilio_getapikey {
+  sid: string;
+  friendly_name?: string | undefined;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+};
+
+export interface ActionInput_twilio_getconferenceparticipant {
+  /**
+   * The SID of the conference. Example: "CFXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+   */
+  conference_sid: string;
+  /**
+   * The Call SID or label of the participant. Example: "CAXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+   */
+  call_sid: string;
+};
+
+export interface ActionOutput_twilio_getconferenceparticipant {
+  account_sid?: string | undefined;
+  call_sid?: string | undefined;
+  label?: string | undefined;
+  call_sid_to_coach?: string | undefined;
+  coaching?: boolean | undefined;
+  conference_sid?: string | undefined;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+  end_conference_on_exit?: boolean | undefined;
+  muted?: boolean | undefined;
+  hold?: boolean | undefined;
+  start_conference_on_enter?: boolean | undefined;
+  status?: string | undefined;
+  queue_time?: string | undefined;
+  uri?: string | undefined;
+};
+
+export interface ActionInput_twilio_getconference {
+  /**
+   * The Twilio-provided string that uniquely identifies the Conference resource. Example: CFaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+   */
+  conference_sid: string;
+};
+
+export interface ActionOutput_twilio_getconference {
+  account_sid?: string | undefined;
+  api_version?: string | undefined;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+  friendly_name?: string | undefined;
+  sid?: string | undefined;
+  region?: string | undefined;
+  status?: string | undefined;
+  subresource_uris?: {  [key: string]: string;} | undefined;
+  uri?: string | undefined;
+  reason_conference_ended?: string | undefined;
+  call_sid_ending_conference?: string | undefined;
+};
+
+export interface ActionInput_twilio_getconversationmessage {
+  /**
+   * The unique ID of the Conversation. Example: "CHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+   */
+  conversation_sid: string;
+  /**
+   * The unique ID of the Message. Example: "IMXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+   */
+  message_sid: string;
+};
+
+export interface ActionOutput_twilio_getconversationmessage {
+  sid: string;
+  account_sid: string;
+  conversation_sid: string;
+  body?: string | undefined;
+  media?: ({  sid: string;
+  size: number;
+  content_type: string;
+  filename: string;})[] | undefined;
+  author?: string | undefined;
+  participant_sid?: string | undefined;
+  attributes?: string | undefined;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+  index?: number | undefined;
+  delivery?: {  total: number;
+  sent: string;
+  delivered: string;
+  read: string;
+  failed: string;
+  undelivered: string;} | undefined;
+  content_sid?: string | undefined;
+  url?: string | undefined;
+  links?: {  delivery_receipts?: string | undefined;
+  channel_metadata?: string | undefined;};
+};
+
+export interface ActionInput_twilio_getconversationwebhook {
+  /**
+   * The unique ID of the Conversation for this webhook. Example: "CHaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+   */
+  conversation_sid: string;
+  /**
+   * A 34 character string that uniquely identifies this webhook resource. Example: "WHaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+   */
+  webhook_sid: string;
+};
+
+export interface ActionOutput_twilio_getconversationwebhook {
+  sid?: string | undefined;
+  account_sid?: string | undefined;
+  conversation_sid?: string | undefined;
+  target?: string | undefined;
+  configuration?: {  url?: string | undefined;
+  method?: string | undefined;
+  filters?: string[] | undefined;
+  triggers?: string[] | undefined;
+  flow_sid?: string | undefined;
+  replay_after?: number | undefined;};
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+  url?: string | undefined;
+};
+
+export interface ActionInput_twilio_getconversation {
+  /**
+   * The SID of the Conversation to retrieve. Example: CHaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+   */
+  conversationSid: string;
+};
+
+export interface ActionOutput_twilio_getconversation {
+  sid: string;
+  account_sid?: string | undefined;
+  chat_service_sid?: string | undefined;
+  messaging_service_sid?: string | undefined;
+  friendly_name?: string | undefined;
+  unique_name?: string | undefined;
+  attributes?: string | undefined;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+  state?: string | undefined;
+  timers?: {  date_inactive?: string | undefined;
+  date_closed?: string | undefined;};
+  bindings?: {  [key: string]: unknown | undefined;} | null;
+  url?: string | undefined;
+  links?: {  participants?: string | undefined;
+  messages?: string | undefined;
+  webhooks?: string | undefined;
+  export?: string | undefined;};
+};
+
+export interface ActionInput_twilio_getmessage {
+  /**
+   * The SID of the Message resource to retrieve. Example: SMXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+   */
+  message_sid: string;
+};
+
+export interface ActionOutput_twilio_getmessage {
+  account_sid?: string | undefined;
+  api_version?: string | undefined;
+  body?: string | undefined;
+  date_created?: string | undefined;
+  date_sent?: string | undefined;
+  date_updated?: string | undefined;
+  direction?: string | undefined;
+  error_code?: number | undefined;
+  error_message?: string | undefined;
+  from?: string | undefined;
+  messaging_service_sid?: string | undefined;
+  num_media?: string | undefined;
+  num_segments?: string | undefined;
+  price?: string | undefined;
+  price_unit?: string | undefined;
+  sid?: string | undefined;
+  status?: string | undefined;
+  subresource_uris?: {  [key: string]: string;} | undefined;
+  to?: string | undefined;
+  uri?: string | undefined;
+};
+
+export interface ActionInput_twilio_getparticipant {
+  /**
+   * The unique ID of the Conversation for this participant. Example: "CHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+   */
+  conversationSid: string;
+  /**
+   * A 34 character string that uniquely identifies this participant resource. Example: "MBXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+   */
+  participantSid: string;
+};
+
+export interface ActionOutput_twilio_getparticipant {
+  account_sid?: string | undefined;
+  conversation_sid?: string | undefined;
+  sid?: string | undefined;
+  identity?: string | undefined;
+  attributes?: string | undefined;
+  messaging_binding?: {  type?: string | undefined;
+  address?: string | undefined;
+  proxy_address?: string | undefined;
+  projected_address?: string | undefined;};
+  role_sid?: string | undefined;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+  url?: string | undefined;
+  last_read_message_index?: number | undefined;
+  last_read_timestamp?: string | undefined;
+};
+
+export interface ActionInput_twilio_getqueue {
+  /**
+   * The SID of the Queue to retrieve. Example: "QU710d79ddc79e88ff10573c8b8bdd357e"
+   */
+  queue_sid: string;
+};
+
+export interface ActionOutput_twilio_getqueue {
+  sid: string;
+  account_sid: string;
+  friendly_name?: string | undefined;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+  current_size?: number | undefined;
+  max_size?: number | undefined;
+  average_wait_time?: number | undefined;
+  uri?: string | undefined;
+};
+
+export interface ActionInput_twilio_getrecording {
+  /**
+   * The Twilio-provided string that uniquely identifies the Recording resource. Example: "REaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+   */
+  recording_sid: string;
+};
+
+export interface ActionOutput_twilio_getrecording {
+  account_sid: string;
+  api_version?: string | undefined;
+  call_sid?: string | undefined;
+  conference_sid?: string | undefined;
+  channels?: number | undefined;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+  start_time?: string | undefined;
+  price?: string | undefined;
+  price_unit?: string | undefined;
+  duration?: string | undefined;
+  sid: string;
+  source?: string | undefined;
+  status?: string | undefined;
+  error_code?: number | undefined;
+  uri?: string | undefined;
+  subresource_uris?: {  [key: string]: string;} | undefined;
+  encryption_details?: {  encryption_public_key_sid?: string | undefined;
+  encryption_cek?: string | undefined;
+  encryption_iv?: string | undefined;};
+  media_url?: string | undefined;
+};
+
+export interface ActionInput_twilio_gettranscription {
+  /**
+   * Twilio Account SID. Example: "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+   */
+  account_sid: string;
+  /**
+   * Transcription SID. Example: "TRXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+   */
+  transcription_sid: string;
+};
+
+export interface ActionOutput_twilio_gettranscription {
+  account_sid?: string | undefined;
+  api_version?: string | undefined;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+  duration?: string | undefined;
+  price?: string | undefined;
+  price_unit?: string | undefined;
+  recording_sid?: string | undefined;
+  sid?: string | undefined;
+  status?: string | undefined;
+  transcription_text?: string | undefined;
+  type?: string | undefined;
+  uri?: string | undefined;
+};
+
+export interface ActionInput_twilio_gettwimlapp {
+  /**
+   * The SID of the TwiML Application to retrieve. Example: "APaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+   */
+  application_sid: string;
+};
+
+export interface ActionOutput_twilio_gettwimlapp {
+  /**
+   * The SID of the Account that created the Application resource.
+   */
+  account_sid: string;
+  /**
+   * The API version used to start a new TwiML session.
+   */
+  api_version: string;
+  /**
+   * The date and time in GMT that the resource was created specified in RFC 2822 format.
+   */
+  date_created: string;
+  /**
+   * The date and time in GMT that the resource was last updated specified in RFC 2822 format.
+   */
+  date_updated: string;
+  /**
+   * The string that you assigned to describe the resource.
+   */
+  friendly_name?: string | undefined;
+  /**
+   * The URL we call using a POST method to send message status information to your application.
+   */
+  message_status_callback?: string | undefined;
+  /**
+   * The unique string that we created to identify the Application resource.
+   */
+  sid: string;
+  /**
+   * The HTTP method we use to call sms_fallback_url.
+   */
+  sms_fallback_method: string;
+  /**
+   * The URL that we call when an error occurs while retrieving or executing the TwiML from sms_url.
+   */
+  sms_fallback_url?: string | undefined;
+  /**
+   * The HTTP method we use to call sms_url.
+   */
+  sms_method: string;
+  /**
+   * The URL we call using a POST method to send status information about SMS messages that refer to the application.
+   */
+  sms_status_callback?: string | undefined;
+  /**
+   * The URL we call when the phone number receives an incoming SMS message.
+   */
+  sms_url?: string | undefined;
+  /**
+   * The URL we call using the status_callback_method to send status information to your application.
+   */
+  status_callback?: string | undefined;
+  /**
+   * The HTTP method we use to call status_callback.
+   */
+  status_callback_method: string;
+  /**
+   * The URI of the resource, relative to https://api.twilio.com.
+   */
+  uri: string;
+  /**
+   * Whether we look up the caller's caller-ID name from the CNAM database.
+   */
+  voice_caller_id_lookup: boolean;
+  /**
+   * The HTTP method we use to call voice_fallback_url.
+   */
+  voice_fallback_method: string;
+  /**
+   * The URL that we call when an error occurs retrieving or executing the TwiML requested by url.
+   */
+  voice_fallback_url?: string | undefined;
+  /**
+   * The HTTP method we use to call voice_url.
+   */
+  voice_method: string;
+  /**
+   * The URL we call when the phone number assigned to this application receives a call.
+   */
+  voice_url?: string | undefined;
+  /**
+   * Whether to allow other Twilio accounts to dial this application using Dial verb.
+   */
+  public_application_connect_enabled: boolean;
+};
+
+export interface ActionInput_twilio_getverifyservice {
+  /**
+   * The Twilio-provided SID that uniquely identifies the Verify Service. Example: "VA9a01b6fde6aaf381bc6fe7424b7fe293"
+   */
+  service_sid: string;
+};
+
+export interface ActionOutput_twilio_getverifyservice {
+  sid: string;
+  account_sid: string;
+  friendly_name?: string | undefined;
+  code_length?: number | undefined;
+  lookup_enabled?: boolean | undefined;
+  psd2_enabled?: boolean | undefined;
+  skip_sms_to_landlines?: boolean | undefined;
+  dtmf_input_required?: boolean | undefined;
+  tts_name?: string | undefined;
+  do_not_share_warning_enabled?: boolean | undefined;
+  custom_code_enabled?: boolean | undefined;
+  push?: {  include_date?: boolean | undefined;
+  apn_credential_sid?: string | undefined;
+  fcm_credential_sid?: string | undefined;};
+  totp?: {  issuer?: string | undefined;
+  time_step?: number | undefined;
+  code_length?: number | undefined;
+  skew?: number | undefined;};
+  whatsapp?: {  msg_service_sid?: string | undefined;
+  from?: string | undefined;};
+  passkeys?: {  relying_party?: {  id?: string | undefined;
+  name?: string | undefined;
+  origins?: string[] | undefined;};
+  authenticator_attachment?: string | undefined;
+  discoverable_credentials?: string | undefined;
+  user_verification?: string | undefined;};
+  default_template_sid?: string | undefined;
+  verify_event_subscription_enabled?: boolean | undefined;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+  url?: string | undefined;
+  links?: {  [key: string]: string;} | undefined;
+};
+
+export interface ActionInput_twilio_listavailablephonenumbers {
+  /**
+   * ISO-3166-1 alpha-2 country code. Example: "US"
+   */
+  country_code: string;
+  /**
+   * Type of phone number to search for
+   */
+  type: 'Local' | 'TollFree' | 'Mobile';
+  /**
+   * Area code for US and Canada numbers
+   */
+  area_code?: number | undefined;
+  /**
+   * Matching pattern to identify phone numbers
+   */
+  contains?: string | undefined;
+  /**
+   * Whether the phone numbers can receive text messages
+   */
+  sms_enabled?: boolean | undefined;
+  /**
+   * Whether the phone numbers can receive MMS messages
+   */
+  mms_enabled?: boolean | undefined;
+  /**
+   * Whether the phone numbers can receive calls
+   */
+  voice_enabled?: boolean | undefined;
+  /**
+   * Whether the phone numbers can receive faxes
+   */
+  fax_enabled?: boolean | undefined;
+  /**
+   * Whether to exclude phone numbers that require an Address
+   */
+  exclude_all_address_required?: boolean | undefined;
+  /**
+   * Whether to exclude phone numbers that require a local Address
+   */
+  exclude_local_address_required?: boolean | undefined;
+  /**
+   * Whether to exclude phone numbers that require a foreign Address
+   */
+  exclude_foreign_address_required?: boolean | undefined;
+  /**
+   * Whether to read phone numbers that are new to the Twilio platform
+   */
+  beta?: boolean | undefined;
+  /**
+   * Given a phone number, find a geographically close number
+   */
+  near_number?: string | undefined;
+  /**
+   * Given a latitude/longitude pair, find geographically close numbers
+   */
+  near_lat_long?: string | undefined;
+  /**
+   * Search radius in miles for a near query. Default is 25, max is 500
+   */
+  distance?: number | undefined;
+  /**
+   * Limit results to a particular postal code
+   */
+  in_postal_code?: string | undefined;
+  /**
+   * Limit results to a particular region, state, or province
+   */
+  in_region?: string | undefined;
+  /**
+   * Limit results to a specific rate center
+   */
+  in_rate_center?: string | undefined;
+  /**
+   * Limit results to a specific LATA
+   */
+  in_lata?: string | undefined;
+  /**
+   * Limit results to a particular locality or city
+   */
+  in_locality?: string | undefined;
+  /**
+   * How many resources to return in each list page. Default is 50, max is 1000
+   */
+  page_size?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Pass the next_page_uri value.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_twilio_listavailablephonenumbers {
+  available_phone_numbers: ({  address_requirements?: string | undefined;
+  beta?: boolean | undefined;
+  capabilities?: {  mms?: boolean | undefined;
+  sms?: boolean | undefined;
+  voice?: boolean | undefined;
+  fax?: boolean | undefined;};
+  friendly_name?: string | undefined;
+  iso_country?: string | undefined;
+  lata?: string | undefined;
+  latitude?: string | undefined;
+  locality?: string | undefined;
+  longitude?: string | undefined;
+  phone_number?: string | undefined;
+  postal_code?: string | undefined;
+  rate_center?: string | undefined;
+  region?: string | undefined;})[];
+  next_page_uri?: string | undefined;
+};
+
+export interface ActionInput_twilio_listcalls {
+  /**
+   * Only show calls made to this phone number, SIP address, Client identifier or SIM SID. Example: "+15558675310"
+   */
+  to?: string | undefined;
+  /**
+   * Only include calls from this phone number, SIP address, Client identifier or SIM SID. Example: "+15552223214"
+   */
+  from?: string | undefined;
+  /**
+   * Only include calls spawned by calls with this SID. Example: "CAaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+   */
+  parentCallSid?: string | undefined;
+  /**
+   * The status of the calls to include.
+   */
+  status?: 'queued' | 'ringing' | 'in-progress' | 'canceled' | 'completed' | 'failed' | 'busy' | 'no-answer' | undefined;
+  /**
+   * Only include calls that started on this date. Format: YYYY-MM-DD in UTC. Example: "2009-07-06"
+   */
+  startTime?: string | undefined;
+  /**
+   * Only include calls that started before this date. Format: YYYY-MM-DD in UTC. Example: "2009-07-06"
+   */
+  startTimeBefore?: string | undefined;
+  /**
+   * Only include calls that started on or after this date. Format: YYYY-MM-DD in UTC. Example: "2009-07-06"
+   */
+  startTimeAfter?: string | undefined;
+  /**
+   * Only include calls that ended on this date. Format: YYYY-MM-DD in UTC. Example: "2009-07-06"
+   */
+  endTime?: string | undefined;
+  /**
+   * Only include calls that ended before this date. Format: YYYY-MM-DD in UTC. Example: "2009-07-06"
+   */
+  endTimeBefore?: string | undefined;
+  /**
+   * Only include calls that ended on or after this date. Format: YYYY-MM-DD in UTC. Example: "2009-07-06"
+   */
+  endTimeAfter?: string | undefined;
+  /**
+   * How many resources to return in each list page. Default is 50, maximum is 1000.
+   */
+  pageSize?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Maps to Twilio PageToken. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_twilio_listcalls {
+  calls: ({  sid?: string | undefined;
+  account_sid?: string | undefined;
+  parent_call_sid?: string | undefined;
+  phone_number_sid?: string | undefined;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+  to?: string | undefined;
+  to_formatted?: string | undefined;
+  from?: string | undefined;
+  from_formatted?: string | undefined;
+  status?: string | undefined;
+  start_time?: string | undefined;
+  end_time?: string | undefined;
+  duration?: string | undefined;
+  price?: string | undefined;
+  price_unit?: string | undefined;
+  direction?: string | undefined;
+  answered_by?: string | undefined;
+  api_version?: string | undefined;
+  forwarded_from?: string | undefined;
+  group_sid?: string | undefined;
+  caller_name?: string | undefined;
+  queue_time?: string | undefined;
+  trunk_sid?: string | undefined;
+  uri?: string | undefined;
+  subresource_uris?: {  [key: string]: string;} | undefined;})[];
+  next_page_uri?: string | undefined;
+};
+
+export interface ActionInput_twilio_listconferenceparticipants {
+  /**
+   * The SID of the conference to list participants for. Example: CFXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+   */
+  conference_sid: string;
+  /**
+   * Whether to return only participants that are muted.
+   */
+  muted?: boolean | undefined;
+  /**
+   * Whether to return only participants that are on hold.
+   */
+  hold?: boolean | undefined;
+  /**
+   * Whether to return only participants who are coaching another call.
+   */
+  coaching?: boolean | undefined;
+  /**
+   * Pagination cursor from the previous response (next_page_uri). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * How many resources to return in each list page. The default is 50, and the maximum is 1000.
+   */
+  page_size?: number | undefined;
+};
+
+export interface ActionOutput_twilio_listconferenceparticipants {
+  participants: ({  account_sid: string;
+  call_sid: string;
+  label?: string | undefined;
+  conference_sid: string;
+  date_created: string;
+  date_updated: string;
+  end_conference_on_exit?: boolean | undefined;
+  muted?: boolean | undefined;
+  hold?: boolean | undefined;
+  status?: string | undefined;
+  start_conference_on_enter?: boolean | undefined;
+  coaching?: boolean | undefined;
+  call_sid_to_coach?: string | undefined;
+  queue_time?: string | undefined;
+  uri?: string | undefined;})[];
+  /**
+   * Pagination cursor to fetch the next page. Pass this value back as the `cursor` input.
+   */
+  next_page_uri?: string | undefined;
+};
+
+export interface ActionInput_twilio_listconversationmessages {
+  /**
+   * The SID of the conversation. Example: CH7455d9a8e3c541da993a275b699d6c83
+   */
+  conversation_sid: string;
+  /**
+   * Maximum number of messages to return per page. Default 50, max 100.
+   */
+  page_size?: number | undefined;
+  /**
+   * Sort order for messages. Default asc.
+   */
+  order?: 'asc' | 'desc' | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_twilio_listconversationmessages {
+  messages: ({  sid: string;
+  account_sid: string;
+  conversation_sid: string;
+  body?: string | undefined;
+  author?: string | undefined;
+  attributes?: string | undefined;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+  index?: number | undefined;
+  participant_sid?: string | undefined;
+  media?: unknown[] | undefined;
+  url?: string | undefined;})[];
+  next_page?: string | undefined;
+};
+
+export interface ActionInput_twilio_listconversationwebhooks {
+  /**
+   * The unique ID of the Conversation. Example: "CHaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+   */
+  conversation_sid: string;
+  /**
+   * Pagination token from the previous response. Omit for the first page.
+   */
+  page_token?: string | undefined;
+  /**
+   * How many resources to return in each list page. The default is 5, and the maximum is 5.
+   */
+  page_size?: number | undefined;
+};
+
+export interface ActionOutput_twilio_listconversationwebhooks {
+  webhooks: ({  sid: string;
+  account_sid: string;
+  conversation_sid: string;
+  target: string;
+  url: string;
+  configuration: {  url?: string | undefined;
+  method?: string | undefined;
+  filters?: string[] | undefined;
+  triggers?: string[] | undefined;
+  flow_sid?: string | undefined;
+  replay_after?: number | undefined;};
+  date_created?: string | undefined;
+  date_updated?: string | undefined;})[];
+  next_page_token?: string | undefined;
+};
+
+export interface ActionInput_twilio_listconversations {
+  /**
+   * Pagination cursor (PageToken) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * How many resources to return in each list page. The default is 50, and the maximum is 100.
+   */
+  page_size?: number | undefined;
+  /**
+   * State for sorting and filtering list of Conversations.
+   */
+  state?: 'initializing' | 'inactive' | 'active' | 'closed' | undefined;
+  /**
+   * Specifies the beginning of the date range for filtering Conversations based on their creation date. ISO8601 format.
+   */
+  start_date?: string | undefined;
+  /**
+   * Defines the end of the date range for filtering conversations by their creation date. ISO8601 format.
+   */
+  end_date?: string | undefined;
+};
+
+export interface ActionOutput_twilio_listconversations {
+  items: ({  sid: string;
+  account_sid: string;
+  chat_service_sid?: string | undefined;
+  messaging_service_sid?: string | undefined;
+  friendly_name?: string | undefined;
+  unique_name?: string | undefined;
+  attributes?: string | undefined;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+  state?: 'initializing' | 'inactive' | 'active' | 'closed' | undefined;
+  timers?: {  date_inactive?: string | undefined;
+  date_closed?: string | undefined;};
+  bindings?: {  [key: string]: unknown | undefined;};
+  url?: string | undefined;
+  links?: {  [key: string]: string;} | undefined;})[];
+  /**
+   * Pagination cursor for the next page. Omit if absent.
+   */
+  next_page_token?: string | undefined;
+};
+
+export interface ActionInput_twilio_listincomingphonenumbers {
+  /**
+   * Whether to include phone numbers new to the Twilio platform. Defaults to true.
+   */
+  beta?: boolean | undefined;
+  /**
+   * A string that identifies the IncomingPhoneNumber resources to read.
+   */
+  friendlyName?: string | undefined;
+  /**
+   * The phone numbers to read. You can specify partial numbers and use * as a wildcard.
+   */
+  phoneNumber?: string | undefined;
+  /**
+   * Whether to include phone numbers based on their origin.
+   */
+  origin?: 'twilio' | 'hosted' | undefined;
+  /**
+   * How many resources to return in each list page. Default is 50, maximum is 1000.
+   */
+  pageSize?: number | undefined;
+  /**
+   * The page index. This value is simply for client state.
+   */
+  page?: number | undefined;
+  /**
+   * The page token from the previous response. This is provided by the API in the next_page_uri field.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_twilio_listincomingphonenumbers {
+  items: ({  account_sid?: string | undefined;
+  address_requirements?: string | undefined;
+  address_sid?: string | undefined;
+  api_version?: string | undefined;
+  beta?: boolean | undefined;
+  capabilities?: {  voice?: boolean | undefined;
+  sms?: boolean | undefined;
+  mms?: boolean | undefined;
+  fax?: boolean | undefined;};
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+  emergency_status?: string | undefined;
+  emergency_address_sid?: string | undefined;
+  emergency_address_status?: string | undefined;
+  friendly_name?: string | undefined;
+  identity_sid?: string | undefined;
+  origin?: string | undefined;
+  phone_number?: string | undefined;
+  sid: string;
+  sms_application_sid?: string | undefined;
+  sms_fallback_method?: string | undefined;
+  sms_fallback_url?: string | undefined;
+  sms_method?: string | undefined;
+  sms_url?: string | undefined;
+  status_callback?: string | undefined;
+  status_callback_method?: string | undefined;
+  trunk_sid?: string | undefined;
+  uri?: string | undefined;
+  voice_application_sid?: string | undefined;
+  voice_caller_id_lookup?: boolean | undefined;
+  voice_fallback_method?: string | undefined;
+  voice_fallback_url?: string | undefined;
+  voice_method?: string | undefined;
+  voice_url?: string | undefined;
+  bundle_sid?: string | undefined;
+  voice_receive_mode?: string | undefined;
+  status?: string | undefined;
+  type?: string | undefined;})[];
+  next_page_uri?: string | undefined;
+  page?: number | undefined;
+  page_size?: number | undefined;
+};
+
+export interface ActionInput_twilio_listparticipants {
+  /**
+   * The unique ID of the Conversation. Example: "CHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+   */
+  conversation_sid: string;
+  /**
+   * Pagination cursor (PageToken) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * How many resources to return in each list page. The default is 50, and the maximum is 100.
+   */
+  page_size?: number | undefined;
+};
+
+export interface ActionOutput_twilio_listparticipants {
+  items: ({  account_sid: string;
+  conversation_sid: string;
+  sid: string;
+  identity?: string | undefined;
+  attributes?: string | undefined;
+  messaging_binding?: {  type?: string | undefined;
+  address?: string | undefined;
+  proxy_address?: string | undefined;
+  projected_address?: string | undefined;};
+  role_sid?: string | undefined;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+  url?: string | undefined;
+  last_read_message_index?: number | undefined;
+  last_read_timestamp?: string | undefined;})[];
+  next_page_token?: string | undefined;
+};
+
+export interface ActionInput_twilio_listqueues {
+  /**
+   * Pagination page token from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * How many resources to return in each list page. The default is 50, and the maximum is 1000.
+   */
+  page_size?: number | undefined;
+};
+
+export interface ActionOutput_twilio_listqueues {
+  items: ({  account_sid?: string | undefined;
+  average_wait_time?: number | undefined;
+  current_size?: number | undefined;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+  friendly_name?: string | undefined;
+  max_size?: number | undefined;
+  sid?: string | undefined;
+  uri?: string | undefined;})[];
+  next_page_uri?: string | undefined;
+};
+
+export interface ActionInput_twilio_listtwimlapps {
+  /**
+   * The string that identifies the Application resources to read. Example: "MyApp"
+   */
+  friendly_name?: string | undefined;
+  /**
+   * How many resources to return in each list page. The default is 50, and the maximum is 1000.
+   */
+  page_size?: number | undefined;
+  /**
+   * The page index. This value is simply for client state.
+   */
+  page?: number | undefined;
+  /**
+   * Pagination cursor from the previous response (maps to PageToken). Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_twilio_listtwimlapps {
+  items: ({  account_sid?: string | undefined;
+  api_version?: string | undefined;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+  friendly_name?: string | undefined;
+  message_status_callback?: string | undefined;
+  sid?: string | undefined;
+  sms_fallback_method?: string | undefined;
+  sms_fallback_url?: string | undefined;
+  sms_method?: string | undefined;
+  sms_status_callback?: string | undefined;
+  sms_url?: string | undefined;
+  status_callback?: string | undefined;
+  status_callback_method?: string | undefined;
+  uri?: string | undefined;
+  voice_caller_id_lookup?: boolean | undefined;
+  voice_fallback_method?: string | undefined;
+  voice_fallback_url?: string | undefined;
+  voice_method?: string | undefined;
+  voice_url?: string | undefined;
+  public_application_connect_enabled?: boolean | undefined;})[];
+  next_page_token?: string | undefined;
+  page?: number | undefined;
+  page_size?: number | undefined;
+  start?: number | undefined;
+  end?: number | undefined;
+};
+
+export interface ActionInput_twilio_listusagerecords {
+  /**
+   * Usage category to filter by. Example: "sms", "calls", "recordings".
+   */
+  category?: string | undefined;
+  /**
+   * Start date in YYYY-MM-DD format. Only include usage on or after this date.
+   */
+  start_date?: string | undefined;
+  /**
+   * End date in YYYY-MM-DD format. Only include usage on or before this date.
+   */
+  end_date?: string | undefined;
+  /**
+   * Pagination page token from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_twilio_listusagerecords {
+  usage_records: ({  account_sid?: string | undefined;
+  api_version?: string | undefined;
+  as_of?: string | undefined;
+  category?: string | undefined;
+  count?: string | undefined;
+  count_unit?: string | undefined;
+  description?: string | undefined;
+  end_date?: string | undefined;
+  price?: string | undefined;
+  price_unit?: string | undefined;
+  start_date?: string | undefined;
+  subresource_uris?: {  [key: string]: string;} | undefined;
+  uri?: string | undefined;
+  usage?: string | undefined;
+  usage_unit?: string | undefined;})[];
+  next_page_token?: string | undefined;
+};
+
+export interface ActionInput_twilio_listverifyservices {
+  /**
+   * Pagination cursor (PageToken) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Page index. This value is simply for client state.
+   */
+  page?: number | undefined;
+  /**
+   * How many resources to return in each list page. The default is 50, and the maximum is 1000.
+   */
+  page_size?: number | undefined;
+};
+
+export interface ActionOutput_twilio_listverifyservices {
+  services: ({  sid?: string | undefined;
+  account_sid?: string | undefined;
+  friendly_name?: string | undefined;
+  code_length?: number | undefined;
+  lookup_enabled?: boolean | undefined;
+  psd2_enabled?: boolean | undefined;
+  skip_sms_to_landlines?: boolean | undefined;
+  dtmf_input_required?: boolean | undefined;
+  tts_name?: string | undefined;
+  do_not_share_warning_enabled?: boolean | undefined;
+  custom_code_enabled?: boolean | undefined;
+  push?: {  include_date?: boolean | undefined;
+  apn_credential_sid?: string | undefined;
+  fcm_credential_sid?: string | undefined;};
+  totp?: {  issuer?: string | undefined;
+  time_step?: number | undefined;
+  code_length?: number | undefined;
+  skew?: number | undefined;};
+  whatsapp?: {  msg_service_sid?: string | undefined;
+  from?: string | undefined;};
+  passkeys?: {  relying_party?: {  id?: string | undefined;
+  name?: string | undefined;
+  origins?: string[] | undefined;};
+  authenticator_attachment?: string | undefined;
+  discoverable_credentials?: string | undefined;
+  user_verification?: string | undefined;};
+  default_template_sid?: string | undefined;
+  verify_event_subscription_enabled?: boolean | undefined;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+  url?: string | undefined;
+  links?: {  [key: string]: string;} | undefined;})[];
+  meta?: {  page?: number | undefined;
+  page_size?: number | undefined;
+  first_page_url?: string | undefined;
+  previous_page_url?: string | undefined;
+  next_page_url?: string | undefined;
+  key?: string | undefined;
+  url?: string | undefined;
+  next_page_token?: string | undefined;};
+};
+
+export interface ActionInput_twilio_updateapikey {
+  /**
+   * The SID of the API Key to update. Example: "SKxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+   */
+  sid: string;
+  /**
+   * The new friendly name for the API Key. Example: "Updated Key Name"
+   */
+  friendly_name: string;
+};
+
+export interface ActionOutput_twilio_updateapikey {
+  sid: string;
+  friendly_name?: string | undefined;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+  account_sid?: string | undefined;
+};
+
+export interface ActionInput_twilio_updateconferenceparticipant {
+  /**
+   * The Account SID. Example: "ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+   */
+  accountSid: string;
+  /**
+   * The SID of the conference. Example: "CFxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+   */
+  conferenceSid: string;
+  /**
+   * The Call SID or label of the participant to update. Example: "CAxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+   */
+  callSid: string;
+  /**
+   * Whether the participant should be muted.
+   */
+  muted?: boolean | undefined;
+  /**
+   * Whether the participant should be on hold.
+   */
+  hold?: boolean | undefined;
+  /**
+   * The URL for hold music when the participant is on hold.
+   */
+  holdUrl?: string | undefined;
+  /**
+   * The URL for an announcement to the participant.
+   */
+  announceUrl?: string | undefined;
+  /**
+   * Whether the participant is coaching another call.
+   */
+  coaching?: boolean | undefined;
+  /**
+   * The SID of the participant being coached. Example: "CAxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+   */
+  callSidToCoach?: string | undefined;
+};
+
+export interface ActionOutput_twilio_updateconferenceparticipant {
+  account_sid: string;
+  call_sid: string;
+  label?: string | undefined;
+  conference_sid: string;
+  date_created: string;
+  date_updated: string;
+  end_conference_on_exit: boolean;
+  muted: boolean;
+  hold: boolean;
+  status: string;
+  start_conference_on_enter: boolean;
+  coaching: boolean;
+  call_sid_to_coach?: string | undefined;
+  queue_time?: string | undefined;
+  uri: string;
+};
+
+export interface ActionInput_twilio_updateconversationmessage {
+  /**
+   * The unique ID of the Conversation for this message. Example: "CHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+   */
+  conversationSid: string;
+  /**
+   * The unique ID of the message to update. Example: "IMxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+   */
+  messageSid: string;
+  /**
+   * The content of the message, can be up to 1,600 characters long.
+   */
+  body?: string | undefined;
+  /**
+   * A string metadata field containing structurally valid JSON.
+   */
+  attributes?: string | undefined;
+  /**
+   * The channel specific identifier of the message's author.
+   */
+  author?: string | undefined;
+  /**
+   * The date that this resource was created.
+   */
+  dateCreated?: string | undefined;
+};
+
+export interface ActionOutput_twilio_updateconversationmessage {
+  sid: string;
+  account_sid: string;
+  conversation_sid: string;
+  body?: string | undefined;
+  media?: ({  [key: string]: unknown | undefined;})[];
+  author?: string | undefined;
+  participant_sid?: string | undefined;
+  attributes?: string | undefined;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+  index?: number | undefined;
+  delivery?: {  [key: string]: unknown | undefined;};
+  content_sid?: string | undefined;
+  url?: string | undefined;
+  links?: {  [key: string]: string;} | undefined;
+};
+
+export interface ActionInput_twilio_updateconversationwebhook {
+  /**
+   * The unique ID of the Conversation for this webhook. Example: "CH7455d9a8e3c541da993a275b699d6c83"
+   */
+  conversation_sid: string;
+  /**
+   * A 34 character string that uniquely identifies this webhook resource. Example: "WHab4a563eb9314bec965460f938a4b845"
+   */
+  webhook_sid: string;
+  /**
+   * The absolute url the webhook request should be sent to. Example: "https://example.com/webhook"
+   */
+  configuration_url?: string | undefined;
+  /**
+   * The HTTP method to be used when sending a webhook request. Possible values: get, post
+   */
+  configuration_method?: 'get' | 'post' | undefined;
+  /**
+   * The list of events, firing webhook event for this Conversation. Example: ["onMessageAdded", "onParticipantAdded"]
+   */
+  configuration_filters?: string[] | undefined;
+};
+
+export interface ActionOutput_twilio_updateconversationwebhook {
+  account_sid: string;
+  conversation_sid: string;
+  sid: string;
+  target: string;
+  configuration: {  url?: string | undefined;
+  method?: string | undefined;
+  filters?: string[] | undefined;
+  flow_sid?: string | undefined;
+  triggers?: string[] | undefined;
+  replay_after?: number | undefined;};
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+  url?: string | undefined;
+};
+
+export interface ActionInput_twilio_updateconversation {
+  /**
+   * The SID of the conversation to update. Example: "CHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+   */
+  conversationSid: string;
+  /**
+   * The human-readable name of this conversation. Example: "My Conversation"
+   */
+  friendlyName?: string | undefined;
+  /**
+   * The state of the conversation. Example: "active"
+   */
+  state?: 'active' | 'inactive' | 'closed' | undefined;
+  /**
+   * A JSON string containing metadata. Example: '{"topic":"feedback"}'
+   */
+  attributes?: string | undefined;
+  /**
+   * ISO8601 duration for inactive timer. Example: "PT1M"
+   */
+  timersInactive?: string | undefined;
+  /**
+   * ISO8601 duration for closed timer. Example: "PT10M"
+   */
+  timersClosed?: string | undefined;
+};
+
+export interface ActionOutput_twilio_updateconversation {
+  sid: string;
+  account_sid?: string | undefined;
+  chat_service_sid?: string | undefined;
+  messaging_service_sid?: string | undefined;
+  friendly_name?: string | undefined;
+  unique_name?: string | undefined;
+  attributes?: string | undefined;
+  state?: string | undefined;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+  timers?: {  date_inactive?: string | undefined;
+  date_closed?: string | undefined;};
+  bindings?: {  [key: string]: unknown | undefined;};
+  url?: string | undefined;
+  links?: {  [key: string]: string;} | undefined;
+};
+
+export interface ActionInput_twilio_updatemessage {
+  /**
+   * The SID of the Message resource to update. Example: "SMXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+   */
+  messageSid: string;
+  /**
+   * The new body of the Message resource. Set to an empty string to redact the message content.
+   */
+  body?: string | undefined;
+  /**
+   * The new status of the Message resource. Only "canceled" is supported for outbound queued messages.
+   */
+  status?: 'canceled' | undefined;
+};
+
+export interface ActionOutput_twilio_updatemessage {
+  accountSid?: string | undefined;
+  apiVersion?: string | undefined;
+  body?: string | undefined;
+  dateCreated?: string | undefined;
+  dateSent?: string | undefined;
+  dateUpdated?: string | undefined;
+  direction?: string | undefined;
+  errorCode?: number | undefined;
+  errorMessage?: string | undefined;
+  from?: string | undefined;
+  numMedia?: string | undefined;
+  numSegments?: string | undefined;
+  price?: string | undefined;
+  priceUnit?: string | undefined;
+  messagingServiceSid?: string | undefined;
+  sid?: string | undefined;
+  status?: string | undefined;
+  subresourceUris?: {  [key: string]: string;} | undefined;
+  to?: string | undefined;
+  uri?: string | undefined;
+};
+
+export interface ActionInput_twilio_updatequeue {
+  /**
+   * The SID of the queue to update. Example: "QU710d79ddc79e88ff10573c8b8bdd357e"
+   */
+  queueSid: string;
+  /**
+   * A human-readable name for the queue.
+   */
+  friendlyName?: string | undefined;
+  /**
+   * The maximum number of callers allowed in the queue.
+   */
+  maxSize?: number | undefined;
+};
+
+export interface ActionOutput_twilio_updatequeue {
+  sid: string;
+  friendlyName?: string | undefined;
+  maxSize?: number | undefined;
+  accountSid?: string | undefined;
+  dateCreated?: string | undefined;
+  dateUpdated?: string | undefined;
+  uri?: string | undefined;
+  currentSize?: number | undefined;
+  averageWaitTime?: number | undefined;
+};
+
+export interface ActionInput_twilio_updatetwimlapp {
+  /**
+   * The SID of the TwiML Application to update. Example: "APXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+   */
+  applicationSid: string;
+  /**
+   * A descriptive name for the application. Example: "My App"
+   */
+  friendlyName?: string | undefined;
+  /**
+   * The URL to call when the phone number receives a call. Example: "https://example.com/voice"
+   */
+  voiceUrl?: string | undefined;
+  /**
+   * The HTTP method to use for VoiceUrl. Example: "POST"
+   */
+  voiceMethod?: 'GET' | 'POST' | undefined;
+  /**
+   * The URL to call when an error occurs retrieving VoiceUrl. Example: "https://example.com/voice-fallback"
+   */
+  voiceFallbackUrl?: string | undefined;
+  /**
+   * The URL to call when the phone number receives an SMS. Example: "https://example.com/sms"
+   */
+  smsUrl?: string | undefined;
+  /**
+   * The HTTP method to use for SmsUrl. Example: "POST"
+   */
+  smsMethod?: 'GET' | 'POST' | undefined;
+  /**
+   * The URL to call for status callbacks. Example: "https://example.com/status"
+   */
+  statusCallback?: string | undefined;
+};
+
+export interface ActionOutput_twilio_updatetwimlapp {
+  account_sid: string;
+  api_version?: string | undefined;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+  friendly_name?: string | undefined;
+  message_status_callback?: string | undefined;
+  sid: string;
+  sms_fallback_method?: string | undefined;
+  sms_fallback_url?: string | undefined;
+  sms_method?: string | undefined;
+  sms_status_callback?: string | undefined;
+  sms_url?: string | undefined;
+  status_callback?: string | undefined;
+  status_callback_method?: string | undefined;
+  uri?: string | undefined;
+  voice_caller_id_lookup?: boolean | undefined;
+  voice_fallback_method?: string | undefined;
+  voice_fallback_url?: string | undefined;
+  voice_method?: string | undefined;
+  voice_url?: string | undefined;
+  public_application_connect_enabled?: boolean | undefined;
+};
+
+export interface ActionInput_twilio_updateverifyservice {
+  /**
+   * The SID of the Verify Service to update. Example: "VA9a01b6fde6aaf381bc6fe7424b7fe293"
+   */
+  ServiceSid: string;
+  /**
+   * A human-readable name for the Verify Service.
+   */
+  FriendlyName?: string | undefined;
+  /**
+   * The length of the verification code to generate.
+   */
+  CodeLength?: number | undefined;
+  /**
+   * Whether to perform a lookup with each verification started.
+   */
+  LookupEnabled?: boolean | undefined;
+  /**
+   * Whether to skip sending SMS verifications to landlines.
+   */
+  SkipSmsToLandlines?: boolean | undefined;
+  /**
+   * The name of an alternative text-to-speech service to use in phone calls.
+   */
+  TtsName?: string | undefined;
+};
+
+export interface ActionOutput_twilio_updateverifyservice {
+  sid: string;
+  account_sid: string;
+  friendly_name?: string | undefined;
+  code_length?: number | undefined;
+  lookup_enabled?: boolean | undefined;
+  skip_sms_to_landlines?: boolean | undefined;
+  tts_name?: string | undefined;
+  psd2_enabled?: boolean | undefined;
+  dtmf_input_required?: boolean | undefined;
+  do_not_share_warning_enabled?: boolean | undefined;
+  custom_code_enabled?: boolean | undefined;
+  default_template_sid?: string | undefined;
+  verify_event_subscription_enabled?: boolean | undefined;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+  url?: string | undefined;
+};
+
 export interface LikedTweet {
   id: string;
   text: string;
@@ -95511,35 +97750,6 @@ export interface ActionOutput_zendesk_updateuser {
   url?: string | undefined;
 };
 
-export interface Call {
-  id: string;
-  subject?: string | undefined;
-  callType?: string | undefined;
-  callPurpose?: string | undefined;
-  callResult?: string | undefined;
-  callDuration?: string | undefined;
-  callDurationInSeconds?: string | undefined;
-  callStartTime?: string | undefined;
-  description?: string | undefined;
-  dialledNumber?: string | undefined;
-  callerId?: string | undefined;
-  reminder?: string | undefined;
-  modifiedTime: string;
-  createdTime?: string | undefined;
-  ownerName?: string | undefined;
-  ownerId?: string | undefined;
-  ownerEmail?: string | undefined;
-  createdByName?: string | undefined;
-  createdById?: string | undefined;
-  modifiedByName?: string | undefined;
-  modifiedById?: string | undefined;
-  relatedToName?: string | undefined;
-  relatedToId?: string | undefined;
-  contactName?: string | undefined;
-  contactId?: string | undefined;
-  tags?: string[] | undefined;
-};
-
 export interface ActionInput_zoho_crm_convertlead {
   /**
    * The unique ID of the lead to convert. Example: "1000000145990"
@@ -98507,20 +100717,6 @@ export interface ActionInput_zoho_mail_sendemail {
 export interface ActionOutput_zoho_mail_sendemail {
   status: {};
   data: {};
-};
-
-export interface Recording {
-  id: string;
-  uuid: string;
-  account_id?: string | undefined;
-  host_id?: string | undefined;
-  topic?: string | undefined;
-  type?: number | undefined;
-  start_time?: string | undefined;
-  duration?: number | undefined;
-  total_size?: number | undefined;
-  recording_count?: number | undefined;
-  share_url?: string | undefined;
 };
 
 export interface Webinar {

@@ -1,0 +1,151 @@
+{
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00"
+    },
+    "batchSave": {
+      "Recording": [
+        {
+          "id": "RE000000000000000000000000000003",
+          "sid": "RE000000000000000000000000000003",
+          "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+          "api_version": "2010-04-01",
+          "call_sid": "CA000000000000000000000000000001",
+          "channels": 1,
+          "date_created": "Wed, 10 Jun 2026 10:41:21 +0000",
+          "date_updated": "Wed, 10 Jun 2026 10:41:31 +0000",
+          "start_time": "Wed, 10 Jun 2026 10:41:21 +0000",
+          "duration": "8",
+          "price": "-0.00250",
+          "price_unit": "USD",
+          "status": "completed",
+          "source": "RecordVerb",
+          "uri": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Recordings/RE000000000000000000000000000003.json",
+          "subresource_uris": {
+            "add_on_results": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Recordings/RE000000000000000000000000000003/AddOnResults.json",
+            "transcriptions": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Recordings/RE000000000000000000000000000003/Transcriptions.json"
+          },
+          "media_url": "https://api.twilio.com/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Recordings/RE000000000000000000000000000003"
+        },
+        {
+          "id": "RE000000000000000000000000000004",
+          "sid": "RE000000000000000000000000000004",
+          "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+          "api_version": "2010-04-01",
+          "call_sid": "CA000000000000000000000000000003",
+          "channels": 1,
+          "date_created": "Wed, 10 Jun 2026 10:33:18 +0000",
+          "date_updated": "Wed, 10 Jun 2026 10:33:33 +0000",
+          "start_time": "Wed, 10 Jun 2026 10:33:18 +0000",
+          "duration": "13",
+          "price": "-0.00250",
+          "price_unit": "USD",
+          "status": "completed",
+          "source": "OutboundAPI",
+          "uri": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Recordings/RE000000000000000000000000000004.json",
+          "subresource_uris": {
+            "add_on_results": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Recordings/RE000000000000000000000000000004/AddOnResults.json",
+            "transcriptions": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Recordings/RE000000000000000000000000000004/Transcriptions.json"
+          },
+          "media_url": "https://api.twilio.com/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Recordings/RE000000000000000000000000000004"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Recording": []
+    }
+  },
+  "api": {
+    "get": {
+      "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Recordings.json": {
+        "response": {
+          "end": 1,
+          "first_page_uri": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Recordings.json?PageSize=50&Page=0",
+          "next_page_uri": null,
+          "page": 0,
+          "page_size": 50,
+          "previous_page_uri": null,
+          "recordings": [
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "api_version": "2010-04-01",
+              "call_sid": "CA000000000000000000000000000001",
+              "channels": 1,
+              "conference_sid": null,
+              "date_created": "Wed, 10 Jun 2026 10:41:21 +0000",
+              "date_updated": "Wed, 10 Jun 2026 10:41:31 +0000",
+              "duration": "8",
+              "encryption_details": null,
+              "error_code": null,
+              "media_url": "https://api.twilio.com/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Recordings/RE000000000000000000000000000003",
+              "price": "-0.00250",
+              "price_unit": "USD",
+              "sid": "RE000000000000000000000000000003",
+              "source": "RecordVerb",
+              "start_time": "Wed, 10 Jun 2026 10:41:21 +0000",
+              "status": "completed",
+              "subresource_uris": {
+                "add_on_results": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Recordings/RE000000000000000000000000000003/AddOnResults.json",
+                "transcriptions": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Recordings/RE000000000000000000000000000003/Transcriptions.json"
+              },
+              "uri": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Recordings/RE000000000000000000000000000003.json"
+            },
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "api_version": "2010-04-01",
+              "call_sid": "CA000000000000000000000000000003",
+              "channels": 1,
+              "conference_sid": null,
+              "date_created": "Wed, 10 Jun 2026 10:33:18 +0000",
+              "date_updated": "Wed, 10 Jun 2026 10:33:33 +0000",
+              "duration": "13",
+              "encryption_details": null,
+              "error_code": null,
+              "media_url": "https://api.twilio.com/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Recordings/RE000000000000000000000000000004",
+              "price": "-0.00250",
+              "price_unit": "USD",
+              "sid": "RE000000000000000000000000000004",
+              "source": "OutboundAPI",
+              "start_time": "Wed, 10 Jun 2026 10:33:18 +0000",
+              "status": "completed",
+              "subresource_uris": {
+                "add_on_results": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Recordings/RE000000000000000000000000000004/AddOnResults.json",
+                "transcriptions": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Recordings/RE000000000000000000000000000004/Transcriptions.json"
+              },
+              "uri": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Recordings/RE000000000000000000000000000004.json"
+            }
+          ],
+          "start": 0,
+          "uri": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Recordings.json?PageSize=50&Page=0"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 10 Jun 2026 20:12:35 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "2503",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4988",
+          "x-ratelimit-reset": "1781122401",
+          "etag": "W/\"9c7-tDOgqubwdGOAuDUzSyTL02uYKkI\""
+        },
+        "hash": "ed6d42644884d58139b5899fdb6e4897f151b5b2",
+        "request": {
+          "params": {
+            "PageSize": "50"
+          }
+        }
+      }
+    }
+  }
+}

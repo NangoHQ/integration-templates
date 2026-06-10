@@ -1,0 +1,51 @@
+{
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00"
+    }
+  },
+  "api": {
+    "get": {
+      "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Keys/SK000000000000000000000000000007.json": {
+        "response": {
+          "date_created": "Tue, 09 Jun 2026 10:47:34 +0000",
+          "date_updated": "Tue, 09 Jun 2026 10:47:34 +0000",
+          "friendly_name": "Nango Test Key 1",
+          "sid": "SK000000000000000000000000000007"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 10 Jun 2026 09:03:02 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "184",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4938",
+          "x-ratelimit-reset": "1781082222",
+          "etag": "W/\"b8-x8NIvRxwO/Qm41IgJHfJgSl2QOQ\""
+        },
+        "hash": "f3a7836a3ddb090002b7b22bba228f77423cd0ac",
+        "request": {}
+      }
+    }
+  },
+  "input": {
+    "sid": "SK000000000000000000000000000007"
+  },
+  "output": {
+    "sid": "SK000000000000000000000000000007",
+    "friendly_name": "Nango Test Key 1",
+    "date_created": "Tue, 09 Jun 2026 10:47:34 +0000",
+    "date_updated": "Tue, 09 Jun 2026 10:47:34 +0000"
+  }
+}
