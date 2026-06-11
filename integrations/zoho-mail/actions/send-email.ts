@@ -2,14 +2,14 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    accountId: z.string().describe('Account ID from which to send the email. Example: "4845214000000008002"'),
-    fromAddress: z.string().describe('Sender email address. Example: "nangoapi@zohomail.com"'),
-    toAddress: z.string().describe('Recipient email address(es). Example: "recipient@example.com"'),
+    accountId: z.string().min(1).describe('Account ID from which to send the email. Example: "4845214000000008002"'),
+    fromAddress: z.string().min(1).describe('Sender email address. Example: "nangoapi@zohomail.com"'),
+    toAddress: z.string().min(1).describe('Recipient email address(es). Example: "recipient@example.com"'),
     ccAddress: z.string().optional().describe('CC email address(es). Example: "cc@example.com"'),
     bccAddress: z.string().optional().describe('BCC email address(es). Example: "bcc@example.com"'),
-    subject: z.string().describe('Email subject. Example: "Hello"'),
-    content: z.string().describe('Email body content. Example: "Hello, world!"'),
-    mailFormat: z.string().optional().describe('Email format: "html" or "plaintext". Example: "html"')
+    subject: z.string().min(1).describe('Email subject. Example: "Hello"'),
+    content: z.string().min(1).describe('Email body content. Example: "Hello, world!"'),
+    mailFormat: z.enum(['html', 'plaintext']).optional().describe('Email format: "html" or "plaintext". Example: "html"')
 });
 
 const ZohoStatusSchema = z.object({

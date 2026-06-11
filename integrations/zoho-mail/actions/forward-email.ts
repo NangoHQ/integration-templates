@@ -3,6 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     accountId: z.string().describe('Account ID. Example: "4845214000000008002"'),
+    folderId: z.string().describe('Folder ID containing the message. Example: "4845214000000008008"'),
     messageId: z.string().describe('Message ID to forward. Example: "1781108289537154100"'),
     fromAddress: z.string().describe('Sender email address. Example: "nangoapi@zohomail.com"'),
     toAddress: z.string().describe('Recipient email address. Example: "recipient@example.com"'),
@@ -59,11 +60,24 @@ const action = createAction({
             com: 'https://mail.zoho.com',
             eu: 'https://mail.zoho.eu',
             in: 'https://mail.zoho.in',
-            'com.au': 'https://mail.zoho.com.au'
+            'com.au': 'https://mail.zoho.com.au',
+            jp: 'https://mail.zoho.jp',
+            ca: 'https://mail.zohocloud.ca',
+            'com.cn': 'https://mail.zoho.com.cn',
+            ae: 'https://mail.zoho.ae',
+            sa: 'https://mail.zoho.sa'
         };
 
         const extension = typeof connectionConfig === 'object' && connectionConfig !== null ? connectionConfig['extension'] : undefined;
-        const baseUrl = typeof extension === 'string' && extensionMap[extension] !== undefined ? extensionMap[extension] : apiDomain || 'https://mail.zoho.com';
+        let baseUrl: string;
+        if (typeof extension === 'string' && extensionMap[extension] !== undefined) {
+            baseUrl = extensionMap[extension]!;
+        } else if (typeof apiDomain === 'string') {
+            const apisMatch = apiDomain.replace(/\/$/, '').match(/^https:\/\/www\.zohoapis\.([a-z.]+)$/);
+            baseUrl = apisMatch ? `https://mail.zoho.${apisMatch[1]}` : 'https://mail.zoho.com';
+        } else {
+            baseUrl = 'https://mail.zoho.com';
+        }
 
         const body: Record<string, unknown> = {
             fromAddress: input.fromAddress,
@@ -77,7 +91,7 @@ const action = createAction({
 
         // https://www.zoho.com/mail/help/api/get-message-details.html
         const detailsResponse = await nango.get({
-            endpoint: `/api/accounts/${encodeURIComponent(input.accountId)}/folders/${encodeURIComponent('4845214000000008008')}/messages/${encodeURIComponent(input.messageId)}/details`,
+            endpoint: `/api/accounts/${encodeURIComponent(input.accountId)}/folders/${encodeURIComponent(input.folderId)}/messages/${encodeURIComponent(input.messageId)}/details`,
             baseUrlOverride: baseUrl,
             retries: 3
         });
@@ -93,7 +107,7 @@ const action = createAction({
         });
 
         const parsedDetails = ZohoMailDetailsSchema.parse(detailsResponse.data);
-        const folderId = parsedDetails.data?.folderId || '4845214000000008008';
+        const folderId = parsedDetails.data?.folderId || input.folderId;
         const originalSubject = parsedDetails.data?.subject || '';
 
         // https://www.zoho.com/mail/help/api/get-message-content.html

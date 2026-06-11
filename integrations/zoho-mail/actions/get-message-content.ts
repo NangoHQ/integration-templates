@@ -46,6 +46,14 @@ const action = createAction({
 
         const parsed = ProviderResponseSchema.parse(response.data);
 
+        if (parsed.status.code !== 200) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: parsed.status.description,
+                code: parsed.status.code
+            });
+        }
+
         if (!parsed.data) {
             throw new nango.ActionError({
                 type: 'not_found',

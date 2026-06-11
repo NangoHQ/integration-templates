@@ -72,39 +72,31 @@ const sync = createSync({
         let accountIds: string[] = [];
 
         // https://www.zoho.com/mail/help/api/get-all-users-accounts.html
-        // @allowTryCatch: Fallback to known account ID when the connection lacks the ZohoMail.accounts scope.
-        try {
-            const accountsResponse = await nango.get({
-                endpoint: '/api/accounts',
-                retries: 3
-            });
+        const accountsResponse = await nango.get({
+            endpoint: '/api/accounts',
+            retries: 3
+        });
 
-            if (isInvalidOAuthScopeResponse(accountsResponse.data)) {
-                accountIds = ['4845214000000008002'];
-            } else {
-                const accountsParsed = AccountsResponseSchema.safeParse(accountsResponse.data);
-                if (!accountsParsed.success) {
-                    throw new Error('Failed to parse accounts response: ' + accountsParsed.error.message);
-                }
-
-                for (const account of accountsParsed.data.data) {
-                    const accountParsed = AccountSchema.safeParse(account);
-                    if (!accountParsed.success) {
-                        throw new Error('Failed to parse account record: ' + accountParsed.error.message);
-                    }
-                    accountIds.push(accountParsed.data.accountId);
-                }
+        if (isInvalidOAuthScopeResponse(accountsResponse.data)) {
+            // Connection lacks ZohoMail.accounts scope — fall back to accountId stored in connection_config.
+            const connection = await nango.getConnection();
+            const fallbackAccountId = connection.connection_config?.['accountId'];
+            if (typeof fallbackAccountId !== 'string' || !fallbackAccountId) {
+                throw new Error('Connection missing ZohoMail.accounts scope and no accountId in connection_config — cannot enumerate accounts for folder sync');
             }
-        } catch (error) {
-            if (typeof error === 'object' && error !== null && 'response' in error) {
-                const response = error['response'];
-                if (typeof response === 'object' && response !== null && 'data' in response && isInvalidOAuthScopeResponse(response['data'])) {
-                    accountIds = ['4845214000000008002'];
-                } else {
-                    throw error;
+            accountIds = [fallbackAccountId];
+        } else {
+            const accountsParsed = AccountsResponseSchema.safeParse(accountsResponse.data);
+            if (!accountsParsed.success) {
+                throw new Error('Failed to parse accounts response: ' + accountsParsed.error.message);
+            }
+
+            for (const account of accountsParsed.data.data) {
+                const accountParsed = AccountSchema.safeParse(account);
+                if (!accountParsed.success) {
+                    throw new Error('Failed to parse account record: ' + accountParsed.error.message);
                 }
-            } else {
-                throw error;
+                accountIds.push(accountParsed.data.accountId);
             }
         }
 

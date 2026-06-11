@@ -47,24 +47,27 @@ const action = createAction({
             retries: 3
         });
 
-        const data = response.data;
-        if (data === null || data === undefined || typeof data !== 'object') {
-            throw new nango.ActionError({
-                type: 'invalid_response',
-                message: 'Invalid response from Zoho Mail API.'
-            });
-        }
+        const EnvelopeSchema = z.object({
+            status: z.object({
+                code: z.number(),
+                description: z.string()
+            }),
+            data: z.unknown()
+        });
 
-        const outerResponse = z
-            .object({
-                data: z.unknown()
-            })
-            .safeParse(data);
-
+        const outerResponse = EnvelopeSchema.safeParse(response.data);
         if (!outerResponse.success) {
             throw new nango.ActionError({
                 type: 'invalid_response',
                 message: 'Invalid response structure from Zoho Mail API.'
+            });
+        }
+
+        if (outerResponse.data.status.code !== 200) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: outerResponse.data.status.description,
+                code: outerResponse.data.status.code
             });
         }
 

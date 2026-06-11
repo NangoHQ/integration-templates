@@ -63,8 +63,6 @@ const sync = createSync({
     exec: async (nango) => {
         // Blocker: provider only exposes /api/accounts with no changed-since filter,
         // no deleted-record endpoint, and no resumable cursor.
-        await nango.trackDeletesStart('Account');
-
         const connection = await nango.getConnection();
         const rawApiDomain = connection.connection_config?.['api_domain'];
         const apiDomain = typeof rawApiDomain === 'string' ? rawApiDomain : undefined;
@@ -81,6 +79,8 @@ const sync = createSync({
         if (!envelope.success) {
             throw new Error('Failed to parse Zoho Mail accounts response envelope');
         }
+
+        await nango.trackDeletesStart('Account');
 
         const accounts = envelope.data.data.map((raw: unknown) => {
             const parsed = ZohoAccountSchema.safeParse(raw);

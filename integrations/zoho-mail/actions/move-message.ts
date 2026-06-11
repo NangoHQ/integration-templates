@@ -37,14 +37,30 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const connection = await nango.getConnection();
-
-        const ConnectionConfigSchema = z.object({
-            api_domain: z.string().optional()
-        });
-
-        const config = ConnectionConfigSchema.parse(connection.connection_config || {});
-        const apiDomain = config.api_domain || 'https://www.zohoapis.com';
-        const baseUrl = apiDomain.replace('www.zohoapis', 'mail.zoho');
+        const credentials = connection.credentials;
+        const raw = credentials && 'raw' in credentials && credentials.raw !== null ? credentials.raw : undefined;
+        const apiDomain = typeof raw?.api_domain === 'string' ? raw.api_domain : undefined;
+        const extension = connection.connection_config?.['extension'];
+        const extensionToMailBase: Record<string, string> = {
+            com: 'https://mail.zoho.com',
+            eu: 'https://mail.zoho.eu',
+            in: 'https://mail.zoho.in',
+            'com.au': 'https://mail.zoho.com.au',
+            jp: 'https://mail.zoho.jp',
+            ca: 'https://mail.zohocloud.ca',
+            'com.cn': 'https://mail.zoho.com.cn',
+            ae: 'https://mail.zoho.ae',
+            sa: 'https://mail.zoho.sa'
+        };
+        let baseUrl: string;
+        if (typeof extension === 'string' && extensionToMailBase[extension]) {
+            baseUrl = extensionToMailBase[extension]!;
+        } else if (typeof apiDomain === 'string') {
+            const apisMatch = apiDomain.replace(/\/$/, '').match(/^https:\/\/www\.zohoapis\.([a-z.]+)$/);
+            baseUrl = apisMatch ? (extensionToMailBase[apisMatch[1]!] ?? `https://mail.zoho.${apisMatch[1]}`) : 'https://mail.zoho.com';
+        } else {
+            baseUrl = 'https://mail.zoho.com';
+        }
 
         const response = await nango.put({
             // https://www.zoho.com/mail/help/api/

@@ -1,6 +1,7 @@
 {
   "input": {
     "accountId": "4845214000000008002",
+    "folderId": "4845214000000008008",
     "messageId": "1781108289537154100",
     "fromAddress": "nangoapi@zohomail.com",
     "toAddress": "nangoapi@zohomail.com"

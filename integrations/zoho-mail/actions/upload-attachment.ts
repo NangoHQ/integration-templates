@@ -38,13 +38,20 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const connection = await nango.getConnection();
-        const credentials = connection.credentials ? z.object({}).passthrough().parse(connection.credentials) : {};
-        const apiDomain = credentials['api_domain'] || connection.connection_config?.['api_domain'];
+        const rawCredentials = z
+            .object({ raw: z.record(z.string(), z.unknown()).optional() })
+            .passthrough()
+            .safeParse(connection.credentials);
+        const rawApiDomain = rawCredentials.success ? rawCredentials.data.raw?.['api_domain'] : undefined;
+        const apiDomain = typeof rawApiDomain === 'string' ? rawApiDomain : connection.connection_config?.['api_domain'];
         let baseUrl: string | undefined;
         if (typeof apiDomain === 'string') {
-            const url = new URL(apiDomain);
-            const mailHost = url.hostname.replace(/^www\.zohoapis/, 'mail.zoho');
-            baseUrl = `https://${mailHost}`;
+            const trimmed = apiDomain.replace(/\/$/, '');
+            const apisMatch = trimmed.match(/^https:\/\/www\.zohoapis\.([a-z.]+)$/);
+            if (apisMatch) {
+                const ext = apisMatch[1];
+                baseUrl = ext === 'ca' ? 'https://mail.zohocloud.ca' : `https://mail.zoho.${ext}`;
+            }
         }
 
         const fileBuffer = Buffer.from(input.fileContent, 'base64');

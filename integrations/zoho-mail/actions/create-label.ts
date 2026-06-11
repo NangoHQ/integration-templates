@@ -34,7 +34,7 @@ const action = createAction({
     },
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['zohomail.labels.CREATE'],
+    scopes: ['ZohoMail.tags.CREATE'],
 
     exec: async (nango, input) => {
         const response = await nango.post({

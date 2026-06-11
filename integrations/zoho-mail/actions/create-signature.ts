@@ -4,7 +4,7 @@ import { createAction } from 'nango';
 const InputSchema = z.object({
     name: z.string().describe('Name of the signature. Example: "Work Signature"'),
     content: z.string().describe('Content of the signature. Example: "Best regards, John."'),
-    position: z.number().int().describe('Position of the signature. 0 = below quoted content, 1 = above quoted content.'),
+    position: z.union([z.literal(0), z.literal(1)]).describe('Position of the signature. 0 = below quoted content, 1 = above quoted content.'),
     assignUsers: z.string().optional().describe('Comma-separated email addresses to assign the signature to.')
 });
 

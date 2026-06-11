@@ -47,9 +47,9 @@ const action = createAction({
         const credentials = getProperty(connection, 'credentials');
         const raw = getProperty(credentials, 'raw');
         const apiDomain = getProperty(raw, 'api_domain');
-        const metadata = getProperty(connection, 'metadata');
-        const apiDomainFromMetadata = getProperty(metadata, 'api_domain');
-        const baseUrl = typeof apiDomain === 'string' ? apiDomain : typeof apiDomainFromMetadata === 'string' ? apiDomainFromMetadata : undefined;
+        const connectionConfig = getProperty(connection, 'connection_config');
+        const apiDomainFromConfig = getProperty(connectionConfig, 'api_domain');
+        const baseUrl = typeof apiDomain === 'string' ? apiDomain : typeof apiDomainFromConfig === 'string' ? apiDomainFromConfig : undefined;
 
         const endpoint = `/api/accounts/${encodeURIComponent(input.accountId)}/messages/${encodeURIComponent(input.messageId)}`;
         const data = {

@@ -38,18 +38,7 @@ const action = createAction({
         });
 
         const ResponseSchema = z.object({
-            data: z
-                .array(
-                    z.object({
-                        labelId: z.string(),
-                        displayName: z.string().optional(),
-                        color: z.string().optional(),
-                        sequence: z.number().optional(),
-                        tagId: z.string().optional(),
-                        URI: z.string().optional()
-                    })
-                )
-                .optional()
+            data: z.array(LabelSchema).optional()
         });
 
         const parsed = ResponseSchema.parse(response.data);

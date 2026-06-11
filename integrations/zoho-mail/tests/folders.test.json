@@ -1,5 +1,10 @@
 {
   "nango": {
+    "getConnection": {
+      "connection_config": {
+        "accountId": "4845214000000008002"
+      }
+    },
     "batchSave": {
       "Folder": [
         {

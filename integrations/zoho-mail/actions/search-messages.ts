@@ -5,7 +5,7 @@ const InputSchema = z.object({
     accountId: z.string().describe('Zoho Mail account ID. Example: "4845214000000008002"'),
     searchKey: z.string().describe('Zoho Mail search query string. Use syntax like "entire:keyword" or "subject:Meeting". Example: "entire:Test"'),
     start: z.number().optional().describe('Starting index for pagination. Example: 1'),
-    limit: z.number().optional().describe('Number of results to return (1-200). Example: 10'),
+    limit: z.number().int().min(1).max(200).optional().describe('Number of results to return (1-200). Example: 10'),
     receivedTime: z.number().optional().describe('Unix timestamp in milliseconds to filter emails received before this time. Example: 1609459200000'),
     includeto: z.boolean().optional().describe('Whether to include the To field in the response. Example: true')
 });
@@ -72,27 +72,19 @@ function getMailBaseUrl(apiDomain: string): string {
     if (!apiDomain.startsWith('http')) {
         return 'https://mail.zoho.com';
     }
-    const host = apiDomain.split('://')[1]?.split('/')[0];
-    if (!host) {
-        return 'https://mail.zoho.com';
+    const trimmed = apiDomain.replace(/\/$/, '');
+    const apisMatch = trimmed.match(/^https:\/\/www\.zohoapis\.([a-z.]+)$/);
+    if (apisMatch) {
+        const ext = apisMatch[1];
+        // zohocloud.ca is the mail host for the CA data centre
+        if (ext === 'ca') {
+            return 'https://mail.zohocloud.ca';
+        }
+        return `https://mail.zoho.${ext}`;
     }
-    if (host.startsWith('accounts.')) {
-        return `https://mail.${host.slice('accounts.'.length)}`;
-    }
-    if (host.startsWith('mail.')) {
-        return `https://${host}`;
-    }
-    if (host === 'www.zohoapis.com') {
-        return 'https://mail.zoho.com';
-    }
-    if (host === 'www.zohoapis.eu') {
-        return 'https://mail.zoho.eu';
-    }
-    if (host === 'www.zohoapis.in') {
-        return 'https://mail.zoho.in';
-    }
-    if (host === 'www.zohoapis.com.au') {
-        return 'https://mail.zoho.com.au';
+    const mailMatch = trimmed.match(/^https:\/\/mail\.zoho/);
+    if (mailMatch) {
+        return trimmed;
     }
     return 'https://mail.zoho.com';
 }

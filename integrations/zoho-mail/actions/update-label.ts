@@ -2,12 +2,20 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 import type { ProxyConfiguration } from '@nangohq/runner-sdk';
 
-const InputSchema = z.object({
-    accountId: z.string().describe('Account ID. Example: 4845214000000008002'),
-    labelId: z.string().describe('Label ID. Example: 4845214000000011002'),
-    labelName: z.string().optional().describe('New display name for the label'),
-    color: z.string().optional().describe('Hex color code for the label. Example: #FF0000')
-});
+const InputSchema = z
+    .object({
+        accountId: z.string().describe('Account ID. Example: 4845214000000008002'),
+        labelId: z.string().describe('Label ID. Example: 4845214000000011002'),
+        labelName: z.string().optional().describe('New display name for the label'),
+        color: z
+            .string()
+            .regex(/^#[0-9A-Fa-f]{6}$/, 'color must be a 6-digit hex code, e.g. #FF0000')
+            .optional()
+            .describe('Hex color code for the label. Example: #FF0000')
+    })
+    .refine((data) => data.labelName !== undefined || data.color !== undefined, {
+        message: 'At least one of labelName or color must be provided'
+    });
 
 const ProviderResponseSchema = z.object({
     status: z.object({

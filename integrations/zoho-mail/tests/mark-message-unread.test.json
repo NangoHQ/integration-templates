@@ -4,12 +4,11 @@
     "messageId": "1781108289537154100"
   },
   "output": {
-    "status": {
-      "code": 200,
-      "description": "success"
-    }
+    "success": true
   },
-  "nango": {},
+  "nango": {
+    "getConnection": {}
+  },
   "api": {
     "put": {
       "/api/accounts/4845214000000008002/updatemessage": {

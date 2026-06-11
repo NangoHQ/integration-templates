@@ -98500,7 +98500,7 @@ export interface ActionInput_zoho_mail_createsignature {
   /**
    * Position of the signature. 0 = below quoted content, 1 = above quoted content.
    */
-  position: number;
+  position: 0 | 1;
   /**
    * Comma-separated email addresses to assign the signature to.
    */
@@ -98674,6 +98674,10 @@ export interface ActionInput_zoho_mail_forwardemail {
    * Account ID. Example: "4845214000000008002"
    */
   accountId: string;
+  /**
+   * Folder ID containing the message. Example: "4845214000000008008"
+   */
+  folderId: string;
   /**
    * Message ID to forward. Example: "1781108289537154100"
    */
@@ -99164,8 +99168,7 @@ export interface ActionInput_zoho_mail_markmessageunread {
 };
 
 export interface ActionOutput_zoho_mail_markmessageunread {
-  status: {  code: number;
-  description: string;};
+  success: boolean;
 };
 
 export interface ActionInput_zoho_mail_movemessage {
@@ -99309,7 +99312,7 @@ export interface ActionInput_zoho_mail_sendemail {
   /**
    * Email format: "html" or "plaintext". Example: "html"
    */
-  mailFormat?: string | undefined;
+  mailFormat?: 'html' | 'plaintext' | undefined;
 };
 
 export interface ActionOutput_zoho_mail_sendemail {

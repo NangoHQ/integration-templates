@@ -117,7 +117,7 @@ const sync = createSync({
                 // https://www.zoho.com/mail/help/api/get-all-group-or-personal-tasks.html
                 endpoint: '/api/tasks/me',
                 params: {
-                    limit: 2,
+                    limit: 200,
                     ...(from && { from })
                 },
                 retries: 3

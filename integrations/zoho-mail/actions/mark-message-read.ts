@@ -73,7 +73,10 @@ const action = createAction({
             };
         }
 
-        return { success: true };
+        throw new nango.ActionError({
+            type: 'invalid_response',
+            message: 'Unexpected response from Zoho Mail API'
+        });
     }
 });
 

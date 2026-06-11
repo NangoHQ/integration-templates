@@ -127,7 +127,9 @@ const action = createAction({
         const connection = await nango.getConnection();
         const parsedConnection = connection ? ConnectionSchema.safeParse(connection) : undefined;
         const rawApiDomain = parsedConnection?.success ? parsedConnection.data.credentials.raw['api_domain'] : undefined;
-        const apiDomain = typeof rawApiDomain === 'string' ? getMailBaseUrl(rawApiDomain) : 'https://mail.zoho.com';
+        const configApiDomain = connection?.connection_config?.['api_domain'];
+        const resolvedApiDomain = typeof rawApiDomain === 'string' ? rawApiDomain : typeof configApiDomain === 'string' ? configApiDomain : undefined;
+        const apiDomain = resolvedApiDomain ? getMailBaseUrl(resolvedApiDomain) : 'https://mail.zoho.com';
 
         const response = await nango.post({
             // https://www.zoho.com/mail/help/api/post-add-new-task.html

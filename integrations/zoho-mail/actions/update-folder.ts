@@ -70,6 +70,14 @@ const action = createAction({
 
         const providerResponse = ProviderResponseSchema.parse(response.data);
 
+        if (providerResponse.status.code !== 200) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: providerResponse.status.description,
+                code: providerResponse.status.code
+            });
+        }
+
         return {
             status: providerResponse.status
         };

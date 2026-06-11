@@ -17,44 +17,51 @@ const OutputSchema = z.object({
     success: z.boolean()
 });
 
-function getMailBaseUrl(connection: unknown): string {
-    const extension =
-        typeof connection === 'object' &&
-        connection !== null &&
-        'connection_config' in connection &&
-        typeof connection.connection_config === 'object' &&
-        connection.connection_config !== null &&
-        'extension' in connection.connection_config &&
-        typeof connection.connection_config.extension === 'string'
-            ? connection.connection_config.extension
-            : null;
+const extensionToMailBase: Record<string, string> = {
+    com: 'https://mail.zoho.com',
+    eu: 'https://mail.zoho.eu',
+    in: 'https://mail.zoho.in',
+    'com.au': 'https://mail.zoho.com.au',
+    jp: 'https://mail.zoho.jp',
+    ca: 'https://mail.zohocloud.ca',
+    'com.cn': 'https://mail.zoho.com.cn',
+    ae: 'https://mail.zoho.ae',
+    sa: 'https://mail.zoho.sa'
+};
 
-    if (extension === 'com') {
+function getMailBaseUrl(connection: unknown): string {
+    if (typeof connection !== 'object' || connection === null) {
         return 'https://mail.zoho.com';
     }
-    if (extension === 'eu') {
-        return 'https://mail.zoho.eu';
+
+    const config =
+        'connection_config' in connection && typeof connection.connection_config === 'object' && connection.connection_config !== null
+            ? connection.connection_config
+            : null;
+
+    if (config && 'extension' in config && typeof config.extension === 'string') {
+        return extensionToMailBase[config.extension] ?? 'https://mail.zoho.com';
     }
-    if (extension === 'in') {
-        return 'https://mail.zoho.in';
-    }
-    if (extension === 'com.au') {
-        return 'https://mail.zoho.com.au';
-    }
-    if (extension === 'jp') {
-        return 'https://mail.zoho.jp';
-    }
-    if (extension === 'ca') {
-        return 'https://mail.zohocloud.ca';
-    }
-    if (extension === 'com.cn') {
-        return 'https://mail.zoho.com.cn';
-    }
-    if (extension === 'ae') {
-        return 'https://mail.zoho.ae';
-    }
-    if (extension === 'sa') {
-        return 'https://mail.zoho.sa';
+
+    const apiDomain =
+        config && 'api_domain' in config && typeof config.api_domain === 'string'
+            ? config.api_domain
+            : (() => {
+                  const creds =
+                      'credentials' in connection && typeof connection.credentials === 'object' && connection.credentials !== null
+                          ? connection.credentials
+                          : null;
+                  const raw = creds && 'raw' in creds && typeof creds.raw === 'object' && creds.raw !== null ? creds.raw : null;
+                  return raw && 'api_domain' in raw && typeof raw.api_domain === 'string' ? raw.api_domain : null;
+              })();
+
+    if (apiDomain) {
+        const trimmed = apiDomain.replace(/\/$/, '');
+        const apisMatch = trimmed.match(/^https:\/\/www\.zohoapis\.([a-z.]+)$/);
+        if (apisMatch) {
+            const ext = apisMatch[1]!;
+            return extensionToMailBase[ext] ?? `https://mail.zoho.${ext}`;
+        }
     }
 
     return 'https://mail.zoho.com';

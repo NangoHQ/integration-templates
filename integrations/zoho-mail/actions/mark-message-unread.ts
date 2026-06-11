@@ -14,11 +14,23 @@ const ProviderResponseSchema = z.object({
 });
 
 const OutputSchema = z.object({
-    status: z.object({
-        code: z.number(),
-        description: z.string()
-    })
+    success: z.boolean()
 });
+
+function getMailBaseUrl(extension: string | undefined): string {
+    switch (extension) {
+        case 'eu':
+            return 'https://mail.zoho.eu';
+        case 'in':
+            return 'https://mail.zoho.in';
+        case 'com.au':
+        case 'au':
+            return 'https://mail.zoho.com.au';
+        case 'com':
+        default:
+            return 'https://mail.zoho.com';
+    }
+}
 
 const action = createAction({
     description: 'Mark a Zoho Mail message as unread.',
@@ -33,9 +45,14 @@ const action = createAction({
     scopes: ['ZohoMail.messages.UPDATE'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const connection = await nango.getConnection();
+        const extension = connection.connection_config?.['extension'];
+        const baseUrl = getMailBaseUrl(extension);
+
         // https://www.zoho.com/mail/help/api/put-mark-email-as-unread.html
         const response = await nango.put({
             endpoint: `/api/accounts/${encodeURIComponent(input.accountId)}/updatemessage`,
+            baseUrlOverride: baseUrl,
             data: {
                 mode: 'markAsUnread',
                 messageId: [input.messageId]
@@ -43,11 +60,17 @@ const action = createAction({
             retries: 3
         });
 
-        const providerResponse = ProviderResponseSchema.parse(response.data);
+        const providerResponse = ProviderResponseSchema.safeParse(response.data);
+        if (providerResponse.success && providerResponse.data.status) {
+            return {
+                success: providerResponse.data.status.code === 200
+            };
+        }
 
-        return {
-            status: providerResponse.status
-        };
+        throw new nango.ActionError({
+            type: 'invalid_response',
+            message: 'Unexpected response from Zoho Mail API'
+        });
     }
 });
 
