@@ -132,6 +132,12 @@ const action = createAction({
         const parsed = ProviderResponseSchema.parse(response.data);
         const participants = parsed.participants ?? [];
 
+        let nextPageToken: string | undefined;
+        if (parsed.next_page_uri) {
+            const url = new URL(parsed.next_page_uri, 'https://api.twilio.com');
+            nextPageToken = url.searchParams.get('PageToken') ?? undefined;
+        }
+
         return {
             participants: participants.map((p) => ({
                 account_sid: p.account_sid,
@@ -150,7 +156,7 @@ const action = createAction({
                 ...(p.queue_time != null && { queue_time: p.queue_time }),
                 ...(p.uri !== undefined && { uri: p.uri })
             })),
-            ...(parsed.next_page_uri != null && { next_page_uri: parsed.next_page_uri })
+            ...(nextPageToken !== undefined && { next_page_uri: nextPageToken })
         };
     }
 });

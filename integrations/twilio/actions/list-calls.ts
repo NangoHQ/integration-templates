@@ -101,19 +101,19 @@ const action = createAction({
             params['StartTime'] = input.startTime;
         }
         if (input.startTimeBefore !== undefined) {
-            params['StartTimeBefore'] = input.startTimeBefore;
+            params['StartTime<'] = input.startTimeBefore;
         }
         if (input.startTimeAfter !== undefined) {
-            params['StartTimeAfter'] = input.startTimeAfter;
+            params['StartTime>'] = input.startTimeAfter;
         }
         if (input.endTime !== undefined) {
             params['EndTime'] = input.endTime;
         }
         if (input.endTimeBefore !== undefined) {
-            params['EndTimeBefore'] = input.endTimeBefore;
+            params['EndTime<'] = input.endTimeBefore;
         }
         if (input.endTimeAfter !== undefined) {
-            params['EndTimeAfter'] = input.endTimeAfter;
+            params['EndTime>'] = input.endTimeAfter;
         }
         if (input.pageSize !== undefined) {
             params['PageSize'] = input.pageSize;

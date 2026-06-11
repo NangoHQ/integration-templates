@@ -68,8 +68,7 @@ const action = createAction({
         const response = await nango.delete({
             // https://www.twilio.com/docs/voice/api/call-resource#delete-a-call-resource
             endpoint: `/2010-04-01/Accounts/${encodeURIComponent(accountSid)}/Calls/${encodeURIComponent(input.callSid)}.json`,
-            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
-            retries: 0
+            retries: 3
         });
 
         if (!response.data) {

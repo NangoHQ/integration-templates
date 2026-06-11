@@ -55,7 +55,9 @@ const action = createAction({
         if (connection.credentials && typeof connection.credentials === 'object') {
             const parsedCredentials = TwilioCredentialsSchema.safeParse(connection.credentials);
             if (parsedCredentials.success) {
-                accountSid = parsedCredentials.data.type === 'BASIC' ? parsedCredentials.data.username : parsedCredentials.data.apiKey;
+                // For API_KEY credentials, the apiKey field is the key SID (SK…), not the Account SID.
+                // Fall through to metadata for account_sid resolution.
+                accountSid = parsedCredentials.data.type === 'BASIC' ? parsedCredentials.data.username : undefined;
             }
         }
 

@@ -74,9 +74,15 @@ const action = createAction({
             return QueueSchema.parse(queue);
         });
 
+        let nextPageToken: string | undefined;
+        if (providerResponse.next_page_uri) {
+            const url = new URL(providerResponse.next_page_uri, 'https://api.twilio.com');
+            nextPageToken = url.searchParams.get('PageToken') ?? undefined;
+        }
+
         return {
             items,
-            ...(providerResponse.next_page_uri != null && { next_page_uri: providerResponse.next_page_uri })
+            ...(nextPageToken !== undefined && { next_page_uri: nextPageToken })
         };
     }
 });

@@ -127,7 +127,7 @@ const sync = createSync({
                         : undefined;
                     for (const conference of data.conferences) {
                         if (conference.date_updated) {
-                            if (!maxDateUpdated || conference.date_updated > maxDateUpdated) {
+                            if (!maxDateUpdated || new Date(conference.date_updated) > new Date(maxDateUpdated)) {
                                 maxDateUpdated = conference.date_updated;
                             }
                         }

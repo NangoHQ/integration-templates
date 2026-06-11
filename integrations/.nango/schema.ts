@@ -86759,7 +86759,7 @@ export interface Transcription {
   date_created?: string | undefined;
   date_updated?: string | undefined;
   duration?: string | undefined;
-  price?: number | undefined;
+  price?: string | undefined;
   price_unit?: string | undefined;
   recording_sid?: string | undefined;
   status?: string | undefined;
@@ -86835,7 +86835,7 @@ export interface VerifyService {
   from?: string | undefined;};
   passkeys?: {  relying_party?: {  id?: string | undefined;
   name?: string | undefined;
-  origins?: string | undefined;};
+  origins?: string[] | undefined;};
   authenticator_attachment?: string | undefined;
   discoverable_credentials?: string | undefined;
   user_verification?: string | undefined;};
@@ -86884,7 +86884,7 @@ export interface ActionOutput_twilio_checkverification {
   valid?: boolean | undefined;
   amount?: string | undefined;
   payee?: string | undefined;
-  sna_attempts_error_codes?: string[] | undefined;
+  sna_attempts_error_codes?: unknown[] | undefined;
   date_created?: string | undefined;
   date_updated?: string | undefined;
 };
@@ -87017,7 +87017,7 @@ export interface ActionOutput_twilio_createcall {
   from_formatted: string;
   group_sid?: string | undefined;
   parent_call_sid?: string | undefined;
-  phone_number_sid: string;
+  phone_number_sid?: string | undefined;
   price?: string | undefined;
   price_unit: string;
   queue_time?: string | undefined;
@@ -87561,7 +87561,7 @@ export interface ActionOutput_twilio_getconversation {
   state?: string | undefined;
   timers?: {  date_inactive?: string | undefined;
   date_closed?: string | undefined;};
-  bindings?: {  [key: string]: unknown | undefined;} | null;
+  bindings?: {  [key: string]: unknown | undefined;};
   url?: string | undefined;
   links?: {  participants?: string | undefined;
   messages?: string | undefined;

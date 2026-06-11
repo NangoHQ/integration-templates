@@ -40,7 +40,7 @@ const ProviderServiceSchema = z.object({
                 .object({
                     id: z.string().nullish(),
                     name: z.string().nullish(),
-                    origins: z.string().nullish()
+                    origins: z.array(z.string()).nullish()
                 })
                 .nullish(),
             authenticator_attachment: z.string().nullish(),
@@ -96,7 +96,7 @@ const VerifyServiceSchema = z.object({
                 .object({
                     id: z.string().optional(),
                     name: z.string().optional(),
-                    origins: z.string().optional()
+                    origins: z.array(z.string()).optional()
                 })
                 .optional(),
             authenticator_attachment: z.string().optional(),

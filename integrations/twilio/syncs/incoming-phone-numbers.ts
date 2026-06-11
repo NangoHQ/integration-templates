@@ -152,9 +152,8 @@ const sync = createSync({
         let maxDateCreated: string | undefined;
 
         const params: Record<string, string> = {};
-        if (dateCreatedAfter) {
-            params['DateCreated>'] = dateCreatedAfter;
-        }
+        // Note: Twilio's IncomingPhoneNumbers endpoint does not support DateCreated> filtering;
+        // the checkpoint date is tracked for future reference but not sent as a query param.
         if (pageToken) {
             params['PageToken'] = pageToken;
         }

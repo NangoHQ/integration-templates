@@ -1,4 +1,4 @@
-import { afterEach, vi, expect, it, describe } from 'vitest';
+import { afterEach, beforeEach, vi, expect, it, describe } from 'vitest';
 
 import createSync from '../syncs/usage-records.js';
 
@@ -18,7 +18,14 @@ describe('twilio usage-records tests', () => {
         };
     };
 
+    beforeEach(() => {
+        // Pin to 2026-06-10 so StartDate/EndDate params match the recorded fixture hashes.
+        vi.useFakeTimers();
+        vi.setSystemTime(new Date('2026-06-10T00:00:00Z'));
+    });
+
     afterEach(() => {
+        vi.useRealTimers();
         vi.clearAllMocks();
         vi.restoreAllMocks();
     });

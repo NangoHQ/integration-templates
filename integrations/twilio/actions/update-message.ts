@@ -67,13 +67,20 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const token = await nango.getToken();
-        if (typeof token !== 'object' || token === null || !('username' in token) || typeof token.username !== 'string') {
+        let accountSid: string | undefined;
+        if (typeof token === 'object' && token !== null && 'username' in token && typeof token.username === 'string') {
+            accountSid = token.username;
+        }
+        if (!accountSid) {
+            const metadata = await nango.getMetadata<{ account_sid?: string }>();
+            accountSid = metadata?.account_sid;
+        }
+        if (!accountSid) {
             throw new nango.ActionError({
                 type: 'invalid_credentials',
-                message: 'Missing Account SID in connection credentials.'
+                message: 'Missing Account SID in connection credentials or metadata.'
             });
         }
-        const accountSid = token.username;
 
         const body = new URLSearchParams();
         if (input.body !== undefined) {

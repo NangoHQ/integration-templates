@@ -165,7 +165,7 @@ const action = createAction({
             params['PageSize'] = input.page_size;
         }
         if (input.cursor !== undefined) {
-            params['Page'] = input.cursor;
+            params['PageToken'] = input.cursor;
         }
 
         const response = await nango.get({

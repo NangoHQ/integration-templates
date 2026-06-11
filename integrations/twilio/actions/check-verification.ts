@@ -20,7 +20,7 @@ const ProviderResponseSchema = z.object({
     valid: z.boolean().optional(),
     amount: z.string().nullable().optional(),
     payee: z.string().nullable().optional(),
-    sna_attempts_error_codes: z.array(z.string()).nullable().optional(),
+    sna_attempts_error_codes: z.array(z.unknown()).nullable().optional(),
     date_created: z.string().optional(),
     date_updated: z.string().optional()
 });
@@ -35,7 +35,7 @@ const OutputSchema = z.object({
     valid: z.boolean().optional(),
     amount: z.string().optional(),
     payee: z.string().optional(),
-    sna_attempts_error_codes: z.array(z.string()).optional(),
+    sna_attempts_error_codes: z.array(z.unknown()).optional(),
     date_created: z.string().optional(),
     date_updated: z.string().optional()
 });
@@ -53,6 +53,13 @@ const action = createAction({
     scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        if (!input.to && !input.verification_sid) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'Either to or verification_sid must be provided.'
+            });
+        }
+
         const body = new URLSearchParams();
         if (input.to !== undefined) {
             body.append('To', input.to);

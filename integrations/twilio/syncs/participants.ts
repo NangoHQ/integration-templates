@@ -84,8 +84,6 @@ const sync = createSync({
             retries: 3
         };
 
-        const batch: Array<z.infer<typeof ParticipantSchema>> = [];
-
         for await (const conversationBatch of nango.paginate<unknown>(conversationsConfig)) {
             for (const rawConversation of conversationBatch) {
                 const conversation = ConversationSchema.parse(rawConversation);
@@ -106,9 +104,10 @@ const sync = createSync({
                 };
 
                 for await (const participantBatch of nango.paginate<unknown>(participantsConfig)) {
+                    const records: Array<z.infer<typeof ParticipantSchema>> = [];
                     for (const rawParticipant of participantBatch) {
                         const p = TwilioParticipantSchema.parse(rawParticipant);
-                        batch.push({
+                        records.push({
                             id: p.sid,
                             conversation_sid: p.conversation_sid,
                             account_sid: p.account_sid,
@@ -127,12 +126,11 @@ const sync = createSync({
                             ...(p.url != null && { url: p.url })
                         });
                     }
+                    if (records.length > 0) {
+                        await nango.batchSave(records, 'Participant');
+                    }
                 }
             }
-        }
-
-        if (batch.length > 0) {
-            await nango.batchSave(batch, 'Participant');
         }
 
         await nango.trackDeletesEnd('Participant');

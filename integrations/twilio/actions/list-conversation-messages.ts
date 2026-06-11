@@ -50,7 +50,7 @@ const action = createAction({
             endpoint: `/v1/Conversations/${conversationSid}/Messages`,
             params: {
                 ...(input.page_size !== undefined && { PageSize: input.page_size }),
-                ...(input.cursor !== undefined && { Page: input.cursor }),
+                ...(input.cursor !== undefined && { PageToken: input.cursor }),
                 ...(input.order !== undefined && { Order: input.order })
             },
             retries: 3,

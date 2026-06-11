@@ -71,6 +71,13 @@ const action = createAction({
             });
         }
 
+        if (input.messagingBindingAddress !== undefined && input.messagingBindingProxyAddress === undefined) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'messagingBindingProxyAddress is required when messagingBindingAddress is provided.'
+            });
+        }
+
         const body = new URLSearchParams();
         if (input.identity !== undefined) {
             body.append('Identity', input.identity);

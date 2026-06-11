@@ -44,7 +44,7 @@ const CallSchema = z.object({
     from_formatted: z.string(),
     group_sid: z.string().nullable().optional(),
     parent_call_sid: z.string().nullable().optional(),
-    phone_number_sid: z.string(),
+    phone_number_sid: z.string().nullable().optional(),
     price: z.string().nullable().optional(),
     price_unit: z.string(),
     queue_time: z.string().nullable().optional(),

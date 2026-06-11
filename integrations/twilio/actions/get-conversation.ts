@@ -30,7 +30,7 @@ const ProviderConversationSchema = z
         date_updated: z.string().optional(),
         state: z.string().optional(),
         timers: TimersSchema.optional(),
-        bindings: z.union([z.record(z.string(), z.unknown()), z.null()]).optional(),
+        bindings: z.record(z.string(), z.unknown()).nullable().optional(),
         url: z.string().optional(),
         links: LinksSchema.optional()
     })
@@ -48,7 +48,7 @@ const OutputSchema = z.object({
     date_updated: z.string().optional(),
     state: z.string().optional(),
     timers: TimersSchema.optional(),
-    bindings: z.union([z.record(z.string(), z.unknown()), z.null()]).optional(),
+    bindings: z.record(z.string(), z.unknown()).nullable().optional(),
     url: z.string().optional(),
     links: LinksSchema.optional()
 });

@@ -40,14 +40,9 @@
           "x-ratelimit-reset": "1781087564",
           "etag": "W/\"20c-EkA+JeBRglB8VKc3Z0u5xlwKbR8\""
         },
-        "hash": "f24c0f69d9cf29495b0f585e3d3a626b8d4eb967",
+        "hash": "83f05d735f3c4ff17ab3d22277e931497975e5c3",
         "request": {
-          "params": {
-            "Configuration.Filters": "onParticipantAdded",
-            "Configuration.Method": "post",
-            "Configuration.Url": "https://example.com/webhook",
-            "Target": "webhook"
-          }
+          "params": {}
         }
       }
     }

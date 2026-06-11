@@ -5,7 +5,13 @@ import type { ProxyConfiguration } from 'nango';
 const InputSchema = z.object({
     conversation_sid: z.string().describe('The unique ID of the Conversation. Example: "CHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"'),
     cursor: z.string().optional().describe('Pagination cursor (PageToken) from the previous response. Omit for the first page.'),
-    page_size: z.number().optional().describe('How many resources to return in each list page. The default is 50, and the maximum is 100.')
+    page_size: z
+        .number()
+        .int()
+        .min(1)
+        .max(100)
+        .optional()
+        .describe('How many resources to return in each list page. The default is 50, and the maximum is 100.')
 });
 
 const MessagingBindingSchema = z
@@ -120,10 +126,15 @@ const action = createAction({
         }
 
         const items = participants.map((p) => {
+            if (!p.account_sid || !p.conversation_sid || !p.sid) {
+                throw new Error(
+                    `Participant record missing required fields: ${JSON.stringify({ account_sid: p.account_sid, conversation_sid: p.conversation_sid, sid: p.sid })}`
+                );
+            }
             return {
-                account_sid: p.account_sid || '',
-                conversation_sid: p.conversation_sid || '',
-                sid: p.sid || '',
+                account_sid: p.account_sid,
+                conversation_sid: p.conversation_sid,
+                sid: p.sid,
                 ...(p.identity != null && { identity: p.identity }),
                 ...(p.attributes != null && { attributes: p.attributes }),
                 ...(p.messaging_binding != null && {

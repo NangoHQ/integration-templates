@@ -90,14 +90,13 @@ const action = createAction({
                 queryParts.push(`Configuration.Filters=${encodeURIComponent(filter)}`);
             }
         }
-        const params = queryParts.join('&');
+        const formBody = queryParts.join('&');
 
         // https://www.twilio.com/docs/conversations-classic/api/conversation-scoped-webhook-resource
         const response = await nango.post({
             baseUrlOverride: 'https://conversations.twilio.com',
             endpoint: `/v1/Conversations/${encodeURIComponent(input.conversationSid)}/Webhooks`,
-            params,
-            data: '',
+            data: formBody,
             headers: {
                 'content-type': 'application/x-www-form-urlencoded'
             },
