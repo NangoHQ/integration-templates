@@ -1,0 +1,224 @@
+{
+  "input": {
+    "accountId": "4845214000000008002"
+  },
+  "output": {
+    "country": "ke",
+    "mxStatus": true,
+    "activeSyncEnabled": false,
+    "incomingBlocked": false,
+    "language": "en",
+    "type": "ZOHO_ACCOUNT",
+    "extraStorage": {},
+    "incomingUserName": "nangoapi@zohomail.com",
+    "emailAddress": [
+      {
+        "isAlias": false,
+        "isPrimary": true,
+        "mailId": "api@nango.dev",
+        "isConfirmed": true
+      },
+      {
+        "isAlias": false,
+        "isPrimary": false,
+        "mailId": "nangoapi@zohomail.com",
+        "isConfirmed": true
+      }
+    ],
+    "mailboxStatus": "enabled",
+    "popBlocked": false,
+    "usedStorage": 0,
+    "spamcheckEnabled": true,
+    "imapAccessEnabled": false,
+    "timeZone": "Africa/Nairobi",
+    "accountCreationTime": 1778747647655,
+    "zuid": 924194079,
+    "webBlocked": false,
+    "planStorage": 5,
+    "firstName": "Nango",
+    "accountId": "4845214000000008002",
+    "sequence": 1,
+    "mailboxAddress": "nangoapi@zohomail.com",
+    "lastPasswordReset": -1,
+    "tfaEnabled": false,
+    "status": false,
+    "lastName": "Developer",
+    "accountDisplayName": "nangoapi",
+    "role": "member",
+    "gender": "NOT_SPECIFIED",
+    "accountName": "zohomail",
+    "displayName": "Nango Developer",
+    "isLogoExist": true,
+    "URI": "https://mail.zoho.com/api/accounts/4845214000000008002",
+    "primaryEmailAddress": "api@nango.dev",
+    "enabled": true,
+    "mailboxCreationTime": 1781104157344,
+    "lastClient": "WEB_ZM",
+    "allowedStorage": 5242880,
+    "sendMailDetails": [
+      {
+        "sendMailId": "4845214000000008003",
+        "displayName": "Nango Developer",
+        "serverName": "smtpout.mail.zoho.com",
+        "signatureId": "4845214000000008016",
+        "serverPort": 25,
+        "userName": "nangoapi@zohomail.com",
+        "connectionType": "plain",
+        "mode": "mailbox",
+        "validated": false,
+        "fromAddress": "nangoapi@zohomail.com",
+        "smtpConnection": 0,
+        "validationRequired": true,
+        "validationState": 0,
+        "status": true
+      }
+    ],
+    "popFetchTime": -1,
+    "address": {},
+    "planType": 0,
+    "userExpiry": -1,
+    "popAccessEnabled": false,
+    "imapBlocked": false,
+    "iamUserRole": "member",
+    "outgoingBlocked": false,
+    "policyId": {
+      "zoid": -1,
+      "1082700000000623001": "Zoho Mail Policy"
+    },
+    "smtpStatus": true,
+    "extraEDiscoveryStorage": {},
+    "iamStatus": 1,
+    "deliveryType": "LOCAL",
+    "isDesignatedMailbox": false
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/accounts/4845214000000008002": {
+        "response": {
+          "status": {
+            "code": 200,
+            "description": "success"
+          },
+          "data": {
+            "country": "ke",
+            "mxStatus": true,
+            "activeSyncEnabled": false,
+            "incomingBlocked": false,
+            "language": "en",
+            "type": "ZOHO_ACCOUNT",
+            "extraStorage": {},
+            "incomingUserName": "nangoapi@zohomail.com",
+            "emailAddress": [
+              {
+                "isAlias": false,
+                "isPrimary": true,
+                "mailId": "api@nango.dev",
+                "isConfirmed": true
+              },
+              {
+                "isAlias": false,
+                "isPrimary": false,
+                "mailId": "nangoapi@zohomail.com",
+                "isConfirmed": true
+              }
+            ],
+            "mailboxStatus": "enabled",
+            "popBlocked": false,
+            "usedStorage": 0,
+            "spamcheckEnabled": true,
+            "imapAccessEnabled": false,
+            "timeZone": "Africa/Nairobi",
+            "accountCreationTime": 1778747647655,
+            "zuid": 924194079,
+            "webBlocked": false,
+            "planStorage": 5,
+            "firstName": "Nango",
+            "accountId": "4845214000000008002",
+            "sequence": 1,
+            "mailboxAddress": "nangoapi@zohomail.com",
+            "lastPasswordReset": -1,
+            "tfaEnabled": false,
+            "iamStatus": 1,
+            "status": false,
+            "lastName": "Developer",
+            "accountDisplayName": "nangoapi",
+            "role": "member",
+            "gender": "NOT_SPECIFIED",
+            "accountName": "zohomail",
+            "displayName": "Nango Developer",
+            "isLogoExist": true,
+            "URI": "https://mail.zoho.com/api/accounts/4845214000000008002",
+            "primaryEmailAddress": "api@nango.dev",
+            "enabled": true,
+            "mailboxCreationTime": 1781104157344,
+            "lastClient": "WEB_ZM",
+            "allowedStorage": 5242880,
+            "sendMailDetails": [
+              {
+                "sendMailId": "4845214000000008003",
+                "displayName": "Nango Developer",
+                "serverName": "smtpout.mail.zoho.com",
+                "signatureId": "4845214000000008016",
+                "serverPort": 25,
+                "userName": "nangoapi@zohomail.com",
+                "connectionType": "plain",
+                "mode": "mailbox",
+                "validated": false,
+                "fromAddress": "nangoapi@zohomail.com",
+                "smtpConnection": 0,
+                "validationRequired": true,
+                "validationState": 0,
+                "status": true
+              }
+            ],
+            "popFetchTime": -1,
+            "address": {},
+            "planType": 0,
+            "userExpiry": -1,
+            "popAccessEnabled": false,
+            "deliveryType": "LOCAL",
+            "imapBlocked": false,
+            "iamUserRole": "member",
+            "outgoingBlocked": false,
+            "policyId": {
+              "zoid": -1,
+              "1082700000000623001": "Zoho Mail Policy"
+            },
+            "isDesignatedMailbox": false,
+            "smtpStatus": true,
+            "extraEDiscoveryStorage": {}
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 11 Jun 2026 07:25:34 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=64072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4969",
+          "x-ratelimit-reset": "1781162778",
+          "server": "ZGS",
+          "set-cookie": "zalb_c2bd911729=3b4aff5e477f72863baba7e724744b35; Path=/; Secure; HttpOnly, zmcsr=82ab038c-71f9-424e-a589-8097196ccdcf;path=/;SameSite=Strict;Secure;priority=high, zmuac=OTI0MTk0MDc5XzI0NjEyMDI=; Max-Age=2592000; Expires=Sat, 11-Jul-2026 07:25:34 GMT; Secure; HttpOnly; SameSite=Strict",
+          "cache-control": "private,no-cache,no-store,max-age=0,must-revalidate",
+          "pragma": "no-cache",
+          "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
+          "access-control-allow-methods": "GET, POST, DELETE, PUT",
+          "access-control-allow-headers": "Content-Type,Authorization"
+        },
+        "hash": "18489fa8fbfaa6f94408280cc1530d42a5c7bfa8",
+        "request": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,156 @@
+{
+  "input": {
+    "accountId": "4845214000000008002",
+    "folderId": "4845214000000008008",
+    "messageId": "1781108289537154100",
+    "fromAddress": "nangoapi@zohomail.com",
+    "toAddress": "nangoapi@zohomail.com"
+  },
+  "output": {
+    "success": true,
+    "code": 200,
+    "description": "success"
+  },
+  "nango": {
+    "getConnection": {}
+  },
+  "api": {
+    "get": {
+      "/api/accounts/4845214000000008002/folders/4845214000000008008/messages/1781108289537154100/details": {
+        "response": {
+          "status": {
+            "code": 200,
+            "description": "success"
+          },
+          "data": {
+            "summary": "Test message A for Nango seed data.",
+            "sentDateInGMT": "1781133488000",
+            "calendarType": 0,
+            "subject": "Test Message A",
+            "messageId": "1781108289537154100",
+            "threadCount": "0",
+            "flagid": "important",
+            "status2": "0",
+            "priority": "3",
+            "hasInline": "false",
+            "toAddress": "&lt;nangoapi@zohomail.com&gt;",
+            "folderId": "4845214000000009011",
+            "ccAddress": "Not Provided",
+            "threadId": "1781108288595155100",
+            "hasAttachment": "0",
+            "size": "37",
+            "sender": "nangoapi@zohomail.com",
+            "receivedTime": "1781108289531",
+            "fromAddress": "nangoapi@zohomail.com",
+            "status": "1"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 10 Jun 2026 23:03:12 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "content-length": "586",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4995",
+          "x-ratelimit-reset": "1781132650",
+          "etag": "W/\"24a-/Tt9uukMxrNw80cDbjqqt+rzWog\""
+        },
+        "hash": "c615f19a99973741d47246c4db23aea43bfb1252",
+        "request": {}
+      },
+      "/api/accounts/4845214000000008002/folders/4845214000000009011/messages/1781108289537154100/content": {
+        "response": {
+          "status": {
+            "code": 200,
+            "description": "success"
+          },
+          "data": {
+            "messageId": 1781108289537154000,
+            "content": "<div>Test message A for Nango seed data.\r<br></div>"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 10 Jun 2026 23:03:13 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "content-length": "153",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4994",
+          "x-ratelimit-reset": "1781132650",
+          "etag": "W/\"99-bd/M7JPm1ZVHFYNj2WPVBdUmHS8\""
+        },
+        "hash": "d00a1c2f67ae44a1c014ac9ccbba59c53701f521",
+        "request": {}
+      }
+    },
+    "post": {
+      "/api/accounts/4845214000000008002/messages": {
+        "response": {
+          "status": {
+            "code": 200,
+            "description": "success"
+          },
+          "data": {
+            "subject": "Fwd: Test Message A",
+            "messageId": "1781132593284155300",
+            "fromAddress": "nangoapi@zohomail.com",
+            "mailFormat": "plaintext",
+            "mailId": "<19eb3c68831.4cad3b4a504774.256952475387581915@zohomail.com>",
+            "toAddress": "nangoapi@zohomail.com",
+            "content": "---------- Forwarded message ----------\n<div>Test message A for Nango seed data.\r<br></div>"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 10 Jun 2026 23:03:13 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "content-length": "399",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4993",
+          "x-ratelimit-reset": "1781132650",
+          "etag": "W/\"18f-eEGDXGHa7wvbOt+NJi4uqCg8H5g\""
+        },
+        "hash": "d5f6eda7c92a4d8428887757b8c5af6e54d0b3ca",
+        "request": {
+          "data": {
+            "fromAddress": "nangoapi@zohomail.com",
+            "toAddress": "nangoapi@zohomail.com",
+            "subject": "Fwd: Test Message A",
+            "content": "---------- Forwarded message ----------\n<div>Test message A for Nango seed data.\r<br></div>",
+            "mailFormat": "plaintext"
+          }
+        }
+      }
+    }
+  }
+}

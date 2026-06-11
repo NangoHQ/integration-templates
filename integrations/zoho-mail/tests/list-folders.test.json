@@ -1,0 +1,395 @@
+{
+  "input": {
+    "accountId": "4845214000000008002"
+  },
+  "output": {
+    "folders": [
+      {
+        "folderId": "4845214000000008008",
+        "folderName": "Inbox",
+        "folderType": "Inbox",
+        "path": "/Inbox",
+        "isArchived": 0,
+        "imapAccess": true,
+        "uri": "https://mail.zoho.com/api/accounts/4845214000000008002/folders/4845214000000008008"
+      },
+      {
+        "folderId": "4845214000000008009",
+        "folderName": "Drafts",
+        "folderType": "Drafts",
+        "path": "/Drafts",
+        "previousFolderId": "4845214000000008008",
+        "isArchived": 0,
+        "imapAccess": true,
+        "uri": "https://mail.zoho.com/api/accounts/4845214000000008002/folders/4845214000000008009"
+      },
+      {
+        "folderId": "4845214000000008010",
+        "folderName": "Templates",
+        "folderType": "Templates",
+        "path": "/Templates",
+        "previousFolderId": "4845214000000008009",
+        "isArchived": 0,
+        "imapAccess": true,
+        "uri": "https://mail.zoho.com/api/accounts/4845214000000008002/folders/4845214000000008010"
+      },
+      {
+        "folderId": "4845214000000008011",
+        "folderName": "Snoozed",
+        "folderType": "Snoozed",
+        "path": "/Snoozed",
+        "previousFolderId": "4845214000000008010",
+        "isArchived": 0,
+        "imapAccess": true,
+        "uri": "https://mail.zoho.com/api/accounts/4845214000000008002/folders/4845214000000008011"
+      },
+      {
+        "folderId": "4845214000000008012",
+        "folderName": "Sent",
+        "folderType": "Sent",
+        "path": "/Sent",
+        "previousFolderId": "4845214000000008011",
+        "isArchived": 0,
+        "imapAccess": true,
+        "uri": "https://mail.zoho.com/api/accounts/4845214000000008002/folders/4845214000000008012"
+      },
+      {
+        "folderId": "4845214000000008013",
+        "folderName": "Spam",
+        "folderType": "Spam",
+        "path": "/Spam",
+        "previousFolderId": "4845214000000008012",
+        "isArchived": 0,
+        "imapAccess": true,
+        "uri": "https://mail.zoho.com/api/accounts/4845214000000008002/folders/4845214000000008013"
+      },
+      {
+        "folderId": "4845214000000008014",
+        "folderName": "Trash",
+        "folderType": "Trash",
+        "path": "/Trash",
+        "previousFolderId": "4845214000000008013",
+        "isArchived": 0,
+        "imapAccess": true,
+        "uri": "https://mail.zoho.com/api/accounts/4845214000000008002/folders/4845214000000008014"
+      },
+      {
+        "folderId": "4845214000000008015",
+        "folderName": "Outbox",
+        "folderType": "Outbox",
+        "path": "/Outbox",
+        "previousFolderId": "4845214000000009011",
+        "isArchived": 0,
+        "imapAccess": true,
+        "uri": "https://mail.zoho.com/api/accounts/4845214000000008002/folders/4845214000000008015"
+      },
+      {
+        "folderId": "4845214000000009001",
+        "folderName": "Notification",
+        "folderType": "Inbox",
+        "path": "/Notification",
+        "previousFolderId": "4845214000000009006",
+        "isArchived": 0,
+        "imapAccess": true,
+        "uri": "https://mail.zoho.com/api/accounts/4845214000000008002/folders/4845214000000009001"
+      },
+      {
+        "folderId": "4845214000000009006",
+        "folderName": "Newsletter",
+        "folderType": "Inbox",
+        "path": "/Newsletter",
+        "previousFolderId": "4845214000000008015",
+        "isArchived": 0,
+        "imapAccess": true,
+        "uri": "https://mail.zoho.com/api/accounts/4845214000000008002/folders/4845214000000009006"
+      },
+      {
+        "folderId": "4845214000000009011",
+        "folderName": "Archive",
+        "folderType": "Archive",
+        "path": "/Archive",
+        "previousFolderId": "4845214000000008014",
+        "isArchived": 0,
+        "imapAccess": true,
+        "uri": "https://mail.zoho.com/api/accounts/4845214000000008002/folders/4845214000000009011"
+      },
+      {
+        "folderId": "4845214000000010001",
+        "folderName": "Test Folder A",
+        "folderType": "Inbox",
+        "path": "/Inbox/Test Folder A",
+        "isArchived": 0,
+        "imapAccess": true,
+        "uri": "https://mail.zoho.com/api/accounts/4845214000000008002/folders/4845214000000010001"
+      },
+      {
+        "folderId": "4845214000000010002",
+        "folderName": "Test Delete Folder A",
+        "folderType": "Inbox",
+        "path": "/Test Delete Folder A",
+        "previousFolderId": "4845214000000009001",
+        "isArchived": 0,
+        "imapAccess": true,
+        "uri": "https://mail.zoho.com/api/accounts/4845214000000008002/folders/4845214000000010002"
+      },
+      {
+        "folderId": "4845214000000010003",
+        "folderName": "Test Folder 1781131471",
+        "folderType": "Inbox",
+        "path": "/Test Folder 1781131471",
+        "previousFolderId": "4845214000000011001",
+        "isArchived": 0,
+        "imapAccess": true,
+        "uri": "https://mail.zoho.com/api/accounts/4845214000000008002/folders/4845214000000010003"
+      },
+      {
+        "folderId": "4845214000000011001",
+        "folderName": "Test Delete Folder B",
+        "folderType": "Inbox",
+        "path": "/Test Delete Folder B",
+        "previousFolderId": "4845214000000010002",
+        "isArchived": 0,
+        "imapAccess": true,
+        "uri": "https://mail.zoho.com/api/accounts/4845214000000008002/folders/4845214000000011001"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/accounts/4845214000000008002/folders": {
+        "response": {
+          "status": {
+            "code": 200,
+            "description": "success"
+          },
+          "data": [
+            {
+              "path": "/Inbox",
+              "VW": true,
+              "HIDE": false,
+              "isArchived": 0,
+              "folderIcon": "default",
+              "folderName": "Inbox",
+              "imapAccess": true,
+              "folderType": "Inbox",
+              "URI": "https://mail.zoho.com/api/accounts/4845214000000008002/folders/4845214000000008008",
+              "folderId": "4845214000000008008"
+            },
+            {
+              "path": "/Drafts",
+              "VW": true,
+              "previousFolderId": "4845214000000008008",
+              "HIDE": false,
+              "isArchived": 0,
+              "folderIcon": "default",
+              "folderName": "Drafts",
+              "imapAccess": true,
+              "folderType": "Drafts",
+              "URI": "https://mail.zoho.com/api/accounts/4845214000000008002/folders/4845214000000008009",
+              "folderId": "4845214000000008009"
+            },
+            {
+              "path": "/Templates",
+              "VW": true,
+              "previousFolderId": "4845214000000008009",
+              "HIDE": false,
+              "isArchived": 0,
+              "folderIcon": "default",
+              "folderName": "Templates",
+              "imapAccess": true,
+              "folderType": "Templates",
+              "URI": "https://mail.zoho.com/api/accounts/4845214000000008002/folders/4845214000000008010",
+              "folderId": "4845214000000008010"
+            },
+            {
+              "path": "/Snoozed",
+              "VW": true,
+              "previousFolderId": "4845214000000008010",
+              "HIDE": false,
+              "isArchived": 0,
+              "folderIcon": "default",
+              "folderName": "Snoozed",
+              "imapAccess": true,
+              "folderType": "Snoozed",
+              "URI": "https://mail.zoho.com/api/accounts/4845214000000008002/folders/4845214000000008011",
+              "folderId": "4845214000000008011"
+            },
+            {
+              "path": "/Sent",
+              "VW": true,
+              "previousFolderId": "4845214000000008011",
+              "HIDE": false,
+              "isArchived": 0,
+              "folderIcon": "default",
+              "folderName": "Sent",
+              "imapAccess": true,
+              "folderType": "Sent",
+              "URI": "https://mail.zoho.com/api/accounts/4845214000000008002/folders/4845214000000008012",
+              "folderId": "4845214000000008012"
+            },
+            {
+              "path": "/Spam",
+              "VW": true,
+              "previousFolderId": "4845214000000008012",
+              "HIDE": false,
+              "isArchived": 0,
+              "folderIcon": "default",
+              "folderName": "Spam",
+              "imapAccess": true,
+              "folderType": "Spam",
+              "URI": "https://mail.zoho.com/api/accounts/4845214000000008002/folders/4845214000000008013",
+              "folderId": "4845214000000008013"
+            },
+            {
+              "path": "/Trash",
+              "VW": true,
+              "previousFolderId": "4845214000000008013",
+              "HIDE": false,
+              "isArchived": 0,
+              "folderIcon": "default",
+              "folderName": "Trash",
+              "imapAccess": true,
+              "folderType": "Trash",
+              "URI": "https://mail.zoho.com/api/accounts/4845214000000008002/folders/4845214000000008014",
+              "folderId": "4845214000000008014"
+            },
+            {
+              "path": "/Outbox",
+              "VW": true,
+              "previousFolderId": "4845214000000009011",
+              "HIDE": false,
+              "isArchived": 0,
+              "folderIcon": "default",
+              "folderName": "Outbox",
+              "imapAccess": true,
+              "folderType": "Outbox",
+              "URI": "https://mail.zoho.com/api/accounts/4845214000000008002/folders/4845214000000008015",
+              "folderId": "4845214000000008015"
+            },
+            {
+              "path": "/Notification",
+              "VW": true,
+              "previousFolderId": "4845214000000009006",
+              "HIDE": false,
+              "isArchived": 0,
+              "folderIcon": "default",
+              "folderName": "Notification",
+              "imapAccess": true,
+              "folderType": "Inbox",
+              "URI": "https://mail.zoho.com/api/accounts/4845214000000008002/folders/4845214000000009001",
+              "folderId": "4845214000000009001"
+            },
+            {
+              "path": "/Newsletter",
+              "VW": true,
+              "previousFolderId": "4845214000000008015",
+              "HIDE": false,
+              "isArchived": 0,
+              "folderIcon": "default",
+              "folderName": "Newsletter",
+              "imapAccess": true,
+              "folderType": "Inbox",
+              "URI": "https://mail.zoho.com/api/accounts/4845214000000008002/folders/4845214000000009006",
+              "folderId": "4845214000000009006"
+            },
+            {
+              "path": "/Archive",
+              "VW": true,
+              "previousFolderId": "4845214000000008014",
+              "HIDE": false,
+              "isArchived": 0,
+              "folderIcon": "default",
+              "folderName": "Archive",
+              "imapAccess": true,
+              "folderType": "Archive",
+              "URI": "https://mail.zoho.com/api/accounts/4845214000000008002/folders/4845214000000009011",
+              "folderId": "4845214000000009011"
+            },
+            {
+              "path": "/Inbox/Test Folder A",
+              "VW": true,
+              "HIDE": false,
+              "parentFolderId": "4845214000000008008",
+              "isArchived": 0,
+              "folderIcon": "default",
+              "folderName": "Test Folder A",
+              "imapAccess": true,
+              "folderType": "Inbox",
+              "URI": "https://mail.zoho.com/api/accounts/4845214000000008002/folders/4845214000000010001",
+              "folderId": "4845214000000010001"
+            },
+            {
+              "path": "/Test Delete Folder A",
+              "VW": true,
+              "previousFolderId": "4845214000000009001",
+              "HIDE": false,
+              "isArchived": 0,
+              "folderIcon": "default",
+              "folderName": "Test Delete Folder A",
+              "imapAccess": true,
+              "folderType": "Inbox",
+              "URI": "https://mail.zoho.com/api/accounts/4845214000000008002/folders/4845214000000010002",
+              "folderId": "4845214000000010002"
+            },
+            {
+              "path": "/Test Folder 1781131471",
+              "VW": true,
+              "previousFolderId": "4845214000000011001",
+              "HIDE": false,
+              "isArchived": 0,
+              "folderIcon": "default",
+              "folderName": "Test Folder 1781131471",
+              "imapAccess": true,
+              "folderType": "Inbox",
+              "URI": "https://mail.zoho.com/api/accounts/4845214000000008002/folders/4845214000000010003",
+              "folderId": "4845214000000010003"
+            },
+            {
+              "path": "/Test Delete Folder B",
+              "VW": true,
+              "previousFolderId": "4845214000000010002",
+              "HIDE": false,
+              "isArchived": 0,
+              "folderIcon": "default",
+              "folderName": "Test Delete Folder B",
+              "imapAccess": true,
+              "folderType": "Inbox",
+              "URI": "https://mail.zoho.com/api/accounts/4845214000000008002/folders/4845214000000011001",
+              "folderId": "4845214000000011001"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 10 Jun 2026 23:08:28 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=64072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4967",
+          "x-ratelimit-reset": "1781132920",
+          "server": "ZGS",
+          "set-cookie": "zalb_c2bd911729=03570c2b4bfd56770b07732975024940; Path=/; Secure; HttpOnly, zmcsr=204c7166-233c-4b0b-a77f-f37d45989025;path=/;SameSite=Strict;Secure;priority=high, zmuac=OTI0MTk0MDc5XzI0NjEyMDI=; Max-Age=2592000; Expires=Fri, 10-Jul-2026 23:08:28 GMT; Secure; HttpOnly; SameSite=Strict",
+          "cache-control": "private,no-cache,no-store,max-age=0,must-revalidate",
+          "pragma": "no-cache",
+          "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
+          "access-control-allow-methods": "GET, POST, DELETE, PUT",
+          "access-control-allow-headers": "Content-Type,Authorization",
+          "vary": "accept-encoding"
+        },
+        "hash": "b6d4e7f3a2e21c532cd543d5b5b8ab6007dc94e4",
+        "request": {}
+      }
+    }
+  }
+}
