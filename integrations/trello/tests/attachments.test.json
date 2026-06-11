@@ -1,0 +1,2913 @@
+{
+  "nango": {
+    "batchSave": {
+      "Attachment": [
+        {
+          "id": "6a26ebb3bb550e61ae961968",
+          "bytes": "887319",
+          "date": "2026-06-08T16:20:03.760Z",
+          "edgeColor": "#fcfcfc",
+          "idMember": "6a26eb9ccef85b4074044ea5",
+          "isUpload": true,
+          "mimeType": "image/jpeg",
+          "name": "2%20Email,%20Slack,%20Teams.jpg",
+          "url": "https://trello.com/1/cards/6a26ebb3cd5f60a53a5859c0/attachments/6a26ebb3bb550e61ae961968/download/2_20Email%2C_20Slack%2C_20Teams.jpg",
+          "pos": 140737488355328,
+          "idCard": "6a26ebb3cd5f60a53a5859c0",
+          "idBoard": "6a26ebb3cd5f60a53a585978"
+        },
+        {
+          "id": "6a26ebb465626e9e07e96897",
+          "bytes": "5162428",
+          "date": "2026-06-08T16:20:04.113Z",
+          "edgeColor": "#fcfcfc",
+          "idMember": "6a26eb9ccef85b4074044ea5",
+          "isUpload": true,
+          "mimeType": "image/jpeg",
+          "name": "3%20Trello%20Basics.jpg",
+          "url": "https://trello.com/1/cards/6a26ebb3cd5f60a53a5859df/attachments/6a26ebb465626e9e07e96897/download/3_20Trello_20Basics.jpg",
+          "pos": 140737488355328,
+          "idCard": "6a26ebb3cd5f60a53a5859df",
+          "idBoard": "6a26ebb3cd5f60a53a585978"
+        },
+        {
+          "id": "6a26ebb4497289c4bce66c24",
+          "bytes": "2113089",
+          "date": "2026-06-08T16:20:04.070Z",
+          "edgeColor": "#fbfbfc",
+          "idMember": "6a26eb9ccef85b4074044ea5",
+          "isUpload": true,
+          "mimeType": "image/jpeg",
+          "name": "5%20Work%20Smarter.jpg",
+          "url": "https://trello.com/1/cards/6a26ebb3cd5f60a53a585a22/attachments/6a26ebb4497289c4bce66c24/download/5_20Work_20Smarter.jpg",
+          "pos": 140737488355328,
+          "idCard": "6a26ebb3cd5f60a53a585a22",
+          "idBoard": "6a26ebb3cd5f60a53a585978"
+        },
+        {
+          "id": "6a26ebb4e09bbe59a75fd046",
+          "bytes": "856421",
+          "date": "2026-06-08T16:20:04.137Z",
+          "edgeColor": "#fcfcfc",
+          "idMember": "6a26eb9ccef85b4074044ea5",
+          "isUpload": true,
+          "mimeType": "image/jpeg",
+          "name": "6%20Jira.jpg",
+          "url": "https://trello.com/1/cards/6a26ebb3cd5f60a53a585a56/attachments/6a26ebb4e09bbe59a75fd046/download/6_20Jira.jpg",
+          "pos": 140737488355328,
+          "idCard": "6a26ebb3cd5f60a53a585a56",
+          "idBoard": "6a26ebb3cd5f60a53a585978"
+        },
+        {
+          "id": "6a26ebb408280c1b06148dc8",
+          "bytes": "977493",
+          "date": "2026-06-08T16:20:04.256Z",
+          "edgeColor": "#fcfcfc",
+          "idMember": "6a26eb9ccef85b4074044ea5",
+          "isUpload": true,
+          "mimeType": "image/jpeg",
+          "name": "4%20Download%20the%20mobile%20apps.jpg",
+          "url": "https://trello.com/1/cards/6a26ebb3cd5f60a53a585a8e/attachments/6a26ebb408280c1b06148dc8/download/4_20Download_20the_20mobile_20apps.jpg",
+          "pos": 140737488355328,
+          "idCard": "6a26ebb3cd5f60a53a585a8e",
+          "idBoard": "6a26ebb3cd5f60a53a585978"
+        },
+        {
+          "id": "6a26f6040d0268afb20b8fd2",
+          "date": "2026-06-08T17:04:04.613Z",
+          "idMember": "6a26eb9ccef85b4074044ea5",
+          "isUpload": false,
+          "mimeType": "",
+          "name": "Nango Docs",
+          "url": "https://nango.dev",
+          "pos": 140737488355328,
+          "idCard": "6a26f2fdbc520ab9f45a5214",
+          "idBoard": "6a26ebb3cd5f60a53a585978"
+        },
+        {
+          "id": "6a26f6162abf09e5fcd7e727",
+          "date": "2026-06-08T17:04:22.089Z",
+          "idMember": "6a26eb9ccef85b4074044ea5",
+          "isUpload": false,
+          "mimeType": "text/html",
+          "name": "Nango Docs Link",
+          "url": "https://docs.nango.dev",
+          "pos": 140737488371712,
+          "idCard": "6a26f2fdbc520ab9f45a5214",
+          "idBoard": "6a26ebb3cd5f60a53a585978"
+        },
+        {
+          "id": "6a26f620d9da609fe727b47f",
+          "date": "2026-06-08T17:04:32.116Z",
+          "idMember": "6a26eb9ccef85b4074044ea5",
+          "isUpload": false,
+          "mimeType": "text/html",
+          "name": "Nango Docs Link",
+          "url": "https://docs.nango.dev",
+          "pos": 140737488388096,
+          "idCard": "6a26f2fdbc520ab9f45a5214",
+          "idBoard": "6a26ebb3cd5f60a53a585978"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Attachment": []
+    }
+  },
+  "api": {
+    "get": {
+      "/1/members/me/boards": {
+        "response": [
+          {
+            "id": "6a26ebb3cd5f60a53a585978",
+            "nodeId": "ari:cloud:trello::board/workspace/6a26ebb15b58213488fb7401/6a26ebb3cd5f60a53a585978",
+            "name": "My Trello board",
+            "desc": "Updated via Nango action",
+            "descData": {
+              "emoji": {}
+            },
+            "closed": false,
+            "creationMethod": "demo",
+            "creationMethodError": null,
+            "creationMethodLoadingStartedAt": null,
+            "creationMethodLoadingPhase": null,
+            "dateClosed": null,
+            "idOrganization": "6a26ebb15b58213488fb7401",
+            "idEnterprise": null,
+            "limits": {
+              "attachments": {
+                "perBoard": {
+                  "status": "ok",
+                  "disableAt": 36000,
+                  "warnAt": 28800
+                },
+                "perCard": {
+                  "status": "ok",
+                  "disableAt": 1000,
+                  "warnAt": 800
+                }
+              },
+              "boards": {
+                "totalMembersPerBoard": {
+                  "status": "ok",
+                  "disableAt": 1600,
+                  "warnAt": 1280
+                },
+                "totalAccessRequestsPerBoard": {
+                  "status": "ok",
+                  "disableAt": 4000,
+                  "warnAt": 3200
+                }
+              },
+              "cards": {
+                "openPerBoard": {
+                  "status": "ok",
+                  "disableAt": 5000,
+                  "warnAt": 4000
+                },
+                "openPerList": {
+                  "status": "ok",
+                  "disableAt": 5000,
+                  "warnAt": 4000
+                },
+                "totalPerBoard": {
+                  "status": "ok",
+                  "disableAt": 2000000,
+                  "warnAt": 1600000
+                },
+                "totalPerList": {
+                  "status": "ok",
+                  "disableAt": 1000000,
+                  "warnAt": 800000
+                }
+              },
+              "checklists": {
+                "perBoard": {
+                  "status": "ok",
+                  "disableAt": 1800000,
+                  "warnAt": 1440000
+                },
+                "perCard": {
+                  "status": "ok",
+                  "disableAt": 500,
+                  "warnAt": 400
+                }
+              },
+              "checkItems": {
+                "perChecklist": {
+                  "status": "ok",
+                  "disableAt": 200,
+                  "warnAt": 160
+                }
+              },
+              "customFields": {
+                "perBoard": {
+                  "status": "ok",
+                  "disableAt": 50,
+                  "warnAt": 40
+                }
+              },
+              "customFieldOptions": {
+                "perField": {
+                  "status": "ok",
+                  "disableAt": 50,
+                  "warnAt": 40
+                }
+              },
+              "labels": {
+                "perBoard": {
+                  "status": "ok",
+                  "disableAt": 1000,
+                  "warnAt": 800
+                }
+              },
+              "lists": {
+                "openPerBoard": {
+                  "status": "ok",
+                  "disableAt": 500,
+                  "warnAt": 400
+                },
+                "totalPerBoard": {
+                  "status": "ok",
+                  "disableAt": 3000,
+                  "warnAt": 2400
+                }
+              },
+              "stickers": {
+                "perCard": {
+                  "status": "ok",
+                  "disableAt": 70,
+                  "warnAt": 56
+                }
+              },
+              "reactions": {
+                "perAction": {
+                  "status": "ok",
+                  "disableAt": 900,
+                  "warnAt": 720
+                },
+                "uniquePerAction": {
+                  "status": "ok",
+                  "disableAt": 17,
+                  "warnAt": 14
+                }
+              }
+            },
+            "pinned": false,
+            "starred": false,
+            "url": "https://trello.com/b/NYLufejN/my-trello-board",
+            "prefs": {
+              "permissionLevel": "org",
+              "hideVotes": false,
+              "voting": "disabled",
+              "comments": "members",
+              "invitations": "members",
+              "selfJoin": true,
+              "cardCovers": true,
+              "showCompleteStatus": true,
+              "cardCounts": false,
+              "isTemplate": false,
+              "cardAging": "regular",
+              "calendarFeedEnabled": false,
+              "hiddenPluginBoardButtons": [],
+              "switcherViews": [
+                {
+                  "viewType": "Board",
+                  "enabled": true
+                },
+                {
+                  "viewType": "Table",
+                  "enabled": true
+                },
+                {
+                  "viewType": "Calendar",
+                  "enabled": false
+                },
+                {
+                  "viewType": "Dashboard",
+                  "enabled": false
+                },
+                {
+                  "viewType": "Timeline",
+                  "enabled": false
+                },
+                {
+                  "viewType": "Map",
+                  "enabled": false
+                }
+              ],
+              "autoArchive": null,
+              "background": "gradient-rainbow",
+              "backgroundColor": "#A869C1",
+              "backgroundDarkColor": null,
+              "backgroundImage": "https://d2k1ftgv7pobq7.cloudfront.net/images/backgrounds/gradients/rainbow.svg",
+              "backgroundDarkImage": null,
+              "backgroundImageScaled": null,
+              "backgroundTile": false,
+              "backgroundBrightness": "dark",
+              "sharedSourceUrl": null,
+              "backgroundBottomColor": "#E774BB",
+              "backgroundTopColor": "#6E5DC6",
+              "canBePublic": true,
+              "canBeEnterprise": true,
+              "canBeOrg": true,
+              "canBePrivate": true,
+              "canInvite": true
+            },
+            "shortLink": "NYLufejN",
+            "subscribed": false,
+            "labelNames": {
+              "green": "",
+              "yellow": "",
+              "orange": "",
+              "red": "",
+              "purple": "",
+              "blue": "",
+              "sky": "",
+              "lime": "",
+              "pink": "",
+              "black": "",
+              "green_dark": "",
+              "yellow_dark": "",
+              "orange_dark": "",
+              "red_dark": "",
+              "purple_dark": "",
+              "blue_dark": "",
+              "sky_dark": "",
+              "lime_dark": "",
+              "pink_dark": "",
+              "black_dark": "",
+              "green_light": "",
+              "yellow_light": "",
+              "orange_light": "",
+              "red_light": "",
+              "purple_light": "",
+              "blue_light": "",
+              "sky_light": "",
+              "lime_light": "",
+              "pink_light": "",
+              "black_light": ""
+            },
+            "powerUps": [],
+            "dateLastActivity": "2026-06-08T17:09:05.532Z",
+            "dateLastView": "2026-06-08T21:17:59.074Z",
+            "shortUrl": "https://trello.com/b/NYLufejN",
+            "idTags": [],
+            "datePluginDisable": null,
+            "ixUpdate": "281",
+            "templateGallery": null,
+            "enterpriseOwned": false,
+            "idBoardSource": null,
+            "premiumFeatures": [
+              "activity",
+              "additionalBoardBackgrounds",
+              "additionalStickers",
+              "advancedChecklists",
+              "aiBoardBuilder",
+              "aiQuickCapture",
+              "atlassianIntelligence",
+              "boardExport",
+              "butlerBC",
+              "butlerPremium",
+              "collapsibleLists",
+              "csvExport",
+              "customBoardBackgrounds",
+              "customEmoji",
+              "customStickers",
+              "deactivated",
+              "export",
+              "goldMembers",
+              "inviteBoard",
+              "inviteOrg",
+              "isBc",
+              "isPremium",
+              "largeAttachments",
+              "listColors",
+              "multiBoardGuests",
+              "observers",
+              "paidCorePlugins",
+              "plugins",
+              "premiumMirrorCards",
+              "privateTemplates",
+              "readSecrets",
+              "removal",
+              "restrictVis",
+              "savedSearches",
+              "shortExportHistory",
+              "starCounts",
+              "superAdmins",
+              "tags",
+              "views",
+              "workspaceViews"
+            ],
+            "idMemberCreator": "6a26eb9ccef85b4074044ea5",
+            "type": null,
+            "memberships": [
+              {
+                "id": "6a26ebb3cd5f60a53a585985",
+                "idMember": "6a26eb9ccef85b4074044ea5",
+                "memberType": "admin",
+                "unconfirmed": false,
+                "deactivated": false
+              }
+            ]
+          },
+          {
+            "id": "6a26f5e70cfb23f42c3ef4ea",
+            "nodeId": "ari:cloud:trello::board/workspace/6a26ebb15b58213488fb7401/6a26f5e70cfb23f42c3ef4ea",
+            "name": "Nango Create Board Test",
+            "desc": "Test board created by Nango dryrun",
+            "descData": null,
+            "closed": false,
+            "creationMethod": null,
+            "creationMethodError": null,
+            "creationMethodLoadingStartedAt": null,
+            "creationMethodLoadingPhase": null,
+            "dateClosed": null,
+            "idOrganization": "6a26ebb15b58213488fb7401",
+            "idEnterprise": null,
+            "limits": {
+              "attachments": {
+                "perBoard": {
+                  "status": "ok",
+                  "disableAt": 36000,
+                  "warnAt": 28800
+                },
+                "perCard": {
+                  "status": "ok",
+                  "disableAt": 1000,
+                  "warnAt": 800
+                }
+              },
+              "boards": {
+                "totalMembersPerBoard": {
+                  "status": "ok",
+                  "disableAt": 1600,
+                  "warnAt": 1280
+                },
+                "totalAccessRequestsPerBoard": {
+                  "status": "ok",
+                  "disableAt": 4000,
+                  "warnAt": 3200
+                }
+              },
+              "cards": {
+                "openPerBoard": {
+                  "status": "ok",
+                  "disableAt": 5000,
+                  "warnAt": 4000
+                },
+                "openPerList": {
+                  "status": "ok",
+                  "disableAt": 5000,
+                  "warnAt": 4000
+                },
+                "totalPerBoard": {
+                  "status": "ok",
+                  "disableAt": 2000000,
+                  "warnAt": 1600000
+                },
+                "totalPerList": {
+                  "status": "ok",
+                  "disableAt": 1000000,
+                  "warnAt": 800000
+                }
+              },
+              "checklists": {
+                "perBoard": {
+                  "status": "ok",
+                  "disableAt": 1800000,
+                  "warnAt": 1440000
+                },
+                "perCard": {
+                  "status": "ok",
+                  "disableAt": 500,
+                  "warnAt": 400
+                }
+              },
+              "checkItems": {
+                "perChecklist": {
+                  "status": "ok",
+                  "disableAt": 200,
+                  "warnAt": 160
+                }
+              },
+              "customFields": {
+                "perBoard": {
+                  "status": "ok",
+                  "disableAt": 50,
+                  "warnAt": 40
+                }
+              },
+              "customFieldOptions": {
+                "perField": {
+                  "status": "ok",
+                  "disableAt": 50,
+                  "warnAt": 40
+                }
+              },
+              "labels": {
+                "perBoard": {
+                  "status": "ok",
+                  "disableAt": 1000,
+                  "warnAt": 800
+                }
+              },
+              "lists": {
+                "openPerBoard": {
+                  "status": "ok",
+                  "disableAt": 500,
+                  "warnAt": 400
+                },
+                "totalPerBoard": {
+                  "status": "ok",
+                  "disableAt": 3000,
+                  "warnAt": 2400
+                }
+              },
+              "stickers": {
+                "perCard": {
+                  "status": "ok",
+                  "disableAt": 70,
+                  "warnAt": 56
+                }
+              },
+              "reactions": {
+                "perAction": {
+                  "status": "ok",
+                  "disableAt": 900,
+                  "warnAt": 720
+                },
+                "uniquePerAction": {
+                  "status": "ok",
+                  "disableAt": 17,
+                  "warnAt": 14
+                }
+              }
+            },
+            "pinned": false,
+            "starred": false,
+            "url": "https://trello.com/b/Gd4yRCKC/nango-create-board-test",
+            "prefs": {
+              "permissionLevel": "private",
+              "hideVotes": false,
+              "voting": "disabled",
+              "comments": "members",
+              "invitations": "members",
+              "selfJoin": true,
+              "cardCovers": true,
+              "showCompleteStatus": true,
+              "cardCounts": false,
+              "isTemplate": false,
+              "cardAging": "regular",
+              "calendarFeedEnabled": false,
+              "hiddenPluginBoardButtons": [],
+              "switcherViews": [
+                {
+                  "viewType": "Board",
+                  "enabled": true
+                },
+                {
+                  "viewType": "Table",
+                  "enabled": true
+                },
+                {
+                  "viewType": "Calendar",
+                  "enabled": false
+                },
+                {
+                  "viewType": "Dashboard",
+                  "enabled": false
+                },
+                {
+                  "viewType": "Timeline",
+                  "enabled": false
+                },
+                {
+                  "viewType": "Map",
+                  "enabled": false
+                }
+              ],
+              "autoArchive": null,
+              "background": "blue",
+              "backgroundColor": "#0079BF",
+              "backgroundDarkColor": null,
+              "backgroundImage": null,
+              "backgroundDarkImage": null,
+              "backgroundImageScaled": null,
+              "backgroundTile": false,
+              "backgroundBrightness": "dark",
+              "sharedSourceUrl": null,
+              "backgroundBottomColor": "#0079BF",
+              "backgroundTopColor": "#0079BF",
+              "canBePublic": true,
+              "canBeEnterprise": true,
+              "canBeOrg": true,
+              "canBePrivate": true,
+              "canInvite": true
+            },
+            "shortLink": "Gd4yRCKC",
+            "subscribed": false,
+            "labelNames": {
+              "green": "",
+              "yellow": "",
+              "orange": "",
+              "red": "",
+              "purple": "",
+              "blue": "",
+              "sky": "",
+              "lime": "",
+              "pink": "",
+              "black": "",
+              "green_dark": "",
+              "yellow_dark": "",
+              "orange_dark": "",
+              "red_dark": "",
+              "purple_dark": "",
+              "blue_dark": "",
+              "sky_dark": "",
+              "lime_dark": "",
+              "pink_dark": "",
+              "black_dark": "",
+              "green_light": "",
+              "yellow_light": "",
+              "orange_light": "",
+              "red_light": "",
+              "purple_light": "",
+              "blue_light": "",
+              "sky_light": "",
+              "lime_light": "",
+              "pink_light": "",
+              "black_light": ""
+            },
+            "powerUps": [],
+            "dateLastActivity": null,
+            "dateLastView": null,
+            "shortUrl": "https://trello.com/b/Gd4yRCKC",
+            "idTags": [],
+            "datePluginDisable": null,
+            "ixUpdate": "3",
+            "templateGallery": null,
+            "enterpriseOwned": false,
+            "idBoardSource": null,
+            "premiumFeatures": [
+              "activity",
+              "additionalBoardBackgrounds",
+              "additionalStickers",
+              "advancedChecklists",
+              "aiBoardBuilder",
+              "aiQuickCapture",
+              "atlassianIntelligence",
+              "boardExport",
+              "butlerBC",
+              "butlerPremium",
+              "collapsibleLists",
+              "csvExport",
+              "customBoardBackgrounds",
+              "customEmoji",
+              "customStickers",
+              "deactivated",
+              "export",
+              "goldMembers",
+              "inviteBoard",
+              "inviteOrg",
+              "isBc",
+              "isPremium",
+              "largeAttachments",
+              "listColors",
+              "multiBoardGuests",
+              "observers",
+              "paidCorePlugins",
+              "plugins",
+              "premiumMirrorCards",
+              "privateTemplates",
+              "readSecrets",
+              "removal",
+              "restrictVis",
+              "savedSearches",
+              "shortExportHistory",
+              "starCounts",
+              "superAdmins",
+              "tags",
+              "views",
+              "workspaceViews"
+            ],
+            "idMemberCreator": "6a26eb9ccef85b4074044ea5",
+            "type": null,
+            "memberships": [
+              {
+                "id": "6a26f5e70cfb23f42c3ef4f7",
+                "idMember": "6a26eb9ccef85b4074044ea5",
+                "memberType": "admin",
+                "unconfirmed": false,
+                "deactivated": false
+              }
+            ]
+          },
+          {
+            "id": "6a26f5df57bb1f09efa8b942",
+            "nodeId": "ari:cloud:trello::board/workspace/6a26ebb15b58213488fb7401/6a26f5df57bb1f09efa8b942",
+            "name": "Nango Create Board Test",
+            "desc": "Test board created by Nango dryrun",
+            "descData": null,
+            "closed": false,
+            "creationMethod": null,
+            "creationMethodError": null,
+            "creationMethodLoadingStartedAt": null,
+            "creationMethodLoadingPhase": null,
+            "dateClosed": null,
+            "idOrganization": "6a26ebb15b58213488fb7401",
+            "idEnterprise": null,
+            "limits": {
+              "attachments": {
+                "perBoard": {
+                  "status": "ok",
+                  "disableAt": 36000,
+                  "warnAt": 28800
+                },
+                "perCard": {
+                  "status": "ok",
+                  "disableAt": 1000,
+                  "warnAt": 800
+                }
+              },
+              "boards": {
+                "totalMembersPerBoard": {
+                  "status": "ok",
+                  "disableAt": 1600,
+                  "warnAt": 1280
+                },
+                "totalAccessRequestsPerBoard": {
+                  "status": "ok",
+                  "disableAt": 4000,
+                  "warnAt": 3200
+                }
+              },
+              "cards": {
+                "openPerBoard": {
+                  "status": "ok",
+                  "disableAt": 5000,
+                  "warnAt": 4000
+                },
+                "openPerList": {
+                  "status": "ok",
+                  "disableAt": 5000,
+                  "warnAt": 4000
+                },
+                "totalPerBoard": {
+                  "status": "ok",
+                  "disableAt": 2000000,
+                  "warnAt": 1600000
+                },
+                "totalPerList": {
+                  "status": "ok",
+                  "disableAt": 1000000,
+                  "warnAt": 800000
+                }
+              },
+              "checklists": {
+                "perBoard": {
+                  "status": "ok",
+                  "disableAt": 1800000,
+                  "warnAt": 1440000
+                },
+                "perCard": {
+                  "status": "ok",
+                  "disableAt": 500,
+                  "warnAt": 400
+                }
+              },
+              "checkItems": {
+                "perChecklist": {
+                  "status": "ok",
+                  "disableAt": 200,
+                  "warnAt": 160
+                }
+              },
+              "customFields": {
+                "perBoard": {
+                  "status": "ok",
+                  "disableAt": 50,
+                  "warnAt": 40
+                }
+              },
+              "customFieldOptions": {
+                "perField": {
+                  "status": "ok",
+                  "disableAt": 50,
+                  "warnAt": 40
+                }
+              },
+              "labels": {
+                "perBoard": {
+                  "status": "ok",
+                  "disableAt": 1000,
+                  "warnAt": 800
+                }
+              },
+              "lists": {
+                "openPerBoard": {
+                  "status": "ok",
+                  "disableAt": 500,
+                  "warnAt": 400
+                },
+                "totalPerBoard": {
+                  "status": "ok",
+                  "disableAt": 3000,
+                  "warnAt": 2400
+                }
+              },
+              "stickers": {
+                "perCard": {
+                  "status": "ok",
+                  "disableAt": 70,
+                  "warnAt": 56
+                }
+              },
+              "reactions": {
+                "perAction": {
+                  "status": "ok",
+                  "disableAt": 900,
+                  "warnAt": 720
+                },
+                "uniquePerAction": {
+                  "status": "ok",
+                  "disableAt": 17,
+                  "warnAt": 14
+                }
+              }
+            },
+            "pinned": false,
+            "starred": false,
+            "url": "https://trello.com/b/V2x3YEC7/nango-create-board-test",
+            "prefs": {
+              "permissionLevel": "private",
+              "hideVotes": false,
+              "voting": "disabled",
+              "comments": "members",
+              "invitations": "members",
+              "selfJoin": true,
+              "cardCovers": true,
+              "showCompleteStatus": true,
+              "cardCounts": false,
+              "isTemplate": false,
+              "cardAging": "regular",
+              "calendarFeedEnabled": false,
+              "hiddenPluginBoardButtons": [],
+              "switcherViews": [
+                {
+                  "viewType": "Board",
+                  "enabled": true
+                },
+                {
+                  "viewType": "Table",
+                  "enabled": true
+                },
+                {
+                  "viewType": "Calendar",
+                  "enabled": false
+                },
+                {
+                  "viewType": "Dashboard",
+                  "enabled": false
+                },
+                {
+                  "viewType": "Timeline",
+                  "enabled": false
+                },
+                {
+                  "viewType": "Map",
+                  "enabled": false
+                }
+              ],
+              "autoArchive": null,
+              "background": "blue",
+              "backgroundColor": "#0079BF",
+              "backgroundDarkColor": null,
+              "backgroundImage": null,
+              "backgroundDarkImage": null,
+              "backgroundImageScaled": null,
+              "backgroundTile": false,
+              "backgroundBrightness": "dark",
+              "sharedSourceUrl": null,
+              "backgroundBottomColor": "#0079BF",
+              "backgroundTopColor": "#0079BF",
+              "canBePublic": true,
+              "canBeEnterprise": true,
+              "canBeOrg": true,
+              "canBePrivate": true,
+              "canInvite": true
+            },
+            "shortLink": "V2x3YEC7",
+            "subscribed": false,
+            "labelNames": {
+              "green": "",
+              "yellow": "",
+              "orange": "",
+              "red": "",
+              "purple": "",
+              "blue": "",
+              "sky": "",
+              "lime": "",
+              "pink": "",
+              "black": "",
+              "green_dark": "",
+              "yellow_dark": "",
+              "orange_dark": "",
+              "red_dark": "",
+              "purple_dark": "",
+              "blue_dark": "",
+              "sky_dark": "",
+              "lime_dark": "",
+              "pink_dark": "",
+              "black_dark": "",
+              "green_light": "",
+              "yellow_light": "",
+              "orange_light": "",
+              "red_light": "",
+              "purple_light": "",
+              "blue_light": "",
+              "sky_light": "",
+              "lime_light": "",
+              "pink_light": "",
+              "black_light": ""
+            },
+            "powerUps": [],
+            "dateLastActivity": null,
+            "dateLastView": null,
+            "shortUrl": "https://trello.com/b/V2x3YEC7",
+            "idTags": [],
+            "datePluginDisable": null,
+            "ixUpdate": "3",
+            "templateGallery": null,
+            "enterpriseOwned": false,
+            "idBoardSource": null,
+            "premiumFeatures": [
+              "activity",
+              "additionalBoardBackgrounds",
+              "additionalStickers",
+              "advancedChecklists",
+              "aiBoardBuilder",
+              "aiQuickCapture",
+              "atlassianIntelligence",
+              "boardExport",
+              "butlerBC",
+              "butlerPremium",
+              "collapsibleLists",
+              "csvExport",
+              "customBoardBackgrounds",
+              "customEmoji",
+              "customStickers",
+              "deactivated",
+              "export",
+              "goldMembers",
+              "inviteBoard",
+              "inviteOrg",
+              "isBc",
+              "isPremium",
+              "largeAttachments",
+              "listColors",
+              "multiBoardGuests",
+              "observers",
+              "paidCorePlugins",
+              "plugins",
+              "premiumMirrorCards",
+              "privateTemplates",
+              "readSecrets",
+              "removal",
+              "restrictVis",
+              "savedSearches",
+              "shortExportHistory",
+              "starCounts",
+              "superAdmins",
+              "tags",
+              "views",
+              "workspaceViews"
+            ],
+            "idMemberCreator": "6a26eb9ccef85b4074044ea5",
+            "type": null,
+            "memberships": [
+              {
+                "id": "6a26f5df57bb1f09efa8b94f",
+                "idMember": "6a26eb9ccef85b4074044ea5",
+                "memberType": "admin",
+                "unconfirmed": false,
+                "deactivated": false
+              }
+            ]
+          },
+          {
+            "id": "6a26f2eb894c0b76184bdb73",
+            "nodeId": "ari:cloud:trello::board/workspace/6a26ebb15b58213488fb7401/6a26f2eb894c0b76184bdb73",
+            "name": "Nango Test Board",
+            "desc": "",
+            "descData": null,
+            "closed": false,
+            "creationMethod": null,
+            "creationMethodError": null,
+            "creationMethodLoadingStartedAt": null,
+            "creationMethodLoadingPhase": null,
+            "dateClosed": null,
+            "idOrganization": "6a26ebb15b58213488fb7401",
+            "idEnterprise": null,
+            "limits": {
+              "attachments": {
+                "perBoard": {
+                  "status": "ok",
+                  "disableAt": 36000,
+                  "warnAt": 28800
+                },
+                "perCard": {
+                  "status": "ok",
+                  "disableAt": 1000,
+                  "warnAt": 800
+                }
+              },
+              "boards": {
+                "totalMembersPerBoard": {
+                  "status": "ok",
+                  "disableAt": 1600,
+                  "warnAt": 1280
+                },
+                "totalAccessRequestsPerBoard": {
+                  "status": "ok",
+                  "disableAt": 4000,
+                  "warnAt": 3200
+                }
+              },
+              "cards": {
+                "openPerBoard": {
+                  "status": "ok",
+                  "disableAt": 5000,
+                  "warnAt": 4000
+                },
+                "openPerList": {
+                  "status": "ok",
+                  "disableAt": 5000,
+                  "warnAt": 4000
+                },
+                "totalPerBoard": {
+                  "status": "ok",
+                  "disableAt": 2000000,
+                  "warnAt": 1600000
+                },
+                "totalPerList": {
+                  "status": "ok",
+                  "disableAt": 1000000,
+                  "warnAt": 800000
+                }
+              },
+              "checklists": {
+                "perBoard": {
+                  "status": "ok",
+                  "disableAt": 1800000,
+                  "warnAt": 1440000
+                },
+                "perCard": {
+                  "status": "ok",
+                  "disableAt": 500,
+                  "warnAt": 400
+                }
+              },
+              "checkItems": {
+                "perChecklist": {
+                  "status": "ok",
+                  "disableAt": 200,
+                  "warnAt": 160
+                }
+              },
+              "customFields": {
+                "perBoard": {
+                  "status": "ok",
+                  "disableAt": 50,
+                  "warnAt": 40
+                }
+              },
+              "customFieldOptions": {
+                "perField": {
+                  "status": "ok",
+                  "disableAt": 50,
+                  "warnAt": 40
+                }
+              },
+              "labels": {
+                "perBoard": {
+                  "status": "ok",
+                  "disableAt": 1000,
+                  "warnAt": 800
+                }
+              },
+              "lists": {
+                "openPerBoard": {
+                  "status": "ok",
+                  "disableAt": 500,
+                  "warnAt": 400
+                },
+                "totalPerBoard": {
+                  "status": "ok",
+                  "disableAt": 3000,
+                  "warnAt": 2400
+                }
+              },
+              "stickers": {
+                "perCard": {
+                  "status": "ok",
+                  "disableAt": 70,
+                  "warnAt": 56
+                }
+              },
+              "reactions": {
+                "perAction": {
+                  "status": "ok",
+                  "disableAt": 900,
+                  "warnAt": 720
+                },
+                "uniquePerAction": {
+                  "status": "ok",
+                  "disableAt": 17,
+                  "warnAt": 14
+                }
+              }
+            },
+            "pinned": false,
+            "starred": false,
+            "url": "https://trello.com/b/6EMTzx96/nango-test-board",
+            "prefs": {
+              "permissionLevel": "private",
+              "hideVotes": false,
+              "voting": "disabled",
+              "comments": "members",
+              "invitations": "members",
+              "selfJoin": true,
+              "cardCovers": true,
+              "showCompleteStatus": true,
+              "cardCounts": false,
+              "isTemplate": false,
+              "cardAging": "regular",
+              "calendarFeedEnabled": false,
+              "hiddenPluginBoardButtons": [],
+              "switcherViews": [
+                {
+                  "viewType": "Board",
+                  "enabled": true
+                },
+                {
+                  "viewType": "Table",
+                  "enabled": true
+                },
+                {
+                  "viewType": "Calendar",
+                  "enabled": false
+                },
+                {
+                  "viewType": "Dashboard",
+                  "enabled": false
+                },
+                {
+                  "viewType": "Timeline",
+                  "enabled": false
+                },
+                {
+                  "viewType": "Map",
+                  "enabled": false
+                }
+              ],
+              "autoArchive": null,
+              "background": "blue",
+              "backgroundColor": "#0079BF",
+              "backgroundDarkColor": null,
+              "backgroundImage": null,
+              "backgroundDarkImage": null,
+              "backgroundImageScaled": null,
+              "backgroundTile": false,
+              "backgroundBrightness": "dark",
+              "sharedSourceUrl": null,
+              "backgroundBottomColor": "#0079BF",
+              "backgroundTopColor": "#0079BF",
+              "canBePublic": true,
+              "canBeEnterprise": true,
+              "canBeOrg": true,
+              "canBePrivate": true,
+              "canInvite": true
+            },
+            "shortLink": "6EMTzx96",
+            "subscribed": false,
+            "labelNames": {
+              "green": "",
+              "yellow": "",
+              "orange": "",
+              "red": "",
+              "purple": "",
+              "blue": "",
+              "sky": "",
+              "lime": "",
+              "pink": "",
+              "black": "",
+              "green_dark": "",
+              "yellow_dark": "",
+              "orange_dark": "",
+              "red_dark": "",
+              "purple_dark": "",
+              "blue_dark": "",
+              "sky_dark": "",
+              "lime_dark": "",
+              "pink_dark": "",
+              "black_dark": "",
+              "green_light": "",
+              "yellow_light": "",
+              "orange_light": "",
+              "red_light": "",
+              "purple_light": "",
+              "blue_light": "",
+              "sky_light": "",
+              "lime_light": "",
+              "pink_light": "",
+              "black_light": ""
+            },
+            "powerUps": [],
+            "dateLastActivity": null,
+            "dateLastView": null,
+            "shortUrl": "https://trello.com/b/6EMTzx96",
+            "idTags": [],
+            "datePluginDisable": null,
+            "ixUpdate": "3",
+            "templateGallery": null,
+            "enterpriseOwned": false,
+            "idBoardSource": null,
+            "premiumFeatures": [
+              "activity",
+              "additionalBoardBackgrounds",
+              "additionalStickers",
+              "advancedChecklists",
+              "aiBoardBuilder",
+              "aiQuickCapture",
+              "atlassianIntelligence",
+              "boardExport",
+              "butlerBC",
+              "butlerPremium",
+              "collapsibleLists",
+              "csvExport",
+              "customBoardBackgrounds",
+              "customEmoji",
+              "customStickers",
+              "deactivated",
+              "export",
+              "goldMembers",
+              "inviteBoard",
+              "inviteOrg",
+              "isBc",
+              "isPremium",
+              "largeAttachments",
+              "listColors",
+              "multiBoardGuests",
+              "observers",
+              "paidCorePlugins",
+              "plugins",
+              "premiumMirrorCards",
+              "privateTemplates",
+              "readSecrets",
+              "removal",
+              "restrictVis",
+              "savedSearches",
+              "shortExportHistory",
+              "starCounts",
+              "superAdmins",
+              "tags",
+              "views",
+              "workspaceViews"
+            ],
+            "idMemberCreator": "6a26eb9ccef85b4074044ea5",
+            "type": null,
+            "memberships": [
+              {
+                "id": "6a26f2eb894c0b76184bdb80",
+                "idMember": "6a26eb9ccef85b4074044ea5",
+                "memberType": "admin",
+                "unconfirmed": false,
+                "deactivated": false
+              }
+            ]
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Mon, 08 Jun 2026 21:29:15 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "x-rate-limit-api-key-interval-ms, x-rate-limit-api-key-max, x-rate-limit-api-key-remaining, x-rate-limit-api-token-interval-ms, x-rate-limit-api-token-max, x-rate-limit-api-token-remaining, retry-after",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4980",
+          "x-ratelimit-reset": "1780954201",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-permitted-cross-domain-policies": "none",
+          "surrogate-control": "no-store",
+          "cache-control": "max-age=0, must-revalidate, no-cache, no-store",
+          "expires": "Thu, 01 Jan 1970 00:00:00",
+          "x-trello-version": "1.465468.0",
+          "x-trello-environment": "Production",
+          "set-cookie": "dsc=ba247518e85b26dbbf743c960382bb444700b5052186e64c20882b3676216d6b; Path=/; Expires=Wed, 08 Jul 2026 21:29:14 GMT; Secure; SameSite=None",
+          "access-control-allow-methods": "GET, PUT, POST, DELETE",
+          "access-control-allow-headers": "Authorization, Accept, Content-Type",
+          "x-rate-limit-api-token-interval-ms": "10000",
+          "x-rate-limit-api-token-max": "100",
+          "x-rate-limit-api-token-remaining": "92",
+          "x-rate-limit-db-query-time-interval-ms": "600000",
+          "x-rate-limit-db-query-time-max": "7200000",
+          "x-rate-limit-db-query-time-remaining": "7199990",
+          "x-rate-limit-api-key-interval-ms": "10000",
+          "x-rate-limit-api-key-max": "300",
+          "x-rate-limit-api-key-remaining": "292",
+          "x-rate-limit-member-interval-ms": "10000",
+          "x-rate-limit-member-max": "375",
+          "x-rate-limit-member-remaining": "367",
+          "x-server-time": "1780954155016",
+          "server": "AtlassianEdge",
+          "atl-traceid": "475d9f7b66724987b0382c055dd95256",
+          "atl-request-id": "475d9f7b-6672-4987-b038-2c055dd95256",
+          "report-to": "{\"endpoints\": [{\"url\": \"https://dz8aopenkvv6s.cloudfront.net\"}], \"group\": \"endpoint-1\", \"include_subdomains\": true, \"max_age\": 600}",
+          "nel": "{\"failure_fraction\": 0.01, \"include_subdomains\": true, \"max_age\": 600, \"report_to\": \"endpoint-1\"}",
+          "vary": "Accept-Encoding",
+          "x-cache": "Miss from cloudfront",
+          "via": "1.1 cadda06365c5592c0d0a272a3fe5825e.cloudfront.net (CloudFront)",
+          "x-amz-cf-pop": "HIO52-P2",
+          "x-amz-cf-id": "WgkLE_-r3nd38hlj5roJxv4V1OMFXjnbmsJfpQcaCwAnqUybBbUOaQ==",
+          "server-timing": "cdn-upstream-layer;desc=\"EDGE\",cdn-upstream-dns;dur=0,cdn-upstream-connect;dur=0,cdn-upstream-fbl;dur=180,atl-edge;dur=173,atl-edge-internal;dur=7,atl-edge-upstream;dur=167,atl-edge-pop;desc=\"aws-us-west-2\",cdn-cache-miss,cdn-pop;desc=\"HIO52-P2\",cdn-rid;desc=\"WgkLE_-r3nd38hlj5roJxv4V1OMFXjnbmsJfpQcaCwAnqUybBbUOaQ==\",cdn-downstream-fbl;dur=182"
+        },
+        "hash": "ea8672b4869efe9f14e026f789dca70bed179a4c",
+        "request": {}
+      },
+      "/1/boards/6a26ebb3cd5f60a53a585978/cards": {
+        "response": [
+          {
+            "id": "6a26ebb3cd5f60a53a5859a1",
+            "agent": null,
+            "badges": {
+              "attachments": 0,
+              "fogbugz": "",
+              "checkItems": 0,
+              "checkItemsChecked": 0,
+              "checkItemsEarliestDue": null,
+              "comments": 0,
+              "description": false,
+              "due": null,
+              "dueComplete": false,
+              "lastUpdatedByAi": false,
+              "start": null,
+              "externalSource": null,
+              "attachmentsByType": {
+                "trello": {
+                  "board": 0,
+                  "card": 0
+                }
+              },
+              "location": false,
+              "votes": 0,
+              "maliciousAttachments": 0,
+              "viewingMemberVoted": false,
+              "subscribed": false
+            },
+            "checkItemStates": [],
+            "closed": false,
+            "dueComplete": false,
+            "dateLastActivity": "2026-06-08T16:20:03.475Z",
+            "desc": "",
+            "descData": {
+              "emoji": {}
+            },
+            "due": null,
+            "dueReminder": null,
+            "email": null,
+            "idBoard": "6a26ebb3cd5f60a53a585978",
+            "idChecklists": [],
+            "idList": "6a26ebb3cd5f60a53a58598e",
+            "idMembers": [],
+            "idMembersVoted": [],
+            "idShort": 1,
+            "idAttachmentCover": null,
+            "labels": [],
+            "idLabels": [],
+            "manualCoverAttachment": false,
+            "name": "https://www.loom.com/share/0e6813b76cd44ca48d892af56be658f5?sid=80638cfb-e43b-42df-8940-63f4811bb13f",
+            "nodeId": "ari:cloud:trello::card/workspace/6a26ebb15b58213488fb7401/6a26ebb3cd5f60a53a5859a1",
+            "pinned": false,
+            "pos": 0,
+            "shortLink": "ZkK7ppyn",
+            "shortUrl": "https://trello.com/c/ZkK7ppyn",
+            "start": null,
+            "subscribed": false,
+            "url": "https://trello.com/c/ZkK7ppyn/1-https-wwwloomcom-share-0e6813b76cd44ca48d892af56be658f5sid80638cfb-e43b-42df-8940-63f4811bb13f",
+            "cover": {
+              "idAttachment": null,
+              "color": null,
+              "idUploadedBackground": null,
+              "size": "normal",
+              "brightness": "dark",
+              "yPosition": 0.5,
+              "idPlugin": null
+            },
+            "isTemplate": false,
+            "cardRole": "link",
+            "mirrorSourceId": null
+          },
+          {
+            "id": "6a26ebb3cd5f60a53a5859c0",
+            "agent": null,
+            "badges": {
+              "attachments": 1,
+              "fogbugz": "",
+              "checkItems": 6,
+              "checkItemsChecked": 0,
+              "checkItemsEarliestDue": null,
+              "comments": 0,
+              "description": true,
+              "due": null,
+              "dueComplete": false,
+              "lastUpdatedByAi": false,
+              "start": null,
+              "externalSource": null,
+              "attachmentsByType": {
+                "trello": {
+                  "board": 0,
+                  "card": 0
+                }
+              },
+              "location": false,
+              "votes": 0,
+              "maliciousAttachments": 0,
+              "viewingMemberVoted": false,
+              "subscribed": false
+            },
+            "checkItemStates": [],
+            "closed": false,
+            "dueComplete": false,
+            "dateLastActivity": "2026-06-08T16:20:05.511Z",
+            "desc": "**Quickly add to-dos from email, Slack, Microsoft Teams, and more!**\n\n- **Send emails to your Trello Inbox as cards** for reminders and to-dos by forwarding an email to [inbox@app.trello.com](mailto:inbox@app.trello.com \"‌\"). Find out more by [visiting our help page](https://support.atlassian.com/trello/docs/creating-cards-by-email/ \"‌\").\n- **Save important messages from Slack and Microsoft Teams** **to your Inbox** so you can read, process, and prioritize them later. Try out the different ways in the checklist below!\n\n[https://www.loom.com/share/f6b5f37a57904b56ae05ce6f1a4c5225?sid=e0eb8092-414f-4eaf-99c4-d13f864fcb05](https://www.loom.com/share/f6b5f37a57904b56ae05ce6f1a4c5225?sid=e0eb8092-414f-4eaf-99c4-d13f864fcb05 \"smartCard-embed\")\n\n[https://www.loom.com/share/edbf69cbd3074bc1a9bbc5569b5f4d60?sid=e225b951-a4b8-4d0f-b2e2-69299423aab4](https://www.loom.com/share/edbf69cbd3074bc1a9bbc5569b5f4d60?sid=e225b951-a4b8-4d0f-b2e2-69299423aab4 \"smartCard-embed\")\n\n[https://www.loom.com/share/5893d52dac36450f8e1f1190d8e92282](https://www.loom.com/share/5893d52dac36450f8e1f1190d8e92282 \"smartCard-embed\")",
+            "descData": {
+              "emoji": {}
+            },
+            "due": null,
+            "dueReminder": null,
+            "email": null,
+            "idBoard": "6a26ebb3cd5f60a53a585978",
+            "idChecklists": [
+              "6a26ebb3cd5f60a53a5859ea"
+            ],
+            "idList": "6a26ebb3cd5f60a53a58598e",
+            "idMembers": [],
+            "idMembersVoted": [],
+            "idShort": 2,
+            "idAttachmentCover": "6a26ebb3bb550e61ae961968",
+            "labels": [],
+            "idLabels": [],
+            "manualCoverAttachment": false,
+            "name": "Capture from email, Slack, and Teams",
+            "nodeId": "ari:cloud:trello::card/workspace/6a26ebb15b58213488fb7401/6a26ebb3cd5f60a53a5859c0",
+            "pinned": false,
+            "pos": 1,
+            "shortLink": "8IbESUR8",
+            "shortUrl": "https://trello.com/c/8IbESUR8",
+            "start": null,
+            "subscribed": false,
+            "url": "https://trello.com/c/8IbESUR8/2-capture-from-email-slack-and-teams",
+            "cover": {
+              "idAttachment": "6a26ebb3bb550e61ae961968",
+              "color": null,
+              "idUploadedBackground": null,
+              "size": "normal",
+              "brightness": "dark",
+              "yPosition": 0.5,
+              "idPlugin": null
+            },
+            "isTemplate": false,
+            "cardRole": null,
+            "mirrorSourceId": null
+          },
+          {
+            "id": "6a26ebb3cd5f60a53a5859df",
+            "agent": null,
+            "badges": {
+              "attachments": 1,
+              "fogbugz": "",
+              "checkItems": 7,
+              "checkItemsChecked": 0,
+              "checkItemsEarliestDue": null,
+              "comments": 0,
+              "description": true,
+              "due": null,
+              "dueComplete": false,
+              "lastUpdatedByAi": false,
+              "start": null,
+              "externalSource": null,
+              "attachmentsByType": {
+                "trello": {
+                  "board": 0,
+                  "card": 0
+                }
+              },
+              "location": false,
+              "votes": 0,
+              "maliciousAttachments": 0,
+              "viewingMemberVoted": false,
+              "subscribed": false
+            },
+            "checkItemStates": [],
+            "closed": false,
+            "dueComplete": false,
+            "dateLastActivity": "2026-06-08T16:20:06.562Z",
+            "desc": "- **Organize your to-dos with boards** by curating Lists and using card features\n- **Schedule with Planner** by connecting your calendar to Trello and scheduling time to focus on getting things done.\n- **Tie it all together** by viewing your Inbox, boards, and Planner side-by-side to organize all your to-dos. You can expand or collapse each panel using the navigation bar.\n\n[https://www.loom.com/share/0b76968e11e74f54affba7e080800c91?sid=aef7ae51-8273-4cfc-9e66-0226e8084592](https://www.loom.com/share/0b76968e11e74f54affba7e080800c91?sid=aef7ae51-8273-4cfc-9e66-0226e8084592 \"smartCard-embed\")",
+            "descData": {
+              "emoji": {}
+            },
+            "due": null,
+            "dueReminder": null,
+            "email": null,
+            "idBoard": "6a26ebb3cd5f60a53a585978",
+            "idChecklists": [
+              "6a26ebb3cd5f60a53a585a12",
+              "6a26ebb3cd5f60a53a585a15",
+              "6a26ebb3cd5f60a53a585a19"
+            ],
+            "idList": "6a26ebb3cd5f60a53a58598e",
+            "idMembers": [],
+            "idMembersVoted": [],
+            "idShort": 3,
+            "idAttachmentCover": "6a26ebb465626e9e07e96897",
+            "labels": [],
+            "idLabels": [],
+            "manualCoverAttachment": false,
+            "name": "Dive into Trello basics",
+            "nodeId": "ari:cloud:trello::card/workspace/6a26ebb15b58213488fb7401/6a26ebb3cd5f60a53a5859df",
+            "pinned": false,
+            "pos": 2,
+            "shortLink": "sQnjwQay",
+            "shortUrl": "https://trello.com/c/sQnjwQay",
+            "start": null,
+            "subscribed": false,
+            "url": "https://trello.com/c/sQnjwQay/3-dive-into-trello-basics",
+            "cover": {
+              "idAttachment": "6a26ebb465626e9e07e96897",
+              "color": null,
+              "idUploadedBackground": null,
+              "size": "normal",
+              "brightness": "dark",
+              "yPosition": 0.5,
+              "idPlugin": null
+            },
+            "isTemplate": false,
+            "cardRole": null,
+            "mirrorSourceId": null
+          },
+          {
+            "id": "6a26ebb3cd5f60a53a585a8e",
+            "agent": null,
+            "badges": {
+              "attachments": 1,
+              "fogbugz": "",
+              "checkItems": 3,
+              "checkItemsChecked": 0,
+              "checkItemsEarliestDue": null,
+              "comments": 0,
+              "description": true,
+              "due": null,
+              "dueComplete": false,
+              "lastUpdatedByAi": false,
+              "start": null,
+              "externalSource": null,
+              "attachmentsByType": {
+                "trello": {
+                  "board": 0,
+                  "card": 0
+                }
+              },
+              "location": false,
+              "votes": 0,
+              "maliciousAttachments": 0,
+              "viewingMemberVoted": false,
+              "subscribed": false
+            },
+            "checkItemStates": [],
+            "closed": false,
+            "dueComplete": false,
+            "dateLastActivity": "2026-06-08T16:20:06.254Z",
+            "desc": "**Trello brings all your ideas, to-dos, and tools together wherever you go!**\n\n[Get the mobile app](https://trello.com/platforms \"‌\") :iphone: and escape the clutter and chaos of scattered tasks.\n\n[https://www.loom.com/share/c9fcc8326c86478b9d052be88b133ba4?sid=40430591-d8bd-4b61-9074-ee220f083422](https://www.loom.com/share/c9fcc8326c86478b9d052be88b133ba4?sid=40430591-d8bd-4b61-9074-ee220f083422 \"smartCard-embed\")",
+            "descData": {
+              "emoji": {}
+            },
+            "due": null,
+            "dueReminder": null,
+            "email": null,
+            "idBoard": "6a26ebb3cd5f60a53a585978",
+            "idChecklists": [
+              "6a26ebb4cd5f60a53a585afa"
+            ],
+            "idList": "6a26ebb3cd5f60a53a58598e",
+            "idMembers": [],
+            "idMembersVoted": [],
+            "idShort": 6,
+            "idAttachmentCover": "6a26ebb408280c1b06148dc8",
+            "labels": [],
+            "idLabels": [],
+            "manualCoverAttachment": false,
+            "name": "Download the mobile app",
+            "nodeId": "ari:cloud:trello::card/workspace/6a26ebb15b58213488fb7401/6a26ebb3cd5f60a53a585a8e",
+            "pinned": false,
+            "pos": 3,
+            "shortLink": "yOYlVmCw",
+            "shortUrl": "https://trello.com/c/yOYlVmCw",
+            "start": null,
+            "subscribed": false,
+            "url": "https://trello.com/c/yOYlVmCw/6-download-the-mobile-app",
+            "cover": {
+              "idAttachment": "6a26ebb408280c1b06148dc8",
+              "color": null,
+              "idUploadedBackground": null,
+              "size": "normal",
+              "brightness": "dark",
+              "yPosition": 0.5,
+              "idPlugin": null
+            },
+            "isTemplate": false,
+            "cardRole": null,
+            "mirrorSourceId": null
+          },
+          {
+            "id": "6a26ebb3cd5f60a53a585a22",
+            "agent": null,
+            "badges": {
+              "attachments": 1,
+              "fogbugz": "",
+              "checkItems": 4,
+              "checkItemsChecked": 0,
+              "checkItemsEarliestDue": null,
+              "comments": 0,
+              "description": true,
+              "due": null,
+              "dueComplete": false,
+              "lastUpdatedByAi": false,
+              "start": null,
+              "externalSource": null,
+              "attachmentsByType": {
+                "trello": {
+                  "board": 0,
+                  "card": 0
+                }
+              },
+              "location": false,
+              "votes": 0,
+              "maliciousAttachments": 0,
+              "viewingMemberVoted": false,
+              "subscribed": false
+            },
+            "checkItemStates": [],
+            "closed": false,
+            "dueComplete": false,
+            "dateLastActivity": "2026-06-08T16:20:05.965Z",
+            "desc": "Supercharge your productivity in Trello with features like **automation, AI, card mirroring,** and **Power-ups**.",
+            "descData": {
+              "emoji": {}
+            },
+            "due": null,
+            "dueReminder": null,
+            "email": null,
+            "idBoard": "6a26ebb3cd5f60a53a585978",
+            "idChecklists": [
+              "6a26ebb3cd5f60a53a585a70"
+            ],
+            "idList": "6a26ebb3cd5f60a53a58598e",
+            "idMembers": [],
+            "idMembersVoted": [],
+            "idShort": 4,
+            "idAttachmentCover": "6a26ebb4497289c4bce66c24",
+            "labels": [],
+            "idLabels": [],
+            "manualCoverAttachment": false,
+            "name": "Work smarter",
+            "nodeId": "ari:cloud:trello::card/workspace/6a26ebb15b58213488fb7401/6a26ebb3cd5f60a53a585a22",
+            "pinned": false,
+            "pos": 4,
+            "shortLink": "T4pQmHYv",
+            "shortUrl": "https://trello.com/c/T4pQmHYv",
+            "start": null,
+            "subscribed": false,
+            "url": "https://trello.com/c/T4pQmHYv/4-work-smarter",
+            "cover": {
+              "idAttachment": "6a26ebb4497289c4bce66c24",
+              "color": null,
+              "idUploadedBackground": null,
+              "size": "normal",
+              "brightness": "dark",
+              "yPosition": 0.5,
+              "idPlugin": null
+            },
+            "isTemplate": false,
+            "cardRole": null,
+            "mirrorSourceId": null
+          },
+          {
+            "id": "6a26ebb3cd5f60a53a585a56",
+            "agent": null,
+            "badges": {
+              "attachments": 1,
+              "fogbugz": "",
+              "checkItems": 2,
+              "checkItemsChecked": 0,
+              "checkItemsEarliestDue": null,
+              "comments": 0,
+              "description": true,
+              "due": null,
+              "dueComplete": false,
+              "lastUpdatedByAi": false,
+              "start": null,
+              "externalSource": null,
+              "attachmentsByType": {
+                "trello": {
+                  "board": 0,
+                  "card": 0
+                }
+              },
+              "location": false,
+              "votes": 0,
+              "maliciousAttachments": 0,
+              "viewingMemberVoted": false,
+              "subscribed": false
+            },
+            "checkItemStates": [],
+            "closed": false,
+            "dueComplete": false,
+            "dateLastActivity": "2026-06-08T16:20:05.462Z",
+            "desc": "**With Trello and Jira together, you can accomplish anything with cross-functional teams.**\n\nLove the ease of Trello but looking for project management features for your cross-functional teams? Check out **Jira**!\n\nJira combines powerful features _(subtasks, reporting, and more!)_ with an easy-to-use interface. Because it’s brought to you by the same company as Trello, it will also integrate with your Trello board through **Jira lists**, letting you manage your work wherever feels right to you.\n\n### Curious? [Try Jira now](https://www.atlassian.com/software/jira \"‌\")",
+            "descData": {
+              "emoji": {}
+            },
+            "due": null,
+            "dueReminder": null,
+            "email": null,
+            "idBoard": "6a26ebb3cd5f60a53a585978",
+            "idChecklists": [
+              "6a26ebb4cd5f60a53a585abe"
+            ],
+            "idList": "6a26ebb3cd5f60a53a58598e",
+            "idMembers": [],
+            "idMembersVoted": [],
+            "idShort": 5,
+            "idAttachmentCover": "6a26ebb4e09bbe59a75fd046",
+            "labels": [],
+            "idLabels": [],
+            "manualCoverAttachment": false,
+            "name": "Manage your team's projects",
+            "nodeId": "ari:cloud:trello::card/workspace/6a26ebb15b58213488fb7401/6a26ebb3cd5f60a53a585a56",
+            "pinned": false,
+            "pos": 5,
+            "shortLink": "kArh0lv4",
+            "shortUrl": "https://trello.com/c/kArh0lv4",
+            "start": null,
+            "subscribed": false,
+            "url": "https://trello.com/c/kArh0lv4/5-manage-your-teams-projects",
+            "cover": {
+              "idAttachment": "6a26ebb4e09bbe59a75fd046",
+              "color": null,
+              "idUploadedBackground": null,
+              "size": "normal",
+              "brightness": "dark",
+              "yPosition": 0.5,
+              "idPlugin": null
+            },
+            "isTemplate": false,
+            "cardRole": null,
+            "mirrorSourceId": null
+          },
+          {
+            "id": "6a26f2fdbc520ab9f45a5214",
+            "agent": null,
+            "badges": {
+              "attachments": 3,
+              "fogbugz": "",
+              "checkItems": 8,
+              "checkItemsChecked": 0,
+              "checkItemsEarliestDue": null,
+              "comments": 3,
+              "description": true,
+              "due": null,
+              "dueComplete": false,
+              "lastUpdatedByAi": false,
+              "start": null,
+              "externalSource": null,
+              "attachmentsByType": {
+                "trello": {
+                  "board": 0,
+                  "card": 0
+                }
+              },
+              "location": false,
+              "votes": 0,
+              "maliciousAttachments": 0,
+              "viewingMemberVoted": false,
+              "subscribed": false
+            },
+            "checkItemStates": [],
+            "closed": false,
+            "dueComplete": false,
+            "dateLastActivity": "2026-06-08T17:09:05.532Z",
+            "desc": "A test card for Nango integration testing",
+            "descData": {
+              "emoji": {}
+            },
+            "due": null,
+            "dueReminder": null,
+            "email": null,
+            "idBoard": "6a26ebb3cd5f60a53a585978",
+            "idChecklists": [
+              "6a26f332aa39a5f5b4c671bf",
+              "6a27318546cf4dd48655e970"
+            ],
+            "idList": "6a26f2ee92bc79daf0fe4c55",
+            "idMembers": [],
+            "idMembersVoted": [],
+            "idShort": 7,
+            "idAttachmentCover": null,
+            "labels": [],
+            "idLabels": [],
+            "manualCoverAttachment": false,
+            "name": "Nango Test Task Alpha Updated",
+            "nodeId": "ari:cloud:trello::card/workspace/6a26ebb15b58213488fb7401/6a26f2fdbc520ab9f45a5214",
+            "pinned": false,
+            "pos": 140737488355328,
+            "shortLink": "8eMIKY5v",
+            "shortUrl": "https://trello.com/c/8eMIKY5v",
+            "start": null,
+            "subscribed": false,
+            "url": "https://trello.com/c/8eMIKY5v/7-nango-test-task-alpha-updated",
+            "cover": {
+              "idAttachment": null,
+              "color": null,
+              "idUploadedBackground": null,
+              "size": "normal",
+              "brightness": "dark",
+              "yPosition": 0.5,
+              "idPlugin": null
+            },
+            "isTemplate": false,
+            "cardRole": null,
+            "mirrorSourceId": null
+          },
+          {
+            "id": "6a26f310fb56d9828fc1e683",
+            "agent": null,
+            "badges": {
+              "attachments": 0,
+              "fogbugz": "",
+              "checkItems": 0,
+              "checkItemsChecked": 0,
+              "checkItemsEarliestDue": null,
+              "comments": 1,
+              "description": true,
+              "due": null,
+              "dueComplete": false,
+              "lastUpdatedByAi": false,
+              "start": null,
+              "externalSource": null,
+              "attachmentsByType": {
+                "trello": {
+                  "board": 0,
+                  "card": 0
+                }
+              },
+              "location": false,
+              "votes": 0,
+              "maliciousAttachments": 0,
+              "viewingMemberVoted": false,
+              "subscribed": false
+            },
+            "checkItemStates": [],
+            "closed": false,
+            "dueComplete": false,
+            "dateLastActivity": "2026-06-08T17:03:41.118Z",
+            "desc": "Second test card for Nango integration testing",
+            "descData": {
+              "emoji": {}
+            },
+            "due": null,
+            "dueReminder": null,
+            "email": null,
+            "idBoard": "6a26ebb3cd5f60a53a585978",
+            "idChecklists": [],
+            "idList": "6a26f2ee92bc79daf0fe4c55",
+            "idMembers": [],
+            "idMembersVoted": [],
+            "idShort": 8,
+            "idAttachmentCover": null,
+            "labels": [],
+            "idLabels": [],
+            "manualCoverAttachment": false,
+            "name": "Nango Test Task Beta",
+            "nodeId": "ari:cloud:trello::card/workspace/6a26ebb15b58213488fb7401/6a26f310fb56d9828fc1e683",
+            "pinned": false,
+            "pos": 140737488371712,
+            "shortLink": "W7IFjqb9",
+            "shortUrl": "https://trello.com/c/W7IFjqb9",
+            "start": null,
+            "subscribed": false,
+            "url": "https://trello.com/c/W7IFjqb9/8-nango-test-task-beta",
+            "cover": {
+              "idAttachment": null,
+              "color": null,
+              "idUploadedBackground": null,
+              "size": "normal",
+              "brightness": "dark",
+              "yPosition": 0.5,
+              "idPlugin": null
+            },
+            "isTemplate": false,
+            "cardRole": null,
+            "mirrorSourceId": null
+          },
+          {
+            "id": "6a26f5ef703a4e3e9ee515f0",
+            "agent": null,
+            "badges": {
+              "attachments": 0,
+              "fogbugz": "",
+              "checkItems": 0,
+              "checkItemsChecked": 0,
+              "checkItemsEarliestDue": null,
+              "comments": 0,
+              "description": true,
+              "due": null,
+              "dueComplete": false,
+              "lastUpdatedByAi": false,
+              "start": null,
+              "externalSource": null,
+              "attachmentsByType": {
+                "trello": {
+                  "board": 0,
+                  "card": 0
+                }
+              },
+              "location": false,
+              "votes": 0,
+              "maliciousAttachments": 0,
+              "viewingMemberVoted": false,
+              "subscribed": false
+            },
+            "checkItemStates": [],
+            "closed": false,
+            "dueComplete": false,
+            "dateLastActivity": "2026-06-08T17:03:43.965Z",
+            "desc": "Test card created by Nango dryrun",
+            "descData": {
+              "emoji": {}
+            },
+            "due": null,
+            "dueReminder": null,
+            "email": null,
+            "idBoard": "6a26ebb3cd5f60a53a585978",
+            "idChecklists": [],
+            "idList": "6a26f2ee92bc79daf0fe4c55",
+            "idMembers": [],
+            "idMembersVoted": [],
+            "idShort": 11,
+            "idAttachmentCover": null,
+            "labels": [],
+            "idLabels": [],
+            "manualCoverAttachment": false,
+            "name": "Nango Create Card Test",
+            "nodeId": "ari:cloud:trello::card/workspace/6a26ebb15b58213488fb7401/6a26f5ef703a4e3e9ee515f0",
+            "pinned": false,
+            "pos": 140737488388096,
+            "shortLink": "JBCAszZB",
+            "shortUrl": "https://trello.com/c/JBCAszZB",
+            "start": null,
+            "subscribed": false,
+            "url": "https://trello.com/c/JBCAszZB/11-nango-create-card-test",
+            "cover": {
+              "idAttachment": null,
+              "color": null,
+              "idUploadedBackground": null,
+              "size": "normal",
+              "brightness": "dark",
+              "yPosition": 0.5,
+              "idPlugin": null
+            },
+            "isTemplate": false,
+            "cardRole": null,
+            "mirrorSourceId": null
+          },
+          {
+            "id": "6a26f5f8639dfa9e43a99f72",
+            "agent": null,
+            "badges": {
+              "attachments": 0,
+              "fogbugz": "",
+              "checkItems": 0,
+              "checkItemsChecked": 0,
+              "checkItemsEarliestDue": null,
+              "comments": 0,
+              "description": true,
+              "due": null,
+              "dueComplete": false,
+              "lastUpdatedByAi": false,
+              "start": null,
+              "externalSource": null,
+              "attachmentsByType": {
+                "trello": {
+                  "board": 0,
+                  "card": 0
+                }
+              },
+              "location": false,
+              "votes": 0,
+              "maliciousAttachments": 0,
+              "viewingMemberVoted": false,
+              "subscribed": false
+            },
+            "checkItemStates": [],
+            "closed": false,
+            "dueComplete": false,
+            "dateLastActivity": "2026-06-08T17:03:52.438Z",
+            "desc": "Test card created by Nango dryrun",
+            "descData": {
+              "emoji": {}
+            },
+            "due": null,
+            "dueReminder": null,
+            "email": null,
+            "idBoard": "6a26ebb3cd5f60a53a585978",
+            "idChecklists": [],
+            "idList": "6a26f2ee92bc79daf0fe4c55",
+            "idMembers": [],
+            "idMembersVoted": [],
+            "idShort": 12,
+            "idAttachmentCover": null,
+            "labels": [],
+            "idLabels": [],
+            "manualCoverAttachment": false,
+            "name": "Nango Create Card Test",
+            "nodeId": "ari:cloud:trello::card/workspace/6a26ebb15b58213488fb7401/6a26f5f8639dfa9e43a99f72",
+            "pinned": false,
+            "pos": 140737488404480,
+            "shortLink": "4UAhSUJ8",
+            "shortUrl": "https://trello.com/c/4UAhSUJ8",
+            "start": null,
+            "subscribed": false,
+            "url": "https://trello.com/c/4UAhSUJ8/12-nango-create-card-test",
+            "cover": {
+              "idAttachment": null,
+              "color": null,
+              "idUploadedBackground": null,
+              "size": "normal",
+              "brightness": "dark",
+              "yPosition": 0.5,
+              "idPlugin": null
+            },
+            "isTemplate": false,
+            "cardRole": null,
+            "mirrorSourceId": null
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Mon, 08 Jun 2026 21:29:15 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "x-rate-limit-api-key-interval-ms, x-rate-limit-api-key-max, x-rate-limit-api-key-remaining, x-rate-limit-api-token-interval-ms, x-rate-limit-api-token-max, x-rate-limit-api-token-remaining, retry-after",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4979",
+          "x-ratelimit-reset": "1780954201",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-permitted-cross-domain-policies": "none",
+          "surrogate-control": "no-store",
+          "cache-control": "max-age=0, must-revalidate, no-cache, no-store",
+          "expires": "Thu, 01 Jan 1970 00:00:00",
+          "x-trello-version": "1.465468.0",
+          "x-trello-environment": "Production",
+          "set-cookie": "dsc=96934c997cada881cbb81f32f54bffa633bed23cab3d57035f034875a0735075; Path=/; Expires=Wed, 08 Jul 2026 21:29:15 GMT; Secure; SameSite=None",
+          "access-control-allow-methods": "GET, PUT, POST, DELETE",
+          "access-control-allow-headers": "Authorization, Accept, Content-Type",
+          "x-rate-limit-api-token-interval-ms": "10000",
+          "x-rate-limit-api-token-max": "100",
+          "x-rate-limit-api-token-remaining": "91",
+          "x-rate-limit-db-query-time-interval-ms": "600000",
+          "x-rate-limit-db-query-time-max": "7200000",
+          "x-rate-limit-db-query-time-remaining": "7199990",
+          "x-rate-limit-api-key-interval-ms": "10000",
+          "x-rate-limit-api-key-max": "300",
+          "x-rate-limit-api-key-remaining": "291",
+          "x-rate-limit-member-interval-ms": "10000",
+          "x-rate-limit-member-max": "375",
+          "x-rate-limit-member-remaining": "366",
+          "x-server-time": "1780954155599",
+          "server": "AtlassianEdge",
+          "atl-traceid": "15f535cf67264f7cbefb40968ca2fda2",
+          "atl-request-id": "15f535cf-6726-4f7c-befb-40968ca2fda2",
+          "report-to": "{\"endpoints\": [{\"url\": \"https://dz8aopenkvv6s.cloudfront.net\"}], \"group\": \"endpoint-1\", \"include_subdomains\": true, \"max_age\": 600}",
+          "nel": "{\"failure_fraction\": 0.01, \"include_subdomains\": true, \"max_age\": 600, \"report_to\": \"endpoint-1\"}",
+          "vary": "Accept-Encoding",
+          "x-cache": "Miss from cloudfront",
+          "via": "1.1 d30f4a165486dd51ac7a7bdc41487d7c.cloudfront.net (CloudFront)",
+          "x-amz-cf-pop": "HIO52-P5",
+          "x-amz-cf-id": "3J-zge53cHgqXmJimcA2svRtWzwULGBRm8sWMJrgJJi_REcpaBRbfw==",
+          "server-timing": "cdn-upstream-layer;desc=\"EDGE\",cdn-upstream-dns;dur=0,cdn-upstream-connect;dur=0,cdn-upstream-fbl;dur=207,atl-edge;dur=200,atl-edge-internal;dur=9,atl-edge-upstream;dur=192,atl-edge-pop;desc=\"aws-us-west-2\",cdn-cache-miss,cdn-pop;desc=\"HIO52-P5\",cdn-rid;desc=\"3J-zge53cHgqXmJimcA2svRtWzwULGBRm8sWMJrgJJi_REcpaBRbfw==\",cdn-downstream-fbl;dur=212"
+        },
+        "hash": "bcf5aee5195bcd9349c4c52d133a26be30cceb53",
+        "request": {}
+      },
+      "/1/cards/6a26ebb3cd5f60a53a5859a1/attachments": {
+        "response": [],
+        "status": 200,
+        "headers": {
+          "date": "Mon, 08 Jun 2026 21:29:16 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "2",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4978",
+          "x-ratelimit-reset": "1780954201",
+          "etag": "W/\"2-l9Fw4VUO7kr8CvBlt4zaMCqXZ0w\""
+        },
+        "hash": "396568bbda25aed82bc927b8bafd7ffdb82fc12f",
+        "request": {}
+      },
+      "/1/cards/6a26ebb3cd5f60a53a5859c0/attachments": {
+        "response": [
+          {
+            "id": "6a26ebb3bb550e61ae961968",
+            "bytes": 887319,
+            "date": "2026-06-08T16:20:03.760Z",
+            "edgeColor": "#fcfcfc",
+            "idMember": "6a26eb9ccef85b4074044ea5",
+            "isMalicious": false,
+            "isUpload": true,
+            "mimeType": "image/jpeg",
+            "name": "2%20Email,%20Slack,%20Teams.jpg",
+            "previews": [
+              {
+                "id": "6a26ebb5bb550e61ae961977",
+                "_id": "6a26ebb5bb550e61ae961977",
+                "scaled": false,
+                "url": "https://trello.com/1/cards/6a26ebb3cd5f60a53a5859c0/attachments/6a26ebb3bb550e61ae961968/previews/6a26ebb5bb550e61ae961977/download/2_20Email%2C_20Slack%2C_20Teams.webp",
+                "bytes": 754,
+                "height": 50,
+                "width": 70
+              },
+              {
+                "id": "6a26ebb5bb550e61ae961978",
+                "_id": "6a26ebb5bb550e61ae961978",
+                "scaled": false,
+                "url": "https://trello.com/1/cards/6a26ebb3cd5f60a53a5859c0/attachments/6a26ebb3bb550e61ae961968/previews/6a26ebb5bb550e61ae961978/download/2_20Email%2C_20Slack%2C_20Teams.webp",
+                "bytes": 3244,
+                "height": 150,
+                "width": 250
+              },
+              {
+                "id": "6a26ebb5bb550e61ae961979",
+                "_id": "6a26ebb5bb550e61ae961979",
+                "scaled": true,
+                "url": "https://trello.com/1/cards/6a26ebb3cd5f60a53a5859c0/attachments/6a26ebb3bb550e61ae961968/previews/6a26ebb5bb550e61ae961979/download/2_20Email%2C_20Slack%2C_20Teams.webp",
+                "bytes": 1724,
+                "height": 84,
+                "width": 150
+              },
+              {
+                "id": "6a26ebb5bb550e61ae96197a",
+                "_id": "6a26ebb5bb550e61ae96197a",
+                "scaled": true,
+                "url": "https://trello.com/1/cards/6a26ebb3cd5f60a53a5859c0/attachments/6a26ebb3bb550e61ae961968/previews/6a26ebb5bb550e61ae96197a/download/2_20Email%2C_20Slack%2C_20Teams.webp",
+                "bytes": 3866,
+                "height": 169,
+                "width": 300
+              },
+              {
+                "id": "6a26ebb5bb550e61ae96197b",
+                "_id": "6a26ebb5bb550e61ae96197b",
+                "scaled": true,
+                "url": "https://trello.com/1/cards/6a26ebb3cd5f60a53a5859c0/attachments/6a26ebb3bb550e61ae961968/previews/6a26ebb5bb550e61ae96197b/download/2_20Email%2C_20Slack%2C_20Teams.webp",
+                "bytes": 8284,
+                "height": 338,
+                "width": 600
+              },
+              {
+                "id": "6a26ebb5bb550e61ae96197c",
+                "_id": "6a26ebb5bb550e61ae96197c",
+                "scaled": true,
+                "url": "https://trello.com/1/cards/6a26ebb3cd5f60a53a5859c0/attachments/6a26ebb3bb550e61ae961968/previews/6a26ebb5bb550e61ae96197c/download/2_20Email%2C_20Slack%2C_20Teams.webp",
+                "bytes": 17866,
+                "height": 675,
+                "width": 1200
+              },
+              {
+                "id": "6a26ebb5bb550e61ae96197d",
+                "_id": "6a26ebb5bb550e61ae96197d",
+                "scaled": true,
+                "url": "https://trello.com/1/cards/6a26ebb3cd5f60a53a5859c0/attachments/6a26ebb3bb550e61ae961968/previews/6a26ebb5bb550e61ae96197d/download/2_20Email%2C_20Slack%2C_20Teams.webp",
+                "bytes": 71436,
+                "height": 2160,
+                "width": 3840
+              }
+            ],
+            "sourceView": null,
+            "url": "https://trello.com/1/cards/6a26ebb3cd5f60a53a5859c0/attachments/6a26ebb3bb550e61ae961968/download/2_20Email%2C_20Slack%2C_20Teams.jpg",
+            "pos": 140737488355328,
+            "fileName": "2_20Email%2C_20Slack%2C_20Teams.jpg"
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Mon, 08 Jun 2026 21:29:16 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "2564",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4977",
+          "x-ratelimit-reset": "1780954201",
+          "etag": "W/\"a04-AVM6dRDy2IpQ7rdkLd7NoDBkUuw\""
+        },
+        "hash": "97bf76d40637d361fad196fba30e7b484e619ce0",
+        "request": {}
+      },
+      "/1/cards/6a26ebb3cd5f60a53a5859df/attachments": {
+        "response": [
+          {
+            "id": "6a26ebb465626e9e07e96897",
+            "bytes": 5162428,
+            "date": "2026-06-08T16:20:04.113Z",
+            "edgeColor": "#fcfcfc",
+            "idMember": "6a26eb9ccef85b4074044ea5",
+            "isMalicious": false,
+            "isUpload": true,
+            "mimeType": "image/jpeg",
+            "name": "3%20Trello%20Basics.jpg",
+            "previews": [
+              {
+                "id": "6a26ebb665626e9e07e968a9",
+                "_id": "6a26ebb665626e9e07e968a9",
+                "scaled": false,
+                "url": "https://trello.com/1/cards/6a26ebb3cd5f60a53a5859df/attachments/6a26ebb465626e9e07e96897/previews/6a26ebb665626e9e07e968a9/download/3_20Trello_20Basics.webp",
+                "bytes": 798,
+                "height": 50,
+                "width": 70
+              },
+              {
+                "id": "6a26ebb665626e9e07e968aa",
+                "_id": "6a26ebb665626e9e07e968aa",
+                "scaled": false,
+                "url": "https://trello.com/1/cards/6a26ebb3cd5f60a53a5859df/attachments/6a26ebb465626e9e07e96897/previews/6a26ebb665626e9e07e968aa/download/3_20Trello_20Basics.webp",
+                "bytes": 2918,
+                "height": 150,
+                "width": 250
+              },
+              {
+                "id": "6a26ebb665626e9e07e968ab",
+                "_id": "6a26ebb665626e9e07e968ab",
+                "scaled": true,
+                "url": "https://trello.com/1/cards/6a26ebb3cd5f60a53a5859df/attachments/6a26ebb465626e9e07e96897/previews/6a26ebb665626e9e07e968ab/download/3_20Trello_20Basics.webp",
+                "bytes": 1576,
+                "height": 84,
+                "width": 150
+              },
+              {
+                "id": "6a26ebb665626e9e07e968ac",
+                "_id": "6a26ebb665626e9e07e968ac",
+                "scaled": true,
+                "url": "https://trello.com/1/cards/6a26ebb3cd5f60a53a5859df/attachments/6a26ebb465626e9e07e96897/previews/6a26ebb665626e9e07e968ac/download/3_20Trello_20Basics.webp",
+                "bytes": 3314,
+                "height": 169,
+                "width": 300
+              },
+              {
+                "id": "6a26ebb665626e9e07e968ad",
+                "_id": "6a26ebb665626e9e07e968ad",
+                "scaled": true,
+                "url": "https://trello.com/1/cards/6a26ebb3cd5f60a53a5859df/attachments/6a26ebb465626e9e07e96897/previews/6a26ebb665626e9e07e968ad/download/3_20Trello_20Basics.webp",
+                "bytes": 7830,
+                "height": 338,
+                "width": 600
+              },
+              {
+                "id": "6a26ebb665626e9e07e968ae",
+                "_id": "6a26ebb665626e9e07e968ae",
+                "scaled": true,
+                "url": "https://trello.com/1/cards/6a26ebb3cd5f60a53a5859df/attachments/6a26ebb465626e9e07e96897/previews/6a26ebb665626e9e07e968ae/download/3_20Trello_20Basics.webp",
+                "bytes": 37350,
+                "height": 675,
+                "width": 1200
+              },
+              {
+                "id": "6a26ebb665626e9e07e968af",
+                "_id": "6a26ebb665626e9e07e968af",
+                "scaled": true,
+                "url": "https://trello.com/1/cards/6a26ebb3cd5f60a53a5859df/attachments/6a26ebb465626e9e07e96897/previews/6a26ebb665626e9e07e968af/download/3_20Trello_20Basics.webp",
+                "bytes": 595562,
+                "height": 2160,
+                "width": 3840
+              }
+            ],
+            "sourceView": null,
+            "url": "https://trello.com/1/cards/6a26ebb3cd5f60a53a5859df/attachments/6a26ebb465626e9e07e96897/download/3_20Trello_20Basics.jpg",
+            "pos": 140737488355328,
+            "fileName": "3_20Trello_20Basics.jpg"
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Mon, 08 Jun 2026 21:29:17 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "2450",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4976",
+          "x-ratelimit-reset": "1780954201",
+          "etag": "W/\"992-BbMGr+QdYw3mpY54wc9zinbms7I\""
+        },
+        "hash": "f272256da4ea379f87444051572b09f983dafd27",
+        "request": {}
+      },
+      "/1/cards/6a26ebb3cd5f60a53a585a22/attachments": {
+        "response": [
+          {
+            "id": "6a26ebb4497289c4bce66c24",
+            "bytes": 2113089,
+            "date": "2026-06-08T16:20:04.070Z",
+            "edgeColor": "#fbfbfc",
+            "idMember": "6a26eb9ccef85b4074044ea5",
+            "isMalicious": false,
+            "isUpload": true,
+            "mimeType": "image/jpeg",
+            "name": "5%20Work%20Smarter.jpg",
+            "previews": [
+              {
+                "id": "6a26ebb5497289c4bce66c39",
+                "_id": "6a26ebb5497289c4bce66c39",
+                "scaled": false,
+                "url": "https://trello.com/1/cards/6a26ebb3cd5f60a53a585a22/attachments/6a26ebb4497289c4bce66c24/previews/6a26ebb5497289c4bce66c39/download/5_20Work_20Smarter.webp",
+                "bytes": 828,
+                "height": 50,
+                "width": 70
+              },
+              {
+                "id": "6a26ebb5497289c4bce66c3a",
+                "_id": "6a26ebb5497289c4bce66c3a",
+                "scaled": false,
+                "url": "https://trello.com/1/cards/6a26ebb3cd5f60a53a585a22/attachments/6a26ebb4497289c4bce66c24/previews/6a26ebb5497289c4bce66c3a/download/5_20Work_20Smarter.webp",
+                "bytes": 3226,
+                "height": 150,
+                "width": 250
+              },
+              {
+                "id": "6a26ebb5497289c4bce66c3b",
+                "_id": "6a26ebb5497289c4bce66c3b",
+                "scaled": true,
+                "url": "https://trello.com/1/cards/6a26ebb3cd5f60a53a585a22/attachments/6a26ebb4497289c4bce66c24/previews/6a26ebb5497289c4bce66c3b/download/5_20Work_20Smarter.webp",
+                "bytes": 1848,
+                "height": 84,
+                "width": 150
+              },
+              {
+                "id": "6a26ebb5497289c4bce66c3c",
+                "_id": "6a26ebb5497289c4bce66c3c",
+                "scaled": true,
+                "url": "https://trello.com/1/cards/6a26ebb3cd5f60a53a585a22/attachments/6a26ebb4497289c4bce66c24/previews/6a26ebb5497289c4bce66c3c/download/5_20Work_20Smarter.webp",
+                "bytes": 3798,
+                "height": 169,
+                "width": 300
+              },
+              {
+                "id": "6a26ebb5497289c4bce66c3d",
+                "_id": "6a26ebb5497289c4bce66c3d",
+                "scaled": true,
+                "url": "https://trello.com/1/cards/6a26ebb3cd5f60a53a585a22/attachments/6a26ebb4497289c4bce66c24/previews/6a26ebb5497289c4bce66c3d/download/5_20Work_20Smarter.webp",
+                "bytes": 8020,
+                "height": 338,
+                "width": 600
+              },
+              {
+                "id": "6a26ebb5497289c4bce66c3e",
+                "_id": "6a26ebb5497289c4bce66c3e",
+                "scaled": true,
+                "url": "https://trello.com/1/cards/6a26ebb3cd5f60a53a585a22/attachments/6a26ebb4497289c4bce66c24/previews/6a26ebb5497289c4bce66c3e/download/5_20Work_20Smarter.webp",
+                "bytes": 17938,
+                "height": 675,
+                "width": 1200
+              },
+              {
+                "id": "6a26ebb5497289c4bce66c3f",
+                "_id": "6a26ebb5497289c4bce66c3f",
+                "scaled": true,
+                "url": "https://trello.com/1/cards/6a26ebb3cd5f60a53a585a22/attachments/6a26ebb4497289c4bce66c24/previews/6a26ebb5497289c4bce66c3f/download/5_20Work_20Smarter.webp",
+                "bytes": 122570,
+                "height": 2160,
+                "width": 3840
+              }
+            ],
+            "sourceView": null,
+            "url": "https://trello.com/1/cards/6a26ebb3cd5f60a53a585a22/attachments/6a26ebb4497289c4bce66c24/download/5_20Work_20Smarter.jpg",
+            "pos": 140737488355328,
+            "fileName": "5_20Work_20Smarter.jpg"
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Mon, 08 Jun 2026 21:29:17 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "2440",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4975",
+          "x-ratelimit-reset": "1780954201",
+          "etag": "W/\"988-/HjfA+KfOY4wkhjf+tXZMybuPgU\""
+        },
+        "hash": "8cb26a5f3b70791dcdd3b3d203558b4ba0130b04",
+        "request": {}
+      },
+      "/1/cards/6a26ebb3cd5f60a53a585a56/attachments": {
+        "response": [
+          {
+            "id": "6a26ebb4e09bbe59a75fd046",
+            "bytes": 856421,
+            "date": "2026-06-08T16:20:04.137Z",
+            "edgeColor": "#fcfcfc",
+            "idMember": "6a26eb9ccef85b4074044ea5",
+            "isMalicious": false,
+            "isUpload": true,
+            "mimeType": "image/jpeg",
+            "name": "6%20Jira.jpg",
+            "previews": [
+              {
+                "id": "6a26ebb5e09bbe59a75fd055",
+                "_id": "6a26ebb5e09bbe59a75fd055",
+                "scaled": false,
+                "url": "https://trello.com/1/cards/6a26ebb3cd5f60a53a585a56/attachments/6a26ebb4e09bbe59a75fd046/previews/6a26ebb5e09bbe59a75fd055/download/6_20Jira.webp",
+                "bytes": 858,
+                "height": 50,
+                "width": 70
+              },
+              {
+                "id": "6a26ebb5e09bbe59a75fd056",
+                "_id": "6a26ebb5e09bbe59a75fd056",
+                "scaled": false,
+                "url": "https://trello.com/1/cards/6a26ebb3cd5f60a53a585a56/attachments/6a26ebb4e09bbe59a75fd046/previews/6a26ebb5e09bbe59a75fd056/download/6_20Jira.webp",
+                "bytes": 3828,
+                "height": 150,
+                "width": 250
+              },
+              {
+                "id": "6a26ebb5e09bbe59a75fd057",
+                "_id": "6a26ebb5e09bbe59a75fd057",
+                "scaled": true,
+                "url": "https://trello.com/1/cards/6a26ebb3cd5f60a53a585a56/attachments/6a26ebb4e09bbe59a75fd046/previews/6a26ebb5e09bbe59a75fd057/download/6_20Jira.webp",
+                "bytes": 2066,
+                "height": 84,
+                "width": 150
+              },
+              {
+                "id": "6a26ebb5e09bbe59a75fd058",
+                "_id": "6a26ebb5e09bbe59a75fd058",
+                "scaled": true,
+                "url": "https://trello.com/1/cards/6a26ebb3cd5f60a53a585a56/attachments/6a26ebb4e09bbe59a75fd046/previews/6a26ebb5e09bbe59a75fd058/download/6_20Jira.webp",
+                "bytes": 4652,
+                "height": 169,
+                "width": 300
+              },
+              {
+                "id": "6a26ebb5e09bbe59a75fd059",
+                "_id": "6a26ebb5e09bbe59a75fd059",
+                "scaled": true,
+                "url": "https://trello.com/1/cards/6a26ebb3cd5f60a53a585a56/attachments/6a26ebb4e09bbe59a75fd046/previews/6a26ebb5e09bbe59a75fd059/download/6_20Jira.webp",
+                "bytes": 11610,
+                "height": 338,
+                "width": 600
+              },
+              {
+                "id": "6a26ebb5e09bbe59a75fd05a",
+                "_id": "6a26ebb5e09bbe59a75fd05a",
+                "scaled": true,
+                "url": "https://trello.com/1/cards/6a26ebb3cd5f60a53a585a56/attachments/6a26ebb4e09bbe59a75fd046/previews/6a26ebb5e09bbe59a75fd05a/download/6_20Jira.webp",
+                "bytes": 26990,
+                "height": 675,
+                "width": 1200
+              },
+              {
+                "id": "6a26ebb5e09bbe59a75fd05b",
+                "_id": "6a26ebb5e09bbe59a75fd05b",
+                "scaled": true,
+                "url": "https://trello.com/1/cards/6a26ebb3cd5f60a53a585a56/attachments/6a26ebb4e09bbe59a75fd046/previews/6a26ebb5e09bbe59a75fd05b/download/6_20Jira.webp",
+                "bytes": 102632,
+                "height": 2160,
+                "width": 3840
+              }
+            ],
+            "sourceView": null,
+            "url": "https://trello.com/1/cards/6a26ebb3cd5f60a53a585a56/attachments/6a26ebb4e09bbe59a75fd046/download/6_20Jira.jpg",
+            "pos": 140737488355328,
+            "fileName": "6_20Jira.jpg"
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Mon, 08 Jun 2026 21:29:18 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "2340",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4974",
+          "x-ratelimit-reset": "1780954201",
+          "etag": "W/\"924-nA2Bez3+4WpdwHOLox2+C8+ndTQ\""
+        },
+        "hash": "eeab24e45e9e5444c2af064c4282e20f7b272564",
+        "request": {}
+      },
+      "/1/cards/6a26ebb3cd5f60a53a585a8e/attachments": {
+        "response": [
+          {
+            "id": "6a26ebb408280c1b06148dc8",
+            "bytes": 977493,
+            "date": "2026-06-08T16:20:04.256Z",
+            "edgeColor": "#fcfcfc",
+            "idMember": "6a26eb9ccef85b4074044ea5",
+            "isMalicious": false,
+            "isUpload": true,
+            "mimeType": "image/jpeg",
+            "name": "4%20Download%20the%20mobile%20apps.jpg",
+            "previews": [
+              {
+                "id": "6a26ebb608280c1b06148dd6",
+                "_id": "6a26ebb608280c1b06148dd6",
+                "scaled": false,
+                "url": "https://trello.com/1/cards/6a26ebb3cd5f60a53a585a8e/attachments/6a26ebb408280c1b06148dc8/previews/6a26ebb608280c1b06148dd6/download/4_20Download_20the_20mobile_20apps.webp",
+                "bytes": 920,
+                "height": 50,
+                "width": 70
+              },
+              {
+                "id": "6a26ebb608280c1b06148dd7",
+                "_id": "6a26ebb608280c1b06148dd7",
+                "scaled": false,
+                "url": "https://trello.com/1/cards/6a26ebb3cd5f60a53a585a8e/attachments/6a26ebb408280c1b06148dc8/previews/6a26ebb608280c1b06148dd7/download/4_20Download_20the_20mobile_20apps.webp",
+                "bytes": 3210,
+                "height": 150,
+                "width": 250
+              },
+              {
+                "id": "6a26ebb608280c1b06148dd8",
+                "_id": "6a26ebb608280c1b06148dd8",
+                "scaled": true,
+                "url": "https://trello.com/1/cards/6a26ebb3cd5f60a53a585a8e/attachments/6a26ebb408280c1b06148dc8/previews/6a26ebb608280c1b06148dd8/download/4_20Download_20the_20mobile_20apps.webp",
+                "bytes": 1850,
+                "height": 84,
+                "width": 150
+              },
+              {
+                "id": "6a26ebb608280c1b06148dd9",
+                "_id": "6a26ebb608280c1b06148dd9",
+                "scaled": true,
+                "url": "https://trello.com/1/cards/6a26ebb3cd5f60a53a585a8e/attachments/6a26ebb408280c1b06148dc8/previews/6a26ebb608280c1b06148dd9/download/4_20Download_20the_20mobile_20apps.webp",
+                "bytes": 3686,
+                "height": 169,
+                "width": 300
+              },
+              {
+                "id": "6a26ebb608280c1b06148dda",
+                "_id": "6a26ebb608280c1b06148dda",
+                "scaled": true,
+                "url": "https://trello.com/1/cards/6a26ebb3cd5f60a53a585a8e/attachments/6a26ebb408280c1b06148dc8/previews/6a26ebb608280c1b06148dda/download/4_20Download_20the_20mobile_20apps.webp",
+                "bytes": 7748,
+                "height": 338,
+                "width": 600
+              },
+              {
+                "id": "6a26ebb608280c1b06148ddb",
+                "_id": "6a26ebb608280c1b06148ddb",
+                "scaled": true,
+                "url": "https://trello.com/1/cards/6a26ebb3cd5f60a53a585a8e/attachments/6a26ebb408280c1b06148dc8/previews/6a26ebb608280c1b06148ddb/download/4_20Download_20the_20mobile_20apps.webp",
+                "bytes": 16828,
+                "height": 675,
+                "width": 1200
+              },
+              {
+                "id": "6a26ebb608280c1b06148ddc",
+                "_id": "6a26ebb608280c1b06148ddc",
+                "scaled": true,
+                "url": "https://trello.com/1/cards/6a26ebb3cd5f60a53a585a8e/attachments/6a26ebb408280c1b06148dc8/previews/6a26ebb608280c1b06148ddc/download/4_20Download_20the_20mobile_20apps.webp",
+                "bytes": 68628,
+                "height": 2160,
+                "width": 3840
+              }
+            ],
+            "sourceView": null,
+            "url": "https://trello.com/1/cards/6a26ebb3cd5f60a53a585a8e/attachments/6a26ebb408280c1b06148dc8/download/4_20Download_20the_20mobile_20apps.jpg",
+            "pos": 140737488355328,
+            "fileName": "4_20Download_20the_20mobile_20apps.jpg"
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Mon, 08 Jun 2026 21:29:18 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "2598",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4973",
+          "x-ratelimit-reset": "1780954201",
+          "etag": "W/\"a26-+8TiB1aXrxHp2tx3XZtf8PCDa6A\""
+        },
+        "hash": "9cc556380130f8eba64b95f54cd910d9ac738086",
+        "request": {}
+      },
+      "/1/cards/6a26f2fdbc520ab9f45a5214/attachments": {
+        "response": [
+          {
+            "id": "6a26f6040d0268afb20b8fd2",
+            "bytes": null,
+            "date": "2026-06-08T17:04:04.613Z",
+            "edgeColor": null,
+            "idMember": "6a26eb9ccef85b4074044ea5",
+            "isMalicious": false,
+            "isUpload": false,
+            "mimeType": "",
+            "name": "Nango Docs",
+            "previews": [],
+            "sourceView": null,
+            "url": "https://nango.dev",
+            "pos": 140737488355328,
+            "fileName": ""
+          },
+          {
+            "id": "6a26f6162abf09e5fcd7e727",
+            "bytes": null,
+            "date": "2026-06-08T17:04:22.089Z",
+            "edgeColor": null,
+            "idMember": "6a26eb9ccef85b4074044ea5",
+            "isMalicious": false,
+            "isUpload": false,
+            "mimeType": "text/html",
+            "name": "Nango Docs Link",
+            "previews": [],
+            "sourceView": null,
+            "url": "https://docs.nango.dev",
+            "pos": 140737488371712,
+            "fileName": ""
+          },
+          {
+            "id": "6a26f620d9da609fe727b47f",
+            "bytes": null,
+            "date": "2026-06-08T17:04:32.116Z",
+            "edgeColor": null,
+            "idMember": "6a26eb9ccef85b4074044ea5",
+            "isMalicious": false,
+            "isUpload": false,
+            "mimeType": "text/html",
+            "name": "Nango Docs Link",
+            "previews": [],
+            "sourceView": null,
+            "url": "https://docs.nango.dev",
+            "pos": 140737488388096,
+            "fileName": ""
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Mon, 08 Jun 2026 21:29:19 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "942",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4972",
+          "x-ratelimit-reset": "1780954201",
+          "etag": "W/\"3ae-gnqDJcPR78/2I2YfGLe/CCrEatg\""
+        },
+        "hash": "3a984e6ee3047e66ba56089e1cebd28896feed1d",
+        "request": {}
+      },
+      "/1/cards/6a26f310fb56d9828fc1e683/attachments": {
+        "response": [],
+        "status": 200,
+        "headers": {
+          "date": "Mon, 08 Jun 2026 21:29:19 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "2",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4971",
+          "x-ratelimit-reset": "1780954201",
+          "etag": "W/\"2-l9Fw4VUO7kr8CvBlt4zaMCqXZ0w\""
+        },
+        "hash": "da628fdc3321402f47f8ec00d1e282208d92f88d",
+        "request": {}
+      },
+      "/1/cards/6a26f5ef703a4e3e9ee515f0/attachments": {
+        "response": [],
+        "status": 200,
+        "headers": {
+          "date": "Mon, 08 Jun 2026 21:29:20 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "2",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4970",
+          "x-ratelimit-reset": "1780954201",
+          "etag": "W/\"2-l9Fw4VUO7kr8CvBlt4zaMCqXZ0w\""
+        },
+        "hash": "683a0ee06e72bbe07b2556432422f09eceb8ea5b",
+        "request": {}
+      },
+      "/1/cards/6a26f5f8639dfa9e43a99f72/attachments": {
+        "response": [],
+        "status": 200,
+        "headers": {
+          "date": "Mon, 08 Jun 2026 21:29:20 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "2",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4969",
+          "x-ratelimit-reset": "1780954201",
+          "etag": "W/\"2-l9Fw4VUO7kr8CvBlt4zaMCqXZ0w\""
+        },
+        "hash": "96bc51b0fc679ecced6f3d8155f31ef2c449a1f6",
+        "request": {}
+      },
+      "/1/boards/6a26f2eb894c0b76184bdb73/cards": {
+        "response": [],
+        "status": 200,
+        "headers": {
+          "date": "Mon, 08 Jun 2026 21:29:21 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "2",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4968",
+          "x-ratelimit-reset": "1780954201",
+          "etag": "W/\"2-l9Fw4VUO7kr8CvBlt4zaMCqXZ0w\""
+        },
+        "hash": "7127577789d94ed5d9046de152ddf978be324d8f",
+        "request": {}
+      },
+      "/1/boards/6a26f5df57bb1f09efa8b942/cards": {
+        "response": [],
+        "status": 200,
+        "headers": {
+          "date": "Mon, 08 Jun 2026 21:29:21 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "2",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4967",
+          "x-ratelimit-reset": "1780954201",
+          "etag": "W/\"2-l9Fw4VUO7kr8CvBlt4zaMCqXZ0w\""
+        },
+        "hash": "e32b3254bc503fb74e1cc8cc8ec0f4c6027ee618",
+        "request": {}
+      },
+      "/1/boards/6a26f5e70cfb23f42c3ef4ea/cards": {
+        "response": [],
+        "status": 200,
+        "headers": {
+          "date": "Mon, 08 Jun 2026 21:29:22 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "2",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4966",
+          "x-ratelimit-reset": "1780954201",
+          "etag": "W/\"2-l9Fw4VUO7kr8CvBlt4zaMCqXZ0w\""
+        },
+        "hash": "5589324525990f59bdfeec7c1b501aecc3981ba2",
+        "request": {}
+      }
+    }
+  }
+}
