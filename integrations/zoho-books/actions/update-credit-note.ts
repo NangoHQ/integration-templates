@@ -21,7 +21,12 @@ const LineItemSchema = z.object({
 
 const InputSchema = z.object({
     creditnote_id: z.string().describe('ID of the credit note to update. Example: "260815000000111002"'),
-    organization_id: z.string().optional().describe('Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.'),
+    organization_id: z
+        .string()
+        .optional()
+        .describe(
+            'Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.'
+        ),
     customer_id: z.string().optional().describe('Customer contact ID. Example: "260815000000097001"'),
     date: z.string().optional().describe('Credit note date in yyyy-mm-dd format. Example: "2024-01-15"'),
     notes: z.string().optional().describe('Notes displayed on the credit note. Max-length [5000]'),
@@ -187,7 +192,13 @@ const action = createAction({
                 retries: 3
             });
             const orgData = OrganizationsResponseSchema.parse(orgResponse.data);
-            if (orgData.code !== 0 || !orgData.organizations || orgData.organizations.length === 0) {
+            if (orgData.code !== 0) {
+                throw new nango.ActionError({
+                    type: 'provider_error',
+                    message: 'Failed to retrieve organizations from Zoho Books.'
+                });
+            }
+            if (!orgData.organizations || orgData.organizations.length === 0) {
                 throw new nango.ActionError({
                     type: 'not_found',
                     message: 'No organizations found for this Zoho Books account.'

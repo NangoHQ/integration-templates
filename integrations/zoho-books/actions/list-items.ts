@@ -10,7 +10,12 @@ const OrganizationsResponseSchema = z.object({
 
 const InputSchema = z.object({
     cursor: z.string().optional().describe('Pagination cursor (page number). Omit for the first page.'),
-    organization_id: z.string().optional().describe('Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.'),
+    organization_id: z
+        .string()
+        .optional()
+        .describe(
+            'Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.'
+        ),
     name: z.string().optional().describe('Search items by name. Max-length [100].'),
     filter_by: z.enum(['Status.All', 'Status.Active', 'Status.Inactive']).optional().describe('Filter items by status.'),
     sort_column: z.enum(['name', 'rate', 'tax_name']).optional().describe('Sort items by column.'),
@@ -91,7 +96,13 @@ const action = createAction({
                 retries: 3
             });
             const orgData = OrganizationsResponseSchema.parse(orgResponse.data);
-            if (orgData.code !== 0 || !orgData.organizations || orgData.organizations.length === 0) {
+            if (orgData.code !== 0) {
+                throw new nango.ActionError({
+                    type: 'provider_error',
+                    message: 'Failed to retrieve organizations from Zoho Books.'
+                });
+            }
+            if (!orgData.organizations || orgData.organizations.length === 0) {
                 throw new nango.ActionError({
                     type: 'not_found',
                     message: 'No organizations found for this Zoho Books account.'

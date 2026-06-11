@@ -9,7 +9,12 @@ const OrganizationsResponseSchema = z.object({
 
 const InputSchema = z.object({
     bill_id: z.string().describe('The unique ID of the bill to retrieve. Example: "260815000000108002"'),
-    organization_id: z.string().optional().describe('Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.')
+    organization_id: z
+        .string()
+        .optional()
+        .describe(
+            'Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.'
+        )
 });
 
 const ApiResponseSchema = z.object({
@@ -59,7 +64,13 @@ const action = createAction({
                 retries: 3
             });
             const orgData = OrganizationsResponseSchema.parse(orgResponse.data);
-            if (orgData.code !== 0 || !orgData.organizations || orgData.organizations.length === 0) {
+            if (orgData.code !== 0) {
+                throw new nango.ActionError({
+                    type: 'provider_error',
+                    message: 'Failed to retrieve organizations from Zoho Books.'
+                });
+            }
+            if (!orgData.organizations || orgData.organizations.length === 0) {
                 throw new nango.ActionError({
                     type: 'not_found',
                     message: 'No organizations found for this Zoho Books account.'

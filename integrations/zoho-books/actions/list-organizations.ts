@@ -8,7 +8,7 @@ const OrganizationSchema = z.object({
     email: z.string().optional(),
     is_default_org: z.boolean().optional(),
     language_code: z.string().optional(),
-    fiscal_year_start_month: z.string().optional(),
+    fiscal_year_start_month: z.union([z.string(), z.number()]).optional(),
     account_created_date: z.string().optional(),
     time_zone: z.string().optional(),
     is_dst_active: z.boolean().optional(),

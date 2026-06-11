@@ -16,7 +16,12 @@ const LineItemInputSchema = z.object({
 
 const InputSchema = z.object({
     expense_id: z.string().describe('Unique identifier of the expense. Example: "260815000000106001"'),
-    organization_id: z.string().optional().describe('Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.'),
+    organization_id: z
+        .string()
+        .optional()
+        .describe(
+            'Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.'
+        ),
     account_id: z.string().optional().describe('ID of the expense account. Example: "260815000000000388"'),
     date: z.string().optional().describe('Date of the expense. Format: YYYY-MM-DD'),
     amount: z.number().optional().describe('Amount of the Expense'),
@@ -127,7 +132,13 @@ const action = createAction({
                 retries: 3
             });
             const orgData = OrganizationsResponseSchema.parse(orgResponse.data);
-            if (orgData.code !== 0 || !orgData.organizations || orgData.organizations.length === 0) {
+            if (orgData.code !== 0) {
+                throw new nango.ActionError({
+                    type: 'provider_error',
+                    message: 'Failed to retrieve organizations from Zoho Books.'
+                });
+            }
+            if (!orgData.organizations || orgData.organizations.length === 0) {
                 throw new nango.ActionError({
                     type: 'not_found',
                     message: 'No organizations found for this Zoho Books account.'

@@ -95720,7 +95720,7 @@ export interface SyncMetadata_zoho_books_vendorpayments {
 
 export interface ActionInput_zoho_books_createbankaccount {
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
   /**
@@ -95809,7 +95809,7 @@ export interface ActionInput_zoho_books_createbill {
    */
   vendor_id: string;
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
   /**
@@ -95914,7 +95914,7 @@ export interface ActionInput_zoho_books_createchartofaccount {
    */
   account_name: string;
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
   /**
@@ -95974,7 +95974,7 @@ export interface ActionInput_zoho_books_createcontact {
    */
   contact_name: string;
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
   /**
@@ -96058,7 +96058,7 @@ export interface ActionOutput_zoho_books_createcontact {
 
 export interface ActionInput_zoho_books_createcreditnote {
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
   /**
@@ -96108,7 +96108,7 @@ export interface ActionInput_zoho_books_createestimate {
    */
   customer_id: string;
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
   /**
@@ -96175,7 +96175,7 @@ export interface ActionInput_zoho_books_createexpense {
    */
   account_id: string;
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
   /**
@@ -96463,7 +96463,7 @@ export interface ActionInput_zoho_books_createinvoice {
    */
   customer_id: string;
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
   /**
@@ -96526,7 +96526,7 @@ export interface ActionOutput_zoho_books_createinvoice {
 
 export interface ActionInput_zoho_books_createitem {
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
   /**
@@ -96636,7 +96636,7 @@ export interface ActionOutput_zoho_books_createitem {
 
 export interface ActionInput_zoho_books_createjournal {
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
   /**
@@ -96723,7 +96723,7 @@ export interface ActionOutput_zoho_books_createjournal {
 
 export interface ActionInput_zoho_books_createpayment {
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
   /**
@@ -96855,7 +96855,7 @@ export interface ActionOutput_zoho_books_createpayment {
 
 export interface ActionInput_zoho_books_createpurchaseorder {
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
   /**
@@ -96930,7 +96930,7 @@ export interface ActionOutput_zoho_books_createpurchaseorder {
 
 export interface ActionInput_zoho_books_createvendorpayment {
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
   /**
@@ -97029,7 +97029,7 @@ export interface ActionInput_zoho_books_deletebankaccount {
    */
   account_id: string;
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
 };
@@ -97045,7 +97045,7 @@ export interface ActionInput_zoho_books_deletebill {
    */
   bill_id: string;
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
 };
@@ -97062,7 +97062,7 @@ export interface ActionInput_zoho_books_deletechartofaccount {
    */
   account_id: string;
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
 };
@@ -97078,7 +97078,7 @@ export interface ActionInput_zoho_books_deletecontact {
    */
   contact_id: string;
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
 };
@@ -97095,7 +97095,7 @@ export interface ActionInput_zoho_books_deletecreditnote {
    */
   creditnote_id: string;
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
 };
@@ -97111,7 +97111,7 @@ export interface ActionInput_zoho_books_deleteestimate {
    */
   estimate_id: string;
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
 };
@@ -97127,7 +97127,7 @@ export interface ActionInput_zoho_books_deleteexpense {
    */
   expense_id: string;
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
 };
@@ -97143,7 +97143,7 @@ export interface ActionInput_zoho_books_deleteinvoice {
    */
   invoice_id: string;
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
 };
@@ -97159,7 +97159,7 @@ export interface ActionInput_zoho_books_deleteitem {
    */
   item_id: string;
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
 };
@@ -97176,7 +97176,7 @@ export interface ActionInput_zoho_books_deletejournal {
    */
   journal_id: string;
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
 };
@@ -97192,7 +97192,7 @@ export interface ActionInput_zoho_books_deletepayment {
    */
   payment_id: string;
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
 };
@@ -97208,7 +97208,7 @@ export interface ActionInput_zoho_books_deletepurchaseorder {
    */
   purchaseorder_id: string;
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
 };
@@ -97226,7 +97226,7 @@ export interface ActionInput_zoho_books_deletevendorpayment {
    */
   payment_id: string;
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
 };
@@ -97242,7 +97242,7 @@ export interface ActionInput_zoho_books_getbankaccount {
    */
   account_id: string;
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
 };
@@ -97282,7 +97282,7 @@ export interface ActionInput_zoho_books_getbill {
    */
   bill_id: string;
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
 };
@@ -97309,7 +97309,7 @@ export interface ActionInput_zoho_books_getchartofaccount {
    */
   account_id: string;
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
 };
@@ -97349,7 +97349,7 @@ export interface ActionInput_zoho_books_getcontact {
    */
   contact_id: string;
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
 };
@@ -97448,7 +97448,7 @@ export interface ActionInput_zoho_books_getcreditnote {
    */
   creditnote_id: string;
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
 };
@@ -97463,7 +97463,7 @@ export interface ActionInput_zoho_books_getestimate {
    */
   estimate_id: string;
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
 };
@@ -97578,7 +97578,7 @@ export interface ActionInput_zoho_books_getexpense {
    */
   expense_id: string;
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
 };
@@ -97703,7 +97703,7 @@ export interface ActionInput_zoho_books_getinvoice {
    */
   invoice_id: string;
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
 };
@@ -97848,7 +97848,7 @@ export interface ActionInput_zoho_books_getitem {
    */
   item_id: string;
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
 };
@@ -97890,7 +97890,7 @@ export interface ActionInput_zoho_books_getjournal {
    */
   journal_id: string;
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
 };
@@ -97970,7 +97970,7 @@ export interface ActionInput_zoho_books_getpayment {
    */
   payment_id: string;
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
 };
@@ -98015,7 +98015,7 @@ export interface ActionInput_zoho_books_getpurchaseorder {
    */
   purchaseorder_id: string;
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
 };
@@ -98180,7 +98180,7 @@ export interface ActionInput_zoho_books_getvendorpayment {
    */
   payment_id: string;
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
 };
@@ -98289,7 +98289,7 @@ export interface ActionOutput_zoho_books_getvendorpayment {
 
 export interface ActionInput_zoho_books_listbankaccounts {
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
   /**
@@ -98355,7 +98355,7 @@ export interface ActionOutput_zoho_books_listbankaccounts {
 
 export interface ActionInput_zoho_books_listbills {
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
   /**
@@ -98413,7 +98413,7 @@ export interface ActionInput_zoho_books_listchartofaccounts {
    */
   cursor?: string | undefined;
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
   /**
@@ -98476,7 +98476,7 @@ export interface ActionOutput_zoho_books_listchartofaccounts {
 
 export interface ActionInput_zoho_books_listcontacts {
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
   /**
@@ -98552,7 +98552,7 @@ export interface ActionInput_zoho_books_listcreditnotes {
    */
   cursor?: string | undefined;
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
   /**
@@ -98598,7 +98598,7 @@ export interface ActionOutput_zoho_books_listcreditnotes {
 
 export interface ActionInput_zoho_books_listcurrencies {
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
   /**
@@ -98634,7 +98634,7 @@ export interface ActionInput_zoho_books_listestimates {
    */
   cursor?: string | undefined;
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
   /**
@@ -98715,7 +98715,7 @@ export interface ActionInput_zoho_books_listexpenses {
    */
   cursor?: string | undefined;
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
   /**
@@ -98766,7 +98766,7 @@ export interface ActionOutput_zoho_books_listexpenses {
 
 export interface ActionInput_zoho_books_listinvoices {
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
   /**
@@ -98845,7 +98845,7 @@ export interface ActionInput_zoho_books_listitems {
    */
   cursor?: string | undefined;
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
   /**
@@ -98888,7 +98888,7 @@ export interface ActionOutput_zoho_books_listitems {
 
 export interface ActionInput_zoho_books_listjournals {
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
   /**
@@ -99035,7 +99035,7 @@ export interface ActionOutput_zoho_books_listorganizations {
   email?: string | undefined;
   is_default_org?: boolean | undefined;
   language_code?: string | undefined;
-  fiscal_year_start_month?: string | undefined;
+  fiscal_year_start_month?: string | number | undefined;
   account_created_date?: string | undefined;
   time_zone?: string | undefined;
   is_dst_active?: boolean | undefined;
@@ -99068,7 +99068,7 @@ export interface ActionInput_zoho_books_listpayments {
    */
   cursor?: string | undefined;
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
   /**
@@ -99147,7 +99147,7 @@ export interface ActionInput_zoho_books_listpurchaseorders {
    */
   cursor?: string | undefined;
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
 };
@@ -99181,7 +99181,7 @@ export interface ActionInput_zoho_books_listtaxes {
    */
   per_page?: number | undefined;
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
 };
@@ -99207,7 +99207,7 @@ export interface ActionOutput_zoho_books_listtaxes {
 
 export interface ActionInput_zoho_books_listvendorpayments {
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
   /**
@@ -99303,7 +99303,7 @@ export interface ActionInput_zoho_books_markinvoicesent {
    */
   invoice_id: string;
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
 };
@@ -99319,7 +99319,7 @@ export interface ActionInput_zoho_books_sendinvoiceemail {
    */
   invoice_id: string;
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
   /**
@@ -99359,7 +99359,7 @@ export interface ActionInput_zoho_books_updatebankaccount {
    */
   account_id: string;
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
   /**
@@ -99436,7 +99436,7 @@ export interface ActionOutput_zoho_books_updatebankaccount {
 export interface ActionInput_zoho_books_updatebill {
   bill_id: string;
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
   vendor_id?: string | undefined;
@@ -99523,7 +99523,7 @@ export interface ActionInput_zoho_books_updatechartofaccount {
    */
   account_id: string;
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
   /**
@@ -99595,7 +99595,7 @@ export interface ActionInput_zoho_books_updatecontact {
    */
   contact_id: string;
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
   contact_name?: string | undefined;
@@ -99641,7 +99641,7 @@ export interface ActionInput_zoho_books_updatecreditnote {
    */
   creditnote_id: string;
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
   /**
@@ -99796,7 +99796,7 @@ export interface ActionInput_zoho_books_updateestimate {
    */
   estimate_id: string;
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
   /**
@@ -99858,7 +99858,7 @@ export interface ActionInput_zoho_books_updateexpense {
    */
   expense_id: string;
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
   /**
@@ -99980,7 +99980,7 @@ export interface ActionInput_zoho_books_updateinvoice {
    */
   invoice_id: string;
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
   /**
@@ -100078,7 +100078,7 @@ export interface ActionInput_zoho_books_updateitem {
    */
   item_id: string;
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
   /**
@@ -100249,7 +100249,7 @@ export interface ActionInput_zoho_books_updatejournal {
    */
   journal_id: string;
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
   /**
@@ -100381,7 +100381,7 @@ export interface ActionInput_zoho_books_updatepayment {
    */
   payment_id: string;
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
   /**
@@ -100487,7 +100487,7 @@ export interface ActionInput_zoho_books_updatepurchaseorder {
    */
   purchaseorder_id: string;
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
   /**
@@ -100655,7 +100655,7 @@ export interface ActionInput_zoho_books_updatevendorpayment {
    */
   payment_id: string;
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
   /**
@@ -100789,7 +100789,7 @@ export interface ActionInput_zoho_books_voidinvoice {
    */
   invoice_id: string;
   /**
-   * Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
    */
   organization_id?: string | undefined;
 };

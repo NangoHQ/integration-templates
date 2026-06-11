@@ -21,7 +21,12 @@ const AddressSchema = z.object({
 
 const InputSchema = z.object({
     contact_name: z.string().min(1).max(200).describe('Display name of the contact. Max-length [200].'),
-    organization_id: z.string().optional().describe('Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.'),
+    organization_id: z
+        .string()
+        .optional()
+        .describe(
+            'Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.'
+        ),
     company_name: z.string().optional().describe('Company name of the contact. Max-length [200].'),
     contact_type: z.enum(['customer', 'vendor']).optional().describe('Type of contact: customer or vendor.'),
     email: z.string().optional().describe('Email address of the contact.'),
@@ -78,7 +83,13 @@ const action = createAction({
                 retries: 3
             });
             const orgData = OrganizationsResponseSchema.parse(orgResponse.data);
-            if (orgData.code !== 0 || !orgData.organizations || orgData.organizations.length === 0) {
+            if (orgData.code !== 0) {
+                throw new nango.ActionError({
+                    type: 'provider_error',
+                    message: 'Failed to retrieve organizations from Zoho Books.'
+                });
+            }
+            if (!orgData.organizations || orgData.organizations.length === 0) {
                 throw new nango.ActionError({
                     type: 'not_found',
                     message: 'No organizations found for this Zoho Books account.'

@@ -13,7 +13,12 @@ const InvoicePaymentSchema = z.object({
 });
 
 const InputSchema = z.object({
-    organization_id: z.string().optional().describe('Zoho Books organization ID. If omitted, the first organization ID is fetched from the API.'),
+    organization_id: z
+        .string()
+        .optional()
+        .describe(
+            'Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.'
+        ),
     customer_id: z.string().describe('Customer ID for the payment. Example: "260815000000097001"'),
     payment_mode: z.string().describe('Payment mode: cash, check, creditcard, banktransfer, bankremittance, autotransaction, or others.'),
     amount: z.number().describe('Total payment amount.'),
@@ -111,7 +116,13 @@ const action = createAction({
                 retries: 3
             });
             const orgData = OrganizationsResponseSchema.parse(orgResponse.data);
-            if (orgData.code !== 0 || !orgData.organizations || orgData.organizations.length === 0) {
+            if (orgData.code !== 0) {
+                throw new nango.ActionError({
+                    type: 'provider_error',
+                    message: 'Failed to retrieve organizations from Zoho Books.'
+                });
+            }
+            if (!orgData.organizations || orgData.organizations.length === 0) {
                 throw new nango.ActionError({
                     type: 'not_found',
                     message: 'No organizations found for this Zoho Books account.'
