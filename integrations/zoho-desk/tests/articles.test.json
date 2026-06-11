@@ -1,0 +1,177 @@
+{
+  "nango": {
+    "batchSave": {
+      "Article": [
+        {
+          "id": "1329983000000412118",
+          "title": "Answering your first ticket.",
+          "summary": "Zoho Desk packs a bunch of features that are expressly there to help you respond to tickets smartly. The first of these, you've already discovered: Auto-Suggest Articles. Zoho Desk pulls up relevant articles on the ticket's content—so you can save ...",
+          "status": "Published",
+          "createdTime": "2026-06-11T15:26:12.000Z",
+          "modifiedTime": "2026-06-11T15:26:12.000Z",
+          "categoryId": "1329983000000412095",
+          "authorId": "1329983000000139001",
+          "webUrl": "https://desk.zoho.com/support/nangodesk/ShowHomePage.do#Solutions/dv/1329983000000412118/en",
+          "permalink": "answering-your-first-ticket",
+          "viewCount": 0,
+          "likeCount": 0,
+          "dislikeCount": 0,
+          "feedbackCount": 0,
+          "commentCount": 0,
+          "attachmentCount": 0,
+          "departmentId": "1329983000000006907",
+          "locale": "en"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Article": []
+    }
+  },
+  "api": {
+    "get": {
+      "/v1/articles": {
+        "response": {
+          "data": [
+            {
+              "likeCount": "0",
+              "commentCount": "0",
+              "templateUsedUsersCount": "0",
+              "templateLastUpdatedTime": null,
+              "modifierId": "1329983000000139001",
+              "viewCount": "0",
+              "feedbackCount": "0",
+              "translationState": "UP-TO-DATE",
+              "translationSource": null,
+              "latestPublishedVersion": "1.0",
+              "owner": {
+                "photoURL": "https://desk.zoho.com/api/v1/agents/1329983000000139001/photo?orgId=927523540",
+                "name": "Nango Developer",
+                "id": "1329983000000139001",
+                "status": "ACTIVE",
+                "zuid": "924194079"
+              },
+              "templateUsageCount": "0",
+              "dislikeCount": "0",
+              "usageCount": "0",
+              "latestVersionModifierId": "1329983000000139001",
+              "availableLocaleTranslations": [
+                {
+                  "translationId": "1329983000000412120",
+                  "authorId": "1329983000000139001",
+                  "status": "Published",
+                  "latestVersionStatus": "Published",
+                  "latestPublishedVersion": "1.0",
+                  "latestVersion": "1.0",
+                  "href": "https://desk.zoho.com/api/v1/articles/1329983000000412118/translations/en?orgId=927523540",
+                  "translationState": "UP-TO-DATE",
+                  "locale": "en",
+                  "isTrashed": false,
+                  "isLocked": false
+                }
+              ],
+              "portalUrl": "https://nangodesk.zohodesk.com/portal/en/kb/articles/answering-your-first-ticket",
+              "permission": "AGENTS",
+              "locale": "en",
+              "category": {
+                "name": "General",
+                "id": "1329983000000412095",
+                "locale": "en"
+              },
+              "latestVersion": "1.0",
+              "author": {
+                "photoURL": "https://desk.zoho.com/api/v1/agents/1329983000000139001/photo?orgId=927523540",
+                "name": "Nango Developer",
+                "id": "1329983000000139001",
+                "status": "ACTIVE",
+                "zuid": "924194079"
+              },
+              "isTemplate": false,
+              "modifiedTime": "2026-06-11T15:26:12.000Z",
+              "categoryId": "1329983000000412095",
+              "createdBy": {
+                "photoURL": "https://desk.zoho.com/api/v1/agents/1329983000000139001/photo?orgId=927523540",
+                "name": "Nango Developer",
+                "id": "1329983000000139001",
+                "status": "ACTIVE",
+                "zuid": "924194079"
+              },
+              "modifiedBy": {
+                "photoURL": "https://desk.zoho.com/api/v1/agents/1329983000000139001/photo?orgId=927523540",
+                "name": "Nango Developer",
+                "id": "1329983000000139001",
+                "status": "ACTIVE",
+                "zuid": "924194079"
+              },
+              "createdTime": "2026-06-11T15:26:12.000Z",
+              "departmentId": "1329983000000006907",
+              "webUrl": "https://desk.zoho.com/support/nangodesk/ShowHomePage.do#Solutions/dv/1329983000000412118/en",
+              "ownerId": "1329983000000139001",
+              "attachmentCount": "0",
+              "authorId": "1329983000000139001",
+              "creatorId": "1329983000000139001",
+              "title": "Answering your first ticket.",
+              "expiryDate": null,
+              "permalink": "answering-your-first-ticket",
+              "sourceLocale": "en",
+              "summary": "Zoho Desk packs a bunch of features that are expressly there to help you respond to tickets smartly. The first of these, you've already discovered: Auto-Suggest Articles. Zoho Desk pulls up relevant articles on the ticket's content—so you can save ...",
+              "isTrashed": false,
+              "rootCategoryId": "1329983000000412083",
+              "translationId": "1329983000000412120",
+              "latestVersionStatus": "Published",
+              "latestVersionModifiedBy": {
+                "photoURL": "https://desk.zoho.com/api/v1/agents/1329983000000139001/photo?orgId=927523540",
+                "name": "Nango Developer",
+                "id": "1329983000000139001",
+                "status": "ACTIVE",
+                "zuid": "924194079"
+              },
+              "articleNumber": null,
+              "position": "1",
+              "id": "1329983000000412118",
+              "status": "Published",
+              "isLocked": false
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 11 Jun 2026 21:48:17 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=64072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4980",
+          "x-ratelimit-reset": "1781214533",
+          "server": "ZGS",
+          "set-cookie": "zalb_34f6831605=69708b8f53530eeb2e8b155d46a1eb8c; Path=/; Secure; HttpOnly, crmcsr=f189c0cb-e658-45e5-b338-47335720ee40;path=/;SameSite=None;Secure;priority=high, zd_group_name=77c8e4991be9b06ebab221b4669c390eea9390488c3213cfa55efa4c65ae30d9;Path=/;Domain=desk.zoho.com;Secure=true;HttpOnly=true;SameSite=Strict",
+          "content-disposition": "attachment;",
+          "cache-control": "private,no-cache,no-store,max-age=0,must-revalidate",
+          "pragma": "no-cache",
+          "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
+          "content-security-policy": "default-src 'none' ;script-src 'none' ;report-uri https://logsapi.zoho.com/csplog?service=support;report-to https://logsapi.zoho.com/csplog?service=support",
+          "x-rate-limit-remaining-v3": "4520",
+          "x-rate-limit-request-weight-v3": "3",
+          "vary": "accept-encoding"
+        },
+        "hash": "433aa5ce4eb099b710427e4d397712f1c1301206",
+        "request": {
+          "params": {
+            "from": "1",
+            "limit": "50",
+            "sortBy": "modifiedTime"
+          }
+        }
+      }
+    }
+  }
+}

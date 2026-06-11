@@ -1,0 +1,147 @@
+{
+  "input": {
+    "ticketId": "1329983000000425044",
+    "subject": "Updated via Nango"
+  },
+  "output": {
+    "id": "1329983000000425044",
+    "ticketNumber": "105",
+    "modifiedTime": "2026-06-11T16:36:41.000Z",
+    "statusType": "Open",
+    "subject": "Updated via Nango",
+    "customFields": {},
+    "departmentId": "1329983000000006907",
+    "channel": "Phone",
+    "approvalCount": "0",
+    "timeEntryCount": "0",
+    "channelRelatedInfo": null,
+    "isDeleted": false,
+    "createdTime": "2026-06-11T16:31:41.000Z",
+    "modifiedBy": "1329983000000139001",
+    "isResponseOverdue": false,
+    "customerResponseTime": "2026-06-11T16:31:41.000Z",
+    "contactId": "1329983000000410184",
+    "threadCount": "0",
+    "commentCount": "0",
+    "taskCount": "0",
+    "accountId": "1329983000000410148",
+    "webUrl": "https://desk.zoho.com/support/nangodesk/ShowHomePage.do#Cases/dv/1329983000000425044",
+    "attachmentCount": "0",
+    "status": "Open"
+  },
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "orgId": "927523540"
+    }
+  },
+  "api": {
+    "patch": {
+      "/api/v1/tickets/1329983000000425044": {
+        "response": {
+          "modifiedTime": "2026-06-11T16:36:41.000Z",
+          "subCategory": null,
+          "statusType": "Open",
+          "subject": "Updated via Nango",
+          "dueDate": null,
+          "departmentId": "1329983000000006907",
+          "channel": "Phone",
+          "onholdTime": null,
+          "language": null,
+          "source": {
+            "appName": null,
+            "extId": null,
+            "permalink": null,
+            "type": "SYSTEM",
+            "uuid": null,
+            "appPhotoURL": null
+          },
+          "resolution": null,
+          "sharedDepartments": [],
+          "closedTime": null,
+          "approvalCount": "0",
+          "isOverDue": false,
+          "isTrashed": false,
+          "createdTime": "2026-06-11T16:31:41.000Z",
+          "id": "1329983000000425044",
+          "isResponseOverdue": false,
+          "customerResponseTime": "2026-06-11T16:31:41.000Z",
+          "productId": null,
+          "contactId": "1329983000000410184",
+          "threadCount": "0",
+          "secondaryContacts": [],
+          "priority": null,
+          "classification": null,
+          "commentCount": "0",
+          "taskCount": "0",
+          "accountId": "1329983000000410148",
+          "phone": null,
+          "webUrl": "https://desk.zoho.com/support/nangodesk/ShowHomePage.do#Cases/dv/1329983000000425044",
+          "isSpam": false,
+          "status": "Open",
+          "entitySkills": [],
+          "ticketNumber": "105",
+          "customFields": {},
+          "isArchived": false,
+          "description": null,
+          "timeEntryCount": "0",
+          "channelRelatedInfo": null,
+          "responseDueDate": null,
+          "isDeleted": false,
+          "modifiedBy": "1329983000000139001",
+          "email": null,
+          "layoutDetails": {
+            "id": "1329983000000074011",
+            "layoutName": "NangoDesk"
+          },
+          "channelCode": null,
+          "cf": {},
+          "slaId": null,
+          "layoutId": "1329983000000074011",
+          "assigneeId": null,
+          "teamId": null,
+          "attachmentCount": "0",
+          "isEscalated": false,
+          "category": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 11 Jun 2026 16:36:42 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=64072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4995",
+          "x-ratelimit-reset": "1781195858",
+          "server": "ZGS",
+          "set-cookie": "zalb_9a26c99460=2a99bc91c4c716db9adddffff3203905; Path=/; Secure; HttpOnly, crmcsr=a6a8604b-9657-4d71-8d05-66c9decbec13;path=/;SameSite=None;Secure;priority=high, zd_group_name=77c8e4991be9b06ebab221b4669c390eea9390488c3213cfa55efa4c65ae30d9;Path=/;Domain=desk.zoho.com;Secure=true;HttpOnly=true;SameSite=Strict",
+          "content-disposition": "attachment;",
+          "cache-control": "private,no-cache,no-store,max-age=0,must-revalidate",
+          "pragma": "no-cache",
+          "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
+          "content-security-policy": "default-src 'none' ;script-src 'none' ;report-uri https://logsapi.zoho.com/csplog?service=support;report-to https://logsapi.zoho.com/csplog?service=support",
+          "x-rate-limit-remaining-v3": "4749",
+          "x-rate-limit-request-weight-v3": "1",
+          "isassignmentruleapplied": "false",
+          "isslaapplied": "false",
+          "iswfruleapplied": "false"
+        },
+        "hash": "bb4870d4f38d2c979a64fde2eacd74e750993e46",
+        "request": {
+          "data": {
+            "subject": "Updated via Nango"
+          }
+        }
+      }
+    }
+  }
+}
