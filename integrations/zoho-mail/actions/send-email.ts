@@ -1,57 +1,81 @@
+import { z } from 'zod';
 import { createAction } from 'nango';
-import { ZohoMailSendEmailOutput, ZohoMailSendEmailInput } from '../models.js';
+
+const InputSchema = z.object({
+    accountId: z.string().describe('Account ID from which to send the email. Example: "4845214000000008002"'),
+    fromAddress: z.string().describe('Sender email address. Example: "nangoapi@zohomail.com"'),
+    toAddress: z.string().describe('Recipient email address(es). Example: "recipient@example.com"'),
+    ccAddress: z.string().optional().describe('CC email address(es). Example: "cc@example.com"'),
+    bccAddress: z.string().optional().describe('BCC email address(es). Example: "bcc@example.com"'),
+    subject: z.string().describe('Email subject. Example: "Hello"'),
+    content: z.string().describe('Email body content. Example: "Hello, world!"'),
+    mailFormat: z.string().optional().describe('Email format: "html" or "plaintext". Example: "html"')
+});
+
+const ZohoStatusSchema = z.object({
+    code: z.number(),
+    description: z.string()
+});
+
+const ZohoSendEmailResponseSchema = z.object({
+    status: ZohoStatusSchema.optional(),
+    data: z.unknown().optional()
+});
+
+const OutputSchema = z.object({
+    statusCode: z.number().describe('HTTP status code from the API'),
+    statusDescription: z.string().describe('Status description from the API'),
+    data: z.unknown().optional().describe('Additional response data from the API')
+});
 
 const action = createAction({
-    description: 'An action to send an email in zoho mail',
-    version: '1.0.0',
-
+    description: 'Send an email through Zoho Mail',
+    version: '2.0.0',
     endpoint: {
         method: 'POST',
-        path: '/zoho-mail/send-email'
+        path: '/actions/send-email',
+        group: 'Messages'
     },
-
-    input: ZohoMailSendEmailInput,
-    output: ZohoMailSendEmailOutput,
+    input: InputSchema,
+    output: OutputSchema,
     scopes: ['ZohoMail.messages.CREATE'],
 
-    exec: async (nango, input): Promise<ZohoMailSendEmailOutput> => {
-        //we need to enforce accountId to be of type string since accountId contains bigint values 6984040000000000000
-        if (!input.accountId || typeof input.accountId !== 'string') {
-            throw new nango.ActionError({
-                message: 'accountId is a required parameter and needs to be of a non-empty string'
-            });
-        } else if (!input.fromAddress || typeof input.accountId !== 'string') {
-            throw new nango.ActionError({
-                message: 'fromAddress is a required body field and must be of a non-empty string'
-            });
-        } else if (!input.toAddress || typeof input.accountId !== 'string') {
-            throw new nango.ActionError({
-                message: 'toAddress is a required body field and must be of a non-empty string'
-            });
-        }
-
-        const endpoint = `/api/accounts/${input.accountId}/messages`;
-
-        const postData = {
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const body: Record<string, string | undefined> = {
             fromAddress: input.fromAddress,
             toAddress: input.toAddress,
-            ccAddress: input.ccAddress,
-            bccAddress: input.bccAddress,
             subject: input.subject,
-            encoding: input.encoding,
-            mailFormat: input.mailFormat,
-            askReceipt: input.askReceipt
+            content: input.content
         };
 
-        const resp = await nango.post({
-            endpoint: endpoint,
-            data: postData,
-            retries: 3
+        if (input.ccAddress !== undefined) {
+            body['ccAddress'] = input.ccAddress;
+        }
+
+        if (input.bccAddress !== undefined) {
+            body['bccAddress'] = input.bccAddress;
+        }
+
+        if (input.mailFormat !== undefined) {
+            body['mailFormat'] = input.mailFormat;
+        }
+
+        // https://www.zoho.com/mail/help/api/post-send-an-email.html
+        const response = await nango.post({
+            endpoint: `/api/accounts/${encodeURIComponent(input.accountId)}/messages`,
+            data: body,
+            retries: 1
         });
 
+        const parsed = ZohoSendEmailResponseSchema.parse(response.data);
+
+        const statusCode = parsed.status?.code ?? response.status;
+        const statusDescription = parsed.status?.description ?? 'unknown';
+
         return {
-            status: resp.data.status,
-            data: resp.data.data
+            statusCode,
+            statusDescription,
+            ...(parsed.data !== undefined && { data: parsed.data })
         };
     }
 });

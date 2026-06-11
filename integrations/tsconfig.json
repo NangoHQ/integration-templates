@@ -9,8 +9,7 @@
     "node_modules",
     "dist",
     "build",
-    ".nango",
-    "bamboohr"
+    ".nango"
   ],
   "compilerOptions": {
     "module": "node16",
