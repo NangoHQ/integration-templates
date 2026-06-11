@@ -1,6 +1,5 @@
 import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
-import type { AxiosResponse } from 'axios';
 
 const ConferenceSchema = z.object({
     id: z.string(),
@@ -116,7 +115,7 @@ const sync = createSync({
                 response_path: 'conferences',
                 limit_name_in_request: 'PageSize',
                 limit: 50,
-                on_page: async ({ response }: { response: AxiosResponse }) => {
+                on_page: async ({ response }) => {
                     const parsed = ProviderResponseSchema.safeParse(response.data);
                     if (!parsed.success) {
                         throw new Error('Failed to parse Twilio conferences response');
