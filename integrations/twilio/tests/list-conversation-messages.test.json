@@ -1,0 +1,251 @@
+{
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1/Conversations/CH000000000000000000000000000001/Messages": {
+        "response": {
+          "messages": [
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "attributes": "{}",
+              "author": "system",
+              "body": "",
+              "content_sid": null,
+              "conversation_sid": "CH000000000000000000000000000001",
+              "date_created": "2026-06-10T08:31:20Z",
+              "date_updated": "2026-06-10T08:31:20Z",
+              "delivery": null,
+              "index": 0,
+              "links": {
+                "channel_metadata": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000001/Messages/IM000000000000000000000000000004/ChannelMetadata",
+                "delivery_receipts": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000001/Messages/IM000000000000000000000000000004/Receipts"
+              },
+              "media": null,
+              "participant_sid": null,
+              "sid": "IM000000000000000000000000000004",
+              "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000001/Messages/IM000000000000000000000000000004"
+            },
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "attributes": "{}",
+              "author": "system",
+              "body": "",
+              "content_sid": null,
+              "conversation_sid": "CH000000000000000000000000000001",
+              "date_created": "2026-06-10T08:31:32Z",
+              "date_updated": "2026-06-10T08:31:32Z",
+              "delivery": null,
+              "index": 1,
+              "links": {
+                "channel_metadata": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000001/Messages/IM000000000000000000000000000005/ChannelMetadata",
+                "delivery_receipts": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000001/Messages/IM000000000000000000000000000005/Receipts"
+              },
+              "media": null,
+              "participant_sid": null,
+              "sid": "IM000000000000000000000000000005",
+              "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000001/Messages/IM000000000000000000000000000005"
+            },
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "attributes": "{}",
+              "author": "system",
+              "body": "Hello from Nango test",
+              "content_sid": null,
+              "conversation_sid": "CH000000000000000000000000000001",
+              "date_created": "2026-06-10T08:59:31Z",
+              "date_updated": "2026-06-10T08:59:31Z",
+              "delivery": null,
+              "index": 2,
+              "links": {
+                "channel_metadata": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000001/Messages/IM000000000000000000000000000006/ChannelMetadata",
+                "delivery_receipts": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000001/Messages/IM000000000000000000000000000006/Receipts"
+              },
+              "media": null,
+              "participant_sid": null,
+              "sid": "IM000000000000000000000000000006",
+              "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000001/Messages/IM000000000000000000000000000006"
+            },
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "attributes": "{}",
+              "author": "system",
+              "body": "Hello from Nango test",
+              "content_sid": null,
+              "conversation_sid": "CH000000000000000000000000000001",
+              "date_created": "2026-06-10T08:59:55Z",
+              "date_updated": "2026-06-10T08:59:55Z",
+              "delivery": null,
+              "index": 3,
+              "links": {
+                "channel_metadata": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000001/Messages/IM000000000000000000000000000007/ChannelMetadata",
+                "delivery_receipts": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000001/Messages/IM000000000000000000000000000007/Receipts"
+              },
+              "media": null,
+              "participant_sid": null,
+              "sid": "IM000000000000000000000000000007",
+              "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000001/Messages/IM000000000000000000000000000007"
+            },
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "attributes": "{}",
+              "author": "system",
+              "body": "Hello from Nango test",
+              "content_sid": null,
+              "conversation_sid": "CH000000000000000000000000000001",
+              "date_created": "2026-06-10T09:00:02Z",
+              "date_updated": "2026-06-10T09:00:02Z",
+              "delivery": null,
+              "index": 4,
+              "links": {
+                "channel_metadata": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000001/Messages/IM000000000000000000000000000001/ChannelMetadata",
+                "delivery_receipts": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000001/Messages/IM000000000000000000000000000001/Receipts"
+              },
+              "media": null,
+              "participant_sid": null,
+              "sid": "IM000000000000000000000000000001",
+              "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000001/Messages/IM000000000000000000000000000001"
+            }
+          ],
+          "meta": {
+            "first_page_url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000001/Messages?PageSize=50&Page=0",
+            "key": "messages",
+            "next_page_url": null,
+            "page": 0,
+            "page_size": 50,
+            "previous_page_url": null,
+            "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000001/Messages?PageSize=50&Page=0"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 10 Jun 2026 09:00:36 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "4746",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4722",
+          "x-ratelimit-reset": "1781082037",
+          "etag": "W/\"128a-A6pW7XoaKn4exRNYXlumrrxe578\""
+        },
+        "hash": "97982d0ef09483033489e4664d7004968d882c44",
+        "request": {}
+      }
+    }
+  },
+  "input": {
+    "conversation_sid": "CH000000000000000000000000000001"
+  },
+  "output": {
+    "messages": [
+      {
+        "sid": "IM000000000000000000000000000004",
+        "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+        "conversation_sid": "CH000000000000000000000000000001",
+        "body": "",
+        "author": "system",
+        "attributes": "{}",
+        "date_created": "2026-06-10T08:31:20Z",
+        "date_updated": "2026-06-10T08:31:20Z",
+        "index": 0,
+        "participant_sid": null,
+        "media": null,
+        "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000001/Messages/IM000000000000000000000000000004",
+        "content_sid": null,
+        "delivery": null,
+        "links": {
+          "channel_metadata": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000001/Messages/IM000000000000000000000000000004/ChannelMetadata",
+          "delivery_receipts": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000001/Messages/IM000000000000000000000000000004/Receipts"
+        }
+      },
+      {
+        "sid": "IM000000000000000000000000000005",
+        "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+        "conversation_sid": "CH000000000000000000000000000001",
+        "body": "",
+        "author": "system",
+        "attributes": "{}",
+        "date_created": "2026-06-10T08:31:32Z",
+        "date_updated": "2026-06-10T08:31:32Z",
+        "index": 1,
+        "participant_sid": null,
+        "media": null,
+        "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000001/Messages/IM000000000000000000000000000005",
+        "content_sid": null,
+        "delivery": null,
+        "links": {
+          "channel_metadata": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000001/Messages/IM000000000000000000000000000005/ChannelMetadata",
+          "delivery_receipts": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000001/Messages/IM000000000000000000000000000005/Receipts"
+        }
+      },
+      {
+        "sid": "IM000000000000000000000000000006",
+        "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+        "conversation_sid": "CH000000000000000000000000000001",
+        "body": "Hello from Nango test",
+        "author": "system",
+        "attributes": "{}",
+        "date_created": "2026-06-10T08:59:31Z",
+        "date_updated": "2026-06-10T08:59:31Z",
+        "index": 2,
+        "participant_sid": null,
+        "media": null,
+        "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000001/Messages/IM000000000000000000000000000006",
+        "content_sid": null,
+        "delivery": null,
+        "links": {
+          "channel_metadata": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000001/Messages/IM000000000000000000000000000006/ChannelMetadata",
+          "delivery_receipts": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000001/Messages/IM000000000000000000000000000006/Receipts"
+        }
+      },
+      {
+        "sid": "IM000000000000000000000000000007",
+        "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+        "conversation_sid": "CH000000000000000000000000000001",
+        "body": "Hello from Nango test",
+        "author": "system",
+        "attributes": "{}",
+        "date_created": "2026-06-10T08:59:55Z",
+        "date_updated": "2026-06-10T08:59:55Z",
+        "index": 3,
+        "participant_sid": null,
+        "media": null,
+        "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000001/Messages/IM000000000000000000000000000007",
+        "content_sid": null,
+        "delivery": null,
+        "links": {
+          "channel_metadata": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000001/Messages/IM000000000000000000000000000007/ChannelMetadata",
+          "delivery_receipts": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000001/Messages/IM000000000000000000000000000007/Receipts"
+        }
+      },
+      {
+        "sid": "IM000000000000000000000000000001",
+        "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+        "conversation_sid": "CH000000000000000000000000000001",
+        "body": "Hello from Nango test",
+        "author": "system",
+        "attributes": "{}",
+        "date_created": "2026-06-10T09:00:02Z",
+        "date_updated": "2026-06-10T09:00:02Z",
+        "index": 4,
+        "participant_sid": null,
+        "media": null,
+        "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000001/Messages/IM000000000000000000000000000001",
+        "content_sid": null,
+        "delivery": null,
+        "links": {
+          "channel_metadata": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000001/Messages/IM000000000000000000000000000001/ChannelMetadata",
+          "delivery_receipts": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000001/Messages/IM000000000000000000000000000001/Receipts"
+        }
+      }
+    ]
+  }
+}

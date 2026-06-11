@@ -1,0 +1,92 @@
+{
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00"
+    }
+  },
+  "api": {
+    "post": {
+      "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Messages/SM000000000000000000000000000003.json": {
+        "response": {
+          "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+          "api_version": "2010-04-01",
+          "body": "",
+          "date_created": "Wed, 10 Jun 2026 10:28:02 +0000",
+          "date_sent": "Wed, 10 Jun 2026 10:28:02 +0000",
+          "date_updated": "Wed, 10 Jun 2026 10:28:02 +0000",
+          "direction": "outbound-api",
+          "error_code": 21659,
+          "error_message": null,
+          "from": "+15550000001",
+          "messaging_service_sid": null,
+          "num_media": "0",
+          "num_segments": "1",
+          "price": "-0.00100",
+          "price_unit": "USD",
+          "sid": "SM000000000000000000000000000003",
+          "status": "failed",
+          "subresource_uris": {
+            "feedback": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Messages/SM000000000000000000000000000003/Feedback.json",
+            "media": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Messages/SM000000000000000000000000000003/Media.json"
+          },
+          "to": "+15550000001",
+          "uri": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Messages/SM000000000000000000000000000003.json"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 10 Jun 2026 10:28:42 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "929",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4991",
+          "x-ratelimit-reset": "1781087380",
+          "etag": "W/\"3a1-eD/Q+gzjOzht7z7uUjQPbCGhJgQ\""
+        },
+        "hash": "34a2d0e850013f2be2a9b116249e940e25aefd3b",
+        "request": {
+          "data": "Body="
+        }
+      }
+    }
+  },
+  "input": {
+    "messageSid": "SM000000000000000000000000000003",
+    "body": ""
+  },
+  "output": {
+    "accountSid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+    "apiVersion": "2010-04-01",
+    "body": "",
+    "dateCreated": "Wed, 10 Jun 2026 10:28:02 +0000",
+    "dateSent": "Wed, 10 Jun 2026 10:28:02 +0000",
+    "dateUpdated": "Wed, 10 Jun 2026 10:28:02 +0000",
+    "direction": "outbound-api",
+    "errorCode": 21659,
+    "errorMessage": null,
+    "from": "+15550000001",
+    "numMedia": "0",
+    "numSegments": "1",
+    "price": "-0.00100",
+    "priceUnit": "USD",
+    "messagingServiceSid": null,
+    "sid": "SM000000000000000000000000000003",
+    "status": "failed",
+    "subresourceUris": {
+      "feedback": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Messages/SM000000000000000000000000000003/Feedback.json",
+      "media": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Messages/SM000000000000000000000000000003/Media.json"
+    },
+    "to": "+15550000001",
+    "uri": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Messages/SM000000000000000000000000000003.json"
+  }
+}
