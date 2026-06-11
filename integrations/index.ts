@@ -2802,6 +2802,39 @@ import './stripe/actions/update-subscription.js';
 import './stripe/actions/void-credit-note.js';
 import './stripe/actions/void-invoice.js';
 
+// -- Integration: supabase
+import './supabase/syncs/auth-users.js';
+import './supabase/syncs/storage-buckets.js';
+import './supabase/syncs/storage-objects.js';
+import './supabase/syncs/table-rows.js';
+import './supabase/actions/copy-storage-object.js';
+import './supabase/actions/create-auth-user.js';
+import './supabase/actions/create-signed-upload-url.js';
+import './supabase/actions/create-signed-url.js';
+import './supabase/actions/create-storage-bucket.js';
+import './supabase/actions/create-storage-object.js';
+import './supabase/actions/delete-auth-factor.js';
+import './supabase/actions/delete-auth-user.js';
+import './supabase/actions/delete-storage-bucket.js';
+import './supabase/actions/delete-storage-object.js';
+import './supabase/actions/delete-table-rows.js';
+import './supabase/actions/generate-auth-link.js';
+import './supabase/actions/get-auth-user.js';
+import './supabase/actions/get-storage-bucket.js';
+import './supabase/actions/get-storage-object.js';
+import './supabase/actions/insert-table-row.js';
+import './supabase/actions/invoke-rpc.js';
+import './supabase/actions/list-auth-factors.js';
+import './supabase/actions/list-auth-users.js';
+import './supabase/actions/list-storage-buckets.js';
+import './supabase/actions/list-storage-objects.js';
+import './supabase/actions/query-table-rows.js';
+import './supabase/actions/update-auth-user.js';
+import './supabase/actions/update-storage-bucket.js';
+import './supabase/actions/update-storage-object.js';
+import './supabase/actions/update-table-rows.js';
+import './supabase/actions/upsert-table-row.js';
+
 // -- Integration: teamtailor
 import './teamtailor/syncs/candidates.js';
 

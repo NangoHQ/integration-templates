@@ -82712,6 +82712,820 @@ export interface ActionOutput_stripe_voidinvoice {
   created?: number | undefined;
 };
 
+export interface Bucket {
+  id: string;
+  name: string;
+  public: boolean;
+  owner: string;
+  file_size_limit?: number | undefined;
+  allowed_mime_types?: string[] | undefined;
+  created_at: string;
+  updated_at: string;
+  type?: string | undefined;
+};
+
+export interface StorageObject {
+  id: string;
+  name: string;
+  bucket_id: string;
+  updated_at?: string | undefined;
+  created_at?: string | undefined;
+  last_accessed_at?: string | undefined;
+  size?: number | undefined;
+  mimetype?: string | undefined;
+  owner?: string | undefined;
+};
+
+export interface TableRow {
+  id: string;
+  updated_at?: string | undefined;
+};
+
+export interface SyncMetadata_supabase_tablerows {
+  /**
+   * PostgREST table name to sync
+   */
+  table: string;
+  /**
+   * Columns to select
+   */
+  select?: string | undefined;
+  /**
+   * Order clause, e.g. id.asc
+   */
+  order?: string | undefined;
+  /**
+   * Additional PostgREST filters
+   */
+  filter?: {  [key: string]: string;} | undefined;
+  /**
+   * Column to checkpoint on
+   */
+  checkpoint_column?: string | undefined;
+  /**
+   * Page size
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionInput_supabase_copystorageobject {
+  /**
+   * Source bucket ID. Example: "nango-test-public"
+   */
+  bucketId: string;
+  /**
+   * Path of the source object within the bucket. Example: "docs/readme.txt"
+   */
+  sourceKey: string;
+  /**
+   * Destination bucket ID. Example: "nango-test-public"
+   */
+  destinationBucket: string;
+  /**
+   * Path for the copied object in the destination bucket. Example: "docs/readme-copy.txt"
+   */
+  destinationKey: string;
+};
+
+export interface ActionOutput_supabase_copystorageobject {
+  id: string;
+  name: string;
+  bucket_id: string;
+  owner?: string | undefined;
+  size?: number | undefined;
+  metadata?: {  cacheControl?: string | undefined;
+  contentLength?: number | undefined;
+  httpStatusCode?: number | undefined;
+  eTag?: string | undefined;
+  lastModified?: string | undefined;
+  mimetype?: string | undefined;
+  size?: number | undefined;};
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  last_accessed_at?: string | undefined;
+};
+
+export interface ActionInput_supabase_createauthuser {
+  email?: string | undefined;
+  password?: string | undefined;
+  phone?: string | undefined;
+  email_confirm?: boolean | undefined;
+  phone_confirm?: boolean | undefined;
+  user_metadata?: {  [key: string]: unknown | undefined;};
+  app_metadata?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_supabase_createauthuser {
+  id: string;
+  email?: string | undefined;
+  phone?: string | undefined;
+  email_confirmed_at?: string | undefined;
+  phone_confirmed_at?: string | undefined;
+  last_sign_in_at?: string | undefined;
+  created_at: string;
+  updated_at: string;
+  identities?: ({  id: string;
+  user_id: string;
+  identity_data?: {  [key: string]: unknown | undefined;};
+  provider?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;})[];
+  user_metadata?: {  [key: string]: unknown | undefined;};
+  app_metadata?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_supabase_createsigneduploadurl {
+  /**
+   * Storage bucket ID. Example: "nango-test-public"
+   */
+  bucket_id: string;
+  /**
+   * Object path within the bucket. Example: "uploads/file.txt"
+   */
+  path: string;
+};
+
+export interface ActionOutput_supabase_createsigneduploadurl {
+  /**
+   * Absolute signed URL the client can PUT to.
+   */
+  signed_url: string;
+  /**
+   * Token included in the signed URL.
+   */
+  token: string;
+};
+
+export interface ActionInput_supabase_createsignedurl {
+  /**
+   * Storage bucket ID. Example: "nango-test-private"
+   */
+  bucket_id: string;
+  /**
+   * Object path within the bucket. Example: "data/sample.txt"
+   */
+  path: string;
+  /**
+   * Expiry time in seconds. Defaults to 3600.
+   */
+  expires_in?: number | undefined;
+};
+
+export interface ActionOutput_supabase_createsignedurl {
+  /**
+   * Absolute URL for accessing the object.
+   */
+  signed_url: string;
+};
+
+export interface ActionInput_supabase_createstoragebucket {
+  /**
+   * Unique identifier for the bucket. Example: "my-bucket"
+   */
+  id: string;
+  /**
+   * Display name for the bucket. Defaults to id if omitted.
+   */
+  name?: string | undefined;
+  /**
+   * Whether the bucket is publicly accessible. Defaults to false.
+   */
+  public?: boolean | undefined;
+  /**
+   * Maximum file size in bytes. Example: 10485760
+   */
+  file_size_limit?: number | undefined;
+  /**
+   * Allowed MIME types. Example: ["image/png", "image/jpeg"]
+   */
+  allowed_mime_types?: string[] | undefined;
+  /**
+   * Bucket type. Defaults to STANDARD.
+   */
+  type?: 'STANDARD' | 'ANALYTICS' | undefined;
+};
+
+export interface ActionOutput_supabase_createstoragebucket {
+  id: string;
+  name: string;
+  public: boolean;
+  owner?: string | undefined;
+  owner_id?: string | undefined;
+  file_size_limit?: number | undefined;
+  allowed_mime_types?: string[] | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  type?: 'STANDARD' | 'ANALYTICS' | undefined;
+};
+
+export interface ActionInput_supabase_createstorageobject {
+  /**
+   * The bucket ID. Example: "nango-test-public"
+   */
+  bucket_id: string;
+  /**
+   * The object path within the bucket. Example: "docs/readme.txt"
+   */
+  path: string;
+  /**
+   * The file content as a string. For binary files, base64-encode and decode before sending.
+   */
+  content: string;
+  /**
+   * The MIME type of the file. Example: "text/plain"
+   */
+  content_type: string;
+  /**
+   * If true, overwrite an existing object with the same path.
+   */
+  upsert?: boolean | undefined;
+};
+
+export interface ActionOutput_supabase_createstorageobject {
+  key: string;
+  id: string;
+};
+
+export interface ActionInput_supabase_deleteauthfactor {
+  /**
+   * User UUID. Example: "a02e344e-4eba-473d-b299-b751cbd1fa2c"
+   */
+  user_id: string;
+  /**
+   * MFA factor UUID to delete. Example: "b1c2d3e4-f5a6-7890-1234-567890abcdef"
+   */
+  factor_id: string;
+};
+
+export interface ActionOutput_supabase_deleteauthfactor {
+  success: boolean;
+  user_id: string;
+  factor_id: string;
+  factor_type?: string | undefined;
+  status?: string | undefined;
+  friendly_name?: string | undefined;
+};
+
+export interface ActionInput_supabase_deleteauthuser {
+  /**
+   * The UUID of the auth user to delete. Example: "afece930-4935-43c3-9484-46bc38da98f7"
+   */
+  user_id: string;
+};
+
+export interface ActionOutput_supabase_deleteauthuser {
+  success: boolean;
+  user_id: string;
+};
+
+export interface ActionInput_supabase_deletestoragebucket {
+  /**
+   * Storage bucket ID to delete. Example: "nango-del-bucket-1"
+   */
+  bucket_id: string;
+};
+
+export interface ActionOutput_supabase_deletestoragebucket {
+  success: boolean;
+  bucket_id: string;
+};
+
+export interface ActionInput_supabase_deletestorageobject {
+  /**
+   * Storage bucket ID. Example: "nango-test-public"
+   */
+  bucketId: string;
+  /**
+   * Object paths to delete. Example: ["delete-me-1.txt"]
+   */
+  prefixes: string[];
+};
+
+export interface ActionOutput_supabase_deletestorageobject {
+  deleted: ({  name: string;
+  id?: string | undefined;
+  bucket_id?: string | undefined;
+  owner?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  last_accessed_at?: string | undefined;
+  metadata?: {  [key: string]: unknown | undefined;};
+  path_tokens?: string[] | undefined;
+  version?: string | undefined;})[];
+};
+
+export interface ActionInput_supabase_deletetablerows {
+  /**
+   * Name of the table to delete rows from. Example: "nango_test"
+   */
+  table: string;
+  /**
+   * PostgREST filters as query parameters. Example: {"name": "eq.del-row-1"}
+   */
+  filters: {  [key: string]: string;};
+  /**
+   * If true, adds Prefer: return=representation to return deleted rows
+   */
+  returnRepresentation?: boolean | undefined;
+};
+
+export interface ActionOutput_supabase_deletetablerows {
+  deletedCount?: number | undefined;
+  deletedRows?: ({  [key: string]: unknown | undefined;})[];
+};
+
+export interface ActionInput_supabase_generateauthlink {
+  /**
+   * Type of link to generate.
+   */
+  type: 'magiclink' | 'recovery' | 'invite' | 'signup' | 'email_change_current' | 'email_change_new';
+  /**
+   * Email address of the user.
+   */
+  email: string;
+  /**
+   * New email address for email_change_current and email_change_new link types.
+   */
+  new_email?: string | undefined;
+  /**
+   * Optional redirect URL after verification.
+   */
+  redirect_to?: string | undefined;
+  /**
+   * Optional extra metadata to attach to the user.
+   */
+  data?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_supabase_generateauthlink {
+  id?: string | undefined;
+  email?: string | undefined;
+  action_link?: string | undefined;
+  email_otp?: string | undefined;
+  hashed_token?: string | undefined;
+  verification_type?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+};
+
+export interface ActionInput_supabase_getauthuser {
+  /**
+   * The UUID of the user to retrieve. Example: "a02e344e-4eba-473d-b299-b751cbd1fa2c"
+   */
+  userId: string;
+};
+
+export interface ActionOutput_supabase_getauthuser {
+  id: string;
+  aud?: string | undefined;
+  role?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  email_confirmed_at?: string | undefined;
+  phone_confirmed_at?: string | undefined;
+  confirmed_at?: string | undefined;
+  last_sign_in_at?: string | undefined;
+  app_metadata?: {  [key: string]: unknown | undefined;};
+  user_metadata?: {  [key: string]: unknown | undefined;};
+  identities?: ({  id: string;
+  user_id: string;
+  identity_data?: {  [key: string]: unknown | undefined;};
+  provider: string;
+  created_at?: string | undefined;
+  last_sign_in_at?: string | undefined;
+  updated_at?: string | undefined;})[];
+  factors?: ({  id: string;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  status?: string | undefined;
+  friendly_name?: string | undefined;
+  factor_type?: string | undefined;})[];
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  is_anonymous?: boolean | undefined;
+  banned_until?: string | undefined;
+};
+
+export interface ActionInput_supabase_getstoragebucket {
+  /**
+   * Storage bucket ID. Example: "nango-test-public"
+   */
+  bucketId: string;
+};
+
+export interface ActionOutput_supabase_getstoragebucket {
+  id: string;
+  name: string;
+  owner?: string | undefined;
+  owner_id?: string | undefined;
+  public: boolean;
+  type?: 'STANDARD' | 'ANALYTICS' | undefined;
+  file_size_limit?: number | undefined;
+  allowed_mime_types?: string[] | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+};
+
+export interface ActionInput_supabase_getstorageobject {
+  /**
+   * Storage bucket ID. Example: "nango-test-public"
+   */
+  bucketId: string;
+  /**
+   * Object path within the bucket. Example: "docs/readme.txt"
+   */
+  path: string;
+};
+
+export interface ActionOutput_supabase_getstorageobject {
+  name: string;
+  id: string;
+  size: number;
+  contentType: string;
+  created_at: string;
+  updated_at: string;
+};
+
+export interface ActionInput_supabase_inserttablerow {
+  /**
+   * The table name to insert into. Example: "nango_test"
+   */
+  table: string;
+  /**
+   * The row object to insert. Example: {"name": "new-record", "value": "delta"}
+   */
+  row: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_supabase_inserttablerow {
+  [key: string]: unknown | undefined;
+};
+
+export interface ActionInput_supabase_invokerpc {
+  /**
+   * Name of the Postgres function in the public schema. Example: "nango_hello"
+   */
+  function_name: string;
+  /**
+   * Function arguments as a JSON object. Example: {"name": "world"}
+   */
+  args?: {  [key: string]: unknown | undefined;};
+  /**
+   * Set to true for read-only functions to use GET (enables caching). Defaults to false (POST).
+   */
+  read_only?: boolean | undefined;
+};
+
+export type ActionOutput_supabase_invokerpc = unknown | undefined
+
+export interface ActionInput_supabase_listauthfactors {
+  /**
+   * The UUID of the Supabase Auth user whose MFA factors to list. Example: "a02e344e-4eba-473d-b299-b751cbd1fa2c"
+   */
+  user_id: string;
+};
+
+export interface ActionOutput_supabase_listauthfactors {
+  factors: ({  id: string;
+  user_id: string;
+  friendly_name?: string | undefined;
+  factor_type?: 'totp' | 'phone' | undefined;
+  status?: 'verified' | 'unverified' | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;})[];
+};
+
+export interface ActionInput_supabase_listauthusers {
+  /**
+   * Page number (1-indexed). Defaults to 1.
+   */
+  page?: number | undefined;
+  /**
+   * Number of items per page. Defaults to 50.
+   */
+  per_page?: number | undefined;
+};
+
+export interface ActionOutput_supabase_listauthusers {
+  users: ({  id: string;
+  aud?: string | undefined;
+  role?: string | undefined;
+  email?: string | undefined;
+  email_confirmed_at?: string | undefined;
+  phone?: string | undefined;
+  phone_confirmed_at?: string | undefined;
+  confirmed_at?: string | undefined;
+  email_change?: string | undefined;
+  email_change_sent_at?: string | undefined;
+  email_change_confirm_status?: number | undefined;
+  phone_change?: string | undefined;
+  phone_change_sent_at?: string | undefined;
+  phone_change_token?: string | undefined;
+  recovery_sent_at?: string | undefined;
+  recovery_token?: string | undefined;
+  new_email?: string | undefined;
+  new_phone?: string | undefined;
+  invited_at?: string | undefined;
+  confirmation_sent_at?: string | undefined;
+  confirmation_token?: string | undefined;
+  reauthentication_sent_at?: string | undefined;
+  reauthentication_token?: string | undefined;
+  is_super_admin?: boolean | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  last_sign_in_at?: string | undefined;
+  app_metadata?: {} | undefined;
+  user_metadata?: {} | undefined;
+  factors?: ({})[] | undefined;
+  identities?: ({})[] | null | undefined;})[];
+  total?: number | undefined;
+  next_page?: number | undefined;
+};
+
+export interface ActionInput_supabase_liststoragebuckets {
+  /**
+   * Maximum number of buckets to return. Example: 10
+   */
+  limit?: number | undefined;
+  /**
+   * Number of buckets to skip. Example: 0
+   */
+  offset?: number | undefined;
+  /**
+   * Column to sort by. Example: "created_at"
+   */
+  sort_column?: 'id' | 'name' | 'created_at' | 'updated_at' | undefined;
+  /**
+   * Sort direction. Example: "desc"
+   */
+  sort_order?: 'asc' | 'desc' | undefined;
+  /**
+   * Search term to filter bucket names. Example: "prod"
+   */
+  search?: string | undefined;
+};
+
+export interface ActionOutput_supabase_liststoragebuckets {
+  items: ({  id: string;
+  name: string;
+  public: boolean;
+  owner?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  file_size_limit?: number | undefined;
+  allowed_mime_types?: string[] | undefined;
+  type?: string | undefined;})[];
+  next_offset?: number | undefined;
+};
+
+export interface ActionInput_supabase_liststorageobjects {
+  /**
+   * Storage bucket ID. Example: "nango-test-public"
+   */
+  bucket_id: string;
+  /**
+   * Folder path prefix to filter objects. Example: "docs/"
+   */
+  prefix?: string | undefined;
+  /**
+   * Maximum number of objects to return. Default: 100
+   */
+  limit?: number | undefined;
+  /**
+   * Offset for pagination. Default: 0
+   */
+  offset?: number | undefined;
+};
+
+export interface ActionOutput_supabase_liststorageobjects {
+  items: ({  name: string;
+  id?: string | undefined;
+  bucket_id?: string | undefined;
+  owner?: string | undefined;
+  updated_at?: string | undefined;
+  created_at?: string | undefined;
+  last_accessed_at?: string | undefined;
+  metadata?: {  eTag?: string | undefined;
+  size?: number | undefined;
+  mimetype?: string | undefined;
+  cacheControl?: string | undefined;};})[];
+  /**
+   * Offset to use for the next page of results.
+   */
+  next_offset?: number | undefined;
+};
+
+export interface ActionInput_supabase_querytablerows {
+  /**
+   * Table name to query. Example: "nango_test"
+   */
+  table: string;
+  /**
+   * Columns to select. Example: "id,name,value"
+   */
+  select?: string | undefined;
+  /**
+   * PostgREST filters
+   */
+  filters?: ({  /**
+   * Column name to filter on. Example: "name"
+   */
+  column: string;
+  /**
+   * PostgREST operator. Example: "eq", "gte", "like"
+   */
+  operator: string;
+  /**
+   * Filter value. Example: "alpha"
+   */
+  value: string | number | boolean;})[] | undefined;
+  /**
+   * Order by clause. Example: "name.desc"
+   */
+  order?: string | undefined;
+  /**
+   * Maximum rows to return. Example: 100
+   */
+  limit?: number | undefined;
+  /**
+   * Number of rows to skip. Example: 0
+   */
+  offset?: number | undefined;
+  /**
+   * Return total row count
+   */
+  count?: boolean | undefined;
+};
+
+export interface ActionOutput_supabase_querytablerows {
+  /**
+   * Matching table rows
+   */
+  rows: ({  [key: string]: unknown | undefined;})[];
+  /**
+   * Total row count when count was requested
+   */
+  count?: number | undefined;
+  limit?: number | undefined;
+  offset?: number | undefined;
+};
+
+export interface ActionInput_supabase_updateauthuser {
+  /**
+   * The unique ID of the user to update. Example: "a02e344e-4eba-473d-b299-b751cbd1fa2c"
+   */
+  user_id: string;
+  /**
+   * New email address for the user.
+   */
+  email?: string | undefined;
+  /**
+   * New phone number for the user.
+   */
+  phone?: string | undefined;
+  /**
+   * New password for the user.
+   */
+  password?: string | undefined;
+  /**
+   * Confirm the user's email address.
+   */
+  email_confirm?: boolean | undefined;
+  /**
+   * Confirm the user's phone number.
+   */
+  phone_confirm?: boolean | undefined;
+  /**
+   * User-specific metadata.
+   */
+  user_metadata?: {  [key: string]: unknown | undefined;};
+  /**
+   * Application-specific metadata.
+   */
+  app_metadata?: {  [key: string]: unknown | undefined;};
+  /**
+   * Ban duration in hours. Example: "876600h".
+   */
+  ban_duration?: string | undefined;
+};
+
+export interface ActionOutput_supabase_updateauthuser {
+  id: string;
+  email?: string | undefined;
+  phone?: string | undefined;
+  role?: string | undefined;
+  user_metadata?: {  [key: string]: unknown | undefined;};
+  app_metadata?: {  [key: string]: unknown | undefined;};
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  last_sign_in_at?: string | undefined;
+  identities?: ({  id: string;
+  user_id: string;
+  identity_data?: {  [key: string]: unknown | undefined;};
+  provider: string;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  last_sign_in_at?: string | undefined;})[];
+};
+
+export interface ActionInput_supabase_updatestoragebucket {
+  /**
+   * Bucket ID. Example: "nango-test-public"
+   */
+  id: string;
+  /**
+   * Whether the bucket is publicly accessible
+   */
+  public?: boolean | undefined;
+  /**
+   * Maximum file size in bytes or as a string like "100MB"
+   */
+  fileSizeLimit?: number | string | undefined;
+  /**
+   * Allowed MIME types. Example: ["image/png", "image/jpg"]
+   */
+  allowedMimeTypes?: string[] | undefined;
+};
+
+export interface ActionOutput_supabase_updatestoragebucket {
+  message: string;
+};
+
+export interface ActionInput_supabase_updatestorageobject {
+  /**
+   * The bucket ID containing the object. Example: "nango-test-public"
+   */
+  bucket_id: string;
+  /**
+   * The current path of the object. Example: "docs/readme.txt"
+   */
+  path: string;
+  /**
+   * The new path for the object (to move/rename). Mutually exclusive with content.
+   */
+  new_path?: string | undefined;
+  /**
+   * The destination bucket ID for moving. Defaults to the source bucket if not provided.
+   */
+  new_bucket_id?: string | undefined;
+  /**
+   * New file content to overwrite the object. Use this for text files. Mutually exclusive with new_path.
+   */
+  content?: string | undefined;
+  /**
+   * MIME type for the new content. Defaults to text/plain if content is provided.
+   */
+  content_type?: string | undefined;
+};
+
+export interface ActionOutput_supabase_updatestorageobject {
+  message?: string | undefined;
+  id?: string | undefined;
+  path?: string | undefined;
+  full_path?: string | undefined;
+};
+
+export interface ActionInput_supabase_updatetablerows {
+  /**
+   * Table name to update. Example: "nango_test"
+   */
+  table: string;
+  /**
+   * Object containing column updates.
+   */
+  updates: {  [key: string]: unknown | undefined;};
+  /**
+   * PostgREST filters as query params. Example: {"id":"eq.964cc467-144e-4215-b7d0-d124607a6d72"}
+   */
+  filters: {  [key: string]: string;};
+};
+
+export interface ActionOutput_supabase_updatetablerows {
+  [key: string]: unknown | undefined;
+};
+
+export interface ActionInput_supabase_upserttablerow {
+  /**
+   * Table name. Example: "nango_test"
+   */
+  table: string;
+  /**
+   * Row object to upsert. Must include the primary key column(s) for conflict detection.
+   */
+  row: {  [key: string]: unknown | undefined;};
+  /**
+   * Comma-separated conflict target column(s) if different from the primary key. Example: "name"
+   */
+  on_conflict?: string | undefined;
+};
+
+export interface ActionOutput_supabase_upserttablerow {
+  /**
+   * The upserted row
+   */
+  row: {  [key: string]: unknown | undefined;};
+};
+
 export interface TeamtailorCandidate {
   id: string;
   type: string;
