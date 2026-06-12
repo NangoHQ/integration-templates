@@ -32040,13 +32040,14 @@ export interface ActionOutput_gitlab_updaterelease {
   released_at: string;
 };
 
-export interface GongCallTranscriptSyncOutput {
+export interface CallTranscript {
   id: string;
-  transcript: ({  speaker_id: string;
-  topic: string | null;
-  sentences: ({  start: number;
-  end: number;
-  text: string;})[];})[];
+  callId: string;
+  transcript?: ({  speakerId?: string | undefined;
+  topic?: string | undefined;
+  sentences?: ({  start?: number | undefined;
+  end?: number | undefined;
+  text?: string | undefined;})[];})[];
 };
 
 export interface SyncMetadata_gong_calltranscripts {
@@ -32056,53 +32057,33 @@ export interface SyncMetadata_gong_calltranscripts {
   workspaceId?: string | undefined;
 };
 
-export interface GongCallOutput {
+export interface Call {
   id: string;
-  url: string;
-  title: string;
-  scheduled: string;
-  started: string;
-  duration: number;
-  direction: 'Inbound' | 'Outbound' | 'Conference' | 'Unknown';
-  scope: 'Internal' | 'External' | 'Unknown';
-  media: string;
-  language: string;
-  workspace_id: string;
-  purpose: string | null;
-  meeting_url: string;
-  is_private: boolean;
-  calendar_event_id: string | null;
-  context?: {  system: string | null;
-  objects?: {  object_type: string | null;
-  object_id: string | null;
-  fields: ({  name: string;
-  value: string;})[];} | undefined;};
-  parties: ({  id: string;
-  email_address?: string | undefined;
-  name?: string | undefined;
-  title?: string | undefined;
-  user_id?: string | undefined;
-  speaker_id: string | null;
-  affiliation: 'Internal' | 'External' | 'Unknown';
-  methods: string[];})[];
-  interaction: {  speakers: ({  id: string;
-  user_id: string;
-  talkTime: number;})[];
-  interaction_stats: ({  name: string;
-  value: number;})[];
-  video: ({  name: string;
-  duration: number;})[];
-  questions: {  company_count: number;
-  non_company_count: number;};};
-  collaboration: {  public_comments: ({  id: string;
-  audio_start_time: number;
-  audio_end_time: number;
-  commenter_user_id: string;
-  comment: string;
-  posted: string;
-  during_call: boolean;})[];};
-  media_urls: {  audio_url: string;
-  video_url?: string | undefined;};
+  subject?: string | undefined;
+  callType?: string | undefined;
+  callPurpose?: string | undefined;
+  callResult?: string | undefined;
+  callDuration?: string | undefined;
+  callDurationInSeconds?: string | undefined;
+  callStartTime?: string | undefined;
+  description?: string | undefined;
+  dialledNumber?: string | undefined;
+  callerId?: string | undefined;
+  reminder?: string | undefined;
+  modifiedTime: string;
+  createdTime?: string | undefined;
+  ownerName?: string | undefined;
+  ownerId?: string | undefined;
+  ownerEmail?: string | undefined;
+  createdByName?: string | undefined;
+  createdById?: string | undefined;
+  modifiedByName?: string | undefined;
+  modifiedById?: string | undefined;
+  relatedToName?: string | undefined;
+  relatedToId?: string | undefined;
+  contactName?: string | undefined;
+  contactId?: string | undefined;
+  tags?: string[] | undefined;
 };
 
 export interface SyncMetadata_gong_calls {
@@ -32110,25 +32091,2368 @@ export interface SyncMetadata_gong_calls {
   lastSyncBackfillPeriod?: number | undefined;
 };
 
-export interface SyncMetadata_gong_users {
-};
-
 export interface ActionInput_gong_fetchcalltranscripts {
-  from?: string | undefined;
-  to?: string | undefined;
-  workspace_id?: string | undefined;
-  call_id?: string[] | undefined;
-  cursor?: string | undefined;
+  /**
+   * Array of Gong call IDs to fetch transcripts for. Example: ["123456789"]
+   */
+  callIds: string[];
 };
 
 export interface ActionOutput_gong_fetchcalltranscripts {
-  next_cursor?: string | undefined;
-  transcript: ({  call_id: string;
-  transcript: ({  speaker_id: string;
-  topic: string | null;
+  /**
+   * The call IDs that were requested
+   */
+  callIds: string[];
+  /**
+   * Transcript data for the requested calls
+   */
+  transcripts: ({  callId?: string | undefined;
+  transcript?: ({  speakerId?: string | undefined;
+  topic?: string | undefined;
+  sentences?: ({  start?: number | undefined;
+  end?: number | undefined;
+  text?: string | undefined;})[];})[];})[];
+  /**
+   * Total number of transcripts returned
+   */
+  totalCalls: number;
+};
+
+export interface CallOutcome {
+  /**
+   * The unique call outcome identifier
+   */
+  id: string;
+  /**
+   * The call outcome name
+   */
+  callOutcome?: string | undefined;
+  /**
+   * The display order of the call outcome
+   */
+  displayOrder?: number | undefined;
+  /**
+   * The connection status of the call outcome
+   */
+  connectStatus?: string | undefined;
+  /**
+   * The sentiment of the call outcome
+   */
+  sentiment?: string | undefined;
+  /**
+   * The todo action associated with the call outcome
+   */
+  todoAction?: string | undefined;
+  /**
+   * The automation associated with the call outcome
+   */
+  automation?: string | undefined;
+  /**
+   * The category of the call outcome
+   */
+  category?: string | undefined;
+};
+
+export interface SyncMetadata_gong_oauth_calltranscripts {
+  backfillPeriodMs?: number | undefined;
+  lastSyncBackfillPeriod?: number | undefined;
+  callIds?: string[] | undefined;
+  workspaceId?: string | undefined;
+};
+
+export interface SyncMetadata_gong_oauth_calls {
+  backfillPeriodMs?: number | undefined;
+  lastSyncBackfillPeriod?: number | undefined;
+};
+
+export interface LibraryFolder {
+  id: string;
+  name?: string | undefined;
+  parentFolderId?: string | undefined;
+  createdBy?: string | undefined;
+  updated?: string | undefined;
+};
+
+export interface Scorecard {
+  id: string;
+  scorecardId: string;
+  scorecardName: string;
+  workspaceId?: string | undefined;
+  enabled: boolean;
+  updaterUserId: string;
+  created: string;
+  updated: string;
+  reviewMethod?: string | undefined;
+  questions?: ({  [key: string]: unknown | undefined;})[];
+};
+
+export interface Tracker {
+  id: string;
+  trackerId: string;
+  trackerName?: string | undefined;
+  workspaceId?: string | undefined;
+  created?: string | undefined;
+  updated?: string | undefined;
+  affiliation?: string | undefined;
+  partOfQuestion?: boolean | undefined;
+  saidAt?: string | undefined;
+  filterQuery?: string | undefined;
+};
+
+export interface ActionInput_gong_oauth_addcallmedia {
+  /**
+   * The call ID returned from the Add New Call request. Example: "7782342274025937895"
+   */
+  callId: string;
+  /**
+   * Base64-encoded audio or video file content. Example: "base64-encoded-string..."
+   */
+  mediaContent: string;
+  fileName?: string | undefined;
+  mediaType?: string | undefined;
+};
+
+export interface ActionOutput_gong_oauth_addcallmedia {
+  callId?: string | undefined;
+  requestId?: string | undefined;
+  url?: string | undefined;
+};
+
+export interface ActionInput_gong_oauth_addcallusersaccess {
+  /**
+   * Gong's unique numeric call ID. Example: '7782342274025937895'
+   */
+  callId: string;
+  /**
+   * Array of Gong's unique numeric user IDs. Example: ['234599484848423']
+   */
+  userIds: string[];
+};
+
+export interface ActionOutput_gong_oauth_addcallusersaccess {
+  requestId?: string | undefined;
+};
+
+export interface ActionInput_gong_oauth_askentity {
+  /**
+   * Type of Gong entity. Example: "Account"
+   */
+  entityType: 'Account' | 'Deal' | 'Contact' | 'Lead';
+  /**
+   * ID of the entity. Example: "123"
+   */
+  entityId: string;
+  /**
+   * Natural language question about the entity. Example: "What is the deal status?"
+   */
+  question: string;
+};
+
+export interface ActionOutput_gong_oauth_askentity {
+  /**
+   * AI-generated answer to the question.
+   */
+  answer: string;
+};
+
+export interface ActionInput_gong_oauth_assignprospectscooloffoverride {
+  /**
+   * The Gong Engage Flow ID to assign the contacts to. Example: 1695493301223590792
+   */
+  flowId: string;
+  /**
+   * The CRM IDs of the contacts or leads that should be assigned to a flow. Up to 100 prospects per request. Example: ["a5V1Q00A120DP4CVAW"]
+   */
+  crmProspectsIds: string[];
+  /**
+   * The email of the Gong user who owns the flow to-dos. Example: test@test.com
+   */
+  flowInstanceOwnerEmail: string;
+};
+
+export interface ActionOutput_gong_oauth_assignprospectscooloffoverride {
+  requestId?: string | undefined;
+  prospectsAssigned?: ({  flowId?: string | undefined;
+  flowName?: string | undefined;
+  crmProspectId?: string | undefined;
+  flowInstanceId?: string | undefined;
+  flowInstanceOwnerEmail?: string | undefined;
+  flowInstanceOwnerFullName?: string | undefined;
+  flowInstanceCreateDate?: string | undefined;})[];
+  errors?: string[] | undefined;
+};
+
+export interface ActionInput_gong_oauth_createmeeting {
+  /**
+   * Title of the meeting.
+   */
+  title?: string | undefined;
+  /**
+   * The meeting start time in ISO-8601 format.
+   */
+  startTime: string;
+  /**
+   * The meeting end time in ISO-8601 format.
+   */
+  endTime: string;
+  /**
+   * The email address of the user creating the meeting.
+   */
+  organizerEmail: string;
+  /**
+   * The ID as it is formed on the external system.
+   */
+  externalId?: string | undefined;
+  /**
+   * A list of invitees to the event (not including the organizer).
+   */
+  invitees: ({  email: string;
+  displayName?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;})[];
+};
+
+export interface ActionOutput_gong_oauth_createmeeting {
+  /**
+   * A Gong request reference Id.
+   */
+  requestId: string;
+  /**
+   * Gong's unique identifier for the meeting.
+   */
+  meetingId: string;
+  /**
+   * The Gong URL of the meeting.
+   */
+  meetingUrl: string;
+  /**
+   * Attendees added to the invitation.
+   */
+  additionalInvitees?: ({  email: string;
+  displayName?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;})[];
+};
+
+export interface ActionInput_gong_oauth_createpermissionprofile {
+  /**
+   * Workspace identifier. Example: "7273476131570014205"
+   */
+  workspaceId: string;
+  /**
+   * Unique numeric identifier for the permission profile (up to 20 digits). Example: "3843152912968920037"
+   */
+  profileId: string;
+  /**
+   * Permission profile name. Example: "Standard Team Member"
+   */
+  profileName: string;
+  /**
+   * Permission profile description. Example: "Default profile for sales team"
+   */
+  description: string;
+  libraryFolderAccess: {  permissionLevel: 'none' | 'all' | 'specific-folders';
+  libraryFolderIds?: string[] | undefined;
+  managePublicFolder?: boolean | undefined;
+  manageStreams?: boolean | undefined;
+  manageFolderCalls?: boolean | undefined;
+  shareFoldersAndStreams?: boolean | undefined;};
+  callsAccess?: {  permissionLevel: 'all' | 'managers-team' | 'report-to-them' | 'own' | 'none';
+  teamLeadIds?: string[] | undefined;};
+  dealsAccess?: {  permissionLevel: 'all' | 'managers-team' | 'report-to-them' | 'own' | 'none';
+  teamLeadIds?: string[] | undefined;};
+  coachingAccess?: {  permissionLevel: 'all' | 'managers-team' | 'report-to-them' | 'own' | 'none';
+  teamLeadIds?: string[] | undefined;};
+  insightsAccess?: {  permissionLevel: 'all' | 'managers-team' | 'report-to-them' | 'own' | 'none';
+  teamLeadIds?: string[] | undefined;};
+  usageAccess?: {  permissionLevel: 'all' | 'managers-team' | 'report-to-them' | 'own' | 'none';
+  teamLeadIds?: string[] | undefined;};
+  emailsAccess?: {  permissionLevel: 'all' | 'managers-team' | 'report-to-them' | 'own' | 'none';
+  teamLeadIds?: string[] | undefined;};
+  scoreCalls?: boolean | undefined;
+  overrideScore?: boolean | undefined;
+  downloadCallMedia?: boolean | undefined;
+  shareCallsWithCustomers?: boolean | undefined;
+  manuallyScheduleAndUploadCalls?: boolean | undefined;
+  privateCalls?: boolean | undefined;
+  deleteCalls?: boolean | undefined;
+  trimCalls?: boolean | undefined;
+  listenInCalls?: boolean | undefined;
+  deleteEmails?: boolean | undefined;
+  callsAndSearch?: boolean | undefined;
+  library?: boolean | undefined;
+  deals?: boolean | undefined;
+  createEditAndDeleteDealsBoards?: boolean | undefined;
+  dealsInlineEditing?: boolean | undefined;
+  account?: boolean | undefined;
+  coaching?: boolean | undefined;
+  usage?: boolean | undefined;
+  teamStats?: boolean | undefined;
+  initiatives?: boolean | undefined;
+  market?: boolean | undefined;
+  activity?: boolean | undefined;
+  forecast?: boolean | undefined;
+  forecastManage?: boolean | undefined;
+  engageManageCompanyTemplates?: boolean | undefined;
+  engageManageCompanySequences?: boolean | undefined;
+  engageCreateAndManageRulesets?: boolean | undefined;
+  engageSnoozeFlowToDosForOthers?: boolean | undefined;
+  engageAllowCrmFieldsViewChange?: boolean | undefined;
+  viewEngageAnalyticsActivity?: boolean | undefined;
+  viewEngageAnalyticsPerformance?: boolean | undefined;
+  viewEngageAnalyticsFlows?: boolean | undefined;
+  manageGeneralBusinessSettings?: boolean | undefined;
+  manageScorecards?: boolean | undefined;
+  exportCallsAndCoachingDataToCSV?: boolean | undefined;
+  crmDataInlineEditing?: boolean | undefined;
+  crmDataImport?: boolean | undefined;
+  viewRevenueAnalytics?: boolean | undefined;
+  manageRevenueAnalytics?: boolean | undefined;
+  engageReassignFlowToDosToOthers?: boolean | undefined;
+  engageAssignFlowToDosToOthers?: boolean | undefined;
+  dealsDataExport?: boolean | undefined;
+  aiBuilder?: boolean | undefined;
+};
+
+export interface ActionOutput_gong_oauth_createpermissionprofile {
+  requestId: string;
+  profile?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_gong_oauth_deletecrmintegration {
+  /**
+   * The ID of the integration to delete. Example: "6286478263646"
+   */
+  integrationId: string;
+  /**
+   * A unique identifier generated by you to allow troubleshooting. Valid characters are letters, numbers, dashes and underscores. Example: "client-request-1"
+   */
+  clientRequestId: string;
+};
+
+export interface ActionOutput_gong_oauth_deletecrmintegration {
+  requestId?: string | undefined;
+  clientRequestId?: string | undefined;
+  errors?: string[] | undefined;
+};
+
+export interface ActionInput_gong_oauth_deletedataforemail {
+  /**
+   * Email address to erase from Gong. Example: "user@example.com"
+   */
+  emailAddress: string;
+};
+
+export interface ActionOutput_gong_oauth_deletedataforemail {
+  /**
+   * Async deletion request ID. Example: "123e4567-e89b-12d3-a456-426614174000"
+   */
+  requestId: string;
+};
+
+export interface ActionInput_gong_oauth_deletedataforphone {
+  /**
+   * Phone number to erase data for. Example: "+15550000001"
+   */
+  phoneNumber: string;
+};
+
+export interface ActionOutput_gong_oauth_deletedataforphone {
+  /**
+   * Async deletion request ID
+   */
+  requestId: string;
+};
+
+export interface ActionInput_gong_oauth_deletemeeting {
+  /**
+   * Gong's unique identifier for the meeting (up to 20 digits). Example: "12345678901234567890"
+   */
+  meetingId: string;
+  /**
+   * The email address of the user who created the meeting. Example: "api@nango.dev"
+   */
+  organizerEmail: string;
+};
+
+export interface ActionOutput_gong_oauth_deletemeeting {
+  organizerEmail?: string | undefined;
+};
+
+export interface ActionInput_gong_oauth_fetchcallextensivedata {
+  /**
+   * Array of call IDs to filter by. Example: ["123456789"]
+   */
+  callIds?: string[] | undefined;
+  /**
+   * Start of date range filter. ISO 8601 UTC string. Example: "2026-01-01T00:00:00Z"
+   */
+  fromDateTime?: string | undefined;
+  /**
+   * End of date range filter. ISO 8601 UTC string. Example: "2026-01-31T23:59:59Z"
+   */
+  toDateTime?: string | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Controls which fields are returned in the response.
+   */
+  contentSelector?: {  context?: string | undefined;
+  contextTiming?: string[] | undefined;
+  exposedFields?: {  parties?: boolean | undefined;
+  media?: boolean | undefined;
+  collaboration?: {  publicComments?: boolean | undefined;};
+  content?: {  pointsOfInterest?: boolean | undefined;
+  structure?: boolean | undefined;
+  topics?: boolean | undefined;
+  trackers?: boolean | undefined;
+  brief?: boolean | undefined;
+  outline?: boolean | undefined;
+  highlights?: boolean | undefined;
+  callOutcome?: boolean | undefined;
+  keyPoints?: boolean | undefined;};
+  interaction?: {  personInteractionStats?: boolean | undefined;
+  questions?: boolean | undefined;
+  speakers?: boolean | undefined;
+  video?: boolean | undefined;};};};
+};
+
+export interface ActionOutput_gong_oauth_fetchcallextensivedata {
+  calls: ({})[];
+  cursor?: string | undefined;
+  totalRecords?: number | undefined;
+  currentPageSize?: number | undefined;
+};
+
+export interface ActionInput_gong_oauth_fetchcalltranscripts {
+  /**
+   * Array of Gong call IDs to fetch transcripts for. Example: ["123456789"]
+   */
+  callIds: string[];
+};
+
+export interface ActionOutput_gong_oauth_fetchcalltranscripts {
+  /**
+   * The call IDs that were requested
+   */
+  callIds: string[];
+  /**
+   * Transcript data for the requested calls
+   */
+  transcripts: ({  callId?: string | undefined;
+  transcript?: ({  speakerId?: string | undefined;
+  topic?: string | undefined;
+  sentences?: ({  start?: number | undefined;
+  end?: number | undefined;
+  text?: string | undefined;})[];})[];})[];
+  /**
+   * Total number of transcripts returned
+   */
+  totalCalls: number;
+};
+
+export interface ActionInput_gong_oauth_getbulkassignmentresults {
+  /**
+   * The bulk assignment ID returned by the bulk-assign action. Example: "12345"
+   */
+  bulkAssignmentId: string;
+};
+
+export interface ActionOutput_gong_oauth_getbulkassignmentresults {
+  requestId?: string | undefined;
+  bulkAssignmentId?: string | undefined;
+  status?: string | undefined;
+  totalProspects?: number | undefined;
+  succeeded?: number | undefined;
+  failed?: number | undefined;
+  errors?: ({  prospectId?: string | undefined;
+  error?: string | undefined;})[];
+};
+
+export interface ActionInput_gong_oauth_getcallmedia {
+  /**
+   * Gong call ID. Example: "1234567890"
+   */
+  callId: string;
+};
+
+export interface ActionOutput_gong_oauth_getcallmedia {
+  /**
+   * Signed URL for the audio recording. Valid for 8 hours.
+   */
+  audioUrl?: string | undefined;
+  /**
+   * Signed URL for the video recording. Valid for 8 hours.
+   */
+  videoUrl?: string | undefined;
+};
+
+export interface ActionInput_gong_oauth_getcalltranscript {
+  /**
+   * Gong call ID. Example: "7782342274025937895"
+   */
+  callId: string;
+};
+
+export interface ActionOutput_gong_oauth_getcalltranscript {
+  callId: string;
+  transcript: ({  speakerId: string;
+  topic?: string | undefined;
   sentences: ({  start: number;
   end: number;
-  text: string;})[];})[];})[];
+  text: string;})[];})[];
+};
+
+export interface ActionInput_gong_oauth_getcallusersaccess {
+  /**
+   * Gong call ID. Example: "123456789"
+   */
+  callId: string;
+};
+
+export interface ActionOutput_gong_oauth_getcallusersaccess {
+  callId: string;
+  users?: ({  userId: string;})[] | undefined;
+};
+
+export interface ActionInput_gong_oauth_getcall {
+  /**
+   * Gong's unique numeric identifier for the call (up to 20 digits). Example: "7782342274025937895"
+   */
+  id: string;
+};
+
+export interface ActionOutput_gong_oauth_getcall {
+  id: string;
+  url?: string | undefined;
+  title?: string | undefined;
+  scheduled?: string | undefined;
+  started?: string | undefined;
+  duration?: number | undefined;
+  primaryUserId?: string | undefined;
+  direction?: string | undefined;
+  system?: string | undefined;
+  scope?: string | undefined;
+  media?: string | undefined;
+  language?: string | undefined;
+  workspaceId?: string | undefined;
+  sdrDisposition?: string | undefined;
+  clientUniqueId?: string | undefined;
+  customData?: string | undefined;
+  purpose?: string | undefined;
+  meetingUrl?: string | undefined;
+  isPrivate?: boolean | undefined;
+  calendarEventId?: string | undefined;
+};
+
+export interface ActionInput_gong_oauth_getcoachingmetrics {
+  /**
+   * The workspace ID. Example: "7273476131570014205"
+   */
+  workspaceId?: string | undefined;
+  /**
+   * The manager user ID. Example: "7254376376091929519"
+   */
+  managerId?: string | undefined;
+  /**
+   * Association time filter start - ISO 8601 format. Example: "2026-01-01T00:00:00Z"
+   */
+  from?: string | undefined;
+  /**
+   * Association time filter end - ISO 8601 format. Example: "2026-06-01T00:00:00Z"
+   */
+  to?: string | undefined;
+};
+
+export interface ActionOutput_gong_oauth_getcoachingmetrics {
+  requestId?: string | undefined;
+  coachingData?: ({  manager: {  id: string;
+  emailAddress?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  title?: string | undefined;};
+  directReportsMetrics?: ({  report: {  id: string;
+  emailAddress?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  title?: string | undefined;};
+  metrics?: {  [key: string]: string[];} | undefined;})[];})[];
+};
+
+export interface ActionInput_gong_oauth_getcrmentities {
+  /**
+   * Type of CRM objects to retrieve. Example: "DEAL"
+   */
+  entityType: 'ACCOUNT' | 'CONTACT' | 'DEAL' | 'LEAD';
+  /**
+   * Integration ID generated when creating the CRM integration. Example: "6286478263646"
+   */
+  integrationId: string;
+  /**
+   * Array of CRM object IDs to retrieve. Up to 100 per request. Example: ["1234", "8765"]
+   */
+  objectsCrmIds?: string[] | undefined;
+  /**
+   * Pagination cursor for fetching the next batch of objects.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_gong_oauth_getcrmentities {
+  requestId?: string | undefined;
+  crmObjectsMap?: {  [key: string]: {  [key: string]: unknown | undefined;};};
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_gong_oauth_getcrmentityschema {
+  /**
+   * The CRM integration ID. Example: "6286478263646"
+   */
+  integrationId: string;
+  /**
+   * The CRM entity type to retrieve schema fields for. Example: "ACCOUNT"
+   */
+  entityType: string;
+};
+
+export interface ActionOutput_gong_oauth_getcrmentityschema {
+  requestId: string;
+  objectTypeToSelectedFields: {  [key: string]: ({  name?: string | undefined;
+  uniqueName?: string | undefined;
+  label: string;
+  type: string;
+  lastModified?: string | undefined;
+  isDeleted: boolean;
+  referenceTo?: string | undefined;
+  orderedValueList?: string[] | undefined;})[];};
+};
+
+export interface ActionInput_gong_oauth_getcrmintegration {
+};
+
+export interface ActionOutput_gong_oauth_getcrmintegration {
+  integrations?: ({  /**
+   * Integration ID generated by Gong
+   */
+  integrationId: number;
+  /**
+   * Integration name
+   */
+  name: string;
+  /**
+   * Email of the integration owner
+   */
+  ownerEmail: string;})[] | undefined;
+  /**
+   * A Gong request reference ID
+   */
+  requestId?: string | undefined;
+};
+
+export interface ActionInput_gong_oauth_getcrmrequeststatus {
+  /**
+   * Integration ID generated when creating the integration. Example: "5517027188234206000"
+   */
+  integrationId: string | number;
+  /**
+   * The client request ID used in the asynchronous endpoint you want to get a status for. Example: abc-123
+   */
+  clientRequestId: string;
+};
+
+export interface ActionOutput_gong_oauth_getcrmrequeststatus {
+  /**
+   * A Gong request reference ID, generated for this request.
+   */
+  requestId: string;
+  /**
+   * Request status.
+   */
+  status: 'PENDING' | 'IN_PROGRESS' | 'DONE' | 'FAILED';
+  /**
+   * List of errors when status is FAILED.
+   */
+  errors?: ({  line?: number | undefined;
+  description?: string | undefined;})[];
+  /**
+   * Number of objects that failed parsing.
+   */
+  totalErrorCount?: number | undefined;
+  /**
+   * Number of valid objects.
+   */
+  totalSuccessCount?: number | undefined;
+};
+
+export interface ActionInput_gong_oauth_getdataforemail {
+  /**
+   * The email address to look up. Example: "user@example.com"
+   */
+  emailAddress: string;
+};
+
+export interface ActionOutput_gong_oauth_getdataforemail {
+  requestId?: string | undefined;
+  emails?: ({  from?: string | undefined;
+  id?: string | undefined;
+  sentTime?: string | undefined;
+  mailbox?: string | undefined;
+  messageHash?: string | undefined;})[];
+  calls?: ({  id?: string | undefined;
+  status?: string | undefined;
+  externalSystems?: ({  system?: string | undefined;
+  objects?: ({  objectType?: string | undefined;
+  externalId?: string | undefined;})[];})[];})[];
+  meetings?: ({  id?: string | undefined;})[];
+  customerData?: ({  system?: string | undefined;
+  objects?: ({  id?: string | undefined;
+  objectType?: string | undefined;
+  externalId?: string | undefined;
+  mirrorId?: string | undefined;
+  fields?: ({  name?: string | undefined;
+  value?: unknown | undefined;})[];})[];})[];
+  customerEngagement?: ({  eventType?: string | undefined;
+  timestamp?: string | undefined;
+  contentId?: string | undefined;
+  contentUrl?: string | undefined;
+  reportingSystem?: string | undefined;
+  eventName?: string | undefined;
+  sourceEventId?: string | undefined;})[];
+};
+
+export interface ActionInput_gong_oauth_getdataforphone {
+  /**
+   * The phone number to look up. Must start with a + sign followed by country code, area code, and local number.
+   */
+  phoneNumber: string;
+};
+
+export interface ActionOutput_gong_oauth_getdataforphone {
+  calls?: unknown[] | undefined;
+  customerData?: unknown[] | undefined;
+  emailAddresses?: unknown[] | undefined;
+  emails?: unknown[] | undefined;
+  matchingPhoneNumbers?: unknown[] | undefined;
+  meetings?: unknown[] | undefined;
+  requestId?: string | undefined;
+  suppliedPhoneNumber?: string | undefined;
+};
+
+export interface ActionInput_gong_oauth_getentitybrief {
+  /**
+   * Entity type to generate a brief for. Example: "CONTACT"
+   */
+  entityType: 'ACCOUNT' | 'CONTACT' | 'DEAL' | 'LEAD';
+  /**
+   * Entity ID to generate a brief for. Example: "12345"
+   */
+  entityId: string;
+  /**
+   * Workspace ID. Example: "7273476131570014205"
+   */
+  workspaceId: string;
+  /**
+   * Brief name configured in Gong. Example: "Default"
+   */
+  briefName: string;
+  /**
+   * Time period for the brief. Example: "LAST_30DAYS"
+   */
+  timePeriod: 'LAST_7DAYS' | 'LAST_30DAYS' | 'LAST_90DAYS' | 'LAST_90_DAYS_SINCE_LAST_ACTIVITY' | 'LAST_YEAR_SINCE_LAST_ACTIVITY' | 'LAST_YEAR' | 'THIS_WEEK' | 'THIS_MONTH' | 'THIS_YEAR' | 'THIS_QUARTER' | 'CUSTOM_RANGE' | 'ALL_CONVERSATIONS';
+};
+
+export interface ActionOutput_gong_oauth_getentitybrief {
+  requestId?: string | undefined;
+  brief?: string | undefined;
+  sections?: ({  title?: string | undefined;
+  content?: string | undefined;})[];
+  errors?: string[] | undefined;
+};
+
+export interface ActionInput_gong_oauth_getflowsteps {
+  /**
+   * One or more Gong Engage flow IDs. Example: ["1695493301223590792"]
+   */
+  flowIds: string[];
+};
+
+export interface ActionOutput_gong_oauth_getflowsteps {
+  requestId?: string | undefined;
+  flows?: ({  id?: string | undefined;
+  name?: string | undefined;
+  folderId?: string | undefined;
+  folderName?: string | undefined;
+  visibility?: string | undefined;
+  creationDate?: string | undefined;
+  exclusive?: boolean | undefined;
+  steps?: ({  number?: number | undefined;
+  type?: string | undefined;
+  name?: string | undefined;
+  delayInDays?: number | undefined;
+  subject?: string | undefined;
+  body?: string | undefined;
+  replyToPrevious?: boolean | undefined;
+  sendAsNewThread?: boolean | undefined;})[];})[];
+};
+
+export interface ActionInput_gong_oauth_getintegrationsettings {
+};
+
+export interface ActionOutput_gong_oauth_getintegrationsettings {
+  requestId?: string | undefined;
+  integrationSettings?: {  id?: string | undefined;};
+};
+
+export interface ActionInput_gong_oauth_getlogs {
+  /**
+   * Type of audit logs to retrieve. Example: "AccessLog"
+   */
+  logType: string;
+  /**
+   * Start of the time range in ISO 8601 UTC format. Example: "2026-01-01T00:00:00Z"
+   */
+  fromDateTime: string;
+  /**
+   * End of the time range in ISO 8601 UTC format. Example: "2026-06-01T00:00:00Z"
+   */
+  toDateTime: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_gong_oauth_getlogs {
+  requestId?: string | undefined;
+  totalRecords?: number | undefined;
+  currentPageSize?: number | undefined;
+  currentPageNumber?: number | undefined;
+  logEntries: ({  userId?: string | undefined;
+  userEmailAddress?: string | undefined;
+  userFullName?: string | undefined;
+  impersonatorUserId?: string | undefined;
+  impersonatorEmailAddress?: string | undefined;
+  impersonatorFullName?: string | undefined;
+  impersonatorCompanyId?: string | undefined;
+  eventTime?: string | undefined;
+  logRecord?: {  [key: string]: unknown | undefined;};})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_gong_oauth_getmeetingintegrationstatus {
+  /**
+   * Array of user email addresses to check integration status for. Maximum 100.
+   */
+  emails: string[];
+};
+
+export interface ActionOutput_gong_oauth_getmeetingintegrationstatus {
+  /**
+   * A Gong request reference ID for troubleshooting.
+   */
+  requestId: string;
+  /**
+   * The integration status for each requested user.
+   */
+  users: ({  /**
+   * The email address of the meeting organizer.
+   */
+  email: string;
+  /**
+   * Whether the user exists in Gong.
+   */
+  exists: boolean;
+  /**
+   * Whether the integration is connected for the user.
+   */
+  valid: boolean;
+  /**
+   * Message explaining why the integration is not connected.
+   */
+  userFacingError?: string | undefined;
+  /**
+   * A URL to place in the application to fix the problem.
+   */
+  fixUrl?: string | undefined;
+  /**
+   * A URL to the Gong help center with more information about the error.
+   */
+  helpUrl?: string | undefined;})[];
+};
+
+export interface ActionInput_gong_oauth_getpermissionprofile {
+  /**
+   * The ID of the permission profile to retrieve. Example: "3843152912968920037"
+   */
+  profileId: string;
+};
+
+export interface ActionOutput_gong_oauth_getpermissionprofile {
+  requestId?: string | undefined;
+  profile?: {  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  callsAccess?: {  permissionLevel?: string | undefined;
+  teamLeadIds?: string[] | undefined;};
+  libraryFolderAccess?: {  permissionLevel?: string | undefined;
+  libraryFolderIds?: string[] | undefined;
+  managePublicFolder?: boolean | undefined;
+  manageStreams?: boolean | undefined;
+  manageFolderCalls?: boolean | undefined;
+  shareFoldersAndStreams?: boolean | undefined;};
+  dealsAccess?: {  permissionLevel?: string | undefined;
+  teamLeadIds?: string[] | undefined;};
+  forecastPermissions?: {  forecastAccess?: {  permissionLevel?: string | undefined;
+  teamLeadIds?: string[] | undefined;};
+  forecastEditSubmissions?: {  permissionLevel?: string | undefined;
+  teamLeadIds?: string[] | undefined;};
+  forecastEditTargets?: {  permissionLevel?: string | undefined;
+  teamLeadIds?: string[] | undefined;};};
+  coachingAccess?: {  permissionLevel?: string | undefined;
+  teamLeadIds?: string[] | undefined;};
+  insightsAccess?: {  permissionLevel?: string | undefined;
+  teamLeadIds?: string[] | undefined;};
+  usageAccess?: {  permissionLevel?: string | undefined;
+  teamLeadIds?: string[] | undefined;};
+  emailsAccess?: {  permissionLevel?: string | undefined;
+  teamLeadIds?: string[] | undefined;};
+  scoreCalls?: boolean | undefined;
+  overrideScore?: boolean | undefined;
+  downloadCallMedia?: boolean | undefined;
+  shareCallsWithCustomers?: boolean | undefined;
+  manuallyScheduleAndUploadCalls?: boolean | undefined;
+  privateCalls?: boolean | undefined;
+  deleteCalls?: boolean | undefined;
+  trimCalls?: boolean | undefined;
+  listenInCalls?: boolean | undefined;
+  deleteEmails?: boolean | undefined;
+  callsAndSearch?: boolean | undefined;
+  library?: boolean | undefined;
+  deals?: boolean | undefined;
+  createEditAndDeleteDealsBoards?: boolean | undefined;
+  dealsInlineEditing?: boolean | undefined;
+  account?: boolean | undefined;
+  coaching?: boolean | undefined;
+  usage?: boolean | undefined;
+  teamStats?: boolean | undefined;
+  initiatives?: boolean | undefined;
+  market?: boolean | undefined;
+  activity?: boolean | undefined;
+  forecast?: boolean | undefined;
+  forecastManage?: boolean | undefined;
+  engageManageCompanyTemplates?: boolean | undefined;
+  engageManageCompanySequences?: boolean | undefined;
+  engageCreateAndManageRulesets?: boolean | undefined;
+  engageSnoozeFlowToDosForOthers?: boolean | undefined;
+  engageAllowCrmFieldsViewChange?: boolean | undefined;
+  viewEngageAnalyticsActivity?: boolean | undefined;
+  viewEngageAnalyticsPerformance?: boolean | undefined;
+  viewEngageAnalyticsFlows?: boolean | undefined;
+  manageGeneralBusinessSettings?: boolean | undefined;
+  manageScorecards?: boolean | undefined;
+  exportCallsAndCoachingDataToCSV?: boolean | undefined;
+  crmDataInlineEditing?: boolean | undefined;
+  crmDataImport?: boolean | undefined;
+  viewRevenueAnalytics?: boolean | undefined;
+  manageRevenueAnalytics?: boolean | undefined;
+  engageReassignFlowToDosToOthers?: boolean | undefined;
+  engageAssignFlowToDosToOthers?: boolean | undefined;
+  dealsDataExport?: boolean | undefined;};
+};
+
+export interface ActionInput_gong_oauth_getscorecard {
+  /**
+   * The identifier of the scorecard. Example: "9067931441193858457"
+   */
+  scorecardId: string;
+};
+
+export interface ActionOutput_gong_oauth_getscorecard {
+  scorecardId: string;
+  scorecardName?: string | undefined;
+  workspaceId?: string | undefined;
+  enabled?: boolean | undefined;
+  updaterUserId?: string | undefined;
+  created?: string | undefined;
+  updated?: string | undefined;
+  reviewMethod?: string | undefined;
+  questions?: ({  questionId: string;
+  questionRevisionId?: string | undefined;
+  questionText?: string | undefined;
+  isOverall?: boolean | undefined;
+  questionType?: string | undefined;
+  answerGuide?: string | undefined;
+  minRange?: string | undefined;
+  maxRange?: string | undefined;
+  answerOptions?: ({  id: number;
+  text: string;})[] | undefined;})[];
+};
+
+export interface ActionInput_gong_oauth_getstatsactivityaggregatebyperiod {
+  /**
+   * Gong user IDs to filter by. Example: ["7254376376091929519"]
+   */
+  userIds?: string[] | undefined;
+  /**
+   * Start date in ISO 8601 format. Example: "2026-01-01T00:00:00Z"
+   */
+  fromDateTime: string;
+  /**
+   * End date in ISO 8601 format. Example: "2026-01-31T00:00:00Z"
+   */
+  toDateTime: string;
+  /**
+   * Time period for grouping. Example: "week"
+   */
+  groupingPeriod: 'week' | 'month' | 'quarter' | 'WEEK' | 'MONTH' | 'QUARTER';
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_gong_oauth_getstatsactivityaggregatebyperiod {
+  requestId?: string | undefined;
+  records?: {  totalRecords?: number | undefined;
+  currentPageSize?: number | undefined;
+  cursor?: string | undefined;};
+  usersAggregateActivity?: ({  userId?: string | undefined;
+  userEmailAddress?: string | undefined;
+  userAggregateActivity?: ({  fromDate?: string | undefined;
+  toDate?: string | undefined;
+  callsAsHost?: number | undefined;
+  callsAttended?: number | undefined;
+  callsCommentsGiven?: number | undefined;
+  callsCommentsReceived?: number | undefined;
+  callsGaveFeedback?: number | undefined;
+  callsMarkedAsFeedbackGiven?: number | undefined;
+  callsMarkedAsFeedbackReceived?: number | undefined;
+  callsReceivedFeedback?: number | undefined;
+  callsRequestedFeedback?: number | undefined;
+  callsScorecardsFilled?: number | undefined;
+  callsScorecardsReceived?: number | undefined;
+  callsSharedExternally?: number | undefined;
+  callsSharedInternally?: number | undefined;
+  othersCallsListenedTo?: number | undefined;
+  ownCallsListenedTo?: number | undefined;})[];})[];
+};
+
+export interface ActionInput_gong_oauth_getstatsactivityaggregate {
+  /**
+   * Gong user IDs to retrieve activity for. Example: ["7254376376091929519"]
+   */
+  userIds: string[];
+  /**
+   * The specific date for which to retrieve activity, in YYYY-MM-DD format. Example: "2026-06-01"
+   */
+  referenceDate: string;
+};
+
+export interface ActionOutput_gong_oauth_getstatsactivityaggregate {
+  requestId?: string | undefined;
+  records?: {  totalRecords?: number | undefined;
+  currentPageSize?: number | undefined;
+  currentPageNumber?: number | undefined;
+  cursor?: string | undefined;};
+  usersAggregateActivityStats?: ({  userId?: string | undefined;
+  userEmailAddress?: string | undefined;
+  userAggregateActivityStats?: {  callsAsHost?: number | undefined;
+  callsGaveFeedback?: number | undefined;
+  callsRequestedFeedback?: number | undefined;
+  callsReceivedFeedback?: number | undefined;
+  ownCallsListenedTo?: number | undefined;
+  othersCallsListenedTo?: number | undefined;
+  callsSharedInternally?: number | undefined;
+  callsSharedExternally?: number | undefined;
+  callsScorecardsFilled?: number | undefined;
+  callsScorecardsReceived?: number | undefined;
+  callsAttended?: number | undefined;
+  callsCommentsGiven?: number | undefined;
+  callsCommentsReceived?: number | undefined;
+  callsMarkedAsFeedbackGiven?: number | undefined;
+  callsMarkedAsFeedbackReceived?: number | undefined;};
+  timeZone?: string | undefined;
+  fromDateTime?: string | undefined;
+  toDateTime?: string | undefined;})[];
+};
+
+export interface ActionInput_gong_oauth_getstatsactivitydaybyday {
+  /**
+   * The start date (inclusive) in YYYY-MM-DD format.
+   */
+  fromDate: string;
+  /**
+   * The end date (exclusive) in YYYY-MM-DD format. Must not exceed the current day.
+   */
+  toDate: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Filter to specific Gong user IDs (up to 20 digits each).
+   */
+  userIds?: string[] | undefined;
+};
+
+export interface ActionOutput_gong_oauth_getstatsactivitydaybyday {
+  requestId: string;
+  records: {  totalRecords: number;
+  currentPageSize: number;
+  currentPageNumber: number;
+  cursor?: string | undefined;};
+  usersDetailedActivities: ({  userId: string;
+  userEmailAddress?: string | undefined;
+  userDailyActivityStats?: ({  callsAsHost?: string[] | undefined;
+  callsGaveFeedback?: string[] | undefined;
+  callsRequestedFeedback?: string[] | undefined;
+  callsReceivedFeedback?: string[] | undefined;
+  ownCallsListenedTo?: string[] | undefined;
+  othersCallsListenedTo?: string[] | undefined;
+  callsSharedInternally?: string[] | undefined;
+  callsSharedExternally?: string[] | undefined;
+  callsAttended?: string[] | undefined;
+  callsCommentsGiven?: string[] | undefined;
+  callsCommentsReceived?: string[] | undefined;
+  callsMarkedAsFeedbackGiven?: string[] | undefined;
+  callsMarkedAsFeedbackReceived?: string[] | undefined;
+  callsScorecardsFilled?: string[] | undefined;
+  callsScorecardsReceived?: string[] | undefined;
+  fromDate?: string | undefined;
+  toDate?: string | undefined;})[];})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_gong_oauth_getstatsactivityscorecards {
+  /**
+   * Start of the date range in ISO 8601 format. Example: 2026-01-01T00:00:00Z
+   */
+  fromDateTime: string;
+  /**
+   * End of the date range in ISO 8601 format. Example: 2026-06-01T00:00:00Z
+   */
+  toDateTime: string;
+  /**
+   * Optional list of scorecard IDs to filter by.
+   */
+  scorecardIds?: string[] | undefined;
+  /**
+   * Optional list of user IDs of reviewed team members to filter by.
+   */
+  userIds?: string[] | undefined;
+  /**
+   * Pagination cursor from the previous response.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_gong_oauth_getstatsactivityscorecards {
+  answeredScorecards?: ({  answeredScorecardId: number;
+  scorecardId: number;
+  scorecardName: string;
+  callId: number;
+  callStartTime?: string | undefined;
+  reviewedUserId?: number | undefined;
+  reviewerUserId?: number | undefined;
+  reviewMethod?: string | undefined;
+  editorUserId?: number | undefined;
+  reviewTime?: string | undefined;
+  visibilityType?: string | undefined;
+  answers?: ({  questionId: number;
+  questionRevisionId?: number | undefined;
+  isOverall?: boolean | undefined;
+  score?: number | undefined;
+  answerText?: string | undefined;
+  notApplicable?: boolean | undefined;
+  selectedOptions?: string[] | undefined;})[];})[];
+  cursor?: string | undefined;
+};
+
+export interface ActionInput_gong_oauth_getstatsinteraction {
+  /**
+   * Gong user IDs (up to 20 digits). Example: ["7254376376091929519"]
+   */
+  userIds: string[];
+  /**
+   * The date in YYYY-MM-DD format. Example: "2026-01-01"
+   */
+  referenceDate: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_gong_oauth_getstatsinteraction {
+  requestId?: string | undefined;
+  peopleInteractionStats?: ({  userId: string;
+  userEmailAddress?: string | undefined;
+  personInteractionStats?: ({  name: string;
+  value: number;})[] | undefined;
+  timeZone?: string | undefined;
+  fromDateTime?: string | undefined;
+  toDateTime?: string | undefined;})[];
+  records?: {  totalRecords?: number | undefined;
+  currentPageSize?: number | undefined;
+  currentPageNumber?: number | undefined;
+  cursor?: string | undefined;};
+};
+
+export interface ActionInput_gong_oauth_gettracker {
+  /**
+   * The unique identifier of the tracker. Example: "7686842637000665959"
+   */
+  trackerId: string;
+};
+
+export interface ActionOutput_gong_oauth_gettracker {
+  trackerId: string;
+  trackerName: string;
+  workspaceId?: string | undefined;
+  languageKeywords: ({  language: string;
+  keywords: string[];
+  includeRelatedForms: boolean;})[];
+  affiliation: string;
+  partOfQuestion: boolean;
+  saidAt: string;
+  saidAtInterval?: number | undefined;
+  saidAtUnit?: string | undefined;
+  saidInTopics: string[];
+  filterQuery?: string | undefined;
+  created: string;
+  creatorUserId?: string | undefined;
+  updated: string;
+  updaterUserId?: string | undefined;
+};
+
+export interface ActionInput_gong_oauth_getusersettingshistory {
+  /**
+   * Gong unique numeric identifier for the user. Example: "7254376376091929519"
+   */
+  userId: string;
+};
+
+export interface ActionOutput_gong_oauth_getusersettingshistory {
+  requestId?: string | undefined;
+  userSettingsHistory?: ({  setting?: string | undefined;
+  value?: boolean | undefined;
+  time?: string | undefined;})[];
+};
+
+export interface ActionInput_gong_oauth_getuser {
+  /**
+   * Gong's unique numeric identifier for the user (up to 20 digits). Example: "7254376376091929519"
+   */
+  userId: string;
+};
+
+export interface ActionOutput_gong_oauth_getuser {
+  id: string;
+  emailAddress: string;
+  created: string;
+  active: boolean;
+  emailAliases?: string[] | undefined;
+  trustedEmailAddress?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  title?: string | undefined;
+  phoneNumber?: string | undefined;
+  extension?: string | undefined;
+  personalMeetingUrls?: string[] | undefined;
+  settings?: {  webConferencesRecorded?: boolean | undefined;
+  preventWebConferenceRecording?: boolean | undefined;
+  telephonyCallsImported?: boolean | undefined;
+  emailsImported?: boolean | undefined;
+  preventEmailImport?: boolean | undefined;
+  nonRecordedMeetingsImported?: boolean | undefined;
+  gongConnectEnabled?: boolean | undefined;};
+  managerId?: string | undefined;
+  meetingConsentPageUrl?: string | undefined;
+  spokenLanguages?: ({  language: string;
+  primary?: boolean | undefined;})[];
+};
+
+export interface ActionInput_gong_oauth_getworkspace {
+  /**
+   * Gong workspace ID. Example: "7273476131570014205"
+   */
+  workspaceId: string;
+};
+
+export interface ActionOutput_gong_oauth_getworkspace {
+  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+};
+
+export interface ActionInput_gong_oauth_listcalloutcomes {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_gong_oauth_listcalloutcomes {
+  items: ({  id?: string | undefined;
+  category?: string | undefined;
+  name?: string | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_gong_oauth_listcalltranscripts {
+  /**
+   * Start date in ISO 8601 UTC format. Example: "2026-01-01T00:00:00Z"
+   */
+  fromDateTime?: string | undefined;
+  /**
+   * End date in ISO 8601 UTC format. Example: "2026-01-01T00:00:00Z"
+   */
+  toDateTime?: string | undefined;
+  /**
+   * Workspace ID to filter by. Example: "7273476131570014205"
+   */
+  workspaceId?: string | undefined;
+  /**
+   * Specific call IDs to retrieve transcripts for.
+   */
+  callIds?: string[] | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_gong_oauth_listcalltranscripts {
+  callTranscripts: ({  callId?: string | undefined;
+  transcript?: ({  speakerId?: string | undefined;
+  topic?: string | undefined;
+  sentences?: ({  start?: number | undefined;
+  end?: number | undefined;
+  text?: string | undefined;})[];})[];})[];
+  nextCursor?: string | undefined;
+  totalRecords?: number | undefined;
+  currentPageSize?: number | undefined;
+};
+
+export interface ActionInput_gong_oauth_listcalls {
+  /**
+   * Start of the date range in ISO 8601 UTC format. Example: "2026-01-01T00:00:00Z"
+   */
+  fromDateTime?: string | undefined;
+  /**
+   * End of the date range in ISO 8601 UTC format. Example: "2026-01-31T23:59:59Z"
+   */
+  toDateTime?: string | undefined;
+  /**
+   * Gong workspace ID to filter calls by.
+   */
+  workspaceId?: string | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_gong_oauth_listcalls {
+  calls: ({  id: string;
+  url?: string | undefined;
+  title?: string | undefined;
+  started?: string | undefined;
+  duration?: number | undefined;
+  primaryUser?: string | undefined;
+  workspaceId?: string | undefined;
+  direction?: string | undefined;
+  disposition?: string | undefined;
+  customData?: string | undefined;
+  scheduledStart?: string | undefined;
+  system?: string | undefined;
+  scope?: string | undefined;
+  media?: string | undefined;
+  language?: string | undefined;
+  sdrDisposition?: string | undefined;
+  clientUniqueId?: string | undefined;
+  purpose?: string | undefined;
+  meetingUrl?: string | undefined;
+  isPrivate?: boolean | undefined;
+  calendarEventId?: string | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_gong_oauth_listflowfolders {
+  /**
+   * Email of the flow owner whose folders (including personal and shared) should be included.
+   */
+  flowFolderOwnerEmail: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_gong_oauth_listflowfolders {
+  items: ({  id: string;
+  name: string;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_gong_oauth_listflowprospects {
+  /**
+   * CRM IDs of the prospects to list assigned flows for. Example: ["a5V1Q00A120DP4CVAW"]
+   */
+  crmProspectsIds?: string[] | undefined;
+  /**
+   * Assigned flow instance IDs to filter by. Example: ["234599484848423"]
+   */
+  flowInstanceIds?: string[] | undefined;
+};
+
+export interface ActionOutput_gong_oauth_listflowprospects {
+  items: ({  flowId?: string | undefined;
+  flowName?: string | undefined;
+  crmProspectId?: string | undefined;
+  flowInstanceId?: string | undefined;
+  flowInstanceOwnerEmail?: string | undefined;
+  flowInstanceOwnerFullName?: string | undefined;
+  flowInstanceCreateDate?: string | undefined;
+  flowInstanceStatus?: string | undefined;
+  workspaceId?: string | undefined;
+  exclusive?: boolean | undefined;})[];
+};
+
+export interface ActionInput_gong_oauth_listflows {
+  /**
+   * Email address of the user who owns the flows. Example: "api@nango.dev"
+   */
+  flowOwnerEmail: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_gong_oauth_listflows {
+  flows: ({  id: string;
+  name?: string | undefined;
+  status?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_gong_oauth_listlibraryfoldercontent {
+  /**
+   * Gong's unique numeric identifier for the folder (up to 20 digits).
+   */
+  folderId: string;
+};
+
+export interface ActionOutput_gong_oauth_listlibraryfoldercontent {
+  requestId?: string | undefined;
+  id?: string | undefined;
+  name?: string | undefined;
+  createdBy?: string | undefined;
+  updated?: string | undefined;
+  calls?: ({  id?: string | undefined;
+  title?: string | undefined;
+  note?: string | undefined;
+  addedBy?: string | undefined;
+  created?: string | undefined;
+  url?: string | undefined;
+  snippet?: {  [key: string]: unknown | undefined;};})[];
+};
+
+export interface ActionInput_gong_oauth_listlibraryfolders {
+  /**
+   * Workspace identifier to filter folders by workspace. Example: "7273476131570014205"
+   */
+  workspaceId?: string | undefined;
+};
+
+export interface ActionOutput_gong_oauth_listlibraryfolders {
+  requestId?: string | undefined;
+  folders: ({  id: string;
+  name: string;
+  parentFolderId?: string | undefined;
+  createdBy: string;
+  updated: string;})[];
+};
+
+export interface ActionInput_gong_oauth_listpermissionprofileusers {
+  /**
+   * Permission profile identifier. Example: "12345678901234567890"
+   */
+  profileId: string;
+};
+
+export interface ActionOutput_gong_oauth_listpermissionprofileusers {
+  users: ({  id: string;
+  fullName?: string | undefined;
+  emailAddress?: string | undefined;})[];
+};
+
+export interface ActionInput_gong_oauth_listpermissionprofiles {
+  /**
+   * Workspace ID. Example: "7273476131570014205"
+   */
+  workspaceId: string;
+};
+
+export interface ActionOutput_gong_oauth_listpermissionprofiles {
+  profiles: ({  id: string;
+  name?: string | undefined;
+  description?: string | undefined;})[];
+};
+
+export interface ActionInput_gong_oauth_listscorecards {
+  /**
+   * Workspace ID to filter scorecards. Example: "7273476131570014205"
+   */
+  workspaceId?: string | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_gong_oauth_listscorecards {
+  items: ({  scorecardId: string;
+  scorecardName?: string | undefined;
+  workspaceId?: string | undefined;
+  enabled?: boolean | undefined;
+  updaterUserId?: string | undefined;
+  created?: string | undefined;
+  updated?: string | undefined;
+  reviewMethod?: string | undefined;
+  questions?: ({  questionId?: string | undefined;
+  questionRevisionId?: string | undefined;
+  questionText?: string | undefined;
+  isOverall?: boolean | undefined;
+  questionType?: string | undefined;
+  answerGuide?: string | undefined;
+  minRange?: string | number | undefined;
+  maxRange?: string | number | undefined;
+  answerOptions?: ({  id?: number | undefined;
+  text?: string | undefined;})[];})[];})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_gong_oauth_listtasks {
+  /**
+   * The Gong user ID who owns the tasks. Example: 1597409306735779049
+   */
+  userId: string;
+  /**
+   * The workspace ID the tasks are in. Example: 7273476131570014205
+   */
+  workspaceId?: string | undefined;
+  /**
+   * Filter by task creation type. Defaults to both.
+   */
+  types?: ({  0: 'FLOW';
+  1: 'MANUAL';})[] | undefined;
+  /**
+   * Filter by task action. Defaults to [CALL].
+   */
+  taskAction?: ({  0: 'CALL';})[] | undefined;
+  /**
+   * Filter by task status. Defaults to [OPEN].
+   */
+  status?: ({  0: 'OPEN';
+  1: 'DONE';
+  2: 'DISMISSED';})[] | undefined;
+};
+
+export interface ActionOutput_gong_oauth_listtasks {
+  items: ({  id?: string | undefined;
+  userId?: string | undefined;
+  created?: string | undefined;
+  updated?: string | undefined;
+  status?: string | undefined;
+  type?: string | undefined;
+  actions?: string[] | undefined;
+  dueDate?: string | undefined;
+  title?: string | undefined;})[];
+};
+
+export interface ActionInput_gong_oauth_listtrackers {
+  /**
+   * Workspace ID to filter trackers. Example: "7273476131570014205"
+   */
+  workspaceId?: string | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_gong_oauth_listtrackers {
+  trackers: ({  trackerId: string;
+  trackerName?: string | undefined;
+  workspaceId?: string | undefined;
+  languageKeywords?: ({  language: string;
+  keywords: string[];
+  includeRelatedForms: boolean;})[] | undefined;
+  affiliation?: string | undefined;
+  partOfQuestion?: boolean | undefined;
+  saidAt?: string | undefined;
+  saidAtInterval?: number | undefined;
+  saidAtUnit?: string | undefined;
+  saidInTopics?: string[] | undefined;
+  filterQuery?: string | undefined;
+  created?: string | undefined;
+  creatorUserId?: string | undefined;
+  updated?: string | undefined;
+  updaterUserId?: string | undefined;})[];
+  /**
+   * Pagination cursor for the next page.
+   */
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_gong_oauth_listusers {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_gong_oauth_listusers {
+  users: ({  id: string;
+  emailAddress?: string | undefined;
+  created?: string | undefined;
+  active?: boolean | undefined;
+  emailAliases?: string[] | undefined;
+  trustedEmailAddress?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  title?: string | undefined;
+  phoneNumber?: string | undefined;
+  extension?: string | undefined;
+  personalMeetingUrls?: string[] | undefined;
+  settings?: {  [key: string]: unknown | undefined;};
+  managerId?: string | undefined;
+  meetingConsentPageUrl?: string | undefined;
+  spokenLanguages?: ({  language: string;
+  primary: boolean;})[] | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_gong_oauth_listworkspaces {
+};
+
+export interface ActionOutput_gong_oauth_listworkspaces {
+  workspaces: ({  /**
+   * Gong unique identifier for the workspace. Example: "12345678901234567890"
+   */
+  id: string;
+  /**
+   * The name of the workspace. Example: "Sales"
+   */
+  name: string;
+  /**
+   * The description of the workspace. Example: "Sales workspace"
+   */
+  description: string;})[];
+};
+
+export interface ActionInput_gong_oauth_postdigitalinteraction {
+  /**
+   * The provider unique identifier for the event used for deduplication. Example: "evt-abc-123"
+   */
+  eventId: string;
+  /**
+   * The date and time of the event in ISO 8601 format. Example: "2026-06-12T10:00:00Z"
+   */
+  timestamp: string;
+  /**
+   * The type of the event, e.g., "link clicked", "page viewed". Example: "page viewed"
+   */
+  interactionType: string;
+  /**
+   * The email address of the person who performed the event. Example: "api@nango.dev"
+   */
+  actorEmail?: string | undefined;
+  /**
+   * The name of the person who performed the event. Example: "API Developer"
+   */
+  actorName?: string | undefined;
+  /**
+   * The ID used for tracking the person who did the event. Must be null if a person is sent instead. Example: "track-abc-123"
+   */
+  trackingId?: string | undefined;
+  /**
+   * The content the person looked at
+   */
+  interaction: {  /**
+   * The title of the content. Example: "Annual Report 2026"
+   */
+  contentTitle: string;
+  /**
+   * A unique identifier for the content in the partner system. Example: "content-123"
+   */
+  contentId?: string | undefined;
+  /**
+   * The URL for the content the person looked at. Example: "https://example.com/report"
+   */
+  contentUrl?: string | undefined;
+  /**
+   * A list of tags defined for the content. Example: ["sales", "annual"]
+   */
+  contentLabel?: string[] | undefined;};
+  /**
+   * The name of the technology partner or company setting up the integration. Example: "Nango"
+   */
+  sourceSystemName?: string | undefined;
+  /**
+   * The identifier for the session, useful for tying related events together. Example: "sess-xyz-789"
+   */
+  sessionId?: string | undefined;
+  /**
+   * The device used during the event. Valid values: "MOBILE", "PC"
+   */
+  device?: 'MOBILE' | 'PC' | undefined;
+};
+
+export interface ActionOutput_gong_oauth_postdigitalinteraction {
+  /**
+   * A Gong request reference Id generated for this request. Can be used for troubleshooting purposes.
+   */
+  requestId?: string | undefined;
+};
+
+export interface ActionInput_gong_oauth_registercrmintegration {
+  ownerEmail: string;
+  name: string;
+};
+
+export interface ActionOutput_gong_oauth_registercrmintegration {
+  requestId: string;
+  integrationId: string;
+};
+
+export interface ActionInput_gong_oauth_removecallusersaccess {
+  /**
+   * Gong's unique numeric call ID. Example: "7782342274025937895"
+   */
+  callId: string;
+  /**
+   * Array of Gong's unique numeric user IDs to remove access for.
+   */
+  userIds: string[];
+};
+
+export interface ActionOutput_gong_oauth_removecallusersaccess {
+  /**
+   * A Gong request reference ID, generated for this request.
+   */
+  requestId: string;
+};
+
+export interface ActionInput_gong_oauth_removeprospectsfromflow {
+  /**
+   * Array of flow instance IDs to unassign from the flow. Max 100 IDs per request.
+   */
+  flowInstanceIds: string[];
+};
+
+export interface ActionOutput_gong_oauth_removeprospectsfromflow {
+  requestId: string;
+  unassignedFlowInstanceIds: string[];
+};
+
+export interface ActionInput_gong_oauth_unassignflowbycrmid {
+  crmProspectIds: string[];
+  /**
+   * The identifier of the flow to unassign the prospects from. If omitted, removes from all flows.
+   */
+  flowId?: string | undefined;
+  /**
+   * The email address of the Gong user requesting to remove prospects from the flow.
+   */
+  unassignedByUserEmail?: string | undefined;
+};
+
+export interface ActionOutput_gong_oauth_unassignflowbycrmid {
+  results: ({  crmProspectId: string;
+  requestId?: string | undefined;
+  unassignedFlowInstanceIds?: string[] | undefined;
+  error?: string | undefined;})[];
+};
+
+export interface ActionInput_gong_oauth_updateintegrationsettings {
+  /**
+   * List of integration type settings to update.
+   */
+  integrationTypeSettings: ({  integrationType: 'EMAIL_COMPOSER' | 'ACCOUNT_PAGES' | 'DIALER';
+  allowedOrigin: string;})[];
+};
+
+export interface ActionOutput_gong_oauth_updateintegrationsettings {
+  /**
+   * Gong request reference ID.
+   */
+  requestId: string;
+  /**
+   * Integration ID to be used in requests to the API.
+   */
+  integrationId?: string | undefined;
+};
+
+export interface ActionInput_gong_oauth_updatemeeting {
+  /**
+   * Gong's unique identifier for the meeting.
+   */
+  meetingId: string;
+  /**
+   * The meeting start time in ISO-8601 format (e.g., '2018-02-18T02:30:00-07:00' or '2018-02-18T08:00:00Z').
+   */
+  startTime: string;
+  /**
+   * The meeting end time in ISO-8601 format (e.g., '2018-02-18T02:30:00-07:00' or '2018-02-18T08:00:00Z').
+   */
+  endTime: string;
+  /**
+   * Title of the event.
+   */
+  title?: string | undefined;
+  /**
+   * A list of email addresses of invitees to the event (not including the organizer).
+   */
+  invitees: ({  /**
+   * The unique email to identify the meeting invitee.
+   */
+  email: string;
+  /**
+   * The name of the person.
+   */
+  displayName?: string | undefined;
+  /**
+   * The first name of the person, if available.
+   */
+  firstName?: string | undefined;
+  /**
+   * The last name of the person, if available.
+   */
+  lastName?: string | undefined;})[];
+  /**
+   * The ID as it is formed on the external system.
+   */
+  externalId?: string | undefined;
+  /**
+   * The email address of the user who created the meeting.
+   */
+  organizerEmail: string;
+};
+
+export interface ActionOutput_gong_oauth_updatemeeting {
+  /**
+   * A Gong request reference Id, generated for this request.
+   */
+  requestId: string;
+  /**
+   * The unique meeting identifier of the meeting.
+   */
+  meetingId: string;
+};
+
+export interface ActionInput_gong_oauth_updatepermissionprofile {
+  /**
+   * The Id of the permission profile to update. Example: "3843152912968920037"
+   */
+  profileId: string;
+  /**
+   * Permission profile name.
+   */
+  name?: string | undefined;
+  /**
+   * Permission profile description.
+   */
+  description?: string | undefined;
+  /**
+   * Calls access permission.
+   */
+  callsAccess?: {  permissionLevel: 'all' | 'managers-team' | 'report-to-them' | 'own' | 'none';
+  teamLeadIds?: string[] | undefined;};
+  /**
+   * Library folder access permission.
+   */
+  libraryFolderAccess?: {  permissionLevel: 'none' | 'all' | 'specific-folders';
+  libraryFolderIds?: string[] | undefined;
+  managePublicFolder?: boolean | undefined;
+  manageStreams?: boolean | undefined;
+  manageFolderCalls?: boolean | undefined;
+  shareFoldersAndStreams?: boolean | undefined;};
+  /**
+   * Deals access permission.
+   */
+  dealsAccess?: {  permissionLevel: 'all' | 'managers-team' | 'report-to-them' | 'own' | 'none';
+  teamLeadIds?: string[] | undefined;};
+  /**
+   * All forecast permissions.
+   */
+  forecastPermissions?: {  forecastAccess?: {  permissionLevel: 'all' | 'managers-team' | 'report-to-them' | 'own' | 'none';
+  teamLeadIds?: string[] | undefined;};
+  forecastEditSubmissions?: {  permissionLevel: 'all' | 'managers-team' | 'report-to-them' | 'own' | 'none';
+  teamLeadIds?: string[] | undefined;};
+  forecastEditTargets?: {  permissionLevel: 'all' | 'managers-team' | 'report-to-them' | 'own' | 'none';
+  teamLeadIds?: string[] | undefined;};};
+  /**
+   * Coaching access permission.
+   */
+  coachingAccess?: {  permissionLevel: 'all' | 'managers-team' | 'report-to-them' | 'own' | 'none';
+  teamLeadIds?: string[] | undefined;};
+  /**
+   * Insights access permission.
+   */
+  insightsAccess?: {  permissionLevel: 'all' | 'managers-team' | 'report-to-them' | 'own' | 'none';
+  teamLeadIds?: string[] | undefined;};
+  /**
+   * Usage access permission.
+   */
+  usageAccess?: {  permissionLevel: 'all' | 'managers-team' | 'report-to-them' | 'own' | 'none';
+  teamLeadIds?: string[] | undefined;};
+  /**
+   * Emails access permission.
+   */
+  emailsAccess?: {  permissionLevel: 'all' | 'managers-team' | 'report-to-them' | 'own' | 'none';
+  teamLeadIds?: string[] | undefined;};
+  /**
+   * User can score calls.
+   */
+  scoreCalls?: boolean | undefined;
+  /**
+   * User can override someone else score.
+   */
+  overrideScore?: boolean | undefined;
+  /**
+   * User can download call media.
+   */
+  downloadCallMedia?: boolean | undefined;
+  /**
+   * User can share calls with customers.
+   */
+  shareCallsWithCustomers?: boolean | undefined;
+  /**
+   * User can manually schedule and upload calls.
+   */
+  manuallyScheduleAndUploadCalls?: boolean | undefined;
+  /**
+   * User can set their own calls as private.
+   */
+  privateCalls?: boolean | undefined;
+  /**
+   * User can delete calls.
+   */
+  deleteCalls?: boolean | undefined;
+  /**
+   * User can trim calls.
+   */
+  trimCalls?: boolean | undefined;
+  /**
+   * User can listen in calls.
+   */
+  listenInCalls?: boolean | undefined;
+  /**
+   * User can delete emails.
+   */
+  deleteEmails?: boolean | undefined;
+  /**
+   * User can view and search calls.
+   */
+  callsAndSearch?: boolean | undefined;
+  /**
+   * User can view library pages.
+   */
+  library?: boolean | undefined;
+  /**
+   * User can view deals pages.
+   */
+  deals?: boolean | undefined;
+  /**
+   * User can create/edit/delete deals boards.
+   */
+  createEditAndDeleteDealsBoards?: boolean | undefined;
+  /**
+   * User can perform inline editing of deals.
+   */
+  dealsInlineEditing?: boolean | undefined;
+  /**
+   * User can view account pages.
+   */
+  account?: boolean | undefined;
+  /**
+   * User can view coaching pages.
+   */
+  coaching?: boolean | undefined;
+  /**
+   * User can view usage pages.
+   */
+  usage?: boolean | undefined;
+  /**
+   * User can view team stats page.
+   */
+  teamStats?: boolean | undefined;
+  /**
+   * User can view initiatives page.
+   */
+  initiatives?: boolean | undefined;
+  /**
+   * User can view market page.
+   */
+  market?: boolean | undefined;
+  /**
+   * User can view activity pages.
+   */
+  activity?: boolean | undefined;
+  /**
+   * User can view forecast pages.
+   */
+  forecast?: boolean | undefined;
+  /**
+   * User can manage forecast boards and upload targets.
+   */
+  forecastManage?: boolean | undefined;
+  /**
+   * User can manage company email templates.
+   */
+  engageManageCompanyTemplates?: boolean | undefined;
+  /**
+   * User can manage company sequences.
+   */
+  engageManageCompanySequences?: boolean | undefined;
+  /**
+   * User can create and manage rulesets.
+   */
+  engageCreateAndManageRulesets?: boolean | undefined;
+  /**
+   * User can snooze flow in to dos for others.
+   */
+  engageSnoozeFlowToDosForOthers?: boolean | undefined;
+  /**
+   * User can change crm fields view.
+   */
+  engageAllowCrmFieldsViewChange?: boolean | undefined;
+  /**
+   * User can view engage analytics activity page.
+   */
+  viewEngageAnalyticsActivity?: boolean | undefined;
+  /**
+   * User can view engage analytics performance page.
+   */
+  viewEngageAnalyticsPerformance?: boolean | undefined;
+  /**
+   * User can view engage analytics flows page.
+   */
+  viewEngageAnalyticsFlows?: boolean | undefined;
+  /**
+   * User can manage general business settings.
+   */
+  manageGeneralBusinessSettings?: boolean | undefined;
+  /**
+   * User can manage scorecards.
+   */
+  manageScorecards?: boolean | undefined;
+  /**
+   * User can export calls and coaching metrics data to CSV.
+   */
+  exportCallsAndCoachingDataToCSV?: boolean | undefined;
+  /**
+   * User can perform inline editing of crm data.
+   */
+  crmDataInlineEditing?: boolean | undefined;
+  /**
+   * User can perform import of crm data.
+   */
+  crmDataImport?: boolean | undefined;
+  /**
+   * User can view dashboards page.
+   */
+  viewRevenueAnalytics?: boolean | undefined;
+  /**
+   * User can manage revenue analytics.
+   */
+  manageRevenueAnalytics?: boolean | undefined;
+  /**
+   * User can reassign flow to-dos to others.
+   */
+  engageReassignFlowToDosToOthers?: boolean | undefined;
+  /**
+   * User can assign flow to-dos to others.
+   */
+  engageAssignFlowToDosToOthers?: boolean | undefined;
+  /**
+   * User can export deals data.
+   */
+  dealsDataExport?: boolean | undefined;
+};
+
+export interface ActionOutput_gong_oauth_updatepermissionprofile {
+  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  callsAccess?: {  permissionLevel: 'all' | 'managers-team' | 'report-to-them' | 'own' | 'none';
+  teamLeadIds?: string[] | undefined;};
+  libraryFolderAccess?: {  permissionLevel: 'none' | 'all' | 'specific-folders';
+  libraryFolderIds?: string[] | undefined;
+  managePublicFolder?: boolean | undefined;
+  manageStreams?: boolean | undefined;
+  manageFolderCalls?: boolean | undefined;
+  shareFoldersAndStreams?: boolean | undefined;};
+  dealsAccess?: {  permissionLevel: 'all' | 'managers-team' | 'report-to-them' | 'own' | 'none';
+  teamLeadIds?: string[] | undefined;};
+  forecastPermissions?: {  forecastAccess?: {  permissionLevel: 'all' | 'managers-team' | 'report-to-them' | 'own' | 'none';
+  teamLeadIds?: string[] | undefined;};
+  forecastEditSubmissions?: {  permissionLevel: 'all' | 'managers-team' | 'report-to-them' | 'own' | 'none';
+  teamLeadIds?: string[] | undefined;};
+  forecastEditTargets?: {  permissionLevel: 'all' | 'managers-team' | 'report-to-them' | 'own' | 'none';
+  teamLeadIds?: string[] | undefined;};};
+  coachingAccess?: {  permissionLevel: 'all' | 'managers-team' | 'report-to-them' | 'own' | 'none';
+  teamLeadIds?: string[] | undefined;};
+  insightsAccess?: {  permissionLevel: 'all' | 'managers-team' | 'report-to-them' | 'own' | 'none';
+  teamLeadIds?: string[] | undefined;};
+  usageAccess?: {  permissionLevel: 'all' | 'managers-team' | 'report-to-them' | 'own' | 'none';
+  teamLeadIds?: string[] | undefined;};
+  emailsAccess?: {  permissionLevel: 'all' | 'managers-team' | 'report-to-them' | 'own' | 'none';
+  teamLeadIds?: string[] | undefined;};
+  scoreCalls?: boolean | undefined;
+  overrideScore?: boolean | undefined;
+  downloadCallMedia?: boolean | undefined;
+  shareCallsWithCustomers?: boolean | undefined;
+  manuallyScheduleAndUploadCalls?: boolean | undefined;
+  privateCalls?: boolean | undefined;
+  deleteCalls?: boolean | undefined;
+  trimCalls?: boolean | undefined;
+  listenInCalls?: boolean | undefined;
+  deleteEmails?: boolean | undefined;
+  callsAndSearch?: boolean | undefined;
+  library?: boolean | undefined;
+  deals?: boolean | undefined;
+  createEditAndDeleteDealsBoards?: boolean | undefined;
+  dealsInlineEditing?: boolean | undefined;
+  account?: boolean | undefined;
+  coaching?: boolean | undefined;
+  usage?: boolean | undefined;
+  teamStats?: boolean | undefined;
+  initiatives?: boolean | undefined;
+  market?: boolean | undefined;
+  activity?: boolean | undefined;
+  forecast?: boolean | undefined;
+  forecastManage?: boolean | undefined;
+  engageManageCompanyTemplates?: boolean | undefined;
+  engageManageCompanySequences?: boolean | undefined;
+  engageCreateAndManageRulesets?: boolean | undefined;
+  engageSnoozeFlowToDosForOthers?: boolean | undefined;
+  engageAllowCrmFieldsViewChange?: boolean | undefined;
+  viewEngageAnalyticsActivity?: boolean | undefined;
+  viewEngageAnalyticsPerformance?: boolean | undefined;
+  viewEngageAnalyticsFlows?: boolean | undefined;
+  manageGeneralBusinessSettings?: boolean | undefined;
+  manageScorecards?: boolean | undefined;
+  exportCallsAndCoachingDataToCSV?: boolean | undefined;
+  crmDataInlineEditing?: boolean | undefined;
+  crmDataImport?: boolean | undefined;
+  viewRevenueAnalytics?: boolean | undefined;
+  manageRevenueAnalytics?: boolean | undefined;
+  engageReassignFlowToDosToOthers?: boolean | undefined;
+  engageAssignFlowToDosToOthers?: boolean | undefined;
+  dealsDataExport?: boolean | undefined;
+};
+
+export interface ActionInput_gong_oauth_updatetask {
+  /**
+   * The ID of the task to update. Example: 12345
+   */
+  taskId: number;
+  /**
+   * The Gong user ID who owns the task.
+   */
+  userId: string;
+  /**
+   * New status for the task.
+   */
+  status?: 'OPEN' | 'DONE' | 'DISMISSED' | undefined;
+  /**
+   * New due date in ISO-8601 format. Example: 2018-02-18T08:00:00Z
+   */
+  dueDate?: string | undefined;
+  /**
+   * New priority for the task. Example: MEDIUM
+   */
+  priority?: string | undefined;
+  /**
+   * Notes for the task.
+   */
+  notes?: string | undefined;
+};
+
+export interface ActionOutput_gong_oauth_updatetask {
+  id?: number | undefined;
+  userId?: number | undefined;
+  status?: string | undefined;
+  dueDate?: string | undefined;
+  priority?: string | undefined;
+  error?: {  type: string;
+  message: string;} | undefined;
+};
+
+export interface ActionInput_gong_oauth_uploadcall {
+  /**
+   * Unique identifier for this call from the client system. Example: "call-123"
+   */
+  clientUniqueId: string;
+  /**
+   * When the call started in ISO 8601 UTC format. Example: "2026-06-11T10:00:00Z"
+   */
+  actualStart: string;
+  /**
+   * Direction of the call
+   */
+  direction: 'Inbound' | 'Outbound';
+  /**
+   * Gong user ID of the primary user for this call. Example: "7254376376091929519"
+   */
+  primaryUser: string;
+  /**
+   * List of parties participating in the call
+   */
+  parties: ({  /**
+   * Unique identifier for this speaker within the call. Example: "s1"
+   */
+  speakerId: string;
+  /**
+   * Email address of the party. Example: "user@example.com"
+   */
+  emailAddress: string;
+  /**
+   * Whether the party is internal or external to the organization
+   */
+  affiliation: 'Internal' | 'External';
+  /**
+   * Name of the party. Example: "John Doe"
+   */
+  name?: string | undefined;
+  /**
+   * Gong user ID for internal parties. Example: "7254376376091929519"
+   */
+  userId?: string | undefined;})[];
+  /**
+   * Title of the call. Example: "Discovery call with Acme"
+   */
+  title?: string | undefined;
+  /**
+   * Scheduled start time in ISO 8601 UTC format. Example: "2026-06-11T10:00:00Z"
+   */
+  scheduledStart?: string | undefined;
+  /**
+   * Duration of the call in seconds. Example: 1800
+   */
+  duration?: number | undefined;
+};
+
+export interface ActionOutput_gong_oauth_uploadcall {
+  /**
+   * Gong-generated call ID. Example: "123456789"
+   */
+  callId: string;
+  /**
+   * Request ID for tracking. Example: "4al018gzaztcr8nbukw"
+   */
+  requestId?: string | undefined;
+  /**
+   * URL to view the call in Gong. Example: "https://app.gong.io/call?id=123456789"
+   */
+  url?: string | undefined;
+};
+
+export interface ActionInput_gong_oauth_uploadcrmentities {
+  /**
+   * CRM integration ID generated when creating the integration. Example: "6286478263646"
+   */
+  integrationId: string;
+  /**
+   * CRM object type being uploaded. Case-sensitive.
+   */
+  entityType: 'ACCOUNT' | 'CONTACT' | 'DEAL' | 'LEAD' | 'BUSINESS_USER' | 'STAGE';
+  /**
+   * Array of CRM entity objects to upload. All objects must be of the same entityType.
+   */
+  entities: ({  /**
+   * CRM unique ID for the entity. Max 64 chars. Example: "12345"
+   */
+  objectId: string;
+  /**
+   * ISO-8601 datetime without milliseconds when the entity was last modified. Example: "2026-01-15T10:00:00Z"
+   */
+  modifiedDate: string;
+  /**
+   * When true, deletes the object from the database. Default: false
+   */
+  isDeleted?: boolean | undefined;
+  /**
+   * Qualified URI to view this object in the CRM
+   */
+  url?: string | undefined;})[];
+  /**
+   * Unique identifier for troubleshooting and deduplication. Valid characters: letters, numbers, dashes, and underscores.
+   */
+  clientRequestId?: string | undefined;
+};
+
+export interface ActionOutput_gong_oauth_uploadcrmentities {
+  requestId?: string | undefined;
+  clientRequestId?: string | undefined;
+  errors?: string[] | undefined;
+};
+
+export interface ActionInput_gong_oauth_uploadcrmentityschema {
+  /**
+   * Integration ID generated when creating the integration. Example: "6286478263646"
+   */
+  integrationId: string;
+  /**
+   * The object type to set the schema for (case-sensitive).
+   */
+  objectType: 'ACCOUNT' | 'CONTACT' | 'DEAL' | 'LEAD';
+  /**
+   * Array of schema field definitions to upload or update.
+   */
+  fields: ({  /**
+   * The unique name of the field in the CRM system. Example: "accountowner"
+   */
+  uniqueName: string;
+  /**
+   * The label to use in the UI for this field. Example: "Account Owner"
+   */
+  label: string;
+  /**
+   * The field type (case-sensitive). Must be one of the supported types.
+   */
+  type: 'DATE' | 'DATETIME' | 'NUMBER' | 'PERCENT' | 'CURRENCY' | 'ID' | 'URL' | 'STRING' | 'BOOLEAN' | 'PHONENUMBER' | 'EMAILADDRESS' | 'PICKLIST' | 'REFERENCE' | 'STRINGARRAY';
+  /**
+   * The date and time the schema was last modified. ISO-8601 format without milliseconds. Example: "2020-12-17T13:45:01Z"
+   */
+  lastModified?: string | undefined;
+  /**
+   * When true, deletes the field from the schema and its value is removed from all objects.
+   */
+  isDeleted?: boolean | undefined;
+  /**
+   * The object type this field refers to. Required for field of type REFERENCE.
+   */
+  referenceTo?: 'ACCOUNT' | 'CONTACT' | 'DEAL' | 'LEAD' | 'USER' | undefined;
+  /**
+   * The list of values for the field. Required for PICKLIST fields.
+   */
+  orderedValueList?: string[] | undefined;})[];
+};
+
+export interface ActionOutput_gong_oauth_uploadcrmentityschema {
+  /**
+   * A Gong request reference Id, generated for this request.
+   */
+  requestId: string;
 };
 
 export interface OrganizationalUnit {
@@ -102725,35 +105049,6 @@ export interface ActionOutput_zoho_books_voidinvoice {
   invoice_number?: string | undefined;
   status?: string | undefined;
   message?: string | undefined;
-};
-
-export interface Call {
-  id: string;
-  subject?: string | undefined;
-  callType?: string | undefined;
-  callPurpose?: string | undefined;
-  callResult?: string | undefined;
-  callDuration?: string | undefined;
-  callDurationInSeconds?: string | undefined;
-  callStartTime?: string | undefined;
-  description?: string | undefined;
-  dialledNumber?: string | undefined;
-  callerId?: string | undefined;
-  reminder?: string | undefined;
-  modifiedTime: string;
-  createdTime?: string | undefined;
-  ownerName?: string | undefined;
-  ownerId?: string | undefined;
-  ownerEmail?: string | undefined;
-  createdByName?: string | undefined;
-  createdById?: string | undefined;
-  modifiedByName?: string | undefined;
-  modifiedById?: string | undefined;
-  relatedToName?: string | undefined;
-  relatedToId?: string | undefined;
-  contactName?: string | undefined;
-  contactId?: string | undefined;
-  tags?: string[] | undefined;
 };
 
 export interface ActionInput_zoho_crm_convertlead {

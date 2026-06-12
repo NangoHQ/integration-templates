@@ -1,0 +1,51 @@
+{
+  "input": {
+    "bulkAssignmentId": "12345"
+  },
+  "output": {
+    "status": "not_found",
+    "bulkAssignmentId": "12345"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v2/flows/prospects/bulk-assignments/12345": {
+        "response": {
+          "requestId": "1m6mq38vulav2pi5f6b",
+          "errors": [
+            "Flow prospects bulk assignment 12345 not found"
+          ]
+        },
+        "status": 404,
+        "headers": {
+          "date": "Fri, 12 Jun 2026 14:05:19 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4989",
+          "x-ratelimit-reset": "1781273157",
+          "set-cookie": "AWSALBTG=bEym+SgR8GokTg19rNdYyVQ7gZvzBuGHO0xCtI4+yNRmY3oPtwOUnkcGlzfwV4VmmBnzHzLntCi3ceeYnhONZcvAchOrnsTnQqt6DY3YbFZkOm1yHOUBBz2kKidX7otu/aIZMliY+4/rd1SQD6oxBfZ17cg0a5fM04ocZlvk0Zqs; Expires=Fri, 19 Jun 2026 14:05:19 GMT; Path=/, AWSALBTGCORS=bEym+SgR8GokTg19rNdYyVQ7gZvzBuGHO0xCtI4+yNRmY3oPtwOUnkcGlzfwV4VmmBnzHzLntCi3ceeYnhONZcvAchOrnsTnQqt6DY3YbFZkOm1yHOUBBz2kKidX7otu/aIZMliY+4/rd1SQD6oxBfZ17cg0a5fM04ocZlvk0Zqs; Expires=Fri, 19 Jun 2026 14:05:19 GMT; Path=/; SameSite=None; Secure, AWSALB=i7vuh7sPfEeNaPSLQbOjaiWGRpJOc7UytDOk2i8UfoK8HuSLwORjxGTdfVd0YmIlrRpfLe3RgkQRre0R3J40bLWdq+cMiV9AC/eaQEAhESxVnZQX7VZNMJSScc2W; Expires=Fri, 19 Jun 2026 14:05:19 GMT; Path=/, AWSALBCORS=i7vuh7sPfEeNaPSLQbOjaiWGRpJOc7UytDOk2i8UfoK8HuSLwORjxGTdfVd0YmIlrRpfLe3RgkQRre0R3J40bLWdq+cMiV9AC/eaQEAhESxVnZQX7VZNMJSScc2W; Expires=Fri, 19 Jun 2026 14:05:19 GMT; Path=/; SameSite=None; Secure, __cf_bm=f4I8Kqu5s1TJ5SrfybQQ1E5cD0JLe_jlptjlpifmpis-1781273119.4266024-1.0.1.1-FZ3Em7IQ0yiTtDfCCluA5WXF0l9RZwaXLIDayMSZ2WtMUh37BW3sMErrzC663990cmb2_6U5Ad5DcGMn73J0CBce_xQqiBykHVicjVBDzE3Zca3Wtl34.B_VeIulByNg; HttpOnly; SameSite=None; Secure; Path=/; Domain=gong.io; Expires=Fri, 12 Jun 2026 14:35:19 GMT",
+          "x-gong-service-version": "PublicApiServer:17.main.19292",
+          "x-traceid": "1m6mq38vulav2pi5f6b",
+          "vary": "accept-encoding",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "cf-ray": "a0a968e46d1aff09-PDX",
+          "etag": "W/\"5f-cXnNfhRbY0TaZKKZ/czUIRE/by8\""
+        },
+        "hash": "8f6bc72f033d5b31725f384090635a8c3af5ab06",
+        "request": {}
+      }
+    }
+  }
+}

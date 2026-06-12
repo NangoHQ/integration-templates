@@ -1,0 +1,60 @@
+{
+  "input": {
+    "emailAddress": "nango-delete-test-1@example.com"
+  },
+  "output": {
+    "requestId": "5jun07gf5lug3lgvawa",
+    "emails": [],
+    "calls": [],
+    "meetings": [],
+    "customerData": [],
+    "customerEngagement": []
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v2/data-privacy/data-for-email-address": {
+        "response": {
+          "requestId": "5jun07gf5lug3lgvawa",
+          "emails": [],
+          "calls": [],
+          "meetings": [],
+          "customerData": [],
+          "customerEngagement": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 12 Jun 2026 09:27:50 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "17",
+          "x-ratelimit-reset": "1781256490",
+          "set-cookie": "AWSALBTG=45FnPa2M2PqGNArOG6cXlyso+Ms8c2t2ObqQlQnnatiASnCwwvyiJIralTqenx+iSdN4iFI07QgzOCjAgCJLLgSYmYN4FRq0L/NpH+NxWgM09WbQj30Cc/7I3zXC5tP8r4qMIKDy9Bcq/MH92j+xXnrSCSBRX1atKauSaXgFSAHZ; Expires=Fri, 19 Jun 2026 09:27:49 GMT; Path=/, AWSALBTGCORS=45FnPa2M2PqGNArOG6cXlyso+Ms8c2t2ObqQlQnnatiASnCwwvyiJIralTqenx+iSdN4iFI07QgzOCjAgCJLLgSYmYN4FRq0L/NpH+NxWgM09WbQj30Cc/7I3zXC5tP8r4qMIKDy9Bcq/MH92j+xXnrSCSBRX1atKauSaXgFSAHZ; Expires=Fri, 19 Jun 2026 09:27:49 GMT; Path=/; SameSite=None; Secure, AWSALB=ks5LgB72gyNlC4seAwa8mT4fAxxlRPKSjVMPs32MazK125gdSLTYslFxol3on92Jbm3ngkEXTWWG/t3a4t3D9xAmcLRNDPXenO39Gsqb0XpR0TCJ7Y5pSVLEm5qg; Expires=Fri, 19 Jun 2026 09:27:49 GMT; Path=/, AWSALBCORS=ks5LgB72gyNlC4seAwa8mT4fAxxlRPKSjVMPs32MazK125gdSLTYslFxol3on92Jbm3ngkEXTWWG/t3a4t3D9xAmcLRNDPXenO39Gsqb0XpR0TCJ7Y5pSVLEm5qg; Expires=Fri, 19 Jun 2026 09:27:49 GMT; Path=/; SameSite=None; Secure, __cf_bm=vC9WEORs6575l1J8Wlq2RuwWAhQybMe9Gex0uPnlq2Y-1781256469.9064548-1.0.1.1-OXsenTyjVavdnrMFHEkwMiHpBnAwoJujOtN7oZznidOxmE5k6B0ud1TAi9o1TN644LfLIl5.tdolEJPkueoyH_Jm.4O11aKnsp00mWXtv9LUwqpl1wbNJMZ1AlM__Jid; HttpOnly; SameSite=None; Secure; Path=/; Domain=gong.io; Expires=Fri, 12 Jun 2026 09:57:50 GMT",
+          "x-gong-service-version": "PublicApiServer:17.main.19292",
+          "x-traceid": "5jun07gf5lug3lgvawa",
+          "vary": "accept-encoding",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "cf-ray": "a0a7d268ecd64e7c-PDX"
+        },
+        "hash": "1e661c7e5b23b58b62ddc103cda6324712d0f6e5",
+        "request": {
+          "params": {
+            "emailAddress": "nango-delete-test-1@example.com"
+          }
+        }
+      }
+    }
+  }
+}

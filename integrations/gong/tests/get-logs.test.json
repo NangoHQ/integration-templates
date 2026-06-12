@@ -1,0 +1,488 @@
+{
+  "input": {
+    "logType": "UserActivityLog",
+    "fromDateTime": "2024-01-01T00:00:00Z",
+    "toDateTime": "2026-06-01T00:00:00Z"
+  },
+  "output": {
+    "requestId": "20r9yo77060o0z60tid",
+    "totalRecords": 2,
+    "currentPageSize": 2,
+    "currentPageNumber": 0,
+    "logEntries": [
+      {
+        "userId": "6060364869904287787",
+        "userEmailAddress": "diego.moreno-ext@gong.io",
+        "userFullName": "Diego Moreno",
+        "eventTime": "2025-06-12T19:55:14.638Z",
+        "logRecord": {
+          "auditId": "7091087552163932134",
+          "tableChanges": [
+            {
+              "preSnapshotTimestamp": "2025-06-12T19:55:14.571Z",
+              "postSnapshotTimestamp": "2025-06-12T19:55:14.635Z",
+              "rowChanges": [],
+              "tableName": "app_user_management.user_data_capture_settings"
+            },
+            {
+              "preSnapshotTimestamp": "2025-06-12T19:55:14.569Z",
+              "postSnapshotTimestamp": "2025-06-12T19:55:14.634Z",
+              "rowChanges": [],
+              "tableName": "licensing.user_products"
+            },
+            {
+              "preSnapshotTimestamp": "2025-06-12T19:55:14.536Z",
+              "postSnapshotTimestamp": "2025-06-12T19:55:14.609Z",
+              "rowChanges": [],
+              "tableName": "permissions.permission"
+            },
+            {
+              "preSnapshotTimestamp": "2025-06-12T19:55:14.524Z",
+              "postSnapshotTimestamp": "2025-06-12T19:55:14.595Z",
+              "rowChanges": [],
+              "tableName": "permissions.permission_profile"
+            },
+            {
+              "preSnapshotTimestamp": "2025-06-12T19:55:14.552Z",
+              "postSnapshotTimestamp": "2025-06-12T19:55:14.630Z",
+              "rowChanges": [],
+              "tableName": "permissions.user_to_permission_profile"
+            },
+            {
+              "preSnapshotTimestamp": "2025-06-12T19:55:14.522Z",
+              "postSnapshotTimestamp": "2025-06-12T19:55:14.580Z",
+              "rowChanges": [],
+              "tableName": "public.appuser"
+            },
+            {
+              "preSnapshotTimestamp": "2025-06-12T19:55:14.565Z",
+              "postSnapshotTimestamp": "2025-06-12T19:55:14.632Z",
+              "rowChanges": [],
+              "tableName": "public.appuserglobalrole"
+            }
+          ],
+          "customData": [
+            {
+              "values": [
+                "Contingent Worker"
+              ],
+              "key": "user-title"
+            },
+            {
+              "values": [
+                "262834820328732"
+              ],
+              "key": "impersonator-company-id"
+            },
+            {
+              "values": [
+                "Developer Partner"
+              ],
+              "key": "subscription-status"
+            }
+          ],
+          "remoteCallsAuditData": [],
+          "action": null,
+          "httpRequest": {
+            "referrerUri": "https://gong.app.gong.io/admin/companies",
+            "clientIp": "136.226.123.5",
+            "verb": "POST",
+            "endpointUri": "/animate-avatar",
+            "body": null,
+            "parameters": [
+              {
+                "values": [
+                  "4147239961233958668"
+                ],
+                "key": "company-id"
+              },
+              {
+                "values": [
+                  "/company"
+                ],
+                "key": "redirect-url"
+              },
+              {
+                "values": [
+                  "eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3NDk3NTk4NzksImlhdCI6MTc0OTc1ODA3OSwidXNlcklkIjo2MDYwMzY0ODY5OTA0Mjg3Nzg3LCJqdGkiOiJCU2FaZjVYbk9GZDAifQ.01Fh322ECKcUOZePpTnY3yG14g2V51TRcsriIFf9i8w"
+                ],
+                "key": "_csrf"
+              }
+            ]
+          },
+          "workspaceId": null
+        }
+      },
+      {
+        "userId": "6060364869904287787",
+        "userEmailAddress": "diego.moreno-ext@gong.io",
+        "userFullName": "Diego Moreno",
+        "eventTime": "2025-06-12T19:55:15.748Z",
+        "logRecord": {
+          "auditId": "4736426130129332445",
+          "tableChanges": [
+            {
+              "preSnapshotTimestamp": "2025-06-12T19:55:15.568Z",
+              "postSnapshotTimestamp": "2025-06-12T19:55:15.734Z",
+              "rowChanges": [],
+              "tableName": "permissions.permission"
+            },
+            {
+              "preSnapshotTimestamp": "2025-06-12T19:55:15.557Z",
+              "postSnapshotTimestamp": "2025-06-12T19:55:15.722Z",
+              "rowChanges": [],
+              "tableName": "permissions.permission_profile"
+            },
+            {
+              "preSnapshotTimestamp": "2025-06-12T19:55:15.580Z",
+              "postSnapshotTimestamp": "2025-06-12T19:55:15.745Z",
+              "rowChanges": [],
+              "tableName": "permissions.user_to_permission_profile"
+            },
+            {
+              "preSnapshotTimestamp": "2025-06-12T19:55:15.555Z",
+              "postSnapshotTimestamp": "2025-06-12T19:55:15.712Z",
+              "rowChanges": [
+                {
+                  "primaryKeyColumns": [
+                    {
+                      "columnValue": "2448790551835597049",
+                      "columnName": "id"
+                    }
+                  ],
+                  "columnChanges": [
+                    {
+                      "newValue": "2025-06-12T19:55:15.654+00:00",
+                      "oldValue": null,
+                      "operation": "replace",
+                      "columnName": "activation_date_time"
+                    }
+                  ]
+                }
+              ],
+              "tableName": "public.appuser"
+            }
+          ],
+          "customData": [],
+          "remoteCallsAuditData": [],
+          "action": null,
+          "httpRequest": {
+            "referrerUri": "https://gong.app.gong.io/",
+            "clientIp": "136.226.123.5",
+            "verb": "POST",
+            "endpointUri": "/welcome/cross-cell-login",
+            "body": null,
+            "parameters": [
+              {
+                "values": [
+                  "eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3NDk3NTgxNzQsImlhdCI6MTc0OTc1ODExNCwidXNlcklkIjo2MDYwMzY0ODY5OTA0Mjg3Nzg3LCJqdGkiOiJMaDlpMVhxNVlQUWEifQ.8o7H9B4joa02uNg-C5vcbxYgieiR0Ffw8JB42OHJN5c"
+                ],
+                "key": "cross-cell-login-token"
+              },
+              {
+                "values": [
+                  "gcell-nam-01"
+                ],
+                "key": "original-cell-id"
+              },
+              {
+                "values": [
+                  "4147239961233958668"
+                ],
+                "key": "target-company-id"
+              },
+              {
+                "values": [
+                  "0"
+                ],
+                "key": "type"
+              },
+              {
+                "values": [
+                  "/company",
+                  "/company"
+                ],
+                "key": "redirect-url"
+              },
+              {
+                "values": [
+                  "4147239961233958668"
+                ],
+                "key": "company-id"
+              },
+              {
+                "values": [
+                  "eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3NDk3NTk4NzksImlhdCI6MTc0OTc1ODA3OSwidXNlcklkIjo2MDYwMzY0ODY5OTA0Mjg3Nzg3LCJqdGkiOiJCU2FaZjVYbk9GZDAifQ.01Fh322ECKcUOZePpTnY3yG14g2V51TRcsriIFf9i8w"
+                ],
+                "key": "_csrf"
+              }
+            ]
+          },
+          "workspaceId": null
+        }
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v2/logs": {
+        "response": {
+          "requestId": "20r9yo77060o0z60tid",
+          "records": {
+            "totalRecords": 2,
+            "currentPageSize": 2,
+            "currentPageNumber": 0
+          },
+          "logEntries": [
+            {
+              "userId": "6060364869904287787",
+              "userEmailAddress": "diego.moreno-ext@gong.io",
+              "userFullName": "Diego Moreno",
+              "eventTime": "2025-06-12T19:55:14.638Z",
+              "logRecord": {
+                "auditId": "7091087552163932134",
+                "tableChanges": [
+                  {
+                    "preSnapshotTimestamp": "2025-06-12T19:55:14.571Z",
+                    "postSnapshotTimestamp": "2025-06-12T19:55:14.635Z",
+                    "rowChanges": [],
+                    "tableName": "app_user_management.user_data_capture_settings"
+                  },
+                  {
+                    "preSnapshotTimestamp": "2025-06-12T19:55:14.569Z",
+                    "postSnapshotTimestamp": "2025-06-12T19:55:14.634Z",
+                    "rowChanges": [],
+                    "tableName": "licensing.user_products"
+                  },
+                  {
+                    "preSnapshotTimestamp": "2025-06-12T19:55:14.536Z",
+                    "postSnapshotTimestamp": "2025-06-12T19:55:14.609Z",
+                    "rowChanges": [],
+                    "tableName": "permissions.permission"
+                  },
+                  {
+                    "preSnapshotTimestamp": "2025-06-12T19:55:14.524Z",
+                    "postSnapshotTimestamp": "2025-06-12T19:55:14.595Z",
+                    "rowChanges": [],
+                    "tableName": "permissions.permission_profile"
+                  },
+                  {
+                    "preSnapshotTimestamp": "2025-06-12T19:55:14.552Z",
+                    "postSnapshotTimestamp": "2025-06-12T19:55:14.630Z",
+                    "rowChanges": [],
+                    "tableName": "permissions.user_to_permission_profile"
+                  },
+                  {
+                    "preSnapshotTimestamp": "2025-06-12T19:55:14.522Z",
+                    "postSnapshotTimestamp": "2025-06-12T19:55:14.580Z",
+                    "rowChanges": [],
+                    "tableName": "public.appuser"
+                  },
+                  {
+                    "preSnapshotTimestamp": "2025-06-12T19:55:14.565Z",
+                    "postSnapshotTimestamp": "2025-06-12T19:55:14.632Z",
+                    "rowChanges": [],
+                    "tableName": "public.appuserglobalrole"
+                  }
+                ],
+                "customData": [
+                  {
+                    "values": [
+                      "Contingent Worker"
+                    ],
+                    "key": "user-title"
+                  },
+                  {
+                    "values": [
+                      "262834820328732"
+                    ],
+                    "key": "impersonator-company-id"
+                  },
+                  {
+                    "values": [
+                      "Developer Partner"
+                    ],
+                    "key": "subscription-status"
+                  }
+                ],
+                "remoteCallsAuditData": [],
+                "action": null,
+                "httpRequest": {
+                  "referrerUri": "https://gong.app.gong.io/admin/companies",
+                  "clientIp": "136.226.123.5",
+                  "verb": "POST",
+                  "endpointUri": "/animate-avatar",
+                  "body": null,
+                  "parameters": [
+                    {
+                      "values": [
+                        "4147239961233958668"
+                      ],
+                      "key": "company-id"
+                    },
+                    {
+                      "values": [
+                        "/company"
+                      ],
+                      "key": "redirect-url"
+                    },
+                    {
+                      "values": [
+                        "eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3NDk3NTk4NzksImlhdCI6MTc0OTc1ODA3OSwidXNlcklkIjo2MDYwMzY0ODY5OTA0Mjg3Nzg3LCJqdGkiOiJCU2FaZjVYbk9GZDAifQ.01Fh322ECKcUOZePpTnY3yG14g2V51TRcsriIFf9i8w"
+                      ],
+                      "key": "_csrf"
+                    }
+                  ]
+                },
+                "workspaceId": null
+              }
+            },
+            {
+              "userId": "6060364869904287787",
+              "userEmailAddress": "diego.moreno-ext@gong.io",
+              "userFullName": "Diego Moreno",
+              "eventTime": "2025-06-12T19:55:15.748Z",
+              "logRecord": {
+                "auditId": "4736426130129332445",
+                "tableChanges": [
+                  {
+                    "preSnapshotTimestamp": "2025-06-12T19:55:15.568Z",
+                    "postSnapshotTimestamp": "2025-06-12T19:55:15.734Z",
+                    "rowChanges": [],
+                    "tableName": "permissions.permission"
+                  },
+                  {
+                    "preSnapshotTimestamp": "2025-06-12T19:55:15.557Z",
+                    "postSnapshotTimestamp": "2025-06-12T19:55:15.722Z",
+                    "rowChanges": [],
+                    "tableName": "permissions.permission_profile"
+                  },
+                  {
+                    "preSnapshotTimestamp": "2025-06-12T19:55:15.580Z",
+                    "postSnapshotTimestamp": "2025-06-12T19:55:15.745Z",
+                    "rowChanges": [],
+                    "tableName": "permissions.user_to_permission_profile"
+                  },
+                  {
+                    "preSnapshotTimestamp": "2025-06-12T19:55:15.555Z",
+                    "postSnapshotTimestamp": "2025-06-12T19:55:15.712Z",
+                    "rowChanges": [
+                      {
+                        "primaryKeyColumns": [
+                          {
+                            "columnValue": "2448790551835597049",
+                            "columnName": "id"
+                          }
+                        ],
+                        "columnChanges": [
+                          {
+                            "newValue": "2025-06-12T19:55:15.654+00:00",
+                            "oldValue": null,
+                            "operation": "replace",
+                            "columnName": "activation_date_time"
+                          }
+                        ]
+                      }
+                    ],
+                    "tableName": "public.appuser"
+                  }
+                ],
+                "customData": [],
+                "remoteCallsAuditData": [],
+                "action": null,
+                "httpRequest": {
+                  "referrerUri": "https://gong.app.gong.io/",
+                  "clientIp": "136.226.123.5",
+                  "verb": "POST",
+                  "endpointUri": "/welcome/cross-cell-login",
+                  "body": null,
+                  "parameters": [
+                    {
+                      "values": [
+                        "eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3NDk3NTgxNzQsImlhdCI6MTc0OTc1ODExNCwidXNlcklkIjo2MDYwMzY0ODY5OTA0Mjg3Nzg3LCJqdGkiOiJMaDlpMVhxNVlQUWEifQ.8o7H9B4joa02uNg-C5vcbxYgieiR0Ffw8JB42OHJN5c"
+                      ],
+                      "key": "cross-cell-login-token"
+                    },
+                    {
+                      "values": [
+                        "gcell-nam-01"
+                      ],
+                      "key": "original-cell-id"
+                    },
+                    {
+                      "values": [
+                        "4147239961233958668"
+                      ],
+                      "key": "target-company-id"
+                    },
+                    {
+                      "values": [
+                        "0"
+                      ],
+                      "key": "type"
+                    },
+                    {
+                      "values": [
+                        "/company",
+                        "/company"
+                      ],
+                      "key": "redirect-url"
+                    },
+                    {
+                      "values": [
+                        "4147239961233958668"
+                      ],
+                      "key": "company-id"
+                    },
+                    {
+                      "values": [
+                        "eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3NDk3NTk4NzksImlhdCI6MTc0OTc1ODA3OSwidXNlcklkIjo2MDYwMzY0ODY5OTA0Mjg3Nzg3LCJqdGkiOiJCU2FaZjVYbk9GZDAifQ.01Fh322ECKcUOZePpTnY3yG14g2V51TRcsriIFf9i8w"
+                      ],
+                      "key": "_csrf"
+                    }
+                  ]
+                },
+                "workspaceId": null
+              }
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 12 Jun 2026 13:57:26 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "17",
+          "x-ratelimit-reset": "1781272704",
+          "set-cookie": "AWSALBTG=W65mSPhrcw9BdVkxvoqQkUhU66zf8ZpoejdEVPx3OcTr1c6OHXVyLemgErXs5a9qU7kjD5JwefOfNLyQRYU24bEEWj7pJF1fgb8m5DF/VGYsJ27k/2Cr5jvD5ZBwv29Yg7uxnyDEZi7f7miQFR0uqEIHs94cTlUh6cStHw3f3L2/; Expires=Fri, 19 Jun 2026 13:57:25 GMT; Path=/, AWSALBTGCORS=W65mSPhrcw9BdVkxvoqQkUhU66zf8ZpoejdEVPx3OcTr1c6OHXVyLemgErXs5a9qU7kjD5JwefOfNLyQRYU24bEEWj7pJF1fgb8m5DF/VGYsJ27k/2Cr5jvD5ZBwv29Yg7uxnyDEZi7f7miQFR0uqEIHs94cTlUh6cStHw3f3L2/; Expires=Fri, 19 Jun 2026 13:57:25 GMT; Path=/; SameSite=None; Secure, AWSALB=8lHPp57yCblBnJe9cMBb3iOlIfF7GBQtFBEeQ1KcOGMEKfKw9iBz9Q0oWUxA0BSxIBknx7yBHGLibNwCZNei3anbnsA5vRavAe22Is2hz/lkr4hF1uL6ElXalx0r; Expires=Fri, 19 Jun 2026 13:57:25 GMT; Path=/, AWSALBCORS=8lHPp57yCblBnJe9cMBb3iOlIfF7GBQtFBEeQ1KcOGMEKfKw9iBz9Q0oWUxA0BSxIBknx7yBHGLibNwCZNei3anbnsA5vRavAe22Is2hz/lkr4hF1uL6ElXalx0r; Expires=Fri, 19 Jun 2026 13:57:25 GMT; Path=/; SameSite=None; Secure, __cf_bm=Bb5WlsvM5XS.UNs3RJaE9qpBkIg03rWybHFVuUgc2Uw-1781272645.5251474-1.0.1.1-Fyl.OphmAGDOpwe9Q9B7j2XcF7hl5Br7R8MWqKrym5yEKpB2ucsffEpsK9eOGSSNfnKSDY35bmkz4Xnt.lAryapAjOObzaYCqTf1tJfrr0MMRg7ARL48.aHDPxukDBYl; HttpOnly; SameSite=None; Secure; Path=/; Domain=gong.io; Expires=Fri, 12 Jun 2026 14:27:26 GMT",
+          "x-gong-service-version": "PublicApiServer:17.main.19292",
+          "x-traceid": "20r9yo77060o0z60tid",
+          "vary": "accept-encoding",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "cf-ray": "a0a95d528875dfd2-PDX"
+        },
+        "hash": "75f81fb86185632a74ac33f64ffbf63ab46fbdc6",
+        "request": {
+          "params": {
+            "fromDateTime": "2024-01-01T00:00:00Z",
+            "logType": "UserActivityLog",
+            "toDateTime": "2026-06-01T00:00:00Z"
+          }
+        }
+      }
+    }
+  }
+}

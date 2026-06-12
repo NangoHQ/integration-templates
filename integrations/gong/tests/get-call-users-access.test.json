@@ -1,0 +1,59 @@
+{
+  "input": {
+    "callId": "123456789"
+  },
+  "output": {
+    "callId": "123456789",
+    "users": []
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v2/calls/users-access": {
+        "response": {
+          "requestId": "5p04dkouvm1l0dzazf0",
+          "errors": [
+            "Some calls not found"
+          ]
+        },
+        "status": 400,
+        "headers": {
+          "date": "Fri, 12 Jun 2026 10:29:38 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4928",
+          "x-ratelimit-reset": "1781260179",
+          "set-cookie": "AWSALBTG=9zwBkJF35S9UlSHD1gwIwdkawyV1Pijoc5PM5Z2H24RVuW/D9EPAV0LyX4XDSJAAKmYWL4MiposdQGDEKC9Cd8aSuX1UDrLPZgB3J5nqmqsLhVbn453bPLFz6t0RZQORoqOLsgCi8FK/AkUa/d36jiB1vscF6fkhF1YaJLw5lKbJ; Expires=Fri, 19 Jun 2026 10:29:38 GMT; Path=/, AWSALBTGCORS=9zwBkJF35S9UlSHD1gwIwdkawyV1Pijoc5PM5Z2H24RVuW/D9EPAV0LyX4XDSJAAKmYWL4MiposdQGDEKC9Cd8aSuX1UDrLPZgB3J5nqmqsLhVbn453bPLFz6t0RZQORoqOLsgCi8FK/AkUa/d36jiB1vscF6fkhF1YaJLw5lKbJ; Expires=Fri, 19 Jun 2026 10:29:38 GMT; Path=/; SameSite=None; Secure, AWSALB=zMCnoEeTgRrVRkL9QwVHlINGwF7Z2Zu1+UY+AswIox3DnENHwGuxceViDBcZ8WG5zcoGH9Wp9z2koZ6p4BsXyFWW/Ej+SZ8+NxG8ojs5UpPM7UO5eVEi/MaWYIHK; Expires=Fri, 19 Jun 2026 10:29:38 GMT; Path=/, AWSALBCORS=zMCnoEeTgRrVRkL9QwVHlINGwF7Z2Zu1+UY+AswIox3DnENHwGuxceViDBcZ8WG5zcoGH9Wp9z2koZ6p4BsXyFWW/Ej+SZ8+NxG8ojs5UpPM7UO5eVEi/MaWYIHK; Expires=Fri, 19 Jun 2026 10:29:38 GMT; Path=/; SameSite=None; Secure, __cf_bm=yJEqAcKPPGJCtyQbr9KIK.CaRnW5MwNjkhgdim7.97Y-1781260178.4456367-1.0.1.1-zlloosW1qGVblpVWPmY9B8sli8MZ1Ia2eiO.5jIe1RT2tpGJmK7ffzeXX6ObrdwQc5zfKunqgrRpHcoXTpk1sNlKyHtfYQCkGoad91MYxp.nCmUZ5gR2C7U_sN2ndW5s; HttpOnly; SameSite=None; Secure; Path=/; Domain=gong.io; Expires=Fri, 12 Jun 2026 10:59:38 GMT",
+          "x-gong-service-version": "PublicApiServer:17.main.19292",
+          "x-traceid": "5p04dkouvm1l0dzazf0",
+          "vary": "accept-encoding",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "cf-ray": "a0a82cf34c6f3741-PDX",
+          "etag": "W/\"45-DKY2LYQ1NWIa3O8vIrFOvW3auW0\""
+        },
+        "hash": "f1a923f1cbf6fc24bb88d88a62ae72a54585c8fe",
+        "request": {
+          "data": {
+            "filter": {
+              "callIds": [
+                "123456789"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

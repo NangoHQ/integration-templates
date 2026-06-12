@@ -1,0 +1,65 @@
+{
+  "input": {
+    "entityType": "CONTACT",
+    "entityId": "7254376376091929519",
+    "workspaceId": "7273476131570014205",
+    "briefName": "Default",
+    "timePeriod": "LAST_30DAYS"
+  },
+  "output": {
+    "requestId": "2wi8m8tgykavtjl5twz",
+    "errors": [
+      "You don't have permission to use 'api:ai-briefer:read' in your app."
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v2/entities/get-brief": {
+        "response": {
+          "requestId": "2wi8m8tgykavtjl5twz",
+          "errors": [
+            "You don't have permission to use 'api:ai-briefer:read' in your app."
+          ]
+        },
+        "status": 401,
+        "headers": {
+          "date": "Fri, 12 Jun 2026 14:07:58 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4986",
+          "x-ratelimit-reset": "1781273302",
+          "set-cookie": "AWSALBTG=bRHBtHCo+BKFA8d6S6NaAUVDJ0T90aL9qlWjkYNPtQJXJOSApdCecxqclej2Ihz+hL4CMOquLtkWhFouKRupPeywkppncvuax7R3m6iNGsjh+upr+yd1a1aovZdI+AWPbW2yyvBR/Y18I9mrLR25EefKV9/YWhVxp6vHh6VfZrjU; Expires=Fri, 19 Jun 2026 14:07:58 GMT; Path=/, AWSALBTGCORS=bRHBtHCo+BKFA8d6S6NaAUVDJ0T90aL9qlWjkYNPtQJXJOSApdCecxqclej2Ihz+hL4CMOquLtkWhFouKRupPeywkppncvuax7R3m6iNGsjh+upr+yd1a1aovZdI+AWPbW2yyvBR/Y18I9mrLR25EefKV9/YWhVxp6vHh6VfZrjU; Expires=Fri, 19 Jun 2026 14:07:58 GMT; Path=/; SameSite=None; Secure, AWSALB=eNrztqMegS9hcvxR4nf3wj6Lk/FkQwE0QWlZoqc6G0MDeKFR7NC9Ba3Gi0EaHdqzV3/4DE1PbiKmz+4++5EkZkJVLCjL9XrGihPlABab11gnwpwGbHVQnx/K3IbR; Expires=Fri, 19 Jun 2026 14:07:58 GMT; Path=/, AWSALBCORS=eNrztqMegS9hcvxR4nf3wj6Lk/FkQwE0QWlZoqc6G0MDeKFR7NC9Ba3Gi0EaHdqzV3/4DE1PbiKmz+4++5EkZkJVLCjL9XrGihPlABab11gnwpwGbHVQnx/K3IbR; Expires=Fri, 19 Jun 2026 14:07:58 GMT; Path=/; SameSite=None; Secure, __cf_bm=cCeRHxnnW0CEKxPKIdv8eEgq.cn_.P_M4onwhmFcvas-1781273278.2997444-1.0.1.1-knSuTQUcceR6pMTTwwow8K9tZkvi9xc6M6owSqckryIWW8vs0BaC0tp4xS1vDE_j4upYRTDof8BnJfRQC2wnweG9rg3QkIpCFm78WE0w7Rqgftj.YtjBdbE8bb5YPGtf; HttpOnly; SameSite=None; Secure; Path=/; Domain=gong.io; Expires=Fri, 12 Jun 2026 14:37:58 GMT",
+          "x-gong-service-version": "PublicApiServer:17.main.19292",
+          "x-traceid": "2wi8m8tgykavtjl5twz",
+          "vary": "accept-encoding",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "cf-ray": "a0a96cc55e8f5939-PDX",
+          "etag": "W/\"74-E/Re85Wam09k0snpsYaQvqzdiS4\""
+        },
+        "hash": "3b1f63dc792e126562eceaf6f5c43ee8bbbbbbfd",
+        "request": {
+          "params": {
+            "briefName": "Default",
+            "crmEntityId": "7254376376091929519",
+            "crmEntityType": "CONTACT",
+            "timePeriod": "LAST_30DAYS",
+            "workspaceId": "7273476131570014205"
+          }
+        }
+      }
+    }
+  }
+}

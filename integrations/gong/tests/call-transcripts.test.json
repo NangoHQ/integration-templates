@@ -1,0 +1,60 @@
+{
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {},
+    "batchSave": {
+      "CallTranscript": []
+    },
+    "batchDelete": {
+      "CallTranscript": []
+    }
+  },
+  "api": {
+    "post": {
+      "/v2/calls/transcript": {
+        "response": {
+          "requestId": "2vpoxzuzrraar3iw4mn",
+          "errors": [
+            "No calls found corresponding to the provided filters"
+          ]
+        },
+        "status": 404,
+        "headers": {
+          "date": "Fri, 12 Jun 2026 17:41:25 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4995",
+          "x-ratelimit-reset": "1781286096",
+          "set-cookie": "AWSALBTG=61KtgLzeyXF1ph8R/0IYUz4IBbLVbr91vjxjTJYESXX5iPyP3/cjry/+1ulRMppF/ZsYlTvW/PXRIWrXh7y7VpQa49axLbf1SKVy2U5qhSkM4Zb1Uj+uyg4td73FxGXY5lhGFmQZv2nSqaOgsjDlVLiyFfcR6dw014s/TXwZvyH5; Expires=Fri, 19 Jun 2026 17:41:25 GMT; Path=/, AWSALBTGCORS=61KtgLzeyXF1ph8R/0IYUz4IBbLVbr91vjxjTJYESXX5iPyP3/cjry/+1ulRMppF/ZsYlTvW/PXRIWrXh7y7VpQa49axLbf1SKVy2U5qhSkM4Zb1Uj+uyg4td73FxGXY5lhGFmQZv2nSqaOgsjDlVLiyFfcR6dw014s/TXwZvyH5; Expires=Fri, 19 Jun 2026 17:41:25 GMT; Path=/; SameSite=None; Secure, AWSALB=M+HPrB4gr8ET5mEIlvbREa67k9yDrnUCI3r9j/2VRYPqqB/gJWWpjhxJaGsnD5yGOE1HixGIWgD753zFuT3cDPJJl4yQdAfs5tQM7DfH8N1sLKOUzasW1qoFvHlT; Expires=Fri, 19 Jun 2026 17:41:25 GMT; Path=/, AWSALBCORS=M+HPrB4gr8ET5mEIlvbREa67k9yDrnUCI3r9j/2VRYPqqB/gJWWpjhxJaGsnD5yGOE1HixGIWgD753zFuT3cDPJJl4yQdAfs5tQM7DfH8N1sLKOUzasW1qoFvHlT; Expires=Fri, 19 Jun 2026 17:41:25 GMT; Path=/; SameSite=None; Secure, __cf_bm=yjNumcAG7HrspOsY5WM4saepYL55YhWbr0FiqfkTdvs-1781286085.0182376-1.0.1.1-I7IcPQ5aWSkaNb99u50TdrPCQTqb_0k59s5oCr0Q_Z1D_8PSwlbLC47jQwuntgFCOQXR3F7rYWPzA4kQRCkmliJTDA5DSx5.mUuy9GvmWDRzFm3VYBFbPBOLhfM.wZAm; HttpOnly; SameSite=None; Secure; Path=/; Domain=gong.io; Expires=Fri, 12 Jun 2026 18:11:25 GMT",
+          "x-gong-service-version": "PublicApiServer:17.main.19292",
+          "x-traceid": "2vpoxzuzrraar3iw4mn",
+          "vary": "accept-encoding",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "cf-ray": "a0aaa56f59f4ff0d-PDX",
+          "etag": "W/\"65-AmPH5H6YVJCQC6afinOIDryfK3o\""
+        },
+        "hash": "f5c1e9121926ec7a53daf8751533aa1019ea2d7e",
+        "request": {
+          "data": {
+            "filter": {
+              "fromDateTime": "2025-06-12T17:41:24.361Z",
+              "toDateTime": "2026-06-12T17:40:00.000Z"
+            }
+          }
+        }
+      }
+    }
+  }
+}

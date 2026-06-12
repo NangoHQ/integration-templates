@@ -1,0 +1,55 @@
+{
+  "input": {
+    "crmProspectsIds": [
+      "test-prospect-123"
+    ]
+  },
+  "output": {
+    "items": []
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v2/flows/prospects": {
+        "response": {
+          "requestId": "4u3dx3q6vsi4oend0lk",
+          "prospectsAssigned": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 12 Jun 2026 09:32:04 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "17",
+          "x-ratelimit-reset": "1781256733",
+          "set-cookie": "AWSALBTG=/3Pekgd9lc+xPVNZZtyM7RkxiF8IFiLV4OCIS7X1htJRA7xHLE1oZA1weOhSovX/CdwEYLJvtLbHu3458NkFNup+ntGQpAbsktwgDpsAF9TyW+vNir/f9bK7Z424VcEDAHJ1d5y7q0/1ekDCfjz6H/pzsfE4QvXwMBG4euAjSGyn; Expires=Fri, 19 Jun 2026 09:32:04 GMT; Path=/, AWSALBTGCORS=/3Pekgd9lc+xPVNZZtyM7RkxiF8IFiLV4OCIS7X1htJRA7xHLE1oZA1weOhSovX/CdwEYLJvtLbHu3458NkFNup+ntGQpAbsktwgDpsAF9TyW+vNir/f9bK7Z424VcEDAHJ1d5y7q0/1ekDCfjz6H/pzsfE4QvXwMBG4euAjSGyn; Expires=Fri, 19 Jun 2026 09:32:04 GMT; Path=/; SameSite=None; Secure, AWSALB=1YfdEvZMjPYcqY/QxXfvLx4AbvLIjWJGMoSqEvE7olIRilTlW/vsAVKmJUyIC+A32aSwj7gf7ny+FWuPt77rTnXyQNzw9HHjzafE3/shnXs9p6Z6FvEQTHstfT2B; Expires=Fri, 19 Jun 2026 09:32:04 GMT; Path=/, AWSALBCORS=1YfdEvZMjPYcqY/QxXfvLx4AbvLIjWJGMoSqEvE7olIRilTlW/vsAVKmJUyIC+A32aSwj7gf7ny+FWuPt77rTnXyQNzw9HHjzafE3/shnXs9p6Z6FvEQTHstfT2B; Expires=Fri, 19 Jun 2026 09:32:04 GMT; Path=/; SameSite=None; Secure, __cf_bm=lOTk9H2gr2Ck9WlaZjPQOSSw9Hslqy_Nef91olGzkFY-1781256723.9836893-1.0.1.1-Bg7PegRcHUvpSBZR6iECjhQSIbgkhTwQVkSEOFf8QO1krY5DRvns9UipUvJW.lPjxqtgEiRtKf5ZQQEvOsOB6jv0ApWusaaPMd.v0WoaS3HMRV1m0TLPFNNvOu2c.A3z; HttpOnly; SameSite=None; Secure; Path=/; Domain=gong.io; Expires=Fri, 12 Jun 2026 10:02:04 GMT",
+          "x-gong-service-version": "PublicApiServer:17.main.19292",
+          "x-traceid": "4u3dx3q6vsi4oend0lk",
+          "vary": "accept-encoding",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "cf-ray": "a0a7d89ceafeff03-PDX"
+        },
+        "hash": "524fdd870ddbb1fe1b44c970c17419a47a6764c0",
+        "request": {
+          "data": {
+            "crmProspectsIds": [
+              "test-prospect-123"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

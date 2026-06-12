@@ -1,63 +1,99 @@
-import { createAction } from 'nango';
-import { toCallTranscriptWithCursor } from '../mappers/to-call-transcript.js';
-import { gongCallTranscriptInputSchema } from '../schema.zod.js';
-import type { GongCallTranscriptResponse, FilterFields, AxiosError, GongError } from '../types.js';
-
+import { z } from 'zod';
 import type { ProxyConfiguration } from 'nango';
-import { GongCallTranscriptOutput, GongCallTranscriptInput } from '../models.js';
+import { createAction } from 'nango';
+
+const InputSchema = z.object({
+    callIds: z.array(z.string()).min(1).describe('Array of Gong call IDs to fetch transcripts for. Example: ["123456789"]')
+});
+
+const SentenceSchema = z
+    .object({
+        start: z.number().optional(),
+        end: z.number().optional(),
+        text: z.string().optional()
+    })
+    .passthrough();
+
+const TranscriptBlockSchema = z
+    .object({
+        speakerId: z.string().optional(),
+        topic: z.string().optional(),
+        sentences: z.array(SentenceSchema).optional()
+    })
+    .passthrough();
+
+const CallTranscriptSchema = z
+    .object({
+        callId: z.string().optional(),
+        transcript: z.array(TranscriptBlockSchema).optional()
+    })
+    .passthrough();
+
+const OutputSchema = z.object({
+    callIds: z.array(z.string()).describe('The call IDs that were requested'),
+    transcripts: z.array(CallTranscriptSchema).describe('Transcript data for the requested calls'),
+    totalCalls: z.number().describe('Total number of transcripts returned')
+});
 
 const action = createAction({
-    description: 'Fetches a list of call transcripts from Gong',
-    version: '2.0.0',
-
+    description: 'Fetch transcripts for a specific set of Gong calls by call ID',
+    version: '3.0.0',
     endpoint: {
-        method: 'GET',
-        path: '/fetch-call-transcripts',
+        method: 'POST',
+        path: '/actions/fetch-call-transcripts',
         group: 'Calls'
     },
+    input: InputSchema,
+    output: OutputSchema,
 
-    input: GongCallTranscriptInput,
-    output: GongCallTranscriptOutput,
-    scopes: ['api:calls:read:transcript'],
-
-    exec: async (nango, input): Promise<GongCallTranscriptOutput> => {
-        await nango.zodValidateInput({ zodSchema: gongCallTranscriptInputSchema, input });
-
-        const filter: FilterFields = {
-            ...(input.from && { fromDateTime: new Date(input.from).toISOString() }),
-            ...(input.to && { toDateTime: new Date(input.to).toISOString() }),
-            ...(input.workspace_id && { workspaceId: input.workspace_id }),
-            ...(input.call_id && { callIds: input.call_id })
-        };
-
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const config: ProxyConfiguration = {
-            // https://app.gong.io/settings/api/documentation#post-/v2/calls/transcript
+            // https://help.gong.io/docs/what-the-gong-api-provides
             endpoint: '/v2/calls/transcript',
             data: {
-                ...(input.cursor && { cursor: input.cursor }),
-                filter
+                filter: {
+                    callIds: input.callIds
+                }
             },
             retries: 3
         };
 
         // @allowTryCatch
+        // Gong returns HTTP 404 with "No calls found" when the requested callIds
+        // do not match any calls. This is a valid empty result rather than a failure,
+        // so we intercept it and return an empty list.
         try {
-            const response = await nango.post<GongCallTranscriptResponse>(config);
-            return toCallTranscriptWithCursor(response.data.callTranscripts, response.data.records?.cursor);
-        } catch (error: any) {
-            // eslint-disable-next-line @nangohq/custom-integrations-linting/no-object-casting
-            const errors = (error as AxiosError<GongError>).response?.data?.errors ?? [];
-            const emptyResult = errors.includes('No calls found corresponding to the provided filters');
-
-            if (emptyResult) {
-                await nango.log('No calls found for the given filters', { level: 'error' });
-                return { transcript: [] };
-            } else {
-                throw error;
+            const response = await nango.post(config);
+            const rawData = response.data;
+            if (!rawData) {
+                return {
+                    callIds: input.callIds,
+                    transcripts: [],
+                    totalCalls: 0
+                };
             }
+
+            const rawTranscripts = Array.isArray(rawData.callTranscripts) ? rawData.callTranscripts : [];
+            const parsed = z.array(CallTranscriptSchema).safeParse(rawTranscripts);
+            const transcripts = parsed.success ? parsed.data : [];
+
+            return {
+                callIds: input.callIds,
+                transcripts,
+                totalCalls: transcripts.length
+            };
+        } catch (error: unknown) {
+            const status = typeof error === 'object' && error !== null && 'status' in error && typeof error.status === 'number' ? error.status : undefined;
+            if (status === 404) {
+                return {
+                    callIds: input.callIds,
+                    transcripts: [],
+                    totalCalls: 0
+                };
+            }
+            throw error;
         }
     }
 });
 
-export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

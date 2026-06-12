@@ -1,0 +1,240 @@
+{
+  "input": {},
+  "output": {
+    "users": [
+      {
+        "id": "413440499764841252",
+        "emailAddress": "robin@nango.dev",
+        "created": "2026-06-10T21:50:07.428+02:00",
+        "active": true,
+        "emailAliases": [],
+        "firstName": "Robin",
+        "lastName": "Guldener",
+        "personalMeetingUrls": [],
+        "settings": {
+          "webConferencesRecorded": false,
+          "preventWebConferenceRecording": false,
+          "telephonyCallsImported": false,
+          "emailsImported": false,
+          "preventEmailImport": false,
+          "nonRecordedMeetingsImported": false,
+          "gongConnectEnabled": false
+        },
+        "spokenLanguages": []
+      },
+      {
+        "id": "1597409306735779049",
+        "emailAddress": "api@nango.dev",
+        "created": "2026-06-11T21:25:28.158+02:00",
+        "active": true,
+        "emailAliases": [],
+        "firstName": "API",
+        "lastName": "Developer",
+        "personalMeetingUrls": [],
+        "settings": {
+          "webConferencesRecorded": false,
+          "preventWebConferenceRecording": false,
+          "telephonyCallsImported": false,
+          "emailsImported": false,
+          "preventEmailImport": false,
+          "nonRecordedMeetingsImported": false,
+          "gongConnectEnabled": false
+        },
+        "spokenLanguages": []
+      },
+      {
+        "id": "3199569787656015297",
+        "emailAddress": "ryan@nango.dev",
+        "created": "2026-06-10T21:49:29.000+02:00",
+        "active": true,
+        "emailAliases": [],
+        "firstName": "Ryan",
+        "lastName": "West",
+        "personalMeetingUrls": [],
+        "settings": {
+          "webConferencesRecorded": false,
+          "preventWebConferenceRecording": false,
+          "telephonyCallsImported": false,
+          "emailsImported": false,
+          "preventEmailImport": false,
+          "nonRecordedMeetingsImported": false,
+          "gongConnectEnabled": false
+        },
+        "spokenLanguages": []
+      },
+      {
+        "id": "7254376376091929519",
+        "emailAddress": "bastien@nango.dev",
+        "created": "2023-10-17T21:21:39.277+02:00",
+        "active": true,
+        "emailAliases": [],
+        "firstName": "Bastien",
+        "lastName": "Beurier",
+        "personalMeetingUrls": [],
+        "settings": {
+          "webConferencesRecorded": false,
+          "preventWebConferenceRecording": false,
+          "telephonyCallsImported": false,
+          "emailsImported": false,
+          "preventEmailImport": false,
+          "nonRecordedMeetingsImported": false,
+          "gongConnectEnabled": false
+        },
+        "spokenLanguages": []
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v2/users": {
+        "response": {
+          "requestId": "6i92pi42nibvos54vv4",
+          "records": {
+            "totalRecords": 4,
+            "currentPageSize": 4,
+            "currentPageNumber": 0
+          },
+          "users": [
+            {
+              "id": "413440499764841252",
+              "emailAddress": "robin@nango.dev",
+              "created": "2026-06-10T21:50:07.428+02:00",
+              "active": true,
+              "emailAliases": [],
+              "trustedEmailAddress": null,
+              "firstName": "Robin",
+              "lastName": "Guldener",
+              "title": null,
+              "phoneNumber": null,
+              "extension": null,
+              "personalMeetingUrls": [],
+              "settings": {
+                "webConferencesRecorded": false,
+                "preventWebConferenceRecording": false,
+                "telephonyCallsImported": false,
+                "emailsImported": false,
+                "preventEmailImport": false,
+                "nonRecordedMeetingsImported": false,
+                "gongConnectEnabled": false
+              },
+              "managerId": null,
+              "meetingConsentPageUrl": null,
+              "conferencingProviders": null,
+              "spokenLanguages": []
+            },
+            {
+              "id": "1597409306735779049",
+              "emailAddress": "api@nango.dev",
+              "created": "2026-06-11T21:25:28.158+02:00",
+              "active": true,
+              "emailAliases": [],
+              "trustedEmailAddress": null,
+              "firstName": "API",
+              "lastName": "Developer",
+              "title": null,
+              "phoneNumber": null,
+              "extension": null,
+              "personalMeetingUrls": [],
+              "settings": {
+                "webConferencesRecorded": false,
+                "preventWebConferenceRecording": false,
+                "telephonyCallsImported": false,
+                "emailsImported": false,
+                "preventEmailImport": false,
+                "nonRecordedMeetingsImported": false,
+                "gongConnectEnabled": false
+              },
+              "managerId": null,
+              "meetingConsentPageUrl": null,
+              "conferencingProviders": null,
+              "spokenLanguages": []
+            },
+            {
+              "id": "3199569787656015297",
+              "emailAddress": "ryan@nango.dev",
+              "created": "2026-06-10T21:49:29.000+02:00",
+              "active": true,
+              "emailAliases": [],
+              "trustedEmailAddress": null,
+              "firstName": "Ryan",
+              "lastName": "West",
+              "title": null,
+              "phoneNumber": null,
+              "extension": null,
+              "personalMeetingUrls": [],
+              "settings": {
+                "webConferencesRecorded": false,
+                "preventWebConferenceRecording": false,
+                "telephonyCallsImported": false,
+                "emailsImported": false,
+                "preventEmailImport": false,
+                "nonRecordedMeetingsImported": false,
+                "gongConnectEnabled": false
+              },
+              "managerId": null,
+              "meetingConsentPageUrl": null,
+              "conferencingProviders": null,
+              "spokenLanguages": []
+            },
+            {
+              "id": "7254376376091929519",
+              "emailAddress": "bastien@nango.dev",
+              "created": "2023-10-17T21:21:39.277+02:00",
+              "active": true,
+              "emailAliases": [],
+              "trustedEmailAddress": null,
+              "firstName": "Bastien",
+              "lastName": "Beurier",
+              "title": null,
+              "phoneNumber": null,
+              "extension": null,
+              "personalMeetingUrls": [],
+              "settings": {
+                "webConferencesRecorded": false,
+                "preventWebConferenceRecording": false,
+                "telephonyCallsImported": false,
+                "emailsImported": false,
+                "preventEmailImport": false,
+                "nonRecordedMeetingsImported": false,
+                "gongConnectEnabled": false
+              },
+              "managerId": null,
+              "meetingConsentPageUrl": null,
+              "conferencingProviders": null,
+              "spokenLanguages": []
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 12 Jun 2026 09:28:19 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "17",
+          "x-ratelimit-reset": "1781256551",
+          "set-cookie": "AWSALBTG=47DVBvszReg4mTDEHoX3niM4Yx2XMmZum+bEsMj0wFaLqjWRv+P/8xnxalsKKO5+Qt9KNR8xgmxkRJWoOw8Mw4RfC/PoWnr6Y5dRMTQQNs8ozWn4iIPsDCzfWUSTH00SO1fKBI7DXPeHknRzRgvRjRPhPPxOl7OfuwlTjJewwMp9; Expires=Fri, 19 Jun 2026 09:28:19 GMT; Path=/, AWSALBTGCORS=47DVBvszReg4mTDEHoX3niM4Yx2XMmZum+bEsMj0wFaLqjWRv+P/8xnxalsKKO5+Qt9KNR8xgmxkRJWoOw8Mw4RfC/PoWnr6Y5dRMTQQNs8ozWn4iIPsDCzfWUSTH00SO1fKBI7DXPeHknRzRgvRjRPhPPxOl7OfuwlTjJewwMp9; Expires=Fri, 19 Jun 2026 09:28:19 GMT; Path=/; SameSite=None; Secure, AWSALB=cG6M0qsewoXhbZ8+s/ZZiAIfdrHfnTR4KtMLL6kgmgSe9wUF0OiIvMaOkF+iANiQJg+wJQlfjciDr4xgxFqYe8uWwniTpqzoF/wxroTtpYOvWtcdVKCy5hioWa7Y; Expires=Fri, 19 Jun 2026 09:28:19 GMT; Path=/, AWSALBCORS=cG6M0qsewoXhbZ8+s/ZZiAIfdrHfnTR4KtMLL6kgmgSe9wUF0OiIvMaOkF+iANiQJg+wJQlfjciDr4xgxFqYe8uWwniTpqzoF/wxroTtpYOvWtcdVKCy5hioWa7Y; Expires=Fri, 19 Jun 2026 09:28:19 GMT; Path=/; SameSite=None; Secure, __cf_bm=CE67PekbLCFGiCPk4t2SmzZbzZss22wi._PywsUSlKg-1781256499.5452337-1.0.1.1-dlSTAiMMFk4G4GB.O.0cnoBbkyx8b.1r.cnELZGytelm2Fz0CFUxE7oEJ0XUKVnUx8uetxBcjnO2UdGfefEAAYCLeDob02ttWTOXbeVlrqcuIkku8weiUo5P2dfZ0NUp; HttpOnly; SameSite=None; Secure; Path=/; Domain=gong.io; Expires=Fri, 12 Jun 2026 09:58:19 GMT",
+          "x-gong-service-version": "PublicApiServer:17.main.19292",
+          "x-traceid": "6i92pi42nibvos54vv4",
+          "vary": "accept-encoding",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "cf-ray": "a0a7d322281ab338-PDX"
+        },
+        "hash": "ad01c1e2f88278a9eb4910da88c6f9c90ad1866e",
+        "request": {}
+      }
+    }
+  }
+}

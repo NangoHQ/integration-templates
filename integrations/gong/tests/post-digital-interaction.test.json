@@ -1,0 +1,64 @@
+{
+  "input": {
+    "eventId": "nango-test-event-001",
+    "timestamp": "2026-06-12T10:00:00Z",
+    "interactionType": "page viewed",
+    "actorEmail": "api@nango.dev",
+    "interaction": {
+      "contentTitle": "Test Content"
+    }
+  },
+  "output": {
+    "requestId": "2nrtj554jjmpymtnisz"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v2/digital-interaction": {
+        "response": {
+          "requestId": "2nrtj554jjmpymtnisz"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 12 Jun 2026 15:35:34 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "17",
+          "x-ratelimit-reset": "1781278558",
+          "set-cookie": "AWSALBTG=sUvCQqLs+RFAwQsCcOCk1Ww20gdiXgfPwEMIIWnUx5PPavb6iMcYw9jocj4aBA4Im8iXrUfx312bRLmWiAX2I5hu3Dk/Z1mcZeRZmU9WWZR27um9bH/eHPWMIB170FdMBo91AWSQl+IS8UzuAoqZvdKH88w8Tojtco40MpqF6q0M; Expires=Fri, 19 Jun 2026 15:35:34 GMT; Path=/, AWSALBTGCORS=sUvCQqLs+RFAwQsCcOCk1Ww20gdiXgfPwEMIIWnUx5PPavb6iMcYw9jocj4aBA4Im8iXrUfx312bRLmWiAX2I5hu3Dk/Z1mcZeRZmU9WWZR27um9bH/eHPWMIB170FdMBo91AWSQl+IS8UzuAoqZvdKH88w8Tojtco40MpqF6q0M; Expires=Fri, 19 Jun 2026 15:35:34 GMT; Path=/; SameSite=None; Secure, AWSALB=VoDozdP0FsHP83DdF6vixCrozt9MBhCH7AqVILxK/XyDcZZkD2C1Sugdu7muJ86qHCEfJoxBaR+trNTOdS8iZ0WgLGm6UZH3Zrhqeuk6vAC7iCbedJ6ewOMQDd5D; Expires=Fri, 19 Jun 2026 15:35:34 GMT; Path=/, AWSALBCORS=VoDozdP0FsHP83DdF6vixCrozt9MBhCH7AqVILxK/XyDcZZkD2C1Sugdu7muJ86qHCEfJoxBaR+trNTOdS8iZ0WgLGm6UZH3Zrhqeuk6vAC7iCbedJ6ewOMQDd5D; Expires=Fri, 19 Jun 2026 15:35:34 GMT; Path=/; SameSite=None; Secure, __cf_bm=dqrr.5abKeb_9f0Ivc5FqAO6fIVq0t1zNpy3fh3HzuA-1781278533.9698946-1.0.1.1-wBCFws0m_KQzDulmsI3rGzQsGHYNyQj.ldjfe_bTqRgbwKMniIj1UcxSDIZt4pY2.pD7mszR7M_85Q.8grftmE46UfBk52Fu_Ig17h66Ki2jnppD1hiqqonN4f_e1wEt; HttpOnly; SameSite=None; Secure; Path=/; Domain=gong.io; Expires=Fri, 12 Jun 2026 16:05:34 GMT",
+          "x-gong-service-version": "PublicApiServer:17.main.19292",
+          "x-traceid": "2nrtj554jjmpymtnisz",
+          "vary": "accept-encoding",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "cf-ray": "a0a9ed154c50abbf-PDX"
+        },
+        "hash": "3ef8aa469a549450c6d3174eb1df63015df1de8a",
+        "request": {
+          "data": {
+            "eventId": "nango-test-event-001",
+            "timestamp": "2026-06-12T10:00:00Z",
+            "eventType": "page viewed",
+            "content": {
+              "contentTitle": "Test Content"
+            },
+            "person": {
+              "email": "api@nango.dev"
+            }
+          }
+        }
+      }
+    }
+  }
+}

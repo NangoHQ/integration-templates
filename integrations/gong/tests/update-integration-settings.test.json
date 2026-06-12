@@ -1,0 +1,60 @@
+{
+  "input": {
+    "integrationTypeSettings": [
+      {
+        "integrationType": "EMAIL_COMPOSER",
+        "allowedOrigin": "https://nango.dev"
+      }
+    ]
+  },
+  "output": {
+    "requestId": "67zvfgwvoqmfgf2l5m2"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v2/integration-settings": {
+        "response": {
+          "requestId": "67zvfgwvoqmfgf2l5m2"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 12 Jun 2026 13:59:06 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "17",
+          "x-ratelimit-reset": "1781272766",
+          "set-cookie": "AWSALBTG=oNcnCvF/VtSi1y0XOIU59aMJXpdnasTElou83Ln28m0mylGw3hKBlG+TQNYX05N6M359KjozRqORfDcjAEUnnPj9PfeLYAWA8Zvs4I6fOv0NHUsKQxq87i6J59tMTBbimdGak+WcVyoTXH0K9+ktCrqStRn1Wul3nbdQ0ET+dmJP; Expires=Fri, 19 Jun 2026 13:59:05 GMT; Path=/, AWSALBTGCORS=oNcnCvF/VtSi1y0XOIU59aMJXpdnasTElou83Ln28m0mylGw3hKBlG+TQNYX05N6M359KjozRqORfDcjAEUnnPj9PfeLYAWA8Zvs4I6fOv0NHUsKQxq87i6J59tMTBbimdGak+WcVyoTXH0K9+ktCrqStRn1Wul3nbdQ0ET+dmJP; Expires=Fri, 19 Jun 2026 13:59:05 GMT; Path=/; SameSite=None; Secure, AWSALB=TQC2QLhYvnO6RRFS4WB3hmzfF28mrM4772WbWhGul6UKX1pAQFN1QtdDPlA/9SshCiZzHOWVHhPDghIRbJRnwB5CvS92Zdx2tlZ6ve77+j8sBTFEwBUsfCZ3n5EO; Expires=Fri, 19 Jun 2026 13:59:05 GMT; Path=/, AWSALBCORS=TQC2QLhYvnO6RRFS4WB3hmzfF28mrM4772WbWhGul6UKX1pAQFN1QtdDPlA/9SshCiZzHOWVHhPDghIRbJRnwB5CvS92Zdx2tlZ6ve77+j8sBTFEwBUsfCZ3n5EO; Expires=Fri, 19 Jun 2026 13:59:05 GMT; Path=/; SameSite=None; Secure, __cf_bm=3AhZoY1wtEfjcBjrHG0gHjSe8mgJxGZS1mar606rTXo-1781272745.8200786-1.0.1.1-6_sF5CLRD0cUjmXpiW0SXmkKGRnJieGtK48zSXQ9stGNkBwFFon8Kf7WNJSKwaOUxXWdMdXi6bvoJMVyC4716_4..oKeTmEnAceNgoXa4F4DyCyGFbF7i9.9rt0gqM2P; HttpOnly; SameSite=None; Secure; Path=/; Domain=gong.io; Expires=Fri, 12 Jun 2026 14:29:06 GMT",
+          "x-gong-service-version": "PublicApiServer:17.main.19292",
+          "x-traceid": "67zvfgwvoqmfgf2l5m2",
+          "vary": "accept-encoding",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "cf-ray": "a0a95fc55cddff0e-PDX"
+        },
+        "hash": "319d789c34a1a810ff4182481457223f5ce1723a",
+        "request": {
+          "data": {
+            "integrationTypeSettings": [
+              {
+                "integrationType": "EMAIL_COMPOSER",
+                "allowedOrigin": "https://nango.dev"
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}
