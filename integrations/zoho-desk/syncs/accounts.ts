@@ -58,7 +58,7 @@ const sync = createSync({
 
         const proxyConfig: ProxyConfiguration = {
             // https://desk.zoho.com/DeskAPIDocument#Accounts-ListAccounts
-            endpoint: '/v1/accounts',
+            endpoint: '/api/v1/accounts',
             retries: 3,
             baseUrlOverride: baseUrl,
             ...(orgId !== undefined && { headers: { orgId } }),

@@ -22,7 +22,7 @@
   },
   "api": {
     "get": {
-      "/v1/accounts": {
+      "/api/v1/accounts": {
         "response": {
           "data": [
             {
@@ -70,7 +70,7 @@
           "x-rate-limit-remaining-v3": "4528",
           "x-rate-limit-request-weight-v3": "3"
         },
-        "hash": "9e80eae9823fddfa6b10c382616b0f987c9e19b0",
+        "hash": "dd7003953ab14af86b8be7588df0b1092834fdd0",
         "request": {
           "params": {
             "from": "0",
