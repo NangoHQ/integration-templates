@@ -5,25 +5,21 @@
     ]
   },
   "output": {
-    "callIds": [
-      "12345"
-    ],
-    "transcripts": [],
-    "totalCalls": 0
+    "transcripts": []
   },
   "nango": {},
   "api": {
     "post": {
       "/v2/calls/transcript": {
         "response": {
-          "requestId": "4nu8gfq653zrezrvh82",
+          "requestId": "2p6qb8usrwacg8iw0ag",
           "errors": [
             "No calls found corresponding to the provided filters"
           ]
         },
         "status": 404,
         "headers": {
-          "date": "Fri, 12 Jun 2026 10:25:36 GMT",
+          "date": "Fri, 12 Jun 2026 18:14:21 GMT",
           "content-type": "application/json; charset=utf-8",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
@@ -37,16 +33,16 @@
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "5000",
-          "x-ratelimit-remaining": "4913",
-          "x-ratelimit-reset": "1781259937",
-          "set-cookie": "AWSALBTG=aFhff3gqu/S6MW9RmZuH/oYrdNza6VTPsXTP+eK9vf1k+2nItOyUlHz8F+4Q9GayToia9n02x+WbAXOC0MV5z7HsBwxp38evrxOAFe6XfWqssmSGFCj+lNOaaUSrE1bsTsHa/UqOQRvn/hN24FdNjTyBqRyri1UObJOnRBA746qj; Expires=Fri, 19 Jun 2026 10:25:36 GMT; Path=/, AWSALBTGCORS=aFhff3gqu/S6MW9RmZuH/oYrdNza6VTPsXTP+eK9vf1k+2nItOyUlHz8F+4Q9GayToia9n02x+WbAXOC0MV5z7HsBwxp38evrxOAFe6XfWqssmSGFCj+lNOaaUSrE1bsTsHa/UqOQRvn/hN24FdNjTyBqRyri1UObJOnRBA746qj; Expires=Fri, 19 Jun 2026 10:25:36 GMT; Path=/; SameSite=None; Secure, AWSALB=4zbYzCsKnWYpK0Cj/A3QLMqPPbrIqywF2OJ6pfsPTsjq4jmBKqeWhu0j9iyclpwer6wH9hsn5ep8uwa55LioWERCV4MGV7u5TAa72dvJWw0fkPdttZ0KSMq/j8C9; Expires=Fri, 19 Jun 2026 10:25:36 GMT; Path=/, AWSALBCORS=4zbYzCsKnWYpK0Cj/A3QLMqPPbrIqywF2OJ6pfsPTsjq4jmBKqeWhu0j9iyclpwer6wH9hsn5ep8uwa55LioWERCV4MGV7u5TAa72dvJWw0fkPdttZ0KSMq/j8C9; Expires=Fri, 19 Jun 2026 10:25:36 GMT; Path=/; SameSite=None; Secure, __cf_bm=YgPk39yIy9sH3Ls1ewBLlq5KdSbYgZ1jTg1izU45FGM-1781259935.8665125-1.0.1.1-2dRtd5c_J1XYmsuCRSShFR0Rg1XNqmbevedcqRAJphbv.xAVtUY8d_I2LU2JCtHRa1QFSzJkQXq7icW9CL65VGC9Ig7n4o6azrtI5WA8aFyL3nABRSmX0h8T69wlljar; HttpOnly; SameSite=None; Secure; Path=/; Domain=gong.io; Expires=Fri, 12 Jun 2026 10:55:36 GMT",
+          "x-ratelimit-remaining": "4996",
+          "x-ratelimit-reset": "1781288068",
+          "set-cookie": "<redacted>",
           "x-gong-service-version": "PublicApiServer:17.main.19292",
-          "x-traceid": "4nu8gfq653zrezrvh82",
+          "x-traceid": "2p6qb8usrwacg8iw0ag",
           "vary": "accept-encoding",
           "cf-cache-status": "DYNAMIC",
           "server": "cloudflare",
-          "cf-ray": "a0a827072e61495f-PDX",
-          "etag": "W/\"65-ypEsr26VBM2VxF8S9FHbOTEjQlY\""
+          "cf-ray": "a0aad5ac497fd106-PDX",
+          "etag": "W/\"65-jX2V8xNm2QHkPQVeG5WDw/fClLA\""
         },
         "hash": "d614bb5f95adac08fa12cbe0f14b36d644b8d65a",
         "request": {

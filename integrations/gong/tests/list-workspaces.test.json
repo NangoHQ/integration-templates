@@ -41,7 +41,7 @@
           "x-ratelimit-limit": "5000",
           "x-ratelimit-remaining": "17",
           "x-ratelimit-reset": "1781256429",
-          "set-cookie": "AWSALBTG=+HiOrAoJotIQ8soDyO0dWEtzBtSLRx2gp2gu5nNCGUp/j/ZgbNEsJd4JVDhE/WpOlHV9/C4SDXA54vRF6mCMquojeb7EHPUcadGlakfmfRLIkmPuIq53VEgPrF/lmn8Wk3KCgwIgKWKZ0gerfrMNg62BsZ2VdgelqVlMH0yvtb2W; Expires=Fri, 19 Jun 2026 09:26:56 GMT; Path=/, AWSALBTGCORS=+HiOrAoJotIQ8soDyO0dWEtzBtSLRx2gp2gu5nNCGUp/j/ZgbNEsJd4JVDhE/WpOlHV9/C4SDXA54vRF6mCMquojeb7EHPUcadGlakfmfRLIkmPuIq53VEgPrF/lmn8Wk3KCgwIgKWKZ0gerfrMNg62BsZ2VdgelqVlMH0yvtb2W; Expires=Fri, 19 Jun 2026 09:26:56 GMT; Path=/; SameSite=None; Secure, AWSALB=T9289erm7pJ54sRwzyttGWRIMh++5OGnUk/b0F58mGnFyR8/kVUU1CcLPMm/jIICqtcUaUDbIYs2FRJXydA+vEtGM8HktgSi+YYVaZmggzbFABWiyi3zIXCmO8jF; Expires=Fri, 19 Jun 2026 09:26:56 GMT; Path=/, AWSALBCORS=T9289erm7pJ54sRwzyttGWRIMh++5OGnUk/b0F58mGnFyR8/kVUU1CcLPMm/jIICqtcUaUDbIYs2FRJXydA+vEtGM8HktgSi+YYVaZmggzbFABWiyi3zIXCmO8jF; Expires=Fri, 19 Jun 2026 09:26:56 GMT; Path=/; SameSite=None; Secure, __cf_bm=DkB89ZFZmpW8GgFcDSLi4A3hAJctYSgdfJpVNoXkQZM-1781256416.4779387-1.0.1.1-rex5XFyIgIDk8ptURECpnnyn5trhfhsMJ.NpD7KF6BjW.LczaQ6a4CDZ0YQrSMXWb2MGHwRRDxPNwXpwX_ST4O9tnHKpe_J4GVsl5.dKJ92VexBgx55T29TNIyQeQgkw; HttpOnly; SameSite=None; Secure; Path=/; Domain=gong.io; Expires=Fri, 12 Jun 2026 09:56:56 GMT",
+          "set-cookie": "<redacted>",
           "x-gong-service-version": "PublicApiServer:17.main.19292",
           "x-traceid": "5spj6xar0b66t6mnkro",
           "vary": "accept-encoding",

@@ -1082,7 +1082,6 @@ import './gong-oauth/syncs/scorecards.js';
 import './gong-oauth/syncs/trackers.js';
 import './gong-oauth/syncs/users.js';
 import './gong-oauth/syncs/workspaces.js';
-import './gong-oauth/actions/add-call-media.js';
 import './gong-oauth/actions/add-call-users-access.js';
 import './gong-oauth/actions/ask-entity.js';
 import './gong-oauth/actions/assign-prospects-cool-off-override.js';

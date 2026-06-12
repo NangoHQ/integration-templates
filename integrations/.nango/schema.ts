@@ -32093,18 +32093,30 @@ export interface SyncMetadata_gong_calls {
 
 export interface ActionInput_gong_fetchcalltranscripts {
   /**
-   * Array of Gong call IDs to fetch transcripts for. Example: ["123456789"]
+   * Start of date range filter. ISO 8601 string. Example: "2026-01-01T00:00:00Z"
    */
-  callIds: string[];
+  from?: string | undefined;
+  /**
+   * End of date range filter. ISO 8601 string. Example: "2026-01-31T23:59:59Z"
+   */
+  to?: string | undefined;
+  /**
+   * Filter transcripts to a specific Gong workspace. Example: "623457276584334"
+   */
+  workspaceId?: string | undefined;
+  /**
+   * Filter to specific call IDs. Example: ["123456789"]
+   */
+  callIds?: string[] | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
 };
 
 export interface ActionOutput_gong_fetchcalltranscripts {
   /**
-   * The call IDs that were requested
-   */
-  callIds: string[];
-  /**
-   * Transcript data for the requested calls
+   * Transcript data for the returned page
    */
   transcripts: ({  callId?: string | undefined;
   transcript?: ({  speakerId?: string | undefined;
@@ -32113,9 +32125,13 @@ export interface ActionOutput_gong_fetchcalltranscripts {
   end?: number | undefined;
   text?: string | undefined;})[];})[];})[];
   /**
-   * Total number of transcripts returned
+   * Pass this cursor to the next call to retrieve the following page. Absent when there are no more pages.
    */
-  totalCalls: number;
+  nextCursor?: string | undefined;
+  /**
+   * Total number of matching transcripts across all pages
+   */
+  totalRecords?: number | undefined;
 };
 
 export interface CallOutcome {
@@ -32197,25 +32213,6 @@ export interface Tracker {
   partOfQuestion?: boolean | undefined;
   saidAt?: string | undefined;
   filterQuery?: string | undefined;
-};
-
-export interface ActionInput_gong_oauth_addcallmedia {
-  /**
-   * The call ID returned from the Add New Call request. Example: "7782342274025937895"
-   */
-  callId: string;
-  /**
-   * Base64-encoded audio or video file content. Example: "base64-encoded-string..."
-   */
-  mediaContent: string;
-  fileName?: string | undefined;
-  mediaType?: string | undefined;
-};
-
-export interface ActionOutput_gong_oauth_addcallmedia {
-  callId?: string | undefined;
-  requestId?: string | undefined;
-  url?: string | undefined;
 };
 
 export interface ActionInput_gong_oauth_addcallusersaccess {
@@ -32528,18 +32525,30 @@ export interface ActionOutput_gong_oauth_fetchcallextensivedata {
 
 export interface ActionInput_gong_oauth_fetchcalltranscripts {
   /**
-   * Array of Gong call IDs to fetch transcripts for. Example: ["123456789"]
+   * Start of date range filter. ISO 8601 string. Example: "2026-01-01T00:00:00Z"
    */
-  callIds: string[];
+  from?: string | undefined;
+  /**
+   * End of date range filter. ISO 8601 string. Example: "2026-01-31T23:59:59Z"
+   */
+  to?: string | undefined;
+  /**
+   * Filter transcripts to a specific Gong workspace. Example: "623457276584334"
+   */
+  workspaceId?: string | undefined;
+  /**
+   * Filter to specific call IDs. Example: ["123456789"]
+   */
+  callIds?: string[] | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
 };
 
 export interface ActionOutput_gong_oauth_fetchcalltranscripts {
   /**
-   * The call IDs that were requested
-   */
-  callIds: string[];
-  /**
-   * Transcript data for the requested calls
+   * Transcript data for the returned page
    */
   transcripts: ({  callId?: string | undefined;
   transcript?: ({  speakerId?: string | undefined;
@@ -32548,9 +32557,13 @@ export interface ActionOutput_gong_oauth_fetchcalltranscripts {
   end?: number | undefined;
   text?: string | undefined;})[];})[];})[];
   /**
-   * Total number of transcripts returned
+   * Pass this cursor to the next call to retrieve the following page. Absent when there are no more pages.
    */
-  totalCalls: number;
+  nextCursor?: string | undefined;
+  /**
+   * Total number of matching transcripts across all pages
+   */
+  totalRecords?: number | undefined;
 };
 
 export interface ActionInput_gong_oauth_getbulkassignmentresults {

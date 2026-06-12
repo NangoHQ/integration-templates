@@ -1,9 +1,12 @@
 import { z } from 'zod';
-import type { ProxyConfiguration } from 'nango';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    callIds: z.array(z.string()).min(1).describe('Array of Gong call IDs to fetch transcripts for. Example: ["123456789"]')
+    from: z.string().optional().describe('Start of date range filter. ISO 8601 string. Example: "2026-01-01T00:00:00Z"'),
+    to: z.string().optional().describe('End of date range filter. ISO 8601 string. Example: "2026-01-31T23:59:59Z"'),
+    workspaceId: z.string().optional().describe('Filter transcripts to a specific Gong workspace. Example: "623457276584334"'),
+    callIds: z.array(z.string()).optional().describe('Filter to specific call IDs. Example: ["123456789"]'),
+    cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.')
 });
 
 const SentenceSchema = z
@@ -30,14 +33,22 @@ const CallTranscriptSchema = z
     .passthrough();
 
 const OutputSchema = z.object({
-    callIds: z.array(z.string()).describe('The call IDs that were requested'),
-    transcripts: z.array(CallTranscriptSchema).describe('Transcript data for the requested calls'),
-    totalCalls: z.number().describe('Total number of transcripts returned')
+    transcripts: z.array(CallTranscriptSchema).describe('Transcript data for the returned page'),
+    nextCursor: z.string().optional().describe('Pass this cursor to the next call to retrieve the following page. Absent when there are no more pages.'),
+    totalRecords: z.number().optional().describe('Total number of matching transcripts across all pages')
 });
 
+function isHttpErrorWithStatus(error: unknown, status: number): boolean {
+    if (typeof error !== 'object' || error === null) return false;
+    if ('status' in error && error.status === status) return true;
+    if (!('response' in error) || typeof error.response !== 'object' || error.response === null) return false;
+    return 'status' in error.response && error.response.status === status;
+}
+
 const action = createAction({
-    description: 'Fetch transcripts for a specific set of Gong calls by call ID',
-    version: '3.0.0',
+    description:
+        'Fetch a page of Gong call transcripts, optionally filtered by date range, workspace, or call IDs. Use the returned nextCursor to retrieve subsequent pages.',
+    version: '4.0.0',
     endpoint: {
         method: 'POST',
         path: '/actions/fetch-call-transcripts',
@@ -47,30 +58,40 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const config: ProxyConfiguration = {
-            // https://help.gong.io/docs/what-the-gong-api-provides
-            endpoint: '/v2/calls/transcript',
-            data: {
-                filter: {
-                    callIds: input.callIds
-                }
-            },
-            retries: 3
+        if (!input.from && !input.to && !input.callIds && !input.workspaceId && !input.cursor) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'At least one filter must be provided: from, to, callIds, workspaceId, or cursor.'
+            });
+        }
+
+        const filter: Record<string, unknown> = {
+            ...(input.from && { fromDateTime: new Date(input.from).toISOString() }),
+            ...(input.to && { toDateTime: new Date(input.to).toISOString() }),
+            ...(input.workspaceId && { workspaceId: input.workspaceId }),
+            ...(input.callIds && input.callIds.length > 0 && { callIds: input.callIds })
         };
 
+        const body: Record<string, unknown> = {
+            filter,
+            ...(input.cursor && { cursor: input.cursor })
+        };
+
+        const emptyResult: z.infer<typeof OutputSchema> = { transcripts: [] };
+
         // @allowTryCatch
-        // Gong returns HTTP 404 with "No calls found" when the requested callIds
-        // do not match any calls. This is a valid empty result rather than a failure,
-        // so we intercept it and return an empty list.
+        // Gong returns HTTP 404 with "No calls found" when no transcripts match the filter — treat as empty.
         try {
-            const response = await nango.post(config);
+            // https://app.gong.io/settings/api/documentation#post-/v2/calls/transcript
+            const response = await nango.post({
+                endpoint: '/v2/calls/transcript',
+                data: body,
+                retries: 3
+            });
+
             const rawData = response.data;
             if (!rawData) {
-                return {
-                    callIds: input.callIds,
-                    transcripts: [],
-                    totalCalls: 0
-                };
+                return emptyResult;
             }
 
             const rawTranscripts = Array.isArray(rawData.callTranscripts) ? rawData.callTranscripts : [];
@@ -78,18 +99,13 @@ const action = createAction({
             const transcripts = parsed.success ? parsed.data : [];
 
             return {
-                callIds: input.callIds,
                 transcripts,
-                totalCalls: transcripts.length
+                ...(rawData.records?.cursor && { nextCursor: rawData.records.cursor }),
+                ...(rawData.records?.totalRecords !== undefined && { totalRecords: rawData.records.totalRecords })
             };
         } catch (error: unknown) {
-            const status = typeof error === 'object' && error !== null && 'status' in error && typeof error.status === 'number' ? error.status : undefined;
-            if (status === 404) {
-                return {
-                    callIds: input.callIds,
-                    transcripts: [],
-                    totalCalls: 0
-                };
+            if (isHttpErrorWithStatus(error, 404)) {
+                return emptyResult;
             }
             throw error;
         }
