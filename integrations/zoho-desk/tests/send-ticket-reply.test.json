@@ -1,0 +1,148 @@
+{
+  "input": {
+    "ticket_id": "1329983000000440002",
+    "content": "This is a test reply from Nango automation.",
+    "channel": "EMAIL",
+    "contentType": "plainText",
+    "fromEmailAddress": "support@nangodesk.zohodesk.com",
+    "to": "api@nango.dev"
+  },
+  "output": {
+    "id": "1329983000000438002",
+    "summary": "This is a test reply from Nango automation.",
+    "cc": "",
+    "bcc": "",
+    "isDescriptionThread": false,
+    "attachments": [],
+    "canReply": true,
+    "visibility": "public",
+    "author": {
+      "firstName": "Nango",
+      "lastName": "Developer",
+      "photoURL": "https://desk.zoho.com/api/v1/agents/1329983000000139001/photo?orgId=927523540",
+      "name": "Nango Developer",
+      "type": "AGENT",
+      "email": "api@nango.dev"
+    },
+    "channel": "EMAIL",
+    "source": {
+      "appName": null,
+      "extId": null,
+      "type": "SYSTEM",
+      "permalink": null,
+      "appPhotoURL": null
+    },
+    "content": "This is a test reply from Nango automation.",
+    "isForward": false,
+    "hasAttach": false,
+    "responderId": "1329983000000139001",
+    "channelRelatedInfo": null,
+    "respondedIn": "05:03:53",
+    "createdTime": "2026-06-11T21:38:07.997Z",
+    "to": "api@nango.dev",
+    "fromEmailAddress": "\"NangoDesk\"<support@nangodesk.zohodesk.com>",
+    "actions": [],
+    "contentType": "text/plain",
+    "status": "PENDING",
+    "direction": "out"
+  },
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "orgId": "927523540"
+    }
+  },
+  "api": {
+    "post": {
+      "/api/v1/tickets/1329983000000440002/sendReply": {
+        "response": {
+          "attachments": [],
+          "content": "This is a test reply from Nango automation.",
+          "id": "1329983000000438002",
+          "channel": "EMAIL",
+          "canReply": true,
+          "contentType": "text/plain",
+          "hasAttach": false,
+          "status": "PENDING",
+          "replyTo": null,
+          "summary": "This is a test reply from Nango automation.",
+          "author": {
+            "id": "1329983000000139001",
+            "name": "Nango Developer",
+            "email": "api@nango.dev",
+            "photoURL": "https://desk.zoho.com/api/v1/agents/1329983000000139001/photo?orgId=927523540",
+            "type": "AGENT",
+            "firstName": "Nango",
+            "lastName": "Developer"
+          },
+          "attachmentCount": "0",
+          "channelRelatedInfo": null,
+          "respondedIn": "05:03:53",
+          "readReceipts": null,
+          "impersonatedUser": null,
+          "fullContentURL": null,
+          "isContentTruncated": false,
+          "source": {
+            "extId": null,
+            "appName": null,
+            "appPhotoURL": null,
+            "permalink": null,
+            "type": "SYSTEM"
+          },
+          "isDescriptionThread": false,
+          "visibility": "public",
+          "createdTime": "2026-06-11T21:38:07.997Z",
+          "actions": [],
+          "direction": "out",
+          "cc": "",
+          "responderId": "1329983000000139001",
+          "bcc": "",
+          "to": "api@nango.dev",
+          "fromEmailAddress": "\"NangoDesk\"<support@nangodesk.zohodesk.com>",
+          "isForward": false
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 11 Jun 2026 21:38:08 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=64072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4985",
+          "x-ratelimit-reset": "1781213919",
+          "server": "ZGS",
+          "set-cookie": "zalb_9a26c99460=0402416863f5280ea1ed7cf82d954f1d; Path=/; Secure; HttpOnly, crmcsr=055ba92a-1821-4e5d-9aea-476f47926db2;path=/;SameSite=None;Secure;priority=high, zd_group_name=77c8e4991be9b06ebab221b4669c390eea9390488c3213cfa55efa4c65ae30d9;Path=/;Domain=desk.zoho.com;Secure=true;HttpOnly=true;SameSite=Strict",
+          "content-disposition": "attachment;",
+          "cache-control": "private,no-cache,no-store,max-age=0,must-revalidate",
+          "pragma": "no-cache",
+          "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
+          "content-security-policy": "default-src 'none' ;script-src 'none' ;report-uri https://logsapi.zoho.com/csplog?service=support;report-to https://logsapi.zoho.com/csplog?service=support",
+          "x-rate-limit-remaining-v3": "103",
+          "x-rate-limit-request-weight-v3": "1",
+          "isassignmentruleapplied": "false",
+          "isslaapplied": "false",
+          "iswfruleapplied": "false"
+        },
+        "hash": "227cb96200d4ea5d8692f983315f0b255ab8cd93",
+        "request": {
+          "data": {
+            "content": "This is a test reply from Nango automation.",
+            "channel": "EMAIL",
+            "contentType": "plainText",
+            "fromEmailAddress": "support@nangodesk.zohodesk.com",
+            "to": "api@nango.dev"
+          }
+        }
+      }
+    }
+  }
+}
