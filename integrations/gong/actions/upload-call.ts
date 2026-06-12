@@ -109,8 +109,8 @@ const action = createAction({
             status: z.number().optional()
         });
 
-        // @allowTryCatch nango.post throws on non-2xx; catch 409 to surface a typed recording error.
         let response;
+        // @allowTryCatch nango.post throws on non-2xx; catch 409 to surface a typed recording error.
         try {
             // https://help.gong.io/docs/uploading-calls-from-a-non-integrated-telephony-system
             response = await nango.post({

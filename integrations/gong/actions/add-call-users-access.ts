@@ -33,9 +33,9 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         let response;
+        // @allowTryCatch: The API returns 400 with "Some calls not found" when the callId does not exist.
+        // We catch this specific case to return a controlled empty response.
         try {
-            // @allowTryCatch: The API returns 400 with "Some calls not found" when the callId does not exist.
-            // We catch this specific case to return a controlled empty response.
             response = await nango.put({
                 // https://help.gong.io/apidocs/give-individual-users-access-to-calls-v2callsusers-access
                 endpoint: '/v2/calls/users-access',

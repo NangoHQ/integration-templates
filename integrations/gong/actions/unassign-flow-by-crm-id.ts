@@ -61,8 +61,8 @@ const action = createAction({
                 body['unassignedByUserEmail'] = input.unassignedByUserEmail;
             }
 
-            // @allowTryCatch nango.post throws on non-2xx; catch per-prospect so one failure doesn't abort the batch.
             let response: Awaited<ReturnType<typeof nango.post>>;
+            // @allowTryCatch nango.post throws on non-2xx; catch per-prospect so one failure doesn't abort the batch.
             try {
                 response = await nango.post({
                     // https://help.gong.io/apidocs/unassign-flows-by-crm-prospect-id-v2flowsprospectsunassign-flows-by-crm-id-1
