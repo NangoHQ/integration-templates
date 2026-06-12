@@ -45,7 +45,7 @@ const sync = createSync({
     description: 'Sync departments.',
     version: '1.0.0',
     frequency: 'every hour',
-    autoStart: true,
+    autoStart: false,
     endpoints: [
         {
             method: 'POST',

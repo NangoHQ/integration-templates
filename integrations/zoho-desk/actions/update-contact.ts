@@ -15,18 +15,18 @@ const InputSchema = z.object({
 
 const ProviderContactSchema = z.object({
     id: z.string(),
-    firstName: z.string().nullable(),
-    lastName: z.string().nullable(),
-    email: z.string().nullable(),
-    phone: z.string().nullable(),
-    mobile: z.string().nullable(),
-    secondaryEmail: z.string().nullable(),
-    accountId: z.string().nullable(),
-    ownerId: z.string().nullable(),
-    createdTime: z.string().nullable(),
-    modifiedTime: z.string().nullable(),
-    isAnonymous: z.boolean().nullable(),
-    isSpam: z.boolean().nullable()
+    firstName: z.string().nullish(),
+    lastName: z.string().nullish(),
+    email: z.string().nullish(),
+    phone: z.string().nullish(),
+    mobile: z.string().nullish(),
+    secondaryEmail: z.string().nullish(),
+    accountId: z.string().nullish(),
+    ownerId: z.string().nullish(),
+    createdTime: z.string().nullish(),
+    modifiedTime: z.string().nullish(),
+    isAnonymous: z.boolean().nullish(),
+    isSpam: z.boolean().nullish()
 });
 
 const OutputSchema = z.object({

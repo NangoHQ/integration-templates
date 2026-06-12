@@ -25,7 +25,9 @@
     "isSpam": false,
     "cf": {}
   },
-  "nango": {},
+  "nango": {
+    "getConnection": {}
+  },
   "api": {
     "post": {
       "/api/v1/contacts": {

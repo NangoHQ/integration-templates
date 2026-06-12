@@ -67,7 +67,10 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const from = input.cursor ? parseInt(input.cursor, 10) : 0;
-        const limit = input.limit ?? 50;
+        if (input.cursor !== undefined && (Number.isNaN(from) || from < 0)) {
+            throw new nango.ActionError({ type: 'invalid_input', message: 'cursor must be a non-negative integer string' });
+        }
+        const limit = Math.min(Math.max(Math.floor(input.limit ?? 50), 1), 100);
 
         const connection = await nango.getConnection();
         const extension =

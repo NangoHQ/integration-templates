@@ -119,7 +119,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const connection = await nango.getConnection();
-        const extension = connection.connection_config?.['extension'] || 'com';
+        const extension = typeof connection.connection_config?.['extension'] === 'string' ? connection.connection_config['extension'] : 'com';
         const baseUrlOverride = `https://desk.zoho.${extension}`;
 
         const data: Record<string, unknown> = {};

@@ -1,9 +1,10 @@
-import { afterEach, vi, expect, it, describe } from 'vitest';
+import { afterEach, beforeEach, vi, expect, it, describe } from 'vitest';
 
 import createSync from '../syncs/articles.js';
 
 describe('zoho-desk articles tests', () => {
     const models = 'Article'.split(',');
+    const FROZEN_NOW = '2026-06-11T21:48:17.000Z';
 
     const createTestContext = () => {
         const nangoMock = new global.vitest.NangoSyncMock({
@@ -18,7 +19,13 @@ describe('zoho-desk articles tests', () => {
         };
     };
 
+    beforeEach(() => {
+        vi.useFakeTimers();
+        vi.setSystemTime(new Date(FROZEN_NOW));
+    });
+
     afterEach(() => {
+        vi.useRealTimers();
         vi.clearAllMocks();
         vi.restoreAllMocks();
     });

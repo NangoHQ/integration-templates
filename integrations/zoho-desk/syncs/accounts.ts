@@ -43,12 +43,16 @@ const sync = createSync({
         Account: accountSchema
     },
     exec: async (nango) => {
+        const connection = await nango.getConnection();
+        const extension = typeof connection.connection_config?.['extension'] === 'string' ? connection.connection_config['extension'] : 'com';
+        const baseUrl = `https://desk.zoho.${extension}`;
+
         const metadata = await nango.getMetadata();
         const metadataSchema = z.object({
             orgId: z.string().optional()
         });
         const parsedMetadata = metadataSchema.safeParse(metadata);
-        const orgId = parsedMetadata.success ? (parsedMetadata.data.orgId ?? '') : '';
+        const orgId = parsedMetadata.success ? parsedMetadata.data.orgId : undefined;
 
         await nango.trackDeletesStart('Account');
 
@@ -56,9 +60,8 @@ const sync = createSync({
             // https://desk.zoho.com/DeskAPIDocument#Accounts-ListAccounts
             endpoint: '/v1/accounts',
             retries: 3,
-            headers: {
-                orgId: orgId
-            },
+            baseUrlOverride: baseUrl,
+            ...(orgId !== undefined && { headers: { orgId } }),
             paginate: {
                 type: 'offset',
                 limit: LIMIT,

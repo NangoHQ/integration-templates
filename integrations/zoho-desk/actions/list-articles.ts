@@ -92,7 +92,7 @@ const OutputSchema = z.object({
 const ConnectionConfigSchema = z.object({
     connection_config: z
         .object({
-            extension: z.string()
+            extension: z.string().optional()
         })
         .optional()
 });
@@ -110,7 +110,7 @@ const action = createAction({
     scopes: ['Desk.articles.READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const limit = input.limit && input.limit > 0 && input.limit <= 50 ? input.limit : 50;
+        const limit = input.limit && Number.isInteger(input.limit) && input.limit > 0 && input.limit <= 50 ? input.limit : 50;
         const from = input.cursor ? parseInt(input.cursor, 10) : 1;
         if (Number.isNaN(from) || from < 1) {
             throw new nango.ActionError({

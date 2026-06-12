@@ -40,12 +40,18 @@ const action = createAction({
     scopes: ['Desk.settings.READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const from = input.cursor !== undefined ? parseInt(input.cursor, 10) : undefined;
+        if (from !== undefined && (Number.isNaN(from) || from < 1)) {
+            throw new nango.ActionError({ type: 'invalid_input', message: 'cursor must be a positive integer string' });
+        }
+        const limit = input.limit !== undefined ? Math.min(Math.max(Math.floor(input.limit), 1), 50) : undefined;
+
         // https://desk.zoho.com/DeskAPIDocument
         const response = await nango.get({
             endpoint: '/v1/departments',
             params: {
-                ...(input.cursor !== undefined && { from: input.cursor }),
-                ...(input.limit !== undefined && { limit: String(input.limit) })
+                ...(from !== undefined && { from: String(from) }),
+                ...(limit !== undefined && { limit: String(limit) })
             },
             retries: 3
         });
@@ -70,7 +76,7 @@ const action = createAction({
             return parsed.data;
         });
 
-        const nextFrom = input.cursor !== undefined ? Number(input.cursor) + items.length : 1 + items.length;
+        const nextFrom = from !== undefined ? from + items.length : 1 + items.length;
         const next_cursor = items.length > 0 ? String(nextFrom) : undefined;
 
         return {

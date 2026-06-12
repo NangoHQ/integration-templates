@@ -181,12 +181,16 @@ const action = createAction({
             body['secondaryEmail'] = input.secondaryEmail;
         }
 
+        const connection = await nango.getConnection();
+        const extension = typeof connection.connection_config?.['extension'] === 'string' ? connection.connection_config['extension'] : 'com';
+        const baseUrlOverride = `https://desk.zoho.${extension}`;
+
         const response = await nango.post({
             // https://desk.zoho.com/DeskAPIDocument
             endpoint: '/api/v1/contacts',
             data: body,
             retries: 10,
-            baseUrlOverride: 'https://desk.zoho.com'
+            baseUrlOverride
         });
 
         const providerContact = ProviderContactSchema.parse(response.data);

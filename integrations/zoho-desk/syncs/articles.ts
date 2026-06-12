@@ -79,9 +79,7 @@ const sync = createSync({
             endpoint: '/v1/articles',
             params: {
                 sortBy: 'modifiedTime',
-                ...(updatedAfter && {
-                    modifiedTimeRange: `${updatedAfter},${nowIso}`
-                })
+                modifiedTimeRange: `${updatedAfter ?? '1970-01-01T00:00:00.000Z'},${nowIso}`
             },
             paginate: {
                 type: 'offset',
@@ -119,13 +117,24 @@ const sync = createSync({
                     ...(validated.authorId !== undefined && validated.authorId !== null && { authorId: String(validated.authorId) }),
                     ...(validated.webUrl !== undefined && validated.webUrl !== null && { webUrl: validated.webUrl }),
                     ...(validated.permalink !== undefined && validated.permalink !== null && { permalink: validated.permalink }),
-                    ...(validated.viewCount !== undefined && validated.viewCount !== null && { viewCount: Number(validated.viewCount) }),
-                    ...(validated.likeCount !== undefined && validated.likeCount !== null && { likeCount: Number(validated.likeCount) }),
-                    ...(validated.dislikeCount !== undefined && validated.dislikeCount !== null && { dislikeCount: Number(validated.dislikeCount) }),
-                    ...(validated.feedbackCount !== undefined && validated.feedbackCount !== null && { feedbackCount: Number(validated.feedbackCount) }),
-                    ...(validated.commentCount !== undefined && validated.commentCount !== null && { commentCount: Number(validated.commentCount) }),
+                    ...(validated.viewCount !== undefined &&
+                        validated.viewCount !== null &&
+                        Number.isFinite(Number(validated.viewCount)) && { viewCount: Number(validated.viewCount) }),
+                    ...(validated.likeCount !== undefined &&
+                        validated.likeCount !== null &&
+                        Number.isFinite(Number(validated.likeCount)) && { likeCount: Number(validated.likeCount) }),
+                    ...(validated.dislikeCount !== undefined &&
+                        validated.dislikeCount !== null &&
+                        Number.isFinite(Number(validated.dislikeCount)) && { dislikeCount: Number(validated.dislikeCount) }),
+                    ...(validated.feedbackCount !== undefined &&
+                        validated.feedbackCount !== null &&
+                        Number.isFinite(Number(validated.feedbackCount)) && { feedbackCount: Number(validated.feedbackCount) }),
+                    ...(validated.commentCount !== undefined &&
+                        validated.commentCount !== null &&
+                        Number.isFinite(Number(validated.commentCount)) && { commentCount: Number(validated.commentCount) }),
                     ...(validated.attachmentCount !== undefined &&
-                        validated.attachmentCount !== null && { attachmentCount: Number(validated.attachmentCount) }),
+                        validated.attachmentCount !== null &&
+                        Number.isFinite(Number(validated.attachmentCount)) && { attachmentCount: Number(validated.attachmentCount) }),
                     ...(validated.departmentId !== undefined && validated.departmentId !== null && { departmentId: String(validated.departmentId) }),
                     ...(validated.locale !== undefined && validated.locale !== null && { locale: validated.locale })
                 };

@@ -45,7 +45,10 @@ const action = createAction({
         const baseUrlOverride = extension ? `https://desk.zoho.${extension}` : undefined;
 
         const from = input.cursor ? parseInt(input.cursor, 10) : 1;
-        const limit = input.limit ?? 50;
+        if (input.cursor !== undefined && (Number.isNaN(from) || from < 1)) {
+            throw new nango.ActionError({ type: 'invalid_input', message: 'cursor must be a positive integer string' });
+        }
+        const limit = Math.min(Math.max(Math.floor(input.limit ?? 50), 1), 100);
 
         const response = await nango.get({
             // https://desk.zoho.com/DeskAPIDocument#Agents#Agents_Listagents
