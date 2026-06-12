@@ -31,7 +31,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Add a task to a project, optionally into a section.',
-    version: '1.0.0',
+    version: '1.0.1',
     endpoint: {
         method: 'POST',
         path: '/actions/add-project-to-task',

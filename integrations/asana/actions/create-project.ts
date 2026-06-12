@@ -75,7 +75,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a project in a workspace or team.',
-    version: '1.0.0',
+    version: '1.0.1',
     endpoint: {
         method: 'POST',
         path: '/actions/create-project',

@@ -82,7 +82,7 @@ const AsanaResponseSchema = z.object({
 
 const action = createAction({
     description: 'Create a task in Asana.',
-    version: '3.0.0',
+    version: '3.0.1',
     endpoint: {
         method: 'POST',
         path: '/actions/create-task',
