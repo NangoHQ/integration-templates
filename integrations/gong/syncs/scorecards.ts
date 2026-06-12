@@ -44,7 +44,6 @@ const sync = createSync({
     exec: async (nango) => {
         // Blocker: provider only exposes /v2/settings/scorecards with no changed-since filter,
         // no deleted-record endpoint, and no resumable cursor.
-        await nango.trackDeletesStart('Scorecard');
 
         const proxyConfig: ProxyConfiguration = {
             // https://help.gong.io/docs/what-the-gong-api-provides
@@ -60,35 +59,41 @@ const sync = createSync({
             retries: 3
         };
 
+        // Collect all pages first so delete tracking only opens on a confirmed full enumeration.
+        const allMapped: ReturnType<typeof GongScorecardSchema.parse>[] = [];
+
         for await (const page of nango.paginate(proxyConfig)) {
             if (!Array.isArray(page)) {
                 throw new Error(`Expected scorecards page to be an array, got ${typeof page}`);
             }
 
-            const scorecards = page.map((item) => {
+            for (const item of page) {
                 const parsed = GongScorecardSchema.safeParse(item);
                 if (!parsed.success) {
                     throw new Error(`Failed to parse scorecard: ${parsed.error.message}`);
                 }
-                return parsed.data;
-            });
-
-            const mapped = scorecards.map((scorecard) => ({
-                id: scorecard.scorecardId,
-                scorecardId: scorecard.scorecardId,
-                scorecardName: scorecard.scorecardName,
-                ...(scorecard.workspaceId != null && { workspaceId: scorecard.workspaceId }),
-                enabled: scorecard.enabled,
-                updaterUserId: scorecard.updaterUserId,
-                created: scorecard.created,
-                updated: scorecard.updated,
-                ...(scorecard.reviewMethod != null && { reviewMethod: scorecard.reviewMethod }),
-                ...(scorecard.questions != null && { questions: scorecard.questions })
-            }));
-
-            if (mapped.length > 0) {
-                await nango.batchSave(mapped, 'Scorecard');
+                allMapped.push(parsed.data);
             }
+        }
+
+        // Only reach here after a successful full enumeration — safe to open delete tracking.
+        await nango.trackDeletesStart('Scorecard');
+
+        const mapped = allMapped.map((scorecard) => ({
+            id: scorecard.scorecardId,
+            scorecardId: scorecard.scorecardId,
+            scorecardName: scorecard.scorecardName,
+            ...(scorecard.workspaceId != null && { workspaceId: scorecard.workspaceId }),
+            enabled: scorecard.enabled,
+            updaterUserId: scorecard.updaterUserId,
+            created: scorecard.created,
+            updated: scorecard.updated,
+            ...(scorecard.reviewMethod != null && { reviewMethod: scorecard.reviewMethod }),
+            ...(scorecard.questions != null && { questions: scorecard.questions })
+        }));
+
+        if (mapped.length > 0) {
+            await nango.batchSave(mapped, 'Scorecard');
         }
 
         await nango.trackDeletesEnd('Scorecard');

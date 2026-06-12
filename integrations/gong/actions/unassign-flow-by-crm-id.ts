@@ -7,6 +7,11 @@ const InputSchema = z.object({
     unassignedByUserEmail: z.string().optional().describe('The email address of the Gong user requesting to remove prospects from the flow.')
 });
 
+const AxiosErrorSchema = z.object({
+    response: z.object({ status: z.number(), data: z.unknown().optional() }).optional(),
+    status: z.number().optional()
+});
+
 const ProviderResponseSchema = z.object({
     requestId: z.string().optional(),
     unassignedFlowInstanceIds: z.array(z.string()).optional()
@@ -56,12 +61,35 @@ const action = createAction({
                 body['unassignedByUserEmail'] = input.unassignedByUserEmail;
             }
 
-            const response = await nango.post({
-                // https://help.gong.io/apidocs/unassign-flows-by-crm-prospect-id-v2flowsprospectsunassign-flows-by-crm-id-1
-                endpoint: '/v2/flows/prospects/unassign-flows-by-crm-id',
-                data: body,
-                retries: 3
-            });
+            // @allowTryCatch nango.post throws on non-2xx; catch per-prospect so one failure doesn't abort the batch.
+            let response: Awaited<ReturnType<typeof nango.post>>;
+            try {
+                response = await nango.post({
+                    // https://help.gong.io/apidocs/unassign-flows-by-crm-prospect-id-v2flowsprospectsunassign-flows-by-crm-id-1
+                    endpoint: '/v2/flows/prospects/unassign-flows-by-crm-id',
+                    data: body,
+                    retries: 3
+                });
+            } catch (err) {
+                const parsedErr = AxiosErrorSchema.safeParse(err);
+                const data = parsedErr.success ? parsedErr.data.response?.data : undefined;
+                const parsedErr = ErrorResponseSchema.safeParse(data);
+                results.push({
+                    crmProspectId,
+                    error: parsedErr.success && parsedErr.data.errors?.length ? parsedErr.data.errors.join(', ') : String(err)
+                });
+                continue;
+            }
+
+            // A successful response must have unassignedFlowInstanceIds; error responses carry an errors array.
+            const errorResponse = ErrorResponseSchema.safeParse(response.data);
+            if (errorResponse.success && errorResponse.data.errors !== undefined && errorResponse.data.errors.length > 0) {
+                results.push({
+                    crmProspectId,
+                    error: errorResponse.data.errors.join(', ')
+                });
+                continue;
+            }
 
             const successResponse = ProviderResponseSchema.safeParse(response.data);
             if (successResponse.success) {
@@ -71,15 +99,6 @@ const action = createAction({
                     ...(successResponse.data.unassignedFlowInstanceIds !== undefined && {
                         unassignedFlowInstanceIds: successResponse.data.unassignedFlowInstanceIds
                     })
-                });
-                continue;
-            }
-
-            const errorResponse = ErrorResponseSchema.safeParse(response.data);
-            if (errorResponse.success && errorResponse.data.errors !== undefined && errorResponse.data.errors.length > 0) {
-                results.push({
-                    crmProspectId,
-                    error: errorResponse.data.errors.join(', ')
                 });
                 continue;
             }

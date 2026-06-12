@@ -97,15 +97,16 @@ const action = createAction({
     scopes: ['api:calls:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        if (!input.callIds && !input.fromDateTime && !input.toDateTime) {
+        const hasCallIds = Array.isArray(input.callIds) && input.callIds.length > 0;
+        if (!hasCallIds && !input.fromDateTime && !input.toDateTime) {
             throw new nango.ActionError({
                 type: 'invalid_input',
-                message: 'At least one filter must be provided: callIds, fromDateTime, or toDateTime.'
+                message: 'At least one filter must be provided: callIds (non-empty), fromDateTime, or toDateTime.'
             });
         }
 
         const filter: Record<string, unknown> = {};
-        if (input.callIds) {
+        if (hasCallIds) {
             filter['callIds'] = input.callIds;
         }
         if (input.fromDateTime) {

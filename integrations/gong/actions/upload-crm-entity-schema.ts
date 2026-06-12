@@ -78,11 +78,16 @@ const action = createAction({
             let data: unknown;
 
             if (error && typeof error === 'object') {
-                if ('status' in error && typeof error.status === 'number') {
-                    status = error.status;
+                if ('response' in error && error.response && typeof error.response === 'object') {
+                    if ('status' in error.response && typeof error.response.status === 'number') {
+                        status = error.response.status;
+                    }
+                    if ('data' in error.response) {
+                        data = error.response.data;
+                    }
                 }
-                if ('response' in error && error.response && typeof error.response === 'object' && 'data' in error.response) {
-                    data = error.response.data;
+                if (status === undefined && 'status' in error && typeof error.status === 'number') {
+                    status = error.status;
                 }
             }
 

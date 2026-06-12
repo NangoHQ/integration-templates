@@ -2,7 +2,10 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    phoneNumber: z.string().describe('The phone number to look up. Must start with a + sign followed by country code, area code, and local number.')
+    phoneNumber: z
+        .string()
+        .regex(/^\+[1-9]\d{1,14}$/, 'Phone number must be in E.164 format: + followed by 2–15 digits. Example: "+15555550100"')
+        .describe('The phone number to look up in E.164 format. Example: "+15555550100"')
 });
 
 const ProviderDataSchema = z.object({

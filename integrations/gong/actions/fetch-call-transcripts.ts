@@ -38,6 +38,11 @@ const OutputSchema = z.object({
     totalRecords: z.number().optional().describe('Total number of matching transcripts across all pages')
 });
 
+const AxiosErrorSchema = z.object({
+    response: z.object({ status: z.number(), data: z.unknown().optional() }).optional(),
+    status: z.number().optional()
+});
+
 function isHttpErrorWithStatus(error: unknown, status: number): boolean {
     if (typeof error !== 'object' || error === null) return false;
     if ('status' in error && error.status === status) return true;
@@ -105,7 +110,12 @@ const action = createAction({
             };
         } catch (error: unknown) {
             if (isHttpErrorWithStatus(error, 404)) {
-                return emptyResult;
+                const parsedErr = AxiosErrorSchema.safeParse(error);
+                const data = parsedErr.success ? parsedErr.data.response?.data : undefined;
+                const parsed = z.object({ errors: z.array(z.string()).optional() }).safeParse(data);
+                if (!parsed.success || !parsed.data.errors || parsed.data.errors.some((e) => e.includes('No calls found'))) {
+                    return emptyResult;
+                }
             }
             throw error;
         }

@@ -10,8 +10,8 @@ const InputSchema = z.object({
 });
 
 const AnswerSchema = z.object({
-    questionId: z.number(),
-    questionRevisionId: z.number().optional(),
+    questionId: z.union([z.string(), z.number()]).transform(String),
+    questionRevisionId: z.union([z.string(), z.number()]).transform(String).optional(),
     isOverall: z.boolean().optional(),
     score: z.number().optional(),
     answerText: z.string().optional(),
@@ -20,15 +20,15 @@ const AnswerSchema = z.object({
 });
 
 const AnsweredScorecardSchema = z.object({
-    answeredScorecardId: z.number(),
-    scorecardId: z.number(),
+    answeredScorecardId: z.union([z.string(), z.number()]).transform(String),
+    scorecardId: z.union([z.string(), z.number()]).transform(String),
     scorecardName: z.string(),
-    callId: z.number(),
+    callId: z.union([z.string(), z.number()]).transform(String),
     callStartTime: z.string().optional(),
-    reviewedUserId: z.number().optional(),
-    reviewerUserId: z.number().nullable().optional(),
+    reviewedUserId: z.union([z.string(), z.number()]).transform(String).optional(),
+    reviewerUserId: z.union([z.string(), z.number()]).transform(String).nullable().optional(),
     reviewMethod: z.string().optional(),
-    editorUserId: z.number().nullable().optional(),
+    editorUserId: z.union([z.string(), z.number()]).transform(String).nullable().optional(),
     reviewTime: z.string().optional(),
     visibilityType: z.string().optional(),
     answers: z.array(AnswerSchema).optional()

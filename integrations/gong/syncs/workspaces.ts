@@ -38,7 +38,6 @@ const sync = createSync({
     exec: async (nango) => {
         // Blocker: provider only exposes /v2/workspaces with no changed-since filter,
         // no deleted-record endpoint, and no resumable cursor.
-        await nango.trackDeletesStart('Workspace');
 
         // https://help.gong.io/docs/what-the-gong-api-provides
         const response = await nango.get({
@@ -50,6 +49,10 @@ const sync = createSync({
         if (!parsed.success) {
             throw new Error(`Failed to parse workspaces response: ${parsed.error.message}`);
         }
+
+        // Start delete tracking only after response validation succeeds so a parse
+        // failure does not leave tracking open without a corresponding trackDeletesEnd.
+        await nango.trackDeletesStart('Workspace');
 
         const workspaces = parsed.data.workspaces ?? [];
         const records = workspaces.map((workspace) => ({

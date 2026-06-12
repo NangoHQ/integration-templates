@@ -17,12 +17,24 @@ const LibraryFolderAccessSchema = z.object({
     shareFoldersAndStreams: z.boolean().optional()
 });
 
+const ForecastAccessSchema = z.object({
+    permissionLevel: PermissionLevelSchema,
+    teamLeadIds: z.array(z.string()).optional()
+});
+
+const ForecastPermissionsSchema = z.object({
+    forecastAccess: ForecastAccessSchema.optional(),
+    forecastEditSubmissions: ForecastAccessSchema.optional(),
+    forecastEditTargets: ForecastAccessSchema.optional()
+});
+
 const InputSchema = z.object({
     workspaceId: z.string().describe('Workspace identifier. Example: "7273476131570014205"'),
     profileId: z.string().describe('Unique numeric identifier for the permission profile (up to 20 digits). Example: "3843152912968920037"'),
     profileName: z.string().describe('Permission profile name. Example: "Standard Team Member"'),
     description: z.string().describe('Permission profile description. Example: "Default profile for sales team"'),
     libraryFolderAccess: LibraryFolderAccessSchema,
+    forecastPermissions: ForecastPermissionsSchema.optional(),
     callsAccess: ScopedAccessSchema.optional(),
     dealsAccess: ScopedAccessSchema.optional(),
     coachingAccess: ScopedAccessSchema.optional(),
@@ -102,6 +114,7 @@ const action = createAction({
             name: input.profileName,
             description: input.description,
             libraryFolderAccess: input.libraryFolderAccess,
+            ...(input.forecastPermissions !== undefined && { forecastPermissions: input.forecastPermissions }),
             ...(input.callsAccess !== undefined && { callsAccess: input.callsAccess }),
             ...(input.dealsAccess !== undefined && { dealsAccess: input.dealsAccess }),
             ...(input.coachingAccess !== undefined && { coachingAccess: input.coachingAccess }),

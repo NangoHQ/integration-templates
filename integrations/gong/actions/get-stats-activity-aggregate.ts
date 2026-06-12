@@ -66,6 +66,12 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://help.gong.io/apidocs/retrieve-aggregated-activity-for-defined-users-by-date-v2statsactivityaggregate
+        if (!/^\d{4}-\d{2}-\d{2}$/.test(input.referenceDate)) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'referenceDate must be in YYYY-MM-DD format. Example: "2026-06-01"'
+            });
+        }
         const fromDate = input.referenceDate;
         const toDateObj = new Date(`${input.referenceDate}T00:00:00Z`);
         toDateObj.setUTCDate(toDateObj.getUTCDate() + 1);

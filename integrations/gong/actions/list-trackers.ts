@@ -50,7 +50,8 @@ const TrackerSchema = z.object({
 
 const ProviderResponseSchema = z.object({
     requestId: z.string().optional(),
-    keywordTrackers: z.array(ProviderTrackerSchema).optional()
+    keywordTrackers: z.array(ProviderTrackerSchema).optional(),
+    records: z.object({ cursor: z.string().optional() }).optional()
 });
 
 const OutputSchema = z.object({
@@ -116,7 +117,8 @@ const action = createAction({
         });
 
         return {
-            trackers
+            trackers,
+            ...(providerResponse.records?.cursor != null && { nextCursor: providerResponse.records.cursor })
         };
     }
 });

@@ -5,6 +5,11 @@ const InputSchema = z.object({
     callId: z.string().describe('Gong call ID. Example: "123456789"')
 });
 
+const AxiosErrorSchema = z.object({
+    response: z.object({ status: z.number(), data: z.unknown().optional() }).optional(),
+    status: z.number().optional()
+});
+
 const ProviderResponseSchema = z.object({
     requestId: z.string().optional(),
     callAccessList: z
@@ -58,11 +63,18 @@ const action = createAction({
                 users: callAccess?.users ?? []
             };
         } catch (error) {
-            if (error && typeof error === 'object' && 'status' in error && error.status === 400) {
-                return {
-                    callId: input.callId,
-                    users: []
-                };
+            const parsedErr = AxiosErrorSchema.safeParse(error);
+            const status = parsedErr.success ? (parsedErr.data.response?.status ?? parsedErr.data.status) : undefined;
+
+            if (status === 400) {
+                const data = parsedErr.success ? parsedErr.data.response?.data : undefined;
+                const parsed = z.object({ errors: z.array(z.string()).optional() }).safeParse(data);
+                if (parsed.success && parsed.data.errors?.some((e) => e.toLowerCase().includes('not found') || e.toLowerCase().includes('some calls'))) {
+                    return {
+                        callId: input.callId,
+                        users: []
+                    };
+                }
             }
 
             throw error;

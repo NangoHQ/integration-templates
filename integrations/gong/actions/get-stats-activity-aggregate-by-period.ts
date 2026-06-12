@@ -5,7 +5,9 @@ const InputSchema = z.object({
     userIds: z.array(z.string()).optional().describe('Gong user IDs to filter by. Example: ["7254376376091929519"]'),
     fromDateTime: z.string().describe('Start date in ISO 8601 format. Example: "2026-01-01T00:00:00Z"'),
     toDateTime: z.string().describe('End date in ISO 8601 format. Example: "2026-01-31T00:00:00Z"'),
-    groupingPeriod: z.enum(['week', 'month', 'quarter', 'WEEK', 'MONTH', 'QUARTER']).describe('Time period for grouping. Example: "week"'),
+    groupingPeriod: z
+        .enum(['day', 'week', 'month', 'quarter', 'year', 'DAY', 'WEEK', 'MONTH', 'QUARTER', 'YEAR'])
+        .describe('Time period for grouping. Example: "week"'),
     cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.')
 });
 
@@ -116,8 +118,8 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const filter: Record<string, unknown> = {
-            fromDate: input.fromDateTime,
-            toDate: input.toDateTime
+            fromDate: input.fromDateTime.slice(0, 10),
+            toDate: input.toDateTime.slice(0, 10)
         };
 
         if (input.userIds !== undefined && input.userIds.length > 0) {

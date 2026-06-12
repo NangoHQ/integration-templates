@@ -43,6 +43,11 @@ const ProviderUserSchema = z.object({
         .optional()
 });
 
+const AxiosErrorSchema = z.object({
+    response: z.object({ status: z.number(), data: z.unknown().optional() }).optional(),
+    status: z.number().optional()
+});
+
 const ProviderResponseSchema = z.object({
     requestId: z.string(),
     user: ProviderUserSchema
@@ -97,41 +102,47 @@ const action = createAction({
     scopes: ['api:users:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://help.gong.io/apidocs/retrieve-user-v2usersid
-        const response = await nango.get({
-            endpoint: `/v2/users/${encodeURIComponent(input.userId)}`,
-            retries: 3
-        });
-
-        if (!response.data) {
-            throw new nango.ActionError({
-                type: 'not_found',
-                message: 'User not found',
-                userId: input.userId
+        // @allowTryCatch Gong returns 404 for non-existent users; nango.get throws on non-2xx.
+        try {
+            // https://help.gong.io/apidocs/retrieve-user-v2usersid
+            const response = await nango.get({
+                endpoint: `/v2/users/${encodeURIComponent(input.userId)}`,
+                retries: 3
             });
+
+            const providerResponse = ProviderResponseSchema.parse(response.data);
+            const user = providerResponse.user;
+
+            return {
+                id: user.id,
+                emailAddress: user.emailAddress,
+                created: user.created,
+                active: user.active,
+                ...(user.emailAliases != null && { emailAliases: user.emailAliases }),
+                ...(user.trustedEmailAddress != null && { trustedEmailAddress: user.trustedEmailAddress }),
+                ...(user.firstName != null && { firstName: user.firstName }),
+                ...(user.lastName != null && { lastName: user.lastName }),
+                ...(user.title != null && { title: user.title }),
+                ...(user.phoneNumber != null && { phoneNumber: user.phoneNumber }),
+                ...(user.extension != null && { extension: user.extension }),
+                ...(user.personalMeetingUrls != null && { personalMeetingUrls: user.personalMeetingUrls }),
+                ...(user.settings != null && { settings: user.settings }),
+                ...(user.managerId != null && { managerId: user.managerId }),
+                ...(user.meetingConsentPageUrl != null && { meetingConsentPageUrl: user.meetingConsentPageUrl }),
+                ...(user.spokenLanguages != null && { spokenLanguages: user.spokenLanguages })
+            };
+        } catch (err: unknown) {
+            const parsedErr = AxiosErrorSchema.safeParse(err);
+            const status = parsedErr.success ? (parsedErr.data.response?.status ?? parsedErr.data.status) : undefined;
+            if (status === 404) {
+                throw new nango.ActionError({
+                    type: 'not_found',
+                    message: 'User not found',
+                    userId: input.userId
+                });
+            }
+            throw err;
         }
-
-        const providerResponse = ProviderResponseSchema.parse(response.data);
-        const user = providerResponse.user;
-
-        return {
-            id: user.id,
-            emailAddress: user.emailAddress,
-            created: user.created,
-            active: user.active,
-            ...(user.emailAliases != null && { emailAliases: user.emailAliases }),
-            ...(user.trustedEmailAddress != null && { trustedEmailAddress: user.trustedEmailAddress }),
-            ...(user.firstName != null && { firstName: user.firstName }),
-            ...(user.lastName != null && { lastName: user.lastName }),
-            ...(user.title != null && { title: user.title }),
-            ...(user.phoneNumber != null && { phoneNumber: user.phoneNumber }),
-            ...(user.extension != null && { extension: user.extension }),
-            ...(user.personalMeetingUrls != null && { personalMeetingUrls: user.personalMeetingUrls }),
-            ...(user.settings != null && { settings: user.settings }),
-            ...(user.managerId != null && { managerId: user.managerId }),
-            ...(user.meetingConsentPageUrl != null && { meetingConsentPageUrl: user.meetingConsentPageUrl }),
-            ...(user.spokenLanguages != null && { spokenLanguages: user.spokenLanguages })
-        };
     }
 });
 

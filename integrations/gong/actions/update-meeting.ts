@@ -35,10 +35,6 @@ const AxiosErrorSchema = z.object({
     })
 });
 
-const GongErrorSchema = z.object({
-    requestId: z.string().optional()
-});
-
 function handleErrorResponse(
     status: number,
     data: unknown,
@@ -107,11 +103,11 @@ const action = createAction({
                 const status = parsedError.data.response.status;
                 const data = parsedError.data.response.data;
                 if (status === 404) {
-                    const gongError = GongErrorSchema.parse(data);
-                    return {
-                        requestId: gongError.requestId || 'unknown',
+                    throw new nango.ActionError({
+                        type: 'not_found',
+                        message: `Meeting ${input.meetingId} was not found.`,
                         meetingId: input.meetingId
-                    };
+                    });
                 }
                 handleErrorResponse(status, data, undefined, input.meetingId, nango);
             }
@@ -119,11 +115,11 @@ const action = createAction({
         }
 
         if (response.status === 404) {
-            const gongError = GongErrorSchema.parse(response.data);
-            return {
-                requestId: gongError.requestId || 'unknown',
+            throw new nango.ActionError({
+                type: 'not_found',
+                message: `Meeting ${input.meetingId} was not found.`,
                 meetingId: input.meetingId
-            };
+            });
         }
 
         if (response.status >= 400) {

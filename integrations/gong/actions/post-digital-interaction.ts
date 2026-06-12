@@ -45,6 +45,13 @@ const action = createAction({
     scopes: ['api:digital-interactions:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        if (input.trackingId !== undefined && (input.actorEmail || input.actorName)) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'trackingId and person (actorEmail/actorName) are mutually exclusive. Provide one or the other, not both.'
+            });
+        }
+
         const body: Record<string, unknown> = {
             eventId: input.eventId,
             timestamp: input.timestamp,

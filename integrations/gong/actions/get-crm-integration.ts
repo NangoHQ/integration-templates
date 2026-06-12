@@ -14,6 +14,7 @@ const OutputSchema = z.object({
 
 export default createAction({
     description: 'Retrieve details of the registered generic CRM integration',
+    version: '1.0.0',
     endpoint: {
         method: 'GET',
         path: '/actions/get-crm-integration'

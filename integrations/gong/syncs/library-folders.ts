@@ -92,13 +92,14 @@ const sync = createSync({
                     await nango.batchSave(folders, 'LibraryFolder');
                 }
             }
+            // Only mark deletes complete after a full successful enumeration
+            await nango.trackDeletesEnd('LibraryFolder');
         } catch (error) {
             if (!isUnavailableError(error)) {
                 throw error;
             }
+            // 401/404: endpoint unavailable — leave delete tracking open so existing records are preserved
         }
-
-        await nango.trackDeletesEnd('LibraryFolder');
     }
 });
 

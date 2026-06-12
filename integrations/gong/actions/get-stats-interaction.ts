@@ -34,6 +34,11 @@ const OutputSchema = z.object({
     records: RecordsSchema.optional()
 });
 
+const AxiosErrorSchema = z.object({
+    response: z.object({ status: z.number(), data: z.unknown().optional() }).optional(),
+    status: z.number().optional()
+});
+
 const action = createAction({
     description: 'Retrieve interaction statistics for users on a specific date',
     version: '1.0.0',
@@ -61,30 +66,32 @@ const action = createAction({
         const nextDay = new Date(Date.UTC(year, month - 1, day + 1));
         const toDate = nextDay.toISOString().split('T')[0];
 
-        const response = await nango.post({
-            // https://help.gong.io/apidocs/retrieve-interaction-stats-for-applicable-users-by-date-v2statsinteraction
-            endpoint: '/v2/stats/interaction',
-            data: {
-                filter: {
-                    fromDate,
-                    toDate,
-                    userIds: input.userIds
+        let response;
+        // @allowTryCatch The stats/interaction endpoint is plan-gated; 401/404 means the feature is unavailable.
+        try {
+            response = await nango.post({
+                // https://help.gong.io/apidocs/retrieve-interaction-stats-for-applicable-users-by-date-v2statsinteraction
+                endpoint: '/v2/stats/interaction',
+                data: {
+                    filter: {
+                        fromDate,
+                        toDate,
+                        userIds: input.userIds
+                    },
+                    ...(input.cursor !== undefined && { cursor: input.cursor })
                 },
-                ...(input.cursor !== undefined && { cursor: input.cursor })
-            },
-            retries: 3
-        });
-
-        const status = response.status;
-        if (status === 404 || status === 401) {
-            return {
-                peopleInteractionStats: [],
-                records: {
-                    totalRecords: 0,
-                    currentPageSize: 0,
-                    currentPageNumber: 0
-                }
-            };
+                retries: 3
+            });
+        } catch (err) {
+            const parsedErr = AxiosErrorSchema.safeParse(err);
+            const status = parsedErr.success ? (parsedErr.data.response?.status ?? parsedErr.data.status) : undefined;
+            if (status === 401 || status === 404) {
+                return {
+                    peopleInteractionStats: [],
+                    records: { totalRecords: 0, currentPageSize: 0, currentPageNumber: 0 }
+                };
+            }
+            throw err;
         }
 
         const data = response.data;

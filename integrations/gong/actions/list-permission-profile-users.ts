@@ -56,7 +56,7 @@ const action = createAction({
                 typeof error.response.status === 'number'
                     ? error.response.status
                     : undefined;
-            if (errorStatus === 400 || errorStatus === 401 || errorStatus === 404) {
+            if (errorStatus === 401 || errorStatus === 404) {
                 return {
                     users: []
                 };
