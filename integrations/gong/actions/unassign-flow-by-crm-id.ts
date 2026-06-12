@@ -73,10 +73,10 @@ const action = createAction({
             } catch (err) {
                 const parsedErr = AxiosErrorSchema.safeParse(err);
                 const data = parsedErr.success ? parsedErr.data.response?.data : undefined;
-                const parsedErr = ErrorResponseSchema.safeParse(data);
+                const parsedErrBody = ErrorResponseSchema.safeParse(data);
                 results.push({
                     crmProspectId,
-                    error: parsedErr.success && parsedErr.data.errors?.length ? parsedErr.data.errors.join(', ') : String(err)
+                    error: parsedErrBody.success && parsedErrBody.data.errors?.length ? parsedErrBody.data.errors.join(', ') : String(err)
                 });
                 continue;
             }

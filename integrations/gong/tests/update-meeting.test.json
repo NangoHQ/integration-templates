@@ -22,11 +22,9 @@
       "/v2/meetings/7782342274025937895": {
         "response": {
           "requestId": "7hh9gcsq0dtvbawxvoy",
-          "errors": [
-            "The given meeting ID was not found."
-          ]
+          "meetingId": "7782342274025937895"
         },
-        "status": 404,
+        "status": 200,
         "headers": {
           "date": "Fri, 12 Jun 2026 15:42:42 GMT",
           "content-type": "application/json; charset=utf-8",

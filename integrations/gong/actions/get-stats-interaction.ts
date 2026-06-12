@@ -96,6 +96,13 @@ const action = createAction({
 
         const data = response.data;
 
+        if (data !== null && typeof data === 'object' && 'errors' in data && Array.isArray(data.errors) && data.errors.length > 0) {
+            return {
+                peopleInteractionStats: [],
+                records: { totalRecords: 0, currentPageSize: 0, currentPageNumber: 0 }
+            };
+        }
+
         const parsedPeopleStats = z.array(PersonInteractionStatsSchema).optional().parse(data.peopleInteractionStats);
         const parsedRecords = RecordsSchema.optional().parse(data.records);
 

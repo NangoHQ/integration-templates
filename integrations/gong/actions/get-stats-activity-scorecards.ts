@@ -9,7 +9,7 @@ const InputSchema = z.object({
     cursor: z.string().optional().describe('Pagination cursor from the previous response.')
 });
 
-const AnswerSchema = z.object({
+const ProviderAnswerSchema = z.object({
     questionId: z.union([z.string(), z.number()]).transform(String),
     questionRevisionId: z.union([z.string(), z.number()]).transform(String).optional(),
     isOverall: z.boolean().optional(),
@@ -19,7 +19,7 @@ const AnswerSchema = z.object({
     selectedOptions: z.array(z.string()).optional()
 });
 
-const AnsweredScorecardSchema = z.object({
+const ProviderAnsweredScorecardSchema = z.object({
     answeredScorecardId: z.union([z.string(), z.number()]).transform(String),
     scorecardId: z.union([z.string(), z.number()]).transform(String),
     scorecardName: z.string(),
@@ -31,7 +31,32 @@ const AnsweredScorecardSchema = z.object({
     editorUserId: z.union([z.string(), z.number()]).transform(String).nullable().optional(),
     reviewTime: z.string().optional(),
     visibilityType: z.string().optional(),
-    answers: z.array(AnswerSchema).optional()
+    answers: z.array(ProviderAnswerSchema).optional()
+});
+
+const OutputAnswerSchema = z.object({
+    questionId: z.string(),
+    questionRevisionId: z.string().optional(),
+    isOverall: z.boolean().optional(),
+    score: z.number().optional(),
+    answerText: z.string().optional(),
+    notApplicable: z.boolean().optional(),
+    selectedOptions: z.array(z.string()).optional()
+});
+
+const OutputAnsweredScorecardSchema = z.object({
+    answeredScorecardId: z.string(),
+    scorecardId: z.string(),
+    scorecardName: z.string(),
+    callId: z.string(),
+    callStartTime: z.string().optional(),
+    reviewedUserId: z.string().optional(),
+    reviewerUserId: z.string().nullable().optional(),
+    reviewMethod: z.string().optional(),
+    editorUserId: z.string().nullable().optional(),
+    reviewTime: z.string().optional(),
+    visibilityType: z.string().optional(),
+    answers: z.array(OutputAnswerSchema).optional()
 });
 
 const RecordsSchema = z.object({
@@ -44,11 +69,11 @@ const RecordsSchema = z.object({
 const ResponseSchema = z.object({
     requestId: z.string().optional(),
     records: RecordsSchema.optional(),
-    answeredScorecards: z.array(AnsweredScorecardSchema).optional()
+    answeredScorecards: z.array(ProviderAnsweredScorecardSchema).optional()
 });
 
 const OutputSchema = z.object({
-    answeredScorecards: z.array(AnsweredScorecardSchema).optional(),
+    answeredScorecards: z.array(OutputAnsweredScorecardSchema).optional(),
     cursor: z.string().optional()
 });
 

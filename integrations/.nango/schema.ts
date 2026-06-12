@@ -32354,6 +32354,12 @@ export interface ActionInput_gong_oauth_createpermissionprofile {
   manageStreams?: boolean | undefined;
   manageFolderCalls?: boolean | undefined;
   shareFoldersAndStreams?: boolean | undefined;};
+  forecastPermissions?: {  forecastAccess?: {  permissionLevel: 'all' | 'managers-team' | 'report-to-them' | 'own' | 'none';
+  teamLeadIds?: string[] | undefined;};
+  forecastEditSubmissions?: {  permissionLevel: 'all' | 'managers-team' | 'report-to-them' | 'own' | 'none';
+  teamLeadIds?: string[] | undefined;};
+  forecastEditTargets?: {  permissionLevel: 'all' | 'managers-team' | 'report-to-them' | 'own' | 'none';
+  teamLeadIds?: string[] | undefined;};};
   callsAccess?: {  permissionLevel: 'all' | 'managers-team' | 'report-to-them' | 'own' | 'none';
   teamLeadIds?: string[] | undefined;};
   dealsAccess?: {  permissionLevel: 'all' | 'managers-team' | 'report-to-them' | 'own' | 'none';
@@ -32837,7 +32843,7 @@ export interface ActionOutput_gong_oauth_getdataforemail {
 
 export interface ActionInput_gong_oauth_getdataforphone {
   /**
-   * The phone number to look up. Must start with a + sign followed by country code, area code, and local number.
+   * The phone number to look up in E.164 format. Example: "+15555550100"
    */
   phoneNumber: string;
 };
@@ -32874,6 +32880,14 @@ export interface ActionInput_gong_oauth_getentitybrief {
    * Time period for the brief. Example: "LAST_30DAYS"
    */
   timePeriod: 'LAST_7DAYS' | 'LAST_30DAYS' | 'LAST_90DAYS' | 'LAST_90_DAYS_SINCE_LAST_ACTIVITY' | 'LAST_YEAR_SINCE_LAST_ACTIVITY' | 'LAST_YEAR' | 'THIS_WEEK' | 'THIS_MONTH' | 'THIS_YEAR' | 'THIS_QUARTER' | 'CUSTOM_RANGE' | 'ALL_CONVERSATIONS';
+  /**
+   * Start date for CUSTOM_RANGE period in YYYY-MM-DD format. Example: "2026-01-01"
+   */
+  fromDate?: string | undefined;
+  /**
+   * End date for CUSTOM_RANGE period in YYYY-MM-DD format. Example: "2026-06-01"
+   */
+  toDate?: string | undefined;
 };
 
 export interface ActionOutput_gong_oauth_getentitybrief {
@@ -33119,7 +33133,7 @@ export interface ActionInput_gong_oauth_getstatsactivityaggregatebyperiod {
   /**
    * Time period for grouping. Example: "week"
    */
-  groupingPeriod: 'week' | 'month' | 'quarter' | 'WEEK' | 'MONTH' | 'QUARTER';
+  groupingPeriod: 'day' | 'week' | 'month' | 'quarter' | 'year' | 'DAY' | 'WEEK' | 'MONTH' | 'QUARTER' | 'YEAR';
   /**
    * Pagination cursor from the previous response. Omit for the first page.
    */
@@ -33262,19 +33276,19 @@ export interface ActionInput_gong_oauth_getstatsactivityscorecards {
 };
 
 export interface ActionOutput_gong_oauth_getstatsactivityscorecards {
-  answeredScorecards?: ({  answeredScorecardId: number;
-  scorecardId: number;
+  answeredScorecards?: ({  answeredScorecardId: string;
+  scorecardId: string;
   scorecardName: string;
-  callId: number;
+  callId: string;
   callStartTime?: string | undefined;
-  reviewedUserId?: number | undefined;
-  reviewerUserId?: number | undefined;
+  reviewedUserId?: string | undefined;
+  reviewerUserId?: string | undefined;
   reviewMethod?: string | undefined;
-  editorUserId?: number | undefined;
+  editorUserId?: string | undefined;
   reviewTime?: string | undefined;
   visibilityType?: string | undefined;
-  answers?: ({  questionId: number;
-  questionRevisionId?: number | undefined;
+  answers?: ({  questionId: string;
+  questionRevisionId?: string | undefined;
   isOverall?: boolean | undefined;
   score?: number | undefined;
   answerText?: string | undefined;
@@ -33474,7 +33488,7 @@ export interface ActionOutput_gong_oauth_listcalls {
   title?: string | undefined;
   started?: string | undefined;
   duration?: number | undefined;
-  primaryUser?: string | undefined;
+  primaryUserId?: string | undefined;
   workspaceId?: string | undefined;
   direction?: string | undefined;
   disposition?: string | undefined;
@@ -33748,7 +33762,7 @@ export interface ActionOutput_gong_oauth_listusers {
   managerId?: string | undefined;
   meetingConsentPageUrl?: string | undefined;
   spokenLanguages?: ({  language: string;
-  primary: boolean;})[] | undefined;})[];
+  primary?: boolean | undefined;})[];})[];
   nextCursor?: string | undefined;
 };
 
@@ -34275,9 +34289,9 @@ export interface ActionOutput_gong_oauth_updatepermissionprofile {
 
 export interface ActionInput_gong_oauth_updatetask {
   /**
-   * The ID of the task to update. Example: 12345
+   * The ID of the task to update. Example: "7254376376091929519"
    */
-  taskId: number;
+  taskId: string;
   /**
    * The Gong user ID who owns the task.
    */
@@ -34301,8 +34315,8 @@ export interface ActionInput_gong_oauth_updatetask {
 };
 
 export interface ActionOutput_gong_oauth_updatetask {
-  id?: number | undefined;
-  userId?: number | undefined;
+  id?: string | undefined;
+  userId?: string | undefined;
   status?: string | undefined;
   dueDate?: string | undefined;
   priority?: string | undefined;
