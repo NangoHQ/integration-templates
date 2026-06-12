@@ -1,0 +1,31 @@
+integrations/.nango/nango.json
+  s_05e65aca0e100a::t_7213a0dcdce05f 28110,28259,28640,28916,29035,33399
+integrations/asana/actions/search-tasks-in-workspace.ts
+  s_05e65aca0e100a::t_a98e48e2a9a978 58
+integrations/asana/actions/add-project-to-task.ts
+  s_05e65aca0e100a::t_a98e48e2a9a978 34
+integrations/asana/actions/create-task.ts
+  s_05e65aca0e100a::t_a98e48e2a9a978 85
+integrations/asana/actions/create-project.ts
+  s_05e65aca0e100a::t_a98e48e2a9a978 78
+integrations/asana/actions/create-subtask.ts
+  s_05e65aca0e100a::t_a98e48e2a9a978 102
+integrations/asana/actions/create-tag.ts
+  s_05e65aca0e100a::t_a98e48e2a9a978 66
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "677e7e845692f14b7a162ea0db7064af1ce6e08b",
+  "prompts": {},
+  "sessions": {
+    "s_05e65aca0e100a": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_1442eb6cfffeuF5Ja9rVQQ9IKJ",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Marcin Dobrowolski <marcindobry@hotmail.com>"
+    }
+  }
+}
