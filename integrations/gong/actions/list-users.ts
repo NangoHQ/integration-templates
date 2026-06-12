@@ -25,7 +25,7 @@ const ProviderUserSchema = z.object({
         .array(
             z.object({
                 language: z.string(),
-                primary: z.boolean()
+                primary: z.boolean().optional()
             })
         )
         .optional()
@@ -63,7 +63,7 @@ const OutputUserSchema = z.object({
         .array(
             z.object({
                 language: z.string(),
-                primary: z.boolean()
+                primary: z.boolean().optional()
             })
         )
         .optional()

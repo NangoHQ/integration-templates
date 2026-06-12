@@ -166,6 +166,14 @@ const action = createAction({
             });
         }
 
+        if (!parsed.data.profile) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Gong returned a 200 response but no profile object was included.',
+                profileId: input.profileId
+            });
+        }
+
         return {
             requestId: parsed.data.requestId,
             profile: parsed.data.profile

@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    flowInstanceIds: z.array(z.string()).describe('Array of flow instance IDs to unassign from the flow. Max 100 IDs per request.')
+    flowInstanceIds: z.array(z.string()).max(100).describe('Array of flow instance IDs to unassign from the flow. Max 100 IDs per request.')
 });
 
 const UnassignResponseSchema = z.object({
@@ -70,11 +70,18 @@ const action = createAction({
 
         if (response.data != null && typeof response.data === 'object') {
             const parsedResponse = ErrorResponseSchema.safeParse(response.data);
-            if (parsedResponse.success && parsedResponse.data.errors != null) {
-                return {
-                    requestId: parsedResponse.data.requestId ?? '',
-                    unassignedFlowInstanceIds: []
-                };
+            if (parsedResponse.success && parsedResponse.data.errors != null && parsedResponse.data.errors.length > 0) {
+                const isNotFound = parsedResponse.data.errors.some((e) => e.toLowerCase().includes('does not exist') || e.toLowerCase().includes('not found'));
+                if (isNotFound) {
+                    return {
+                        requestId: parsedResponse.data.requestId ?? '',
+                        unassignedFlowInstanceIds: []
+                    };
+                }
+                throw new nango.ActionError({
+                    type: 'provider_error',
+                    message: parsedResponse.data.errors.join(', ')
+                });
             }
         }
 

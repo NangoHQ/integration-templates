@@ -104,20 +104,36 @@ const action = createAction({
             errors: z.array(z.string()).optional()
         });
 
-        // https://help.gong.io/docs/uploading-calls-from-a-non-integrated-telephony-system
-        const response = await nango.post({
-            endpoint: '/v2/calls',
-            data: body,
-            retries: 3
+        const AxiosErrorSchema = z.object({
+            response: z.object({ status: z.number(), data: z.unknown().optional() }).optional(),
+            status: z.number().optional()
         });
 
-        if (response.status === 409) {
-            const errorData = GongErrorSchema.parse(response.data);
-            throw new nango.ActionError({
-                type: 'recording_not_enabled',
-                message: errorData.errors?.[0] ?? 'Recording or telephony call import is not enabled for primaryUser',
-                requestId: errorData.requestId
+        // @allowTryCatch nango.post throws on non-2xx; catch 409 to surface a typed recording error.
+        let response;
+        try {
+            // https://help.gong.io/docs/uploading-calls-from-a-non-integrated-telephony-system
+            response = await nango.post({
+                endpoint: '/v2/calls',
+                data: body,
+                retries: 3
             });
+        } catch (err) {
+            const parsedErr = AxiosErrorSchema.safeParse(err);
+            const status = parsedErr.success ? (parsedErr.data.response?.status ?? parsedErr.data.status) : undefined;
+            if (status === 409) {
+                const data = parsedErr.success ? parsedErr.data.response?.data : undefined;
+                const errorData = GongErrorSchema.safeParse(data);
+                throw new nango.ActionError({
+                    type: 'recording_not_enabled',
+                    message:
+                        errorData.success && errorData.data.errors?.[0]
+                            ? errorData.data.errors[0]
+                            : 'Recording or telephony call import is not enabled for primaryUser',
+                    requestId: errorData.success ? errorData.data.requestId : undefined
+                });
+            }
+            throw err;
         }
 
         if (response.status !== 200 && response.status !== 201) {

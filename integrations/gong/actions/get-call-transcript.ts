@@ -111,17 +111,16 @@ const action = createAction({
                 const responseData = z.unknown().parse(axiosError.data.response.data);
                 if (status === 404) {
                     const errorBody = ErrorResponseSchema.safeParse(responseData);
-                    const errors =
-                        errorBody.success && errorBody.data.errors ? errorBody.data.errors : ['No calls found corresponding to the provided filters'];
-                    if (errors.some((e) => e.includes('No calls found'))) {
+                    if (errorBody.success && errorBody.data.errors?.some((e) => e.includes('No calls found'))) {
                         return {
                             callId: input.callId,
                             transcript: []
                         };
                     }
+                    const errMsg = errorBody.success && errorBody.data.errors?.length ? errorBody.data.errors.join(', ') : 'Call not found';
                     throw new nango.ActionError({
                         type: 'not_found',
-                        message: errors.join(', '),
+                        message: errMsg,
                         callId: input.callId
                     });
                 }

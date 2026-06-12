@@ -45,7 +45,7 @@ const action = createAction({
 
         const responseData = z
             .object({
-                flowsFolders: z.array(z.unknown()).optional(),
+                flows: z.array(z.unknown()).optional(),
                 records: z
                     .object({
                         cursor: z.string().optional()
@@ -54,7 +54,7 @@ const action = createAction({
             })
             .parse(response.data);
 
-        const items = (responseData.flowsFolders || []).map((item) => {
+        const items = (responseData.flows || []).map((item) => {
             return FolderSchema.parse(item);
         });
 

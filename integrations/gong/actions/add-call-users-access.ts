@@ -10,6 +10,11 @@ const ProviderResponseSchema = z.object({
     requestId: z.string().optional()
 });
 
+const AxiosErrorSchema = z.object({
+    response: z.object({ status: z.number(), data: z.unknown().optional() }).optional(),
+    status: z.number().optional()
+});
+
 const OutputSchema = z.object({
     requestId: z.string().optional()
 });
@@ -29,8 +34,8 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         let response;
         try {
-            // @allowTryCatch: The API returns 400 when the callId does not exist.
-            // We catch this to return a controlled response instead of crashing.
+            // @allowTryCatch: The API returns 400 with "Some calls not found" when the callId does not exist.
+            // We catch this specific case to return a controlled empty response.
             response = await nango.put({
                 // https://help.gong.io/apidocs/give-individual-users-access-to-calls-v2callsusers-access
                 endpoint: '/v2/calls/users-access',
@@ -44,8 +49,18 @@ const action = createAction({
                 },
                 retries: 3
             });
-        } catch (_err) {
-            return {};
+        } catch (err) {
+            const parsedErr = AxiosErrorSchema.safeParse(err);
+            const status = parsedErr.success ? (parsedErr.data.response?.status ?? parsedErr.data.status) : undefined;
+
+            if (status === 400) {
+                const data = parsedErr.success ? parsedErr.data.response?.data : undefined;
+                const parsed = z.object({ errors: z.array(z.string()).optional() }).safeParse(data);
+                if (parsed.success && parsed.data.errors?.some((e) => e.toLowerCase().includes('not found') || e.toLowerCase().includes('invalid'))) {
+                    return {};
+                }
+            }
+            throw err;
         }
 
         if (response.status !== undefined && response.status >= 400) {

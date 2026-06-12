@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    taskId: z.number().describe('The ID of the task to update. Example: 12345'),
+    taskId: z.string().describe('The ID of the task to update. Example: "7254376376091929519"'),
     userId: z.string().describe('The Gong user ID who owns the task.'),
     status: z.enum(['OPEN', 'DONE', 'DISMISSED']).optional().describe('New status for the task.'),
     dueDate: z.string().optional().describe('New due date in ISO-8601 format. Example: 2018-02-18T08:00:00Z'),
@@ -11,8 +11,8 @@ const InputSchema = z.object({
 });
 
 const OutputSchema = z.object({
-    id: z.number().optional(),
-    userId: z.number().optional(),
+    id: z.string().optional(),
+    userId: z.string().optional(),
     status: z.string().optional(),
     dueDate: z.string().optional(),
     priority: z.string().optional(),
@@ -100,8 +100,8 @@ const action = createAction({
                         .array(
                             z
                                 .object({
-                                    id: z.number(),
-                                    userId: z.number(),
+                                    id: z.union([z.string(), z.number()]).transform(String),
+                                    userId: z.union([z.string(), z.number()]).transform(String),
                                     status: z.string().optional(),
                                     dueDate: z.string().optional(),
                                     priority: z.string().optional()

@@ -47,16 +47,18 @@ const action = createAction({
         const providerResponse = z
             .object({
                 flows: z.array(z.unknown()).optional(),
-                cursor: z.string().optional()
+                cursor: z.string().optional(),
+                records: z.object({ cursor: z.string().optional() }).optional()
             })
             .passthrough()
             .parse(response.data);
 
         const typedFlows = (providerResponse.flows || []).map((record) => FlowSchema.parse(record));
 
+        const nextCursor = providerResponse.cursor ?? providerResponse.records?.cursor;
         return {
             flows: typedFlows,
-            ...(providerResponse.cursor !== undefined && providerResponse.cursor !== null && { nextCursor: providerResponse.cursor })
+            ...(nextCursor != null && { nextCursor })
         };
     }
 });

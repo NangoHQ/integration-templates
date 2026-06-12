@@ -1,6 +1,11 @@
 import { createAction } from 'nango';
 import * as z from 'zod';
 
+const AxiosErrorSchema = z.object({
+    response: z.object({ status: z.number(), data: z.unknown().optional() }).optional(),
+    status: z.number().optional()
+});
+
 const InputSchema = z.object({
     ownerEmail: z.string().email(),
     name: z.string().min(1)
@@ -97,14 +102,14 @@ const action = createAction({
         } catch (error) {
             // The real Nango SDK throws on 409 errors. In that case,
             // fetch the existing integration so the action is idempotent.
-            const errStatus = typeof error === 'object' && error !== null && 'status' in error ? error['status'] : null;
+            const parsedErr = AxiosErrorSchema.safeParse(error);
+            const errStatus = parsedErr.success ? (parsedErr.data.response?.status ?? parsedErr.data.status ?? null) : null;
 
             if (errStatus !== 409) {
                 throw error;
             }
 
-            const errResponse = typeof error === 'object' && error !== null && 'response' in error ? error['response'] : null;
-            const respData = typeof errResponse === 'object' && errResponse !== null && 'data' in errResponse ? errResponse['data'] : null;
+            const respData = parsedErr.success ? parsedErr.data.response?.data : null;
             const requestId = typeof respData === 'object' && respData !== null && 'requestId' in respData ? String(respData['requestId']) : 'unknown';
 
             return await handleConflict(requestId);

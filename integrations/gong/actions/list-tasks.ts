@@ -20,8 +20,8 @@ const InputSchema = z.object({
 
 const ProviderTaskSchema = z
     .object({
-        id: z.string().optional(),
-        userId: z.string().optional(),
+        id: z.union([z.string(), z.number()]).transform(String).optional(),
+        userId: z.union([z.string(), z.number()]).transform(String).optional(),
         created: z.string().optional(),
         updated: z.string().optional(),
         status: z.string().optional(),

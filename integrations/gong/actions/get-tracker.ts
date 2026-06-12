@@ -29,6 +29,12 @@ const TrackerSchema = z.object({
     updaterUserId: z.string().nullable().optional()
 });
 
+const ListResponseSchema = z.object({
+    requestId: z.string().optional(),
+    keywordTrackers: z.array(TrackerSchema).optional(),
+    records: z.object({ cursor: z.string().optional() }).optional()
+});
+
 const OutputSchema = TrackerSchema;
 
 const action = createAction({
@@ -44,37 +50,45 @@ const action = createAction({
     scopes: ['api:settings:trackers:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const response = await nango.get({
-            // https://help.gong.io/docs/retrieve-tracker-details
-            endpoint: '/v2/settings/trackers',
-            retries: 3
-        });
+        let cursor: string | undefined;
 
-        if (!response.data) {
-            throw new nango.ActionError({
-                type: 'not_found',
-                message: 'Tracker not found',
-                trackerId: input.trackerId
+        while (true) {
+            const response = await nango.get({
+                // https://help.gong.io/docs/retrieve-tracker-details
+                endpoint: '/v2/settings/trackers',
+                params: {
+                    ...(cursor !== undefined && { cursor })
+                },
+                retries: 3
             });
+
+            if (!response.data) {
+                throw new nango.ActionError({
+                    type: 'not_found',
+                    message: 'Tracker not found',
+                    trackerId: input.trackerId
+                });
+            }
+
+            const parsed = ListResponseSchema.parse(response.data);
+            const tracker = (parsed.keywordTrackers ?? []).find((t) => t.trackerId === input.trackerId);
+
+            if (tracker) {
+                return tracker;
+            }
+
+            const nextCursor = parsed.records?.cursor;
+            if (!nextCursor) {
+                break;
+            }
+            cursor = nextCursor;
         }
 
-        const ListResponseSchema = z.object({
-            requestId: z.string(),
-            keywordTrackers: z.array(TrackerSchema)
+        throw new nango.ActionError({
+            type: 'not_found',
+            message: 'Tracker not found',
+            trackerId: input.trackerId
         });
-
-        const parsed = ListResponseSchema.parse(response.data);
-        const tracker = parsed.keywordTrackers.find((t) => t.trackerId === input.trackerId);
-
-        if (!tracker) {
-            throw new nango.ActionError({
-                type: 'not_found',
-                message: 'Tracker not found',
-                trackerId: input.trackerId
-            });
-        }
-
-        return tracker;
     }
 });
 

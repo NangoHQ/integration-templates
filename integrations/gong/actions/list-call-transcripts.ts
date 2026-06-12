@@ -69,7 +69,7 @@ const action = createAction({
     },
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['api:calls:read'],
+    scopes: ['api:calls:read:transcript'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const filter: Record<string, unknown> = {};

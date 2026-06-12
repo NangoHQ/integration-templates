@@ -1,28 +1,34 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const InputSchema = z.object({
-    entityType: z.enum(['ACCOUNT', 'CONTACT', 'DEAL', 'LEAD']).describe('Entity type to generate a brief for. Example: "CONTACT"'),
-    entityId: z.string().describe('Entity ID to generate a brief for. Example: "12345"'),
-    workspaceId: z.string().describe('Workspace ID. Example: "7273476131570014205"'),
-    briefName: z.string().describe('Brief name configured in Gong. Example: "Default"'),
-    timePeriod: z
-        .enum([
-            'LAST_7DAYS',
-            'LAST_30DAYS',
-            'LAST_90DAYS',
-            'LAST_90_DAYS_SINCE_LAST_ACTIVITY',
-            'LAST_YEAR_SINCE_LAST_ACTIVITY',
-            'LAST_YEAR',
-            'THIS_WEEK',
-            'THIS_MONTH',
-            'THIS_YEAR',
-            'THIS_QUARTER',
-            'CUSTOM_RANGE',
-            'ALL_CONVERSATIONS'
-        ])
-        .describe('Time period for the brief. Example: "LAST_30DAYS"')
-});
+const InputSchema = z
+    .object({
+        entityType: z.enum(['ACCOUNT', 'CONTACT', 'DEAL', 'LEAD']).describe('Entity type to generate a brief for. Example: "CONTACT"'),
+        entityId: z.string().describe('Entity ID to generate a brief for. Example: "12345"'),
+        workspaceId: z.string().describe('Workspace ID. Example: "7273476131570014205"'),
+        briefName: z.string().describe('Brief name configured in Gong. Example: "Default"'),
+        timePeriod: z
+            .enum([
+                'LAST_7DAYS',
+                'LAST_30DAYS',
+                'LAST_90DAYS',
+                'LAST_90_DAYS_SINCE_LAST_ACTIVITY',
+                'LAST_YEAR_SINCE_LAST_ACTIVITY',
+                'LAST_YEAR',
+                'THIS_WEEK',
+                'THIS_MONTH',
+                'THIS_YEAR',
+                'THIS_QUARTER',
+                'CUSTOM_RANGE',
+                'ALL_CONVERSATIONS'
+            ])
+            .describe('Time period for the brief. Example: "LAST_30DAYS"'),
+        fromDate: z.string().optional().describe('Start date for CUSTOM_RANGE period in YYYY-MM-DD format. Example: "2026-01-01"'),
+        toDate: z.string().optional().describe('End date for CUSTOM_RANGE period in YYYY-MM-DD format. Example: "2026-06-01"')
+    })
+    .refine((data) => data.timePeriod !== 'CUSTOM_RANGE' || (data.fromDate !== undefined && data.toDate !== undefined), {
+        message: 'fromDate and toDate are required when timePeriod is CUSTOM_RANGE'
+    });
 
 const ProviderBriefSchema = z
     .object({
@@ -85,7 +91,9 @@ const action = createAction({
                     crmEntityId: input.entityId,
                     workspaceId: input.workspaceId,
                     briefName: input.briefName,
-                    timePeriod: input.timePeriod
+                    timePeriod: input.timePeriod,
+                    ...(input.fromDate !== undefined && { fromDate: input.fromDate }),
+                    ...(input.toDate !== undefined && { toDate: input.toDate })
                 },
                 retries: 3
             });

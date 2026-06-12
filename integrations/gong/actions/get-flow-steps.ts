@@ -36,6 +36,11 @@ const OutputSchema = z.object({
     flows: z.array(FlowDetailsSchema).optional()
 });
 
+const AxiosErrorSchema = z.object({
+    response: z.object({ status: z.number(), data: z.unknown().optional() }).optional(),
+    status: z.number().optional()
+});
+
 const action = createAction({
     description: 'Retrieve details and steps for one or more Gong Engage flows.',
     version: '1.0.0',
@@ -84,8 +89,8 @@ const action = createAction({
             const parsed = OutputSchema.parse(response.data);
             return parsed;
         } catch (error) {
-            const errorObj = typeof error === 'object' && error !== null ? error : undefined;
-            const status = errorObj && 'status' in errorObj && typeof errorObj.status === 'number' ? errorObj.status : undefined;
+            const parsedErr = AxiosErrorSchema.safeParse(error);
+            const status = parsedErr.success ? (parsedErr.data.response?.status ?? parsedErr.data.status) : undefined;
             if (status === 404) {
                 return {
                     flows: []
