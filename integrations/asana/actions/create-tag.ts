@@ -25,6 +25,7 @@ const InputSchema = z.object({
             'light-purple',
             'light-warm-gray'
         ])
+        .nullable()
         .optional()
         .describe('Color of the tag. Example: "light-green"')
 });
@@ -73,7 +74,7 @@ const action = createAction({
     scopes: ['tags:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const tagBody: { name: string; color?: string } = {
+        const tagBody: { name: string; color?: string | null } = {
             name: input.name
         };
         if (input.color !== undefined) {

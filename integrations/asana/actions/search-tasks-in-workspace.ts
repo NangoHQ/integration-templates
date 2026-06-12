@@ -44,7 +44,7 @@ const AsanaTaskSchema = z.object({
         .optional(),
     modified_at: z.string().optional(),
     created_at: z.string().optional(),
-    due_on: z.string().optional(),
+    due_on: z.string().nullable().optional(),
     notes: z.string().optional()
 });
 
