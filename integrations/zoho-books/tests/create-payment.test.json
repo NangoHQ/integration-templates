@@ -1,0 +1,199 @@
+{
+  "input": {
+    "customer_id": "260815000000097001",
+    "payment_mode": "cash",
+    "amount": 100,
+    "date": "2026-06-09",
+    "invoices": [
+      {
+        "invoice_id": "260815000000132001",
+        "amount_applied": 100
+      }
+    ],
+    "organization_id": "927270289"
+  },
+  "output": {
+    "payment_id": "260815000000110028",
+    "payment_mode": "cash",
+    "amount": 100,
+    "bank_charges": 0,
+    "date": "2026-06-09",
+    "reference_number": "",
+    "description": "",
+    "customer_id": "260815000000097001",
+    "customer_name": "Acme Corp",
+    "currency_code": "USD",
+    "currency_symbol": "$",
+    "invoices": [
+      {
+        "invoice_id": "260815000000132001",
+        "invoice_number": "INV-000008",
+        "date": "2026-06-09",
+        "amount_applied": 100,
+        "tax_amount_withheld": 0
+      }
+    ]
+  },
+  "nango": {
+    "getConnection": {}
+  },
+  "api": {
+    "post": {
+      "/books/v3/customerpayments": {
+        "response": {
+          "code": 0,
+          "message": "The payment from the customer has been recorded",
+          "payment": {
+            "payment_id": "260815000000110028",
+            "payment_number": "4",
+            "sales_channel": "",
+            "account_identifier": "",
+            "payment_link_id": "",
+            "created_by": "Nango Developer",
+            "created_time": "2026-06-09T13:16:45-0400",
+            "updated_time": "2026-06-09T13:16:45-0400",
+            "lock_details": {
+              "can_lock": false
+            },
+            "locked_actions": [],
+            "payment_number_prefix": "",
+            "payment_number_suffix": "4",
+            "documents": [],
+            "beat_id": "",
+            "beat_number": "",
+            "journey_plan_id": "",
+            "sales_person_id": "",
+            "sales_person_name": "",
+            "customer_id": "260815000000097001",
+            "customer_name": "Acme Corp",
+            "payment_mode": "cash",
+            "card_type": "",
+            "date": "2026-06-09",
+            "offline_created_date_with_time": "",
+            "account_id": "260815000000000358",
+            "account_name": "Undeposited Funds",
+            "account_type": "cash",
+            "customer_advance_account_id": "260815000000000364",
+            "customer_advance_account_name": "Accounts Receivable",
+            "currency_id": "260815000000000097",
+            "currency_symbol": "$",
+            "currency_code": "USD",
+            "exchange_rate": 1,
+            "amount": 100,
+            "unused_amount": 0,
+            "bank_charges": 0,
+            "bank_charges_account_id": "",
+            "bank_charges_account_name": "",
+            "tax_account_id": "",
+            "is_client_review_settings_enabled": false,
+            "tax_account_name": "",
+            "tax_amount_withheld": 0,
+            "discount_amount": 0,
+            "is_early_payment_discount_applicable": false,
+            "description": "",
+            "reference_number": "",
+            "online_transaction_id": "",
+            "payment_gateway": "",
+            "settlement_status": "",
+            "is_ondc_channel": false,
+            "invoices": [
+              {
+                "invoice_number": "INV-000008",
+                "invoice_payment_id": "260815000000110032",
+                "invoice_id": "260815000000132001",
+                "invoice_customer_id": "",
+                "invoice_customer_name": "",
+                "amount_applied": 100,
+                "tax_amount_withheld": 0,
+                "discount_amount": 0,
+                "total": 100,
+                "balance": 0,
+                "date": "2026-06-09",
+                "due_date": "2026-06-09",
+                "price_precision": 2,
+                "apply_date": "2026-06-09",
+                "allow_partial_payments": "",
+                "is_early_payment_discount_applicable": false,
+                "invoice_installments": [],
+                "installments": []
+              }
+            ],
+            "payment_status": "paid",
+            "tender_id": "",
+            "payment_refunds": [],
+            "deposit_details": [],
+            "last_four_digits": "",
+            "template_id": "260815000000039005",
+            "template_name": "Elite Template",
+            "page_width": "8.27in",
+            "page_height": "11.69in",
+            "orientation": "portrait",
+            "template_type": "elite",
+            "attachment_name": "",
+            "can_send_in_mail": true,
+            "can_send_payment_sms": true,
+            "is_payment_details_required": true,
+            "custom_fields": [],
+            "custom_field_hash": {},
+            "imported_transactions": [],
+            "price_precision": 2,
+            "rounding_mode": "round_half_up",
+            "tags": []
+          }
+        },
+        "status": 201,
+        "headers": {
+          "date": "Tue, 09 Jun 2026 17:16:46 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=64072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4834",
+          "x-ratelimit-reset": "1781025413",
+          "server": "ZGS",
+          "set-cookie": "REDACTED",
+          "cache-control": "no-store, no-cache, must-revalidate, max-age=0, post-check=0, pre-check=0",
+          "pragma": "no-cache",
+          "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
+          "x-rate-limit-limit": "1000",
+          "x-rate-limit-reset": "38594",
+          "x-rate-limit-remaining": "764",
+          "content-disposition": "attachment;",
+          "allow": "OPTIONS, DELETE, POST, GET, PUT",
+          "build_version": "Jun_09_2026_20506",
+          "client_build_version": "Jun_09_2026_20506",
+          "server_build_version": "Jun_08_2026_3305/",
+          "location": "/api/v3/customerpayments/260815000000110028",
+          "vary": "accept-encoding"
+        },
+        "hash": "d83c4e0f6a7e7616712e75e1e05104919b6103b3",
+        "request": {
+          "params": {
+            "organization_id": "927270289"
+          },
+          "data": {
+            "customer_id": "260815000000097001",
+            "payment_mode": "cash",
+            "amount": 100,
+            "date": "2026-06-09",
+            "invoices": [
+              {
+                "invoice_id": "260815000000132001",
+                "amount_applied": 100
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

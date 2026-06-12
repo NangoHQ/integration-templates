@@ -1,0 +1,210 @@
+{
+  "input": {
+    "organization_id": "927270289"
+  },
+  "output": {
+    "items": [
+      {
+        "account_id": "260815000000000361",
+        "account_name": "Petty Cash",
+        "account_code": "",
+        "currency_id": "260815000000000097",
+        "currency_code": "USD",
+        "account_type": "cash",
+        "account_sub_type": "commercial",
+        "uncategorized_transactions": 0,
+        "total_unprinted_checks": 0,
+        "is_active": true,
+        "balance": -1,
+        "bank_balance": 0,
+        "bcy_balance": -1,
+        "bank_name": "",
+        "feeds_last_refresh_date": "",
+        "is_direct_paypal": false,
+        "mfa_required": false
+      },
+      {
+        "account_id": "260815000000102017",
+        "account_name": "Test Checking Account Updated",
+        "account_code": "",
+        "currency_id": "260815000000000099",
+        "currency_code": "INR",
+        "account_type": "bank",
+        "account_sub_type": "commercial",
+        "account_number": "xxxx6789",
+        "uncategorized_transactions": 0,
+        "total_unprinted_checks": 0,
+        "is_active": true,
+        "balance": 0,
+        "bank_balance": 0,
+        "bcy_balance": 0,
+        "bank_name": "",
+        "routing_number": "",
+        "is_primary_account": false,
+        "is_paypal_account": false,
+        "feeds_last_refresh_date": "",
+        "is_direct_paypal": false,
+        "mfa_required": false,
+        "partner_bank_source_formatted": "",
+        "partner_bank_source": "",
+        "payout_bank_name": "",
+        "is_beta_feed": false,
+        "feed_status": "",
+        "consent_info": {
+          "consent_remaining_days": "",
+          "is_consent_expired": ""
+        }
+      },
+      {
+        "account_id": "260815000000000358",
+        "account_name": "Undeposited Funds",
+        "account_code": "",
+        "currency_id": "260815000000000097",
+        "currency_code": "USD",
+        "account_type": "cash",
+        "account_sub_type": "commercial",
+        "uncategorized_transactions": 0,
+        "total_unprinted_checks": 0,
+        "is_active": true,
+        "balance": 383.5,
+        "bank_balance": 0,
+        "bcy_balance": 383.5,
+        "bank_name": "",
+        "feeds_last_refresh_date": "",
+        "is_direct_paypal": false,
+        "mfa_required": false
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/books/v3/bankaccounts": {
+        "response": {
+          "code": 0,
+          "message": "success",
+          "bankaccounts": [
+            {
+              "account_id": "260815000000000361",
+              "account_name": "Petty Cash",
+              "account_code": "",
+              "currency_id": "260815000000000097",
+              "currency_code": "USD",
+              "account_type": "cash",
+              "account_sub_type": "commercial",
+              "uncategorized_transactions": 0,
+              "total_unprinted_checks": 0,
+              "is_active": true,
+              "balance": -1,
+              "bank_balance": 0,
+              "bcy_balance": -1,
+              "bank_name": "",
+              "feeds_last_refresh_date": "",
+              "is_direct_paypal": false,
+              "mfa_required": false
+            },
+            {
+              "account_id": "260815000000102017",
+              "account_name": "Test Checking Account Updated",
+              "account_code": "",
+              "currency_id": "260815000000000099",
+              "currency_code": "INR",
+              "account_type": "bank",
+              "account_sub_type": "commercial",
+              "account_number": "xxxx6789",
+              "uncategorized_transactions": 0,
+              "total_unprinted_checks": 0,
+              "is_active": true,
+              "balance": 0,
+              "bank_balance": 0,
+              "bcy_balance": 0,
+              "bank_name": "",
+              "routing_number": "",
+              "is_primary_account": false,
+              "is_paypal_account": false,
+              "feeds_last_refresh_date": "",
+              "is_direct_paypal": false,
+              "partner_bank_source_formatted": "",
+              "partner_bank_source": "",
+              "payout_bank_name": "",
+              "is_beta_feed": false,
+              "consent_info": {
+                "consent_remaining_days": "",
+                "is_consent_expired": ""
+              },
+              "feed_status": "",
+              "mfa_required": false
+            },
+            {
+              "account_id": "260815000000000358",
+              "account_name": "Undeposited Funds",
+              "account_code": "",
+              "currency_id": "260815000000000097",
+              "currency_code": "USD",
+              "account_type": "cash",
+              "account_sub_type": "commercial",
+              "uncategorized_transactions": 0,
+              "total_unprinted_checks": 0,
+              "is_active": true,
+              "balance": 383.5,
+              "bank_balance": 0,
+              "bcy_balance": 383.5,
+              "bank_name": "",
+              "feeds_last_refresh_date": "",
+              "is_direct_paypal": false,
+              "mfa_required": false
+            }
+          ],
+          "page_context": {
+            "page": 1,
+            "per_page": 200,
+            "has_more_page": false,
+            "report_name": "Bank Accounts",
+            "applied_filter": "Status.All",
+            "sort_column": "account_name",
+            "sort_order": "A"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 09 Jun 2026 17:15:37 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=64072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4746",
+          "x-ratelimit-reset": "1781025352",
+          "server": "ZGS",
+          "set-cookie": "REDACTED",
+          "cache-control": "no-store, no-cache, must-revalidate, max-age=0, post-check=0, pre-check=0",
+          "pragma": "no-cache",
+          "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
+          "x-rate-limit-limit": "1000",
+          "x-rate-limit-reset": "38662",
+          "x-rate-limit-remaining": "830",
+          "content-disposition": "attachment;",
+          "allow": "OPTIONS, POST, GET",
+          "build_version": "Jun_09_2026_20506",
+          "client_build_version": "Jun_09_2026_20506",
+          "server_build_version": "Jun_08_2026_3305/",
+          "vary": "accept-encoding"
+        },
+        "hash": "2c6e158e405f2b28a2a981accfc9ba86c06e9b4c",
+        "request": {
+          "params": {
+            "organization_id": "927270289"
+          }
+        }
+      }
+    }
+  }
+}
