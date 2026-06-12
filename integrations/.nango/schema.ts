@@ -32040,13 +32040,14 @@ export interface ActionOutput_gitlab_updaterelease {
   released_at: string;
 };
 
-export interface GongCallTranscriptSyncOutput {
+export interface CallTranscript {
   id: string;
-  transcript: ({  speaker_id: string;
-  topic: string | null;
-  sentences: ({  start: number;
-  end: number;
-  text: string;})[];})[];
+  callId: string;
+  transcript?: ({  speakerId?: string | undefined;
+  topic?: string | undefined;
+  sentences?: ({  start?: number | undefined;
+  end?: number | undefined;
+  text?: string | undefined;})[];})[];
 };
 
 export interface SyncMetadata_gong_calltranscripts {
@@ -32056,53 +32057,33 @@ export interface SyncMetadata_gong_calltranscripts {
   workspaceId?: string | undefined;
 };
 
-export interface GongCallOutput {
+export interface Call {
   id: string;
-  url: string;
-  title: string;
-  scheduled: string;
-  started: string;
-  duration: number;
-  direction: 'Inbound' | 'Outbound' | 'Conference' | 'Unknown';
-  scope: 'Internal' | 'External' | 'Unknown';
-  media: string;
-  language: string;
-  workspace_id: string;
-  purpose: string | null;
-  meeting_url: string;
-  is_private: boolean;
-  calendar_event_id: string | null;
-  context?: {  system: string | null;
-  objects?: {  object_type: string | null;
-  object_id: string | null;
-  fields: ({  name: string;
-  value: string;})[];} | undefined;};
-  parties: ({  id: string;
-  email_address?: string | undefined;
-  name?: string | undefined;
-  title?: string | undefined;
-  user_id?: string | undefined;
-  speaker_id: string | null;
-  affiliation: 'Internal' | 'External' | 'Unknown';
-  methods: string[];})[];
-  interaction: {  speakers: ({  id: string;
-  user_id: string;
-  talkTime: number;})[];
-  interaction_stats: ({  name: string;
-  value: number;})[];
-  video: ({  name: string;
-  duration: number;})[];
-  questions: {  company_count: number;
-  non_company_count: number;};};
-  collaboration: {  public_comments: ({  id: string;
-  audio_start_time: number;
-  audio_end_time: number;
-  commenter_user_id: string;
-  comment: string;
-  posted: string;
-  during_call: boolean;})[];};
-  media_urls: {  audio_url: string;
-  video_url?: string | undefined;};
+  subject?: string | undefined;
+  callType?: string | undefined;
+  callPurpose?: string | undefined;
+  callResult?: string | undefined;
+  callDuration?: string | undefined;
+  callDurationInSeconds?: string | undefined;
+  callStartTime?: string | undefined;
+  description?: string | undefined;
+  dialledNumber?: string | undefined;
+  callerId?: string | undefined;
+  reminder?: string | undefined;
+  modifiedTime: string;
+  createdTime?: string | undefined;
+  ownerName?: string | undefined;
+  ownerId?: string | undefined;
+  ownerEmail?: string | undefined;
+  createdByName?: string | undefined;
+  createdById?: string | undefined;
+  modifiedByName?: string | undefined;
+  modifiedById?: string | undefined;
+  relatedToName?: string | undefined;
+  relatedToId?: string | undefined;
+  contactName?: string | undefined;
+  contactId?: string | undefined;
+  tags?: string[] | undefined;
 };
 
 export interface SyncMetadata_gong_calls {
@@ -32110,25 +32091,47 @@ export interface SyncMetadata_gong_calls {
   lastSyncBackfillPeriod?: number | undefined;
 };
 
-export interface SyncMetadata_gong_users {
-};
-
 export interface ActionInput_gong_fetchcalltranscripts {
+  /**
+   * Start of date range filter. ISO 8601 string. Example: "2026-01-01T00:00:00Z"
+   */
   from?: string | undefined;
+  /**
+   * End of date range filter. ISO 8601 string. Example: "2026-01-31T23:59:59Z"
+   */
   to?: string | undefined;
-  workspace_id?: string | undefined;
-  call_id?: string[] | undefined;
+  /**
+   * Filter transcripts to a specific Gong workspace. Example: "623457276584334"
+   */
+  workspaceId?: string | undefined;
+  /**
+   * Filter to specific call IDs. Example: ["123456789"]
+   */
+  callIds?: string[] | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
   cursor?: string | undefined;
 };
 
 export interface ActionOutput_gong_fetchcalltranscripts {
-  next_cursor?: string | undefined;
-  transcript: ({  call_id: string;
-  transcript: ({  speaker_id: string;
-  topic: string | null;
-  sentences: ({  start: number;
-  end: number;
-  text: string;})[];})[];})[];
+  /**
+   * Transcript data for the returned page
+   */
+  transcripts: ({  callId?: string | undefined;
+  transcript?: ({  speakerId?: string | undefined;
+  topic?: string | undefined;
+  sentences?: ({  start?: number | undefined;
+  end?: number | undefined;
+  text?: string | undefined;})[];})[];})[];
+  /**
+   * Pass this cursor to the next call to retrieve the following page. Absent when there are no more pages.
+   */
+  nextCursor?: string | undefined;
+  /**
+   * Total number of matching transcripts across all pages
+   */
+  totalRecords?: number | undefined;
 };
 
 export interface OrganizationalUnit {
@@ -102725,35 +102728,6 @@ export interface ActionOutput_zoho_books_voidinvoice {
   invoice_number?: string | undefined;
   status?: string | undefined;
   message?: string | undefined;
-};
-
-export interface Call {
-  id: string;
-  subject?: string | undefined;
-  callType?: string | undefined;
-  callPurpose?: string | undefined;
-  callResult?: string | undefined;
-  callDuration?: string | undefined;
-  callDurationInSeconds?: string | undefined;
-  callStartTime?: string | undefined;
-  description?: string | undefined;
-  dialledNumber?: string | undefined;
-  callerId?: string | undefined;
-  reminder?: string | undefined;
-  modifiedTime: string;
-  createdTime?: string | undefined;
-  ownerName?: string | undefined;
-  ownerId?: string | undefined;
-  ownerEmail?: string | undefined;
-  createdByName?: string | undefined;
-  createdById?: string | undefined;
-  modifiedByName?: string | undefined;
-  modifiedById?: string | undefined;
-  relatedToName?: string | undefined;
-  relatedToId?: string | undefined;
-  contactName?: string | undefined;
-  contactId?: string | undefined;
-  tags?: string[] | undefined;
 };
 
 export interface ActionInput_zoho_crm_convertlead {
