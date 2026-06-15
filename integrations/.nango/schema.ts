@@ -527,44 +527,23 @@ export interface ActionOutput_1password_scim_updatescimuser {
 };
 
 export interface Account {
+  /**
+   * The unique identifier of the account
+   */
   id: string;
-  accountName?: string | undefined;
-  accountNumber?: string | undefined;
-  accountType?: string | undefined;
-  annualRevenue?: number | undefined;
-  billingCity?: string | undefined;
-  billingCode?: string | undefined;
-  billingCountry?: string | undefined;
-  billingState?: string | undefined;
-  billingStreet?: string | undefined;
-  createdByName?: string | undefined;
-  createdById?: string | undefined;
-  createdByEmail?: string | undefined;
-  createdTime?: string | undefined;
-  description?: string | undefined;
-  employees?: number | undefined;
-  fax?: string | undefined;
-  industry?: string | undefined;
-  modifiedByName?: string | undefined;
-  modifiedById?: string | undefined;
-  modifiedByEmail?: string | undefined;
-  modifiedTime: string;
-  ownerName?: string | undefined;
-  ownerId?: string | undefined;
-  ownerEmail?: string | undefined;
-  ownership?: string | undefined;
-  parentAccountName?: string | undefined;
-  parentAccountId?: string | undefined;
+  /**
+   * The name of the account
+   */
+  accountName: string;
+  email?: string | undefined;
   phone?: string | undefined;
-  rating?: string | undefined;
-  shippingCity?: string | undefined;
-  shippingCode?: string | undefined;
-  shippingCountry?: string | undefined;
-  shippingState?: string | undefined;
-  shippingStreet?: string | undefined;
-  sicCode?: string | undefined;
-  tickerSymbol?: string | undefined;
   website?: string | undefined;
+  country?: string | undefined;
+  industry?: string | undefined;
+  createdTime?: string | undefined;
+  modifiedTime?: string | undefined;
+  ownerId?: string | undefined;
+  crmAccountId?: string | undefined;
 };
 
 export interface Automation {
@@ -599,70 +578,51 @@ export interface Campaign {
 
 export interface Contact {
   id: string;
-  first_name?: string | undefined;
-  last_name?: string | undefined;
-  full_name?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
   email?: string | undefined;
-  secondary_email?: string | undefined;
   phone?: string | undefined;
   mobile?: string | undefined;
-  home_phone?: string | undefined;
-  other_phone?: string | undefined;
+  accountId?: string | undefined;
+  photoURL?: string | undefined;
+  webUrl?: string | undefined;
+  createdTime?: string | undefined;
+  modifiedTime?: string | undefined;
+  isDeleted?: boolean | undefined;
+  isTrashed?: boolean | undefined;
+  isSpam?: boolean | undefined;
+  isAnonymous?: boolean | undefined;
+  isEndUser?: boolean | undefined;
+  ownerId?: string | undefined;
+  type?: string | undefined;
   title?: string | undefined;
-  department?: string | undefined;
-  account_name?: string | undefined;
-  account_id?: string | undefined;
-  owner_name?: string | undefined;
-  owner_id?: string | undefined;
-  owner_email?: string | undefined;
-  created_time: string;
-  modified_time: string;
-  mailing_street?: string | undefined;
-  mailing_city?: string | undefined;
-  mailing_state?: string | undefined;
-  mailing_zip?: string | undefined;
-  mailing_country?: string | undefined;
-  other_street?: string | undefined;
-  other_city?: string | undefined;
-  other_state?: string | undefined;
-  other_zip?: string | undefined;
-  other_country?: string | undefined;
   description?: string | undefined;
+  language?: string | undefined;
+  country?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  street?: string | undefined;
+  zip?: string | undefined;
   twitter?: string | undefined;
-  skype_id?: string | undefined;
-  date_of_birth?: string | undefined;
-  lead_source?: string | undefined;
-  email_opt_out?: boolean | undefined;
-  fax?: string | undefined;
-  assistant?: string | undefined;
-  asst_phone?: string | undefined;
-  reporting_to_name?: string | undefined;
-  reporting_to_id?: string | undefined;
-  created_by_name?: string | undefined;
-  created_by_id?: string | undefined;
-  modified_by_name?: string | undefined;
-  modified_by_id?: string | undefined;
+  facebook?: string | undefined;
+  secondaryEmail?: string | undefined;
+  customerHappiness?: {  badPercentage?: string | undefined;
+  okPercentage?: string | undefined;
+  goodPercentage?: string | undefined;};
+  zohoCRMContact?: {  id?: string | undefined;
+  type?: string | undefined;};
 };
 
 export interface CustomField {
   id: string;
-  title?: string | undefined;
-  descript?: string | undefined;
-  type?: string | undefined;
-  isrequired?: string | undefined;
-  perstag?: string | undefined;
-  defval?: unknown | undefined;
-  show_in_list?: string | undefined;
-  rows?: string | undefined;
-  cols?: string | undefined;
-  visible?: string | undefined;
-  service?: string | undefined;
-  ordernum?: string | undefined;
-  cdate?: string | undefined;
-  udate?: string | undefined;
-  options?: unknown[] | undefined;
-  relations?: unknown[] | undefined;
-  links?: {  [key: string]: string;} | undefined;
+  boardId: string;
+  name: string;
+  type: string;
+  pos?: number | undefined;
+  options?: ({  id: string;
+  value?: string | undefined;
+  color?: string | undefined;
+  pos?: number | undefined;})[];
 };
 
 export interface DealGroup {
@@ -8782,7 +8742,18 @@ export interface SyncMetadata_ashby_candidates {
 
 export interface Department {
   id: string;
-  name?: string | undefined;
+  name: string;
+  description?: string | undefined;
+  createdTime?: string | undefined;
+  chatStatus?: string | undefined;
+  isEnabled?: boolean | undefined;
+  isDefault?: boolean | undefined;
+  hasLogo?: boolean | undefined;
+  creatorId?: string | undefined;
+  isAssignToTeamEnabled?: boolean | undefined;
+  isVisibleInCustomerPortal?: boolean | undefined;
+  nameInCustomerPortal?: string | undefined;
+  sanitizedName?: string | undefined;
 };
 
 export interface Interview {
@@ -19890,19 +19861,17 @@ export interface ActionOutput_clickup_updatetimeentry {
 
 export interface Attachment {
   id: string;
-  status?: string | undefined;
-  title?: string | undefined;
-  createdAt?: string | undefined;
-  pageId?: string | undefined;
-  blogPostId?: string | undefined;
-  customContentId?: string | undefined;
-  mediaType?: string | undefined;
-  mediaTypeDescription?: string | undefined;
-  comment?: string | undefined;
-  fileId?: string | undefined;
-  fileSize?: number | undefined;
-  webuiLink?: string | undefined;
-  downloadLink?: string | undefined;
+  bytes?: string | undefined;
+  date?: string | undefined;
+  edgeColor?: string | undefined;
+  idMember?: string | undefined;
+  isUpload?: boolean | undefined;
+  mimeType?: string | undefined;
+  name?: string | undefined;
+  url?: string | undefined;
+  pos?: number | undefined;
+  idCard?: string | undefined;
+  idBoard?: string | undefined;
 };
 
 export interface SyncMetadata_confluence_attachments {
@@ -26381,30 +26350,23 @@ export interface ActionOutput_fireflies_addtolive {
 
 export interface Article {
   id: string;
-  author_id?: number | undefined;
-  body?: string | undefined;
-  comments_disabled?: boolean | undefined;
-  content_tag_ids?: number[] | undefined;
-  created_at: string;
-  draft?: boolean | undefined;
-  edited_at?: string | undefined;
-  html_url?: string | undefined;
-  label_names?: string[] | undefined;
-  locale: string;
-  outdated?: boolean | undefined;
-  outdated_locales?: string[] | undefined;
-  permission_group_id?: number | undefined;
-  position?: number | undefined;
-  promoted?: boolean | undefined;
-  section_id?: number | undefined;
-  source_locale?: string | undefined;
-  title: string;
-  updated_at: string;
-  url: string;
-  user_segment_id?: number | undefined;
-  user_segment_ids?: number[] | undefined;
-  vote_count?: number | undefined;
-  vote_sum?: number | undefined;
+  title?: string | undefined;
+  summary?: string | undefined;
+  status?: string | undefined;
+  createdTime?: string | undefined;
+  modifiedTime?: string | undefined;
+  categoryId?: string | undefined;
+  authorId?: string | undefined;
+  webUrl?: string | undefined;
+  permalink?: string | undefined;
+  viewCount?: number | undefined;
+  likeCount?: number | undefined;
+  dislikeCount?: number | undefined;
+  feedbackCount?: number | undefined;
+  commentCount?: number | undefined;
+  attachmentCount?: number | undefined;
+  departmentId?: string | undefined;
+  locale?: string | undefined;
 };
 
 export interface SyncMetadata_freshdesk_articles {
@@ -26415,29 +26377,28 @@ export interface SyncMetadata_freshdesk_contacts {
 
 export interface Ticket {
   id: string;
-  url: string;
-  external_id: string;
-  created_at: string;
-  updated_at: string;
-  type: string;
-  subject: string;
-  description: string;
-  priority: string;
-  status: string;
-  recipient: string;
-  requester_id: string;
-  submitter_id: string;
-  assignee_id: string;
-  organization_id: string;
-  group_id: string;
-  collaborator_ids: string[];
-  tags: string[];
-  has_incidents: boolean;
-  is_public: boolean;
-  due_at: string;
-  custom_fields: any[];
-  ticket_form_id: string;
-  brand_id: string;
+  ticketNumber?: string | undefined;
+  subject?: string | undefined;
+  description?: string | undefined;
+  status?: string | undefined;
+  statusType?: string | undefined;
+  priority?: string | undefined;
+  channel?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  contactId?: string | undefined;
+  accountId?: string | undefined;
+  departmentId?: string | undefined;
+  assigneeId?: string | undefined;
+  teamId?: string | undefined;
+  createdTime?: string | undefined;
+  modifiedTime?: string | undefined;
+  dueDate?: string | undefined;
+  closedTime?: string | undefined;
+  webUrl?: string | undefined;
+  isSpam?: boolean | undefined;
+  isTrashed?: boolean | undefined;
+  isDeleted?: boolean | undefined;
 };
 
 export interface SyncMetadata_freshdesk_tickets {
@@ -32038,13 +31999,14 @@ export interface ActionOutput_gitlab_updaterelease {
   released_at: string;
 };
 
-export interface GongCallTranscriptSyncOutput {
+export interface CallTranscript {
   id: string;
-  transcript: ({  speaker_id: string;
-  topic: string | null;
-  sentences: ({  start: number;
-  end: number;
-  text: string;})[];})[];
+  callId: string;
+  transcript?: ({  speakerId?: string | undefined;
+  topic?: string | undefined;
+  sentences?: ({  start?: number | undefined;
+  end?: number | undefined;
+  text?: string | undefined;})[];})[];
 };
 
 export interface SyncMetadata_gong_calltranscripts {
@@ -32054,53 +32016,33 @@ export interface SyncMetadata_gong_calltranscripts {
   workspaceId?: string | undefined;
 };
 
-export interface GongCallOutput {
+export interface Call {
   id: string;
-  url: string;
-  title: string;
-  scheduled: string;
-  started: string;
-  duration: number;
-  direction: 'Inbound' | 'Outbound' | 'Conference' | 'Unknown';
-  scope: 'Internal' | 'External' | 'Unknown';
-  media: string;
-  language: string;
-  workspace_id: string;
-  purpose: string | null;
-  meeting_url: string;
-  is_private: boolean;
-  calendar_event_id: string | null;
-  context?: {  system: string | null;
-  objects?: {  object_type: string | null;
-  object_id: string | null;
-  fields: ({  name: string;
-  value: string;})[];} | undefined;};
-  parties: ({  id: string;
-  email_address?: string | undefined;
-  name?: string | undefined;
-  title?: string | undefined;
-  user_id?: string | undefined;
-  speaker_id: string | null;
-  affiliation: 'Internal' | 'External' | 'Unknown';
-  methods: string[];})[];
-  interaction: {  speakers: ({  id: string;
-  user_id: string;
-  talkTime: number;})[];
-  interaction_stats: ({  name: string;
-  value: number;})[];
-  video: ({  name: string;
-  duration: number;})[];
-  questions: {  company_count: number;
-  non_company_count: number;};};
-  collaboration: {  public_comments: ({  id: string;
-  audio_start_time: number;
-  audio_end_time: number;
-  commenter_user_id: string;
-  comment: string;
-  posted: string;
-  during_call: boolean;})[];};
-  media_urls: {  audio_url: string;
-  video_url?: string | undefined;};
+  subject?: string | undefined;
+  callType?: string | undefined;
+  callPurpose?: string | undefined;
+  callResult?: string | undefined;
+  callDuration?: string | undefined;
+  callDurationInSeconds?: string | undefined;
+  callStartTime?: string | undefined;
+  description?: string | undefined;
+  dialledNumber?: string | undefined;
+  callerId?: string | undefined;
+  reminder?: string | undefined;
+  modifiedTime: string;
+  createdTime?: string | undefined;
+  ownerName?: string | undefined;
+  ownerId?: string | undefined;
+  ownerEmail?: string | undefined;
+  createdByName?: string | undefined;
+  createdById?: string | undefined;
+  modifiedByName?: string | undefined;
+  modifiedById?: string | undefined;
+  relatedToName?: string | undefined;
+  relatedToId?: string | undefined;
+  contactName?: string | undefined;
+  contactId?: string | undefined;
+  tags?: string[] | undefined;
 };
 
 export interface SyncMetadata_gong_calls {
@@ -32108,25 +32050,2395 @@ export interface SyncMetadata_gong_calls {
   lastSyncBackfillPeriod?: number | undefined;
 };
 
-export interface SyncMetadata_gong_users {
-};
-
 export interface ActionInput_gong_fetchcalltranscripts {
+  /**
+   * Start of date range filter. ISO 8601 string. Example: "2026-01-01T00:00:00Z"
+   */
   from?: string | undefined;
+  /**
+   * End of date range filter. ISO 8601 string. Example: "2026-01-31T23:59:59Z"
+   */
   to?: string | undefined;
-  workspace_id?: string | undefined;
-  call_id?: string[] | undefined;
+  /**
+   * Filter transcripts to a specific Gong workspace. Example: "623457276584334"
+   */
+  workspaceId?: string | undefined;
+  /**
+   * Filter to specific call IDs. Example: ["123456789"]
+   */
+  callIds?: string[] | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
   cursor?: string | undefined;
 };
 
 export interface ActionOutput_gong_fetchcalltranscripts {
-  next_cursor?: string | undefined;
-  transcript: ({  call_id: string;
-  transcript: ({  speaker_id: string;
-  topic: string | null;
+  /**
+   * Transcript data for the returned page
+   */
+  transcripts: ({  callId?: string | undefined;
+  transcript?: ({  speakerId?: string | undefined;
+  topic?: string | undefined;
+  sentences?: ({  start?: number | undefined;
+  end?: number | undefined;
+  text?: string | undefined;})[];})[];})[];
+  /**
+   * Pass this cursor to the next call to retrieve the following page. Absent when there are no more pages.
+   */
+  nextCursor?: string | undefined;
+  /**
+   * Total number of matching transcripts across all pages
+   */
+  totalRecords?: number | undefined;
+};
+
+export interface CallOutcome {
+  /**
+   * The unique call outcome identifier
+   */
+  id: string;
+  /**
+   * The call outcome name
+   */
+  callOutcome?: string | undefined;
+  /**
+   * The display order of the call outcome
+   */
+  displayOrder?: number | undefined;
+  /**
+   * The connection status of the call outcome
+   */
+  connectStatus?: string | undefined;
+  /**
+   * The sentiment of the call outcome
+   */
+  sentiment?: string | undefined;
+  /**
+   * The todo action associated with the call outcome
+   */
+  todoAction?: string | undefined;
+  /**
+   * The automation associated with the call outcome
+   */
+  automation?: string | undefined;
+  /**
+   * The category of the call outcome
+   */
+  category?: string | undefined;
+};
+
+export interface SyncMetadata_gong_oauth_calltranscripts {
+  backfillPeriodMs?: number | undefined;
+  lastSyncBackfillPeriod?: number | undefined;
+  callIds?: string[] | undefined;
+  workspaceId?: string | undefined;
+};
+
+export interface SyncMetadata_gong_oauth_calls {
+  backfillPeriodMs?: number | undefined;
+  lastSyncBackfillPeriod?: number | undefined;
+};
+
+export interface LibraryFolder {
+  id: string;
+  name?: string | undefined;
+  parentFolderId?: string | undefined;
+  createdBy?: string | undefined;
+  updated?: string | undefined;
+};
+
+export interface Scorecard {
+  id: string;
+  scorecardId: string;
+  scorecardName: string;
+  workspaceId?: string | undefined;
+  enabled: boolean;
+  updaterUserId: string;
+  created: string;
+  updated: string;
+  reviewMethod?: string | undefined;
+  questions?: ({  [key: string]: unknown | undefined;})[];
+};
+
+export interface Tracker {
+  id: string;
+  trackerId: string;
+  trackerName?: string | undefined;
+  workspaceId?: string | undefined;
+  created?: string | undefined;
+  updated?: string | undefined;
+  affiliation?: string | undefined;
+  partOfQuestion?: boolean | undefined;
+  saidAt?: string | undefined;
+  filterQuery?: string | undefined;
+};
+
+export interface ActionInput_gong_oauth_addcallusersaccess {
+  /**
+   * Gong's unique numeric call ID. Example: '7782342274025937895'
+   */
+  callId: string;
+  /**
+   * Array of Gong's unique numeric user IDs. Example: ['234599484848423']
+   */
+  userIds: string[];
+};
+
+export interface ActionOutput_gong_oauth_addcallusersaccess {
+  requestId?: string | undefined;
+};
+
+export interface ActionInput_gong_oauth_askentity {
+  /**
+   * Type of Gong entity. Example: "Account"
+   */
+  entityType: 'Account' | 'Deal' | 'Contact' | 'Lead';
+  /**
+   * ID of the entity. Example: "123"
+   */
+  entityId: string;
+  /**
+   * Natural language question about the entity. Example: "What is the deal status?"
+   */
+  question: string;
+};
+
+export interface ActionOutput_gong_oauth_askentity {
+  /**
+   * AI-generated answer to the question.
+   */
+  answer: string;
+};
+
+export interface ActionInput_gong_oauth_assignprospectscooloffoverride {
+  /**
+   * The Gong Engage Flow ID to assign the contacts to. Example: 1695493301223590792
+   */
+  flowId: string;
+  /**
+   * The CRM IDs of the contacts or leads that should be assigned to a flow. Up to 100 prospects per request. Example: ["a5V1Q00A120DP4CVAW"]
+   */
+  crmProspectsIds: string[];
+  /**
+   * The email of the Gong user who owns the flow to-dos. Example: test@test.com
+   */
+  flowInstanceOwnerEmail: string;
+};
+
+export interface ActionOutput_gong_oauth_assignprospectscooloffoverride {
+  requestId?: string | undefined;
+  prospectsAssigned?: ({  flowId?: string | undefined;
+  flowName?: string | undefined;
+  crmProspectId?: string | undefined;
+  flowInstanceId?: string | undefined;
+  flowInstanceOwnerEmail?: string | undefined;
+  flowInstanceOwnerFullName?: string | undefined;
+  flowInstanceCreateDate?: string | undefined;})[];
+  errors?: string[] | undefined;
+};
+
+export interface ActionInput_gong_oauth_createmeeting {
+  /**
+   * Title of the meeting.
+   */
+  title?: string | undefined;
+  /**
+   * The meeting start time in ISO-8601 format.
+   */
+  startTime: string;
+  /**
+   * The meeting end time in ISO-8601 format.
+   */
+  endTime: string;
+  /**
+   * The email address of the user creating the meeting.
+   */
+  organizerEmail: string;
+  /**
+   * The ID as it is formed on the external system.
+   */
+  externalId?: string | undefined;
+  /**
+   * A list of invitees to the event (not including the organizer).
+   */
+  invitees: ({  email: string;
+  displayName?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;})[];
+};
+
+export interface ActionOutput_gong_oauth_createmeeting {
+  /**
+   * A Gong request reference Id.
+   */
+  requestId: string;
+  /**
+   * Gong's unique identifier for the meeting.
+   */
+  meetingId: string;
+  /**
+   * The Gong URL of the meeting.
+   */
+  meetingUrl: string;
+  /**
+   * Attendees added to the invitation.
+   */
+  additionalInvitees?: ({  email: string;
+  displayName?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;})[];
+};
+
+export interface ActionInput_gong_oauth_createpermissionprofile {
+  /**
+   * Workspace identifier. Example: "7273476131570014205"
+   */
+  workspaceId: string;
+  /**
+   * Unique numeric identifier for the permission profile (up to 20 digits). Example: "3843152912968920037"
+   */
+  profileId: string;
+  /**
+   * Permission profile name. Example: "Standard Team Member"
+   */
+  profileName: string;
+  /**
+   * Permission profile description. Example: "Default profile for sales team"
+   */
+  description: string;
+  libraryFolderAccess: {  permissionLevel: 'none' | 'all' | 'specific-folders';
+  libraryFolderIds?: string[] | undefined;
+  managePublicFolder?: boolean | undefined;
+  manageStreams?: boolean | undefined;
+  manageFolderCalls?: boolean | undefined;
+  shareFoldersAndStreams?: boolean | undefined;};
+  forecastPermissions?: {  forecastAccess?: {  permissionLevel: 'all' | 'managers-team' | 'report-to-them' | 'own' | 'none';
+  teamLeadIds?: string[] | undefined;};
+  forecastEditSubmissions?: {  permissionLevel: 'all' | 'managers-team' | 'report-to-them' | 'own' | 'none';
+  teamLeadIds?: string[] | undefined;};
+  forecastEditTargets?: {  permissionLevel: 'all' | 'managers-team' | 'report-to-them' | 'own' | 'none';
+  teamLeadIds?: string[] | undefined;};};
+  callsAccess?: {  permissionLevel: 'all' | 'managers-team' | 'report-to-them' | 'own' | 'none';
+  teamLeadIds?: string[] | undefined;};
+  dealsAccess?: {  permissionLevel: 'all' | 'managers-team' | 'report-to-them' | 'own' | 'none';
+  teamLeadIds?: string[] | undefined;};
+  coachingAccess?: {  permissionLevel: 'all' | 'managers-team' | 'report-to-them' | 'own' | 'none';
+  teamLeadIds?: string[] | undefined;};
+  insightsAccess?: {  permissionLevel: 'all' | 'managers-team' | 'report-to-them' | 'own' | 'none';
+  teamLeadIds?: string[] | undefined;};
+  usageAccess?: {  permissionLevel: 'all' | 'managers-team' | 'report-to-them' | 'own' | 'none';
+  teamLeadIds?: string[] | undefined;};
+  emailsAccess?: {  permissionLevel: 'all' | 'managers-team' | 'report-to-them' | 'own' | 'none';
+  teamLeadIds?: string[] | undefined;};
+  scoreCalls?: boolean | undefined;
+  overrideScore?: boolean | undefined;
+  downloadCallMedia?: boolean | undefined;
+  shareCallsWithCustomers?: boolean | undefined;
+  manuallyScheduleAndUploadCalls?: boolean | undefined;
+  privateCalls?: boolean | undefined;
+  deleteCalls?: boolean | undefined;
+  trimCalls?: boolean | undefined;
+  listenInCalls?: boolean | undefined;
+  deleteEmails?: boolean | undefined;
+  callsAndSearch?: boolean | undefined;
+  library?: boolean | undefined;
+  deals?: boolean | undefined;
+  createEditAndDeleteDealsBoards?: boolean | undefined;
+  dealsInlineEditing?: boolean | undefined;
+  account?: boolean | undefined;
+  coaching?: boolean | undefined;
+  usage?: boolean | undefined;
+  teamStats?: boolean | undefined;
+  initiatives?: boolean | undefined;
+  market?: boolean | undefined;
+  activity?: boolean | undefined;
+  forecast?: boolean | undefined;
+  forecastManage?: boolean | undefined;
+  engageManageCompanyTemplates?: boolean | undefined;
+  engageManageCompanySequences?: boolean | undefined;
+  engageCreateAndManageRulesets?: boolean | undefined;
+  engageSnoozeFlowToDosForOthers?: boolean | undefined;
+  engageAllowCrmFieldsViewChange?: boolean | undefined;
+  viewEngageAnalyticsActivity?: boolean | undefined;
+  viewEngageAnalyticsPerformance?: boolean | undefined;
+  viewEngageAnalyticsFlows?: boolean | undefined;
+  manageGeneralBusinessSettings?: boolean | undefined;
+  manageScorecards?: boolean | undefined;
+  exportCallsAndCoachingDataToCSV?: boolean | undefined;
+  crmDataInlineEditing?: boolean | undefined;
+  crmDataImport?: boolean | undefined;
+  viewRevenueAnalytics?: boolean | undefined;
+  manageRevenueAnalytics?: boolean | undefined;
+  engageReassignFlowToDosToOthers?: boolean | undefined;
+  engageAssignFlowToDosToOthers?: boolean | undefined;
+  dealsDataExport?: boolean | undefined;
+  aiBuilder?: boolean | undefined;
+};
+
+export interface ActionOutput_gong_oauth_createpermissionprofile {
+  requestId: string;
+  profile?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_gong_oauth_deletecrmintegration {
+  /**
+   * The ID of the integration to delete. Example: "6286478263646"
+   */
+  integrationId: string;
+  /**
+   * A unique identifier generated by you to allow troubleshooting. Valid characters are letters, numbers, dashes and underscores. Example: "client-request-1"
+   */
+  clientRequestId: string;
+};
+
+export interface ActionOutput_gong_oauth_deletecrmintegration {
+  requestId?: string | undefined;
+  clientRequestId?: string | undefined;
+  errors?: string[] | undefined;
+};
+
+export interface ActionInput_gong_oauth_deletedataforemail {
+  /**
+   * Email address to erase from Gong. Example: "user@example.com"
+   */
+  emailAddress: string;
+};
+
+export interface ActionOutput_gong_oauth_deletedataforemail {
+  /**
+   * Async deletion request ID. Example: "123e4567-e89b-12d3-a456-426614174000"
+   */
+  requestId: string;
+};
+
+export interface ActionInput_gong_oauth_deletedataforphone {
+  /**
+   * Phone number to erase data for. Example: "+15550000001"
+   */
+  phoneNumber: string;
+};
+
+export interface ActionOutput_gong_oauth_deletedataforphone {
+  /**
+   * Async deletion request ID
+   */
+  requestId: string;
+};
+
+export interface ActionInput_gong_oauth_deletemeeting {
+  /**
+   * Gong's unique identifier for the meeting (up to 20 digits). Example: "12345678901234567890"
+   */
+  meetingId: string;
+  /**
+   * The email address of the user who created the meeting. Example: "api@nango.dev"
+   */
+  organizerEmail: string;
+};
+
+export interface ActionOutput_gong_oauth_deletemeeting {
+  organizerEmail?: string | undefined;
+};
+
+export interface ActionInput_gong_oauth_fetchcallextensivedata {
+  /**
+   * Array of call IDs to filter by. Example: ["123456789"]
+   */
+  callIds?: string[] | undefined;
+  /**
+   * Start of date range filter. ISO 8601 UTC string. Example: "2026-01-01T00:00:00Z"
+   */
+  fromDateTime?: string | undefined;
+  /**
+   * End of date range filter. ISO 8601 UTC string. Example: "2026-01-31T23:59:59Z"
+   */
+  toDateTime?: string | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Controls which fields are returned in the response.
+   */
+  contentSelector?: {  context?: string | undefined;
+  contextTiming?: string[] | undefined;
+  exposedFields?: {  parties?: boolean | undefined;
+  media?: boolean | undefined;
+  collaboration?: {  publicComments?: boolean | undefined;};
+  content?: {  pointsOfInterest?: boolean | undefined;
+  structure?: boolean | undefined;
+  topics?: boolean | undefined;
+  trackers?: boolean | undefined;
+  brief?: boolean | undefined;
+  outline?: boolean | undefined;
+  highlights?: boolean | undefined;
+  callOutcome?: boolean | undefined;
+  keyPoints?: boolean | undefined;};
+  interaction?: {  personInteractionStats?: boolean | undefined;
+  questions?: boolean | undefined;
+  speakers?: boolean | undefined;
+  video?: boolean | undefined;};};};
+};
+
+export interface ActionOutput_gong_oauth_fetchcallextensivedata {
+  calls: ({})[];
+  cursor?: string | undefined;
+  totalRecords?: number | undefined;
+  currentPageSize?: number | undefined;
+};
+
+export interface ActionInput_gong_oauth_fetchcalltranscripts {
+  /**
+   * Start of date range filter. ISO 8601 string. Example: "2026-01-01T00:00:00Z"
+   */
+  from?: string | undefined;
+  /**
+   * End of date range filter. ISO 8601 string. Example: "2026-01-31T23:59:59Z"
+   */
+  to?: string | undefined;
+  /**
+   * Filter transcripts to a specific Gong workspace. Example: "623457276584334"
+   */
+  workspaceId?: string | undefined;
+  /**
+   * Filter to specific call IDs. Example: ["123456789"]
+   */
+  callIds?: string[] | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_gong_oauth_fetchcalltranscripts {
+  /**
+   * Transcript data for the returned page
+   */
+  transcripts: ({  callId?: string | undefined;
+  transcript?: ({  speakerId?: string | undefined;
+  topic?: string | undefined;
+  sentences?: ({  start?: number | undefined;
+  end?: number | undefined;
+  text?: string | undefined;})[];})[];})[];
+  /**
+   * Pass this cursor to the next call to retrieve the following page. Absent when there are no more pages.
+   */
+  nextCursor?: string | undefined;
+  /**
+   * Total number of matching transcripts across all pages
+   */
+  totalRecords?: number | undefined;
+};
+
+export interface ActionInput_gong_oauth_getbulkassignmentresults {
+  /**
+   * The bulk assignment ID returned by the bulk-assign action. Example: "12345"
+   */
+  bulkAssignmentId: string;
+};
+
+export interface ActionOutput_gong_oauth_getbulkassignmentresults {
+  requestId?: string | undefined;
+  bulkAssignmentId?: string | undefined;
+  status?: string | undefined;
+  totalProspects?: number | undefined;
+  succeeded?: number | undefined;
+  failed?: number | undefined;
+  errors?: ({  prospectId?: string | undefined;
+  error?: string | undefined;})[];
+};
+
+export interface ActionInput_gong_oauth_getcallmedia {
+  /**
+   * Gong call ID. Example: "1234567890"
+   */
+  callId: string;
+};
+
+export interface ActionOutput_gong_oauth_getcallmedia {
+  /**
+   * Signed URL for the audio recording. Valid for 8 hours.
+   */
+  audioUrl?: string | undefined;
+  /**
+   * Signed URL for the video recording. Valid for 8 hours.
+   */
+  videoUrl?: string | undefined;
+};
+
+export interface ActionInput_gong_oauth_getcalltranscript {
+  /**
+   * Gong call ID. Example: "7782342274025937895"
+   */
+  callId: string;
+};
+
+export interface ActionOutput_gong_oauth_getcalltranscript {
+  callId: string;
+  transcript: ({  speakerId: string;
+  topic?: string | undefined;
   sentences: ({  start: number;
   end: number;
-  text: string;})[];})[];})[];
+  text: string;})[];})[];
+};
+
+export interface ActionInput_gong_oauth_getcallusersaccess {
+  /**
+   * Gong call ID. Example: "123456789"
+   */
+  callId: string;
+};
+
+export interface ActionOutput_gong_oauth_getcallusersaccess {
+  callId: string;
+  users?: ({  userId: string;})[] | undefined;
+};
+
+export interface ActionInput_gong_oauth_getcall {
+  /**
+   * Gong's unique numeric identifier for the call (up to 20 digits). Example: "7782342274025937895"
+   */
+  id: string;
+};
+
+export interface ActionOutput_gong_oauth_getcall {
+  id: string;
+  url?: string | undefined;
+  title?: string | undefined;
+  scheduled?: string | undefined;
+  started?: string | undefined;
+  duration?: number | undefined;
+  primaryUserId?: string | undefined;
+  direction?: string | undefined;
+  system?: string | undefined;
+  scope?: string | undefined;
+  media?: string | undefined;
+  language?: string | undefined;
+  workspaceId?: string | undefined;
+  sdrDisposition?: string | undefined;
+  clientUniqueId?: string | undefined;
+  customData?: string | undefined;
+  purpose?: string | undefined;
+  meetingUrl?: string | undefined;
+  isPrivate?: boolean | undefined;
+  calendarEventId?: string | undefined;
+};
+
+export interface ActionInput_gong_oauth_getcoachingmetrics {
+  /**
+   * The workspace ID. Example: "7273476131570014205"
+   */
+  workspaceId?: string | undefined;
+  /**
+   * The manager user ID. Example: "7254376376091929519"
+   */
+  managerId?: string | undefined;
+  /**
+   * Association time filter start - ISO 8601 format. Example: "2026-01-01T00:00:00Z"
+   */
+  from?: string | undefined;
+  /**
+   * Association time filter end - ISO 8601 format. Example: "2026-06-01T00:00:00Z"
+   */
+  to?: string | undefined;
+};
+
+export interface ActionOutput_gong_oauth_getcoachingmetrics {
+  requestId?: string | undefined;
+  coachingData?: ({  manager: {  id: string;
+  emailAddress?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  title?: string | undefined;};
+  directReportsMetrics?: ({  report: {  id: string;
+  emailAddress?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  title?: string | undefined;};
+  metrics?: {  [key: string]: string[];} | undefined;})[];})[];
+};
+
+export interface ActionInput_gong_oauth_getcrmentities {
+  /**
+   * Type of CRM objects to retrieve. Example: "DEAL"
+   */
+  entityType: 'ACCOUNT' | 'CONTACT' | 'DEAL' | 'LEAD';
+  /**
+   * Integration ID generated when creating the CRM integration. Example: "6286478263646"
+   */
+  integrationId: string;
+  /**
+   * Array of CRM object IDs to retrieve. Up to 100 per request. Example: ["1234", "8765"]
+   */
+  objectsCrmIds?: string[] | undefined;
+  /**
+   * Pagination cursor for fetching the next batch of objects.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_gong_oauth_getcrmentities {
+  requestId?: string | undefined;
+  crmObjectsMap?: {  [key: string]: {  [key: string]: unknown | undefined;};};
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_gong_oauth_getcrmentityschema {
+  /**
+   * The CRM integration ID. Example: "6286478263646"
+   */
+  integrationId: string;
+  /**
+   * The CRM entity type to retrieve schema fields for. Example: "ACCOUNT"
+   */
+  entityType: string;
+};
+
+export interface ActionOutput_gong_oauth_getcrmentityschema {
+  requestId: string;
+  objectTypeToSelectedFields: {  [key: string]: ({  name?: string | undefined;
+  uniqueName?: string | undefined;
+  label: string;
+  type: string;
+  lastModified?: string | undefined;
+  isDeleted: boolean;
+  referenceTo?: string | undefined;
+  orderedValueList?: string[] | undefined;})[];};
+};
+
+export interface ActionInput_gong_oauth_getcrmintegration {
+};
+
+export interface ActionOutput_gong_oauth_getcrmintegration {
+  integrations?: ({  /**
+   * Integration ID generated by Gong
+   */
+  integrationId: number;
+  /**
+   * Integration name
+   */
+  name: string;
+  /**
+   * Email of the integration owner
+   */
+  ownerEmail: string;})[] | undefined;
+  /**
+   * A Gong request reference ID
+   */
+  requestId?: string | undefined;
+};
+
+export interface ActionInput_gong_oauth_getcrmrequeststatus {
+  /**
+   * Integration ID generated when creating the integration. Example: "5517027188234206000"
+   */
+  integrationId: string | number;
+  /**
+   * The client request ID used in the asynchronous endpoint you want to get a status for. Example: abc-123
+   */
+  clientRequestId: string;
+};
+
+export interface ActionOutput_gong_oauth_getcrmrequeststatus {
+  /**
+   * A Gong request reference ID, generated for this request.
+   */
+  requestId: string;
+  /**
+   * Request status.
+   */
+  status: 'PENDING' | 'IN_PROGRESS' | 'DONE' | 'FAILED';
+  /**
+   * List of errors when status is FAILED.
+   */
+  errors?: ({  line?: number | undefined;
+  description?: string | undefined;})[];
+  /**
+   * Number of objects that failed parsing.
+   */
+  totalErrorCount?: number | undefined;
+  /**
+   * Number of valid objects.
+   */
+  totalSuccessCount?: number | undefined;
+};
+
+export interface ActionInput_gong_oauth_getdataforemail {
+  /**
+   * The email address to look up. Example: "user@example.com"
+   */
+  emailAddress: string;
+};
+
+export interface ActionOutput_gong_oauth_getdataforemail {
+  requestId?: string | undefined;
+  emails?: ({  from?: string | undefined;
+  id?: string | undefined;
+  sentTime?: string | undefined;
+  mailbox?: string | undefined;
+  messageHash?: string | undefined;})[];
+  calls?: ({  id?: string | undefined;
+  status?: string | undefined;
+  externalSystems?: ({  system?: string | undefined;
+  objects?: ({  objectType?: string | undefined;
+  externalId?: string | undefined;})[];})[];})[];
+  meetings?: ({  id?: string | undefined;})[];
+  customerData?: ({  system?: string | undefined;
+  objects?: ({  id?: string | undefined;
+  objectType?: string | undefined;
+  externalId?: string | undefined;
+  mirrorId?: string | undefined;
+  fields?: ({  name?: string | undefined;
+  value?: unknown | undefined;})[];})[];})[];
+  customerEngagement?: ({  eventType?: string | undefined;
+  timestamp?: string | undefined;
+  contentId?: string | undefined;
+  contentUrl?: string | undefined;
+  reportingSystem?: string | undefined;
+  eventName?: string | undefined;
+  sourceEventId?: string | undefined;})[];
+};
+
+export interface ActionInput_gong_oauth_getdataforphone {
+  /**
+   * The phone number to look up in E.164 format. Example: "+15555550100"
+   */
+  phoneNumber: string;
+};
+
+export interface ActionOutput_gong_oauth_getdataforphone {
+  calls?: unknown[] | undefined;
+  customerData?: unknown[] | undefined;
+  emailAddresses?: unknown[] | undefined;
+  emails?: unknown[] | undefined;
+  matchingPhoneNumbers?: unknown[] | undefined;
+  meetings?: unknown[] | undefined;
+  requestId?: string | undefined;
+  suppliedPhoneNumber?: string | undefined;
+};
+
+export interface ActionInput_gong_oauth_getentitybrief {
+  /**
+   * Entity type to generate a brief for. Example: "CONTACT"
+   */
+  entityType: 'ACCOUNT' | 'CONTACT' | 'DEAL' | 'LEAD';
+  /**
+   * Entity ID to generate a brief for. Example: "12345"
+   */
+  entityId: string;
+  /**
+   * Workspace ID. Example: "7273476131570014205"
+   */
+  workspaceId: string;
+  /**
+   * Brief name configured in Gong. Example: "Default"
+   */
+  briefName: string;
+  /**
+   * Time period for the brief. Example: "LAST_30DAYS"
+   */
+  timePeriod: 'LAST_7DAYS' | 'LAST_30DAYS' | 'LAST_90DAYS' | 'LAST_90_DAYS_SINCE_LAST_ACTIVITY' | 'LAST_YEAR_SINCE_LAST_ACTIVITY' | 'LAST_YEAR' | 'THIS_WEEK' | 'THIS_MONTH' | 'THIS_YEAR' | 'THIS_QUARTER' | 'CUSTOM_RANGE' | 'ALL_CONVERSATIONS';
+  /**
+   * Start date for CUSTOM_RANGE period in YYYY-MM-DD format. Example: "2026-01-01"
+   */
+  fromDate?: string | undefined;
+  /**
+   * End date for CUSTOM_RANGE period in YYYY-MM-DD format. Example: "2026-06-01"
+   */
+  toDate?: string | undefined;
+};
+
+export interface ActionOutput_gong_oauth_getentitybrief {
+  requestId?: string | undefined;
+  brief?: string | undefined;
+  sections?: ({  title?: string | undefined;
+  content?: string | undefined;})[];
+  errors?: string[] | undefined;
+};
+
+export interface ActionInput_gong_oauth_getflowsteps {
+  /**
+   * One or more Gong Engage flow IDs. Example: ["1695493301223590792"]
+   */
+  flowIds: string[];
+};
+
+export interface ActionOutput_gong_oauth_getflowsteps {
+  requestId?: string | undefined;
+  flows?: ({  id?: string | undefined;
+  name?: string | undefined;
+  folderId?: string | undefined;
+  folderName?: string | undefined;
+  visibility?: string | undefined;
+  creationDate?: string | undefined;
+  exclusive?: boolean | undefined;
+  steps?: ({  number?: number | undefined;
+  type?: string | undefined;
+  name?: string | undefined;
+  delayInDays?: number | undefined;
+  subject?: string | undefined;
+  body?: string | undefined;
+  replyToPrevious?: boolean | undefined;
+  sendAsNewThread?: boolean | undefined;})[];})[];
+};
+
+export interface ActionInput_gong_oauth_getintegrationsettings {
+};
+
+export interface ActionOutput_gong_oauth_getintegrationsettings {
+  requestId?: string | undefined;
+  integrationSettings?: {  id?: string | undefined;};
+};
+
+export interface ActionInput_gong_oauth_getlogs {
+  /**
+   * Type of audit logs to retrieve. Example: "AccessLog"
+   */
+  logType: string;
+  /**
+   * Start of the time range in ISO 8601 UTC format. Example: "2026-01-01T00:00:00Z"
+   */
+  fromDateTime: string;
+  /**
+   * End of the time range in ISO 8601 UTC format. Example: "2026-06-01T00:00:00Z"
+   */
+  toDateTime: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_gong_oauth_getlogs {
+  requestId?: string | undefined;
+  totalRecords?: number | undefined;
+  currentPageSize?: number | undefined;
+  currentPageNumber?: number | undefined;
+  logEntries: ({  userId?: string | undefined;
+  userEmailAddress?: string | undefined;
+  userFullName?: string | undefined;
+  impersonatorUserId?: string | undefined;
+  impersonatorEmailAddress?: string | undefined;
+  impersonatorFullName?: string | undefined;
+  impersonatorCompanyId?: string | undefined;
+  eventTime?: string | undefined;
+  logRecord?: {  [key: string]: unknown | undefined;};})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_gong_oauth_getmeetingintegrationstatus {
+  /**
+   * Array of user email addresses to check integration status for. Maximum 100.
+   */
+  emails: string[];
+};
+
+export interface ActionOutput_gong_oauth_getmeetingintegrationstatus {
+  /**
+   * A Gong request reference ID for troubleshooting.
+   */
+  requestId: string;
+  /**
+   * The integration status for each requested user.
+   */
+  users: ({  /**
+   * The email address of the meeting organizer.
+   */
+  email: string;
+  /**
+   * Whether the user exists in Gong.
+   */
+  exists: boolean;
+  /**
+   * Whether the integration is connected for the user.
+   */
+  valid: boolean;
+  /**
+   * Message explaining why the integration is not connected.
+   */
+  userFacingError?: string | undefined;
+  /**
+   * A URL to place in the application to fix the problem.
+   */
+  fixUrl?: string | undefined;
+  /**
+   * A URL to the Gong help center with more information about the error.
+   */
+  helpUrl?: string | undefined;})[];
+};
+
+export interface ActionInput_gong_oauth_getpermissionprofile {
+  /**
+   * The ID of the permission profile to retrieve. Example: "3843152912968920037"
+   */
+  profileId: string;
+};
+
+export interface ActionOutput_gong_oauth_getpermissionprofile {
+  requestId?: string | undefined;
+  profile?: {  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  callsAccess?: {  permissionLevel?: string | undefined;
+  teamLeadIds?: string[] | undefined;};
+  libraryFolderAccess?: {  permissionLevel?: string | undefined;
+  libraryFolderIds?: string[] | undefined;
+  managePublicFolder?: boolean | undefined;
+  manageStreams?: boolean | undefined;
+  manageFolderCalls?: boolean | undefined;
+  shareFoldersAndStreams?: boolean | undefined;};
+  dealsAccess?: {  permissionLevel?: string | undefined;
+  teamLeadIds?: string[] | undefined;};
+  forecastPermissions?: {  forecastAccess?: {  permissionLevel?: string | undefined;
+  teamLeadIds?: string[] | undefined;};
+  forecastEditSubmissions?: {  permissionLevel?: string | undefined;
+  teamLeadIds?: string[] | undefined;};
+  forecastEditTargets?: {  permissionLevel?: string | undefined;
+  teamLeadIds?: string[] | undefined;};};
+  coachingAccess?: {  permissionLevel?: string | undefined;
+  teamLeadIds?: string[] | undefined;};
+  insightsAccess?: {  permissionLevel?: string | undefined;
+  teamLeadIds?: string[] | undefined;};
+  usageAccess?: {  permissionLevel?: string | undefined;
+  teamLeadIds?: string[] | undefined;};
+  emailsAccess?: {  permissionLevel?: string | undefined;
+  teamLeadIds?: string[] | undefined;};
+  scoreCalls?: boolean | undefined;
+  overrideScore?: boolean | undefined;
+  downloadCallMedia?: boolean | undefined;
+  shareCallsWithCustomers?: boolean | undefined;
+  manuallyScheduleAndUploadCalls?: boolean | undefined;
+  privateCalls?: boolean | undefined;
+  deleteCalls?: boolean | undefined;
+  trimCalls?: boolean | undefined;
+  listenInCalls?: boolean | undefined;
+  deleteEmails?: boolean | undefined;
+  callsAndSearch?: boolean | undefined;
+  library?: boolean | undefined;
+  deals?: boolean | undefined;
+  createEditAndDeleteDealsBoards?: boolean | undefined;
+  dealsInlineEditing?: boolean | undefined;
+  account?: boolean | undefined;
+  coaching?: boolean | undefined;
+  usage?: boolean | undefined;
+  teamStats?: boolean | undefined;
+  initiatives?: boolean | undefined;
+  market?: boolean | undefined;
+  activity?: boolean | undefined;
+  forecast?: boolean | undefined;
+  forecastManage?: boolean | undefined;
+  engageManageCompanyTemplates?: boolean | undefined;
+  engageManageCompanySequences?: boolean | undefined;
+  engageCreateAndManageRulesets?: boolean | undefined;
+  engageSnoozeFlowToDosForOthers?: boolean | undefined;
+  engageAllowCrmFieldsViewChange?: boolean | undefined;
+  viewEngageAnalyticsActivity?: boolean | undefined;
+  viewEngageAnalyticsPerformance?: boolean | undefined;
+  viewEngageAnalyticsFlows?: boolean | undefined;
+  manageGeneralBusinessSettings?: boolean | undefined;
+  manageScorecards?: boolean | undefined;
+  exportCallsAndCoachingDataToCSV?: boolean | undefined;
+  crmDataInlineEditing?: boolean | undefined;
+  crmDataImport?: boolean | undefined;
+  viewRevenueAnalytics?: boolean | undefined;
+  manageRevenueAnalytics?: boolean | undefined;
+  engageReassignFlowToDosToOthers?: boolean | undefined;
+  engageAssignFlowToDosToOthers?: boolean | undefined;
+  dealsDataExport?: boolean | undefined;};
+};
+
+export interface ActionInput_gong_oauth_getscorecard {
+  /**
+   * The identifier of the scorecard. Example: "9067931441193858457"
+   */
+  scorecardId: string;
+};
+
+export interface ActionOutput_gong_oauth_getscorecard {
+  scorecardId: string;
+  scorecardName?: string | undefined;
+  workspaceId?: string | undefined;
+  enabled?: boolean | undefined;
+  updaterUserId?: string | undefined;
+  created?: string | undefined;
+  updated?: string | undefined;
+  reviewMethod?: string | undefined;
+  questions?: ({  questionId: string;
+  questionRevisionId?: string | undefined;
+  questionText?: string | undefined;
+  isOverall?: boolean | undefined;
+  questionType?: string | undefined;
+  answerGuide?: string | undefined;
+  minRange?: string | undefined;
+  maxRange?: string | undefined;
+  answerOptions?: ({  id: number;
+  text: string;})[] | undefined;})[];
+};
+
+export interface ActionInput_gong_oauth_getstatsactivityaggregatebyperiod {
+  /**
+   * Gong user IDs to filter by. Example: ["7254376376091929519"]
+   */
+  userIds?: string[] | undefined;
+  /**
+   * Start date in ISO 8601 format. Example: "2026-01-01T00:00:00Z"
+   */
+  fromDateTime: string;
+  /**
+   * End date in ISO 8601 format. Example: "2026-01-31T00:00:00Z"
+   */
+  toDateTime: string;
+  /**
+   * Time period for grouping. Example: "week"
+   */
+  groupingPeriod: 'day' | 'week' | 'month' | 'quarter' | 'year' | 'DAY' | 'WEEK' | 'MONTH' | 'QUARTER' | 'YEAR';
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_gong_oauth_getstatsactivityaggregatebyperiod {
+  requestId?: string | undefined;
+  records?: {  totalRecords?: number | undefined;
+  currentPageSize?: number | undefined;
+  cursor?: string | undefined;};
+  usersAggregateActivity?: ({  userId?: string | undefined;
+  userEmailAddress?: string | undefined;
+  userAggregateActivity?: ({  fromDate?: string | undefined;
+  toDate?: string | undefined;
+  callsAsHost?: number | undefined;
+  callsAttended?: number | undefined;
+  callsCommentsGiven?: number | undefined;
+  callsCommentsReceived?: number | undefined;
+  callsGaveFeedback?: number | undefined;
+  callsMarkedAsFeedbackGiven?: number | undefined;
+  callsMarkedAsFeedbackReceived?: number | undefined;
+  callsReceivedFeedback?: number | undefined;
+  callsRequestedFeedback?: number | undefined;
+  callsScorecardsFilled?: number | undefined;
+  callsScorecardsReceived?: number | undefined;
+  callsSharedExternally?: number | undefined;
+  callsSharedInternally?: number | undefined;
+  othersCallsListenedTo?: number | undefined;
+  ownCallsListenedTo?: number | undefined;})[];})[];
+};
+
+export interface ActionInput_gong_oauth_getstatsactivityaggregate {
+  /**
+   * Gong user IDs to retrieve activity for. Example: ["7254376376091929519"]
+   */
+  userIds: string[];
+  /**
+   * The specific date for which to retrieve activity, in YYYY-MM-DD format. Example: "2026-06-01"
+   */
+  referenceDate: string;
+};
+
+export interface ActionOutput_gong_oauth_getstatsactivityaggregate {
+  requestId?: string | undefined;
+  records?: {  totalRecords?: number | undefined;
+  currentPageSize?: number | undefined;
+  currentPageNumber?: number | undefined;
+  cursor?: string | undefined;};
+  usersAggregateActivityStats?: ({  userId?: string | undefined;
+  userEmailAddress?: string | undefined;
+  userAggregateActivityStats?: {  callsAsHost?: number | undefined;
+  callsGaveFeedback?: number | undefined;
+  callsRequestedFeedback?: number | undefined;
+  callsReceivedFeedback?: number | undefined;
+  ownCallsListenedTo?: number | undefined;
+  othersCallsListenedTo?: number | undefined;
+  callsSharedInternally?: number | undefined;
+  callsSharedExternally?: number | undefined;
+  callsScorecardsFilled?: number | undefined;
+  callsScorecardsReceived?: number | undefined;
+  callsAttended?: number | undefined;
+  callsCommentsGiven?: number | undefined;
+  callsCommentsReceived?: number | undefined;
+  callsMarkedAsFeedbackGiven?: number | undefined;
+  callsMarkedAsFeedbackReceived?: number | undefined;};
+  timeZone?: string | undefined;
+  fromDateTime?: string | undefined;
+  toDateTime?: string | undefined;})[];
+};
+
+export interface ActionInput_gong_oauth_getstatsactivitydaybyday {
+  /**
+   * The start date (inclusive) in YYYY-MM-DD format.
+   */
+  fromDate: string;
+  /**
+   * The end date (exclusive) in YYYY-MM-DD format. Must not exceed the current day.
+   */
+  toDate: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Filter to specific Gong user IDs (up to 20 digits each).
+   */
+  userIds?: string[] | undefined;
+};
+
+export interface ActionOutput_gong_oauth_getstatsactivitydaybyday {
+  requestId: string;
+  records: {  totalRecords: number;
+  currentPageSize: number;
+  currentPageNumber: number;
+  cursor?: string | undefined;};
+  usersDetailedActivities: ({  userId: string;
+  userEmailAddress?: string | undefined;
+  userDailyActivityStats?: ({  callsAsHost?: string[] | undefined;
+  callsGaveFeedback?: string[] | undefined;
+  callsRequestedFeedback?: string[] | undefined;
+  callsReceivedFeedback?: string[] | undefined;
+  ownCallsListenedTo?: string[] | undefined;
+  othersCallsListenedTo?: string[] | undefined;
+  callsSharedInternally?: string[] | undefined;
+  callsSharedExternally?: string[] | undefined;
+  callsAttended?: string[] | undefined;
+  callsCommentsGiven?: string[] | undefined;
+  callsCommentsReceived?: string[] | undefined;
+  callsMarkedAsFeedbackGiven?: string[] | undefined;
+  callsMarkedAsFeedbackReceived?: string[] | undefined;
+  callsScorecardsFilled?: string[] | undefined;
+  callsScorecardsReceived?: string[] | undefined;
+  fromDate?: string | undefined;
+  toDate?: string | undefined;})[];})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_gong_oauth_getstatsactivityscorecards {
+  /**
+   * Start of the date range in ISO 8601 format. Example: 2026-01-01T00:00:00Z
+   */
+  fromDateTime: string;
+  /**
+   * End of the date range in ISO 8601 format. Example: 2026-06-01T00:00:00Z
+   */
+  toDateTime: string;
+  /**
+   * Optional list of scorecard IDs to filter by.
+   */
+  scorecardIds?: string[] | undefined;
+  /**
+   * Optional list of user IDs of reviewed team members to filter by.
+   */
+  userIds?: string[] | undefined;
+  /**
+   * Pagination cursor from the previous response.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_gong_oauth_getstatsactivityscorecards {
+  answeredScorecards?: ({  answeredScorecardId: string;
+  scorecardId: string;
+  scorecardName: string;
+  callId: string;
+  callStartTime?: string | undefined;
+  reviewedUserId?: string | undefined;
+  reviewerUserId?: string | undefined;
+  reviewMethod?: string | undefined;
+  editorUserId?: string | undefined;
+  reviewTime?: string | undefined;
+  visibilityType?: string | undefined;
+  answers?: ({  questionId: string;
+  questionRevisionId?: string | undefined;
+  isOverall?: boolean | undefined;
+  score?: number | undefined;
+  answerText?: string | undefined;
+  notApplicable?: boolean | undefined;
+  selectedOptions?: string[] | undefined;})[];})[];
+  cursor?: string | undefined;
+};
+
+export interface ActionInput_gong_oauth_getstatsinteraction {
+  /**
+   * Gong user IDs (up to 20 digits). Example: ["7254376376091929519"]
+   */
+  userIds: string[];
+  /**
+   * The date in YYYY-MM-DD format. Example: "2026-01-01"
+   */
+  referenceDate: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_gong_oauth_getstatsinteraction {
+  requestId?: string | undefined;
+  peopleInteractionStats?: ({  userId: string;
+  userEmailAddress?: string | undefined;
+  personInteractionStats?: ({  name: string;
+  value: number;})[] | undefined;
+  timeZone?: string | undefined;
+  fromDateTime?: string | undefined;
+  toDateTime?: string | undefined;})[];
+  records?: {  totalRecords?: number | undefined;
+  currentPageSize?: number | undefined;
+  currentPageNumber?: number | undefined;
+  cursor?: string | undefined;};
+};
+
+export interface ActionInput_gong_oauth_gettracker {
+  /**
+   * The unique identifier of the tracker. Example: "7686842637000665959"
+   */
+  trackerId: string;
+};
+
+export interface ActionOutput_gong_oauth_gettracker {
+  trackerId: string;
+  trackerName: string;
+  workspaceId?: string | undefined;
+  languageKeywords: ({  language: string;
+  keywords: string[];
+  includeRelatedForms: boolean;})[];
+  affiliation: string;
+  partOfQuestion: boolean;
+  saidAt: string;
+  saidAtInterval?: number | undefined;
+  saidAtUnit?: string | undefined;
+  saidInTopics: string[];
+  filterQuery?: string | undefined;
+  created: string;
+  creatorUserId?: string | undefined;
+  updated: string;
+  updaterUserId?: string | undefined;
+};
+
+export interface ActionInput_gong_oauth_getusersettingshistory {
+  /**
+   * Gong unique numeric identifier for the user. Example: "7254376376091929519"
+   */
+  userId: string;
+};
+
+export interface ActionOutput_gong_oauth_getusersettingshistory {
+  requestId?: string | undefined;
+  userSettingsHistory?: ({  setting?: string | undefined;
+  value?: boolean | undefined;
+  time?: string | undefined;})[];
+};
+
+export interface ActionInput_gong_oauth_getuser {
+  /**
+   * Gong's unique numeric identifier for the user (up to 20 digits). Example: "7254376376091929519"
+   */
+  userId: string;
+};
+
+export interface ActionOutput_gong_oauth_getuser {
+  id: string;
+  emailAddress: string;
+  created: string;
+  active: boolean;
+  emailAliases?: string[] | undefined;
+  trustedEmailAddress?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  title?: string | undefined;
+  phoneNumber?: string | undefined;
+  extension?: string | undefined;
+  personalMeetingUrls?: string[] | undefined;
+  settings?: {  webConferencesRecorded?: boolean | undefined;
+  preventWebConferenceRecording?: boolean | undefined;
+  telephonyCallsImported?: boolean | undefined;
+  emailsImported?: boolean | undefined;
+  preventEmailImport?: boolean | undefined;
+  nonRecordedMeetingsImported?: boolean | undefined;
+  gongConnectEnabled?: boolean | undefined;};
+  managerId?: string | undefined;
+  meetingConsentPageUrl?: string | undefined;
+  spokenLanguages?: ({  language: string;
+  primary?: boolean | undefined;})[];
+};
+
+export interface ActionInput_gong_oauth_getworkspace {
+  /**
+   * Gong workspace ID. Example: "7273476131570014205"
+   */
+  workspaceId: string;
+};
+
+export interface ActionOutput_gong_oauth_getworkspace {
+  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+};
+
+export interface ActionInput_gong_oauth_listcalloutcomes {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_gong_oauth_listcalloutcomes {
+  items: ({  id?: string | undefined;
+  category?: string | undefined;
+  name?: string | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_gong_oauth_listcalltranscripts {
+  /**
+   * Start date in ISO 8601 UTC format. Example: "2026-01-01T00:00:00Z"
+   */
+  fromDateTime?: string | undefined;
+  /**
+   * End date in ISO 8601 UTC format. Example: "2026-01-01T00:00:00Z"
+   */
+  toDateTime?: string | undefined;
+  /**
+   * Workspace ID to filter by. Example: "7273476131570014205"
+   */
+  workspaceId?: string | undefined;
+  /**
+   * Specific call IDs to retrieve transcripts for.
+   */
+  callIds?: string[] | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_gong_oauth_listcalltranscripts {
+  callTranscripts: ({  callId?: string | undefined;
+  transcript?: ({  speakerId?: string | undefined;
+  topic?: string | undefined;
+  sentences?: ({  start?: number | undefined;
+  end?: number | undefined;
+  text?: string | undefined;})[];})[];})[];
+  nextCursor?: string | undefined;
+  totalRecords?: number | undefined;
+  currentPageSize?: number | undefined;
+};
+
+export interface ActionInput_gong_oauth_listcalls {
+  /**
+   * Start of the date range in ISO 8601 UTC format. Example: "2026-01-01T00:00:00Z"
+   */
+  fromDateTime?: string | undefined;
+  /**
+   * End of the date range in ISO 8601 UTC format. Example: "2026-01-31T23:59:59Z"
+   */
+  toDateTime?: string | undefined;
+  /**
+   * Gong workspace ID to filter calls by.
+   */
+  workspaceId?: string | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_gong_oauth_listcalls {
+  calls: ({  id: string;
+  url?: string | undefined;
+  title?: string | undefined;
+  started?: string | undefined;
+  duration?: number | undefined;
+  primaryUserId?: string | undefined;
+  workspaceId?: string | undefined;
+  direction?: string | undefined;
+  disposition?: string | undefined;
+  customData?: string | undefined;
+  scheduledStart?: string | undefined;
+  system?: string | undefined;
+  scope?: string | undefined;
+  media?: string | undefined;
+  language?: string | undefined;
+  sdrDisposition?: string | undefined;
+  clientUniqueId?: string | undefined;
+  purpose?: string | undefined;
+  meetingUrl?: string | undefined;
+  isPrivate?: boolean | undefined;
+  calendarEventId?: string | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_gong_oauth_listflowfolders {
+  /**
+   * Email of the flow owner whose folders (including personal and shared) should be included.
+   */
+  flowFolderOwnerEmail: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_gong_oauth_listflowfolders {
+  items: ({  id: string;
+  name: string;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_gong_oauth_listflowprospects {
+  /**
+   * CRM IDs of the prospects to list assigned flows for. Example: ["a5V1Q00A120DP4CVAW"]
+   */
+  crmProspectsIds?: string[] | undefined;
+  /**
+   * Assigned flow instance IDs to filter by. Example: ["234599484848423"]
+   */
+  flowInstanceIds?: string[] | undefined;
+};
+
+export interface ActionOutput_gong_oauth_listflowprospects {
+  items: ({  flowId?: string | undefined;
+  flowName?: string | undefined;
+  crmProspectId?: string | undefined;
+  flowInstanceId?: string | undefined;
+  flowInstanceOwnerEmail?: string | undefined;
+  flowInstanceOwnerFullName?: string | undefined;
+  flowInstanceCreateDate?: string | undefined;
+  flowInstanceStatus?: string | undefined;
+  workspaceId?: string | undefined;
+  exclusive?: boolean | undefined;})[];
+};
+
+export interface ActionInput_gong_oauth_listflows {
+  /**
+   * Email address of the user who owns the flows. Example: "api@nango.dev"
+   */
+  flowOwnerEmail: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_gong_oauth_listflows {
+  flows: ({  id: string;
+  name?: string | undefined;
+  status?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_gong_oauth_listlibraryfoldercontent {
+  /**
+   * Gong's unique numeric identifier for the folder (up to 20 digits).
+   */
+  folderId: string;
+};
+
+export interface ActionOutput_gong_oauth_listlibraryfoldercontent {
+  requestId?: string | undefined;
+  id?: string | undefined;
+  name?: string | undefined;
+  createdBy?: string | undefined;
+  updated?: string | undefined;
+  calls?: ({  id?: string | undefined;
+  title?: string | undefined;
+  note?: string | undefined;
+  addedBy?: string | undefined;
+  created?: string | undefined;
+  url?: string | undefined;
+  snippet?: {  [key: string]: unknown | undefined;};})[];
+};
+
+export interface ActionInput_gong_oauth_listlibraryfolders {
+  /**
+   * Workspace identifier to filter folders by workspace. Example: "7273476131570014205"
+   */
+  workspaceId?: string | undefined;
+};
+
+export interface ActionOutput_gong_oauth_listlibraryfolders {
+  requestId?: string | undefined;
+  folders: ({  id: string;
+  name: string;
+  parentFolderId?: string | undefined;
+  createdBy: string;
+  updated: string;})[];
+};
+
+export interface ActionInput_gong_oauth_listpermissionprofileusers {
+  /**
+   * Permission profile identifier. Example: "12345678901234567890"
+   */
+  profileId: string;
+};
+
+export interface ActionOutput_gong_oauth_listpermissionprofileusers {
+  users: ({  id: string;
+  fullName?: string | undefined;
+  emailAddress?: string | undefined;})[];
+};
+
+export interface ActionInput_gong_oauth_listpermissionprofiles {
+  /**
+   * Workspace ID. Example: "7273476131570014205"
+   */
+  workspaceId: string;
+};
+
+export interface ActionOutput_gong_oauth_listpermissionprofiles {
+  profiles: ({  id: string;
+  name?: string | undefined;
+  description?: string | undefined;})[];
+};
+
+export interface ActionInput_gong_oauth_listscorecards {
+  /**
+   * Workspace ID to filter scorecards. Example: "7273476131570014205"
+   */
+  workspaceId?: string | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_gong_oauth_listscorecards {
+  items: ({  scorecardId: string;
+  scorecardName?: string | undefined;
+  workspaceId?: string | undefined;
+  enabled?: boolean | undefined;
+  updaterUserId?: string | undefined;
+  created?: string | undefined;
+  updated?: string | undefined;
+  reviewMethod?: string | undefined;
+  questions?: ({  questionId?: string | undefined;
+  questionRevisionId?: string | undefined;
+  questionText?: string | undefined;
+  isOverall?: boolean | undefined;
+  questionType?: string | undefined;
+  answerGuide?: string | undefined;
+  minRange?: string | number | undefined;
+  maxRange?: string | number | undefined;
+  answerOptions?: ({  id?: number | undefined;
+  text?: string | undefined;})[];})[];})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_gong_oauth_listtasks {
+  /**
+   * The Gong user ID who owns the tasks. Example: 1597409306735779049
+   */
+  userId: string;
+  /**
+   * The workspace ID the tasks are in. Example: 7273476131570014205
+   */
+  workspaceId?: string | undefined;
+  /**
+   * Filter by task creation type. Defaults to both.
+   */
+  types?: ({  0: 'FLOW';
+  1: 'MANUAL';})[] | undefined;
+  /**
+   * Filter by task action. Defaults to [CALL].
+   */
+  taskAction?: ({  0: 'CALL';})[] | undefined;
+  /**
+   * Filter by task status. Defaults to [OPEN].
+   */
+  status?: ({  0: 'OPEN';
+  1: 'DONE';
+  2: 'DISMISSED';})[] | undefined;
+};
+
+export interface ActionOutput_gong_oauth_listtasks {
+  items: ({  id?: string | undefined;
+  userId?: string | undefined;
+  created?: string | undefined;
+  updated?: string | undefined;
+  status?: string | undefined;
+  type?: string | undefined;
+  actions?: string[] | undefined;
+  dueDate?: string | undefined;
+  title?: string | undefined;})[];
+};
+
+export interface ActionInput_gong_oauth_listtrackers {
+  /**
+   * Workspace ID to filter trackers. Example: "7273476131570014205"
+   */
+  workspaceId?: string | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_gong_oauth_listtrackers {
+  trackers: ({  trackerId: string;
+  trackerName?: string | undefined;
+  workspaceId?: string | undefined;
+  languageKeywords?: ({  language: string;
+  keywords: string[];
+  includeRelatedForms: boolean;})[] | undefined;
+  affiliation?: string | undefined;
+  partOfQuestion?: boolean | undefined;
+  saidAt?: string | undefined;
+  saidAtInterval?: number | undefined;
+  saidAtUnit?: string | undefined;
+  saidInTopics?: string[] | undefined;
+  filterQuery?: string | undefined;
+  created?: string | undefined;
+  creatorUserId?: string | undefined;
+  updated?: string | undefined;
+  updaterUserId?: string | undefined;})[];
+  /**
+   * Pagination cursor for the next page.
+   */
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_gong_oauth_listusers {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_gong_oauth_listusers {
+  users: ({  id: string;
+  emailAddress?: string | undefined;
+  created?: string | undefined;
+  active?: boolean | undefined;
+  emailAliases?: string[] | undefined;
+  trustedEmailAddress?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  title?: string | undefined;
+  phoneNumber?: string | undefined;
+  extension?: string | undefined;
+  personalMeetingUrls?: string[] | undefined;
+  settings?: {  [key: string]: unknown | undefined;};
+  managerId?: string | undefined;
+  meetingConsentPageUrl?: string | undefined;
+  spokenLanguages?: ({  language: string;
+  primary?: boolean | undefined;})[];})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_gong_oauth_listworkspaces {
+};
+
+export interface ActionOutput_gong_oauth_listworkspaces {
+  workspaces: ({  /**
+   * Gong unique identifier for the workspace. Example: "12345678901234567890"
+   */
+  id: string;
+  /**
+   * The name of the workspace. Example: "Sales"
+   */
+  name: string;
+  /**
+   * The description of the workspace. Example: "Sales workspace"
+   */
+  description: string;})[];
+};
+
+export interface ActionInput_gong_oauth_postdigitalinteraction {
+  /**
+   * The provider unique identifier for the event used for deduplication. Example: "evt-abc-123"
+   */
+  eventId: string;
+  /**
+   * The date and time of the event in ISO 8601 format. Example: "2026-06-12T10:00:00Z"
+   */
+  timestamp: string;
+  /**
+   * The type of the event, e.g., "link clicked", "page viewed". Example: "page viewed"
+   */
+  interactionType: string;
+  /**
+   * The email address of the person who performed the event. Example: "api@nango.dev"
+   */
+  actorEmail?: string | undefined;
+  /**
+   * The name of the person who performed the event. Example: "API Developer"
+   */
+  actorName?: string | undefined;
+  /**
+   * The ID used for tracking the person who did the event. Must be null if a person is sent instead. Example: "track-abc-123"
+   */
+  trackingId?: string | undefined;
+  /**
+   * The content the person looked at
+   */
+  interaction: {  /**
+   * The title of the content. Example: "Annual Report 2026"
+   */
+  contentTitle: string;
+  /**
+   * A unique identifier for the content in the partner system. Example: "content-123"
+   */
+  contentId?: string | undefined;
+  /**
+   * The URL for the content the person looked at. Example: "https://example.com/report"
+   */
+  contentUrl?: string | undefined;
+  /**
+   * A list of tags defined for the content. Example: ["sales", "annual"]
+   */
+  contentLabel?: string[] | undefined;};
+  /**
+   * The name of the technology partner or company setting up the integration. Example: "Nango"
+   */
+  sourceSystemName?: string | undefined;
+  /**
+   * The identifier for the session, useful for tying related events together. Example: "sess-xyz-789"
+   */
+  sessionId?: string | undefined;
+  /**
+   * The device used during the event. Valid values: "MOBILE", "PC"
+   */
+  device?: 'MOBILE' | 'PC' | undefined;
+};
+
+export interface ActionOutput_gong_oauth_postdigitalinteraction {
+  /**
+   * A Gong request reference Id generated for this request. Can be used for troubleshooting purposes.
+   */
+  requestId?: string | undefined;
+};
+
+export interface ActionInput_gong_oauth_registercrmintegration {
+  ownerEmail: string;
+  name: string;
+};
+
+export interface ActionOutput_gong_oauth_registercrmintegration {
+  requestId: string;
+  integrationId: string;
+};
+
+export interface ActionInput_gong_oauth_removecallusersaccess {
+  /**
+   * Gong's unique numeric call ID. Example: "7782342274025937895"
+   */
+  callId: string;
+  /**
+   * Array of Gong's unique numeric user IDs to remove access for.
+   */
+  userIds: string[];
+};
+
+export interface ActionOutput_gong_oauth_removecallusersaccess {
+  /**
+   * A Gong request reference ID, generated for this request.
+   */
+  requestId: string;
+};
+
+export interface ActionInput_gong_oauth_removeprospectsfromflow {
+  /**
+   * Array of flow instance IDs to unassign from the flow. Max 100 IDs per request.
+   */
+  flowInstanceIds: string[];
+};
+
+export interface ActionOutput_gong_oauth_removeprospectsfromflow {
+  requestId: string;
+  unassignedFlowInstanceIds: string[];
+};
+
+export interface ActionInput_gong_oauth_unassignflowbycrmid {
+  crmProspectIds: string[];
+  /**
+   * The identifier of the flow to unassign the prospects from. If omitted, removes from all flows.
+   */
+  flowId?: string | undefined;
+  /**
+   * The email address of the Gong user requesting to remove prospects from the flow.
+   */
+  unassignedByUserEmail?: string | undefined;
+};
+
+export interface ActionOutput_gong_oauth_unassignflowbycrmid {
+  results: ({  crmProspectId: string;
+  requestId?: string | undefined;
+  unassignedFlowInstanceIds?: string[] | undefined;
+  error?: string | undefined;})[];
+};
+
+export interface ActionInput_gong_oauth_updateintegrationsettings {
+  /**
+   * List of integration type settings to update.
+   */
+  integrationTypeSettings: ({  integrationType: 'EMAIL_COMPOSER' | 'ACCOUNT_PAGES' | 'DIALER';
+  allowedOrigin: string;})[];
+};
+
+export interface ActionOutput_gong_oauth_updateintegrationsettings {
+  /**
+   * Gong request reference ID.
+   */
+  requestId: string;
+  /**
+   * Integration ID to be used in requests to the API.
+   */
+  integrationId?: string | undefined;
+};
+
+export interface ActionInput_gong_oauth_updatemeeting {
+  /**
+   * Gong's unique identifier for the meeting.
+   */
+  meetingId: string;
+  /**
+   * The meeting start time in ISO-8601 format (e.g., '2018-02-18T02:30:00-07:00' or '2018-02-18T08:00:00Z').
+   */
+  startTime: string;
+  /**
+   * The meeting end time in ISO-8601 format (e.g., '2018-02-18T02:30:00-07:00' or '2018-02-18T08:00:00Z').
+   */
+  endTime: string;
+  /**
+   * Title of the event.
+   */
+  title?: string | undefined;
+  /**
+   * A list of email addresses of invitees to the event (not including the organizer).
+   */
+  invitees: ({  /**
+   * The unique email to identify the meeting invitee.
+   */
+  email: string;
+  /**
+   * The name of the person.
+   */
+  displayName?: string | undefined;
+  /**
+   * The first name of the person, if available.
+   */
+  firstName?: string | undefined;
+  /**
+   * The last name of the person, if available.
+   */
+  lastName?: string | undefined;})[];
+  /**
+   * The ID as it is formed on the external system.
+   */
+  externalId?: string | undefined;
+  /**
+   * The email address of the user who created the meeting.
+   */
+  organizerEmail: string;
+};
+
+export interface ActionOutput_gong_oauth_updatemeeting {
+  /**
+   * A Gong request reference Id, generated for this request.
+   */
+  requestId: string;
+  /**
+   * The unique meeting identifier of the meeting.
+   */
+  meetingId: string;
+};
+
+export interface ActionInput_gong_oauth_updatepermissionprofile {
+  /**
+   * The Id of the permission profile to update. Example: "3843152912968920037"
+   */
+  profileId: string;
+  /**
+   * Permission profile name.
+   */
+  name?: string | undefined;
+  /**
+   * Permission profile description.
+   */
+  description?: string | undefined;
+  /**
+   * Calls access permission.
+   */
+  callsAccess?: {  permissionLevel: 'all' | 'managers-team' | 'report-to-them' | 'own' | 'none';
+  teamLeadIds?: string[] | undefined;};
+  /**
+   * Library folder access permission.
+   */
+  libraryFolderAccess?: {  permissionLevel: 'none' | 'all' | 'specific-folders';
+  libraryFolderIds?: string[] | undefined;
+  managePublicFolder?: boolean | undefined;
+  manageStreams?: boolean | undefined;
+  manageFolderCalls?: boolean | undefined;
+  shareFoldersAndStreams?: boolean | undefined;};
+  /**
+   * Deals access permission.
+   */
+  dealsAccess?: {  permissionLevel: 'all' | 'managers-team' | 'report-to-them' | 'own' | 'none';
+  teamLeadIds?: string[] | undefined;};
+  /**
+   * All forecast permissions.
+   */
+  forecastPermissions?: {  forecastAccess?: {  permissionLevel: 'all' | 'managers-team' | 'report-to-them' | 'own' | 'none';
+  teamLeadIds?: string[] | undefined;};
+  forecastEditSubmissions?: {  permissionLevel: 'all' | 'managers-team' | 'report-to-them' | 'own' | 'none';
+  teamLeadIds?: string[] | undefined;};
+  forecastEditTargets?: {  permissionLevel: 'all' | 'managers-team' | 'report-to-them' | 'own' | 'none';
+  teamLeadIds?: string[] | undefined;};};
+  /**
+   * Coaching access permission.
+   */
+  coachingAccess?: {  permissionLevel: 'all' | 'managers-team' | 'report-to-them' | 'own' | 'none';
+  teamLeadIds?: string[] | undefined;};
+  /**
+   * Insights access permission.
+   */
+  insightsAccess?: {  permissionLevel: 'all' | 'managers-team' | 'report-to-them' | 'own' | 'none';
+  teamLeadIds?: string[] | undefined;};
+  /**
+   * Usage access permission.
+   */
+  usageAccess?: {  permissionLevel: 'all' | 'managers-team' | 'report-to-them' | 'own' | 'none';
+  teamLeadIds?: string[] | undefined;};
+  /**
+   * Emails access permission.
+   */
+  emailsAccess?: {  permissionLevel: 'all' | 'managers-team' | 'report-to-them' | 'own' | 'none';
+  teamLeadIds?: string[] | undefined;};
+  /**
+   * User can score calls.
+   */
+  scoreCalls?: boolean | undefined;
+  /**
+   * User can override someone else score.
+   */
+  overrideScore?: boolean | undefined;
+  /**
+   * User can download call media.
+   */
+  downloadCallMedia?: boolean | undefined;
+  /**
+   * User can share calls with customers.
+   */
+  shareCallsWithCustomers?: boolean | undefined;
+  /**
+   * User can manually schedule and upload calls.
+   */
+  manuallyScheduleAndUploadCalls?: boolean | undefined;
+  /**
+   * User can set their own calls as private.
+   */
+  privateCalls?: boolean | undefined;
+  /**
+   * User can delete calls.
+   */
+  deleteCalls?: boolean | undefined;
+  /**
+   * User can trim calls.
+   */
+  trimCalls?: boolean | undefined;
+  /**
+   * User can listen in calls.
+   */
+  listenInCalls?: boolean | undefined;
+  /**
+   * User can delete emails.
+   */
+  deleteEmails?: boolean | undefined;
+  /**
+   * User can view and search calls.
+   */
+  callsAndSearch?: boolean | undefined;
+  /**
+   * User can view library pages.
+   */
+  library?: boolean | undefined;
+  /**
+   * User can view deals pages.
+   */
+  deals?: boolean | undefined;
+  /**
+   * User can create/edit/delete deals boards.
+   */
+  createEditAndDeleteDealsBoards?: boolean | undefined;
+  /**
+   * User can perform inline editing of deals.
+   */
+  dealsInlineEditing?: boolean | undefined;
+  /**
+   * User can view account pages.
+   */
+  account?: boolean | undefined;
+  /**
+   * User can view coaching pages.
+   */
+  coaching?: boolean | undefined;
+  /**
+   * User can view usage pages.
+   */
+  usage?: boolean | undefined;
+  /**
+   * User can view team stats page.
+   */
+  teamStats?: boolean | undefined;
+  /**
+   * User can view initiatives page.
+   */
+  initiatives?: boolean | undefined;
+  /**
+   * User can view market page.
+   */
+  market?: boolean | undefined;
+  /**
+   * User can view activity pages.
+   */
+  activity?: boolean | undefined;
+  /**
+   * User can view forecast pages.
+   */
+  forecast?: boolean | undefined;
+  /**
+   * User can manage forecast boards and upload targets.
+   */
+  forecastManage?: boolean | undefined;
+  /**
+   * User can manage company email templates.
+   */
+  engageManageCompanyTemplates?: boolean | undefined;
+  /**
+   * User can manage company sequences.
+   */
+  engageManageCompanySequences?: boolean | undefined;
+  /**
+   * User can create and manage rulesets.
+   */
+  engageCreateAndManageRulesets?: boolean | undefined;
+  /**
+   * User can snooze flow in to dos for others.
+   */
+  engageSnoozeFlowToDosForOthers?: boolean | undefined;
+  /**
+   * User can change crm fields view.
+   */
+  engageAllowCrmFieldsViewChange?: boolean | undefined;
+  /**
+   * User can view engage analytics activity page.
+   */
+  viewEngageAnalyticsActivity?: boolean | undefined;
+  /**
+   * User can view engage analytics performance page.
+   */
+  viewEngageAnalyticsPerformance?: boolean | undefined;
+  /**
+   * User can view engage analytics flows page.
+   */
+  viewEngageAnalyticsFlows?: boolean | undefined;
+  /**
+   * User can manage general business settings.
+   */
+  manageGeneralBusinessSettings?: boolean | undefined;
+  /**
+   * User can manage scorecards.
+   */
+  manageScorecards?: boolean | undefined;
+  /**
+   * User can export calls and coaching metrics data to CSV.
+   */
+  exportCallsAndCoachingDataToCSV?: boolean | undefined;
+  /**
+   * User can perform inline editing of crm data.
+   */
+  crmDataInlineEditing?: boolean | undefined;
+  /**
+   * User can perform import of crm data.
+   */
+  crmDataImport?: boolean | undefined;
+  /**
+   * User can view dashboards page.
+   */
+  viewRevenueAnalytics?: boolean | undefined;
+  /**
+   * User can manage revenue analytics.
+   */
+  manageRevenueAnalytics?: boolean | undefined;
+  /**
+   * User can reassign flow to-dos to others.
+   */
+  engageReassignFlowToDosToOthers?: boolean | undefined;
+  /**
+   * User can assign flow to-dos to others.
+   */
+  engageAssignFlowToDosToOthers?: boolean | undefined;
+  /**
+   * User can export deals data.
+   */
+  dealsDataExport?: boolean | undefined;
+};
+
+export interface ActionOutput_gong_oauth_updatepermissionprofile {
+  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  callsAccess?: {  permissionLevel: 'all' | 'managers-team' | 'report-to-them' | 'own' | 'none';
+  teamLeadIds?: string[] | undefined;};
+  libraryFolderAccess?: {  permissionLevel: 'none' | 'all' | 'specific-folders';
+  libraryFolderIds?: string[] | undefined;
+  managePublicFolder?: boolean | undefined;
+  manageStreams?: boolean | undefined;
+  manageFolderCalls?: boolean | undefined;
+  shareFoldersAndStreams?: boolean | undefined;};
+  dealsAccess?: {  permissionLevel: 'all' | 'managers-team' | 'report-to-them' | 'own' | 'none';
+  teamLeadIds?: string[] | undefined;};
+  forecastPermissions?: {  forecastAccess?: {  permissionLevel: 'all' | 'managers-team' | 'report-to-them' | 'own' | 'none';
+  teamLeadIds?: string[] | undefined;};
+  forecastEditSubmissions?: {  permissionLevel: 'all' | 'managers-team' | 'report-to-them' | 'own' | 'none';
+  teamLeadIds?: string[] | undefined;};
+  forecastEditTargets?: {  permissionLevel: 'all' | 'managers-team' | 'report-to-them' | 'own' | 'none';
+  teamLeadIds?: string[] | undefined;};};
+  coachingAccess?: {  permissionLevel: 'all' | 'managers-team' | 'report-to-them' | 'own' | 'none';
+  teamLeadIds?: string[] | undefined;};
+  insightsAccess?: {  permissionLevel: 'all' | 'managers-team' | 'report-to-them' | 'own' | 'none';
+  teamLeadIds?: string[] | undefined;};
+  usageAccess?: {  permissionLevel: 'all' | 'managers-team' | 'report-to-them' | 'own' | 'none';
+  teamLeadIds?: string[] | undefined;};
+  emailsAccess?: {  permissionLevel: 'all' | 'managers-team' | 'report-to-them' | 'own' | 'none';
+  teamLeadIds?: string[] | undefined;};
+  scoreCalls?: boolean | undefined;
+  overrideScore?: boolean | undefined;
+  downloadCallMedia?: boolean | undefined;
+  shareCallsWithCustomers?: boolean | undefined;
+  manuallyScheduleAndUploadCalls?: boolean | undefined;
+  privateCalls?: boolean | undefined;
+  deleteCalls?: boolean | undefined;
+  trimCalls?: boolean | undefined;
+  listenInCalls?: boolean | undefined;
+  deleteEmails?: boolean | undefined;
+  callsAndSearch?: boolean | undefined;
+  library?: boolean | undefined;
+  deals?: boolean | undefined;
+  createEditAndDeleteDealsBoards?: boolean | undefined;
+  dealsInlineEditing?: boolean | undefined;
+  account?: boolean | undefined;
+  coaching?: boolean | undefined;
+  usage?: boolean | undefined;
+  teamStats?: boolean | undefined;
+  initiatives?: boolean | undefined;
+  market?: boolean | undefined;
+  activity?: boolean | undefined;
+  forecast?: boolean | undefined;
+  forecastManage?: boolean | undefined;
+  engageManageCompanyTemplates?: boolean | undefined;
+  engageManageCompanySequences?: boolean | undefined;
+  engageCreateAndManageRulesets?: boolean | undefined;
+  engageSnoozeFlowToDosForOthers?: boolean | undefined;
+  engageAllowCrmFieldsViewChange?: boolean | undefined;
+  viewEngageAnalyticsActivity?: boolean | undefined;
+  viewEngageAnalyticsPerformance?: boolean | undefined;
+  viewEngageAnalyticsFlows?: boolean | undefined;
+  manageGeneralBusinessSettings?: boolean | undefined;
+  manageScorecards?: boolean | undefined;
+  exportCallsAndCoachingDataToCSV?: boolean | undefined;
+  crmDataInlineEditing?: boolean | undefined;
+  crmDataImport?: boolean | undefined;
+  viewRevenueAnalytics?: boolean | undefined;
+  manageRevenueAnalytics?: boolean | undefined;
+  engageReassignFlowToDosToOthers?: boolean | undefined;
+  engageAssignFlowToDosToOthers?: boolean | undefined;
+  dealsDataExport?: boolean | undefined;
+};
+
+export interface ActionInput_gong_oauth_updatetask {
+  /**
+   * The ID of the task to update. Example: "7254376376091929519"
+   */
+  taskId: string;
+  /**
+   * The Gong user ID who owns the task.
+   */
+  userId: string;
+  /**
+   * New status for the task.
+   */
+  status?: 'OPEN' | 'DONE' | 'DISMISSED' | undefined;
+  /**
+   * New due date in ISO-8601 format. Example: 2018-02-18T08:00:00Z
+   */
+  dueDate?: string | undefined;
+  /**
+   * New priority for the task. Example: MEDIUM
+   */
+  priority?: string | undefined;
+  /**
+   * Notes for the task.
+   */
+  notes?: string | undefined;
+};
+
+export interface ActionOutput_gong_oauth_updatetask {
+  id?: string | undefined;
+  userId?: string | undefined;
+  status?: string | undefined;
+  dueDate?: string | undefined;
+  priority?: string | undefined;
+  error?: {  type: string;
+  message: string;} | undefined;
+};
+
+export interface ActionInput_gong_oauth_uploadcall {
+  /**
+   * Unique identifier for this call from the client system. Example: "call-123"
+   */
+  clientUniqueId: string;
+  /**
+   * When the call started in ISO 8601 UTC format. Example: "2026-06-11T10:00:00Z"
+   */
+  actualStart: string;
+  /**
+   * Direction of the call
+   */
+  direction: 'Inbound' | 'Outbound';
+  /**
+   * Gong user ID of the primary user for this call. Example: "7254376376091929519"
+   */
+  primaryUser: string;
+  /**
+   * List of parties participating in the call
+   */
+  parties: ({  /**
+   * Unique identifier for this speaker within the call. Example: "s1"
+   */
+  speakerId: string;
+  /**
+   * Email address of the party. Example: "user@example.com"
+   */
+  emailAddress: string;
+  /**
+   * Whether the party is internal or external to the organization
+   */
+  affiliation: 'Internal' | 'External';
+  /**
+   * Name of the party. Example: "John Doe"
+   */
+  name?: string | undefined;
+  /**
+   * Gong user ID for internal parties. Example: "7254376376091929519"
+   */
+  userId?: string | undefined;})[];
+  /**
+   * Title of the call. Example: "Discovery call with Acme"
+   */
+  title?: string | undefined;
+  /**
+   * Scheduled start time in ISO 8601 UTC format. Example: "2026-06-11T10:00:00Z"
+   */
+  scheduledStart?: string | undefined;
+  /**
+   * Duration of the call in seconds. Example: 1800
+   */
+  duration?: number | undefined;
+};
+
+export interface ActionOutput_gong_oauth_uploadcall {
+  /**
+   * Gong-generated call ID. Example: "123456789"
+   */
+  callId: string;
+  /**
+   * Request ID for tracking. Example: "4al018gzaztcr8nbukw"
+   */
+  requestId?: string | undefined;
+  /**
+   * URL to view the call in Gong. Example: "https://app.gong.io/call?id=123456789"
+   */
+  url?: string | undefined;
+};
+
+export interface ActionInput_gong_oauth_uploadcrmentities {
+  /**
+   * CRM integration ID generated when creating the integration. Example: "6286478263646"
+   */
+  integrationId: string;
+  /**
+   * CRM object type being uploaded. Case-sensitive.
+   */
+  entityType: 'ACCOUNT' | 'CONTACT' | 'DEAL' | 'LEAD' | 'BUSINESS_USER' | 'STAGE';
+  /**
+   * Array of CRM entity objects to upload. All objects must be of the same entityType.
+   */
+  entities: ({  /**
+   * CRM unique ID for the entity. Max 64 chars. Example: "12345"
+   */
+  objectId: string;
+  /**
+   * ISO-8601 datetime without milliseconds when the entity was last modified. Example: "2026-01-15T10:00:00Z"
+   */
+  modifiedDate: string;
+  /**
+   * When true, deletes the object from the database. Default: false
+   */
+  isDeleted?: boolean | undefined;
+  /**
+   * Qualified URI to view this object in the CRM
+   */
+  url?: string | undefined;})[];
+  /**
+   * Unique identifier for troubleshooting and deduplication. Valid characters: letters, numbers, dashes, and underscores.
+   */
+  clientRequestId?: string | undefined;
+};
+
+export interface ActionOutput_gong_oauth_uploadcrmentities {
+  requestId?: string | undefined;
+  clientRequestId?: string | undefined;
+  errors?: string[] | undefined;
+};
+
+export interface ActionInput_gong_oauth_uploadcrmentityschema {
+  /**
+   * Integration ID generated when creating the integration. Example: "6286478263646"
+   */
+  integrationId: string;
+  /**
+   * The object type to set the schema for (case-sensitive).
+   */
+  objectType: 'ACCOUNT' | 'CONTACT' | 'DEAL' | 'LEAD';
+  /**
+   * Array of schema field definitions to upload or update.
+   */
+  fields: ({  /**
+   * The unique name of the field in the CRM system. Example: "accountowner"
+   */
+  uniqueName: string;
+  /**
+   * The label to use in the UI for this field. Example: "Account Owner"
+   */
+  label: string;
+  /**
+   * The field type (case-sensitive). Must be one of the supported types.
+   */
+  type: 'DATE' | 'DATETIME' | 'NUMBER' | 'PERCENT' | 'CURRENCY' | 'ID' | 'URL' | 'STRING' | 'BOOLEAN' | 'PHONENUMBER' | 'EMAILADDRESS' | 'PICKLIST' | 'REFERENCE' | 'STRINGARRAY';
+  /**
+   * The date and time the schema was last modified. ISO-8601 format without milliseconds. Example: "2020-12-17T13:45:01Z"
+   */
+  lastModified?: string | undefined;
+  /**
+   * When true, deletes the field from the schema and its value is removed from all objects.
+   */
+  isDeleted?: boolean | undefined;
+  /**
+   * The object type this field refers to. Required for field of type REFERENCE.
+   */
+  referenceTo?: 'ACCOUNT' | 'CONTACT' | 'DEAL' | 'LEAD' | 'USER' | undefined;
+  /**
+   * The list of values for the field. Required for PICKLIST fields.
+   */
+  orderedValueList?: string[] | undefined;})[];
+};
+
+export interface ActionOutput_gong_oauth_uploadcrmentityschema {
+  /**
+   * A Gong request reference Id, generated for this request.
+   */
+  requestId: string;
 };
 
 export interface OrganizationalUnit {
@@ -37002,14 +39314,10 @@ export interface Filter {
 
 export interface Label {
   id: string;
-  name: string;
-  messageListVisibility?: 'hide' | 'show' | undefined;
-  labelListVisibility?: 'labelHide' | 'labelShow' | 'labelShowIfUnread' | undefined;
-  type?: 'system' | 'user' | undefined;
-  messagesTotal?: number | undefined;
-  messagesUnread?: number | undefined;
-  threadsTotal?: number | undefined;
-  threadsUnread?: number | undefined;
+  idBoard: string;
+  name?: string | undefined;
+  color?: string | undefined;
+  uses?: number | undefined;
 };
 
 export interface SendAsAlias {
@@ -46537,38 +48845,12 @@ export interface SyncMetadata_luma_listevents {
 
 export interface Member {
   id: string;
-  email_address?: string | undefined;
-  unique_email_id?: string | undefined;
-  contact_id?: string | undefined;
-  full_name?: string | undefined;
-  web_id?: number | undefined;
-  email_type?: string | undefined;
-  status?: string | undefined;
-  unsubscribe_reason?: string | undefined;
-  consents_to_one_to_one_messaging?: boolean | undefined;
-  merge_fields?: {  [key: string]: unknown | undefined;};
-  interests?: {  [key: string]: unknown | undefined;};
-  ip_signup?: string | undefined;
-  timestamp_signup?: string | undefined;
-  ip_opt?: string | undefined;
-  timestamp_opt?: string | undefined;
-  member_rating?: number | undefined;
-  last_changed?: string | undefined;
-  language?: string | undefined;
-  vip?: boolean | undefined;
-  email_client?: string | undefined;
-  location?: {  latitude?: number | undefined;
-  longitude?: number | undefined;
-  gmtoff?: number | undefined;
-  dstoff?: number | undefined;
-  country_code?: string | undefined;
-  timezone?: string | undefined;
-  region?: string | undefined;};
-  source?: string | undefined;
-  tags_count?: number | undefined;
-  tags?: ({  id?: number | undefined;
-  name?: string | undefined;})[];
-  list_id?: string | undefined;
+  fullName?: string | undefined;
+  username?: string | undefined;
+  email?: string | undefined;
+  avatarUrl?: string | undefined;
+  initials?: string | undefined;
+  url?: string | undefined;
 };
 
 export interface Store {
@@ -50651,12 +52933,18 @@ export interface ActionOutput_microsoft_teams_updatechannel {
 export interface Board {
   id: string;
   name: string;
-  description?: string | undefined;
-  state: string;
-  board_kind: string;
-  updated_at: string;
-  workspace_id?: string | undefined;
+  desc?: string | undefined;
+  closed: boolean;
+  idOrganization?: string | undefined;
   url: string;
+  shortUrl: string;
+  dateLastActivity?: string | undefined;
+  dateLastView?: string | undefined;
+  pinned?: boolean | undefined;
+  subscribed?: boolean | undefined;
+  idMemberCreator?: string | undefined;
+  starred?: boolean | undefined;
+  shortLink?: string | undefined;
 };
 
 export interface Column {
@@ -53583,21 +55871,18 @@ export interface CrmLead {
 
 export interface Invoice {
   id: string;
-  InvoiceNumber?: string | undefined;
-  Status?: string | undefined;
-  Type?: string | undefined;
-  ContactID?: string | undefined;
-  ContactName?: string | undefined;
-  Date?: string | undefined;
-  DueDate?: string | undefined;
-  Total?: number | undefined;
-  SubTotal?: number | undefined;
-  TotalTax?: number | undefined;
-  AmountDue?: number | undefined;
-  AmountPaid?: number | undefined;
-  AmountCredited?: number | undefined;
-  UpdatedDateUTC?: string | undefined;
-  CurrencyCode?: string | undefined;
+  invoice_number?: string | undefined;
+  status?: string | undefined;
+  customer_id?: string | undefined;
+  customer_name?: string | undefined;
+  reference_number?: string | undefined;
+  date?: string | undefined;
+  due_date?: string | undefined;
+  currency_code?: string | undefined;
+  total?: number | undefined;
+  balance?: number | undefined;
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;
 };
 
 export interface SaleOrder {
@@ -60199,44 +62484,13 @@ export interface ActionOutput_pipedrive_updatestage {
 
 export interface Action {
   id: string;
-  name?: string | undefined;
-  description?: string | undefined;
-  tags?: string[] | undefined;
-  post_to_slack?: boolean | undefined;
-  slack_message_format?: string | undefined;
-  steps?: ({  event?: string | undefined;
-  properties?: ({  key: string;
+  idMemberCreator?: string | undefined;
   type?: string | undefined;
-  value?: unknown | undefined;
-  operator?: string | undefined;})[];
-  selector?: string | undefined;
-  selector_regex?: string | undefined;
-  tag_name?: string | undefined;
-  text?: string | undefined;
-  text_matching?: string | undefined;
-  href?: string | undefined;
-  href_matching?: string | undefined;
-  url?: string | undefined;
-  url_matching?: string | undefined;})[];
-  created_at: string;
-  created_by?: {  id: number;
-  uuid?: string | undefined;
-  distinct_id?: string | undefined;
-  first_name?: string | undefined;
-  last_name?: string | undefined;
-  email?: string | undefined;
-  is_email_verified?: boolean | undefined;
-  hedgehog_config?: unknown | undefined;
-  role_at_organization?: string | undefined;};
-  deleted?: boolean | undefined;
-  is_calculating?: boolean | undefined;
-  last_calculated_at?: string | undefined;
-  team_id?: number | undefined;
-  is_action?: boolean | undefined;
-  bytecode_error?: string | undefined;
-  pinned_at?: string | undefined;
-  creation_context?: string | undefined;
-  user_access_level?: string | undefined;
+  date: string;
+  data?: {  [key: string]: unknown | undefined;};
+  display?: {  [key: string]: unknown | undefined;};
+  memberCreator?: {  [key: string]: unknown | undefined;};
+  limits?: {  [key: string]: unknown | undefined;};
 };
 
 export interface SyncMetadata_posthog_actions {
@@ -63917,26 +66171,20 @@ export interface BillPayment {
 
 export interface Bill {
   id: string;
-  vendorId?: string | undefined;
-  vendorName?: string | undefined;
-  lines?: ({  id?: string | undefined;
-  description?: string | undefined;
-  amount?: number | undefined;
-  detailType?: string | undefined;
-  itemRef?: string | undefined;
-  itemName?: string | undefined;
-  quantity?: number | undefined;
-  unitPrice?: number | undefined;
-  accountRef?: string | undefined;
-  accountName?: string | undefined;})[];
+  vendor_id?: string | undefined;
+  vendor_name?: string | undefined;
+  status?: string | undefined;
+  bill_number?: string | undefined;
+  reference_number?: string | undefined;
+  date?: string | undefined;
+  due_date?: string | undefined;
+  currency_id?: string | undefined;
+  currency_code?: string | undefined;
+  exchange_rate?: number | undefined;
+  total?: number | undefined;
   balance?: number | undefined;
-  dueDate?: string | undefined;
-  txnDate?: string | undefined;
-  totalAmount?: number | undefined;
-  docNumber?: string | undefined;
-  privateNote?: string | undefined;
-  createdAt?: string | undefined;
-  updatedAt?: string | undefined;
+  created_time?: string | undefined;
+  last_modified_time: string;
 };
 
 export interface CreditMemo {
@@ -64011,36 +66259,54 @@ export interface Deposit {
 
 export interface Estimate {
   id: string;
-  estimate_id: string;
-  customer_id?: string | undefined;
-  customer_name?: string | undefined;
-  transaction_date?: string | undefined;
-  expiration_date?: string | undefined;
-  total_amount?: number | undefined;
-  status?: string | undefined;
-  doc_number?: string | undefined;
-  private_note?: string | undefined;
-  sales_term_id?: string | undefined;
-  bill_email?: string | undefined;
-  ship_method?: string | undefined;
-  ship_date?: string | undefined;
-  tracking_num?: string | undefined;
-  class_id?: string | undefined;
-  department_id?: string | undefined;
-  sales_rep_id?: string | undefined;
-  tax_code_id?: string | undefined;
+  estimate_number: string;
+  status: string;
+  customer_id: string;
+  customer_name: string;
+  date: string;
+  expiry_date?: string | undefined;
+  reference_number?: string | undefined;
+  total: number;
+  sub_total?: number | undefined;
+  tax_total?: number | undefined;
+  currency_id?: string | undefined;
+  currency_code?: string | undefined;
+  exchange_rate?: number | undefined;
+  created_time: string;
+  last_modified_time: string;
+  notes?: string | undefined;
+  terms?: string | undefined;
   billing_address?: {  [key: string]: unknown | undefined;};
   shipping_address?: {  [key: string]: unknown | undefined;};
   line_items?: ({  [key: string]: unknown | undefined;})[];
-  last_updated_time: string;
+  custom_fields?: ({  [key: string]: unknown | undefined;})[];
+  tags?: ({  [key: string]: unknown | undefined;})[];
 };
 
 export interface Item {
   id: string;
-  item_code?: string | undefined;
-  name: string;
+  name?: string | undefined;
+  status?: string | undefined;
+  rate?: number | undefined;
+  unit?: string | undefined;
   description?: string | undefined;
-  account_code?: string | undefined;
+  item_type?: string | undefined;
+  product_type?: string | undefined;
+  tax_id?: string | undefined;
+  tax_name?: string | undefined;
+  tax_percentage?: number | undefined;
+  account_id?: string | undefined;
+  account_name?: string | undefined;
+  purchase_rate?: number | undefined;
+  purchase_account_id?: string | undefined;
+  purchase_account_name?: string | undefined;
+  can_be_sold?: boolean | undefined;
+  can_be_purchased?: boolean | undefined;
+  track_inventory?: boolean | undefined;
+  sku?: string | undefined;
+  source?: string | undefined;
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;
 };
 
 export interface JournalEntry {
@@ -64076,20 +66342,30 @@ export interface JournalEntry {
 
 export interface Payment {
   id: string;
+  payment_id?: string | undefined;
+  payment_number?: string | undefined;
+  invoice_numbers?: string | undefined;
   date?: string | undefined;
+  payment_mode?: string | undefined;
   amount?: number | undefined;
-  bank_amount?: number | undefined;
-  reference?: string | undefined;
-  currency_rate?: number | undefined;
-  status: string;
-  payment_type?: string | undefined;
-  updated_date_utc: string;
-  is_reconciled?: boolean | undefined;
-  has_account?: boolean | undefined;
-  invoice_id?: string | undefined;
-  credit_note_id?: string | undefined;
+  bcy_amount?: number | undefined;
+  unused_amount?: number | undefined;
+  bcy_unused_amount?: number | undefined;
   account_id?: string | undefined;
-  batch_payment_id?: string | undefined;
+  account_name?: string | undefined;
+  description?: string | undefined;
+  reference_number?: string | undefined;
+  customer_id?: string | undefined;
+  customer_name?: string | undefined;
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;
+  bcy_refunded_amount?: number | undefined;
+  payment_type?: string | undefined;
+  payment_status?: string | undefined;
+  currency_code?: string | undefined;
+  currency_symbol?: string | undefined;
+  location_id?: string | undefined;
+  location_name?: string | undefined;
 };
 
 export interface Purchase {
@@ -77078,38 +79354,21 @@ export interface ActionOutput_smartsheet_disableuser {
 
 export interface Expense {
   id: string;
-  cost?: string | undefined;
-  description?: string | undefined;
-  details?: string | undefined;
+  expense_id: string;
   date?: string | undefined;
-  repeat_interval?: string | undefined;
+  account_name?: string | undefined;
+  description?: string | undefined;
+  currency_id?: string | undefined;
   currency_code?: string | undefined;
-  category_id?: number | undefined;
-  group_id?: number | undefined;
-  friendship_id?: number | undefined;
-  expense_bundle_id?: number | undefined;
-  repeats?: boolean | undefined;
-  email_reminder?: boolean | undefined;
-  email_reminder_in_advance?: string | undefined;
-  next_repeat?: string | undefined;
-  comments_count?: number | undefined;
-  payment?: boolean | undefined;
-  transaction_confirmed?: boolean | undefined;
-  repayments?: ({  from: number;
-  to: number;
-  amount: string;})[] | undefined;
-  created_at?: string | undefined;
-  created_by?: {  [key: string]: unknown | undefined;};
-  updated_at?: string | undefined;
-  updated_by?: {  [key: string]: unknown | undefined;};
-  deleted_at?: string | undefined;
-  deleted_by?: {  [key: string]: unknown | undefined;};
-  category?: {  id: number;
-  name: string;} | undefined;
-  receipt?: {  large?: string | undefined;
-  original?: string | undefined;};
-  users?: ({  [key: string]: unknown | undefined;})[];
-  comments?: ({  [key: string]: unknown | undefined;})[];
+  bcy_total?: number | undefined;
+  total?: number | undefined;
+  is_billable?: boolean | undefined;
+  reference_number?: string | undefined;
+  customer_id?: string | undefined;
+  customer_name?: string | undefined;
+  status?: string | undefined;
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;
 };
 
 export interface Friend {
@@ -79650,26 +81909,18 @@ export interface CheckoutSession {
 
 export interface CreditNote {
   id: string;
-  Type?: string | undefined;
-  Contact?: unknown | undefined;
-  Date?: string | undefined;
-  DueDate?: string | undefined;
-  Status?: string | undefined;
-  LineAmountTypes?: string | undefined;
-  LineItems?: unknown[] | undefined;
-  SubTotal?: number | undefined;
-  TotalTax?: number | undefined;
-  Total?: number | undefined;
-  UpdatedDateUTC?: string | undefined;
-  CurrencyCode?: string | undefined;
-  CreditNoteID?: string | undefined;
-  CreditNoteNumber?: string | undefined;
-  Reference?: string | undefined;
-  RemainingCredit?: number | undefined;
-  FullyPaidOnDate?: string | undefined;
-  SentToContact?: boolean | undefined;
-  HasAttachments?: boolean | undefined;
-  HasErrors?: boolean | undefined;
+  creditnote_number?: string | undefined;
+  status?: string | undefined;
+  reference_number?: string | undefined;
+  date?: string | undefined;
+  issued_date?: string | undefined;
+  total?: number | undefined;
+  balance?: number | undefined;
+  customer_id?: string | undefined;
+  customer_name?: string | undefined;
+  currency_code?: string | undefined;
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;
 };
 
 export interface InvoiceItem {
@@ -82763,6 +85014,820 @@ export interface ActionOutput_stripe_voidinvoice {
   total?: number | undefined;
   voided_at?: number | undefined;
   created?: number | undefined;
+};
+
+export interface Bucket {
+  id: string;
+  name: string;
+  public: boolean;
+  owner: string;
+  file_size_limit?: number | undefined;
+  allowed_mime_types?: string[] | undefined;
+  created_at: string;
+  updated_at: string;
+  type?: string | undefined;
+};
+
+export interface StorageObject {
+  id: string;
+  name: string;
+  bucket_id: string;
+  updated_at?: string | undefined;
+  created_at?: string | undefined;
+  last_accessed_at?: string | undefined;
+  size?: number | undefined;
+  mimetype?: string | undefined;
+  owner?: string | undefined;
+};
+
+export interface TableRow {
+  id: string;
+  updated_at?: string | undefined;
+};
+
+export interface SyncMetadata_supabase_tablerows {
+  /**
+   * PostgREST table name to sync
+   */
+  table: string;
+  /**
+   * Columns to select
+   */
+  select?: string | undefined;
+  /**
+   * Order clause, e.g. id.asc
+   */
+  order?: string | undefined;
+  /**
+   * Additional PostgREST filters
+   */
+  filter?: {  [key: string]: string;} | undefined;
+  /**
+   * Column to checkpoint on
+   */
+  checkpoint_column?: string | undefined;
+  /**
+   * Page size
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionInput_supabase_copystorageobject {
+  /**
+   * Source bucket ID. Example: "nango-test-public"
+   */
+  bucketId: string;
+  /**
+   * Path of the source object within the bucket. Example: "docs/readme.txt"
+   */
+  sourceKey: string;
+  /**
+   * Destination bucket ID. Example: "nango-test-public"
+   */
+  destinationBucket: string;
+  /**
+   * Path for the copied object in the destination bucket. Example: "docs/readme-copy.txt"
+   */
+  destinationKey: string;
+};
+
+export interface ActionOutput_supabase_copystorageobject {
+  id: string;
+  name: string;
+  bucket_id: string;
+  owner?: string | undefined;
+  size?: number | undefined;
+  metadata?: {  cacheControl?: string | undefined;
+  contentLength?: number | undefined;
+  httpStatusCode?: number | undefined;
+  eTag?: string | undefined;
+  lastModified?: string | undefined;
+  mimetype?: string | undefined;
+  size?: number | undefined;};
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  last_accessed_at?: string | undefined;
+};
+
+export interface ActionInput_supabase_createauthuser {
+  email?: string | undefined;
+  password?: string | undefined;
+  phone?: string | undefined;
+  email_confirm?: boolean | undefined;
+  phone_confirm?: boolean | undefined;
+  user_metadata?: {  [key: string]: unknown | undefined;};
+  app_metadata?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_supabase_createauthuser {
+  id: string;
+  email?: string | undefined;
+  phone?: string | undefined;
+  email_confirmed_at?: string | undefined;
+  phone_confirmed_at?: string | undefined;
+  last_sign_in_at?: string | undefined;
+  created_at: string;
+  updated_at: string;
+  identities?: ({  id: string;
+  user_id: string;
+  identity_data?: {  [key: string]: unknown | undefined;};
+  provider?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;})[];
+  user_metadata?: {  [key: string]: unknown | undefined;};
+  app_metadata?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_supabase_createsigneduploadurl {
+  /**
+   * Storage bucket ID. Example: "nango-test-public"
+   */
+  bucket_id: string;
+  /**
+   * Object path within the bucket. Example: "uploads/file.txt"
+   */
+  path: string;
+};
+
+export interface ActionOutput_supabase_createsigneduploadurl {
+  /**
+   * Absolute signed URL the client can PUT to.
+   */
+  signed_url: string;
+  /**
+   * Token included in the signed URL.
+   */
+  token: string;
+};
+
+export interface ActionInput_supabase_createsignedurl {
+  /**
+   * Storage bucket ID. Example: "nango-test-private"
+   */
+  bucket_id: string;
+  /**
+   * Object path within the bucket. Example: "data/sample.txt"
+   */
+  path: string;
+  /**
+   * Expiry time in seconds. Defaults to 3600.
+   */
+  expires_in?: number | undefined;
+};
+
+export interface ActionOutput_supabase_createsignedurl {
+  /**
+   * Absolute URL for accessing the object.
+   */
+  signed_url: string;
+};
+
+export interface ActionInput_supabase_createstoragebucket {
+  /**
+   * Unique identifier for the bucket. Example: "my-bucket"
+   */
+  id: string;
+  /**
+   * Display name for the bucket. Defaults to id if omitted.
+   */
+  name?: string | undefined;
+  /**
+   * Whether the bucket is publicly accessible. Defaults to false.
+   */
+  public?: boolean | undefined;
+  /**
+   * Maximum file size in bytes. Example: 10485760
+   */
+  file_size_limit?: number | undefined;
+  /**
+   * Allowed MIME types. Example: ["image/png", "image/jpeg"]
+   */
+  allowed_mime_types?: string[] | undefined;
+  /**
+   * Bucket type. Defaults to STANDARD.
+   */
+  type?: 'STANDARD' | 'ANALYTICS' | undefined;
+};
+
+export interface ActionOutput_supabase_createstoragebucket {
+  id: string;
+  name: string;
+  public: boolean;
+  owner?: string | undefined;
+  owner_id?: string | undefined;
+  file_size_limit?: number | undefined;
+  allowed_mime_types?: string[] | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  type?: 'STANDARD' | 'ANALYTICS' | undefined;
+};
+
+export interface ActionInput_supabase_createstorageobject {
+  /**
+   * The bucket ID. Example: "nango-test-public"
+   */
+  bucket_id: string;
+  /**
+   * The object path within the bucket. Example: "docs/readme.txt"
+   */
+  path: string;
+  /**
+   * The file content as a string. For binary files, base64-encode and decode before sending.
+   */
+  content: string;
+  /**
+   * The MIME type of the file. Example: "text/plain"
+   */
+  content_type: string;
+  /**
+   * If true, overwrite an existing object with the same path.
+   */
+  upsert?: boolean | undefined;
+};
+
+export interface ActionOutput_supabase_createstorageobject {
+  key: string;
+  id: string;
+};
+
+export interface ActionInput_supabase_deleteauthfactor {
+  /**
+   * User UUID. Example: "a02e344e-4eba-473d-b299-b751cbd1fa2c"
+   */
+  user_id: string;
+  /**
+   * MFA factor UUID to delete. Example: "b1c2d3e4-f5a6-7890-1234-567890abcdef"
+   */
+  factor_id: string;
+};
+
+export interface ActionOutput_supabase_deleteauthfactor {
+  success: boolean;
+  user_id: string;
+  factor_id: string;
+  factor_type?: string | undefined;
+  status?: string | undefined;
+  friendly_name?: string | undefined;
+};
+
+export interface ActionInput_supabase_deleteauthuser {
+  /**
+   * The UUID of the auth user to delete. Example: "afece930-4935-43c3-9484-46bc38da98f7"
+   */
+  user_id: string;
+};
+
+export interface ActionOutput_supabase_deleteauthuser {
+  success: boolean;
+  user_id: string;
+};
+
+export interface ActionInput_supabase_deletestoragebucket {
+  /**
+   * Storage bucket ID to delete. Example: "nango-del-bucket-1"
+   */
+  bucket_id: string;
+};
+
+export interface ActionOutput_supabase_deletestoragebucket {
+  success: boolean;
+  bucket_id: string;
+};
+
+export interface ActionInput_supabase_deletestorageobject {
+  /**
+   * Storage bucket ID. Example: "nango-test-public"
+   */
+  bucketId: string;
+  /**
+   * Object paths to delete. Example: ["delete-me-1.txt"]
+   */
+  prefixes: string[];
+};
+
+export interface ActionOutput_supabase_deletestorageobject {
+  deleted: ({  name: string;
+  id?: string | undefined;
+  bucket_id?: string | undefined;
+  owner?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  last_accessed_at?: string | undefined;
+  metadata?: {  [key: string]: unknown | undefined;};
+  path_tokens?: string[] | undefined;
+  version?: string | undefined;})[];
+};
+
+export interface ActionInput_supabase_deletetablerows {
+  /**
+   * Name of the table to delete rows from. Example: "nango_test"
+   */
+  table: string;
+  /**
+   * PostgREST filters as query parameters. Example: {"name": "eq.del-row-1"}
+   */
+  filters: {  [key: string]: string;};
+  /**
+   * If true, adds Prefer: return=representation to return deleted rows
+   */
+  returnRepresentation?: boolean | undefined;
+};
+
+export interface ActionOutput_supabase_deletetablerows {
+  deletedCount?: number | undefined;
+  deletedRows?: ({  [key: string]: unknown | undefined;})[];
+};
+
+export interface ActionInput_supabase_generateauthlink {
+  /**
+   * Type of link to generate.
+   */
+  type: 'magiclink' | 'recovery' | 'invite' | 'signup' | 'email_change_current' | 'email_change_new';
+  /**
+   * Email address of the user.
+   */
+  email: string;
+  /**
+   * New email address for email_change_current and email_change_new link types.
+   */
+  new_email?: string | undefined;
+  /**
+   * Optional redirect URL after verification.
+   */
+  redirect_to?: string | undefined;
+  /**
+   * Optional extra metadata to attach to the user.
+   */
+  data?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_supabase_generateauthlink {
+  id?: string | undefined;
+  email?: string | undefined;
+  action_link?: string | undefined;
+  email_otp?: string | undefined;
+  hashed_token?: string | undefined;
+  verification_type?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+};
+
+export interface ActionInput_supabase_getauthuser {
+  /**
+   * The UUID of the user to retrieve. Example: "a02e344e-4eba-473d-b299-b751cbd1fa2c"
+   */
+  userId: string;
+};
+
+export interface ActionOutput_supabase_getauthuser {
+  id: string;
+  aud?: string | undefined;
+  role?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  email_confirmed_at?: string | undefined;
+  phone_confirmed_at?: string | undefined;
+  confirmed_at?: string | undefined;
+  last_sign_in_at?: string | undefined;
+  app_metadata?: {  [key: string]: unknown | undefined;};
+  user_metadata?: {  [key: string]: unknown | undefined;};
+  identities?: ({  id: string;
+  user_id: string;
+  identity_data?: {  [key: string]: unknown | undefined;};
+  provider: string;
+  created_at?: string | undefined;
+  last_sign_in_at?: string | undefined;
+  updated_at?: string | undefined;})[];
+  factors?: ({  id: string;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  status?: string | undefined;
+  friendly_name?: string | undefined;
+  factor_type?: string | undefined;})[];
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  is_anonymous?: boolean | undefined;
+  banned_until?: string | undefined;
+};
+
+export interface ActionInput_supabase_getstoragebucket {
+  /**
+   * Storage bucket ID. Example: "nango-test-public"
+   */
+  bucketId: string;
+};
+
+export interface ActionOutput_supabase_getstoragebucket {
+  id: string;
+  name: string;
+  owner?: string | undefined;
+  owner_id?: string | undefined;
+  public: boolean;
+  type?: 'STANDARD' | 'ANALYTICS' | undefined;
+  file_size_limit?: number | undefined;
+  allowed_mime_types?: string[] | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+};
+
+export interface ActionInput_supabase_getstorageobject {
+  /**
+   * Storage bucket ID. Example: "nango-test-public"
+   */
+  bucketId: string;
+  /**
+   * Object path within the bucket. Example: "docs/readme.txt"
+   */
+  path: string;
+};
+
+export interface ActionOutput_supabase_getstorageobject {
+  name: string;
+  id: string;
+  size: number;
+  contentType: string;
+  created_at: string;
+  updated_at: string;
+};
+
+export interface ActionInput_supabase_inserttablerow {
+  /**
+   * The table name to insert into. Example: "nango_test"
+   */
+  table: string;
+  /**
+   * The row object to insert. Example: {"name": "new-record", "value": "delta"}
+   */
+  row: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_supabase_inserttablerow {
+  [key: string]: unknown | undefined;
+};
+
+export interface ActionInput_supabase_invokerpc {
+  /**
+   * Name of the Postgres function in the public schema. Example: "nango_hello"
+   */
+  function_name: string;
+  /**
+   * Function arguments as a JSON object. Example: {"name": "world"}
+   */
+  args?: {  [key: string]: unknown | undefined;};
+  /**
+   * Set to true for read-only functions to use GET (enables caching). Defaults to false (POST).
+   */
+  read_only?: boolean | undefined;
+};
+
+export type ActionOutput_supabase_invokerpc = unknown | undefined
+
+export interface ActionInput_supabase_listauthfactors {
+  /**
+   * The UUID of the Supabase Auth user whose MFA factors to list. Example: "a02e344e-4eba-473d-b299-b751cbd1fa2c"
+   */
+  user_id: string;
+};
+
+export interface ActionOutput_supabase_listauthfactors {
+  factors: ({  id: string;
+  user_id: string;
+  friendly_name?: string | undefined;
+  factor_type?: 'totp' | 'phone' | undefined;
+  status?: 'verified' | 'unverified' | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;})[];
+};
+
+export interface ActionInput_supabase_listauthusers {
+  /**
+   * Page number (1-indexed). Defaults to 1.
+   */
+  page?: number | undefined;
+  /**
+   * Number of items per page. Defaults to 50.
+   */
+  per_page?: number | undefined;
+};
+
+export interface ActionOutput_supabase_listauthusers {
+  users: ({  id: string;
+  aud?: string | undefined;
+  role?: string | undefined;
+  email?: string | undefined;
+  email_confirmed_at?: string | undefined;
+  phone?: string | undefined;
+  phone_confirmed_at?: string | undefined;
+  confirmed_at?: string | undefined;
+  email_change?: string | undefined;
+  email_change_sent_at?: string | undefined;
+  email_change_confirm_status?: number | undefined;
+  phone_change?: string | undefined;
+  phone_change_sent_at?: string | undefined;
+  phone_change_token?: string | undefined;
+  recovery_sent_at?: string | undefined;
+  recovery_token?: string | undefined;
+  new_email?: string | undefined;
+  new_phone?: string | undefined;
+  invited_at?: string | undefined;
+  confirmation_sent_at?: string | undefined;
+  confirmation_token?: string | undefined;
+  reauthentication_sent_at?: string | undefined;
+  reauthentication_token?: string | undefined;
+  is_super_admin?: boolean | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  last_sign_in_at?: string | undefined;
+  app_metadata?: {} | undefined;
+  user_metadata?: {} | undefined;
+  factors?: ({})[] | undefined;
+  identities?: ({})[] | null | undefined;})[];
+  total?: number | undefined;
+  next_page?: number | undefined;
+};
+
+export interface ActionInput_supabase_liststoragebuckets {
+  /**
+   * Maximum number of buckets to return. Example: 10
+   */
+  limit?: number | undefined;
+  /**
+   * Number of buckets to skip. Example: 0
+   */
+  offset?: number | undefined;
+  /**
+   * Column to sort by. Example: "created_at"
+   */
+  sort_column?: 'id' | 'name' | 'created_at' | 'updated_at' | undefined;
+  /**
+   * Sort direction. Example: "desc"
+   */
+  sort_order?: 'asc' | 'desc' | undefined;
+  /**
+   * Search term to filter bucket names. Example: "prod"
+   */
+  search?: string | undefined;
+};
+
+export interface ActionOutput_supabase_liststoragebuckets {
+  items: ({  id: string;
+  name: string;
+  public: boolean;
+  owner?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  file_size_limit?: number | undefined;
+  allowed_mime_types?: string[] | undefined;
+  type?: string | undefined;})[];
+  next_offset?: number | undefined;
+};
+
+export interface ActionInput_supabase_liststorageobjects {
+  /**
+   * Storage bucket ID. Example: "nango-test-public"
+   */
+  bucket_id: string;
+  /**
+   * Folder path prefix to filter objects. Example: "docs/"
+   */
+  prefix?: string | undefined;
+  /**
+   * Maximum number of objects to return. Default: 100
+   */
+  limit?: number | undefined;
+  /**
+   * Offset for pagination. Default: 0
+   */
+  offset?: number | undefined;
+};
+
+export interface ActionOutput_supabase_liststorageobjects {
+  items: ({  name: string;
+  id?: string | undefined;
+  bucket_id?: string | undefined;
+  owner?: string | undefined;
+  updated_at?: string | undefined;
+  created_at?: string | undefined;
+  last_accessed_at?: string | undefined;
+  metadata?: {  eTag?: string | undefined;
+  size?: number | undefined;
+  mimetype?: string | undefined;
+  cacheControl?: string | undefined;};})[];
+  /**
+   * Offset to use for the next page of results.
+   */
+  next_offset?: number | undefined;
+};
+
+export interface ActionInput_supabase_querytablerows {
+  /**
+   * Table name to query. Example: "nango_test"
+   */
+  table: string;
+  /**
+   * Columns to select. Example: "id,name,value"
+   */
+  select?: string | undefined;
+  /**
+   * PostgREST filters
+   */
+  filters?: ({  /**
+   * Column name to filter on. Example: "name"
+   */
+  column: string;
+  /**
+   * PostgREST operator. Example: "eq", "gte", "like"
+   */
+  operator: string;
+  /**
+   * Filter value. Example: "alpha"
+   */
+  value: string | number | boolean;})[] | undefined;
+  /**
+   * Order by clause. Example: "name.desc"
+   */
+  order?: string | undefined;
+  /**
+   * Maximum rows to return. Example: 100
+   */
+  limit?: number | undefined;
+  /**
+   * Number of rows to skip. Example: 0
+   */
+  offset?: number | undefined;
+  /**
+   * Return total row count
+   */
+  count?: boolean | undefined;
+};
+
+export interface ActionOutput_supabase_querytablerows {
+  /**
+   * Matching table rows
+   */
+  rows: ({  [key: string]: unknown | undefined;})[];
+  /**
+   * Total row count when count was requested
+   */
+  count?: number | undefined;
+  limit?: number | undefined;
+  offset?: number | undefined;
+};
+
+export interface ActionInput_supabase_updateauthuser {
+  /**
+   * The unique ID of the user to update. Example: "a02e344e-4eba-473d-b299-b751cbd1fa2c"
+   */
+  user_id: string;
+  /**
+   * New email address for the user.
+   */
+  email?: string | undefined;
+  /**
+   * New phone number for the user.
+   */
+  phone?: string | undefined;
+  /**
+   * New password for the user.
+   */
+  password?: string | undefined;
+  /**
+   * Confirm the user's email address.
+   */
+  email_confirm?: boolean | undefined;
+  /**
+   * Confirm the user's phone number.
+   */
+  phone_confirm?: boolean | undefined;
+  /**
+   * User-specific metadata.
+   */
+  user_metadata?: {  [key: string]: unknown | undefined;};
+  /**
+   * Application-specific metadata.
+   */
+  app_metadata?: {  [key: string]: unknown | undefined;};
+  /**
+   * Ban duration in hours. Example: "876600h".
+   */
+  ban_duration?: string | undefined;
+};
+
+export interface ActionOutput_supabase_updateauthuser {
+  id: string;
+  email?: string | undefined;
+  phone?: string | undefined;
+  role?: string | undefined;
+  user_metadata?: {  [key: string]: unknown | undefined;};
+  app_metadata?: {  [key: string]: unknown | undefined;};
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  last_sign_in_at?: string | undefined;
+  identities?: ({  id: string;
+  user_id: string;
+  identity_data?: {  [key: string]: unknown | undefined;};
+  provider: string;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  last_sign_in_at?: string | undefined;})[];
+};
+
+export interface ActionInput_supabase_updatestoragebucket {
+  /**
+   * Bucket ID. Example: "nango-test-public"
+   */
+  id: string;
+  /**
+   * Whether the bucket is publicly accessible
+   */
+  public?: boolean | undefined;
+  /**
+   * Maximum file size in bytes or as a string like "100MB"
+   */
+  fileSizeLimit?: number | string | undefined;
+  /**
+   * Allowed MIME types. Example: ["image/png", "image/jpg"]
+   */
+  allowedMimeTypes?: string[] | undefined;
+};
+
+export interface ActionOutput_supabase_updatestoragebucket {
+  message: string;
+};
+
+export interface ActionInput_supabase_updatestorageobject {
+  /**
+   * The bucket ID containing the object. Example: "nango-test-public"
+   */
+  bucket_id: string;
+  /**
+   * The current path of the object. Example: "docs/readme.txt"
+   */
+  path: string;
+  /**
+   * The new path for the object (to move/rename). Mutually exclusive with content.
+   */
+  new_path?: string | undefined;
+  /**
+   * The destination bucket ID for moving. Defaults to the source bucket if not provided.
+   */
+  new_bucket_id?: string | undefined;
+  /**
+   * New file content to overwrite the object. Use this for text files. Mutually exclusive with new_path.
+   */
+  content?: string | undefined;
+  /**
+   * MIME type for the new content. Defaults to text/plain if content is provided.
+   */
+  content_type?: string | undefined;
+};
+
+export interface ActionOutput_supabase_updatestorageobject {
+  message?: string | undefined;
+  id?: string | undefined;
+  path?: string | undefined;
+  full_path?: string | undefined;
+};
+
+export interface ActionInput_supabase_updatetablerows {
+  /**
+   * Table name to update. Example: "nango_test"
+   */
+  table: string;
+  /**
+   * Object containing column updates.
+   */
+  updates: {  [key: string]: unknown | undefined;};
+  /**
+   * PostgREST filters as query params. Example: {"id":"eq.964cc467-144e-4215-b7d0-d124607a6d72"}
+   */
+  filters: {  [key: string]: string;};
+};
+
+export interface ActionOutput_supabase_updatetablerows {
+  [key: string]: unknown | undefined;
+};
+
+export interface ActionInput_supabase_upserttablerow {
+  /**
+   * Table name. Example: "nango_test"
+   */
+  table: string;
+  /**
+   * Row object to upsert. Must include the primary key column(s) for conflict detection.
+   */
+  row: {  [key: string]: unknown | undefined;};
+  /**
+   * Comma-separated conflict target column(s) if different from the primary key. Example: "name"
+   */
+  on_conflict?: string | undefined;
+};
+
+export interface ActionOutput_supabase_upserttablerow {
+  /**
+   * The upserted row
+   */
+  row: {  [key: string]: unknown | undefined;};
 };
 
 export interface TeamtailorCandidate {
@@ -86594,35 +89659,6 @@ export interface ActionOutput_tiktok_personal_queryvideos {
   view_count?: number | undefined;})[];
 };
 
-export interface Call {
-  id: string;
-  subject?: string | undefined;
-  callType?: string | undefined;
-  callPurpose?: string | undefined;
-  callResult?: string | undefined;
-  callDuration?: string | undefined;
-  callDurationInSeconds?: string | undefined;
-  callStartTime?: string | undefined;
-  description?: string | undefined;
-  dialledNumber?: string | undefined;
-  callerId?: string | undefined;
-  reminder?: string | undefined;
-  modifiedTime: string;
-  createdTime?: string | undefined;
-  ownerName?: string | undefined;
-  ownerId?: string | undefined;
-  ownerEmail?: string | undefined;
-  createdByName?: string | undefined;
-  createdById?: string | undefined;
-  modifiedByName?: string | undefined;
-  modifiedById?: string | undefined;
-  relatedToName?: string | undefined;
-  relatedToId?: string | undefined;
-  contactName?: string | undefined;
-  contactId?: string | undefined;
-  tags?: string[] | undefined;
-};
-
 export interface ConferenceParticipant {
   id: string;
   call_sid: string;
@@ -88843,6 +91879,1184 @@ export interface ActionOutput_twilio_updateverifyservice {
   verify_event_subscription_enabled?: boolean | undefined;
   date_created?: string | undefined;
   date_updated?: string | undefined;
+  url?: string | undefined;
+};
+
+export interface Card {
+  /**
+   * Trello card ID
+   */
+  id: string;
+  /**
+   * Card name
+   */
+  name: string;
+  /**
+   * Card description
+   */
+  desc?: string | undefined;
+  /**
+   * Whether the card is closed or archived
+   */
+  closed: boolean;
+  /**
+   * ISO 8601 timestamp of last activity
+   */
+  dateLastActivity: string;
+  /**
+   * ISO 8601 due date
+   */
+  due?: string | undefined;
+  /**
+   * Whether the due date is complete
+   */
+  dueComplete?: boolean | undefined;
+  /**
+   * ID of the board the card belongs to
+   */
+  idBoard: string;
+  /**
+   * ID of the list the card belongs to
+   */
+  idList: string;
+  /**
+   * Member IDs assigned to the card
+   */
+  idMembers?: string[] | undefined;
+  /**
+   * Label IDs on the card
+   */
+  idLabels?: string[] | undefined;
+  /**
+   * Checklist IDs on the card
+   */
+  idChecklists?: string[] | undefined;
+  /**
+   * Position of the card in the list
+   */
+  pos: number;
+  /**
+   * Short link identifier
+   */
+  shortLink: string;
+  /**
+   * Short URL
+   */
+  shortUrl: string;
+  /**
+   * Full URL
+   */
+  url: string;
+  /**
+   * Whether the current user is subscribed
+   */
+  subscribed?: boolean | undefined;
+};
+
+export interface Checklist {
+  id: string;
+  name?: string | undefined;
+  idBoard?: string | undefined;
+  idCard?: string | undefined;
+  pos?: number | undefined;
+  checkItems?: ({  id: string;
+  name?: string | undefined;
+  state?: string | undefined;
+  pos?: number | undefined;
+  idChecklist?: string | undefined;})[];
+};
+
+export interface ActionInput_trello_addcardcomment {
+  /**
+   * Card ID. Example: "6a26f2fdbc520ab9f45a5214"
+   */
+  cardId: string;
+  /**
+   * Comment text. Example: "This is a comment."
+   */
+  text: string;
+};
+
+export interface ActionOutput_trello_addcardcomment {
+  id: string;
+  cardId: string;
+  memberId: string;
+  text: string;
+  date: string;
+};
+
+export interface ActionInput_trello_addchecklistitem {
+  /**
+   * Checklist ID. Example: "6a26f332aa39a5f5b4c671bf"
+   */
+  checklistId: string;
+  /**
+   * Name of the checklist item.
+   */
+  name: string;
+  /**
+   * Position of the item. Example: "bottom", "top", or a number.
+   */
+  pos?: string | number | undefined;
+  /**
+   * Whether the item is checked. Defaults to false.
+   */
+  checked?: boolean | undefined;
+};
+
+export interface ActionOutput_trello_addchecklistitem {
+  id: string;
+  name: string;
+  state: string;
+  pos: number;
+  type?: string | undefined;
+  due?: string | undefined;
+  dueReminder?: number | undefined;
+  idMember?: string | undefined;
+};
+
+export interface ActionInput_trello_createattachment {
+  /**
+   * The ID of the card to attach to. Example: "5abbe4b7ddc1b351ef961414"
+   */
+  cardId: string;
+  /**
+   * The name of the attachment. Example: "Nango Docs"
+   */
+  name?: string | undefined;
+  /**
+   * The URL of the attachment. Example: "https://docs.nango.dev"
+   */
+  url: string;
+  /**
+   * The MIME type of the attachment. Example: "text/html"
+   */
+  mimeType?: string | undefined;
+};
+
+export interface ActionOutput_trello_createattachment {
+  id: string;
+  name?: string | undefined;
+  url?: string | undefined;
+  mimeType?: string | undefined;
+  date?: string | undefined;
+  isUpload?: boolean | undefined;
+  pos?: number | undefined;
+};
+
+export interface ActionInput_trello_createboard {
+  /**
+   * Name of the board. Example: "Project Roadmap"
+   */
+  name: string;
+  /**
+   * Description for the board. Example: "Q3 planning board"
+   */
+  desc?: string | undefined;
+  /**
+   * ID of the organization to create the board in. Example: "6a26ebb15b58213488fb7401"
+   */
+  idOrganization?: string | undefined;
+  /**
+   * Whether to add the default set of lists (To Do, Doing, Done). Defaults to true.
+   */
+  defaultLists?: boolean | undefined;
+  /**
+   * Permission level of the board. Example: "private"
+   */
+  prefs_permissionLevel?: 'private' | 'org' | 'public' | undefined;
+};
+
+export interface ActionOutput_trello_createboard {
+  id: string;
+  name: string;
+  desc?: string | undefined;
+  idOrganization?: string | undefined;
+  url?: string | undefined;
+  shortUrl?: string | undefined;
+  closed?: boolean | undefined;
+  pinned?: boolean | undefined;
+  starred?: boolean | undefined;
+  permissionLevel?: string | undefined;
+};
+
+export interface ActionInput_trello_createcard {
+  /**
+   * The ID of the list the card should be created in. Example: "5f3c8c1c3f8f7e8b7c8b9c0a"
+   */
+  idList: string;
+  /**
+   * The name of the card. Example: "My new card"
+   */
+  name: string;
+  /**
+   * The description of the card. Example: "This is a description"
+   */
+  desc?: string | undefined;
+  /**
+   * The due date of the card in ISO 8601 format. Example: "2024-01-01T00:00:00.000Z"
+   */
+  due?: string | undefined;
+  /**
+   * Array of label IDs to attach to the card. Example: ["5f3c8c1c3f8f7e8b7c8b9c0a"]
+   */
+  idLabels?: string[] | undefined;
+  /**
+   * Array of member IDs to attach to the card. Example: ["5f3c8c1c3f8f7e8b7c8b9c0a"]
+   */
+  idMembers?: string[] | undefined;
+};
+
+export interface ActionOutput_trello_createcard {
+  id: string;
+  name: string;
+  desc?: string | undefined;
+  due?: string | undefined;
+  idList: string;
+  idBoard?: string | undefined;
+  idLabels?: string[] | undefined;
+  idMembers?: string[] | undefined;
+  url?: string | undefined;
+  shortUrl?: string | undefined;
+};
+
+export interface ActionInput_trello_createlist {
+  /**
+   * The name of the list. Example: "To Do"
+   */
+  name: string;
+  /**
+   * The ID of the board to create the list on. Example: "6a26ebb3cd5f60a53a585978"
+   */
+  idBoard: string;
+  /**
+   * The position of the list. Example: "top", "bottom", or a number.
+   */
+  pos?: string | number | undefined;
+};
+
+export interface ActionOutput_trello_createlist {
+  id: string;
+  name: string;
+  idBoard: string;
+  pos: number;
+  closed?: boolean | undefined;
+  subscribed?: boolean | undefined;
+};
+
+export interface ActionInput_trello_deleteattachment {
+  /**
+   * The ID of the card. Example: "5f3d9e4e3f4e3f4e3f4e3f4e"
+   */
+  cardId: string;
+  /**
+   * The ID of the attachment. Example: "5f3d9e4e3f4e3f4e3f4e3f4e"
+   */
+  attachmentId: string;
+};
+
+export interface ActionOutput_trello_deleteattachment {
+  id: string;
+  name?: string | undefined;
+  url?: string | undefined;
+};
+
+export interface ActionInput_trello_deleteboard {
+  /**
+   * The ID of the board to delete. Example: "6a26f2fbd1ccaa2cb9602757"
+   */
+  id: string;
+};
+
+export interface ActionOutput_trello_deleteboard {
+  id: string;
+  success: boolean;
+};
+
+export interface ActionInput_trello_deletecard {
+  /**
+   * The ID of the card to delete. Example: "6a26f3127128c2af2fd32b1b"
+   */
+  id: string;
+};
+
+export interface ActionOutput_trello_deletecard {
+  success: true;
+};
+
+export interface ActionInput_trello_deletechecklistitem {
+  /**
+   * The ID of the checklist. Example: "6a26f332aa39a5f5b4c671bf"
+   */
+  checklistId: string;
+  /**
+   * The ID of the check item to delete. Example: "6a26f6348bb9f2f466b322ea"
+   */
+  checkItemId: string;
+};
+
+export interface ActionOutput_trello_deletechecklistitem {
+  id: string;
+  success: boolean;
+};
+
+export interface ActionInput_trello_deletechecklist {
+  /**
+   * The ID of the checklist to delete. Example: "6a26f33578a03d1e69753e61"
+   */
+  id: string;
+};
+
+export interface ActionOutput_trello_deletechecklist {
+  id: string;
+  success: boolean;
+};
+
+export interface ActionInput_trello_deletecomment {
+  /**
+   * The ID of the card containing the comment. Example: "5abbe4b7ddc1b351ef961414"
+   */
+  card_id: string;
+  /**
+   * The ID of the commentCard action to delete. Example: "5abbe4b7ddc1b351ef961414"
+   */
+  action_id: string;
+};
+
+export interface ActionOutput_trello_deletecomment {
+  success: boolean;
+  id?: string | undefined;
+};
+
+export interface ActionInput_trello_deletelabel {
+  /**
+   * The ID of the label to delete. Example: "6a26f31a38499a69b58916df"
+   */
+  id: string;
+};
+
+export interface ActionOutput_trello_deletelabel {
+  id: string;
+  success: boolean;
+};
+
+export interface ActionInput_trello_deletelist {
+  /**
+   * The ID of the list to archive. Example: "6a26f315d65f93eeac0b1b11"
+   */
+  id: string;
+};
+
+export interface ActionOutput_trello_deletelist {
+  id: string;
+  name?: string | undefined;
+  closed?: boolean | undefined;
+  boardId?: string | undefined;
+  pos?: number | undefined;
+};
+
+export interface ActionInput_trello_getattachment {
+  /**
+   * The ID of the Trello card. Example: "6a26f2fdbc520ab9f45a5214"
+   */
+  cardId: string;
+  /**
+   * The ID of the attachment. Example: "6a26f33c2f4cc3d61199de43"
+   */
+  attachmentId: string;
+};
+
+export interface ActionOutput_trello_getattachment {
+  id: string;
+  bytes?: number | undefined;
+  date?: string | undefined;
+  edgeColor?: string | undefined;
+  idMember?: string | undefined;
+  isUpload?: boolean | undefined;
+  mimeType?: string | undefined;
+  name?: string | undefined;
+  previews?: ({  id?: string | undefined;
+  scaled?: boolean | undefined;
+  url?: string | undefined;
+  bytes?: number | undefined;
+  height?: number | undefined;
+  width?: number | undefined;})[];
+  url?: string | undefined;
+  pos?: number | undefined;
+};
+
+export interface ActionInput_trello_getboard {
+  /**
+   * Board ID. Example: "5abbe4b7ddc1b351ef961414"
+   */
+  id: string;
+};
+
+export interface ActionOutput_trello_getboard {
+  id: string;
+  name: string;
+  desc?: string | undefined;
+  closed?: boolean | undefined;
+  idMemberCreator?: string | undefined;
+  idOrganization?: string | undefined;
+  pinned?: boolean | undefined;
+  url?: string | undefined;
+  shortUrl?: string | undefined;
+  starred?: boolean | undefined;
+  subscribed?: boolean | undefined;
+  dateLastActivity?: string | undefined;
+  dateLastView?: string | undefined;
+  shortLink?: string | undefined;
+  creationMethod?: string | undefined;
+  enterpriseOwned?: boolean | undefined;
+  ixUpdate?: number | undefined;
+  labelNames?: {  [key: string]: string;} | undefined;
+  prefs?: {} | undefined;
+};
+
+export interface ActionInput_trello_getcard {
+  /**
+   * The ID of the card to retrieve. Example: "5abbe4b7ddc1b351ef961414"
+   */
+  id: string;
+};
+
+export interface ActionOutput_trello_getcard {
+  id: string;
+  name: string;
+  desc?: string | undefined;
+  closed?: boolean | undefined;
+  dateLastActivity?: string | undefined;
+  due?: string | undefined;
+  dueComplete?: boolean | undefined;
+  idBoard: string;
+  idList: string;
+  idMembers?: string[] | undefined;
+  idLabels?: string[] | undefined;
+  idChecklists?: string[] | undefined;
+  labels?: ({  id: string;
+  idBoard: string;
+  name: string;
+  color?: string | undefined;})[];
+  pos?: number | undefined;
+  shortLink?: string | undefined;
+  shortUrl?: string | undefined;
+  url?: string | undefined;
+  subscribed?: boolean | undefined;
+  cover?: {  color?: string | undefined;
+  idUploadedBackground?: string | boolean | null | undefined;
+  size?: string | undefined;
+  brightness?: string | undefined;
+  isTemplate?: boolean | undefined;};
+};
+
+export interface ActionInput_trello_getchecklistitem {
+  /**
+   * The ID of the checklist. Example: "6a26f332aa39a5f5b4c671bf"
+   */
+  checklistId: string;
+  /**
+   * The ID of the check item. Example: "6a26f370f88b34e822126264"
+   */
+  checkItemId: string;
+};
+
+export interface ActionOutput_trello_getchecklistitem {
+  id: string;
+  name: string;
+  state: string;
+  pos?: string | number | undefined;
+  idChecklist: string;
+  nameData?: {} | undefined;
+  due?: string | undefined;
+  dueReminder?: number | undefined;
+  idMember?: string | undefined;
+};
+
+export interface ActionInput_trello_getchecklist {
+  /**
+   * The ID of the checklist to retrieve. Example: "6a26f332aa39a5f5b4c671bf"
+   */
+  id: string;
+};
+
+export interface ActionOutput_trello_getchecklist {
+  id: string;
+  name: string;
+  idBoard: string;
+  idCard: string;
+  pos: number;
+  checkItems?: ({  id: string;
+  name: string;
+  state: string;
+  idChecklist: string;
+  pos: number;
+  due?: string | undefined;
+  idMember?: string | undefined;})[];
+};
+
+export interface ActionInput_trello_getlabel {
+  /**
+   * The ID of the label to retrieve. Example: "6a26f2ed8e7484b03cb90f9b"
+   */
+  id: string;
+};
+
+export interface ActionOutput_trello_getlabel {
+  id: string;
+  idBoard: string;
+  name: string;
+  color?: string | undefined;
+};
+
+export interface ActionInput_trello_getlist {
+  /**
+   * The ID of the list to retrieve. Example: "5abbe4b7ddc1b351ef961414"
+   */
+  id: string;
+};
+
+export interface ActionOutput_trello_getlist {
+  id: string;
+  name?: string | undefined;
+  closed?: boolean | undefined;
+  pos?: number | undefined;
+  softLimit?: string | undefined;
+  idBoard?: string | undefined;
+  subscribed?: boolean | undefined;
+  limits?: unknown | undefined;
+};
+
+export interface ActionInput_trello_getmember {
+  /**
+   * Member ID. Use "me" for the authenticated user. Example: "5abbe4b7ddc1b351ef961414"
+   */
+  id: string;
+};
+
+export interface ActionOutput_trello_getmember {
+  id: string;
+  username: string;
+  fullName?: string | undefined;
+  avatarUrl?: string | undefined;
+  email?: string | undefined;
+  confirmed?: boolean | undefined;
+  memberType?: string | undefined;
+  url?: string | undefined;
+  initials?: string | undefined;
+  bio?: string | undefined;
+  idBoards?: string[] | undefined;
+  idOrganizations?: string[] | undefined;
+};
+
+export interface ActionInput_trello_getorganization {
+  /**
+   * The ID of the organization (workspace). Example: "6a26ebb15b58213488fb7401"
+   */
+  id: string;
+};
+
+export interface ActionOutput_trello_getorganization {
+  id: string;
+  name?: string | undefined;
+  displayName?: string | undefined;
+  dateLastActivity?: string | undefined;
+  prefs?: {  [key: string]: unknown | undefined;};
+  idEnterprise?: string | undefined;
+  offering?: string | undefined;
+  url?: string | undefined;
+  idBoards?: string[] | undefined;
+  memberships?: unknown[] | undefined;
+  premiumFeatures?: string[] | undefined;
+};
+
+export interface ActionInput_trello_listattachments {
+  /**
+   * The ID of the Trello card. Example: "5d0b4f5060d98f6d3f5c6a1a"
+   */
+  cardId: string;
+  /**
+   * Filter for attachments. Valid values: all, cover.
+   */
+  filter?: 'all' | 'cover' | undefined;
+};
+
+export interface ActionOutput_trello_listattachments {
+  attachments: ({  id: string;
+  bytes?: number | undefined;
+  date?: string | undefined;
+  edgeColor?: string | undefined;
+  idMember?: string | undefined;
+  isUpload?: boolean | undefined;
+  mimeType?: string | undefined;
+  name?: string | undefined;
+  pos?: number | undefined;
+  previews?: ({  id?: string | undefined;
+  bytes?: number | undefined;
+  url?: string | undefined;
+  width?: number | undefined;
+  height?: number | undefined;
+  scaled?: boolean | undefined;})[];
+  url?: string | undefined;})[];
+};
+
+export interface ActionInput_trello_listboardactions {
+  /**
+   * Board ID. Example: "6a26ebb3cd5f60a53a585978"
+   */
+  board_id: string;
+  /**
+   * Comma-separated action types to filter. Example: "commentCard,updateCard"
+   */
+  filter?: string | undefined;
+  /**
+   * Maximum number of actions to return (max 1000).
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor: action ID or ISO date before which to return results.
+   */
+  before?: string | undefined;
+  /**
+   * Action ID or ISO date after which to return results.
+   */
+  since?: string | undefined;
+};
+
+export interface ActionOutput_trello_listboardactions {
+  actions: ({  id: string;
+  idMemberCreator?: string | undefined;
+  data?: {  text?: string | undefined;
+  card?: {  id?: string | undefined;
+  name?: string | undefined;
+  idShort?: number | undefined;
+  shortLink?: string | undefined;};
+  board?: {  id?: string | undefined;
+  name?: string | undefined;
+  shortLink?: string | undefined;};
+  list?: {  id?: string | undefined;
+  name?: string | undefined;};
+  listAfter?: {  id?: string | undefined;
+  name?: string | undefined;};
+  listBefore?: {  id?: string | undefined;
+  name?: string | undefined;};
+  member?: {  id?: string | undefined;
+  username?: string | undefined;
+  fullName?: string | undefined;};
+  old?: {  [key: string]: unknown | undefined;};
+  attachment?: {  id?: string | undefined;
+  name?: string | undefined;
+  url?: string | undefined;};};
+  type: string;
+  date: string;
+  memberCreator?: {  id?: string | undefined;
+  username?: string | undefined;
+  fullName?: string | undefined;};})[];
+  /**
+   * Cursor for the next page: pass as `before` to get older actions.
+   */
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_trello_listboards {
+  /**
+   * Filter boards by status. Example: "open"
+   */
+  filter?: 'all' | 'open' | 'closed' | undefined;
+  /**
+   * Comma-separated list of board fields to include. Example: "name,desc,url"
+   */
+  fields?: string | undefined;
+};
+
+export interface ActionOutput_trello_listboards {
+  boards: ({  id: string;
+  name: string;
+  desc?: string | undefined;
+  url?: string | undefined;
+  shortUrl?: string | undefined;
+  idOrganization?: string | undefined;
+  closed?: boolean | undefined;
+  dateLastActivity?: string | undefined;})[];
+};
+
+export interface ActionInput_trello_listcardactions {
+  /**
+   * Trello card ID. Example: "6a26f2fdbc520ab9f45a5214"
+   */
+  cardId: string;
+  /**
+   * Comma-separated action types to filter. Example: "commentCard,updateCard"
+   */
+  filter?: string | undefined;
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_trello_listcardactions {
+  actions: ({  id: string;
+  idMemberCreator: string;
+  type: string;
+  date: string;
+  data: {  [key: string]: unknown | undefined;};
+  memberCreator?: {  id: string;
+  fullName?: string | undefined;
+  username?: string | undefined;};})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_trello_listcards {
+  /**
+   * Board ID. Example: "6a26ebb3cd5f60a53a585978"
+   */
+  boardId: string;
+  /**
+   * Filter for cards. Example: "all"
+   */
+  filter?: 'all' | 'open' | 'closed' | undefined;
+  /**
+   * Comma-separated list of fields to return. Example: "name,id"
+   */
+  fields?: string | undefined;
+};
+
+export interface ActionOutput_trello_listcards {
+  cards: ({  id: string;
+  name?: string | undefined;
+  desc?: string | undefined;
+  closed?: boolean | undefined;
+  idBoard?: string | undefined;
+  idList?: string | undefined;
+  idMembers?: string[] | undefined;
+  idLabels?: string[] | undefined;
+  idChecklists?: string[] | undefined;
+  pos?: number | undefined;
+  due?: string | undefined;
+  dueComplete?: boolean | undefined;
+  dateLastActivity?: string | undefined;
+  shortUrl?: string | undefined;
+  url?: string | undefined;
+  labels?: ({  id?: string | undefined;
+  name?: string | undefined;
+  color?: string | undefined;})[];})[];
+};
+
+export interface ActionInput_trello_listchecklists {
+  /**
+   * The ID of the Trello card. Example: "6a26f2fdbc520ab9f45a5214"
+   */
+  card_id: string;
+};
+
+export interface ActionOutput_trello_listchecklists {
+  checklists: ({  id: string;
+  name: string;
+  id_card: string;
+  id_board: string;
+  pos: number;
+  check_items: ({  id: string;
+  name: string;
+  state: string;
+  id_checklist: string;
+  pos: number;
+  due?: string | undefined;
+  id_member?: string | undefined;})[];})[];
+};
+
+export interface ActionInput_trello_listlabels {
+  /**
+   * Board ID. Example: "6a26ebb3cd5f60a53a585978"
+   */
+  boardId: string;
+  /**
+   * Maximum number of labels to return. Max 1000.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_trello_listlabels {
+  labels: ({  id: string;
+  idBoard?: string | undefined;
+  name?: string | undefined;
+  color?: string | undefined;})[];
+};
+
+export interface ActionInput_trello_listlists {
+  /**
+   * The ID of the board to list lists from. Example: "6a26ebb3cd5f60a53a585978"
+   */
+  boardId: string;
+  /**
+   * Filter for lists. One of: all, open, closed.
+   */
+  filter?: 'all' | 'open' | 'closed' | undefined;
+};
+
+export interface ActionOutput_trello_listlists {
+  lists: ({  id: string;
+  name: string;
+  closed: boolean;
+  pos: number;
+  idBoard?: string | undefined;
+  subscribed?: boolean | undefined;})[];
+};
+
+export interface ActionInput_trello_listmembers {
+  /**
+   * The ID of the Trello board. Example: "6a26ebb3cd5f60a53a585978"
+   */
+  boardId: string;
+};
+
+export interface ActionOutput_trello_listmembers {
+  members: ({  id: string;
+  fullName?: string | undefined;
+  username?: string | undefined;
+  avatarHash?: string | undefined;
+  initials?: string | undefined;
+  memberType?: string | undefined;
+  email?: string | undefined;
+  url?: string | undefined;
+  confirmed?: boolean | undefined;
+  bio?: string | undefined;
+  avatarUrl?: string | undefined;
+  status?: string | undefined;
+  gravatarHash?: string | undefined;
+  idOrganizations?: string[] | undefined;
+  idEnterprisesAdmin?: string[] | undefined;})[];
+};
+
+export interface ActionInput_trello_listorganizations {
+  /**
+   * Maximum number of organizations to return per page.
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_trello_listorganizations {
+  items: ({  id: string;
+  name?: string | undefined;
+  displayName?: string | undefined;
+  dateLastActivity?: string | undefined;
+  url?: string | undefined;
+  idEnterprise?: string | undefined;
+  offering?: string | undefined;
+  idBoards?: string[] | undefined;
+  memberships?: unknown[] | undefined;
+  premiumFeatures?: string[] | undefined;
+  prefs?: {  [key: string]: unknown | undefined;};})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_trello_movecard {
+  /**
+   * The ID of the card to move. Example: "5f3c2b1a4b3d2a1c8e4f5g6h"
+   */
+  id: string;
+  /**
+   * The ID of the list to move the card to. Example: "5f3c2b1a4b3d2a1c8e4f5g6i"
+   */
+  idList?: string | undefined;
+  /**
+   * The ID of the board to move the card to. Example: "5f3c2b1a4b3d2a1c8e4f5g6j"
+   */
+  idBoard?: string | undefined;
+};
+
+export interface ActionOutput_trello_movecard {
+  id: string;
+  name?: string | undefined;
+  idList?: string | undefined;
+  idBoard?: string | undefined;
+};
+
+export interface ActionInput_trello_updateboard {
+  /**
+   * Board ID. Example: "6a26ebb3cd5f60a53a585978"
+   */
+  id: string;
+  /**
+   * Name of the board
+   */
+  name?: string | undefined;
+  /**
+   * Description of the board
+   */
+  desc?: string | undefined;
+  /**
+   * Whether the board is closed
+   */
+  closed?: boolean | undefined;
+  /**
+   * Permission level. Example: "private", "org", "public"
+   */
+  prefs_permissionLevel?: string | undefined;
+  /**
+   * Voting preference. Example: "disabled", "members", "org", "public"
+   */
+  prefs_voting?: string | undefined;
+  /**
+   * Comments preference. Example: "disabled", "members", "org", "public", "observers"
+   */
+  prefs_comments?: string | undefined;
+};
+
+export interface ActionOutput_trello_updateboard {
+  id: string;
+  name: string;
+  desc: string;
+  closed: boolean;
+  url?: string | undefined;
+  shortUrl?: string | undefined;
+  prefs_permissionLevel?: string | undefined;
+  prefs_voting?: string | undefined;
+  prefs_comments?: string | undefined;
+};
+
+export interface ActionInput_trello_updatecard {
+  /**
+   * Card ID. Example: "6a26f2fdbc520ab9f45a5214"
+   */
+  id: string;
+  /**
+   * New name for the card.
+   */
+  name?: string | undefined;
+  /**
+   * New description for the card. Pass null to clear.
+   */
+  desc?: string | undefined;
+  /**
+   * Whether the card is closed (archived).
+   */
+  closed?: boolean | undefined;
+  /**
+   * Due date in ISO 8601 format. Pass null to clear.
+   */
+  due?: string | undefined;
+  /**
+   * Whether the due date is marked complete.
+   */
+  dueComplete?: boolean | undefined;
+  /**
+   * ID of the list to move the card to.
+   */
+  idList?: string | undefined;
+  /**
+   * ID of the board to move the card to.
+   */
+  idBoard?: string | undefined;
+  /**
+   * Label IDs to set on the card.
+   */
+  idLabels?: string[] | undefined;
+  /**
+   * Member IDs to set on the card.
+   */
+  idMembers?: string[] | undefined;
+};
+
+export interface ActionOutput_trello_updatecard {
+  id: string;
+  name: string;
+  desc?: string | undefined;
+  closed: boolean;
+  due?: string | undefined;
+  dueComplete?: boolean | undefined;
+  idList: string;
+  idBoard: string;
+  idLabels?: string[] | undefined;
+  idMembers?: string[] | undefined;
+  labels?: ({  id: string;
+  idBoard: string;
+  name?: string | undefined;
+  color?: string | undefined;})[];
+  pos: number;
+  dateLastActivity?: string | undefined;
+  shortLink?: string | undefined;
+  shortUrl?: string | undefined;
+  url?: string | undefined;
+};
+
+export interface ActionInput_trello_updatechecklistitem {
+  /**
+   * Card ID. Example: "6a26f2fdbc520ab9f45a5214"
+   */
+  cardId: string;
+  /**
+   * Checklist item ID. Example: "6a26f370f88b34e822126264"
+   */
+  checklistItemId: string;
+  /**
+   * New name for the checklist item.
+   */
+  name?: string | undefined;
+  /**
+   * State of the checklist item.
+   */
+  state?: 'complete' | 'incomplete' | undefined;
+  /**
+   * Position of the checklist item.
+   */
+  pos?: string | number | undefined;
+  /**
+   * Due date for the checklist item.
+   */
+  due?: string | undefined;
+  /**
+   * Member ID to assign to the checklist item.
+   */
+  idMember?: string | undefined;
+};
+
+export interface ActionOutput_trello_updatechecklistitem {
+  id: string;
+  name?: string | undefined;
+  state?: string | undefined;
+  idChecklist?: string | undefined;
+  pos?: string | number | undefined;
+  due?: string | undefined;
+  idMember?: string | undefined;
+};
+
+export interface ActionInput_trello_updatechecklist {
+  /**
+   * Checklist ID. Example: "6a26f332aa39a5f5b4c671bf"
+   */
+  id: string;
+  /**
+   * New name for the checklist
+   */
+  name?: string | undefined;
+  /**
+   * Position of the checklist on the card. Example: "top", "bottom", or 16384
+   */
+  pos?: string | number | undefined;
+};
+
+export interface ActionOutput_trello_updatechecklist {
+  id: string;
+  name: string;
+  idBoard: string;
+  idCard: string;
+  pos: number;
+};
+
+export interface ActionInput_trello_updatecomment {
+  /**
+   * The ID of the card containing the comment. Example: "6a26f2fdbc520ab9f45a5214"
+   */
+  cardId: string;
+  /**
+   * The ID of the commentCard action to update. Example: "6a26f3375b582134880a0182"
+   */
+  actionId: string;
+  /**
+   * The new text for the comment.
+   */
+  text: string;
+};
+
+export interface ActionOutput_trello_updatecomment {
+  id: string;
+  idMemberCreator?: string | undefined;
+  text?: string | undefined;
+  cardId?: string | undefined;
+  cardName?: string | undefined;
+  boardId?: string | undefined;
+  boardName?: string | undefined;
+  type?: string | undefined;
+  date?: string | undefined;
+};
+
+export interface ActionInput_trello_updatelabel {
+  /**
+   * Label ID. Example: "6a26f31a38499a69b58916df"
+   */
+  id: string;
+  /**
+   * Name of the label.
+   */
+  name?: string | undefined;
+  /**
+   * Color of the label.
+   */
+  color?: string | undefined;
+};
+
+export interface ActionOutput_trello_updatelabel {
+  id: string;
+  name?: string | undefined;
+  color?: string | undefined;
+};
+
+export interface ActionInput_trello_updatelist {
+  /**
+   * The ID of the list to update. Example: "5abbe4b7ee6c1d1ed5210aaa"
+   */
+  id: string;
+  /**
+   * The new name for the list.
+   */
+  name?: string | undefined;
+  /**
+   * Whether the list should be closed (archived).
+   */
+  closed?: boolean | undefined;
+  /**
+   * The position of the list. Can be a number or "top" / "bottom".
+   */
+  pos?: number | string | undefined;
+  /**
+   * Whether the authenticated user is subscribed to the list.
+   */
+  subscribed?: boolean | undefined;
+};
+
+export interface ActionOutput_trello_updatelist {
+  id: string;
+  name: string;
+  closed: boolean;
+  idBoard: string;
+  pos: number;
+  subscribed?: boolean | undefined;
+};
+
+export interface ActionInput_trello_updateorganization {
+  /**
+   * Organization ID. Example: "6a26ebb15b58213488fb7401"
+   */
+  id: string;
+  /**
+   * Display name of the organization
+   */
+  displayName?: string | undefined;
+  /**
+   * Description of the organization
+   */
+  desc?: string | undefined;
+  /**
+   * Short name of the organization
+   */
+  name?: string | undefined;
+  /**
+   * Website URL of the organization
+   */
+  website?: string | undefined;
+};
+
+export interface ActionOutput_trello_updateorganization {
+  id: string;
+  name?: string | undefined;
+  displayName?: string | undefined;
+  desc?: string | undefined;
+  website?: string | undefined;
   url?: string | undefined;
 };
 
@@ -93843,19 +98057,18 @@ export interface Organisation {
 
 export interface PurchaseOrder {
   id: string;
-  purchase_order_number?: string | undefined;
+  purchaseorder_number?: string | undefined;
+  reference_number?: string | undefined;
   date?: string | undefined;
   delivery_date?: string | undefined;
-  expected_arrival_date?: string | undefined;
-  status: string;
-  reference?: string | undefined;
-  sub_total?: number | undefined;
-  total_tax?: number | undefined;
-  total?: number | undefined;
-  updated_date_utc: string;
+  status?: string | undefined;
+  vendor_id?: string | undefined;
+  vendor_name?: string | undefined;
+  currency_id?: string | undefined;
   currency_code?: string | undefined;
-  contact_id?: string | undefined;
-  contact_name?: string | undefined;
+  total?: number | undefined;
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;
 };
 
 export interface ActionInput_xero_createaccount {
@@ -97750,6 +101963,5303 @@ export interface ActionOutput_zendesk_updateuser {
   url?: string | undefined;
 };
 
+export interface BankAccount {
+  id: string;
+  account_name?: string | undefined;
+  account_code?: string | undefined;
+  currency_id?: string | undefined;
+  currency_code?: string | undefined;
+  currency_symbol?: string | undefined;
+  price_precision?: number | undefined;
+  account_type?: string | undefined;
+  account_number?: string | undefined;
+  uncategorized_transactions?: number | undefined;
+  total_unprinted_checks?: number | undefined;
+  is_active?: boolean | undefined;
+  is_feeds_subscribed?: boolean | undefined;
+  is_feeds_active?: boolean | undefined;
+  balance?: number | undefined;
+  bank_balance?: number | undefined;
+  bcy_balance?: number | undefined;
+  bank_name?: string | undefined;
+  routing_number?: string | undefined;
+  is_primary_account?: boolean | undefined;
+  is_paypal_account?: boolean | undefined;
+  description?: string | undefined;
+  refresh_status_code?: string | undefined;
+  feeds_last_refresh_date?: string | undefined;
+  service_id?: string | undefined;
+  is_system_account?: boolean | undefined;
+  is_show_warning_for_feeds_refresh?: boolean | undefined;
+};
+
+export interface SyncMetadata_zoho_books_bankaccounts {
+  organization_id: string;
+};
+
+export interface SyncMetadata_zoho_books_bills {
+  organization_id: string;
+};
+
+export interface ChartOfAccount {
+  id: string;
+  account_name: string;
+  account_code?: string | undefined;
+  account_type: string;
+  is_user_created?: boolean | undefined;
+  is_system_account?: boolean | undefined;
+  is_standalone_account?: boolean | undefined;
+  is_active?: boolean | undefined;
+  can_show_in_ze?: boolean | undefined;
+  is_involved_in_transaction?: boolean | undefined;
+  current_balance?: number | undefined;
+  parent_account_id?: string | undefined;
+  parent_account_name?: string | undefined;
+  depth?: string | undefined;
+  has_attachment?: boolean | undefined;
+  is_child_present?: boolean | undefined;
+  child_count?: string | undefined;
+  documents?: string[] | undefined;
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;
+};
+
+export interface SyncMetadata_zoho_books_chartofaccounts {
+  organization_id: string;
+};
+
+export interface SyncMetadata_zoho_books_contacts {
+  organization_id: string;
+};
+
+export interface SyncMetadata_zoho_books_creditnotes {
+  organization_id?: string | undefined;
+};
+
+export interface SyncMetadata_zoho_books_estimates {
+  organization_id: string;
+};
+
+export interface SyncMetadata_zoho_books_expenses {
+  organization_id: string;
+};
+
+export interface SyncMetadata_zoho_books_invoices {
+  organization_id: string;
+};
+
+export interface SyncMetadata_zoho_books_items {
+  organization_id: string;
+};
+
+export interface Journal {
+  id: string;
+  entry_number?: string | undefined;
+  reference_number?: string | undefined;
+  notes?: string | undefined;
+  currency_id?: string | undefined;
+  currency_code?: string | undefined;
+  currency_symbol?: string | undefined;
+  exchange_rate?: number | undefined;
+  journal_date?: string | undefined;
+  journal_type?: string | undefined;
+  vat_treatment?: string | undefined;
+  product_type?: string | undefined;
+  include_in_vat_return?: boolean | undefined;
+  is_bas_adjustment?: boolean | undefined;
+  line_items?: ({  line_id?: string | undefined;
+  account_id?: string | undefined;
+  customer_id?: string | undefined;
+  customer_name?: string | undefined;
+  account_name?: string | undefined;
+  description?: string | undefined;
+  debit_or_credit?: string | undefined;
+  tax_exemption_id?: string | undefined;
+  tax_exemption_type?: string | undefined;
+  tax_exemption_code?: string | undefined;
+  tax_authority_id?: string | undefined;
+  tax_authority_name?: string | undefined;
+  tax_id?: string | undefined;
+  tax_name?: string | undefined;
+  tax_type?: string | undefined;
+  tax_percentage?: string | undefined;
+  amount?: number | undefined;
+  bcy_amount?: number | undefined;
+  acquisition_vat_id?: string | undefined;
+  acquisition_vat_name?: string | undefined;
+  acquisition_vat_percentage?: string | undefined;
+  acquisition_vat_amount?: string | undefined;
+  reverse_charge_vat_id?: string | undefined;
+  reverse_charge_vat_name?: string | undefined;
+  reverse_charge_vat_percentage?: string | undefined;
+  reverse_charge_vat_amount?: string | undefined;
+  tags?: ({  tag_id?: string | undefined;
+  tag_name?: string | undefined;
+  tag_option_id?: string | undefined;
+  tag_option_name?: string | undefined;
+  is_tag_mandatory?: boolean | undefined;})[];
+  location_id?: string | undefined;
+  location_name?: string | undefined;
+  project_id?: string | undefined;
+  project_name?: string | undefined;})[];
+  location_id?: string | undefined;
+  location_name?: string | undefined;
+  line_item_total?: number | undefined;
+  total?: number | undefined;
+  bcy_total?: number | undefined;
+  price_precision?: number | undefined;
+  taxes?: ({  tax_name?: string | undefined;
+  tax_amount?: number | undefined;
+  debit_or_credit?: string | undefined;
+  tax_account?: boolean | undefined;})[];
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;
+  status?: string | undefined;
+  custom_fields?: ({  customfield_id?: string | undefined;
+  value?: string | undefined;})[];
+  tags?: ({  tag_id?: string | undefined;
+  tag_name?: string | undefined;
+  tag_option_id?: string | undefined;
+  tag_option_name?: string | undefined;
+  is_tag_mandatory?: boolean | undefined;})[];
+};
+
+export interface SyncMetadata_zoho_books_journals {
+  organization_id: string;
+};
+
+export interface SyncMetadata_zoho_books_payments {
+  organization_id: string;
+};
+
+export interface Tax {
+  id: string;
+  tax_id?: string | undefined;
+  tax_name?: string | undefined;
+  tax_percentage?: number | undefined;
+  tax_type?: string | undefined;
+  tax_factor?: string | undefined;
+  tax_specific_type?: string | undefined;
+  tax_authority_id?: string | undefined;
+  tax_authority_name?: string | undefined;
+  is_value_added?: boolean | undefined;
+  is_default_tax?: boolean | undefined;
+  is_editable?: boolean | undefined;
+  output_tax_account_name?: string | undefined;
+  purchase_tax_account_name?: string | undefined;
+  tax_account_id?: string | undefined;
+  purchase_tax_account_id?: string | undefined;
+};
+
+export interface SyncMetadata_zoho_books_taxes {
+  organization_id: string;
+};
+
+export interface VendorPayment {
+  id: string;
+  payment_id: string;
+  vendor_id?: string | undefined;
+  vendor_name?: string | undefined;
+  payment_mode?: string | undefined;
+  payment_number?: string | undefined;
+  date?: string | undefined;
+  reference_number?: string | undefined;
+  amount?: number | undefined;
+  balance?: number | undefined;
+  description?: string | undefined;
+  paid_through_account_id?: string | undefined;
+  paid_through_account_name?: string | undefined;
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;
+};
+
+export interface SyncMetadata_zoho_books_vendorpayments {
+  organization_id: string;
+};
+
+export interface ActionInput_zoho_books_createbankaccount {
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+  /**
+   * Name of the account. Example: "Corporate Account"
+   */
+  account_name: string;
+  /**
+   * Type of the account. Example: "bank", "cash"
+   */
+  account_type: string;
+  /**
+   * Number associated with the Bank Account
+   */
+  account_number?: string | undefined;
+  /**
+   * Code of the Account
+   */
+  account_code?: string | undefined;
+  /**
+   * ID of the Currency associated with the Account
+   */
+  currency_id?: string | undefined;
+  /**
+   * Code of the currency associated with the Bank Account
+   */
+  currency_code?: string | undefined;
+  /**
+   * Description of the Account
+   */
+  description?: string | undefined;
+  /**
+   * Name of the Bank
+   */
+  bank_name?: string | undefined;
+  /**
+   * Routing Number of the Account
+   */
+  routing_number?: string | undefined;
+  /**
+   * Check if the Account is Primary Account in Zoho Books
+   */
+  is_primary_account?: boolean | undefined;
+  /**
+   * Check if the Account is Paypal Account
+   */
+  is_paypal_account?: boolean | undefined;
+  /**
+   * The type of Payment for the Paypal Account. Allowed Values: standard and adaptive
+   */
+  paypal_type?: string | undefined;
+  /**
+   * Email Address of the Paypal account
+   */
+  paypal_email_address?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_createbankaccount {
+  account_id: string;
+  account_name: string;
+  account_code?: string | undefined;
+  currency_id?: string | undefined;
+  currency_code?: string | undefined;
+  currency_symbol?: string | undefined;
+  price_precision?: number | undefined;
+  account_type: string;
+  account_number?: string | undefined;
+  uncategorized_transactions?: number | undefined;
+  total_unprinted_checks?: number | undefined;
+  is_active?: boolean | undefined;
+  is_feeds_subscribed?: boolean | undefined;
+  is_feeds_active?: boolean | undefined;
+  balance?: number | undefined;
+  bank_balance?: number | undefined;
+  bcy_balance?: number | undefined;
+  bank_name?: string | undefined;
+  routing_number?: string | undefined;
+  is_primary_account?: boolean | undefined;
+  is_paypal_account?: boolean | undefined;
+  description?: string | undefined;
+  is_system_account?: boolean | undefined;
+};
+
+export interface ActionInput_zoho_books_createbill {
+  /**
+   * Vendor ID. Example: "260815000000098001"
+   */
+  vendor_id: string;
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+  /**
+   * Unique bill number. Example: "BILL-001"
+   */
+  bill_number: string;
+  /**
+   * External reference number
+   */
+  reference_number?: string | undefined;
+  /**
+   * Bill date in yyyy-mm-dd format
+   */
+  date?: string | undefined;
+  /**
+   * Due date in yyyy-mm-dd format
+   */
+  due_date?: string | undefined;
+  /**
+   * Currency ID
+   */
+  currency_id?: string | undefined;
+  /**
+   * Exchange rate to base currency
+   */
+  exchange_rate?: number | undefined;
+  /**
+   * Notes about the bill
+   */
+  notes?: string | undefined;
+  /**
+   * Line items for the bill
+   */
+  line_items?: ({  /**
+   * Item ID. Example: "260815000000100002"
+   */
+  item_id?: string | undefined;
+  /**
+   * Name of the line item
+   */
+  name?: string | undefined;
+  /**
+   * Description of the line item
+   */
+  description?: string | undefined;
+  /**
+   * Chart of accounts ID. Example: "260815000000000388"
+   */
+  account_id?: string | undefined;
+  /**
+   * Unit price of the line item
+   */
+  rate?: number | undefined;
+  /**
+   * Number of units
+   */
+  quantity?: number | undefined;
+  /**
+   * Tax ID for the line item
+   */
+  tax_id?: string | undefined;
+  /**
+   * Unit of measurement
+   */
+  unit?: string | undefined;})[];
+};
+
+export interface ActionOutput_zoho_books_createbill {
+  /**
+   * Unique identifier of the created bill
+   */
+  bill_id: string;
+  vendor_id?: string | undefined;
+  vendor_name?: string | undefined;
+  bill_number?: string | undefined;
+  status?: string | undefined;
+  date?: string | undefined;
+  due_date?: string | undefined;
+  total?: number | undefined;
+  balance?: number | undefined;
+  currency_id?: string | undefined;
+  currency_code?: string | undefined;
+  reference_number?: string | undefined;
+  notes?: string | undefined;
+  line_items?: ({  line_item_id: string;
+  item_id?: string | undefined;
+  name?: string | undefined;
+  description?: string | undefined;
+  account_id?: string | undefined;
+  account_name?: string | undefined;
+  rate?: number | undefined;
+  quantity?: number | undefined;
+  tax_id?: string | undefined;
+  tax_name?: string | undefined;
+  unit?: string | undefined;
+  item_total?: number | undefined;})[];
+};
+
+export interface ActionInput_zoho_books_createchartofaccount {
+  /**
+   * Name of the account. Example: "Notes Payable"
+   */
+  account_name: string;
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+  /**
+   * Type of the account. Example: "long_term_liability", "income", "expense"
+   */
+  account_type: string;
+  /**
+   * Code associated with the account
+   */
+  account_code?: string | undefined;
+  /**
+   * ID of the account currency
+   */
+  currency_id?: string | undefined;
+  /**
+   * Description of the account
+   */
+  description?: string | undefined;
+  /**
+   * ID of the parent account
+   */
+  parent_account_id?: string | undefined;
+  /**
+   * Whether to show the account balance on the dashboard
+   */
+  show_on_dashboard?: boolean | undefined;
+  /**
+   * Whether the account can be shown in Zoho Expense
+   */
+  can_show_in_ze?: boolean | undefined;
+  /**
+   * United Kingdom only. Boolean to include an account in VAT returns
+   */
+  include_in_vat_return?: boolean | undefined;
+};
+
+export interface ActionOutput_zoho_books_createchartofaccount {
+  account_id: string;
+  account_name: string;
+  account_code?: string | undefined;
+  account_type: string;
+  currency_id?: string | undefined;
+  currency_code?: string | undefined;
+  description?: string | undefined;
+  is_active?: boolean | undefined;
+  is_system_account?: boolean | undefined;
+  can_show_in_ze?: boolean | undefined;
+  include_in_vat_return?: boolean | undefined;
+  parent_account_id?: string | undefined;
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_createcontact {
+  /**
+   * Display name of the contact. Max-length [200].
+   */
+  contact_name: string;
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+  /**
+   * Company name of the contact. Max-length [200].
+   */
+  company_name?: string | undefined;
+  /**
+   * Type of contact: customer or vendor.
+   */
+  contact_type?: 'customer' | 'vendor' | undefined;
+  /**
+   * Email address of the contact.
+   */
+  email?: string | undefined;
+  /**
+   * Phone number of the contact.
+   */
+  phone?: string | undefined;
+  /**
+   * Website of the contact.
+   */
+  website?: string | undefined;
+  /**
+   * Billing address of the contact.
+   */
+  billing_address?: {  attention?: string | undefined;
+  address?: string | undefined;
+  street2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  state_code?: string | undefined;
+  zip?: string | undefined;
+  country?: string | undefined;
+  fax?: string | undefined;
+  phone?: string | undefined;};
+  /**
+   * Shipping address of the contact.
+   */
+  shipping_address?: {  attention?: string | undefined;
+  address?: string | undefined;
+  street2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  state_code?: string | undefined;
+  zip?: string | undefined;
+  country?: string | undefined;
+  fax?: string | undefined;
+  phone?: string | undefined;};
+};
+
+export interface ActionOutput_zoho_books_createcontact {
+  /**
+   * Unique ID of the created contact.
+   */
+  contact_id: string;
+  /**
+   * Display name of the contact.
+   */
+  contact_name: string;
+  /**
+   * Company name of the contact.
+   */
+  company_name?: string | undefined;
+  /**
+   * Type of contact: customer or vendor.
+   */
+  contact_type?: string | undefined;
+  /**
+   * Email address of the contact.
+   */
+  email?: string | undefined;
+  /**
+   * Phone number of the contact.
+   */
+  phone?: string | undefined;
+  /**
+   * Status of the contact.
+   */
+  status?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_createcreditnote {
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+  /**
+   * Customer ID. Example: "260815000000097001"
+   */
+  customer_id: string;
+  /**
+   * Credit note date. Example: "2026-06-09"
+   */
+  date: string;
+  /**
+   * Line items for the credit note
+   */
+  line_items: ({  /**
+   * Item ID. Example: "260815000000100002"
+   */
+  item_id?: string | undefined;
+  /**
+   * Account ID for custom line items. Example: "260815000000000388"
+   */
+  account_id?: string | undefined;
+  description?: string | undefined;
+  quantity?: number | undefined;
+  rate?: number | undefined;
+  tax_id?: string | undefined;})[];
+  /**
+   * Credit note number. Example: "CN-00003"
+   */
+  creditnote_number?: string | undefined;
+  reference_number?: string | undefined;
+  notes?: string | undefined;
+  terms?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_createcreditnote {
+  id: string;
+  creditnote_number?: string | undefined;
+  customer_id?: string | undefined;
+  date?: string | undefined;
+  total?: number | undefined;
+  status?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_createestimate {
+  /**
+   * The ID of the customer for whom the estimate is created. Example: "260815000000097001"
+   */
+  customer_id: string;
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+  /**
+   * Line items for the estimate
+   */
+  line_items: ({  /**
+   * Unique identifier of the item. Example: "260815000000100002"
+   */
+  item_id: string;
+  /**
+   * Unit price for the line item
+   */
+  rate: number;
+  /**
+   * Number of units
+   */
+  quantity: number;
+  name?: string | undefined;
+  description?: string | undefined;
+  discount?: number | undefined;
+  tax_id?: string | undefined;})[];
+  estimate_number?: string | undefined;
+  reference_number?: string | undefined;
+  /**
+   * Format: YYYY-MM-DD
+   */
+  date?: string | undefined;
+  /**
+   * Format: YYYY-MM-DD
+   */
+  expiry_date?: string | undefined;
+  notes?: string | undefined;
+  terms?: string | undefined;
+  discount?: number | undefined;
+  is_discount_before_tax?: boolean | undefined;
+  discount_type?: string | undefined;
+  shipping_charge?: number | undefined;
+  adjustment?: number | undefined;
+  adjustment_description?: string | undefined;
+  currency_id?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_createestimate {
+  estimate: {  estimate_id: string;
+  estimate_number?: string | undefined;
+  date?: string | undefined;
+  status?: string | undefined;
+  customer_id?: string | undefined;
+  customer_name?: string | undefined;
+  total?: number | undefined;
+  sub_total?: number | undefined;
+  line_items?: ({  item_id?: string | undefined;
+  line_item_id?: string | undefined;
+  name?: string | undefined;
+  description?: string | undefined;
+  rate?: number | undefined;
+  quantity?: number | undefined;
+  item_total?: number | undefined;})[];};
+};
+
+export interface ActionInput_zoho_books_createexpense {
+  /**
+   * ID of the expense account. Example: "260815000000000388"
+   */
+  account_id: string;
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+  /**
+   * Date of the expense in YYYY-MM-DD format. Example: "2026-06-09"
+   */
+  date: string;
+  /**
+   * Amount of the expense. Example: 50.00
+   */
+  amount: number;
+  /**
+   * ID of the account through which the expense is paid. Example: "260815000000102017"
+   */
+  paid_through_account_id: string;
+  /**
+   * Unique identifier of the tax. Example: "260815000000000097"
+   */
+  tax_id?: string | undefined;
+  /**
+   * Description of the expense. Max-length [100]
+   */
+  description?: string | undefined;
+  /**
+   * Reference number of the expense. Max-length [100]
+   */
+  reference_number?: string | undefined;
+  /**
+   * ID of the customer to bill the expense to. Example: "260815000000097001"
+   */
+  customer_id?: string | undefined;
+  /**
+   * ID of the vendor the expense is made to. Example: "260815000000098001"
+   */
+  vendor_id?: string | undefined;
+  /**
+   * Unique identifier of the currency. Example: "260815000000000097"
+   */
+  currency_id?: string | undefined;
+  /**
+   * Exchange rate of the currency with respect to the base currency.
+   */
+  exchange_rate?: number | undefined;
+  /**
+   * ID of the project associated with the customer.
+   */
+  project_id?: string | undefined;
+  /**
+   * Whether the expense is billable to the customer.
+   */
+  is_billable?: boolean | undefined;
+  /**
+   * Whether the tax is inclusive in the amount.
+   */
+  is_inclusive_tax?: boolean | undefined;
+  /**
+   * Line items for the expense.
+   */
+  line_items?: ({  /**
+   * Unique identifier of the line item.
+   */
+  line_item_id?: string | undefined;
+  /**
+   * ID of the expense account for this line item.
+   */
+  account_id: string;
+  /**
+   * Description of the line item. Max-length [100]
+   */
+  description?: string | undefined;
+  /**
+   * Amount of the line item.
+   */
+  amount: number;
+  /**
+   * Unique identifier of the tax for this line item.
+   */
+  tax_id?: string | undefined;
+  /**
+   * Order of the line item in the expense.
+   */
+  item_order?: number | undefined;
+  /**
+   * Type of the expense.
+   */
+  product_type?: string | undefined;
+  /**
+   * ID of the reverse charge tax.
+   */
+  reverse_charge_tax_id?: string | undefined;
+  /**
+   * Tax exemption code.
+   */
+  tax_exemption_code?: string | undefined;
+  /**
+   * Tax exemption ID.
+   */
+  tax_exemption_id?: string | undefined;
+  /**
+   * Location ID.
+   */
+  location_id?: string | undefined;
+  /**
+   * Reporting tags for the line item.
+   */
+  tags?: ({  /**
+   * Tag ID.
+   */
+  tag_id?: string | undefined;
+  /**
+   * Tag Name.
+   */
+  tag_name?: string | undefined;
+  /**
+   * Tag Option ID.
+   */
+  tag_option_id?: string | undefined;
+  /**
+   * Tag Option Name.
+   */
+  tag_option_name?: string | undefined;
+  /**
+   * Whether the tag is mandatory.
+   */
+  is_tag_mandatory?: boolean | undefined;})[];})[];
+  /**
+   * Custom fields for the expense.
+   */
+  custom_fields?: ({  /**
+   * Unique identifier of the Custom Field.
+   */
+  customfield_id?: string | undefined;
+  /**
+   * Value of the Custom Field.
+   */
+  value?: string | undefined;})[];
+  /**
+   * Reporting tags for the expense.
+   */
+  tags?: ({  /**
+   * Tag ID.
+   */
+  tag_id?: string | undefined;
+  /**
+   * Tag Option ID.
+   */
+  tag_option_id?: string | undefined;})[];
+};
+
+export interface ActionOutput_zoho_books_createexpense {
+  /**
+   * Unique identifier of the created expense.
+   */
+  expense_id?: string | undefined;
+  /**
+   * ID of the expense account.
+   */
+  account_id?: string | undefined;
+  /**
+   * Date of the expense.
+   */
+  date?: string | undefined;
+  /**
+   * Amount of the expense.
+   */
+  amount?: number | undefined;
+  /**
+   * Description of the expense.
+   */
+  description?: string | undefined;
+  /**
+   * Reference number of the expense.
+   */
+  reference_number?: string | undefined;
+  /**
+   * ID of the customer.
+   */
+  customer_id?: string | undefined;
+  /**
+   * ID of the vendor.
+   */
+  vendor_id?: string | undefined;
+  /**
+   * ID of the currency.
+   */
+  currency_id?: string | undefined;
+  /**
+   * Exchange rate of the currency.
+   */
+  exchange_rate?: number | undefined;
+  /**
+   * ID of the project.
+   */
+  project_id?: string | undefined;
+  /**
+   * Whether the expense is billable.
+   */
+  is_billable?: boolean | undefined;
+  /**
+   * Whether the tax is inclusive.
+   */
+  is_inclusive_tax?: boolean | undefined;
+  /**
+   * Status of the expense.
+   */
+  status?: string | undefined;
+  /**
+   * Tax amount for the expense.
+   */
+  tax_amount?: number | undefined;
+  /**
+   * Total amount of the expense.
+   */
+  total?: number | undefined;
+  /**
+   * Sub total of the expense.
+   */
+  sub_total?: number | undefined;
+  /**
+   * Base currency total.
+   */
+  bcy_total?: number | undefined;
+  /**
+   * ID of the tax.
+   */
+  tax_id?: string | undefined;
+  /**
+   * Name of the tax.
+   */
+  tax_name?: string | undefined;
+  /**
+   * Tax percentage.
+   */
+  tax_percentage?: number | undefined;
+  /**
+   * ID of the paid through account.
+   */
+  paid_through_account_id?: string | undefined;
+  /**
+   * Name of the paid through account.
+   */
+  paid_through_account_name?: string | undefined;
+  /**
+   * Line items of the expense.
+   */
+  line_items?: ({  line_item_id?: string | undefined;
+  account_id?: string | undefined;
+  description?: string | undefined;
+  amount?: number | undefined;
+  tax_id?: string | undefined;
+  item_order?: number | undefined;
+  product_type?: string | undefined;
+  reverse_charge_tax_id?: string | undefined;
+  tax_exemption_code?: string | undefined;
+  tax_exemption_id?: string | undefined;
+  location_id?: string | undefined;
+  tags?: ({  tag_id?: string | undefined;
+  tag_name?: string | undefined;
+  tag_option_id?: string | undefined;
+  tag_option_name?: string | undefined;
+  is_tag_mandatory?: boolean | undefined;})[];})[];
+  /**
+   * Tags of the expense.
+   */
+  tags?: ({  tag_id?: string | undefined;
+  tag_name?: string | undefined;
+  tag_option_id?: string | undefined;
+  tag_option_name?: string | undefined;
+  is_tag_mandatory?: boolean | undefined;})[];
+  /**
+   * Custom fields of the expense.
+   */
+  custom_fields?: ({  /**
+   * ID of the custom field.
+   */
+  customfield_id?: string | undefined;
+  /**
+   * Value of the custom field.
+   */
+  value?: string | undefined;})[];
+};
+
+export interface ActionInput_zoho_books_createinvoice {
+  /**
+   * Customer ID. Example: "260815000000097001"
+   */
+  customer_id: string;
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+  /**
+   * Line items for the invoice.
+   */
+  line_items: ({  /**
+   * Item ID. Example: "260815000000100002"
+   */
+  item_id: string;
+  /**
+   * Quantity of the item. Example: 1
+   */
+  quantity: number;
+  /**
+   * Rate of the item. Example: 100
+   */
+  rate?: number | undefined;
+  /**
+   * Description of the line item.
+   */
+  description?: string | undefined;
+  /**
+   * Tax ID to apply.
+   */
+  tax_id?: string | undefined;})[];
+  /**
+   * Invoice number. Example: "INV-00001"
+   */
+  invoice_number?: string | undefined;
+  /**
+   * Invoice date. Format: yyyy-mm-dd. Example: "2026-06-09"
+   */
+  date?: string | undefined;
+  /**
+   * Due date. Format: yyyy-mm-dd. Example: "2026-06-16"
+   */
+  due_date?: string | undefined;
+  /**
+   * Notes for the invoice.
+   */
+  notes?: string | undefined;
+  /**
+   * Terms and conditions.
+   */
+  terms?: string | undefined;
+  /**
+   * Reference number.
+   */
+  reference_number?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_createinvoice {
+  invoice_id: string;
+  invoice_number: string;
+  customer_id: string;
+  status: string;
+  total?: number | undefined;
+  balance?: number | undefined;
+};
+
+export interface ActionInput_zoho_books_createitem {
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+  /**
+   * Name of the item. Max-length [100]
+   */
+  name: string;
+  /**
+   * Price of the item.
+   */
+  rate: number;
+  /**
+   * Description for the item. Max-length [2000]
+   */
+  description?: string | undefined;
+  /**
+   * Type of the item. Allowed values: sales, purchases, sales_and_purchases, inventory. Default: sales
+   */
+  item_type?: string | undefined;
+  /**
+   * Unit of measurement for the item.
+   */
+  unit?: string | undefined;
+  /**
+   * ID of the tax to be associated with the item.
+   */
+  tax_id?: string | undefined;
+  /**
+   * SKU value of the item, should be unique throughout the product.
+   */
+  sku?: string | undefined;
+  /**
+   * Specify the type of an item. Allowed values: goods, service, digital_service.
+   */
+  product_type?: string | undefined;
+  /**
+   * ID of the account to which the item has to be associated with.
+   */
+  account_id?: string | undefined;
+  /**
+   * Purchase description for the item.
+   */
+  purchase_description?: string | undefined;
+  /**
+   * Purchase price of the item.
+   */
+  purchase_rate?: number | undefined;
+  /**
+   * ID of the COGS account to which the item has to be associated with.
+   */
+  purchase_account_id?: string | undefined;
+  /**
+   * ID of the stock account to which the item has to be associated with.
+   */
+  inventory_account_id?: string | undefined;
+  /**
+   * Preferred vendor ID.
+   */
+  vendor_id?: string | undefined;
+  /**
+   * Boolean to track the taxability of the item.
+   */
+  is_taxable?: boolean | undefined;
+  /**
+   * ID of the tax exemption. Mandatory if is_taxable is false.
+   */
+  tax_exemption_id?: string | undefined;
+  /**
+   * HSN or SAC code.
+   */
+  hsn_or_sac?: string | undefined;
+  /**
+   * Reorder level of the item.
+   */
+  reorder_level?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_createitem {
+  /**
+   * ID of the created item. Example: "260815000000100002"
+   */
+  item_id: string;
+  name: string;
+  status?: string | undefined;
+  description?: string | undefined;
+  rate?: number | undefined;
+  unit?: string | undefined;
+  tax_id?: string | undefined;
+  tax_name?: string | undefined;
+  tax_percentage?: string | undefined;
+  sku?: string | undefined;
+  product_type?: string | undefined;
+  item_type?: string | undefined;
+  account_id?: string | undefined;
+  account_name?: string | undefined;
+  purchase_description?: string | undefined;
+  purchase_rate?: number | undefined;
+  purchase_account_id?: string | undefined;
+  purchase_account_name?: string | undefined;
+  inventory_account_id?: string | undefined;
+  vendor_id?: string | undefined;
+  vendor_name?: string | undefined;
+  is_taxable?: boolean | undefined;
+  tax_exemption_id?: string | undefined;
+  hsn_or_sac?: string | undefined;
+  reorder_level?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_createjournal {
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+  /**
+   * Date of the journal entry in YYYY-MM-DD format. Example: "2026-06-09"
+   */
+  journal_date: string;
+  /**
+   * Reference number for the journal.
+   */
+  reference_number?: string | undefined;
+  /**
+   * Notes for the journal.
+   */
+  notes?: string | undefined;
+  /**
+   * Type of the journal.
+   */
+  journal_type?: 'Cash' | 'Both' | undefined;
+  /**
+   * ID of the currency associated with the journal.
+   */
+  currency_id?: string | undefined;
+  /**
+   * Exchange rate between currencies.
+   */
+  exchange_rate?: number | undefined;
+  /**
+   * Line items for the journal. Must have at least 2 lines and total debits must equal total credits.
+   */
+  line_items: ({  /**
+   * ID of the account for this line item. Example: "260815000000000388"
+   */
+  account_id: string;
+  /**
+   * Whether this line is a debit or credit.
+   */
+  debit_or_credit: 'debit' | 'credit';
+  /**
+   * Amount for this line item.
+   */
+  amount: number;
+  /**
+   * Description for this line item.
+   */
+  description?: string | undefined;
+  /**
+   * Customer ID (required for AR accounts).
+   */
+  customer_id?: string | undefined;
+  /**
+   * Vendor ID (required for AP accounts).
+   */
+  vendor_id?: string | undefined;
+  /**
+   * ID of the tax.
+   */
+  tax_id?: string | undefined;
+  /**
+   * ID of the project.
+   */
+  project_id?: string | undefined;
+  /**
+   * Location ID.
+   */
+  location_id?: string | undefined;})[];
+};
+
+export interface ActionOutput_zoho_books_createjournal {
+  journal_id?: string | undefined;
+  entry_number?: string | undefined;
+  reference_number?: string | undefined;
+  notes?: string | undefined;
+  journal_date?: string | undefined;
+  journal_type?: string | undefined;
+  status?: string | undefined;
+  total?: number | undefined;
+  line_items?: ({  line_id?: string | undefined;
+  account_id?: string | undefined;
+  account_name?: string | undefined;
+  description?: string | undefined;
+  debit_or_credit?: string | undefined;
+  amount?: number | undefined;})[];
+};
+
+export interface ActionInput_zoho_books_createpayment {
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+  /**
+   * Customer ID for the payment. Example: "260815000000097001"
+   */
+  customer_id: string;
+  /**
+   * Payment mode: cash, check, creditcard, banktransfer, bankremittance, autotransaction, or others.
+   */
+  payment_mode: string;
+  /**
+   * Total payment amount.
+   */
+  amount: number;
+  /**
+   * Payment date in yyyy-mm-dd format.
+   */
+  date: string;
+  /**
+   * Invoices to apply the payment to.
+   */
+  invoices: ({  /**
+   * Invoice ID to apply payment to. Example: "260815000000101011"
+   */
+  invoice_id: string;
+  /**
+   * Amount applied to this invoice.
+   */
+  amount_applied: number;
+  /**
+   * Tax amount withheld.
+   */
+  tax_amount_withheld?: number | undefined;})[];
+  /**
+   * Reference number for the payment.
+   */
+  reference_number?: string | undefined;
+  /**
+   * Description of the payment.
+   */
+  description?: string | undefined;
+  /**
+   * Cash/bank account ID to deposit the payment into.
+   */
+  account_id?: string | undefined;
+  /**
+   * Exchange rate for the currency.
+   */
+  exchange_rate?: number | undefined;
+  /**
+   * Additional bank charges.
+   */
+  bank_charges?: number | undefined;
+};
+
+export interface ActionOutput_zoho_books_createpayment {
+  /**
+   * Unique ID of the created payment.
+   */
+  payment_id: string;
+  /**
+   * Mode through which payment was made.
+   */
+  payment_mode?: string | undefined;
+  /**
+   * Payment amount.
+   */
+  amount?: number | undefined;
+  /**
+   * Amount refunded.
+   */
+  amount_refunded?: number | undefined;
+  /**
+   * Bank charges.
+   */
+  bank_charges?: number | undefined;
+  /**
+   * Payment date.
+   */
+  date?: string | undefined;
+  /**
+   * Payment status: success or failure.
+   */
+  status?: string | undefined;
+  /**
+   * Reference number.
+   */
+  reference_number?: string | undefined;
+  /**
+   * Payment description.
+   */
+  description?: string | undefined;
+  /**
+   * Customer ID.
+   */
+  customer_id?: string | undefined;
+  /**
+   * Customer name.
+   */
+  customer_name?: string | undefined;
+  /**
+   * Customer email.
+   */
+  email?: string | undefined;
+  /**
+   * Currency code.
+   */
+  currency_code?: string | undefined;
+  /**
+   * Currency symbol.
+   */
+  currency_symbol?: string | undefined;
+  /**
+   * Location ID.
+   */
+  location_id?: string | undefined;
+  /**
+   * Location name.
+   */
+  location_name?: string | undefined;
+  invoices?: ({  invoice_id?: string | undefined;
+  invoice_number?: string | undefined;
+  date?: string | undefined;
+  invoice_amount?: number | undefined;
+  amount_applied?: number | undefined;
+  balance_amount?: number | undefined;
+  tax_amount_withheld?: number | undefined;})[];
+};
+
+export interface ActionInput_zoho_books_createpurchaseorder {
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+  /**
+   * Vendor ID. Example: "260815000000098001"
+   */
+  vendor_id: string;
+  /**
+   * At least one line item is required.
+   */
+  line_items: ({  /**
+   * Item ID. Example: "260815000000100002"
+   */
+  item_id: string;
+  /**
+   * Rate per unit. Example: 10
+   */
+  rate: number;
+  /**
+   * Quantity. Example: 2
+   */
+  quantity: number;
+  /**
+   * Description for the line item.
+   */
+  description?: string | undefined;
+  /**
+   * Unit of measurement.
+   */
+  unit?: string | undefined;})[];
+  /**
+   * Purchase order number. Example: "PO-001"
+   */
+  purchaseorder_number?: string | undefined;
+  /**
+   * Purchase order date. Format: YYYY-MM-DD. Example: "2026-06-09"
+   */
+  date?: string | undefined;
+  /**
+   * Reference number.
+   */
+  reference_number?: string | undefined;
+  /**
+   * Notes for the purchase order.
+   */
+  notes?: string | undefined;
+  /**
+   * Terms and conditions.
+   */
+  terms?: string | undefined;
+  /**
+   * Currency ID. Example: "260815000000000097"
+   */
+  currency_id?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_createpurchaseorder {
+  id?: string | undefined;
+  purchaseorder_number?: string | undefined;
+  status?: string | undefined;
+  vendor_id?: string | undefined;
+  vendor_name?: string | undefined;
+  date?: string | undefined;
+  total?: number | undefined;
+  line_items?: ({  line_item_id?: string | undefined;
+  item_id?: string | undefined;
+  name?: string | undefined;
+  description?: string | undefined;
+  rate?: number | undefined;
+  quantity?: number | undefined;
+  unit?: string | undefined;})[];
+};
+
+export interface ActionInput_zoho_books_createvendorpayment {
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+  /**
+   * ID of the vendor associated with the payment. Example: "260815000000098001"
+   */
+  vendor_id: string;
+  /**
+   * Total amount of the vendor payment. Example: 100.00
+   */
+  amount: number;
+  /**
+   * ID of the cash/bank account used for the payment. Example: "260815000000102017"
+   */
+  paid_through_account_id: string;
+  /**
+   * Date the payment is made (YYYY-MM-DD). Example: "2026-06-09"
+   */
+  date?: string | undefined;
+  /**
+   * Mode of payment. Example: "cash"
+   */
+  payment_mode?: string | undefined;
+  /**
+   * Description for the vendor payment.
+   */
+  description?: string | undefined;
+  /**
+   * Reference number for the vendor payment. Example: "VP-003"
+   */
+  reference_number?: string | undefined;
+  /**
+   * Bills to apply the payment to.
+   */
+  bills?: ({  /**
+   * ID of the bill to apply the payment to. Example: "260815000000108002"
+   */
+  bill_id: string;
+  /**
+   * Amount applied to the bill. Example: 100.00
+   */
+  amount_applied: number;})[] | undefined;
+};
+
+export interface ActionOutput_zoho_books_createvendorpayment {
+  /**
+   * ID of the created vendor payment.
+   */
+  id: string;
+  /**
+   * ID of the vendor.
+   */
+  vendor_id?: string | undefined;
+  /**
+   * Name of the vendor.
+   */
+  vendor_name?: string | undefined;
+  /**
+   * Total amount of the payment.
+   */
+  amount?: number | undefined;
+  /**
+   * Date of the payment.
+   */
+  date?: string | undefined;
+  /**
+   * Payment mode.
+   */
+  payment_mode?: string | undefined;
+  /**
+   * Reference number.
+   */
+  reference_number?: string | undefined;
+  /**
+   * Description.
+   */
+  description?: string | undefined;
+  /**
+   * ID of the account used for payment.
+   */
+  paid_through_account_id?: string | undefined;
+  /**
+   * Name of the account used for payment.
+   */
+  paid_through_account_name?: string | undefined;
+  /**
+   * Bills the payment was applied to.
+   */
+  bills?: ({  bill_id?: string | undefined;
+  bill_number?: string | undefined;
+  amount_applied?: number | undefined;})[];
+};
+
+export interface ActionInput_zoho_books_deletebankaccount {
+  /**
+   * The ID of the bank account to delete. Example: "260815000000110010"
+   */
+  account_id: string;
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_deletebankaccount {
+  success: boolean;
+  message?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_deletebill {
+  /**
+   * Bill ID to delete. Example: "260815000000108002"
+   */
+  bill_id: string;
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_deletebill {
+  success: boolean;
+  message?: string | undefined;
+  bill_id?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_deletechartofaccount {
+  /**
+   * ID of the chart of account to delete. Example: "260815000000000388"
+   */
+  account_id: string;
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_deletechartofaccount {
+  code: number;
+  message: string;
+};
+
+export interface ActionInput_zoho_books_deletecontact {
+  /**
+   * Contact ID. Example: "260815000000097001"
+   */
+  contact_id: string;
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_deletecontact {
+  contact_id: string;
+  success: boolean;
+  message: string;
+};
+
+export interface ActionInput_zoho_books_deletecreditnote {
+  /**
+   * Unique identifier of the credit note. Example: "260815000000111002"
+   */
+  creditnote_id: string;
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_deletecreditnote {
+  success: boolean;
+  message?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_deleteestimate {
+  /**
+   * Unique identifier of the estimate to delete. Example: "260815000000101017"
+   */
+  estimate_id: string;
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_deleteestimate {
+  code: number;
+  message: string;
+};
+
+export interface ActionInput_zoho_books_deleteexpense {
+  /**
+   * The expense ID to delete. Example: "260815000000106001"
+   */
+  expense_id: string;
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_deleteexpense {
+  success: boolean;
+  message?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_deleteinvoice {
+  /**
+   * The invoice ID to delete. Example: "260815000000101011"
+   */
+  invoice_id: string;
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_deleteinvoice {
+  code: number;
+  message: string;
+};
+
+export interface ActionInput_zoho_books_deleteitem {
+  /**
+   * The unique ID of the item to delete. Example: "260815000000100002"
+   */
+  item_id: string;
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_deleteitem {
+  success: boolean;
+  item_id: string;
+  message?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_deletejournal {
+  /**
+   * The ID of the manual journal entry to delete. Example: "260815000000115005"
+   */
+  journal_id: string;
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_deletejournal {
+  journal_id: string;
+  deleted: boolean;
+};
+
+export interface ActionInput_zoho_books_deletepayment {
+  /**
+   * ID of the customer payment to delete. Example: "260815000000113012"
+   */
+  payment_id: string;
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_deletepayment {
+  success: boolean;
+  message?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_deletepurchaseorder {
+  /**
+   * Unique identifier of the purchase order to delete. Example: "260815000000000001"
+   */
+  purchaseorder_id: string;
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_deletepurchaseorder {
+  purchaseorder_id: string;
+  code: number;
+  message: string;
+  deleted: boolean;
+};
+
+export interface ActionInput_zoho_books_deletevendorpayment {
+  /**
+   * Vendor payment ID to delete. Example: "260815000000116002"
+   */
+  payment_id: string;
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_deletevendorpayment {
+  success: boolean;
+  message?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_getbankaccount {
+  /**
+   * The bank account ID. Example: "260815000000102017"
+   */
+  account_id: string;
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_getbankaccount {
+  account_id: string;
+  account_name?: string | undefined;
+  account_code?: string | undefined;
+  currency_id?: string | undefined;
+  currency_code?: string | undefined;
+  currency_symbol?: string | undefined;
+  price_precision?: number | undefined;
+  account_type?: string | undefined;
+  account_number?: string | undefined;
+  uncategorized_transactions?: number | undefined;
+  total_unprinted_checks?: number | undefined;
+  is_active?: boolean | undefined;
+  is_feeds_subscribed?: boolean | undefined;
+  is_feeds_active?: boolean | undefined;
+  balance?: number | undefined;
+  bank_balance?: number | undefined;
+  bcy_balance?: number | undefined;
+  bank_name?: string | undefined;
+  routing_number?: string | undefined;
+  is_primary_account?: boolean | undefined;
+  is_paypal_account?: boolean | undefined;
+  description?: string | undefined;
+  refresh_status?: string | undefined;
+  service_id?: string | undefined;
+  is_system_account?: boolean | undefined;
+  is_show_warning_for_feeds_refresh?: boolean | undefined;
+};
+
+export interface ActionInput_zoho_books_getbill {
+  /**
+   * The unique ID of the bill to retrieve. Example: "260815000000108002"
+   */
+  bill_id: string;
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_getbill {
+  bill_id: string;
+  vendor_id?: string | undefined;
+  vendor_name?: string | undefined;
+  status?: string | undefined;
+  bill_number?: string | undefined;
+  date?: string | undefined;
+  due_date?: string | undefined;
+  currency_id?: string | undefined;
+  currency_code?: string | undefined;
+  exchange_rate?: number | undefined;
+  total?: number | undefined;
+  balance?: number | undefined;
+  line_items?: ({})[] | undefined;
+};
+
+export interface ActionInput_zoho_books_getchartofaccount {
+  /**
+   * ID of the chart of account entry. Example: "260815000000000388"
+   */
+  account_id: string;
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_getchartofaccount {
+  account_id?: string | undefined;
+  account_name?: string | undefined;
+  account_code?: string | undefined;
+  is_active?: boolean | undefined;
+  account_type?: string | undefined;
+  currency_id?: string | undefined;
+  currency_code?: string | undefined;
+  description?: string | undefined;
+  is_system_account?: boolean | undefined;
+  is_involved_in_transaction?: boolean | undefined;
+  can_show_in_ze?: boolean | undefined;
+  include_in_vat_return?: boolean | undefined;
+  custom_fields?: ({  customfield_id?: string | undefined;
+  value?: string | undefined;})[];
+  parent_account_id?: string | undefined;
+  documents?: string[] | undefined;
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;
+  is_user_created?: boolean | undefined;
+  is_standalone_account?: boolean | undefined;
+  current_balance?: string | number | undefined;
+  parent_account_name?: string | undefined;
+  depth?: string | undefined;
+  has_attachment?: boolean | undefined;
+  is_child_present?: string | undefined;
+  child_count?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_getcontact {
+  /**
+   * Contact ID. Example: "260815000000097001"
+   */
+  contact_id: string;
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_getcontact {
+  contact_id: string | number;
+  contact_name?: string | undefined;
+  company_name?: string | undefined;
+  contact_type?: string | undefined;
+  status?: string | undefined;
+  customer_sub_type?: string | undefined;
+  credit_limit?: number | undefined;
+  is_portal_enabled?: boolean | undefined;
+  language_code?: string | undefined;
+  is_taxable?: boolean | undefined;
+  tax_id?: string | number | undefined;
+  tax_name?: string | undefined;
+  tax_percentage?: number | undefined;
+  tax_authority_id?: string | number | undefined;
+  tax_exemption_id?: string | number | undefined;
+  tax_authority_name?: string | undefined;
+  tax_exemption_code?: string | undefined;
+  place_of_contact?: string | undefined;
+  gst_no?: string | undefined;
+  vat_treatment?: string | undefined;
+  tax_treatment?: string | undefined;
+  tax_exemption_certificate_number?: string | undefined;
+  tax_regime?: string | undefined;
+  legal_name?: string | undefined;
+  is_tds_registered?: boolean | undefined;
+  gst_treatment?: string | undefined;
+  is_linked_with_zohocrm?: boolean | undefined;
+  website?: string | undefined;
+  owner_id?: string | number | undefined;
+  primary_contact_id?: string | number | undefined;
+  pricebook_id?: string | number | undefined;
+  contact_number?: string | undefined;
+  ignore_auto_number_generation?: boolean | undefined;
+  payment_terms?: number | undefined;
+  payment_terms_label?: string | undefined;
+  currency_id?: string | number | undefined;
+  currency_code?: string | undefined;
+  currency_symbol?: string | undefined;
+  outstanding_receivable_amount?: number | undefined;
+  outstanding_receivable_amount_bcy?: number | undefined;
+  unused_credits_receivable_amount?: number | undefined;
+  unused_credits_receivable_amount_bcy?: number | undefined;
+  billing_address?: {  attention?: string | undefined;
+  address?: string | undefined;
+  street2?: string | undefined;
+  state_code?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  zip?: string | number | undefined;
+  country?: string | undefined;
+  fax?: string | undefined;
+  phone?: string | undefined;};
+  shipping_address?: {  attention?: string | undefined;
+  address?: string | undefined;
+  street2?: string | undefined;
+  state_code?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  zip?: string | number | undefined;
+  country?: string | undefined;
+  fax?: string | undefined;
+  phone?: string | undefined;};
+  facebook?: string | undefined;
+  twitter?: string | undefined;
+  payment_reminder_enabled?: boolean | undefined;
+  notes?: string | undefined;
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;
+  contact_persons?: ({  contact_person_id?: string | number | undefined;
+  salutation?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  mobile?: string | undefined;
+  designation?: string | undefined;
+  department?: string | undefined;
+  skype?: string | undefined;
+  is_primary_contact?: boolean | undefined;
+  enable_portal?: boolean | undefined;
+  communication_preference?: {  is_sms_enabled?: boolean | undefined;
+  is_whatsapp_enabled?: boolean | undefined;};})[];
+  custom_fields?: ({})[] | undefined;
+  default_templates?: {} | undefined;
+  opening_balances?: ({})[] | undefined;
+};
+
+export interface ActionInput_zoho_books_getcreditnote {
+  /**
+   * Credit Note ID. Example: "260815000000111002"
+   */
+  creditnote_id: string;
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_getcreditnote {
+  [key: string]: unknown | undefined;
+};
+
+export interface ActionInput_zoho_books_getestimate {
+  /**
+   * Unique identifier of the estimate. Example: "260815000000101017"
+   */
+  estimate_id: string;
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_getestimate {
+  estimate_id: string | number;
+  estimate_number?: string | undefined;
+  date?: string | undefined;
+  reference_number?: string | undefined;
+  is_pre_gst?: boolean | undefined;
+  place_of_supply?: string | undefined;
+  gst_no?: string | undefined;
+  gst_treatment?: string | undefined;
+  tax_treatment?: string | undefined;
+  is_reverse_charge_applied?: boolean | undefined;
+  status?: string | undefined;
+  customer_id?: string | number | undefined;
+  customer_name?: string | undefined;
+  contact_persons_associated?: ({  contact_person_id?: string | number | undefined;
+  contact_person_name?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  contact_person_email?: string | undefined;
+  phone?: string | undefined;
+  mobile?: string | undefined;
+  communication_preference?: {  is_email_enabled?: boolean | undefined;
+  is_sms_enabled?: boolean | undefined;
+  is_whatsapp_enabled?: boolean | undefined;};})[];
+  currency_id?: string | number | undefined;
+  currency_code?: string | undefined;
+  exchange_rate?: number | undefined;
+  expiry_date?: string | undefined;
+  discount?: number | undefined;
+  is_discount_before_tax?: boolean | undefined;
+  discount_type?: string | undefined;
+  is_inclusive_tax?: boolean | undefined;
+  is_viewed_by_client?: boolean | undefined;
+  client_viewed_time?: string | undefined;
+  line_items?: ({  item_id?: string | number | undefined;
+  line_item_id?: string | number | undefined;
+  name?: string | undefined;
+  description?: string | undefined;
+  item_order?: number | undefined;
+  product_type?: string | undefined;
+  sat_item_key_code?: string | number | undefined;
+  unitkey_code?: string | undefined;
+  bcy_rate?: number | undefined;
+  rate?: number | undefined;
+  quantity?: number | undefined;
+  unit?: string | undefined;
+  discount_amount?: number | undefined;
+  discount?: number | undefined;
+  tax_id?: string | number | undefined;
+  tds_tax_id?: string | number | undefined;
+  tax_name?: string | undefined;
+  tax_type?: string | undefined;
+  tax_percentage?: number | undefined;
+  tax_treatment_code?: string | undefined;
+  item_total?: number | undefined;
+  location_id?: string | number | undefined;
+  location_name?: string | undefined;
+  tags?: ({  tag_id?: string | undefined;
+  tag_name?: string | undefined;
+  tag_option_id?: string | undefined;
+  tag_option_name?: string | undefined;
+  is_tag_mandatory?: boolean | undefined;})[];})[];
+  location_id?: string | number | undefined;
+  location_name?: string | undefined;
+  shipping_charge?: number | undefined;
+  adjustment?: number | undefined;
+  adjustment_description?: string | undefined;
+  sub_total?: number | undefined;
+  total?: number | undefined;
+  tax_total?: number | undefined;
+  price_precision?: number | undefined;
+  taxes?: ({  tax_name?: string | undefined;
+  tax_amount?: number | undefined;})[];
+  billing_address?: {  address?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  zip?: string | number | undefined;
+  country?: string | undefined;
+  fax?: string | undefined;};
+  shipping_address?: {  address?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  zip?: string | number | undefined;
+  country?: string | undefined;
+  fax?: string | undefined;};
+  custom_fields?: ({  index?: number | undefined;
+  show_on_pdf?: boolean | undefined;
+  value?: string | undefined;
+  label?: string | undefined;})[];
+  template_id?: string | number | undefined;
+  template_name?: string | undefined;
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;
+  salesperson_id?: string | number | undefined;
+  salesperson_name?: string | undefined;
+  project?: {  project_id?: string | number | undefined;
+  project_name?: string | undefined;};
+  tags?: ({  tag_id?: string | undefined;
+  tag_name?: string | undefined;
+  tag_option_id?: string | undefined;
+  tag_option_name?: string | undefined;
+  is_tag_mandatory?: boolean | undefined;})[];
+};
+
+export interface ActionInput_zoho_books_getexpense {
+  /**
+   * Unique identifier of the expense. Example: "260815000000106001"
+   */
+  expense_id: string;
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_getexpense {
+  expense: {  expense_id: string;
+  date?: string | undefined;
+  account_id?: string | undefined;
+  account_name?: string | undefined;
+  paid_through_account_id?: string | undefined;
+  paid_through_account_name?: string | undefined;
+  currency_id?: string | undefined;
+  currency_code?: string | undefined;
+  currency_symbol?: string | undefined;
+  amount?: number | undefined;
+  status?: string | undefined;
+  vendor_id?: string | undefined;
+  vendor_name?: string | undefined;
+  description?: string | undefined;
+  reference_number?: string | undefined;
+  is_billable?: boolean | undefined;
+  customer_id?: string | undefined;
+  customer_name?: string | undefined;
+  project_id?: string | undefined;
+  project_name?: string | undefined;
+  receipt_name?: string | undefined;
+  mileage_type?: string | undefined;
+  mileage_rate?: number | undefined;
+  distance?: number | undefined;
+  mileage_unit?: string | undefined;
+  expense_receipt_type?: string | undefined;
+  start_reading?: string | undefined;
+  end_reading?: string | undefined;
+  vehicle_type?: string | undefined;
+  vehicle_name?: string | undefined;
+  vehicle_id?: string | undefined;
+  recurring_expense_id?: string | undefined;
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;
+  tags?: unknown[] | undefined;
+  line_items?: ({  line_item_id?: string | undefined;
+  account_id?: string | undefined;
+  account_name?: string | undefined;
+  description?: string | undefined;
+  tax_amount?: number | undefined;
+  tax_id?: string | undefined;
+  tax_name?: string | undefined;
+  tax_type?: string | undefined;
+  tax_percentage?: number | undefined;
+  item_total?: number | undefined;
+  amount?: number | undefined;
+  item_order?: number | undefined;
+  line_item_taxes?: ({  tax_name?: string | undefined;
+  tax_amount?: number | undefined;
+  tax_id?: string | undefined;
+  tax_percentage?: number | undefined;
+  tax_type?: string | undefined;})[];
+  tags?: unknown[] | undefined;})[];
+  transaction_type?: string | undefined;
+  transaction_type_formatted?: string | undefined;
+  expense_item_id?: string | undefined;
+  documents?: unknown[] | undefined;
+  markup_percent?: number | undefined;
+  tax_id?: string | undefined;
+  tax_name?: string | undefined;
+  tax_percentage?: number | undefined;
+  taxes?: unknown[] | undefined;
+  tax_override_preference?: string | undefined;
+  exchange_rate?: number | undefined;
+  tax_amount?: number | undefined;
+  sub_total?: number | undefined;
+  total?: number | undefined;
+  bcy_total?: number | undefined;
+  is_inclusive_tax?: boolean | undefined;
+  is_personal?: boolean | undefined;
+  expense_receipt_name?: string | undefined;
+  created_by_id?: string | undefined;
+  last_modified_by_id?: string | undefined;
+  employee_id?: string | undefined;
+  employee_name?: string | undefined;
+  employee_email?: string | undefined;
+  expense_type?: string | undefined;
+  invoice_id?: string | undefined;
+  invoice_number?: string | undefined;
+  report_id?: string | undefined;
+  report_name?: string | undefined;
+  report_number?: string | undefined;
+  user_id?: string | undefined;
+  user_name?: string | undefined;
+  user_email?: string | undefined;
+  approver_id?: string | undefined;
+  approver_name?: string | undefined;
+  approver_email?: string | undefined;
+  report_status?: string | undefined;
+  is_reimbursable?: boolean | undefined;
+  trip_id?: string | undefined;
+  trip_number?: string | undefined;
+  location?: string | undefined;
+  merchant_id?: string | undefined;
+  merchant_name?: string | undefined;
+  payment_mode?: string | undefined;
+  template_id?: string | undefined;
+  template_name?: string | undefined;
+  template_type?: string | undefined;
+  page_width?: string | undefined;
+  page_height?: string | undefined;
+  orientation?: string | undefined;
+  custom_fields?: unknown[] | undefined;
+  custom_field_hash?: {  [key: string]: unknown | undefined;};
+  is_recurring_applicable?: boolean | undefined;
+  is_surcharge_applicable?: boolean | undefined;
+  fcy_surcharge_amount?: number | undefined;
+  bcy_surcharge_amount?: number | undefined;
+  zcrm_potential_id?: string | undefined;
+  zcrm_potential_name?: string | undefined;
+  imported_transactions?: unknown[] | undefined;};
+};
+
+export interface ActionInput_zoho_books_getinvoice {
+  /**
+   * Unique identifier of the invoice. Example: "260815000000103001"
+   */
+  invoice_id: string;
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_getinvoice {
+  /**
+   * Unique identifier of the invoice
+   */
+  invoice_id: string | number;
+  ach_payment_initiated?: boolean | undefined;
+  invoice_number?: string | undefined;
+  is_pre_gst?: boolean | undefined;
+  place_of_supply?: string | undefined;
+  gst_no?: string | undefined;
+  gst_treatment?: string | undefined;
+  cfdi_usage?: string | undefined;
+  vat_treatment?: string | undefined;
+  tax_treatment?: string | undefined;
+  is_reverse_charge_applied?: boolean | undefined;
+  vat_reg_no?: string | undefined;
+  date?: string | undefined;
+  status?: string | undefined;
+  payment_terms?: number | undefined;
+  payment_terms_label?: string | undefined;
+  due_date?: string | undefined;
+  payment_expected_date?: string | undefined;
+  last_payment_date?: string | undefined;
+  reference_number?: string | undefined;
+  customer_id?: string | number | undefined;
+  customer_name?: string | undefined;
+  contact_persons_associated?: ({  contact_person_id?: string | number | undefined;
+  contact_person_name?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  contact_person_email?: string | undefined;
+  phone?: string | undefined;
+  mobile?: string | undefined;
+  communication_preference?: {  is_email_enabled?: boolean | undefined;
+  is_sms_enabled?: boolean | undefined;
+  is_whatsapp_enabled?: boolean | undefined;};})[];
+  currency_id?: string | number | undefined;
+  currency_code?: string | undefined;
+  exchange_rate?: number | undefined;
+  discount?: number | undefined;
+  is_discount_before_tax?: boolean | undefined;
+  discount_type?: string | undefined;
+  is_inclusive_tax?: boolean | undefined;
+  recurring_invoice_id?: string | undefined;
+  is_viewed_by_client?: boolean | undefined;
+  has_attachment?: boolean | undefined;
+  client_viewed_time?: string | undefined;
+  location_id?: string | undefined;
+  location_name?: string | undefined;
+  tags?: ({  tag_id?: string | number | undefined;
+  tag_name?: string | undefined;
+  tag_option_id?: string | number | undefined;
+  tag_option_name?: string | undefined;
+  is_tag_mandatory?: boolean | undefined;})[];
+  line_items?: ({  line_item_id?: string | number | undefined;
+  item_id?: string | number | undefined;
+  project_id?: string | number | undefined;
+  project_name?: string | undefined;
+  time_entry_ids?: unknown[] | undefined;
+  location_id?: string | undefined;
+  location_name?: string | undefined;
+  item_type?: string | undefined;
+  product_type?: string | undefined;
+  expense_id?: string | number | undefined;
+  expense_receipt_name?: string | undefined;
+  name?: string | undefined;
+  description?: string | undefined;
+  item_order?: number | undefined;
+  bcy_rate?: number | undefined;
+  rate?: number | undefined;
+  quantity?: number | undefined;
+  unit?: string | undefined;
+  discount_amount?: number | undefined;
+  discount?: number | undefined;
+  tags?: ({})[] | undefined;
+  tax_id?: string | number | undefined;
+  tax_name?: string | undefined;
+  tax_type?: string | undefined;
+  tax_percentage?: number | undefined;
+  tax_treatment_code?: string | undefined;
+  item_total?: number | undefined;
+  header_name?: string | undefined;
+  header_id?: string | number | undefined;})[];
+  shipping_charge?: number | undefined;
+  adjustment?: number | undefined;
+  adjustment_description?: string | undefined;
+  sub_total?: number | undefined;
+  tax_total?: number | undefined;
+  total?: number | undefined;
+  taxes?: ({  tax_name?: string | undefined;
+  tax_amount?: number | undefined;})[];
+  payment_reminder_enabled?: boolean | undefined;
+  payment_made?: number | undefined;
+  credits_applied?: number | undefined;
+  tax_amount_withheld?: number | undefined;
+  balance?: number | undefined;
+  write_off_amount?: number | undefined;
+  allow_partial_payments?: boolean | undefined;
+  price_precision?: number | undefined;
+  payment_options?: {  payment_gateways?: ({  configured?: boolean | undefined;
+  additional_field1?: string | undefined;
+  gateway_name?: string | undefined;})[];};
+  is_emailed?: boolean | undefined;
+  reminders_sent?: number | undefined;
+  last_reminder_sent_date?: string | undefined;
+  billing_address?: {  address?: string | undefined;
+  street2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  zip?: string | number | undefined;
+  country?: string | undefined;
+  fax?: string | undefined;};
+  shipping_address?: {  address?: string | undefined;
+  street2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  zip?: string | number | undefined;
+  country?: string | undefined;
+  fax?: string | undefined;};
+  notes?: string | undefined;
+  terms?: string | undefined;
+  custom_fields?: ({  customfield_id?: string | number | undefined;
+  value?: string | undefined;})[];
+  template_id?: string | number | undefined;
+  template_name?: string | undefined;
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;
+  attachment_name?: string | undefined;
+  can_send_in_mail?: boolean | undefined;
+  salesperson_id?: string | undefined;
+  salesperson_name?: string | undefined;
+  invoice_url?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_getitem {
+  /**
+   * Item ID. Example: "260815000000100002"
+   */
+  item_id: string;
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_getitem {
+  item_id: string;
+  name?: string | undefined;
+  status?: string | undefined;
+  description?: string | undefined;
+  rate?: number | undefined;
+  unit?: string | undefined;
+  tax_id?: string | undefined;
+  purchase_tax_rule_id?: string | undefined;
+  sales_tax_rule_id?: string | undefined;
+  tax_name?: string | undefined;
+  tax_percentage?: string | undefined;
+  tax_type?: string | undefined;
+  hsn_or_sac?: string | undefined;
+  sat_item_key_code?: string | undefined;
+  unitkey_code?: string | undefined;
+  sku?: string | undefined;
+  product_type?: string | undefined;
+  item_tax_preferences?: ({  tax_id?: string | undefined;
+  tax_specification?: string | undefined;})[];
+  custom_fields?: ({  customfield_id?: string | undefined;
+  value?: string | undefined;})[];
+  locations?: ({  location_id?: string | undefined;
+  location_name?: string | undefined;
+  status?: string | undefined;
+  is_primary?: boolean | undefined;
+  location_stock_on_hand?: string | undefined;
+  location_available_stock?: string | undefined;
+  location_actual_available_stock?: string | undefined;})[];
+};
+
+export interface ActionInput_zoho_books_getjournal {
+  /**
+   * ID of the journal to retrieve. Example: "260815000000115005"
+   */
+  journal_id: string;
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_getjournal {
+  journal_id: string;
+  entry_number?: string | undefined;
+  reference_number?: string | undefined;
+  notes?: string | undefined;
+  currency_id?: string | undefined;
+  currency_code?: string | undefined;
+  currency_symbol?: string | undefined;
+  exchange_rate?: number | undefined;
+  journal_date?: string | undefined;
+  journal_type?: string | undefined;
+  vat_treatment?: string | undefined;
+  product_type?: string | undefined;
+  include_in_vat_return?: boolean | undefined;
+  is_bas_adjustment?: boolean | undefined;
+  line_items?: ({  line_id?: string | undefined;
+  account_id?: string | undefined;
+  customer_id?: string | undefined;
+  customer_name?: string | undefined;
+  account_name?: string | undefined;
+  description?: string | undefined;
+  debit_or_credit?: string | undefined;
+  tax_exemption_id?: string | undefined;
+  tax_exemption_type?: string | undefined;
+  tax_exemption_code?: string | undefined;
+  tax_authority_id?: string | undefined;
+  tax_authority_name?: string | undefined;
+  tax_id?: string | undefined;
+  tax_name?: string | undefined;
+  tax_type?: string | undefined;
+  tax_percentage?: string | undefined;
+  amount?: number | undefined;
+  bcy_amount?: number | undefined;
+  acquisition_vat_id?: string | undefined;
+  acquisition_vat_name?: string | undefined;
+  acquisition_vat_percentage?: string | undefined;
+  acquisition_vat_amount?: string | undefined;
+  reverse_charge_vat_id?: string | undefined;
+  reverse_charge_vat_name?: string | undefined;
+  reverse_charge_vat_percentage?: string | undefined;
+  reverse_charge_vat_amount?: string | undefined;
+  tags?: ({  tag_id?: string | undefined;
+  tag_option_id?: string | undefined;})[];
+  location_id?: string | undefined;
+  location_name?: string | undefined;
+  project_id?: string | undefined;
+  project_name?: string | undefined;})[];
+  location_id?: string | undefined;
+  location_name?: string | undefined;
+  line_item_total?: number | undefined;
+  total?: number | undefined;
+  bcy_total?: number | undefined;
+  price_precision?: number | undefined;
+  taxes?: ({  tax_name?: string | undefined;
+  tax_amount?: number | undefined;
+  debit_or_credit?: string | undefined;
+  tax_account?: boolean | undefined;})[];
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;
+  status?: string | undefined;
+  custom_fields?: ({  customfield_id?: string | undefined;
+  value?: string | undefined;})[] | string;
+  tags?: ({  tag_id?: string | undefined;
+  tag_name?: string | undefined;
+  tag_option_id?: string | undefined;
+  tag_option_name?: string | undefined;
+  is_tag_mandatory?: boolean | undefined;})[];
+};
+
+export interface ActionInput_zoho_books_getpayment {
+  /**
+   * Customer payment ID. Example: "260815000000113012"
+   */
+  payment_id: string;
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_getpayment {
+  payment_id?: string | undefined;
+  payment_mode?: string | undefined;
+  amount?: number | undefined;
+  amount_refunded?: number | undefined;
+  bank_charges?: number | undefined;
+  date?: string | undefined;
+  status?: string | undefined;
+  reference_number?: string | undefined;
+  description?: string | undefined;
+  customer_id?: string | undefined;
+  customer_name?: string | undefined;
+  email?: string | undefined;
+  invoices?: ({  invoice_id?: string | undefined;
+  invoice_number?: string | undefined;
+  date?: string | undefined;
+  invoice_amount?: number | undefined;
+  amount_applied?: number | undefined;
+  balance_amount?: number | undefined;
+  tax_amount_withheld?: number | undefined;})[];
+  currency_code?: string | undefined;
+  currency_symbol?: string | undefined;
+  location_id?: string | undefined;
+  location_name?: string | undefined;
+  tags?: ({  tag_id?: string | undefined;
+  tag_name?: string | undefined;
+  tag_option_id?: string | undefined;
+  tag_option_name?: string | undefined;
+  is_tag_mandatory?: boolean | undefined;})[];
+  custom_fields?: ({  index?: number | undefined;
+  value?: string | undefined;
+  label?: string | undefined;})[];
+};
+
+export interface ActionInput_zoho_books_getpurchaseorder {
+  /**
+   * Unique identifier of the purchase order. Example: "460000000062001"
+   */
+  purchaseorder_id: string;
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_getpurchaseorder {
+  code?: number | undefined;
+  message?: string | undefined;
+  purchaseorder?: {  purchaseorder_id?: string | undefined;
+  documents?: ({  document_id?: string | undefined;
+  file_name?: string | undefined;})[];
+  vat_treatment?: string | undefined;
+  gst_no?: string | undefined;
+  gst_treatment?: string | undefined;
+  tax_treatment?: string | undefined;
+  is_pre_gst?: boolean | undefined;
+  source_of_supply?: string | undefined;
+  destination_of_supply?: string | undefined;
+  place_of_supply?: string | undefined;
+  pricebook_id?: number | undefined;
+  pricebook_name?: string | undefined;
+  is_reverse_charge_applied?: boolean | undefined;
+  purchaseorder_number?: string | undefined;
+  date?: string | undefined;
+  expected_delivery_date?: string | undefined;
+  discount?: string | number | undefined;
+  discount_account_id?: string | undefined;
+  is_discount_before_tax?: boolean | undefined;
+  reference_number?: string | undefined;
+  status?: string | undefined;
+  vendor_id?: string | undefined;
+  vendor_name?: string | undefined;
+  crm_owner_id?: string | undefined;
+  contact_persons_associated?: ({  contact_person_id?: number | undefined;
+  contact_person_name?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  contact_person_email?: string | undefined;
+  phone?: string | undefined;
+  mobile?: string | undefined;
+  communication_preference?: {  is_email_enabled?: boolean | undefined;
+  is_whatsapp_enabled?: boolean | undefined;};})[];
+  currency_id?: string | undefined;
+  currency_code?: string | undefined;
+  currency_symbol?: string | undefined;
+  exchange_rate?: number | undefined;
+  delivery_date?: string | undefined;
+  is_emailed?: boolean | undefined;
+  is_inclusive_tax?: boolean | undefined;
+  location_id?: string | undefined;
+  location_name?: string | undefined;
+  line_items?: ({  item_id?: string | undefined;
+  line_item_id?: string | undefined;
+  sku?: string | undefined;
+  location_id?: string | undefined;
+  location_name?: string | undefined;
+  product_type?: string | undefined;
+  reverse_charge_tax_id?: number | undefined;
+  reverse_charge_tax_name?: string | undefined;
+  reverse_charge_tax_percentage?: number | undefined;
+  reverse_charge_tax_amount?: number | undefined;
+  account_id?: string | undefined;
+  account_name?: string | undefined;
+  name?: string | undefined;
+  description?: string | undefined;
+  item_order?: number | undefined;
+  bcy_rate?: number | undefined;
+  unit?: string | undefined;
+  rate?: number | undefined;
+  quantity?: number | undefined;
+  item_total?: number | undefined;
+  item_total_inclusive_of_tax?: number | undefined;
+  tax_exemption_id?: string | undefined;
+  tax_exemption_code?: string | undefined;
+  tax_id?: string | undefined;
+  tax_treatment_code?: string | undefined;
+  tax_name?: string | undefined;
+  tax_type?: string | undefined;
+  tax_percentage?: number | undefined;
+  hsn_or_sac?: string | undefined;
+  acquisition_vat_id?: string | undefined;
+  acquisition_vat_name?: string | undefined;
+  acquisition_vat_percentage?: string | undefined;
+  acquisition_vat_amount?: string | undefined;
+  reverse_charge_vat_id?: string | undefined;
+  reverse_charge_vat_name?: string | undefined;
+  reverse_charge_vat_percentage?: string | undefined;
+  reverse_charge_vat_amount?: string | undefined;
+  tags?: ({  tag_id?: string | undefined;
+  tag_name?: string | undefined;
+  tag_option_id?: string | undefined;
+  tag_option_name?: string | undefined;
+  is_tag_mandatory?: boolean | undefined;})[];
+  item_custom_fields?: ({  customfield_id?: string | undefined;
+  value?: string | undefined;})[];
+  project_id?: string | number | undefined;
+  project_name?: string | undefined;})[];
+  sub_total?: number | undefined;
+  tax_total?: number | undefined;
+  total?: number | undefined;
+  taxes?: string[] | undefined;
+  acquisition_vat_summary?: ({  tax_name?: string | undefined;
+  tax_amount?: number | undefined;})[];
+  acquisition_vat_total?: number | undefined;
+  reverse_charge_vat_summary?: ({  tax_name?: string | undefined;
+  tax_amount?: number | undefined;})[];
+  reverse_charge_vat_total?: number | undefined;
+  billing_address?: {  address?: string | undefined;
+  street2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  zip?: string | undefined;
+  country?: string | undefined;
+  fax?: string | undefined;
+  attention?: string | undefined;};
+  notes?: string | undefined;
+  terms?: string | undefined;
+  ship_via?: string | undefined;
+  ship_via_id?: string | undefined;
+  attention?: string | undefined;
+  delivery_org_address_id?: string | undefined;
+  delivery_customer_id?: string | undefined;
+  delivery_address?: {  zip?: string | undefined;
+  is_verifiable?: boolean | undefined;
+  state?: string | undefined;
+  address1?: string | undefined;
+  address2?: string | undefined;
+  is_valid?: string | undefined;
+  city?: string | undefined;
+  country?: string | undefined;
+  address?: string | undefined;
+  email?: string | undefined;
+  is_primary?: string | undefined;
+  organization_address_id?: string | undefined;
+  phone?: string | undefined;
+  is_verified?: boolean | undefined;};
+  price_precision?: string | number | undefined;
+  custom_fields?: ({  customfield_id?: string | undefined;
+  value?: string | undefined;})[];
+  attachment_name?: string | undefined;
+  can_send_in_mail?: boolean | undefined;
+  template_id?: string | undefined;
+  template_name?: string | undefined;
+  page_width?: string | undefined;
+  page_height?: string | undefined;
+  orientation?: string | undefined;
+  template_type?: string | undefined;
+  created_time?: string | undefined;
+  created_by_id?: string | undefined;
+  last_modified_time?: string | undefined;
+  can_mark_as_bill?: boolean | undefined;
+  can_mark_as_unbill?: boolean | undefined;
+  tags?: ({  tag_id?: string | undefined;
+  tag_name?: string | undefined;
+  tag_option_id?: string | undefined;
+  tag_option_name?: string | undefined;
+  is_tag_mandatory?: boolean | undefined;})[];};
+};
+
+export interface ActionInput_zoho_books_getvendorpayment {
+  /**
+   * Vendor payment ID. Example: "260815000000116002"
+   */
+  payment_id: string;
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_getvendorpayment {
+  payment_id?: string | undefined;
+  vendor_id?: string | undefined;
+  vendor_name?: string | undefined;
+  status?: string | undefined;
+  is_online_payment?: boolean | undefined;
+  transfer_type?: string | undefined;
+  payment_mode?: string | undefined;
+  payment_number?: string | number | undefined;
+  payment_number_prefix?: string | undefined;
+  payment_number_suffix?: string | undefined;
+  purpose_code?: string | undefined;
+  description?: string | undefined;
+  date?: string | undefined;
+  reference_number?: string | undefined;
+  exchange_rate?: number | undefined;
+  tax_account_id?: string | undefined;
+  tax_account_name?: string | undefined;
+  tax_amount_withheld?: number | undefined;
+  amount?: number | undefined;
+  bank_charges?: number | undefined;
+  bank_charges_account_id?: string | undefined;
+  bank_charges_account_name?: string | undefined;
+  balance?: number | undefined;
+  currency_id?: string | undefined;
+  currency_code?: string | undefined;
+  currency_symbol?: string | undefined;
+  created_time?: string | undefined;
+  created_by_id?: string | undefined;
+  created_by_name?: string | undefined;
+  last_modified_time?: string | undefined;
+  credit_account_id?: string | undefined;
+  paid_through_account_id?: string | undefined;
+  paid_through_account_name?: string | undefined;
+  paid_through_account_type?: string | undefined;
+  offset_account_id?: string | undefined;
+  offset_account_name?: string | undefined;
+  is_paid_via_print_check?: boolean | undefined;
+  is_ach_payment?: boolean | undefined;
+  ach_payment_status?: string | undefined;
+  gw_reference_number?: string | undefined;
+  check_details?: {  amount_in_words?: string | undefined;
+  check_id?: string | undefined;
+  check_number?: string | undefined;
+  check_status?: string | undefined;
+  memo?: string | undefined;
+  template_id?: string | undefined;
+  retain_txn_in_void_check?: boolean | undefined;};
+  billing_address?: {  address?: string | undefined;
+  street2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  zip?: string | undefined;
+  country?: string | undefined;
+  fax?: string | undefined;
+  phone?: string | undefined;
+  attention?: string | undefined;};
+  comments?: string | ({  comment_id?: string | undefined;
+  description?: string | undefined;
+  commented_by_id?: string | undefined;
+  commented_by?: string | undefined;
+  date?: string | undefined;
+  date_description?: string | undefined;
+  time?: string | undefined;
+  operation_type?: string | undefined;})[];
+  vendorpayment_refunds?: ({  vendorpayment_refund_id?: string | undefined;
+  date?: string | undefined;
+  refund_mode?: string | undefined;
+  reference_number?: string | undefined;
+  description?: string | undefined;
+  amount_bcy?: number | undefined;
+  amount_fcy?: number | undefined;})[];
+  bills?: ({  bill_payment_id?: string | undefined;
+  bill_id?: string | undefined;
+  amount_applied?: number | undefined;
+  tax_amount_withheld?: number | undefined;
+  balance?: number | undefined;
+  bill_number?: string | undefined;
+  date?: string | undefined;
+  due_date?: string | undefined;
+  price_precision?: number | undefined;
+  total?: number | undefined;
+  is_opening_balance?: boolean | undefined;
+  unprocessed_payment_amount?: number | undefined;
+  apply_date?: string | undefined;})[];
+  custom_fields?: ({  custom_field_id?: string | undefined;
+  index?: number | undefined;
+  label?: string | undefined;
+  value?: string | undefined;})[];
+  custom_field_hash?: {  [key: string]: unknown | undefined;};
+  tags?: ({  tag_id?: string | undefined;
+  tag_name?: string | undefined;
+  tag_option_id?: string | undefined;
+  tag_option_name?: string | undefined;
+  is_tag_mandatory?: boolean | undefined;})[];
+  imported_transactions?: string[] | undefined;
+  documents?: string[] | undefined;
+  approvers_list?: unknown[] | undefined;
+  location_id?: string | undefined;
+  location_name?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_listbankaccounts {
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+  /**
+   * Page number to fetch. Defaults to 1.
+   */
+  page?: number | undefined;
+  /**
+   * Number of records per page.
+   */
+  per_page?: number | undefined;
+  /**
+   * Filter by account status.
+   */
+  filter_by?: 'Status.All' | 'Status.Active' | 'Status.Inactive' | undefined;
+  /**
+   * Column to sort results by.
+   */
+  sort_column?: 'account_name' | 'account_type' | 'account_code' | undefined;
+};
+
+export interface ActionOutput_zoho_books_listbankaccounts {
+  items: ({  account_id: string;
+  account_name: string;
+  account_code?: string | undefined;
+  currency_id?: string | undefined;
+  currency_code?: string | undefined;
+  currency_symbol?: string | undefined;
+  price_precision?: number | undefined;
+  account_type: string;
+  account_sub_type?: string | undefined;
+  account_number?: string | undefined;
+  uncategorized_transactions?: number | undefined;
+  total_unprinted_checks?: number | undefined;
+  is_active?: boolean | undefined;
+  is_feeds_subscribed?: boolean | undefined;
+  is_feeds_active?: boolean | undefined;
+  balance?: number | undefined;
+  bank_balance?: number | undefined;
+  bcy_balance?: number | undefined;
+  bank_name?: string | undefined;
+  routing_number?: string | undefined;
+  is_primary_account?: boolean | undefined;
+  is_paypal_account?: boolean | undefined;
+  description?: string | undefined;
+  refresh_status_code?: string | undefined;
+  feeds_last_refresh_date?: string | undefined;
+  service_id?: string | undefined;
+  is_system_account?: boolean | undefined;
+  is_show_warning_for_feeds_refresh?: boolean | undefined;
+  is_direct_paypal?: boolean | undefined;
+  mfa_required?: boolean | undefined;
+  partner_bank_source_formatted?: string | undefined;
+  partner_bank_source?: string | undefined;
+  payout_bank_name?: string | undefined;
+  is_beta_feed?: boolean | undefined;
+  feed_status?: string | undefined;
+  consent_info?: {  consent_remaining_days?: string | undefined;
+  is_consent_expired?: string | undefined;};
+  paypal_type?: string | undefined;
+  paypal_email_address?: string | undefined;})[];
+  next_page?: number | undefined;
+};
+
+export interface ActionInput_zoho_books_listbills {
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+  /**
+   * Pagination cursor (page number) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of bills to retrieve per page.
+   */
+  per_page?: number | undefined;
+  /**
+   * Filter bills by vendor ID.
+   */
+  vendor_id?: string | undefined;
+  /**
+   * Filter bills by status: paid, open, overdue, void, partially_paid.
+   */
+  status?: string | undefined;
+  /**
+   * Filter bills by bill number.
+   */
+  bill_number?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_listbills {
+  items: ({  bill_id: string;
+  vendor_id?: string | undefined;
+  vendor_name?: string | undefined;
+  status?: string | undefined;
+  bill_number?: string | undefined;
+  reference_number?: string | undefined;
+  date?: string | undefined;
+  due_date?: string | undefined;
+  due_days?: string | undefined;
+  currency_id?: string | undefined;
+  currency_code?: string | undefined;
+  price_precision?: number | undefined;
+  exchange_rate?: number | undefined;
+  total?: number | undefined;
+  balance?: number | undefined;
+  location_id?: string | undefined;
+  location_name?: string | undefined;
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;
+  attachment_name?: string | undefined;
+  has_attachment?: boolean | undefined;
+  is_tds_applied?: boolean | undefined;
+  is_abn_quoted?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_listchartofaccounts {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+  /**
+   * Number of records per page.
+   */
+  per_page?: number | undefined;
+  /**
+   * Filter by account type and status. Allowed Values: AccountType.All, AccountType.Active, AccountType.Inactive, AccountType.Asset, AccountType.Liability, AccountType.Equity, AccountType.Income, AccountType.Expense.
+   */
+  filter_by?: string | undefined;
+  /**
+   * Sort accounts. Allowed Values: account_name, account_type, account_code.
+   */
+  sort_column?: string | undefined;
+  /**
+   * Search accounts by account name or code.
+   */
+  search_text?: string | undefined;
+  /**
+   * Search by account name.
+   */
+  account_name?: string | undefined;
+  /**
+   * Search by account code.
+   */
+  account_code?: string | undefined;
+  /**
+   * Search by account ID.
+   */
+  account_id?: string | undefined;
+  /**
+   * Boolean to get current balance of accounts.
+   */
+  showbalance?: boolean | undefined;
+};
+
+export interface ActionOutput_zoho_books_listchartofaccounts {
+  accounts: ({  account_id: string;
+  account_name?: string | undefined;
+  account_code?: string | undefined;
+  account_type?: string | undefined;
+  is_user_created?: boolean | undefined;
+  is_system_account?: boolean | undefined;
+  is_standalone_account?: boolean | undefined;
+  is_active?: boolean | undefined;
+  can_show_in_ze?: boolean | undefined;
+  is_involved_in_transaction?: boolean | undefined;
+  current_balance?: number | undefined;
+  parent_account_id?: string | undefined;
+  parent_account_name?: string | undefined;
+  depth?: number | undefined;
+  has_attachment?: boolean | undefined;
+  is_child_present?: boolean | undefined;
+  child_count?: string | undefined;
+  documents?: string[] | undefined;
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_listcontacts {
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+  /**
+   * Pagination cursor from the previous response. For Zoho Books, this is the page number. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of records to be fetched per page.
+   */
+  per_page?: number | undefined;
+  /**
+   * Search contacts by contact type. Allowed Values: customer, vendor.
+   */
+  contact_type?: string | undefined;
+  /**
+   * Search contacts by contact name. Max-length 100.
+   */
+  contact_name?: string | undefined;
+  /**
+   * Search contacts by company name. Max-length 100.
+   */
+  company_name?: string | undefined;
+  /**
+   * Search contacts by email of the primary contact person. Max-length 100.
+   */
+  email?: string | undefined;
+  /**
+   * Search contacts by phone number of the primary contact person. Max-length 100.
+   */
+  phone?: string | undefined;
+  /**
+   * Filter contacts by status. Allowed Values: Status.All, Status.Active, Status.Inactive, Status.Duplicate, Status.PortalEnabled, Status.PortalDisabled, Invoice.OverDue, Invoice.Unpaid, Status.CreditLimitExceed and Status.Crm.
+   */
+  filter_by?: string | undefined;
+  /**
+   * Search contacts by contact name or notes. Max-length 100.
+   */
+  search_text?: string | undefined;
+  /**
+   * Sort contacts. Allowed Values: contact_name, first_name, last_name, email, outstanding_receivable_amount, created_time and last_modified_time.
+   */
+  sort_column?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_listcontacts {
+  contacts: ({  contact_id: string;
+  contact_name?: string | undefined;
+  company_name?: string | undefined;
+  contact_type?: string | undefined;
+  status?: string | undefined;
+  payment_terms?: number | undefined;
+  payment_terms_label?: string | undefined;
+  currency_id?: string | undefined;
+  currency_code?: string | undefined;
+  outstanding_receivable_amount?: number | undefined;
+  unused_credits_receivable_amount?: number | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  mobile?: string | undefined;
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;})[];
+  /**
+   * Next page cursor to fetch the following page. Absent if there are no more pages.
+   */
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_listcreditnotes {
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+  /**
+   * Number of records per page.
+   */
+  per_page?: number | undefined;
+  /**
+   * Filter by status. Allowed values: open, closed, void, draft.
+   */
+  status?: string | undefined;
+  /**
+   * Filter by customer ID.
+   */
+  customer_id?: string | undefined;
+  /**
+   * Search text across credit note number, customer name, and reference number.
+   */
+  search_text?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_listcreditnotes {
+  items: ({  creditnote_id: string;
+  creditnote_number?: string | undefined;
+  status?: string | undefined;
+  reference_number?: string | undefined;
+  date?: string | undefined;
+  total?: number | undefined;
+  balance?: number | undefined;
+  location_id?: string | undefined;
+  location_name?: string | undefined;
+  customer_id?: string | undefined;
+  customer_name?: string | undefined;
+  currency_id?: string | undefined;
+  currency_code?: string | undefined;
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;
+  is_emailed?: boolean | undefined;})[];
+  /**
+   * Next page cursor if more pages exist.
+   */
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_listcurrencies {
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+  /**
+   * Pagination cursor (page number) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of records to fetch per page. Default is 200.
+   */
+  per_page?: number | undefined;
+  /**
+   * Filter currencies. Allowed value: Currencies.ExcludeBaseCurrency
+   */
+  filter_by?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_listcurrencies {
+  items: ({  currency_id: string;
+  currency_code: string;
+  currency_name: string;
+  currency_symbol?: string | undefined;
+  price_precision?: number | undefined;
+  currency_format?: string | undefined;
+  is_base_currency?: boolean | undefined;
+  exchange_rate?: number | undefined;
+  effective_date?: string | undefined;})[];
+  next_page?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_listestimates {
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+  /**
+   * Number of records per page.
+   */
+  per_page?: number | undefined;
+  /**
+   * Filter by customer ID.
+   */
+  customer_id?: string | undefined;
+  /**
+   * Filter by status: draft, sent, invoiced, accepted, declined, expired.
+   */
+  status?: string | undefined;
+  /**
+   * Keyword search across estimate number, reference number, or customer name.
+   */
+  search_text?: string | undefined;
+  /**
+   * Filter by estimate number.
+   */
+  estimate_number?: string | undefined;
+  /**
+   * Filter by estimate date.
+   */
+  date?: string | undefined;
+  /**
+   * Filter estimates with date on or after yyyy-mm-dd.
+   */
+  date_start?: string | undefined;
+  /**
+   * Filter estimates with date on or before yyyy-mm-dd.
+   */
+  date_end?: string | undefined;
+  /**
+   * Sort by: customer_name, estimate_number, date, total, created_time.
+   */
+  sort_column?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_listestimates {
+  estimates: ({  estimate_id: string;
+  customer_name?: string | undefined;
+  customer_id?: string | undefined;
+  company_name?: string | undefined;
+  status?: string | undefined;
+  current_sub_status_id?: string | undefined;
+  current_sub_status?: string | undefined;
+  color_code?: string | undefined;
+  estimate_number?: string | undefined;
+  reference_number?: string | undefined;
+  date?: string | undefined;
+  currency_id?: string | undefined;
+  currency_code?: string | undefined;
+  total?: number | undefined;
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;
+  accepted_date?: string | undefined;
+  declined_date?: string | undefined;
+  expiry_date?: string | undefined;
+  has_attachment?: boolean | undefined;
+  is_viewed_by_client?: boolean | undefined;
+  client_viewed_time?: string | undefined;
+  is_emailed?: boolean | undefined;
+  template_type?: string | undefined;
+  template_id?: string | undefined;
+  salesperson_id?: string | undefined;
+  salesperson_name?: string | undefined;
+  zcrm_potential_id?: string | undefined;
+  zcrm_potential_name?: string | undefined;
+  tags?: unknown[] | undefined;})[];
+  next_page?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_listexpenses {
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+  /**
+   * Number of records per page. Max 200.
+   */
+  per_page?: number | undefined;
+  /**
+   * Filter by vendor ID.
+   */
+  vendor_id?: string | undefined;
+  /**
+   * Filter by customer ID.
+   */
+  customer_id?: string | undefined;
+  /**
+   * Filter by expense status. Values: unbilled, invoiced, reimbursed, non-billable, billable.
+   */
+  status?: string | undefined;
+  /**
+   * Filter by expense date range start (yyyy-mm-dd).
+   */
+  date_start?: string | undefined;
+  /**
+   * Filter by expense date range end (yyyy-mm-dd).
+   */
+  date_end?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_listexpenses {
+  items: ({  expense_id: string;
+  date?: string | undefined;
+  account_id?: string | undefined;
+  account_name?: string | undefined;
+  description?: string | undefined;
+  amount?: number | undefined;
+  currency_code?: string | undefined;
+  status?: string | undefined;
+  vendor_id?: string | undefined;
+  vendor_name?: string | undefined;
+  customer_id?: string | undefined;
+  customer_name?: string | undefined;
+  reference_number?: string | undefined;
+  is_billable?: boolean | undefined;
+  project_id?: string | undefined;
+  project_name?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_listinvoices {
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+  /**
+   * Pagination cursor (page number) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Records per page. Default: 200. Max: 200.
+   */
+  per_page?: number | undefined;
+  /**
+   * Search by invoice number. Example: "INV-00001"
+   */
+  invoice_number?: string | undefined;
+  /**
+   * Search by customer ID. Example: "260815000000097001"
+   */
+  customer_id?: string | undefined;
+  /**
+   * Filter by status: sent, draft, overdue, paid, void, unpaid, partially_paid, viewed
+   */
+  status?: string | undefined;
+  /**
+   * Exact invoice date (yyyy-mm-dd).
+   */
+  date?: string | undefined;
+  /**
+   * Invoice date on or after (yyyy-mm-dd).
+   */
+  date_start?: string | undefined;
+  /**
+   * Invoice date on or before (yyyy-mm-dd).
+   */
+  date_end?: string | undefined;
+  /**
+   * Due date (yyyy-mm-dd).
+   */
+  due_date?: string | undefined;
+  /**
+   * Due date on or after (yyyy-mm-dd).
+   */
+  due_date_start?: string | undefined;
+  /**
+   * Due date on or before (yyyy-mm-dd).
+   */
+  due_date_end?: string | undefined;
+  /**
+   * General search across invoice number, PO, or customer name.
+   */
+  search_text?: string | undefined;
+  /**
+   * Sort by: customer_name, invoice_number, date, due_date, total, balance, created_time.
+   */
+  sort_column?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_listinvoices {
+  invoices: ({  invoice_id?: string | undefined;
+  invoice_number?: string | undefined;
+  customer_id?: string | undefined;
+  customer_name?: string | undefined;
+  status?: string | undefined;
+  date?: string | undefined;
+  due_date?: string | undefined;
+  total?: number | undefined;
+  balance?: number | undefined;
+  currency_code?: string | undefined;
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_listitems {
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+  /**
+   * Search items by name. Max-length [100].
+   */
+  name?: string | undefined;
+  /**
+   * Filter items by status.
+   */
+  filter_by?: 'Status.All' | 'Status.Active' | 'Status.Inactive' | undefined;
+  /**
+   * Sort items by column.
+   */
+  sort_column?: 'name' | 'rate' | 'tax_name' | undefined;
+  /**
+   * Number of records per page.
+   */
+  per_page?: number | undefined;
+};
+
+export interface ActionOutput_zoho_books_listitems {
+  items: ({  item_id: string;
+  name: string;
+  status: string;
+  description?: string | undefined;
+  rate?: number | undefined;
+  unit?: string | undefined;
+  tax_id?: string | undefined;
+  tax_name?: string | undefined;
+  tax_percentage?: string | undefined;
+  tax_type?: string | undefined;
+  sku?: string | undefined;
+  product_type?: string | undefined;
+  custom_fields?: ({})[] | undefined;})[];
+  /**
+   * Page number for the next page. Omit if there are no more pages.
+   */
+  next_page?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_listjournals {
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+  /**
+   * Pagination cursor (page number) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of records per page. Example: 10
+   */
+  per_page?: number | undefined;
+  /**
+   * Search journals by journal entry number.
+   */
+  entry_number?: string | undefined;
+  /**
+   * Search journals by journal reference number.
+   */
+  reference_number?: string | undefined;
+  /**
+   * Search journals by journal date. Format: YYYY-MM-DD
+   */
+  date?: string | undefined;
+  /**
+   * Search journals by journal notes.
+   */
+  notes?: string | undefined;
+  /**
+   * Filter journals by status. Allowed: draft, published, approved, submitted, rejected.
+   */
+  status?: string | undefined;
+  /**
+   * Filter journals by journal type.
+   */
+  journal_type?: string | undefined;
+  /**
+   * Filter journals by account ID.
+   */
+  account_id?: string | undefined;
+  /**
+   * Search journals using Customer ID.
+   */
+  customer_id?: string | undefined;
+  /**
+   * Search the journals using Vendor ID.
+   */
+  vendor_id?: string | undefined;
+  /**
+   * Filter journals by journal date. Allowed: JournalDate.All, JournalDate.Today, JournalDate.ThisWeek, JournalDate.ThisMonth, JournalDate.ThisQuarter, JournalDate.ThisYear.
+   */
+  filter_by?: string | undefined;
+  /**
+   * Sort journal list. Allowed: journal_date, entry_number, reference_number, total, last_modified_time.
+   */
+  sort_column?: string | undefined;
+  /**
+   * Search journals by text.
+   */
+  search_text?: string | undefined;
+  /**
+   * Comma separated journal IDs. Maximum of 200.
+   */
+  journal_ids?: string | undefined;
+  /**
+   * Filter by journal entity type. Allowed: journal, period_end_journal, consolidation_journal, consolidation_adjustment_journal, elimination_journal, intercompany_journal.
+   */
+  journal_entity_type?: string | undefined;
+  /**
+   * Filter by project ID.
+   */
+  project_id?: string | undefined;
+  /**
+   * Comma separated branch IDs. Maximum of 200.
+   */
+  branch_ids?: string | undefined;
+  /**
+   * Comma separated location IDs. Maximum of 200.
+   */
+  location_ids?: string | undefined;
+  /**
+   * Filter by currency ID.
+   */
+  currency?: string | undefined;
+  /**
+   * Filter by tax ID.
+   */
+  tax_id?: string | undefined;
+  /**
+   * Filter by tax exemption ID.
+   */
+  tax_exemption_id?: string | undefined;
+  /**
+   * Filter by tax authority ID.
+   */
+  tax_authority_id?: string | undefined;
+  /**
+   * Filter by period closure ID.
+   */
+  period_closure_id?: string | undefined;
+  /**
+   * Search the journals using Last Modified Time.
+   */
+  last_modified_time?: string | undefined;
+  /**
+   * Search journals by journal total.
+   */
+  total?: number | undefined;
+  /**
+   * ID of the custom view.
+   */
+  customview_id?: string | undefined;
+  /**
+   * Search journals by account code.
+   */
+  account_code?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_listjournals {
+  items: ({  journal_id: string;
+  journal_date?: string | undefined;
+  entry_number?: string | undefined;
+  reference_number?: string | undefined;
+  currency_id?: string | undefined;
+  notes?: string | undefined;
+  journal_type?: string | undefined;
+  entity_type?: string | undefined;
+  total?: number | undefined;
+  bcy_total?: number | undefined;
+  custom_field?: string | undefined;
+  tags?: ({  tag_id?: string | undefined;
+  tag_name?: string | undefined;
+  tag_option_id?: string | undefined;
+  tag_option_name?: string | undefined;
+  is_tag_mandatory?: boolean | undefined;})[];})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_listorganizations {
+};
+
+export interface ActionOutput_zoho_books_listorganizations {
+  organizations: ({  organization_id: string;
+  name: string;
+  contact_name?: string | undefined;
+  email?: string | undefined;
+  is_default_org?: boolean | undefined;
+  language_code?: string | undefined;
+  fiscal_year_start_month?: string | number | undefined;
+  account_created_date?: string | undefined;
+  time_zone?: string | undefined;
+  is_dst_active?: boolean | undefined;
+  date_format?: string | undefined;
+  field_separator?: string | undefined;
+  industry_type?: string | undefined;
+  industry_size?: string | undefined;
+  company_id_label?: string | undefined;
+  company_id_value?: string | undefined;
+  tax_id_label?: string | undefined;
+  tax_id_value?: string | undefined;
+  currency_id?: string | undefined;
+  currency_code?: string | undefined;
+  currency_symbol?: string | undefined;
+  currency_format?: string | undefined;
+  price_precision?: number | undefined;
+  plan_type?: number | undefined;
+  plan_name?: string | undefined;
+  plan_period?: string | undefined;
+  country_code?: string | undefined;
+  country_name?: string | undefined;
+  org_address?: string | undefined;
+  portal_name?: string | undefined;
+  org_settings?: {  is_org_active?: boolean | undefined;};})[];
+};
+
+export interface ActionInput_zoho_books_listpayments {
+  /**
+   * Pagination cursor (page number) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+  /**
+   * Filter payments by mode. Allowed values: PaymentMode.All, PaymentMode.Check, PaymentMode.Cash, PaymentMode.BankTransfer, PaymentMode.CreditCard, PaymentMode.Stripe, etc.
+   */
+  filter_by?: string | undefined;
+  /**
+   * Filter payments by payment mode.
+   */
+  payment_mode?: string | undefined;
+  /**
+   * Sort column for the results.
+   */
+  sort_column?: string | undefined;
+  /**
+   * Search payments by text. Max length 100.
+   */
+  search_text?: string | undefined;
+  /**
+   * Number of records per page. Max 200.
+   */
+  per_page?: number | undefined;
+};
+
+export interface ActionOutput_zoho_books_listpayments {
+  items: ({  /**
+   * Payment ID. Example: "260815000000114002"
+   */
+  payment_id: string;
+  payment_number?: string | undefined;
+  invoice_numbers?: string | undefined;
+  date?: string | undefined;
+  payment_mode?: string | undefined;
+  payment_mode_formatted?: string | undefined;
+  amount?: number | undefined;
+  bcy_amount?: number | undefined;
+  unused_amount?: number | undefined;
+  bcy_unused_amount?: number | undefined;
+  account_id?: string | undefined;
+  account_name?: string | undefined;
+  description?: string | undefined;
+  reference_number?: string | undefined;
+  customer_id?: string | undefined;
+  customer_name?: string | undefined;
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;
+  last_four_digits?: string | undefined;
+  gateway_transaction_id?: string | undefined;
+  payment_gateway?: string | undefined;
+  bcy_refunded_amount?: number | undefined;
+  applied_invoices?: ({  invoice_id?: string | undefined;
+  invoice_number?: string | undefined;
+  date?: string | undefined;
+  invoice_amount?: number | undefined;
+  amount_applied?: number | undefined;
+  balance_amount?: number | undefined;})[];
+  has_attachment?: boolean | undefined;
+  tags?: ({  tag_id?: string | undefined;
+  tag_name?: string | undefined;
+  tag_option_id?: string | undefined;
+  tag_option_name?: string | undefined;
+  is_tag_mandatory?: boolean | undefined;})[];
+  tax_account_id?: string | undefined;
+  tax_account_name?: string | undefined;
+  tax_amount_withheld?: number | undefined;
+  payment_type?: string | undefined;
+  payment_status?: string | undefined;
+  settlement_status?: string | undefined;
+  sales_channel?: string | undefined;})[];
+  next_page?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_listpurchaseorders {
+  /**
+   * Pagination cursor (page number) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_listpurchaseorders {
+  purchaseorders: ({  purchaseorder_id: string;
+  vendor_id?: string | undefined;
+  vendor_name?: string | undefined;
+  status?: string | undefined;
+  purchaseorder_number?: string | undefined;
+  reference_number?: string | undefined;
+  date?: string | undefined;
+  delivery_date?: string | undefined;
+  currency_id?: string | undefined;
+  currency_code?: string | undefined;
+  price_precision?: number | undefined;
+  total?: number | undefined;
+  has_attachment?: boolean | undefined;
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_listtaxes {
+  /**
+   * Pagination cursor (page number) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of records to be fetched per page.
+   */
+  per_page?: number | undefined;
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_listtaxes {
+  taxes: ({  tax_id: string;
+  tax_name: string;
+  tax_percentage?: number | undefined;
+  tax_type?: string | undefined;
+  tax_factor?: string | undefined;
+  tax_specific_type?: string | undefined;
+  tax_authority_id?: string | undefined;
+  tax_authority_name?: string | undefined;
+  is_value_added?: boolean | undefined;
+  is_default_tax?: boolean | undefined;
+  is_editable?: boolean | undefined;
+  output_tax_account_name?: string | undefined;
+  purchase_tax_account_name?: string | undefined;
+  tax_account_id?: string | undefined;
+  purchase_tax_account_id?: string | undefined;})[];
+  next_page?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_listvendorpayments {
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of records per page. Default: 200
+   */
+  per_page?: number | undefined;
+  /**
+   * Filter by vendor ID
+   */
+  vendor_id?: string | undefined;
+  /**
+   * Filter by Bill ID
+   */
+  bill_id?: string | undefined;
+  /**
+   * Search by reference number
+   */
+  reference_number?: string | undefined;
+  /**
+   * Search by payment number
+   */
+  payment_number?: string | undefined;
+  /**
+   * Payment date
+   */
+  date?: string | undefined;
+  /**
+   * Payment amount
+   */
+  amount?: number | undefined;
+  /**
+   * Search by payment mode
+   */
+  payment_mode?: string | undefined;
+  /**
+   * Search by vendor name
+   */
+  vendor_name?: string | undefined;
+  /**
+   * Search by reference number, vendor name, or payment description
+   */
+  search_text?: string | undefined;
+  /**
+   * Filter by payment mode. Allowed values: PaymentMode.All, PaymentMode.Check, PaymentMode.Cash, PaymentMode.BankTransfer, PaymentMode.Paypal, PaymentMode.CreditCard, PaymentMode.GoogleCheckout, PaymentMode.Credit, PaymentMode.Authorizenet, PaymentMode.BankRemittance, PaymentMode.Payflowpro, PaymentMode.Others
+   */
+  filter_by?: string | undefined;
+  /**
+   * Sort list. Allowed values: vendor_name, date, reference_number, amount, balance
+   */
+  sort_column?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_listvendorpayments {
+  items: ({  payment_id: string;
+  vendor_id?: string | undefined;
+  vendor_name?: string | undefined;
+  bill_numbers?: string | undefined;
+  payment_mode?: string | undefined;
+  payment_number?: string | number | undefined;
+  description?: string | undefined;
+  date?: string | undefined;
+  reference_number?: string | undefined;
+  exchange_rate?: number | undefined;
+  amount?: number | undefined;
+  bcy_amount?: number | undefined;
+  paid_through_account_id?: string | undefined;
+  paid_through_account_name?: string | undefined;
+  balance?: number | undefined;
+  bcy_balance?: number | undefined;
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;
+  is_paid_via_print_check?: boolean | undefined;
+  has_attachment?: boolean | undefined;
+  is_ach_payment?: boolean | undefined;
+  ach_payment_status?: string | undefined;
+  ach_gw_transaction_id?: string | undefined;
+  tags?: ({  tag_id?: string | undefined;
+  tag_name?: string | undefined;
+  tag_option_id?: string | undefined;
+  tag_option_name?: string | undefined;
+  is_tag_mandatory?: boolean | undefined;})[];
+  check_details?: {} | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_markinvoicesent {
+  /**
+   * Unique identifier of the invoice. Example: "260815000000101011"
+   */
+  invoice_id: string;
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_markinvoicesent {
+  code: number;
+  message: string;
+};
+
+export interface ActionInput_zoho_books_sendinvoiceemail {
+  /**
+   * The ID of the invoice to email. Example: "260815000000103001"
+   */
+  invoice_id: string;
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+  /**
+   * List of recipient email addresses.
+   */
+  to_mail_ids?: string[] | undefined;
+  /**
+   * List of CC email addresses.
+   */
+  cc_mail_ids?: string[] | undefined;
+  /**
+   * Subject of the email.
+   */
+  subject?: string | undefined;
+  /**
+   * Body content of the email.
+   */
+  body?: string | undefined;
+  /**
+   * Whether to include the customer statement.
+   */
+  send_customer_statement?: boolean | undefined;
+  /**
+   * Comma-separated IDs of file attachments to include.
+   */
+  attachments?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_sendinvoiceemail {
+  code?: number | undefined;
+  message?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_updatebankaccount {
+  /**
+   * Unique identifier of the bank account. Example: "260815000000102017"
+   */
+  account_id: string;
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+  /**
+   * Name of the bank account. Example: "Corporate Account"
+   */
+  account_name?: string | undefined;
+  /**
+   * Type of the account. Example: "bank" or "cash"
+   */
+  account_type?: string | undefined;
+  /**
+   * Account number. Example: "80000009823"
+   */
+  account_number?: string | undefined;
+  /**
+   * Account code. Example: "123"
+   */
+  account_code?: string | undefined;
+  /**
+   * Currency ID. Example: "260815000000000097"
+   */
+  currency_id?: string | undefined;
+  /**
+   * Currency code. Example: "USD"
+   */
+  currency_code?: string | undefined;
+  /**
+   * Description of the account. Example: "Salary details."
+   */
+  description?: string | undefined;
+  /**
+   * Name of the bank. Example: "Xavier Bank"
+   */
+  bank_name?: string | undefined;
+  /**
+   * Routing number of the bank. Example: "123456789"
+   */
+  routing_number?: string | undefined;
+  /**
+   * Whether this is the primary account.
+   */
+  is_primary_account?: boolean | undefined;
+  /**
+   * Whether this is a PayPal account.
+   */
+  is_paypal_account?: boolean | undefined;
+  /**
+   * PayPal account type. Example: "personal" or "business"
+   */
+  paypal_type?: string | undefined;
+  /**
+   * PayPal email address. Example: "johnsmith@zilliuminc.com"
+   */
+  paypal_email_address?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_updatebankaccount {
+  account_id: string;
+  account_name?: string | undefined;
+  account_type?: string | undefined;
+  account_number?: string | undefined;
+  account_code?: string | undefined;
+  currency_id?: string | undefined;
+  currency_code?: string | undefined;
+  description?: string | undefined;
+  bank_name?: string | undefined;
+  routing_number?: string | undefined;
+  is_primary_account?: boolean | undefined;
+  is_paypal_account?: boolean | undefined;
+  paypal_type?: string | undefined;
+  paypal_email_address?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_updatebill {
+  bill_id: string;
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+  vendor_id?: string | undefined;
+  currency_id?: string | undefined;
+  vat_treatment?: string | undefined;
+  is_update_customer?: boolean | undefined;
+  purchaseorder_ids?: string[] | undefined;
+  bill_number?: string | undefined;
+  documents?: ({  document_id?: string | undefined;
+  file_name?: string | undefined;})[];
+  source_of_supply?: string | undefined;
+  destination_of_supply?: string | undefined;
+  place_of_supply?: string | undefined;
+  permit_number?: string | undefined;
+  gst_treatment?: string | undefined;
+  tax_treatment?: string | undefined;
+  gst_no?: string | undefined;
+  pricebook_id?: string | undefined;
+  reference_number?: string | undefined;
+  date?: string | undefined;
+  due_date?: string | undefined;
+  payment_terms?: number | undefined;
+  payment_terms_label?: string | undefined;
+  recurring_bill_id?: string | undefined;
+  exchange_rate?: number | undefined;
+  is_item_level_tax_calc?: boolean | undefined;
+  is_inclusive_tax?: boolean | undefined;
+  adjustment?: number | undefined;
+  adjustment_description?: string | undefined;
+  location_id?: string | undefined;
+  custom_fields?: ({  index?: number | undefined;
+  value?: string | undefined;})[];
+  tags?: ({  tag_id?: string | undefined;
+  tag_option_id?: string | undefined;})[];
+  line_items?: ({  purchaseorder_item_id?: string | undefined;
+  line_item_id?: string | undefined;
+  item_id?: string | undefined;
+  name?: string | undefined;
+  account_id?: string | undefined;
+  description?: string | undefined;
+  rate?: number | undefined;
+  hsn_or_sac?: string | undefined;
+  reverse_charge_tax_id?: string | undefined;
+  location_id?: string | undefined;
+  quantity?: number | undefined;
+  tax_id?: string | undefined;
+  tds_tax_id?: string | undefined;
+  tax_treatment_code?: string | undefined;
+  tax_exemption_id?: string | undefined;
+  tax_exemption_code?: string | undefined;
+  item_order?: number | undefined;
+  product_type?: string | undefined;
+  acquisition_vat_id?: string | undefined;
+  reverse_charge_vat_id?: string | undefined;
+  unit?: string | undefined;
+  tags?: ({  tag_id?: string | undefined;
+  tag_option_id?: string | undefined;})[];
+  is_billable?: boolean | undefined;
+  project_id?: string | undefined;
+  customer_id?: string | undefined;
+  item_custom_fields?: ({  custom_field_id?: string | undefined;
+  index?: number | undefined;
+  value?: string | undefined;
+  label?: string | undefined;})[];
+  serial_numbers?: string[] | undefined;})[];
+  taxes?: ({  tax_id?: string | undefined;
+  tax_name?: string | undefined;
+  tax_amount?: number | undefined;})[];
+  notes?: string | undefined;
+  terms?: string | undefined;
+  approvers?: ({  approver_id?: string | undefined;
+  order?: number | undefined;})[];
+};
+
+export interface ActionOutput_zoho_books_updatebill {
+  code: number;
+  message: string;
+  bill?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_zoho_books_updatechartofaccount {
+  /**
+   * ID of the account to update. Example: "260815000000000388"
+   */
+  account_id: string;
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+  /**
+   * Name of the account
+   */
+  account_name?: string | undefined;
+  /**
+   * Code associated with the account
+   */
+  account_code?: string | undefined;
+  /**
+   * Type of the account. Example: "income"
+   */
+  account_type?: string | undefined;
+  /**
+   * ID of the account currency
+   */
+  currency_id?: string | undefined;
+  /**
+   * Description of the account
+   */
+  description?: string | undefined;
+  /**
+   * Whether to show the account balance on the dashboard
+   */
+  show_on_dashboard?: boolean | undefined;
+  /**
+   * Whether the account can be shown in Zoho Expense
+   */
+  can_show_in_ze?: boolean | undefined;
+  /**
+   * Boolean to include an account in VAT returns
+   */
+  include_in_vat_return?: boolean | undefined;
+  /**
+   * ID of the parent account
+   */
+  parent_account_id?: string | undefined;
+  /**
+   * List of custom fields for the account
+   */
+  custom_fields?: ({  customfield_id: string;
+  value: string;})[] | undefined;
+};
+
+export interface ActionOutput_zoho_books_updatechartofaccount {
+  account_id: string;
+  account_name: string;
+  account_code?: string | undefined;
+  is_active: boolean;
+  account_type: string;
+  currency_id?: string | undefined;
+  currency_code?: string | undefined;
+  description?: string | undefined;
+  is_system_account?: boolean | undefined;
+  is_involved_in_transaction?: boolean | undefined;
+  can_show_in_ze?: boolean | undefined;
+  include_in_vat_return?: boolean | undefined;
+  parent_account_id?: string | undefined;
+  created_time: string;
+  last_modified_time: string;
+  custom_fields?: ({  customfield_id: string;
+  value: string;})[] | undefined;
+};
+
+export interface ActionInput_zoho_books_updatecontact {
+  /**
+   * The ID of the contact to update. Example: "260815000000097001"
+   */
+  contact_id: string;
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+  contact_name?: string | undefined;
+  company_name?: string | undefined;
+  contact_type?: string | undefined;
+  website?: string | undefined;
+  phone?: string | undefined;
+  email?: string | undefined;
+  notes?: string | undefined;
+  billing_address?: {  attention?: string | undefined;
+  address?: string | undefined;
+  street2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  zip?: string | undefined;
+  country?: string | undefined;
+  phone?: string | undefined;};
+  shipping_address?: {  attention?: string | undefined;
+  address?: string | undefined;
+  street2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  zip?: string | undefined;
+  country?: string | undefined;
+  phone?: string | undefined;};
+};
+
+export interface ActionOutput_zoho_books_updatecontact {
+  contact_id: string;
+  contact_name?: string | undefined;
+  company_name?: string | undefined;
+  contact_type?: string | undefined;
+  website?: string | undefined;
+  phone?: string | undefined;
+  email?: string | undefined;
+  status?: string | undefined;
+  notes?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_updatecreditnote {
+  /**
+   * ID of the credit note to update. Example: "260815000000111002"
+   */
+  creditnote_id: string;
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+  /**
+   * Customer contact ID. Example: "260815000000097001"
+   */
+  customer_id?: string | undefined;
+  /**
+   * Credit note date in yyyy-mm-dd format. Example: "2024-01-15"
+   */
+  date?: string | undefined;
+  /**
+   * Notes displayed on the credit note. Max-length [5000]
+   */
+  notes?: string | undefined;
+  /**
+   * Terms displayed on the credit note. Max-length [10000]
+   */
+  terms?: string | undefined;
+  /**
+   * Reference number. Max-length [100]
+   */
+  reference_number?: string | undefined;
+  /**
+   * Credit note number. Max-length [100]
+   */
+  creditnote_number?: string | undefined;
+  /**
+   * Currency ID for the credit note
+   */
+  currency_id?: string | undefined;
+  /**
+   * Exchange rate to base currency
+   */
+  exchange_rate?: string | undefined;
+  /**
+   * Set to true to save as draft
+   */
+  is_draft?: boolean | undefined;
+  /**
+   * Line items for the credit note
+   */
+  line_items?: ({  /**
+   * Unique identifier for the item. Example: "260815000000100002"
+   */
+  item_id?: string | undefined;
+  /**
+   * Unique ID of an existing line item to update. Example: "260815000000111002"
+   */
+  line_item_id?: string | undefined;
+  /**
+   * Chart of accounts ID. Example: "260815000000000388"
+   */
+  account_id?: string | undefined;
+  /**
+   * Name of the line item
+   */
+  name?: string | undefined;
+  /**
+   * Description of the line item
+   */
+  description?: string | undefined;
+  /**
+   * Rate per unit
+   */
+  rate?: number | undefined;
+  /**
+   * Number of units
+   */
+  quantity?: number | undefined;
+  /**
+   * Unit of measure. Example: "kgs"
+   */
+  unit?: string | undefined;
+  /**
+   * Discount amount or percentage
+   */
+  discount?: string | number | undefined;
+  /**
+   * Tax ID applied to the line item
+   */
+  tax_id?: string | undefined;})[];
+  /**
+   * Set to true to provide a custom credit note number
+   */
+  ignore_auto_number_generation?: boolean | undefined;
+};
+
+export interface ActionOutput_zoho_books_updatecreditnote {
+  creditnote_id: string;
+  creditnote_number?: string | undefined;
+  date?: string | undefined;
+  status?: string | undefined;
+  customer_id?: string | undefined;
+  customer_name?: string | undefined;
+  total?: number | undefined;
+  balance?: number | undefined;
+  notes?: string | undefined;
+  terms?: string | undefined;
+  reference_number?: string | undefined;
+  currency_code?: string | undefined;
+  currency_symbol?: string | undefined;
+  line_items?: ({  item_id?: string | undefined;
+  line_item_id?: string | undefined;
+  account_id?: string | undefined;
+  account_name?: string | undefined;
+  name?: string | undefined;
+  description?: string | undefined;
+  code?: string | undefined;
+  type?: number | undefined;
+  quantity?: number | undefined;
+  rate?: number | undefined;
+  unit?: string | undefined;
+  discount?: string | number | undefined;
+  tax_id?: string | undefined;
+  tax_name?: string | undefined;
+  tax_amount?: string | undefined;
+  item_total?: number | undefined;
+  product_type?: string | undefined;
+  serial_numbers?: string | undefined;
+  location_id?: string | undefined;
+  location_name?: string | undefined;
+  project_id?: string | undefined;})[];
+  taxes?: ({  tax_id?: string | undefined;
+  tax_name?: string | undefined;
+  tax_amount?: string | undefined;})[];
+  invoices?: ({  invoice_id?: string | undefined;
+  invoice_number?: string | undefined;
+  amount?: number | undefined;})[];
+  billing_address?: {  address?: string | undefined;
+  street2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  zip?: string | number | undefined;
+  country?: string | undefined;
+  fax?: string | undefined;
+  attention?: string | undefined;};
+  shipping_address?: {  address?: string | undefined;
+  street2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  zip?: string | number | undefined;
+  country?: string | undefined;
+  fax?: string | undefined;
+  attention?: string | undefined;};
+  created_time?: string | undefined;
+  updated_time?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_updateestimate {
+  /**
+   * The estimate ID to update. Example: "260815000000101017"
+   */
+  estimate_id: string;
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+  /**
+   * Customer ID for the estimate. Example: "260815000000097001"
+   */
+  customer_id?: string | undefined;
+  /**
+   * Estimate date. Example: "2026-06-09"
+   */
+  date?: string | undefined;
+  /**
+   * Expiry date. Example: "2026-06-30"
+   */
+  expiry_date?: string | undefined;
+  /**
+   * Reference number. Example: "REF-001"
+   */
+  reference_number?: string | undefined;
+  /**
+   * Notes for the estimate.
+   */
+  notes?: string | undefined;
+  /**
+   * Terms and conditions.
+   */
+  terms?: string | undefined;
+  /**
+   * Line items for the estimate.
+   */
+  line_items?: ({  item_id?: string | undefined;
+  line_item_id?: string | undefined;
+  name?: string | undefined;
+  description?: string | undefined;
+  rate?: number | undefined;
+  quantity?: number | undefined;
+  discount?: number | undefined;
+  tax_id?: string | undefined;
+  item_order?: number | undefined;})[];
+};
+
+export interface ActionOutput_zoho_books_updateestimate {
+  estimate_id?: string | undefined;
+  estimate_number?: string | undefined;
+  status?: string | undefined;
+  reference_number?: string | undefined;
+  notes?: string | undefined;
+  terms?: string | undefined;
+  date?: string | undefined;
+  expiry_date?: string | undefined;
+  customer_id?: string | undefined;
+  customer_name?: string | undefined;
+  total?: number | undefined;
+  sub_total?: number | undefined;
+};
+
+export interface ActionInput_zoho_books_updateexpense {
+  /**
+   * Unique identifier of the expense. Example: "260815000000106001"
+   */
+  expense_id: string;
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+  /**
+   * ID of the expense account. Example: "260815000000000388"
+   */
+  account_id?: string | undefined;
+  /**
+   * Date of the expense. Format: YYYY-MM-DD
+   */
+  date?: string | undefined;
+  /**
+   * Amount of the Expense
+   */
+  amount?: number | undefined;
+  /**
+   * Unique identifier of the tax. Example: "260815000000000097"
+   */
+  tax_id?: string | undefined;
+  /**
+   * Description of the expense. Max-length [100]
+   */
+  description?: string | undefined;
+  /**
+   * Reference number of the expense. Max-length [100]
+   */
+  reference_number?: string | undefined;
+  /**
+   * To specify whether the expense is billable to the customer or not
+   */
+  is_billable?: boolean | undefined;
+  /**
+   * ID of the customer. Example: "260815000000097001"
+   */
+  customer_id?: string | undefined;
+  /**
+   * Unique identifier of the currency. Example: "260815000000000097"
+   */
+  currency_id?: string | undefined;
+  /**
+   * Exchange rate of the currency with respect to the base currency
+   */
+  exchange_rate?: number | undefined;
+  /**
+   * ID of the project associated with the customer
+   */
+  project_id?: string | undefined;
+  /**
+   * ID of the vendor the expense is made to. Example: "260815000000098001"
+   */
+  vendor_id?: string | undefined;
+  /**
+   * ID of the paid through account
+   */
+  paid_through_account_id?: string | undefined;
+  /**
+   * Line items for the expense
+   */
+  line_items?: ({  /**
+   * Unique identifier of the line item. Example: "260815000000106001"
+   */
+  line_item_id?: string | undefined;
+  /**
+   * ID of the expense account. Example: "260815000000000388"
+   */
+  account_id?: string | undefined;
+  /**
+   * Description of the expense line item. Max-length [100]
+   */
+  description?: string | undefined;
+  /**
+   * Amount of the line item
+   */
+  amount?: number | undefined;
+  /**
+   * Unique identifier of the tax. Example: "260815000000000097"
+   */
+  tax_id?: string | undefined;})[];
+  /**
+   * To specify whether the tax is inclusive in the amount or not
+   */
+  is_inclusive_tax?: boolean | undefined;
+};
+
+export interface ActionOutput_zoho_books_updateexpense {
+  expense_id: string;
+  date?: string | undefined;
+  amount?: number | undefined;
+  description?: string | undefined;
+  reference_number?: string | undefined;
+  status?: string | undefined;
+  account_id?: string | undefined;
+  account_name?: string | undefined;
+  customer_id?: string | undefined;
+  customer_name?: string | undefined;
+  currency_id?: string | undefined;
+  currency_code?: string | undefined;
+  exchange_rate?: number | undefined;
+  project_id?: string | undefined;
+  project_name?: string | undefined;
+  vendor_id?: string | undefined;
+  vendor_name?: string | undefined;
+  paid_through_account_id?: string | undefined;
+  paid_through_account_name?: string | undefined;
+  is_billable?: boolean | undefined;
+  is_personal?: boolean | undefined;
+  is_inclusive_tax?: boolean | undefined;
+  tax_id?: string | undefined;
+  tax_name?: string | undefined;
+  tax_percentage?: number | undefined;
+  sub_total?: number | undefined;
+  total?: number | undefined;
+  bcy_total?: number | undefined;
+  tax_amount?: number | undefined;
+};
+
+export interface ActionInput_zoho_books_updateinvoice {
+  /**
+   * Invoice ID. Example: "260815000000101011"
+   */
+  invoice_id: string;
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+  /**
+   * Customer ID. Example: "260815000000097001"
+   */
+  customer_id?: string | undefined;
+  /**
+   * Invoice date (yyyy-mm-dd). Example: "2026-06-09"
+   */
+  date?: string | undefined;
+  /**
+   * Due date (yyyy-mm-dd). Example: "2026-06-23"
+   */
+  due_date?: string | undefined;
+  /**
+   * External reference number
+   */
+  reference_number?: string | undefined;
+  /**
+   * Notes for the customer
+   */
+  notes?: string | undefined;
+  /**
+   * Terms & conditions
+   */
+  terms?: string | undefined;
+  /**
+   * Line items to replace existing items
+   */
+  line_items?: ({  /**
+   * Item ID. Example: "260815000000100002"
+   */
+  item_id: string;
+  /**
+   * Line item name
+   */
+  name?: string | undefined;
+  /**
+   * Line item description
+   */
+  description?: string | undefined;
+  /**
+   * Unit rate
+   */
+  rate?: number | undefined;
+  /**
+   * Quantity
+   */
+  quantity?: number | undefined;
+  /**
+   * Unit of measurement
+   */
+  unit?: string | undefined;
+  /**
+   * Tax ID
+   */
+  tax_id?: string | undefined;
+  /**
+   * Discount amount
+   */
+  discount?: number | undefined;
+  /**
+   * Project ID
+   */
+  project_id?: string | undefined;})[];
+};
+
+export interface ActionOutput_zoho_books_updateinvoice {
+  invoice_id: string;
+  invoice_number?: string | undefined;
+  customer_id?: string | undefined;
+  customer_name?: string | undefined;
+  date?: string | undefined;
+  status?: string | undefined;
+  total?: number | undefined;
+  balance?: number | undefined;
+  notes?: string | undefined;
+  terms?: string | undefined;
+  reference_number?: string | undefined;
+  line_items?: ({  line_item_id?: string | undefined;
+  item_id?: string | undefined;
+  name?: string | undefined;
+  description?: string | undefined;
+  rate?: number | undefined;
+  quantity?: number | undefined;
+  unit?: string | undefined;
+  tax_id?: string | undefined;
+  discount?: number | undefined;
+  item_total?: number | undefined;})[];
+};
+
+export interface ActionInput_zoho_books_updateitem {
+  /**
+   * Unique identifier of the item. Example: "260815000000100002"
+   */
+  item_id: string;
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+  /**
+   * Name of the item. Max-length [100]
+   */
+  name: string;
+  /**
+   * Price of the item.
+   */
+  rate: number;
+  /**
+   * Description for the item. Max-length [2000]
+   */
+  description?: string | undefined;
+  /**
+   * ID of the tax to be associated to the item.
+   */
+  tax_id?: string | undefined;
+  /**
+   * Percent of the tax.
+   */
+  tax_percentage?: string | undefined;
+  /**
+   * SKU value of item, should be unique throughout the product.
+   */
+  sku?: string | undefined;
+  /**
+   * Type of an item. Allowed values: goods, service, digital_service.
+   */
+  product_type?: string | undefined;
+  /**
+   * Type of the item. Allowed values: sales, purchases, sales_and_purchases, inventory.
+   */
+  item_type?: string | undefined;
+  /**
+   * Purchase description for the item.
+   */
+  purchase_description?: string | undefined;
+  /**
+   * Purchase price of the item.
+   */
+  purchase_rate?: string | undefined;
+  /**
+   * ID of the account to which the item has to be associated with.
+   */
+  account_id?: string | undefined;
+  /**
+   * ID of the COGS account to which the item has to be associated with.
+   */
+  purchase_account_id?: string | undefined;
+  /**
+   * ID of the stock account to which the item has to be associated with.
+   */
+  inventory_account_id?: string | undefined;
+  /**
+   * Preferred vendor ID.
+   */
+  vendor_id?: string | undefined;
+  /**
+   * Boolean to track the taxability of the item.
+   */
+  is_taxable?: boolean | undefined;
+  /**
+   * ID of the tax exemption.
+   */
+  tax_exemption_id?: string | undefined;
+  /**
+   * HSN Code.
+   */
+  hsn_or_sac?: string | undefined;
+  /**
+   * Reorder level of the item.
+   */
+  reorder_level?: string | undefined;
+  /**
+   * Avalara tax code.
+   */
+  avatax_tax_code?: string | undefined;
+  /**
+   * Avalara use code.
+   */
+  avatax_use_code?: string | undefined;
+  /**
+   * Id of the purchase tax rule.
+   */
+  purchase_tax_rule_id?: string | undefined;
+  /**
+   * Id of the sales tax rule.
+   */
+  sales_tax_rule_id?: string | undefined;
+  /**
+   * ID of the purchase tax exemption.
+   */
+  purchase_tax_exemption_id?: string | undefined;
+  /**
+   * SAT Item Key Code.
+   */
+  sat_item_key_code?: string | undefined;
+  /**
+   * Unit Key Code.
+   */
+  unitkey_code?: string | undefined;
+  /**
+   * Locations for the item.
+   */
+  locations?: ({  location_id?: string | undefined;
+  initial_stock?: string | undefined;
+  initial_stock_rate?: string | undefined;})[];
+  /**
+   * Tax preferences for the item.
+   */
+  item_tax_preferences?: ({  tax_id?: string | undefined;
+  tax_specification?: string | undefined;})[];
+  /**
+   * Custom fields for an item.
+   */
+  custom_fields?: ({  customfield_id?: string | undefined;
+  value?: string | undefined;})[];
+};
+
+export interface ActionOutput_zoho_books_updateitem {
+  item_id?: string | undefined;
+  name?: string | undefined;
+  status?: string | undefined;
+  description?: string | undefined;
+  rate?: number | undefined;
+  unit?: string | undefined;
+  sku?: string | undefined;
+  product_type?: string | undefined;
+  item_type?: string | undefined;
+  tax_id?: string | undefined;
+  tax_name?: string | undefined;
+  tax_percentage?: string | undefined;
+  tax_type?: string | undefined;
+  account_id?: string | undefined;
+  purchase_account_id?: string | undefined;
+  inventory_account_id?: string | undefined;
+  purchase_description?: string | undefined;
+  purchase_rate?: string | undefined;
+  vendor_id?: string | undefined;
+  is_taxable?: boolean | undefined;
+  tax_exemption_id?: string | undefined;
+  purchase_tax_exemption_id?: string | undefined;
+  hsn_or_sac?: string | undefined;
+  reorder_level?: string | undefined;
+  avatax_tax_code?: string | undefined;
+  avatax_use_code?: string | undefined;
+  purchase_tax_rule_id?: string | undefined;
+  sales_tax_rule_id?: string | undefined;
+  sat_item_key_code?: string | undefined;
+  unitkey_code?: string | undefined;
+  item_tax_preferences?: ({  tax_id?: string | undefined;
+  tax_specification?: string | undefined;})[];
+  locations?: ({  location_id?: string | undefined;
+  location_name?: string | undefined;
+  status?: string | undefined;
+  is_primary?: boolean | undefined;
+  location_stock_on_hand?: string | undefined;
+  location_available_stock?: string | undefined;
+  location_actual_available_stock?: string | undefined;})[];
+  custom_fields?: ({  customfield_id?: string | undefined;
+  value?: string | undefined;})[];
+};
+
+export interface ActionInput_zoho_books_updatejournal {
+  /**
+   * Journal ID. Example: "260815000000115005"
+   */
+  journal_id: string;
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+  /**
+   * Date on which the journal is to be recorded. Example: "2026-06-09"
+   */
+  journal_date: string;
+  /**
+   * Reference number for the journal.
+   */
+  reference_number?: string | undefined;
+  /**
+   * Notes for the journal.
+   */
+  notes?: string | undefined;
+  /**
+   * Type of the journal. Allowed values: Cash, Both.
+   */
+  journal_type?: 'Cash' | 'Both' | undefined;
+  /**
+   * ID of the currency associated with the journal.
+   */
+  currency_id?: string | undefined;
+  /**
+   * Exchange rate between the currencies.
+   */
+  exchange_rate?: number | undefined;
+  /**
+   * Location ID.
+   */
+  location_id?: string | undefined;
+  /**
+   * Line items for the journal.
+   */
+  line_items?: ({  /**
+   * ID of account for which journals are to be recorded.
+   */
+  account_id?: string | undefined;
+  /**
+   * ID of the customer or vendor.
+   */
+  customer_id?: string | undefined;
+  /**
+   * ID of the line.
+   */
+  line_id?: string | undefined;
+  /**
+   * Description at the line item level.
+   */
+  description?: string | undefined;
+  /**
+   * ID of the tax.
+   */
+  tax_id?: string | undefined;
+  /**
+   * Amount to be recorded for the journal.
+   */
+  amount: number;
+  /**
+   * Whether the account needs to be debited or credited.
+   */
+  debit_or_credit: 'debit' | 'credit';
+  /**
+   * Location ID.
+   */
+  location_id?: string | undefined;
+  /**
+   * ID of the project.
+   */
+  project_id?: string | undefined;})[];
+  /**
+   * Custom fields for the journal.
+   */
+  custom_fields?: ({  /**
+   * ID of the custom field.
+   */
+  customfield_id: string;
+  /**
+   * Value of the custom field.
+   */
+  value: string;})[] | undefined;
+  /**
+   * Reporting tags for the journal.
+   */
+  tags?: ({  /**
+   * Tag's ID.
+   */
+  tag_id: string;
+  /**
+   * Tag Option's ID.
+   */
+  tag_option_id: string;})[] | undefined;
+};
+
+export interface ActionOutput_zoho_books_updatejournal {
+  journal_id: string;
+  entry_number: string;
+  reference_number?: string | undefined;
+  notes?: string | undefined;
+  journal_date: string;
+  journal_type?: string | undefined;
+  currency_id?: string | undefined;
+  currency_code?: string | undefined;
+  exchange_rate?: number | undefined;
+  line_items?: ({  line_id?: string | undefined;
+  account_id?: string | undefined;
+  customer_id?: string | undefined;
+  customer_name?: string | undefined;
+  account_name?: string | undefined;
+  description?: string | undefined;
+  debit_or_credit?: string | undefined;
+  tax_id?: string | undefined;
+  tax_name?: string | undefined;
+  amount?: number | undefined;
+  location_id?: string | undefined;
+  location_name?: string | undefined;
+  project_id?: string | undefined;
+  project_name?: string | undefined;})[];
+  location_id?: string | undefined;
+  location_name?: string | undefined;
+  total?: number | undefined;
+  status: string;
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;
+};
+
+export interface ActionInput_zoho_books_updatepayment {
+  /**
+   * Payment ID. Example: "260815000000113012"
+   */
+  payment_id: string;
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+  /**
+   * Customer ID. Example: "260815000000097001"
+   */
+  customer_id?: string | undefined;
+  /**
+   * Mode of payment. Example: "cash"
+   */
+  payment_mode?: string | undefined;
+  /**
+   * Amount paid.
+   */
+  amount?: number | undefined;
+  /**
+   * Date of payment. Format: yyyy-mm-dd
+   */
+  date?: string | undefined;
+  /**
+   * Reference number for the payment.
+   */
+  reference_number?: string | undefined;
+  /**
+   * Description about the payment.
+   */
+  description?: string | undefined;
+  invoices?: ({  /**
+   * Invoice ID. Example: "260815000000103001"
+   */
+  invoice_id: string;
+  /**
+   * Amount paid for the invoice.
+   */
+  amount_applied: number;
+  /**
+   * Amount withheld for tax.
+   */
+  tax_amount_withheld?: number | undefined;})[];
+  /**
+   * Exchange rate for the currency.
+   */
+  exchange_rate?: number | undefined;
+  /**
+   * Additional bank charges.
+   */
+  bank_charges?: number | undefined;
+  custom_fields?: ({  label?: string | undefined;
+  value?: string | number | undefined;})[];
+  /**
+   * Location ID.
+   */
+  location_id?: string | undefined;
+  /**
+   * ID of the cash/bank account the payment is deposited into.
+   */
+  account_id?: string | undefined;
+  /**
+   * ID of the retainer invoice associated with the payment.
+   */
+  retainerinvoice_id?: string | undefined;
+  tags?: ({  tag_id?: string | undefined;
+  tag_option_id?: string | undefined;})[];
+};
+
+export interface ActionOutput_zoho_books_updatepayment {
+  payment_id: string;
+  payment_mode?: string | undefined;
+  amount?: number | undefined;
+  amount_refunded?: number | undefined;
+  bank_charges?: number | undefined;
+  date?: string | undefined;
+  status?: string | undefined;
+  reference_number?: string | undefined;
+  description?: string | undefined;
+  customer_id?: string | undefined;
+  customer_name?: string | undefined;
+  email?: string | undefined;
+  invoices?: ({  invoice_id: string;
+  invoice_number?: string | undefined;
+  date?: string | undefined;
+  invoice_amount?: number | undefined;
+  amount_applied?: number | undefined;
+  balance_amount?: number | undefined;
+  tax_amount_withheld?: number | undefined;})[];
+  currency_code?: string | undefined;
+  currency_symbol?: string | undefined;
+  location_id?: string | undefined;
+  location_name?: string | undefined;
+  tags?: ({  tag_id?: string | undefined;
+  tag_name?: string | undefined;
+  tag_option_id?: string | undefined;
+  tag_option_name?: string | undefined;
+  is_tag_mandatory?: boolean | undefined;})[];
+  custom_fields?: ({  index?: number | undefined;
+  value?: string | number | undefined;
+  label?: string | undefined;
+  data_type?: string | undefined;})[];
+};
+
+export interface ActionInput_zoho_books_updatepurchaseorder {
+  /**
+   * ID of the purchase order to update. Example: "260815000000062001"
+   */
+  purchaseorder_id: string;
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+  /**
+   * Vendor ID. Example: "260815000000098001"
+   */
+  vendor_id: string;
+  /**
+   * Line items for the purchase order.
+   */
+  line_items: ({  /**
+   * Existing line item ID to update; omit to create a new line.
+   */
+  line_item_id?: string | undefined;
+  /**
+   * Item ID. Example: "260815000000100002"
+   */
+  item_id?: string | undefined;
+  /**
+   * Account ID for the line item.
+   */
+  account_id?: string | undefined;
+  /**
+   * Name of the line item.
+   */
+  name?: string | undefined;
+  /**
+   * Description of the line item.
+   */
+  description?: string | undefined;
+  /**
+   * Rate per unit.
+   */
+  rate?: number | undefined;
+  /**
+   * Quantity ordered.
+   */
+  quantity?: number | undefined;
+  /**
+   * Unit of measure.
+   */
+  unit?: string | undefined;
+  /**
+   * Tax ID applicable to the line item.
+   */
+  tax_id?: string | undefined;
+  /**
+   * Display order of the line item.
+   */
+  item_order?: number | undefined;})[];
+  /**
+   * Purchase order number.
+   */
+  purchaseorder_number?: string | undefined;
+  /**
+   * Reference number.
+   */
+  reference_number?: string | undefined;
+  /**
+   * Purchase order date (YYYY-MM-DD).
+   */
+  date?: string | undefined;
+  /**
+   * Expected delivery date (YYYY-MM-DD).
+   */
+  delivery_date?: string | undefined;
+  /**
+   * Due date (YYYY-MM-DD).
+   */
+  due_date?: string | undefined;
+  /**
+   * Currency ID. Example: "260815000000000097"
+   */
+  currency_id?: string | undefined;
+  /**
+   * Exchange rate for the currency.
+   */
+  exchange_rate?: number | undefined;
+  /**
+   * Notes for the vendor.
+   */
+  notes?: string | undefined;
+  /**
+   * Terms and conditions.
+   */
+  terms?: string | undefined;
+  /**
+   * Discount percentage or amount.
+   */
+  discount?: string | undefined;
+  /**
+   * Whether discount is applied before tax.
+   */
+  is_discount_before_tax?: boolean | undefined;
+  /**
+   * Shipping method.
+   */
+  ship_via?: string | undefined;
+  /**
+   * Attention field.
+   */
+  attention?: string | undefined;
+  /**
+   * Whether tax is inclusive.
+   */
+  is_inclusive_tax?: boolean | undefined;
+  /**
+   * Custom fields.
+   */
+  custom_fields?: ({  customfield_id: string;
+  value: string;})[] | undefined;
+  /**
+   * Tags.
+   */
+  tags?: ({  tag_id: string;
+  tag_option_id: string;})[] | undefined;
+};
+
+export interface ActionOutput_zoho_books_updatepurchaseorder {
+  purchaseorder_id: string;
+  purchaseorder_number?: string | undefined;
+  date?: string | undefined;
+  expected_delivery_date?: string | undefined;
+  delivery_date?: string | undefined;
+  due_date?: string | undefined;
+  status?: string | undefined;
+  vendor_id?: string | undefined;
+  vendor_name?: string | undefined;
+  currency_id?: string | undefined;
+  currency_code?: string | undefined;
+  exchange_rate?: number | undefined;
+  reference_number?: string | undefined;
+  notes?: string | undefined;
+  terms?: string | undefined;
+  sub_total?: number | undefined;
+  tax_total?: number | undefined;
+  total?: number | undefined;
+  discount?: string | number | undefined;
+  is_discount_before_tax?: boolean | undefined;
+  is_inclusive_tax?: boolean | undefined;
+  line_items?: ({  line_item_id?: string | undefined;
+  item_id?: string | undefined;
+  account_id?: string | undefined;
+  account_name?: string | undefined;
+  name?: string | undefined;
+  description?: string | undefined;
+  rate?: number | undefined;
+  quantity?: number | undefined;
+  unit?: string | undefined;
+  tax_id?: string | undefined;
+  tax_name?: string | undefined;
+  tax_percentage?: number | undefined;
+  item_total?: number | undefined;
+  item_order?: number | undefined;})[];
+  custom_fields?: ({  customfield_id: string;
+  value: string;})[] | undefined;
+  tags?: ({  tag_id: string;
+  tag_name?: string | undefined;
+  tag_option_id: string;
+  tag_option_name?: string | undefined;})[];
+};
+
+export interface ActionInput_zoho_books_updatevendorpayment {
+  /**
+   * ID of the vendor payment to update. Example: "260815000000116002"
+   */
+  payment_id: string;
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+  /**
+   * ID of the vendor associated with the Vendor Payment
+   */
+  vendor_id?: string | undefined;
+  /**
+   * Total Amount of Vendor Payment
+   */
+  amount?: number | undefined;
+  /**
+   * Date the payment is made. Format: yyyy-mm-dd
+   */
+  date?: string | undefined;
+  /**
+   * Exchange rate of the currency
+   */
+  exchange_rate?: number | undefined;
+  /**
+   * ID of the cash/bank account from which the payment is made
+   */
+  paid_through_account_id?: string | undefined;
+  /**
+   * Mode of Vendor Payment
+   */
+  payment_mode?: string | undefined;
+  /**
+   * Description for the Vendor Payment recorded
+   */
+  description?: string | undefined;
+  /**
+   * Reference number for the Vendor Payment recorded
+   */
+  reference_number?: string | undefined;
+  /**
+   * Check if the Bill Payment is paid Via Print Check Option
+   */
+  is_paid_via_print_check?: boolean | undefined;
+  /**
+   * Location ID
+   */
+  location_id?: string | undefined;
+  /**
+   * Individual bill payment details as array
+   */
+  bills?: ({  /**
+   * ID of the Bill Payment
+   */
+  bill_payment_id?: string | undefined;
+  /**
+   * ID of the bill the payment is to be applied
+   */
+  bill_id?: string | undefined;
+  /**
+   * Amount applied to the bill
+   */
+  amount_applied?: number | undefined;
+  /**
+   * Tax Amount Withheld during Bill Payment
+   */
+  tax_amount_withheld?: number | undefined;})[];
+  /**
+   * Reporting tags
+   */
+  tags?: ({  /**
+   * Tag's ID
+   */
+  tag_id?: string | undefined;
+  /**
+   * Tag Option's ID
+   */
+  tag_option_id?: string | undefined;})[];
+  /**
+   * Custom fields associated with the vendor payment
+   */
+  custom_fields?: ({  /**
+   * Index of the Custom Field
+   */
+  index?: number | undefined;
+  /**
+   * Value for the Custom Field
+   */
+  value?: string | undefined;})[];
+};
+
+export interface ActionOutput_zoho_books_updatevendorpayment {
+  code?: number | undefined;
+  message?: string | undefined;
+  vendorpayment?: {  payment_id?: string | undefined;
+  vendor_id?: string | undefined;
+  vendor_name?: string | undefined;
+  payment_mode?: string | undefined;
+  payment_number?: string | number | undefined;
+  description?: string | undefined;
+  date?: string | undefined;
+  reference_number?: string | undefined;
+  exchange_rate?: number | undefined;
+  tax_amount_withheld?: number | undefined;
+  amount?: number | undefined;
+  balance?: number | undefined;
+  currency_id?: string | undefined;
+  currency_symbol?: string | undefined;
+  location_id?: string | undefined;
+  location_name?: string | undefined;
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;
+  paid_through_account_id?: string | undefined;
+  paid_through_account_name?: string | undefined;
+  paid_through_account_type?: string | undefined;
+  is_paid_via_print_check?: boolean | undefined;
+  is_ach_payment?: boolean | undefined;
+  ach_payment_status?: string | undefined;
+  bills?: ({  bill_payment_id?: string | undefined;
+  bill_id?: string | undefined;
+  amount_applied?: number | undefined;
+  tax_amount_withheld?: number | undefined;})[];
+  tags?: ({  tag_id?: string | undefined;
+  tag_name?: string | undefined;
+  tag_option_id?: string | undefined;
+  tag_option_name?: string | undefined;
+  is_tag_mandatory?: boolean | undefined;})[];
+  custom_fields?: ({  custom_field_id?: string | undefined;
+  index?: number | undefined;
+  label?: string | undefined;
+  value?: string | undefined;})[];};
+};
+
+export interface ActionInput_zoho_books_voidinvoice {
+  /**
+   * Invoice ID to void. Example: "260815000000103001"
+   */
+  invoice_id: string;
+  /**
+   * Zoho Books organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.
+   */
+  organization_id?: string | undefined;
+};
+
+export interface ActionOutput_zoho_books_voidinvoice {
+  invoice_id?: string | undefined;
+  invoice_number?: string | undefined;
+  status?: string | undefined;
+  message?: string | undefined;
+};
+
 export interface ActionInput_zoho_crm_convertlead {
   /**
    * The unique ID of the lead to convert. Example: "1000000145990"
@@ -100621,6 +110131,921 @@ export interface ActionOutput_zoho_crm_upsertrecords {
    * Total number of records processed
    */
   totalCount: number;
+};
+
+export interface Agent {
+  id: string;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  emailId?: string | undefined;
+  roleId?: string | undefined;
+  profileId?: string | undefined;
+  status?: string | undefined;
+  isActive?: boolean | undefined;
+  isConfirmed?: boolean | undefined;
+  photoURL?: string | undefined;
+  zuid?: string | undefined;
+  createdTime?: string | undefined;
+  modifiedTime?: string | undefined;
+};
+
+export interface ActionInput_zoho_desk_createcontact {
+  /**
+   * Last name of the contact. Example: "Doe"
+   */
+  lastName: string;
+  /**
+   * First name of the contact. Example: "John"
+   */
+  firstName?: string | undefined;
+  /**
+   * Email ID of the contact. Example: "john@example.com"
+   */
+  email?: string | undefined;
+  /**
+   * Phone number of the contact.
+   */
+  phone?: string | undefined;
+  /**
+   * Mobile number of the contact.
+   */
+  mobile?: string | undefined;
+  /**
+   * Contact country of residence.
+   */
+  country?: string | undefined;
+  /**
+   * Contact city of residence.
+   */
+  city?: string | undefined;
+  /**
+   * Contact state of residence.
+   */
+  state?: string | undefined;
+  /**
+   * Contact street address.
+   */
+  street?: string | undefined;
+  /**
+   * Zip code.
+   */
+  zip?: string | undefined;
+  /**
+   * Contact description.
+   */
+  description?: string | undefined;
+  /**
+   * Contact title.
+   */
+  title?: string | undefined;
+  /**
+   * Contact type.
+   */
+  type?: string | undefined;
+  /**
+   * ID of the user who creates the contact.
+   */
+  ownerId?: string | undefined;
+  /**
+   * Account to which the contact is mapped.
+   */
+  accountId?: string | undefined;
+  /**
+   * Facebook ID of the contact.
+   */
+  facebook?: string | undefined;
+  /**
+   * Twitter ID of the contact.
+   */
+  twitter?: string | undefined;
+  /**
+   * Secondary email ID of the contact.
+   */
+  secondaryEmail?: string | undefined;
+};
+
+export interface ActionOutput_zoho_desk_createcontact {
+  /**
+   * ID of the created contact.
+   */
+  id: string;
+  lastName?: string | undefined;
+  firstName?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  mobile?: string | undefined;
+  country?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  street?: string | undefined;
+  zip?: string | undefined;
+  description?: string | undefined;
+  title?: string | undefined;
+  type?: string | undefined;
+  ownerId?: string | undefined;
+  accountId?: string | undefined;
+  facebook?: string | undefined;
+  twitter?: string | undefined;
+  secondaryEmail?: string | undefined;
+  photoURL?: string | undefined;
+  isDeleted?: boolean | undefined;
+  isTrashed?: boolean | undefined;
+  createdTime?: string | undefined;
+  modifiedTime?: string | undefined;
+  zohoCRMContact?: {  id: string;
+  type?: string | undefined;};
+  customerHappiness?: {  badPercentage?: string | undefined;
+  okPercentage?: string | undefined;
+  goodPercentage?: string | undefined;};
+  isFollowing?: string | boolean | undefined;
+  isAnonymous?: boolean | undefined;
+  webUrl?: string | undefined;
+  isSpam?: boolean | undefined;
+  cf?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_zoho_desk_createticket {
+  /**
+   * Subject of the ticket. Example: "Support request"
+   */
+  subject: string;
+  /**
+   * ID of the department in which the ticket should be created. Example: "1892000000006907"
+   */
+  departmentId: string;
+  /**
+   * ID of the contact who raised the ticket. Example: "1892000000042032"
+   */
+  contactId: string;
+  /**
+   * Description of the ticket.
+   */
+  description?: string | undefined;
+  /**
+   * Status of the ticket. Example: "Open"
+   */
+  status?: string | undefined;
+  /**
+   * Priority of the ticket. Example: "High"
+   */
+  priority?: string | undefined;
+  /**
+   * ID of the agent to whom the ticket is assigned. Example: "1892000000056007"
+   */
+  assigneeId?: string | undefined;
+  /**
+   * Category of the ticket. Example: "general"
+   */
+  category?: string | undefined;
+  /**
+   * Subcategory of the ticket.
+   */
+  subCategory?: string | undefined;
+  /**
+   * Due date for resolving the ticket. Example: "2025-12-01T10:00:00.000Z"
+   */
+  dueDate?: string | undefined;
+  /**
+   * Channel through which the ticket originated. Example: "Email"
+   */
+  channel?: string | undefined;
+  /**
+   * Type of ticket.
+   */
+  classification?: string | undefined;
+  /**
+   * Language of the ticket. Example: "English"
+   */
+  language?: string | undefined;
+  /**
+   * ID of the team assigned to resolve the ticket.
+   */
+  teamId?: string | undefined;
+  /**
+   * ID of the product to which the ticket is mapped.
+   */
+  productId?: string | undefined;
+  /**
+   * ID of the account associated with the ticket.
+   */
+  accountId?: string | undefined;
+  /**
+   * Email address associated with the ticket.
+   */
+  email?: string | undefined;
+  /**
+   * Phone number associated with the ticket.
+   */
+  phone?: string | undefined;
+  /**
+   * Resolution of the ticket.
+   */
+  resolution?: string | undefined;
+  customFields?: {  [key: string]: unknown | undefined;};
+  cf?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_zoho_desk_createticket {
+  id: string;
+  ticketNumber?: string | undefined;
+  subject?: string | undefined;
+  description?: string | undefined;
+  status?: string | undefined;
+  statusType?: string | undefined;
+  priority?: string | undefined;
+  departmentId?: string | undefined;
+  contactId?: string | undefined;
+  assigneeId?: string | undefined;
+  teamId?: string | undefined;
+  accountId?: string | undefined;
+  productId?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  category?: string | undefined;
+  subCategory?: string | undefined;
+  dueDate?: string | undefined;
+  channel?: string | undefined;
+  classification?: string | undefined;
+  language?: string | undefined;
+  resolution?: string | undefined;
+  createdTime?: string | undefined;
+  modifiedTime?: string | undefined;
+  closedTime?: string | undefined;
+  webUrl?: string | undefined;
+  customFields?: {  [key: string]: unknown | undefined;};
+  cf?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_zoho_desk_deleteticket {
+  /**
+   * Ticket ID to delete. Example: "123456789"
+   */
+  ticket_id: string;
+};
+
+export interface ActionOutput_zoho_desk_deleteticket {
+  ticket_id: string;
+  success: boolean;
+};
+
+export interface ActionInput_zoho_desk_getticket {
+  /**
+   * Ticket ID. Example: "1892000000042034"
+   */
+  ticketId: string;
+};
+
+export interface ActionOutput_zoho_desk_getticket {
+  id: string;
+  ticketNumber?: string | undefined;
+  subject?: string | undefined;
+  status?: string | undefined;
+  statusType?: string | undefined;
+  priority?: string | undefined;
+  departmentId?: string | undefined;
+  contactId?: string | undefined;
+  assigneeId?: string | undefined;
+  productId?: string | undefined;
+  createdTime?: string | undefined;
+  modifiedTime?: string | undefined;
+  dueDate?: string | undefined;
+  closedTime?: string | undefined;
+  onholdTime?: string | undefined;
+  channel?: string | undefined;
+  language?: string | undefined;
+  description?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  webUrl?: string | undefined;
+  isSpam?: boolean | undefined;
+  isRead?: boolean | undefined;
+  isTrashed?: boolean | undefined;
+  isDeleted?: boolean | string | undefined;
+  isOverDue?: boolean | undefined;
+  isFollowing?: boolean | string | undefined;
+  threadCount?: string | undefined;
+  commentCount?: string | undefined;
+  taskCount?: string | undefined;
+  timeEntryCount?: string | undefined;
+  followerCount?: string | undefined;
+  sharedCount?: string | undefined;
+  approvalCount?: string | undefined;
+  customerResponseTime?: string | undefined;
+  resolution?: string | undefined;
+  classification?: string | undefined;
+  subCategory?: string | undefined;
+  category?: string | undefined;
+  source?: {  appName?: unknown | undefined;
+  extId?: unknown | undefined;
+  type?: string | undefined;
+  permalink?: unknown | undefined;
+  uuid?: unknown | undefined;
+  appPhotoURL?: unknown | undefined;};
+  contact?: {  lastName?: string | undefined;
+  firstName?: string | undefined;
+  phone?: string | undefined;
+  mobile?: string | undefined;
+  id?: string | undefined;
+  isSpam?: boolean | undefined;
+  type?: unknown | undefined;
+  email?: string | undefined;
+  account?: {  [key: string]: unknown | undefined;};};
+  department?: {  name?: string | undefined;
+  id?: string | undefined;};
+  assignee?: {  firstName?: string | undefined;
+  lastName?: string | undefined;
+  photoURL?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};
+  team?: {  name?: string | undefined;
+  id?: string | undefined;
+  logoUrl?: string | undefined;};
+  product?: {  [key: string]: unknown | undefined;};
+  channelRelatedInfo?: {  [key: string]: unknown | undefined;};
+  layoutDetails?: {  [key: string]: unknown | undefined;};
+  cf?: {  [key: string]: unknown | undefined;};
+  secondaryContacts?: string[] | undefined;
+  sharedDepartments?: ({  [key: string]: unknown | undefined;})[];
+  entitySkills?: string[] | undefined;
+};
+
+export interface ActionInput_zoho_desk_listaccounts {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of accounts to fetch. Defaults to 50.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_zoho_desk_listaccounts {
+  items: ({  id: string;
+  accountName?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  website?: string | undefined;
+  webUrl?: string | undefined;
+  createdTime?: string | undefined;
+  modifiedTime?: string | undefined;
+  zohoCRMAccount?: string | undefined;
+  customerHappiness?: {  badPercentage?: string | undefined;
+  okPercentage?: string | undefined;
+  goodPercentage?: string | undefined;};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_zoho_desk_listagents {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum number of agents to return per page. Defaults to 50.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_zoho_desk_listagents {
+  items: ({  id: string;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  name?: string | undefined;
+  emailId?: string | undefined;
+  status?: string | undefined;
+  roleId?: string | undefined;
+  rolePermissionType?: string | undefined;
+  isConfirmed?: boolean | undefined;
+  profileId?: string | undefined;
+  associatedDepartmentIds?: string[] | undefined;
+  photoURL?: string | undefined;
+  zuid?: string | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_zoho_desk_listarticles {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of articles to fetch per page. Maximum is 50.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_zoho_desk_listarticles {
+  items: ({  id: string;
+  title?: string | undefined;
+  summary?: string | undefined;
+  status?: string | undefined;
+  permission?: string | undefined;
+  createdTime?: string | undefined;
+  modifiedTime?: string | undefined;
+  categoryId?: string | undefined;
+  authorId?: string | undefined;
+  webUrl?: string | undefined;
+  portalUrl?: string | undefined;
+  locale?: string | undefined;
+  viewCount?: string | undefined;
+  likeCount?: string | undefined;
+  dislikeCount?: string | undefined;
+  commentCount?: string | undefined;
+  feedbackCount?: string | undefined;
+  attachmentCount?: string | undefined;
+  departmentId?: string | undefined;
+  isTemplate?: boolean | undefined;
+  isTrashed?: boolean | undefined;
+  latestVersionStatus?: string | undefined;
+  position?: string | undefined;
+  rootCategoryId?: string | undefined;
+  usageCount?: string | undefined;
+  author?: {  id?: string | undefined;
+  name?: string | undefined;
+  photoURL?: string | undefined;
+  status?: string | undefined;
+  zuid?: string | undefined;};
+  category?: {  id?: string | undefined;
+  name?: string | undefined;
+  locale?: string | undefined;};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_zoho_desk_listcontacts {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_zoho_desk_listcontacts {
+  items: ({  id: string;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  mobile?: string | undefined;
+  accountId?: string | undefined;
+  createdTime?: string | undefined;
+  modifiedTime?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_zoho_desk_listdepartments {
+  /**
+   * Pagination cursor (maps to `from` offset). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of records per page. Default 10, max 50.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_zoho_desk_listdepartments {
+  items: ({  /**
+   * Department ID. Example: "1329983000000006907"
+   */
+  id: string;
+  /**
+   * Department name. Example: "NangoDesk"
+   */
+  name: string;
+  /**
+   * Department description
+   */
+  description?: string | undefined;
+  /**
+   * ISO timestamp when the department was created
+   */
+  createdTime?: string | undefined;
+  /**
+   * Chat status for the department
+   */
+  chatStatus?: string | undefined;
+  /**
+   * Name displayed in the customer portal
+   */
+  nameInCustomerPortal?: string | undefined;
+  /**
+   * ID of the user who created the department
+   */
+  creatorId?: string | undefined;
+  /**
+   * Whether the department is enabled
+   */
+  isEnabled?: boolean | undefined;
+  /**
+   * Whether this is the default department
+   */
+  isDefault?: boolean | undefined;
+  /**
+   * Whether assign to team is enabled
+   */
+  isAssignToTeamEnabled?: boolean | undefined;
+  /**
+   * Whether visible in customer portal
+   */
+  isVisibleInCustomerPortal?: boolean | undefined;
+  /**
+   * Whether the department has a logo
+   */
+  hasLogo?: boolean | undefined;
+  /**
+   * Sanitized name for URLs
+   */
+  sanitizedName?: string | undefined;})[];
+  /**
+   * Cursor for the next page. Omit if no more pages.
+   */
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_zoho_desk_listticketthreads {
+  /**
+   * Ticket ID. Example: "1329983000000410241"
+   */
+  ticketId: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of threads to retrieve per page. Default: 50.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_zoho_desk_listticketthreads {
+  threads: ({  id: string;
+  channel?: string | undefined;
+  canReply?: boolean | undefined;
+  contentType?: string | undefined;
+  hasAttach?: boolean | undefined;
+  status?: string | undefined;
+  summary?: string | undefined;
+  author?: {  id?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  photoURL?: string | undefined;
+  type?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;};
+  attachmentCount?: string | undefined;
+  sentiment?: string | undefined;
+  aspects?: string | undefined;
+  channelRelatedInfo?: unknown | undefined;
+  respondedIn?: unknown | undefined;
+  lastRatingIconURL?: string | undefined;
+  readReceipts?: unknown | undefined;
+  impersonatedUser?: unknown | undefined;
+  source?: {  extId?: string | undefined;
+  appName?: string | undefined;
+  appPhotoURL?: string | undefined;
+  permalink?: string | undefined;
+  type?: string | undefined;};
+  isDescriptionThread?: boolean | undefined;
+  keyWords?: unknown | undefined;
+  visibility?: string | undefined;
+  createdTime?: string | undefined;
+  actions?: unknown[] | undefined;
+  direction?: string | undefined;})[];
+  /**
+   * Pagination cursor for the next page. Omit if there are no more pages.
+   */
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_zoho_desk_listtickets {
+  /**
+   * Pagination cursor (from index). Example: "0"
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of records per page. Default: 10, max: 100.
+   */
+  limit?: number | undefined;
+  /**
+   * Department ID to filter tickets.
+   */
+  departmentId?: string | undefined;
+  /**
+   * Status to filter tickets. Example: "Open"
+   */
+  status?: string | undefined;
+  /**
+   * Time range to filter tickets by modified time. Example: "2024-01-01T00:00:00Z,2024-12-31T23:59:59Z"
+   */
+  modifiedTimeRange?: string | undefined;
+};
+
+export interface ActionOutput_zoho_desk_listtickets {
+  items: ({  id: string;
+  ticketNumber?: string | undefined;
+  subject?: string | undefined;
+  status?: string | undefined;
+  priority?: string | undefined;
+  departmentId?: string | undefined;
+  contactId?: string | undefined;
+  assigneeId?: string | undefined;
+  channel?: string | undefined;
+  createdTime?: string | undefined;
+  modifiedTime?: string | undefined;
+  dueDate?: string | undefined;
+  resolution?: string | undefined;
+  closedTime?: string | undefined;
+  description?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  webUrl?: string | undefined;
+  category?: string | undefined;
+  subCategory?: string | undefined;
+  customFields?: {  [key: string]: unknown | undefined;};
+  productId?: string | undefined;
+  classification?: string | undefined;
+  timeEntryCount?: string | undefined;
+  commentCount?: string | undefined;
+  attachmentCount?: string | undefined;
+  taskCount?: string | undefined;
+  threadCount?: string | undefined;
+  approvalCount?: string | undefined;
+  customerResponseTime?: string | undefined;
+  isSpam?: boolean | undefined;
+  isTrashed?: boolean | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_zoho_desk_sendticketreply {
+  /**
+   * The ticket ID to reply to. Example: "1892000000094004"
+   */
+  ticket_id: string;
+  /**
+   * Content of the reply. Example: "We have identified the root cause and fixed it."
+   */
+  content: string;
+  /**
+   * Channel through which the thread originated. Values: EMAIL, FACEBOOK, TWITTER, FORUMS. Default: EMAIL
+   */
+  channel?: string | undefined;
+  /**
+   * Formatting type of the content. Values: html, plainText. Default: plainText
+   */
+  contentType?: string | undefined;
+  /**
+   * From email address configured in the help desk portal. Example: "support@zylker.com"
+   */
+  fromEmailAddress?: string | undefined;
+  /**
+   * To email address for the reply. Example: "customer@example.com"
+   */
+  to?: string | undefined;
+  /**
+   * Email addresses to CC. Comma-separated for multiple values.
+   */
+  cc?: string | undefined;
+  /**
+   * Email addresses to BCC. Comma-separated for multiple values.
+   */
+  bcc?: string | undefined;
+  /**
+   * Whether the thread is private. Default: false
+   */
+  isPrivate?: boolean | undefined;
+  /**
+   * Whether the thread is sent as a forward. Default: false
+   */
+  isForward?: boolean | undefined;
+  /**
+   * ID of the thread to which this reply is a response.
+   */
+  inReplyToThreadId?: string | undefined;
+  /**
+   * List of attachment IDs to include in the reply.
+   */
+  attachmentIds?: string[] | undefined;
+  /**
+   * Ticket status to set after sending the reply. Example: "Closed"
+   */
+  ticketStatus?: string | undefined;
+};
+
+export interface ActionOutput_zoho_desk_sendticketreply {
+  /**
+   * The thread ID of the reply.
+   */
+  id: string;
+  summary?: string | undefined;
+  cc?: string | undefined;
+  bcc?: string | undefined;
+  isDescriptionThread?: boolean | undefined;
+  attachments?: ({  size?: string | undefined;
+  name?: string | undefined;
+  id: string;
+  href?: string | undefined;})[];
+  canReply?: boolean | undefined;
+  visibility?: string | undefined;
+  author?: {  firstName?: string | undefined;
+  lastName?: string | undefined;
+  photoURL?: string | undefined;
+  name?: string | undefined;
+  type?: string | undefined;
+  email?: string | undefined;};
+  channel?: string | undefined;
+  source?: {  appName?: string | undefined;
+  extId?: string | undefined;
+  type?: string | undefined;
+  permalink?: string | undefined;
+  appPhotoURL?: string | undefined;};
+  content?: string | undefined;
+  isForward?: boolean | undefined;
+  hasAttach?: boolean | undefined;
+  responderId?: string | undefined;
+  channelRelatedInfo?: unknown | undefined;
+  respondedIn?: string | undefined;
+  createdTime?: string | undefined;
+  to?: string | undefined;
+  fromEmailAddress?: string | undefined;
+  actions?: unknown[] | undefined;
+  contentType?: string | undefined;
+  status?: string | undefined;
+  direction?: string | undefined;
+};
+
+export interface ActionInput_zoho_desk_updatecontact {
+  /**
+   * The ID of the contact to update. Example: "1329983000000410184"
+   */
+  contactId: string;
+  /**
+   * First name of the contact.
+   */
+  firstName?: string | undefined;
+  /**
+   * Last name of the contact.
+   */
+  lastName?: string | undefined;
+  /**
+   * Email address of the contact.
+   */
+  email?: string | undefined;
+  /**
+   * Phone number of the contact.
+   */
+  phone?: string | undefined;
+  /**
+   * Mobile number of the contact.
+   */
+  mobile?: string | undefined;
+  /**
+   * Secondary email address of the contact.
+   */
+  secondaryEmail?: string | undefined;
+  /**
+   * ID of the account associated with the contact.
+   */
+  accountId?: string | undefined;
+  /**
+   * ID of the agent who owns the contact.
+   */
+  ownerId?: string | undefined;
+};
+
+export interface ActionOutput_zoho_desk_updatecontact {
+  id: string;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  mobile?: string | undefined;
+  secondaryEmail?: string | undefined;
+  accountId?: string | undefined;
+  ownerId?: string | undefined;
+  createdTime?: string | undefined;
+  modifiedTime?: string | undefined;
+  isAnonymous?: boolean | undefined;
+  isSpam?: boolean | undefined;
+};
+
+export interface ActionInput_zoho_desk_updateticket {
+  /**
+   * The unique ID of the ticket to update. Example: "18920000000054003"
+   */
+  ticketId: string;
+  /**
+   * Subject of the ticket.
+   */
+  subject?: string | undefined;
+  /**
+   * ID of the department to which the ticket belongs.
+   */
+  departmentId?: string | undefined;
+  /**
+   * ID of the contact who raised the ticket.
+   */
+  contactId?: string | undefined;
+  /**
+   * ID of the product to which the ticket is mapped.
+   */
+  productId?: string | undefined;
+  /**
+   * Email address of the contact.
+   */
+  email?: string | undefined;
+  /**
+   * Phone number of the contact.
+   */
+  phone?: string | undefined;
+  /**
+   * Description of the ticket.
+   */
+  description?: string | undefined;
+  /**
+   * Status of the ticket. Example: "Open" or "Closed"
+   */
+  status?: string | undefined;
+  /**
+   * ID of the agent to whom the ticket is assigned.
+   */
+  assigneeId?: string | undefined;
+  /**
+   * Category of the ticket.
+   */
+  category?: string | undefined;
+  /**
+   * Subcategory of the ticket.
+   */
+  subCategory?: string | undefined;
+  /**
+   * Resolution provided for the ticket.
+   */
+  resolution?: string | undefined;
+  /**
+   * Due date of the ticket in ISO 8601 format.
+   */
+  dueDate?: string | undefined;
+  /**
+   * Priority of the ticket. Example: "High", "Medium", "Low"
+   */
+  priority?: string | undefined;
+  /**
+   * Language of the ticket.
+   */
+  language?: string | undefined;
+  /**
+   * Channel through which the ticket was created. Example: "Email", "Phone"
+   */
+  channel?: string | undefined;
+  /**
+   * Classification of the ticket.
+   */
+  classification?: string | undefined;
+  /**
+   * Custom field values for the ticket.
+   */
+  customFields?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_zoho_desk_updateticket {
+  id: string;
+  ticketNumber?: string | undefined;
+  modifiedTime?: string | undefined;
+  subCategory?: string | undefined;
+  statusType?: string | undefined;
+  subject?: string | undefined;
+  customFields?: {  [key: string]: unknown | undefined;};
+  dueDate?: string | undefined;
+  departmentId?: string | undefined;
+  channel?: string | undefined;
+  description?: string | undefined;
+  resolution?: string | undefined;
+  closedTime?: string | undefined;
+  approvalCount?: string | undefined;
+  timeEntryCount?: string | undefined;
+  channelRelatedInfo?: unknown | undefined;
+  responseDueDate?: string | undefined;
+  isDeleted?: boolean | undefined;
+  createdTime?: string | undefined;
+  modifiedBy?: string | undefined;
+  isResponseOverdue?: boolean | undefined;
+  email?: string | undefined;
+  customerResponseTime?: string | undefined;
+  productId?: string | undefined;
+  contactId?: string | undefined;
+  threadCount?: string | undefined;
+  priority?: string | undefined;
+  classification?: string | undefined;
+  assigneeId?: string | undefined;
+  commentCount?: string | undefined;
+  taskCount?: string | undefined;
+  accountId?: string | undefined;
+  phone?: string | undefined;
+  webUrl?: string | undefined;
+  teamId?: string | undefined;
+  attachmentCount?: string | undefined;
+  category?: string | undefined;
+  status?: string | undefined;
 };
 
 export interface ZohoMailEmail {

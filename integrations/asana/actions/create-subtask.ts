@@ -4,15 +4,15 @@ import { createAction } from 'nango';
 const InputSchema = z.object({
     parent_task_gid: z.string().min(1).describe('The globally unique identifier of the parent task. Example: "12345"'),
     name: z.string().describe('The name of the subtask. Example: "Review draft"'),
-    assignee: z.string().optional().describe('The user gid to assign the subtask to. Example: "67890"'),
-    due_on: z.string().optional().describe('Localized due date in YYYY-MM-DD format. Example: "2024-12-31"'),
-    due_at: z.string().optional().describe('UTC due date-time in ISO 8601 format. Example: "2024-12-31T23:59:59.000Z"'),
+    assignee: z.string().nullable().optional().describe('The user gid to assign the subtask to. Example: "67890"'),
+    due_on: z.string().nullable().optional().describe('Localized due date in YYYY-MM-DD format. Example: "2024-12-31"'),
+    due_at: z.string().nullable().optional().describe('UTC due date-time in ISO 8601 format. Example: "2024-12-31T23:59:59.000Z"'),
     notes: z.string().optional().describe('Free-form description of the subtask.'),
     projects: z.array(z.string()).optional().describe('Array of project gids to associate with the subtask at creation time.'),
     workspace: z.string().optional().describe('The workspace gid for the subtask. Example: "54321"'),
     followers: z.array(z.string()).optional().describe('Array of user gids to add as followers.'),
     tags: z.array(z.string()).optional().describe('Array of tag gids to attach to the subtask.'),
-    start_on: z.string().optional().describe('Start date in YYYY-MM-DD format. Example: "2024-01-01"'),
+    start_on: z.string().nullable().optional().describe('Start date in YYYY-MM-DD format. Example: "2024-01-01"'),
     resource_subtype: z.enum(['default_task', 'milestone']).optional().describe('The subtype of the task.'),
     completed: z.boolean().optional().describe('Whether the subtask is marked completed.'),
     liked: z.boolean().optional().describe('Whether the subtask is liked by the authorized user.')
@@ -83,15 +83,15 @@ function normalizeResource(resource: z.infer<typeof ResourceSchema> | null | und
 
 interface TaskCreateBody {
     name: string;
-    assignee?: string;
-    due_on?: string;
-    due_at?: string;
+    assignee?: string | null;
+    due_on?: string | null;
+    due_at?: string | null;
     notes?: string;
     projects?: string[];
     workspace?: string;
     followers?: string[];
     tags?: string[];
-    start_on?: string;
+    start_on?: string | null;
     resource_subtype?: string;
     completed?: boolean;
     liked?: boolean;
@@ -99,7 +99,7 @@ interface TaskCreateBody {
 
 const action = createAction({
     description: 'Create a subtask under a parent task.',
-    version: '1.0.0',
+    version: '1.0.1',
     endpoint: {
         method: 'POST',
         path: '/actions/create-subtask',

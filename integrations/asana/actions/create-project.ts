@@ -10,11 +10,11 @@ const InputSchema = z.object({
         .describe('The team GID to share the project with. Required if the workspace is an organization. Example: "1214299875377454"'),
     privacy_setting: z.enum(['private', 'public_to_workspace']).optional().describe('The privacy setting of the project. Example: "public_to_workspace"'),
     notes: z.string().optional().describe('Free-form textual information associated with the project (description).'),
-    color: z.string().optional().describe('Color of the project. Example: "dark-blue"'),
-    due_date: z.string().optional().describe('The date at which the project is due. Format: YYYY-MM-DD.'),
-    start_on: z.string().optional().describe('The day on which the project starts. Format: YYYY-MM-DD.'),
+    color: z.string().nullable().optional().describe('Color of the project. Example: "dark-blue"'),
+    due_date: z.string().nullable().optional().describe('The date at which the project is due. Format: YYYY-MM-DD.'),
+    start_on: z.string().nullable().optional().describe('The day on which the project starts. Format: YYYY-MM-DD.'),
     default_view: z.enum(['list', 'board', 'timeline', 'calendar']).optional().describe('The default view of the project. Example: "list"'),
-    owner: z.string().optional().describe('The user GID of the project owner. Example: "12345"')
+    owner: z.string().nullable().optional().describe('The user GID of the project owner. Example: "12345"')
 });
 
 const WorkspaceCompactSchema = z.object({
@@ -75,7 +75,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a project in a workspace or team.',
-    version: '1.0.0',
+    version: '1.0.1',
     endpoint: {
         method: 'POST',
         path: '/actions/create-project',
