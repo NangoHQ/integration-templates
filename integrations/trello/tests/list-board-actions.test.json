@@ -1,0 +1,407 @@
+{
+  "input": {
+    "board_id": "6a26ebb3cd5f60a53a585978",
+    "limit": 5
+  },
+  "output": {
+    "actions": [
+      {
+        "id": "6a26f5ef703a4e3e9ee51609",
+        "idMemberCreator": "6a26eb9ccef85b4074044ea5",
+        "data": {
+          "card": {
+            "id": "6a26f5ef703a4e3e9ee515f0",
+            "name": "Nango Create Card Test",
+            "idShort": 11,
+            "shortLink": "JBCAszZB"
+          },
+          "board": {
+            "id": "6a26ebb3cd5f60a53a585978",
+            "name": "My Trello board",
+            "shortLink": "NYLufejN"
+          },
+          "list": {
+            "id": "6a26f2ee92bc79daf0fe4c55",
+            "name": "In Progress Updated"
+          }
+        },
+        "type": "createCard",
+        "date": "2026-06-08T17:03:43.975Z",
+        "memberCreator": {
+          "id": "6a26eb9ccef85b4074044ea5",
+          "username": "nangodeveloper",
+          "fullName": "Nango Developer"
+        }
+      },
+      {
+        "id": "6a26f5ee5d72ee2d491f1aaf",
+        "idMemberCreator": "6a26eb9ccef85b4074044ea5",
+        "data": {
+          "card": {
+            "id": "6a26f2fdbc520ab9f45a5214",
+            "name": "Nango Test Task Alpha Updated",
+            "idShort": 7,
+            "shortLink": "8eMIKY5v"
+          },
+          "board": {
+            "id": "6a26ebb3cd5f60a53a585978",
+            "name": "My Trello board",
+            "shortLink": "NYLufejN"
+          },
+          "list": {
+            "id": "6a26f2ee92bc79daf0fe4c55",
+            "name": "In Progress Updated"
+          },
+          "old": {
+            "name": "Nango Test Task Alpha"
+          }
+        },
+        "type": "updateCard",
+        "date": "2026-06-08T17:03:42.075Z",
+        "memberCreator": {
+          "id": "6a26eb9ccef85b4074044ea5",
+          "username": "nangodeveloper",
+          "fullName": "Nango Developer"
+        }
+      },
+      {
+        "id": "6a26f5edad91839e7d19ec0e",
+        "idMemberCreator": "6a26eb9ccef85b4074044ea5",
+        "data": {
+          "board": {
+            "id": "6a26ebb3cd5f60a53a585978",
+            "name": "My Trello board",
+            "shortLink": "NYLufejN"
+          },
+          "list": {
+            "id": "6a26f315d65f93eeac0b1b11",
+            "name": "Nango Delete List A"
+          },
+          "old": {
+            "closed": false
+          }
+        },
+        "type": "updateList",
+        "date": "2026-06-08T17:03:41.300Z",
+        "memberCreator": {
+          "id": "6a26eb9ccef85b4074044ea5",
+          "username": "nangodeveloper",
+          "fullName": "Nango Developer"
+        }
+      },
+      {
+        "id": "6a26f5ed6d60ea150de31b27",
+        "idMemberCreator": "6a26eb9ccef85b4074044ea5",
+        "data": {
+          "card": {
+            "id": "6a26f310fb56d9828fc1e683",
+            "name": "Nango Test Task Beta",
+            "idShort": 8,
+            "shortLink": "W7IFjqb9"
+          },
+          "board": {
+            "id": "6a26ebb3cd5f60a53a585978",
+            "name": "My Trello board",
+            "shortLink": "NYLufejN"
+          },
+          "attachment": {
+            "id": "6a26f33ebe5d1c9548364766",
+            "name": "Trello API Docs"
+          }
+        },
+        "type": "deleteAttachmentFromCard",
+        "date": "2026-06-08T17:03:41.152Z",
+        "memberCreator": {
+          "id": "6a26eb9ccef85b4074044ea5",
+          "username": "nangodeveloper",
+          "fullName": "Nango Developer"
+        }
+      },
+      {
+        "id": "6a26f5e39091c645f5f7c457",
+        "idMemberCreator": "6a26eb9ccef85b4074044ea5",
+        "data": {
+          "text": "Test comment from Nango dryrun",
+          "card": {
+            "id": "6a26f2fdbc520ab9f45a5214",
+            "name": "Nango Test Task Alpha",
+            "idShort": 7,
+            "shortLink": "8eMIKY5v"
+          },
+          "board": {
+            "id": "6a26ebb3cd5f60a53a585978",
+            "name": "My Trello board",
+            "shortLink": "NYLufejN"
+          },
+          "list": {
+            "id": "6a26f2ee92bc79daf0fe4c55",
+            "name": "In Progress Updated"
+          }
+        },
+        "type": "commentCard",
+        "date": "2026-06-08T17:03:31.873Z",
+        "memberCreator": {
+          "id": "6a26eb9ccef85b4074044ea5",
+          "username": "nangodeveloper",
+          "fullName": "Nango Developer"
+        }
+      }
+    ],
+    "next_cursor": "6a26f5e39091c645f5f7c457"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/1/boards/6a26ebb3cd5f60a53a585978/actions": {
+        "response": [
+          {
+            "id": "6a26f5ef703a4e3e9ee51609",
+            "idMemberCreator": "6a26eb9ccef85b4074044ea5",
+            "data": {
+              "card": {
+                "id": "6a26f5ef703a4e3e9ee515f0",
+                "name": "Nango Create Card Test",
+                "idShort": 11,
+                "shortLink": "JBCAszZB"
+              },
+              "list": {
+                "id": "6a26f2ee92bc79daf0fe4c55",
+                "name": "In Progress Updated"
+              },
+              "board": {
+                "id": "6a26ebb3cd5f60a53a585978",
+                "name": "My Trello board",
+                "shortLink": "NYLufejN"
+              }
+            },
+            "agenticIdentity": null,
+            "appCreator": {
+              "id": "6a26ed589a29feaa521547d0"
+            },
+            "type": "createCard",
+            "date": "2026-06-08T17:03:43.975Z",
+            "limits": null,
+            "memberCreator": {
+              "id": "6a26eb9ccef85b4074044ea5",
+              "activityBlocked": false,
+              "avatarHash": "790115fdfb206b32e629553a92e09528",
+              "avatarUrl": "https://trello-members.s3.amazonaws.com/6a26eb9ccef85b4074044ea5/790115fdfb206b32e629553a92e09528",
+              "fullName": "Nango Developer",
+              "idMemberReferrer": null,
+              "initials": "ND",
+              "nonPublic": {},
+              "nonPublicAvailable": true,
+              "username": "nangodeveloper"
+            }
+          },
+          {
+            "id": "6a26f5ee5d72ee2d491f1aaf",
+            "idMemberCreator": "6a26eb9ccef85b4074044ea5",
+            "data": {
+              "old": {
+                "name": "Nango Test Task Alpha"
+              },
+              "card": {
+                "name": "Nango Test Task Alpha Updated",
+                "id": "6a26f2fdbc520ab9f45a5214",
+                "idShort": 7,
+                "shortLink": "8eMIKY5v"
+              },
+              "board": {
+                "id": "6a26ebb3cd5f60a53a585978",
+                "name": "My Trello board",
+                "shortLink": "NYLufejN"
+              },
+              "list": {
+                "id": "6a26f2ee92bc79daf0fe4c55",
+                "name": "In Progress Updated"
+              }
+            },
+            "agenticIdentity": null,
+            "appCreator": {
+              "id": "6a26ed589a29feaa521547d0"
+            },
+            "type": "updateCard",
+            "date": "2026-06-08T17:03:42.075Z",
+            "limits": null,
+            "memberCreator": {
+              "id": "6a26eb9ccef85b4074044ea5",
+              "activityBlocked": false,
+              "avatarHash": "790115fdfb206b32e629553a92e09528",
+              "avatarUrl": "https://trello-members.s3.amazonaws.com/6a26eb9ccef85b4074044ea5/790115fdfb206b32e629553a92e09528",
+              "fullName": "Nango Developer",
+              "idMemberReferrer": null,
+              "initials": "ND",
+              "nonPublic": {},
+              "nonPublicAvailable": true,
+              "username": "nangodeveloper"
+            }
+          },
+          {
+            "id": "6a26f5edad91839e7d19ec0e",
+            "idMemberCreator": "6a26eb9ccef85b4074044ea5",
+            "data": {
+              "list": {
+                "closed": true,
+                "id": "6a26f315d65f93eeac0b1b11",
+                "name": "Nango Delete List A"
+              },
+              "old": {
+                "closed": false
+              },
+              "board": {
+                "id": "6a26ebb3cd5f60a53a585978",
+                "name": "My Trello board",
+                "shortLink": "NYLufejN"
+              }
+            },
+            "agenticIdentity": null,
+            "appCreator": {
+              "id": "6a26ed589a29feaa521547d0"
+            },
+            "type": "updateList",
+            "date": "2026-06-08T17:03:41.300Z",
+            "limits": null,
+            "memberCreator": {
+              "id": "6a26eb9ccef85b4074044ea5",
+              "activityBlocked": false,
+              "avatarHash": "790115fdfb206b32e629553a92e09528",
+              "avatarUrl": "https://trello-members.s3.amazonaws.com/6a26eb9ccef85b4074044ea5/790115fdfb206b32e629553a92e09528",
+              "fullName": "Nango Developer",
+              "idMemberReferrer": null,
+              "initials": "ND",
+              "nonPublic": {},
+              "nonPublicAvailable": true,
+              "username": "nangodeveloper"
+            }
+          },
+          {
+            "id": "6a26f5ed6d60ea150de31b27",
+            "idMemberCreator": "6a26eb9ccef85b4074044ea5",
+            "data": {
+              "attachment": {
+                "name": "Trello API Docs",
+                "id": "6a26f33ebe5d1c9548364766"
+              },
+              "card": {
+                "id": "6a26f310fb56d9828fc1e683",
+                "name": "Nango Test Task Beta",
+                "idShort": 8,
+                "shortLink": "W7IFjqb9"
+              },
+              "board": {
+                "id": "6a26ebb3cd5f60a53a585978",
+                "name": "My Trello board",
+                "shortLink": "NYLufejN"
+              }
+            },
+            "agenticIdentity": null,
+            "appCreator": {
+              "id": "6a26ed589a29feaa521547d0"
+            },
+            "type": "deleteAttachmentFromCard",
+            "date": "2026-06-08T17:03:41.152Z",
+            "limits": null,
+            "memberCreator": {
+              "id": "6a26eb9ccef85b4074044ea5",
+              "activityBlocked": false,
+              "avatarHash": "790115fdfb206b32e629553a92e09528",
+              "avatarUrl": "https://trello-members.s3.amazonaws.com/6a26eb9ccef85b4074044ea5/790115fdfb206b32e629553a92e09528",
+              "fullName": "Nango Developer",
+              "idMemberReferrer": null,
+              "initials": "ND",
+              "nonPublic": {},
+              "nonPublicAvailable": true,
+              "username": "nangodeveloper"
+            }
+          },
+          {
+            "id": "6a26f5e39091c645f5f7c457",
+            "idMemberCreator": "6a26eb9ccef85b4074044ea5",
+            "data": {
+              "idCard": "6a26f2fdbc520ab9f45a5214",
+              "idAuthor": "6a26eb9ccef85b4074044ea5",
+              "text": "Test comment from Nango dryrun",
+              "textData": {
+                "emoji": {}
+              },
+              "card": {
+                "id": "6a26f2fdbc520ab9f45a5214",
+                "name": "Nango Test Task Alpha",
+                "idShort": 7,
+                "shortLink": "8eMIKY5v"
+              },
+              "board": {
+                "id": "6a26ebb3cd5f60a53a585978",
+                "name": "My Trello board",
+                "shortLink": "NYLufejN"
+              },
+              "list": {
+                "id": "6a26f2ee92bc79daf0fe4c55",
+                "name": "In Progress Updated"
+              }
+            },
+            "agenticIdentity": null,
+            "appCreator": {
+              "id": "6a26ed589a29feaa521547d0"
+            },
+            "type": "commentCard",
+            "date": "2026-06-08T17:03:31.873Z",
+            "limits": {
+              "reactions": {
+                "perAction": {
+                  "status": "ok",
+                  "disableAt": 900,
+                  "warnAt": 720
+                },
+                "uniquePerAction": {
+                  "status": "ok",
+                  "disableAt": 17,
+                  "warnAt": 14
+                }
+              }
+            },
+            "memberCreator": {
+              "id": "6a26eb9ccef85b4074044ea5",
+              "activityBlocked": false,
+              "avatarHash": "790115fdfb206b32e629553a92e09528",
+              "avatarUrl": "https://trello-members.s3.amazonaws.com/6a26eb9ccef85b4074044ea5/790115fdfb206b32e629553a92e09528",
+              "fullName": "Nango Developer",
+              "idMemberReferrer": null,
+              "initials": "ND",
+              "nonPublic": {},
+              "nonPublicAvailable": true,
+              "username": "nangodeveloper"
+            }
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Mon, 08 Jun 2026 17:03:48 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "4588",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4812",
+          "x-ratelimit-reset": "1780938242",
+          "etag": "W/\"11ec-cE2bmbRRheoH1N5+5iXNkCSEx7o\""
+        },
+        "hash": "78490e61a8f94f404929f36d8cb9b84cef514471",
+        "request": {
+          "params": {
+            "limit": "5"
+          }
+        }
+      }
+    }
+  }
+}

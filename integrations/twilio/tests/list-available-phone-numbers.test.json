@@ -1,0 +1,236 @@
+{
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00"
+    }
+  },
+  "api": {
+    "get": {
+      "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/AvailablePhoneNumbers/US/Local.json": {
+        "response": {
+          "available_phone_numbers": [
+            {
+              "address_requirements": "none",
+              "beta": false,
+              "capabilities": {
+                "MMS": true,
+                "SMS": true,
+                "voice": true
+              },
+              "friendly_name": "(669) 587-2921",
+              "iso_country": "US",
+              "lata": null,
+              "latitude": "0.000000",
+              "locality": null,
+              "longitude": "0.000000",
+              "phone_number": "+15550000001",
+              "postal_code": null,
+              "rate_center": null,
+              "region": "US"
+            },
+            {
+              "address_requirements": "none",
+              "beta": false,
+              "capabilities": {
+                "MMS": true,
+                "SMS": true,
+                "voice": true
+              },
+              "friendly_name": "(945) 202-2170",
+              "iso_country": "US",
+              "lata": null,
+              "latitude": "0.000000",
+              "locality": null,
+              "longitude": "0.000000",
+              "phone_number": "+15550000001",
+              "postal_code": null,
+              "rate_center": null,
+              "region": "US"
+            },
+            {
+              "address_requirements": "none",
+              "beta": false,
+              "capabilities": {
+                "MMS": true,
+                "SMS": true,
+                "voice": true
+              },
+              "friendly_name": "(970) 713-8746",
+              "iso_country": "US",
+              "lata": "656",
+              "latitude": "38.869700",
+              "locality": "Crested Butte",
+              "longitude": "-106.987800",
+              "phone_number": "+15550000001",
+              "postal_code": "81224",
+              "rate_center": "CRESTEDBTE",
+              "region": "CO"
+            },
+            {
+              "address_requirements": "none",
+              "beta": false,
+              "capabilities": {
+                "MMS": true,
+                "SMS": true,
+                "voice": true
+              },
+              "friendly_name": "(478) 280-9873",
+              "iso_country": "US",
+              "lata": "446",
+              "latitude": "33.058100",
+              "locality": "Haddock",
+              "longitude": "-83.437000",
+              "phone_number": "+15550000001",
+              "postal_code": "31033",
+              "rate_center": "HADDOCK",
+              "region": "GA"
+            },
+            {
+              "address_requirements": "none",
+              "beta": false,
+              "capabilities": {
+                "MMS": true,
+                "SMS": true,
+                "voice": true
+              },
+              "friendly_name": "(608) 420-5867",
+              "iso_country": "US",
+              "lata": "354",
+              "latitude": "42.728200",
+              "locality": "Albany",
+              "longitude": "-89.440000",
+              "phone_number": "+15550000001",
+              "postal_code": "53502",
+              "rate_center": "ALBANY",
+              "region": "WI"
+            }
+          ],
+          "uri": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/AvailablePhoneNumbers/US/Local.json?PageSize=5"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 10 Jun 2026 09:03:18 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "1876",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4903",
+          "x-ratelimit-reset": "1781082222",
+          "etag": "W/\"754-VkZK8Jso4jvfIwmCjIMTxwy9NfQ\""
+        },
+        "hash": "936882842dbf7f9eafbe9a2cab19ae37cf5f819c",
+        "request": {
+          "params": {
+            "PageSize": "5"
+          }
+        }
+      }
+    }
+  },
+  "input": {
+    "country_code": "US",
+    "type": "Local",
+    "page_size": 5
+  },
+  "output": {
+    "available_phone_numbers": [
+      {
+        "address_requirements": "none",
+        "beta": false,
+        "capabilities": {
+          "mms": true,
+          "sms": true,
+          "voice": true
+        },
+        "friendly_name": "(669) 587-2921",
+        "iso_country": "US",
+        "latitude": "0.000000",
+        "longitude": "0.000000",
+        "phone_number": "+15550000001",
+        "region": "US"
+      },
+      {
+        "address_requirements": "none",
+        "beta": false,
+        "capabilities": {
+          "mms": true,
+          "sms": true,
+          "voice": true
+        },
+        "friendly_name": "(945) 202-2170",
+        "iso_country": "US",
+        "latitude": "0.000000",
+        "longitude": "0.000000",
+        "phone_number": "+15550000001",
+        "region": "US"
+      },
+      {
+        "address_requirements": "none",
+        "beta": false,
+        "capabilities": {
+          "mms": true,
+          "sms": true,
+          "voice": true
+        },
+        "friendly_name": "(970) 713-8746",
+        "iso_country": "US",
+        "lata": "656",
+        "latitude": "38.869700",
+        "locality": "Crested Butte",
+        "longitude": "-106.987800",
+        "phone_number": "+15550000001",
+        "postal_code": "81224",
+        "rate_center": "CRESTEDBTE",
+        "region": "CO"
+      },
+      {
+        "address_requirements": "none",
+        "beta": false,
+        "capabilities": {
+          "mms": true,
+          "sms": true,
+          "voice": true
+        },
+        "friendly_name": "(478) 280-9873",
+        "iso_country": "US",
+        "lata": "446",
+        "latitude": "33.058100",
+        "locality": "Haddock",
+        "longitude": "-83.437000",
+        "phone_number": "+15550000001",
+        "postal_code": "31033",
+        "rate_center": "HADDOCK",
+        "region": "GA"
+      },
+      {
+        "address_requirements": "none",
+        "beta": false,
+        "capabilities": {
+          "mms": true,
+          "sms": true,
+          "voice": true
+        },
+        "friendly_name": "(608) 420-5867",
+        "iso_country": "US",
+        "lata": "354",
+        "latitude": "42.728200",
+        "locality": "Albany",
+        "longitude": "-89.440000",
+        "phone_number": "+15550000001",
+        "postal_code": "53502",
+        "rate_center": "ALBANY",
+        "region": "WI"
+      }
+    ]
+  }
+}

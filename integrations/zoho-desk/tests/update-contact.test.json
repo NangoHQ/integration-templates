@@ -1,0 +1,106 @@
+{
+  "input": {
+    "contactId": "1329983000000410184",
+    "firstName": "TestAgent"
+  },
+  "output": {
+    "id": "1329983000000410184",
+    "firstName": "TestAgent",
+    "lastName": "Lawrence",
+    "email": "support@zohodesk.com",
+    "phone": "1 888 900 9646",
+    "accountId": "1329983000000410148",
+    "ownerId": "1329983000000139001",
+    "createdTime": "2026-06-11T15:26:10.000Z",
+    "modifiedTime": "2026-06-11T16:10:56.000Z",
+    "isAnonymous": false,
+    "isSpam": false
+  },
+  "nango": {},
+  "api": {
+    "patch": {
+      "/v1/contacts/1329983000000410184": {
+        "response": {
+          "id": "1329983000000410184",
+          "layoutId": "1329983000000074005",
+          "firstName": "TestAgent",
+          "lastName": "Lawrence",
+          "facebook": "zoho",
+          "twitter": "zohocares",
+          "accountCount": "1",
+          "email": "support@zohodesk.com",
+          "secondaryEmail": null,
+          "mobile": null,
+          "phone": "1 888 900 9646",
+          "city": "Pleasanton",
+          "country": "United States",
+          "state": "CA",
+          "street": "Hacienda Drive",
+          "zip": "94588",
+          "description": null,
+          "title": "Customer Support Executive",
+          "type": null,
+          "createdTime": "2026-06-11T15:26:10.000Z",
+          "modifiedTime": "2026-06-11T16:10:56.000Z",
+          "ownerId": "1329983000000139001",
+          "language": null,
+          "accountId": "1329983000000410148",
+          "customFields": {},
+          "cf": {},
+          "layoutDetails": {
+            "id": "1329983000000074005",
+            "layoutName": "NangoDesk"
+          },
+          "isFollowing": false,
+          "zohoCRMContact": null,
+          "isAnonymous": false,
+          "isDeleted": false,
+          "isEndUser": false,
+          "photoURL": null,
+          "isSpam": false,
+          "webUrl": "https://desk.zoho.com/support/nangodesk/ShowHomePage.do#Contacts/dv/1329983000000410184",
+          "customerHappiness": {
+            "badPercentage": "0",
+            "okPercentage": "0",
+            "goodPercentage": "0"
+          },
+          "isTrashed": false
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 11 Jun 2026 16:11:02 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=64072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4973",
+          "x-ratelimit-reset": "1781194296",
+          "server": "ZGS",
+          "set-cookie": "<redacted>",
+          "content-disposition": "attachment;",
+          "cache-control": "private,no-cache,no-store,max-age=0,must-revalidate",
+          "pragma": "no-cache",
+          "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
+          "content-security-policy": "default-src 'none' ;script-src 'none' ;report-uri https://logsapi.zoho.com/csplog?service=support;report-to https://logsapi.zoho.com/csplog?service=support",
+          "x-rate-limit-remaining-v3": "5000",
+          "x-rate-limit-request-weight-v3": "1"
+        },
+        "hash": "711b7250b44f19ba5e568f4b1ea3bd6b74f30b00",
+        "request": {
+          "data": {
+            "firstName": "TestAgent"
+          }
+        }
+      }
+    }
+  }
+}

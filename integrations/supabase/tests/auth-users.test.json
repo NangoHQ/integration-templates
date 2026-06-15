@@ -1,0 +1,240 @@
+{
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {},
+    "batchSave": {
+      "User": [
+        {
+          "id": "004aa211-ad9d-46fe-8f27-901c8066ccd8",
+          "email": "test-create-auth-2@nango-test.dev",
+          "phone": "",
+          "role": "authenticated",
+          "created_at": "2026-06-08T15:14:16.769062Z",
+          "updated_at": "2026-06-08T15:14:16.771491Z"
+        },
+        {
+          "id": "29bdecf8-cb7d-4b9d-9840-887ad246b331",
+          "email": "test-create-auth-1@nango-test.dev",
+          "phone": "",
+          "role": "authenticated",
+          "created_at": "2026-06-08T15:13:56.110067Z",
+          "updated_at": "2026-06-08T15:13:56.138452Z"
+        },
+        {
+          "id": "de851992-e8ce-4d99-9db0-38c279d8b2f2",
+          "email": "create-auth-test-save@nango-test.dev",
+          "phone": "",
+          "role": "authenticated",
+          "created_at": "2026-06-08T14:52:52.790532Z",
+          "updated_at": "2026-06-08T14:52:52.792672Z"
+        },
+        {
+          "id": "37677dc8-d1ec-4730-9def-96c7895569d2",
+          "email": "create-auth-test@nango-test.dev",
+          "phone": "",
+          "role": "authenticated",
+          "created_at": "2026-06-08T14:52:36.560968Z",
+          "updated_at": "2026-06-08T14:52:36.56463Z"
+        },
+        {
+          "id": "d4727f66-1600-4a55-a8eb-dd3df9c6de69",
+          "email": "bob@nango-test.dev",
+          "phone": "",
+          "role": "authenticated",
+          "email_confirmed_at": "2026-06-08T14:31:27.53614Z",
+          "confirmed_at": "2026-06-08T14:31:27.53614Z",
+          "created_at": "2026-06-08T14:31:27.50415Z",
+          "updated_at": "2026-06-08T14:31:27.536927Z"
+        },
+        {
+          "id": "a02e344e-4eba-473d-b299-b751cbd1fa2c",
+          "email": "alice@nango-test.dev",
+          "phone": "",
+          "role": "authenticated",
+          "email_confirmed_at": "2026-06-08T14:30:57.028723Z",
+          "confirmed_at": "2026-06-08T14:30:57.028723Z",
+          "last_sign_in_at": "2026-06-08T14:53:12.872441Z",
+          "created_at": "2026-06-08T14:30:57.002327Z",
+          "updated_at": "2026-06-08T14:53:12.874529Z"
+        }
+      ]
+    },
+    "batchDelete": {
+      "User": []
+    }
+  },
+  "api": {
+    "get": {
+      "/auth/v1/admin/users": {
+        "response": {
+          "users": [
+            {
+              "id": "004aa211-ad9d-46fe-8f27-901c8066ccd8",
+              "aud": "authenticated",
+              "role": "authenticated",
+              "email": "test-create-auth-2@nango-test.dev",
+              "phone": "",
+              "app_metadata": {
+                "provider": "email",
+                "providers": [
+                  "email"
+                ]
+              },
+              "user_metadata": {},
+              "identities": null,
+              "created_at": "2026-06-08T15:14:16.769062Z",
+              "updated_at": "2026-06-08T15:14:16.771491Z",
+              "is_anonymous": false
+            },
+            {
+              "id": "29bdecf8-cb7d-4b9d-9840-887ad246b331",
+              "aud": "authenticated",
+              "role": "authenticated",
+              "email": "test-create-auth-1@nango-test.dev",
+              "phone": "",
+              "app_metadata": {
+                "provider": "email",
+                "providers": [
+                  "email"
+                ]
+              },
+              "user_metadata": {},
+              "identities": null,
+              "created_at": "2026-06-08T15:13:56.110067Z",
+              "updated_at": "2026-06-08T15:13:56.138452Z",
+              "is_anonymous": false
+            },
+            {
+              "id": "de851992-e8ce-4d99-9db0-38c279d8b2f2",
+              "aud": "authenticated",
+              "role": "authenticated",
+              "email": "create-auth-test-save@nango-test.dev",
+              "phone": "",
+              "app_metadata": {
+                "provider": "email",
+                "providers": [
+                  "email"
+                ]
+              },
+              "user_metadata": {},
+              "identities": null,
+              "created_at": "2026-06-08T14:52:52.790532Z",
+              "updated_at": "2026-06-08T14:52:52.792672Z",
+              "is_anonymous": false
+            },
+            {
+              "id": "37677dc8-d1ec-4730-9def-96c7895569d2",
+              "aud": "authenticated",
+              "role": "authenticated",
+              "email": "create-auth-test@nango-test.dev",
+              "phone": "",
+              "app_metadata": {
+                "provider": "email",
+                "providers": [
+                  "email"
+                ]
+              },
+              "user_metadata": {},
+              "identities": null,
+              "created_at": "2026-06-08T14:52:36.560968Z",
+              "updated_at": "2026-06-08T14:52:36.56463Z",
+              "is_anonymous": false
+            },
+            {
+              "id": "d4727f66-1600-4a55-a8eb-dd3df9c6de69",
+              "aud": "authenticated",
+              "role": "authenticated",
+              "email": "bob@nango-test.dev",
+              "email_confirmed_at": "2026-06-08T14:31:27.53614Z",
+              "phone": "",
+              "confirmed_at": "2026-06-08T14:31:27.53614Z",
+              "app_metadata": {
+                "plan": "free",
+                "provider": "email",
+                "providers": [
+                  "email"
+                ]
+              },
+              "user_metadata": {
+                "email_verified": true,
+                "full_name": "Bob Test",
+                "role": "member"
+              },
+              "identities": null,
+              "created_at": "2026-06-08T14:31:27.50415Z",
+              "updated_at": "2026-06-08T14:31:27.536927Z",
+              "is_anonymous": false
+            },
+            {
+              "id": "a02e344e-4eba-473d-b299-b751cbd1fa2c",
+              "aud": "authenticated",
+              "role": "authenticated",
+              "email": "alice@nango-test.dev",
+              "email_confirmed_at": "2026-06-08T14:30:57.028723Z",
+              "phone": "",
+              "confirmed_at": "2026-06-08T14:30:57.028723Z",
+              "last_sign_in_at": "2026-06-08T14:53:12.872441Z",
+              "app_metadata": {
+                "provider": "email",
+                "providers": [
+                  "email"
+                ]
+              },
+              "user_metadata": {
+                "department": "engineering",
+                "email_verified": true,
+                "full_name": "Alice Updated",
+                "role": "admin",
+                "test": "value"
+              },
+              "identities": null,
+              "created_at": "2026-06-08T14:30:57.002327Z",
+              "updated_at": "2026-06-08T14:53:12.874529Z",
+              "is_anonymous": false
+            }
+          ],
+          "aud": "authenticated"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 08 Jun 2026 16:50:55 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4992",
+          "x-ratelimit-reset": "1780937508",
+          "cf-ray": "a08965f4793ffff0-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "link": "</admin/users?page=1&per_page=100>; rel=\"last\"",
+          "server": "cloudflare",
+          "vary": "Origin, Accept-Encoding",
+          "sb-gateway-version": "1",
+          "sb-project-ref": "ftbycxxoztpodvxsfjcr",
+          "sb-request-id": "019ea824-f4d3-7f30-8535-6fc7962e5457",
+          "x-envoy-attempt-count": "1",
+          "x-envoy-upstream-service-time": "3",
+          "x-total-count": "6",
+          "set-cookie": "__cf_bm=_Jy7iLtQU21HonUXjOhk3cLLVRKNYPbl_hCbrMIG39E-1780937454.7995217-1.0.1.1-XC9Er.WvJzbIpFHd8UsCqO9cWcd3xy_H2sEL5dpq.mEti3lURKDc5vdbtOGEleuZQuvXVDFB6bAeJvgn65r4BoI9yrA61BJrbM1yyMO3.q.773h0WVelwWR3hH18uy6n; HttpOnly; SameSite=None; Secure; Path=/; Domain=supabase.co; Expires=Mon, 08 Jun 2026 17:20:55 GMT",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "f87b2eb3bc226f02902cf5fb0d9d872fe4f16371",
+        "request": {
+          "params": {
+            "page": "1",
+            "per_page": "100"
+          }
+        }
+      }
+    }
+  }
+}

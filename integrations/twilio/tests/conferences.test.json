@@ -1,0 +1,652 @@
+{
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00"
+    },
+    "batchSave": {
+      "Conference": [
+        {
+          "id": "CF000000000000000000000000000015",
+          "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+          "api_version": "2010-04-01",
+          "date_created": "Wed, 10 Jun 2026 10:28:36 +0000",
+          "date_updated": "Wed, 10 Jun 2026 10:28:58 +0000",
+          "friendly_name": "NangoTestConfWait",
+          "region": "us1",
+          "sid": "CF000000000000000000000000000015",
+          "status": "completed",
+          "subresource_uris": {
+            "participants": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000015/Participants.json",
+            "recordings": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000015/Recordings.json"
+          },
+          "uri": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000015.json",
+          "reason_conference_ended": "last-participant-left",
+          "call_sid_ending_conference": "CA000000000000000000000000000012"
+        },
+        {
+          "id": "CF000000000000000000000000000016",
+          "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+          "api_version": "2010-04-01",
+          "date_created": "Wed, 10 Jun 2026 10:27:48 +0000",
+          "date_updated": "Wed, 10 Jun 2026 10:28:15 +0000",
+          "friendly_name": "NangoTestConf2",
+          "region": "us1",
+          "sid": "CF000000000000000000000000000016",
+          "status": "completed",
+          "subresource_uris": {
+            "participants": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000016/Participants.json",
+            "recordings": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000016/Recordings.json"
+          },
+          "uri": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000016.json",
+          "reason_conference_ended": "last-participant-left",
+          "call_sid_ending_conference": "CA000000000000000000000000000015"
+        },
+        {
+          "id": "CF000000000000000000000000000017",
+          "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+          "api_version": "2010-04-01",
+          "date_created": "Wed, 10 Jun 2026 10:27:05 +0000",
+          "date_updated": "Wed, 10 Jun 2026 10:27:39 +0000",
+          "friendly_name": "NangoTestConference",
+          "region": "ie1",
+          "sid": "CF000000000000000000000000000017",
+          "status": "completed",
+          "subresource_uris": {
+            "participants": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000017/Participants.json",
+            "recordings": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000017/Recordings.json"
+          },
+          "uri": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000017.json",
+          "reason_conference_ended": "last-participant-left",
+          "call_sid_ending_conference": "CA000000000000000000000000000017"
+        },
+        {
+          "id": "CF000000000000000000000000000001",
+          "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+          "api_version": "2010-04-01",
+          "date_created": "Tue, 09 Jun 2026 16:40:34 +0000",
+          "date_updated": "Tue, 09 Jun 2026 16:40:42 +0000",
+          "friendly_name": "NangoTestConf13",
+          "region": "us1",
+          "sid": "CF000000000000000000000000000001",
+          "status": "completed",
+          "subresource_uris": {
+            "participants": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000001/Participants.json",
+            "recordings": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000001/Recordings.json"
+          },
+          "uri": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000001.json",
+          "reason_conference_ended": "last-participant-left",
+          "call_sid_ending_conference": "CA000000000000000000000000000024"
+        },
+        {
+          "id": "CF000000000000000000000000000002",
+          "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+          "api_version": "2010-04-01",
+          "date_created": "Tue, 09 Jun 2026 16:40:27 +0000",
+          "date_updated": "Tue, 09 Jun 2026 16:40:35 +0000",
+          "friendly_name": "NangoTestConf12",
+          "region": "us1",
+          "sid": "CF000000000000000000000000000002",
+          "status": "completed",
+          "subresource_uris": {
+            "participants": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000002/Participants.json",
+            "recordings": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000002/Recordings.json"
+          },
+          "uri": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000002.json",
+          "reason_conference_ended": "last-participant-left",
+          "call_sid_ending_conference": "CA000000000000000000000000000025"
+        },
+        {
+          "id": "CF000000000000000000000000000003",
+          "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+          "api_version": "2010-04-01",
+          "date_created": "Tue, 09 Jun 2026 16:40:04 +0000",
+          "date_updated": "Tue, 09 Jun 2026 16:40:12 +0000",
+          "friendly_name": "NangoTestConf11",
+          "region": "us1",
+          "sid": "CF000000000000000000000000000003",
+          "status": "completed",
+          "subresource_uris": {
+            "participants": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000003/Participants.json",
+            "recordings": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000003/Recordings.json"
+          },
+          "uri": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000003.json",
+          "reason_conference_ended": "last-participant-left",
+          "call_sid_ending_conference": "CA000000000000000000000000000026"
+        },
+        {
+          "id": "CF000000000000000000000000000004",
+          "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+          "api_version": "2010-04-01",
+          "date_created": "Tue, 09 Jun 2026 16:39:46 +0000",
+          "date_updated": "Tue, 09 Jun 2026 16:39:55 +0000",
+          "friendly_name": "NangoTestConf10",
+          "region": "us1",
+          "sid": "CF000000000000000000000000000004",
+          "status": "completed",
+          "subresource_uris": {
+            "participants": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000004/Participants.json",
+            "recordings": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000004/Recordings.json"
+          },
+          "uri": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000004.json",
+          "reason_conference_ended": "last-participant-left",
+          "call_sid_ending_conference": "CA000000000000000000000000000027"
+        },
+        {
+          "id": "CF000000000000000000000000000005",
+          "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+          "api_version": "2010-04-01",
+          "date_created": "Tue, 09 Jun 2026 16:39:28 +0000",
+          "date_updated": "Tue, 09 Jun 2026 16:39:44 +0000",
+          "friendly_name": "NangoTestConf9",
+          "region": "us1",
+          "sid": "CF000000000000000000000000000005",
+          "status": "completed",
+          "subresource_uris": {
+            "participants": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000005/Participants.json",
+            "recordings": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000005/Recordings.json"
+          },
+          "uri": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000005.json",
+          "reason_conference_ended": "last-participant-left",
+          "call_sid_ending_conference": "CA000000000000000000000000000029"
+        },
+        {
+          "id": "CF000000000000000000000000000006",
+          "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+          "api_version": "2010-04-01",
+          "date_created": "Tue, 09 Jun 2026 16:39:20 +0000",
+          "date_updated": "Tue, 09 Jun 2026 16:39:42 +0000",
+          "friendly_name": "NangoTestConf8",
+          "region": "us1",
+          "sid": "CF000000000000000000000000000006",
+          "status": "completed",
+          "subresource_uris": {
+            "participants": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000006/Participants.json",
+            "recordings": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000006/Recordings.json"
+          },
+          "uri": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000006.json",
+          "reason_conference_ended": "last-participant-left",
+          "call_sid_ending_conference": "CA000000000000000000000000000032"
+        },
+        {
+          "id": "CF000000000000000000000000000007",
+          "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+          "api_version": "2010-04-01",
+          "date_created": "Tue, 09 Jun 2026 16:38:26 +0000",
+          "date_updated": "Tue, 09 Jun 2026 16:38:33 +0000",
+          "friendly_name": "NangoTestConf7",
+          "region": "us1",
+          "sid": "CF000000000000000000000000000007",
+          "status": "completed",
+          "subresource_uris": {
+            "participants": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000007/Participants.json",
+            "recordings": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000007/Recordings.json"
+          },
+          "uri": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000007.json",
+          "reason_conference_ended": "conference-ended-via-api"
+        },
+        {
+          "id": "CF000000000000000000000000000008",
+          "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+          "api_version": "2010-04-01",
+          "date_created": "Tue, 09 Jun 2026 16:37:14 +0000",
+          "date_updated": "Tue, 09 Jun 2026 16:37:29 +0000",
+          "friendly_name": "NangoTestConf5",
+          "region": "us1",
+          "sid": "CF000000000000000000000000000008",
+          "status": "completed",
+          "subresource_uris": {
+            "participants": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000008/Participants.json",
+            "recordings": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000008/Recordings.json"
+          },
+          "uri": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000008.json",
+          "reason_conference_ended": "last-participant-left",
+          "call_sid_ending_conference": "CA000000000000000000000000000040"
+        },
+        {
+          "id": "CF000000000000000000000000000009",
+          "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+          "api_version": "2010-04-01",
+          "date_created": "Tue, 09 Jun 2026 16:37:11 +0000",
+          "date_updated": "Tue, 09 Jun 2026 16:37:21 +0000",
+          "friendly_name": "NangoTestConf3",
+          "region": "us1",
+          "sid": "CF000000000000000000000000000009",
+          "status": "completed",
+          "subresource_uris": {
+            "participants": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000009/Participants.json",
+            "recordings": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000009/Recordings.json"
+          },
+          "uri": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000009.json",
+          "reason_conference_ended": "last-participant-left",
+          "call_sid_ending_conference": "CA000000000000000000000000000041"
+        },
+        {
+          "id": "CF000000000000000000000000000010",
+          "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+          "api_version": "2010-04-01",
+          "date_created": "Tue, 09 Jun 2026 16:37:04 +0000",
+          "date_updated": "Tue, 09 Jun 2026 16:37:04 +0000",
+          "friendly_name": "NangoTestConf2",
+          "region": "us1",
+          "sid": "CF000000000000000000000000000010",
+          "status": "completed",
+          "subresource_uris": {
+            "participants": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000010/Participants.json",
+            "recordings": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000010/Recordings.json"
+          },
+          "uri": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000010.json",
+          "reason_conference_ended": "last-participant-left",
+          "call_sid_ending_conference": "CA000000000000000000000000000042"
+        },
+        {
+          "id": "CF000000000000000000000000000011",
+          "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+          "api_version": "2010-04-01",
+          "date_created": "Tue, 09 Jun 2026 16:36:30 +0000",
+          "date_updated": "Tue, 09 Jun 2026 16:36:39 +0000",
+          "friendly_name": "NangoTestConf",
+          "region": "us1",
+          "sid": "CF000000000000000000000000000011",
+          "status": "completed",
+          "subresource_uris": {
+            "participants": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000011/Participants.json",
+            "recordings": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000011/Recordings.json"
+          },
+          "uri": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000011.json",
+          "reason_conference_ended": "conference-ended-via-api"
+        },
+        {
+          "id": "CF000000000000000000000000000012",
+          "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+          "api_version": "2010-04-01",
+          "date_created": "Tue, 09 Jun 2026 16:35:58 +0000",
+          "date_updated": "Tue, 09 Jun 2026 16:35:58 +0000",
+          "friendly_name": "NangoTestConf4",
+          "region": "us1",
+          "sid": "CF000000000000000000000000000012",
+          "status": "completed",
+          "subresource_uris": {
+            "participants": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000012/Participants.json",
+            "recordings": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000012/Recordings.json"
+          },
+          "uri": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000012.json",
+          "reason_conference_ended": "last-participant-left",
+          "call_sid_ending_conference": "CA000000000000000000000000000046"
+        },
+        {
+          "id": "CF000000000000000000000000000013",
+          "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+          "api_version": "2010-04-01",
+          "date_created": "Tue, 09 Jun 2026 16:35:30 +0000",
+          "date_updated": "Tue, 09 Jun 2026 16:35:31 +0000",
+          "friendly_name": "NangoTestConf3",
+          "region": "us1",
+          "sid": "CF000000000000000000000000000013",
+          "status": "completed",
+          "subresource_uris": {
+            "participants": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000013/Participants.json",
+            "recordings": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000013/Recordings.json"
+          },
+          "uri": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000013.json",
+          "reason_conference_ended": "last-participant-left",
+          "call_sid_ending_conference": "CA000000000000000000000000000047"
+        },
+        {
+          "id": "CF000000000000000000000000000014",
+          "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+          "api_version": "2010-04-01",
+          "date_created": "Tue, 09 Jun 2026 11:04:36 +0000",
+          "date_updated": "Tue, 09 Jun 2026 11:04:58 +0000",
+          "friendly_name": "NangoTestConference",
+          "region": "us1",
+          "sid": "CF000000000000000000000000000014",
+          "status": "completed",
+          "subresource_uris": {
+            "participants": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000014/Participants.json",
+            "recordings": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000014/Recordings.json"
+          },
+          "uri": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000014.json",
+          "reason_conference_ended": "last-participant-left",
+          "call_sid_ending_conference": "CA000000000000000000000000000065"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Conference": []
+    }
+  },
+  "api": {
+    "get": {
+      "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences.json": {
+        "response": {
+          "conferences": [
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "api_version": "2010-04-01",
+              "call_sid_ending_conference": "CA000000000000000000000000000012",
+              "date_created": "Wed, 10 Jun 2026 10:28:36 +0000",
+              "date_updated": "Wed, 10 Jun 2026 10:28:58 +0000",
+              "friendly_name": "NangoTestConfWait",
+              "reason_conference_ended": "last-participant-left",
+              "region": "us1",
+              "sid": "CF000000000000000000000000000015",
+              "status": "completed",
+              "subresource_uris": {
+                "participants": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000015/Participants.json",
+                "recordings": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000015/Recordings.json"
+              },
+              "uri": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000015.json"
+            },
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "api_version": "2010-04-01",
+              "call_sid_ending_conference": "CA000000000000000000000000000015",
+              "date_created": "Wed, 10 Jun 2026 10:27:48 +0000",
+              "date_updated": "Wed, 10 Jun 2026 10:28:15 +0000",
+              "friendly_name": "NangoTestConf2",
+              "reason_conference_ended": "last-participant-left",
+              "region": "us1",
+              "sid": "CF000000000000000000000000000016",
+              "status": "completed",
+              "subresource_uris": {
+                "participants": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000016/Participants.json",
+                "recordings": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000016/Recordings.json"
+              },
+              "uri": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000016.json"
+            },
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "api_version": "2010-04-01",
+              "call_sid_ending_conference": "CA000000000000000000000000000017",
+              "date_created": "Wed, 10 Jun 2026 10:27:05 +0000",
+              "date_updated": "Wed, 10 Jun 2026 10:27:39 +0000",
+              "friendly_name": "NangoTestConference",
+              "reason_conference_ended": "last-participant-left",
+              "region": "ie1",
+              "sid": "CF000000000000000000000000000017",
+              "status": "completed",
+              "subresource_uris": {
+                "participants": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000017/Participants.json",
+                "recordings": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000017/Recordings.json"
+              },
+              "uri": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000017.json"
+            },
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "api_version": "2010-04-01",
+              "call_sid_ending_conference": "CA000000000000000000000000000024",
+              "date_created": "Tue, 09 Jun 2026 16:40:34 +0000",
+              "date_updated": "Tue, 09 Jun 2026 16:40:42 +0000",
+              "friendly_name": "NangoTestConf13",
+              "reason_conference_ended": "last-participant-left",
+              "region": "us1",
+              "sid": "CF000000000000000000000000000001",
+              "status": "completed",
+              "subresource_uris": {
+                "participants": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000001/Participants.json",
+                "recordings": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000001/Recordings.json"
+              },
+              "uri": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000001.json"
+            },
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "api_version": "2010-04-01",
+              "call_sid_ending_conference": "CA000000000000000000000000000025",
+              "date_created": "Tue, 09 Jun 2026 16:40:27 +0000",
+              "date_updated": "Tue, 09 Jun 2026 16:40:35 +0000",
+              "friendly_name": "NangoTestConf12",
+              "reason_conference_ended": "last-participant-left",
+              "region": "us1",
+              "sid": "CF000000000000000000000000000002",
+              "status": "completed",
+              "subresource_uris": {
+                "participants": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000002/Participants.json",
+                "recordings": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000002/Recordings.json"
+              },
+              "uri": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000002.json"
+            },
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "api_version": "2010-04-01",
+              "call_sid_ending_conference": "CA000000000000000000000000000026",
+              "date_created": "Tue, 09 Jun 2026 16:40:04 +0000",
+              "date_updated": "Tue, 09 Jun 2026 16:40:12 +0000",
+              "friendly_name": "NangoTestConf11",
+              "reason_conference_ended": "last-participant-left",
+              "region": "us1",
+              "sid": "CF000000000000000000000000000003",
+              "status": "completed",
+              "subresource_uris": {
+                "participants": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000003/Participants.json",
+                "recordings": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000003/Recordings.json"
+              },
+              "uri": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000003.json"
+            },
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "api_version": "2010-04-01",
+              "call_sid_ending_conference": "CA000000000000000000000000000027",
+              "date_created": "Tue, 09 Jun 2026 16:39:46 +0000",
+              "date_updated": "Tue, 09 Jun 2026 16:39:55 +0000",
+              "friendly_name": "NangoTestConf10",
+              "reason_conference_ended": "last-participant-left",
+              "region": "us1",
+              "sid": "CF000000000000000000000000000004",
+              "status": "completed",
+              "subresource_uris": {
+                "participants": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000004/Participants.json",
+                "recordings": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000004/Recordings.json"
+              },
+              "uri": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000004.json"
+            },
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "api_version": "2010-04-01",
+              "call_sid_ending_conference": "CA000000000000000000000000000029",
+              "date_created": "Tue, 09 Jun 2026 16:39:28 +0000",
+              "date_updated": "Tue, 09 Jun 2026 16:39:44 +0000",
+              "friendly_name": "NangoTestConf9",
+              "reason_conference_ended": "last-participant-left",
+              "region": "us1",
+              "sid": "CF000000000000000000000000000005",
+              "status": "completed",
+              "subresource_uris": {
+                "participants": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000005/Participants.json",
+                "recordings": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000005/Recordings.json"
+              },
+              "uri": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000005.json"
+            },
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "api_version": "2010-04-01",
+              "call_sid_ending_conference": "CA000000000000000000000000000032",
+              "date_created": "Tue, 09 Jun 2026 16:39:20 +0000",
+              "date_updated": "Tue, 09 Jun 2026 16:39:42 +0000",
+              "friendly_name": "NangoTestConf8",
+              "reason_conference_ended": "last-participant-left",
+              "region": "us1",
+              "sid": "CF000000000000000000000000000006",
+              "status": "completed",
+              "subresource_uris": {
+                "participants": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000006/Participants.json",
+                "recordings": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000006/Recordings.json"
+              },
+              "uri": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000006.json"
+            },
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "api_version": "2010-04-01",
+              "call_sid_ending_conference": null,
+              "date_created": "Tue, 09 Jun 2026 16:38:26 +0000",
+              "date_updated": "Tue, 09 Jun 2026 16:38:33 +0000",
+              "friendly_name": "NangoTestConf7",
+              "reason_conference_ended": "conference-ended-via-api",
+              "region": "us1",
+              "sid": "CF000000000000000000000000000007",
+              "status": "completed",
+              "subresource_uris": {
+                "participants": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000007/Participants.json",
+                "recordings": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000007/Recordings.json"
+              },
+              "uri": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000007.json"
+            },
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "api_version": "2010-04-01",
+              "call_sid_ending_conference": "CA000000000000000000000000000040",
+              "date_created": "Tue, 09 Jun 2026 16:37:14 +0000",
+              "date_updated": "Tue, 09 Jun 2026 16:37:29 +0000",
+              "friendly_name": "NangoTestConf5",
+              "reason_conference_ended": "last-participant-left",
+              "region": "us1",
+              "sid": "CF000000000000000000000000000008",
+              "status": "completed",
+              "subresource_uris": {
+                "participants": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000008/Participants.json",
+                "recordings": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000008/Recordings.json"
+              },
+              "uri": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000008.json"
+            },
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "api_version": "2010-04-01",
+              "call_sid_ending_conference": "CA000000000000000000000000000041",
+              "date_created": "Tue, 09 Jun 2026 16:37:11 +0000",
+              "date_updated": "Tue, 09 Jun 2026 16:37:21 +0000",
+              "friendly_name": "NangoTestConf3",
+              "reason_conference_ended": "last-participant-left",
+              "region": "us1",
+              "sid": "CF000000000000000000000000000009",
+              "status": "completed",
+              "subresource_uris": {
+                "participants": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000009/Participants.json",
+                "recordings": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000009/Recordings.json"
+              },
+              "uri": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000009.json"
+            },
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "api_version": "2010-04-01",
+              "call_sid_ending_conference": "CA000000000000000000000000000042",
+              "date_created": "Tue, 09 Jun 2026 16:37:04 +0000",
+              "date_updated": "Tue, 09 Jun 2026 16:37:04 +0000",
+              "friendly_name": "NangoTestConf2",
+              "reason_conference_ended": "last-participant-left",
+              "region": "us1",
+              "sid": "CF000000000000000000000000000010",
+              "status": "completed",
+              "subresource_uris": {
+                "participants": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000010/Participants.json",
+                "recordings": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000010/Recordings.json"
+              },
+              "uri": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000010.json"
+            },
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "api_version": "2010-04-01",
+              "call_sid_ending_conference": null,
+              "date_created": "Tue, 09 Jun 2026 16:36:30 +0000",
+              "date_updated": "Tue, 09 Jun 2026 16:36:39 +0000",
+              "friendly_name": "NangoTestConf",
+              "reason_conference_ended": "conference-ended-via-api",
+              "region": "us1",
+              "sid": "CF000000000000000000000000000011",
+              "status": "completed",
+              "subresource_uris": {
+                "participants": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000011/Participants.json",
+                "recordings": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000011/Recordings.json"
+              },
+              "uri": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000011.json"
+            },
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "api_version": "2010-04-01",
+              "call_sid_ending_conference": "CA000000000000000000000000000046",
+              "date_created": "Tue, 09 Jun 2026 16:35:58 +0000",
+              "date_updated": "Tue, 09 Jun 2026 16:35:58 +0000",
+              "friendly_name": "NangoTestConf4",
+              "reason_conference_ended": "last-participant-left",
+              "region": "us1",
+              "sid": "CF000000000000000000000000000012",
+              "status": "completed",
+              "subresource_uris": {
+                "participants": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000012/Participants.json",
+                "recordings": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000012/Recordings.json"
+              },
+              "uri": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000012.json"
+            },
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "api_version": "2010-04-01",
+              "call_sid_ending_conference": "CA000000000000000000000000000047",
+              "date_created": "Tue, 09 Jun 2026 16:35:30 +0000",
+              "date_updated": "Tue, 09 Jun 2026 16:35:31 +0000",
+              "friendly_name": "NangoTestConf3",
+              "reason_conference_ended": "last-participant-left",
+              "region": "us1",
+              "sid": "CF000000000000000000000000000013",
+              "status": "completed",
+              "subresource_uris": {
+                "participants": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000013/Participants.json",
+                "recordings": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000013/Recordings.json"
+              },
+              "uri": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000013.json"
+            },
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "api_version": "2010-04-01",
+              "call_sid_ending_conference": "CA000000000000000000000000000065",
+              "date_created": "Tue, 09 Jun 2026 11:04:36 +0000",
+              "date_updated": "Tue, 09 Jun 2026 11:04:58 +0000",
+              "friendly_name": "NangoTestConference",
+              "reason_conference_ended": "last-participant-left",
+              "region": "us1",
+              "sid": "CF000000000000000000000000000014",
+              "status": "completed",
+              "subresource_uris": {
+                "participants": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000014/Participants.json",
+                "recordings": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000014/Recordings.json"
+              },
+              "uri": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences/CF000000000000000000000000000014.json"
+            }
+          ],
+          "end": 16,
+          "first_page_uri": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences.json?PageSize=50&Page=0",
+          "next_page_uri": null,
+          "page": 0,
+          "page_size": 50,
+          "previous_page_uri": null,
+          "start": 0,
+          "uri": "/2010-04-01/Accounts/ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00/Conferences.json?PageSize=50&Page=0"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 10 Jun 2026 20:11:41 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "14605",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4982",
+          "x-ratelimit-reset": "1781122341",
+          "etag": "W/\"390d-Kd0oRdRPSUjd4FOgqsdVG5yMp8I\""
+        },
+        "hash": "a3683b7bec1364db63bc0a4db08b09180f080f76",
+        "request": {
+          "params": {
+            "PageSize": "50"
+          }
+        }
+      }
+    }
+  }
+}

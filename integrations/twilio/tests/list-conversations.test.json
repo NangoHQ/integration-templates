@@ -1,0 +1,847 @@
+{
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1/Conversations": {
+        "response": {
+          "conversations": [
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "attributes": "{}",
+              "bindings": null,
+              "chat_service_sid": "IS000000000000000000000000000001",
+              "date_created": "2026-06-10T09:37:14Z",
+              "date_updated": "2026-06-10T09:37:14Z",
+              "friendly_name": "Nango Test Conversation",
+              "links": {
+                "export": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000013/Export",
+                "messages": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000013/Messages",
+                "participants": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000013/Participants",
+                "webhooks": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000013/Webhooks"
+              },
+              "messaging_service_sid": "MG000000000000000000000000000001",
+              "sid": "CH000000000000000000000000000013",
+              "state": "active",
+              "timers": {},
+              "unique_name": null,
+              "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000013"
+            },
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "attributes": "{}",
+              "bindings": null,
+              "chat_service_sid": "IS000000000000000000000000000001",
+              "date_created": "2026-06-10T08:59:52Z",
+              "date_updated": "2026-06-10T08:59:52Z",
+              "friendly_name": null,
+              "links": {
+                "export": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000002/Export",
+                "messages": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000002/Messages",
+                "participants": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000002/Participants",
+                "webhooks": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000002/Webhooks"
+              },
+              "messaging_service_sid": "MG000000000000000000000000000001",
+              "sid": "CH000000000000000000000000000002",
+              "state": "active",
+              "timers": {},
+              "unique_name": null,
+              "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000002"
+            },
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "attributes": "{}",
+              "bindings": null,
+              "chat_service_sid": "IS000000000000000000000000000001",
+              "date_created": "2026-06-10T08:59:49Z",
+              "date_updated": "2026-06-10T08:59:49Z",
+              "friendly_name": null,
+              "links": {
+                "export": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000003/Export",
+                "messages": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000003/Messages",
+                "participants": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000003/Participants",
+                "webhooks": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000003/Webhooks"
+              },
+              "messaging_service_sid": "MG000000000000000000000000000001",
+              "sid": "CH000000000000000000000000000003",
+              "state": "active",
+              "timers": {},
+              "unique_name": null,
+              "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000003"
+            },
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "attributes": "{}",
+              "bindings": null,
+              "chat_service_sid": "IS000000000000000000000000000001",
+              "date_created": "2026-06-10T08:31:39Z",
+              "date_updated": "2026-06-10T08:31:39Z",
+              "friendly_name": "Nango Test Conversation Dryrun",
+              "links": {
+                "export": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000004/Export",
+                "messages": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000004/Messages",
+                "participants": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000004/Participants",
+                "webhooks": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000004/Webhooks"
+              },
+              "messaging_service_sid": "MG000000000000000000000000000001",
+              "sid": "CH000000000000000000000000000004",
+              "state": "active",
+              "timers": {},
+              "unique_name": null,
+              "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000004"
+            },
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "attributes": "{}",
+              "bindings": null,
+              "chat_service_sid": "IS000000000000000000000000000001",
+              "date_created": "2026-06-10T10:27:41Z",
+              "date_updated": "2026-06-10T10:27:41Z",
+              "friendly_name": null,
+              "links": {
+                "export": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000016/Export",
+                "messages": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000016/Messages",
+                "participants": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000016/Participants",
+                "webhooks": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000016/Webhooks"
+              },
+              "messaging_service_sid": "MG000000000000000000000000000001",
+              "sid": "CH000000000000000000000000000016",
+              "state": "active",
+              "timers": {},
+              "unique_name": null,
+              "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000016"
+            },
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "attributes": "{}",
+              "bindings": null,
+              "chat_service_sid": "IS000000000000000000000000000001",
+              "date_created": "2026-06-10T09:37:08Z",
+              "date_updated": "2026-06-10T09:37:08Z",
+              "friendly_name": "Nango Test Conversation",
+              "links": {
+                "export": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000017/Export",
+                "messages": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000017/Messages",
+                "participants": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000017/Participants",
+                "webhooks": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000017/Webhooks"
+              },
+              "messaging_service_sid": "MG000000000000000000000000000001",
+              "sid": "CH000000000000000000000000000017",
+              "state": "active",
+              "timers": {},
+              "unique_name": null,
+              "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000017"
+            },
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "attributes": "{}",
+              "bindings": null,
+              "chat_service_sid": "IS000000000000000000000000000001",
+              "date_created": "2026-06-10T08:32:31Z",
+              "date_updated": "2026-06-10T08:32:31Z",
+              "friendly_name": "Nango Test Conversation Dryrun",
+              "links": {
+                "export": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000005/Export",
+                "messages": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000005/Messages",
+                "participants": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000005/Participants",
+                "webhooks": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000005/Webhooks"
+              },
+              "messaging_service_sid": "MG000000000000000000000000000001",
+              "sid": "CH000000000000000000000000000005",
+              "state": "active",
+              "timers": {},
+              "unique_name": null,
+              "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000005"
+            },
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "attributes": "{}",
+              "bindings": null,
+              "chat_service_sid": "IS000000000000000000000000000001",
+              "date_created": "2026-06-10T10:28:28Z",
+              "date_updated": "2026-06-10T10:28:28Z",
+              "friendly_name": null,
+              "links": {
+                "export": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000018/Export",
+                "messages": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000018/Messages",
+                "participants": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000018/Participants",
+                "webhooks": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000018/Webhooks"
+              },
+              "messaging_service_sid": "MG000000000000000000000000000001",
+              "sid": "CH000000000000000000000000000018",
+              "state": "active",
+              "timers": {},
+              "unique_name": null,
+              "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000018"
+            },
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "attributes": "{}",
+              "bindings": null,
+              "chat_service_sid": "IS000000000000000000000000000001",
+              "date_created": "2026-06-10T08:32:57Z",
+              "date_updated": "2026-06-10T08:32:57Z",
+              "friendly_name": "Nango Test Conversation Dryrun",
+              "links": {
+                "export": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000006/Export",
+                "messages": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000006/Messages",
+                "participants": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000006/Participants",
+                "webhooks": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000006/Webhooks"
+              },
+              "messaging_service_sid": "MG000000000000000000000000000001",
+              "sid": "CH000000000000000000000000000006",
+              "state": "active",
+              "timers": {},
+              "unique_name": null,
+              "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000006"
+            },
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "attributes": "{}",
+              "bindings": null,
+              "chat_service_sid": "IS000000000000000000000000000001",
+              "date_created": "2026-06-10T10:32:13Z",
+              "date_updated": "2026-06-10T10:32:13Z",
+              "friendly_name": null,
+              "links": {
+                "export": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000011/Export",
+                "messages": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000011/Messages",
+                "participants": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000011/Participants",
+                "webhooks": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000011/Webhooks"
+              },
+              "messaging_service_sid": "MG000000000000000000000000000001",
+              "sid": "CH000000000000000000000000000011",
+              "state": "active",
+              "timers": {},
+              "unique_name": null,
+              "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000011"
+            },
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "attributes": "{}",
+              "bindings": null,
+              "chat_service_sid": "IS000000000000000000000000000001",
+              "date_created": "2026-06-10T08:59:50Z",
+              "date_updated": "2026-06-10T08:59:50Z",
+              "friendly_name": null,
+              "links": {
+                "export": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000007/Export",
+                "messages": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000007/Messages",
+                "participants": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000007/Participants",
+                "webhooks": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000007/Webhooks"
+              },
+              "messaging_service_sid": "MG000000000000000000000000000001",
+              "sid": "CH000000000000000000000000000007",
+              "state": "active",
+              "timers": {},
+              "unique_name": null,
+              "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000007"
+            },
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "attributes": "{}",
+              "bindings": null,
+              "chat_service_sid": "IS000000000000000000000000000001",
+              "date_created": "2026-06-10T09:36:37Z",
+              "date_updated": "2026-06-10T09:36:37Z",
+              "friendly_name": "Nango Test Conversation",
+              "links": {
+                "export": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000019/Export",
+                "messages": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000019/Messages",
+                "participants": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000019/Participants",
+                "webhooks": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000019/Webhooks"
+              },
+              "messaging_service_sid": "MG000000000000000000000000000001",
+              "sid": "CH000000000000000000000000000019",
+              "state": "active",
+              "timers": {},
+              "unique_name": null,
+              "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000019"
+            },
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "attributes": "{}",
+              "bindings": null,
+              "chat_service_sid": "IS000000000000000000000000000001",
+              "date_created": "2026-06-10T09:40:33Z",
+              "date_updated": "2026-06-10T09:40:33Z",
+              "friendly_name": "Nango Test Conversation",
+              "links": {
+                "export": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000020/Export",
+                "messages": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000020/Messages",
+                "participants": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000020/Participants",
+                "webhooks": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000020/Webhooks"
+              },
+              "messaging_service_sid": "MG000000000000000000000000000001",
+              "sid": "CH000000000000000000000000000020",
+              "state": "active",
+              "timers": {},
+              "unique_name": null,
+              "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000020"
+            },
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "attributes": "{}",
+              "bindings": null,
+              "chat_service_sid": "IS000000000000000000000000000001",
+              "date_created": "2026-06-10T08:32:12Z",
+              "date_updated": "2026-06-10T08:32:12Z",
+              "friendly_name": "Nango Test Conversation Dryrun",
+              "links": {
+                "export": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000008/Export",
+                "messages": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000008/Messages",
+                "participants": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000008/Participants",
+                "webhooks": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000008/Webhooks"
+              },
+              "messaging_service_sid": "MG000000000000000000000000000001",
+              "sid": "CH000000000000000000000000000008",
+              "state": "active",
+              "timers": {},
+              "unique_name": null,
+              "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000008"
+            },
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "attributes": "{}",
+              "bindings": null,
+              "chat_service_sid": "IS000000000000000000000000000001",
+              "date_created": "2026-06-10T09:39:25Z",
+              "date_updated": "2026-06-10T09:39:25Z",
+              "friendly_name": "Nango Test Conversation",
+              "links": {
+                "export": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000012/Export",
+                "messages": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000012/Messages",
+                "participants": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000012/Participants",
+                "webhooks": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000012/Webhooks"
+              },
+              "messaging_service_sid": "MG000000000000000000000000000001",
+              "sid": "CH000000000000000000000000000012",
+              "state": "active",
+              "timers": {},
+              "unique_name": null,
+              "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000012"
+            },
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "attributes": "{}",
+              "bindings": null,
+              "chat_service_sid": "IS000000000000000000000000000001",
+              "date_created": "2026-06-10T10:28:52Z",
+              "date_updated": "2026-06-10T10:28:52Z",
+              "friendly_name": "Nango Test Conversation",
+              "links": {
+                "export": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000021/Export",
+                "messages": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000021/Messages",
+                "participants": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000021/Participants",
+                "webhooks": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000021/Webhooks"
+              },
+              "messaging_service_sid": "MG000000000000000000000000000001",
+              "sid": "CH000000000000000000000000000021",
+              "state": "active",
+              "timers": {},
+              "unique_name": null,
+              "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000021"
+            },
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "attributes": "{}",
+              "bindings": null,
+              "chat_service_sid": "IS000000000000000000000000000001",
+              "date_created": "2026-06-10T08:32:37Z",
+              "date_updated": "2026-06-10T08:32:37Z",
+              "friendly_name": "Nango Test Conversation Dryrun",
+              "links": {
+                "export": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000009/Export",
+                "messages": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000009/Messages",
+                "participants": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000009/Participants",
+                "webhooks": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000009/Webhooks"
+              },
+              "messaging_service_sid": "MG000000000000000000000000000001",
+              "sid": "CH000000000000000000000000000009",
+              "state": "active",
+              "timers": {},
+              "unique_name": null,
+              "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000009"
+            },
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "attributes": "{}",
+              "bindings": null,
+              "chat_service_sid": "IS000000000000000000000000000001",
+              "date_created": "2026-06-10T09:39:18Z",
+              "date_updated": "2026-06-10T09:39:18Z",
+              "friendly_name": "Nango Test Conversation",
+              "links": {
+                "export": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000022/Export",
+                "messages": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000022/Messages",
+                "participants": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000022/Participants",
+                "webhooks": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000022/Webhooks"
+              },
+              "messaging_service_sid": "MG000000000000000000000000000001",
+              "sid": "CH000000000000000000000000000022",
+              "state": "active",
+              "timers": {},
+              "unique_name": null,
+              "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000022"
+            },
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "attributes": "{}",
+              "bindings": null,
+              "chat_service_sid": "IS000000000000000000000000000001",
+              "date_created": "2026-06-10T08:31:27Z",
+              "date_updated": "2026-06-10T08:31:27Z",
+              "friendly_name": "Nango Test Conversation Dryrun",
+              "links": {
+                "export": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000010/Export",
+                "messages": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000010/Messages",
+                "participants": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000010/Participants",
+                "webhooks": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000010/Webhooks"
+              },
+              "messaging_service_sid": "MG000000000000000000000000000001",
+              "sid": "CH000000000000000000000000000010",
+              "state": "active",
+              "timers": {},
+              "unique_name": null,
+              "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000010"
+            }
+          ],
+          "meta": {
+            "first_page_url": "https://conversations.twilio.com/v1/Conversations?PageSize=50&Page=0",
+            "key": "conversations",
+            "next_page_url": null,
+            "page": 0,
+            "page_size": 50,
+            "previous_page_url": null,
+            "url": "https://conversations.twilio.com/v1/Conversations?PageSize=50&Page=0"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 10 Jun 2026 10:36:16 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "18912",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4982",
+          "x-ratelimit-reset": "1781087798",
+          "etag": "W/\"49e0-Hr9bclmcSMT0Q18HR/cOm6SvRi0\""
+        },
+        "hash": "c825d981806def366a693ba8a510bba351ecdbb1",
+        "request": {}
+      }
+    }
+  },
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "sid": "CH000000000000000000000000000013",
+        "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+        "chat_service_sid": "IS000000000000000000000000000001",
+        "messaging_service_sid": "MG000000000000000000000000000001",
+        "friendly_name": "Nango Test Conversation",
+        "unique_name": null,
+        "attributes": "{}",
+        "date_created": "2026-06-10T09:37:14Z",
+        "date_updated": "2026-06-10T09:37:14Z",
+        "state": "active",
+        "timers": {},
+        "bindings": null,
+        "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000013",
+        "links": {
+          "export": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000013/Export",
+          "messages": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000013/Messages",
+          "participants": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000013/Participants",
+          "webhooks": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000013/Webhooks"
+        }
+      },
+      {
+        "sid": "CH000000000000000000000000000002",
+        "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+        "chat_service_sid": "IS000000000000000000000000000001",
+        "messaging_service_sid": "MG000000000000000000000000000001",
+        "friendly_name": null,
+        "unique_name": null,
+        "attributes": "{}",
+        "date_created": "2026-06-10T08:59:52Z",
+        "date_updated": "2026-06-10T08:59:52Z",
+        "state": "active",
+        "timers": {},
+        "bindings": null,
+        "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000002",
+        "links": {
+          "export": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000002/Export",
+          "messages": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000002/Messages",
+          "participants": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000002/Participants",
+          "webhooks": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000002/Webhooks"
+        }
+      },
+      {
+        "sid": "CH000000000000000000000000000003",
+        "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+        "chat_service_sid": "IS000000000000000000000000000001",
+        "messaging_service_sid": "MG000000000000000000000000000001",
+        "friendly_name": null,
+        "unique_name": null,
+        "attributes": "{}",
+        "date_created": "2026-06-10T08:59:49Z",
+        "date_updated": "2026-06-10T08:59:49Z",
+        "state": "active",
+        "timers": {},
+        "bindings": null,
+        "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000003",
+        "links": {
+          "export": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000003/Export",
+          "messages": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000003/Messages",
+          "participants": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000003/Participants",
+          "webhooks": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000003/Webhooks"
+        }
+      },
+      {
+        "sid": "CH000000000000000000000000000004",
+        "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+        "chat_service_sid": "IS000000000000000000000000000001",
+        "messaging_service_sid": "MG000000000000000000000000000001",
+        "friendly_name": "Nango Test Conversation Dryrun",
+        "unique_name": null,
+        "attributes": "{}",
+        "date_created": "2026-06-10T08:31:39Z",
+        "date_updated": "2026-06-10T08:31:39Z",
+        "state": "active",
+        "timers": {},
+        "bindings": null,
+        "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000004",
+        "links": {
+          "export": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000004/Export",
+          "messages": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000004/Messages",
+          "participants": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000004/Participants",
+          "webhooks": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000004/Webhooks"
+        }
+      },
+      {
+        "sid": "CH000000000000000000000000000016",
+        "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+        "chat_service_sid": "IS000000000000000000000000000001",
+        "messaging_service_sid": "MG000000000000000000000000000001",
+        "friendly_name": null,
+        "unique_name": null,
+        "attributes": "{}",
+        "date_created": "2026-06-10T10:27:41Z",
+        "date_updated": "2026-06-10T10:27:41Z",
+        "state": "active",
+        "timers": {},
+        "bindings": null,
+        "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000016",
+        "links": {
+          "export": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000016/Export",
+          "messages": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000016/Messages",
+          "participants": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000016/Participants",
+          "webhooks": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000016/Webhooks"
+        }
+      },
+      {
+        "sid": "CH000000000000000000000000000017",
+        "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+        "chat_service_sid": "IS000000000000000000000000000001",
+        "messaging_service_sid": "MG000000000000000000000000000001",
+        "friendly_name": "Nango Test Conversation",
+        "unique_name": null,
+        "attributes": "{}",
+        "date_created": "2026-06-10T09:37:08Z",
+        "date_updated": "2026-06-10T09:37:08Z",
+        "state": "active",
+        "timers": {},
+        "bindings": null,
+        "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000017",
+        "links": {
+          "export": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000017/Export",
+          "messages": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000017/Messages",
+          "participants": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000017/Participants",
+          "webhooks": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000017/Webhooks"
+        }
+      },
+      {
+        "sid": "CH000000000000000000000000000005",
+        "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+        "chat_service_sid": "IS000000000000000000000000000001",
+        "messaging_service_sid": "MG000000000000000000000000000001",
+        "friendly_name": "Nango Test Conversation Dryrun",
+        "unique_name": null,
+        "attributes": "{}",
+        "date_created": "2026-06-10T08:32:31Z",
+        "date_updated": "2026-06-10T08:32:31Z",
+        "state": "active",
+        "timers": {},
+        "bindings": null,
+        "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000005",
+        "links": {
+          "export": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000005/Export",
+          "messages": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000005/Messages",
+          "participants": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000005/Participants",
+          "webhooks": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000005/Webhooks"
+        }
+      },
+      {
+        "sid": "CH000000000000000000000000000018",
+        "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+        "chat_service_sid": "IS000000000000000000000000000001",
+        "messaging_service_sid": "MG000000000000000000000000000001",
+        "friendly_name": null,
+        "unique_name": null,
+        "attributes": "{}",
+        "date_created": "2026-06-10T10:28:28Z",
+        "date_updated": "2026-06-10T10:28:28Z",
+        "state": "active",
+        "timers": {},
+        "bindings": null,
+        "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000018",
+        "links": {
+          "export": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000018/Export",
+          "messages": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000018/Messages",
+          "participants": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000018/Participants",
+          "webhooks": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000018/Webhooks"
+        }
+      },
+      {
+        "sid": "CH000000000000000000000000000006",
+        "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+        "chat_service_sid": "IS000000000000000000000000000001",
+        "messaging_service_sid": "MG000000000000000000000000000001",
+        "friendly_name": "Nango Test Conversation Dryrun",
+        "unique_name": null,
+        "attributes": "{}",
+        "date_created": "2026-06-10T08:32:57Z",
+        "date_updated": "2026-06-10T08:32:57Z",
+        "state": "active",
+        "timers": {},
+        "bindings": null,
+        "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000006",
+        "links": {
+          "export": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000006/Export",
+          "messages": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000006/Messages",
+          "participants": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000006/Participants",
+          "webhooks": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000006/Webhooks"
+        }
+      },
+      {
+        "sid": "CH000000000000000000000000000011",
+        "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+        "chat_service_sid": "IS000000000000000000000000000001",
+        "messaging_service_sid": "MG000000000000000000000000000001",
+        "friendly_name": null,
+        "unique_name": null,
+        "attributes": "{}",
+        "date_created": "2026-06-10T10:32:13Z",
+        "date_updated": "2026-06-10T10:32:13Z",
+        "state": "active",
+        "timers": {},
+        "bindings": null,
+        "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000011",
+        "links": {
+          "export": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000011/Export",
+          "messages": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000011/Messages",
+          "participants": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000011/Participants",
+          "webhooks": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000011/Webhooks"
+        }
+      },
+      {
+        "sid": "CH000000000000000000000000000007",
+        "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+        "chat_service_sid": "IS000000000000000000000000000001",
+        "messaging_service_sid": "MG000000000000000000000000000001",
+        "friendly_name": null,
+        "unique_name": null,
+        "attributes": "{}",
+        "date_created": "2026-06-10T08:59:50Z",
+        "date_updated": "2026-06-10T08:59:50Z",
+        "state": "active",
+        "timers": {},
+        "bindings": null,
+        "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000007",
+        "links": {
+          "export": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000007/Export",
+          "messages": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000007/Messages",
+          "participants": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000007/Participants",
+          "webhooks": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000007/Webhooks"
+        }
+      },
+      {
+        "sid": "CH000000000000000000000000000019",
+        "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+        "chat_service_sid": "IS000000000000000000000000000001",
+        "messaging_service_sid": "MG000000000000000000000000000001",
+        "friendly_name": "Nango Test Conversation",
+        "unique_name": null,
+        "attributes": "{}",
+        "date_created": "2026-06-10T09:36:37Z",
+        "date_updated": "2026-06-10T09:36:37Z",
+        "state": "active",
+        "timers": {},
+        "bindings": null,
+        "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000019",
+        "links": {
+          "export": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000019/Export",
+          "messages": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000019/Messages",
+          "participants": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000019/Participants",
+          "webhooks": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000019/Webhooks"
+        }
+      },
+      {
+        "sid": "CH000000000000000000000000000020",
+        "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+        "chat_service_sid": "IS000000000000000000000000000001",
+        "messaging_service_sid": "MG000000000000000000000000000001",
+        "friendly_name": "Nango Test Conversation",
+        "unique_name": null,
+        "attributes": "{}",
+        "date_created": "2026-06-10T09:40:33Z",
+        "date_updated": "2026-06-10T09:40:33Z",
+        "state": "active",
+        "timers": {},
+        "bindings": null,
+        "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000020",
+        "links": {
+          "export": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000020/Export",
+          "messages": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000020/Messages",
+          "participants": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000020/Participants",
+          "webhooks": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000020/Webhooks"
+        }
+      },
+      {
+        "sid": "CH000000000000000000000000000008",
+        "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+        "chat_service_sid": "IS000000000000000000000000000001",
+        "messaging_service_sid": "MG000000000000000000000000000001",
+        "friendly_name": "Nango Test Conversation Dryrun",
+        "unique_name": null,
+        "attributes": "{}",
+        "date_created": "2026-06-10T08:32:12Z",
+        "date_updated": "2026-06-10T08:32:12Z",
+        "state": "active",
+        "timers": {},
+        "bindings": null,
+        "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000008",
+        "links": {
+          "export": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000008/Export",
+          "messages": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000008/Messages",
+          "participants": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000008/Participants",
+          "webhooks": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000008/Webhooks"
+        }
+      },
+      {
+        "sid": "CH000000000000000000000000000012",
+        "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+        "chat_service_sid": "IS000000000000000000000000000001",
+        "messaging_service_sid": "MG000000000000000000000000000001",
+        "friendly_name": "Nango Test Conversation",
+        "unique_name": null,
+        "attributes": "{}",
+        "date_created": "2026-06-10T09:39:25Z",
+        "date_updated": "2026-06-10T09:39:25Z",
+        "state": "active",
+        "timers": {},
+        "bindings": null,
+        "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000012",
+        "links": {
+          "export": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000012/Export",
+          "messages": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000012/Messages",
+          "participants": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000012/Participants",
+          "webhooks": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000012/Webhooks"
+        }
+      },
+      {
+        "sid": "CH000000000000000000000000000021",
+        "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+        "chat_service_sid": "IS000000000000000000000000000001",
+        "messaging_service_sid": "MG000000000000000000000000000001",
+        "friendly_name": "Nango Test Conversation",
+        "unique_name": null,
+        "attributes": "{}",
+        "date_created": "2026-06-10T10:28:52Z",
+        "date_updated": "2026-06-10T10:28:52Z",
+        "state": "active",
+        "timers": {},
+        "bindings": null,
+        "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000021",
+        "links": {
+          "export": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000021/Export",
+          "messages": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000021/Messages",
+          "participants": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000021/Participants",
+          "webhooks": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000021/Webhooks"
+        }
+      },
+      {
+        "sid": "CH000000000000000000000000000009",
+        "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+        "chat_service_sid": "IS000000000000000000000000000001",
+        "messaging_service_sid": "MG000000000000000000000000000001",
+        "friendly_name": "Nango Test Conversation Dryrun",
+        "unique_name": null,
+        "attributes": "{}",
+        "date_created": "2026-06-10T08:32:37Z",
+        "date_updated": "2026-06-10T08:32:37Z",
+        "state": "active",
+        "timers": {},
+        "bindings": null,
+        "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000009",
+        "links": {
+          "export": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000009/Export",
+          "messages": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000009/Messages",
+          "participants": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000009/Participants",
+          "webhooks": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000009/Webhooks"
+        }
+      },
+      {
+        "sid": "CH000000000000000000000000000022",
+        "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+        "chat_service_sid": "IS000000000000000000000000000001",
+        "messaging_service_sid": "MG000000000000000000000000000001",
+        "friendly_name": "Nango Test Conversation",
+        "unique_name": null,
+        "attributes": "{}",
+        "date_created": "2026-06-10T09:39:18Z",
+        "date_updated": "2026-06-10T09:39:18Z",
+        "state": "active",
+        "timers": {},
+        "bindings": null,
+        "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000022",
+        "links": {
+          "export": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000022/Export",
+          "messages": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000022/Messages",
+          "participants": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000022/Participants",
+          "webhooks": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000022/Webhooks"
+        }
+      },
+      {
+        "sid": "CH000000000000000000000000000010",
+        "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+        "chat_service_sid": "IS000000000000000000000000000001",
+        "messaging_service_sid": "MG000000000000000000000000000001",
+        "friendly_name": "Nango Test Conversation Dryrun",
+        "unique_name": null,
+        "attributes": "{}",
+        "date_created": "2026-06-10T08:31:27Z",
+        "date_updated": "2026-06-10T08:31:27Z",
+        "state": "active",
+        "timers": {},
+        "bindings": null,
+        "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000010",
+        "links": {
+          "export": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000010/Export",
+          "messages": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000010/Messages",
+          "participants": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000010/Participants",
+          "webhooks": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000010/Webhooks"
+        }
+      }
+    ]
+  }
+}

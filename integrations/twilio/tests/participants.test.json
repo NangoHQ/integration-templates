@@ -1,0 +1,1418 @@
+{
+  "nango": {
+    "batchSave": {
+      "Participant": [
+        {
+          "id": "MB000000000000000000000000000002",
+          "conversation_sid": "CH000000000000000000000000000013",
+          "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+          "identity": "test_user_nango",
+          "attributes": "{}",
+          "role_sid": "RL000000000000000000000000000001",
+          "date_created": "2026-06-10T10:28:11Z",
+          "date_updated": "2026-06-10T10:28:11Z",
+          "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000013/Participants/MB000000000000000000000000000002"
+        },
+        {
+          "id": "MB000000000000000000000000000003",
+          "conversation_sid": "CH000000000000000000000000000007",
+          "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+          "identity": "user_2",
+          "attributes": "{}",
+          "role_sid": "RL000000000000000000000000000001",
+          "date_created": "2026-06-10T09:00:32Z",
+          "date_updated": "2026-06-10T09:00:32Z",
+          "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000007/Participants/MB000000000000000000000000000003"
+        },
+        {
+          "id": "MB000000000000000000000000000004",
+          "conversation_sid": "CH000000000000000000000000000007",
+          "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+          "identity": "user_3",
+          "attributes": "{}",
+          "role_sid": "RL000000000000000000000000000001",
+          "date_created": "2026-06-10T09:00:34Z",
+          "date_updated": "2026-06-10T09:00:34Z",
+          "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000007/Participants/MB000000000000000000000000000004"
+        },
+        {
+          "id": "MB000000000000000000000000000005",
+          "conversation_sid": "CH000000000000000000000000000007",
+          "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+          "identity": "user_1",
+          "attributes": "{}",
+          "role_sid": "RL000000000000000000000000000001",
+          "date_created": "2026-06-10T09:00:24Z",
+          "date_updated": "2026-06-10T09:00:24Z",
+          "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000007/Participants/MB000000000000000000000000000005"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Participant": []
+    }
+  },
+  "api": {
+    "get": {
+      "/v1/Conversations": {
+        "response": {
+          "conversations": [
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "attributes": "{}",
+              "bindings": null,
+              "chat_service_sid": "IS000000000000000000000000000001",
+              "date_created": "2026-06-10T09:37:14Z",
+              "date_updated": "2026-06-10T10:41:48Z",
+              "friendly_name": "Updated Nango Test Conversation",
+              "links": {
+                "export": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000013/Export",
+                "messages": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000013/Messages",
+                "participants": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000013/Participants",
+                "webhooks": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000013/Webhooks"
+              },
+              "messaging_service_sid": "MG000000000000000000000000000001",
+              "sid": "CH000000000000000000000000000013",
+              "state": "active",
+              "timers": {},
+              "unique_name": null,
+              "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000013"
+            },
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "attributes": "{}",
+              "bindings": null,
+              "chat_service_sid": "IS000000000000000000000000000001",
+              "date_created": "2026-06-10T08:59:52Z",
+              "date_updated": "2026-06-10T08:59:52Z",
+              "friendly_name": null,
+              "links": {
+                "export": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000002/Export",
+                "messages": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000002/Messages",
+                "participants": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000002/Participants",
+                "webhooks": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000002/Webhooks"
+              },
+              "messaging_service_sid": "MG000000000000000000000000000001",
+              "sid": "CH000000000000000000000000000002",
+              "state": "active",
+              "timers": {},
+              "unique_name": null,
+              "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000002"
+            },
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "attributes": "{}",
+              "bindings": null,
+              "chat_service_sid": "IS000000000000000000000000000001",
+              "date_created": "2026-06-10T08:59:49Z",
+              "date_updated": "2026-06-10T08:59:49Z",
+              "friendly_name": null,
+              "links": {
+                "export": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000003/Export",
+                "messages": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000003/Messages",
+                "participants": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000003/Participants",
+                "webhooks": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000003/Webhooks"
+              },
+              "messaging_service_sid": "MG000000000000000000000000000001",
+              "sid": "CH000000000000000000000000000003",
+              "state": "active",
+              "timers": {},
+              "unique_name": null,
+              "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000003"
+            },
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "attributes": "{}",
+              "bindings": null,
+              "chat_service_sid": "IS000000000000000000000000000001",
+              "date_created": "2026-06-10T08:31:39Z",
+              "date_updated": "2026-06-10T08:31:39Z",
+              "friendly_name": "Nango Test Conversation Dryrun",
+              "links": {
+                "export": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000004/Export",
+                "messages": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000004/Messages",
+                "participants": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000004/Participants",
+                "webhooks": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000004/Webhooks"
+              },
+              "messaging_service_sid": "MG000000000000000000000000000001",
+              "sid": "CH000000000000000000000000000004",
+              "state": "active",
+              "timers": {},
+              "unique_name": null,
+              "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000004"
+            },
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "attributes": "{}",
+              "bindings": null,
+              "chat_service_sid": "IS000000000000000000000000000001",
+              "date_created": "2026-06-10T10:27:41Z",
+              "date_updated": "2026-06-10T10:27:41Z",
+              "friendly_name": null,
+              "links": {
+                "export": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000016/Export",
+                "messages": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000016/Messages",
+                "participants": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000016/Participants",
+                "webhooks": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000016/Webhooks"
+              },
+              "messaging_service_sid": "MG000000000000000000000000000001",
+              "sid": "CH000000000000000000000000000016",
+              "state": "active",
+              "timers": {},
+              "unique_name": null,
+              "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000016"
+            },
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "attributes": "{}",
+              "bindings": null,
+              "chat_service_sid": "IS000000000000000000000000000001",
+              "date_created": "2026-06-10T09:37:08Z",
+              "date_updated": "2026-06-10T09:37:08Z",
+              "friendly_name": "Nango Test Conversation",
+              "links": {
+                "export": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000017/Export",
+                "messages": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000017/Messages",
+                "participants": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000017/Participants",
+                "webhooks": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000017/Webhooks"
+              },
+              "messaging_service_sid": "MG000000000000000000000000000001",
+              "sid": "CH000000000000000000000000000017",
+              "state": "active",
+              "timers": {},
+              "unique_name": null,
+              "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000017"
+            },
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "attributes": "{}",
+              "bindings": null,
+              "chat_service_sid": "IS000000000000000000000000000001",
+              "date_created": "2026-06-10T08:32:31Z",
+              "date_updated": "2026-06-10T08:32:31Z",
+              "friendly_name": "Nango Test Conversation Dryrun",
+              "links": {
+                "export": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000005/Export",
+                "messages": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000005/Messages",
+                "participants": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000005/Participants",
+                "webhooks": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000005/Webhooks"
+              },
+              "messaging_service_sid": "MG000000000000000000000000000001",
+              "sid": "CH000000000000000000000000000005",
+              "state": "active",
+              "timers": {},
+              "unique_name": null,
+              "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000005"
+            },
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "attributes": "{}",
+              "bindings": null,
+              "chat_service_sid": "IS000000000000000000000000000001",
+              "date_created": "2026-06-10T10:28:28Z",
+              "date_updated": "2026-06-10T10:28:28Z",
+              "friendly_name": null,
+              "links": {
+                "export": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000018/Export",
+                "messages": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000018/Messages",
+                "participants": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000018/Participants",
+                "webhooks": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000018/Webhooks"
+              },
+              "messaging_service_sid": "MG000000000000000000000000000001",
+              "sid": "CH000000000000000000000000000018",
+              "state": "active",
+              "timers": {},
+              "unique_name": null,
+              "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000018"
+            },
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "attributes": "{}",
+              "bindings": null,
+              "chat_service_sid": "IS000000000000000000000000000001",
+              "date_created": "2026-06-10T08:32:57Z",
+              "date_updated": "2026-06-10T08:32:57Z",
+              "friendly_name": "Nango Test Conversation Dryrun",
+              "links": {
+                "export": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000006/Export",
+                "messages": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000006/Messages",
+                "participants": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000006/Participants",
+                "webhooks": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000006/Webhooks"
+              },
+              "messaging_service_sid": "MG000000000000000000000000000001",
+              "sid": "CH000000000000000000000000000006",
+              "state": "active",
+              "timers": {},
+              "unique_name": null,
+              "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000006"
+            },
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "attributes": "{}",
+              "bindings": null,
+              "chat_service_sid": "IS000000000000000000000000000001",
+              "date_created": "2026-06-10T10:32:13Z",
+              "date_updated": "2026-06-10T10:32:13Z",
+              "friendly_name": null,
+              "links": {
+                "export": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000011/Export",
+                "messages": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000011/Messages",
+                "participants": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000011/Participants",
+                "webhooks": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000011/Webhooks"
+              },
+              "messaging_service_sid": "MG000000000000000000000000000001",
+              "sid": "CH000000000000000000000000000011",
+              "state": "active",
+              "timers": {},
+              "unique_name": null,
+              "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000011"
+            },
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "attributes": "{}",
+              "bindings": null,
+              "chat_service_sid": "IS000000000000000000000000000001",
+              "date_created": "2026-06-10T11:24:19Z",
+              "date_updated": "2026-06-10T11:24:19Z",
+              "friendly_name": null,
+              "links": {
+                "export": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000015/Export",
+                "messages": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000015/Messages",
+                "participants": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000015/Participants",
+                "webhooks": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000015/Webhooks"
+              },
+              "messaging_service_sid": "MG000000000000000000000000000001",
+              "sid": "CH000000000000000000000000000015",
+              "state": "active",
+              "timers": {},
+              "unique_name": null,
+              "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000015"
+            },
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "attributes": "{}",
+              "bindings": null,
+              "chat_service_sid": "IS000000000000000000000000000001",
+              "date_created": "2026-06-10T08:59:50Z",
+              "date_updated": "2026-06-10T08:59:50Z",
+              "friendly_name": null,
+              "links": {
+                "export": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000007/Export",
+                "messages": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000007/Messages",
+                "participants": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000007/Participants",
+                "webhooks": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000007/Webhooks"
+              },
+              "messaging_service_sid": "MG000000000000000000000000000001",
+              "sid": "CH000000000000000000000000000007",
+              "state": "active",
+              "timers": {},
+              "unique_name": null,
+              "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000007"
+            },
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "attributes": "{}",
+              "bindings": null,
+              "chat_service_sid": "IS000000000000000000000000000001",
+              "date_created": "2026-06-10T09:36:37Z",
+              "date_updated": "2026-06-10T09:36:37Z",
+              "friendly_name": "Nango Test Conversation",
+              "links": {
+                "export": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000019/Export",
+                "messages": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000019/Messages",
+                "participants": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000019/Participants",
+                "webhooks": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000019/Webhooks"
+              },
+              "messaging_service_sid": "MG000000000000000000000000000001",
+              "sid": "CH000000000000000000000000000019",
+              "state": "active",
+              "timers": {},
+              "unique_name": null,
+              "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000019"
+            },
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "attributes": "{}",
+              "bindings": null,
+              "chat_service_sid": "IS000000000000000000000000000001",
+              "date_created": "2026-06-10T09:40:33Z",
+              "date_updated": "2026-06-10T09:40:33Z",
+              "friendly_name": "Nango Test Conversation",
+              "links": {
+                "export": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000020/Export",
+                "messages": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000020/Messages",
+                "participants": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000020/Participants",
+                "webhooks": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000020/Webhooks"
+              },
+              "messaging_service_sid": "MG000000000000000000000000000001",
+              "sid": "CH000000000000000000000000000020",
+              "state": "active",
+              "timers": {},
+              "unique_name": null,
+              "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000020"
+            },
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "attributes": "{}",
+              "bindings": null,
+              "chat_service_sid": "IS000000000000000000000000000001",
+              "date_created": "2026-06-10T08:32:12Z",
+              "date_updated": "2026-06-10T08:32:12Z",
+              "friendly_name": "Nango Test Conversation Dryrun",
+              "links": {
+                "export": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000008/Export",
+                "messages": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000008/Messages",
+                "participants": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000008/Participants",
+                "webhooks": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000008/Webhooks"
+              },
+              "messaging_service_sid": "MG000000000000000000000000000001",
+              "sid": "CH000000000000000000000000000008",
+              "state": "active",
+              "timers": {},
+              "unique_name": null,
+              "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000008"
+            },
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "attributes": "{}",
+              "bindings": null,
+              "chat_service_sid": "IS000000000000000000000000000001",
+              "date_created": "2026-06-10T09:39:25Z",
+              "date_updated": "2026-06-10T09:39:25Z",
+              "friendly_name": "Nango Test Conversation",
+              "links": {
+                "export": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000012/Export",
+                "messages": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000012/Messages",
+                "participants": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000012/Participants",
+                "webhooks": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000012/Webhooks"
+              },
+              "messaging_service_sid": "MG000000000000000000000000000001",
+              "sid": "CH000000000000000000000000000012",
+              "state": "active",
+              "timers": {},
+              "unique_name": null,
+              "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000012"
+            },
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "attributes": "{}",
+              "bindings": null,
+              "chat_service_sid": "IS000000000000000000000000000001",
+              "date_created": "2026-06-10T10:28:52Z",
+              "date_updated": "2026-06-10T10:28:52Z",
+              "friendly_name": "Nango Test Conversation",
+              "links": {
+                "export": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000021/Export",
+                "messages": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000021/Messages",
+                "participants": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000021/Participants",
+                "webhooks": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000021/Webhooks"
+              },
+              "messaging_service_sid": "MG000000000000000000000000000001",
+              "sid": "CH000000000000000000000000000021",
+              "state": "active",
+              "timers": {},
+              "unique_name": null,
+              "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000021"
+            },
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "attributes": "{}",
+              "bindings": null,
+              "chat_service_sid": "IS000000000000000000000000000001",
+              "date_created": "2026-06-10T08:32:37Z",
+              "date_updated": "2026-06-10T08:32:37Z",
+              "friendly_name": "Nango Test Conversation Dryrun",
+              "links": {
+                "export": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000009/Export",
+                "messages": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000009/Messages",
+                "participants": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000009/Participants",
+                "webhooks": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000009/Webhooks"
+              },
+              "messaging_service_sid": "MG000000000000000000000000000001",
+              "sid": "CH000000000000000000000000000009",
+              "state": "active",
+              "timers": {},
+              "unique_name": null,
+              "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000009"
+            },
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "attributes": "{}",
+              "bindings": null,
+              "chat_service_sid": "IS000000000000000000000000000001",
+              "date_created": "2026-06-10T09:39:18Z",
+              "date_updated": "2026-06-10T09:39:18Z",
+              "friendly_name": "Nango Test Conversation",
+              "links": {
+                "export": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000022/Export",
+                "messages": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000022/Messages",
+                "participants": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000022/Participants",
+                "webhooks": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000022/Webhooks"
+              },
+              "messaging_service_sid": "MG000000000000000000000000000001",
+              "sid": "CH000000000000000000000000000022",
+              "state": "active",
+              "timers": {},
+              "unique_name": null,
+              "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000022"
+            },
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "attributes": "{}",
+              "bindings": null,
+              "chat_service_sid": "IS000000000000000000000000000001",
+              "date_created": "2026-06-10T08:31:27Z",
+              "date_updated": "2026-06-10T08:31:27Z",
+              "friendly_name": "Nango Test Conversation Dryrun",
+              "links": {
+                "export": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000010/Export",
+                "messages": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000010/Messages",
+                "participants": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000010/Participants",
+                "webhooks": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000010/Webhooks"
+              },
+              "messaging_service_sid": "MG000000000000000000000000000001",
+              "sid": "CH000000000000000000000000000010",
+              "state": "active",
+              "timers": {},
+              "unique_name": null,
+              "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000010"
+            }
+          ],
+          "meta": {
+            "first_page_url": "https://conversations.twilio.com/v1/Conversations?PageSize=50&Page=0",
+            "key": "conversations",
+            "next_page_url": null,
+            "page": 0,
+            "page_size": 50,
+            "previous_page_url": null,
+            "url": "https://conversations.twilio.com/v1/Conversations?PageSize=50&Page=0"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 10 Jun 2026 20:12:09 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "19883",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4956",
+          "x-ratelimit-reset": "1781122341",
+          "etag": "W/\"4dab-NE5StmKWjXB5nlZLk9Sa7oyXIFc\""
+        },
+        "hash": "aa0cb3b9714dfb2e0a9839815a10939167bdb19d",
+        "request": {
+          "params": {
+            "PageSize": "50"
+          }
+        }
+      },
+      "/v1/Conversations/CH000000000000000000000000000003/Participants": {
+        "response": {
+          "meta": {
+            "first_page_url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000013/Participants?PageSize=50&Page=0",
+            "key": "participants",
+            "next_page_url": null,
+            "page": 0,
+            "page_size": 50,
+            "previous_page_url": null,
+            "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000013/Participants?PageSize=50&Page=0"
+          },
+          "participants": [
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "attributes": "{}",
+              "conversation_sid": "CH000000000000000000000000000013",
+              "date_created": "2026-06-10T10:28:11Z",
+              "date_updated": "2026-06-10T10:28:11Z",
+              "identity": "test_user_nango",
+              "last_read_message_index": null,
+              "last_read_timestamp": null,
+              "messaging_binding": null,
+              "role_sid": "RL000000000000000000000000000001",
+              "sid": "MB000000000000000000000000000002",
+              "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000013/Participants/MB000000000000000000000000000002"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 10 Jun 2026 20:12:11 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "965",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4955",
+          "x-ratelimit-reset": "1781122341",
+          "etag": "W/\"3c5-XGm3HDdRO5noF2ITPiEWGUpC2kI\""
+        },
+        "hash": "af32b3b0bc6e9f55d1f7fd39b4a8f1d1c73bc0a4",
+        "request": {
+          "params": {
+            "PageSize": "50"
+          }
+        }
+      },
+      "/v1/Conversations/CH000000000000000000000000000008/Participants": {
+        "response": {
+          "meta": {
+            "first_page_url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000002/Participants?PageSize=50&Page=0",
+            "key": "participants",
+            "next_page_url": null,
+            "page": 0,
+            "page_size": 50,
+            "previous_page_url": null,
+            "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000002/Participants?PageSize=50&Page=0"
+          },
+          "participants": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 10 Jun 2026 20:12:11 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "397",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4954",
+          "x-ratelimit-reset": "1781122341",
+          "etag": "W/\"18d-LoStxQfRa0EKXjDQqmB4TwQrlp0\""
+        },
+        "hash": "0278b44494de97290d57e6ff3cb81d9678e06f0c",
+        "request": {
+          "params": {
+            "PageSize": "50"
+          }
+        }
+      },
+      "/v1/Conversations/CH000000000000000000000000000005/Participants": {
+        "response": {
+          "meta": {
+            "first_page_url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000003/Participants?PageSize=50&Page=0",
+            "key": "participants",
+            "next_page_url": null,
+            "page": 0,
+            "page_size": 50,
+            "previous_page_url": null,
+            "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000003/Participants?PageSize=50&Page=0"
+          },
+          "participants": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 10 Jun 2026 20:12:12 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "397",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4953",
+          "x-ratelimit-reset": "1781122341",
+          "etag": "W/\"18d-gn3PpAZ4kYkq/gRJWntqQXBSlB0\""
+        },
+        "hash": "f754062e894e6a061ed36db8dbae97c4198a39dd",
+        "request": {
+          "params": {
+            "PageSize": "50"
+          }
+        }
+      },
+      "/v1/Conversations/CH000000000000000000000000000009/Participants": {
+        "response": {
+          "meta": {
+            "first_page_url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000004/Participants?PageSize=50&Page=0",
+            "key": "participants",
+            "next_page_url": null,
+            "page": 0,
+            "page_size": 50,
+            "previous_page_url": null,
+            "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000004/Participants?PageSize=50&Page=0"
+          },
+          "participants": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 10 Jun 2026 20:12:12 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "397",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4952",
+          "x-ratelimit-reset": "1781122341",
+          "etag": "W/\"18d-nEYcRnzI0vA+LNjPzdT2asjcIuk\""
+        },
+        "hash": "3650b11aa81d56bc805c4321c80ed94c78bfd30e",
+        "request": {
+          "params": {
+            "PageSize": "50"
+          }
+        }
+      },
+      "/v1/Conversations/CH000000000000000000000000000010/Participants": {
+        "response": {
+          "meta": {
+            "first_page_url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000016/Participants?PageSize=50&Page=0",
+            "key": "participants",
+            "next_page_url": null,
+            "page": 0,
+            "page_size": 50,
+            "previous_page_url": null,
+            "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000016/Participants?PageSize=50&Page=0"
+          },
+          "participants": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 10 Jun 2026 20:12:13 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "397",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4951",
+          "x-ratelimit-reset": "1781122341",
+          "etag": "W/\"18d-G1f8fRvbQBpUl3OqWqS7ub5ErPg\""
+        },
+        "hash": "17c051baf5bddba8e413939536e4c26602949bff",
+        "request": {
+          "params": {
+            "PageSize": "50"
+          }
+        }
+      },
+      "/v1/Conversations/CH000000000000000000000000000011/Participants": {
+        "response": {
+          "meta": {
+            "first_page_url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000017/Participants?PageSize=50&Page=0",
+            "key": "participants",
+            "next_page_url": null,
+            "page": 0,
+            "page_size": 50,
+            "previous_page_url": null,
+            "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000017/Participants?PageSize=50&Page=0"
+          },
+          "participants": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 10 Jun 2026 20:12:14 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "397",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4950",
+          "x-ratelimit-reset": "1781122341",
+          "etag": "W/\"18d-Vj0Pb3JeYywWRyVxWREZDAl92Hs\""
+        },
+        "hash": "acfd6603e3a36afdffc0c9635a350f85b5c1c864",
+        "request": {
+          "params": {
+            "PageSize": "50"
+          }
+        }
+      },
+      "/v1/Conversations/CH000000000000000000000000000012/Participants": {
+        "response": {
+          "meta": {
+            "first_page_url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000005/Participants?PageSize=50&Page=0",
+            "key": "participants",
+            "next_page_url": null,
+            "page": 0,
+            "page_size": 50,
+            "previous_page_url": null,
+            "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000005/Participants?PageSize=50&Page=0"
+          },
+          "participants": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 10 Jun 2026 20:12:14 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "397",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4949",
+          "x-ratelimit-reset": "1781122341",
+          "etag": "W/\"18d-SRAx0Mp3zEA2FrzMXbxNFjOz6tc\""
+        },
+        "hash": "a0631d12f62ffc1499c8ac7c2c42f4c805cbab7b",
+        "request": {
+          "params": {
+            "PageSize": "50"
+          }
+        }
+      },
+      "/v1/Conversations/CH000000000000000000000000000013/Participants": {
+        "response": {
+          "meta": {
+            "first_page_url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000018/Participants?PageSize=50&Page=0",
+            "key": "participants",
+            "next_page_url": null,
+            "page": 0,
+            "page_size": 50,
+            "previous_page_url": null,
+            "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000018/Participants?PageSize=50&Page=0"
+          },
+          "participants": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 10 Jun 2026 20:12:15 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "397",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4948",
+          "x-ratelimit-reset": "1781122341",
+          "etag": "W/\"18d-EF/Z9FWqZ5+GJcKfFVzYV0L0zMM\""
+        },
+        "hash": "5272d21aabade0b47cf956b770a6f6633edc91a1",
+        "request": {
+          "params": {
+            "PageSize": "50"
+          }
+        }
+      },
+      "/v1/Conversations/CH000000000000000000000000000014/Participants": {
+        "response": {
+          "meta": {
+            "first_page_url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000006/Participants?PageSize=50&Page=0",
+            "key": "participants",
+            "next_page_url": null,
+            "page": 0,
+            "page_size": 50,
+            "previous_page_url": null,
+            "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000006/Participants?PageSize=50&Page=0"
+          },
+          "participants": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 10 Jun 2026 20:12:15 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "397",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4947",
+          "x-ratelimit-reset": "1781122341",
+          "etag": "W/\"18d-CYrLLSLdOcB4+D6dHWH+yVzHxW0\""
+        },
+        "hash": "94fa58facdf90b6aeb1d08b0fdf89187e4f76d3d",
+        "request": {
+          "params": {
+            "PageSize": "50"
+          }
+        }
+      },
+      "/v1/Conversations/CH000000000000000000000000000002/Participants": {
+        "response": {
+          "meta": {
+            "first_page_url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000011/Participants?PageSize=50&Page=0",
+            "key": "participants",
+            "next_page_url": null,
+            "page": 0,
+            "page_size": 50,
+            "previous_page_url": null,
+            "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000011/Participants?PageSize=50&Page=0"
+          },
+          "participants": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 10 Jun 2026 20:12:16 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "397",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4946",
+          "x-ratelimit-reset": "1781122341",
+          "etag": "W/\"18d-pecUtES+7e8LKNsBPGirtQv19gw\""
+        },
+        "hash": "e7031c29d3435cd1ef30f7d01075688ad954db22",
+        "request": {
+          "params": {
+            "PageSize": "50"
+          }
+        }
+      },
+      "/v1/Conversations/CH000000000000000000000000000006/Participants": {
+        "response": {
+          "meta": {
+            "first_page_url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000015/Participants?PageSize=50&Page=0",
+            "key": "participants",
+            "next_page_url": null,
+            "page": 0,
+            "page_size": 50,
+            "previous_page_url": null,
+            "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000015/Participants?PageSize=50&Page=0"
+          },
+          "participants": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 10 Jun 2026 20:12:18 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "397",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4945",
+          "x-ratelimit-reset": "1781122341",
+          "etag": "W/\"18d-w7DBKN47LuV+N46QPjLVsmLSO9A\""
+        },
+        "hash": "1f08710b36d2cdf1aa73f62df31af3062bad866e",
+        "request": {
+          "params": {
+            "PageSize": "50"
+          }
+        }
+      },
+      "/v1/Conversations/CH000000000000000000000000000007/Participants": {
+        "response": {
+          "meta": {
+            "first_page_url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000007/Participants?PageSize=50&Page=0",
+            "key": "participants",
+            "next_page_url": null,
+            "page": 0,
+            "page_size": 50,
+            "previous_page_url": null,
+            "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000007/Participants?PageSize=50&Page=0"
+          },
+          "participants": [
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "attributes": "{}",
+              "conversation_sid": "CH000000000000000000000000000007",
+              "date_created": "2026-06-10T09:00:32Z",
+              "date_updated": "2026-06-10T09:00:32Z",
+              "identity": "user_2",
+              "last_read_message_index": null,
+              "last_read_timestamp": null,
+              "messaging_binding": null,
+              "role_sid": "RL000000000000000000000000000001",
+              "sid": "MB000000000000000000000000000003",
+              "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000007/Participants/MB000000000000000000000000000003"
+            },
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "attributes": "{}",
+              "conversation_sid": "CH000000000000000000000000000007",
+              "date_created": "2026-06-10T09:00:34Z",
+              "date_updated": "2026-06-10T09:00:34Z",
+              "identity": "user_3",
+              "last_read_message_index": null,
+              "last_read_timestamp": null,
+              "messaging_binding": null,
+              "role_sid": "RL000000000000000000000000000001",
+              "sid": "MB000000000000000000000000000004",
+              "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000007/Participants/MB000000000000000000000000000004"
+            },
+            {
+              "account_sid": "ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00",
+              "attributes": "{}",
+              "conversation_sid": "CH000000000000000000000000000007",
+              "date_created": "2026-06-10T09:00:24Z",
+              "date_updated": "2026-06-10T09:00:24Z",
+              "identity": "user_1",
+              "last_read_message_index": null,
+              "last_read_timestamp": null,
+              "messaging_binding": null,
+              "role_sid": "RL000000000000000000000000000001",
+              "sid": "MB000000000000000000000000000005",
+              "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000007/Participants/MB000000000000000000000000000005"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 10 Jun 2026 20:12:18 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "2080",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4944",
+          "x-ratelimit-reset": "1781122341",
+          "etag": "W/\"820-IrO22QVxydstegCMbwkJg/3tUjU\""
+        },
+        "hash": "f6a1d66ed7b361f68d9fee0bb21173958d31a1dc",
+        "request": {
+          "params": {
+            "PageSize": "50"
+          }
+        }
+      },
+      "/v1/Conversations/CH000000000000000000000000000015/Participants": {
+        "response": {
+          "meta": {
+            "first_page_url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000019/Participants?PageSize=50&Page=0",
+            "key": "participants",
+            "next_page_url": null,
+            "page": 0,
+            "page_size": 50,
+            "previous_page_url": null,
+            "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000019/Participants?PageSize=50&Page=0"
+          },
+          "participants": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 10 Jun 2026 20:12:19 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "397",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4943",
+          "x-ratelimit-reset": "1781122341",
+          "etag": "W/\"18d-LkVsZh2HOnP9VMBOsN6CtveGUUU\""
+        },
+        "hash": "916fff12463e3aab4180280fb00ecbbbce811a06",
+        "request": {
+          "params": {
+            "PageSize": "50"
+          }
+        }
+      },
+      "/v1/Conversations/CH000000000000000000000000000016/Participants": {
+        "response": {
+          "meta": {
+            "first_page_url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000020/Participants?PageSize=50&Page=0",
+            "key": "participants",
+            "next_page_url": null,
+            "page": 0,
+            "page_size": 50,
+            "previous_page_url": null,
+            "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000020/Participants?PageSize=50&Page=0"
+          },
+          "participants": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 10 Jun 2026 20:12:20 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "397",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4942",
+          "x-ratelimit-reset": "1781122341",
+          "etag": "W/\"18d-MesfYZub8E97OQ6RTnOxTbanHn4\""
+        },
+        "hash": "13a4b4e55fbb98aba2d68a881823f7a2d54ff970",
+        "request": {
+          "params": {
+            "PageSize": "50"
+          }
+        }
+      },
+      "/v1/Conversations/CH000000000000000000000000000017/Participants": {
+        "response": {
+          "meta": {
+            "first_page_url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000008/Participants?PageSize=50&Page=0",
+            "key": "participants",
+            "next_page_url": null,
+            "page": 0,
+            "page_size": 50,
+            "previous_page_url": null,
+            "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000008/Participants?PageSize=50&Page=0"
+          },
+          "participants": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 10 Jun 2026 20:12:20 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "397",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4941",
+          "x-ratelimit-reset": "1781122341",
+          "etag": "W/\"18d-4zbk3uhz9e/VeB+VNwBswJeQDmg\""
+        },
+        "hash": "9747269a83190f73b74c43fe56979d34982c8ce6",
+        "request": {
+          "params": {
+            "PageSize": "50"
+          }
+        }
+      },
+      "/v1/Conversations/CH000000000000000000000000000018/Participants": {
+        "response": {
+          "meta": {
+            "first_page_url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000012/Participants?PageSize=50&Page=0",
+            "key": "participants",
+            "next_page_url": null,
+            "page": 0,
+            "page_size": 50,
+            "previous_page_url": null,
+            "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000012/Participants?PageSize=50&Page=0"
+          },
+          "participants": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 10 Jun 2026 20:12:21 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "397",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4940",
+          "x-ratelimit-reset": "1781122341",
+          "etag": "W/\"18d-ew/zfyHWcFkeQGS1TK3xTgzoNBI\""
+        },
+        "hash": "4078bbcd560a0d22f508c6c02e56e36286e0e443",
+        "request": {
+          "params": {
+            "PageSize": "50"
+          }
+        }
+      },
+      "/v1/Conversations/CH000000000000000000000000000019/Participants": {
+        "response": {
+          "meta": {
+            "first_page_url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000021/Participants?PageSize=50&Page=0",
+            "key": "participants",
+            "next_page_url": null,
+            "page": 0,
+            "page_size": 50,
+            "previous_page_url": null,
+            "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000021/Participants?PageSize=50&Page=0"
+          },
+          "participants": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 10 Jun 2026 20:12:21 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "397",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4999",
+          "x-ratelimit-reset": "1781122401",
+          "etag": "W/\"18d-VEqUxHdHsaFdEEOmwCzDoUWmp2U\""
+        },
+        "hash": "a85bfb6cd8ae79d71277a46b5322f63cb08e0712",
+        "request": {
+          "params": {
+            "PageSize": "50"
+          }
+        }
+      },
+      "/v1/Conversations/CH000000000000000000000000000020/Participants": {
+        "response": {
+          "meta": {
+            "first_page_url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000009/Participants?PageSize=50&Page=0",
+            "key": "participants",
+            "next_page_url": null,
+            "page": 0,
+            "page_size": 50,
+            "previous_page_url": null,
+            "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000009/Participants?PageSize=50&Page=0"
+          },
+          "participants": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 10 Jun 2026 20:12:22 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "397",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4998",
+          "x-ratelimit-reset": "1781122401",
+          "etag": "W/\"18d-Ec106dERgeQZKz2l17sRNH9+UQ0\""
+        },
+        "hash": "b60492a26b427cab3cef07abe9a9e6c1f3a56529",
+        "request": {
+          "params": {
+            "PageSize": "50"
+          }
+        }
+      },
+      "/v1/Conversations/CH000000000000000000000000000021/Participants": {
+        "response": {
+          "meta": {
+            "first_page_url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000022/Participants?PageSize=50&Page=0",
+            "key": "participants",
+            "next_page_url": null,
+            "page": 0,
+            "page_size": 50,
+            "previous_page_url": null,
+            "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000022/Participants?PageSize=50&Page=0"
+          },
+          "participants": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 10 Jun 2026 20:12:22 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "397",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4997",
+          "x-ratelimit-reset": "1781122401",
+          "etag": "W/\"18d-lV0ajM6S6sBkh+aviy8xvRLKiDw\""
+        },
+        "hash": "40f245567d8e4f28127d91f924f6889ea94e4f84",
+        "request": {
+          "params": {
+            "PageSize": "50"
+          }
+        }
+      },
+      "/v1/Conversations/CH000000000000000000000000000022/Participants": {
+        "response": {
+          "meta": {
+            "first_page_url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000010/Participants?PageSize=50&Page=0",
+            "key": "participants",
+            "next_page_url": null,
+            "page": 0,
+            "page_size": 50,
+            "previous_page_url": null,
+            "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000010/Participants?PageSize=50&Page=0"
+          },
+          "participants": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 10 Jun 2026 20:12:23 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "397",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4996",
+          "x-ratelimit-reset": "1781122401",
+          "etag": "W/\"18d-FFmojhn66aJQcWpATzjxpWefkRQ\""
+        },
+        "hash": "16484ea87087bea1c71972cc75435622b1ca0ff1",
+        "request": {
+          "params": {
+            "PageSize": "50"
+          }
+        }
+      },
+      "/v1/Conversations/CH000000000000000000000000000004/Participants": {
+        "response": {
+          "meta": {
+            "first_page_url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000004/Participants?PageSize=50&Page=0",
+            "key": "participants",
+            "next_page_url": null,
+            "page": 0,
+            "page_size": 50,
+            "previous_page_url": null,
+            "url": "https://conversations.twilio.com/v1/Conversations/CH000000000000000000000000000004/Participants?PageSize=50&Page=0"
+          },
+          "participants": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 10 Jun 2026 20:12:16 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "397",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4946",
+          "x-ratelimit-reset": "1781122341",
+          "etag": "W/\"18d-pecUtES+7e8LKNsBPGirtQv19gw\""
+        },
+        "hash": "8b43abe5b5738fe2cc2f4d858262c862faf61fca",
+        "request": {
+          "params": {
+            "PageSize": "50"
+          }
+        }
+      }
+    }
+  }
+}

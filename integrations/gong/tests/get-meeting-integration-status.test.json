@@ -1,0 +1,74 @@
+{
+  "input": {
+    "emails": [
+      "api@nango.dev"
+    ]
+  },
+  "output": {
+    "requestId": "46dokx1jbz2c077otir",
+    "users": [
+      {
+        "email": "api@nango.dev",
+        "exists": true,
+        "valid": false,
+        "userFacingError": "The Gong consent page is not enabled in your company. Contact your Gong Admin.",
+        "fixUrl": "https://us-12100.app.gong.io/company/recording-consent/consent-page?company-id=4147239961233958668",
+        "helpUrl": "https://help.gong.io/hc/en-us/articles/360043528331"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v2/meetings/integration/status": {
+        "response": {
+          "requestId": "46dokx1jbz2c077otir",
+          "users": [
+            {
+              "email": "api@nango.dev",
+              "exists": true,
+              "valid": false,
+              "userFacingError": "The Gong consent page is not enabled in your company. Contact your Gong Admin.",
+              "fixUrl": "https://us-12100.app.gong.io/company/recording-consent/consent-page?company-id=4147239961233958668",
+              "helpUrl": "https://help.gong.io/hc/en-us/articles/360043528331"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 12 Jun 2026 13:56:13 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "17",
+          "x-ratelimit-reset": "1781272582",
+          "set-cookie": "<redacted>",
+          "x-gong-service-version": "PublicApiServer:17.main.19292",
+          "x-traceid": "46dokx1jbz2c077otir",
+          "vary": "accept-encoding",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "cf-ray": "a0a95b90593ff7ed-PDX"
+        },
+        "hash": "857d69aa0e00362bf1cc478a2e3f3577b2243761",
+        "request": {
+          "data": {
+            "emails": [
+              "api@nango.dev"
+            ]
+          }
+        }
+      }
+    }
+  }
+}
