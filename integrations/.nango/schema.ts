@@ -527,23 +527,12 @@ export interface ActionOutput_1password_scim_updatescimuser {
 };
 
 export interface Account {
-  /**
-   * The unique identifier of the account
-   */
   id: string;
-  /**
-   * The name of the account
-   */
-  accountName: string;
   email?: string | undefined;
-  phone?: string | undefined;
-  website?: string | undefined;
-  country?: string | undefined;
-  industry?: string | undefined;
-  createdTime?: string | undefined;
-  modifiedTime?: string | undefined;
-  ownerId?: string | undefined;
-  crmAccountId?: string | undefined;
+  displayName?: string | undefined;
+  accountName?: string | undefined;
+  type?: string | undefined;
+  enabled?: boolean | undefined;
 };
 
 export interface Automation {
@@ -5828,19 +5817,20 @@ export interface Sequence {
 
 export interface Task {
   id: string;
-  subject?: string | undefined;
+  title: string;
+  description?: string | undefined;
   status?: string | undefined;
   priority?: string | undefined;
-  owner_id?: string | undefined;
-  owner_name?: string | undefined;
-  created_by_id?: string | undefined;
-  modified_by_id?: string | undefined;
-  created_time?: string | undefined;
-  modified_time?: string | undefined;
-  due_date?: string | undefined;
-  description?: string | undefined;
-  related_module?: string | undefined;
-  related_record_id?: string | undefined;
+  dueDate?: string | undefined;
+  createdAt?: string | undefined;
+  modifiedTime?: string | undefined;
+  namespaceId?: string | undefined;
+  projectId?: string | undefined;
+  projectName?: string | undefined;
+  assigneeId?: number | undefined;
+  assigneeName?: string | undefined;
+  ownerId?: number | undefined;
+  ownerName?: string | undefined;
 };
 
 export interface ActionInput_apollo_bulkenrichpeople {
@@ -15749,9 +15739,15 @@ export interface Collaboration {
 
 export interface Folder {
   id: string;
-  name?: string | undefined;
-  createdTime?: string | undefined;
-  modifiedTime?: string | undefined;
+  folderId: string;
+  accountId: string;
+  folderName: string;
+  folderType: string;
+  path: string;
+  isArchived?: number | undefined;
+  imapAccess?: boolean | undefined;
+  previousFolderId?: string | undefined;
+  URI?: string | undefined;
 };
 
 export interface BoxDocument {
@@ -21646,26 +21642,19 @@ export interface Guild {
 
 export interface Message {
   id: string;
-  sid: string;
-  account_sid?: string | undefined;
-  api_version?: string | undefined;
-  body?: string | undefined;
-  num_segments?: string | undefined;
-  direction?: string | undefined;
-  from?: string | undefined;
-  to?: string | undefined;
-  date_updated?: string | undefined;
-  price?: string | undefined;
-  error_message?: string | undefined;
-  uri?: string | undefined;
-  num_media?: string | undefined;
+  messageId?: string | undefined;
+  subject?: string | undefined;
+  fromAddress?: string | undefined;
+  toAddress?: string | undefined;
+  receivedTime?: string | undefined;
+  folderId?: string | undefined;
+  threadId?: string | undefined;
+  hasAttachment?: string | undefined;
   status?: string | undefined;
-  messaging_service_sid?: string | undefined;
-  date_sent?: string | undefined;
-  date_created?: string | undefined;
-  error_code?: number | undefined;
-  price_unit?: string | undefined;
-  subresource_uris?: {  [key: string]: string;} | undefined;
+  sender?: string | undefined;
+  size?: string | undefined;
+  summary?: string | undefined;
+  sentDateInGMT?: string | undefined;
 };
 
 export interface SyncMetadata_discord_messages {
@@ -39314,10 +39303,13 @@ export interface Filter {
 
 export interface Label {
   id: string;
-  idBoard: string;
-  name?: string | undefined;
+  accountId: string;
+  labelId: string;
+  displayName?: string | undefined;
   color?: string | undefined;
-  uses?: number | undefined;
+  sequence?: number | undefined;
+  tagId?: string | undefined;
+  uri?: string | undefined;
 };
 
 export interface SendAsAlias {
@@ -111048,100 +111040,1113 @@ export interface ActionOutput_zoho_desk_updateticket {
   status?: string | undefined;
 };
 
-export interface ZohoMailEmail {
-  id: string;
-  summary: string;
-  sentDateInGMT: string;
-  calendarType: number;
-  subject: string;
+export interface ActionInput_zoho_mail_archivemessage {
+  /**
+   * Zoho Mail account ID. Example: "4845214000000008002"
+   */
+  accountId: string;
+  /**
+   * Message ID to archive. Example: "1781108289537154100"
+   */
   messageId: string;
-  flagid: string;
-  status2: string;
-  priority: string;
-  hasInline: string;
-  toAddress: string;
-  folderId: string;
-  ccAddress: string;
-  hasAttachment: string;
-  size: string;
-  sender: string;
-  receivedTime: string;
+};
+
+export interface ActionOutput_zoho_mail_archivemessage {
+  success: boolean;
+  messageId?: string | undefined;
+};
+
+export interface ActionInput_zoho_mail_createdraft {
+  /**
+   * Zoho Mail account ID. Example: "4845214000000008002"
+   */
+  accountId: string;
+  /**
+   * Sender email address. Example: "user@zohomail.com"
+   */
   fromAddress: string;
-  status: string;
+  /**
+   * Recipient email address. Example: "recipient@example.com"
+   */
+  toAddress: string;
+  /**
+   * Subject of the email. Example: "Meeting notes"
+   */
+  subject: string;
+  /**
+   * Body content of the email. Example: "Hello, please find the notes attached."
+   */
+  content: string;
+  /**
+   * Format of the email content. Example: "html"
+   */
+  mailFormat: 'html' | 'plaintext';
+  /**
+   * Cc recipient email address.
+   */
+  ccAddress?: string | undefined;
+  /**
+   * Bcc recipient email address.
+   */
+  bccAddress?: string | undefined;
 };
 
-export interface SyncMetadata_zoho_mail_emails {
+export interface ActionOutput_zoho_mail_createdraft {
+  success: boolean;
+  message?: string | undefined;
 };
 
-export interface ZohoMailTask {
+export interface ActionInput_zoho_mail_createfolder {
+  /**
+   * Zoho Mail account ID. Example: "4845214000000008002"
+   */
+  accountId: string;
+  /**
+   * Name of the folder to create. Example: "My Folder"
+   */
+  folderName: string;
+  /**
+   * Optional parent folder ID. Example: "4845214000000008008"
+   */
+  parentFolderId?: string | undefined;
+};
+
+export interface ActionOutput_zoho_mail_createfolder {
+  folderId: string;
+  folderName: string;
+  path?: string | undefined;
+  folderType?: string | undefined;
+  isArchived?: number | undefined;
+  imapAccess?: boolean | undefined;
+  previousFolderId?: string | undefined;
+  URI?: string | undefined;
+};
+
+export interface ActionInput_zoho_mail_createlabel {
+  /**
+   * Zoho Mail account ID. Example: "4845214000000008002"
+   */
+  accountId: string;
+  /**
+   * Name of the label to create. Example: "Important"
+   */
+  labelName: string;
+  /**
+   * Hex color code for the label. Example: "#FF0000"
+   */
+  color?: string | undefined;
+};
+
+export interface ActionOutput_zoho_mail_createlabel {
+  labelId?: string | undefined;
+  labelName?: string | undefined;
+  color?: string | undefined;
+};
+
+export interface ActionInput_zoho_mail_createsignature {
+  /**
+   * Name of the signature. Example: "Work Signature"
+   */
+  name: string;
+  /**
+   * Content of the signature. Example: "Best regards, John."
+   */
+  content: string;
+  /**
+   * Position of the signature. 0 = below quoted content, 1 = above quoted content.
+   */
+  position: 0 | 1;
+  /**
+   * Comma-separated email addresses to assign the signature to.
+   */
+  assignUsers?: string | undefined;
+};
+
+export interface ActionOutput_zoho_mail_createsignature {
   id: string;
-  serviceType: number;
-  modifiedTime: Date;
-  resourceId: string;
-  attachments: any[];
-  statusStr: string;
-  statusValue: number;
-  description: string;
-  project: {  name: string;
-  id: string;};
-  isTaskPublished: boolean;
+  name: string;
+  signatureType: string;
+  position: number;
+  content: string;
+};
+
+export interface ActionInput_zoho_mail_createtask {
+  /**
+   * Title of the task. Example: "Blog Updates"
+   */
   title: string;
-  createdAt: Date;
-  portalId: number;
-  serviceId: string;
-  owner: {  name: string;
-  id: number;};
-  assigneeList: string[];
-  dependency: any[];
-  subtasks: any[];
-  priority: string;
-  tags: string[];
-  followers: string[];
-  namespaceId: string;
-  dependents: string[];
-  assignee: {  name: string;
-  id: number;};
-  serviceUniqId: number;
-  depUniqId: string;
-  status: string;
+  /**
+   * Description of the task. Example: "Announcement blog for recent revamp"
+   */
+  description?: string | undefined;
+  /**
+   * Priority of the task. Example: "low"
+   */
+  priority?: 'high' | 'medium' | 'low' | undefined;
+  /**
+   * Status of the task. Example: "inprogress"
+   */
+  status?: 'inprogress' | 'completed' | undefined;
+  /**
+   * Due date in DD/MM/YYYY format. Example: "23/01/2024"
+   */
+  dueDate?: string | undefined;
+  /**
+   * Reminder date in ISO 8601 format. Example: "2024-01-23T12:34:56+05:30"
+   */
+  reminderDate?: string | undefined;
+  /**
+   * Send reminder via email
+   */
+  emailReminder?: boolean | undefined;
+  /**
+   * Send reminder notification
+   */
+  popupReminder?: boolean | undefined;
 };
 
-export interface SyncMetadata_zoho_mail_tasks {
+export interface ActionOutput_zoho_mail_createtask {
+  id: string;
+  title: string;
+  description?: string | undefined;
+  priority?: string | undefined;
+  status?: string | undefined;
+  dueDate?: string | undefined;
+  createdAt?: string | undefined;
+  modifiedTime?: string | undefined;
+  assignee?: {  id: string | number;
+  name?: string | undefined;};
+  owner?: {  id: string | number;
+  name?: string | undefined;};
+  project?: {  id?: string | undefined;
+  name?: string | undefined;};
 };
 
-export interface ActionInput_zoho_mail_adduser {
-  zoid: number;
-  primaryEmailAddress: string;
-  password: string;
+export interface ActionInput_zoho_mail_deletefolder {
+  /**
+   * The Zoho Mail account ID. Example: "4845214000000008002"
+   */
+  accountId: string;
+  /**
+   * The ID of the folder to delete. Example: "4845214000000010002"
+   */
+  folderId: string;
+};
+
+export interface ActionOutput_zoho_mail_deletefolder {
+  success: boolean;
+  code: number;
+  description: string;
+};
+
+export interface ActionInput_zoho_mail_deletelabel {
+  /**
+   * Account ID. Example: "4845214000000008002"
+   */
+  accountId: string;
+  /**
+   * Label ID. Example: "1234567890123456789"
+   */
+  labelId: string;
+};
+
+export interface ActionOutput_zoho_mail_deletelabel {
+  success: boolean;
+};
+
+export interface ActionInput_zoho_mail_deletemessage {
+  /**
+   * Account ID. Example: "4845214000000008002"
+   */
+  accountId: string;
+  /**
+   * Folder ID containing the message. Example: "4845214000000008008"
+   */
+  folderId: string;
+  /**
+   * Message ID to delete. Example: "1781108289537154100"
+   */
+  messageId: string;
+  /**
+   * Pass true to permanently delete the message. Omit or pass false to move to Trash.
+   */
+  expunge?: boolean | undefined;
+};
+
+export interface ActionOutput_zoho_mail_deletemessage {
+  code: number;
+  description: string;
+  cId?: string | undefined;
+};
+
+export interface ActionInput_zoho_mail_deletesignature {
+  /**
+   * Signature ID to delete. Example: "2442552000000167007"
+   */
+  signatureId: string;
+};
+
+export interface ActionOutput_zoho_mail_deletesignature {
+  success: boolean;
+  code?: number | undefined;
+  description?: string | undefined;
+};
+
+export interface ActionInput_zoho_mail_deletetask {
+  /**
+   * The unique identifier of the task to delete. Example: "1781108295426155000"
+   */
+  taskId: string;
+};
+
+export interface ActionOutput_zoho_mail_deletetask {
+  success: boolean;
+};
+
+export interface ActionInput_zoho_mail_flagmessage {
+  /**
+   * Zoho Mail account ID. Example: 4845214000000008002
+   */
+  accountId: string;
+  /**
+   * Message ID to flag or unflag. Example: 1781108289537154100
+   */
+  messageId: string;
+  /**
+   * Set to true to unflag the message instead of flagging it.
+   */
+  unflag?: boolean | undefined;
+};
+
+export interface ActionOutput_zoho_mail_flagmessage {
+  success: boolean;
+  statusCode?: number | undefined;
+  statusDescription?: string | undefined;
+};
+
+export interface ActionInput_zoho_mail_forwardemail {
+  /**
+   * Account ID. Example: "4845214000000008002"
+   */
+  accountId: string;
+  /**
+   * Folder ID containing the message. Example: "4845214000000008008"
+   */
+  folderId: string;
+  /**
+   * Message ID to forward. Example: "1781108289537154100"
+   */
+  messageId: string;
+  /**
+   * Sender email address. Example: "nangoapi@zohomail.com"
+   */
+  fromAddress: string;
+  /**
+   * Recipient email address. Example: "recipient@example.com"
+   */
+  toAddress: string;
+  /**
+   * Optional custom body content for the forwarded message
+   */
+  content?: string | undefined;
+};
+
+export interface ActionOutput_zoho_mail_forwardemail {
+  success: boolean;
+  code?: number | undefined;
+  description?: string | undefined;
+};
+
+export interface ActionInput_zoho_mail_getaccount {
+  /**
+   * The unique ID of the account to retrieve. Example: "4845214000000008002"
+   */
+  accountId: string;
+};
+
+export interface ActionOutput_zoho_mail_getaccount {
+  country?: string | undefined;
+  lastLogin?: number | undefined;
+  mxStatus?: boolean | undefined;
+  activeSyncEnabled?: boolean | undefined;
+  mobileNumber?: string | undefined;
+  incomingBlocked?: boolean | undefined;
+  language?: string | undefined;
+  type?: string | undefined;
+  extraStorage?: {  [key: string]: unknown | undefined;};
+  incomingUserName?: string | undefined;
+  emailAddress?: ({  isAlias: boolean;
+  isPrimary: boolean;
+  mailId: string;
+  isConfirmed: boolean;})[] | undefined;
+  mailboxStatus?: string | undefined;
+  popBlocked?: boolean | undefined;
+  usedStorage?: number | undefined;
+  spamcheckEnabled?: boolean | undefined;
+  imapAccessEnabled?: boolean | undefined;
+  timeZone?: string | undefined;
+  accountCreationTime?: number | undefined;
+  zuid?: number | undefined;
+  webBlocked?: boolean | undefined;
+  planStorage?: number | undefined;
+  firstName?: string | undefined;
+  accountId: string;
+  sequence?: number | undefined;
+  mailboxAddress?: string | undefined;
+  lastPasswordReset?: number | undefined;
+  tfaEnabled?: boolean | undefined;
+  phoneNumer?: string | undefined;
+  status?: boolean | undefined;
+  lastName?: string | undefined;
+  accountDisplayName?: string | undefined;
+  role?: string | undefined;
+  gender?: string | undefined;
+  accountName?: string | undefined;
+  displayName?: string | undefined;
+  isLogoExist?: boolean | undefined;
+  URI?: string | undefined;
+  primaryEmailAddress?: string | undefined;
+  enabled?: boolean | undefined;
+  mailboxCreationTime?: number | undefined;
+  basicStorage?: string | undefined;
+  lastClient?: string | undefined;
+  allowedStorage?: number | undefined;
+  sendMailDetails?: ({  sendMailId: string;
   displayName: string;
-  role: string;
-  country: string;
-  language: string;
-  timeZone: string;
-  oneTimePassword: boolean;
-  groupMailList: string[];
+  serverName: string;
+  signatureId: string;
+  serverPort: number;
+  userName: string;
+  connectionType: string;
+  mode: string;
+  validated: boolean;
+  fromAddress: string;
+  smtpConnection: number;
+  validationRequired: boolean;
+  validationState: number;
+  status: boolean;
+  verifyCode?: number | undefined;})[];
+  popFetchTime?: number | undefined;
+  address?: {  country?: string | undefined;
+  streetAddr?: string | undefined;
+  city?: string | undefined;
+  postalCode?: string | undefined;
+  state?: string | undefined;};
+  planType?: number | undefined;
+  userExpiry?: number | undefined;
+  popAccessEnabled?: boolean | undefined;
+  imapBlocked?: boolean | undefined;
+  iamUserRole?: string | undefined;
+  outgoingBlocked?: boolean | undefined;
+  policyId?: {  [key: string]: unknown | undefined;};
+  smtpStatus?: boolean | undefined;
+  extraEDiscoveryStorage?: {  [key: string]: unknown | undefined;};
 };
 
-export interface ActionOutput_zoho_mail_adduser {
-  status: {};
-  data: {};
+export interface ActionInput_zoho_mail_getfolder {
+  /**
+   * Zoho Mail account ID. Example: "4845214000000008002"
+   */
+  accountId: string;
+  /**
+   * Folder ID. Example: "4845214000000008008"
+   */
+  folderId: string;
+};
+
+export interface ActionOutput_zoho_mail_getfolder {
+  folderId?: string | undefined;
+  folderName?: string | undefined;
+  folderType?: string | undefined;
+  path?: string | undefined;
+  previousFolderId?: string | undefined;
+  isArchived?: number | undefined;
+  imapAccess?: boolean | undefined;
+  URI?: string | undefined;
+};
+
+export interface ActionInput_zoho_mail_getlabel {
+  /**
+   * Zoho Mail account ID. Example: "4845214000000008002"
+   */
+  accountId: string;
+  /**
+   * Label ID to retrieve. Example: "2674552000000009029"
+   */
+  labelId: string;
+};
+
+export interface ActionOutput_zoho_mail_getlabel {
+  sequence?: number | undefined;
+  labelId: string;
+  color?: string | undefined;
+  tagId?: string | undefined;
+  displayName?: string | undefined;
+  URI?: string | undefined;
+};
+
+export interface ActionInput_zoho_mail_getmessagecontent {
+  /**
+   * Zoho Mail account ID. Example: "4845214000000008002"
+   */
+  accountId: string;
+  /**
+   * Folder ID containing the message. Example: "4845214000000008008"
+   */
+  folderId: string;
+  /**
+   * Message ID to retrieve content for. Example: "1781108289537154100"
+   */
+  messageId: string;
+};
+
+export interface ActionOutput_zoho_mail_getmessagecontent {
+  messageId?: string | undefined;
+  content?: string | undefined;
+};
+
+export interface ActionInput_zoho_mail_getmessage {
+  /**
+   * Zoho Mail account ID. Example: "4845214000000008002"
+   */
+  accountId: string;
+  /**
+   * Folder ID containing the message. Example: "4845214000000008008"
+   */
+  folderId: string;
+  /**
+   * Message ID to retrieve. Example: "1781108289537154100"
+   */
+  messageId: string;
+};
+
+export interface ActionOutput_zoho_mail_getmessage {
+  summary?: string | undefined;
+  sentDateInGMT?: string | undefined;
+  calendarType?: number | undefined;
+  subject?: string | undefined;
+  messageId?: string | undefined;
+  threadCount?: string | undefined;
+  flagid?: string | undefined;
+  status2?: string | undefined;
+  priority?: string | undefined;
+  hasInline?: string | undefined;
+  toAddress?: string | undefined;
+  folderId?: string | undefined;
+  ccAddress?: string | undefined;
+  threadId?: string | undefined;
+  hasAttachment?: string | undefined;
+  size?: string | undefined;
+  sender?: string | undefined;
+  receivedTime?: string | undefined;
+  fromAddress?: string | undefined;
+  status?: string | undefined;
+};
+
+export interface ActionInput_zoho_mail_getsignature {
+};
+
+export interface ActionOutput_zoho_mail_getsignature {
+  signatures: ({  id: string;
+  name?: string | undefined;
+  content?: string | undefined;
+  signatureType?: string | undefined;
+  position?: number | undefined;
+  contactId?: string | undefined;})[];
+};
+
+export interface ActionInput_zoho_mail_gettask {
+  /**
+   * The unique identifier of the personal task. Example: "1781108259800155000"
+   */
+  taskId: string;
+};
+
+export interface ActionOutput_zoho_mail_gettask {
+  id: string;
+  title: string;
+  description?: string | undefined;
+  status?: string | undefined;
+  priority?: string | undefined;
+  dueDate?: string | undefined;
+  createdAt?: string | undefined;
+  modifiedTime?: string | undefined;
+  owner?: {  name?: string | undefined;
+  id?: number | undefined;};
+  assignee?: {  name?: string | undefined;
+  id?: number | undefined;};
+  project?: {  name?: string | undefined;
+  id?: string | undefined;};
+  namespaceId?: string | undefined;
+  numberOfSubtasks?: number | undefined;
+  tags?: string[] | undefined;
+  followers?: unknown[] | undefined;
+  attachments?: unknown[] | undefined;
+  subtasks?: unknown[] | undefined;
+  reminder?: {  dateTime?: string | undefined;
+  emailReminder?: boolean | undefined;
+  popupReminder?: boolean | undefined;};
+};
+
+export interface ActionInput_zoho_mail_listaccounts {
+};
+
+export interface ActionOutput_zoho_mail_listaccounts {
+  accounts: ({  accountId: string;
+  accountDisplayName?: string | undefined;
+  accountName?: string | undefined;
+  displayName?: string | undefined;
+  emailAddress?: ({  isAlias?: boolean | undefined;
+  isPrimary?: boolean | undefined;
+  mailId?: string | undefined;
+  isConfirmed?: boolean | undefined;})[];
+  enabled?: boolean | undefined;
+  incomingUserName?: string | undefined;
+  lastLogin?: number | undefined;
+  mailboxAddress?: string | undefined;
+  primaryEmailAddress?: string | undefined;
+  role?: string | undefined;
+  sequence?: number | undefined;
+  status?: boolean | undefined;
+  type?: string | undefined;
+  zuid?: number | undefined;
+  uri?: string | undefined;
+  country?: string | undefined;
+  language?: string | undefined;
+  timeZone?: string | undefined;
+  mailboxStatus?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  gender?: string | undefined;
+  allowedStorage?: number | undefined;
+  usedStorage?: number | undefined;
+  basicStorage?: string | undefined;
+  accountCreationTime?: number | undefined;
+  mailboxCreationTime?: number | undefined;
+  lastPasswordReset?: number | undefined;
+  tfaEnabled?: boolean | undefined;
+  activeSyncEnabled?: boolean | undefined;
+  imapAccessEnabled?: boolean | undefined;
+  popAccessEnabled?: boolean | undefined;
+  smtpStatus?: boolean | undefined;
+  webBlocked?: boolean | undefined;
+  incomingBlocked?: boolean | undefined;
+  outgoingBlocked?: boolean | undefined;
+  popBlocked?: boolean | undefined;
+  imapBlocked?: boolean | undefined;
+  spamcheckEnabled?: boolean | undefined;
+  deleteCopy?: boolean | undefined;
+  mobileNumber?: string | undefined;
+  phoneNumber?: string | undefined;
+  address?: {  country?: string | undefined;
+  streetAddr?: string | undefined;
+  city?: string | undefined;
+  postalCode?: string | undefined;
+  state?: string | undefined;};
+  lastClient?: string | undefined;
+  planType?: number | undefined;
+  planStorage?: number | undefined;
+  popFetchTime?: number | undefined;
+  userExpiry?: number | undefined;
+  isLogoExist?: boolean | undefined;
+  mxStatus?: boolean | undefined;
+  mailForward?: ({  mailForwardTo?: string | undefined;
+  type?: string | undefined;
+  status?: string | undefined;})[];
+  vacationResponse?: ({  replyType?: number | undefined;
+  sendTo?: number | undefined;
+  infiniteDate?: boolean | undefined;
+  subject?: string | undefined;
+  toDate?: string | undefined;
+  includeSignature?: number | undefined;
+  content?: string | undefined;
+  markBusy?: number | undefined;
+  fromDate?: string | undefined;
+  accountId?: string | undefined;
+  intervalType?: number | undefined;
+  name?: string | undefined;
+  interval?: number | undefined;
+  accType?: number | undefined;
+  vacationId?: string | undefined;})[];
+  sendMailDetails?: ({  sendMailId?: string | undefined;
+  displayName?: string | undefined;
+  serverName?: string | undefined;
+  signatureId?: string | undefined;
+  serverPort?: number | undefined;
+  userName?: string | undefined;
+  connectionType?: string | undefined;
+  mode?: string | undefined;
+  validated?: boolean | undefined;
+  fromAddress?: string | undefined;
+  smtpConnection?: number | undefined;
+  validationRequired?: boolean | undefined;
+  validationState?: number | undefined;
+  status?: boolean | undefined;})[];})[];
+};
+
+export interface ActionInput_zoho_mail_listfolders {
+  /**
+   * Zoho Mail account ID. Example: "4845214000000008002"
+   */
+  accountId: string;
+};
+
+export interface ActionOutput_zoho_mail_listfolders {
+  folders: ({  folderId: string;
+  folderName: string;
+  folderType: string;
+  path: string;
+  previousFolderId?: string | undefined;
+  isArchived: number;
+  imapAccess: boolean;
+  uri: string;})[];
+};
+
+export interface ActionInput_zoho_mail_listlabels {
+  /**
+   * Account ID. Example: "4845214000000008002"
+   */
+  accountId: string;
+};
+
+export interface ActionOutput_zoho_mail_listlabels {
+  labels: ({  labelId: string;
+  displayName?: string | undefined;
+  color?: string | undefined;
+  sequence?: number | undefined;
+  tagId?: string | undefined;
+  URI?: string | undefined;})[];
+};
+
+export interface ActionInput_zoho_mail_listmessages {
+  /**
+   * Zoho Mail account ID. Example: "4845214000000008002"
+   */
+  accountId: string;
+  /**
+   * Folder ID to list messages from. Example: "4845214000000008008"
+   */
+  folderId: string;
+  /**
+   * Number of messages to retrieve. Max 200. Default 10.
+   */
+  limit?: number | undefined;
+  /**
+   * Starting sequence number. Default 1.
+   */
+  start?: number | undefined;
+  /**
+   * Sort order: 0 for ascending, 1 for descending. Default 1.
+   */
+  sortorder?: number | undefined;
+};
+
+export interface ActionOutput_zoho_mail_listmessages {
+  messages: ({  messageId: string;
+  subject?: string | undefined;
+  summary?: string | undefined;
+  fromAddress?: string | undefined;
+  toAddress?: string | undefined;
+  ccAddress?: string | undefined;
+  sender?: string | undefined;
+  receivedTime?: string | undefined;
+  sentDateInGMT?: string | undefined;
+  folderId?: string | undefined;
+  threadId?: string | undefined;
+  threadCount?: string | undefined;
+  hasAttachment?: string | undefined;
+  hasInline?: string | undefined;
+  size?: string | undefined;
+  priority?: string | undefined;
+  status?: string | undefined;
+  status2?: string | undefined;
+  flagid?: string | undefined;
+  calendarType?: number | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_zoho_mail_listtasks {
+  /**
+   * Number of tasks to retrieve. Default: 20, Max: 499.
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor (offset) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_zoho_mail_listtasks {
+  items: ({  id: string;
+  title: string;
+  description?: string | undefined;
+  priority?: string | undefined;
+  status?: string | undefined;
+  dueDate?: string | undefined;
+  createdAt?: string | undefined;
+  modifiedTime?: string | undefined;
+  owner?: {  name?: string | undefined;
+  id?: string | number | undefined;};
+  assignee?: {  name?: string | undefined;
+  id?: string | number | undefined;};
+  project?: {  name?: string | undefined;
+  id?: string | undefined;};
+  numberOfSubtasks?: number | undefined;
+  namespaceId?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_zoho_mail_markmessageread {
+  /**
+   * Zoho Mail account ID. Example: "4845214000000008002"
+   */
+  accountId: string;
+  /**
+   * Message ID to mark as read. Example: "1781108289537154100"
+   */
+  messageId: string;
+};
+
+export interface ActionOutput_zoho_mail_markmessageread {
+  success: boolean;
+};
+
+export interface ActionInput_zoho_mail_markmessageunread {
+  /**
+   * Zoho Mail account ID. Example: "4845214000000008002"
+   */
+  accountId: string;
+  /**
+   * Message ID to mark as unread. Example: "1781108289537154100"
+   */
+  messageId: string;
+};
+
+export interface ActionOutput_zoho_mail_markmessageunread {
+  success: boolean;
+};
+
+export interface ActionInput_zoho_mail_movemessage {
+  /**
+   * Zoho Mail account ID. Example: "4845214000000008002"
+   */
+  accountId: string;
+  /**
+   * Message ID to move. Example: "1781108289537154100"
+   */
+  messageId: string;
+  /**
+   * Target folder ID. Example: "4845214000000010001"
+   */
+  targetFolderId: string;
+};
+
+export interface ActionOutput_zoho_mail_movemessage {
+  success: boolean;
+  messageId?: string | undefined;
+  targetFolderId?: string | undefined;
+};
+
+export interface ActionInput_zoho_mail_replytoemail {
+  /**
+   * Zoho Mail account ID. Example: "4845214000000008002"
+   */
+  accountId: string;
+  /**
+   * Message ID to reply to. Example: "1781108289537154100"
+   */
+  messageId: string;
+  /**
+   * Sender email address. Example: "nangoapi@zohomail.com"
+   */
+  fromAddress: string;
+  /**
+   * Recipient email address. Example: "recipient@example.com"
+   */
+  toAddress: string;
+  /**
+   * Reply type: reply or replyall
+   */
+  action: 'reply' | 'replyall';
+  /**
+   * Email body content
+   */
+  content?: string | undefined;
+};
+
+export interface ActionOutput_zoho_mail_replytoemail {
+  /**
+   * ID of the sent reply message. Example: "1726208416259127700"
+   */
+  messageId: string;
+  subject?: string | undefined;
+  fromAddress?: string | undefined;
+  toAddress?: string | undefined;
+  content?: string | undefined;
+  mailId?: string | undefined;
+};
+
+export interface ActionInput_zoho_mail_searchmessages {
+  /**
+   * Zoho Mail account ID. Example: "4845214000000008002"
+   */
+  accountId: string;
+  /**
+   * Zoho Mail search query string. Use syntax like "entire:keyword" or "subject:Meeting". Example: "entire:Test"
+   */
+  searchKey: string;
+  /**
+   * Starting index for pagination. Example: 1
+   */
+  start?: number | undefined;
+  /**
+   * Number of results to return (1-200). Example: 10
+   */
+  limit?: number | undefined;
+  /**
+   * Unix timestamp in milliseconds to filter emails received before this time. Example: 1609459200000
+   */
+  receivedTime?: number | undefined;
+  /**
+   * Whether to include the To field in the response. Example: true
+   */
+  includeto?: boolean | undefined;
+};
+
+export interface ActionOutput_zoho_mail_searchmessages {
+  messages: ({  messageId?: string | undefined;
+  folderId?: string | undefined;
+  subject?: string | undefined;
+  fromAddress?: string | undefined;
+  toAddress?: string | undefined;
+  sender?: string | undefined;
+  summary?: string | undefined;
+  status?: string | undefined;
+  status2?: string | undefined;
+  receivedTime?: string | undefined;
+  sentDateInGMT?: string | undefined;
+  hasAttachment?: string | number | undefined;
+  threadId?: string | undefined;
+  threadCount?: string | undefined;
+  flagid?: string | number | undefined;
+  priority?: string | undefined;
+  size?: string | undefined;
+  uri?: string | undefined;})[];
+  count?: number | undefined;
 };
 
 export interface ActionInput_zoho_mail_sendemail {
+  /**
+   * Account ID from which to send the email. Example: "4845214000000008002"
+   */
   accountId: string;
+  /**
+   * Sender email address. Example: "nangoapi@zohomail.com"
+   */
   fromAddress: string;
+  /**
+   * Recipient email address(es). Example: "recipient@example.com"
+   */
   toAddress: string;
-  ccAddress: string;
-  bccAddress: string;
+  /**
+   * CC email address(es). Example: "cc@example.com"
+   */
+  ccAddress?: string | undefined;
+  /**
+   * BCC email address(es). Example: "bcc@example.com"
+   */
+  bccAddress?: string | undefined;
+  /**
+   * Email subject. Example: "Hello"
+   */
   subject: string;
-  encoding: string;
-  mailFormat: string;
-  askReceipt: string;
+  /**
+   * Email body content. Example: "Hello, world!"
+   */
+  content: string;
+  /**
+   * Email format: "html" or "plaintext". Example: "html"
+   */
+  mailFormat?: 'html' | 'plaintext' | undefined;
 };
 
 export interface ActionOutput_zoho_mail_sendemail {
-  status: {};
-  data: {};
+  /**
+   * HTTP status code from the API
+   */
+  statusCode: number;
+  /**
+   * Status description from the API
+   */
+  statusDescription: string;
+  /**
+   * Additional response data from the API
+   */
+  data?: unknown | undefined;
+};
+
+export interface ActionInput_zoho_mail_updatefolder {
+  /**
+   * Zoho Mail account ID. Example: "4845214000000008002"
+   */
+  accountId: string;
+  /**
+   * Folder ID to update. Example: "4845214000000010001"
+   */
+  folderId: string;
+  /**
+   * Update mode: rename or move
+   */
+  mode: 'rename' | 'move';
+  /**
+   * New folder name (required when mode is rename)
+   */
+  folderName?: string | undefined;
+  /**
+   * Destination parent folder ID (used when mode is move)
+   */
+  parentFolderId?: string | undefined;
+  /**
+   * Folder ID to position after in the destination parent (used when mode is move)
+   */
+  previousFolderId?: string | undefined;
+};
+
+export interface ActionOutput_zoho_mail_updatefolder {
+  status: {  code: number;
+  description: string;};
+};
+
+export interface ActionInput_zoho_mail_updatelabel {
+  /**
+   * Account ID. Example: 4845214000000008002
+   */
+  accountId: string;
+  /**
+   * Label ID. Example: 4845214000000011002
+   */
+  labelId: string;
+  /**
+   * New display name for the label
+   */
+  labelName?: string | undefined;
+  /**
+   * Hex color code for the label. Example: #FF0000
+   */
+  color?: string | undefined;
+};
+
+export interface ActionOutput_zoho_mail_updatelabel {
+  id: string;
+  labelName?: string | undefined;
+  color?: string | undefined;
+};
+
+export interface ActionInput_zoho_mail_updatesignature {
+  /**
+   * The unique ID of the signature to update. Example: "2442552000000433009"
+   */
+  id: string;
+  /**
+   * The updated name of the signature.
+   */
+  name: string;
+  /**
+   * The updated content of the signature.
+   */
+  content: string;
+  /**
+   * The preferred position of the signature. 0 = below quoted content, 1 = above quoted content.
+   */
+  position: number;
+  /**
+   * Comma-separated email addresses to assign this signature to.
+   */
+  assignUsers?: string | undefined;
+  /**
+   * Comma-separated email addresses to unassign this signature from.
+   */
+  unassignUsers?: string | undefined;
+};
+
+export interface ActionOutput_zoho_mail_updatesignature {
+  id: string;
+  name: string;
+  content: string;
+  position: number;
+  signatureType: string;
+};
+
+export interface ActionInput_zoho_mail_updatetask {
+  /**
+   * The unique identifier of the task to update. Example: "1781108259800155000"
+   */
+  taskId: string;
+  /**
+   * New title for the task.
+   */
+  title?: string | undefined;
+  /**
+   * New description for the task.
+   */
+  description?: string | undefined;
+  /**
+   * New status for the task.
+   */
+  status?: 'inprogress' | 'completed' | undefined;
+  /**
+   * New due date for the task. Format: DD/MM/YYYY.
+   */
+  dueDate?: string | undefined;
+  /**
+   * New priority for the task.
+   */
+  priority?: 'high' | 'medium' | 'low' | undefined;
+  /**
+   * Reminder date and time in ISO 8601 format.
+   */
+  reminderDate?: string | undefined;
+  /**
+   * Whether to enable email reminder.
+   */
+  emailReminder?: boolean | undefined;
+  /**
+   * Whether to enable popup reminder.
+   */
+  popupReminder?: boolean | undefined;
+};
+
+export interface ActionOutput_zoho_mail_updatetask {
+  taskId: string;
+  success: boolean;
+  data?: {} | undefined;
+};
+
+export interface ActionInput_zoho_mail_uploadattachment {
+  /**
+   * Zoho Mail account ID. Example: "4845214000000008002"
+   */
+  accountId: string;
+  /**
+   * Name of the file to upload. Example: "test.txt"
+   */
+  fileName: string;
+  /**
+   * Base64-encoded file content.
+   */
+  fileContent: string;
+  /**
+   * Whether to show the attachment inline in the email body.
+   */
+  isInline?: boolean | undefined;
+};
+
+export interface ActionOutput_zoho_mail_uploadattachment {
+  storeName: string;
+  attachmentPath: string;
+  attachmentName: string;
+  attachmentSize?: string | undefined;
+  url?: string | undefined;
 };
 
 export interface Webinar {

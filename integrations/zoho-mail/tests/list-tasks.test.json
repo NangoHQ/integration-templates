@@ -1,0 +1,134 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "id": "1781108259800155000",
+        "title": "Test Task A",
+        "description": "",
+        "priority": "Medium",
+        "status": "In Progress",
+        "createdAt": "2026-06-10T19:17:39+03:00",
+        "modifiedTime": "2026-06-10T19:17:39+03:00",
+        "owner": {
+          "name": "Nango Developer",
+          "id": 924194079
+        },
+        "assignee": {
+          "name": "Nango Developer",
+          "id": 924194079
+        },
+        "project": {
+          "name": "General",
+          "id": "4845214000000012001"
+        },
+        "namespaceId": "924194079",
+        "serviceType": 0,
+        "resourceId": "-1",
+        "attachments": [],
+        "statusStr": "",
+        "statusValue": 2,
+        "customFields": {},
+        "isTaskPublished": false,
+        "portalId": -1,
+        "serviceId": "-1",
+        "assigneeList": [
+          {
+            "name": "Nango Developer",
+            "id": 924194079
+          }
+        ],
+        "dependency": [],
+        "subtasks": [],
+        "tags": [],
+        "followers": [],
+        "dependents": [],
+        "serviceUniqId": -1,
+        "depUniqId": "-1"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/tasks/me": {
+        "response": {
+          "status": {
+            "code": 200,
+            "description": "success"
+          },
+          "data": {
+            "tasks": [
+              {
+                "serviceType": 0,
+                "modifiedTime": "2026-06-10T19:17:39+03:00",
+                "resourceId": "-1",
+                "attachments": [],
+                "statusStr": "",
+                "statusValue": 2,
+                "customFields": {},
+                "description": "",
+                "project": {
+                  "name": "General",
+                  "id": "4845214000000012001"
+                },
+                "isTaskPublished": false,
+                "title": "Test Task A",
+                "createdAt": "2026-06-10T19:17:39+03:00",
+                "portalId": -1,
+                "id": "1781108259800155000",
+                "serviceId": "-1",
+                "owner": {
+                  "name": "Nango Developer",
+                  "id": 924194079
+                },
+                "assigneeList": [
+                  {
+                    "name": "Nango Developer",
+                    "id": 924194079
+                  }
+                ],
+                "dependency": [],
+                "subtasks": [],
+                "priority": "Medium",
+                "tags": [],
+                "followers": [],
+                "namespaceId": "924194079",
+                "dependents": [],
+                "assignee": {
+                  "name": "Nango Developer",
+                  "id": 924194079
+                },
+                "serviceUniqId": -1,
+                "depUniqId": "-1",
+                "status": "In Progress"
+              }
+            ]
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 10 Jun 2026 22:44:39 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "content-length": "766",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4923",
+          "x-ratelimit-reset": "1781131493",
+          "etag": "W/\"2fe-i7K7KrwluUtn4qGD3lNYv5Achuo\""
+        },
+        "hash": "8a1495356710c3e465707790924b35e52fc82e06",
+        "request": {}
+      }
+    }
+  }
+}
