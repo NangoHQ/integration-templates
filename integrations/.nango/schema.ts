@@ -31988,6 +31988,41 @@ export interface ActionOutput_gitlab_updaterelease {
   released_at: string;
 };
 
+export interface GongCallOutcome {
+  /**
+   * The unique call outcome identifier
+   */
+  id: string;
+  /**
+   * The call outcome name
+   */
+  callOutcome?: string | undefined;
+  /**
+   * The display order of the call outcome
+   */
+  displayOrder?: number | undefined;
+  /**
+   * The connection status of the call outcome
+   */
+  connectStatus?: string | undefined;
+  /**
+   * The sentiment of the call outcome
+   */
+  sentiment?: string | undefined;
+  /**
+   * The todo action associated with the call outcome
+   */
+  todoAction?: string | undefined;
+  /**
+   * The automation associated with the call outcome
+   */
+  automation?: string | undefined;
+  /**
+   * The category of the call outcome
+   */
+  category?: string | undefined;
+};
+
 export interface CallTranscript {
   id: string;
   callId: string;
@@ -32039,96 +32074,6 @@ export interface SyncMetadata_gong_calls {
   lastSyncBackfillPeriod?: number | undefined;
 };
 
-export interface ActionInput_gong_fetchcalltranscripts {
-  /**
-   * Start of date range filter. ISO 8601 string. Example: "2026-01-01T00:00:00Z"
-   */
-  from?: string | undefined;
-  /**
-   * End of date range filter. ISO 8601 string. Example: "2026-01-31T23:59:59Z"
-   */
-  to?: string | undefined;
-  /**
-   * Filter transcripts to a specific Gong workspace. Example: "623457276584334"
-   */
-  workspaceId?: string | undefined;
-  /**
-   * Filter to specific call IDs. Example: ["123456789"]
-   */
-  callIds?: string[] | undefined;
-  /**
-   * Pagination cursor from the previous response. Omit for the first page.
-   */
-  cursor?: string | undefined;
-};
-
-export interface ActionOutput_gong_fetchcalltranscripts {
-  /**
-   * Transcript data for the returned page
-   */
-  transcripts: ({  callId?: string | undefined;
-  transcript?: ({  speakerId?: string | undefined;
-  topic?: string | undefined;
-  sentences?: ({  start?: number | undefined;
-  end?: number | undefined;
-  text?: string | undefined;})[];})[];})[];
-  /**
-   * Pass this cursor to the next call to retrieve the following page. Absent when there are no more pages.
-   */
-  nextCursor?: string | undefined;
-  /**
-   * Total number of matching transcripts across all pages
-   */
-  totalRecords?: number | undefined;
-};
-
-export interface GongCallOutcome {
-  /**
-   * The unique call outcome identifier
-   */
-  id: string;
-  /**
-   * The call outcome name
-   */
-  callOutcome?: string | undefined;
-  /**
-   * The display order of the call outcome
-   */
-  displayOrder?: number | undefined;
-  /**
-   * The connection status of the call outcome
-   */
-  connectStatus?: string | undefined;
-  /**
-   * The sentiment of the call outcome
-   */
-  sentiment?: string | undefined;
-  /**
-   * The todo action associated with the call outcome
-   */
-  todoAction?: string | undefined;
-  /**
-   * The automation associated with the call outcome
-   */
-  automation?: string | undefined;
-  /**
-   * The category of the call outcome
-   */
-  category?: string | undefined;
-};
-
-export interface SyncMetadata_gong_oauth_calltranscripts {
-  backfillPeriodMs?: number | undefined;
-  lastSyncBackfillPeriod?: number | undefined;
-  callIds?: string[] | undefined;
-  workspaceId?: string | undefined;
-};
-
-export interface SyncMetadata_gong_oauth_calls {
-  backfillPeriodMs?: number | undefined;
-  lastSyncBackfillPeriod?: number | undefined;
-};
-
 export interface LibraryFolder {
   id: string;
   name?: string | undefined;
@@ -32163,7 +32108,7 @@ export interface Tracker {
   filterQuery?: string | undefined;
 };
 
-export interface ActionInput_gong_oauth_addcallusersaccess {
+export interface ActionInput_gong_addcallusersaccess {
   /**
    * Gong's unique numeric call ID. Example: '7782342274025937895'
    */
@@ -32174,11 +32119,11 @@ export interface ActionInput_gong_oauth_addcallusersaccess {
   userIds: string[];
 };
 
-export interface ActionOutput_gong_oauth_addcallusersaccess {
+export interface ActionOutput_gong_addcallusersaccess {
   requestId?: string | undefined;
 };
 
-export interface ActionInput_gong_oauth_askentity {
+export interface ActionInput_gong_askentity {
   /**
    * Type of Gong entity. Example: "Account"
    */
@@ -32193,14 +32138,14 @@ export interface ActionInput_gong_oauth_askentity {
   question: string;
 };
 
-export interface ActionOutput_gong_oauth_askentity {
+export interface ActionOutput_gong_askentity {
   /**
    * AI-generated answer to the question.
    */
   answer: string;
 };
 
-export interface ActionInput_gong_oauth_assignprospectscooloffoverride {
+export interface ActionInput_gong_assignprospectscooloffoverride {
   /**
    * The Gong Engage Flow ID to assign the contacts to. Example: 1695493301223590792
    */
@@ -32215,7 +32160,7 @@ export interface ActionInput_gong_oauth_assignprospectscooloffoverride {
   flowInstanceOwnerEmail: string;
 };
 
-export interface ActionOutput_gong_oauth_assignprospectscooloffoverride {
+export interface ActionOutput_gong_assignprospectscooloffoverride {
   requestId?: string | undefined;
   prospectsAssigned?: ({  flowId?: string | undefined;
   flowName?: string | undefined;
@@ -32227,7 +32172,7 @@ export interface ActionOutput_gong_oauth_assignprospectscooloffoverride {
   errors?: string[] | undefined;
 };
 
-export interface ActionInput_gong_oauth_createmeeting {
+export interface ActionInput_gong_createmeeting {
   /**
    * Title of the meeting.
    */
@@ -32257,7 +32202,7 @@ export interface ActionInput_gong_oauth_createmeeting {
   lastName?: string | undefined;})[];
 };
 
-export interface ActionOutput_gong_oauth_createmeeting {
+export interface ActionOutput_gong_createmeeting {
   /**
    * A Gong request reference Id.
    */
@@ -32279,7 +32224,7 @@ export interface ActionOutput_gong_oauth_createmeeting {
   lastName?: string | undefined;})[];
 };
 
-export interface ActionInput_gong_oauth_createpermissionprofile {
+export interface ActionInput_gong_createpermissionprofile {
   /**
    * Workspace identifier. Example: "7273476131570014205"
    */
@@ -32365,12 +32310,12 @@ export interface ActionInput_gong_oauth_createpermissionprofile {
   aiBuilder?: boolean | undefined;
 };
 
-export interface ActionOutput_gong_oauth_createpermissionprofile {
+export interface ActionOutput_gong_createpermissionprofile {
   requestId: string;
   profile?: {  [key: string]: unknown | undefined;};
 };
 
-export interface ActionInput_gong_oauth_deletecrmintegration {
+export interface ActionInput_gong_deletecrmintegration {
   /**
    * The ID of the integration to delete. Example: "6286478263646"
    */
@@ -32381,41 +32326,41 @@ export interface ActionInput_gong_oauth_deletecrmintegration {
   clientRequestId: string;
 };
 
-export interface ActionOutput_gong_oauth_deletecrmintegration {
+export interface ActionOutput_gong_deletecrmintegration {
   requestId?: string | undefined;
   clientRequestId?: string | undefined;
   errors?: string[] | undefined;
 };
 
-export interface ActionInput_gong_oauth_deletedataforemail {
+export interface ActionInput_gong_deletedataforemail {
   /**
    * Email address to erase from Gong. Example: "user@example.com"
    */
   emailAddress: string;
 };
 
-export interface ActionOutput_gong_oauth_deletedataforemail {
+export interface ActionOutput_gong_deletedataforemail {
   /**
    * Async deletion request ID. Example: "123e4567-e89b-12d3-a456-426614174000"
    */
   requestId: string;
 };
 
-export interface ActionInput_gong_oauth_deletedataforphone {
+export interface ActionInput_gong_deletedataforphone {
   /**
    * Phone number to erase data for. Example: "+15550000001"
    */
   phoneNumber: string;
 };
 
-export interface ActionOutput_gong_oauth_deletedataforphone {
+export interface ActionOutput_gong_deletedataforphone {
   /**
    * Async deletion request ID
    */
   requestId: string;
 };
 
-export interface ActionInput_gong_oauth_deletemeeting {
+export interface ActionInput_gong_deletemeeting {
   /**
    * Gong's unique identifier for the meeting (up to 20 digits). Example: "12345678901234567890"
    */
@@ -32426,11 +32371,11 @@ export interface ActionInput_gong_oauth_deletemeeting {
   organizerEmail: string;
 };
 
-export interface ActionOutput_gong_oauth_deletemeeting {
+export interface ActionOutput_gong_deletemeeting {
   organizerEmail?: string | undefined;
 };
 
-export interface ActionInput_gong_oauth_fetchcallextensivedata {
+export interface ActionInput_gong_fetchcallextensivedata {
   /**
    * Array of call IDs to filter by. Example: ["123456789"]
    */
@@ -32470,14 +32415,14 @@ export interface ActionInput_gong_oauth_fetchcallextensivedata {
   video?: boolean | undefined;};};};
 };
 
-export interface ActionOutput_gong_oauth_fetchcallextensivedata {
+export interface ActionOutput_gong_fetchcallextensivedata {
   calls: ({})[];
   cursor?: string | undefined;
   totalRecords?: number | undefined;
   currentPageSize?: number | undefined;
 };
 
-export interface ActionInput_gong_oauth_fetchcalltranscripts {
+export interface ActionInput_gong_fetchcalltranscripts {
   /**
    * Start of date range filter. ISO 8601 string. Example: "2026-01-01T00:00:00Z"
    */
@@ -32500,7 +32445,7 @@ export interface ActionInput_gong_oauth_fetchcalltranscripts {
   cursor?: string | undefined;
 };
 
-export interface ActionOutput_gong_oauth_fetchcalltranscripts {
+export interface ActionOutput_gong_fetchcalltranscripts {
   /**
    * Transcript data for the returned page
    */
@@ -32520,14 +32465,14 @@ export interface ActionOutput_gong_oauth_fetchcalltranscripts {
   totalRecords?: number | undefined;
 };
 
-export interface ActionInput_gong_oauth_getbulkassignmentresults {
+export interface ActionInput_gong_getbulkassignmentresults {
   /**
    * The bulk assignment ID returned by the bulk-assign action. Example: "12345"
    */
   bulkAssignmentId: string;
 };
 
-export interface ActionOutput_gong_oauth_getbulkassignmentresults {
+export interface ActionOutput_gong_getbulkassignmentresults {
   requestId?: string | undefined;
   bulkAssignmentId?: string | undefined;
   status?: string | undefined;
@@ -32538,14 +32483,14 @@ export interface ActionOutput_gong_oauth_getbulkassignmentresults {
   error?: string | undefined;})[];
 };
 
-export interface ActionInput_gong_oauth_getcallmedia {
+export interface ActionInput_gong_getcallmedia {
   /**
    * Gong call ID. Example: "1234567890"
    */
   callId: string;
 };
 
-export interface ActionOutput_gong_oauth_getcallmedia {
+export interface ActionOutput_gong_getcallmedia {
   /**
    * Signed URL for the audio recording. Valid for 8 hours.
    */
@@ -32556,14 +32501,14 @@ export interface ActionOutput_gong_oauth_getcallmedia {
   videoUrl?: string | undefined;
 };
 
-export interface ActionInput_gong_oauth_getcalltranscript {
+export interface ActionInput_gong_getcalltranscript {
   /**
    * Gong call ID. Example: "7782342274025937895"
    */
   callId: string;
 };
 
-export interface ActionOutput_gong_oauth_getcalltranscript {
+export interface ActionOutput_gong_getcalltranscript {
   callId: string;
   transcript: ({  speakerId: string;
   topic?: string | undefined;
@@ -32572,26 +32517,26 @@ export interface ActionOutput_gong_oauth_getcalltranscript {
   text: string;})[];})[];
 };
 
-export interface ActionInput_gong_oauth_getcallusersaccess {
+export interface ActionInput_gong_getcallusersaccess {
   /**
    * Gong call ID. Example: "123456789"
    */
   callId: string;
 };
 
-export interface ActionOutput_gong_oauth_getcallusersaccess {
+export interface ActionOutput_gong_getcallusersaccess {
   callId: string;
   users?: ({  userId: string;})[] | undefined;
 };
 
-export interface ActionInput_gong_oauth_getcall {
+export interface ActionInput_gong_getcall {
   /**
    * Gong's unique numeric identifier for the call (up to 20 digits). Example: "7782342274025937895"
    */
   id: string;
 };
 
-export interface ActionOutput_gong_oauth_getcall {
+export interface ActionOutput_gong_getcall {
   id: string;
   url?: string | undefined;
   title?: string | undefined;
@@ -32614,7 +32559,7 @@ export interface ActionOutput_gong_oauth_getcall {
   calendarEventId?: string | undefined;
 };
 
-export interface ActionInput_gong_oauth_getcoachingmetrics {
+export interface ActionInput_gong_getcoachingmetrics {
   /**
    * The workspace ID. Example: "7273476131570014205"
    */
@@ -32633,7 +32578,7 @@ export interface ActionInput_gong_oauth_getcoachingmetrics {
   to?: string | undefined;
 };
 
-export interface ActionOutput_gong_oauth_getcoachingmetrics {
+export interface ActionOutput_gong_getcoachingmetrics {
   requestId?: string | undefined;
   coachingData?: ({  manager: {  id: string;
   emailAddress?: string | undefined;
@@ -32648,7 +32593,7 @@ export interface ActionOutput_gong_oauth_getcoachingmetrics {
   metrics?: {  [key: string]: string[];} | undefined;})[];})[];
 };
 
-export interface ActionInput_gong_oauth_getcrmentities {
+export interface ActionInput_gong_getcrmentities {
   /**
    * Type of CRM objects to retrieve. Example: "DEAL"
    */
@@ -32667,13 +32612,13 @@ export interface ActionInput_gong_oauth_getcrmentities {
   cursor?: string | undefined;
 };
 
-export interface ActionOutput_gong_oauth_getcrmentities {
+export interface ActionOutput_gong_getcrmentities {
   requestId?: string | undefined;
   crmObjectsMap?: {  [key: string]: {  [key: string]: unknown | undefined;};};
   next_cursor?: string | undefined;
 };
 
-export interface ActionInput_gong_oauth_getcrmentityschema {
+export interface ActionInput_gong_getcrmentityschema {
   /**
    * The CRM integration ID. Example: "6286478263646"
    */
@@ -32684,7 +32629,7 @@ export interface ActionInput_gong_oauth_getcrmentityschema {
   entityType: string;
 };
 
-export interface ActionOutput_gong_oauth_getcrmentityschema {
+export interface ActionOutput_gong_getcrmentityschema {
   requestId: string;
   objectTypeToSelectedFields: {  [key: string]: ({  name?: string | undefined;
   uniqueName?: string | undefined;
@@ -32696,10 +32641,10 @@ export interface ActionOutput_gong_oauth_getcrmentityschema {
   orderedValueList?: string[] | undefined;})[];};
 };
 
-export interface ActionInput_gong_oauth_getcrmintegration {
+export interface ActionInput_gong_getcrmintegration {
 };
 
-export interface ActionOutput_gong_oauth_getcrmintegration {
+export interface ActionOutput_gong_getcrmintegration {
   integrations?: ({  /**
    * Integration ID generated by Gong
    */
@@ -32718,7 +32663,7 @@ export interface ActionOutput_gong_oauth_getcrmintegration {
   requestId?: string | undefined;
 };
 
-export interface ActionInput_gong_oauth_getcrmrequeststatus {
+export interface ActionInput_gong_getcrmrequeststatus {
   /**
    * Integration ID generated when creating the integration. Example: "5517027188234206000"
    */
@@ -32729,7 +32674,7 @@ export interface ActionInput_gong_oauth_getcrmrequeststatus {
   clientRequestId: string;
 };
 
-export interface ActionOutput_gong_oauth_getcrmrequeststatus {
+export interface ActionOutput_gong_getcrmrequeststatus {
   /**
    * A Gong request reference ID, generated for this request.
    */
@@ -32753,14 +32698,14 @@ export interface ActionOutput_gong_oauth_getcrmrequeststatus {
   totalSuccessCount?: number | undefined;
 };
 
-export interface ActionInput_gong_oauth_getdataforemail {
+export interface ActionInput_gong_getdataforemail {
   /**
    * The email address to look up. Example: "user@example.com"
    */
   emailAddress: string;
 };
 
-export interface ActionOutput_gong_oauth_getdataforemail {
+export interface ActionOutput_gong_getdataforemail {
   requestId?: string | undefined;
   emails?: ({  from?: string | undefined;
   id?: string | undefined;
@@ -32789,14 +32734,14 @@ export interface ActionOutput_gong_oauth_getdataforemail {
   sourceEventId?: string | undefined;})[];
 };
 
-export interface ActionInput_gong_oauth_getdataforphone {
+export interface ActionInput_gong_getdataforphone {
   /**
    * The phone number to look up in E.164 format. Example: "+15555550100"
    */
   phoneNumber: string;
 };
 
-export interface ActionOutput_gong_oauth_getdataforphone {
+export interface ActionOutput_gong_getdataforphone {
   calls?: unknown[] | undefined;
   customerData?: unknown[] | undefined;
   emailAddresses?: unknown[] | undefined;
@@ -32807,7 +32752,7 @@ export interface ActionOutput_gong_oauth_getdataforphone {
   suppliedPhoneNumber?: string | undefined;
 };
 
-export interface ActionInput_gong_oauth_getentitybrief {
+export interface ActionInput_gong_getentitybrief {
   /**
    * Entity type to generate a brief for. Example: "CONTACT"
    */
@@ -32838,7 +32783,7 @@ export interface ActionInput_gong_oauth_getentitybrief {
   toDate?: string | undefined;
 };
 
-export interface ActionOutput_gong_oauth_getentitybrief {
+export interface ActionOutput_gong_getentitybrief {
   requestId?: string | undefined;
   brief?: string | undefined;
   sections?: ({  title?: string | undefined;
@@ -32846,14 +32791,14 @@ export interface ActionOutput_gong_oauth_getentitybrief {
   errors?: string[] | undefined;
 };
 
-export interface ActionInput_gong_oauth_getflowsteps {
+export interface ActionInput_gong_getflowsteps {
   /**
    * One or more Gong Engage flow IDs. Example: ["1695493301223590792"]
    */
   flowIds: string[];
 };
 
-export interface ActionOutput_gong_oauth_getflowsteps {
+export interface ActionOutput_gong_getflowsteps {
   requestId?: string | undefined;
   flows?: ({  id?: string | undefined;
   name?: string | undefined;
@@ -32872,15 +32817,15 @@ export interface ActionOutput_gong_oauth_getflowsteps {
   sendAsNewThread?: boolean | undefined;})[];})[];
 };
 
-export interface ActionInput_gong_oauth_getintegrationsettings {
+export interface ActionInput_gong_getintegrationsettings {
 };
 
-export interface ActionOutput_gong_oauth_getintegrationsettings {
+export interface ActionOutput_gong_getintegrationsettings {
   requestId?: string | undefined;
   integrationSettings?: {  id?: string | undefined;};
 };
 
-export interface ActionInput_gong_oauth_getlogs {
+export interface ActionInput_gong_getlogs {
   /**
    * Type of audit logs to retrieve. Example: "AccessLog"
    */
@@ -32899,7 +32844,7 @@ export interface ActionInput_gong_oauth_getlogs {
   cursor?: string | undefined;
 };
 
-export interface ActionOutput_gong_oauth_getlogs {
+export interface ActionOutput_gong_getlogs {
   requestId?: string | undefined;
   totalRecords?: number | undefined;
   currentPageSize?: number | undefined;
@@ -32916,14 +32861,14 @@ export interface ActionOutput_gong_oauth_getlogs {
   nextCursor?: string | undefined;
 };
 
-export interface ActionInput_gong_oauth_getmeetingintegrationstatus {
+export interface ActionInput_gong_getmeetingintegrationstatus {
   /**
    * Array of user email addresses to check integration status for. Maximum 100.
    */
   emails: string[];
 };
 
-export interface ActionOutput_gong_oauth_getmeetingintegrationstatus {
+export interface ActionOutput_gong_getmeetingintegrationstatus {
   /**
    * A Gong request reference ID for troubleshooting.
    */
@@ -32957,14 +32902,14 @@ export interface ActionOutput_gong_oauth_getmeetingintegrationstatus {
   helpUrl?: string | undefined;})[];
 };
 
-export interface ActionInput_gong_oauth_getpermissionprofile {
+export interface ActionInput_gong_getpermissionprofile {
   /**
    * The ID of the permission profile to retrieve. Example: "3843152912968920037"
    */
   profileId: string;
 };
 
-export interface ActionOutput_gong_oauth_getpermissionprofile {
+export interface ActionOutput_gong_getpermissionprofile {
   requestId?: string | undefined;
   profile?: {  id: string;
   name?: string | undefined;
@@ -33037,14 +32982,14 @@ export interface ActionOutput_gong_oauth_getpermissionprofile {
   dealsDataExport?: boolean | undefined;};
 };
 
-export interface ActionInput_gong_oauth_getscorecard {
+export interface ActionInput_gong_getscorecard {
   /**
    * The identifier of the scorecard. Example: "9067931441193858457"
    */
   scorecardId: string;
 };
 
-export interface ActionOutput_gong_oauth_getscorecard {
+export interface ActionOutput_gong_getscorecard {
   scorecardId: string;
   scorecardName?: string | undefined;
   workspaceId?: string | undefined;
@@ -33065,7 +33010,7 @@ export interface ActionOutput_gong_oauth_getscorecard {
   text: string;})[] | undefined;})[];
 };
 
-export interface ActionInput_gong_oauth_getstatsactivityaggregatebyperiod {
+export interface ActionInput_gong_getstatsactivityaggregatebyperiod {
   /**
    * Gong user IDs to filter by. Example: ["7254376376091929519"]
    */
@@ -33088,7 +33033,7 @@ export interface ActionInput_gong_oauth_getstatsactivityaggregatebyperiod {
   cursor?: string | undefined;
 };
 
-export interface ActionOutput_gong_oauth_getstatsactivityaggregatebyperiod {
+export interface ActionOutput_gong_getstatsactivityaggregatebyperiod {
   requestId?: string | undefined;
   records?: {  totalRecords?: number | undefined;
   currentPageSize?: number | undefined;
@@ -33114,7 +33059,7 @@ export interface ActionOutput_gong_oauth_getstatsactivityaggregatebyperiod {
   ownCallsListenedTo?: number | undefined;})[];})[];
 };
 
-export interface ActionInput_gong_oauth_getstatsactivityaggregate {
+export interface ActionInput_gong_getstatsactivityaggregate {
   /**
    * Gong user IDs to retrieve activity for. Example: ["7254376376091929519"]
    */
@@ -33125,7 +33070,7 @@ export interface ActionInput_gong_oauth_getstatsactivityaggregate {
   referenceDate: string;
 };
 
-export interface ActionOutput_gong_oauth_getstatsactivityaggregate {
+export interface ActionOutput_gong_getstatsactivityaggregate {
   requestId?: string | undefined;
   records?: {  totalRecords?: number | undefined;
   currentPageSize?: number | undefined;
@@ -33153,7 +33098,7 @@ export interface ActionOutput_gong_oauth_getstatsactivityaggregate {
   toDateTime?: string | undefined;})[];
 };
 
-export interface ActionInput_gong_oauth_getstatsactivitydaybyday {
+export interface ActionInput_gong_getstatsactivitydaybyday {
   /**
    * The start date (inclusive) in YYYY-MM-DD format.
    */
@@ -33172,7 +33117,7 @@ export interface ActionInput_gong_oauth_getstatsactivitydaybyday {
   userIds?: string[] | undefined;
 };
 
-export interface ActionOutput_gong_oauth_getstatsactivitydaybyday {
+export interface ActionOutput_gong_getstatsactivitydaybyday {
   requestId: string;
   records: {  totalRecords: number;
   currentPageSize: number;
@@ -33200,7 +33145,7 @@ export interface ActionOutput_gong_oauth_getstatsactivitydaybyday {
   nextCursor?: string | undefined;
 };
 
-export interface ActionInput_gong_oauth_getstatsactivityscorecards {
+export interface ActionInput_gong_getstatsactivityscorecards {
   /**
    * Start of the date range in ISO 8601 format. Example: 2026-01-01T00:00:00Z
    */
@@ -33223,7 +33168,7 @@ export interface ActionInput_gong_oauth_getstatsactivityscorecards {
   cursor?: string | undefined;
 };
 
-export interface ActionOutput_gong_oauth_getstatsactivityscorecards {
+export interface ActionOutput_gong_getstatsactivityscorecards {
   answeredScorecards?: ({  answeredScorecardId: string;
   scorecardId: string;
   scorecardName: string;
@@ -33245,7 +33190,7 @@ export interface ActionOutput_gong_oauth_getstatsactivityscorecards {
   cursor?: string | undefined;
 };
 
-export interface ActionInput_gong_oauth_getstatsinteraction {
+export interface ActionInput_gong_getstatsinteraction {
   /**
    * Gong user IDs (up to 20 digits). Example: ["7254376376091929519"]
    */
@@ -33260,7 +33205,7 @@ export interface ActionInput_gong_oauth_getstatsinteraction {
   cursor?: string | undefined;
 };
 
-export interface ActionOutput_gong_oauth_getstatsinteraction {
+export interface ActionOutput_gong_getstatsinteraction {
   requestId?: string | undefined;
   peopleInteractionStats?: ({  userId: string;
   userEmailAddress?: string | undefined;
@@ -33275,14 +33220,14 @@ export interface ActionOutput_gong_oauth_getstatsinteraction {
   cursor?: string | undefined;};
 };
 
-export interface ActionInput_gong_oauth_gettracker {
+export interface ActionInput_gong_gettracker {
   /**
    * The unique identifier of the tracker. Example: "7686842637000665959"
    */
   trackerId: string;
 };
 
-export interface ActionOutput_gong_oauth_gettracker {
+export interface ActionOutput_gong_gettracker {
   trackerId: string;
   trackerName: string;
   workspaceId?: string | undefined;
@@ -33302,28 +33247,28 @@ export interface ActionOutput_gong_oauth_gettracker {
   updaterUserId?: string | undefined;
 };
 
-export interface ActionInput_gong_oauth_getusersettingshistory {
+export interface ActionInput_gong_getusersettingshistory {
   /**
    * Gong unique numeric identifier for the user. Example: "7254376376091929519"
    */
   userId: string;
 };
 
-export interface ActionOutput_gong_oauth_getusersettingshistory {
+export interface ActionOutput_gong_getusersettingshistory {
   requestId?: string | undefined;
   userSettingsHistory?: ({  setting?: string | undefined;
   value?: boolean | undefined;
   time?: string | undefined;})[];
 };
 
-export interface ActionInput_gong_oauth_getuser {
+export interface ActionInput_gong_getuser {
   /**
    * Gong's unique numeric identifier for the user (up to 20 digits). Example: "7254376376091929519"
    */
   userId: string;
 };
 
-export interface ActionOutput_gong_oauth_getuser {
+export interface ActionOutput_gong_getuser {
   id: string;
   emailAddress: string;
   created: string;
@@ -33349,34 +33294,34 @@ export interface ActionOutput_gong_oauth_getuser {
   primary?: boolean | undefined;})[];
 };
 
-export interface ActionInput_gong_oauth_getworkspace {
+export interface ActionInput_gong_getworkspace {
   /**
    * Gong workspace ID. Example: "7273476131570014205"
    */
   workspaceId: string;
 };
 
-export interface ActionOutput_gong_oauth_getworkspace {
+export interface ActionOutput_gong_getworkspace {
   id: string;
   name?: string | undefined;
   description?: string | undefined;
 };
 
-export interface ActionInput_gong_oauth_listcalloutcomes {
+export interface ActionInput_gong_listcalloutcomes {
   /**
    * Pagination cursor from the previous response. Omit for the first page.
    */
   cursor?: string | undefined;
 };
 
-export interface ActionOutput_gong_oauth_listcalloutcomes {
+export interface ActionOutput_gong_listcalloutcomes {
   items: ({  id?: string | undefined;
   category?: string | undefined;
   name?: string | undefined;})[];
   nextCursor?: string | undefined;
 };
 
-export interface ActionInput_gong_oauth_listcalltranscripts {
+export interface ActionInput_gong_listcalltranscripts {
   /**
    * Start date in ISO 8601 UTC format. Example: "2026-01-01T00:00:00Z"
    */
@@ -33399,7 +33344,7 @@ export interface ActionInput_gong_oauth_listcalltranscripts {
   cursor?: string | undefined;
 };
 
-export interface ActionOutput_gong_oauth_listcalltranscripts {
+export interface ActionOutput_gong_listcalltranscripts {
   callTranscripts: ({  callId?: string | undefined;
   transcript?: ({  speakerId?: string | undefined;
   topic?: string | undefined;
@@ -33411,7 +33356,7 @@ export interface ActionOutput_gong_oauth_listcalltranscripts {
   currentPageSize?: number | undefined;
 };
 
-export interface ActionInput_gong_oauth_listcalls {
+export interface ActionInput_gong_listcalls {
   /**
    * Start of the date range in ISO 8601 UTC format. Example: "2026-01-01T00:00:00Z"
    */
@@ -33430,7 +33375,7 @@ export interface ActionInput_gong_oauth_listcalls {
   cursor?: string | undefined;
 };
 
-export interface ActionOutput_gong_oauth_listcalls {
+export interface ActionOutput_gong_listcalls {
   calls: ({  id: string;
   url?: string | undefined;
   title?: string | undefined;
@@ -33455,7 +33400,7 @@ export interface ActionOutput_gong_oauth_listcalls {
   nextCursor?: string | undefined;
 };
 
-export interface ActionInput_gong_oauth_listflowfolders {
+export interface ActionInput_gong_listflowfolders {
   /**
    * Email of the flow owner whose folders (including personal and shared) should be included.
    */
@@ -33466,13 +33411,13 @@ export interface ActionInput_gong_oauth_listflowfolders {
   cursor?: string | undefined;
 };
 
-export interface ActionOutput_gong_oauth_listflowfolders {
+export interface ActionOutput_gong_listflowfolders {
   items: ({  id: string;
   name: string;})[];
   nextCursor?: string | undefined;
 };
 
-export interface ActionInput_gong_oauth_listflowprospects {
+export interface ActionInput_gong_listflowprospects {
   /**
    * CRM IDs of the prospects to list assigned flows for. Example: ["a5V1Q00A120DP4CVAW"]
    */
@@ -33483,7 +33428,7 @@ export interface ActionInput_gong_oauth_listflowprospects {
   flowInstanceIds?: string[] | undefined;
 };
 
-export interface ActionOutput_gong_oauth_listflowprospects {
+export interface ActionOutput_gong_listflowprospects {
   items: ({  flowId?: string | undefined;
   flowName?: string | undefined;
   crmProspectId?: string | undefined;
@@ -33496,7 +33441,7 @@ export interface ActionOutput_gong_oauth_listflowprospects {
   exclusive?: boolean | undefined;})[];
 };
 
-export interface ActionInput_gong_oauth_listflows {
+export interface ActionInput_gong_listflows {
   /**
    * Email address of the user who owns the flows. Example: "api@nango.dev"
    */
@@ -33507,7 +33452,7 @@ export interface ActionInput_gong_oauth_listflows {
   cursor?: string | undefined;
 };
 
-export interface ActionOutput_gong_oauth_listflows {
+export interface ActionOutput_gong_listflows {
   flows: ({  id: string;
   name?: string | undefined;
   status?: string | undefined;
@@ -33516,14 +33461,14 @@ export interface ActionOutput_gong_oauth_listflows {
   nextCursor?: string | undefined;
 };
 
-export interface ActionInput_gong_oauth_listlibraryfoldercontent {
+export interface ActionInput_gong_listlibraryfoldercontent {
   /**
    * Gong's unique numeric identifier for the folder (up to 20 digits).
    */
   folderId: string;
 };
 
-export interface ActionOutput_gong_oauth_listlibraryfoldercontent {
+export interface ActionOutput_gong_listlibraryfoldercontent {
   requestId?: string | undefined;
   id?: string | undefined;
   name?: string | undefined;
@@ -33538,14 +33483,14 @@ export interface ActionOutput_gong_oauth_listlibraryfoldercontent {
   snippet?: {  [key: string]: unknown | undefined;};})[];
 };
 
-export interface ActionInput_gong_oauth_listlibraryfolders {
+export interface ActionInput_gong_listlibraryfolders {
   /**
    * Workspace identifier to filter folders by workspace. Example: "7273476131570014205"
    */
   workspaceId?: string | undefined;
 };
 
-export interface ActionOutput_gong_oauth_listlibraryfolders {
+export interface ActionOutput_gong_listlibraryfolders {
   requestId?: string | undefined;
   folders: ({  id: string;
   name: string;
@@ -33554,33 +33499,33 @@ export interface ActionOutput_gong_oauth_listlibraryfolders {
   updated: string;})[];
 };
 
-export interface ActionInput_gong_oauth_listpermissionprofileusers {
+export interface ActionInput_gong_listpermissionprofileusers {
   /**
    * Permission profile identifier. Example: "12345678901234567890"
    */
   profileId: string;
 };
 
-export interface ActionOutput_gong_oauth_listpermissionprofileusers {
+export interface ActionOutput_gong_listpermissionprofileusers {
   users: ({  id: string;
   fullName?: string | undefined;
   emailAddress?: string | undefined;})[];
 };
 
-export interface ActionInput_gong_oauth_listpermissionprofiles {
+export interface ActionInput_gong_listpermissionprofiles {
   /**
    * Workspace ID. Example: "7273476131570014205"
    */
   workspaceId: string;
 };
 
-export interface ActionOutput_gong_oauth_listpermissionprofiles {
+export interface ActionOutput_gong_listpermissionprofiles {
   profiles: ({  id: string;
   name?: string | undefined;
   description?: string | undefined;})[];
 };
 
-export interface ActionInput_gong_oauth_listscorecards {
+export interface ActionInput_gong_listscorecards {
   /**
    * Workspace ID to filter scorecards. Example: "7273476131570014205"
    */
@@ -33591,7 +33536,7 @@ export interface ActionInput_gong_oauth_listscorecards {
   cursor?: string | undefined;
 };
 
-export interface ActionOutput_gong_oauth_listscorecards {
+export interface ActionOutput_gong_listscorecards {
   items: ({  scorecardId: string;
   scorecardName?: string | undefined;
   workspaceId?: string | undefined;
@@ -33613,7 +33558,7 @@ export interface ActionOutput_gong_oauth_listscorecards {
   nextCursor?: string | undefined;
 };
 
-export interface ActionInput_gong_oauth_listtasks {
+export interface ActionInput_gong_listtasks {
   /**
    * The Gong user ID who owns the tasks. Example: 1597409306735779049
    */
@@ -33639,7 +33584,7 @@ export interface ActionInput_gong_oauth_listtasks {
   2: 'DISMISSED';})[] | undefined;
 };
 
-export interface ActionOutput_gong_oauth_listtasks {
+export interface ActionOutput_gong_listtasks {
   items: ({  id?: string | undefined;
   userId?: string | undefined;
   created?: string | undefined;
@@ -33651,7 +33596,7 @@ export interface ActionOutput_gong_oauth_listtasks {
   title?: string | undefined;})[];
 };
 
-export interface ActionInput_gong_oauth_listtrackers {
+export interface ActionInput_gong_listtrackers {
   /**
    * Workspace ID to filter trackers. Example: "7273476131570014205"
    */
@@ -33662,7 +33607,7 @@ export interface ActionInput_gong_oauth_listtrackers {
   cursor?: string | undefined;
 };
 
-export interface ActionOutput_gong_oauth_listtrackers {
+export interface ActionOutput_gong_listtrackers {
   trackers: ({  trackerId: string;
   trackerName?: string | undefined;
   workspaceId?: string | undefined;
@@ -33686,14 +33631,14 @@ export interface ActionOutput_gong_oauth_listtrackers {
   nextCursor?: string | undefined;
 };
 
-export interface ActionInput_gong_oauth_listusers {
+export interface ActionInput_gong_listusers {
   /**
    * Pagination cursor from the previous response. Omit for the first page.
    */
   cursor?: string | undefined;
 };
 
-export interface ActionOutput_gong_oauth_listusers {
+export interface ActionOutput_gong_listusers {
   users: ({  id: string;
   emailAddress?: string | undefined;
   created?: string | undefined;
@@ -33714,10 +33659,10 @@ export interface ActionOutput_gong_oauth_listusers {
   nextCursor?: string | undefined;
 };
 
-export interface ActionInput_gong_oauth_listworkspaces {
+export interface ActionInput_gong_listworkspaces {
 };
 
-export interface ActionOutput_gong_oauth_listworkspaces {
+export interface ActionOutput_gong_listworkspaces {
   workspaces: ({  /**
    * Gong unique identifier for the workspace. Example: "12345678901234567890"
    */
@@ -33732,7 +33677,7 @@ export interface ActionOutput_gong_oauth_listworkspaces {
   description: string;})[];
 };
 
-export interface ActionInput_gong_oauth_postdigitalinteraction {
+export interface ActionInput_gong_postdigitalinteraction {
   /**
    * The provider unique identifier for the event used for deduplication. Example: "evt-abc-123"
    */
@@ -33790,24 +33735,24 @@ export interface ActionInput_gong_oauth_postdigitalinteraction {
   device?: 'MOBILE' | 'PC' | undefined;
 };
 
-export interface ActionOutput_gong_oauth_postdigitalinteraction {
+export interface ActionOutput_gong_postdigitalinteraction {
   /**
    * A Gong request reference Id generated for this request. Can be used for troubleshooting purposes.
    */
   requestId?: string | undefined;
 };
 
-export interface ActionInput_gong_oauth_registercrmintegration {
+export interface ActionInput_gong_registercrmintegration {
   ownerEmail: string;
   name: string;
 };
 
-export interface ActionOutput_gong_oauth_registercrmintegration {
+export interface ActionOutput_gong_registercrmintegration {
   requestId: string;
   integrationId: string;
 };
 
-export interface ActionInput_gong_oauth_removecallusersaccess {
+export interface ActionInput_gong_removecallusersaccess {
   /**
    * Gong's unique numeric call ID. Example: "7782342274025937895"
    */
@@ -33818,26 +33763,26 @@ export interface ActionInput_gong_oauth_removecallusersaccess {
   userIds: string[];
 };
 
-export interface ActionOutput_gong_oauth_removecallusersaccess {
+export interface ActionOutput_gong_removecallusersaccess {
   /**
    * A Gong request reference ID, generated for this request.
    */
   requestId: string;
 };
 
-export interface ActionInput_gong_oauth_removeprospectsfromflow {
+export interface ActionInput_gong_removeprospectsfromflow {
   /**
    * Array of flow instance IDs to unassign from the flow. Max 100 IDs per request.
    */
   flowInstanceIds: string[];
 };
 
-export interface ActionOutput_gong_oauth_removeprospectsfromflow {
+export interface ActionOutput_gong_removeprospectsfromflow {
   requestId: string;
   unassignedFlowInstanceIds: string[];
 };
 
-export interface ActionInput_gong_oauth_unassignflowbycrmid {
+export interface ActionInput_gong_unassignflowbycrmid {
   crmProspectIds: string[];
   /**
    * The identifier of the flow to unassign the prospects from. If omitted, removes from all flows.
@@ -33849,14 +33794,14 @@ export interface ActionInput_gong_oauth_unassignflowbycrmid {
   unassignedByUserEmail?: string | undefined;
 };
 
-export interface ActionOutput_gong_oauth_unassignflowbycrmid {
+export interface ActionOutput_gong_unassignflowbycrmid {
   results: ({  crmProspectId: string;
   requestId?: string | undefined;
   unassignedFlowInstanceIds?: string[] | undefined;
   error?: string | undefined;})[];
 };
 
-export interface ActionInput_gong_oauth_updateintegrationsettings {
+export interface ActionInput_gong_updateintegrationsettings {
   /**
    * List of integration type settings to update.
    */
@@ -33864,7 +33809,7 @@ export interface ActionInput_gong_oauth_updateintegrationsettings {
   allowedOrigin: string;})[];
 };
 
-export interface ActionOutput_gong_oauth_updateintegrationsettings {
+export interface ActionOutput_gong_updateintegrationsettings {
   /**
    * Gong request reference ID.
    */
@@ -33875,7 +33820,7 @@ export interface ActionOutput_gong_oauth_updateintegrationsettings {
   integrationId?: string | undefined;
 };
 
-export interface ActionInput_gong_oauth_updatemeeting {
+export interface ActionInput_gong_updatemeeting {
   /**
    * Gong's unique identifier for the meeting.
    */
@@ -33921,7 +33866,7 @@ export interface ActionInput_gong_oauth_updatemeeting {
   organizerEmail: string;
 };
 
-export interface ActionOutput_gong_oauth_updatemeeting {
+export interface ActionOutput_gong_updatemeeting {
   /**
    * A Gong request reference Id, generated for this request.
    */
@@ -33932,7 +33877,7 @@ export interface ActionOutput_gong_oauth_updatemeeting {
   meetingId: string;
 };
 
-export interface ActionInput_gong_oauth_updatepermissionprofile {
+export interface ActionInput_gong_updatepermissionprofile {
   /**
    * The Id of the permission profile to update. Example: "3843152912968920037"
    */
@@ -34163,7 +34108,7 @@ export interface ActionInput_gong_oauth_updatepermissionprofile {
   dealsDataExport?: boolean | undefined;
 };
 
-export interface ActionOutput_gong_oauth_updatepermissionprofile {
+export interface ActionOutput_gong_updatepermissionprofile {
   id: string;
   name?: string | undefined;
   description?: string | undefined;
@@ -34235,7 +34180,7 @@ export interface ActionOutput_gong_oauth_updatepermissionprofile {
   dealsDataExport?: boolean | undefined;
 };
 
-export interface ActionInput_gong_oauth_updatetask {
+export interface ActionInput_gong_updatetask {
   /**
    * The ID of the task to update. Example: "7254376376091929519"
    */
@@ -34262,7 +34207,7 @@ export interface ActionInput_gong_oauth_updatetask {
   notes?: string | undefined;
 };
 
-export interface ActionOutput_gong_oauth_updatetask {
+export interface ActionOutput_gong_updatetask {
   id?: string | undefined;
   userId?: string | undefined;
   status?: string | undefined;
@@ -34272,7 +34217,7 @@ export interface ActionOutput_gong_oauth_updatetask {
   message: string;} | undefined;
 };
 
-export interface ActionInput_gong_oauth_uploadcall {
+export interface ActionInput_gong_uploadcall {
   /**
    * Unique identifier for this call from the client system. Example: "call-123"
    */
@@ -34326,7 +34271,7 @@ export interface ActionInput_gong_oauth_uploadcall {
   duration?: number | undefined;
 };
 
-export interface ActionOutput_gong_oauth_uploadcall {
+export interface ActionOutput_gong_uploadcall {
   /**
    * Gong-generated call ID. Example: "123456789"
    */
@@ -34341,7 +34286,7 @@ export interface ActionOutput_gong_oauth_uploadcall {
   url?: string | undefined;
 };
 
-export interface ActionInput_gong_oauth_uploadcrmentities {
+export interface ActionInput_gong_uploadcrmentities {
   /**
    * CRM integration ID generated when creating the integration. Example: "6286478263646"
    */
@@ -34375,13 +34320,13 @@ export interface ActionInput_gong_oauth_uploadcrmentities {
   clientRequestId?: string | undefined;
 };
 
-export interface ActionOutput_gong_oauth_uploadcrmentities {
+export interface ActionOutput_gong_uploadcrmentities {
   requestId?: string | undefined;
   clientRequestId?: string | undefined;
   errors?: string[] | undefined;
 };
 
-export interface ActionInput_gong_oauth_uploadcrmentityschema {
+export interface ActionInput_gong_uploadcrmentityschema {
   /**
    * Integration ID generated when creating the integration. Example: "6286478263646"
    */
@@ -34423,7 +34368,7 @@ export interface ActionInput_gong_oauth_uploadcrmentityschema {
   orderedValueList?: string[] | undefined;})[];
 };
 
-export interface ActionOutput_gong_oauth_uploadcrmentityschema {
+export interface ActionOutput_gong_uploadcrmentityschema {
   /**
    * A Gong request reference Id, generated for this request.
    */
