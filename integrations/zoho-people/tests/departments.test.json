@@ -1,0 +1,328 @@
+{
+  "nango": {
+    "batchSave": {
+      "Department": [
+        {
+          "id": "972601000000316016",
+          "name": "UniqueDept1781514617",
+          "lead": "",
+          "parentDepartment": "",
+          "code": "",
+          "mailAlias": "",
+          "addedTime": "15-Jun-2026 12:10:21",
+          "modifiedTime": "1781514621268"
+        },
+        {
+          "id": "972601000000316012",
+          "name": "TempDeptSave",
+          "lead": "",
+          "parentDepartment": "",
+          "code": "",
+          "mailAlias": "",
+          "addedTime": "15-Jun-2026 12:09:47",
+          "modifiedTime": "1781514587839"
+        },
+        {
+          "id": "972601000000314027",
+          "name": "TempDeptValidate",
+          "lead": "",
+          "parentDepartment": "",
+          "code": "",
+          "mailAlias": "",
+          "addedTime": "15-Jun-2026 12:09:42",
+          "modifiedTime": "1781514582511"
+        },
+        {
+          "id": "972601000000317005",
+          "name": "TempDept",
+          "lead": "",
+          "parentDepartment": "",
+          "code": "",
+          "mailAlias": "",
+          "addedTime": "15-Jun-2026 12:09:28",
+          "modifiedTime": "1781514568871"
+        },
+        {
+          "id": "972601000000306078",
+          "name": "IT",
+          "lead": "",
+          "parentDepartment": "",
+          "code": "",
+          "mailAlias": "",
+          "addedTime": "15-Jun-2026 03:36:06",
+          "modifiedTime": "1781483766529"
+        },
+        {
+          "id": "972601000000306076",
+          "name": "Marketing",
+          "lead": "",
+          "parentDepartment": "",
+          "code": "",
+          "mailAlias": "",
+          "addedTime": "15-Jun-2026 03:36:06",
+          "modifiedTime": "1781483766528"
+        },
+        {
+          "id": "972601000000306074",
+          "name": "Management",
+          "lead": "",
+          "parentDepartment": "",
+          "code": "",
+          "mailAlias": "",
+          "addedTime": "15-Jun-2026 03:36:06",
+          "modifiedTime": "1781483766527"
+        },
+        {
+          "id": "972601000000306004",
+          "name": "HR",
+          "lead": "",
+          "parentDepartment": "",
+          "code": "",
+          "mailAlias": "hr-test@example.com",
+          "addedTime": "15-Jun-2026 03:34:59",
+          "modifiedTime": "1781514572825"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Department": []
+    }
+  },
+  "api": {
+    "get": {
+      "/people/api/forms/department/getRecords": {
+        "response": {
+          "response": {
+            "result": [
+              {
+                "972601000000316016": [
+                  {
+                    "CreatedTime": "1781514621268",
+                    "Department_Lead.MailID": "",
+                    "AddedTime": "15-Jun-2026 12:10:21",
+                    "Department_Lead": "",
+                    "ModifiedBy": "1 - Nango - Developer",
+                    "ApprovalStatus": "Approval Not Enabled",
+                    "ZP_Department_Code": "",
+                    "ModifiedBy.ID": "972601000000306003",
+                    "Department": "UniqueDept1781514617",
+                    "Department_Lead.ID": "",
+                    "Parent_Department.ID": "",
+                    "ModifiedTime": "1781514621268",
+                    "Zoho_ID": 972601000000316000,
+                    "AddedBy.ID": "972601000000306003",
+                    "Parent_Department": "",
+                    "AddedBy": "1 - Nango - Developer",
+                    "MailAlias": ""
+                  }
+                ]
+              },
+              {
+                "972601000000316012": [
+                  {
+                    "CreatedTime": "1781514587839",
+                    "Department_Lead.MailID": "",
+                    "AddedTime": "15-Jun-2026 12:09:47",
+                    "Department_Lead": "",
+                    "ModifiedBy": "1 - Nango - Developer",
+                    "ApprovalStatus": "Approval Not Enabled",
+                    "ZP_Department_Code": "",
+                    "ModifiedBy.ID": "972601000000306003",
+                    "Department": "TempDeptSave",
+                    "Department_Lead.ID": "",
+                    "Parent_Department.ID": "",
+                    "ModifiedTime": "1781514587839",
+                    "Zoho_ID": 972601000000316000,
+                    "AddedBy.ID": "972601000000306003",
+                    "Parent_Department": "",
+                    "AddedBy": "1 - Nango - Developer",
+                    "MailAlias": ""
+                  }
+                ]
+              },
+              {
+                "972601000000314027": [
+                  {
+                    "CreatedTime": "1781514582511",
+                    "Department_Lead.MailID": "",
+                    "AddedTime": "15-Jun-2026 12:09:42",
+                    "Department_Lead": "",
+                    "ModifiedBy": "1 - Nango - Developer",
+                    "ApprovalStatus": "Approval Not Enabled",
+                    "ZP_Department_Code": "",
+                    "ModifiedBy.ID": "972601000000306003",
+                    "Department": "TempDeptValidate",
+                    "Department_Lead.ID": "",
+                    "Parent_Department.ID": "",
+                    "ModifiedTime": "1781514582511",
+                    "Zoho_ID": 972601000000314000,
+                    "AddedBy.ID": "972601000000306003",
+                    "Parent_Department": "",
+                    "AddedBy": "1 - Nango - Developer",
+                    "MailAlias": ""
+                  }
+                ]
+              },
+              {
+                "972601000000317005": [
+                  {
+                    "CreatedTime": "1781514568871",
+                    "Department_Lead.MailID": "",
+                    "AddedTime": "15-Jun-2026 12:09:28",
+                    "Department_Lead": "",
+                    "ModifiedBy": "1 - Nango - Developer",
+                    "ApprovalStatus": "Approval Not Enabled",
+                    "ZP_Department_Code": "",
+                    "ModifiedBy.ID": "972601000000306003",
+                    "Department": "TempDept",
+                    "Department_Lead.ID": "",
+                    "Parent_Department.ID": "",
+                    "ModifiedTime": "1781514568871",
+                    "Zoho_ID": 972601000000317000,
+                    "AddedBy.ID": "972601000000306003",
+                    "Parent_Department": "",
+                    "AddedBy": "1 - Nango - Developer",
+                    "MailAlias": ""
+                  }
+                ]
+              },
+              {
+                "972601000000306078": [
+                  {
+                    "CreatedTime": "1781483766529",
+                    "Department_Lead.MailID": "",
+                    "AddedTime": "15-Jun-2026 03:36:06",
+                    "Department_Lead": "",
+                    "ModifiedBy": "1 - Nango - Developer",
+                    "ApprovalStatus": "Approval Not Enabled",
+                    "ZP_Department_Code": "",
+                    "ModifiedBy.ID": "972601000000306003",
+                    "Department": "IT",
+                    "Department_Lead.ID": "",
+                    "Parent_Department.ID": "",
+                    "ModifiedTime": "1781483766529",
+                    "Zoho_ID": 972601000000306000,
+                    "AddedBy.ID": "972601000000306003",
+                    "Parent_Department": "",
+                    "AddedBy": "1 - Nango - Developer",
+                    "MailAlias": ""
+                  }
+                ]
+              },
+              {
+                "972601000000306076": [
+                  {
+                    "CreatedTime": "1781483766528",
+                    "Department_Lead.MailID": "",
+                    "AddedTime": "15-Jun-2026 03:36:06",
+                    "Department_Lead": "",
+                    "ModifiedBy": "1 - Nango - Developer",
+                    "ApprovalStatus": "Approval Not Enabled",
+                    "ZP_Department_Code": "",
+                    "ModifiedBy.ID": "972601000000306003",
+                    "Department": "Marketing",
+                    "Department_Lead.ID": "",
+                    "Parent_Department.ID": "",
+                    "ModifiedTime": "1781483766528",
+                    "Zoho_ID": 972601000000306000,
+                    "AddedBy.ID": "972601000000306003",
+                    "Parent_Department": "",
+                    "AddedBy": "1 - Nango - Developer",
+                    "MailAlias": ""
+                  }
+                ]
+              },
+              {
+                "972601000000306074": [
+                  {
+                    "CreatedTime": "1781483766527",
+                    "Department_Lead.MailID": "",
+                    "AddedTime": "15-Jun-2026 03:36:06",
+                    "Department_Lead": "",
+                    "ModifiedBy": "1 - Nango - Developer",
+                    "ApprovalStatus": "Approval Not Enabled",
+                    "ZP_Department_Code": "",
+                    "ModifiedBy.ID": "972601000000306003",
+                    "Department": "Management",
+                    "Department_Lead.ID": "",
+                    "Parent_Department.ID": "",
+                    "ModifiedTime": "1781483766527",
+                    "Zoho_ID": 972601000000306000,
+                    "AddedBy.ID": "972601000000306003",
+                    "Parent_Department": "",
+                    "AddedBy": "1 - Nango - Developer",
+                    "MailAlias": ""
+                  }
+                ]
+              },
+              {
+                "972601000000306004": [
+                  {
+                    "CreatedTime": "1781483699533",
+                    "Department_Lead.MailID": "",
+                    "AddedTime": "15-Jun-2026 03:34:59",
+                    "Department_Lead": "",
+                    "ModifiedBy": "1 - Nango - Developer",
+                    "ApprovalStatus": "Approved",
+                    "ZP_Department_Code": "",
+                    "ModifiedBy.ID": "972601000000306003",
+                    "Department": "HR",
+                    "Department_Lead.ID": "",
+                    "Parent_Department.ID": "",
+                    "ModifiedTime": "1781514572825",
+                    "Zoho_ID": 972601000000306000,
+                    "AddedBy.ID": "972601000000306003",
+                    "Parent_Department": "",
+                    "AddedBy": "1 - Nango - Developer",
+                    "MailAlias": "hr-test@example.com"
+                  }
+                ]
+              }
+            ],
+            "message": "Data fetched successfully",
+            "uri": "/api/forms/department/getRecords",
+            "status": 0
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 15 Jun 2026 09:15:40 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=64072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "object-src 'none'; script-src 'nonce-edYoRnjYl2-pX6taUNGmwSSt' 'strict-dynamic' http: https:; base-uri 'none';",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4938",
+          "x-ratelimit-reset": "1781514944",
+          "server": "ZGS",
+          "set-cookie": "<redacted>",
+          "cache-control": "private,no-cache,no-store,max-age=0,must-revalidate",
+          "pragma": "no-cache",
+          "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
+          "content-disposition": "attachment;filename=records",
+          "externalapicall": "allowed",
+          "api-count-left-today": "14603",
+          "vary": "sec-fetch-dest,sec-fetch-mode,sec-fetch-site,sec-fetch-user,accept-encoding",
+          "cross-origin-embedder-policy-report-only": "require-corp",
+          "cross-origin-opener-policy": "same-origin",
+          "content-language": "en-US"
+        },
+        "hash": "df38c86210a1979743def25812f546f69668b52e",
+        "request": {
+          "params": {
+            "limit": "200",
+            "sIndex": "1"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "input": {
+    "empId": "1",
+    "checkOut": "19:00",
+    "attendanceDate": "15-Jun-2026"
+  },
+  "output": {
+    "success": true
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/people/api/attendance": {
+        "response": [
+          {
+            "inputType_out": 3,
+            "tdate": "15-Jun-2026 19:00:00",
+            "dateFormat": "dd-MMM-yyyy HH:mm:ss",
+            "response": "success",
+            "tsecs": 26640
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Mon, 15 Jun 2026 09:11:31 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "content-length": "123",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=64072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "object-src 'none'; script-src 'nonce-6fEqjQk5Rn60MbZX8kcUqJtN' 'strict-dynamic' http: https:; base-uri 'none';",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4990",
+          "x-ratelimit-reset": "1781514744",
+          "server": "ZGS",
+          "set-cookie": "zalb_74d03e8eb3=c8ede6e3749a67020622175a087acf7c; Path=/; Secure; HttpOnly, _zpsid=CDEDC69D04A4B06A59A5FC8134BE22C7; Path=/; Secure; HttpOnly, CSRF_TOKEN=350f23d5-598c-43c3-89c9-580c306d0afb;path=/;SameSite=None;Secure;priority=high",
+          "cache-control": "private,no-cache,no-store,max-age=0,must-revalidate",
+          "pragma": "no-cache",
+          "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
+          "content-disposition": "attachment;filename=records",
+          "externalapicall": "allowed",
+          "api-count-left-today": "14781",
+          "vary": "Sec-Fetch-Dest,Sec-Fetch-Mode,Sec-Fetch-Site,Sec-Fetch-User",
+          "cross-origin-embedder-policy-report-only": "require-corp",
+          "cross-origin-opener-policy": "same-origin",
+          "content-language": "en-US"
+        },
+        "hash": "d9ff0ac159ba1197430f0acc5792a73bb630380a",
+        "request": {
+          "params": {
+            "attendanceDate": "15-Jun-2026",
+            "checkOut": "15-Jun-2026 19:00:00",
+            "dateFormat": "dd-MMM-yyyy HH:mm:ss",
+            "empId": "1"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "nango": {
+    "batchSave": {
+      "LeaveRecord": [
+        {
+          "id": "972601000000313011",
+          "from": "15-Jun-2026",
+          "to": "16-Jun-2026",
+          "leaveTypeId": "972601000000306600",
+          "leaveTypeName": "Annual Leave",
+          "employeeId": "S20",
+          "employeeName": "Christopher Brown",
+          "status": "",
+          "days": 2,
+          "dateOfRequest": "15-Jun-2026",
+          "unit": "Days",
+          "type": "PAID"
+        },
+        {
+          "id": "972601000000313003",
+          "from": "15-Jun-2026",
+          "to": "15-Jun-2026",
+          "leaveTypeId": "972601000000306600",
+          "leaveTypeName": "Annual Leave",
+          "employeeId": "S12",
+          "employeeName": "Sofia Rodriguez",
+          "status": "",
+          "days": 1,
+          "dateOfRequest": "15-Jun-2026",
+          "unit": "Days",
+          "type": "PAID"
+        }
+      ]
+    },
+    "batchDelete": {
+      "LeaveRecord": []
+    }
+  },
+  "api": {
+    "get": {
+      "/api/v2/leavetracker/leaves/records": {
+        "response": {
+          "records": {
+            "972601000000313011": {
+              "Zoho.ID": 972601000000313000,
+              "From": "15-Jun-2026",
+              "Leavetype.ID": 972601000000306600,
+              "Unit": "Days",
+              "ApprovalStatus": "",
+              "Type": "PAID",
+              "Employee": "Christopher Brown",
+              "Leavetype": "Annual Leave",
+              "Days": {
+                "16-Jun-2026": {
+                  "LeaveCount": "1.0"
+                },
+                "15-Jun-2026": {
+                  "LeaveCount": "1.0"
+                }
+              },
+              "EmployeePhoto": "viewPhoto?filename=7232070000000035004",
+              "To": "16-Jun-2026",
+              "EmployeeId": "S20",
+              "ZUID": -1,
+              "Employee.ID": 972601000000306000,
+              "DateOfRequest": "15-Jun-2026"
+            },
+            "972601000000313003": {
+              "Zoho.ID": 972601000000313000,
+              "From": "15-Jun-2026",
+              "Leavetype.ID": 972601000000306600,
+              "Unit": "Days",
+              "ApprovalStatus": "",
+              "Type": "PAID",
+              "Employee": "Sofia Rodriguez",
+              "Leavetype": "Annual Leave",
+              "Days": {
+                "15-Jun-2026": {
+                  "LeaveCount": "1.0"
+                }
+              },
+              "EmployeePhoto": "viewPhoto?filename=7232070000000032006",
+              "To": "15-Jun-2026",
+              "EmployeeId": "S12",
+              "ZUID": -1,
+              "Employee.ID": 972601000000306000,
+              "DateOfRequest": "15-Jun-2026"
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 15 Jun 2026 09:10:35 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "content-length": "896",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=64072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4989",
+          "x-ratelimit-reset": "1781514684",
+          "server": "ZGS",
+          "set-cookie": "zalb_c7cb34e6ac=01e337ece882c9927a60631a83fb4ac5; Path=/; Secure; HttpOnly, _zpsid=4F31EA7EFBEAD06510661CD90DBBB3B1; Path=/; Secure; HttpOnly, CSRF_TOKEN=65a2f0a1-e9c5-4aa6-b774-be3999b871a2;path=/;SameSite=None;Secure;priority=high",
+          "cache-control": "private,no-cache,no-store,max-age=0,must-revalidate",
+          "pragma": "no-cache",
+          "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
+          "content-disposition": "attachment",
+          "externalapicall": "allowed",
+          "api-count-left-today": "14793"
+        },
+        "hash": "61ba8b2277a6af5c72ff12bd82ac477bc762255d",
+        "request": {
+          "params": {
+            "from": "15-Jun-2025",
+            "limit": "100",
+            "startIndex": "1",
+            "to": "15-Jun-2026"
+          }
+        }
+      }
+    }
+  }
+}

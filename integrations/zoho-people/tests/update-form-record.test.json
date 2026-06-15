@@ -1,0 +1,70 @@
+{
+  "input": {
+    "formLinkName": "department",
+    "recordId": "972601000000306004",
+    "fields": {
+      "MailAlias": "hr-test@example.com"
+    }
+  },
+  "output": {
+    "recordId": "972601000000306004",
+    "success": true,
+    "message": "Data updated successfully"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/people/api/forms/json/department/updateRecord": {
+        "response": {
+          "response": {
+            "result": {
+              "pkId": "972601000000306004",
+              "message": "There is no modification done in this record"
+            },
+            "message": "Data updated successfully",
+            "uri": "/api/forms/json/department/updateRecord",
+            "status": 0
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 15 Jun 2026 09:09:38 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "content-length": "208",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=64072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "object-src 'none'; script-src 'nonce-sSdHkiHWSjSNWbMYn5lXtdiO' 'strict-dynamic' http: https:; base-uri 'none';",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4982",
+          "x-ratelimit-reset": "1781514622",
+          "server": "ZGS",
+          "set-cookie": "zalb_c7cb34e6ac=f71b40ccb6ced852fe15e39e911faae6; Path=/; Secure; HttpOnly, _zpsid=E2FCB53F8A601D5AE410D65D1DC65528; Path=/; Secure; HttpOnly, CSRF_TOKEN=2d9ff69a-abac-4ff3-9279-c6abfe893f10;path=/;SameSite=None;Secure;priority=high",
+          "cache-control": "private,no-cache,no-store,max-age=0,must-revalidate",
+          "pragma": "no-cache",
+          "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
+          "content-disposition": "attachment;filename=records",
+          "externalapicall": "allowed",
+          "api-count-left-today": "14809",
+          "vary": "Sec-Fetch-Dest,Sec-Fetch-Mode,Sec-Fetch-Site,Sec-Fetch-User",
+          "cross-origin-embedder-policy-report-only": "require-corp",
+          "cross-origin-opener-policy": "same-origin",
+          "content-language": "en-US"
+        },
+        "hash": "91a5037989991c3e5d767895430e10b0a45eaeee",
+        "request": {
+          "params": {
+            "inputData": "{\"MailAlias\":\"hr-test@example.com\"}",
+            "recordId": "972601000000306004"
+          }
+        }
+      }
+    }
+  }
+}

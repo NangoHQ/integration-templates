@@ -1,0 +1,63 @@
+{
+  "input": {
+    "empId": "S1",
+    "attendanceDate": "15-Jun-2026",
+    "checkIn": "09:00"
+  },
+  "output": {
+    "success": false,
+    "message": "Invalid User"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/people/api/attendance": {
+        "response": [
+          {
+            "msg": "Invalid User",
+            "response": "failure"
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Mon, 15 Jun 2026 09:09:01 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "content-length": "45",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=64072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "object-src 'none'; script-src 'nonce-gSfntPWjEwohD2nzBLnxxQYP' 'strict-dynamic' http: https:; base-uri 'none';",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4935",
+          "x-ratelimit-reset": "1781514560",
+          "server": "ZGS",
+          "set-cookie": "<redacted>",
+          "cache-control": "private,no-cache,no-store,max-age=0,must-revalidate",
+          "pragma": "no-cache",
+          "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
+          "content-disposition": "attachment;filename=records",
+          "externalapicall": "allowed",
+          "api-count-left-today": "14831",
+          "vary": "Sec-Fetch-Dest,Sec-Fetch-Mode,Sec-Fetch-Site,Sec-Fetch-User",
+          "cross-origin-embedder-policy-report-only": "require-corp",
+          "cross-origin-opener-policy": "same-origin",
+          "content-language": "en-US"
+        },
+        "hash": "4a9a77329266811e44afc1e7e2168fd19a166651",
+        "request": {
+          "params": {
+            "attendanceDate": "15-Jun-2026",
+            "checkIn": "09:00",
+            "empId": "S1"
+          }
+        }
+      }
+    }
+  }
+}

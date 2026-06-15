@@ -1,0 +1,65 @@
+{
+  "input": {
+    "recordId": "972601000000306098",
+    "fields": {
+      "Nick_Name": "Chris Test"
+    }
+  },
+  "output": {
+    "recordId": "972601000000306098",
+    "message": "There is no modification done in this record"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/people/api/forms/json/employee/updateRecord": {
+        "response": {
+          "response": {
+            "result": {
+              "pkId": "972601000000306098",
+              "message": "There is no modification done in this record"
+            },
+            "message": "Data updated successfully",
+            "uri": "/api/forms/json/employee/updateRecord",
+            "status": 0
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 15 Jun 2026 09:15:33 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "content-length": "206",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=64072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "object-src 'none'; script-src 'nonce-ZHdBia40rZRVLo7QCkeclUyV' 'strict-dynamic' http: https:; base-uri 'none';",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4942",
+          "x-ratelimit-reset": "1781514944",
+          "server": "ZGS",
+          "set-cookie": "zalb_c7cb34e6ac=260d8f5aac79c6a7b715e8dbb7eadf99; Path=/; Secure; HttpOnly, _zpsid=9BF68020B03FE73F48ADEF3032ADC930; Path=/; Secure; HttpOnly, CSRF_TOKEN=6486467c-25d1-4185-862a-8574098833cc;path=/;SameSite=None;Secure;priority=high",
+          "cache-control": "private,no-cache,no-store,max-age=0,must-revalidate",
+          "pragma": "no-cache",
+          "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
+          "content-disposition": "attachment;filename=records",
+          "externalapicall": "allowed",
+          "api-count-left-today": "14604",
+          "vary": "Sec-Fetch-Dest,Sec-Fetch-Mode,Sec-Fetch-Site,Sec-Fetch-User",
+          "cross-origin-embedder-policy-report-only": "require-corp",
+          "cross-origin-opener-policy": "same-origin",
+          "content-language": "en-US"
+        },
+        "hash": "6903919f02d864b4bd13c77f54edcc154584ac0e",
+        "request": {
+          "data": "recordId=972601000000306098&inputData=%7B%22Nick_Name%22%3A%22Chris%20Test%22%7D"
+        }
+      }
+    }
+  }
+}

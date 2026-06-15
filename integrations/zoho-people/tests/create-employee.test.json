@@ -1,0 +1,68 @@
+{
+  "input": {
+    "EmployeeID": "E1781514951",
+    "FirstName": "Test",
+    "LastName": "Employee",
+    "EmailID": "test.employee.1781514951@example.com",
+    "Department": "972601000000306078",
+    "Dateofjoining": "15-Jun-2026"
+  },
+  "output": {
+    "id": "972601000000317016"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/people/api/forms/json/employee/insertRecord": {
+        "response": {
+          "response": {
+            "result": {
+              "pkId": "972601000000317016",
+              "message": "Successfully Added"
+            },
+            "message": "Data added successfully",
+            "uri": "/api/forms/json/employee/insertRecord",
+            "status": 0
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 15 Jun 2026 09:15:55 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "content-length": "178",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=64072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "object-src 'none'; script-src 'nonce-GDZ9Adca43sVihyPW95kyHrE' 'strict-dynamic' http: https:; base-uri 'none';",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4992",
+          "x-ratelimit-reset": "1781515005",
+          "server": "ZGS",
+          "set-cookie": "zalb_c7cb34e6ac=f71b40ccb6ced852fe15e39e911faae6; Path=/; Secure; HttpOnly, _zpsid=62704E36CE71ADF91DE76A6F4299E0FB; Path=/; Secure; HttpOnly, CSRF_TOKEN=09d19603-06de-490b-8026-9890b0ec6f5b;path=/;SameSite=None;Secure;priority=high",
+          "cache-control": "private,no-cache,no-store,max-age=0,must-revalidate",
+          "pragma": "no-cache",
+          "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
+          "content-disposition": "attachment;filename=records",
+          "externalapicall": "allowed",
+          "api-count-left-today": "14601",
+          "vary": "Sec-Fetch-Dest,Sec-Fetch-Mode,Sec-Fetch-Site,Sec-Fetch-User",
+          "cross-origin-embedder-policy-report-only": "require-corp",
+          "cross-origin-opener-policy": "same-origin",
+          "content-language": "en-US"
+        },
+        "hash": "2131c81672fb5bbff921809813895a0726d91a73",
+        "request": {
+          "params": {
+            "inputData": "{\"EmployeeID\":\"E1781514951\",\"FirstName\":\"Test\",\"LastName\":\"Employee\",\"EmailID\":\"test.employee.1781514951@example.com\",\"Department\":\"972601000000306078\",\"Dateofjoining\":\"15-Jun-2026\"}"
+          }
+        }
+      }
+    }
+  }
+}

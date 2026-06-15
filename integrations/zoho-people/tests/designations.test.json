@@ -1,0 +1,189 @@
+{
+  "nango": {
+    "batchSave": {
+      "Designation": [
+        {
+          "id": "972601000000306124",
+          "designation": "Team Member",
+          "zp_designation_code": "",
+          "mail_alias": "",
+          "modified_time": "1781483766632"
+        },
+        {
+          "id": "972601000000306120",
+          "designation": "Assistant Manager",
+          "zp_designation_code": "",
+          "mail_alias": "",
+          "modified_time": "1781483766631"
+        },
+        {
+          "id": "972601000000306116",
+          "designation": "Manager",
+          "zp_designation_code": "",
+          "mail_alias": "",
+          "modified_time": "1781483766630"
+        },
+        {
+          "id": "972601000000306112",
+          "designation": "Administration",
+          "zp_designation_code": "",
+          "mail_alias": "",
+          "modified_time": "1781483766629"
+        },
+        {
+          "id": "972601000000306108",
+          "designation": "CEO",
+          "zp_designation_code": "",
+          "mail_alias": "",
+          "modified_time": "1781483766628"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Designation": []
+    }
+  },
+  "api": {
+    "get": {
+      "/people/api/forms/designation/getRecords": {
+        "response": {
+          "response": {
+            "result": [
+              {
+                "972601000000306124": [
+                  {
+                    "Designation": "Team Member",
+                    "ModifiedBy.ID": "972601000000306003",
+                    "CreatedTime": "1781483766632",
+                    "ModifiedTime": "1781483766632",
+                    "Zoho_ID": 972601000000306200,
+                    "ZP_Designation_Code": "",
+                    "AddedBy.ID": "972601000000306003",
+                    "AddedTime": "15-Jun-2026 03:36:06",
+                    "ModifiedBy": "1 - Nango - Developer",
+                    "AddedBy": "1 - Nango - Developer",
+                    "MailAlias": "",
+                    "ApprovalStatus": "Approval Not Enabled"
+                  }
+                ]
+              },
+              {
+                "972601000000306120": [
+                  {
+                    "Designation": "Assistant Manager",
+                    "ModifiedBy.ID": "972601000000306003",
+                    "CreatedTime": "1781483766631",
+                    "ModifiedTime": "1781483766631",
+                    "Zoho_ID": 972601000000306200,
+                    "ZP_Designation_Code": "",
+                    "AddedBy.ID": "972601000000306003",
+                    "AddedTime": "15-Jun-2026 03:36:06",
+                    "ModifiedBy": "1 - Nango - Developer",
+                    "AddedBy": "1 - Nango - Developer",
+                    "MailAlias": "",
+                    "ApprovalStatus": "Approval Not Enabled"
+                  }
+                ]
+              },
+              {
+                "972601000000306116": [
+                  {
+                    "Designation": "Manager",
+                    "ModifiedBy.ID": "972601000000306003",
+                    "CreatedTime": "1781483766630",
+                    "ModifiedTime": "1781483766630",
+                    "Zoho_ID": 972601000000306200,
+                    "ZP_Designation_Code": "",
+                    "AddedBy.ID": "972601000000306003",
+                    "AddedTime": "15-Jun-2026 03:36:06",
+                    "ModifiedBy": "1 - Nango - Developer",
+                    "AddedBy": "1 - Nango - Developer",
+                    "MailAlias": "",
+                    "ApprovalStatus": "Approval Not Enabled"
+                  }
+                ]
+              },
+              {
+                "972601000000306112": [
+                  {
+                    "Designation": "Administration",
+                    "ModifiedBy.ID": "972601000000306003",
+                    "CreatedTime": "1781483766629",
+                    "ModifiedTime": "1781483766629",
+                    "Zoho_ID": 972601000000306200,
+                    "ZP_Designation_Code": "",
+                    "AddedBy.ID": "972601000000306003",
+                    "AddedTime": "15-Jun-2026 03:36:06",
+                    "ModifiedBy": "1 - Nango - Developer",
+                    "AddedBy": "1 - Nango - Developer",
+                    "MailAlias": "",
+                    "ApprovalStatus": "Approval Not Enabled"
+                  }
+                ]
+              },
+              {
+                "972601000000306108": [
+                  {
+                    "Designation": "CEO",
+                    "ModifiedBy.ID": "972601000000306003",
+                    "CreatedTime": "1781483766628",
+                    "ModifiedTime": "1781483766628",
+                    "Zoho_ID": 972601000000306000,
+                    "ZP_Designation_Code": "",
+                    "AddedBy.ID": "972601000000306003",
+                    "AddedTime": "15-Jun-2026 03:36:06",
+                    "ModifiedBy": "1 - Nango - Developer",
+                    "AddedBy": "1 - Nango - Developer",
+                    "MailAlias": "",
+                    "ApprovalStatus": "Approval Not Enabled"
+                  }
+                ]
+              }
+            ],
+            "message": "Data fetched successfully",
+            "uri": "/api/forms/designation/getRecords",
+            "status": 0
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 15 Jun 2026 09:08:03 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=64072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "object-src 'none'; script-src 'nonce-GDBKNVNmhn5W3LDyTE_g7WOf' 'strict-dynamic' http: https:; base-uri 'none';",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4882",
+          "x-ratelimit-reset": "1781514499",
+          "server": "ZGS",
+          "set-cookie": "zalb_c7cb34e6ac=01e337ece882c9927a60631a83fb4ac5; Path=/; Secure; HttpOnly, _zpsid=DAFCAADC1EFBF8F9D37B281967099D32; Path=/; Secure; HttpOnly, CSRF_TOKEN=26e6605a-bfcc-4910-a9d9-2bd41d95d3db;path=/;SameSite=None;Secure;priority=high",
+          "cache-control": "private,no-cache,no-store,max-age=0,must-revalidate",
+          "pragma": "no-cache",
+          "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
+          "content-disposition": "attachment;filename=records",
+          "externalapicall": "allowed",
+          "api-count-left-today": "14875",
+          "vary": "sec-fetch-dest,sec-fetch-mode,sec-fetch-site,sec-fetch-user,accept-encoding",
+          "cross-origin-embedder-policy-report-only": "require-corp",
+          "cross-origin-opener-policy": "same-origin",
+          "content-language": "en-US"
+        },
+        "hash": "be5a01b9611f2f77ecb0a39581c3962fed815676",
+        "request": {
+          "params": {
+            "limit": "200",
+            "sIndex": "1"
+          }
+        }
+      }
+    }
+  }
+}

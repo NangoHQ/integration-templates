@@ -1,0 +1,81 @@
+{
+  "input": {
+    "empId": "S20",
+    "dateRange": "thisMonth"
+  },
+  "output": {
+    "firstIn": "-",
+    "lastOut": "-",
+    "totalHrs": "00:00",
+    "entries": [],
+    "firstIn_Building": "-",
+    "lastOut_Building": "-",
+    "firstIn_Location": "-",
+    "lastOut_Location": "-",
+    "status": "Paid Leave(Annual Leave)",
+    "allowedToCheckIn": true
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/people/api/attendance/getAttendanceEntries": {
+        "response": {
+          "firstIn_Building": "-",
+          "firstIn_latitude": "-",
+          "entryTimezone": "",
+          "responseTimezone": "Africa/Nairobi",
+          "lastOut_Location": "-",
+          "lastOut": "-",
+          "allowedToCheckIn": true,
+          "lastOut_latitude": "-",
+          "firstIn_Location": "-",
+          "firstIn": "-",
+          "totalHrs": "00:00",
+          "entries": [],
+          "firstIn_longitude": "-",
+          "lastOut_longitude": "-",
+          "lastOut_Building": "-",
+          "status": "Paid Leave(Annual Leave)"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 15 Jun 2026 09:07:52 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "content-length": "362",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=64072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "object-src 'none'; script-src 'nonce-MGHR7wspci0tvy4AGqns7rWU' 'strict-dynamic' http: https:; base-uri 'none';",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4909",
+          "x-ratelimit-reset": "1781514499",
+          "server": "ZGS",
+          "set-cookie": "<redacted>",
+          "cache-control": "private,no-cache,no-store,max-age=0,must-revalidate",
+          "pragma": "no-cache",
+          "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
+          "content-disposition": "attachment;filename=records",
+          "externalapicall": "allowed",
+          "api-count-left-today": "14885",
+          "vary": "Sec-Fetch-Dest,Sec-Fetch-Mode,Sec-Fetch-Site,Sec-Fetch-User",
+          "cross-origin-embedder-policy-report-only": "require-corp",
+          "cross-origin-opener-policy": "same-origin",
+          "content-language": "en-US"
+        },
+        "hash": "e26aae3ad2af5536d788ee4129837299a4726744",
+        "request": {
+          "params": {
+            "dateRange": "thisMonth",
+            "empId": "S20"
+          }
+        }
+      }
+    }
+  }
+}

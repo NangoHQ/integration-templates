@@ -1,6 +1,6 @@
-import { NangoActionMock, NangoSyncMock } from "nango/test";
+mport { NangoActionMock, NangoSyncMock } from 'nango/test';
 
 globalThis.vitest = {
-  NangoActionMock,
-  NangoSyncMock,
+    NangoActionMock,
+    NangoSyncMock
 };

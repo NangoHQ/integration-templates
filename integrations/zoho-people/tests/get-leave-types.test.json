@@ -1,0 +1,102 @@
+{
+  "input": {},
+  "output": {
+    "leavetypes": [
+      {
+        "id": "972601000000306008",
+        "name": "Absent",
+        "color": "#ff0000",
+        "type": "ABSENT",
+        "isGrantBased": false,
+        "isDisabled": false,
+        "isV2": true
+      },
+      {
+        "id": "972601000000306562",
+        "name": "Annual Leave",
+        "color": "#64d5fd",
+        "type": "PAID",
+        "isGrantBased": false,
+        "isDisabled": false,
+        "isV2": true
+      },
+      {
+        "id": "972601000000306010",
+        "name": "Compensatory Off",
+        "color": "#00ff00",
+        "type": "COMPENSATORY_OFF",
+        "isGrantBased": false,
+        "isDisabled": false,
+        "isV2": true
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/v2/leavetracker/leavetypes": {
+        "response": {
+          "leavetypes": [
+            {
+              "isGrantBased": false,
+              "color": "#ff0000",
+              "isV2": true,
+              "name": "Absent",
+              "id": "972601000000306008",
+              "isDisabled": false,
+              "type": "ABSENT"
+            },
+            {
+              "isGrantBased": false,
+              "code": "AL",
+              "color": "#64d5fd",
+              "isV2": true,
+              "name": "Annual Leave",
+              "id": "972601000000306562",
+              "isDisabled": false,
+              "type": "PAID"
+            },
+            {
+              "isGrantBased": false,
+              "color": "#00ff00",
+              "isV2": true,
+              "name": "Compensatory Off",
+              "id": "972601000000306010",
+              "isDisabled": false,
+              "type": "COMPENSATORY_OFF"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 15 Jun 2026 09:17:06 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "content-length": "442",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=64072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4992",
+          "x-ratelimit-reset": "1781515079",
+          "server": "ZGS",
+          "set-cookie": "zalb_c7cb34e6ac=f71b40ccb6ced852fe15e39e911faae6; Path=/; Secure; HttpOnly, _zpsid=4AF6720629F5084C7C8523219CBC33A4; Path=/; Secure; HttpOnly, CSRF_TOKEN=ad00a756-aab8-42d2-b259-1331fe286e06;path=/;SameSite=None;Secure;priority=high",
+          "cache-control": "private,no-cache,no-store,max-age=0,must-revalidate",
+          "pragma": "no-cache",
+          "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
+          "content-disposition": "inline;filename=records",
+          "externalapicall": "allowed",
+          "api-count-left-today": "14558"
+        },
+        "hash": "66c89431fdb13e2bcd4617e80b00c1327c435b91",
+        "request": {}
+      }
+    }
+  }
+}
