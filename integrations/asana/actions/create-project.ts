@@ -10,11 +10,11 @@ const InputSchema = z.object({
         .describe('The team GID to share the project with. Required if the workspace is an organization. Example: "1214299875377454"'),
     privacy_setting: z.enum(['private', 'public_to_workspace']).optional().describe('The privacy setting of the project. Example: "public_to_workspace"'),
     notes: z.string().optional().describe('Free-form textual information associated with the project (description).'),
-    color: z.string().nullable().optional().describe('Color of the project, or null for no color. Example: "dark-blue"'),
-    due_date: z.string().nullable().optional().describe('The date at which the project is due, or null for no due date. Format: YYYY-MM-DD.'),
-    start_on: z.string().nullable().optional().describe('The day on which the project starts, or null for no start date. Format: YYYY-MM-DD.'),
+    color: z.string().nullable().optional().describe('Color of the project. Example: "dark-blue"'),
+    due_date: z.string().nullable().optional().describe('The date at which the project is due. Format: YYYY-MM-DD.'),
+    start_on: z.string().nullable().optional().describe('The day on which the project starts. Format: YYYY-MM-DD.'),
     default_view: z.enum(['list', 'board', 'timeline', 'calendar']).optional().describe('The default view of the project. Example: "list"'),
-    owner: z.string().nullable().optional().describe('The user GID of the project owner, or null for no owner. Example: "12345"')
+    owner: z.string().nullable().optional().describe('The user GID of the project owner. Example: "12345"')
 });
 
 const WorkspaceCompactSchema = z.object({
