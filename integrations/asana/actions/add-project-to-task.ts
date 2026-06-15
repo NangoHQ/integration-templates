@@ -4,16 +4,8 @@ import { createAction } from 'nango';
 const InputSchema = z.object({
     task_gid: z.string().describe('The task to operate on. Example: "1200000000000001"'),
     project: z.string().describe('The project to add the task to. Example: "1200000000000002"'),
-    section: z
-        .string()
-        .nullable()
-        .optional()
-        .describe('The section to add the task to within the project. Example: "1200000000000003"'),
-    insert_after: z
-        .string()
-        .nullable()
-        .optional()
-        .describe('A task ID to position this task after within the project or section. Example: "1200000000000004"'),
+    section: z.string().nullable().optional().describe('The section to add the task to within the project. Example: "1200000000000003"'),
+    insert_after: z.string().nullable().optional().describe('A task ID to position this task after within the project or section. Example: "1200000000000004"'),
     insert_before: z
         .string()
         .nullable()
