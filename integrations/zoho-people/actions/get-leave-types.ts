@@ -18,17 +18,7 @@ const ProviderResponseSchema = z.object({
 });
 
 const OutputSchema = z.object({
-    leavetypes: z.array(
-        z.object({
-            id: z.string(),
-            name: z.string(),
-            color: z.string().optional(),
-            type: z.string().optional(),
-            isGrantBased: z.boolean().optional(),
-            isDisabled: z.boolean().optional(),
-            isV2: z.boolean().optional()
-        })
-    )
+    leavetypes: z.array(ProviderLeaveTypeSchema)
 });
 
 const action = createAction({

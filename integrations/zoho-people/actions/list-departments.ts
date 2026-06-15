@@ -106,7 +106,7 @@ const action = createAction({
             });
         }
 
-        const nextCursor = items.length === limit ? String(sIndex + limit) : undefined;
+        const nextCursor = rawResult.length === limit ? String(sIndex + limit) : undefined;
 
         return {
             items,

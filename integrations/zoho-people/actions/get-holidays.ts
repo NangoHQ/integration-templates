@@ -31,7 +31,7 @@ const action = createAction({
     },
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['ZohoPeople.leavetracker.ALL'],
+    scopes: ['ZohoPeople.leave.ALL'],
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
             // https://www.zoho.com/people/api/overview.html

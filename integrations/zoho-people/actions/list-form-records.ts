@@ -42,6 +42,13 @@ const action = createAction({
         const sIndex = input.sIndex ?? 1;
         const limit = input.limit ?? 200;
 
+        if (!Number.isInteger(sIndex) || sIndex < 1) {
+            throw new nango.ActionError({ type: 'invalid_input', message: 'sIndex must be a positive integer.' });
+        }
+        if (!Number.isInteger(limit) || limit < 1) {
+            throw new nango.ActionError({ type: 'invalid_input', message: 'limit must be a positive integer.' });
+        }
+
         // https://www.zoho.com/people/api/overview.html
         const response = await nango.get({
             endpoint: `/people/api/forms/${encodeURIComponent(input.formLinkName)}/getRecords`,
@@ -55,6 +62,10 @@ const action = createAction({
         const providerData = ProviderResponseSchema.parse(response.data);
 
         if (providerData.response.status !== 0) {
+            const message = (providerData.response.message ?? '').toLowerCase();
+            if (message.includes('no records') || message.includes('7024')) {
+                return { records: [] };
+            }
             throw new nango.ActionError({
                 type: 'provider_error',
                 message: providerData.response.message || 'Unknown error from Zoho People',

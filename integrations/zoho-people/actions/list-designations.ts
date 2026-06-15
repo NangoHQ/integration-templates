@@ -78,16 +78,24 @@ const action = createAction({
         }
 
         const providerData = parsed.data;
-        const status = providerData.response?.status;
+
+        if (!providerData.response) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Provider returned a response with no envelope.'
+            });
+        }
+
+        const status = providerData.response.status;
 
         if (status === 1) {
             throw new nango.ActionError({
                 type: 'api_error',
-                message: providerData.response?.message || 'Zoho People API returned an error'
+                message: providerData.response.message || 'Zoho People API returned an error'
             });
         }
 
-        const result = providerData.response?.result;
+        const result = providerData.response.result;
         if (!result || result.length === 0) {
             return {
                 items: [],
@@ -113,7 +121,7 @@ const action = createAction({
             }
         }
 
-        const hasMore = items.length === limit;
+        const hasMore = result.length === limit;
         const nextCursor = hasMore ? String(sIndex + limit) : undefined;
 
         return {

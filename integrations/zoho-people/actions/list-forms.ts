@@ -48,7 +48,7 @@ const action = createAction({
     },
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['ZOHOPEOPLE.form.READ'],
+    scopes: ['ZohoPeople.forms.READ'],
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({

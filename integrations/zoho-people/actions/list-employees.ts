@@ -107,7 +107,7 @@ const action = createAction({
             })
             .filter((item): item is { recordId: string; employee: z.infer<typeof EmployeeSchema> } => item !== null);
 
-        const nextCursor = items.length === limit ? String(sIndex + limit) : undefined;
+        const nextCursor = result.length === limit ? String(sIndex + limit) : undefined;
 
         return {
             items,

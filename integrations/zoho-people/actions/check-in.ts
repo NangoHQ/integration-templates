@@ -48,7 +48,7 @@ const action = createAction({
     },
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['ZOHOPEOPLE.attendance.ALL'],
+    scopes: ['ZohoPeople.attendance.ALL'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
@@ -95,10 +95,10 @@ const action = createAction({
                 }
             }
 
-            return {
-                success: true,
-                message: JSON.stringify(response.data)
-            };
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Provider returned an unexpected response format.'
+            });
         }
 
         const data = parsed.data.response;
