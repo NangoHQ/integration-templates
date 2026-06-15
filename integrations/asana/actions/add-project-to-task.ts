@@ -8,17 +8,17 @@ const InputSchema = z.object({
         .string()
         .nullable()
         .optional()
-        .describe('The section to add the task to within the project, or null for no section. Example: "1200000000000003"'),
+        .describe('The section to add the task to within the project. Example: "1200000000000003"'),
     insert_after: z
         .string()
         .nullable()
         .optional()
-        .describe('A task ID to position this task after, or null to insert at the beginning. Example: "1200000000000004"'),
+        .describe('A task ID to position this task after within the project or section. Example: "1200000000000004"'),
     insert_before: z
         .string()
         .nullable()
         .optional()
-        .describe('A task ID to position this task before, or null to insert at the end. Example: "1200000000000005"')
+        .describe('A task ID to position this task before within the project or section. Example: "1200000000000005"')
 });
 
 const ProviderResponseSchema = z.object({
