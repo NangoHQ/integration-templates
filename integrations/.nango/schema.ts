@@ -32082,7 +32082,7 @@ export interface ActionOutput_gong_fetchcalltranscripts {
   totalRecords?: number | undefined;
 };
 
-export interface CallOutcome {
+export interface GongCallOutcome {
   /**
    * The unique call outcome identifier
    */
