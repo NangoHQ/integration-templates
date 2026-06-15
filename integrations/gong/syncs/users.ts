@@ -95,7 +95,7 @@ function normalizeToUtc(isoString: string): string {
 
 const sync = createSync({
     description: 'Sync users from Gong',
-    version: '1.0.0',
+    version: '1.1.0',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -112,6 +112,7 @@ const sync = createSync({
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();
         let cursor = checkpoint && typeof checkpoint['cursor'] === 'string' && checkpoint['cursor'] !== '' ? checkpoint['cursor'] : undefined;
+        let hasCheckpoint = cursor !== undefined;
 
         // /v2/users/extensive only exposes creation-time filters, so an
         // incremental checkpoint would miss updates to existing users.
@@ -156,13 +157,16 @@ const sync = createSync({
 
             const nextCursor = parsed.records?.cursor;
             if (!nextCursor) {
-                await nango.clearCheckpoint();
+                if (hasCheckpoint) {
+                    await nango.clearCheckpoint();
+                }
                 await nango.trackDeletesEnd('User');
                 return;
             }
 
             cursor = nextCursor;
             await nango.saveCheckpoint({ cursor });
+            hasCheckpoint = true;
         }
     }
 });
