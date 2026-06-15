@@ -9,11 +9,11 @@ const InputSchema = z
             .optional()
             .describe('The workspace GID where the task will be created. Required unless projects or parent is specified. Example: "1234567890"'),
         projects: z.array(z.string()).optional().describe('Array of project GIDs to add the task to. Implies the workspace.'),
-        parent: z.string().nullable().optional().describe('The GID of a parent task, or null for no parent. Implies the workspace.'),
-        assignee: z.string().nullable().optional().describe('The user GID to assign the task to, or null for no assignee.'),
+        parent: z.string().nullable().optional().describe('The GID of a parent task. Implies the workspace.'),
+        assignee: z.string().nullable().optional().describe('The user GID to assign the task to.'),
         notes: z.string().optional().describe('Free-form text description of the task.'),
-        due_on: z.string().nullable().optional().describe('The due date in YYYY-MM-DD format, or null for no due date.'),
-        due_at: z.string().nullable().optional().describe('The due date and time in ISO 8601 format, or null for no due time.'),
+        due_on: z.string().nullable().optional().describe('The due date in YYYY-MM-DD format.'),
+        due_at: z.string().nullable().optional().describe('The due date and time in ISO 8601 format.'),
         completed: z.boolean().optional().describe('Whether the task is completed.')
     })
     .refine((data) => data.workspace || (data.projects && data.projects.length > 0) || data.parent, {
