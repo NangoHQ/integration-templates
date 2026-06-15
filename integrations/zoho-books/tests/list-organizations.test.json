@@ -1,0 +1,96 @@
+{
+  "input": {},
+  "output": {
+    "organizations": [
+      {
+        "organization_id": "927270289",
+        "name": "Nango Dev",
+        "contact_name": "Nango Developer",
+        "email": "developer@nango.dev",
+        "is_default_org": true,
+        "language_code": "en",
+        "fiscal_year_start_month": "1",
+        "account_created_date": "2026-06-09",
+        "time_zone": "America/New_York",
+        "is_dst_active": true,
+        "date_format": "MM/dd/yyyy",
+        "field_separator": ",",
+        "industry_type": "Technology",
+        "industry_size": "1-10",
+        "company_id_label": "",
+        "company_id_value": "",
+        "tax_id_label": "",
+        "tax_id_value": "",
+        "currency_id": "260815000000000097",
+        "currency_code": "USD",
+        "currency_symbol": "$",
+        "currency_format": "###,##0.00",
+        "price_precision": 2,
+        "plan_type": 3,
+        "plan_name": "Professional",
+        "plan_period": "Month",
+        "country_code": "US",
+        "country_name": "U.S.A",
+        "portal_name": "nangodev",
+        "org_settings": {
+          "is_org_active": true
+        }
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/books/v3/organizations": {
+        "response": {
+          "code": 0,
+          "message": "success",
+          "organizations": [
+            {
+              "organization_id": "927270289",
+              "name": "Nango Dev",
+              "contact_name": "Nango Developer",
+              "email": "developer@nango.dev",
+              "is_default_org": true,
+              "language_code": "en",
+              "fiscal_year_start_month": "1",
+              "account_created_date": "2026-06-09",
+              "time_zone": "America/New_York",
+              "is_dst_active": true,
+              "date_format": "MM/dd/yyyy",
+              "field_separator": ",",
+              "industry_type": "Technology",
+              "industry_size": "1-10",
+              "company_id_label": "",
+              "company_id_value": "",
+              "tax_id_label": "",
+              "tax_id_value": "",
+              "currency_id": "260815000000000097",
+              "currency_code": "USD",
+              "currency_symbol": "$",
+              "currency_format": "###,##0.00",
+              "price_precision": 2,
+              "plan_type": 3,
+              "plan_name": "Professional",
+              "plan_period": "Month",
+              "country_code": "US",
+              "country_name": "U.S.A",
+              "portal_name": "nangodev",
+              "org_settings": {
+                "is_org_active": true
+              }
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "content-type": "application/json;charset=UTF-8"
+        },
+        "hash": "7bd4ce24b74339ba584d7de992af02a3a98e7b54",
+        "request": {
+          "params": {}
+        }
+      }
+    }
+  }
+}
