@@ -19,7 +19,7 @@ const ProviderResponseSchema = z.object({
     cursor: z.string().optional()
 });
 
-const CallOutcomeSchema = z
+const CallOutcomeItemSchema = z
     .object({
         id: z.string().optional(),
         category: z.string().optional(),
@@ -28,7 +28,7 @@ const CallOutcomeSchema = z
     .passthrough();
 
 const OutputSchema = z.object({
-    items: z.array(CallOutcomeSchema),
+    items: z.array(CallOutcomeItemSchema),
     nextCursor: z.string().optional()
 });
 
