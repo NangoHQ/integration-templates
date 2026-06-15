@@ -43,8 +43,6 @@ const sync = createSync({
         Order: OrderSchema
     },
     exec: async (nango) => {
-        await nango.trackDeletesStart('Order');
-
         // The API documents a small full snapshot for /orders with no cursor or offset.
         const response = await nango.get({
             endpoint: '/orders',
@@ -55,6 +53,8 @@ const sync = createSync({
         if (!parsedOrders.success) {
             throw new Error('Failed to parse orders response: ' + parsedOrders.error.message);
         }
+
+        await nango.trackDeletesStart('Order');
 
         const orders = parsedOrders.data.map((record) => ({
             id: String(record.id),

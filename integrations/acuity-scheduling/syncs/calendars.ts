@@ -32,8 +32,6 @@ const sync = createSync({
     },
 
     exec: async (nango) => {
-        await nango.trackDeletesStart('Calendar');
-
         // https://developers.acuityscheduling.com/reference/get-calendars
         const response = await nango.get({
             endpoint: '/calendars',
@@ -44,6 +42,8 @@ const sync = createSync({
         if (!parsedCalendars.success) {
             throw new Error('Failed to parse calendars response: ' + parsedCalendars.error.message);
         }
+
+        await nango.trackDeletesStart('Calendar');
 
         const records = parsedCalendars.data.map((record) => ({
             id: String(record.id),

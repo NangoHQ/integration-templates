@@ -33,7 +33,6 @@ const sync = createSync({
         // Blocker: provider only exposes /products with no changed-since filter,
         // no deleted-record endpoint, and no resumable cursor. Products are
         // relatively static reference data, so full-refresh delete tracking is used.
-        await nango.trackDeletesStart('Product');
 
         // https://developers.acuityscheduling.com/reference/get-products
         const response = await nango.get({
@@ -45,6 +44,8 @@ const sync = createSync({
         if (!Array.isArray(rawProducts)) {
             throw new Error('Expected products response to be an array');
         }
+
+        await nango.trackDeletesStart('Product');
 
         const products: Array<z.infer<typeof ProductSchema>> = [];
         for (const raw of rawProducts) {

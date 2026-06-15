@@ -12,16 +12,16 @@ const ProviderRemainingCountsSchema = z.record(z.string(), z.number());
 
 const ProviderCertificateSchema = z.object({
     id: z.number(),
-    certificate: z.string().optional(),
-    productID: z.number().optional(),
-    orderID: z.string().optional(),
-    appointmentTypeIDs: z.array(z.number()).optional(),
-    name: z.string().optional(),
-    email: z.string().optional(),
-    type: z.string().optional(),
-    remainingCounts: ProviderRemainingCountsSchema.optional(),
-    remainingMinutes: z.string().optional(),
-    expiration: z.string().optional()
+    certificate: z.string().nullable().optional(),
+    productID: z.number().nullable().optional(),
+    orderID: z.string().nullable().optional(),
+    appointmentTypeIDs: z.array(z.number()).nullable().optional(),
+    name: z.string().nullable().optional(),
+    email: z.string().nullable().optional(),
+    type: z.string().nullable().optional(),
+    remainingCounts: ProviderRemainingCountsSchema.nullable().optional(),
+    remainingMinutes: z.string().nullable().optional(),
+    expiration: z.string().nullable().optional()
 });
 
 const OutputSchema = z.object({
@@ -71,16 +71,16 @@ const action = createAction({
         return {
             certificates: providerCertificates.map((cert) => ({
                 id: cert.id,
-                ...(cert.certificate !== undefined && { certificate: cert.certificate }),
-                ...(cert.productID !== undefined && { productID: cert.productID }),
-                ...(cert.orderID !== undefined && { orderID: cert.orderID }),
-                ...(cert.appointmentTypeIDs !== undefined && { appointmentTypeIDs: cert.appointmentTypeIDs }),
-                ...(cert.name !== undefined && { name: cert.name }),
-                ...(cert.email !== undefined && { email: cert.email }),
-                ...(cert.type !== undefined && { type: cert.type }),
-                ...(cert.remainingCounts !== undefined && { remainingCounts: cert.remainingCounts }),
-                ...(cert.remainingMinutes !== undefined && { remainingMinutes: cert.remainingMinutes }),
-                ...(cert.expiration !== undefined && { expiration: cert.expiration })
+                ...(cert.certificate != null && { certificate: cert.certificate }),
+                ...(cert.productID != null && { productID: cert.productID }),
+                ...(cert.orderID != null && { orderID: cert.orderID }),
+                ...(cert.appointmentTypeIDs != null && { appointmentTypeIDs: cert.appointmentTypeIDs }),
+                ...(cert.name != null && { name: cert.name }),
+                ...(cert.email != null && { email: cert.email }),
+                ...(cert.type != null && { type: cert.type }),
+                ...(cert.remainingCounts != null && { remainingCounts: cert.remainingCounts }),
+                ...(cert.remainingMinutes != null && { remainingMinutes: cert.remainingMinutes }),
+                ...(cert.expiration != null && { expiration: cert.expiration })
             }))
         };
     }

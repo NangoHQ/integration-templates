@@ -109,8 +109,6 @@ const sync = createSync({
         let nextDate = checkpoint.success ? checkpoint.data.next_date : defaultStartDate;
         const endDate = checkpoint.success ? checkpoint.data.end_date : defaultEndDate;
 
-        await nango.trackDeletesStart('Appointment');
-
         while (nextDate <= endDate) {
             // https://developers.acuityscheduling.com/reference/get-appointments
             const response = await nango.get({
@@ -182,7 +180,6 @@ const sync = createSync({
         }
 
         await nango.clearCheckpoint();
-        await nango.trackDeletesEnd('Appointment');
     }
 });
 

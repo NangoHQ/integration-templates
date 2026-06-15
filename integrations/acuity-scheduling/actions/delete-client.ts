@@ -11,12 +11,6 @@ const OutputSchema = z.object({
     success: z.boolean()
 });
 
-const ErrorResponseSchema = z.object({
-    status_code: z.number().optional(),
-    message: z.string().optional(),
-    error: z.string().optional()
-});
-
 const action = createAction({
     description: 'Delete a client.',
     version: '1.0.0',
@@ -30,7 +24,7 @@ const action = createAction({
     scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const response = await nango.delete({
+        await nango.delete({
             // https://developers.acuityscheduling.com/reference/delete-clients
             endpoint: '/clients',
             params: {
@@ -41,22 +35,7 @@ const action = createAction({
             retries: 3
         });
 
-        if (response.status >= 200 && response.status < 300) {
-            return { success: true };
-        }
-
-        const errorData = ErrorResponseSchema.safeParse(response.data);
-        if (errorData.success) {
-            throw new nango.ActionError({
-                type: errorData.data.error || 'delete_failed',
-                message: errorData.data.message || 'Failed to delete client'
-            });
-        }
-
-        throw new nango.ActionError({
-            type: 'delete_failed',
-            message: 'Failed to delete client'
-        });
+        return { success: true };
     }
 });
 

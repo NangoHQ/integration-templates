@@ -41,7 +41,6 @@ const sync = createSync({
         // Blocker: the Acuity /forms endpoint does not expose updated/modified timestamp
         // filters, cursors, page tokens, or pagination parameters. It returns a complete
         // snapshot of all intake forms on every request.
-        await nango.trackDeletesStart('Form');
 
         // https://developers.acuityscheduling.com/reference/forms
         const response = await nango.get({
@@ -53,6 +52,8 @@ const sync = createSync({
         if (!parsed.success) {
             throw new Error(`Failed to parse forms response: ${parsed.error.message}`);
         }
+
+        await nango.trackDeletesStart('Form');
 
         const forms = parsed.data.map((record) => ({
             id: String(record.id),

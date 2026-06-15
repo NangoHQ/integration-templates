@@ -57,7 +57,7 @@ const sync = createSync({
             }
 
             const record = parsed.data;
-            const id = record.firstName + '|' + record.lastName;
+            const id = [record.firstName, record.lastName, record.email ?? '', record.phone ?? ''].join('|');
 
             clients.push({
                 id,

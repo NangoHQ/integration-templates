@@ -4197,12 +4197,12 @@ export interface ActionOutput_acuity_scheduling_updateappointment {
   amountPaid?: string | number | undefined;
   type?: string | undefined;
   appointmentTypeID?: number | undefined;
-  classID?: number | null | undefined;
+  classID?: number | undefined;
   duration?: string | number | undefined;
   calendar?: string | undefined;
   calendarID?: number | undefined;
   location?: string | undefined;
-  certificate?: string | null | undefined;
+  certificate?: string | undefined;
   confirmationPage?: string | undefined;
   formsText?: string | undefined;
   notes?: string | undefined;

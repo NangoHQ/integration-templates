@@ -134,6 +134,13 @@ const action = createAction({
     scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        if (input['admin'] === true && input['calendarID'] === undefined) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'calendarID is required when admin is true'
+            });
+        }
+
         const params: Record<string, string | number | string[] | number[]> = {};
         if (input['admin'] === true) {
             params['admin'] = 'true';

@@ -3,7 +3,7 @@
     "batchSave": {
       "Client": [
         {
-          "id": "Alice|McTest",
+          "id": "Alice|McTest|alice.mctest@example.com|(123) 555-0103",
           "firstName": "Alice",
           "lastName": "McTest",
           "email": "alice.mctest@example.com",
@@ -11,7 +11,7 @@
           "notes": ""
         },
         {
-          "id": "Jane|McTest",
+          "id": "Jane|McTest|jane.mctest@example.com|(123) 555-0101",
           "firstName": "Jane",
           "lastName": "McTest",
           "email": "jane.mctest@example.com",
@@ -19,7 +19,7 @@
           "notes": ""
         },
         {
-          "id": "Nango|Test",
+          "id": "Nango|Test|nango.test@example.com|(123) 555-0199",
           "firstName": "Nango",
           "lastName": "Test",
           "email": "nango.test@example.com",
@@ -27,7 +27,7 @@
           "notes": "Created via action"
         },
         {
-          "id": "Temp|Test",
+          "id": "Temp|Test|temp.test@example.com|",
           "firstName": "Temp",
           "lastName": "Test",
           "email": "temp.test@example.com",
@@ -35,7 +35,7 @@
           "notes": ""
         },
         {
-          "id": "Test|User",
+          "id": "Test|User|test.user@example.com|",
           "firstName": "Test",
           "lastName": "User",
           "email": "test.user@example.com",

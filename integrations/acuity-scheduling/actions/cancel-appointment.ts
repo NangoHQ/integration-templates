@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    id: z.number().describe('Appointment ID. Example: 1722092210'),
+    id: z.number().int().describe('Appointment ID. Example: 1722092210'),
     cancelNote: z.string().optional().describe('A message to send with cancellation notifications.'),
     noShow: z.boolean().optional().describe('Whether the appointment was a no show, settable by admins.')
 });
@@ -75,6 +75,8 @@ const action = createAction({
             // https://developers.acuityscheduling.com/reference/put-appointments-id-cancel
             endpoint: `/appointments/${encodeURIComponent(input.id)}/cancel`,
             data,
+            // noShow is an admin-only field; passing admin=true enables it
+            ...(input.noShow !== undefined && { params: { admin: 'true' } }),
             retries: 3
         });
 

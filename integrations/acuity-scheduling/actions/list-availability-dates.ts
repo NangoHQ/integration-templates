@@ -26,7 +26,7 @@ const action = createAction({
     scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const params: Record<string, string | number | number[]> = {
+        const params: Record<string, string | number> = {
             month: input.month,
             appointmentTypeID: input.appointmentTypeID
         };
@@ -36,7 +36,12 @@ const action = createAction({
         }
 
         if (input.addonIDs !== undefined && input.addonIDs.length > 0) {
-            params['addonIDs'] = input.addonIDs;
+            for (let i = 0; i < input.addonIDs.length; i++) {
+                const addonID = input.addonIDs[i];
+                if (addonID !== undefined) {
+                    params[`addonIDs[${i}]`] = addonID;
+                }
+            }
         }
 
         if (input.timezone !== undefined) {
