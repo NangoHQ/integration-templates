@@ -7270,15 +7270,15 @@ export interface ActionInput_asana_addprojecttotask {
    */
   project: string;
   /**
-   * The section to add the task to within the project. Example: "1200000000000003"
+   * The section to add the task to within the project, or null for no section. Example: "1200000000000003"
    */
   section?: string | undefined;
   /**
-   * A task ID to position this task after within the project or section. Example: "1200000000000004"
+   * A task ID to position this task after, or null to insert at the beginning. Example: "1200000000000004"
    */
   insert_after?: string | undefined;
   /**
-   * A task ID to position this task before within the project or section. Example: "1200000000000005"
+   * A task ID to position this task before, or null to insert at the end. Example: "1200000000000005"
    */
   insert_before?: string | undefined;
 };
@@ -7324,15 +7324,15 @@ export interface ActionInput_asana_createproject {
    */
   notes?: string | undefined;
   /**
-   * Color of the project. Example: "dark-blue"
+   * Color of the project, or null for no color. Example: "dark-blue"
    */
   color?: string | undefined;
   /**
-   * The date at which the project is due. Format: YYYY-MM-DD.
+   * The date at which the project is due, or null for no due date. Format: YYYY-MM-DD.
    */
   due_date?: string | undefined;
   /**
-   * The day on which the project starts. Format: YYYY-MM-DD.
+   * The day on which the project starts, or null for no start date. Format: YYYY-MM-DD.
    */
   start_on?: string | undefined;
   /**
@@ -7340,7 +7340,7 @@ export interface ActionInput_asana_createproject {
    */
   default_view?: 'list' | 'board' | 'timeline' | 'calendar' | undefined;
   /**
-   * The user GID of the project owner. Example: "12345"
+   * The user GID of the project owner, or null for no owner. Example: "12345"
    */
   owner?: string | undefined;
 };
@@ -7429,15 +7429,15 @@ export interface ActionInput_asana_createsubtask {
    */
   name: string;
   /**
-   * The user gid to assign the subtask to. Example: "67890"
+   * The user gid to assign the subtask to, or null for no assignee. Example: "67890"
    */
   assignee?: string | undefined;
   /**
-   * Localized due date in YYYY-MM-DD format. Example: "2024-12-31"
+   * Localized due date in YYYY-MM-DD format, or null for no due date. Example: "2024-12-31"
    */
   due_on?: string | undefined;
   /**
-   * UTC due date-time in ISO 8601 format. Example: "2024-12-31T23:59:59.000Z"
+   * UTC due date-time in ISO 8601 format, or null for no due time. Example: "2024-12-31T23:59:59.000Z"
    */
   due_at?: string | undefined;
   /**
@@ -7461,7 +7461,7 @@ export interface ActionInput_asana_createsubtask {
    */
   tags?: string[] | undefined;
   /**
-   * Start date in YYYY-MM-DD format. Example: "2024-01-01"
+   * Start date in YYYY-MM-DD format, or null for no start date. Example: "2024-01-01"
    */
   start_on?: string | undefined;
   /**
@@ -7543,11 +7543,11 @@ export interface ActionInput_asana_createtask {
    */
   projects?: string[] | undefined;
   /**
-   * The GID of a parent task. Implies the workspace.
+   * The GID of a parent task, or null for no parent. Implies the workspace.
    */
   parent?: string | undefined;
   /**
-   * The user GID to assign the task to.
+   * The user GID to assign the task to, or null for no assignee.
    */
   assignee?: string | undefined;
   /**
@@ -7555,11 +7555,11 @@ export interface ActionInput_asana_createtask {
    */
   notes?: string | undefined;
   /**
-   * The due date in YYYY-MM-DD format.
+   * The due date in YYYY-MM-DD format, or null for no due date.
    */
   due_on?: string | undefined;
   /**
-   * The due date and time in ISO 8601 format.
+   * The due date and time in ISO 8601 format, or null for no due time.
    */
   due_at?: string | undefined;
   /**
