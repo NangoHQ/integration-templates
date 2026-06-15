@@ -3069,6 +3069,7 @@ import './twilio/actions/update-message.js';
 import './twilio/actions/update-queue.js';
 import './twilio/actions/update-twiml-app.js';
 import './twilio/actions/update-verify-service.js';
+
 // -- Integration: trello
 import './trello/syncs/actions.js';
 import './trello/syncs/attachments.js';
@@ -3598,6 +3599,37 @@ import './zoho-mail/actions/update-label.js';
 import './zoho-mail/actions/update-signature.js';
 import './zoho-mail/actions/update-task.js';
 import './zoho-mail/actions/upload-attachment.js';
+
+// -- Integration: zoho-people
+import './zoho-people/syncs/attendance.js';
+import './zoho-people/syncs/departments.js';
+import './zoho-people/syncs/designations.js';
+import './zoho-people/syncs/employees.js';
+import './zoho-people/syncs/form-records.js';
+import './zoho-people/syncs/forms.js';
+import './zoho-people/syncs/holidays.js';
+import './zoho-people/syncs/leave-records.js';
+import './zoho-people/syncs/leave-types.js';
+import './zoho-people/actions/check-in.js';
+import './zoho-people/actions/check-out.js';
+import './zoho-people/actions/create-employee.js';
+import './zoho-people/actions/create-form-record.js';
+import './zoho-people/actions/create-holiday.js';
+import './zoho-people/actions/create-leave-request.js';
+import './zoho-people/actions/get-attendance-report.js';
+import './zoho-people/actions/get-employee-attendance.js';
+import './zoho-people/actions/get-employee.js';
+import './zoho-people/actions/get-form-record.js';
+import './zoho-people/actions/get-holidays.js';
+import './zoho-people/actions/get-leave-types.js';
+import './zoho-people/actions/list-departments.js';
+import './zoho-people/actions/list-designations.js';
+import './zoho-people/actions/list-employees.js';
+import './zoho-people/actions/list-form-records.js';
+import './zoho-people/actions/list-forms.js';
+import './zoho-people/actions/list-leave-records.js';
+import './zoho-people/actions/update-employee.js';
+import './zoho-people/actions/update-form-record.js';
 
 // -- Integration: zoom
 import './zoom/syncs/meetings.js';

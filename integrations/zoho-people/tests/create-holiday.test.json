@@ -1,0 +1,55 @@
+{
+  "input": {
+    "name": "Test Holiday",
+    "from": "16-Jun-2026",
+    "to": "16-Jun-2026",
+    "holidayType": "Mandatory"
+  },
+  "output": {
+    "success": true
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/api/v2/leavetracker/holidays": {
+        "response": "",
+        "status": 200,
+        "headers": {
+          "date": "Mon, 15 Jun 2026 09:23:00 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "content-length": "0",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=64072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4988",
+          "x-ratelimit-reset": "1781515396",
+          "server": "ZGS",
+          "set-cookie": "zalb_c7cb34e6ac=707e0f7c31799cf41ae4d32e33bdabcd; Path=/; Secure; HttpOnly, _zpsid=28050E7E7D17ECF048831C9A1A9FEF6E; Path=/; Secure; HttpOnly, CSRF_TOKEN=f64caa83-cd9b-4451-8dfb-9c9960156dcb;path=/;SameSite=None;Secure;priority=high",
+          "cache-control": "private,no-cache,no-store,max-age=0,must-revalidate",
+          "pragma": "no-cache",
+          "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
+          "content-disposition": "attachment",
+          "externalapicall": "allowed",
+          "api-count-left-today": "14553"
+        },
+        "hash": "268f44c5e5735fdd65ff49dc4b05033085074123",
+        "request": {
+          "params": {
+            "from": "16-Jun-2026",
+            "holidayType": "Mandatory",
+            "name": "Test Holiday",
+            "to": "16-Jun-2026"
+          }
+        }
+      }
+    }
+  }
+}

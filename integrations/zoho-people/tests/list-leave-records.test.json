@@ -1,0 +1,513 @@
+{
+  "input": {
+    "from": "01-Jun-2026",
+    "to": "30-Jun-2026"
+  },
+  "output": {
+    "items": [
+      {
+        "id": "972601000000315002",
+        "Zoho.ID": 972601000000315000,
+        "From": "16-Jun-2026",
+        "Leavetype.ID": 972601000000306600,
+        "Unit": "Days",
+        "ApprovalStatus": "",
+        "Type": "PAID",
+        "Employee": "Lilly Williams",
+        "Leavetype": "Annual Leave",
+        "Days": {
+          "16-Jun-2026": {
+            "LeaveCount": "1.0"
+          },
+          "17-Jun-2026": {
+            "LeaveCount": "1.0"
+          }
+        },
+        "EmployeePhoto": "viewPhoto?filename=7232070000000039001",
+        "To": "17-Jun-2026",
+        "EmployeeId": "S2",
+        "ZUID": -1,
+        "Employee.ID": 972601000000306000,
+        "DateOfRequest": "15-Jun-2026"
+      },
+      {
+        "id": "972601000000306571",
+        "Zoho.ID": 972601000000306600,
+        "From": "17-Jun-2026",
+        "Leavetype.ID": 972601000000306600,
+        "Unit": "Days",
+        "ApprovalStatus": "",
+        "Type": "PAID",
+        "Employee": "Nango Developer",
+        "Leavetype": "Annual Leave",
+        "Days": {
+          "18-Jun-2026": {
+            "LeaveCount": "1.0",
+            "EndTime": "18:00",
+            "StartTime": "09:00"
+          },
+          "17-Jun-2026": {
+            "LeaveCount": "1.0",
+            "EndTime": "18:00",
+            "StartTime": "09:00"
+          }
+        },
+        "EmployeePhoto": "https://contacts.zoho.com/file?ID=924194079&fs=thumb",
+        "To": "18-Jun-2026",
+        "EmployeeId": "1",
+        "ZUID": 924194079,
+        "Employee.ID": 972601000000306000,
+        "DateOfRequest": "15-Jun-2026"
+      },
+      {
+        "id": "972601000000314002",
+        "Zoho.ID": 972601000000314000,
+        "From": "22-Jun-2026",
+        "Leavetype.ID": 972601000000306600,
+        "Unit": "Days",
+        "ApprovalStatus": "",
+        "Type": "PAID",
+        "Employee": "Andrew Turner",
+        "Leavetype": "Annual Leave",
+        "Days": {
+          "23-Jun-2026": {
+            "LeaveCount": "1.0"
+          },
+          "26-Jun-2026": {
+            "LeaveCount": "1.0"
+          },
+          "24-Jun-2026": {
+            "LeaveCount": "1.0"
+          },
+          "22-Jun-2026": {
+            "LeaveCount": "1.0"
+          },
+          "25-Jun-2026": {
+            "LeaveCount": "1.0"
+          }
+        },
+        "EmployeePhoto": "viewPhoto?filename=7232070000000040001",
+        "To": "26-Jun-2026",
+        "EmployeeId": "S5",
+        "ZUID": -1,
+        "Employee.ID": 972601000000306000,
+        "DateOfRequest": "15-Jun-2026"
+      },
+      {
+        "id": "972601000000315011",
+        "Zoho.ID": 972601000000315000,
+        "From": "29-Jun-2026",
+        "Leavetype.ID": 972601000000306600,
+        "Unit": "Days",
+        "ApprovalStatus": "",
+        "Type": "PAID",
+        "Employee": "Hazel Carter",
+        "Leavetype": "Annual Leave",
+        "Days": {
+          "29-Jun-2026": {
+            "LeaveCount": "1.0"
+          },
+          "30-Jun-2026": {
+            "LeaveCount": "1.0"
+          }
+        },
+        "EmployeePhoto": "viewPhoto?filename=7232070000000037002",
+        "To": "30-Jun-2026",
+        "EmployeeId": "S7",
+        "ZUID": -1,
+        "Employee.ID": 972601000000306000,
+        "DateOfRequest": "15-Jun-2026"
+      },
+      {
+        "id": "972601000000313011",
+        "Zoho.ID": 972601000000313000,
+        "From": "15-Jun-2026",
+        "Leavetype.ID": 972601000000306600,
+        "Unit": "Days",
+        "ApprovalStatus": "",
+        "Type": "PAID",
+        "Employee": "Christopher Brown",
+        "Leavetype": "Annual Leave",
+        "Days": {
+          "16-Jun-2026": {
+            "LeaveCount": "1.0"
+          },
+          "15-Jun-2026": {
+            "LeaveCount": "1.0"
+          }
+        },
+        "EmployeePhoto": "viewPhoto?filename=7232070000000035004",
+        "To": "16-Jun-2026",
+        "EmployeeId": "S20",
+        "ZUID": -1,
+        "Employee.ID": 972601000000306000,
+        "DateOfRequest": "15-Jun-2026"
+      },
+      {
+        "id": "972601000000314012",
+        "Zoho.ID": 972601000000314000,
+        "From": "25-Jun-2026",
+        "Leavetype.ID": 972601000000306600,
+        "Unit": "Days",
+        "ApprovalStatus": "",
+        "Type": "PAID",
+        "Employee": "Asher Miller",
+        "Leavetype": "Annual Leave",
+        "Days": {
+          "25-Jun-2026": {
+            "LeaveCount": "1.0"
+          }
+        },
+        "EmployeePhoto": "viewPhoto?filename=7232070000000033004",
+        "To": "25-Jun-2026",
+        "EmployeeId": "S8",
+        "ZUID": -1,
+        "Employee.ID": 972601000000306000,
+        "DateOfRequest": "15-Jun-2026"
+      },
+      {
+        "id": "972601000000316002",
+        "Zoho.ID": 972601000000316000,
+        "From": "17-Jun-2026",
+        "Leavetype.ID": 972601000000306600,
+        "Unit": "Days",
+        "ApprovalStatus": "",
+        "Type": "PAID",
+        "Employee": "Christopher Brown",
+        "Leavetype": "Annual Leave",
+        "Days": {
+          "18-Jun-2026": {
+            "LeaveCount": "1.0"
+          },
+          "17-Jun-2026": {
+            "LeaveCount": "1.0"
+          }
+        },
+        "EmployeePhoto": "viewPhoto?filename=7232070000000035004",
+        "To": "18-Jun-2026",
+        "EmployeeId": "S20",
+        "ZUID": -1,
+        "Employee.ID": 972601000000306000,
+        "DateOfRequest": "15-Jun-2026"
+      },
+      {
+        "id": "972601000000313003",
+        "Zoho.ID": 972601000000313000,
+        "From": "15-Jun-2026",
+        "Leavetype.ID": 972601000000306600,
+        "Unit": "Days",
+        "ApprovalStatus": "",
+        "Type": "PAID",
+        "Employee": "Sofia Rodriguez",
+        "Leavetype": "Annual Leave",
+        "Days": {
+          "15-Jun-2026": {
+            "LeaveCount": "1.0"
+          }
+        },
+        "EmployeePhoto": "viewPhoto?filename=7232070000000032006",
+        "To": "15-Jun-2026",
+        "EmployeeId": "S12",
+        "ZUID": -1,
+        "Employee.ID": 972601000000306000,
+        "DateOfRequest": "15-Jun-2026"
+      },
+      {
+        "id": "972601000000310003",
+        "Zoho.ID": 972601000000310000,
+        "From": "18-Jun-2026",
+        "Leavetype.ID": 972601000000306600,
+        "Unit": "Days",
+        "ApprovalStatus": "",
+        "Type": "PAID",
+        "Employee": "Caspian Jones",
+        "Leavetype": "Annual Leave",
+        "Days": {
+          "18-Jun-2026": {
+            "LeaveCount": "1.0"
+          },
+          "19-Jun-2026": {
+            "LeaveCount": "1.0"
+          }
+        },
+        "EmployeePhoto": "viewPhoto?filename=7232070000000036002",
+        "To": "19-Jun-2026",
+        "EmployeeId": "S9",
+        "ZUID": -1,
+        "Employee.ID": 972601000000306000,
+        "DateOfRequest": "15-Jun-2026"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/v2/leavetracker/leaves/records": {
+        "response": {
+          "records": {
+            "972601000000315002": {
+              "Zoho.ID": 972601000000315000,
+              "From": "16-Jun-2026",
+              "Leavetype.ID": 972601000000306600,
+              "Unit": "Days",
+              "ApprovalStatus": "",
+              "Type": "PAID",
+              "Employee": "Lilly Williams",
+              "Leavetype": "Annual Leave",
+              "Days": {
+                "16-Jun-2026": {
+                  "LeaveCount": "1.0"
+                },
+                "17-Jun-2026": {
+                  "LeaveCount": "1.0"
+                }
+              },
+              "EmployeePhoto": "viewPhoto?filename=7232070000000039001",
+              "To": "17-Jun-2026",
+              "EmployeeId": "S2",
+              "ZUID": -1,
+              "Employee.ID": 972601000000306000,
+              "DateOfRequest": "15-Jun-2026"
+            },
+            "972601000000306571": {
+              "Zoho.ID": 972601000000306600,
+              "From": "17-Jun-2026",
+              "Leavetype.ID": 972601000000306600,
+              "Unit": "Days",
+              "ApprovalStatus": "",
+              "Type": "PAID",
+              "Employee": "Nango Developer",
+              "Leavetype": "Annual Leave",
+              "Days": {
+                "18-Jun-2026": {
+                  "LeaveCount": "1.0",
+                  "EndTime": "18:00",
+                  "StartTime": "09:00"
+                },
+                "17-Jun-2026": {
+                  "LeaveCount": "1.0",
+                  "EndTime": "18:00",
+                  "StartTime": "09:00"
+                }
+              },
+              "EmployeePhoto": "https://contacts.zoho.com/file?ID=924194079&fs=thumb",
+              "To": "18-Jun-2026",
+              "EmployeeId": "1",
+              "ZUID": 924194079,
+              "Employee.ID": 972601000000306000,
+              "DateOfRequest": "15-Jun-2026"
+            },
+            "972601000000314002": {
+              "Zoho.ID": 972601000000314000,
+              "From": "22-Jun-2026",
+              "Leavetype.ID": 972601000000306600,
+              "Unit": "Days",
+              "ApprovalStatus": "",
+              "Type": "PAID",
+              "Employee": "Andrew Turner",
+              "Leavetype": "Annual Leave",
+              "Days": {
+                "23-Jun-2026": {
+                  "LeaveCount": "1.0"
+                },
+                "26-Jun-2026": {
+                  "LeaveCount": "1.0"
+                },
+                "24-Jun-2026": {
+                  "LeaveCount": "1.0"
+                },
+                "22-Jun-2026": {
+                  "LeaveCount": "1.0"
+                },
+                "25-Jun-2026": {
+                  "LeaveCount": "1.0"
+                }
+              },
+              "EmployeePhoto": "viewPhoto?filename=7232070000000040001",
+              "To": "26-Jun-2026",
+              "EmployeeId": "S5",
+              "ZUID": -1,
+              "Employee.ID": 972601000000306000,
+              "DateOfRequest": "15-Jun-2026"
+            },
+            "972601000000315011": {
+              "Zoho.ID": 972601000000315000,
+              "From": "29-Jun-2026",
+              "Leavetype.ID": 972601000000306600,
+              "Unit": "Days",
+              "ApprovalStatus": "",
+              "Type": "PAID",
+              "Employee": "Hazel Carter",
+              "Leavetype": "Annual Leave",
+              "Days": {
+                "29-Jun-2026": {
+                  "LeaveCount": "1.0"
+                },
+                "30-Jun-2026": {
+                  "LeaveCount": "1.0"
+                }
+              },
+              "EmployeePhoto": "viewPhoto?filename=7232070000000037002",
+              "To": "30-Jun-2026",
+              "EmployeeId": "S7",
+              "ZUID": -1,
+              "Employee.ID": 972601000000306000,
+              "DateOfRequest": "15-Jun-2026"
+            },
+            "972601000000313011": {
+              "Zoho.ID": 972601000000313000,
+              "From": "15-Jun-2026",
+              "Leavetype.ID": 972601000000306600,
+              "Unit": "Days",
+              "ApprovalStatus": "",
+              "Type": "PAID",
+              "Employee": "Christopher Brown",
+              "Leavetype": "Annual Leave",
+              "Days": {
+                "16-Jun-2026": {
+                  "LeaveCount": "1.0"
+                },
+                "15-Jun-2026": {
+                  "LeaveCount": "1.0"
+                }
+              },
+              "EmployeePhoto": "viewPhoto?filename=7232070000000035004",
+              "To": "16-Jun-2026",
+              "EmployeeId": "S20",
+              "ZUID": -1,
+              "Employee.ID": 972601000000306000,
+              "DateOfRequest": "15-Jun-2026"
+            },
+            "972601000000314012": {
+              "Zoho.ID": 972601000000314000,
+              "From": "25-Jun-2026",
+              "Leavetype.ID": 972601000000306600,
+              "Unit": "Days",
+              "ApprovalStatus": "",
+              "Type": "PAID",
+              "Employee": "Asher Miller",
+              "Leavetype": "Annual Leave",
+              "Days": {
+                "25-Jun-2026": {
+                  "LeaveCount": "1.0"
+                }
+              },
+              "EmployeePhoto": "viewPhoto?filename=7232070000000033004",
+              "To": "25-Jun-2026",
+              "EmployeeId": "S8",
+              "ZUID": -1,
+              "Employee.ID": 972601000000306000,
+              "DateOfRequest": "15-Jun-2026"
+            },
+            "972601000000316002": {
+              "Zoho.ID": 972601000000316000,
+              "From": "17-Jun-2026",
+              "Leavetype.ID": 972601000000306600,
+              "Unit": "Days",
+              "ApprovalStatus": "",
+              "Type": "PAID",
+              "Employee": "Christopher Brown",
+              "Leavetype": "Annual Leave",
+              "Days": {
+                "18-Jun-2026": {
+                  "LeaveCount": "1.0"
+                },
+                "17-Jun-2026": {
+                  "LeaveCount": "1.0"
+                }
+              },
+              "EmployeePhoto": "viewPhoto?filename=7232070000000035004",
+              "To": "18-Jun-2026",
+              "EmployeeId": "S20",
+              "ZUID": -1,
+              "Employee.ID": 972601000000306000,
+              "DateOfRequest": "15-Jun-2026"
+            },
+            "972601000000313003": {
+              "Zoho.ID": 972601000000313000,
+              "From": "15-Jun-2026",
+              "Leavetype.ID": 972601000000306600,
+              "Unit": "Days",
+              "ApprovalStatus": "",
+              "Type": "PAID",
+              "Employee": "Sofia Rodriguez",
+              "Leavetype": "Annual Leave",
+              "Days": {
+                "15-Jun-2026": {
+                  "LeaveCount": "1.0"
+                }
+              },
+              "EmployeePhoto": "viewPhoto?filename=7232070000000032006",
+              "To": "15-Jun-2026",
+              "EmployeeId": "S12",
+              "ZUID": -1,
+              "Employee.ID": 972601000000306000,
+              "DateOfRequest": "15-Jun-2026"
+            },
+            "972601000000310003": {
+              "Zoho.ID": 972601000000310000,
+              "From": "18-Jun-2026",
+              "Leavetype.ID": 972601000000306600,
+              "Unit": "Days",
+              "ApprovalStatus": "",
+              "Type": "PAID",
+              "Employee": "Caspian Jones",
+              "Leavetype": "Annual Leave",
+              "Days": {
+                "18-Jun-2026": {
+                  "LeaveCount": "1.0"
+                },
+                "19-Jun-2026": {
+                  "LeaveCount": "1.0"
+                }
+              },
+              "EmployeePhoto": "viewPhoto?filename=7232070000000036002",
+              "To": "19-Jun-2026",
+              "EmployeeId": "S9",
+              "ZUID": -1,
+              "Employee.ID": 972601000000306000,
+              "DateOfRequest": "15-Jun-2026"
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 15 Jun 2026 09:07:37 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=64072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4948",
+          "x-ratelimit-reset": "1781514499",
+          "server": "ZGS",
+          "set-cookie": "zalb_c7cb34e6ac=1dbc1abdcbf2504774e41e5d476b0b56; Path=/; Secure; HttpOnly, _zpsid=91F34A560967BC3F34F10FE2E121B9D4; Path=/; Secure; HttpOnly, CSRF_TOKEN=0c88b21b-c303-405a-9893-bb2266d353a5;path=/;SameSite=None;Secure;priority=high",
+          "cache-control": "private,no-cache,no-store,max-age=0,must-revalidate",
+          "pragma": "no-cache",
+          "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
+          "content-disposition": "attachment",
+          "externalapicall": "allowed",
+          "api-count-left-today": "14897",
+          "vary": "accept-encoding"
+        },
+        "hash": "6408b5477327d5b9664e0e363761073d189478e7",
+        "request": {
+          "params": {
+            "from": "01-Jun-2026",
+            "limit": "100",
+            "startIndex": "1",
+            "to": "30-Jun-2026"
+          }
+        }
+      }
+    }
+  }
+}

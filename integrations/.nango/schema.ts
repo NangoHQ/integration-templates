@@ -8733,17 +8733,12 @@ export interface SyncMetadata_ashby_candidates {
 export interface Department {
   id: string;
   name: string;
-  description?: string | undefined;
-  createdTime?: string | undefined;
-  chatStatus?: string | undefined;
-  isEnabled?: boolean | undefined;
-  isDefault?: boolean | undefined;
-  hasLogo?: boolean | undefined;
-  creatorId?: string | undefined;
-  isAssignToTeamEnabled?: boolean | undefined;
-  isVisibleInCustomerPortal?: boolean | undefined;
-  nameInCustomerPortal?: string | undefined;
-  sanitizedName?: string | undefined;
+  lead?: string | undefined;
+  parentDepartment?: string | undefined;
+  code?: string | undefined;
+  mailAlias?: string | undefined;
+  addedTime?: string | undefined;
+  modifiedTime?: string | undefined;
 };
 
 export interface Interview {
@@ -13946,23 +13941,16 @@ export interface SyncMetadata_bamboohr_basic_employeetablerows {
 
 export interface Employee {
   id: string;
-  worker_id?: string | undefined;
-  employee_id?: string | undefined;
-  contingent_worker_id?: string | undefined;
-  user_id?: string | undefined;
-  first_name?: string | undefined;
-  last_name?: string | undefined;
-  email?: string | undefined;
-  phone?: string | undefined;
-  hire_date?: string | undefined;
-  termination_date?: string | undefined;
-  active?: boolean | undefined;
-  job_title?: string | undefined;
+  employeeId?: string | undefined;
+  emailId?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
   department?: string | undefined;
-  location?: string | undefined;
-  manager_id?: string | undefined;
-  employment_type?: string | undefined;
-  last_updated?: string | undefined;
+  designation?: string | undefined;
+  employeeStatus?: string | undefined;
+  dateOfJoining?: string | undefined;
+  reportingTo?: string | undefined;
+  modifiedTime?: string | undefined;
 };
 
 export interface Goal {
@@ -112092,6 +112080,546 @@ export interface ActionOutput_zoho_mail_uploadattachment {
   attachmentName: string;
   attachmentSize?: string | undefined;
   url?: string | undefined;
+};
+
+export interface Attendance {
+  id: string;
+  employeeId?: string | undefined;
+  employeeEmail?: string | undefined;
+  employeeFirstName?: string | undefined;
+  employeeLastName?: string | undefined;
+  date: string;
+  status?: string | undefined;
+  firstIn?: string | undefined;
+  lastOut?: string | undefined;
+  totalHours?: string | undefined;
+  workingHours?: string | undefined;
+  overTime?: string | undefined;
+  deviationTime?: string | undefined;
+  shiftName?: string | undefined;
+  shiftStartTime?: string | undefined;
+  shiftEndTime?: string | undefined;
+  paidBreakHours?: string | undefined;
+  unPaidBreakHours?: string | undefined;
+  firstInLocation?: string | undefined;
+  lastOutLocation?: string | undefined;
+};
+
+export interface Designation {
+  id: string;
+  designation?: string | undefined;
+  zp_designation_code?: string | undefined;
+  mail_alias?: string | undefined;
+  modified_time?: string | undefined;
+};
+
+export interface FormRecord {
+  id: string;
+  form_link_name: string;
+  fields?: {  [key: string]: unknown | undefined;};
+};
+
+export interface SyncMetadata_zoho_people_formrecords {
+  form_link_names?: string[] | undefined;
+};
+
+export interface Form {
+  id: string;
+  componentId: string;
+  formLinkName: string;
+  displayName?: string | undefined;
+  PermissionDetails?: unknown | undefined;
+  isVisible?: boolean | undefined;
+  viewDetails?: unknown | undefined;
+};
+
+export interface Holiday {
+  id: string;
+  name?: string | undefined;
+  from?: string | undefined;
+  to?: string | undefined;
+  holidayType?: string | undefined;
+};
+
+export interface LeaveRecord {
+  id: string;
+  from?: string | undefined;
+  to?: string | undefined;
+  leaveTypeId?: string | undefined;
+  leaveTypeName?: string | undefined;
+  employeeId?: string | undefined;
+  employeeName?: string | undefined;
+  status?: string | undefined;
+  days?: number | undefined;
+  dateOfRequest?: string | undefined;
+  unit?: string | undefined;
+  type?: string | undefined;
+};
+
+export interface LeaveType {
+  id: string;
+  name?: string | undefined;
+  color?: string | undefined;
+  type?: string | undefined;
+  isGrantBased?: boolean | undefined;
+  isDisabled?: boolean | undefined;
+  isV2?: boolean | undefined;
+};
+
+export interface ActionInput_zoho_people_checkin {
+  /**
+   * Employee ID (alphanumeric). Example: "S20"
+   */
+  empId: string;
+  /**
+   * Attendance date in dd-MMM-yyyy format. Example: "15-Jun-2026"
+   */
+  attendanceDate: string;
+  /**
+   * Check-in time in HH:MM format. Example: "09:00"
+   */
+  checkIn: string;
+};
+
+export interface ActionOutput_zoho_people_checkin {
+  success: boolean;
+  message?: string | undefined;
+  recordId?: string | undefined;
+};
+
+export interface ActionInput_zoho_people_checkout {
+  /**
+   * Employee ID (alphanumeric, e.g. "S20"). Must belong to an employee with a real Zoho account (ZUID != -1).
+   */
+  empId: string;
+  /**
+   * Check-out time in HH:MM format (24-hour). Example: "17:30"
+   */
+  checkOut: string;
+  /**
+   * Attendance date in dd-MMM-yyyy format. Example: "15-Jun-2026"
+   */
+  attendanceDate: string;
+};
+
+export interface ActionOutput_zoho_people_checkout {
+  success: boolean;
+  message?: string | undefined;
+};
+
+export interface ActionInput_zoho_people_createemployee {
+  /**
+   * First name of the employee. Example: "John"
+   */
+  FirstName?: string | undefined;
+  /**
+   * Last name of the employee. Example: "Doe"
+   */
+  LastName?: string | undefined;
+  /**
+   * Email ID of the employee. Example: "john@example.com"
+   */
+  EmailID?: string | undefined;
+  /**
+   * Department ID. Example: "972601000000306078"
+   */
+  Department?: string | undefined;
+  /**
+   * Date of joining in dd-MMM-yyyy format. Example: "15-Jun-2026"
+   */
+  Dateofjoining?: string | undefined;
+  /**
+   * Employee ID. Example: "S21"
+   */
+  EmployeeID?: string | undefined;
+};
+
+export interface ActionOutput_zoho_people_createemployee {
+  /**
+   * The newly created employee record ID
+   */
+  id: string;
+};
+
+export interface ActionInput_zoho_people_createformrecord {
+  /**
+   * The form link name. Example: "employee", "department", "designation"
+   */
+  formLinkName: string;
+  /**
+   * Field name to value mapping. Date fields must use dd-MMM-yyyy format.
+   */
+  fields: {  [key: string]: string;};
+};
+
+export interface ActionOutput_zoho_people_createformrecord {
+  recordId?: string | undefined;
+  message?: string | undefined;
+  status?: number | undefined;
+};
+
+export interface ActionInput_zoho_people_createholiday {
+  /**
+   * Holiday name. Example: "Independence Day"
+   */
+  name: string;
+  /**
+   * Start date in dd-MMM-yyyy format. Example: "15-Jun-2026"
+   */
+  from: string;
+  /**
+   * End date in dd-MMM-yyyy format. Example: "15-Jun-2026"
+   */
+  to: string;
+  /**
+   * Holiday type. Example: "Mandatory"
+   */
+  holidayType: 'Mandatory' | 'Optional';
+};
+
+export interface ActionOutput_zoho_people_createholiday {
+  success: boolean;
+};
+
+export interface ActionInput_zoho_people_createleaverequest {
+  /**
+   * Zoho internal record ID of the employee. Example: "972601000000306080"
+   */
+  employeeRecordId: string;
+  /**
+   * Leave type ID (not name). Example: "972601000000306562"
+   */
+  leaveTypeId: string;
+  /**
+   * Start date in dd-MMM-yyyy format. Example: "16-Jun-2026"
+   */
+  fromDate: string;
+  /**
+   * End date in dd-MMM-yyyy format. Example: "17-Jun-2026"
+   */
+  toDate: string;
+  /**
+   * Number of days as a string. Example: "2"
+   */
+  daysTaken: string;
+};
+
+export interface ActionOutput_zoho_people_createleaverequest {
+  /**
+   * The newly created leave record ID
+   */
+  id: string;
+  message?: string | undefined;
+};
+
+export interface ActionInput_zoho_people_getattendancereport {
+  /**
+   * Start date in dd-MMM-yyyy format. Example: 15-Jun-2026
+   */
+  sdate: string;
+  /**
+   * End date in dd-MMM-yyyy format. Example: 15-Jun-2026
+   */
+  edate: string;
+  /**
+   * 1-based pagination index. Omit for the first page.
+   */
+  startIndex?: number | undefined;
+};
+
+export interface ActionOutput_zoho_people_getattendancereport {
+  records: ({  attendanceDetails?: {  [key: string]: {  [key: string]: unknown | undefined;};};
+  employeeDetails?: {  [key: string]: unknown | undefined;};})[];
+  nextStartIndex?: number | undefined;
+};
+
+export interface ActionInput_zoho_people_getemployeeattendance {
+  /**
+   * Employee's alphanumeric ID. Example: 'S20'
+   */
+  empId: string;
+  /**
+   * Predefined date range: 'today', 'yesterday', 'thisWeek', 'lastWeek', 'thisMonth', 'lastMonth'
+   */
+  dateRange?: 'today' | 'yesterday' | 'thisWeek' | 'lastWeek' | 'thisMonth' | 'lastMonth' | undefined;
+  /**
+   * Specific day in dd-MMM-yyyy format. Example: '15-Jun-2026'
+   */
+  date?: string | undefined;
+};
+
+export interface ActionOutput_zoho_people_getemployeeattendance {
+  firstIn?: string | undefined;
+  lastOut?: string | undefined;
+  totalHrs?: string | undefined;
+  entries?: ({  checkIn?: string | undefined;
+  checkOut?: string | undefined;
+  checkIn_Location?: string | undefined;
+  checkOut_Location?: string | undefined;
+  checkIn_Building?: string | undefined;
+  checkOut_Building?: string | undefined;
+  sourceOfPunchIn?: string | undefined;
+  sourceOfPunchOut?: string | undefined;})[];
+  firstIn_Building?: string | undefined;
+  lastOut_Building?: string | undefined;
+  firstIn_Location?: string | undefined;
+  lastOut_Location?: string | undefined;
+  unPaidBreak?: string | undefined;
+  paidBreak?: string | undefined;
+  status?: string | undefined;
+  allowedToCheckIn?: boolean | undefined;
+};
+
+export interface ActionInput_zoho_people_getemployee {
+  /**
+   * Zoho internal record ID. Example: "972601000000306098"
+   */
+  recordId: string;
+};
+
+export interface ActionOutput_zoho_people_getemployee {
+  recordId: string;
+  sections: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_zoho_people_getformrecord {
+  /**
+   * The form link name. Example: "employee"
+   */
+  formLinkName: string;
+  /**
+   * The Zoho internal record ID. Example: "972601000000306098"
+   */
+  recordId: string;
+};
+
+export interface ActionOutput_zoho_people_getformrecord {
+  recordId: string;
+  record?: {  [key: string]: unknown | undefined;};
+  status: number;
+  message?: string | undefined;
+};
+
+export interface ActionInput_zoho_people_getholidays {
+  /**
+   * Start date in dd-MMM-yyyy format. Example: "01-Jan-2026"
+   */
+  from: string;
+  /**
+   * End date in dd-MMM-yyyy format. Example: "31-Jan-2026"
+   */
+  to: string;
+};
+
+export interface ActionOutput_zoho_people_getholidays {
+  holidays: ({  id?: string | undefined;
+  name?: string | undefined;
+  from?: string | undefined;
+  to?: string | undefined;
+  holidayType?: string | undefined;})[];
+  status: string;
+};
+
+export interface ActionInput_zoho_people_getleavetypes {
+};
+
+export interface ActionOutput_zoho_people_getleavetypes {
+  leavetypes: ({  id: string;
+  name: string;
+  color?: string | undefined;
+  type?: string | undefined;
+  isGrantBased?: boolean | undefined;
+  isDisabled?: boolean | undefined;
+  isV2?: boolean | undefined;})[];
+};
+
+export interface ActionInput_zoho_people_listdepartments {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_zoho_people_listdepartments {
+  items: ({  /**
+   * Zoho record ID
+   */
+  id: string;
+  /**
+   * Department name
+   */
+  Department?: string | undefined;
+  /**
+   * Department lead
+   */
+  Department_Lead?: string | undefined;
+  /**
+   * Parent department
+   */
+  Parent_Department?: string | undefined;
+  /**
+   * Department code
+   */
+  ZP_Department_Code?: string | undefined;
+  /**
+   * Mail alias
+   */
+  MailAlias?: string | undefined;})[];
+  /**
+   * Cursor for the next page
+   */
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_zoho_people_listdesignations {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_zoho_people_listdesignations {
+  items: ({  id: string;
+  designation?: string | undefined;
+  code?: string | undefined;
+  mail_alias?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_zoho_people_listemployees {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum records per page. Default 200.
+   */
+  limit?: number | undefined;
+  /**
+   * Filter by last modified date (dd-MMM-yyyy).
+   */
+  modifiedTime?: string | undefined;
+};
+
+export interface ActionOutput_zoho_people_listemployees {
+  items: ({  recordId: string;
+  employee: {  EmployeeID?: string | undefined;
+  EmailID?: string | undefined;
+  FirstName?: string | undefined;
+  LastName?: string | undefined;
+  Department?: string | undefined;
+  Designation?: string | undefined;
+  Dateofjoining?: string | undefined;
+  modifiedtime?: string | undefined;};})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_zoho_people_listformrecords {
+  /**
+   * The form link name to list records for. Example: "employee"
+   */
+  formLinkName: string;
+  /**
+   * 1-based start index for pagination. Omit for the first page.
+   */
+  sIndex?: number | undefined;
+  /**
+   * Number of records per page. Defaults to 200.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_zoho_people_listformrecords {
+  records: ({  /**
+   * Zoho internal record ID
+   */
+  recordId: string;
+  /**
+   * Record fields as key-value pairs
+   */
+  fields: {  [key: string]: unknown | undefined;};})[];
+  /**
+   * Next start index for pagination; omit when there are no more pages.
+   */
+  nextSIndex?: number | undefined;
+};
+
+export interface ActionInput_zoho_people_listforms {
+};
+
+export interface ActionOutput_zoho_people_listforms {
+  0: {  componentId: string | number;
+  formLinkName: string;
+  displayName: string;
+  PermissionDetails?: {  Add: number;
+  Edit: number;
+  View: number;} | undefined;
+  viewDetails?: {  view_Id?: string | number | undefined;
+  view_Name?: string | undefined;} | ({  view_Id?: string | number | undefined;
+  view_Name?: string | undefined;})[];
+  iscustom?: boolean | undefined;
+  isVisible?: boolean | undefined;};
+};
+
+export interface ActionInput_zoho_people_listleaverecords {
+  /**
+   * Start date in dd-MMM-yyyy format. Example: 01-Jun-2026
+   */
+  from: string;
+  /**
+   * End date in dd-MMM-yyyy format. Example: 30-Jun-2026
+   */
+  to: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of records per page. Default: 100
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_zoho_people_listleaverecords {
+  items: ({  id: string;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_zoho_people_updateemployee {
+  /**
+   * Zoho internal record ID of the employee. Example: "972601000000306098"
+   */
+  recordId: string;
+  /**
+   * Fields to update. Use internal API field names (case-sensitive). Date fields must use dd-MMM-yyyy format.
+   */
+  fields: {  [key: string]: string;};
+};
+
+export interface ActionOutput_zoho_people_updateemployee {
+  recordId: string;
+  message: string;
+};
+
+export interface ActionInput_zoho_people_updateformrecord {
+  /**
+   * The internal form link name (e.g. "employee", "department", "designation").
+   */
+  formLinkName: string;
+  /**
+   * The Zoho internal record ID to update.
+   */
+  recordId: string;
+  /**
+   * Changed fields to update. Keys are case-sensitive internal field names.
+   */
+  fields: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_zoho_people_updateformrecord {
+  recordId: string;
+  success: boolean;
+  message?: string | undefined;
 };
 
 export interface Webinar {

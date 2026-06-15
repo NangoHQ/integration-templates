@@ -1,0 +1,603 @@
+{
+  "nango": {
+    "batchSave": {
+      "Form": [
+        {
+          "id": "AddressProof",
+          "componentId": "972601000000209000",
+          "formLinkName": "AddressProof",
+          "displayName": "Address Proof",
+          "PermissionDetails": {
+            "Add": 3,
+            "Edit": 3,
+            "View": 3
+          },
+          "isVisible": true,
+          "viewDetails": {
+            "view_Id": 972601000000209000,
+            "view_Name": "AddressProofView"
+          }
+        },
+        {
+          "id": "BonafideLetter",
+          "componentId": "972601000000209000",
+          "formLinkName": "BonafideLetter",
+          "displayName": "Bonafide Letter",
+          "PermissionDetails": {
+            "Add": 3,
+            "Edit": 3,
+            "View": 3
+          },
+          "isVisible": true,
+          "viewDetails": {
+            "view_Id": 972601000000209000,
+            "view_Name": "BonafideLetterView"
+          }
+        },
+        {
+          "id": "P_ClientDetails",
+          "componentId": "972601000000064000",
+          "formLinkName": "P_ClientDetails",
+          "displayName": "Clients",
+          "PermissionDetails": {
+            "Add": 3,
+            "Edit": 3,
+            "View": 3
+          },
+          "isVisible": true,
+          "viewDetails": {
+            "view_Id": 972601000000064000,
+            "view_Name": "P_ClientDetails_View"
+          }
+        },
+        {
+          "id": "zp_deceased",
+          "componentId": "972601000000280000",
+          "formLinkName": "zp_deceased",
+          "displayName": "Deceased",
+          "PermissionDetails": {
+            "Add": 3,
+            "Edit": 3,
+            "View": 3
+          },
+          "isVisible": true,
+          "viewDetails": {
+            "view_Id": 972601000000280000,
+            "view_Name": "zp_deceasedView"
+          }
+        },
+        {
+          "id": "department",
+          "componentId": "972601000000035700",
+          "formLinkName": "department",
+          "displayName": "Department",
+          "PermissionDetails": {
+            "Add": 3,
+            "Edit": 3,
+            "View": 3
+          },
+          "isVisible": true,
+          "viewDetails": {
+            "view_Id": 972601000000035700,
+            "view_Name": "P_DepartmentView"
+          }
+        },
+        {
+          "id": "designation",
+          "componentId": "972601000000035700",
+          "formLinkName": "designation",
+          "displayName": "Designation",
+          "PermissionDetails": {
+            "Add": 3,
+            "Edit": 3,
+            "View": 3
+          },
+          "isVisible": true,
+          "viewDetails": {
+            "view_Id": 972601000000035700,
+            "view_Name": "P_DesignationView"
+          }
+        },
+        {
+          "id": "employee",
+          "componentId": "972601000000035700",
+          "formLinkName": "employee",
+          "displayName": "Employee",
+          "PermissionDetails": {
+            "Add": 3,
+            "Edit": 3,
+            "View": 3
+          },
+          "isVisible": true,
+          "viewDetails": {
+            "view_Id": 972601000000035700,
+            "view_Name": "P_EmployeeView"
+          }
+        },
+        {
+          "id": "exitinterview",
+          "componentId": "972601000000035700",
+          "formLinkName": "exitinterview",
+          "displayName": "Exit Details",
+          "PermissionDetails": {
+            "Add": 3,
+            "Edit": 3,
+            "View": 3
+          },
+          "isVisible": true,
+          "viewDetails": {
+            "view_Id": 972601000000035700,
+            "view_Name": "P_SeparationView"
+          }
+        },
+        {
+          "id": "ExperienceLetter",
+          "componentId": "972601000000209000",
+          "formLinkName": "ExperienceLetter",
+          "displayName": "Experience Letter",
+          "PermissionDetails": {
+            "Add": 3,
+            "Edit": 3,
+            "View": 3
+          },
+          "isVisible": true,
+          "viewDetails": {
+            "view_Id": 972601000000209000,
+            "view_Name": "ExperienceLetterView"
+          }
+        },
+        {
+          "id": "P_TimesheetJob",
+          "componentId": "972601000000064400",
+          "formLinkName": "P_TimesheetJob",
+          "displayName": "Jobs",
+          "PermissionDetails": {
+            "Add": 3,
+            "Edit": 3,
+            "View": 3
+          },
+          "isVisible": true,
+          "viewDetails": {
+            "view_Id": 972601000000064400,
+            "view_Name": "P_TimesheetJob_View"
+          }
+        },
+        {
+          "id": "leave",
+          "componentId": "972601000000035700",
+          "formLinkName": "leave",
+          "displayName": "Leave",
+          "PermissionDetails": {
+            "Add": 3,
+            "Edit": 3,
+            "View": 3
+          },
+          "isVisible": true,
+          "viewDetails": {
+            "view_Id": 972601000000035700,
+            "view_Name": "P_ApplyLeaveView"
+          }
+        },
+        {
+          "id": "P_TimesheetJobsList",
+          "componentId": "972601000000064300",
+          "formLinkName": "P_TimesheetJobsList",
+          "displayName": "Projects",
+          "PermissionDetails": {
+            "Add": 3,
+            "Edit": 3,
+            "View": 3
+          },
+          "isVisible": true,
+          "viewDetails": {
+            "view_Id": 972601000000064300,
+            "view_Name": "P_TimesheetJobsList_View"
+          }
+        },
+        {
+          "id": "zp_resignation",
+          "componentId": "972601000000280000",
+          "formLinkName": "zp_resignation",
+          "displayName": "Resignation",
+          "PermissionDetails": {
+            "Add": 3,
+            "Edit": 3,
+            "View": 3
+          },
+          "isVisible": true,
+          "viewDetails": {
+            "view_Id": 972601000000280000,
+            "view_Name": "zp_resignationView"
+          }
+        },
+        {
+          "id": "P_Task",
+          "componentId": "972601000000100000",
+          "formLinkName": "P_Task",
+          "displayName": "Task",
+          "PermissionDetails": {
+            "Add": 3,
+            "Edit": 3,
+            "View": 3
+          },
+          "isVisible": true,
+          "viewDetails": {
+            "view_Id": 972601000000100000,
+            "view_Name": "P_Task_View"
+          }
+        },
+        {
+          "id": "zp_termination",
+          "componentId": "972601000000280000",
+          "formLinkName": "zp_termination",
+          "displayName": "Termination",
+          "PermissionDetails": {
+            "Add": 3,
+            "Edit": 3,
+            "View": 3
+          },
+          "isVisible": true,
+          "viewDetails": {
+            "view_Id": 972601000000280000,
+            "view_Name": "zp_terminationView"
+          }
+        },
+        {
+          "id": "travelexpenses",
+          "componentId": "972601000000035700",
+          "formLinkName": "travelexpenses",
+          "displayName": "Travel Expense",
+          "PermissionDetails": {
+            "Add": 3,
+            "Edit": 3,
+            "View": 3
+          },
+          "isVisible": true,
+          "viewDetails": {
+            "view_Id": 972601000000035700,
+            "view_Name": "P_TravelExpenseView"
+          }
+        },
+        {
+          "id": "travelrequest",
+          "componentId": "972601000000035700",
+          "formLinkName": "travelrequest",
+          "displayName": "Travel Request",
+          "PermissionDetails": {
+            "Add": 3,
+            "Edit": 3,
+            "View": 3
+          },
+          "isVisible": true,
+          "viewDetails": {
+            "view_Id": 972601000000035700,
+            "view_Name": "P_TravelInitiateView"
+          }
+        }
+      ]
+    },
+    "batchDelete": {
+      "Form": []
+    }
+  },
+  "api": {
+    "get": {
+      "/people/api/forms": {
+        "response": {
+          "response": {
+            "result": [
+              {
+                "componentId": 972601000000209000,
+                "iscustom": false,
+                "displayName": "Address Proof",
+                "formLinkName": "AddressProof",
+                "PermissionDetails": {
+                  "Add": 3,
+                  "Edit": 3,
+                  "View": 3
+                },
+                "isVisible": true,
+                "viewDetails": {
+                  "view_Id": 972601000000209000,
+                  "view_Name": "AddressProofView"
+                }
+              },
+              {
+                "componentId": 972601000000209000,
+                "iscustom": false,
+                "displayName": "Bonafide Letter",
+                "formLinkName": "BonafideLetter",
+                "PermissionDetails": {
+                  "Add": 3,
+                  "Edit": 3,
+                  "View": 3
+                },
+                "isVisible": true,
+                "viewDetails": {
+                  "view_Id": 972601000000209000,
+                  "view_Name": "BonafideLetterView"
+                }
+              },
+              {
+                "componentId": 972601000000064000,
+                "iscustom": false,
+                "displayName": "Clients",
+                "formLinkName": "P_ClientDetails",
+                "PermissionDetails": {
+                  "Add": 3,
+                  "Edit": 3,
+                  "View": 3
+                },
+                "isVisible": true,
+                "viewDetails": {
+                  "view_Id": 972601000000064000,
+                  "view_Name": "P_ClientDetails_View"
+                }
+              },
+              {
+                "componentId": 972601000000280000,
+                "iscustom": false,
+                "displayName": "Deceased",
+                "formLinkName": "zp_deceased",
+                "PermissionDetails": {
+                  "Add": 3,
+                  "Edit": 3,
+                  "View": 3
+                },
+                "isVisible": true,
+                "viewDetails": {
+                  "view_Id": 972601000000280000,
+                  "view_Name": "zp_deceasedView"
+                }
+              },
+              {
+                "componentId": 972601000000035700,
+                "iscustom": false,
+                "displayName": "Department",
+                "formLinkName": "department",
+                "PermissionDetails": {
+                  "Add": 3,
+                  "Edit": 3,
+                  "View": 3
+                },
+                "isVisible": true,
+                "viewDetails": {
+                  "view_Id": 972601000000035700,
+                  "view_Name": "P_DepartmentView"
+                }
+              },
+              {
+                "componentId": 972601000000035700,
+                "iscustom": false,
+                "displayName": "Designation",
+                "formLinkName": "designation",
+                "PermissionDetails": {
+                  "Add": 3,
+                  "Edit": 3,
+                  "View": 3
+                },
+                "isVisible": true,
+                "viewDetails": {
+                  "view_Id": 972601000000035700,
+                  "view_Name": "P_DesignationView"
+                }
+              },
+              {
+                "componentId": 972601000000035700,
+                "iscustom": false,
+                "displayName": "Employee",
+                "formLinkName": "employee",
+                "PermissionDetails": {
+                  "Add": 3,
+                  "Edit": 3,
+                  "View": 3
+                },
+                "isVisible": true,
+                "viewDetails": {
+                  "view_Id": 972601000000035700,
+                  "view_Name": "P_EmployeeView"
+                }
+              },
+              {
+                "componentId": 972601000000035700,
+                "iscustom": false,
+                "displayName": "Exit Details",
+                "formLinkName": "exitinterview",
+                "PermissionDetails": {
+                  "Add": 3,
+                  "Edit": 3,
+                  "View": 3
+                },
+                "isVisible": true,
+                "viewDetails": {
+                  "view_Id": 972601000000035700,
+                  "view_Name": "P_SeparationView"
+                }
+              },
+              {
+                "componentId": 972601000000209000,
+                "iscustom": false,
+                "displayName": "Experience Letter",
+                "formLinkName": "ExperienceLetter",
+                "PermissionDetails": {
+                  "Add": 3,
+                  "Edit": 3,
+                  "View": 3
+                },
+                "isVisible": true,
+                "viewDetails": {
+                  "view_Id": 972601000000209000,
+                  "view_Name": "ExperienceLetterView"
+                }
+              },
+              {
+                "componentId": 972601000000064400,
+                "iscustom": false,
+                "displayName": "Jobs",
+                "formLinkName": "P_TimesheetJob",
+                "PermissionDetails": {
+                  "Add": 3,
+                  "Edit": 3,
+                  "View": 3
+                },
+                "isVisible": true,
+                "viewDetails": {
+                  "view_Id": 972601000000064400,
+                  "view_Name": "P_TimesheetJob_View"
+                }
+              },
+              {
+                "componentId": 972601000000035700,
+                "iscustom": false,
+                "displayName": "Leave",
+                "formLinkName": "leave",
+                "PermissionDetails": {
+                  "Add": 3,
+                  "Edit": 3,
+                  "View": 3
+                },
+                "isVisible": true,
+                "viewDetails": {
+                  "view_Id": 972601000000035700,
+                  "view_Name": "P_ApplyLeaveView"
+                }
+              },
+              {
+                "componentId": 972601000000064300,
+                "iscustom": false,
+                "displayName": "Projects",
+                "formLinkName": "P_TimesheetJobsList",
+                "PermissionDetails": {
+                  "Add": 3,
+                  "Edit": 3,
+                  "View": 3
+                },
+                "isVisible": true,
+                "viewDetails": {
+                  "view_Id": 972601000000064300,
+                  "view_Name": "P_TimesheetJobsList_View"
+                }
+              },
+              {
+                "componentId": 972601000000280000,
+                "iscustom": false,
+                "displayName": "Resignation",
+                "formLinkName": "zp_resignation",
+                "PermissionDetails": {
+                  "Add": 3,
+                  "Edit": 3,
+                  "View": 3
+                },
+                "isVisible": true,
+                "viewDetails": {
+                  "view_Id": 972601000000280000,
+                  "view_Name": "zp_resignationView"
+                }
+              },
+              {
+                "componentId": 972601000000100000,
+                "iscustom": false,
+                "displayName": "Task",
+                "formLinkName": "P_Task",
+                "PermissionDetails": {
+                  "Add": 3,
+                  "Edit": 3,
+                  "View": 3
+                },
+                "isVisible": true,
+                "viewDetails": {
+                  "view_Id": 972601000000100000,
+                  "view_Name": "P_Task_View"
+                }
+              },
+              {
+                "componentId": 972601000000280000,
+                "iscustom": false,
+                "displayName": "Termination",
+                "formLinkName": "zp_termination",
+                "PermissionDetails": {
+                  "Add": 3,
+                  "Edit": 3,
+                  "View": 3
+                },
+                "isVisible": true,
+                "viewDetails": {
+                  "view_Id": 972601000000280000,
+                  "view_Name": "zp_terminationView"
+                }
+              },
+              {
+                "componentId": 972601000000035700,
+                "iscustom": false,
+                "displayName": "Travel Expense",
+                "formLinkName": "travelexpenses",
+                "PermissionDetails": {
+                  "Add": 3,
+                  "Edit": 3,
+                  "View": 3
+                },
+                "isVisible": true,
+                "viewDetails": {
+                  "view_Id": 972601000000035700,
+                  "view_Name": "P_TravelExpenseView"
+                }
+              },
+              {
+                "componentId": 972601000000035700,
+                "iscustom": false,
+                "displayName": "Travel Request",
+                "formLinkName": "travelrequest",
+                "PermissionDetails": {
+                  "Add": 3,
+                  "Edit": 3,
+                  "View": 3
+                },
+                "isVisible": true,
+                "viewDetails": {
+                  "view_Id": 972601000000035700,
+                  "view_Name": "P_TravelInitiateView"
+                }
+              }
+            ],
+            "message": "Data fetched successfully",
+            "uri": "/api/forms",
+            "status": 0
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 15 Jun 2026 09:07:37 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=64072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "object-src 'none'; script-src 'nonce-D2JFn_jCsDXVGfGBfcPoDSfl' 'strict-dynamic' http: https:; base-uri 'none';",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4953",
+          "x-ratelimit-reset": "1781514499",
+          "server": "ZGS",
+          "set-cookie": "<redacted>",
+          "cache-control": "private,no-cache,no-store,max-age=0,must-revalidate",
+          "pragma": "no-cache",
+          "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
+          "content-disposition": "attachment;filename=records",
+          "externalapicall": "allowed",
+          "api-count-left-today": "14898",
+          "vary": "sec-fetch-dest,sec-fetch-mode,sec-fetch-site,sec-fetch-user,accept-encoding",
+          "cross-origin-embedder-policy-report-only": "require-corp",
+          "cross-origin-opener-policy": "same-origin",
+          "content-language": "en-US"
+        },
+        "hash": "4139b9394539f02b84177214e54733f3e184b660",
+        "request": {}
+      }
+    }
+  }
+}

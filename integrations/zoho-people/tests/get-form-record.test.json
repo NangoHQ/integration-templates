@@ -1,0 +1,278 @@
+{
+  "input": {
+    "formLinkName": "employee",
+    "recordId": "972601000000306098"
+  },
+  "output": {
+    "recordId": "972601000000306098",
+    "record": {
+      "Basic information": {
+        "EmailID": "christopherbrown@zylker.com",
+        "Nick_Name": "Chris",
+        "FirstName": "Christopher",
+        "Photo": "https://people.zoho.com/api/viewEmployeePhoto?filename=7232070000000035004",
+        "LastName": "Brown",
+        "EmployeeID": "S20",
+        "Photo_downloadUrl": "https://people.zoho.com/api/viewEmployeePhoto?filename=7232070000000035004"
+      },
+      "Contact Details": {
+        "Extension": "5",
+        "Permanent_Address": "",
+        "Work_phone": "727-555-5656",
+        "Present_Address.childValues": {
+          "CITY": "Miami",
+          "COUNTRY": "UNITED STATES",
+          "STATE": "Florida",
+          "ADDRESS1": "360 NW",
+          "PINCODE": "33150",
+          "ADDRESS2": "98th St",
+          "STATE_CODE": "US-FL",
+          "COUNTRY_CODE": "US"
+        },
+        "Mobile": "239-222-4633",
+        "Mobile.country_code": "",
+        "Other_Email": "",
+        "Tags": "",
+        "Work_location": "FL_ADMIN_4",
+        "Present_Address": "360 NW,98th St,Miami,Florida,UNITED STATES,33150"
+      },
+      "tabularSections": {
+        "Education Details": [
+          {
+            "Specialization": "Sales Engineering",
+            "Degree": "Masters",
+            "College": "Serenity University",
+            "Yearofgraduation": "",
+            "tabular.ROWID": "972601000000306221"
+          }
+        ],
+        "Work experience": [
+          {
+            "Jobtitle": "Administration",
+            "Employer": "Electronic Smarts",
+            "RELEVANCE": "Yes",
+            "Previous_JobDesc": "",
+            "FromDate": "01-Feb-2007",
+            "Todate": "05-Dec-2014",
+            "tabular.ROWID": "972601000000306255",
+            "RELEVANCE.id": "972601000000202025"
+          }
+        ],
+        "Dependent Details": [
+          {}
+        ]
+      },
+      "Personal Details": {
+        "Age.displayValue": "39 year(s) 4 month(s)",
+        "Marital_status.id": "972601000000039987",
+        "Date_of_birth": "02-Feb-1987",
+        "AboutMe": "",
+        "Gender": "Male",
+        "Marital_status": "Married",
+        "Age": "39",
+        "Expertise": ""
+      },
+      "Separation Information": {
+        "Dateofexit": ""
+      },
+      "Work Information": {
+        "Designation": "Administration",
+        "Source_of_hire.id": "0",
+        "Employee_type.id": "972601000000039959",
+        "Dateofjoining": "05-Jan-2015",
+        "total_experience.displayValue": "19 year(s) 3 month(s)",
+        "Experience.displayValue": "11 year(s) 5 month(s)",
+        "LocationName": "",
+        "Employeestatus": "Active",
+        "Role": "Team member",
+        "Department": "Management",
+        "Experience": "11",
+        "Employee_type": "Permanent",
+        "total_experience": "231",
+        "LocationName.ID": "",
+        "Designation.ID": "972601000000306112",
+        "Role.ID": "972601000000035635",
+        "Employeestatus.type": 1,
+        "Department.ID": "972601000000306074",
+        "Source_of_hire": ""
+      },
+      "System Fields": {
+        "ModifiedBy.ID": "972601000000306003",
+        "ModifiedTime": "15-Jun-2026 03:36:06",
+        "AddedBy.ID": "972601000000306003",
+        "AddedTime": "15-Jun-2026 03:36:06",
+        "ModifiedBy": "1 - Nango - Developer",
+        "ONBOARDING_STATUS": "",
+        "AddedBy": "1 - Nango - Developer"
+      },
+      "ApprovalStatus": "Approval Not Enabled",
+      "Hierarchy Information": {
+        "Reporting_To.MailID": "nangoapi@zohomail.com",
+        "Reporting_To.ID": "972601000000306003",
+        "Reporting_To": "Nango Developer 1"
+      }
+    },
+    "status": 0,
+    "message": "Data fetched successfully"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/people/api/forms/employee/getRecordByID": {
+        "response": {
+          "response": {
+            "result": [
+              {
+                "Basic information": {
+                  "EmailID": "christopherbrown@zylker.com",
+                  "Nick_Name": "Chris",
+                  "FirstName": "Christopher",
+                  "Photo": "https://people.zoho.com/api/viewEmployeePhoto?filename=7232070000000035004",
+                  "LastName": "Brown",
+                  "EmployeeID": "S20",
+                  "Photo_downloadUrl": "https://people.zoho.com/api/viewEmployeePhoto?filename=7232070000000035004"
+                },
+                "Contact Details": {
+                  "Extension": "5",
+                  "Permanent_Address": "",
+                  "Work_phone": "727-555-5656",
+                  "Present_Address.childValues": {
+                    "CITY": "Miami",
+                    "COUNTRY": "UNITED STATES",
+                    "STATE": "Florida",
+                    "ADDRESS1": "360 NW",
+                    "PINCODE": "33150",
+                    "ADDRESS2": "98th St",
+                    "STATE_CODE": "US-FL",
+                    "COUNTRY_CODE": "US"
+                  },
+                  "Mobile": "239-222-4633",
+                  "Mobile.country_code": "",
+                  "Other_Email": "",
+                  "Tags": "",
+                  "Work_location": "FL_ADMIN_4",
+                  "Present_Address": "360 NW,98th St,Miami,Florida,UNITED STATES,33150"
+                },
+                "tabularSections": {
+                  "Education Details": [
+                    {
+                      "Specialization": "Sales Engineering",
+                      "Degree": "Masters",
+                      "College": "Serenity University",
+                      "Yearofgraduation": "",
+                      "tabular.ROWID": "972601000000306221"
+                    }
+                  ],
+                  "Work experience": [
+                    {
+                      "Jobtitle": "Administration",
+                      "Employer": "Electronic Smarts",
+                      "RELEVANCE": "Yes",
+                      "Previous_JobDesc": "",
+                      "FromDate": "01-Feb-2007",
+                      "Todate": "05-Dec-2014",
+                      "tabular.ROWID": "972601000000306255",
+                      "RELEVANCE.id": "972601000000202025"
+                    }
+                  ],
+                  "Dependent Details": [
+                    {}
+                  ]
+                },
+                "Personal Details": {
+                  "Age.displayValue": "39 year(s) 4 month(s)",
+                  "Marital_status.id": "972601000000039987",
+                  "Date_of_birth": "02-Feb-1987",
+                  "AboutMe": "",
+                  "Gender": "Male",
+                  "Marital_status": "Married",
+                  "Age": "39",
+                  "Expertise": ""
+                },
+                "Separation Information": {
+                  "Dateofexit": ""
+                },
+                "Work Information": {
+                  "Designation": "Administration",
+                  "Source_of_hire.id": "0",
+                  "Employee_type.id": "972601000000039959",
+                  "Dateofjoining": "05-Jan-2015",
+                  "total_experience.displayValue": "19 year(s) 3 month(s)",
+                  "Experience.displayValue": "11 year(s) 5 month(s)",
+                  "LocationName": "",
+                  "Employeestatus": "Active",
+                  "Role": "Team member",
+                  "Department": "Management",
+                  "Experience": "11",
+                  "Employee_type": "Permanent",
+                  "total_experience": "231",
+                  "LocationName.ID": "",
+                  "Designation.ID": "972601000000306112",
+                  "Role.ID": "972601000000035635",
+                  "Employeestatus.type": 1,
+                  "Department.ID": "972601000000306074",
+                  "Source_of_hire": ""
+                },
+                "System Fields": {
+                  "ModifiedBy.ID": "972601000000306003",
+                  "ModifiedTime": "15-Jun-2026 03:36:06",
+                  "AddedBy.ID": "972601000000306003",
+                  "AddedTime": "15-Jun-2026 03:36:06",
+                  "ModifiedBy": "1 - Nango - Developer",
+                  "ONBOARDING_STATUS": "",
+                  "AddedBy": "1 - Nango - Developer"
+                },
+                "ApprovalStatus": "Approval Not Enabled",
+                "Hierarchy Information": {
+                  "Reporting_To.MailID": "nangoapi@zohomail.com",
+                  "Reporting_To.ID": "972601000000306003",
+                  "Reporting_To": "Nango Developer 1"
+                }
+              }
+            ],
+            "message": "Data fetched successfully",
+            "uri": "/api/forms/employee/getRecordByID",
+            "status": 0
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 15 Jun 2026 09:07:58 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=64072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "object-src 'none'; script-src 'nonce-XTN4y7YqZSQHfoB-u3R9o9MO' 'strict-dynamic' http: https:; base-uri 'none';",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4895",
+          "x-ratelimit-reset": "1781514499",
+          "server": "ZGS",
+          "set-cookie": "zalb_c7cb34e6ac=707e0f7c31799cf41ae4d32e33bdabcd; Path=/; Secure; HttpOnly, _zpsid=4F079622BEC4A7FB02F9EF16BC08272D; Path=/; Secure; HttpOnly, CSRF_TOKEN=70eae665-b2d5-4287-b7ed-4bf93018fa6f;path=/;SameSite=None;Secure;priority=high",
+          "cache-control": "private,no-cache,no-store,max-age=0,must-revalidate",
+          "pragma": "no-cache",
+          "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
+          "content-disposition": "attachment;filename=records",
+          "externalapicall": "allowed",
+          "api-count-left-today": "14880",
+          "vary": "sec-fetch-dest,sec-fetch-mode,sec-fetch-site,sec-fetch-user,accept-encoding",
+          "cross-origin-embedder-policy-report-only": "require-corp",
+          "cross-origin-opener-policy": "same-origin",
+          "content-language": "en-US"
+        },
+        "hash": "b74dce2da60c38f33024c4fb5f874f1e0889154d",
+        "request": {
+          "params": {
+            "recordId": "972601000000306098"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "input": {
+    "employeeRecordId": "972601000000306098",
+    "leaveTypeId": "972601000000306562",
+    "fromDate": "19-Jun-2026",
+    "toDate": "20-Jun-2026",
+    "daysTaken": "2"
+  },
+  "output": {
+    "id": "972601000000313020",
+    "message": "Data added successfully"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/people/api/forms/json/leave/insertRecord": {
+        "response": {
+          "response": {
+            "result": {
+              "pkId": "972601000000313020",
+              "message": "Successfully Added"
+            },
+            "message": "Data added successfully",
+            "uri": "/api/forms/json/leave/insertRecord",
+            "status": 0
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 15 Jun 2026 09:07:45 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "content-length": "175",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=64072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "object-src 'none'; script-src 'nonce-Tw0LxH91puKWoT1mgRgnKqFs' 'strict-dynamic' http: https:; base-uri 'none';",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4931",
+          "x-ratelimit-reset": "1781514499",
+          "server": "ZGS",
+          "set-cookie": "zalb_c7cb34e6ac=7459c60d604ddc7984b9ac83c0a0698f; Path=/; Secure; HttpOnly, _zpsid=D41136F34BA71673A036923B3892CCCD; Path=/; Secure; HttpOnly, CSRF_TOKEN=f1ffa129-dbad-4aa7-a8ba-ca97520a7a23;path=/;SameSite=None;Secure;priority=high",
+          "cache-control": "private,no-cache,no-store,max-age=0,must-revalidate",
+          "pragma": "no-cache",
+          "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
+          "content-disposition": "attachment;filename=records",
+          "externalapicall": "allowed",
+          "api-count-left-today": "14892",
+          "vary": "Sec-Fetch-Dest,Sec-Fetch-Mode,Sec-Fetch-Site,Sec-Fetch-User",
+          "cross-origin-embedder-policy-report-only": "require-corp",
+          "cross-origin-opener-policy": "same-origin",
+          "content-language": "en-US"
+        },
+        "hash": "8f76c1ae48907431b0d7418c36fc128c642eb16c",
+        "request": {
+          "params": {
+            "inputData": "{\"From\":\"19-Jun-2026\",\"To\":\"20-Jun-2026\",\"Leavetype\":\"972601000000306562\",\"Employee_ID\":\"972601000000306098\",\"Daystaken\":\"2\"}"
+          }
+        }
+      }
+    }
+  }
+}

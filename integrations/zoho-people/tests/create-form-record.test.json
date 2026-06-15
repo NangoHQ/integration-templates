@@ -1,0 +1,68 @@
+{
+  "input": {
+    "formLinkName": "department",
+    "fields": {
+      "Department": "UniqueDept1781514617"
+    }
+  },
+  "output": {
+    "recordId": "972601000000316016",
+    "message": "Data added successfully",
+    "status": 0
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/people/api/forms/json/department/insertRecord": {
+        "response": {
+          "response": {
+            "result": {
+              "pkId": "972601000000316016",
+              "message": "Successfully Added"
+            },
+            "message": "Data added successfully",
+            "uri": "/api/forms/json/department/insertRecord",
+            "status": 0
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 15 Jun 2026 09:10:21 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "content-length": "180",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=64072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "object-src 'none'; script-src 'nonce-6h9jKutbviwdY7kzr2TCOB3Q' 'strict-dynamic' http: https:; base-uri 'none';",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4958",
+          "x-ratelimit-reset": "1781514622",
+          "server": "ZGS",
+          "set-cookie": "zalb_c7cb34e6ac=1dbc1abdcbf2504774e41e5d476b0b56; Path=/; Secure; HttpOnly, _zpsid=FF40FDFE6DC5B31E4C1A0778C5354121; Path=/; Secure; HttpOnly, CSRF_TOKEN=72804234-6788-40f6-93a2-cfe8e9d5ae6d;path=/;SameSite=None;Secure;priority=high",
+          "cache-control": "private,no-cache,no-store,max-age=0,must-revalidate",
+          "pragma": "no-cache",
+          "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
+          "content-disposition": "attachment;filename=records",
+          "externalapicall": "allowed",
+          "api-count-left-today": "14797",
+          "vary": "Sec-Fetch-Dest,Sec-Fetch-Mode,Sec-Fetch-Site,Sec-Fetch-User",
+          "cross-origin-embedder-policy-report-only": "require-corp",
+          "cross-origin-opener-policy": "same-origin",
+          "content-language": "en-US"
+        },
+        "hash": "fb04b66117c2dc1f815b7fe6ecf30be4973df5a5",
+        "request": {
+          "params": {
+            "inputData": "{\"Department\":\"UniqueDept1781514617\"}"
+          }
+        }
+      }
+    }
+  }
+}
