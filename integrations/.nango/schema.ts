@@ -527,23 +527,12 @@ export interface ActionOutput_1password_scim_updatescimuser {
 };
 
 export interface Account {
-  /**
-   * The unique identifier of the account
-   */
   id: string;
-  /**
-   * The name of the account
-   */
-  accountName: string;
   email?: string | undefined;
-  phone?: string | undefined;
-  website?: string | undefined;
-  country?: string | undefined;
-  industry?: string | undefined;
-  createdTime?: string | undefined;
-  modifiedTime?: string | undefined;
-  ownerId?: string | undefined;
-  crmAccountId?: string | undefined;
+  displayName?: string | undefined;
+  accountName?: string | undefined;
+  type?: string | undefined;
+  enabled?: boolean | undefined;
 };
 
 export interface Automation {
@@ -5828,19 +5817,20 @@ export interface Sequence {
 
 export interface Task {
   id: string;
-  subject?: string | undefined;
+  title: string;
+  description?: string | undefined;
   status?: string | undefined;
   priority?: string | undefined;
-  owner_id?: string | undefined;
-  owner_name?: string | undefined;
-  created_by_id?: string | undefined;
-  modified_by_id?: string | undefined;
-  created_time?: string | undefined;
-  modified_time?: string | undefined;
-  due_date?: string | undefined;
-  description?: string | undefined;
-  related_module?: string | undefined;
-  related_record_id?: string | undefined;
+  dueDate?: string | undefined;
+  createdAt?: string | undefined;
+  modifiedTime?: string | undefined;
+  namespaceId?: string | undefined;
+  projectId?: string | undefined;
+  projectName?: string | undefined;
+  assigneeId?: number | undefined;
+  assigneeName?: string | undefined;
+  ownerId?: number | undefined;
+  ownerName?: string | undefined;
 };
 
 export interface ActionInput_apollo_bulkenrichpeople {
@@ -15737,9 +15727,15 @@ export interface Collaboration {
 
 export interface Folder {
   id: string;
-  name?: string | undefined;
-  createdTime?: string | undefined;
-  modifiedTime?: string | undefined;
+  folderId: string;
+  accountId: string;
+  folderName: string;
+  folderType: string;
+  path: string;
+  isArchived?: number | undefined;
+  imapAccess?: boolean | undefined;
+  previousFolderId?: string | undefined;
+  URI?: string | undefined;
 };
 
 export interface BoxDocument {
@@ -21634,26 +21630,19 @@ export interface Guild {
 
 export interface Message {
   id: string;
-  sid: string;
-  account_sid?: string | undefined;
-  api_version?: string | undefined;
-  body?: string | undefined;
-  num_segments?: string | undefined;
-  direction?: string | undefined;
-  from?: string | undefined;
-  to?: string | undefined;
-  date_updated?: string | undefined;
-  price?: string | undefined;
-  error_message?: string | undefined;
-  uri?: string | undefined;
-  num_media?: string | undefined;
+  messageId?: string | undefined;
+  subject?: string | undefined;
+  fromAddress?: string | undefined;
+  toAddress?: string | undefined;
+  receivedTime?: string | undefined;
+  folderId?: string | undefined;
+  threadId?: string | undefined;
+  hasAttachment?: string | undefined;
   status?: string | undefined;
-  messaging_service_sid?: string | undefined;
-  date_sent?: string | undefined;
-  date_created?: string | undefined;
-  error_code?: number | undefined;
-  price_unit?: string | undefined;
-  subresource_uris?: {  [key: string]: string;} | undefined;
+  sender?: string | undefined;
+  size?: string | undefined;
+  summary?: string | undefined;
+  sentDateInGMT?: string | undefined;
 };
 
 export interface SyncMetadata_discord_messages {
@@ -31987,6 +31976,41 @@ export interface ActionOutput_gitlab_updaterelease {
   released_at: string;
 };
 
+export interface GongCallOutcome {
+  /**
+   * The unique call outcome identifier
+   */
+  id: string;
+  /**
+   * The call outcome name
+   */
+  callOutcome?: string | undefined;
+  /**
+   * The display order of the call outcome
+   */
+  displayOrder?: number | undefined;
+  /**
+   * The connection status of the call outcome
+   */
+  connectStatus?: string | undefined;
+  /**
+   * The sentiment of the call outcome
+   */
+  sentiment?: string | undefined;
+  /**
+   * The todo action associated with the call outcome
+   */
+  todoAction?: string | undefined;
+  /**
+   * The automation associated with the call outcome
+   */
+  automation?: string | undefined;
+  /**
+   * The category of the call outcome
+   */
+  category?: string | undefined;
+};
+
 export interface CallTranscript {
   id: string;
   callId: string;
@@ -32038,96 +32062,6 @@ export interface SyncMetadata_gong_calls {
   lastSyncBackfillPeriod?: number | undefined;
 };
 
-export interface ActionInput_gong_fetchcalltranscripts {
-  /**
-   * Start of date range filter. ISO 8601 string. Example: "2026-01-01T00:00:00Z"
-   */
-  from?: string | undefined;
-  /**
-   * End of date range filter. ISO 8601 string. Example: "2026-01-31T23:59:59Z"
-   */
-  to?: string | undefined;
-  /**
-   * Filter transcripts to a specific Gong workspace. Example: "623457276584334"
-   */
-  workspaceId?: string | undefined;
-  /**
-   * Filter to specific call IDs. Example: ["123456789"]
-   */
-  callIds?: string[] | undefined;
-  /**
-   * Pagination cursor from the previous response. Omit for the first page.
-   */
-  cursor?: string | undefined;
-};
-
-export interface ActionOutput_gong_fetchcalltranscripts {
-  /**
-   * Transcript data for the returned page
-   */
-  transcripts: ({  callId?: string | undefined;
-  transcript?: ({  speakerId?: string | undefined;
-  topic?: string | undefined;
-  sentences?: ({  start?: number | undefined;
-  end?: number | undefined;
-  text?: string | undefined;})[];})[];})[];
-  /**
-   * Pass this cursor to the next call to retrieve the following page. Absent when there are no more pages.
-   */
-  nextCursor?: string | undefined;
-  /**
-   * Total number of matching transcripts across all pages
-   */
-  totalRecords?: number | undefined;
-};
-
-export interface CallOutcome {
-  /**
-   * The unique call outcome identifier
-   */
-  id: string;
-  /**
-   * The call outcome name
-   */
-  callOutcome?: string | undefined;
-  /**
-   * The display order of the call outcome
-   */
-  displayOrder?: number | undefined;
-  /**
-   * The connection status of the call outcome
-   */
-  connectStatus?: string | undefined;
-  /**
-   * The sentiment of the call outcome
-   */
-  sentiment?: string | undefined;
-  /**
-   * The todo action associated with the call outcome
-   */
-  todoAction?: string | undefined;
-  /**
-   * The automation associated with the call outcome
-   */
-  automation?: string | undefined;
-  /**
-   * The category of the call outcome
-   */
-  category?: string | undefined;
-};
-
-export interface SyncMetadata_gong_oauth_calltranscripts {
-  backfillPeriodMs?: number | undefined;
-  lastSyncBackfillPeriod?: number | undefined;
-  callIds?: string[] | undefined;
-  workspaceId?: string | undefined;
-};
-
-export interface SyncMetadata_gong_oauth_calls {
-  backfillPeriodMs?: number | undefined;
-  lastSyncBackfillPeriod?: number | undefined;
-};
-
 export interface LibraryFolder {
   id: string;
   name?: string | undefined;
@@ -32162,7 +32096,7 @@ export interface Tracker {
   filterQuery?: string | undefined;
 };
 
-export interface ActionInput_gong_oauth_addcallusersaccess {
+export interface ActionInput_gong_addcallusersaccess {
   /**
    * Gong's unique numeric call ID. Example: '7782342274025937895'
    */
@@ -32173,11 +32107,11 @@ export interface ActionInput_gong_oauth_addcallusersaccess {
   userIds: string[];
 };
 
-export interface ActionOutput_gong_oauth_addcallusersaccess {
+export interface ActionOutput_gong_addcallusersaccess {
   requestId?: string | undefined;
 };
 
-export interface ActionInput_gong_oauth_askentity {
+export interface ActionInput_gong_askentity {
   /**
    * Type of Gong entity. Example: "Account"
    */
@@ -32192,14 +32126,14 @@ export interface ActionInput_gong_oauth_askentity {
   question: string;
 };
 
-export interface ActionOutput_gong_oauth_askentity {
+export interface ActionOutput_gong_askentity {
   /**
    * AI-generated answer to the question.
    */
   answer: string;
 };
 
-export interface ActionInput_gong_oauth_assignprospectscooloffoverride {
+export interface ActionInput_gong_assignprospectscooloffoverride {
   /**
    * The Gong Engage Flow ID to assign the contacts to. Example: 1695493301223590792
    */
@@ -32214,7 +32148,7 @@ export interface ActionInput_gong_oauth_assignprospectscooloffoverride {
   flowInstanceOwnerEmail: string;
 };
 
-export interface ActionOutput_gong_oauth_assignprospectscooloffoverride {
+export interface ActionOutput_gong_assignprospectscooloffoverride {
   requestId?: string | undefined;
   prospectsAssigned?: ({  flowId?: string | undefined;
   flowName?: string | undefined;
@@ -32226,7 +32160,7 @@ export interface ActionOutput_gong_oauth_assignprospectscooloffoverride {
   errors?: string[] | undefined;
 };
 
-export interface ActionInput_gong_oauth_createmeeting {
+export interface ActionInput_gong_createmeeting {
   /**
    * Title of the meeting.
    */
@@ -32256,7 +32190,7 @@ export interface ActionInput_gong_oauth_createmeeting {
   lastName?: string | undefined;})[];
 };
 
-export interface ActionOutput_gong_oauth_createmeeting {
+export interface ActionOutput_gong_createmeeting {
   /**
    * A Gong request reference Id.
    */
@@ -32278,7 +32212,7 @@ export interface ActionOutput_gong_oauth_createmeeting {
   lastName?: string | undefined;})[];
 };
 
-export interface ActionInput_gong_oauth_createpermissionprofile {
+export interface ActionInput_gong_createpermissionprofile {
   /**
    * Workspace identifier. Example: "7273476131570014205"
    */
@@ -32364,12 +32298,12 @@ export interface ActionInput_gong_oauth_createpermissionprofile {
   aiBuilder?: boolean | undefined;
 };
 
-export interface ActionOutput_gong_oauth_createpermissionprofile {
+export interface ActionOutput_gong_createpermissionprofile {
   requestId: string;
   profile?: {  [key: string]: unknown | undefined;};
 };
 
-export interface ActionInput_gong_oauth_deletecrmintegration {
+export interface ActionInput_gong_deletecrmintegration {
   /**
    * The ID of the integration to delete. Example: "6286478263646"
    */
@@ -32380,41 +32314,41 @@ export interface ActionInput_gong_oauth_deletecrmintegration {
   clientRequestId: string;
 };
 
-export interface ActionOutput_gong_oauth_deletecrmintegration {
+export interface ActionOutput_gong_deletecrmintegration {
   requestId?: string | undefined;
   clientRequestId?: string | undefined;
   errors?: string[] | undefined;
 };
 
-export interface ActionInput_gong_oauth_deletedataforemail {
+export interface ActionInput_gong_deletedataforemail {
   /**
    * Email address to erase from Gong. Example: "user@example.com"
    */
   emailAddress: string;
 };
 
-export interface ActionOutput_gong_oauth_deletedataforemail {
+export interface ActionOutput_gong_deletedataforemail {
   /**
    * Async deletion request ID. Example: "123e4567-e89b-12d3-a456-426614174000"
    */
   requestId: string;
 };
 
-export interface ActionInput_gong_oauth_deletedataforphone {
+export interface ActionInput_gong_deletedataforphone {
   /**
    * Phone number to erase data for. Example: "+15550000001"
    */
   phoneNumber: string;
 };
 
-export interface ActionOutput_gong_oauth_deletedataforphone {
+export interface ActionOutput_gong_deletedataforphone {
   /**
    * Async deletion request ID
    */
   requestId: string;
 };
 
-export interface ActionInput_gong_oauth_deletemeeting {
+export interface ActionInput_gong_deletemeeting {
   /**
    * Gong's unique identifier for the meeting (up to 20 digits). Example: "12345678901234567890"
    */
@@ -32425,11 +32359,11 @@ export interface ActionInput_gong_oauth_deletemeeting {
   organizerEmail: string;
 };
 
-export interface ActionOutput_gong_oauth_deletemeeting {
+export interface ActionOutput_gong_deletemeeting {
   organizerEmail?: string | undefined;
 };
 
-export interface ActionInput_gong_oauth_fetchcallextensivedata {
+export interface ActionInput_gong_fetchcallextensivedata {
   /**
    * Array of call IDs to filter by. Example: ["123456789"]
    */
@@ -32469,14 +32403,14 @@ export interface ActionInput_gong_oauth_fetchcallextensivedata {
   video?: boolean | undefined;};};};
 };
 
-export interface ActionOutput_gong_oauth_fetchcallextensivedata {
+export interface ActionOutput_gong_fetchcallextensivedata {
   calls: ({})[];
   cursor?: string | undefined;
   totalRecords?: number | undefined;
   currentPageSize?: number | undefined;
 };
 
-export interface ActionInput_gong_oauth_fetchcalltranscripts {
+export interface ActionInput_gong_fetchcalltranscripts {
   /**
    * Start of date range filter. ISO 8601 string. Example: "2026-01-01T00:00:00Z"
    */
@@ -32499,7 +32433,7 @@ export interface ActionInput_gong_oauth_fetchcalltranscripts {
   cursor?: string | undefined;
 };
 
-export interface ActionOutput_gong_oauth_fetchcalltranscripts {
+export interface ActionOutput_gong_fetchcalltranscripts {
   /**
    * Transcript data for the returned page
    */
@@ -32519,14 +32453,14 @@ export interface ActionOutput_gong_oauth_fetchcalltranscripts {
   totalRecords?: number | undefined;
 };
 
-export interface ActionInput_gong_oauth_getbulkassignmentresults {
+export interface ActionInput_gong_getbulkassignmentresults {
   /**
    * The bulk assignment ID returned by the bulk-assign action. Example: "12345"
    */
   bulkAssignmentId: string;
 };
 
-export interface ActionOutput_gong_oauth_getbulkassignmentresults {
+export interface ActionOutput_gong_getbulkassignmentresults {
   requestId?: string | undefined;
   bulkAssignmentId?: string | undefined;
   status?: string | undefined;
@@ -32537,14 +32471,14 @@ export interface ActionOutput_gong_oauth_getbulkassignmentresults {
   error?: string | undefined;})[];
 };
 
-export interface ActionInput_gong_oauth_getcallmedia {
+export interface ActionInput_gong_getcallmedia {
   /**
    * Gong call ID. Example: "1234567890"
    */
   callId: string;
 };
 
-export interface ActionOutput_gong_oauth_getcallmedia {
+export interface ActionOutput_gong_getcallmedia {
   /**
    * Signed URL for the audio recording. Valid for 8 hours.
    */
@@ -32555,14 +32489,14 @@ export interface ActionOutput_gong_oauth_getcallmedia {
   videoUrl?: string | undefined;
 };
 
-export interface ActionInput_gong_oauth_getcalltranscript {
+export interface ActionInput_gong_getcalltranscript {
   /**
    * Gong call ID. Example: "7782342274025937895"
    */
   callId: string;
 };
 
-export interface ActionOutput_gong_oauth_getcalltranscript {
+export interface ActionOutput_gong_getcalltranscript {
   callId: string;
   transcript: ({  speakerId: string;
   topic?: string | undefined;
@@ -32571,26 +32505,26 @@ export interface ActionOutput_gong_oauth_getcalltranscript {
   text: string;})[];})[];
 };
 
-export interface ActionInput_gong_oauth_getcallusersaccess {
+export interface ActionInput_gong_getcallusersaccess {
   /**
    * Gong call ID. Example: "123456789"
    */
   callId: string;
 };
 
-export interface ActionOutput_gong_oauth_getcallusersaccess {
+export interface ActionOutput_gong_getcallusersaccess {
   callId: string;
   users?: ({  userId: string;})[] | undefined;
 };
 
-export interface ActionInput_gong_oauth_getcall {
+export interface ActionInput_gong_getcall {
   /**
    * Gong's unique numeric identifier for the call (up to 20 digits). Example: "7782342274025937895"
    */
   id: string;
 };
 
-export interface ActionOutput_gong_oauth_getcall {
+export interface ActionOutput_gong_getcall {
   id: string;
   url?: string | undefined;
   title?: string | undefined;
@@ -32613,7 +32547,7 @@ export interface ActionOutput_gong_oauth_getcall {
   calendarEventId?: string | undefined;
 };
 
-export interface ActionInput_gong_oauth_getcoachingmetrics {
+export interface ActionInput_gong_getcoachingmetrics {
   /**
    * The workspace ID. Example: "7273476131570014205"
    */
@@ -32632,7 +32566,7 @@ export interface ActionInput_gong_oauth_getcoachingmetrics {
   to?: string | undefined;
 };
 
-export interface ActionOutput_gong_oauth_getcoachingmetrics {
+export interface ActionOutput_gong_getcoachingmetrics {
   requestId?: string | undefined;
   coachingData?: ({  manager: {  id: string;
   emailAddress?: string | undefined;
@@ -32647,7 +32581,7 @@ export interface ActionOutput_gong_oauth_getcoachingmetrics {
   metrics?: {  [key: string]: string[];} | undefined;})[];})[];
 };
 
-export interface ActionInput_gong_oauth_getcrmentities {
+export interface ActionInput_gong_getcrmentities {
   /**
    * Type of CRM objects to retrieve. Example: "DEAL"
    */
@@ -32666,13 +32600,13 @@ export interface ActionInput_gong_oauth_getcrmentities {
   cursor?: string | undefined;
 };
 
-export interface ActionOutput_gong_oauth_getcrmentities {
+export interface ActionOutput_gong_getcrmentities {
   requestId?: string | undefined;
   crmObjectsMap?: {  [key: string]: {  [key: string]: unknown | undefined;};};
   next_cursor?: string | undefined;
 };
 
-export interface ActionInput_gong_oauth_getcrmentityschema {
+export interface ActionInput_gong_getcrmentityschema {
   /**
    * The CRM integration ID. Example: "6286478263646"
    */
@@ -32683,7 +32617,7 @@ export interface ActionInput_gong_oauth_getcrmentityschema {
   entityType: string;
 };
 
-export interface ActionOutput_gong_oauth_getcrmentityschema {
+export interface ActionOutput_gong_getcrmentityschema {
   requestId: string;
   objectTypeToSelectedFields: {  [key: string]: ({  name?: string | undefined;
   uniqueName?: string | undefined;
@@ -32695,10 +32629,10 @@ export interface ActionOutput_gong_oauth_getcrmentityschema {
   orderedValueList?: string[] | undefined;})[];};
 };
 
-export interface ActionInput_gong_oauth_getcrmintegration {
+export interface ActionInput_gong_getcrmintegration {
 };
 
-export interface ActionOutput_gong_oauth_getcrmintegration {
+export interface ActionOutput_gong_getcrmintegration {
   integrations?: ({  /**
    * Integration ID generated by Gong
    */
@@ -32717,7 +32651,7 @@ export interface ActionOutput_gong_oauth_getcrmintegration {
   requestId?: string | undefined;
 };
 
-export interface ActionInput_gong_oauth_getcrmrequeststatus {
+export interface ActionInput_gong_getcrmrequeststatus {
   /**
    * Integration ID generated when creating the integration. Example: "5517027188234206000"
    */
@@ -32728,7 +32662,7 @@ export interface ActionInput_gong_oauth_getcrmrequeststatus {
   clientRequestId: string;
 };
 
-export interface ActionOutput_gong_oauth_getcrmrequeststatus {
+export interface ActionOutput_gong_getcrmrequeststatus {
   /**
    * A Gong request reference ID, generated for this request.
    */
@@ -32752,14 +32686,14 @@ export interface ActionOutput_gong_oauth_getcrmrequeststatus {
   totalSuccessCount?: number | undefined;
 };
 
-export interface ActionInput_gong_oauth_getdataforemail {
+export interface ActionInput_gong_getdataforemail {
   /**
    * The email address to look up. Example: "user@example.com"
    */
   emailAddress: string;
 };
 
-export interface ActionOutput_gong_oauth_getdataforemail {
+export interface ActionOutput_gong_getdataforemail {
   requestId?: string | undefined;
   emails?: ({  from?: string | undefined;
   id?: string | undefined;
@@ -32788,14 +32722,14 @@ export interface ActionOutput_gong_oauth_getdataforemail {
   sourceEventId?: string | undefined;})[];
 };
 
-export interface ActionInput_gong_oauth_getdataforphone {
+export interface ActionInput_gong_getdataforphone {
   /**
    * The phone number to look up in E.164 format. Example: "+15555550100"
    */
   phoneNumber: string;
 };
 
-export interface ActionOutput_gong_oauth_getdataforphone {
+export interface ActionOutput_gong_getdataforphone {
   calls?: unknown[] | undefined;
   customerData?: unknown[] | undefined;
   emailAddresses?: unknown[] | undefined;
@@ -32806,7 +32740,7 @@ export interface ActionOutput_gong_oauth_getdataforphone {
   suppliedPhoneNumber?: string | undefined;
 };
 
-export interface ActionInput_gong_oauth_getentitybrief {
+export interface ActionInput_gong_getentitybrief {
   /**
    * Entity type to generate a brief for. Example: "CONTACT"
    */
@@ -32837,7 +32771,7 @@ export interface ActionInput_gong_oauth_getentitybrief {
   toDate?: string | undefined;
 };
 
-export interface ActionOutput_gong_oauth_getentitybrief {
+export interface ActionOutput_gong_getentitybrief {
   requestId?: string | undefined;
   brief?: string | undefined;
   sections?: ({  title?: string | undefined;
@@ -32845,14 +32779,14 @@ export interface ActionOutput_gong_oauth_getentitybrief {
   errors?: string[] | undefined;
 };
 
-export interface ActionInput_gong_oauth_getflowsteps {
+export interface ActionInput_gong_getflowsteps {
   /**
    * One or more Gong Engage flow IDs. Example: ["1695493301223590792"]
    */
   flowIds: string[];
 };
 
-export interface ActionOutput_gong_oauth_getflowsteps {
+export interface ActionOutput_gong_getflowsteps {
   requestId?: string | undefined;
   flows?: ({  id?: string | undefined;
   name?: string | undefined;
@@ -32871,15 +32805,15 @@ export interface ActionOutput_gong_oauth_getflowsteps {
   sendAsNewThread?: boolean | undefined;})[];})[];
 };
 
-export interface ActionInput_gong_oauth_getintegrationsettings {
+export interface ActionInput_gong_getintegrationsettings {
 };
 
-export interface ActionOutput_gong_oauth_getintegrationsettings {
+export interface ActionOutput_gong_getintegrationsettings {
   requestId?: string | undefined;
   integrationSettings?: {  id?: string | undefined;};
 };
 
-export interface ActionInput_gong_oauth_getlogs {
+export interface ActionInput_gong_getlogs {
   /**
    * Type of audit logs to retrieve. Example: "AccessLog"
    */
@@ -32898,7 +32832,7 @@ export interface ActionInput_gong_oauth_getlogs {
   cursor?: string | undefined;
 };
 
-export interface ActionOutput_gong_oauth_getlogs {
+export interface ActionOutput_gong_getlogs {
   requestId?: string | undefined;
   totalRecords?: number | undefined;
   currentPageSize?: number | undefined;
@@ -32915,14 +32849,14 @@ export interface ActionOutput_gong_oauth_getlogs {
   nextCursor?: string | undefined;
 };
 
-export interface ActionInput_gong_oauth_getmeetingintegrationstatus {
+export interface ActionInput_gong_getmeetingintegrationstatus {
   /**
    * Array of user email addresses to check integration status for. Maximum 100.
    */
   emails: string[];
 };
 
-export interface ActionOutput_gong_oauth_getmeetingintegrationstatus {
+export interface ActionOutput_gong_getmeetingintegrationstatus {
   /**
    * A Gong request reference ID for troubleshooting.
    */
@@ -32956,14 +32890,14 @@ export interface ActionOutput_gong_oauth_getmeetingintegrationstatus {
   helpUrl?: string | undefined;})[];
 };
 
-export interface ActionInput_gong_oauth_getpermissionprofile {
+export interface ActionInput_gong_getpermissionprofile {
   /**
    * The ID of the permission profile to retrieve. Example: "3843152912968920037"
    */
   profileId: string;
 };
 
-export interface ActionOutput_gong_oauth_getpermissionprofile {
+export interface ActionOutput_gong_getpermissionprofile {
   requestId?: string | undefined;
   profile?: {  id: string;
   name?: string | undefined;
@@ -33036,14 +32970,14 @@ export interface ActionOutput_gong_oauth_getpermissionprofile {
   dealsDataExport?: boolean | undefined;};
 };
 
-export interface ActionInput_gong_oauth_getscorecard {
+export interface ActionInput_gong_getscorecard {
   /**
    * The identifier of the scorecard. Example: "9067931441193858457"
    */
   scorecardId: string;
 };
 
-export interface ActionOutput_gong_oauth_getscorecard {
+export interface ActionOutput_gong_getscorecard {
   scorecardId: string;
   scorecardName?: string | undefined;
   workspaceId?: string | undefined;
@@ -33064,7 +32998,7 @@ export interface ActionOutput_gong_oauth_getscorecard {
   text: string;})[] | undefined;})[];
 };
 
-export interface ActionInput_gong_oauth_getstatsactivityaggregatebyperiod {
+export interface ActionInput_gong_getstatsactivityaggregatebyperiod {
   /**
    * Gong user IDs to filter by. Example: ["7254376376091929519"]
    */
@@ -33087,7 +33021,7 @@ export interface ActionInput_gong_oauth_getstatsactivityaggregatebyperiod {
   cursor?: string | undefined;
 };
 
-export interface ActionOutput_gong_oauth_getstatsactivityaggregatebyperiod {
+export interface ActionOutput_gong_getstatsactivityaggregatebyperiod {
   requestId?: string | undefined;
   records?: {  totalRecords?: number | undefined;
   currentPageSize?: number | undefined;
@@ -33113,7 +33047,7 @@ export interface ActionOutput_gong_oauth_getstatsactivityaggregatebyperiod {
   ownCallsListenedTo?: number | undefined;})[];})[];
 };
 
-export interface ActionInput_gong_oauth_getstatsactivityaggregate {
+export interface ActionInput_gong_getstatsactivityaggregate {
   /**
    * Gong user IDs to retrieve activity for. Example: ["7254376376091929519"]
    */
@@ -33124,7 +33058,7 @@ export interface ActionInput_gong_oauth_getstatsactivityaggregate {
   referenceDate: string;
 };
 
-export interface ActionOutput_gong_oauth_getstatsactivityaggregate {
+export interface ActionOutput_gong_getstatsactivityaggregate {
   requestId?: string | undefined;
   records?: {  totalRecords?: number | undefined;
   currentPageSize?: number | undefined;
@@ -33152,7 +33086,7 @@ export interface ActionOutput_gong_oauth_getstatsactivityaggregate {
   toDateTime?: string | undefined;})[];
 };
 
-export interface ActionInput_gong_oauth_getstatsactivitydaybyday {
+export interface ActionInput_gong_getstatsactivitydaybyday {
   /**
    * The start date (inclusive) in YYYY-MM-DD format.
    */
@@ -33171,7 +33105,7 @@ export interface ActionInput_gong_oauth_getstatsactivitydaybyday {
   userIds?: string[] | undefined;
 };
 
-export interface ActionOutput_gong_oauth_getstatsactivitydaybyday {
+export interface ActionOutput_gong_getstatsactivitydaybyday {
   requestId: string;
   records: {  totalRecords: number;
   currentPageSize: number;
@@ -33199,7 +33133,7 @@ export interface ActionOutput_gong_oauth_getstatsactivitydaybyday {
   nextCursor?: string | undefined;
 };
 
-export interface ActionInput_gong_oauth_getstatsactivityscorecards {
+export interface ActionInput_gong_getstatsactivityscorecards {
   /**
    * Start of the date range in ISO 8601 format. Example: 2026-01-01T00:00:00Z
    */
@@ -33222,7 +33156,7 @@ export interface ActionInput_gong_oauth_getstatsactivityscorecards {
   cursor?: string | undefined;
 };
 
-export interface ActionOutput_gong_oauth_getstatsactivityscorecards {
+export interface ActionOutput_gong_getstatsactivityscorecards {
   answeredScorecards?: ({  answeredScorecardId: string;
   scorecardId: string;
   scorecardName: string;
@@ -33244,7 +33178,7 @@ export interface ActionOutput_gong_oauth_getstatsactivityscorecards {
   cursor?: string | undefined;
 };
 
-export interface ActionInput_gong_oauth_getstatsinteraction {
+export interface ActionInput_gong_getstatsinteraction {
   /**
    * Gong user IDs (up to 20 digits). Example: ["7254376376091929519"]
    */
@@ -33259,7 +33193,7 @@ export interface ActionInput_gong_oauth_getstatsinteraction {
   cursor?: string | undefined;
 };
 
-export interface ActionOutput_gong_oauth_getstatsinteraction {
+export interface ActionOutput_gong_getstatsinteraction {
   requestId?: string | undefined;
   peopleInteractionStats?: ({  userId: string;
   userEmailAddress?: string | undefined;
@@ -33274,14 +33208,14 @@ export interface ActionOutput_gong_oauth_getstatsinteraction {
   cursor?: string | undefined;};
 };
 
-export interface ActionInput_gong_oauth_gettracker {
+export interface ActionInput_gong_gettracker {
   /**
    * The unique identifier of the tracker. Example: "7686842637000665959"
    */
   trackerId: string;
 };
 
-export interface ActionOutput_gong_oauth_gettracker {
+export interface ActionOutput_gong_gettracker {
   trackerId: string;
   trackerName: string;
   workspaceId?: string | undefined;
@@ -33301,28 +33235,28 @@ export interface ActionOutput_gong_oauth_gettracker {
   updaterUserId?: string | undefined;
 };
 
-export interface ActionInput_gong_oauth_getusersettingshistory {
+export interface ActionInput_gong_getusersettingshistory {
   /**
    * Gong unique numeric identifier for the user. Example: "7254376376091929519"
    */
   userId: string;
 };
 
-export interface ActionOutput_gong_oauth_getusersettingshistory {
+export interface ActionOutput_gong_getusersettingshistory {
   requestId?: string | undefined;
   userSettingsHistory?: ({  setting?: string | undefined;
   value?: boolean | undefined;
   time?: string | undefined;})[];
 };
 
-export interface ActionInput_gong_oauth_getuser {
+export interface ActionInput_gong_getuser {
   /**
    * Gong's unique numeric identifier for the user (up to 20 digits). Example: "7254376376091929519"
    */
   userId: string;
 };
 
-export interface ActionOutput_gong_oauth_getuser {
+export interface ActionOutput_gong_getuser {
   id: string;
   emailAddress: string;
   created: string;
@@ -33348,34 +33282,34 @@ export interface ActionOutput_gong_oauth_getuser {
   primary?: boolean | undefined;})[];
 };
 
-export interface ActionInput_gong_oauth_getworkspace {
+export interface ActionInput_gong_getworkspace {
   /**
    * Gong workspace ID. Example: "7273476131570014205"
    */
   workspaceId: string;
 };
 
-export interface ActionOutput_gong_oauth_getworkspace {
+export interface ActionOutput_gong_getworkspace {
   id: string;
   name?: string | undefined;
   description?: string | undefined;
 };
 
-export interface ActionInput_gong_oauth_listcalloutcomes {
+export interface ActionInput_gong_listcalloutcomes {
   /**
    * Pagination cursor from the previous response. Omit for the first page.
    */
   cursor?: string | undefined;
 };
 
-export interface ActionOutput_gong_oauth_listcalloutcomes {
+export interface ActionOutput_gong_listcalloutcomes {
   items: ({  id?: string | undefined;
   category?: string | undefined;
   name?: string | undefined;})[];
   nextCursor?: string | undefined;
 };
 
-export interface ActionInput_gong_oauth_listcalltranscripts {
+export interface ActionInput_gong_listcalltranscripts {
   /**
    * Start date in ISO 8601 UTC format. Example: "2026-01-01T00:00:00Z"
    */
@@ -33398,7 +33332,7 @@ export interface ActionInput_gong_oauth_listcalltranscripts {
   cursor?: string | undefined;
 };
 
-export interface ActionOutput_gong_oauth_listcalltranscripts {
+export interface ActionOutput_gong_listcalltranscripts {
   callTranscripts: ({  callId?: string | undefined;
   transcript?: ({  speakerId?: string | undefined;
   topic?: string | undefined;
@@ -33410,7 +33344,7 @@ export interface ActionOutput_gong_oauth_listcalltranscripts {
   currentPageSize?: number | undefined;
 };
 
-export interface ActionInput_gong_oauth_listcalls {
+export interface ActionInput_gong_listcalls {
   /**
    * Start of the date range in ISO 8601 UTC format. Example: "2026-01-01T00:00:00Z"
    */
@@ -33429,7 +33363,7 @@ export interface ActionInput_gong_oauth_listcalls {
   cursor?: string | undefined;
 };
 
-export interface ActionOutput_gong_oauth_listcalls {
+export interface ActionOutput_gong_listcalls {
   calls: ({  id: string;
   url?: string | undefined;
   title?: string | undefined;
@@ -33454,7 +33388,7 @@ export interface ActionOutput_gong_oauth_listcalls {
   nextCursor?: string | undefined;
 };
 
-export interface ActionInput_gong_oauth_listflowfolders {
+export interface ActionInput_gong_listflowfolders {
   /**
    * Email of the flow owner whose folders (including personal and shared) should be included.
    */
@@ -33465,13 +33399,13 @@ export interface ActionInput_gong_oauth_listflowfolders {
   cursor?: string | undefined;
 };
 
-export interface ActionOutput_gong_oauth_listflowfolders {
+export interface ActionOutput_gong_listflowfolders {
   items: ({  id: string;
   name: string;})[];
   nextCursor?: string | undefined;
 };
 
-export interface ActionInput_gong_oauth_listflowprospects {
+export interface ActionInput_gong_listflowprospects {
   /**
    * CRM IDs of the prospects to list assigned flows for. Example: ["a5V1Q00A120DP4CVAW"]
    */
@@ -33482,7 +33416,7 @@ export interface ActionInput_gong_oauth_listflowprospects {
   flowInstanceIds?: string[] | undefined;
 };
 
-export interface ActionOutput_gong_oauth_listflowprospects {
+export interface ActionOutput_gong_listflowprospects {
   items: ({  flowId?: string | undefined;
   flowName?: string | undefined;
   crmProspectId?: string | undefined;
@@ -33495,7 +33429,7 @@ export interface ActionOutput_gong_oauth_listflowprospects {
   exclusive?: boolean | undefined;})[];
 };
 
-export interface ActionInput_gong_oauth_listflows {
+export interface ActionInput_gong_listflows {
   /**
    * Email address of the user who owns the flows. Example: "api@nango.dev"
    */
@@ -33506,7 +33440,7 @@ export interface ActionInput_gong_oauth_listflows {
   cursor?: string | undefined;
 };
 
-export interface ActionOutput_gong_oauth_listflows {
+export interface ActionOutput_gong_listflows {
   flows: ({  id: string;
   name?: string | undefined;
   status?: string | undefined;
@@ -33515,14 +33449,14 @@ export interface ActionOutput_gong_oauth_listflows {
   nextCursor?: string | undefined;
 };
 
-export interface ActionInput_gong_oauth_listlibraryfoldercontent {
+export interface ActionInput_gong_listlibraryfoldercontent {
   /**
    * Gong's unique numeric identifier for the folder (up to 20 digits).
    */
   folderId: string;
 };
 
-export interface ActionOutput_gong_oauth_listlibraryfoldercontent {
+export interface ActionOutput_gong_listlibraryfoldercontent {
   requestId?: string | undefined;
   id?: string | undefined;
   name?: string | undefined;
@@ -33537,14 +33471,14 @@ export interface ActionOutput_gong_oauth_listlibraryfoldercontent {
   snippet?: {  [key: string]: unknown | undefined;};})[];
 };
 
-export interface ActionInput_gong_oauth_listlibraryfolders {
+export interface ActionInput_gong_listlibraryfolders {
   /**
    * Workspace identifier to filter folders by workspace. Example: "7273476131570014205"
    */
   workspaceId?: string | undefined;
 };
 
-export interface ActionOutput_gong_oauth_listlibraryfolders {
+export interface ActionOutput_gong_listlibraryfolders {
   requestId?: string | undefined;
   folders: ({  id: string;
   name: string;
@@ -33553,33 +33487,33 @@ export interface ActionOutput_gong_oauth_listlibraryfolders {
   updated: string;})[];
 };
 
-export interface ActionInput_gong_oauth_listpermissionprofileusers {
+export interface ActionInput_gong_listpermissionprofileusers {
   /**
    * Permission profile identifier. Example: "12345678901234567890"
    */
   profileId: string;
 };
 
-export interface ActionOutput_gong_oauth_listpermissionprofileusers {
+export interface ActionOutput_gong_listpermissionprofileusers {
   users: ({  id: string;
   fullName?: string | undefined;
   emailAddress?: string | undefined;})[];
 };
 
-export interface ActionInput_gong_oauth_listpermissionprofiles {
+export interface ActionInput_gong_listpermissionprofiles {
   /**
    * Workspace ID. Example: "7273476131570014205"
    */
   workspaceId: string;
 };
 
-export interface ActionOutput_gong_oauth_listpermissionprofiles {
+export interface ActionOutput_gong_listpermissionprofiles {
   profiles: ({  id: string;
   name?: string | undefined;
   description?: string | undefined;})[];
 };
 
-export interface ActionInput_gong_oauth_listscorecards {
+export interface ActionInput_gong_listscorecards {
   /**
    * Workspace ID to filter scorecards. Example: "7273476131570014205"
    */
@@ -33590,7 +33524,7 @@ export interface ActionInput_gong_oauth_listscorecards {
   cursor?: string | undefined;
 };
 
-export interface ActionOutput_gong_oauth_listscorecards {
+export interface ActionOutput_gong_listscorecards {
   items: ({  scorecardId: string;
   scorecardName?: string | undefined;
   workspaceId?: string | undefined;
@@ -33612,7 +33546,7 @@ export interface ActionOutput_gong_oauth_listscorecards {
   nextCursor?: string | undefined;
 };
 
-export interface ActionInput_gong_oauth_listtasks {
+export interface ActionInput_gong_listtasks {
   /**
    * The Gong user ID who owns the tasks. Example: 1597409306735779049
    */
@@ -33638,7 +33572,7 @@ export interface ActionInput_gong_oauth_listtasks {
   2: 'DISMISSED';})[] | undefined;
 };
 
-export interface ActionOutput_gong_oauth_listtasks {
+export interface ActionOutput_gong_listtasks {
   items: ({  id?: string | undefined;
   userId?: string | undefined;
   created?: string | undefined;
@@ -33650,7 +33584,7 @@ export interface ActionOutput_gong_oauth_listtasks {
   title?: string | undefined;})[];
 };
 
-export interface ActionInput_gong_oauth_listtrackers {
+export interface ActionInput_gong_listtrackers {
   /**
    * Workspace ID to filter trackers. Example: "7273476131570014205"
    */
@@ -33661,7 +33595,7 @@ export interface ActionInput_gong_oauth_listtrackers {
   cursor?: string | undefined;
 };
 
-export interface ActionOutput_gong_oauth_listtrackers {
+export interface ActionOutput_gong_listtrackers {
   trackers: ({  trackerId: string;
   trackerName?: string | undefined;
   workspaceId?: string | undefined;
@@ -33685,14 +33619,14 @@ export interface ActionOutput_gong_oauth_listtrackers {
   nextCursor?: string | undefined;
 };
 
-export interface ActionInput_gong_oauth_listusers {
+export interface ActionInput_gong_listusers {
   /**
    * Pagination cursor from the previous response. Omit for the first page.
    */
   cursor?: string | undefined;
 };
 
-export interface ActionOutput_gong_oauth_listusers {
+export interface ActionOutput_gong_listusers {
   users: ({  id: string;
   emailAddress?: string | undefined;
   created?: string | undefined;
@@ -33713,10 +33647,10 @@ export interface ActionOutput_gong_oauth_listusers {
   nextCursor?: string | undefined;
 };
 
-export interface ActionInput_gong_oauth_listworkspaces {
+export interface ActionInput_gong_listworkspaces {
 };
 
-export interface ActionOutput_gong_oauth_listworkspaces {
+export interface ActionOutput_gong_listworkspaces {
   workspaces: ({  /**
    * Gong unique identifier for the workspace. Example: "12345678901234567890"
    */
@@ -33731,7 +33665,7 @@ export interface ActionOutput_gong_oauth_listworkspaces {
   description: string;})[];
 };
 
-export interface ActionInput_gong_oauth_postdigitalinteraction {
+export interface ActionInput_gong_postdigitalinteraction {
   /**
    * The provider unique identifier for the event used for deduplication. Example: "evt-abc-123"
    */
@@ -33789,24 +33723,24 @@ export interface ActionInput_gong_oauth_postdigitalinteraction {
   device?: 'MOBILE' | 'PC' | undefined;
 };
 
-export interface ActionOutput_gong_oauth_postdigitalinteraction {
+export interface ActionOutput_gong_postdigitalinteraction {
   /**
    * A Gong request reference Id generated for this request. Can be used for troubleshooting purposes.
    */
   requestId?: string | undefined;
 };
 
-export interface ActionInput_gong_oauth_registercrmintegration {
+export interface ActionInput_gong_registercrmintegration {
   ownerEmail: string;
   name: string;
 };
 
-export interface ActionOutput_gong_oauth_registercrmintegration {
+export interface ActionOutput_gong_registercrmintegration {
   requestId: string;
   integrationId: string;
 };
 
-export interface ActionInput_gong_oauth_removecallusersaccess {
+export interface ActionInput_gong_removecallusersaccess {
   /**
    * Gong's unique numeric call ID. Example: "7782342274025937895"
    */
@@ -33817,26 +33751,26 @@ export interface ActionInput_gong_oauth_removecallusersaccess {
   userIds: string[];
 };
 
-export interface ActionOutput_gong_oauth_removecallusersaccess {
+export interface ActionOutput_gong_removecallusersaccess {
   /**
    * A Gong request reference ID, generated for this request.
    */
   requestId: string;
 };
 
-export interface ActionInput_gong_oauth_removeprospectsfromflow {
+export interface ActionInput_gong_removeprospectsfromflow {
   /**
    * Array of flow instance IDs to unassign from the flow. Max 100 IDs per request.
    */
   flowInstanceIds: string[];
 };
 
-export interface ActionOutput_gong_oauth_removeprospectsfromflow {
+export interface ActionOutput_gong_removeprospectsfromflow {
   requestId: string;
   unassignedFlowInstanceIds: string[];
 };
 
-export interface ActionInput_gong_oauth_unassignflowbycrmid {
+export interface ActionInput_gong_unassignflowbycrmid {
   crmProspectIds: string[];
   /**
    * The identifier of the flow to unassign the prospects from. If omitted, removes from all flows.
@@ -33848,14 +33782,14 @@ export interface ActionInput_gong_oauth_unassignflowbycrmid {
   unassignedByUserEmail?: string | undefined;
 };
 
-export interface ActionOutput_gong_oauth_unassignflowbycrmid {
+export interface ActionOutput_gong_unassignflowbycrmid {
   results: ({  crmProspectId: string;
   requestId?: string | undefined;
   unassignedFlowInstanceIds?: string[] | undefined;
   error?: string | undefined;})[];
 };
 
-export interface ActionInput_gong_oauth_updateintegrationsettings {
+export interface ActionInput_gong_updateintegrationsettings {
   /**
    * List of integration type settings to update.
    */
@@ -33863,7 +33797,7 @@ export interface ActionInput_gong_oauth_updateintegrationsettings {
   allowedOrigin: string;})[];
 };
 
-export interface ActionOutput_gong_oauth_updateintegrationsettings {
+export interface ActionOutput_gong_updateintegrationsettings {
   /**
    * Gong request reference ID.
    */
@@ -33874,7 +33808,7 @@ export interface ActionOutput_gong_oauth_updateintegrationsettings {
   integrationId?: string | undefined;
 };
 
-export interface ActionInput_gong_oauth_updatemeeting {
+export interface ActionInput_gong_updatemeeting {
   /**
    * Gong's unique identifier for the meeting.
    */
@@ -33920,7 +33854,7 @@ export interface ActionInput_gong_oauth_updatemeeting {
   organizerEmail: string;
 };
 
-export interface ActionOutput_gong_oauth_updatemeeting {
+export interface ActionOutput_gong_updatemeeting {
   /**
    * A Gong request reference Id, generated for this request.
    */
@@ -33931,7 +33865,7 @@ export interface ActionOutput_gong_oauth_updatemeeting {
   meetingId: string;
 };
 
-export interface ActionInput_gong_oauth_updatepermissionprofile {
+export interface ActionInput_gong_updatepermissionprofile {
   /**
    * The Id of the permission profile to update. Example: "3843152912968920037"
    */
@@ -34162,7 +34096,7 @@ export interface ActionInput_gong_oauth_updatepermissionprofile {
   dealsDataExport?: boolean | undefined;
 };
 
-export interface ActionOutput_gong_oauth_updatepermissionprofile {
+export interface ActionOutput_gong_updatepermissionprofile {
   id: string;
   name?: string | undefined;
   description?: string | undefined;
@@ -34234,7 +34168,7 @@ export interface ActionOutput_gong_oauth_updatepermissionprofile {
   dealsDataExport?: boolean | undefined;
 };
 
-export interface ActionInput_gong_oauth_updatetask {
+export interface ActionInput_gong_updatetask {
   /**
    * The ID of the task to update. Example: "7254376376091929519"
    */
@@ -34261,7 +34195,7 @@ export interface ActionInput_gong_oauth_updatetask {
   notes?: string | undefined;
 };
 
-export interface ActionOutput_gong_oauth_updatetask {
+export interface ActionOutput_gong_updatetask {
   id?: string | undefined;
   userId?: string | undefined;
   status?: string | undefined;
@@ -34271,7 +34205,7 @@ export interface ActionOutput_gong_oauth_updatetask {
   message: string;} | undefined;
 };
 
-export interface ActionInput_gong_oauth_uploadcall {
+export interface ActionInput_gong_uploadcall {
   /**
    * Unique identifier for this call from the client system. Example: "call-123"
    */
@@ -34325,7 +34259,7 @@ export interface ActionInput_gong_oauth_uploadcall {
   duration?: number | undefined;
 };
 
-export interface ActionOutput_gong_oauth_uploadcall {
+export interface ActionOutput_gong_uploadcall {
   /**
    * Gong-generated call ID. Example: "123456789"
    */
@@ -34340,7 +34274,7 @@ export interface ActionOutput_gong_oauth_uploadcall {
   url?: string | undefined;
 };
 
-export interface ActionInput_gong_oauth_uploadcrmentities {
+export interface ActionInput_gong_uploadcrmentities {
   /**
    * CRM integration ID generated when creating the integration. Example: "6286478263646"
    */
@@ -34374,13 +34308,13 @@ export interface ActionInput_gong_oauth_uploadcrmentities {
   clientRequestId?: string | undefined;
 };
 
-export interface ActionOutput_gong_oauth_uploadcrmentities {
+export interface ActionOutput_gong_uploadcrmentities {
   requestId?: string | undefined;
   clientRequestId?: string | undefined;
   errors?: string[] | undefined;
 };
 
-export interface ActionInput_gong_oauth_uploadcrmentityschema {
+export interface ActionInput_gong_uploadcrmentityschema {
   /**
    * Integration ID generated when creating the integration. Example: "6286478263646"
    */
@@ -34422,7 +34356,7 @@ export interface ActionInput_gong_oauth_uploadcrmentityschema {
   orderedValueList?: string[] | undefined;})[];
 };
 
-export interface ActionOutput_gong_oauth_uploadcrmentityschema {
+export interface ActionOutput_gong_uploadcrmentityschema {
   /**
    * A Gong request reference Id, generated for this request.
    */
@@ -39302,10 +39236,13 @@ export interface Filter {
 
 export interface Label {
   id: string;
-  idBoard: string;
-  name?: string | undefined;
+  accountId: string;
+  labelId: string;
+  displayName?: string | undefined;
   color?: string | undefined;
-  uses?: number | undefined;
+  sequence?: number | undefined;
+  tagId?: string | undefined;
+  uri?: string | undefined;
 };
 
 export interface SendAsAlias {
@@ -111036,100 +110973,1113 @@ export interface ActionOutput_zoho_desk_updateticket {
   status?: string | undefined;
 };
 
-export interface ZohoMailEmail {
-  id: string;
-  summary: string;
-  sentDateInGMT: string;
-  calendarType: number;
-  subject: string;
+export interface ActionInput_zoho_mail_archivemessage {
+  /**
+   * Zoho Mail account ID. Example: "4845214000000008002"
+   */
+  accountId: string;
+  /**
+   * Message ID to archive. Example: "1781108289537154100"
+   */
   messageId: string;
-  flagid: string;
-  status2: string;
-  priority: string;
-  hasInline: string;
-  toAddress: string;
-  folderId: string;
-  ccAddress: string;
-  hasAttachment: string;
-  size: string;
-  sender: string;
-  receivedTime: string;
+};
+
+export interface ActionOutput_zoho_mail_archivemessage {
+  success: boolean;
+  messageId?: string | undefined;
+};
+
+export interface ActionInput_zoho_mail_createdraft {
+  /**
+   * Zoho Mail account ID. Example: "4845214000000008002"
+   */
+  accountId: string;
+  /**
+   * Sender email address. Example: "user@zohomail.com"
+   */
   fromAddress: string;
-  status: string;
+  /**
+   * Recipient email address. Example: "recipient@example.com"
+   */
+  toAddress: string;
+  /**
+   * Subject of the email. Example: "Meeting notes"
+   */
+  subject: string;
+  /**
+   * Body content of the email. Example: "Hello, please find the notes attached."
+   */
+  content: string;
+  /**
+   * Format of the email content. Example: "html"
+   */
+  mailFormat: 'html' | 'plaintext';
+  /**
+   * Cc recipient email address.
+   */
+  ccAddress?: string | undefined;
+  /**
+   * Bcc recipient email address.
+   */
+  bccAddress?: string | undefined;
 };
 
-export interface SyncMetadata_zoho_mail_emails {
+export interface ActionOutput_zoho_mail_createdraft {
+  success: boolean;
+  message?: string | undefined;
 };
 
-export interface ZohoMailTask {
+export interface ActionInput_zoho_mail_createfolder {
+  /**
+   * Zoho Mail account ID. Example: "4845214000000008002"
+   */
+  accountId: string;
+  /**
+   * Name of the folder to create. Example: "My Folder"
+   */
+  folderName: string;
+  /**
+   * Optional parent folder ID. Example: "4845214000000008008"
+   */
+  parentFolderId?: string | undefined;
+};
+
+export interface ActionOutput_zoho_mail_createfolder {
+  folderId: string;
+  folderName: string;
+  path?: string | undefined;
+  folderType?: string | undefined;
+  isArchived?: number | undefined;
+  imapAccess?: boolean | undefined;
+  previousFolderId?: string | undefined;
+  URI?: string | undefined;
+};
+
+export interface ActionInput_zoho_mail_createlabel {
+  /**
+   * Zoho Mail account ID. Example: "4845214000000008002"
+   */
+  accountId: string;
+  /**
+   * Name of the label to create. Example: "Important"
+   */
+  labelName: string;
+  /**
+   * Hex color code for the label. Example: "#FF0000"
+   */
+  color?: string | undefined;
+};
+
+export interface ActionOutput_zoho_mail_createlabel {
+  labelId?: string | undefined;
+  labelName?: string | undefined;
+  color?: string | undefined;
+};
+
+export interface ActionInput_zoho_mail_createsignature {
+  /**
+   * Name of the signature. Example: "Work Signature"
+   */
+  name: string;
+  /**
+   * Content of the signature. Example: "Best regards, John."
+   */
+  content: string;
+  /**
+   * Position of the signature. 0 = below quoted content, 1 = above quoted content.
+   */
+  position: 0 | 1;
+  /**
+   * Comma-separated email addresses to assign the signature to.
+   */
+  assignUsers?: string | undefined;
+};
+
+export interface ActionOutput_zoho_mail_createsignature {
   id: string;
-  serviceType: number;
-  modifiedTime: Date;
-  resourceId: string;
-  attachments: any[];
-  statusStr: string;
-  statusValue: number;
-  description: string;
-  project: {  name: string;
-  id: string;};
-  isTaskPublished: boolean;
+  name: string;
+  signatureType: string;
+  position: number;
+  content: string;
+};
+
+export interface ActionInput_zoho_mail_createtask {
+  /**
+   * Title of the task. Example: "Blog Updates"
+   */
   title: string;
-  createdAt: Date;
-  portalId: number;
-  serviceId: string;
-  owner: {  name: string;
-  id: number;};
-  assigneeList: string[];
-  dependency: any[];
-  subtasks: any[];
-  priority: string;
-  tags: string[];
-  followers: string[];
-  namespaceId: string;
-  dependents: string[];
-  assignee: {  name: string;
-  id: number;};
-  serviceUniqId: number;
-  depUniqId: string;
-  status: string;
+  /**
+   * Description of the task. Example: "Announcement blog for recent revamp"
+   */
+  description?: string | undefined;
+  /**
+   * Priority of the task. Example: "low"
+   */
+  priority?: 'high' | 'medium' | 'low' | undefined;
+  /**
+   * Status of the task. Example: "inprogress"
+   */
+  status?: 'inprogress' | 'completed' | undefined;
+  /**
+   * Due date in DD/MM/YYYY format. Example: "23/01/2024"
+   */
+  dueDate?: string | undefined;
+  /**
+   * Reminder date in ISO 8601 format. Example: "2024-01-23T12:34:56+05:30"
+   */
+  reminderDate?: string | undefined;
+  /**
+   * Send reminder via email
+   */
+  emailReminder?: boolean | undefined;
+  /**
+   * Send reminder notification
+   */
+  popupReminder?: boolean | undefined;
 };
 
-export interface SyncMetadata_zoho_mail_tasks {
+export interface ActionOutput_zoho_mail_createtask {
+  id: string;
+  title: string;
+  description?: string | undefined;
+  priority?: string | undefined;
+  status?: string | undefined;
+  dueDate?: string | undefined;
+  createdAt?: string | undefined;
+  modifiedTime?: string | undefined;
+  assignee?: {  id: string | number;
+  name?: string | undefined;};
+  owner?: {  id: string | number;
+  name?: string | undefined;};
+  project?: {  id?: string | undefined;
+  name?: string | undefined;};
 };
 
-export interface ActionInput_zoho_mail_adduser {
-  zoid: number;
-  primaryEmailAddress: string;
-  password: string;
+export interface ActionInput_zoho_mail_deletefolder {
+  /**
+   * The Zoho Mail account ID. Example: "4845214000000008002"
+   */
+  accountId: string;
+  /**
+   * The ID of the folder to delete. Example: "4845214000000010002"
+   */
+  folderId: string;
+};
+
+export interface ActionOutput_zoho_mail_deletefolder {
+  success: boolean;
+  code: number;
+  description: string;
+};
+
+export interface ActionInput_zoho_mail_deletelabel {
+  /**
+   * Account ID. Example: "4845214000000008002"
+   */
+  accountId: string;
+  /**
+   * Label ID. Example: "1234567890123456789"
+   */
+  labelId: string;
+};
+
+export interface ActionOutput_zoho_mail_deletelabel {
+  success: boolean;
+};
+
+export interface ActionInput_zoho_mail_deletemessage {
+  /**
+   * Account ID. Example: "4845214000000008002"
+   */
+  accountId: string;
+  /**
+   * Folder ID containing the message. Example: "4845214000000008008"
+   */
+  folderId: string;
+  /**
+   * Message ID to delete. Example: "1781108289537154100"
+   */
+  messageId: string;
+  /**
+   * Pass true to permanently delete the message. Omit or pass false to move to Trash.
+   */
+  expunge?: boolean | undefined;
+};
+
+export interface ActionOutput_zoho_mail_deletemessage {
+  code: number;
+  description: string;
+  cId?: string | undefined;
+};
+
+export interface ActionInput_zoho_mail_deletesignature {
+  /**
+   * Signature ID to delete. Example: "2442552000000167007"
+   */
+  signatureId: string;
+};
+
+export interface ActionOutput_zoho_mail_deletesignature {
+  success: boolean;
+  code?: number | undefined;
+  description?: string | undefined;
+};
+
+export interface ActionInput_zoho_mail_deletetask {
+  /**
+   * The unique identifier of the task to delete. Example: "1781108295426155000"
+   */
+  taskId: string;
+};
+
+export interface ActionOutput_zoho_mail_deletetask {
+  success: boolean;
+};
+
+export interface ActionInput_zoho_mail_flagmessage {
+  /**
+   * Zoho Mail account ID. Example: 4845214000000008002
+   */
+  accountId: string;
+  /**
+   * Message ID to flag or unflag. Example: 1781108289537154100
+   */
+  messageId: string;
+  /**
+   * Set to true to unflag the message instead of flagging it.
+   */
+  unflag?: boolean | undefined;
+};
+
+export interface ActionOutput_zoho_mail_flagmessage {
+  success: boolean;
+  statusCode?: number | undefined;
+  statusDescription?: string | undefined;
+};
+
+export interface ActionInput_zoho_mail_forwardemail {
+  /**
+   * Account ID. Example: "4845214000000008002"
+   */
+  accountId: string;
+  /**
+   * Folder ID containing the message. Example: "4845214000000008008"
+   */
+  folderId: string;
+  /**
+   * Message ID to forward. Example: "1781108289537154100"
+   */
+  messageId: string;
+  /**
+   * Sender email address. Example: "nangoapi@zohomail.com"
+   */
+  fromAddress: string;
+  /**
+   * Recipient email address. Example: "recipient@example.com"
+   */
+  toAddress: string;
+  /**
+   * Optional custom body content for the forwarded message
+   */
+  content?: string | undefined;
+};
+
+export interface ActionOutput_zoho_mail_forwardemail {
+  success: boolean;
+  code?: number | undefined;
+  description?: string | undefined;
+};
+
+export interface ActionInput_zoho_mail_getaccount {
+  /**
+   * The unique ID of the account to retrieve. Example: "4845214000000008002"
+   */
+  accountId: string;
+};
+
+export interface ActionOutput_zoho_mail_getaccount {
+  country?: string | undefined;
+  lastLogin?: number | undefined;
+  mxStatus?: boolean | undefined;
+  activeSyncEnabled?: boolean | undefined;
+  mobileNumber?: string | undefined;
+  incomingBlocked?: boolean | undefined;
+  language?: string | undefined;
+  type?: string | undefined;
+  extraStorage?: {  [key: string]: unknown | undefined;};
+  incomingUserName?: string | undefined;
+  emailAddress?: ({  isAlias: boolean;
+  isPrimary: boolean;
+  mailId: string;
+  isConfirmed: boolean;})[] | undefined;
+  mailboxStatus?: string | undefined;
+  popBlocked?: boolean | undefined;
+  usedStorage?: number | undefined;
+  spamcheckEnabled?: boolean | undefined;
+  imapAccessEnabled?: boolean | undefined;
+  timeZone?: string | undefined;
+  accountCreationTime?: number | undefined;
+  zuid?: number | undefined;
+  webBlocked?: boolean | undefined;
+  planStorage?: number | undefined;
+  firstName?: string | undefined;
+  accountId: string;
+  sequence?: number | undefined;
+  mailboxAddress?: string | undefined;
+  lastPasswordReset?: number | undefined;
+  tfaEnabled?: boolean | undefined;
+  phoneNumer?: string | undefined;
+  status?: boolean | undefined;
+  lastName?: string | undefined;
+  accountDisplayName?: string | undefined;
+  role?: string | undefined;
+  gender?: string | undefined;
+  accountName?: string | undefined;
+  displayName?: string | undefined;
+  isLogoExist?: boolean | undefined;
+  URI?: string | undefined;
+  primaryEmailAddress?: string | undefined;
+  enabled?: boolean | undefined;
+  mailboxCreationTime?: number | undefined;
+  basicStorage?: string | undefined;
+  lastClient?: string | undefined;
+  allowedStorage?: number | undefined;
+  sendMailDetails?: ({  sendMailId: string;
   displayName: string;
-  role: string;
-  country: string;
-  language: string;
-  timeZone: string;
-  oneTimePassword: boolean;
-  groupMailList: string[];
+  serverName: string;
+  signatureId: string;
+  serverPort: number;
+  userName: string;
+  connectionType: string;
+  mode: string;
+  validated: boolean;
+  fromAddress: string;
+  smtpConnection: number;
+  validationRequired: boolean;
+  validationState: number;
+  status: boolean;
+  verifyCode?: number | undefined;})[];
+  popFetchTime?: number | undefined;
+  address?: {  country?: string | undefined;
+  streetAddr?: string | undefined;
+  city?: string | undefined;
+  postalCode?: string | undefined;
+  state?: string | undefined;};
+  planType?: number | undefined;
+  userExpiry?: number | undefined;
+  popAccessEnabled?: boolean | undefined;
+  imapBlocked?: boolean | undefined;
+  iamUserRole?: string | undefined;
+  outgoingBlocked?: boolean | undefined;
+  policyId?: {  [key: string]: unknown | undefined;};
+  smtpStatus?: boolean | undefined;
+  extraEDiscoveryStorage?: {  [key: string]: unknown | undefined;};
 };
 
-export interface ActionOutput_zoho_mail_adduser {
-  status: {};
-  data: {};
+export interface ActionInput_zoho_mail_getfolder {
+  /**
+   * Zoho Mail account ID. Example: "4845214000000008002"
+   */
+  accountId: string;
+  /**
+   * Folder ID. Example: "4845214000000008008"
+   */
+  folderId: string;
+};
+
+export interface ActionOutput_zoho_mail_getfolder {
+  folderId?: string | undefined;
+  folderName?: string | undefined;
+  folderType?: string | undefined;
+  path?: string | undefined;
+  previousFolderId?: string | undefined;
+  isArchived?: number | undefined;
+  imapAccess?: boolean | undefined;
+  URI?: string | undefined;
+};
+
+export interface ActionInput_zoho_mail_getlabel {
+  /**
+   * Zoho Mail account ID. Example: "4845214000000008002"
+   */
+  accountId: string;
+  /**
+   * Label ID to retrieve. Example: "2674552000000009029"
+   */
+  labelId: string;
+};
+
+export interface ActionOutput_zoho_mail_getlabel {
+  sequence?: number | undefined;
+  labelId: string;
+  color?: string | undefined;
+  tagId?: string | undefined;
+  displayName?: string | undefined;
+  URI?: string | undefined;
+};
+
+export interface ActionInput_zoho_mail_getmessagecontent {
+  /**
+   * Zoho Mail account ID. Example: "4845214000000008002"
+   */
+  accountId: string;
+  /**
+   * Folder ID containing the message. Example: "4845214000000008008"
+   */
+  folderId: string;
+  /**
+   * Message ID to retrieve content for. Example: "1781108289537154100"
+   */
+  messageId: string;
+};
+
+export interface ActionOutput_zoho_mail_getmessagecontent {
+  messageId?: string | undefined;
+  content?: string | undefined;
+};
+
+export interface ActionInput_zoho_mail_getmessage {
+  /**
+   * Zoho Mail account ID. Example: "4845214000000008002"
+   */
+  accountId: string;
+  /**
+   * Folder ID containing the message. Example: "4845214000000008008"
+   */
+  folderId: string;
+  /**
+   * Message ID to retrieve. Example: "1781108289537154100"
+   */
+  messageId: string;
+};
+
+export interface ActionOutput_zoho_mail_getmessage {
+  summary?: string | undefined;
+  sentDateInGMT?: string | undefined;
+  calendarType?: number | undefined;
+  subject?: string | undefined;
+  messageId?: string | undefined;
+  threadCount?: string | undefined;
+  flagid?: string | undefined;
+  status2?: string | undefined;
+  priority?: string | undefined;
+  hasInline?: string | undefined;
+  toAddress?: string | undefined;
+  folderId?: string | undefined;
+  ccAddress?: string | undefined;
+  threadId?: string | undefined;
+  hasAttachment?: string | undefined;
+  size?: string | undefined;
+  sender?: string | undefined;
+  receivedTime?: string | undefined;
+  fromAddress?: string | undefined;
+  status?: string | undefined;
+};
+
+export interface ActionInput_zoho_mail_getsignature {
+};
+
+export interface ActionOutput_zoho_mail_getsignature {
+  signatures: ({  id: string;
+  name?: string | undefined;
+  content?: string | undefined;
+  signatureType?: string | undefined;
+  position?: number | undefined;
+  contactId?: string | undefined;})[];
+};
+
+export interface ActionInput_zoho_mail_gettask {
+  /**
+   * The unique identifier of the personal task. Example: "1781108259800155000"
+   */
+  taskId: string;
+};
+
+export interface ActionOutput_zoho_mail_gettask {
+  id: string;
+  title: string;
+  description?: string | undefined;
+  status?: string | undefined;
+  priority?: string | undefined;
+  dueDate?: string | undefined;
+  createdAt?: string | undefined;
+  modifiedTime?: string | undefined;
+  owner?: {  name?: string | undefined;
+  id?: number | undefined;};
+  assignee?: {  name?: string | undefined;
+  id?: number | undefined;};
+  project?: {  name?: string | undefined;
+  id?: string | undefined;};
+  namespaceId?: string | undefined;
+  numberOfSubtasks?: number | undefined;
+  tags?: string[] | undefined;
+  followers?: unknown[] | undefined;
+  attachments?: unknown[] | undefined;
+  subtasks?: unknown[] | undefined;
+  reminder?: {  dateTime?: string | undefined;
+  emailReminder?: boolean | undefined;
+  popupReminder?: boolean | undefined;};
+};
+
+export interface ActionInput_zoho_mail_listaccounts {
+};
+
+export interface ActionOutput_zoho_mail_listaccounts {
+  accounts: ({  accountId: string;
+  accountDisplayName?: string | undefined;
+  accountName?: string | undefined;
+  displayName?: string | undefined;
+  emailAddress?: ({  isAlias?: boolean | undefined;
+  isPrimary?: boolean | undefined;
+  mailId?: string | undefined;
+  isConfirmed?: boolean | undefined;})[];
+  enabled?: boolean | undefined;
+  incomingUserName?: string | undefined;
+  lastLogin?: number | undefined;
+  mailboxAddress?: string | undefined;
+  primaryEmailAddress?: string | undefined;
+  role?: string | undefined;
+  sequence?: number | undefined;
+  status?: boolean | undefined;
+  type?: string | undefined;
+  zuid?: number | undefined;
+  uri?: string | undefined;
+  country?: string | undefined;
+  language?: string | undefined;
+  timeZone?: string | undefined;
+  mailboxStatus?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  gender?: string | undefined;
+  allowedStorage?: number | undefined;
+  usedStorage?: number | undefined;
+  basicStorage?: string | undefined;
+  accountCreationTime?: number | undefined;
+  mailboxCreationTime?: number | undefined;
+  lastPasswordReset?: number | undefined;
+  tfaEnabled?: boolean | undefined;
+  activeSyncEnabled?: boolean | undefined;
+  imapAccessEnabled?: boolean | undefined;
+  popAccessEnabled?: boolean | undefined;
+  smtpStatus?: boolean | undefined;
+  webBlocked?: boolean | undefined;
+  incomingBlocked?: boolean | undefined;
+  outgoingBlocked?: boolean | undefined;
+  popBlocked?: boolean | undefined;
+  imapBlocked?: boolean | undefined;
+  spamcheckEnabled?: boolean | undefined;
+  deleteCopy?: boolean | undefined;
+  mobileNumber?: string | undefined;
+  phoneNumber?: string | undefined;
+  address?: {  country?: string | undefined;
+  streetAddr?: string | undefined;
+  city?: string | undefined;
+  postalCode?: string | undefined;
+  state?: string | undefined;};
+  lastClient?: string | undefined;
+  planType?: number | undefined;
+  planStorage?: number | undefined;
+  popFetchTime?: number | undefined;
+  userExpiry?: number | undefined;
+  isLogoExist?: boolean | undefined;
+  mxStatus?: boolean | undefined;
+  mailForward?: ({  mailForwardTo?: string | undefined;
+  type?: string | undefined;
+  status?: string | undefined;})[];
+  vacationResponse?: ({  replyType?: number | undefined;
+  sendTo?: number | undefined;
+  infiniteDate?: boolean | undefined;
+  subject?: string | undefined;
+  toDate?: string | undefined;
+  includeSignature?: number | undefined;
+  content?: string | undefined;
+  markBusy?: number | undefined;
+  fromDate?: string | undefined;
+  accountId?: string | undefined;
+  intervalType?: number | undefined;
+  name?: string | undefined;
+  interval?: number | undefined;
+  accType?: number | undefined;
+  vacationId?: string | undefined;})[];
+  sendMailDetails?: ({  sendMailId?: string | undefined;
+  displayName?: string | undefined;
+  serverName?: string | undefined;
+  signatureId?: string | undefined;
+  serverPort?: number | undefined;
+  userName?: string | undefined;
+  connectionType?: string | undefined;
+  mode?: string | undefined;
+  validated?: boolean | undefined;
+  fromAddress?: string | undefined;
+  smtpConnection?: number | undefined;
+  validationRequired?: boolean | undefined;
+  validationState?: number | undefined;
+  status?: boolean | undefined;})[];})[];
+};
+
+export interface ActionInput_zoho_mail_listfolders {
+  /**
+   * Zoho Mail account ID. Example: "4845214000000008002"
+   */
+  accountId: string;
+};
+
+export interface ActionOutput_zoho_mail_listfolders {
+  folders: ({  folderId: string;
+  folderName: string;
+  folderType: string;
+  path: string;
+  previousFolderId?: string | undefined;
+  isArchived: number;
+  imapAccess: boolean;
+  uri: string;})[];
+};
+
+export interface ActionInput_zoho_mail_listlabels {
+  /**
+   * Account ID. Example: "4845214000000008002"
+   */
+  accountId: string;
+};
+
+export interface ActionOutput_zoho_mail_listlabels {
+  labels: ({  labelId: string;
+  displayName?: string | undefined;
+  color?: string | undefined;
+  sequence?: number | undefined;
+  tagId?: string | undefined;
+  URI?: string | undefined;})[];
+};
+
+export interface ActionInput_zoho_mail_listmessages {
+  /**
+   * Zoho Mail account ID. Example: "4845214000000008002"
+   */
+  accountId: string;
+  /**
+   * Folder ID to list messages from. Example: "4845214000000008008"
+   */
+  folderId: string;
+  /**
+   * Number of messages to retrieve. Max 200. Default 10.
+   */
+  limit?: number | undefined;
+  /**
+   * Starting sequence number. Default 1.
+   */
+  start?: number | undefined;
+  /**
+   * Sort order: 0 for ascending, 1 for descending. Default 1.
+   */
+  sortorder?: number | undefined;
+};
+
+export interface ActionOutput_zoho_mail_listmessages {
+  messages: ({  messageId: string;
+  subject?: string | undefined;
+  summary?: string | undefined;
+  fromAddress?: string | undefined;
+  toAddress?: string | undefined;
+  ccAddress?: string | undefined;
+  sender?: string | undefined;
+  receivedTime?: string | undefined;
+  sentDateInGMT?: string | undefined;
+  folderId?: string | undefined;
+  threadId?: string | undefined;
+  threadCount?: string | undefined;
+  hasAttachment?: string | undefined;
+  hasInline?: string | undefined;
+  size?: string | undefined;
+  priority?: string | undefined;
+  status?: string | undefined;
+  status2?: string | undefined;
+  flagid?: string | undefined;
+  calendarType?: number | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_zoho_mail_listtasks {
+  /**
+   * Number of tasks to retrieve. Default: 20, Max: 499.
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor (offset) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_zoho_mail_listtasks {
+  items: ({  id: string;
+  title: string;
+  description?: string | undefined;
+  priority?: string | undefined;
+  status?: string | undefined;
+  dueDate?: string | undefined;
+  createdAt?: string | undefined;
+  modifiedTime?: string | undefined;
+  owner?: {  name?: string | undefined;
+  id?: string | number | undefined;};
+  assignee?: {  name?: string | undefined;
+  id?: string | number | undefined;};
+  project?: {  name?: string | undefined;
+  id?: string | undefined;};
+  numberOfSubtasks?: number | undefined;
+  namespaceId?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_zoho_mail_markmessageread {
+  /**
+   * Zoho Mail account ID. Example: "4845214000000008002"
+   */
+  accountId: string;
+  /**
+   * Message ID to mark as read. Example: "1781108289537154100"
+   */
+  messageId: string;
+};
+
+export interface ActionOutput_zoho_mail_markmessageread {
+  success: boolean;
+};
+
+export interface ActionInput_zoho_mail_markmessageunread {
+  /**
+   * Zoho Mail account ID. Example: "4845214000000008002"
+   */
+  accountId: string;
+  /**
+   * Message ID to mark as unread. Example: "1781108289537154100"
+   */
+  messageId: string;
+};
+
+export interface ActionOutput_zoho_mail_markmessageunread {
+  success: boolean;
+};
+
+export interface ActionInput_zoho_mail_movemessage {
+  /**
+   * Zoho Mail account ID. Example: "4845214000000008002"
+   */
+  accountId: string;
+  /**
+   * Message ID to move. Example: "1781108289537154100"
+   */
+  messageId: string;
+  /**
+   * Target folder ID. Example: "4845214000000010001"
+   */
+  targetFolderId: string;
+};
+
+export interface ActionOutput_zoho_mail_movemessage {
+  success: boolean;
+  messageId?: string | undefined;
+  targetFolderId?: string | undefined;
+};
+
+export interface ActionInput_zoho_mail_replytoemail {
+  /**
+   * Zoho Mail account ID. Example: "4845214000000008002"
+   */
+  accountId: string;
+  /**
+   * Message ID to reply to. Example: "1781108289537154100"
+   */
+  messageId: string;
+  /**
+   * Sender email address. Example: "nangoapi@zohomail.com"
+   */
+  fromAddress: string;
+  /**
+   * Recipient email address. Example: "recipient@example.com"
+   */
+  toAddress: string;
+  /**
+   * Reply type: reply or replyall
+   */
+  action: 'reply' | 'replyall';
+  /**
+   * Email body content
+   */
+  content?: string | undefined;
+};
+
+export interface ActionOutput_zoho_mail_replytoemail {
+  /**
+   * ID of the sent reply message. Example: "1726208416259127700"
+   */
+  messageId: string;
+  subject?: string | undefined;
+  fromAddress?: string | undefined;
+  toAddress?: string | undefined;
+  content?: string | undefined;
+  mailId?: string | undefined;
+};
+
+export interface ActionInput_zoho_mail_searchmessages {
+  /**
+   * Zoho Mail account ID. Example: "4845214000000008002"
+   */
+  accountId: string;
+  /**
+   * Zoho Mail search query string. Use syntax like "entire:keyword" or "subject:Meeting". Example: "entire:Test"
+   */
+  searchKey: string;
+  /**
+   * Starting index for pagination. Example: 1
+   */
+  start?: number | undefined;
+  /**
+   * Number of results to return (1-200). Example: 10
+   */
+  limit?: number | undefined;
+  /**
+   * Unix timestamp in milliseconds to filter emails received before this time. Example: 1609459200000
+   */
+  receivedTime?: number | undefined;
+  /**
+   * Whether to include the To field in the response. Example: true
+   */
+  includeto?: boolean | undefined;
+};
+
+export interface ActionOutput_zoho_mail_searchmessages {
+  messages: ({  messageId?: string | undefined;
+  folderId?: string | undefined;
+  subject?: string | undefined;
+  fromAddress?: string | undefined;
+  toAddress?: string | undefined;
+  sender?: string | undefined;
+  summary?: string | undefined;
+  status?: string | undefined;
+  status2?: string | undefined;
+  receivedTime?: string | undefined;
+  sentDateInGMT?: string | undefined;
+  hasAttachment?: string | number | undefined;
+  threadId?: string | undefined;
+  threadCount?: string | undefined;
+  flagid?: string | number | undefined;
+  priority?: string | undefined;
+  size?: string | undefined;
+  uri?: string | undefined;})[];
+  count?: number | undefined;
 };
 
 export interface ActionInput_zoho_mail_sendemail {
+  /**
+   * Account ID from which to send the email. Example: "4845214000000008002"
+   */
   accountId: string;
+  /**
+   * Sender email address. Example: "nangoapi@zohomail.com"
+   */
   fromAddress: string;
+  /**
+   * Recipient email address(es). Example: "recipient@example.com"
+   */
   toAddress: string;
-  ccAddress: string;
-  bccAddress: string;
+  /**
+   * CC email address(es). Example: "cc@example.com"
+   */
+  ccAddress?: string | undefined;
+  /**
+   * BCC email address(es). Example: "bcc@example.com"
+   */
+  bccAddress?: string | undefined;
+  /**
+   * Email subject. Example: "Hello"
+   */
   subject: string;
-  encoding: string;
-  mailFormat: string;
-  askReceipt: string;
+  /**
+   * Email body content. Example: "Hello, world!"
+   */
+  content: string;
+  /**
+   * Email format: "html" or "plaintext". Example: "html"
+   */
+  mailFormat?: 'html' | 'plaintext' | undefined;
 };
 
 export interface ActionOutput_zoho_mail_sendemail {
-  status: {};
-  data: {};
+  /**
+   * HTTP status code from the API
+   */
+  statusCode: number;
+  /**
+   * Status description from the API
+   */
+  statusDescription: string;
+  /**
+   * Additional response data from the API
+   */
+  data?: unknown | undefined;
+};
+
+export interface ActionInput_zoho_mail_updatefolder {
+  /**
+   * Zoho Mail account ID. Example: "4845214000000008002"
+   */
+  accountId: string;
+  /**
+   * Folder ID to update. Example: "4845214000000010001"
+   */
+  folderId: string;
+  /**
+   * Update mode: rename or move
+   */
+  mode: 'rename' | 'move';
+  /**
+   * New folder name (required when mode is rename)
+   */
+  folderName?: string | undefined;
+  /**
+   * Destination parent folder ID (used when mode is move)
+   */
+  parentFolderId?: string | undefined;
+  /**
+   * Folder ID to position after in the destination parent (used when mode is move)
+   */
+  previousFolderId?: string | undefined;
+};
+
+export interface ActionOutput_zoho_mail_updatefolder {
+  status: {  code: number;
+  description: string;};
+};
+
+export interface ActionInput_zoho_mail_updatelabel {
+  /**
+   * Account ID. Example: 4845214000000008002
+   */
+  accountId: string;
+  /**
+   * Label ID. Example: 4845214000000011002
+   */
+  labelId: string;
+  /**
+   * New display name for the label
+   */
+  labelName?: string | undefined;
+  /**
+   * Hex color code for the label. Example: #FF0000
+   */
+  color?: string | undefined;
+};
+
+export interface ActionOutput_zoho_mail_updatelabel {
+  id: string;
+  labelName?: string | undefined;
+  color?: string | undefined;
+};
+
+export interface ActionInput_zoho_mail_updatesignature {
+  /**
+   * The unique ID of the signature to update. Example: "2442552000000433009"
+   */
+  id: string;
+  /**
+   * The updated name of the signature.
+   */
+  name: string;
+  /**
+   * The updated content of the signature.
+   */
+  content: string;
+  /**
+   * The preferred position of the signature. 0 = below quoted content, 1 = above quoted content.
+   */
+  position: number;
+  /**
+   * Comma-separated email addresses to assign this signature to.
+   */
+  assignUsers?: string | undefined;
+  /**
+   * Comma-separated email addresses to unassign this signature from.
+   */
+  unassignUsers?: string | undefined;
+};
+
+export interface ActionOutput_zoho_mail_updatesignature {
+  id: string;
+  name: string;
+  content: string;
+  position: number;
+  signatureType: string;
+};
+
+export interface ActionInput_zoho_mail_updatetask {
+  /**
+   * The unique identifier of the task to update. Example: "1781108259800155000"
+   */
+  taskId: string;
+  /**
+   * New title for the task.
+   */
+  title?: string | undefined;
+  /**
+   * New description for the task.
+   */
+  description?: string | undefined;
+  /**
+   * New status for the task.
+   */
+  status?: 'inprogress' | 'completed' | undefined;
+  /**
+   * New due date for the task. Format: DD/MM/YYYY.
+   */
+  dueDate?: string | undefined;
+  /**
+   * New priority for the task.
+   */
+  priority?: 'high' | 'medium' | 'low' | undefined;
+  /**
+   * Reminder date and time in ISO 8601 format.
+   */
+  reminderDate?: string | undefined;
+  /**
+   * Whether to enable email reminder.
+   */
+  emailReminder?: boolean | undefined;
+  /**
+   * Whether to enable popup reminder.
+   */
+  popupReminder?: boolean | undefined;
+};
+
+export interface ActionOutput_zoho_mail_updatetask {
+  taskId: string;
+  success: boolean;
+  data?: {} | undefined;
+};
+
+export interface ActionInput_zoho_mail_uploadattachment {
+  /**
+   * Zoho Mail account ID. Example: "4845214000000008002"
+   */
+  accountId: string;
+  /**
+   * Name of the file to upload. Example: "test.txt"
+   */
+  fileName: string;
+  /**
+   * Base64-encoded file content.
+   */
+  fileContent: string;
+  /**
+   * Whether to show the attachment inline in the email body.
+   */
+  isInline?: boolean | undefined;
+};
+
+export interface ActionOutput_zoho_mail_uploadattachment {
+  storeName: string;
+  attachmentPath: string;
+  attachmentName: string;
+  attachmentSize?: string | undefined;
+  url?: string | undefined;
 };
 
 export interface Attendance {

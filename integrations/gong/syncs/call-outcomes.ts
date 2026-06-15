@@ -24,11 +24,11 @@ const ProviderCallOutcomeSchema = z.object({
 
 const sync = createSync({
     description: 'Sync configured call outcomes from Gong.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     models: {
-        CallOutcome: CallOutcomeSchema
+        GongCallOutcome: CallOutcomeSchema
     },
 
     // https://help.gong.io/apidocs/list-call-outcomes-v2call-outcomes-1
@@ -43,7 +43,7 @@ const sync = createSync({
         // Blocker: Gong /v2/call-outcomes has no updated-timestamp filter,
         // no deleted-record endpoint, and no resumable cursor across runs.
         // Outcomes rarely change, so this sync runs as a full refresh.
-        await nango.trackDeletesStart('CallOutcome');
+        await nango.trackDeletesStart('GongCallOutcome');
 
         const proxyConfig: ProxyConfiguration = {
             // https://help.gong.io/apidocs/list-call-outcomes-v2call-outcomes-1
@@ -84,11 +84,11 @@ const sync = createSync({
             }
 
             if (outcomes.length > 0) {
-                await nango.batchSave(outcomes, 'CallOutcome');
+                await nango.batchSave(outcomes, 'GongCallOutcome');
             }
         }
 
-        await nango.trackDeletesEnd('CallOutcome');
+        await nango.trackDeletesEnd('GongCallOutcome');
     }
 });
 

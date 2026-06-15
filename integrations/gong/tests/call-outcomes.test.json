@@ -1,7 +1,7 @@
 {
     "nango": {
         "batchSave": {
-            "CallOutcome": [
+            "GongCallOutcome": [
                 {
                     "id": "Left voicemail",
                     "callOutcome": "Left voicemail",
@@ -165,7 +165,7 @@
             ]
         },
         "batchDelete": {
-            "CallOutcome": []
+            "GongCallOutcome": []
         }
     },
     "api": {

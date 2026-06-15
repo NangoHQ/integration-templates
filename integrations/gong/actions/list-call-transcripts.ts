@@ -21,13 +21,13 @@ const MonologueSchema = z.object({
     sentences: z.array(SentenceSchema).optional()
 });
 
-const CallTranscriptSchema = z.object({
+const CallTranscriptItemSchema = z.object({
     callId: z.string().optional(),
     transcript: z.array(MonologueSchema).optional()
 });
 
 const OutputSchema = z.object({
-    callTranscripts: z.array(CallTranscriptSchema),
+    callTranscripts: z.array(CallTranscriptItemSchema),
     nextCursor: z.string().optional(),
     totalRecords: z.number().optional(),
     currentPageSize: z.number().optional()
@@ -49,7 +49,7 @@ const GongErrorSchema = z
     .passthrough();
 
 const ProviderResponseSchema = z.object({
-    callTranscripts: z.array(CallTranscriptSchema).optional(),
+    callTranscripts: z.array(CallTranscriptItemSchema).optional(),
     records: z
         .object({
             totalRecords: z.number().optional(),
