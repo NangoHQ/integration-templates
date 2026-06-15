@@ -527,44 +527,23 @@ export interface ActionOutput_1password_scim_updatescimuser {
 };
 
 export interface Account {
+  /**
+   * The unique identifier of the account
+   */
   id: string;
-  accountName?: string | undefined;
-  accountNumber?: string | undefined;
-  accountType?: string | undefined;
-  annualRevenue?: number | undefined;
-  billingCity?: string | undefined;
-  billingCode?: string | undefined;
-  billingCountry?: string | undefined;
-  billingState?: string | undefined;
-  billingStreet?: string | undefined;
-  createdByName?: string | undefined;
-  createdById?: string | undefined;
-  createdByEmail?: string | undefined;
-  createdTime?: string | undefined;
-  description?: string | undefined;
-  employees?: number | undefined;
-  fax?: string | undefined;
-  industry?: string | undefined;
-  modifiedByName?: string | undefined;
-  modifiedById?: string | undefined;
-  modifiedByEmail?: string | undefined;
-  modifiedTime: string;
-  ownerName?: string | undefined;
-  ownerId?: string | undefined;
-  ownerEmail?: string | undefined;
-  ownership?: string | undefined;
-  parentAccountName?: string | undefined;
-  parentAccountId?: string | undefined;
+  /**
+   * The name of the account
+   */
+  accountName: string;
+  email?: string | undefined;
   phone?: string | undefined;
-  rating?: string | undefined;
-  shippingCity?: string | undefined;
-  shippingCode?: string | undefined;
-  shippingCountry?: string | undefined;
-  shippingState?: string | undefined;
-  shippingStreet?: string | undefined;
-  sicCode?: string | undefined;
-  tickerSymbol?: string | undefined;
   website?: string | undefined;
+  country?: string | undefined;
+  industry?: string | undefined;
+  createdTime?: string | undefined;
+  modifiedTime?: string | undefined;
+  ownerId?: string | undefined;
+  crmAccountId?: string | undefined;
 };
 
 export interface Automation {
@@ -599,49 +578,39 @@ export interface Campaign {
 
 export interface Contact {
   id: string;
-  first_name?: string | undefined;
-  last_name?: string | undefined;
-  full_name?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
   email?: string | undefined;
-  secondary_email?: string | undefined;
   phone?: string | undefined;
   mobile?: string | undefined;
-  home_phone?: string | undefined;
-  other_phone?: string | undefined;
+  accountId?: string | undefined;
+  photoURL?: string | undefined;
+  webUrl?: string | undefined;
+  createdTime?: string | undefined;
+  modifiedTime?: string | undefined;
+  isDeleted?: boolean | undefined;
+  isTrashed?: boolean | undefined;
+  isSpam?: boolean | undefined;
+  isAnonymous?: boolean | undefined;
+  isEndUser?: boolean | undefined;
+  ownerId?: string | undefined;
+  type?: string | undefined;
   title?: string | undefined;
-  department?: string | undefined;
-  account_name?: string | undefined;
-  account_id?: string | undefined;
-  owner_name?: string | undefined;
-  owner_id?: string | undefined;
-  owner_email?: string | undefined;
-  created_time: string;
-  modified_time: string;
-  mailing_street?: string | undefined;
-  mailing_city?: string | undefined;
-  mailing_state?: string | undefined;
-  mailing_zip?: string | undefined;
-  mailing_country?: string | undefined;
-  other_street?: string | undefined;
-  other_city?: string | undefined;
-  other_state?: string | undefined;
-  other_zip?: string | undefined;
-  other_country?: string | undefined;
   description?: string | undefined;
+  language?: string | undefined;
+  country?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  street?: string | undefined;
+  zip?: string | undefined;
   twitter?: string | undefined;
-  skype_id?: string | undefined;
-  date_of_birth?: string | undefined;
-  lead_source?: string | undefined;
-  email_opt_out?: boolean | undefined;
-  fax?: string | undefined;
-  assistant?: string | undefined;
-  asst_phone?: string | undefined;
-  reporting_to_name?: string | undefined;
-  reporting_to_id?: string | undefined;
-  created_by_name?: string | undefined;
-  created_by_id?: string | undefined;
-  modified_by_name?: string | undefined;
-  modified_by_id?: string | undefined;
+  facebook?: string | undefined;
+  secondaryEmail?: string | undefined;
+  customerHappiness?: {  badPercentage?: string | undefined;
+  okPercentage?: string | undefined;
+  goodPercentage?: string | undefined;};
+  zohoCRMContact?: {  id?: string | undefined;
+  type?: string | undefined;};
 };
 
 export interface CustomField {
@@ -8780,7 +8749,18 @@ export interface SyncMetadata_ashby_candidates {
 
 export interface Department {
   id: string;
-  name?: string | undefined;
+  name: string;
+  description?: string | undefined;
+  createdTime?: string | undefined;
+  chatStatus?: string | undefined;
+  isEnabled?: boolean | undefined;
+  isDefault?: boolean | undefined;
+  hasLogo?: boolean | undefined;
+  creatorId?: string | undefined;
+  isAssignToTeamEnabled?: boolean | undefined;
+  isVisibleInCustomerPortal?: boolean | undefined;
+  nameInCustomerPortal?: string | undefined;
+  sanitizedName?: string | undefined;
 };
 
 export interface Interview {
@@ -26372,30 +26352,23 @@ export interface ActionOutput_fireflies_addtolive {
 
 export interface Article {
   id: string;
-  author_id?: number | undefined;
-  body?: string | undefined;
-  comments_disabled?: boolean | undefined;
-  content_tag_ids?: number[] | undefined;
-  created_at: string;
-  draft?: boolean | undefined;
-  edited_at?: string | undefined;
-  html_url?: string | undefined;
-  label_names?: string[] | undefined;
-  locale: string;
-  outdated?: boolean | undefined;
-  outdated_locales?: string[] | undefined;
-  permission_group_id?: number | undefined;
-  position?: number | undefined;
-  promoted?: boolean | undefined;
-  section_id?: number | undefined;
-  source_locale?: string | undefined;
-  title: string;
-  updated_at: string;
-  url: string;
-  user_segment_id?: number | undefined;
-  user_segment_ids?: number[] | undefined;
-  vote_count?: number | undefined;
-  vote_sum?: number | undefined;
+  title?: string | undefined;
+  summary?: string | undefined;
+  status?: string | undefined;
+  createdTime?: string | undefined;
+  modifiedTime?: string | undefined;
+  categoryId?: string | undefined;
+  authorId?: string | undefined;
+  webUrl?: string | undefined;
+  permalink?: string | undefined;
+  viewCount?: number | undefined;
+  likeCount?: number | undefined;
+  dislikeCount?: number | undefined;
+  feedbackCount?: number | undefined;
+  commentCount?: number | undefined;
+  attachmentCount?: number | undefined;
+  departmentId?: string | undefined;
+  locale?: string | undefined;
 };
 
 export interface SyncMetadata_freshdesk_articles {
@@ -26406,29 +26379,28 @@ export interface SyncMetadata_freshdesk_contacts {
 
 export interface Ticket {
   id: string;
-  url: string;
-  external_id: string;
-  created_at: string;
-  updated_at: string;
-  type: string;
-  subject: string;
-  description: string;
-  priority: string;
-  status: string;
-  recipient: string;
-  requester_id: string;
-  submitter_id: string;
-  assignee_id: string;
-  organization_id: string;
-  group_id: string;
-  collaborator_ids: string[];
-  tags: string[];
-  has_incidents: boolean;
-  is_public: boolean;
-  due_at: string;
-  custom_fields: any[];
-  ticket_form_id: string;
-  brand_id: string;
+  ticketNumber?: string | undefined;
+  subject?: string | undefined;
+  description?: string | undefined;
+  status?: string | undefined;
+  statusType?: string | undefined;
+  priority?: string | undefined;
+  channel?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  contactId?: string | undefined;
+  accountId?: string | undefined;
+  departmentId?: string | undefined;
+  assigneeId?: string | undefined;
+  teamId?: string | undefined;
+  createdTime?: string | undefined;
+  modifiedTime?: string | undefined;
+  dueDate?: string | undefined;
+  closedTime?: string | undefined;
+  webUrl?: string | undefined;
+  isSpam?: boolean | undefined;
+  isTrashed?: boolean | undefined;
+  isDeleted?: boolean | undefined;
 };
 
 export interface SyncMetadata_freshdesk_tickets {
@@ -107949,6 +107921,921 @@ export interface ActionOutput_zoho_crm_upsertrecords {
    * Total number of records processed
    */
   totalCount: number;
+};
+
+export interface Agent {
+  id: string;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  emailId?: string | undefined;
+  roleId?: string | undefined;
+  profileId?: string | undefined;
+  status?: string | undefined;
+  isActive?: boolean | undefined;
+  isConfirmed?: boolean | undefined;
+  photoURL?: string | undefined;
+  zuid?: string | undefined;
+  createdTime?: string | undefined;
+  modifiedTime?: string | undefined;
+};
+
+export interface ActionInput_zoho_desk_createcontact {
+  /**
+   * Last name of the contact. Example: "Doe"
+   */
+  lastName: string;
+  /**
+   * First name of the contact. Example: "John"
+   */
+  firstName?: string | undefined;
+  /**
+   * Email ID of the contact. Example: "john@example.com"
+   */
+  email?: string | undefined;
+  /**
+   * Phone number of the contact.
+   */
+  phone?: string | undefined;
+  /**
+   * Mobile number of the contact.
+   */
+  mobile?: string | undefined;
+  /**
+   * Contact country of residence.
+   */
+  country?: string | undefined;
+  /**
+   * Contact city of residence.
+   */
+  city?: string | undefined;
+  /**
+   * Contact state of residence.
+   */
+  state?: string | undefined;
+  /**
+   * Contact street address.
+   */
+  street?: string | undefined;
+  /**
+   * Zip code.
+   */
+  zip?: string | undefined;
+  /**
+   * Contact description.
+   */
+  description?: string | undefined;
+  /**
+   * Contact title.
+   */
+  title?: string | undefined;
+  /**
+   * Contact type.
+   */
+  type?: string | undefined;
+  /**
+   * ID of the user who creates the contact.
+   */
+  ownerId?: string | undefined;
+  /**
+   * Account to which the contact is mapped.
+   */
+  accountId?: string | undefined;
+  /**
+   * Facebook ID of the contact.
+   */
+  facebook?: string | undefined;
+  /**
+   * Twitter ID of the contact.
+   */
+  twitter?: string | undefined;
+  /**
+   * Secondary email ID of the contact.
+   */
+  secondaryEmail?: string | undefined;
+};
+
+export interface ActionOutput_zoho_desk_createcontact {
+  /**
+   * ID of the created contact.
+   */
+  id: string;
+  lastName?: string | undefined;
+  firstName?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  mobile?: string | undefined;
+  country?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  street?: string | undefined;
+  zip?: string | undefined;
+  description?: string | undefined;
+  title?: string | undefined;
+  type?: string | undefined;
+  ownerId?: string | undefined;
+  accountId?: string | undefined;
+  facebook?: string | undefined;
+  twitter?: string | undefined;
+  secondaryEmail?: string | undefined;
+  photoURL?: string | undefined;
+  isDeleted?: boolean | undefined;
+  isTrashed?: boolean | undefined;
+  createdTime?: string | undefined;
+  modifiedTime?: string | undefined;
+  zohoCRMContact?: {  id: string;
+  type?: string | undefined;};
+  customerHappiness?: {  badPercentage?: string | undefined;
+  okPercentage?: string | undefined;
+  goodPercentage?: string | undefined;};
+  isFollowing?: string | boolean | undefined;
+  isAnonymous?: boolean | undefined;
+  webUrl?: string | undefined;
+  isSpam?: boolean | undefined;
+  cf?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_zoho_desk_createticket {
+  /**
+   * Subject of the ticket. Example: "Support request"
+   */
+  subject: string;
+  /**
+   * ID of the department in which the ticket should be created. Example: "1892000000006907"
+   */
+  departmentId: string;
+  /**
+   * ID of the contact who raised the ticket. Example: "1892000000042032"
+   */
+  contactId: string;
+  /**
+   * Description of the ticket.
+   */
+  description?: string | undefined;
+  /**
+   * Status of the ticket. Example: "Open"
+   */
+  status?: string | undefined;
+  /**
+   * Priority of the ticket. Example: "High"
+   */
+  priority?: string | undefined;
+  /**
+   * ID of the agent to whom the ticket is assigned. Example: "1892000000056007"
+   */
+  assigneeId?: string | undefined;
+  /**
+   * Category of the ticket. Example: "general"
+   */
+  category?: string | undefined;
+  /**
+   * Subcategory of the ticket.
+   */
+  subCategory?: string | undefined;
+  /**
+   * Due date for resolving the ticket. Example: "2025-12-01T10:00:00.000Z"
+   */
+  dueDate?: string | undefined;
+  /**
+   * Channel through which the ticket originated. Example: "Email"
+   */
+  channel?: string | undefined;
+  /**
+   * Type of ticket.
+   */
+  classification?: string | undefined;
+  /**
+   * Language of the ticket. Example: "English"
+   */
+  language?: string | undefined;
+  /**
+   * ID of the team assigned to resolve the ticket.
+   */
+  teamId?: string | undefined;
+  /**
+   * ID of the product to which the ticket is mapped.
+   */
+  productId?: string | undefined;
+  /**
+   * ID of the account associated with the ticket.
+   */
+  accountId?: string | undefined;
+  /**
+   * Email address associated with the ticket.
+   */
+  email?: string | undefined;
+  /**
+   * Phone number associated with the ticket.
+   */
+  phone?: string | undefined;
+  /**
+   * Resolution of the ticket.
+   */
+  resolution?: string | undefined;
+  customFields?: {  [key: string]: unknown | undefined;};
+  cf?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_zoho_desk_createticket {
+  id: string;
+  ticketNumber?: string | undefined;
+  subject?: string | undefined;
+  description?: string | undefined;
+  status?: string | undefined;
+  statusType?: string | undefined;
+  priority?: string | undefined;
+  departmentId?: string | undefined;
+  contactId?: string | undefined;
+  assigneeId?: string | undefined;
+  teamId?: string | undefined;
+  accountId?: string | undefined;
+  productId?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  category?: string | undefined;
+  subCategory?: string | undefined;
+  dueDate?: string | undefined;
+  channel?: string | undefined;
+  classification?: string | undefined;
+  language?: string | undefined;
+  resolution?: string | undefined;
+  createdTime?: string | undefined;
+  modifiedTime?: string | undefined;
+  closedTime?: string | undefined;
+  webUrl?: string | undefined;
+  customFields?: {  [key: string]: unknown | undefined;};
+  cf?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_zoho_desk_deleteticket {
+  /**
+   * Ticket ID to delete. Example: "123456789"
+   */
+  ticket_id: string;
+};
+
+export interface ActionOutput_zoho_desk_deleteticket {
+  ticket_id: string;
+  success: boolean;
+};
+
+export interface ActionInput_zoho_desk_getticket {
+  /**
+   * Ticket ID. Example: "1892000000042034"
+   */
+  ticketId: string;
+};
+
+export interface ActionOutput_zoho_desk_getticket {
+  id: string;
+  ticketNumber?: string | undefined;
+  subject?: string | undefined;
+  status?: string | undefined;
+  statusType?: string | undefined;
+  priority?: string | undefined;
+  departmentId?: string | undefined;
+  contactId?: string | undefined;
+  assigneeId?: string | undefined;
+  productId?: string | undefined;
+  createdTime?: string | undefined;
+  modifiedTime?: string | undefined;
+  dueDate?: string | undefined;
+  closedTime?: string | undefined;
+  onholdTime?: string | undefined;
+  channel?: string | undefined;
+  language?: string | undefined;
+  description?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  webUrl?: string | undefined;
+  isSpam?: boolean | undefined;
+  isRead?: boolean | undefined;
+  isTrashed?: boolean | undefined;
+  isDeleted?: boolean | string | undefined;
+  isOverDue?: boolean | undefined;
+  isFollowing?: boolean | string | undefined;
+  threadCount?: string | undefined;
+  commentCount?: string | undefined;
+  taskCount?: string | undefined;
+  timeEntryCount?: string | undefined;
+  followerCount?: string | undefined;
+  sharedCount?: string | undefined;
+  approvalCount?: string | undefined;
+  customerResponseTime?: string | undefined;
+  resolution?: string | undefined;
+  classification?: string | undefined;
+  subCategory?: string | undefined;
+  category?: string | undefined;
+  source?: {  appName?: unknown | undefined;
+  extId?: unknown | undefined;
+  type?: string | undefined;
+  permalink?: unknown | undefined;
+  uuid?: unknown | undefined;
+  appPhotoURL?: unknown | undefined;};
+  contact?: {  lastName?: string | undefined;
+  firstName?: string | undefined;
+  phone?: string | undefined;
+  mobile?: string | undefined;
+  id?: string | undefined;
+  isSpam?: boolean | undefined;
+  type?: unknown | undefined;
+  email?: string | undefined;
+  account?: {  [key: string]: unknown | undefined;};};
+  department?: {  name?: string | undefined;
+  id?: string | undefined;};
+  assignee?: {  firstName?: string | undefined;
+  lastName?: string | undefined;
+  photoURL?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};
+  team?: {  name?: string | undefined;
+  id?: string | undefined;
+  logoUrl?: string | undefined;};
+  product?: {  [key: string]: unknown | undefined;};
+  channelRelatedInfo?: {  [key: string]: unknown | undefined;};
+  layoutDetails?: {  [key: string]: unknown | undefined;};
+  cf?: {  [key: string]: unknown | undefined;};
+  secondaryContacts?: string[] | undefined;
+  sharedDepartments?: ({  [key: string]: unknown | undefined;})[];
+  entitySkills?: string[] | undefined;
+};
+
+export interface ActionInput_zoho_desk_listaccounts {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of accounts to fetch. Defaults to 50.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_zoho_desk_listaccounts {
+  items: ({  id: string;
+  accountName?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  website?: string | undefined;
+  webUrl?: string | undefined;
+  createdTime?: string | undefined;
+  modifiedTime?: string | undefined;
+  zohoCRMAccount?: string | undefined;
+  customerHappiness?: {  badPercentage?: string | undefined;
+  okPercentage?: string | undefined;
+  goodPercentage?: string | undefined;};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_zoho_desk_listagents {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum number of agents to return per page. Defaults to 50.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_zoho_desk_listagents {
+  items: ({  id: string;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  name?: string | undefined;
+  emailId?: string | undefined;
+  status?: string | undefined;
+  roleId?: string | undefined;
+  rolePermissionType?: string | undefined;
+  isConfirmed?: boolean | undefined;
+  profileId?: string | undefined;
+  associatedDepartmentIds?: string[] | undefined;
+  photoURL?: string | undefined;
+  zuid?: string | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_zoho_desk_listarticles {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of articles to fetch per page. Maximum is 50.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_zoho_desk_listarticles {
+  items: ({  id: string;
+  title?: string | undefined;
+  summary?: string | undefined;
+  status?: string | undefined;
+  permission?: string | undefined;
+  createdTime?: string | undefined;
+  modifiedTime?: string | undefined;
+  categoryId?: string | undefined;
+  authorId?: string | undefined;
+  webUrl?: string | undefined;
+  portalUrl?: string | undefined;
+  locale?: string | undefined;
+  viewCount?: string | undefined;
+  likeCount?: string | undefined;
+  dislikeCount?: string | undefined;
+  commentCount?: string | undefined;
+  feedbackCount?: string | undefined;
+  attachmentCount?: string | undefined;
+  departmentId?: string | undefined;
+  isTemplate?: boolean | undefined;
+  isTrashed?: boolean | undefined;
+  latestVersionStatus?: string | undefined;
+  position?: string | undefined;
+  rootCategoryId?: string | undefined;
+  usageCount?: string | undefined;
+  author?: {  id?: string | undefined;
+  name?: string | undefined;
+  photoURL?: string | undefined;
+  status?: string | undefined;
+  zuid?: string | undefined;};
+  category?: {  id?: string | undefined;
+  name?: string | undefined;
+  locale?: string | undefined;};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_zoho_desk_listcontacts {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_zoho_desk_listcontacts {
+  items: ({  id: string;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  mobile?: string | undefined;
+  accountId?: string | undefined;
+  createdTime?: string | undefined;
+  modifiedTime?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_zoho_desk_listdepartments {
+  /**
+   * Pagination cursor (maps to `from` offset). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of records per page. Default 10, max 50.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_zoho_desk_listdepartments {
+  items: ({  /**
+   * Department ID. Example: "1329983000000006907"
+   */
+  id: string;
+  /**
+   * Department name. Example: "NangoDesk"
+   */
+  name: string;
+  /**
+   * Department description
+   */
+  description?: string | undefined;
+  /**
+   * ISO timestamp when the department was created
+   */
+  createdTime?: string | undefined;
+  /**
+   * Chat status for the department
+   */
+  chatStatus?: string | undefined;
+  /**
+   * Name displayed in the customer portal
+   */
+  nameInCustomerPortal?: string | undefined;
+  /**
+   * ID of the user who created the department
+   */
+  creatorId?: string | undefined;
+  /**
+   * Whether the department is enabled
+   */
+  isEnabled?: boolean | undefined;
+  /**
+   * Whether this is the default department
+   */
+  isDefault?: boolean | undefined;
+  /**
+   * Whether assign to team is enabled
+   */
+  isAssignToTeamEnabled?: boolean | undefined;
+  /**
+   * Whether visible in customer portal
+   */
+  isVisibleInCustomerPortal?: boolean | undefined;
+  /**
+   * Whether the department has a logo
+   */
+  hasLogo?: boolean | undefined;
+  /**
+   * Sanitized name for URLs
+   */
+  sanitizedName?: string | undefined;})[];
+  /**
+   * Cursor for the next page. Omit if no more pages.
+   */
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_zoho_desk_listticketthreads {
+  /**
+   * Ticket ID. Example: "1329983000000410241"
+   */
+  ticketId: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of threads to retrieve per page. Default: 50.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_zoho_desk_listticketthreads {
+  threads: ({  id: string;
+  channel?: string | undefined;
+  canReply?: boolean | undefined;
+  contentType?: string | undefined;
+  hasAttach?: boolean | undefined;
+  status?: string | undefined;
+  summary?: string | undefined;
+  author?: {  id?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  photoURL?: string | undefined;
+  type?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;};
+  attachmentCount?: string | undefined;
+  sentiment?: string | undefined;
+  aspects?: string | undefined;
+  channelRelatedInfo?: unknown | undefined;
+  respondedIn?: unknown | undefined;
+  lastRatingIconURL?: string | undefined;
+  readReceipts?: unknown | undefined;
+  impersonatedUser?: unknown | undefined;
+  source?: {  extId?: string | undefined;
+  appName?: string | undefined;
+  appPhotoURL?: string | undefined;
+  permalink?: string | undefined;
+  type?: string | undefined;};
+  isDescriptionThread?: boolean | undefined;
+  keyWords?: unknown | undefined;
+  visibility?: string | undefined;
+  createdTime?: string | undefined;
+  actions?: unknown[] | undefined;
+  direction?: string | undefined;})[];
+  /**
+   * Pagination cursor for the next page. Omit if there are no more pages.
+   */
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_zoho_desk_listtickets {
+  /**
+   * Pagination cursor (from index). Example: "0"
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of records per page. Default: 10, max: 100.
+   */
+  limit?: number | undefined;
+  /**
+   * Department ID to filter tickets.
+   */
+  departmentId?: string | undefined;
+  /**
+   * Status to filter tickets. Example: "Open"
+   */
+  status?: string | undefined;
+  /**
+   * Time range to filter tickets by modified time. Example: "2024-01-01T00:00:00Z,2024-12-31T23:59:59Z"
+   */
+  modifiedTimeRange?: string | undefined;
+};
+
+export interface ActionOutput_zoho_desk_listtickets {
+  items: ({  id: string;
+  ticketNumber?: string | undefined;
+  subject?: string | undefined;
+  status?: string | undefined;
+  priority?: string | undefined;
+  departmentId?: string | undefined;
+  contactId?: string | undefined;
+  assigneeId?: string | undefined;
+  channel?: string | undefined;
+  createdTime?: string | undefined;
+  modifiedTime?: string | undefined;
+  dueDate?: string | undefined;
+  resolution?: string | undefined;
+  closedTime?: string | undefined;
+  description?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  webUrl?: string | undefined;
+  category?: string | undefined;
+  subCategory?: string | undefined;
+  customFields?: {  [key: string]: unknown | undefined;};
+  productId?: string | undefined;
+  classification?: string | undefined;
+  timeEntryCount?: string | undefined;
+  commentCount?: string | undefined;
+  attachmentCount?: string | undefined;
+  taskCount?: string | undefined;
+  threadCount?: string | undefined;
+  approvalCount?: string | undefined;
+  customerResponseTime?: string | undefined;
+  isSpam?: boolean | undefined;
+  isTrashed?: boolean | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_zoho_desk_sendticketreply {
+  /**
+   * The ticket ID to reply to. Example: "1892000000094004"
+   */
+  ticket_id: string;
+  /**
+   * Content of the reply. Example: "We have identified the root cause and fixed it."
+   */
+  content: string;
+  /**
+   * Channel through which the thread originated. Values: EMAIL, FACEBOOK, TWITTER, FORUMS. Default: EMAIL
+   */
+  channel?: string | undefined;
+  /**
+   * Formatting type of the content. Values: html, plainText. Default: plainText
+   */
+  contentType?: string | undefined;
+  /**
+   * From email address configured in the help desk portal. Example: "support@zylker.com"
+   */
+  fromEmailAddress?: string | undefined;
+  /**
+   * To email address for the reply. Example: "customer@example.com"
+   */
+  to?: string | undefined;
+  /**
+   * Email addresses to CC. Comma-separated for multiple values.
+   */
+  cc?: string | undefined;
+  /**
+   * Email addresses to BCC. Comma-separated for multiple values.
+   */
+  bcc?: string | undefined;
+  /**
+   * Whether the thread is private. Default: false
+   */
+  isPrivate?: boolean | undefined;
+  /**
+   * Whether the thread is sent as a forward. Default: false
+   */
+  isForward?: boolean | undefined;
+  /**
+   * ID of the thread to which this reply is a response.
+   */
+  inReplyToThreadId?: string | undefined;
+  /**
+   * List of attachment IDs to include in the reply.
+   */
+  attachmentIds?: string[] | undefined;
+  /**
+   * Ticket status to set after sending the reply. Example: "Closed"
+   */
+  ticketStatus?: string | undefined;
+};
+
+export interface ActionOutput_zoho_desk_sendticketreply {
+  /**
+   * The thread ID of the reply.
+   */
+  id: string;
+  summary?: string | undefined;
+  cc?: string | undefined;
+  bcc?: string | undefined;
+  isDescriptionThread?: boolean | undefined;
+  attachments?: ({  size?: string | undefined;
+  name?: string | undefined;
+  id: string;
+  href?: string | undefined;})[];
+  canReply?: boolean | undefined;
+  visibility?: string | undefined;
+  author?: {  firstName?: string | undefined;
+  lastName?: string | undefined;
+  photoURL?: string | undefined;
+  name?: string | undefined;
+  type?: string | undefined;
+  email?: string | undefined;};
+  channel?: string | undefined;
+  source?: {  appName?: string | undefined;
+  extId?: string | undefined;
+  type?: string | undefined;
+  permalink?: string | undefined;
+  appPhotoURL?: string | undefined;};
+  content?: string | undefined;
+  isForward?: boolean | undefined;
+  hasAttach?: boolean | undefined;
+  responderId?: string | undefined;
+  channelRelatedInfo?: unknown | undefined;
+  respondedIn?: string | undefined;
+  createdTime?: string | undefined;
+  to?: string | undefined;
+  fromEmailAddress?: string | undefined;
+  actions?: unknown[] | undefined;
+  contentType?: string | undefined;
+  status?: string | undefined;
+  direction?: string | undefined;
+};
+
+export interface ActionInput_zoho_desk_updatecontact {
+  /**
+   * The ID of the contact to update. Example: "1329983000000410184"
+   */
+  contactId: string;
+  /**
+   * First name of the contact.
+   */
+  firstName?: string | undefined;
+  /**
+   * Last name of the contact.
+   */
+  lastName?: string | undefined;
+  /**
+   * Email address of the contact.
+   */
+  email?: string | undefined;
+  /**
+   * Phone number of the contact.
+   */
+  phone?: string | undefined;
+  /**
+   * Mobile number of the contact.
+   */
+  mobile?: string | undefined;
+  /**
+   * Secondary email address of the contact.
+   */
+  secondaryEmail?: string | undefined;
+  /**
+   * ID of the account associated with the contact.
+   */
+  accountId?: string | undefined;
+  /**
+   * ID of the agent who owns the contact.
+   */
+  ownerId?: string | undefined;
+};
+
+export interface ActionOutput_zoho_desk_updatecontact {
+  id: string;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  mobile?: string | undefined;
+  secondaryEmail?: string | undefined;
+  accountId?: string | undefined;
+  ownerId?: string | undefined;
+  createdTime?: string | undefined;
+  modifiedTime?: string | undefined;
+  isAnonymous?: boolean | undefined;
+  isSpam?: boolean | undefined;
+};
+
+export interface ActionInput_zoho_desk_updateticket {
+  /**
+   * The unique ID of the ticket to update. Example: "18920000000054003"
+   */
+  ticketId: string;
+  /**
+   * Subject of the ticket.
+   */
+  subject?: string | undefined;
+  /**
+   * ID of the department to which the ticket belongs.
+   */
+  departmentId?: string | undefined;
+  /**
+   * ID of the contact who raised the ticket.
+   */
+  contactId?: string | undefined;
+  /**
+   * ID of the product to which the ticket is mapped.
+   */
+  productId?: string | undefined;
+  /**
+   * Email address of the contact.
+   */
+  email?: string | undefined;
+  /**
+   * Phone number of the contact.
+   */
+  phone?: string | undefined;
+  /**
+   * Description of the ticket.
+   */
+  description?: string | undefined;
+  /**
+   * Status of the ticket. Example: "Open" or "Closed"
+   */
+  status?: string | undefined;
+  /**
+   * ID of the agent to whom the ticket is assigned.
+   */
+  assigneeId?: string | undefined;
+  /**
+   * Category of the ticket.
+   */
+  category?: string | undefined;
+  /**
+   * Subcategory of the ticket.
+   */
+  subCategory?: string | undefined;
+  /**
+   * Resolution provided for the ticket.
+   */
+  resolution?: string | undefined;
+  /**
+   * Due date of the ticket in ISO 8601 format.
+   */
+  dueDate?: string | undefined;
+  /**
+   * Priority of the ticket. Example: "High", "Medium", "Low"
+   */
+  priority?: string | undefined;
+  /**
+   * Language of the ticket.
+   */
+  language?: string | undefined;
+  /**
+   * Channel through which the ticket was created. Example: "Email", "Phone"
+   */
+  channel?: string | undefined;
+  /**
+   * Classification of the ticket.
+   */
+  classification?: string | undefined;
+  /**
+   * Custom field values for the ticket.
+   */
+  customFields?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_zoho_desk_updateticket {
+  id: string;
+  ticketNumber?: string | undefined;
+  modifiedTime?: string | undefined;
+  subCategory?: string | undefined;
+  statusType?: string | undefined;
+  subject?: string | undefined;
+  customFields?: {  [key: string]: unknown | undefined;};
+  dueDate?: string | undefined;
+  departmentId?: string | undefined;
+  channel?: string | undefined;
+  description?: string | undefined;
+  resolution?: string | undefined;
+  closedTime?: string | undefined;
+  approvalCount?: string | undefined;
+  timeEntryCount?: string | undefined;
+  channelRelatedInfo?: unknown | undefined;
+  responseDueDate?: string | undefined;
+  isDeleted?: boolean | undefined;
+  createdTime?: string | undefined;
+  modifiedBy?: string | undefined;
+  isResponseOverdue?: boolean | undefined;
+  email?: string | undefined;
+  customerResponseTime?: string | undefined;
+  productId?: string | undefined;
+  contactId?: string | undefined;
+  threadCount?: string | undefined;
+  priority?: string | undefined;
+  classification?: string | undefined;
+  assigneeId?: string | undefined;
+  commentCount?: string | undefined;
+  taskCount?: string | undefined;
+  accountId?: string | undefined;
+  phone?: string | undefined;
+  webUrl?: string | undefined;
+  teamId?: string | undefined;
+  attachmentCount?: string | undefined;
+  category?: string | undefined;
+  status?: string | undefined;
 };
 
 export interface ZohoMailEmail {

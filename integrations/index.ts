@@ -3473,6 +3473,28 @@ import './zoho-crm/actions/update-product.js';
 import './zoho-crm/actions/update-task.js';
 import './zoho-crm/actions/upsert-records.js';
 
+// -- Integration: zoho-desk
+import './zoho-desk/syncs/accounts.js';
+import './zoho-desk/syncs/agents.js';
+import './zoho-desk/syncs/articles.js';
+import './zoho-desk/syncs/contacts.js';
+import './zoho-desk/syncs/departments.js';
+import './zoho-desk/syncs/tickets.js';
+import './zoho-desk/actions/create-contact.js';
+import './zoho-desk/actions/create-ticket.js';
+import './zoho-desk/actions/delete-ticket.js';
+import './zoho-desk/actions/get-ticket.js';
+import './zoho-desk/actions/list-accounts.js';
+import './zoho-desk/actions/list-agents.js';
+import './zoho-desk/actions/list-articles.js';
+import './zoho-desk/actions/list-contacts.js';
+import './zoho-desk/actions/list-departments.js';
+import './zoho-desk/actions/list-ticket-threads.js';
+import './zoho-desk/actions/list-tickets.js';
+import './zoho-desk/actions/send-ticket-reply.js';
+import './zoho-desk/actions/update-contact.js';
+import './zoho-desk/actions/update-ticket.js';
+
 // -- Integration: zoho-mail
 import './zoho-mail/syncs/emails.js';
 import './zoho-mail/syncs/tasks.js';
