@@ -1,0 +1,62 @@
+{
+  "input": {
+    "callId": "4232068521228123558",
+    "userIds": [
+      "1597409306735779049"
+    ]
+  },
+  "output": {},
+  "nango": {},
+  "api": {
+    "put": {
+      "/v2/calls/users-access": {
+        "response": {
+          "requestId": "5hf4xx523um0ng8yv7x",
+          "errors": [
+            "Some calls not found"
+          ]
+        },
+        "status": 400,
+        "headers": {
+          "date": "Fri, 12 Jun 2026 13:57:36 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4960",
+          "x-ratelimit-reset": "1781272704",
+          "set-cookie": "<redacted>",
+          "x-gong-service-version": "PublicApiServer:17.main.19292",
+          "x-traceid": "5hf4xx523um0ng8yv7x",
+          "vary": "accept-encoding",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "cf-ray": "a0a95d974d9fff0e-PDX",
+          "etag": "W/\"45-4l8jvNyOO73M4+JYeBq+gYFDxHc\""
+        },
+        "hash": "287d802c947bc902bcaf317c0b4b7fd897c8e0e5",
+        "request": {
+          "data": {
+            "callAccessList": [
+              {
+                "callId": "4232068521228123558",
+                "userIds": [
+                  "1597409306735779049"
+                ]
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}
