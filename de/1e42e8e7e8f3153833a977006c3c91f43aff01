@@ -1,0 +1,19 @@
+integrations/asana/actions/add-project-to-task.ts
+  s_05e65aca0e100a::t_db1fcc550df37e 7-8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "de1e42e8e7e8f3153833a977006c3c91f43aff01",
+  "prompts": {},
+  "sessions": {
+    "s_05e65aca0e100a": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_1442eb6cfffeuF5Ja9rVQQ9IKJ",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Marcin Dobrowolski <marcindobry@hotmail.com>"
+    }
+  }
+}
