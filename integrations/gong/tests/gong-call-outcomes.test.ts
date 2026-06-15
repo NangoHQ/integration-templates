@@ -3,13 +3,13 @@ import { afterEach, vi, expect, it, describe } from 'vitest';
 import createSync from '../syncs/call-outcomes.js';
 
 describe('gong-oauth call-outcomes tests', () => {
-    const models = 'CallOutcome'.split(',');
+    const models = 'GongCallOutcome'.split(',');
 
     const createTestContext = () => {
         const nangoMock = new global.vitest.NangoSyncMock({
             dirname: __dirname,
             name: 'call-outcomes',
-            Model: 'CallOutcome'
+            Model: 'GongCallOutcome'
         });
 
         return {
