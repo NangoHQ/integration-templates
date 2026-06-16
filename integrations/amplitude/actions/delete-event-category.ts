@@ -42,8 +42,16 @@ const action = createAction({
             });
         }
 
+        if (!parsed.data.success) {
+            throw new nango.ActionError({
+                type: 'delete_failed',
+                message: 'Amplitude returned success: false when deleting the event category.',
+                response: parsed.data
+            });
+        }
+
         return {
-            success: parsed.data.success
+            success: true
         };
     }
 });

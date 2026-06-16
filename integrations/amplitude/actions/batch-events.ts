@@ -39,7 +39,10 @@ const EventSchema = z
         insert_id: z.string().optional(),
         library: z.string().optional()
     })
-    .passthrough();
+    .passthrough()
+    .refine((e) => e.user_id !== undefined || e.device_id !== undefined, {
+        message: 'Each event must have at least one of user_id or device_id.'
+    });
 
 const InputSchema = z.object({
     events: z.array(EventSchema).min(1).max(2000).describe('Events to upload. Max 2000 events per request.')

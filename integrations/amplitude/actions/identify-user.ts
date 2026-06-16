@@ -1,11 +1,15 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const InputSchema = z.object({
-    user_id: z.string().describe('User ID. Example: "test-user-123"'),
-    device_id: z.string().optional().describe('Device ID. Example: "abc-def"'),
-    user_properties: z.record(z.string(), z.unknown()).optional().describe('User properties to update. Example: { "plan": "premium" }')
-});
+const InputSchema = z
+    .object({
+        user_id: z.string().optional().describe('User ID. Example: "test-user-123"'),
+        device_id: z.string().optional().describe('Device ID. Example: "abc-def"'),
+        user_properties: z.record(z.string(), z.unknown()).optional().describe('User properties to update. Example: { "plan": "premium" }')
+    })
+    .refine((d) => d.user_id !== undefined || d.device_id !== undefined, {
+        message: 'Either user_id or device_id must be provided.'
+    });
 
 const ProviderResponseSchema = z
     .object({
@@ -45,16 +49,21 @@ const action = createAction({
             apiKey = credentials.username;
         }
 
+        if (!apiKey) {
+            throw new nango.ActionError({
+                type: 'missing_credentials',
+                message: 'API key is missing from the connection credentials.'
+            });
+        }
+
         const identification = {
-            user_id: input.user_id,
+            ...(input.user_id !== undefined && { user_id: input.user_id }),
             ...(input.device_id !== undefined && { device_id: input.device_id }),
             ...(input.user_properties !== undefined && { user_properties: input.user_properties })
         };
 
         const identificationJson = JSON.stringify([identification]);
-        const body = apiKey
-            ? `api_key=${encodeURIComponent(apiKey)}&identification=${encodeURIComponent(identificationJson)}`
-            : `identification=${encodeURIComponent(identificationJson)}`;
+        const body = `api_key=${encodeURIComponent(apiKey)}&identification=${encodeURIComponent(identificationJson)}`;
 
         // https://amplitude.com/docs/apis/analytics/identify
         const response = await nango.post({

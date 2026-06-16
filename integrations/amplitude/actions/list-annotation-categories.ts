@@ -54,9 +54,14 @@ const action = createAction({
         const categories = providerResponse.data;
 
         const limit = input.limit ?? 100;
-        const cursor = input.cursor ? parseInt(input.cursor, 10) : 0;
-
-        if (Number.isNaN(cursor) || cursor < 0) {
+        if (!Number.isInteger(limit) || limit < 1) {
+            throw new nango.ActionError({
+                type: 'invalid_limit',
+                message: 'limit must be a positive integer.'
+            });
+        }
+        const cursor = input.cursor !== undefined ? Number(input.cursor) : 0;
+        if (!Number.isInteger(cursor) || cursor < 0) {
             throw new nango.ActionError({
                 type: 'invalid_cursor',
                 message: 'cursor must be a non-negative integer string.'

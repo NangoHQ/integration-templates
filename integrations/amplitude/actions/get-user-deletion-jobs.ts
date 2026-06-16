@@ -17,6 +17,8 @@ const DeletionJobSchema = z.object({
     day: z.string(),
     status: z.string(),
     amplitude_ids: z.array(AmplitudeIdSchema).optional(),
+    user_ids: z.array(z.string()).optional(),
+    invalid_ids: z.array(z.string()).optional(),
     app: z.union([z.string(), z.number()]).optional(),
     active_scrub_done_date: z.string().optional()
 });

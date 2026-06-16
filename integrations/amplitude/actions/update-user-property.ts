@@ -35,18 +35,22 @@ const action = createAction({
     scopes: ['read', 'write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const body = new URLSearchParams();
+        if (input.new_user_property_value !== undefined) body.append('new_user_property_value', input.new_user_property_value);
+        if (input.description !== undefined) body.append('description', input.description);
+        if (input.type !== undefined) body.append('type', input.type);
+        if (input.regex !== undefined) body.append('regex', input.regex);
+        if (input.enum_values !== undefined) body.append('enum_values', input.enum_values);
+        if (input.is_array_type !== undefined) body.append('is_array_type', String(input.is_array_type));
+        if (input.is_hidden !== undefined) body.append('is_hidden', String(input.is_hidden));
+        if (input.classifications !== undefined) body.append('classifications', input.classifications);
+
         const config: ProxyConfiguration = {
             // https://amplitude.com/docs/apis/analytics/taxonomy#update-a-user-property
             endpoint: `/api/2/taxonomy/user-property/${encodeURIComponent(input.user_property)}`,
-            data: {
-                ...(input.new_user_property_value !== undefined && { new_user_property_value: input.new_user_property_value }),
-                ...(input.description !== undefined && { description: input.description }),
-                ...(input.type !== undefined && { type: input.type }),
-                ...(input.regex !== undefined && { regex: input.regex }),
-                ...(input.enum_values !== undefined && { enum_values: input.enum_values }),
-                ...(input.is_array_type !== undefined && { is_array_type: input.is_array_type }),
-                ...(input.is_hidden !== undefined && { is_hidden: input.is_hidden }),
-                ...(input.classifications !== undefined && { classifications: input.classifications })
+            data: body.toString(),
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
             },
             retries: 3
         };

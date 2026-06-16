@@ -96,7 +96,16 @@ const action = createAction({
             retries: 3
         };
 
-        const response = await nango.put(config);
+        let response;
+        // @allowTryCatch Catch non-2xx proxy errors and map them to a consistent ActionError.
+        try {
+            response = await nango.put(config);
+        } catch {
+            throw new nango.ActionError({
+                type: 'update_failed',
+                message: 'Failed to update event property.'
+            });
+        }
         const providerResponse = ProviderResponseSchema.parse(response.data);
 
         if (!providerResponse.success) {

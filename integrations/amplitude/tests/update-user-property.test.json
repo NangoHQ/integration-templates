@@ -33,11 +33,9 @@
           "x-ratelimit-reset": "1781611341",
           "etag": "W/\"11-SEswMmGfoazRNdEUVlsKUWYoHCI\""
         },
-        "hash": "78fe2905fdbb1496e5b39eb64ae32225adee2a1f",
+        "hash": "b6c1d3ea5b8adc93d09db7e312fc063507e81251",
         "request": {
-          "data": {
-            "description": "Updated description for testing"
-          }
+          "data": "description=Updated+description+for+testing"
         }
       }
     }

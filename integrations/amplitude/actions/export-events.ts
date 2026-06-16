@@ -76,6 +76,10 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const limit = input.limit ?? 100;
 
+        const connection = await nango.getConnection();
+        const hostname = connection.connection_config?.['hostname'] ?? 'amplitude.com';
+        const baseUrlOverride = hostname !== 'amplitude.com' ? `https://${hostname}` : undefined;
+
         let response;
         // @allowTryCatch The Amplitude Export API returns 404 when no data exists for the requested time range.
         // This is an expected condition, so we catch it and return an empty event list instead of failing.
@@ -83,6 +87,7 @@ const action = createAction({
             response = await nango.get({
                 // https://amplitude.com/docs/apis/analytics/export
                 endpoint: '/api/2/export',
+                ...(baseUrlOverride && { baseUrlOverride }),
                 params: {
                     start: input.start,
                     end: input.end
@@ -194,9 +199,11 @@ const action = createAction({
 
         const lines = rawText.split('\n').filter((line) => line.trim().length > 0);
         const events: z.infer<typeof EventSchema>[] = [];
+        let hitLimit = false;
 
         for (let i = 0; i < lines.length; i++) {
             if (events.length >= limit) {
+                hitLimit = true;
                 break;
             }
 
@@ -224,7 +231,7 @@ const action = createAction({
             end: input.end,
             events,
             total_returned: events.length,
-            has_more: lines.length > events.length
+            has_more: hitLimit
         };
     }
 });

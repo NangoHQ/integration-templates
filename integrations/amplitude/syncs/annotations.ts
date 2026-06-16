@@ -3,15 +3,15 @@ import { z } from 'zod';
 
 const ProviderCategorySchema = z.object({
     id: z.number(),
-    name: z.string().optional(),
-    category: z.string().optional()
+    name: z.string().nullable().optional(),
+    category: z.string().nullable().optional()
 });
 
 const ProviderAnnotationSchema = z.object({
     id: z.number(),
     start: z.string(),
     details: z.string().nullable().optional(),
-    category: ProviderCategorySchema.optional(),
+    category: ProviderCategorySchema.nullable().optional(),
     end: z.string().nullable().optional(),
     label: z.string(),
     chart_id: z.string().nullable().optional()

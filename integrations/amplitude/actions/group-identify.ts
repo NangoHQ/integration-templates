@@ -34,12 +34,14 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const connection = await nango.getConnection();
+        const creds = connection.credentials;
         const apiKey =
-            connection.credentials != null &&
-            typeof connection.credentials === 'object' &&
-            'username' in connection.credentials &&
-            typeof connection.credentials.username === 'string'
-                ? connection.credentials.username
+            creds != null && typeof creds === 'object'
+                ? 'apiKey' in creds && typeof creds.apiKey === 'string'
+                    ? creds.apiKey
+                    : 'username' in creds && typeof creds.username === 'string'
+                      ? creds.username
+                      : undefined
                 : undefined;
 
         if (!apiKey) {

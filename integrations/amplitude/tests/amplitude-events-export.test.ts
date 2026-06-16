@@ -1,9 +1,15 @@
-import { afterEach, vi, expect, it, describe } from 'vitest';
+import { afterEach, beforeEach, vi, expect, it, describe } from 'vitest';
 
 import createSync from '../syncs/events-export.js';
 
 describe('amplitude events-export tests', () => {
     const models = 'EventExport'.split(',');
+
+    // Fixture was recorded at 14:54 UTC on 2026-06-16.
+    // getLatestAvailableHour subtracts 3h → 20260616T11, matching the fixture params.
+    beforeEach(() => {
+        vi.useFakeTimers({ now: new Date('2026-06-16T14:00:00Z') });
+    });
 
     const createTestContext = () => {
         const nangoMock = new global.vitest.NangoSyncMock({
@@ -19,6 +25,7 @@ describe('amplitude events-export tests', () => {
     };
 
     afterEach(() => {
+        vi.useRealTimers();
         vi.clearAllMocks();
         vi.restoreAllMocks();
     });

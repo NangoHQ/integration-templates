@@ -92,18 +92,10 @@ const action = createAction({
         }
 
         const providerItems = envelope.data ?? [];
-        const parsedItems = providerItems.map((item: unknown) => {
-            const parsed = ProviderEventPropertySchema.safeParse(item);
-            if (!parsed.success) {
-                return {
-                    event_property: 'unknown',
-                    is_array_type: false,
-                    is_required: false,
-                    is_hidden: false
-                };
-            }
-            return parsed.data;
-        });
+        const parsedItems = providerItems
+            .map((item: unknown) => ProviderEventPropertySchema.safeParse(item))
+            .filter((result): result is { success: true; data: z.infer<typeof ProviderEventPropertySchema> } => result.success)
+            .map((result) => result.data);
 
         const limit = input.limit ?? 100;
         const cursor = input.cursor ? parseInt(input.cursor, 10) : 0;

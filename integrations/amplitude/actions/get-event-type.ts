@@ -15,13 +15,13 @@ const ProviderEventTypeSchema = z.object({
     description: z.string().nullable().optional(),
     display_name: z.string().nullable().optional(),
     deleted: z.boolean().nullable().optional(),
-    tags: z.array(z.string()),
-    is_active: z.boolean(),
+    tags: z.array(z.string()).nullable().optional(),
+    is_active: z.boolean().nullable().optional(),
     owner: z.string().nullable().optional(),
-    is_hidden_from_dropdowns: z.boolean(),
-    is_hidden_from_persona_results: z.boolean(),
-    is_hidden_from_pathfinder: z.boolean(),
-    is_hidden_from_timeline: z.boolean()
+    is_hidden_from_dropdowns: z.boolean().nullable().optional(),
+    is_hidden_from_persona_results: z.boolean().nullable().optional(),
+    is_hidden_from_pathfinder: z.boolean().nullable().optional(),
+    is_hidden_from_timeline: z.boolean().nullable().optional()
 });
 
 const ProviderResponseSchema = z.object({
@@ -35,13 +35,13 @@ const OutputSchema = z.object({
     description: z.string().optional(),
     display_name: z.string().optional(),
     deleted: z.boolean().optional(),
-    tags: z.array(z.string()),
-    is_active: z.boolean(),
+    tags: z.array(z.string()).optional(),
+    is_active: z.boolean().optional(),
     owner: z.string().optional(),
-    is_hidden_from_dropdowns: z.boolean(),
-    is_hidden_from_persona_results: z.boolean(),
-    is_hidden_from_pathfinder: z.boolean(),
-    is_hidden_from_timeline: z.boolean()
+    is_hidden_from_dropdowns: z.boolean().optional(),
+    is_hidden_from_persona_results: z.boolean().optional(),
+    is_hidden_from_pathfinder: z.boolean().optional(),
+    is_hidden_from_timeline: z.boolean().optional()
 });
 
 const action = createAction({
@@ -94,13 +94,15 @@ const action = createAction({
             ...(providerEventType.description != null && { description: providerEventType.description }),
             ...(providerEventType.display_name != null && { display_name: providerEventType.display_name }),
             ...(providerEventType.deleted != null && { deleted: providerEventType.deleted }),
-            tags: providerEventType.tags,
-            is_active: providerEventType.is_active,
+            ...(providerEventType.tags != null && { tags: providerEventType.tags }),
+            ...(providerEventType.is_active != null && { is_active: providerEventType.is_active }),
             ...(providerEventType.owner != null && { owner: providerEventType.owner }),
-            is_hidden_from_dropdowns: providerEventType.is_hidden_from_dropdowns,
-            is_hidden_from_persona_results: providerEventType.is_hidden_from_persona_results,
-            is_hidden_from_pathfinder: providerEventType.is_hidden_from_pathfinder,
-            is_hidden_from_timeline: providerEventType.is_hidden_from_timeline
+            ...(providerEventType.is_hidden_from_dropdowns != null && { is_hidden_from_dropdowns: providerEventType.is_hidden_from_dropdowns }),
+            ...(providerEventType.is_hidden_from_persona_results != null && {
+                is_hidden_from_persona_results: providerEventType.is_hidden_from_persona_results
+            }),
+            ...(providerEventType.is_hidden_from_pathfinder != null && { is_hidden_from_pathfinder: providerEventType.is_hidden_from_pathfinder }),
+            ...(providerEventType.is_hidden_from_timeline != null && { is_hidden_from_timeline: providerEventType.is_hidden_from_timeline })
         };
     }
 });

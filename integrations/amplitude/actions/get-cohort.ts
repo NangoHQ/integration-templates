@@ -36,7 +36,7 @@ const CohortSchema = z.object({
 
 const ProviderResponseSchema = z.object({
     cohort: CohortSchema,
-    amplitude_ids: z.array(z.string()).optional(),
+    amplitude_ids: z.array(z.union([z.string(), z.number()])).optional(),
     user_ids: z.array(z.string()).optional()
 });
 

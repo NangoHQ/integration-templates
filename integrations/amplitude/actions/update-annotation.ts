@@ -80,9 +80,14 @@ const action = createAction({
             body['end'] = input.end;
         }
 
+        const connection = await nango.getConnection();
+        const hostname = connection.connection_config?.['hostname'] ?? 'amplitude.com';
+        const baseUrlOverride = hostname !== 'amplitude.com' ? `https://${hostname}` : undefined;
+
         const response = await nango.put({
             // https://amplitude.com/docs/apis/analytics/chart-annotations#update-an-annotation
             endpoint: `/api/3/annotations/${encodeURIComponent(input.annotation_id)}`,
+            ...(baseUrlOverride && { baseUrlOverride }),
             data: body,
             retries: 3
         });

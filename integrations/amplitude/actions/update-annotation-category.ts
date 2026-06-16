@@ -31,9 +31,14 @@ const action = createAction({
     scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const connection = await nango.getConnection();
+        const hostname = connection.connection_config?.['hostname'] ?? 'amplitude.com';
+        const baseUrlOverride = hostname !== 'amplitude.com' ? `https://${hostname}` : undefined;
+
         const response = await nango.put({
             // https://amplitude.com/docs/apis/analytics/chart-annotations
             endpoint: `/api/3/annotation-categories/${encodeURIComponent(input.category_id)}`,
+            ...(baseUrlOverride && { baseUrlOverride }),
             data: {
                 category: input.category
             },

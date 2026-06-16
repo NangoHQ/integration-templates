@@ -60,14 +60,20 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const connection = await nango.getConnection();
         const connectionConfig = connection.connection_config;
-        const hostname =
+        const rawHostname =
             typeof connectionConfig === 'object' &&
             connectionConfig !== null &&
             'hostname' in connectionConfig &&
             typeof connectionConfig['hostname'] === 'string'
                 ? connectionConfig['hostname']
                 : 'amplitude.com';
-        const baseUrl = `https://${hostname}`;
+        if (!/^([a-z0-9-]+\.)*amplitude\.com$/.test(rawHostname)) {
+            throw new nango.ActionError({
+                type: 'invalid_config',
+                message: `Invalid hostname "${rawHostname}": must be amplitude.com or a subdomain of amplitude.com.`
+            });
+        }
+        const baseUrl = `https://${rawHostname}`;
 
         const requestBody: Record<string, unknown> = {
             label: input.label,

@@ -134,8 +134,9 @@ const action = createAction({
         }
 
         // https://amplitude.com/docs/apis/analytics/taxonomy#get-an-event-type
+        const fetchName = input.new_event_type ?? input.event_type;
         const getResponse = await nango.get({
-            endpoint: `/api/2/taxonomy/event/${encodeURIComponent(input.event_type)}`,
+            endpoint: `/api/2/taxonomy/event/${encodeURIComponent(fetchName)}`,
             retries: 3
         });
 

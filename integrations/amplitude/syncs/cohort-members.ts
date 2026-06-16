@@ -10,6 +10,11 @@ const CohortMemberSchema = z.object({
     lastMod: z.string().optional()
 });
 
+interface CohortState {
+    lastMod: string;
+    memberIds: string[];
+}
+
 const CheckpointSchema = z.object({
     cohortsJson: z.string()
 });
@@ -63,8 +68,26 @@ const sync = createSync({
 
     exec: async (nango) => {
         const rawCheckpoint = await nango.getCheckpoint();
-        const checkpoint = CheckpointSchema.parse(rawCheckpoint ?? { cohortsJson: '{}' });
-        const lastSeen: Record<string, string> = JSON.parse(checkpoint.cohortsJson);
+        const parsed = CheckpointSchema.safeParse(rawCheckpoint ?? { cohortsJson: '{}' });
+        const checkpointData = parsed.success ? parsed.data : { cohortsJson: '{}' };
+
+        // Parse stored cohort state; migrate old format (Record<string, string>) if present
+        let lastSeen: Record<string, CohortState> = {};
+        try {
+            const raw = JSON.parse(checkpointData.cohortsJson);
+            for (const [k, v] of Object.entries(raw)) {
+                if (typeof v === 'string') {
+                    lastSeen[k] = { lastMod: v, memberIds: [] };
+                } else if (typeof v === 'object' && v !== null && typeof v['lastMod'] === 'string' && Array.isArray(v['memberIds'])) {
+                    lastSeen[k] = {
+                        lastMod: v['lastMod'],
+                        memberIds: v['memberIds'].filter((id: unknown): id is string => typeof id === 'string')
+                    };
+                }
+            }
+        } catch {
+            lastSeen = {};
+        }
 
         // https://amplitude.com/docs/apis/analytics/behavioral-cohorts#get-all-cohorts
         const listResponse = await nango.get({
@@ -78,7 +101,7 @@ const sync = createSync({
         }
 
         const cohorts = listValidation.data.cohorts ?? [];
-        const currentCheckpoint: Record<string, string> = { ...lastSeen };
+        const currentCheckpoint: Record<string, CohortState> = { ...lastSeen };
 
         for (const cohort of cohorts) {
             if (cohort.finished !== true) {
@@ -86,7 +109,7 @@ const sync = createSync({
             }
 
             const cohortLastMod = cohort.lastMod != null ? String(cohort.lastMod) : undefined;
-            if (cohortLastMod !== undefined && lastSeen[cohort.id] === cohortLastMod) {
+            if (cohortLastMod !== undefined && lastSeen[cohort.id]?.lastMod === cohortLastMod) {
                 continue;
             }
 
@@ -106,6 +129,7 @@ const sync = createSync({
             const userIds = memberData.user_ids ?? [];
             const maxLength = Math.max(amplitudeIds.length, userIds.length);
             const members: Array<{ id: string; cohortId: string; cohortName?: string; amplitudeId?: string; userId?: string; lastMod?: string }> = [];
+            const newMemberIds: string[] = [];
 
             for (let i = 0; i < maxLength; i++) {
                 const amplitudeId = amplitudeIds[i];
@@ -116,6 +140,7 @@ const sync = createSync({
                 }
 
                 const id = amplitudeId ? `amplitude_id:${cohort.id}:${amplitudeId}` : `user_id:${cohort.id}:${userId}`;
+                newMemberIds.push(id);
                 const record: { id: string; cohortId: string; cohortName?: string; amplitudeId?: string; userId?: string; lastMod?: string } = {
                     id,
                     cohortId: cohort.id,
@@ -128,12 +153,23 @@ const sync = createSync({
                 members.push(record);
             }
 
+            // Delete members that were in the previous run but are no longer present
+            const prevMemberIds = lastSeen[cohort.id]?.memberIds ?? [];
+            const newMemberIdSet = new Set(newMemberIds);
+            const removedIds = prevMemberIds.filter((id) => !newMemberIdSet.has(id));
+            if (removedIds.length > 0) {
+                await nango.batchDelete(
+                    removedIds.map((id) => ({ id })),
+                    'CohortMember'
+                );
+            }
+
             if (members.length > 0) {
                 await nango.batchSave(members, 'CohortMember');
             }
 
             if (cohortLastMod !== undefined) {
-                currentCheckpoint[cohort.id] = cohortLastMod;
+                currentCheckpoint[cohort.id] = { lastMod: cohortLastMod, memberIds: newMemberIds };
                 await nango.saveCheckpoint({ cohortsJson: JSON.stringify(currentCheckpoint) });
             }
         }

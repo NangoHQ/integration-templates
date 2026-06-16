@@ -11,7 +11,9 @@
     "total_returned": 0,
     "has_more": false
   },
-  "nango": {},
+  "nango": {
+    "getConnection": {}
+  },
   "api": {
     "get": {
       "/api/2/export": {

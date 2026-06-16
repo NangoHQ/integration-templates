@@ -61,8 +61,8 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const limit = input.limit ?? 100;
-        const offset = input.cursor ? parseInt(input.cursor, 10) : 0;
-        if (Number.isNaN(offset) || offset < 0) {
+        const offset = input.cursor !== undefined ? Number(input.cursor) : 0;
+        if (!Number.isInteger(offset) || offset < 0) {
             throw new nango.ActionError({
                 type: 'invalid_cursor',
                 message: 'Invalid cursor value. Cursor must be a non-negative integer.'
@@ -99,8 +99,9 @@ const action = createAction({
                 ...(item.category != null && {
                     category: {
                         id: item.category.id,
-                        ...(item.category.name != null && { name: item.category.name }),
-                        ...(item.category.category != null && { name: item.category.category })
+                        ...((item.category.name != null || item.category.category != null) && {
+                            name: item.category.name ?? item.category.category ?? undefined
+                        })
                     }
                 }),
                 ...(item.end != null && { end: item.end }),

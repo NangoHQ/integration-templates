@@ -6064,13 +6064,13 @@ export interface ActionOutput_amplitude_geteventtype {
   description?: string | undefined;
   display_name?: string | undefined;
   deleted?: boolean | undefined;
-  tags: string[];
-  is_active: boolean;
+  tags?: string[] | undefined;
+  is_active?: boolean | undefined;
   owner?: string | undefined;
-  is_hidden_from_dropdowns: boolean;
-  is_hidden_from_persona_results: boolean;
-  is_hidden_from_pathfinder: boolean;
-  is_hidden_from_timeline: boolean;
+  is_hidden_from_dropdowns?: boolean | undefined;
+  is_hidden_from_persona_results?: boolean | undefined;
+  is_hidden_from_pathfinder?: boolean | undefined;
+  is_hidden_from_timeline?: boolean | undefined;
 };
 
 export interface ActionInput_amplitude_getgroupproperty {
@@ -6114,6 +6114,8 @@ export interface ActionOutput_amplitude_getuserdeletionjobs {
   requested_on_day?: string | undefined;
   requester?: string | undefined;
   user_id?: string | undefined;})[];
+  user_ids?: string[] | undefined;
+  invalid_ids?: string[] | undefined;
   app?: string | number | undefined;
   active_scrub_done_date?: string | undefined;};
 };
@@ -6161,7 +6163,7 @@ export interface ActionInput_amplitude_identifyuser {
   /**
    * User ID. Example: "test-user-123"
    */
-  user_id: string;
+  user_id?: string | undefined;
   /**
    * Device ID. Example: "abc-def"
    */

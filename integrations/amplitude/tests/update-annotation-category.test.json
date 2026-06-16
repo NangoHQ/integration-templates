@@ -7,7 +7,9 @@
     "id": 1256,
     "category": "UpdatedCategoryName"
   },
-  "nango": {},
+  "nango": {
+    "getConnection": {}
+  },
   "api": {
     "put": {
       "/api/3/annotation-categories/1256": {

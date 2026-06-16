@@ -33,8 +33,8 @@ const action = createAction({
     scopes: [],
     exec: async (nango, input) => {
         const limit = input.limit ?? 100;
-        const offset = input.cursor ? parseInt(input.cursor, 10) : 0;
-        if (isNaN(offset) || offset < 0) {
+        const offset = input.cursor !== undefined ? Number(input.cursor) : 0;
+        if (!Number.isInteger(offset) || offset < 0) {
             throw new nango.ActionError({
                 message: 'Invalid cursor. Must be a non-negative integer string.'
             });

@@ -87,8 +87,8 @@ const action = createAction({
         });
 
         const limit = input.limit ?? 100;
-        const offset = input.cursor ? parseInt(input.cursor, 10) : 0;
-        if (Number.isNaN(offset)) {
+        const offset = input.cursor !== undefined ? Number(input.cursor) : 0;
+        if (!Number.isInteger(offset) || offset < 0) {
             throw new nango.ActionError({
                 type: 'invalid_cursor',
                 message: 'Invalid cursor value'
