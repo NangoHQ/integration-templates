@@ -10,10 +10,12 @@ const CohortMemberSchema = z.object({
     lastMod: z.string().optional()
 });
 
-interface CohortState {
-    lastMod: string;
-    memberIds: string[];
-}
+const CohortStateSchema = z.object({
+    lastMod: z.string(),
+    memberIds: z.array(z.string())
+});
+
+type CohortState = z.infer<typeof CohortStateSchema>;
 
 const CheckpointSchema = z.object({
     cohortsJson: z.string()
@@ -73,16 +75,17 @@ const sync = createSync({
 
         // Parse stored cohort state; migrate old format (Record<string, string>) if present
         let lastSeen: Record<string, CohortState> = {};
+        // @allowTryCatch JSON.parse can throw on malformed checkpoint data; fall back to empty state.
         try {
             const raw = JSON.parse(checkpointData.cohortsJson);
             for (const [k, v] of Object.entries(raw)) {
                 if (typeof v === 'string') {
                     lastSeen[k] = { lastMod: v, memberIds: [] };
-                } else if (typeof v === 'object' && v !== null && typeof v['lastMod'] === 'string' && Array.isArray(v['memberIds'])) {
-                    lastSeen[k] = {
-                        lastMod: v['lastMod'],
-                        memberIds: v['memberIds'].filter((id: unknown): id is string => typeof id === 'string')
-                    };
+                } else {
+                    const stateResult = CohortStateSchema.safeParse(v);
+                    if (stateResult.success) {
+                        lastSeen[k] = stateResult.data;
+                    }
                 }
             }
         } catch {
