@@ -1,0 +1,505 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "id": 18,
+        "parent_id": 0,
+        "name": "Bath",
+        "description": "",
+        "views": 0,
+        "sort_order": 1,
+        "page_title": "",
+        "meta_keywords": [],
+        "meta_description": "",
+        "layout_file": "category_with_facets.html",
+        "image_url": "",
+        "is_visible": true,
+        "search_keywords": "",
+        "default_product_sort": "use_store_settings",
+        "custom_url": {
+          "url": "/bath/",
+          "is_customized": false
+        }
+      },
+      {
+        "id": 19,
+        "parent_id": 0,
+        "name": "Garden",
+        "description": "",
+        "views": 0,
+        "sort_order": 2,
+        "page_title": "",
+        "meta_keywords": [],
+        "meta_description": "",
+        "layout_file": "category_with_facets.html",
+        "image_url": "",
+        "is_visible": true,
+        "search_keywords": "",
+        "default_product_sort": "use_store_settings",
+        "custom_url": {
+          "url": "/garden/",
+          "is_customized": false
+        }
+      },
+      {
+        "id": 20,
+        "parent_id": 0,
+        "name": "Publications",
+        "description": "",
+        "views": 0,
+        "sort_order": 4,
+        "page_title": "",
+        "meta_keywords": [],
+        "meta_description": "",
+        "layout_file": "category_with_facets.html",
+        "image_url": "",
+        "is_visible": true,
+        "search_keywords": "",
+        "default_product_sort": "use_store_settings",
+        "custom_url": {
+          "url": "/publications/",
+          "is_customized": false
+        }
+      },
+      {
+        "id": 21,
+        "parent_id": 0,
+        "name": "Kitchen",
+        "description": "",
+        "views": 0,
+        "sort_order": 3,
+        "page_title": "",
+        "meta_keywords": [],
+        "meta_description": "",
+        "layout_file": "category_with_facets.html",
+        "image_url": "",
+        "is_visible": true,
+        "search_keywords": "",
+        "default_product_sort": "use_store_settings",
+        "custom_url": {
+          "url": "/kitchen/",
+          "is_customized": false
+        }
+      },
+      {
+        "id": 22,
+        "parent_id": 0,
+        "name": "Utility",
+        "description": "",
+        "views": 0,
+        "sort_order": 5,
+        "page_title": "",
+        "meta_keywords": [],
+        "meta_description": "",
+        "layout_file": "category_with_facets.html",
+        "image_url": "",
+        "is_visible": true,
+        "search_keywords": "",
+        "default_product_sort": "use_store_settings",
+        "custom_url": {
+          "url": "/utility/",
+          "is_customized": false
+        }
+      },
+      {
+        "id": 23,
+        "parent_id": 0,
+        "name": "Shop All",
+        "description": "",
+        "views": 0,
+        "sort_order": 0,
+        "page_title": "",
+        "meta_keywords": [],
+        "meta_description": "",
+        "layout_file": "category_with_facets.html",
+        "image_url": "",
+        "is_visible": true,
+        "search_keywords": "",
+        "default_product_sort": "use_store_settings",
+        "custom_url": {
+          "url": "/shop-all/",
+          "is_customized": false
+        }
+      },
+      {
+        "id": 28,
+        "parent_id": 0,
+        "name": "DirectTestCategory",
+        "description": "",
+        "views": 0,
+        "sort_order": 0,
+        "page_title": "",
+        "meta_keywords": [],
+        "meta_description": "",
+        "layout_file": "",
+        "image_url": "",
+        "is_visible": true,
+        "search_keywords": "",
+        "default_product_sort": "use_store_settings",
+        "custom_url": {
+          "url": "/directtestcategory/",
+          "is_customized": false
+        }
+      },
+      {
+        "id": 29,
+        "parent_id": 0,
+        "name": "ProxyTestCategory",
+        "description": "",
+        "views": 0,
+        "sort_order": 0,
+        "page_title": "",
+        "meta_keywords": [],
+        "meta_description": "",
+        "layout_file": "",
+        "image_url": "",
+        "is_visible": true,
+        "search_keywords": "",
+        "default_product_sort": "use_store_settings",
+        "custom_url": {
+          "url": "/proxytestcategory/",
+          "is_customized": false
+        }
+      },
+      {
+        "id": 30,
+        "parent_id": 0,
+        "name": "NangoDirectTokenTest",
+        "description": "",
+        "views": 0,
+        "sort_order": 0,
+        "page_title": "",
+        "meta_keywords": [],
+        "meta_description": "",
+        "layout_file": "",
+        "image_url": "",
+        "is_visible": true,
+        "search_keywords": "",
+        "default_product_sort": "use_store_settings",
+        "custom_url": {
+          "url": "/nangodirecttokentest/",
+          "is_customized": false
+        }
+      },
+      {
+        "id": 31,
+        "parent_id": 0,
+        "name": "NangoDryrunTestCat",
+        "description": "",
+        "views": 0,
+        "sort_order": 0,
+        "page_title": "",
+        "meta_keywords": [],
+        "meta_description": "",
+        "layout_file": "",
+        "image_url": "",
+        "is_visible": true,
+        "search_keywords": "",
+        "default_product_sort": "use_store_settings",
+        "custom_url": {
+          "url": "/nangodryruntestcat/",
+          "is_customized": false
+        }
+      },
+      {
+        "id": 32,
+        "parent_id": 0,
+        "name": "FinalValidationTest",
+        "description": "",
+        "views": 0,
+        "sort_order": 0,
+        "page_title": "",
+        "meta_keywords": [],
+        "meta_description": "",
+        "layout_file": "",
+        "image_url": "",
+        "is_visible": true,
+        "search_keywords": "",
+        "default_product_sort": "use_store_settings",
+        "custom_url": {
+          "url": "/finalvalidationtest/",
+          "is_customized": false
+        }
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v3/catalog/categories": {
+        "response": {
+          "data": [
+            {
+              "id": 18,
+              "parent_id": 0,
+              "name": "Bath",
+              "description": "",
+              "views": 0,
+              "sort_order": 1,
+              "page_title": "",
+              "search_keywords": "",
+              "meta_keywords": [],
+              "meta_description": "",
+              "layout_file": "category_with_facets.html",
+              "is_visible": true,
+              "default_product_sort": "use_store_settings",
+              "custom_url": {
+                "url": "/bath/",
+                "is_customized": false
+              },
+              "image_url": ""
+            },
+            {
+              "id": 19,
+              "parent_id": 0,
+              "name": "Garden",
+              "description": "",
+              "views": 0,
+              "sort_order": 2,
+              "page_title": "",
+              "search_keywords": "",
+              "meta_keywords": [],
+              "meta_description": "",
+              "layout_file": "category_with_facets.html",
+              "is_visible": true,
+              "default_product_sort": "use_store_settings",
+              "custom_url": {
+                "url": "/garden/",
+                "is_customized": false
+              },
+              "image_url": ""
+            },
+            {
+              "id": 20,
+              "parent_id": 0,
+              "name": "Publications",
+              "description": "",
+              "views": 0,
+              "sort_order": 4,
+              "page_title": "",
+              "search_keywords": "",
+              "meta_keywords": [],
+              "meta_description": "",
+              "layout_file": "category_with_facets.html",
+              "is_visible": true,
+              "default_product_sort": "use_store_settings",
+              "custom_url": {
+                "url": "/publications/",
+                "is_customized": false
+              },
+              "image_url": ""
+            },
+            {
+              "id": 21,
+              "parent_id": 0,
+              "name": "Kitchen",
+              "description": "",
+              "views": 0,
+              "sort_order": 3,
+              "page_title": "",
+              "search_keywords": "",
+              "meta_keywords": [],
+              "meta_description": "",
+              "layout_file": "category_with_facets.html",
+              "is_visible": true,
+              "default_product_sort": "use_store_settings",
+              "custom_url": {
+                "url": "/kitchen/",
+                "is_customized": false
+              },
+              "image_url": ""
+            },
+            {
+              "id": 22,
+              "parent_id": 0,
+              "name": "Utility",
+              "description": "",
+              "views": 0,
+              "sort_order": 5,
+              "page_title": "",
+              "search_keywords": "",
+              "meta_keywords": [],
+              "meta_description": "",
+              "layout_file": "category_with_facets.html",
+              "is_visible": true,
+              "default_product_sort": "use_store_settings",
+              "custom_url": {
+                "url": "/utility/",
+                "is_customized": false
+              },
+              "image_url": ""
+            },
+            {
+              "id": 23,
+              "parent_id": 0,
+              "name": "Shop All",
+              "description": "",
+              "views": 0,
+              "sort_order": 0,
+              "page_title": "",
+              "search_keywords": "",
+              "meta_keywords": [],
+              "meta_description": "",
+              "layout_file": "category_with_facets.html",
+              "is_visible": true,
+              "default_product_sort": "use_store_settings",
+              "custom_url": {
+                "url": "/shop-all/",
+                "is_customized": false
+              },
+              "image_url": ""
+            },
+            {
+              "id": 28,
+              "parent_id": 0,
+              "name": "DirectTestCategory",
+              "description": "",
+              "views": 0,
+              "sort_order": 0,
+              "page_title": "",
+              "search_keywords": "",
+              "meta_keywords": [],
+              "meta_description": "",
+              "layout_file": "",
+              "is_visible": true,
+              "default_product_sort": "use_store_settings",
+              "custom_url": {
+                "url": "/directtestcategory/",
+                "is_customized": false
+              },
+              "image_url": ""
+            },
+            {
+              "id": 29,
+              "parent_id": 0,
+              "name": "ProxyTestCategory",
+              "description": "",
+              "views": 0,
+              "sort_order": 0,
+              "page_title": "",
+              "search_keywords": "",
+              "meta_keywords": [],
+              "meta_description": "",
+              "layout_file": "",
+              "is_visible": true,
+              "default_product_sort": "use_store_settings",
+              "custom_url": {
+                "url": "/proxytestcategory/",
+                "is_customized": false
+              },
+              "image_url": ""
+            },
+            {
+              "id": 30,
+              "parent_id": 0,
+              "name": "NangoDirectTokenTest",
+              "description": "",
+              "views": 0,
+              "sort_order": 0,
+              "page_title": "",
+              "search_keywords": "",
+              "meta_keywords": [],
+              "meta_description": "",
+              "layout_file": "",
+              "is_visible": true,
+              "default_product_sort": "use_store_settings",
+              "custom_url": {
+                "url": "/nangodirecttokentest/",
+                "is_customized": false
+              },
+              "image_url": ""
+            },
+            {
+              "id": 31,
+              "parent_id": 0,
+              "name": "NangoDryrunTestCat",
+              "description": "",
+              "views": 0,
+              "sort_order": 0,
+              "page_title": "",
+              "search_keywords": "",
+              "meta_keywords": [],
+              "meta_description": "",
+              "layout_file": "",
+              "is_visible": true,
+              "default_product_sort": "use_store_settings",
+              "custom_url": {
+                "url": "/nangodryruntestcat/",
+                "is_customized": false
+              },
+              "image_url": ""
+            },
+            {
+              "id": 32,
+              "parent_id": 0,
+              "name": "FinalValidationTest",
+              "description": "",
+              "views": 0,
+              "sort_order": 0,
+              "page_title": "",
+              "search_keywords": "",
+              "meta_keywords": [],
+              "meta_description": "",
+              "layout_file": "",
+              "is_visible": true,
+              "default_product_sort": "use_store_settings",
+              "custom_url": {
+                "url": "/finalvalidationtest/",
+                "is_customized": false
+              },
+              "image_url": ""
+            }
+          ],
+          "meta": {
+            "pagination": {
+              "total": 11,
+              "count": 11,
+              "per_page": 50,
+              "current_page": 1,
+              "total_pages": 1,
+              "links": {
+                "current": "?page=1&limit=50"
+              }
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 18 Jun 2026 17:46:15 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4992",
+          "x-ratelimit-reset": "1781804826",
+          "vary": "Accept-Encoding",
+          "x-rate-limit-requests-left": "148",
+          "x-rate-limit-time-reset-ms": "23199",
+          "x-rate-limit-requests-quota": "150",
+          "x-rate-limit-time-window-ms": "30000",
+          "x-request-id": "e8f26a12b3bd81fd48a0b624836068e9"
+        },
+        "hash": "3eafa781ece74ef014895e742e00bb613f480296",
+        "request": {
+          "params": {
+            "limit": "50",
+            "page": "1"
+          },
+          "headers": {
+            "X-Auth-Token": "sqtna5wbk1ys8t9seu331zhifi3g8lu"
+          }
+        }
+      }
+    }
+  }
+}

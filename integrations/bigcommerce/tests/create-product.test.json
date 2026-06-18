@@ -1,0 +1,196 @@
+{
+  "input": {
+    "name": "Test Product",
+    "type": "physical",
+    "weight": 1,
+    "price": 9.99,
+    "categories": [
+      18
+    ]
+  },
+  "output": {
+    "id": 113,
+    "name": "Test Product",
+    "type": "physical",
+    "sku": "",
+    "description": "",
+    "weight": 1,
+    "price": 9.99,
+    "categories": [
+      18
+    ],
+    "brand_id": 0,
+    "inventory_level": 0,
+    "is_visible": true,
+    "date_created": "2026-06-18T14:07:56+00:00",
+    "date_modified": "2026-06-18T14:07:56+00:00"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v3/catalog/products": {
+        "response": {
+          "data": {
+            "id": 113,
+            "name": "Test Product",
+            "type": "physical",
+            "sku": "",
+            "description": "",
+            "weight": 1,
+            "width": 0,
+            "depth": 0,
+            "height": 0,
+            "price": 9.99,
+            "cost_price": 0,
+            "retail_price": 0,
+            "sale_price": 0,
+            "map_price": 0,
+            "tax_class_id": 0,
+            "product_tax_code": "",
+            "calculated_price": 9.99,
+            "categories": [
+              18
+            ],
+            "brand_id": 0,
+            "option_set_id": null,
+            "option_set_display": "right",
+            "inventory_level": 0,
+            "inventory_warning_level": 0,
+            "inventory_tracking": "none",
+            "reviews_rating_sum": 0,
+            "reviews_count": 0,
+            "total_sold": 0,
+            "fixed_cost_shipping_price": 0,
+            "is_free_shipping": false,
+            "is_visible": true,
+            "is_featured": false,
+            "related_products": [
+              -1
+            ],
+            "warranty": "",
+            "bin_picking_number": "",
+            "layout_file": "",
+            "upc": "",
+            "mpn": "",
+            "gtin": "",
+            "date_last_imported": null,
+            "search_keywords": "",
+            "availability": "available",
+            "availability_description": "",
+            "gift_wrapping_options_type": "any",
+            "gift_wrapping_options_list": [],
+            "sort_order": 0,
+            "condition": "New",
+            "is_condition_shown": false,
+            "order_quantity_minimum": 0,
+            "order_quantity_maximum": 0,
+            "page_title": "",
+            "meta_keywords": [],
+            "meta_description": "",
+            "date_created": "2026-06-18T14:07:56+00:00",
+            "date_modified": "2026-06-18T14:07:56+00:00",
+            "view_count": 0,
+            "preorder_release_date": null,
+            "preorder_message": "",
+            "is_preorder_only": false,
+            "is_price_hidden": false,
+            "price_hidden_label": "",
+            "custom_url": {
+              "url": "/test-product-tzna/",
+              "is_customized": false
+            },
+            "base_variant_id": 78,
+            "open_graph_type": "product",
+            "open_graph_title": "",
+            "open_graph_description": "",
+            "open_graph_use_meta_description": true,
+            "open_graph_use_product_name": true,
+            "open_graph_use_image": true,
+            "channels": [],
+            "variants": [
+              {
+                "id": 78,
+                "product_id": 113,
+                "sku": "",
+                "sku_id": null,
+                "price": 9.99,
+                "calculated_price": 9.99,
+                "sale_price": 0,
+                "retail_price": 0,
+                "map_price": 0,
+                "weight": 1,
+                "width": 0,
+                "height": 0,
+                "depth": 0,
+                "is_free_shipping": false,
+                "fixed_cost_shipping_price": 0,
+                "calculated_weight": 1,
+                "purchasing_disabled": false,
+                "purchasing_disabled_message": "",
+                "image_url": "",
+                "cost_price": 0,
+                "upc": "",
+                "mpn": "",
+                "gtin": "",
+                "inventory_level": 0,
+                "inventory_warning_level": 0,
+                "bin_picking_number": "",
+                "option_values": []
+              }
+            ],
+            "images": [],
+            "primary_image": null,
+            "videos": [],
+            "custom_fields": [],
+            "bulk_pricing_rules": [],
+            "reviews": [],
+            "options": [],
+            "modifiers": [],
+            "parent_relations": []
+          },
+          "meta": {}
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 18 Jun 2026 14:07:56 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4895",
+          "x-ratelimit-reset": "1781791682",
+          "vary": "Accept-Encoding",
+          "x-request-id": "32ab7657f2b8c65244695610c1a3b669",
+          "x-rate-limit-requests-left": "148",
+          "x-rate-limit-time-reset-ms": "27327",
+          "x-rate-limit-requests-quota": "150",
+          "x-rate-limit-time-window-ms": "30000"
+        },
+        "hash": "8124f2858fe46824ea59d335979adc8b5dc6cf23",
+        "request": {
+          "headers": {
+            "X-Auth-Token": "fermiatee6aufil63xw3o6e85lo0wwx"
+          },
+          "data": {
+            "name": "Test Product",
+            "type": "physical",
+            "weight": 1,
+            "price": 9.99,
+            "categories": [
+              18
+            ]
+          }
+        }
+      }
+    }
+  }
+}

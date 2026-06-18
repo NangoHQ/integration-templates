@@ -1,0 +1,93 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "id": 1,
+        "name": "NangoDev",
+        "external_id": "",
+        "is_listable_from_ui": true,
+        "is_enabled": true,
+        "is_visible": true,
+        "status": "prelaunch",
+        "type": "storefront",
+        "platform": "bigcommerce",
+        "date_created": "2026-06-18T09:20:06Z",
+        "date_modified": "2026-06-18T09:20:06Z",
+        "icon_url": "https://s3.amazonaws.com/bc-channel-platform/channel-icons/bigcommerce.svg"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v3/channels": {
+        "response": {
+          "data": [
+            {
+              "id": 1,
+              "name": "NangoDev",
+              "platform": "bigcommerce",
+              "type": "storefront",
+              "date_created": "2026-06-18T09:20:06Z",
+              "date_modified": "2026-06-18T09:20:06Z",
+              "external_id": "",
+              "icon_url": "https://s3.amazonaws.com/bc-channel-platform/channel-icons/bigcommerce.svg",
+              "is_listable_from_ui": true,
+              "is_enabled": true,
+              "is_visible": true,
+              "status": "prelaunch"
+            }
+          ],
+          "meta": {
+            "pagination": {
+              "total": 1,
+              "count": 1,
+              "per_page": 50,
+              "current_page": 1,
+              "total_pages": 1,
+              "links": {
+                "current": "?page=1&limit=50"
+              }
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 18 Jun 2026 14:11:37 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4969",
+          "x-ratelimit-reset": "1781791929",
+          "vary": "Accept-Encoding",
+          "x-rate-limit-requests-left": "145",
+          "x-rate-limit-time-reset-ms": "10723",
+          "x-rate-limit-requests-quota": "150",
+          "x-rate-limit-time-window-ms": "30000",
+          "x-request-id": "0da2d6342e3bca2c9900fd6ff446a5af"
+        },
+        "hash": "afbe004c6f6d18260259eb3ab8e82f12eb82c918",
+        "request": {
+          "params": {
+            "limit": "50",
+            "page": "1"
+          },
+          "headers": {
+            "X-Auth-Token": "fermiatee6aufil63xw3o6e85lo0wwx"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,351 @@
+{
+  "nango": {
+    "batchSave": {
+      "Coupon": [
+        {
+          "id": "2",
+          "name": "Test Coupon Unique 2026-06-18",
+          "type": "per_total_discount",
+          "amount": "10.0000",
+          "min_purchase": "0.0000",
+          "expires": "",
+          "enabled": false,
+          "code": "UNIQUECODE2026",
+          "applies_to": {
+            "entity": "categories",
+            "ids": [
+              0
+            ]
+          },
+          "num_uses": 0,
+          "max_uses": 0,
+          "max_uses_per_customer": 0,
+          "restricted_to": []
+        },
+        {
+          "id": "8",
+          "name": "Test Coupon",
+          "type": "percentage_discount",
+          "amount": "10.0000",
+          "min_purchase": "0.0000",
+          "expires": "",
+          "enabled": false,
+          "code": "TEST10",
+          "applies_to": {
+            "entity": "categories",
+            "ids": [
+              0
+            ]
+          },
+          "num_uses": 0,
+          "max_uses": 0,
+          "max_uses_per_customer": 0,
+          "restricted_to": []
+        },
+        {
+          "id": "9",
+          "name": "Nango Test Coupon",
+          "type": "percentage_discount",
+          "amount": "10.0000",
+          "min_purchase": "0.0000",
+          "expires": "",
+          "enabled": false,
+          "code": "NANGO10",
+          "applies_to": {
+            "entity": "categories",
+            "ids": [
+              0
+            ]
+          },
+          "num_uses": 0,
+          "max_uses": 0,
+          "max_uses_per_customer": 0,
+          "restricted_to": []
+        },
+        {
+          "id": "10",
+          "name": "Nango Test Coupon 2026",
+          "type": "percentage_discount",
+          "amount": "10.0000",
+          "min_purchase": "0.0000",
+          "expires": "",
+          "enabled": false,
+          "code": "NANGO10TEST",
+          "applies_to": {
+            "entity": "categories",
+            "ids": [
+              0
+            ]
+          },
+          "num_uses": 0,
+          "max_uses": 0,
+          "max_uses_per_customer": 0,
+          "restricted_to": []
+        },
+        {
+          "id": "11",
+          "name": "Nango Test Coupon Save",
+          "type": "percentage_discount",
+          "amount": "10.0000",
+          "min_purchase": "0.0000",
+          "expires": "",
+          "enabled": false,
+          "code": "NANGOSAVE",
+          "applies_to": {
+            "entity": "categories",
+            "ids": [
+              0
+            ]
+          },
+          "num_uses": 0,
+          "max_uses": 0,
+          "max_uses_per_customer": 0,
+          "restricted_to": []
+        },
+        {
+          "id": "12",
+          "name": "Nango Test Coupon Live Updated",
+          "type": "percentage_discount",
+          "amount": "10.0000",
+          "min_purchase": "0.0000",
+          "expires": "",
+          "enabled": false,
+          "code": "NANGOLIVE",
+          "applies_to": {
+            "entity": "categories",
+            "ids": [
+              0
+            ]
+          },
+          "num_uses": 0,
+          "max_uses": 0,
+          "max_uses_per_customer": 0,
+          "restricted_to": []
+        },
+        {
+          "id": "13",
+          "name": "Nango Test Coupon Final",
+          "type": "percentage_discount",
+          "amount": "10.0000",
+          "min_purchase": "0.0000",
+          "expires": "",
+          "enabled": false,
+          "code": "NANGOFINAL",
+          "applies_to": {
+            "entity": "categories",
+            "ids": [
+              0
+            ]
+          },
+          "num_uses": 0,
+          "max_uses": 0,
+          "max_uses_per_customer": 0,
+          "restricted_to": []
+        }
+      ]
+    },
+    "batchDelete": {
+      "Coupon": []
+    }
+  },
+  "api": {
+    "get": {
+      "/v2/coupons": {
+        "response": [
+          {
+            "id": 2,
+            "name": "Test Coupon Unique 2026-06-18",
+            "type": "per_total_discount",
+            "amount": "10.0000",
+            "min_purchase": "0.0000",
+            "expires": "",
+            "enabled": false,
+            "code": "UNIQUECODE2026",
+            "applies_to": {
+              "entity": "categories",
+              "ids": [
+                0
+              ]
+            },
+            "num_uses": 0,
+            "max_uses": 0,
+            "max_uses_per_customer": 0,
+            "restricted_to": [],
+            "shipping_methods": null,
+            "date_created": "Thu, 18 Jun 2026 14:09:07 +0000"
+          },
+          {
+            "id": 8,
+            "name": "Test Coupon",
+            "type": "percentage_discount",
+            "amount": "10.0000",
+            "min_purchase": "0.0000",
+            "expires": "",
+            "enabled": false,
+            "code": "TEST10",
+            "applies_to": {
+              "entity": "categories",
+              "ids": [
+                0
+              ]
+            },
+            "num_uses": 0,
+            "max_uses": 0,
+            "max_uses_per_customer": 0,
+            "restricted_to": [],
+            "shipping_methods": null,
+            "date_created": "Thu, 18 Jun 2026 14:35:44 +0000"
+          },
+          {
+            "id": 9,
+            "name": "Nango Test Coupon",
+            "type": "percentage_discount",
+            "amount": "10.0000",
+            "min_purchase": "0.0000",
+            "expires": "",
+            "enabled": false,
+            "code": "NANGO10",
+            "applies_to": {
+              "entity": "categories",
+              "ids": [
+                0
+              ]
+            },
+            "num_uses": 0,
+            "max_uses": 0,
+            "max_uses_per_customer": 0,
+            "restricted_to": [],
+            "shipping_methods": null,
+            "date_created": "Thu, 18 Jun 2026 14:36:33 +0000"
+          },
+          {
+            "id": 10,
+            "name": "Nango Test Coupon 2026",
+            "type": "percentage_discount",
+            "amount": "10.0000",
+            "min_purchase": "0.0000",
+            "expires": "",
+            "enabled": false,
+            "code": "NANGO10TEST",
+            "applies_to": {
+              "entity": "categories",
+              "ids": [
+                0
+              ]
+            },
+            "num_uses": 0,
+            "max_uses": 0,
+            "max_uses_per_customer": 0,
+            "restricted_to": [],
+            "shipping_methods": null,
+            "date_created": "Thu, 18 Jun 2026 14:37:04 +0000"
+          },
+          {
+            "id": 11,
+            "name": "Nango Test Coupon Save",
+            "type": "percentage_discount",
+            "amount": "10.0000",
+            "min_purchase": "0.0000",
+            "expires": "",
+            "enabled": false,
+            "code": "NANGOSAVE",
+            "applies_to": {
+              "entity": "categories",
+              "ids": [
+                0
+              ]
+            },
+            "num_uses": 0,
+            "max_uses": 0,
+            "max_uses_per_customer": 0,
+            "restricted_to": [],
+            "shipping_methods": null,
+            "date_created": "Thu, 18 Jun 2026 14:37:23 +0000"
+          },
+          {
+            "id": 12,
+            "name": "Nango Test Coupon Live Updated",
+            "type": "percentage_discount",
+            "amount": "10.0000",
+            "min_purchase": "0.0000",
+            "expires": "",
+            "enabled": false,
+            "code": "NANGOLIVE",
+            "applies_to": {
+              "entity": "categories",
+              "ids": [
+                0
+              ]
+            },
+            "num_uses": 0,
+            "max_uses": 0,
+            "max_uses_per_customer": 0,
+            "restricted_to": [],
+            "shipping_methods": null,
+            "date_created": "Thu, 18 Jun 2026 14:38:33 +0000"
+          },
+          {
+            "id": 13,
+            "name": "Nango Test Coupon Final",
+            "type": "percentage_discount",
+            "amount": "10.0000",
+            "min_purchase": "0.0000",
+            "expires": "",
+            "enabled": false,
+            "code": "NANGOFINAL",
+            "applies_to": {
+              "entity": "categories",
+              "ids": [
+                0
+              ]
+            },
+            "num_uses": 0,
+            "max_uses": 0,
+            "max_uses_per_customer": 0,
+            "restricted_to": [],
+            "shipping_methods": null,
+            "date_created": "Thu, 18 Jun 2026 14:38:44 +0000"
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Thu, 18 Jun 2026 18:30:36 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4960",
+          "x-ratelimit-reset": "1781807446",
+          "vary": "Accept-Encoding",
+          "x-request-id": "3d5fed3866db99d5c2122e6361d47267",
+          "x-bc-store-version": "7.6.0",
+          "x-bc-apilimit-remaining": "20000",
+          "x-rate-limit-requests-left": "146",
+          "x-rate-limit-time-reset-ms": "16965",
+          "x-rate-limit-requests-quota": "150",
+          "x-rate-limit-time-window-ms": "30000"
+        },
+        "hash": "23edfc2fdd6cceacb0a2a003c7b99c196671f9e6",
+        "request": {
+          "params": {
+            "limit": "50",
+            "page": "1"
+          },
+          "headers": {
+            "Nango-Base-Url-Override": "https://api.bigcommerce.com/stores/hc5d9t2irc",
+            "X-Auth-Token": "sqtna5wbk1ys8t9seu331zhifi3g8lu"
+          }
+        }
+      }
+    }
+  }
+}

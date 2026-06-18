@@ -1,0 +1,205 @@
+{
+  "nango": {
+    "batchSave": {
+      "Wishlist": [
+        {
+          "id": "1",
+          "customer_id": 1,
+          "name": "Test Wishlist",
+          "is_public": false,
+          "token": "16011590-7219-4e55-8aa6-054f8e684b23",
+          "items": [
+            {
+              "id": 1,
+              "product_id": 77,
+              "variant_id": 1
+            }
+          ]
+        },
+        {
+          "id": "2",
+          "customer_id": 1,
+          "name": "Test Wishlist",
+          "is_public": false,
+          "token": "3faa01b8-c3a7-406d-9e4a-d892b56b8388",
+          "items": [
+            {
+              "id": 2,
+              "product_id": 77,
+              "variant_id": 1
+            }
+          ]
+        },
+        {
+          "id": "3",
+          "customer_id": 1,
+          "name": "Test Wishlist 3",
+          "is_public": false,
+          "token": "ed9b43d8-d621-4991-965a-42932eb4a178",
+          "items": [
+            {
+              "id": 3,
+              "product_id": 77,
+              "variant_id": 1
+            }
+          ]
+        },
+        {
+          "id": "4",
+          "customer_id": 1,
+          "name": "Test Wishlist 5",
+          "is_public": false,
+          "token": "8b7d8059-e743-4fa3-9dd9-b3612b3d538a",
+          "items": [
+            {
+              "id": 4,
+              "product_id": 77,
+              "variant_id": 1
+            }
+          ]
+        },
+        {
+          "id": "5",
+          "customer_id": 1,
+          "name": "Test Wishlist",
+          "is_public": false,
+          "token": "99d90a16-4f72-4174-8900-ee3ee19f1285",
+          "items": [
+            {
+              "id": 5,
+              "product_id": 77,
+              "variant_id": 1
+            }
+          ]
+        }
+      ]
+    },
+    "batchDelete": {
+      "Wishlist": []
+    }
+  },
+  "api": {
+    "get": {
+      "/v3/wishlists": {
+        "response": {
+          "data": [
+            {
+              "id": 1,
+              "customer_id": 1,
+              "name": "Test Wishlist",
+              "is_public": false,
+              "token": "16011590-7219-4e55-8aa6-054f8e684b23",
+              "items": [
+                {
+                  "id": 1,
+                  "product_id": 77,
+                  "variant_id": 1
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "customer_id": 1,
+              "name": "Test Wishlist",
+              "is_public": false,
+              "token": "3faa01b8-c3a7-406d-9e4a-d892b56b8388",
+              "items": [
+                {
+                  "id": 2,
+                  "product_id": 77,
+                  "variant_id": 1
+                }
+              ]
+            },
+            {
+              "id": 3,
+              "customer_id": 1,
+              "name": "Test Wishlist 3",
+              "is_public": false,
+              "token": "ed9b43d8-d621-4991-965a-42932eb4a178",
+              "items": [
+                {
+                  "id": 3,
+                  "product_id": 77,
+                  "variant_id": 1
+                }
+              ]
+            },
+            {
+              "id": 4,
+              "customer_id": 1,
+              "name": "Test Wishlist 5",
+              "is_public": false,
+              "token": "8b7d8059-e743-4fa3-9dd9-b3612b3d538a",
+              "items": [
+                {
+                  "id": 4,
+                  "product_id": 77,
+                  "variant_id": 1
+                }
+              ]
+            },
+            {
+              "id": 5,
+              "customer_id": 1,
+              "name": "Test Wishlist",
+              "is_public": false,
+              "token": "99d90a16-4f72-4174-8900-ee3ee19f1285",
+              "items": [
+                {
+                  "id": 5,
+                  "product_id": 77,
+                  "variant_id": 1
+                }
+              ]
+            }
+          ],
+          "meta": {
+            "pagination": {
+              "total": 5,
+              "count": 5,
+              "per_page": 50,
+              "current_page": 1,
+              "total_pages": 1
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 18 Jun 2026 18:31:55 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4994",
+          "x-ratelimit-reset": "1781807571",
+          "vary": "Accept-Encoding",
+          "x-rate-limit-requests-left": "114",
+          "x-rate-limit-time-reset-ms": "2374",
+          "x-rate-limit-requests-quota": "150",
+          "x-rate-limit-time-window-ms": "30000",
+          "x-request-id": "d5788d4135fa6f7d0309f4564a7e1ae8"
+        },
+        "hash": "6bb799bdabc90dedcc415e0271dcff128eacfbe3",
+        "request": {
+          "params": {
+            "limit": "50",
+            "page": "1"
+          },
+          "headers": {
+            "X-Auth-Token": "sqtna5wbk1ys8t9seu331zhifi3g8lu"
+          }
+        }
+      }
+    }
+  }
+}
