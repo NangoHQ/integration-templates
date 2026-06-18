@@ -1,0 +1,446 @@
+integrations/amplitude/actions/list-cohorts.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-82,84-131
+  s_c817e527ac9ed6::t_057341fd81a778 83
+integrations/amplitude/tests/amplitude-download-cohort.test.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-19
+integrations/amplitude/tests/amplitude-create-event-property.test.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-19
+integrations/amplitude/actions/list-user-properties.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-28,30-104
+  s_c817e527ac9ed6::t_057341fd81a778 29
+integrations/amplitude/tests/amplitude-track-event.test.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-25
+integrations/amplitude/actions/create-event-type.ts
+  s_c817e527ac9ed6::t_057341fd81a778 29
+  s_c817e527ac9ed6::t_198e22e532deb4 1-28,30-83
+integrations/amplitude/tests/amplitude-get-event-category.test.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-19
+integrations/amplitude/actions/create-annotation-category.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-21,23-47
+  s_c817e527ac9ed6::t_057341fd81a778 22
+integrations/amplitude/actions/delete-event-category.ts
+  s_c817e527ac9ed6::t_057341fd81a778 19
+  s_c817e527ac9ed6::t_198e22e532deb4 1-18,20-55
+integrations/amplitude/syncs/event-types.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-50,52-122
+  s_c817e527ac9ed6::t_057341fd81a778 51
+integrations/amplitude/tests/amplitude-list-event-categories.test.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-19
+integrations/amplitude/tests/list-annotations.test.json
+  s_c817e527ac9ed6::t_198e22e532deb4 1-111
+integrations/amplitude/tests/amplitude-create-event-type.test.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-19
+integrations/amplitude/actions/delete-user-from-deletion-job.ts
+  s_c817e527ac9ed6::t_057341fd81a778 23
+  s_c817e527ac9ed6::t_198e22e532deb4 1-22,24-56
+integrations/amplitude/tests/amplitude-export-events.test.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-19
+integrations/amplitude/tests/amplitude-get-group-property.test.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-19
+integrations/amplitude/tests/get-event-category.test.json
+  s_c817e527ac9ed6::t_198e22e532deb4 1-51
+integrations/amplitude/syncs/user-properties.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-35,37-91
+  s_c817e527ac9ed6::t_057341fd81a778 36
+integrations/amplitude/tests/amplitude-update-user-property.test.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-19
+integrations/amplitude/tests/list-event-properties.test.json
+  s_c817e527ac9ed6::t_198e22e532deb4 1-45
+integrations/amplitude/tests/amplitude-create-release.test.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-19
+integrations/amplitude/tests/create-event-type.test.json
+  s_c817e527ac9ed6::t_198e22e532deb4 1-45
+integrations/amplitude/tests/identify-user.test.json
+  s_c817e527ac9ed6::t_198e22e532deb4 1-51
+integrations/amplitude/tests/amplitude-delete-event-property.test.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-19
+integrations/amplitude/tests/amplitude-user-properties.test.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-77
+integrations/amplitude/tests/amplitude-batch-events.test.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-25
+integrations/amplitude/syncs/annotations.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-43,45-140
+  s_c817e527ac9ed6::t_057341fd81a778 44
+integrations/amplitude/syncs/event-properties.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-39,41-109
+  s_c817e527ac9ed6::t_057341fd81a778 40
+integrations/amplitude/tests/amplitude-identify-user.test.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-19
+integrations/amplitude/tests/amplitude-update-event-property.test.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-19
+integrations/amplitude/actions/delete-event-property.ts
+  s_c817e527ac9ed6::t_057341fd81a778 19
+  s_c817e527ac9ed6::t_198e22e532deb4 1-18,20-55
+integrations/amplitude/tests/amplitude-create-user-property.test.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-19
+integrations/amplitude/actions/download-cohort.ts
+  s_c817e527ac9ed6::t_057341fd81a778 35
+  s_c817e527ac9ed6::t_198e22e532deb4 1-34,36-75
+integrations/amplitude/tests/amplitude-event-types.test.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-77
+integrations/amplitude/tests/amplitude-list-user-properties.test.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-19
+integrations/index.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 175-235
+integrations/amplitude/tests/amplitude-event-properties.test.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-77
+integrations/amplitude/actions/get-event-property.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-25,27-60
+  s_c817e527ac9ed6::t_057341fd81a778 26
+integrations/amplitude/actions/export-events.ts
+  s_c817e527ac9ed6::t_057341fd81a778 66
+  s_c817e527ac9ed6::t_198e22e532deb4 1-65,67-235
+integrations/amplitude/actions/get-cohort.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-48,50-70
+  s_c817e527ac9ed6::t_057341fd81a778 49
+integrations/amplitude/actions/list-event-properties.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-48,50-123
+  s_c817e527ac9ed6::t_057341fd81a778 49
+integrations/amplitude/tests/create-release.test.json
+  s_c817e527ac9ed6::t_198e22e532deb4 1-89
+integrations/amplitude/tests/amplitude-list-cohorts.test.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-19
+integrations/amplitude/actions/get-event-category.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-31,33-63
+  s_c817e527ac9ed6::t_057341fd81a778 32
+integrations/amplitude/tests/amplitude-cohorts.test.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-77
+integrations/amplitude/actions/track-event.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-38,40-94
+  s_c817e527ac9ed6::t_057341fd81a778 39
+integrations/amplitude/tests/amplitude-event-categories.test.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-77
+integrations/.nango/schema.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 5212-6761
+integrations/amplitude/actions/update-group-property.ts
+  s_c817e527ac9ed6::t_057341fd81a778 25
+  s_c817e527ac9ed6::t_198e22e532deb4 1-24,26-101
+integrations/amplitude/actions/update-event-type.ts
+  s_c817e527ac9ed6::t_057341fd81a778 62
+  s_c817e527ac9ed6::t_198e22e532deb4 1-61,63-174
+integrations/amplitude/tests/amplitude-delete-event-category.test.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-19
+integrations/amplitude/tests/create-user-property.test.json
+  s_c817e527ac9ed6::t_198e22e532deb4 1-42
+integrations/amplitude/tests/delete-event-category.test.json
+  s_c817e527ac9ed6::t_198e22e532deb4 1-40
+integrations/amplitude/tests/amplitude-group-properties.test.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-77
+integrations/amplitude/tests/amplitude-list-group-properties.test.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-19
+integrations/amplitude/tests/annotations.test.json
+  s_c817e527ac9ed6::t_198e22e532deb4 1-242
+integrations/amplitude/tests/amplitude-delete-annotation.test.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-19
+integrations/amplitude/actions/update-annotation-category.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-22,24-52
+  s_c817e527ac9ed6::t_057341fd81a778 23
+integrations/amplitude/tests/delete-user-property.test.json
+  s_c817e527ac9ed6::t_198e22e532deb4 1-40
+integrations/amplitude/tests/amplitude-group-identify.test.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-19
+integrations/amplitude/tests/group-properties.test.json
+  s_c817e527ac9ed6::t_198e22e532deb4 1-48
+integrations/amplitude/tests/list-event-types.test.json
+  s_c817e527ac9ed6::t_198e22e532deb4 1-75
+integrations/amplitude/tests/update-annotation-category.test.json
+  s_c817e527ac9ed6::t_198e22e532deb4 1-56
+integrations/amplitude/actions/get-group-property.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-34,36-90
+  s_c817e527ac9ed6::t_057341fd81a778 35
+integrations/amplitude/tests/cohorts.test.json
+  s_c817e527ac9ed6::t_198e22e532deb4 1-1179
+integrations/amplitude/tests/list-event-categories.test.json
+  s_c817e527ac9ed6::t_198e22e532deb4 1-55
+integrations/amplitude/tests/event-categories.test.json
+  s_c817e527ac9ed6::t_198e22e532deb4 1-60
+integrations/amplitude/actions/delete-annotation.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-17,19-38
+  s_c817e527ac9ed6::t_057341fd81a778 18
+integrations/amplitude/tests/get-annotation-category.test.json
+  s_c817e527ac9ed6::t_198e22e532deb4 1-50
+integrations/amplitude/tests/export-events.test.json
+  s_c817e527ac9ed6::t_198e22e532deb4 1-204
+integrations/amplitude/tests/delete-event-type.test.json
+  s_c817e527ac9ed6::t_198e22e532deb4 1-40
+integrations/amplitude/tests/amplitude-delete-event-type.test.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-19
+integrations/amplitude/tests/amplitude-create-annotation.test.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-19
+integrations/amplitude/tests/amplitude-events-export.test.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-84
+integrations/amplitude/tests/create-annotation.test.json
+  s_c817e527ac9ed6::t_198e22e532deb4 1-66
+integrations/amplitude/actions/get-event-type.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-48,50-106
+  s_c817e527ac9ed6::t_057341fd81a778 49
+integrations/amplitude/tests/amplitude-restore-event-type.test.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-19
+integrations/amplitude/actions/create-release.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-70,72-140
+  s_c817e527ac9ed6::t_057341fd81a778 71
+integrations/amplitude/actions/group-identify.ts
+  s_c817e527ac9ed6::t_057341fd81a778 25
+  s_c817e527ac9ed6::t_198e22e532deb4 1-24,26-96
+integrations/amplitude/tests/delete-event-property.test.json
+  s_c817e527ac9ed6::t_198e22e532deb4 1-40
+integrations/amplitude/actions/update-user-property.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-26,28-71
+  s_c817e527ac9ed6::t_057341fd81a778 27
+integrations/amplitude/syncs/event-categories.ts
+  s_c817e527ac9ed6::t_057341fd81a778 21
+  s_c817e527ac9ed6::t_198e22e532deb4 1-20,22-67
+integrations/amplitude/actions/list-annotation-categories.ts
+  s_c817e527ac9ed6::t_057341fd81a778 30
+  s_c817e527ac9ed6::t_198e22e532deb4 1-29,31-80
+integrations/amplitude/tests/get-cohort.test.json
+  s_c817e527ac9ed6::t_198e22e532deb4 1-274
+integrations/amplitude/tests/get-user-property.test.json
+  s_c817e527ac9ed6::t_198e22e532deb4 1-63
+integrations/amplitude/tests/update-event-property.test.json
+  s_c817e527ac9ed6::t_198e22e532deb4 1-43
+integrations/amplitude/tests/update-user-property.test.json
+  s_c817e527ac9ed6::t_198e22e532deb4 1-43
+integrations/amplitude/actions/update-event-category.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-19,21-52
+  s_c817e527ac9ed6::t_057341fd81a778 20
+integrations/amplitude/syncs/group-properties.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-35,37-94
+  s_c817e527ac9ed6::t_057341fd81a778 36
+integrations/amplitude/actions/create-annotation.ts
+  s_c817e527ac9ed6::t_057341fd81a778 50
+  s_c817e527ac9ed6::t_198e22e532deb4 1-49,51-128
+integrations/amplitude/tests/amplitude-create-event-category.test.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-19
+integrations/amplitude/actions/restore-event-property.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-25,27-70
+  s_c817e527ac9ed6::t_057341fd81a778 26
+integrations/amplitude/actions/delete-event-type.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-17,19-44
+  s_c817e527ac9ed6::t_057341fd81a778 18
+integrations/amplitude/tests/delete-annotation-category.test.json
+  s_c817e527ac9ed6::t_198e22e532deb4 1-40
+integrations/amplitude/tests/group-identify.test.json
+  s_c817e527ac9ed6::t_198e22e532deb4 1-52
+integrations/amplitude/tests/amplitude-list-event-properties.test.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-19
+integrations/amplitude/tests/amplitude-delete-annotation-category.test.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-19
+integrations/.nango/nango.json
+  s_c817e527ac9ed6::t_fb645be28c9506 18975,18986,19162,19173,19271,19282,19323,19334,19422,19433,19472,19483,19568,19579,19654,19665,19795,19806,19923,19934,20004,20015,20050,20061,20096,20107,20142,20153,20192,20203,20238,20249,20298,20312,20347,20358,20409,20422,20625,20636,20677,20688,20763,20774,20989,21000,21039,21050,21154,21165,21245,21256,21324,21337,21433,21446,21512,21523,21570,21581,21634,21645,21699,21710,21815,21826,21964,21975,22030,22041,22129,22140,22305,22316,22415,22426,22546,22559,22605,22616,22655,22666,22731,22742,22825,22836,22880,22891,22998,23009,23049,23060,23151,23162,23280,23293,23383,23397,23492,23538,23621,23681,23825,23870,23950,24055,24129,24202
+  s_c817e527ac9ed6::t_198e22e532deb4 18970-18974,18976-18985,18987-19161,19163-19172,19174-19270,19272-19281,19283-19322,19324-19333,19335-19421,19423-19432,19434-19471,19473-19482,19484-19567,19569-19578,19580-19653,19655-19664,19666-19794,19796-19805,19807-19922,19924-19933,19935-20003,20005-20014,20016-20049,20051-20060,20062-20095,20097-20106,20108-20141,20143-20152,20154-20191,20193-20202,20204-20237,20239-20248,20250-20297,20299-20311,20313-20346,20348-20357,20359-20408,20410-20421,20423-20624,20626-20635,20637-20676,20678-20687,20689-20762,20764-20773,20775-20988,20990-20999,21001-21038,21040-21049,21051-21153,21155-21164,21166-21244,21246-21255,21257-21323,21325-21336,21338-21432,21434-21445,21447-21511,21513-21522,21524-21569,21571-21580,21582-21633,21635-21644,21646-21698,21700-21709,21711-21814,21816-21825,21827-21963,21965-21974,21976-22029,22031-22040,22042-22128,22130-22139,22141-22304,22306-22315,22317-22414,22416-22425,22427-22545,22547-22558,22560-22604,22606-22615,22617-22654,22656-22665,22667-22730,22732-22741,22743-22824,22826-22835,22837-22879,22881-22890,22892-22997,22999-23008,23010-23048,23050-23059,23061-23150,23152-23161,23163-23279,23281-23292,23294-23382,23384-23396,23398-23491,23493-23537,23539-23620,23622-23680,23682-23824,23826-23869,23871-23949,23951-24054,24056-24128,24130-24201,24203-24261
+integrations/amplitude/tests/amplitude-update-event-category.test.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-19
+integrations/amplitude/tests/create-event-category.test.json
+  s_c817e527ac9ed6::t_198e22e532deb4 1-82
+integrations/amplitude/tests/update-event-category.test.json
+  s_c817e527ac9ed6::t_198e22e532deb4 1-43
+integrations/amplitude/tests/update-event-type.test.json
+  s_c817e527ac9ed6::t_198e22e532deb4 1-99
+integrations/amplitude/tests/amplitude-get-user-deletion-jobs.test.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-19
+integrations/amplitude/actions/bulk-update-annotation-categories.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-40,42-80
+  s_c817e527ac9ed6::t_057341fd81a778 41
+integrations/amplitude/actions/delete-user-property.ts
+  s_c817e527ac9ed6::t_057341fd81a778 18
+  s_c817e527ac9ed6::t_198e22e532deb4 1-17,19-54
+integrations/amplitude/tests/amplitude-annotation-categories.test.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-77
+integrations/amplitude/tests/amplitude-annotations.test.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-77
+integrations/amplitude/tests/cohort-members.test.json
+  s_c817e527ac9ed6::t_198e22e532deb4 1-804
+integrations/amplitude/actions/list-event-types.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-38,40-82
+  s_c817e527ac9ed6::t_057341fd81a778 39
+integrations/amplitude/actions/get-annotation.ts
+  s_c817e527ac9ed6::t_057341fd81a778 35
+  s_c817e527ac9ed6::t_198e22e532deb4 1-34,36-69
+integrations/amplitude/syncs/annotation-categories.ts
+  s_c817e527ac9ed6::t_057341fd81a778 21
+  s_c817e527ac9ed6::t_198e22e532deb4 1-20,22-58
+integrations/amplitude/actions/create-user-property.ts
+  s_c817e527ac9ed6::t_057341fd81a778 26
+  s_c817e527ac9ed6::t_198e22e532deb4 1-25,27-82
+integrations/amplitude/tests/amplitude-update-event-type.test.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-19
+integrations/amplitude/tests/create-user-deletion-job.test.json
+  s_c817e527ac9ed6::t_198e22e532deb4 1-76
+integrations/amplitude/tests/amplitude-update-group-property.test.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-19
+integrations/amplitude/actions/get-user-property.ts
+  s_c817e527ac9ed6::t_057341fd81a778 41
+  s_c817e527ac9ed6::t_198e22e532deb4 1-40,42-91
+integrations/amplitude/tests/download-cohort.test.json
+  s_c817e527ac9ed6::t_198e22e532deb4 1-280
+integrations/amplitude/tests/event-types.test.json
+  s_c817e527ac9ed6::t_198e22e532deb4 1-77
+integrations/amplitude/tests/get-event-property.test.json
+  s_c817e527ac9ed6::t_198e22e532deb4 1-67
+integrations/amplitude/tests/amplitude-create-annotation-category.test.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-19
+integrations/amplitude/tests/restore-event-property.test.json
+  s_c817e527ac9ed6::t_198e22e532deb4 1-43
+integrations/amplitude/tests/amplitude-list-event-types.test.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-19
+integrations/amplitude/actions/list-annotations.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-51,53-113
+  s_c817e527ac9ed6::t_057341fd81a778 52
+integrations/amplitude/actions/create-user-deletion-job.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-59,61-119
+  s_c817e527ac9ed6::t_057341fd81a778 60
+integrations/amplitude/tests/annotation-categories.test.json
+  s_c817e527ac9ed6::t_198e22e532deb4 1-73
+integrations/amplitude/actions/restore-user-property.ts
+  s_c817e527ac9ed6::t_057341fd81a778 44
+  s_c817e527ac9ed6::t_198e22e532deb4 1-43,45-91
+integrations/amplitude/tests/amplitude-get-user-property.test.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-19
+integrations/amplitude/tests/amplitude-get-event-property.test.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-19
+integrations/amplitude/tests/list-user-properties.test.json
+  s_c817e527ac9ed6::t_198e22e532deb4 1-355
+integrations/amplitude/tests/amplitude-get-annotation.test.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-19
+integrations/amplitude/tests/list-group-properties.test.json
+  s_c817e527ac9ed6::t_198e22e532deb4 1-45
+integrations/amplitude/tests/amplitude-delete-user-from-deletion-job.test.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-19
+integrations/amplitude/tests/amplitude-list-annotations.test.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-19
+integrations/amplitude/tests/bulk-update-annotation-categories.test.json
+  s_c817e527ac9ed6::t_198e22e532deb4 1-107
+integrations/amplitude/tests/create-event-property.test.json
+  s_c817e527ac9ed6::t_198e22e532deb4 1-43
+integrations/amplitude/tests/amplitude-update-annotation.test.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-19
+integrations/amplitude/actions/batch-events.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-124,126-152
+  s_c817e527ac9ed6::t_057341fd81a778 125
+integrations/amplitude/actions/get-annotation-category.ts
+  s_c817e527ac9ed6::t_057341fd81a778 20
+  s_c817e527ac9ed6::t_198e22e532deb4 1-19,21-53
+integrations/amplitude/tests/get-user-deletion-jobs.test.json
+  s_c817e527ac9ed6::t_198e22e532deb4 1-42
+integrations/amplitude/syncs/cohort-members.ts
+  s_c817e527ac9ed6::t_057341fd81a778 57
+  s_c817e527ac9ed6::t_198e22e532deb4 1-56,58-183
+integrations/amplitude/tests/create-annotation-category.test.json
+  s_c817e527ac9ed6::t_198e22e532deb4 1-48
+integrations/amplitude/tests/amplitude-create-user-deletion-job.test.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-19
+integrations/amplitude/tests/amplitude-delete-user-property.test.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-19
+integrations/zoho-people/tests/zoho-people-attendance.test.ts
+  s_c817e527ac9ed6::t_152e224b54fe1d 10,12,29
+integrations/amplitude/syncs/cohorts.ts
+  s_c817e527ac9ed6::t_057341fd81a778 82
+  s_c817e527ac9ed6::t_198e22e532deb4 1-81,83-125
+integrations/amplitude/actions/list-group-properties.ts
+  s_c817e527ac9ed6::t_057341fd81a778 31
+  s_c817e527ac9ed6::t_198e22e532deb4 1-30,32-82
+integrations/amplitude/tests/batch-events.test.json
+  s_c817e527ac9ed6::t_198e22e532deb4 1-64
+integrations/amplitude/tests/get-group-property.test.json
+  s_c817e527ac9ed6::t_198e22e532deb4 1-61
+integrations/amplitude/actions/update-event-property.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-41,43-121
+  s_c817e527ac9ed6::t_057341fd81a778 42
+integrations/amplitude/tests/list-cohorts.test.json
+  s_c817e527ac9ed6::t_198e22e532deb4 1-768
+integrations/amplitude/actions/update-annotation.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-51,53-113
+  s_c817e527ac9ed6::t_057341fd81a778 52
+integrations/amplitude/tests/update-group-property.test.json
+  s_c817e527ac9ed6::t_198e22e532deb4 1-59
+integrations/amplitude/tests/user-properties.test.json
+  s_c817e527ac9ed6::t_198e22e532deb4 1-281
+integrations/amplitude/tests/event-properties.test.json
+  s_c817e527ac9ed6::t_198e22e532deb4 1-187
+integrations/amplitude/tests/update-annotation.test.json
+  s_c817e527ac9ed6::t_198e22e532deb4 1-72
+integrations/amplitude/actions/create-event-category.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-30,32-78
+  s_c817e527ac9ed6::t_057341fd81a778 31
+integrations/amplitude/tests/amplitude-bulk-update-annotation-categories.test.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-19
+integrations/amplitude/tests/delete-annotation.test.json
+  s_c817e527ac9ed6::t_198e22e532deb4 1-40
+integrations/amplitude/tests/amplitude-get-cohort.test.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-19
+integrations/amplitude/tests/list-annotation-categories.test.json
+  s_c817e527ac9ed6::t_198e22e532deb4 1-73
+integrations/amplitude/tests/amplitude-update-annotation-category.test.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-19
+integrations/amplitude/tests/get-event-type.test.json
+  s_c817e527ac9ed6::t_198e22e532deb4 1-67
+internal/flows.zero.json
+  s_c817e527ac9ed6::t_198e22e532deb4 19971-19975,19977-19981,19983-20151,20153-20157,20159-20247,20249-20253,20255-20289,20291-20295,20297-20374,20376-20380,20382-20414,20416-20420,20422-20494,20496-20500,20502-20570,20572-20576,20578-20690,20692-20696,20698-20806,20808-20812,20814-20872,20874-20878,20880-20909,20911-20915,20917-20946,20948-20952,20954-20983,20985-20989,20991-21024,21026-21030,21032-21061,21063-21067,21069-21111,21113-21117,21119-21148,21150-21154,21156-21201,21203-21207,21209-21402,21404-21408,21410-21444,21446-21450,21452-21516,21518-21522,21524-21729,21731-21735,21737-21769,21771-21775,21777-21875,21877-21881,21883-21955,21957-21961,21963-22023,22025-22029,22031-22117,22119-22123,22125-22185,22187-22191,22193-22233,22235-22239,22241-22290,22292-22296,22298-22346,22348-22352,22354-22448,22450-22454,22456-22583,22585-22589,22591-22639,22641-22645,22647-22728,22730-22734,22736-22895,22897-22901,22903-22996,22998-23002,23004-23120,23122-23126,23128-23167,23169-23173,23175-23207,23209-23213,23215-23274,23276-23280,23282-23356,23358-23362,23364-23400,23402-23406,23408-23503,23505-23509,23511-23544,23546-23550,23552-23628,23630-23634,23636-23748,23750-23754,23756-23838,23840-23844,23846-23925,23927-23964,23966-24039,24041-24090,24092-24227,24229-24266,24268-24338,24340-24436,24438-24502,24504-24568,24570-24625
+  s_c817e527ac9ed6::t_fb645be28c9506 19976,19982,20152,20158,20248,20254,20290,20296,20375,20381,20415,20421,20495,20501,20571,20577,20691,20697,20807,20813,20873,20879,20910,20916,20947,20953,20984,20990,21025,21031,21062,21068,21112,21118,21149,21155,21202,21208,21403,21409,21445,21451,21517,21523,21730,21736,21770,21776,21876,21882,21956,21962,22024,22030,22118,22124,22186,22192,22234,22240,22291,22297,22347,22353,22449,22455,22584,22590,22640,22646,22729,22735,22896,22902,22997,23003,23121,23127,23168,23174,23208,23214,23275,23281,23357,23363,23401,23407,23504,23510,23545,23551,23629,23635,23749,23755,23839,23845,23926,23965,24040,24091,24228,24267,24339,24437,24503,24569
+integrations/.nango/schema.json
+  s_c817e527ac9ed6::t_198e22e532deb4 14280-17961
+integrations/amplitude/actions/create-event-property.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-33,35-99
+  s_c817e527ac9ed6::t_057341fd81a778 34
+integrations/amplitude/tests/amplitude-restore-event-property.test.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-19
+integrations/amplitude/tests/amplitude-restore-user-property.test.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-19
+integrations/amplitude/actions/delete-annotation-category.ts
+  s_c817e527ac9ed6::t_40c92323f4e9d7 14
+  s_c817e527ac9ed6::t_198e22e532deb4 1-13,15-38
+integrations/amplitude/tests/events-export.test.json
+  s_c817e527ac9ed6::t_198e22e532deb4 1-1144
+integrations/amplitude/tests/restore-event-type.test.json
+  s_c817e527ac9ed6::t_198e22e532deb4 1-41
+integrations/amplitude/actions/identify-user.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-30,32-89
+  s_c817e527ac9ed6::t_057341fd81a778 31
+integrations/amplitude/tests/track-event.test.json
+  s_c817e527ac9ed6::t_198e22e532deb4 1-60
+integrations/amplitude/tests/delete-user-from-deletion-job.test.json
+  s_c817e527ac9ed6::t_198e22e532deb4 1-53
+integrations/amplitude/actions/restore-event-type.ts
+  s_c817e527ac9ed6::t_057341fd81a778 19
+  s_c817e527ac9ed6::t_198e22e532deb4 1-18,20-55
+integrations/amplitude/tests/amplitude-cohort-members.test.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-77
+integrations/zoho-people/tests/zoho-people-leave-records.test.ts
+  s_c817e527ac9ed6::t_152e224b54fe1d 10,12,29
+integrations/amplitude/tests/amplitude-get-event-type.test.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-19
+integrations/amplitude/tests/amplitude-get-annotation-category.test.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-19
+integrations/amplitude/tests/get-annotation.test.json
+  s_c817e527ac9ed6::t_198e22e532deb4 1-63
+integrations/amplitude/tests/restore-user-property.test.json
+  s_c817e527ac9ed6::t_198e22e532deb4 1-93
+integrations/amplitude/actions/list-event-categories.ts
+  s_c817e527ac9ed6::t_057341fd81a778 26
+  s_c817e527ac9ed6::t_198e22e532deb4 1-25,27-71
+integrations/amplitude/tests/amplitude-list-annotation-categories.test.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-19
+integrations/amplitude/syncs/events-export.ts
+  s_c817e527ac9ed6::t_057341fd81a778 143
+  s_c817e527ac9ed6::t_198e22e532deb4 1-142,144-264
+integrations/amplitude/actions/get-user-deletion-jobs.ts
+  s_c817e527ac9ed6::t_198e22e532deb4 1-29,31-67
+  s_c817e527ac9ed6::t_057341fd81a778 30
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.8",
+  "base_commit_sha": "c792cdd755ba22951c01e13a2e1a579538409228",
+  "prompts": {},
+  "sessions": {
+    "s_c817e527ac9ed6": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019ed636-1ab3-79a0-bc9f-41d491e42631",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Marcin Dobrowolski <marcindobry@hotmail.com>"
+    }
+  }
+}
