@@ -7,9 +7,9 @@ const FIXTURE_NOW = new Date('2026-06-15T12:00:00.000Z');
 describe('zoho-people leave-records tests', () => {
     const models = 'LeaveRecord'.split(',');
 
+    // Fixture was recorded on 2026-06-15; to=15-Jun-2026, from=15-Jun-2025.
     beforeEach(() => {
-        vi.useFakeTimers();
-        vi.setSystemTime(FIXTURE_NOW);
+        vi.useFakeTimers({ now: FIXTURE_NOW });
     });
 
     const createTestContext = () => {
@@ -26,9 +26,9 @@ describe('zoho-people leave-records tests', () => {
     };
 
     afterEach(() => {
+        vi.useRealTimers();
         vi.clearAllMocks();
         vi.restoreAllMocks();
-        vi.useRealTimers();
     });
 
     it('should get, map correctly the data and batchSave the result', async () => {

@@ -5209,6 +5209,1556 @@ export interface ActionOutput_algolia_updatesynonym {
   id: string;
 };
 
+export interface AnnotationCategory {
+  id: string;
+  name?: string | undefined;
+};
+
+export interface Annotation {
+  id: string;
+  content?: string | undefined;
+  date_marker?: string | undefined;
+  creation_type?: string | undefined;
+  dashboard_item?: number | undefined;
+  dashboard_id?: number | undefined;
+  dashboard_name?: string | undefined;
+  insight_short_id?: string | undefined;
+  insight_name?: string | undefined;
+  insight_derived_name?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  deleted?: boolean | undefined;
+  scope?: string | undefined;
+};
+
+export interface SyncMetadata_amplitude_annotations {
+  category?: string | undefined;
+  chart_id?: string | undefined;
+  start?: string | undefined;
+  end?: string | undefined;
+};
+
+export interface CohortMember {
+  id: string;
+  cohortId: string;
+  cohortName?: string | undefined;
+  amplitudeId?: string | undefined;
+  userId?: string | undefined;
+  lastMod?: string | undefined;
+};
+
+export interface Cohort {
+  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  created_at?: string | undefined;
+  last_calculation?: string | undefined;
+  deleted?: boolean | undefined;
+  is_static?: boolean | undefined;
+  cohort_type?: string | undefined;
+  count?: number | undefined;
+  is_calculating?: boolean | undefined;
+  errors_calculating?: number | undefined;
+  created_by_id?: number | undefined;
+  created_by_email?: string | undefined;
+};
+
+export interface EventCategory {
+  id: string;
+  name?: string | undefined;
+};
+
+export interface EventProperty {
+  id: string;
+  event_property: string;
+  event_type?: string | undefined;
+  description?: string | undefined;
+  type?: string | undefined;
+  regex?: string | undefined;
+  enum_values?: string | undefined;
+  is_array_type?: boolean | undefined;
+  is_required?: boolean | undefined;
+  is_hidden?: boolean | undefined;
+  classifications?: string[] | undefined;
+  deleted?: boolean | undefined;
+};
+
+export interface EventType {
+  /**
+   * Unique identifier for the event type
+   */
+  id: string;
+  /**
+   * Canonical reference for the event type
+   */
+  uri: string;
+  /**
+   * Event type name
+   */
+  name?: string | undefined;
+  /**
+   * Indicates if the event type is active
+   */
+  active: boolean;
+  /**
+   * Booking method
+   */
+  booking_method?: 'instant' | 'poll' | undefined;
+  /**
+   * Hex color value
+   */
+  color?: string | undefined;
+  /**
+   * Creation timestamp
+   */
+  created_at: string;
+  /**
+   * Last update timestamp
+   */
+  updated_at: string;
+  /**
+   * Deletion timestamp if deleted
+   */
+  deleted_at?: string | undefined;
+  /**
+   * Plain text description
+   */
+  description_plain?: string | undefined;
+  /**
+   * HTML description
+   */
+  description_html?: string | undefined;
+  /**
+   * Session duration in minutes
+   */
+  duration?: number | undefined;
+  /**
+   * Event type kind
+   */
+  kind?: 'solo' | undefined;
+  /**
+   * Pooling type for team event types
+   */
+  pooling_type?: 'round_robin' | 'collective' | 'multi_pool' | undefined;
+  /**
+   * Display position
+   */
+  position?: number | undefined;
+  /**
+   * Booking URL
+   */
+  scheduling_url?: string | undefined;
+  /**
+   * URL slug
+   */
+  slug?: string | undefined;
+  /**
+   * Event type category
+   */
+  type?: 'StandardEventType' | 'AdhocEventType' | undefined;
+};
+
+export interface SyncMetadata_amplitude_eventtypes {
+  /**
+   * Include deleted event types in the response
+   */
+  showDeleted?: boolean | undefined;
+};
+
+export interface EventExport {
+  id: string;
+  amplitude_id?: number | undefined;
+  user_id?: string | undefined;
+  device_id?: string | undefined;
+  event_type?: string | undefined;
+  time?: number | undefined;
+  server_upload_time?: number | undefined;
+  event_id?: number | undefined;
+  insert_id?: string | undefined;
+  session_id?: number | undefined;
+  uuid?: string | undefined;
+};
+
+export interface GroupProperty {
+  id: string;
+  group_type?: string | undefined;
+  group_property: string;
+  description?: string | undefined;
+  type?: string | undefined;
+  enum_values?: string | undefined;
+  regex?: string | undefined;
+  is_array_type?: boolean | undefined;
+  is_hidden?: boolean | undefined;
+  classifications?: string[] | undefined;
+};
+
+export interface UserProperty {
+  id: string;
+  user_property: string;
+  description?: string | undefined;
+  type?: string | undefined;
+  enum_values?: string | undefined;
+  regex?: string | undefined;
+  is_array_type: boolean;
+  is_hidden: boolean;
+  classifications?: string[] | undefined;
+  deleted?: boolean | undefined;
+};
+
+export interface ActionInput_amplitude_batchevents {
+  /**
+   * Events to upload. Max 2000 events per request.
+   */
+  events: ({  user_id?: string | undefined;
+  device_id?: string | undefined;
+  event_type: string;
+  time?: number | undefined;
+  event_properties?: {  [key: string]: unknown | undefined;};
+  user_properties?: {  [key: string]: unknown | undefined;};
+  groups?: {  [key: string]: unknown | undefined;};
+  group_properties?: {  [key: string]: unknown | undefined;};
+  app_version?: string | undefined;
+  platform?: string | undefined;
+  os_name?: string | undefined;
+  os_version?: string | undefined;
+  device_brand?: string | undefined;
+  device_manufacturer?: string | undefined;
+  device_model?: string | undefined;
+  carrier?: string | undefined;
+  country?: string | undefined;
+  region?: string | undefined;
+  city?: string | undefined;
+  dma?: string | undefined;
+  language?: string | undefined;
+  price?: number | undefined;
+  quantity?: number | undefined;
+  revenue?: number | undefined;
+  productId?: string | undefined;
+  revenueType?: string | undefined;
+  location_lat?: number | undefined;
+  location_lng?: number | undefined;
+  ip?: string | undefined;
+  idfa?: string | undefined;
+  idfv?: string | undefined;
+  adid?: string | undefined;
+  android_id?: string | undefined;
+  insert_id?: string | undefined;
+  library?: string | undefined;})[];
+};
+
+export interface ActionOutput_amplitude_batchevents {
+  code: number;
+  server_upload_time?: number | undefined;
+  payload_size_bytes?: number | undefined;
+  events_ingested?: number | undefined;
+};
+
+export interface ActionInput_amplitude_bulkupdateannotationcategories {
+  /**
+   * The ID of the category to assign. Example: 12345
+   */
+  category_id: number;
+  /**
+   * A list of annotation IDs to update. Example: [12345, 67890]
+   */
+  annotation_ids: number[];
+};
+
+export interface ActionOutput_amplitude_bulkupdateannotationcategories {
+  0: {  id: number;
+  start?: string | undefined;
+  label?: string | undefined;
+  details?: string | undefined;
+  category?: {  id: number;
+  category: string;} | undefined;
+  end?: string | undefined;
+  chart_id?: string | undefined;};
+};
+
+export interface ActionInput_amplitude_createannotationcategory {
+  /**
+   * The name of the annotation category. Example: "Releases"
+   */
+  category: string;
+};
+
+export interface ActionOutput_amplitude_createannotationcategory {
+  /**
+   * The unique ID of the created annotation category.
+   */
+  id: number;
+  /**
+   * The name of the annotation category.
+   */
+  category: string;
+};
+
+export interface ActionInput_amplitude_createannotation {
+  /**
+   * The title of the annotation. Example: "Feature X Release"
+   */
+  label: string;
+  /**
+   * The start timestamp of the annotation in ISO 8601 format. Example: "2025-11-01T07:00:00+00:00"
+   */
+  start: string;
+  /**
+   * The name of the category that the annotation belongs to. Example: "Releases"
+   */
+  category?: string | undefined;
+  /**
+   * The ID of the chart to annotate. If omitted, the annotation is global. Example: "abc123"
+   */
+  chart_id?: string | undefined;
+  /**
+   * Details for the annotation. Example: "This marks the release of feature X"
+   */
+  details?: string | undefined;
+  /**
+   * The end timestamp of the annotation in ISO 8601 format. Example: "2025-11-10T07:00:00+01:00"
+   */
+  end?: string | undefined;
+};
+
+export interface ActionOutput_amplitude_createannotation {
+  id: number;
+  start: string;
+  details?: string | undefined;
+  category?: {  id: number;
+  name?: string | undefined;};
+  end?: string | undefined;
+  label: string;
+  chart_id?: string | undefined;
+};
+
+export interface ActionInput_amplitude_createeventcategory {
+  /**
+   * Name of the event category. Example: "Registration"
+   */
+  category_name: string;
+};
+
+export interface ActionOutput_amplitude_createeventcategory {
+  id: number;
+  name: string;
+};
+
+export interface ActionInput_amplitude_createeventproperty {
+  /**
+   * Name of the event property. Example: "Completed Task"
+   */
+  event_property: string;
+  /**
+   * Name of the event type the event property belongs to. Example: "Onboard Start"
+   */
+  event_type?: string | undefined;
+  /**
+   * The event property's description.
+   */
+  description?: string | undefined;
+  /**
+   * The event property's data type. Acceptable values are string, number, boolean, enum, and any.
+   */
+  type?: 'string' | 'number' | 'boolean' | 'enum' | 'any' | undefined;
+  /**
+   * Regular expression for pattern matching. Only applicable to the string type.
+   */
+  regex?: string | undefined;
+  /**
+   * List of allowed values separated by comma. Only applicable to the enum type.
+   */
+  enum_values?: string | undefined;
+  /**
+   * Use the type parameter to set the type of array elements.
+   */
+  is_array_type?: boolean | undefined;
+  /**
+   * Marks the property as required.
+   */
+  is_required?: boolean | undefined;
+  /**
+   * Hide the property from chart dropdowns.
+   */
+  is_hidden?: boolean | undefined;
+  /**
+   * List of classifications applicable to this event property. Valid values are PII, SENSITIVE, REVENUE.
+   */
+  classifications?: string | undefined;
+};
+
+export interface ActionOutput_amplitude_createeventproperty {
+  success: boolean;
+  event_property: string;
+  event_type?: string | undefined;
+};
+
+export interface ActionInput_amplitude_createeventtype {
+  /**
+   * Required. The event name. Example: "Purchase"
+   */
+  event_type: string;
+  /**
+   * Optional. The event type's category. Example: "Conversion"
+   */
+  category?: string | undefined;
+  /**
+   * Optional. Details about the event type.
+   */
+  description?: string | undefined;
+  /**
+   * Optional. Activity of the event type.
+   */
+  is_active?: boolean | undefined;
+  /**
+   * Optional. Event type is hidden from dropdowns.
+   */
+  is_hidden_from_dropdowns?: boolean | undefined;
+  /**
+   * Optional. Event type is hidden from persona results.
+   */
+  is_hidden_from_persona_results?: boolean | undefined;
+  /**
+   * Optional. Event type is hidden from pathfinder.
+   */
+  is_hidden_from_pathfinder?: boolean | undefined;
+  /**
+   * Optional. Event type is hidden from timeline.
+   */
+  is_hidden_from_timeline?: boolean | undefined;
+  /**
+   * Optional. List of tags, separated by a comma.
+   */
+  tags?: string | undefined;
+  /**
+   * Optional. Owner of the event type.
+   */
+  owner?: string | undefined;
+};
+
+export interface ActionOutput_amplitude_createeventtype {
+  success: boolean;
+  event_type: string;
+};
+
+export interface ActionInput_amplitude_createrelease {
+  /**
+   * The version of your product corresponding to this release. Example: "3.5"
+   */
+  version: string;
+  /**
+   * Timestamp corresponding to the start of this release in UTC. Format: yyyy-MM-dd HH:mm:ss. Example: "2022-01-01 00:00:00"
+   */
+  release_start: string;
+  /**
+   * Timestamp corresponding to the end of this release in UTC. Format: yyyy-MM-dd HH:mm:ss. Example: "2022-01-01 00:00:00"
+   */
+  release_end?: string | undefined;
+  /**
+   * A name for the release. Example: "Big new feature for iOS"
+   */
+  title: string;
+  /**
+   * A description for the release.
+   */
+  description?: string | undefined;
+  /**
+   * A list of platforms for this release. Example: ["iOS"]
+   */
+  platforms?: string[] | undefined;
+  /**
+   * Name of the user creating the release.
+   */
+  created_by?: string | undefined;
+  /**
+   * When true, the release appears on charts as an annotation. Defaults to true.
+   */
+  chart_visibility?: boolean | undefined;
+};
+
+export interface ActionOutput_amplitude_createrelease {
+  id: string;
+  app_id: number;
+  org_id: number;
+  version: string;
+  release_start: string;
+  release_end?: string | undefined;
+  type: string;
+  title: string;
+  description?: string | undefined;
+  platforms?: string[] | undefined;
+  chart_visibility: boolean;
+  params?: {  created: number;
+  created_by?: string | undefined;
+  last_modified: number;
+  last_modified_by?: string | undefined;};
+};
+
+export interface ActionInput_amplitude_createuserdeletionjob {
+  /**
+   * Amplitude IDs for the users to delete. Up to 100 total with user_ids.
+   */
+  amplitude_ids?: number[] | undefined;
+  /**
+   * User IDs for the users to delete. Up to 100 total with amplitude_ids.
+   */
+  user_ids?: string[] | undefined;
+  /**
+   * The internal user who requested the deletion.
+   */
+  requester?: string | undefined;
+  /**
+   * When true, ignore invalid IDs and add found users to the job.
+   */
+  ignore_invalid_id?: boolean | undefined;
+  /**
+   * When true, delete users across the entire organization.
+   */
+  delete_from_org?: boolean | undefined;
+  /**
+   * When true, returns the valid user_id values that correspond to a supplied amplitude_id.
+   */
+  include_mapped_user_ids?: boolean | undefined;
+};
+
+export interface ActionOutput_amplitude_createuserdeletionjob {
+  day: string;
+  status: string;
+  amplitude_ids?: ({  amplitude_id: number;
+  requested_on_day: string;
+  requester: string;
+  user_id?: string | undefined;})[];
+  user_ids?: string[] | undefined;
+  app?: string | number | undefined;
+  invalid_ids?: ({  0: string;
+  1: number;})[] | undefined;
+};
+
+export interface ActionInput_amplitude_createuserproperty {
+  /**
+   * Name of the user property to create. Example: "subscription_tier"
+   */
+  user_property: string;
+  /**
+   * Details about the user property.
+   */
+  description?: string | undefined;
+  /**
+   * Data type of the user property.
+   */
+  type?: 'string' | 'number' | 'boolean' | 'enum' | 'any' | undefined;
+  /**
+   * Regular expression for pattern matching. Only applicable to the string type.
+   */
+  regex?: string | undefined;
+  /**
+   * Comma-separated list of allowed values. Only applicable to the enum type.
+   */
+  enum_values?: string | undefined;
+  /**
+   * Whether the property value is an array.
+   */
+  is_array_type?: boolean | undefined;
+  /**
+   * Hide the property from chart dropdowns. Can only be set on ingested properties.
+   */
+  is_hidden?: boolean | undefined;
+  /**
+   * Comma-separated classifications. Valid values: PII, SENSITIVE, REVENUE.
+   */
+  classifications?: string | undefined;
+};
+
+export interface ActionOutput_amplitude_createuserproperty {
+  success: boolean;
+};
+
+export interface ActionInput_amplitude_deleteannotationcategory {
+  /**
+   * The ID of the annotation category to delete
+   */
+  categoryId: number;
+};
+
+export interface ActionOutput_amplitude_deleteannotationcategory {
+  success: boolean;
+};
+
+export interface ActionInput_amplitude_deleteannotation {
+  /**
+   * The ID of the annotation to delete. Example: 12345
+   */
+  annotation_id: number;
+};
+
+export interface ActionOutput_amplitude_deleteannotation {
+  success: boolean;
+};
+
+export interface ActionInput_amplitude_deleteeventcategory {
+  /**
+   * Event category ID. Example: "123"
+   */
+  category_id: string;
+};
+
+export interface ActionOutput_amplitude_deleteeventcategory {
+  success: boolean;
+};
+
+export interface ActionInput_amplitude_deleteeventproperty {
+  /**
+   * The event property name. Example: "Completed Task"
+   */
+  event_property: string;
+  /**
+   * Optional. Name of the event type the event property belongs to.
+   */
+  event_type?: string | undefined;
+};
+
+export interface ActionOutput_amplitude_deleteeventproperty {
+  success: boolean;
+};
+
+export interface ActionInput_amplitude_deleteeventtype {
+  /**
+   * The name of the event type to delete. Example: "Play Song"
+   */
+  event_type: string;
+};
+
+export interface ActionOutput_amplitude_deleteeventtype {
+  success: boolean;
+};
+
+export interface ActionInput_amplitude_deleteuserfromdeletionjob {
+  /**
+   * The Amplitude ID to be removed from a deletion job. Example: "1234567"
+   */
+  amplitude_id: string;
+  /**
+   * The day the deletion job is scheduled for. Format: YYYY-MM-DD. Example: "2024-01-15"
+   */
+  job_start_day: string;
+};
+
+export interface ActionOutput_amplitude_deleteuserfromdeletionjob {
+  /**
+   * The Amplitude ID of the user that was removed from the job
+   */
+  amplitude_id: string;
+  /**
+   * The day this deletion was requested
+   */
+  requested_on_day?: string | undefined;
+  /**
+   * The person who requested the deletion
+   */
+  requester?: string | undefined;
+};
+
+export interface ActionInput_amplitude_deleteuserproperty {
+  /**
+   * The user property name to delete. Prefix custom user properties with gp:. Example: "gp:my_custom_property"
+   */
+  user_property: string;
+};
+
+export interface ActionOutput_amplitude_deleteuserproperty {
+  success: boolean;
+};
+
+export interface ActionInput_amplitude_downloadcohort {
+  /**
+   * The ID of the cohort to download. Example: "abc123"
+   */
+  cohort_id: string;
+};
+
+export interface ActionOutput_amplitude_downloadcohort {
+  cohort: {  [key: string]: unknown | undefined;};
+  amplitude_ids?: string[] | undefined;
+  user_ids?: string[] | undefined;
+};
+
+export interface ActionInput_amplitude_exportevents {
+  /**
+   * Start hour, formatted YYYYMMDDTHH. Example: "20260616T00"
+   */
+  start: string;
+  /**
+   * End hour, formatted YYYYMMDDTHH. Example: "20260616T01"
+   */
+  end: string;
+  /**
+   * Maximum number of events to return. Default: 100
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_amplitude_exportevents {
+  start: string;
+  end: string;
+  events: ({  server_received_time?: string | undefined;
+  app?: number | undefined;
+  device_carrier?: string | undefined;
+  city?: string | undefined;
+  user_id?: string | undefined;
+  uuid?: string | undefined;
+  event_time?: string | undefined;
+  platform?: string | undefined;
+  os_version?: string | undefined;
+  amplitude_id?: number | undefined;
+  processed_time?: string | undefined;
+  version_name?: string | undefined;
+  ip_address?: string | undefined;
+  paying?: boolean | undefined;
+  dma?: string | undefined;
+  group_properties?: {  [key: string]: unknown | undefined;};
+  user_properties?: {  [key: string]: unknown | undefined;};
+  client_upload_time?: string | undefined;
+  "$insert_id"?: string | undefined;
+  event_type?: string | undefined;
+  library?: string | undefined;
+  amplitude_attribution_ids?: string | undefined;
+  device_type?: string | undefined;
+  start_version?: string | undefined;
+  location_lng?: number | undefined;
+  server_upload_time?: string | undefined;
+  event_id?: number | undefined;
+  location_lat?: number | undefined;
+  os_name?: string | undefined;
+  groups?: {  [key: string]: unknown | undefined;};
+  event_properties?: {  [key: string]: unknown | undefined;};
+  data?: {  [key: string]: unknown | undefined;};
+  device_id?: string | undefined;
+  language?: string | undefined;
+  country?: string | undefined;
+  region?: string | undefined;
+  session_id?: number | undefined;
+  device_family?: string | undefined;
+  sample_rate?: unknown | undefined;
+  client_event_time?: string | undefined;})[];
+  total_returned: number;
+  has_more?: boolean | undefined;
+};
+
+export interface ActionInput_amplitude_getannotationcategory {
+  /**
+   * The ID of the annotation category to retrieve. Example: 12345
+   */
+  category_id: number;
+};
+
+export interface ActionOutput_amplitude_getannotationcategory {
+  /**
+   * The unique identifier of the category.
+   */
+  id: number;
+  /**
+   * The name of the category.
+   */
+  name: string;
+};
+
+export interface ActionInput_amplitude_getannotation {
+  /**
+   * Annotation ID. Example: 12345
+   */
+  annotation_id: string | number;
+};
+
+export interface ActionOutput_amplitude_getannotation {
+  id: number;
+  start: string;
+  label: string;
+  details?: string | undefined;
+  category?: {  id: number;
+  category: string;} | undefined;
+  end?: string | undefined;
+  chart_id?: string | undefined;
+};
+
+export interface ActionInput_amplitude_getcohort {
+  /**
+   * Cohort ID. Example: "abc123"
+   */
+  cohortId: string;
+};
+
+export interface ActionOutput_amplitude_getcohort {
+  cohort: {  id: string;
+  name: string;
+  description?: string | undefined;
+  finished: boolean;
+  size?: number | undefined;
+  appId?: number | undefined;
+  archived?: boolean | undefined;
+  published?: boolean | undefined;
+  createdAt?: number | undefined;
+  lastMod?: number | undefined;
+  lastComputed?: number | undefined;
+  type?: string | undefined;
+  owners?: string[] | undefined;
+  viewers?: string[] | undefined;
+  hidden?: boolean | undefined;
+  metadata?: string[] | undefined;
+  view_count?: number | undefined;
+  popularity?: number | undefined;
+  last_viewed?: number | undefined;
+  chart_id?: string | undefined;
+  edit_id?: string | undefined;
+  is_predictive?: boolean | undefined;
+  is_official_content?: boolean | undefined;
+  location_id?: string | undefined;
+  shortcut_ids?: string[] | undefined;
+  definition?: unknown | undefined;};
+};
+
+export interface ActionInput_amplitude_geteventcategory {
+  /**
+   * Name of the event category. Example: "Conversion"
+   */
+  category_name: string;
+};
+
+export interface ActionOutput_amplitude_geteventcategory {
+  id: number;
+  name: string;
+};
+
+export interface ActionInput_amplitude_geteventproperty {
+  /**
+   * Name of the event type the event property belongs to. Example: "Onboard Finish"
+   */
+  event_type?: string | undefined;
+  /**
+   * The event property name. Example: "Shared"
+   */
+  event_property: string;
+};
+
+export interface ActionOutput_amplitude_geteventproperty {
+  event_property: string;
+  event_type?: string | undefined;
+  description?: string | undefined;
+  type?: string | undefined;
+  regex?: string | undefined;
+  enum_values?: string | undefined;
+  is_array_type?: boolean | undefined;
+  is_required?: boolean | undefined;
+  is_hidden?: boolean | undefined;
+  classifications?: string[] | undefined;
+};
+
+export interface ActionInput_amplitude_geteventtype {
+  /**
+   * The event type name to retrieve. Example: "Purchase"
+   */
+  event_type: string;
+};
+
+export interface ActionOutput_amplitude_geteventtype {
+  event_type: string;
+  category?: {  name: string;} | undefined;
+  description?: string | undefined;
+  display_name?: string | undefined;
+  deleted?: boolean | undefined;
+  tags?: string[] | undefined;
+  is_active?: boolean | undefined;
+  owner?: string | undefined;
+  is_hidden_from_dropdowns?: boolean | undefined;
+  is_hidden_from_persona_results?: boolean | undefined;
+  is_hidden_from_pathfinder?: boolean | undefined;
+  is_hidden_from_timeline?: boolean | undefined;
+};
+
+export interface ActionInput_amplitude_getgroupproperty {
+  /**
+   * The group property name. Prefix custom group properties with grp:. Example: "grp:Plan"
+   */
+  group_property: string;
+  /**
+   * Optional name of the group type. When provided, returns the group property associated with this group type.
+   */
+  group_type?: string | undefined;
+};
+
+export interface ActionOutput_amplitude_getgroupproperty {
+  group_property: string;
+  group_type?: string | undefined;
+  description?: string | undefined;
+  type?: string | undefined;
+  enum_values?: string | undefined;
+  regex?: string | undefined;
+  is_array_type: boolean;
+  is_hidden: boolean;
+  classifications?: string[] | undefined;
+};
+
+export interface ActionInput_amplitude_getuserdeletionjobs {
+  /**
+   * First day included in the query range, formatted YYYY-MM-DD. Example: "2024-01-01"
+   */
+  start_day: string;
+  /**
+   * Last day included in the query range, formatted YYYY-MM-DD. Example: "2024-01-31"
+   */
+  end_day: string;
+};
+
+export interface ActionOutput_amplitude_getuserdeletionjobs {
+  0: {  day: string;
+  status: string;
+  amplitude_ids?: ({  amplitude_id: number;
+  requested_on_day?: string | undefined;
+  requester?: string | undefined;
+  user_id?: string | undefined;})[];
+  user_ids?: string[] | undefined;
+  invalid_ids?: string[] | undefined;
+  app?: string | number | undefined;
+  active_scrub_done_date?: string | undefined;};
+};
+
+export interface ActionInput_amplitude_getuserproperty {
+  /**
+   * The user property name. Prefix custom user properties with gp:. Example: "device_id"
+   */
+  user_property: string;
+  /**
+   * Include deleted user properties in the response.
+   */
+  show_deleted?: boolean | undefined;
+};
+
+export interface ActionOutput_amplitude_getuserproperty {
+  user_property: string;
+  description?: string | undefined;
+  type?: string | undefined;
+  enum_values?: string | undefined;
+  regex?: string | undefined;
+  is_array_type?: boolean | undefined;
+  is_hidden?: boolean | undefined;
+  classifications?: string[] | undefined;
+  deleted?: boolean | undefined;
+};
+
+export interface ActionInput_amplitude_groupidentify {
+  /**
+   * Group type. Example: "org id"
+   */
+  group_type: string;
+  /**
+   * Group value. Example: "12345678"
+   */
+  group_value: string;
+  group_properties?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_amplitude_groupidentify {
+  success: boolean;
+};
+
+export interface ActionInput_amplitude_identifyuser {
+  /**
+   * User ID. Example: "test-user-123"
+   */
+  user_id?: string | undefined;
+  /**
+   * Device ID. Example: "abc-def"
+   */
+  device_id?: string | undefined;
+  /**
+   * User properties to update. Example: { "plan": "premium" }
+   */
+  user_properties?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_amplitude_identifyuser {
+  success: boolean;
+  code?: number | undefined;
+  server_upload_time?: number | undefined;
+  payload_size_bytes?: number | undefined;
+};
+
+export interface ActionInput_amplitude_listannotationcategories {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum number of items to return. Default: 100.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_amplitude_listannotationcategories {
+  categories: ({  id: number;
+  name?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_amplitude_listannotations {
+  /**
+   * If specified, only returns annotations in this category.
+   */
+  category?: string | undefined;
+  /**
+   * If specified, only returns annotations that show on this chart.
+   */
+  chart_id?: string | undefined;
+  /**
+   * ISO 8601 timestamp. Only returns annotations that occur after this time.
+   */
+  start?: string | undefined;
+  /**
+   * ISO 8601 timestamp. Only returns annotations that occur before this time.
+   */
+  end?: string | undefined;
+  /**
+   * Maximum number of annotations to return per page. Defaults to 100.
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_amplitude_listannotations {
+  items: ({  id: number;
+  start: string;
+  details?: string | undefined;
+  category?: {  id: number;
+  name?: string | undefined;};
+  end?: string | undefined;
+  label: string;
+  chart_id?: string | undefined;})[];
+  next_cursor?: string | undefined;
+  has_more: boolean;
+};
+
+export interface ActionInput_amplitude_listcohorts {
+};
+
+export interface ActionOutput_amplitude_listcohorts {
+  cohorts: ({  id: string;
+  name: string;
+  appId: number;
+  archived: boolean;
+  published: boolean;
+  size?: number | undefined;
+  type: string;
+  description?: string | undefined;
+  finished?: boolean | undefined;
+  owners?: string[] | undefined;
+  viewers?: string[] | undefined;
+  lastMod?: number | undefined;
+  createdAt?: number | undefined;
+  lastComputed?: number | undefined;
+  hidden?: boolean | undefined;
+  is_predictive?: boolean | undefined;
+  is_official_content?: boolean | undefined;
+  location_id?: string | undefined;
+  shortcut_ids?: string[] | undefined;
+  chart_id?: string | undefined;
+  edit_id?: string | undefined;
+  view_count?: number | undefined;
+  popularity?: number | undefined;
+  last_viewed?: number | undefined;
+  metadata?: string[] | undefined;
+  syncMetadata?: ({  [key: string]: unknown | undefined;})[];})[];
+};
+
+export interface ActionInput_amplitude_listeventcategories {
+  limit?: number | undefined;
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_amplitude_listeventcategories {
+  categories: ({  id: number;
+  name: string;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_amplitude_listeventproperties {
+  /**
+   * Optional event type name to filter event properties by.
+   */
+  event_type?: string | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum number of items to return per page. Defaults to 100.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_amplitude_listeventproperties {
+  items: ({  event_property: string;
+  event_type?: string | undefined;
+  description?: string | undefined;
+  type?: string | undefined;
+  regex?: string | undefined;
+  enum_values?: string | undefined;
+  is_array_type: boolean;
+  is_required?: boolean | undefined;
+  is_hidden?: boolean | undefined;
+  classifications?: string[] | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_amplitude_listeventtypes {
+  cursor?: string | undefined;
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_amplitude_listeventtypes {
+  data: ({  event_type: string;
+  category?: {  name?: string | undefined;};
+  description?: string | undefined;
+  display_name?: string | undefined;
+  is_active?: boolean | undefined;
+  is_hidden_from_dropdowns?: boolean | undefined;
+  is_hidden_from_persona_results?: boolean | undefined;
+  is_hidden_from_pathfinder?: boolean | undefined;
+  is_hidden_from_timeline?: boolean | undefined;
+  tags?: string[] | undefined;
+  owner?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_amplitude_listgroupproperties {
+  /**
+   * Name of the group type. If present, returns all group properties associated with this group type. If omitted, returns all shared group properties.
+   */
+  group_type?: string | undefined;
+};
+
+export interface ActionOutput_amplitude_listgroupproperties {
+  items: ({  group_type?: string | undefined;
+  group_property: string;
+  description?: string | undefined;
+  type?: string | undefined;
+  enum_values?: string | undefined;
+  regex?: string | undefined;
+  is_array_type?: boolean | undefined;
+  is_hidden?: boolean | undefined;
+  classifications?: string[] | undefined;})[];
+};
+
+export interface ActionInput_amplitude_listuserproperties {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum number of user properties to return in a single page. Defaults to 100.
+   */
+  limit?: number | undefined;
+  /**
+   * If true, include deleted user properties in the response.
+   */
+  show_deleted?: boolean | undefined;
+};
+
+export interface ActionOutput_amplitude_listuserproperties {
+  items: ({  user_property: string;
+  description: string;
+  type: string;
+  enum_values: string;
+  regex: string;
+  is_array_type: boolean;
+  is_hidden: boolean;
+  classifications: string[];
+  deleted: boolean;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_amplitude_restoreeventproperty {
+  /**
+   * Name of the event property to restore. Example: "Completed Task"
+   */
+  event_property: string;
+  /**
+   * Optional name of the event type. When included, restores the property for the specified event type. When omitted, restores the shared event property.
+   */
+  event_type?: string | undefined;
+};
+
+export interface ActionOutput_amplitude_restoreeventproperty {
+  success: boolean;
+  event_property: string;
+  event_type?: string | undefined;
+};
+
+export interface ActionInput_amplitude_restoreeventtype {
+  /**
+   * The event type to restore. Example: "Purchase"
+   */
+  event_type: string;
+};
+
+export interface ActionOutput_amplitude_restoreeventtype {
+  success: boolean;
+  event_type: string;
+};
+
+export interface ActionInput_amplitude_restoreuserproperty {
+  /**
+   * The user property name. Prefix custom user properties with gp:.
+   */
+  user_property: string;
+};
+
+export interface ActionOutput_amplitude_restoreuserproperty {
+  success: boolean;
+  user_property?: string | undefined;
+  description?: string | undefined;
+  type?: string | undefined;
+  enum_values?: string | undefined;
+  regex?: string | undefined;
+  is_array_type?: boolean | undefined;
+  is_hidden?: boolean | undefined;
+  classifications?: string[] | undefined;
+  deleted?: boolean | undefined;
+};
+
+export interface ActionInput_amplitude_trackevent {
+  /**
+   * Amplitude user ID. Required if device_id is not provided.
+   */
+  user_id?: string | undefined;
+  /**
+   * Amplitude device ID. Required if user_id is not provided.
+   */
+  device_id?: string | undefined;
+  /**
+   * The type of event. Example: "Button Clicked"
+   */
+  event_type: string;
+  /**
+   * Event timestamp in milliseconds since epoch.
+   */
+  time?: number | undefined;
+  /**
+   * Custom event properties.
+   */
+  event_properties?: {  [key: string]: unknown | undefined;};
+  /**
+   * Custom user properties.
+   */
+  user_properties?: {  [key: string]: unknown | undefined;};
+  /**
+   * Session ID for the event.
+   */
+  session_id?: number | undefined;
+  /**
+   * A unique identifier for the event.
+   */
+  insert_id?: string | undefined;
+};
+
+export interface ActionOutput_amplitude_trackevent {
+  code: number;
+  server_upload_time: number;
+  payload_size_bytes: number;
+  events_ingested: number;
+};
+
+export interface ActionInput_amplitude_updateannotationcategory {
+  /**
+   * The ID of the annotation category to update. Example: 123
+   */
+  category_id: number;
+  /**
+   * The new name for the annotation category. Example: "Updated Category Name"
+   */
+  category: string;
+};
+
+export interface ActionOutput_amplitude_updateannotationcategory {
+  id: number;
+  category: string;
+};
+
+export interface ActionInput_amplitude_updateannotation {
+  /**
+   * The ID of the annotation to update. Example: 939879
+   */
+  annotation_id: number;
+  /**
+   * The title of the annotation.
+   */
+  label?: string | undefined;
+  /**
+   * Timestamp for the start of the annotation in ISO 8601 format. Example: "2026-06-16T00:00:00+00:00"
+   */
+  start?: string | undefined;
+  /**
+   * The name of the category that the annotation belongs to.
+   */
+  category?: string | undefined;
+  /**
+   * The ID of the chart to annotate. Set to null to make the annotation global.
+   */
+  chart_id?: string | undefined;
+  /**
+   * Details for the annotation.
+   */
+  details?: string | undefined;
+  /**
+   * Timestamp for the end of the annotation in ISO 8601 format. Set to null to remove the end time. Example: "2026-06-16T23:59:59+00:00"
+   */
+  end?: string | undefined;
+};
+
+export interface ActionOutput_amplitude_updateannotation {
+  id: number;
+  start: string;
+  label: string;
+  details?: string | undefined;
+  category: {  id: number;
+  category: string;};
+  end?: string | undefined;
+  chart_id?: string | undefined;
+};
+
+export interface ActionInput_amplitude_updateeventcategory {
+  /**
+   * The ID of the category to update. Example: 412931
+   */
+  category_id: number;
+  /**
+   * The new name of the category. Example: "Updated Category"
+   */
+  category_name: string;
+};
+
+export interface ActionOutput_amplitude_updateeventcategory {
+  success: boolean;
+};
+
+export interface ActionInput_amplitude_updateeventproperty {
+  /**
+   * Name of the event property to update. Example: "Completed Task"
+   */
+  event_property: string;
+  /**
+   * Name of the event type the event property belongs to. Example: "Onboard Start"
+   */
+  event_type?: string | undefined;
+  /**
+   * Determines how Amplitude acts on this event property. Only applicable when event_type is present.
+   */
+  override_scope?: 'override' | 'shared' | undefined;
+  /**
+   * The new name of the event property.
+   */
+  new_event_property_value?: string | undefined;
+  /**
+   * The event property's description.
+   */
+  description?: string | undefined;
+  /**
+   * The event property's data type.
+   */
+  type?: 'string' | 'number' | 'boolean' | 'enum' | 'any' | undefined;
+  /**
+   * Regular expression for pattern matching. Only applicable to the string type.
+   */
+  regex?: string | undefined;
+  /**
+   * List of allowed values, separated by comma. Only applicable to the enum type.
+   */
+  enum_values?: string | undefined;
+  /**
+   * Specifies whether the property value is an array.
+   */
+  is_array_type?: boolean | undefined;
+  /**
+   * Marks the property as required.
+   */
+  is_required?: boolean | undefined;
+  /**
+   * Hide the property from chart dropdowns.
+   */
+  is_hidden?: boolean | undefined;
+  /**
+   * List of classifications applicable to this event property, separated by comma. Valid classifications are PII, SENSITIVE, and REVENUE.
+   */
+  classifications?: string | undefined;
+};
+
+export interface ActionOutput_amplitude_updateeventproperty {
+  /**
+   * Whether the update succeeded.
+   */
+  success: boolean;
+};
+
+export interface ActionInput_amplitude_updateeventtype {
+  /**
+   * The event type name to update. Example: "Purchase"
+   */
+  event_type: string;
+  /**
+   * The event type's new name.
+   */
+  new_event_type?: string | undefined;
+  /**
+   * Current category name of the event type.
+   */
+  category?: string | undefined;
+  /**
+   * Details to add to the event type.
+   */
+  description?: string | undefined;
+  /**
+   * Display name of the event type.
+   */
+  display_name?: string | undefined;
+  /**
+   * Activity of the event type.
+   */
+  is_active?: boolean | undefined;
+  /**
+   * Event type is hidden from dropdowns.
+   */
+  is_hidden_from_dropdowns?: boolean | undefined;
+  /**
+   * Event type is hidden from persona results.
+   */
+  is_hidden_from_persona_results?: boolean | undefined;
+  /**
+   * Event type is hidden from pathfinder.
+   */
+  is_hidden_from_pathfinder?: boolean | undefined;
+  /**
+   * Event type is hidden from timeline.
+   */
+  is_hidden_from_timeline?: boolean | undefined;
+  /**
+   * List of tags, separated by a comma.
+   */
+  tags?: string | undefined;
+  /**
+   * Owner of the event type.
+   */
+  owner?: string | undefined;
+};
+
+export interface ActionOutput_amplitude_updateeventtype {
+  event_type: string;
+  category?: {  name?: string | undefined;};
+  description?: string | undefined;
+  display_name?: string | undefined;
+  is_active?: boolean | undefined;
+  is_hidden_from_dropdowns?: boolean | undefined;
+  is_hidden_from_persona_results?: boolean | undefined;
+  is_hidden_from_pathfinder?: boolean | undefined;
+  is_hidden_from_timeline?: boolean | undefined;
+  tags?: string[] | undefined;
+  owner?: string | undefined;
+};
+
+export interface ActionInput_amplitude_updategroupproperty {
+  /**
+   * Name of the group property. Prefix custom group properties with grp:.
+   */
+  group_property: string;
+  /**
+   * Name of the group type the group property belongs to.
+   */
+  group_type?: string | undefined;
+  /**
+   * Determines how Amplitude acts on this group property. Values: "override", "shared".
+   */
+  override_scope?: string | undefined;
+  /**
+   * Description of the group property.
+   */
+  description?: string | undefined;
+  /**
+   * The new name of the group property.
+   */
+  new_group_property_value?: string | undefined;
+  /**
+   * Data type of the group property. Values: any, string, number, boolean, enum.
+   */
+  type?: string | undefined;
+  /**
+   * Regular expression for pattern matching. Applies only to string type.
+   */
+  regex?: string | undefined;
+  /**
+   * List of allowed values, separated by comma. Only applicable to enum type.
+   */
+  enum_values?: string | undefined;
+  /**
+   * Property is an array type.
+   */
+  is_array_type?: boolean | undefined;
+  /**
+   * Hide the property from chart dropdowns.
+   */
+  is_hidden?: boolean | undefined;
+  /**
+   * List of classifications applicable to this group property. Valid values: PII, SENSITIVE, REVENUE.
+   */
+  classifications?: string | undefined;
+};
+
+export interface ActionOutput_amplitude_updategroupproperty {
+  success: boolean;
+  errors?: ({  message: string;})[] | undefined;
+};
+
+export interface ActionInput_amplitude_updateuserproperty {
+  /**
+   * The user property name. Prefix custom user properties with gp:. Example: "device_id"
+   */
+  user_property: string;
+  /**
+   * New name of the user property type.
+   */
+  new_user_property_value?: string | undefined;
+  /**
+   * Details to add to the user property type.
+   */
+  description?: string | undefined;
+  /**
+   * The user property's data type.
+   */
+  type?: 'string' | 'number' | 'boolean' | 'enum' | 'any' | undefined;
+  /**
+   * Regular expression or custom regex used for pattern matching.
+   */
+  regex?: string | undefined;
+  /**
+   * List of allowed values, separated by comma.
+   */
+  enum_values?: string | undefined;
+  /**
+   * Specifies whether the property value is an array.
+   */
+  is_array_type?: boolean | undefined;
+  /**
+   * Hide the property from chart dropdowns.
+   */
+  is_hidden?: boolean | undefined;
+  /**
+   * List of classifications applicable to this user property. Valid values are PII, SENSITIVE and REVENUE.
+   */
+  classifications?: string | undefined;
+};
+
+export interface ActionOutput_amplitude_updateuserproperty {
+  success: boolean;
+};
+
 export interface ActionInput_anrok_createephemeraltransaction {
   id?: string | undefined;
   issuing_date: string;
@@ -17065,81 +18615,6 @@ export interface Page {
 export interface SyncMetadata_brightcrowd_pages {
   bookIds: string[];
   timeframe?: any | undefined | any | undefined | any | undefined | 'all';
-};
-
-export interface EventType {
-  /**
-   * Unique identifier for the event type
-   */
-  id: string;
-  /**
-   * Canonical reference for the event type
-   */
-  uri: string;
-  /**
-   * Event type name
-   */
-  name?: string | undefined;
-  /**
-   * Indicates if the event type is active
-   */
-  active: boolean;
-  /**
-   * Booking method
-   */
-  booking_method?: 'instant' | 'poll' | undefined;
-  /**
-   * Hex color value
-   */
-  color?: string | undefined;
-  /**
-   * Creation timestamp
-   */
-  created_at: string;
-  /**
-   * Last update timestamp
-   */
-  updated_at: string;
-  /**
-   * Deletion timestamp if deleted
-   */
-  deleted_at?: string | undefined;
-  /**
-   * Plain text description
-   */
-  description_plain?: string | undefined;
-  /**
-   * HTML description
-   */
-  description_html?: string | undefined;
-  /**
-   * Session duration in minutes
-   */
-  duration?: number | undefined;
-  /**
-   * Event type kind
-   */
-  kind?: 'solo' | undefined;
-  /**
-   * Pooling type for team event types
-   */
-  pooling_type?: 'round_robin' | 'collective' | 'multi_pool' | undefined;
-  /**
-   * Display position
-   */
-  position?: number | undefined;
-  /**
-   * Booking URL
-   */
-  scheduling_url?: string | undefined;
-  /**
-   * URL slug
-   */
-  slug?: string | undefined;
-  /**
-   * Event type category
-   */
-  type?: 'StandardEventType' | 'AdhocEventType' | undefined;
 };
 
 export interface SyncMetadata_cal_com_v2_eventtypes {
@@ -62422,41 +63897,8 @@ export interface SyncMetadata_posthog_actions {
   project_id: string;
 };
 
-export interface Annotation {
-  id: string;
-  content?: string | undefined;
-  date_marker?: string | undefined;
-  creation_type?: string | undefined;
-  dashboard_item?: number | undefined;
-  dashboard_id?: number | undefined;
-  dashboard_name?: string | undefined;
-  insight_short_id?: string | undefined;
-  insight_name?: string | undefined;
-  insight_derived_name?: string | undefined;
-  created_at?: string | undefined;
-  updated_at?: string | undefined;
-  deleted?: boolean | undefined;
-  scope?: string | undefined;
-};
-
 export interface SyncMetadata_posthog_annotations {
   project_id: string;
-};
-
-export interface Cohort {
-  id: string;
-  name?: string | undefined;
-  description?: string | undefined;
-  created_at?: string | undefined;
-  last_calculation?: string | undefined;
-  deleted?: boolean | undefined;
-  is_static?: boolean | undefined;
-  cohort_type?: string | undefined;
-  count?: number | undefined;
-  is_calculating?: boolean | undefined;
-  errors_calculating?: number | undefined;
-  created_by_id?: number | undefined;
-  created_by_email?: string | undefined;
 };
 
 export interface SyncMetadata_posthog_cohorts {
