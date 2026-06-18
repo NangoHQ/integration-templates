@@ -1,9 +1,16 @@
-import { afterEach, vi, expect, it, describe } from 'vitest';
+import { afterEach, beforeEach, vi, expect, it, describe } from 'vitest';
 
 import createSync from '../syncs/leave-records.js';
 
+const FIXTURE_NOW = new Date('2026-06-15T12:00:00.000Z');
+
 describe('zoho-people leave-records tests', () => {
     const models = 'LeaveRecord'.split(',');
+
+    beforeEach(() => {
+        vi.useFakeTimers();
+        vi.setSystemTime(FIXTURE_NOW);
+    });
 
     const createTestContext = () => {
         const nangoMock = new global.vitest.NangoSyncMock({
@@ -21,6 +28,7 @@ describe('zoho-people leave-records tests', () => {
     afterEach(() => {
         vi.clearAllMocks();
         vi.restoreAllMocks();
+        vi.useRealTimers();
     });
 
     it('should get, map correctly the data and batchSave the result', async () => {
