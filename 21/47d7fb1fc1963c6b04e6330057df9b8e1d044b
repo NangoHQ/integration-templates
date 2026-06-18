@@ -1,0 +1,21 @@
+integrations/zoho-people/tests/zoho-people-attendance.test.ts
+  s_c817e527ac9ed6::t_278eeacc56d48e 1,5-6,10-14,31
+integrations/zoho-people/tests/zoho-people-leave-records.test.ts
+  s_c817e527ac9ed6::t_278eeacc56d48e 1,5-6,10-14,31
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.8",
+  "base_commit_sha": "2147d7fb1fc1963c6b04e6330057df9b8e1d044b",
+  "prompts": {},
+  "sessions": {
+    "s_c817e527ac9ed6": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019ed636-1ab3-79a0-bc9f-41d491e42631",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Marcin Dobrowolski <marcindobry@hotmail.com>"
+    }
+  }
+}
