@@ -24,12 +24,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Download a Dropbox folder as a zip archive',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/download-folder-as-zip',
-        group: 'Files'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['files.content.read'],

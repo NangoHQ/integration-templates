@@ -25,12 +25,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Reopen a previously resolved Linear comment thread.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/unresolve-comment',
-        group: 'Comments'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['comments'],

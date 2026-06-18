@@ -52,12 +52,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a user in Microsoft Azure AD',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-user',
-        group: 'Users'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['User.ReadWrite.All'],

@@ -35,12 +35,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Upsert records in a Zoho CRM module. Inserts new records or updates existing ones based on duplicate check fields.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/upsert-records',
-        group: 'Records'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoCRM.modules.ALL'],

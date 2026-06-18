@@ -57,12 +57,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update an existing account.',
-    version: '3.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-account',
-        group: 'Accounts'
-    },
+    version: '3.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['accounting.settings'],

@@ -132,12 +132,7 @@ const GraphQLSuccessResponseSchema = z.object({
 
 const action = createAction({
     description: 'List Shopify file resources with cursor pagination.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-files',
-        group: 'Files'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read_files'],

@@ -54,12 +54,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update page content using markdown commands. Supports targeted edits, full replacement, insertion, and range replacement.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-page-markdown',
-        group: 'Pages'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['update_content'],

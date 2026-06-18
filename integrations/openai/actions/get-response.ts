@@ -44,12 +44,7 @@ const OutputSchema = z
 
 const action = createAction({
     description: 'Retrieve a stored OpenAI response by ID.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-response',
-        group: 'Responses'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['model.request'],

@@ -71,12 +71,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Search for files, folders, and other content in Box',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/search',
-        group: 'Search'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['root_readwrite'],

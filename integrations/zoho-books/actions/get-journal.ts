@@ -123,11 +123,7 @@ const OutputSchema = ProviderJournalSchema;
 
 const action = createAction({
     description: 'Retrieve a single manual journal entry from Zoho Books.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-journal'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoBooks.accountants.READ', 'ZohoBooks.settings.READ'],

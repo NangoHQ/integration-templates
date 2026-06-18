@@ -12,12 +12,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Associate a contact with a company.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/attach-contact-to-company',
-        group: 'Contacts'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['contacts.write', 'companies.write'],

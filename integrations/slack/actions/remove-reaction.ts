@@ -14,13 +14,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Remove an emoji reaction from a specific message',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/remove-reaction',
-        group: 'Reactions'
-    },
+    version: '2.0.1',
 
     input: InputSchema,
     output: OutputSchema,

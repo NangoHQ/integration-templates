@@ -41,13 +41,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Search developer metadata by criteria',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/search-developer-metadata',
-        group: 'Developer Metadata'
-    },
+    version: '1.0.1',
 
     input: InputSchema,
     output: OutputSchema,

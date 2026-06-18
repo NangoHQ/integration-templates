@@ -23,12 +23,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Replace an Algolia object entirely (full overwrite by objectID).',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-object',
-        group: 'Objects'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['search'],

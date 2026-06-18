@@ -79,12 +79,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Enrich an organization by domain or Apollo ID',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/enrich-organization',
-        group: 'Organizations'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

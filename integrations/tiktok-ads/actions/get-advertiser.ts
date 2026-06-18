@@ -59,11 +59,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single advertiser from TikTok Ads.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-advertiser'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

@@ -69,11 +69,7 @@ const ResponseSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve an automated rule by ID from TikTok Ads.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-automated-rule'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

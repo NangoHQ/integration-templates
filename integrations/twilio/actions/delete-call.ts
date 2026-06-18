@@ -36,12 +36,7 @@ const CredentialsSchema = z
 
 const action = createAction({
     description: 'Delete a call record in Twilio.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-call',
-        group: 'Calls'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

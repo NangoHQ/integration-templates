@@ -29,12 +29,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List synonyms from an Algolia index.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-synonyms',
-        group: 'Synonyms'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

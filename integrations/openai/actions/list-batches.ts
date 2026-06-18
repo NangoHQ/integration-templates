@@ -64,12 +64,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List batches from OpenAI',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-batches',
-        group: 'Batches'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['batch.read'],

@@ -36,12 +36,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve the current Salesforce user and org identity context.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-current-user',
-        group: 'Identity'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

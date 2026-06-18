@@ -9,8 +9,7 @@ const workflowDispatchResponseSchema = z.object({
 
 const action = createAction({
     description: 'Trigger a GitHub Actions workflow_dispatch run for a workflow file or ID',
-    version: '1.0.0',
-    endpoint: { method: 'POST', path: '/actions/trigger-workflow-dispatch', group: 'Actions' },
+    version: '1.0.1',
     input: z.object({
         owner: z.string(),
         repo: z.string(),

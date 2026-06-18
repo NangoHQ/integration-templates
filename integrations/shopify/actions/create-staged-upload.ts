@@ -72,12 +72,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Request staged upload targets before uploading files to Shopify.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-staged-upload',
-        group: 'Files'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write_files', 'read_files'],

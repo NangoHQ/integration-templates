@@ -118,12 +118,7 @@ const OutputSchema = ContactSchema;
 
 const action = createAction({
     description: 'Retrieve a single contact from Zoho Books.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-contact',
-        group: 'Contacts'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoBooks.contacts.READ', 'ZohoBooks.settings.READ'],

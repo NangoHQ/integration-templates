@@ -60,12 +60,7 @@ const ResultSetSchema = z.object({
 
 const action = createAction({
     description: 'List views in a Snowflake schema.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-views',
-        group: 'Views'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

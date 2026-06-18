@@ -65,12 +65,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a Zendesk Help Center article by ID.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-article',
-        group: 'Help Center'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

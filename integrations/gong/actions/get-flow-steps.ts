@@ -43,12 +43,7 @@ const AxiosErrorSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve details and steps for one or more Gong Engage flows.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-flow-steps',
-        group: 'Flows'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:flows:read'],

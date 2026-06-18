@@ -59,11 +59,7 @@ const OutputSchema = z
 
 const action = createAction({
     description: 'Retrieve Smart+ ad group details from TikTok Ads',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-smart-plus-adgroup'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ads.read'],

@@ -63,12 +63,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a tag in a workspace.',
-    version: '1.0.1',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-tag',
-        group: 'Tags'
-    },
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['tags:write'],

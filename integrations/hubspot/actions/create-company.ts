@@ -24,13 +24,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a company record',
-    version: '3.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-company',
-        group: 'Companies'
-    },
+    version: '3.0.1',
 
     input: InputSchema,
     output: OutputSchema,

@@ -19,12 +19,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Archive (soft-delete) an opportunity in Apollo by marking it as closed.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-opportunity',
-        group: 'Opportunities'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

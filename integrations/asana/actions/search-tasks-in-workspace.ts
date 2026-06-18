@@ -55,12 +55,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Search tasks in a workspace with filters.',
-    version: '1.0.1',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/search-tasks-in-workspace',
-        group: 'Tasks'
-    },
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['tasks:read'],

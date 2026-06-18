@@ -41,12 +41,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Run search queries across multiple Algolia indices in a single request.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/search-multiple-indices',
-        group: 'Search'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['search'],

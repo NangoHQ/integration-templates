@@ -34,12 +34,7 @@ const SpotifyErrorSchema = z
 
 const action = createAction({
     description: 'Start or resume Spotify playback, optionally on a specific device or with a context',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/start-playback',
-        group: 'Player'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['user-modify-playback-state'],

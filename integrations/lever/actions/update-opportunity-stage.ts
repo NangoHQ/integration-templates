@@ -4,13 +4,7 @@ import { UpdateOpportunityStage, SuccessResponse } from '../models.js';
 
 const action = createAction({
     description: 'Update the stage in an opportunity',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/opportunities/stages',
-        group: 'Opportunities'
-    },
+    version: '2.0.1',
 
     input: UpdateOpportunityStage,
     output: SuccessResponse,

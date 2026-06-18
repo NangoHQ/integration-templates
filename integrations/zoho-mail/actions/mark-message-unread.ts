@@ -34,12 +34,7 @@ function getMailBaseUrl(extension: string | undefined): string {
 
 const action = createAction({
     description: 'Mark a Zoho Mail message as unread.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/mark-message-unread',
-        group: 'Messages'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoMail.messages.UPDATE'],

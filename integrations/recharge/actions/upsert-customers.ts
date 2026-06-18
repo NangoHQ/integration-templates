@@ -7,13 +7,7 @@ import { UpsertRechargeCustomerOutput, UpsertRechargeCustomerInput } from '../mo
 
 const action = createAction({
     description: 'Upsert a customer in Recharge',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/customers',
-        group: 'Customers'
-    },
+    version: '1.0.1',
 
     input: UpsertRechargeCustomerInput,
     output: UpsertRechargeCustomerOutput,

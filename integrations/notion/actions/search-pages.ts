@@ -17,13 +17,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Searches only pages shared with the integration.',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/search/pages',
-        group: 'Search'
-    },
+    version: '1.0.1',
 
     input: InputSchema,
     output: OutputSchema,

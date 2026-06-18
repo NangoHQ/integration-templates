@@ -9,13 +9,7 @@ import { RecruiterFlowCandidateActivityListOutput, RecruiterFlowCandidateActivit
 
 const action = createAction({
     description: 'Fetches all candidate activities list from RecruiterFlow',
-    version: '3.0.0',
-
-    endpoint: {
-        method: 'GET',
-        path: '/candidate-activities-list',
-        group: 'Candidates'
-    },
+    version: '3.0.1',
 
     input: RecruiterFlowCandidateActivityListInput,
     output: RecruiterFlowCandidateActivityListOutput,

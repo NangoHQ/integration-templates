@@ -45,12 +45,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List scheduled posts for a Facebook Page',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-page-scheduled-posts',
-        group: 'Pages'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['pages_manage_posts'],

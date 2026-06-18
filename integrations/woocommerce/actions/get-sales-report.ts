@@ -36,11 +36,7 @@ const OutputSchema = z.array(SalesReportSchema);
 
 const action = createAction({
     description: 'Retrieve the sales report from WooCommerce.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-sales-report'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read'],

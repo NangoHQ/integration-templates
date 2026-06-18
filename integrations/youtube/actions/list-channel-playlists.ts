@@ -82,12 +82,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List playlists for a YouTube channel',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-channel-playlists',
-        group: 'Playlists'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/youtube.readonly'],

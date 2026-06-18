@@ -20,12 +20,7 @@ const MetadataSchema = z.object({
 
 const action = createAction({
     description: 'Delete a call queue in Twilio.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-queue',
-        group: 'Queues'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

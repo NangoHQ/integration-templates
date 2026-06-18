@@ -18,12 +18,7 @@ const MetadataSchema = z.object({
 
 const action = createAction({
     description: 'Remove a watcher from a Jira issue',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/remove-watcher',
-        group: 'Watchers'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,

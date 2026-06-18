@@ -4,13 +4,7 @@ import { z } from 'zod';
 
 const action = createAction({
     description: 'Fetch all leads',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'GET',
-        path: '/leads',
-        group: 'Leads'
-    },
+    version: '1.0.1',
 
     input: z.void(),
     output: Anonymous_unanet_action_getleads_output,

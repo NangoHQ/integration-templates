@@ -42,12 +42,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create multiple sObject records in one collection request.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-sobject-collection',
-        group: 'SObject Collections'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

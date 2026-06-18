@@ -110,12 +110,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List session recordings from PostHog.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-session-recordings',
-        group: 'Session Recordings'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['session_recording:read'],

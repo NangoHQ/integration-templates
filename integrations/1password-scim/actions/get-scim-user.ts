@@ -130,12 +130,7 @@ const OutputSchema = ProviderUserSchema;
 
 const action = createAction({
     description: 'Retrieve a single SCIM user from 1Password SCIM.',
-    version: '1.1.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-scim-user',
-        group: 'Users'
-    },
+    version: '1.1.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

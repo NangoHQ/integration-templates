@@ -41,12 +41,7 @@ const ListSequencesOutputSchema = z.object({
 
 const action = createAction({
     description: 'List sequences from Apollo.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-sequences',
-        group: 'Sequences'
-    },
+    version: '1.0.1',
     input: ListSequencesInputSchema,
     output: ListSequencesOutputSchema,
     scopes: ['read'],

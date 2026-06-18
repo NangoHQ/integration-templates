@@ -86,12 +86,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update a task in Attio.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-task',
-        group: 'Tasks'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['task:read-write', 'object_configuration:read', 'record_permission:read', 'user_management:read'],

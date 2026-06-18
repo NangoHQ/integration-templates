@@ -59,12 +59,7 @@ const GraphQLIssueLabelsResponseSchema = z.object({
 
 const action = createAction({
     description: 'List Linear issue labels with filtering and pagination.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-issue-labels',
-        group: 'Issue Labels'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read'],

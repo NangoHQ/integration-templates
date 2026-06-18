@@ -100,12 +100,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a specific Gong permission profile by ID.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-permission-profile',
-        group: 'Permissions'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:permission-profile:read'],

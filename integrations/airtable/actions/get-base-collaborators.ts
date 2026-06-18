@@ -61,12 +61,7 @@ const ProviderResponseSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve collaborators and permissions for an Airtable base.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-base-collaborators',
-        group: 'Bases'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['schema.bases:read'],

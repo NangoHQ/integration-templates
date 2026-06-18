@@ -24,12 +24,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Close a Shopify order to prevent further changes.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/close-order',
-        group: 'Orders'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read_orders', 'write_orders'],

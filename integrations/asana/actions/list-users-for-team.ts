@@ -35,12 +35,7 @@ const ListOutputSchema = z.object({
 
 const action = createAction({
     description: 'List users in a team.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-users-for-team',
-        group: 'Users'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: ListOutputSchema,
     scopes: ['users:read'],

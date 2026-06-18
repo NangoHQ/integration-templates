@@ -7,12 +7,7 @@ import { TriggeredBackgroundCheck, TriggerBackgroundCheckInput } from '../models
 
 const action = createAction({
     description: 'Trigger a background check',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/background-check/trigger'
-    },
+    version: '2.0.1',
 
     input: TriggerBackgroundCheckInput,
     output: TriggeredBackgroundCheck,

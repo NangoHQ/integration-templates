@@ -21,12 +21,7 @@ const ProviderBlockSchema = z
 
 const action = createAction({
     description: 'Delete or archive a block by ID.',
-    version: '2.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-block',
-        group: 'Blocks'
-    },
+    version: '2.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read_content', 'update_content'],

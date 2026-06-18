@@ -135,12 +135,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single opportunity from Apollo.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-opportunity',
-        group: 'Opportunities'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

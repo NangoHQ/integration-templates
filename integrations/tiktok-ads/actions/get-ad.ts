@@ -33,12 +33,7 @@ const AdSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single ad from TikTok Ads.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-ad',
-        group: 'Ads'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: AdSchema,
     scopes: ['ads.read'],

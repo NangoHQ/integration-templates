@@ -31,13 +31,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List instances of a recurring event',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-event-instances',
-        group: 'Events'
-    },
+    version: '2.0.1',
 
     input: InputSchema,
     output: OutputSchema,

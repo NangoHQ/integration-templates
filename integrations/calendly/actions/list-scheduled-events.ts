@@ -58,12 +58,7 @@ const ListResponseSchema = z.object({
 
 const action = createAction({
     description: 'List scheduled events from Calendly. Returns a paginated list of events with optional filters for date range, status, and invitee email.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-scheduled-events',
-        group: 'Scheduled Events'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['scheduling:read'],

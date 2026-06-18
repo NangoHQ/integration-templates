@@ -132,10 +132,7 @@ const UpdateBillOutputSchema = z
 
 export default createAction({
     description: 'Update a bill in Zoho Books.',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-bill'
-    },
+    version: '0.0.1',
     input: UpdateBillInputSchema,
     output: UpdateBillOutputSchema,
     scopes: ['ZohoBooks.bills.UPDATE', 'ZohoBooks.settings.READ'],

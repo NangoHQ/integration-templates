@@ -158,12 +158,7 @@ const ProviderCampaignSchema = z
 
 const action = createAction({
     description: 'Retrieve a single campaign from Mailchimp.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-campaign',
-        group: 'Campaigns'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: ProviderCampaignSchema,
     scopes: ['campaigns_read'],

@@ -80,12 +80,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update a deal in ActiveCampaign.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-deal',
-        group: 'Deals'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['deals'],

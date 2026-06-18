@@ -43,8 +43,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List organizations from Workday.',
-    version: '1.0.0',
-    endpoint: { method: 'POST', path: '/actions/list-organizations', group: 'Organizations' },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

@@ -37,12 +37,7 @@ const ProviderResponseSchema = z.object({
 
 const action = createAction({
     description: 'List child blocks for a page or block with pagination.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-block-children',
-        group: 'Blocks'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read:content'],

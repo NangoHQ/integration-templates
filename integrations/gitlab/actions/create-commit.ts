@@ -81,12 +81,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a commit in GitLab',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-commit',
-        group: 'Commits'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api'],

@@ -33,12 +33,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create or update a record in Attio by matching attribute value.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/upsert-record',
-        group: 'Records'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['record_permission:read-write', 'object_configuration:read'],

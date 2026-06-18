@@ -33,12 +33,7 @@ const MetadataSchema = z.object({
 
 const action = createAction({
     description: 'Delete a Confluence blog post by id.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-blog-post',
-        group: 'Blog Posts'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,

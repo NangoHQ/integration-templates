@@ -144,11 +144,7 @@ function serializeFormData(data: Record<string, string | number | boolean>): str
 
 const action = createAction({
     description: 'Update an invoice in Stripe.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-invoice'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

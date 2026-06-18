@@ -7,12 +7,7 @@ const InputSchema = z.object({
 
 const action = createAction({
     description: 'Delete a custom send-as alias from the mailbox.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'DELETE',
-        path: '/actions/delete-send-as-alias',
-        group: 'SendAs'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: z.void(),
     scopes: ['https://www.googleapis.com/auth/gmail.settings.sharing'],

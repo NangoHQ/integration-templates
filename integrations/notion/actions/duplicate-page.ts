@@ -133,12 +133,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Duplicate a Notion page and its content',
-    version: '2.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/duplicate-page',
-        group: 'Pages'
-    },
+    version: '2.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read_content', 'insert_content'],

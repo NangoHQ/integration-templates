@@ -33,12 +33,7 @@ const AxiosErrorSchema = z.object({
 
 const action = createAction({
     description: 'Delete a registered generic CRM integration from Gong.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-crm-integration',
-        group: 'CRM'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:crm:integration:delete'],

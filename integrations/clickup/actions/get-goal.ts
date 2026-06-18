@@ -41,12 +41,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single goal from ClickUp',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-goal',
-        group: 'Goals'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

@@ -85,12 +85,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create an A/B experiment in PostHog.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-experiment',
-        group: 'Experiments'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['experiment:write'],

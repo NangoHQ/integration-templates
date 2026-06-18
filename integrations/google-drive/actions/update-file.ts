@@ -31,13 +31,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Update a file's metadata",
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-file',
-        group: 'Files'
-    },
+    version: '1.0.1',
 
     input: InputSchema,
     output: OutputSchema,

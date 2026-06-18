@@ -41,13 +41,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Rename a Slack channel',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/rename-channel',
-        group: 'Conversations'
-    },
+    version: '2.0.1',
 
     input: InputSchema,
     output: OutputSchema,

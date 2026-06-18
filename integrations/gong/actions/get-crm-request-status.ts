@@ -26,12 +26,7 @@ const ErrorResponseSchema = z.object({
 
 const action = createAction({
     description: 'Check the status of an async CRM upload request.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-crm-request-status',
-        group: 'CRM'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:crm:upload'],

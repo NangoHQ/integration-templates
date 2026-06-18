@@ -7,13 +7,7 @@ import { ExactCustomerCreateOutput, ExactCustomerCreateInput } from '../models.j
 
 const action = createAction({
     description: 'Creates a customer in ExactOnline',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/customers',
-        group: 'Customers'
-    },
+    version: '2.0.1',
 
     input: ExactCustomerCreateInput,
     output: ExactCustomerCreateOutput,

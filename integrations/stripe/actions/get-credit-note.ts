@@ -67,12 +67,7 @@ const OutputSchema = CreditNoteSchema;
 
 const action = createAction({
     description: 'Retrieve a single credit note from Stripe.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-credit-note',
-        group: 'Credit Notes'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

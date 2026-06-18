@@ -49,12 +49,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update a webhook in Figma',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-webhook',
-        group: 'Webhooks'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['webhooks:write'],

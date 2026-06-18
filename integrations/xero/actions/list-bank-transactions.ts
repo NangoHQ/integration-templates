@@ -62,12 +62,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List bank transactions with filters and pagination.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-bank-transactions',
-        group: 'Bank Transactions'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['accounting.banktransactions', 'accounting.banktransactions.read'],

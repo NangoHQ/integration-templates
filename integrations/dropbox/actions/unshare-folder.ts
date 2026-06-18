@@ -38,12 +38,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Unshare a Dropbox shared folder as its owner.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/unshare-folder',
-        group: 'Sharing'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['sharing.write'],

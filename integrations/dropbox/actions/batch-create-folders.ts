@@ -105,12 +105,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create multiple Dropbox folders in one batch request',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/batch-create-folders',
-        group: 'Files'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['files.content.write'],

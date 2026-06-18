@@ -46,12 +46,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List drives available to the authenticated user.',
-    version: '2.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-drives',
-        group: 'Drives'
-    },
+    version: '2.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Files.Read', 'Files.Read.All', 'offline_access'],

@@ -87,12 +87,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a Shopify B2B company by GraphQL ID.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-company',
-        group: 'Companies'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read_companies'],

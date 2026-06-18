@@ -53,12 +53,7 @@ const ProviderResponseSchema = z.object({
 
 const action = createAction({
     description: 'List all tags in the workspace.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-tags',
-        group: 'Tags'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['tags'],

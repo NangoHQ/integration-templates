@@ -12,12 +12,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete or archive a time off request in BambooHR by canceling it.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-time-off-request',
-        group: 'Time Off'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

@@ -167,12 +167,7 @@ interface TeamRequestBody {
 
 const action = createAction({
     description: 'Create a team from a template or existing group.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-team',
-        group: 'Teams'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Team.Create'],

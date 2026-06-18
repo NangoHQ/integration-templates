@@ -40,12 +40,7 @@ const ProviderListResponseSchema = z.object({
 
 const action = createAction({
     description: 'List mailbox filters configured for the authenticated user',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-filters',
-        group: 'Filters'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: ListOutputSchema,
     scopes: ['https://www.googleapis.com/auth/gmail.settings.basic'],

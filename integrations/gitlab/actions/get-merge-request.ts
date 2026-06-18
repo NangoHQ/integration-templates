@@ -107,12 +107,7 @@ const OutputSchema = ProviderMergeRequestSchema;
 
 const action = createAction({
     description: 'Retrieve a single merge request from GitLab.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-merge-request',
-        group: 'Merge Requests'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api'],

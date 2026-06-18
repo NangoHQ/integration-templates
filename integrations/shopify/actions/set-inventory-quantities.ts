@@ -68,12 +68,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Set absolute inventory quantities for tracked items.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/set-inventory-quantities',
-        group: 'Inventory'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write_inventory'],

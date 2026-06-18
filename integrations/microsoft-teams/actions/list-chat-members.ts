@@ -38,12 +38,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List members in a chat',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-chat-members',
-        group: 'Chats'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

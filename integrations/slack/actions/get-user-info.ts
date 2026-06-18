@@ -25,13 +25,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Retrieve a user's account details, including profile and avatar fields",
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-user-info',
-        group: 'Users'
-    },
+    version: '2.0.1',
 
     input: InputSchema,
     output: OutputSchema,

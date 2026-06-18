@@ -167,13 +167,8 @@ const AccessibleResourceSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a Confluence space by id.',
-    version: '1.0.0',
+    version: '1.0.1',
     metadata: MetadataSchema,
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-space',
-        group: 'Spaces'
-    },
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read:space:confluence'],

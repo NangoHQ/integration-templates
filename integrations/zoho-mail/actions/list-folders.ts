@@ -33,12 +33,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List all folders for an account in Zoho Mail',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-folders',
-        group: 'Folders'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoMail.folders.READ'],

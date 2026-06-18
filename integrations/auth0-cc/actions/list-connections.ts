@@ -92,12 +92,7 @@ interface Connection {
 
 const action = createAction({
     description: 'List connections from Auth0.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-connections',
-        group: 'Connections'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read:connections'],

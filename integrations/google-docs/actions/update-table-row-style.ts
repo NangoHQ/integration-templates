@@ -38,12 +38,7 @@ const BatchUpdateResponseSchema = z.object({
 
 const action = createAction({
     description: 'Update minimum height or related row styling for table rows.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-table-row-style',
-        group: 'Tables'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: BatchUpdateResponseSchema,
     scopes: ['https://www.googleapis.com/auth/documents'],

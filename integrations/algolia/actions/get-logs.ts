@@ -34,12 +34,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve recent API operation logs from Algolia.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-logs',
-        group: 'Logs'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

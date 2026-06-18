@@ -43,12 +43,7 @@ const MetadataSchema = z.object({
 
 const action = createAction({
     description: 'Create a content property on a Confluence page.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-page-property',
-        group: 'Pages'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,

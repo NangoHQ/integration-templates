@@ -28,12 +28,7 @@ const AccessibleResourceSchema = z.object({
 
 const action = createAction({
     description: 'Link two Jira issues with a relationship type',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-issue-link',
-        group: 'Issues'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write:jira-work'],

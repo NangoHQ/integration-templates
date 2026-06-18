@@ -29,12 +29,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List members of a Trello board',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-members',
-        group: 'Boards'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read'],

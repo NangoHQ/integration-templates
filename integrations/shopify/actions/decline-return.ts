@@ -38,12 +38,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Decline a return request on a Shopify order.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/decline-return',
-        group: 'Returns'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write_returns'],

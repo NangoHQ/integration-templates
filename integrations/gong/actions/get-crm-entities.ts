@@ -23,12 +23,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve CRM objects (accounts, contacts, deals, leads) from the Gong CRM integration.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-crm-entities',
-        group: 'CRM'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:crm:get-objects'],

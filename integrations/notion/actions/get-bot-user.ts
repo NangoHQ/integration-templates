@@ -62,12 +62,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve the bot user associated with the current integration token.',
-    version: '2.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-bot-user',
-        group: 'Users'
-    },
+    version: '2.0.1',
     input: InputSchema,
     output: OutputSchema,
 

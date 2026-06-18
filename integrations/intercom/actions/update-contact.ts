@@ -44,12 +44,7 @@ interface UpdateContactBody {
 
 const action = createAction({
     description: 'Update mutable fields on an existing contact.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-contact',
-        group: 'Contacts'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['contacts:write'],

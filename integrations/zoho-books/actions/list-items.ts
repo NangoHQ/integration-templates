@@ -77,12 +77,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List items from Zoho Books.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-items',
-        group: 'Items'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoBooks.settings.READ'],

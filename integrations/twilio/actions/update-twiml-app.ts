@@ -42,12 +42,7 @@ const OutputSchema = ProviderApplicationSchema;
 
 const action = createAction({
     description: 'Update a TwiML application in Twilio.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-twiml-app',
-        group: 'Applications'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['twilio'],

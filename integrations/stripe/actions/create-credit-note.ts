@@ -118,11 +118,7 @@ function flattenObject(obj: unknown, prefix = ''): Array<[string, string]> {
 
 const action = createAction({
     description: 'Create a credit note in Stripe to adjust or refund a finalized invoice.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-credit-note'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     exec: async (nango, input) => {

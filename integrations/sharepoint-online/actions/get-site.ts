@@ -54,11 +54,7 @@ const OutputSchema = z
 
 const action = createAction({
     description: 'Retrieve a SharePoint site by ID or path.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-site'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Sites.Read.All', 'Sites.ReadWrite.All'],

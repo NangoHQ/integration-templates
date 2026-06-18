@@ -93,11 +93,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Search Twilio available phone numbers',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-available-phone-numbers'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

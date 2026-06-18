@@ -7,13 +7,7 @@ import { SuccessResponse, UpdateUserInput } from '../models.js';
 
 const action = createAction({
     description: 'Updates an existing, active user in Metabase.',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'PUT',
-        path: '/users',
-        group: 'Users'
-    },
+    version: '1.0.1',
 
     input: UpdateUserInput,
     output: SuccessResponse,

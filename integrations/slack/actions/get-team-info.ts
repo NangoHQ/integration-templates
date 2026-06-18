@@ -31,13 +31,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve workspace details such as name, domain, and icon',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-team-info',
-        group: 'Team'
-    },
+    version: '2.0.1',
 
     input: InputSchema,
     output: OutputSchema,

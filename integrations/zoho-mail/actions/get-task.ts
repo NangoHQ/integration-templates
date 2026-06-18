@@ -51,12 +51,7 @@ const OutputSchema = ProviderTaskSchema;
 
 const action = createAction({
     description: 'Retrieve a single personal task from Zoho Mail.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-task',
-        group: 'Tasks'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoMail.tasks.ALL', 'ZohoMail.tasks.READ'],

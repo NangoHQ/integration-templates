@@ -47,11 +47,7 @@ const ConnectionConfigSchema = z.object({
 
 const action = createAction({
     description: 'Update a storage object in Supabase.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-storage-object'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

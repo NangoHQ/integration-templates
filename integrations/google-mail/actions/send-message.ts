@@ -17,12 +17,7 @@ const SentMessageSchema = z.object({
 
 const action = createAction({
     description: 'Send an email message through Gmail using raw MIME content.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/send-message',
-        group: 'Messages'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: SentMessageSchema,
     scopes: ['https://www.googleapis.com/auth/gmail.send'],

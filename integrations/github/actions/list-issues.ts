@@ -81,12 +81,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List repository issues with state, assignee, label, and pagination filters.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-issues',
-        group: 'Issues'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['repo'],

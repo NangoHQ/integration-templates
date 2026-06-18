@@ -27,12 +27,7 @@ const OutputSchema = z
 
 const action = createAction({
     description: 'Retrieve a record by external ID field and value.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-record-by-external-id',
-        group: 'Records'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

@@ -37,12 +37,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Move inventory quantities between Shopify locations.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/move-inventory-quantities',
-        group: 'Inventory'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write_inventory'],

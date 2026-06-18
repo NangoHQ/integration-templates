@@ -99,12 +99,7 @@ const ConnectionConfigSchema = z.object({
 
 const action = createAction({
     description: 'List knowledge base articles.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-articles',
-        group: 'Articles'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Desk.articles.READ'],

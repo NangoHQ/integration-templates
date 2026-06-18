@@ -6,13 +6,7 @@ import { PennylaneSuccessResponse, PennylaneIndividualCustomer } from '../models
 
 const action = createAction({
     description: 'Action to create a customer in pennylane',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/customers',
-        group: 'Customers'
-    },
+    version: '2.0.1',
 
     input: PennylaneIndividualCustomer,
     output: PennylaneSuccessResponse,

@@ -11,12 +11,7 @@ const OutputSchema = z.object({}).passthrough();
 
 const action = createAction({
     description: 'Retrieve Algolia index settings.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-settings',
-        group: 'Settings'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

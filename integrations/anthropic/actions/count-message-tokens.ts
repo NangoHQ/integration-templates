@@ -26,12 +26,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Count tokens for an Anthropic message request.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/count-message-tokens',
-        group: 'Messages'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

@@ -85,12 +85,7 @@ function extractCursorFromUrl(url: string | null | undefined): string | undefine
 
 const action = createAction({
     description: 'List ticket macros available to the account',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-macros',
-        group: 'Macros'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

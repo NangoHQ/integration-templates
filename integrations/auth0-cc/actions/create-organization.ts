@@ -128,12 +128,7 @@ function normalizeBranding(branding: z.infer<typeof ProviderOrganizationSchema>[
 
 const action = createAction({
     description: 'Create a organization in Auth0.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-organization',
-        group: 'Organizations'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['create:organizations'],

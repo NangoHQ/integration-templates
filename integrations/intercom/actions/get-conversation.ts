@@ -114,12 +114,7 @@ const OutputSchema = ConversationSchema;
 
 const action = createAction({
     description: 'Retrieve a conversation by ID.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-conversation',
-        group: 'Conversations'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read_conversations'],

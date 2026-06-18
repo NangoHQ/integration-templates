@@ -65,12 +65,7 @@ const OutputSchema = z
 
 const action = createAction({
     description: 'Retrieve a single action from PostHog.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-action',
-        group: 'Actions'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['action:read'],

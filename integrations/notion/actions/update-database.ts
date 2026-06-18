@@ -27,13 +27,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Modifies database title, description, or properties schema.',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'PATCH',
-        path: '/databases/update',
-        group: 'Databases'
-    },
+    version: '1.0.1',
 
     input: InputSchema,
     output: OutputSchema,

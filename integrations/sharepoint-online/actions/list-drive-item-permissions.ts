@@ -78,12 +78,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List all permissions on a drive item.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-drive-item-permissions',
-        group: 'Drive Items'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Sites.Read.All'],

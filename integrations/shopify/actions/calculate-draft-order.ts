@@ -227,12 +227,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Calculate totals and taxes for a Shopify draft order without creating it.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/calculate-draft-order',
-        group: 'Draft Orders'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read_draft_orders', 'write_draft_orders'],

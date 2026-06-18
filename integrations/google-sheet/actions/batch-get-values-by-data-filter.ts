@@ -57,13 +57,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Get values from ranges matching data filters',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/batch-get-values-by-data-filter',
-        group: 'Values'
-    },
+    version: '1.0.1',
 
     input: InputSchema,
     output: OutputSchema,

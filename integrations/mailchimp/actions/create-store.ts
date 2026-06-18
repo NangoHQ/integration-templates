@@ -122,12 +122,7 @@ function normalizeStore(store: z.infer<typeof ProviderStoreSchema>): z.infer<typ
 
 const action = createAction({
     description: 'Create a store in Mailchimp.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-store',
-        group: 'E-commerce Stores'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ecommerce_stores_write'],

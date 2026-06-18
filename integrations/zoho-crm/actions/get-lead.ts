@@ -113,12 +113,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single lead from Zoho CRM by its record ID.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-lead',
-        group: 'Leads'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoCRM.modules.leads.READ'],

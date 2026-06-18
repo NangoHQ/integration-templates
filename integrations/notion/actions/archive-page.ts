@@ -25,12 +25,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Archive a page so it is removed from active workspace views.',
-    version: '2.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/archive-page',
-        group: 'Pages'
-    },
+    version: '2.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

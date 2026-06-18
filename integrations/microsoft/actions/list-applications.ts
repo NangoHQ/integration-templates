@@ -42,12 +42,7 @@ const ProviderResponseSchema = z.object({
 
 const action = createAction({
     description: 'List applications from Microsoft Graph API',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-applications',
-        group: 'Applications'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Application.Read.All'],

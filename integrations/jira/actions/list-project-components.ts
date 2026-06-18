@@ -29,12 +29,7 @@ const CloudIdMetadataSchema = z.object({
 
 const action = createAction({
     description: 'List components for a Jira project',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-project-components',
-        group: 'Projects'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     metadata: CloudIdMetadataSchema,

@@ -52,12 +52,7 @@ const RawResponseSchema = z.object({
 
 const action = createAction({
     description: 'List sections in a project.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-sections-for-project',
-        group: 'Sections'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: ListOutputSchema,
     scopes: ['projects:read'],

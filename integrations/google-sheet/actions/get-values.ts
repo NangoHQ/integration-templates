@@ -15,13 +15,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Get values from a spreadsheet range',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-values',
-        group: 'Sheets'
-    },
+    version: '1.0.1',
 
     input: InputSchema,
     output: OutputSchema,

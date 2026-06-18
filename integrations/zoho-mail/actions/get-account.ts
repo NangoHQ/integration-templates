@@ -108,12 +108,7 @@ const ZohoResponseSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single account from Zoho Mail',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-account',
-        group: 'Accounts'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoMail.accounts.READ'],

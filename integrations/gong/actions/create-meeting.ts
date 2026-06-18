@@ -33,12 +33,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a new Gong meeting (Beta).',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-meeting',
-        group: 'Meetings'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:meetings:user:create'],

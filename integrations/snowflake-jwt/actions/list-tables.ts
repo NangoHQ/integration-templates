@@ -49,12 +49,7 @@ const SnowflakeStatementResponseSchema = z.object({
 
 const action = createAction({
     description: 'List tables in a Snowflake schema',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-tables',
-        group: 'Tables'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

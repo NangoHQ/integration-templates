@@ -47,12 +47,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a contact (user or lead) in Intercom.',
-    version: '3.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-contact',
-        group: 'Contacts'
-    },
+    version: '3.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['contacts:write'],

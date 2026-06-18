@@ -100,12 +100,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single component set from Figma.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-component-set',
-        group: 'Component Sets'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['library_assets:read', 'files:read'],

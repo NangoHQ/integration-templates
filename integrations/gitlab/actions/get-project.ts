@@ -266,12 +266,7 @@ const ProjectSchema = z
 
 const action = createAction({
     description: 'Retrieve a single project from GitLab.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-project',
-        group: 'Projects'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: ProjectSchema,
 

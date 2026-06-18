@@ -72,12 +72,7 @@ const GraphQLResponseSchema = z.object({
 
 const action = createAction({
     description: 'List Linear issues with filtering and pagination.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-issues',
-        group: 'Issues'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['issues:read'],

@@ -46,12 +46,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update an employee in BambooHR.',
-    version: '3.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-employee',
-        group: 'Employees'
-    },
+    version: '3.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['employee:write'],

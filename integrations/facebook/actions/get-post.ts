@@ -43,12 +43,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a Facebook post by post ID',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-post',
-        group: 'Posts'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['public_profile', 'pages_show_list', 'pages_read_engagement'],

@@ -33,13 +33,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a HubSpot task with type, title, priority, assignee, due date, notes, and optional associations to contacts, companies, or deals',
-    version: '3.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-task',
-        group: 'Tasks'
-    },
+    version: '3.0.1',
 
     input: InputSchema,
     output: OutputSchema,

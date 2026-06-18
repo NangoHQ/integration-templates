@@ -8,13 +8,7 @@ import { GustoCreateEmployeeResponse, GustoCreateEmployee } from '../models.js';
 
 const action = createAction({
     description: 'Creates an employee in Gusto.',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/employees',
-        group: 'Employees'
-    },
+    version: '1.0.1',
 
     input: GustoCreateEmployee,
     output: GustoCreateEmployeeResponse,

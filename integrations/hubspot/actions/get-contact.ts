@@ -16,13 +16,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Get a contact by ID',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-contact',
-        group: 'Contacts'
-    },
+    version: '1.0.1',
 
     input: InputSchema,
     output: OutputSchema,

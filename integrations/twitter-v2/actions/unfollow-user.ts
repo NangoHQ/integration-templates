@@ -18,12 +18,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Unfollow a user from the authenticated account',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/unfollow-user',
-        group: 'Follows'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['users.read', 'follows.write'],

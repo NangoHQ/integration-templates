@@ -49,12 +49,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List items in a SharePoint list',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-list-items',
-        group: 'Lists'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Sites.Read.All'],

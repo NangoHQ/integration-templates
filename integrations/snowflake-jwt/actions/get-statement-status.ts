@@ -45,12 +45,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Get Snowflake SQL statement execution status and inline results.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-statement-status',
-        group: 'Statements'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

@@ -14,13 +14,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Adds bulleted list items to a page.',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'PATCH',
-        path: '/blocks/bulleted-list',
-        group: 'Blocks'
-    },
+    version: '1.0.1',
 
     input: InputSchema,
     output: OutputSchema,

@@ -67,12 +67,7 @@ const OutputSchema = ProviderInvoiceSchema;
 
 const action = createAction({
     description: 'Update an existing invoice.',
-    version: '3.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-invoice',
-        group: 'Invoices'
-    },
+    version: '3.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['accounting.invoices'],

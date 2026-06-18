@@ -29,13 +29,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List immediate files and folders for a folder ID, or root when omitted, with cursor pagination and shared-drive support.',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-files-non-unified',
-        group: 'Files'
-    },
+    version: '1.0.1',
 
     input: InputSchema,
     output: OutputSchema,

@@ -175,12 +175,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve an invoice by ID',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-invoice',
-        group: 'Invoices'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['com.intuit.quickbooks.accounting'],

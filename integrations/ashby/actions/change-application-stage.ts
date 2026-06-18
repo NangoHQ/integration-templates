@@ -95,12 +95,7 @@ const ChangeStageResponseSchema = z.object({
 
 const action = createAction({
     description: 'Move an application to another interview stage.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/change-application-stage',
-        group: 'Applications'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['candidatesWrite'],

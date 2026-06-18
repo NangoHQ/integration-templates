@@ -213,12 +213,7 @@ function extractCursor(url: string | null): string | undefined {
 
 const action = createAction({
     description: 'List event definitions (auto-detected event schemas) from PostHog.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-event-definitions',
-        group: 'Event Definitions'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['event_definition:read'],

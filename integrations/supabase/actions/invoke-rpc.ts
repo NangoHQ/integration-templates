@@ -22,11 +22,7 @@ const OutputSchema = z.unknown();
 
 const action = createAction({
     description: 'Call a Supabase Postgres function via PostgREST.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/invoke-rpc'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

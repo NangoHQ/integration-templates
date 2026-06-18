@@ -40,11 +40,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Copy a message to another mail folder.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/copy-message'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Mail.ReadWrite'],

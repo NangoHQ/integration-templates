@@ -69,11 +69,7 @@ const PaginatedResponseSchema = z.object({
 
 const action = createAction({
     description: 'List refresh tokens issued to a user in Auth0.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-user-refresh-tokens'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read:refresh_tokens'],

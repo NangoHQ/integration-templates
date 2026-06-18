@@ -84,12 +84,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a new Notion page with properties and optional children.',
-    version: '2.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-page',
-        group: 'Pages'
-    },
+    version: '2.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['insert_content'],

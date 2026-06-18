@@ -106,12 +106,7 @@ const OutputSchema = ProviderMemberSchema;
 
 const action = createAction({
     description: 'Retrieve a single member from Mailchimp.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-member',
-        group: 'Members'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

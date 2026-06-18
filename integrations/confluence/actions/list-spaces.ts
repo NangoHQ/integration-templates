@@ -100,11 +100,7 @@ function mapProviderSpaceToOutput(providerSpace: z.infer<typeof ProviderSpaceSch
 
 const action = createAction({
     description: 'List accessible Confluence spaces.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-spaces'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,

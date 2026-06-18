@@ -107,12 +107,7 @@ function isDeletedMetadata(data: z.infer<typeof ProviderMetadataSchema>): data i
 
 const action = createAction({
     description: 'Retrieve metadata for a Dropbox file or folder',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-file-or-folder-metadata',
-        group: 'Files'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['files.metadata.read'],

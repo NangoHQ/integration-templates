@@ -4,13 +4,7 @@ import { SuccessResponse, IdEntity } from '../models.js';
 
 const action = createAction({
     description: 'Enables a disabled user.',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'PUT',
-        path: '/users/enable',
-        group: 'Users'
-    },
+    version: '1.0.1',
 
     input: IdEntity,
     output: SuccessResponse,

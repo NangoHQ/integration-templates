@@ -40,12 +40,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update page properties and other mutable page fields.',
-    version: '2.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-page',
-        group: 'Pages'
-    },
+    version: '2.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

@@ -28,12 +28,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Mark a Zoho Books invoice as sent',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/mark-invoice-sent',
-        group: 'Invoices'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoBooks.invoices.CREATE', 'ZohoBooks.settings.READ'],

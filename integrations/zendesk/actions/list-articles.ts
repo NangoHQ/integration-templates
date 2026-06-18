@@ -46,12 +46,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List Zendesk Help Center articles with pagination',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-articles',
-        group: 'Articles'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read'],

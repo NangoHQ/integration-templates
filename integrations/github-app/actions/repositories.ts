@@ -6,13 +6,7 @@ import { z } from 'zod';
 
 const action = createAction({
     description: 'List all repositories accessible to this Github App',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'GET',
-        path: '/repositories',
-        group: 'Repositories'
-    },
+    version: '2.0.1',
 
     input: z.void(),
     output: RepoResponse,

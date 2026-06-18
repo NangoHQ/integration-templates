@@ -18,13 +18,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Search for a folder by name or query',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/find-folder',
-        group: 'Folders'
-    },
+    version: '1.0.1',
 
     input: InputSchema,
     output: OutputSchema,

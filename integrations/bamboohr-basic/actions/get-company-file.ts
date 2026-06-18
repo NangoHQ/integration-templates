@@ -43,11 +43,7 @@ function extractBufferBytes(value: unknown): Uint8Array | undefined {
 
 const action = createAction({
     description: 'Retrieve a single company file from BambooHR.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-company-file'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['company_file'],

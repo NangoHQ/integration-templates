@@ -111,12 +111,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List product variations from WooCommerce.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-product-variations',
-        group: 'Products'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

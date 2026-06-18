@@ -57,12 +57,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Run a TikTok Ads integrated report.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/run-integrated-report',
-        group: 'Reports'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

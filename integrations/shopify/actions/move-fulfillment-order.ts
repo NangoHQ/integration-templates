@@ -31,12 +31,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Move a Shopify fulfillment order to a different location.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/move-fulfillment-order',
-        group: 'Fulfillments'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write_merchant_managed_fulfillment_orders', 'write_third_party_fulfillment_orders'],

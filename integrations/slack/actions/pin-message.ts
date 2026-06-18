@@ -12,13 +12,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Pin a specific message in a channel',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/pin-message',
-        group: 'Pins'
-    },
+    version: '2.0.1',
 
     input: InputSchema,
     output: OutputSchema,

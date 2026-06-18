@@ -17,12 +17,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete or archive a recording in Zoom.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-recording',
-        group: 'Cloud Recording'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['recording:write', 'recording:write:admin', 'cloud_recording:delete:meeting_recording', 'cloud_recording:delete:meeting_recording:admin'],

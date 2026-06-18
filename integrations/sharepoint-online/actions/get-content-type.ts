@@ -95,12 +95,7 @@ const OutputSchema = ContentTypeSchema;
 
 const action = createAction({
     description: 'Retrieve a single content type from a SharePoint site.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-content-type',
-        group: 'Content Types'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Sites.Read.All'],

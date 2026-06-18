@@ -106,12 +106,7 @@ const ListPersonsOutputSchema = z.object({
 
 const action = createAction({
     description: 'List persons from Pipedrive',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-persons',
-        group: 'Persons'
-    },
+    version: '1.0.1',
     input: ListPersonsInputSchema,
     output: ListPersonsOutputSchema,
 

@@ -30,12 +30,7 @@ const ConnectionConfigSchema = z.object({
 
 const action = createAction({
     description: 'Query rows from a Supabase table through PostgREST.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/query-table-rows',
-        group: 'PostgREST'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

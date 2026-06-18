@@ -171,12 +171,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a commit with changed files and stats',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-commit',
-        group: 'Commits'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

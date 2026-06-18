@@ -5,13 +5,7 @@ import { PennylaneSuccessResponse, CreateSupplier } from '../models.js';
 
 const action = createAction({
     description: 'Action to create a supplier in pennylane',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/suppliers',
-        group: 'Suppliers'
-    },
+    version: '2.0.1',
 
     input: CreateSupplier,
     output: PennylaneSuccessResponse,

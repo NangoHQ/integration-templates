@@ -6,13 +6,7 @@ import { NetsuiteCustomerUpdateOutput, NetsuiteCustomerUpdateInput } from '../mo
 
 const action = createAction({
     description: 'Updates a customer in Netsuite',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'PUT',
-        path: '/customers',
-        group: 'Customers'
-    },
+    version: '2.0.1',
 
     input: NetsuiteCustomerUpdateInput,
     output: NetsuiteCustomerUpdateOutput,

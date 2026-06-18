@@ -37,12 +37,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List site-level column definitions on a SharePoint site.',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-site-columns'
-    },
+    version: '1.0.1',
 
     input: InputSchema,
     output: OutputSchema,

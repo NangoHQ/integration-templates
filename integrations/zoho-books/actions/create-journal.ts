@@ -168,12 +168,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a manual journal entry in Zoho Books.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-journal',
-        group: 'Journals'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoBooks.accountants.CREATE', 'ZohoBooks.settings.READ'],

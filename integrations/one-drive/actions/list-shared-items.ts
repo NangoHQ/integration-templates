@@ -84,12 +84,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List items shared with the user.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-shared-items',
-        group: 'Files'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Files.Read', 'Files.Read.All', 'offline_access'],

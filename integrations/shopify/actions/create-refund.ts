@@ -123,7 +123,7 @@ const ResponseSchema = z.object({
 
 export default createAction({
     description: 'Create a refund for a Shopify order',
-    endpoint: { method: 'POST', path: '/actions/create-refund' },
+    version: '0.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read_orders', 'write_orders'],

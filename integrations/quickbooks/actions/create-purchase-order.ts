@@ -178,12 +178,7 @@ function toPurchaseOrder(po: z.infer<typeof ProviderPurchaseOrderSchema>): z.inf
 
 const action = createAction({
     description: 'Create a QuickBooks purchase order',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-purchase-order',
-        group: 'Purchase Orders'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['com.intuit.quickbooks.accounting'],

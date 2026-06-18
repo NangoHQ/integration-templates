@@ -34,13 +34,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List CRM property metadata for a specified HubSpot object type',
-    version: '3.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/fetch-properties',
-        group: 'CRM'
-    },
+    version: '3.0.1',
 
     input: InputSchema,
     output: OutputSchema,

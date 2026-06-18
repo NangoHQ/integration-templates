@@ -56,12 +56,7 @@ const ProviderEntrySchema = z.object({
 
 const action = createAction({
     description: 'List time tracking entries for an employee in BambooHR.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-time-tracking-entries',
-        group: 'Time Tracking'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

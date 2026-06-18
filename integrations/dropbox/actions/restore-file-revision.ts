@@ -32,12 +32,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Restore a previous Dropbox file revision to the current path',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/restore-file-revision',
-        group: 'Files'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['files.content.write', 'files.metadata.read'],

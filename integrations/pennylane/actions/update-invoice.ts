@@ -4,13 +4,7 @@ import { UpdateInvoice, PennylaneSuccessResponse } from '../models.js';
 
 const action = createAction({
     description: 'Action to update an invoice in pennylane',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'PATCH',
-        path: '/invoices',
-        group: 'Invoices'
-    },
+    version: '2.0.1',
 
     input: UpdateInvoice,
     output: PennylaneSuccessResponse,

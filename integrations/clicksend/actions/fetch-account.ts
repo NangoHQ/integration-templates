@@ -7,13 +7,7 @@ import { z } from 'zod';
 
 const action = createAction({
     description: 'Fetches basic information about the ClickSend account.',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'GET',
-        path: '/account',
-        group: 'Account'
-    },
+    version: '2.0.1',
 
     input: z.void(),
     output: Account,

@@ -31,12 +31,7 @@ const ListFolderResultSchema = z.object({
 
 const action = createAction({
     description: 'List Dropbox folder contents with pagination and optional recursion.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-folder',
-        group: 'Files'
-    },
+    version: '1.0.1',
     input: ListFolderInputSchema,
     output: ListFolderOutputSchema,
     scopes: ['files.metadata.read'],

@@ -120,12 +120,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a comment on a record or list entry in Attio.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-comment',
-        group: 'Comments'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['comment:read-write', 'record_permission:read', 'object_configuration:read', 'list_configuration:read', 'list_entry:read'],

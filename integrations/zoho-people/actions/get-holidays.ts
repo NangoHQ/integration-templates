@@ -23,12 +23,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List configured holidays within a date range',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-holidays',
-        group: 'Holidays'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoPeople.leave.ALL'],

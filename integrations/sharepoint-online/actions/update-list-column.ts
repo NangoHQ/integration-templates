@@ -40,12 +40,7 @@ const OutputSchema = z
 
 const action = createAction({
     description: 'Update a SharePoint list column.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-list-column',
-        group: 'Lists'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Sites.ReadWrite.All', 'Files.ReadWrite.All'],

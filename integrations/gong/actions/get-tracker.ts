@@ -39,12 +39,7 @@ const OutputSchema = TrackerSchema;
 
 const action = createAction({
     description: 'Retrieve a single keyword tracker from Gong.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-tracker',
-        group: 'Trackers'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:settings:trackers:read'],

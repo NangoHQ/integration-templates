@@ -80,12 +80,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single group from Splitwise.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-group',
-        group: 'Groups'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

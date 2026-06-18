@@ -25,12 +25,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Continue a SOQL query using a nextRecordsUrl locator',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/retrieve-query-more',
-        group: 'Query'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

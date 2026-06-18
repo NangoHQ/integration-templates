@@ -108,12 +108,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a payment against an invoice or credit note.',
-    version: '3.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-payment',
-        group: 'Payments'
-    },
+    version: '3.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['accounting.payments'],

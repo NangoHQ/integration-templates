@@ -57,13 +57,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List shared drives the user can access, with cursor pagination and drive metadata like hidden, capabilities, and restrictions.',
-    version: '3.0.0',
-
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-drives',
-        group: 'Drives'
-    },
+    version: '3.0.1',
 
     input: InputSchema,
     output: OutputSchema,

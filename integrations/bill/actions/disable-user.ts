@@ -6,13 +6,7 @@ import { SuccessResponse, IdEntity } from '../models.js';
 
 const action = createAction({
     description: 'Archive an existing user in Bill',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'DELETE',
-        path: '/users',
-        group: 'Users'
-    },
+    version: '1.0.1',
 
     input: IdEntity,
     output: SuccessResponse,

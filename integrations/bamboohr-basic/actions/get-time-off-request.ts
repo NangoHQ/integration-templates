@@ -121,12 +121,7 @@ function parseOptionalFloat(value: string | undefined): number | undefined {
 
 const action = createAction({
     description: 'Retrieve a single time off request from BambooHR.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-time-off-request',
-        group: 'Time Off'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['time_off'],

@@ -87,12 +87,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a SCIM user in 1Password SCIM.',
-    version: '1.1.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-scim-user',
-        group: 'Users'
-    },
+    version: '1.1.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

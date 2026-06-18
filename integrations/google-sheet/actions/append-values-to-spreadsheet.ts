@@ -32,13 +32,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Append values to the end of a spreadsheet table',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/append-values-to-spreadsheet',
-        group: 'Sheets'
-    },
+    version: '1.0.1',
 
     input: InputSchema,
     output: OutputSchema,

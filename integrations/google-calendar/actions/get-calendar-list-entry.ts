@@ -21,13 +21,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a calendar list entry with access role and colors',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-calendar-list-entry',
-        group: 'Calendars'
-    },
+    version: '2.0.1',
 
     input: InputSchema,
     output: OutputSchema,

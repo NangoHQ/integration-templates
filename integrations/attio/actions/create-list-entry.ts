@@ -57,12 +57,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a list entry in Attio by adding a record to a list',
-    version: '2.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-list-entry',
-        group: 'List Entries'
-    },
+    version: '2.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['list_entry:read-write', 'list_configuration:read'],

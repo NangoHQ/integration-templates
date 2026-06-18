@@ -13,13 +13,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Remove a pinned message from a channel',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/unpin-message',
-        group: 'Pins'
-    },
+    version: '2.0.1',
 
     input: InputSchema,
     output: OutputSchema,

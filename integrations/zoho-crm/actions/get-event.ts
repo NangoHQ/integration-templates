@@ -170,12 +170,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single event from Zoho CRM.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-event',
-        group: 'Events'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoCRM.modules.Events.READ', 'ZohoCRM.modules.READ', 'ZohoCRM.READ'], // Zoho CRM Events read scopes

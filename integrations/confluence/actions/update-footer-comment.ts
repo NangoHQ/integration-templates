@@ -71,12 +71,7 @@ const MetadataSchema = z.object({
 
 const action = createAction({
     description: 'Update the body of a Confluence footer comment.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-footer-comment',
-        group: 'Comments'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,

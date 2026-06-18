@@ -70,12 +70,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update a guild in Discord',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-guild',
-        group: 'Guilds'
-    },
+    version: '1.0.1',
     metadata: MetadataSchema,
     input: InputSchema,
     output: OutputSchema,

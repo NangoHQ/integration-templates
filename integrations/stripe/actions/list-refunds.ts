@@ -45,12 +45,7 @@ const StripeListResponseSchema = z.object({
 
 const action = createAction({
     description: 'List refunds from Stripe.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-refunds',
-        group: 'Refunds'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: ListOutputSchema,
     scopes: [],

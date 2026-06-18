@@ -14,12 +14,7 @@ const ConnectionConfigSchema = z.object({
 
 const action = createAction({
     description: 'Insert a row into a Supabase table.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/insert-table-row',
-        group: 'PostgREST'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

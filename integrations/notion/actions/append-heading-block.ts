@@ -14,13 +14,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Adds a heading block to a page.',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'PATCH',
-        path: '/blocks/heading',
-        group: 'Blocks'
-    },
+    version: '1.0.1',
 
     input: InputSchema,
     output: OutputSchema,

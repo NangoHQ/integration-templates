@@ -64,12 +64,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a goal in ClickUp',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-goal',
-        group: 'Goals'
-    },
+    version: '1.0.1',
     metadata: MetadataSchema,
     input: InputSchema,
     output: OutputSchema,

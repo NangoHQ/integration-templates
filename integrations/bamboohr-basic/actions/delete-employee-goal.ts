@@ -20,11 +20,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete a performance goal from an employee record in BambooHR.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-employee-goal'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

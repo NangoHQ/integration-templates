@@ -6,13 +6,7 @@ import { NetsuitePurchaseOrderUpdateOutput, NetsuitePurchaseOrderUpdateInput } f
 
 const action = createAction({
     description: 'Updates an existing purchase order in Netsuite.',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'PUT',
-        path: '/purchase-orders',
-        group: 'Purchase Orders'
-    },
+    version: '2.0.1',
 
     input: NetsuitePurchaseOrderUpdateInput,
     output: NetsuitePurchaseOrderUpdateOutput,

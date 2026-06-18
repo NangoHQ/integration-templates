@@ -28,12 +28,7 @@ function isObject(value: unknown): value is Record<string, unknown> {
 
 const action = createAction({
     description: 'Accept a fulfillment request for a Shopify fulfillment order.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/accept-fulfillment-request',
-        group: 'Fulfillment Orders'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write_assigned_fulfillment_orders'],

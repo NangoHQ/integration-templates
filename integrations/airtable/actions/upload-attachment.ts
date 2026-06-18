@@ -18,12 +18,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Upload an attachment into a record's attachment field.",
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/upload-attachment',
-        group: 'Records'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['data.records:write', 'schema.bases:read'],

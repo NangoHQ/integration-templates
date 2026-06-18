@@ -97,12 +97,7 @@ async function getCloudId(nango: NangoActionExec): Promise<string> {
 
 const action = createAction({
     description: 'List pages in a specific Confluence space.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-space-pages',
-        group: 'Pages'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,

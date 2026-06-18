@@ -16,13 +16,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Gets a specific property value from a page with pagination support.',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'GET',
-        path: '/pages/property',
-        group: 'Pages'
-    },
+    version: '1.0.1',
 
     input: InputSchema,
     output: OutputSchema,

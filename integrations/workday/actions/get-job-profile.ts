@@ -21,8 +21,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single job profile from Workday.',
-    version: '1.0.0',
-    endpoint: { method: 'GET', path: '/actions/get-job-profile', group: 'Job Profiles' },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

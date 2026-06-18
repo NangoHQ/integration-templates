@@ -42,12 +42,7 @@ const OutputSchema = ProviderMessageSchema;
 
 const action = createAction({
     description: "Retrieve a single message's details from Zoho Mail.",
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-message',
-        group: 'Messages'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoMail.messages.READ'],

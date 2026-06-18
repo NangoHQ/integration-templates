@@ -18,12 +18,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete an invoice item from Stripe.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-invoice-item',
-        group: 'Invoice Items'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

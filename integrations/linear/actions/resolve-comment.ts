@@ -36,12 +36,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Resolve a Linear comment thread.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/resolve-comment',
-        group: 'Comments'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write'],

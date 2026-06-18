@@ -7,13 +7,7 @@ import { Sms, ClickSendSendSmsInput } from '../models.js';
 
 const action = createAction({
     description: "Sends an SMS message via ClickSend's API.",
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/sms/send',
-        group: 'SMS'
-    },
+    version: '2.0.1',
 
     input: ClickSendSendSmsInput,
     output: Sms,

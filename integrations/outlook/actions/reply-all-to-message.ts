@@ -30,12 +30,7 @@ const DraftMessageResponseSchema = z.object({
 
 export default createAction({
     description: 'Reply to all recipients on a message',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/reply-all-to-message',
-        group: 'Messages'
-    },
+    version: '1.0.1',
     scopes: ['Mail.Send'],
     input: InputSchema,
     output: OutputSchema,

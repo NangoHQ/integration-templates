@@ -25,12 +25,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Merge an open pull request using the selected merge method.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/merge-pull-request',
-        group: 'Pull Requests'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['pull_requests:write'],

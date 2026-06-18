@@ -96,12 +96,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List Shopify orders with cursor pagination and query filters.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-orders',
-        group: 'Orders'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read_orders'],

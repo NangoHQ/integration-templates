@@ -73,12 +73,7 @@ function getRole(obj: Record<string, unknown>): MembershipRole {
 
 const action = createAction({
     description: 'List organization memberships from Calendly.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-organization-memberships',
-        group: 'Organization Memberships'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['organizations:read'],

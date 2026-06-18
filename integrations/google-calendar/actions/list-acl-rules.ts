@@ -32,13 +32,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List ACL rules for a calendar with pagination support',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-acl-rules',
-        group: 'ACL'
-    },
+    version: '2.0.1',
 
     input: InputSchema,
     output: OutputSchema,

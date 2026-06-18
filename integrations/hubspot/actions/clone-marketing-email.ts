@@ -23,13 +23,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Clone an existing marketing email',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/clone-marketing-email',
-        group: 'Marketing Emails'
-    },
+    version: '1.0.1',
 
     input: InputSchema,
     output: OutputSchema,

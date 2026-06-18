@@ -33,12 +33,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a tag ref or branch-style Git reference',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-tag-ref',
-        group: 'Git'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['repo'],

@@ -77,11 +77,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List vector stores from OpenAI.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-vector-stores'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['vector_stores.read'],

@@ -37,12 +37,7 @@ function parseTableRowFromXml(xml: string, targetRowId: string): Record<string, 
 
 const action = createAction({
     description: 'Retrieve a single employee table row from BambooHR.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-employee-table-row',
-        group: 'Employees'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

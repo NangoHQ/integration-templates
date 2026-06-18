@@ -8,12 +8,7 @@ const InputSchema = z.object({
 
 const action = createAction({
     description: 'Trigger verification for a custom send-as alias',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/verify-send-as-alias',
-        group: 'Settings'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: z.void(),
     scopes: ['https://www.googleapis.com/auth/gmail.settings.sharing'],

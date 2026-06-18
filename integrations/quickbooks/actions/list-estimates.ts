@@ -86,12 +86,7 @@ async function getCompany(nango: { getConnection: () => Promise<{ connection_con
 
 const action = createAction({
     description: 'List estimates with the QuickBooks query endpoint',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-estimates',
-        group: 'Estimates'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['com.intuit.quickbooks.accounting'],

@@ -8,13 +8,7 @@ import { Lead, UpdateLead } from '../models.js';
 const action = createAction({
     description:
         'Update a lead with any changed information about the federal agency, the name, due date, posted date, solicitation number, naics category or categories, the city, state, country, and description.',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'PUT',
-        path: '/leads',
-        group: 'Leads'
-    },
+    version: '2.0.1',
 
     input: UpdateLead,
     output: Lead,

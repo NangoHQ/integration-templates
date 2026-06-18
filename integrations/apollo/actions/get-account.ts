@@ -52,11 +52,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single account from Apollo.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-account'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

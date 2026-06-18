@@ -38,12 +38,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Send an account invite email to a Shopify customer.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/send-customer-account-invite',
-        group: 'Customers'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write_customers'],

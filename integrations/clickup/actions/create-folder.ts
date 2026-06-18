@@ -46,12 +46,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a folder in ClickUp.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-folder',
-        group: 'Folders'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

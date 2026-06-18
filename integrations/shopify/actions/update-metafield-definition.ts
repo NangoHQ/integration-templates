@@ -88,11 +88,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update a Shopify metafield definition.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-metafield-definition'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     exec: async (nango, input) => {

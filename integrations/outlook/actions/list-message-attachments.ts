@@ -33,12 +33,7 @@ const ListOutputSchema = z.object({
 
 const action = createAction({
     description: 'List attachments on a message.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-message-attachments',
-        group: 'Messages'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: ListOutputSchema,
     scopes: ['Mail.Read'],

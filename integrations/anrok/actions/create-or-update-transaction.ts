@@ -9,12 +9,7 @@ import { TransactionActionResponse, Anonymous_anrok_action_createorupdatetransac
 
 const action = createAction({
     description: 'Creates or updates a transaction in Anrok.',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/transactions'
-    },
+    version: '1.0.1',
 
     input: Anonymous_anrok_action_createorupdatetransaction_input,
     output: TransactionActionResponse,

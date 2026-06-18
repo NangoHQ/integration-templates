@@ -53,12 +53,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update a lead in Zoho CRM',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-lead',
-        group: 'Leads'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoCRM.modules.leads.ALL', 'ZohoCRM.modules.leads.UPDATE'],

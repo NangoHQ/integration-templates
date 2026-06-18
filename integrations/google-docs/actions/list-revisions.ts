@@ -35,11 +35,7 @@ const DriveRevisionsResponseSchema = z.object({
 
 const action = createAction({
     description: 'List the revision history for a Google Doc.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-revisions'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['drive.readonly'],

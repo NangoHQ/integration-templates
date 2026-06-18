@@ -14,12 +14,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Skip to the previous track in the user's queue",
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/skip-to-previous',
-        group: 'Player'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['user-modify-playback-state'],

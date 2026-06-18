@@ -66,12 +66,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a vector store in OpenAI',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-vector-store',
-        group: 'Vector Stores'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['vector_stores.write'],

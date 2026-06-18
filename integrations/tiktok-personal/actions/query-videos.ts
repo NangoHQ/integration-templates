@@ -79,12 +79,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Fetch TikTok video details by IDs.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/query-videos',
-        group: 'Videos'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['video.list'],

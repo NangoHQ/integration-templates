@@ -42,12 +42,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update tracking details on a Shopify fulfillment.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-fulfillment-tracking',
-        group: 'Fulfillments'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write_assigned_fulfillment_orders', 'write_merchant_managed_fulfillment_orders', 'write_third_party_fulfillment_orders'],

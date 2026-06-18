@@ -44,12 +44,7 @@ const ProviderResponseSchema = z.object({
 
 const action = createAction({
     description: 'List users from Ashby.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-users',
-        group: 'Users'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['organizationRead'],

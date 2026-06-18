@@ -124,12 +124,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Edit an issue's title, body, state, assignees, labels, or milestone.",
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-issue',
-        group: 'Issues'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['repo'],
