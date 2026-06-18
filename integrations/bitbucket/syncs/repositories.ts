@@ -85,12 +85,6 @@ const sync = createSync({
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
-    endpoints: [
-        {
-            path: '/syncs/repositories',
-            method: 'GET'
-        }
-    ],
     models: {
         Repository: RepositorySchema
     },

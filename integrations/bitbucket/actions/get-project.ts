@@ -36,10 +36,6 @@ const action = createAction({
     input: InputSchema,
     output: OutputSchema,
     scopes: [],
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-project'
-    },
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         let responseData: unknown;

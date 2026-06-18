@@ -41,10 +41,6 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    endpoint: {
-        path: '/actions/create-webhook',
-        method: 'POST'
-    },
     scopes: ['webhook', 'repository:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {

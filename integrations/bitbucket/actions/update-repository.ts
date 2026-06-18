@@ -69,10 +69,6 @@ const action = createAction({
     input: InputSchema,
     output: OutputSchema,
     scopes: ['repository:write'],
-    endpoint: {
-        path: '/actions/update-repository',
-        method: 'POST'
-    },
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const updateBody: Record<string, unknown> = {

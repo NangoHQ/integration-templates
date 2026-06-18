@@ -29,7 +29,6 @@ const OutputSchema = z.object({
 const action = createAction({
     description: 'Create a branch in a repository',
     version: '1.0.0',
-    endpoint: { method: 'POST', path: '/actions/create-branch' },
     input: InputSchema,
     output: OutputSchema,
 

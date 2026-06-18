@@ -107,12 +107,6 @@ const sync = createSync({
     models: {
         Pipeline: PipelineSchema
     },
-    endpoints: [
-        {
-            path: '/syncs/pipelines',
-            method: 'GET'
-        }
-    ],
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();
         const parsedCheckpoint = checkpoint ? CheckpointSchema.safeParse(checkpoint) : null;

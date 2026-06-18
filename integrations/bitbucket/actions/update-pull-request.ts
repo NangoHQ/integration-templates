@@ -116,10 +116,6 @@ const action = createAction({
     input: InputSchema,
     output: OutputSchema,
     scopes: ['pullrequest:write'],
-    endpoint: {
-        path: '/actions/update-pull-request',
-        method: 'POST'
-    },
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const body: {

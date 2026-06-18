@@ -55,10 +55,6 @@ const action = createAction({
     input: InputSchema,
     output: OutputSchema,
     scopes: ['repository'],
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-commits'
-    },
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         let endpoint: string;

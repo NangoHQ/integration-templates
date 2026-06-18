@@ -39,10 +39,6 @@ const action = createAction({
     input: InputSchema,
     output: ListOutputSchema,
     scopes: ['repository'],
-    endpoint: {
-        path: '/actions/list-repositories',
-        method: 'GET'
-    },
 
     exec: async (nango, input): Promise<z.infer<typeof ListOutputSchema>> => {
         const params: Record<string, string | number> = {};

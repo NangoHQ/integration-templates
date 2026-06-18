@@ -53,12 +53,6 @@ const sync = createSync({
     models: {
         Tag: TagSchema
     },
-    endpoints: [
-        {
-            path: '/syncs/tags',
-            method: 'GET'
-        }
-    ],
     checkpoint: CheckpointSchema,
 
     exec: async (nango) => {

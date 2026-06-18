@@ -18,10 +18,6 @@ const action = createAction({
     input: InputSchema,
     output: OutputSchema,
     scopes: ['repository:delete'],
-    endpoint: {
-        path: '/actions/delete-repository',
-        method: 'POST'
-    },
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developer.atlassian.com/cloud/bitbucket/rest/intro/

@@ -28,10 +28,6 @@ const action = createAction({
     input: InputSchema,
     output: OutputSchema,
     scopes: ['pullrequest'],
-    endpoint: {
-        path: '/actions/list-pr-activity',
-        method: 'GET'
-    },
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const params: Record<string, string | number> = {};

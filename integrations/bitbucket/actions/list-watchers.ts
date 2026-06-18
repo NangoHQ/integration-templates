@@ -37,10 +37,6 @@ const OutputSchema = z.object({
 const action = createAction({
     description: 'List users watching a repository',
     version: '1.0.0',
-    endpoint: {
-        path: '/actions/list-watchers',
-        method: 'GET'
-    },
     input: InputSchema,
     output: OutputSchema,
     scopes: ['repository'],

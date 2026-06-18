@@ -14,7 +14,6 @@ const OutputSchema = z.object({
 const action = createAction({
     description: "Retrieve the authenticated user's profile",
     version: '1.0.0',
-    endpoint: { method: 'GET', path: '/actions/get-current-user' },
     input: z.object({}),
     output: OutputSchema,
     scopes: ['account'],

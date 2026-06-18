@@ -74,12 +74,6 @@ const sync = createSync({
     models: {
         PullRequest: PullRequestSchema
     },
-    endpoints: [
-        {
-            method: 'GET',
-            path: '/syncs/pull-requests'
-        }
-    ],
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();

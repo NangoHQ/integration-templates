@@ -41,12 +41,6 @@ const sync = createSync({
     models: {
         Workspace: WorkspaceSchema
     },
-    endpoints: [
-        {
-            method: 'GET',
-            path: '/syncs/workspaces'
-        }
-    ],
     checkpoint: CheckpointSchema,
 
     exec: async (nango) => {

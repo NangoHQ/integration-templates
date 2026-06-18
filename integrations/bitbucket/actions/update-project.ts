@@ -75,10 +75,6 @@ const OutputSchema = z.object({
 const action = createAction({
     description: 'Update a workspace project.',
     version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-project'
-    },
     input: InputSchema,
     output: OutputSchema,
     scopes: ['project:admin'],

@@ -51,7 +51,6 @@ const OutputSchema = z.object({
 const action = createAction({
     description: 'Retrieve a repository.',
     version: '1.0.0',
-    endpoint: { method: 'GET', path: '/actions/get-repository' },
     input: InputSchema,
     output: OutputSchema,
     scopes: ['repository'],

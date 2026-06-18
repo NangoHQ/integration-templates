@@ -32,10 +32,6 @@ const action = createAction({
     input: InputSchema,
     output: OutputSchema,
     scopes: ['pipeline'],
-    endpoint: {
-        path: '/actions/list-deployment-environments',
-        method: 'GET'
-    },
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const params: Record<string, string> = {};

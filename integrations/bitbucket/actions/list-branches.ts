@@ -69,10 +69,6 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-branches'
-    },
     scopes: ['repository'],
 
     exec: async (nango, input) => {

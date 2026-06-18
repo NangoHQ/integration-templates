@@ -17784,13 +17784,15 @@ export interface ActionInput_bitbucket_getcommit {
 };
 
 export interface ActionOutput_bitbucket_getcommit {
-  hash?: string | undefined;
+  hash: string;
   type?: string | undefined;
   message?: string | undefined;
   author?: {  raw?: string | undefined;
   type?: string | undefined;
   user?: {  display_name?: string | undefined;
-  uuid?: string | undefined;};};
+  uuid?: string | undefined;
+  account_id?: string | undefined;
+  type?: string | undefined;};};
   date?: string | undefined;
   parents?: ({  hash?: string | undefined;
   type?: string | undefined;})[];
@@ -18015,9 +18017,17 @@ export interface ActionOutput_bitbucket_listpipelines {
   items: ({  uuid: string;
   build_number: number;
   type?: string | undefined;
-  state?: {  [key: string]: unknown | undefined;};
-  target?: {  [key: string]: unknown | undefined;};
-  trigger?: {  [key: string]: unknown | undefined;};
+  state?: {  name?: string | undefined;
+  type?: string | undefined;
+  stage?: {  name?: string | undefined;
+  type?: string | undefined;};
+  result?: {  name?: string | undefined;
+  type?: string | undefined;};};
+  target?: {  type?: string | undefined;
+  ref_type?: string | undefined;
+  ref_name?: string | undefined;};
+  trigger?: {  name?: string | undefined;
+  type?: string | undefined;};
   created_on?: string | undefined;
   completed_on?: string | undefined;
   build_seconds_used?: number | undefined;})[];

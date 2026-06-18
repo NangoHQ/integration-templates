@@ -35,7 +35,6 @@ const sync = createSync({
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
-    endpoints: [{ method: 'GET', path: '/syncs/commits' }],
     models: {
         Commit: CommitSchema
     },

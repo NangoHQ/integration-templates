@@ -38,10 +38,6 @@ const action = createAction({
     input: InputSchema,
     output: OutputSchema,
     scopes: ['repository'],
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-tags'
-    },
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const params: Record<string, string | number> = {};
