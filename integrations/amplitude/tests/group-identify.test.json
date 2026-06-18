@@ -1,0 +1,52 @@
+{
+  "input": {
+    "group_type": "org id",
+    "group_value": "test-group-123",
+    "group_properties": {
+      "plan": "Enterprise"
+    }
+  },
+  "output": {
+    "success": true
+  },
+  "nango": {
+    "getConnection": {
+      "credentials": {
+        "type": "BASIC",
+        "username": "50219ec150a6a7cbb8c0302461ca40de"
+      }
+    },
+    "getMetadata": {}
+  },
+  "api": {
+    "post": {
+      "/groupidentify": {
+        "response": "success",
+        "status": 200,
+        "headers": {
+          "date": "Tue, 16 Jun 2026 12:09:27 GMT",
+          "content-type": "text/html;charset=utf-8",
+          "content-length": "7",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4988",
+          "x-ratelimit-reset": "1781611824",
+          "etag": "W/\"7-U6VofLJtxB8qtAM+l+E63v03QNY\""
+        },
+        "hash": "e2590f033443e81b5a8e48e27fd883f26704b223",
+        "request": {
+          "data": "api_key=50219ec150a6a7cbb8c0302461ca40de&identification=%7B%22group_type%22%3A%22org+id%22%2C%22group_value%22%3A%22test-group-123%22%2C%22group_properties%22%3A%7B%22plan%22%3A%22Enterprise%22%7D%7D"
+        }
+      }
+    }
+  }
+}
