@@ -603,6 +603,50 @@ import './bill/syncs/users.js';
 import './bill/actions/create-user.js';
 import './bill/actions/disable-user.js';
 
+// -- Integration: bitbucket
+import './bitbucket/syncs/branches.js';
+import './bitbucket/syncs/commits.js';
+import './bitbucket/syncs/pipelines.js';
+import './bitbucket/syncs/pull-requests.js';
+import './bitbucket/syncs/repositories.js';
+import './bitbucket/syncs/tags.js';
+import './bitbucket/syncs/workspace-members.js';
+import './bitbucket/syncs/workspaces.js';
+import './bitbucket/actions/create-branch.js';
+import './bitbucket/actions/create-pr-comment.js';
+import './bitbucket/actions/create-project.js';
+import './bitbucket/actions/create-pull-request.js';
+import './bitbucket/actions/create-repository.js';
+import './bitbucket/actions/create-webhook.js';
+import './bitbucket/actions/decline-pull-request.js';
+import './bitbucket/actions/delete-branch.js';
+import './bitbucket/actions/delete-repository.js';
+import './bitbucket/actions/delete-webhook.js';
+import './bitbucket/actions/get-commit.js';
+import './bitbucket/actions/get-current-user.js';
+import './bitbucket/actions/get-project.js';
+import './bitbucket/actions/get-repository.js';
+import './bitbucket/actions/get-workspace.js';
+import './bitbucket/actions/list-branches.js';
+import './bitbucket/actions/list-commits.js';
+import './bitbucket/actions/list-deployment-environments.js';
+import './bitbucket/actions/list-pipelines.js';
+import './bitbucket/actions/list-pr-activity.js';
+import './bitbucket/actions/list-pr-comments.js';
+import './bitbucket/actions/list-projects.js';
+import './bitbucket/actions/list-pull-requests.js';
+import './bitbucket/actions/list-repositories.js';
+import './bitbucket/actions/list-tags.js';
+import './bitbucket/actions/list-watchers.js';
+import './bitbucket/actions/list-webhooks.js';
+import './bitbucket/actions/list-workspace-members.js';
+import './bitbucket/actions/list-workspaces.js';
+import './bitbucket/actions/merge-pull-request.js';
+import './bitbucket/actions/update-project.js';
+import './bitbucket/actions/update-pull-request.js';
+import './bitbucket/actions/update-repository.js';
+import './bitbucket/actions/update-webhook.js';
+
 // -- Integration: bitdefender
 import './bitdefender/actions/get-company-details.js';
 

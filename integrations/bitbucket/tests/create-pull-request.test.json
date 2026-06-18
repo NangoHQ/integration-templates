@@ -1,0 +1,232 @@
+{
+  "input": {
+    "workspace": "nangodev",
+    "repo_slug": "nango-api-test",
+    "title": "Test PR from feature",
+    "source_branch": "feature",
+    "destination_branch": "main"
+  },
+  "output": {
+    "id": 5,
+    "title": "Test PR from feature",
+    "description": "",
+    "state": "OPEN",
+    "source_branch": "feature",
+    "destination_branch": "main",
+    "close_source_branch": false,
+    "created_on": "2026-06-18T19:00:44.592988+00:00",
+    "updated_on": "2026-06-18T19:03:55.567056+00:00",
+    "reviewers": []
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/2.0/repositories/nangodev/nango-api-test/pullrequests": {
+        "response": {
+          "comment_count": 0,
+          "task_count": 0,
+          "type": "pullrequest",
+          "id": 5,
+          "title": "Test PR from feature",
+          "description": "",
+          "rendered": {
+            "title": {
+              "type": "rendered",
+              "raw": "Test PR from feature",
+              "markup": "markdown",
+              "html": "<p>Test PR from feature</p>"
+            },
+            "description": {
+              "type": "rendered",
+              "raw": "",
+              "markup": "markdown",
+              "html": ""
+            }
+          },
+          "state": "OPEN",
+          "draft": false,
+          "merge_commit": null,
+          "close_source_branch": false,
+          "closed_by": null,
+          "author": {
+            "display_name": "Nango Developer",
+            "links": {
+              "self": {
+                "href": "https://api.bitbucket.org/2.0/users/%7Ba35738e8-3d79-470d-a80f-2a2fe4336964%7D"
+              },
+              "avatar": {
+                "href": "https://secure.gravatar.com/avatar/0f8c53293177b8e9f1658ae7951a468e?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FND-4.png"
+              },
+              "html": {
+                "href": "https://bitbucket.org/%7Ba35738e8-3d79-470d-a80f-2a2fe4336964%7D/"
+              }
+            },
+            "type": "user",
+            "uuid": "{a35738e8-3d79-470d-a80f-2a2fe4336964}",
+            "account_id": "712020:7bf45758-6986-4e0e-aefc-a3000196d8d2",
+            "nickname": "Nango Developer"
+          },
+          "reason": "",
+          "created_on": "2026-06-18T19:00:44.592988+00:00",
+          "updated_on": "2026-06-18T19:03:55.567056+00:00",
+          "destination": {
+            "branch": {
+              "name": "main"
+            },
+            "commit": {
+              "hash": "de0ad10a9256",
+              "links": {
+                "self": {
+                  "href": "https://api.bitbucket.org/2.0/repositories/nangodev/nango-api-test/commit/de0ad10a9256"
+                },
+                "html": {
+                  "href": "https://bitbucket.org/nangodev/nango-api-test/commits/de0ad10a9256"
+                }
+              },
+              "type": "commit"
+            },
+            "repository": {
+              "type": "repository",
+              "full_name": "nangodev/nango-api-test",
+              "links": {
+                "self": {
+                  "href": "https://api.bitbucket.org/2.0/repositories/nangodev/nango-api-test"
+                },
+                "html": {
+                  "href": "https://bitbucket.org/nangodev/nango-api-test"
+                },
+                "avatar": {
+                  "href": "https://bytebucket.org/ravatar/%7Bb32e0f1e-40bb-4b0b-833a-739edcf92d5b%7D?ts=js"
+                }
+              },
+              "name": "nango-api-test",
+              "uuid": "{b32e0f1e-40bb-4b0b-833a-739edcf92d5b}"
+            }
+          },
+          "source": {
+            "branch": {
+              "name": "feature",
+              "links": {},
+              "sync_strategies": [
+                "merge_commit",
+                "rebase"
+              ]
+            },
+            "commit": {
+              "hash": "68e8281051cc",
+              "links": {
+                "self": {
+                  "href": "https://api.bitbucket.org/2.0/repositories/nangodev/nango-api-test/commit/68e8281051cc"
+                },
+                "html": {
+                  "href": "https://bitbucket.org/nangodev/nango-api-test/commits/68e8281051cc"
+                }
+              },
+              "type": "commit"
+            },
+            "repository": {
+              "type": "repository",
+              "full_name": "nangodev/nango-api-test",
+              "links": {
+                "self": {
+                  "href": "https://api.bitbucket.org/2.0/repositories/nangodev/nango-api-test"
+                },
+                "html": {
+                  "href": "https://bitbucket.org/nangodev/nango-api-test"
+                },
+                "avatar": {
+                  "href": "https://bytebucket.org/ravatar/%7Bb32e0f1e-40bb-4b0b-833a-739edcf92d5b%7D?ts=js"
+                }
+              },
+              "name": "nango-api-test",
+              "uuid": "{b32e0f1e-40bb-4b0b-833a-739edcf92d5b}"
+            }
+          },
+          "reviewers": [],
+          "participants": [],
+          "links": {
+            "self": {
+              "href": "https://api.bitbucket.org/2.0/repositories/nangodev/nango-api-test/pullrequests/5"
+            },
+            "html": {
+              "href": "https://bitbucket.org/nangodev/nango-api-test/pull-requests/5"
+            },
+            "commits": {
+              "href": "https://api.bitbucket.org/2.0/repositories/nangodev/nango-api-test/pullrequests/5/commits"
+            },
+            "approve": {
+              "href": "https://api.bitbucket.org/2.0/repositories/nangodev/nango-api-test/pullrequests/5/approve"
+            },
+            "request-changes": {
+              "href": "https://api.bitbucket.org/2.0/repositories/nangodev/nango-api-test/pullrequests/5/request-changes"
+            },
+            "diff": {
+              "href": "https://api.bitbucket.org/2.0/repositories/nangodev/nango-api-test/diff/nangodev/nango-api-test:68e8281051cc%0Dde0ad10a9256?from_pullrequest_id=5&topic=true"
+            },
+            "diffstat": {
+              "href": "https://api.bitbucket.org/2.0/repositories/nangodev/nango-api-test/diffstat/nangodev/nango-api-test:68e8281051cc%0Dde0ad10a9256?from_pullrequest_id=5&topic=true"
+            },
+            "comments": {
+              "href": "https://api.bitbucket.org/2.0/repositories/nangodev/nango-api-test/pullrequests/5/comments"
+            },
+            "activity": {
+              "href": "https://api.bitbucket.org/2.0/repositories/nangodev/nango-api-test/pullrequests/5/activity"
+            },
+            "merge": {
+              "href": "https://api.bitbucket.org/2.0/repositories/nangodev/nango-api-test/pullrequests/5/merge"
+            },
+            "decline": {
+              "href": "https://api.bitbucket.org/2.0/repositories/nangodev/nango-api-test/pullrequests/5/decline"
+            },
+            "statuses": {
+              "href": "https://api.bitbucket.org/2.0/repositories/nangodev/nango-api-test/pullrequests/5/statuses"
+            }
+          },
+          "summary": {
+            "type": "rendered",
+            "raw": "",
+            "markup": "markdown",
+            "html": ""
+          },
+          "queued": false
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 18 Jun 2026 19:03:55 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "4291",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4988",
+          "x-ratelimit-reset": "1781809473",
+          "etag": "W/\"10c3-ogDELZpsrjlCMD+eKpJnZmLWvKY\""
+        },
+        "hash": "e6ffc2a6360149d5df21aefd7d624f260b4ffc28",
+        "request": {
+          "data": {
+            "title": "Test PR from feature",
+            "source": {
+              "branch": {
+                "name": "feature"
+              }
+            },
+            "destination": {
+              "branch": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
