@@ -37,7 +37,7 @@ const ApiResponseSchema = z.object({
 
 const sync = createSync({
     description: 'Sync Amplitude taxonomy event properties',
-    version: '1.0.1',
+    version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
     models: {
