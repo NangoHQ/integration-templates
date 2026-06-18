@@ -13883,6 +13883,1326 @@ export interface ActionOutput_aws_iam_deleteuser {
   success: boolean;
 };
 
+export interface Branch {
+  id: string;
+  name: string;
+  project_id: string;
+  merged?: boolean | undefined;
+  protected?: boolean | undefined;
+  default?: boolean | undefined;
+  developers_can_push?: boolean | undefined;
+  developers_can_merge?: boolean | undefined;
+  can_push?: boolean | undefined;
+  web_url?: string | undefined;
+  commit_id?: string | undefined;
+  commit_short_id?: string | undefined;
+  commit_created_at?: string | undefined;
+  commit_title?: string | undefined;
+  commit_message?: string | undefined;
+  commit_author_name?: string | undefined;
+  commit_author_email?: string | undefined;
+  commit_authored_date?: string | undefined;
+  commit_committer_name?: string | undefined;
+  commit_committer_email?: string | undefined;
+  commit_committed_date?: string | undefined;
+  commit_web_url?: string | undefined;
+};
+
+export interface SyncMetadata_azure_devops_branches {
+  repositories: ({  project: string;
+  repositoryId: string;})[];
+};
+
+export interface BuildDefinition {
+  id: string;
+  name?: string | undefined;
+  path?: string | undefined;
+  projectId?: string | undefined;
+  projectName?: string | undefined;
+  url?: string | undefined;
+  revision?: number | undefined;
+  createdDate?: string | undefined;
+};
+
+export interface SyncMetadata_azure_devops_builddefinitions {
+  projects: string[];
+};
+
+export interface Build {
+  /**
+   * Build ID
+   */
+  id: string;
+  buildNumber?: string | undefined;
+  status?: string | undefined;
+  result?: string | undefined;
+  queueTime?: string | undefined;
+  startTime?: string | undefined;
+  finishTime?: string | undefined;
+  sourceBranch?: string | undefined;
+  sourceVersion?: string | undefined;
+  url?: string | undefined;
+  definition?: {  id?: number | undefined;
+  name?: string | undefined;};
+  project?: {  id?: string | undefined;
+  name?: string | undefined;};
+  requestedBy?: {  id?: string | undefined;
+  displayName?: string | undefined;};
+};
+
+export interface SyncMetadata_azure_devops_builds {
+  projects?: string[] | undefined;
+};
+
+export interface Commit {
+  id: string;
+  short_id?: string | undefined;
+  title?: string | undefined;
+  author_name?: string | undefined;
+  author_email?: string | undefined;
+  authored_date?: string | undefined;
+  committer_name?: string | undefined;
+  committer_email?: string | undefined;
+  committed_date?: string | undefined;
+  created_at?: string | undefined;
+  message?: string | undefined;
+  parent_ids?: string[] | undefined;
+  web_url?: string | undefined;
+};
+
+export interface SyncMetadata_azure_devops_commits {
+  repositories?: ({  project: string;
+  repositoryId: string;})[] | undefined;
+};
+
+export interface Iteration {
+  id: string;
+  name?: string | undefined;
+  path?: string | undefined;
+  attributes?: {  startDate?: string | undefined;
+  finishDate?: string | undefined;
+  timeFrame?: string | undefined;};
+  url?: string | undefined;
+};
+
+export interface SyncMetadata_azure_devops_iterations {
+  projectTeams: ({  projectId: string;
+  teamId: string;})[];
+};
+
+export interface Pipeline {
+  id: string;
+  name?: string | undefined;
+  update_time: string;
+  add_time?: string | undefined;
+  is_deal_probability_enabled?: boolean | undefined;
+};
+
+export interface SyncMetadata_azure_devops_pipelines {
+  projects: string[];
+};
+
+export interface PullRequest {
+  /**
+   * The unique identifier of the pull request (e.g., "12345")
+   */
+  id: string;
+  /**
+   * The pull request number within the repository
+   */
+  number: number;
+  /**
+   * The state of the pull request: "open", "closed"
+   */
+  state: string;
+  /**
+   * The title of the pull request
+   */
+  title: string;
+  /**
+   * The description/body of the pull request
+   */
+  body?: string | undefined;
+  /**
+   * The login/username of the PR author
+   */
+  user_login?: string | undefined;
+  /**
+   * The ID of the PR author
+   */
+  user_id?: number | undefined;
+  /**
+   * The ISO 8601 timestamp when the PR was created
+   */
+  created_at: string;
+  /**
+   * The ISO 8601 timestamp when the PR was last updated
+   */
+  updated_at: string;
+  /**
+   * The ISO 8601 timestamp when the PR was closed
+   */
+  closed_at?: string | undefined;
+  /**
+   * The ISO 8601 timestamp when the PR was merged
+   */
+  merged_at?: string | undefined;
+  /**
+   * The SHA of the merge commit
+   */
+  merge_commit_sha?: string | undefined;
+  /**
+   * The name of the head branch
+   */
+  head_ref: string;
+  /**
+   * The SHA of the head branch commit
+   */
+  head_sha: string;
+  /**
+   * The name of the base branch
+   */
+  base_ref: string;
+  /**
+   * The SHA of the base branch commit
+   */
+  base_sha: string;
+  /**
+   * Whether the pull request is a draft
+   */
+  draft: boolean;
+  /**
+   * The URL to view the pull request on GitHub
+   */
+  html_url: string;
+  /**
+   * The full name of the repository (e.g., "owner/repo")
+   */
+  repo_full_name: string;
+  /**
+   * Labels attached to the pull request
+   */
+  labels: ({  id: number;
+  name: string;
+  color: string;
+  description?: string | undefined;})[];
+  /**
+   * Users assigned to the pull request
+   */
+  assignees: ({  login: string;
+  id: number;})[];
+  /**
+   * Users requested to review the pull request
+   */
+  requested_reviewers: ({  login: string;
+  id: number;})[];
+};
+
+export interface Repository {
+  id: string;
+  name: string;
+  full_name: string;
+  owner_login: string;
+  owner_id: string;
+  owner_type: string;
+  private: boolean;
+  visibility?: string | undefined;
+  html_url: string;
+  description?: string | undefined;
+  fork: boolean;
+  default_branch: string;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  pushed_at?: string | undefined;
+  homepage?: string | undefined;
+  language?: string | undefined;
+  size: number;
+  forks_count: number;
+  stargazers_count: number;
+  open_issues_count: number;
+  archived?: boolean | undefined;
+  disabled?: boolean | undefined;
+};
+
+export interface SyncMetadata_azure_devops_repositories {
+  /**
+   * List of project IDs or names to sync repositories from
+   */
+  projects: string[];
+};
+
+export interface SyncMetadata_azure_devops_teams {
+  projectIds: string[];
+};
+
+export interface TestPlan {
+  /**
+   * The unique identifier of the test plan
+   */
+  id: string;
+  /**
+   * The name of the test plan
+   */
+  name: string;
+  /**
+   * The identifier of the project containing the test plan
+   */
+  projectId: string;
+  /**
+   * The name of the project containing the test plan
+   */
+  projectName: string;
+  areaPath?: string | undefined;
+  iteration?: string | undefined;
+  state?: string | undefined;
+  startDate?: string | undefined;
+  endDate?: string | undefined;
+  updatedDate?: string | undefined;
+  ownerId?: string | undefined;
+  ownerDisplayName?: string | undefined;
+  rootSuiteId?: number | undefined;
+  rootSuiteName?: string | undefined;
+  revision?: number | undefined;
+  description?: string | undefined;
+  buildId?: number | undefined;
+};
+
+export interface SyncMetadata_azure_devops_testplans {
+  projects: string[];
+};
+
+export interface WorkItem {
+  id: string;
+  project?: string | undefined;
+  url?: string | undefined;
+  type?: string | undefined;
+  state?: string | undefined;
+  title?: string | undefined;
+  createdDate?: string | undefined;
+  changedDate?: string | undefined;
+  fields?: {  [key: string]: unknown | undefined;};
+};
+
+export interface SyncMetadata_azure_devops_workitems {
+  projects: string[];
+};
+
+export interface ActionInput_azure_devops_createprthread {
+  /**
+   * Project name or ID. Example: "nangodev"
+   */
+  project: string;
+  /**
+   * Repository ID. Example: "46eadaf5-eb36-43bc-8297-a9b4043afd09"
+   */
+  repositoryId: string;
+  /**
+   * Pull request ID. Example: 1
+   */
+  pullRequestId: number;
+  /**
+   * Comment content. Example: "Looks good!"
+   */
+  content: string;
+};
+
+export interface ActionOutput_azure_devops_createprthread {
+  id: number;
+  publishedDate?: string | undefined;
+  lastUpdatedDate?: string | undefined;
+  comments?: ({  id?: number | undefined;
+  parentCommentId?: number | undefined;
+  author?: {  displayName?: string | undefined;
+  id?: string | undefined;
+  uniqueName?: string | undefined;
+  imageUrl?: string | undefined;};
+  content?: string | undefined;
+  publishedDate?: string | undefined;
+  lastUpdatedDate?: string | undefined;
+  lastContentUpdatedDate?: string | undefined;
+  commentType?: string | undefined;})[];
+  status?: string | undefined;
+  threadContext?: unknown | undefined;
+  properties?: unknown | undefined;
+  identities?: unknown | undefined;
+  isDeleted?: boolean | undefined;
+};
+
+export interface ActionInput_azure_devops_createpullrequest {
+  /**
+   * Project name or ID. Example: "nangodev"
+   */
+  project: string;
+  /**
+   * Repository ID. Example: "46eadaf5-eb36-43bc-8297-a9b4043afd09"
+   */
+  repositoryId: string;
+  /**
+   * Pull request title.
+   */
+  title: string;
+  /**
+   * Pull request description.
+   */
+  description?: string | undefined;
+  /**
+   * Source branch ref. Example: "refs/heads/feature-branch"
+   */
+  sourceRefName: string;
+  /**
+   * Target branch ref. Example: "refs/heads/main"
+   */
+  targetRefName: string;
+  /**
+   * Whether the pull request is a draft.
+   */
+  isDraft?: boolean | undefined;
+};
+
+export interface ActionOutput_azure_devops_createpullrequest {
+  pullRequestId: number;
+  status: string;
+  title: string;
+  description?: string | undefined;
+  sourceRefName: string;
+  targetRefName: string;
+  isDraft?: boolean | undefined;
+  mergeStatus?: string | undefined;
+  url?: string | undefined;
+  creationDate?: string | undefined;
+  createdBy?: {  displayName: string;
+  id: string;
+  uniqueName?: string | undefined;};
+};
+
+export interface ActionInput_azure_devops_createworkitem {
+  /**
+   * Project name or ID. Example: "MyProject"
+   */
+  project: string;
+  /**
+   * Work item type. Example: "Task"
+   */
+  type: string;
+  /**
+   * JSON Patch operations for work item fields. Example: [{ op: "add", path: "/fields/System.Title", value: "New task" }]
+   */
+  fields: ({  op: string;
+  path: string;
+  value?: unknown | undefined;
+  from?: unknown | undefined;})[];
+};
+
+export interface ActionOutput_azure_devops_createworkitem {
+  /**
+   * Work item ID.
+   */
+  id: number;
+  /**
+   * Work item revision.
+   */
+  rev: number;
+  /**
+   * Work item URL.
+   */
+  url: string;
+  /**
+   * Work item fields.
+   */
+  fields?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_azure_devops_deleteworkitem {
+  /**
+   * Project ID or project name. Example: "MyProject"
+   */
+  project: string;
+  /**
+   * ID of the work item to delete. Example: 123
+   */
+  workItemId: number;
+  /**
+   * If true, permanently destroys the work item instead of moving it to the Recycle Bin.
+   */
+  destroy?: boolean | undefined;
+};
+
+export interface ActionOutput_azure_devops_deleteworkitem {
+  /**
+   * The deleted work item ID.
+   */
+  id: number;
+  /**
+   * The project identifier used in the request.
+   */
+  project: string;
+  /**
+   * Whether the deletion succeeded.
+   */
+  deleted: boolean;
+  /**
+   * Whether the permanent destroy flag was used.
+   */
+  destroy: boolean;
+  deletedBy?: string | undefined;
+  deletedDate?: string | undefined;
+  type?: string | undefined;
+  name?: string | undefined;
+  url?: string | undefined;
+};
+
+export interface ActionInput_azure_devops_getproject {
+  /**
+   * Project ID or name. Example: "ecbf2301-2e63-41b4-a8fd-1d2d4e1f8b9c" or "Fabrikam"
+   */
+  projectId: string;
+};
+
+export interface ActionOutput_azure_devops_getproject {
+  id: string;
+  name: string;
+  url?: string | undefined;
+  state?: string | undefined;
+  revision?: number | undefined;
+  visibility?: string | undefined;
+  lastUpdateTime?: string | undefined;
+  description?: string | undefined;
+};
+
+export interface ActionInput_azure_devops_getrepository {
+  /**
+   * Project ID or name. Example: "nangoapi"
+   */
+  project: string;
+  /**
+   * Repository ID or name. Example: "my-repo"
+   */
+  repositoryId: string;
+};
+
+export interface ActionOutput_azure_devops_getrepository {
+  id: string;
+  name?: string | undefined;
+  url?: string | undefined;
+  project?: {  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  url?: string | undefined;
+  state?: string | undefined;
+  revision?: number | undefined;
+  visibility?: string | undefined;
+  lastUpdateTime?: string | undefined;};
+  defaultBranch?: string | undefined;
+  remoteUrl?: string | undefined;
+  sshUrl?: string | undefined;
+  webUrl?: string | undefined;
+};
+
+export interface ActionInput_azure_devops_getworkitem {
+  /**
+   * Project name or ID. Example: "nangoapi"
+   */
+  project: string;
+  /**
+   * Work item ID. Example: 1
+   */
+  id: number;
+};
+
+export interface ActionOutput_azure_devops_getworkitem {
+  id: number;
+  rev?: number | undefined;
+  url?: string | undefined;
+  fields?: {  [key: string]: unknown | undefined;};
+  relations?: ({})[] | undefined;
+};
+
+export interface ActionInput_azure_devops_listboards {
+  /**
+   * Project ID or project name. Example: "MyProject"
+   */
+  project: string;
+  /**
+   * Team ID or team name. Must be URL-encoded if it contains spaces. Example: "MyTeam"
+   */
+  team: string;
+};
+
+export interface ActionOutput_azure_devops_listboards {
+  boards: ({  /**
+   * Board ID. Example: "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
+   */
+  id: string;
+  /**
+   * Board name. Example: "Backlog"
+   */
+  name: string;
+  /**
+   * Full URL to the board resource.
+   */
+  url: string;})[];
+};
+
+export interface ActionInput_azure_devops_listbranches {
+  project: string;
+  repositoryId: string;
+  continuationToken?: string | undefined;
+};
+
+export interface ActionOutput_azure_devops_listbranches {
+  branches: ({  name: string;
+  objectId: string;
+  creator?: {  displayName?: string | undefined;
+  id?: string | undefined;};
+  url?: string | undefined;})[];
+  nextContinuationToken?: string | undefined;
+};
+
+export interface ActionInput_azure_devops_listbuilddefinitions {
+  /**
+   * Project name or ID. Example: "MyProject"
+   */
+  project: string;
+  /**
+   * Pagination cursor (continuationToken) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_azure_devops_listbuilddefinitions {
+  items: ({  id: number;
+  name: string;
+  url?: string | undefined;
+  path?: string | undefined;
+  type?: string | undefined;
+  queueStatus?: string | undefined;
+  revision?: number | undefined;
+  createdDate?: string | undefined;
+  project?: {  id: string;
+  name: string;
+  url?: string | undefined;
+  state?: string | undefined;
+  revision?: number | undefined;
+  visibility?: string | undefined;
+  lastUpdateTime?: string | undefined;};})[];
+  /**
+   * Pagination cursor for the next page. Omit if there are no more pages.
+   */
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_azure_devops_listbuilds {
+  /**
+   * Project name or ID. Example: "MyProject"
+   */
+  project: string;
+  /**
+   * Minimum queue time filter (ISO 8601). Example: "2024-01-01T00:00:00Z"
+   */
+  minTime?: string | undefined;
+  /**
+   * Continuation token from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_azure_devops_listbuilds {
+  items: ({  id: number;
+  buildNumber?: string | undefined;
+  status?: string | undefined;
+  result?: string | undefined;
+  queueTime?: string | undefined;
+  startTime?: string | undefined;
+  finishTime?: string | undefined;
+  url?: string | undefined;
+  definition?: {  id?: number | undefined;
+  name?: string | undefined;};
+  project?: {  id?: string | undefined;
+  name?: string | undefined;};
+  sourceBranch?: string | undefined;
+  requestedFor?: {  id?: string | undefined;
+  displayName?: string | undefined;};})[];
+  continuationToken?: string | undefined;
+};
+
+export interface ActionInput_azure_devops_listcommits {
+  /**
+   * Project name or ID. Example: "nangoapi"
+   */
+  project: string;
+  /**
+   * Repository ID or name. Example: "my-repo"
+   */
+  repositoryId: string;
+  /**
+   * Branch name to filter commits. Example: "main"
+   */
+  branch?: string | undefined;
+  /**
+   * Filter commits created after this date (ISO 8601). Example: "2024-01-01T00:00:00Z"
+   */
+  fromDate?: string | undefined;
+  /**
+   * Number of commits to return per page. Example: 100
+   */
+  top?: number | undefined;
+  /**
+   * Number of commits to skip. Example: 0
+   */
+  skip?: number | undefined;
+  /**
+   * Pagination cursor from the previous response (continuationToken). Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_azure_devops_listcommits {
+  items: ({  commitId: string;
+  author?: {  name?: string | undefined;
+  email?: string | undefined;
+  date?: string | undefined;};
+  committer?: {  name?: string | undefined;
+  email?: string | undefined;
+  date?: string | undefined;};
+  comment?: string | undefined;
+  changeCounts?: {  Add?: number | undefined;
+  Edit?: number | undefined;
+  Delete?: number | undefined;};
+  url?: string | undefined;
+  remoteUrl?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_azure_devops_listiterations {
+  /**
+   * Project ID or project name. Example: "nangodev"
+   */
+  project: string;
+  /**
+   * Team ID or team name. Example: "nangodev Team"
+   */
+  team: string;
+  /**
+   * Filter for which iterations are returned based on relative time.
+   */
+  timeframe?: 'current' | 'past' | 'future' | undefined;
+};
+
+export interface ActionOutput_azure_devops_listiterations {
+  items: ({  id: string;
+  name: string;
+  path?: string | undefined;
+  url?: string | undefined;
+  attributes?: {  startDate?: string | undefined;
+  finishDate?: string | undefined;
+  timeFrame?: 'past' | 'current' | 'future' | undefined;};})[];
+};
+
+export interface ActionInput_azure_devops_listpipelineruns {
+  /**
+   * Project ID or project name. Example: "MyProject"
+   */
+  project: string;
+  /**
+   * Pipeline ID. Example: "123"
+   */
+  pipelineId: string | number;
+  /**
+   * Maximum number of runs to return.
+   */
+  top?: number | undefined;
+  /**
+   * Pagination token from the previous response. Omit for the first page.
+   */
+  continuationToken?: string | undefined;
+};
+
+export interface ActionOutput_azure_devops_listpipelineruns {
+  runs: ({  id?: number | undefined;
+  name?: string | undefined;
+  state?: string | undefined;
+  result?: string | undefined;
+  createdDate?: string | undefined;
+  finishedDate?: string | undefined;
+  url?: string | undefined;
+  pipeline?: {  folder?: string | undefined;
+  id?: number | undefined;
+  name?: string | undefined;
+  revision?: number | undefined;
+  url?: string | undefined;};
+  tags?: string[] | undefined;})[];
+  continuationToken?: string | undefined;
+};
+
+export interface ActionInput_azure_devops_listpipelines {
+  /**
+   * Project name or ID. Example: "nangoapi"
+   */
+  project: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_azure_devops_listpipelines {
+  items: ({  id: number;
+  name: string;
+  folder?: string | undefined;
+  url?: string | undefined;
+  revision?: number | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_azure_devops_listprthreads {
+  /**
+   * Project ID or project name.
+   */
+  project: string;
+  /**
+   * The repository ID of the pull request target branch.
+   */
+  repositoryId: string;
+  /**
+   * ID of the pull request.
+   */
+  pullRequestId: number;
+};
+
+export interface ActionOutput_azure_devops_listprthreads {
+  threads: ({  id?: number | undefined;
+  comments?: ({  id?: number | undefined;
+  parentCommentId?: number | undefined;
+  author?: {  id?: string | undefined;
+  displayName?: string | undefined;
+  uniqueName?: string | undefined;
+  url?: string | undefined;
+  imageUrl?: string | undefined;
+  isContainer?: boolean | undefined;};
+  content?: string | undefined;
+  commentType?: string | undefined;
+  publishedDate?: string | undefined;
+  lastUpdatedDate?: string | undefined;
+  lastContentUpdatedDate?: string | undefined;
+  isDeleted?: boolean | undefined;
+  usersLiked?: ({  id?: string | undefined;
+  displayName?: string | undefined;
+  uniqueName?: string | undefined;
+  url?: string | undefined;
+  imageUrl?: string | undefined;
+  isContainer?: boolean | undefined;})[];})[];
+  publishedDate?: string | undefined;
+  lastUpdatedDate?: string | undefined;
+  status?: string | undefined;
+  threadContext?: {  filePath?: string | undefined;
+  leftFileStart?: {  line?: number | undefined;
+  offset?: number | undefined;};
+  leftFileEnd?: {  line?: number | undefined;
+  offset?: number | undefined;};
+  rightFileStart?: {  line?: number | undefined;
+  offset?: number | undefined;};
+  rightFileEnd?: {  line?: number | undefined;
+  offset?: number | undefined;};};
+  pullRequestThreadContext?: {  changeTrackingId?: number | undefined;
+  iterationContext?: {  firstComparingIteration?: number | undefined;
+  secondComparingIteration?: number | undefined;};
+  trackingCriteria?: {  firstComparingIteration?: number | undefined;
+  secondComparingIteration?: number | undefined;
+  origFilePath?: string | undefined;
+  origLeftFileStart?: {  line?: number | undefined;
+  offset?: number | undefined;};
+  origLeftFileEnd?: {  line?: number | undefined;
+  offset?: number | undefined;};
+  origRightFileStart?: {  line?: number | undefined;
+  offset?: number | undefined;};
+  origRightFileEnd?: {  line?: number | undefined;
+  offset?: number | undefined;};};};
+  properties?: {  [key: string]: unknown | undefined;};
+  identities?: {  [key: string]: unknown | undefined;};
+  isDeleted?: boolean | undefined;})[];
+};
+
+export interface ActionInput_azure_devops_listprojects {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_azure_devops_listprojects {
+  items: ({  /**
+   * Project ID. Example: "6b6e62c7-9a5d-4c6c-8c8b-1234567890ab"
+   */
+  id: string;
+  /**
+   * Project name. Example: "nangoapi"
+   */
+  name: string;
+  /**
+   * Project description
+   */
+  description?: string | undefined;
+  /**
+   * Project URL
+   */
+  url?: string | undefined;
+  /**
+   * Project state. Example: "wellFormed"
+   */
+  state?: string | undefined;
+  /**
+   * Project revision
+   */
+  revision?: number | undefined;
+  /**
+   * Project visibility. Example: "private"
+   */
+  visibility?: string | undefined;
+  /**
+   * Last update time. Example: "2024-01-01T00:00:00Z"
+   */
+  lastUpdateTime?: string | undefined;})[];
+  /**
+   * Pagination cursor for the next page.
+   */
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_azure_devops_listpullrequests {
+  /**
+   * Project ID or project name. Example: "MyProject"
+   */
+  project: string;
+  /**
+   * The repository ID or name. Example: "3411ebc1-d5aa-464f-9615-0b527bc66719"
+   */
+  repositoryId: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Filter by pull request status. Defaults to Active if unset.
+   */
+  status?: 'active' | 'abandoned' | 'completed' | 'all' | undefined;
+  /**
+   * If set, search for pull requests from this branch. Example: "refs/heads/feature"
+   */
+  sourceRefName?: string | undefined;
+  /**
+   * If set, search for pull requests into this branch. Example: "refs/heads/master"
+   */
+  targetRefName?: string | undefined;
+  /**
+   * The number of pull requests to retrieve.
+   */
+  top?: number | undefined;
+};
+
+export interface ActionOutput_azure_devops_listpullrequests {
+  items: ({  pullRequestId?: number | undefined;
+  codeReviewId?: number | undefined;
+  status?: string | undefined;
+  createdBy?: {  id?: string | undefined;
+  displayName?: string | undefined;
+  uniqueName?: string | undefined;
+  url?: string | undefined;};
+  creationDate?: string | undefined;
+  closedDate?: string | undefined;
+  title?: string | undefined;
+  description?: string | undefined;
+  sourceRefName?: string | undefined;
+  targetRefName?: string | undefined;
+  mergeStatus?: string | undefined;
+  mergeId?: string | undefined;
+  lastMergeSourceCommit?: {  commitId?: string | undefined;
+  url?: string | undefined;};
+  lastMergeTargetCommit?: {  commitId?: string | undefined;
+  url?: string | undefined;};
+  lastMergeCommit?: {  commitId?: string | undefined;
+  url?: string | undefined;};
+  reviewers?: ({  id?: string | undefined;
+  displayName?: string | undefined;
+  uniqueName?: string | undefined;
+  url?: string | undefined;
+  vote?: number | undefined;
+  isRequired?: boolean | undefined;
+  reviewerUrl?: string | undefined;})[];
+  url?: string | undefined;
+  repository?: {  id?: string | undefined;
+  name?: string | undefined;
+  url?: string | undefined;
+  project?: {  id?: string | undefined;
+  name?: string | undefined;};};
+  supportsIterations?: boolean | undefined;
+  isDraft?: boolean | undefined;
+  completionQueueTime?: string | undefined;
+  closedBy?: {  id?: string | undefined;
+  displayName?: string | undefined;
+  uniqueName?: string | undefined;
+  url?: string | undefined;};})[];
+  /**
+   * Pagination cursor for the next page. Pass this value as the cursor input to retrieve the next page.
+   */
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_azure_devops_listrepositories {
+  /**
+   * Project ID or name. Example: "MyProject"
+   */
+  project: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_azure_devops_listrepositories {
+  items: ({  id: string;
+  name: string;
+  url?: string | undefined;
+  project?: {  [key: string]: unknown | undefined;};
+  defaultBranch?: string | undefined;
+  size?: number | undefined;
+  remoteUrl?: string | undefined;
+  sshUrl?: string | undefined;
+  webUrl?: string | undefined;})[];
+  continuationToken?: string | undefined;
+};
+
+export interface ActionInput_azure_devops_listteammembers {
+  /**
+   * Project ID or name. Example: "eb6e4656-77fc-42a1-9181-4c6d8e9da5d1"
+   */
+  projectId: string;
+  /**
+   * Team ID or name. Example: "564e8204-a90b-4432-883b-d4363c6125ca"
+   */
+  teamId: string;
+};
+
+export interface ActionOutput_azure_devops_listteammembers {
+  members: ({  id?: string | undefined;
+  displayName?: string | undefined;
+  uniqueName?: string | undefined;
+  url?: string | undefined;
+  imageUrl?: string | undefined;
+  isTeamAdmin?: boolean | undefined;})[];
+};
+
+export interface ActionInput_azure_devops_listteams {
+  /**
+   * Azure DevOps project ID or name. Example: "nangoapi-test"
+   */
+  projectId: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_azure_devops_listteams {
+  items: ({  id: string;
+  name: string;
+  url?: string | undefined;
+  description?: string | undefined;
+  identityUrl?: string | undefined;
+  projectName?: string | undefined;
+  projectId?: string | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_azure_devops_listtestplans {
+  /**
+   * Project name or ID. Example: "nangoapi"
+   */
+  project: string;
+  /**
+   * Pagination cursor (continuationToken) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_azure_devops_listtestplans {
+  items: ({  id: number;
+  name?: string | undefined;
+  url?: string | undefined;
+  areaPath?: string | undefined;
+  iteration?: string | undefined;
+  state?: string | undefined;
+  project?: {  id?: string | undefined;
+  name?: string | undefined;
+  url?: string | undefined;};
+  rootSuite?: {  id?: number | undefined;
+  name?: string | undefined;
+  url?: string | undefined;};
+  clientUrl?: string | undefined;
+  startDate?: string | undefined;
+  endDate?: string | undefined;})[];
+  /**
+   * Pagination cursor for the next page.
+   */
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_azure_devops_listwikis {
+  /**
+   * Project ID or project name. Example: "my-project"
+   */
+  project: string;
+};
+
+export interface ActionOutput_azure_devops_listwikis {
+  items: ({  /**
+   * Wiki ID.
+   */
+  id: string;
+  /**
+   * Wiki name.
+   */
+  name: string;
+  /**
+   * Type of the wiki: projectWiki or codeWiki.
+   */
+  type: string;
+  /**
+   * REST URL for this wiki.
+   */
+  url: string;
+  remoteUrl?: string | undefined;
+  projectId?: string | undefined;
+  repositoryId?: string | undefined;
+  mappedPath?: string | undefined;
+  isDisabled?: boolean | undefined;
+  versions?: ({  version?: string | undefined;
+  versionOptions?: string | undefined;
+  versionType?: string | undefined;})[];})[];
+  /**
+   * Total number of wikis.
+   */
+  count: number;
+};
+
+export interface ActionInput_azure_devops_pushcommits {
+  /**
+   * Project ID or project name. Example: "nangoapi"
+   */
+  project: string;
+  /**
+   * The name or ID of the repository. Example: "8ee9091d-0f54-4633-9bb2-b5ac74855a46"
+   */
+  repositoryId: string;
+  /**
+   * Branch name to push to. Example: "master" or "refs/heads/master"
+   */
+  branch: string;
+  /**
+   * The current object ID (SHA) of the branch tip. Use "0000000000000000000000000000000000000000" for an initial push to a new branch.
+   */
+  oldObjectId: string;
+  commits: ({  /**
+   * Commit message.
+   */
+  comment: string;
+  changes: ({  changeType: 'none' | 'add' | 'edit' | 'encoding' | 'rename' | 'delete' | 'undelete' | 'branch' | 'merge' | 'lock' | 'rollback' | 'sourceRename' | 'targetRename' | 'property' | 'all';
+  /**
+   * File path. Example: "/readme.md"
+   */
+  path: string;
+  /**
+   * New file content for add or edit operations. Omit for delete or rename without content changes.
+   */
+  newContent?: {  content: string;
+  contentType: 'rawText' | 'base64Encoded';} | undefined;
+  /**
+   * Original path for rename operations. Example: "/old-name.md"
+   */
+  sourceServerItem?: string | undefined;})[];})[];
+};
+
+export interface ActionOutput_azure_devops_pushcommits {
+  pushId: number;
+  date?: string | undefined;
+  url?: string | undefined;
+  commits: ({  commitId: string;
+  comment?: string | undefined;
+  treeId?: string | undefined;
+  authorName?: string | undefined;
+  authorEmail?: string | undefined;
+  authorDate?: string | undefined;
+  url?: string | undefined;})[];
+  refUpdates: ({  name: string;
+  oldObjectId?: string | undefined;
+  newObjectId?: string | undefined;})[];
+};
+
+export interface ActionInput_azure_devops_queryworkitems {
+  /**
+   * Project name or ID. Example: "nangoapi"
+   */
+  project: string;
+  /**
+   * WIQL query string. Example: "SELECT [System.Id] FROM WorkItems WHERE [System.WorkItemType] = 'Bug'"
+   */
+  query: string;
+  /**
+   * Maximum number of work items to return.
+   */
+  top?: number | undefined;
+};
+
+export interface ActionOutput_azure_devops_queryworkitems {
+  work_items: ({  id: number;
+  rev?: number | undefined;
+  url?: string | undefined;
+  fields?: {  [key: string]: unknown | undefined;};
+  relations?: unknown[] | undefined;})[];
+};
+
+export interface ActionInput_azure_devops_queuebuild {
+  /**
+   * Project ID or name. Example: "nangoapi"
+   */
+  project: string;
+  /**
+   * Build definition ID. Example: 1
+   */
+  buildDefinitionId: number;
+  /**
+   * Source branch reference. Example: "refs/heads/main"
+   */
+  sourceBranch?: string | undefined;
+  /**
+   * Build parameters as a JSON string. Example: '{"system.debug":"true"}'
+   */
+  parameters?: string | undefined;
+};
+
+export interface ActionOutput_azure_devops_queuebuild {
+  id?: number | undefined;
+  buildNumber?: string | undefined;
+  status?: string | undefined;
+  result?: string | undefined;
+  sourceBranch?: string | undefined;
+  sourceVersion?: string | undefined;
+  url?: string | undefined;
+  definition?: {  id?: number | undefined;
+  name?: string | undefined;};
+  project?: {  id?: string | undefined;
+  name?: string | undefined;};
+};
+
+export interface ActionInput_azure_devops_runpipeline {
+  /**
+   * Project ID or project name. Example: "nangoapi"
+   */
+  project: string;
+  /**
+   * The pipeline ID. Example: 1
+   */
+  pipelineId: number;
+  /**
+   * The branch ref to run the pipeline on. Example: "refs/heads/main"
+   */
+  refName?: string | undefined;
+  variables?: {  [key: string]: {  value: string;
+  isSecret?: boolean | undefined;};};
+  templateParameters?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_azure_devops_runpipeline {
+  id: number;
+  state?: string | undefined;
+  result?: string | undefined;
+  name?: string | undefined;
+  url?: string | undefined;
+  pipelineId?: number | undefined;
+  pipelineName?: string | undefined;
+  pipelineUrl?: string | undefined;
+  createdDate?: string | undefined;
+};
+
+export interface ActionInput_azure_devops_updatepullrequest {
+  /**
+   * Project ID. Example: "nangodev"
+   */
+  projectId: string;
+  /**
+   * Repository ID. Example: "46eadaf5-eb36-43bc-8297-a9b4043afd09"
+   */
+  repositoryId: string;
+  /**
+   * Pull request ID. Example: 2
+   */
+  pullRequestId: number;
+  /**
+   * Updated title for the pull request.
+   */
+  title?: string | undefined;
+  /**
+   * Updated description for the pull request. Pass null to clear.
+   */
+  description?: string | undefined;
+  /**
+   * Updated status for the pull request.
+   */
+  status?: 'active' | 'abandoned' | 'completed' | undefined;
+  /**
+   * Whether the pull request is a draft.
+   */
+  isDraft?: boolean | undefined;
+  /**
+   * The last merge source commit ID. Required when completing a PR (status: completed).
+   */
+  lastMergeSourceCommitId?: string | undefined;
+};
+
+export interface ActionOutput_azure_devops_updatepullrequest {
+  pullRequestId: number;
+  status: string;
+  title: string;
+  description?: string | undefined;
+  sourceRefName: string;
+  targetRefName: string;
+  isDraft: boolean;
+  url: string;
+  lastMergeSourceCommit?: {  commitId: string;} | undefined;
+};
+
+export interface ActionInput_azure_devops_updateworkitem {
+  /**
+   * Project name or ID. Example: "nangodev"
+   */
+  project: string;
+  /**
+   * Work item ID to update. Example: 1
+   */
+  work_item_id: number;
+  /**
+   * JSON Patch operations. Example: [{ op: "replace", path: "/fields/System.Title", value: "New title" }]
+   */
+  patches: ({  /**
+   * JSON Patch operation. Example: "replace"
+   */
+  op: string;
+  /**
+   * Target path. Example: "/fields/System.Title"
+   */
+  path: string;
+  /**
+   * New value for the path.
+   */
+  value?: unknown | undefined;})[];
+};
+
+export interface ActionOutput_azure_devops_updateworkitem {
+  id: number;
+  rev: number;
+  url: string;
+  fields?: {  [key: string]: unknown | undefined;};
+};
+
 export interface Applicant {
   id: string;
   appliedDate?: string | undefined;
@@ -26766,22 +28086,6 @@ export interface ActionOutput_gem_uploadresume {
   download_url: string;
 };
 
-export interface Commit {
-  id: string;
-  short_id?: string | undefined;
-  title?: string | undefined;
-  author_name?: string | undefined;
-  author_email?: string | undefined;
-  authored_date?: string | undefined;
-  committer_name?: string | undefined;
-  committer_email?: string | undefined;
-  committed_date?: string | undefined;
-  created_at?: string | undefined;
-  message?: string | undefined;
-  parent_ids?: string[] | undefined;
-  web_url?: string | undefined;
-};
-
 export interface Issue {
   id: string;
   identifier?: string | undefined;
@@ -26824,102 +28128,6 @@ export interface SyncMetadata_github_listfiles {
   branch: string;
 };
 
-export interface PullRequest {
-  /**
-   * The unique identifier of the pull request (e.g., "12345")
-   */
-  id: string;
-  /**
-   * The pull request number within the repository
-   */
-  number: number;
-  /**
-   * The state of the pull request: "open", "closed"
-   */
-  state: string;
-  /**
-   * The title of the pull request
-   */
-  title: string;
-  /**
-   * The description/body of the pull request
-   */
-  body?: string | undefined;
-  /**
-   * The login/username of the PR author
-   */
-  user_login?: string | undefined;
-  /**
-   * The ID of the PR author
-   */
-  user_id?: number | undefined;
-  /**
-   * The ISO 8601 timestamp when the PR was created
-   */
-  created_at: string;
-  /**
-   * The ISO 8601 timestamp when the PR was last updated
-   */
-  updated_at: string;
-  /**
-   * The ISO 8601 timestamp when the PR was closed
-   */
-  closed_at?: string | undefined;
-  /**
-   * The ISO 8601 timestamp when the PR was merged
-   */
-  merged_at?: string | undefined;
-  /**
-   * The SHA of the merge commit
-   */
-  merge_commit_sha?: string | undefined;
-  /**
-   * The name of the head branch
-   */
-  head_ref: string;
-  /**
-   * The SHA of the head branch commit
-   */
-  head_sha: string;
-  /**
-   * The name of the base branch
-   */
-  base_ref: string;
-  /**
-   * The SHA of the base branch commit
-   */
-  base_sha: string;
-  /**
-   * Whether the pull request is a draft
-   */
-  draft: boolean;
-  /**
-   * The URL to view the pull request on GitHub
-   */
-  html_url: string;
-  /**
-   * The full name of the repository (e.g., "owner/repo")
-   */
-  repo_full_name: string;
-  /**
-   * Labels attached to the pull request
-   */
-  labels: ({  id: number;
-  name: string;
-  color: string;
-  description?: string | undefined;})[];
-  /**
-   * Users assigned to the pull request
-   */
-  assignees: ({  login: string;
-  id: number;})[];
-  /**
-   * Users requested to review the pull request
-   */
-  requested_reviewers: ({  login: string;
-  id: number;})[];
-};
-
 export interface SyncMetadata_github_pullrequests {
   repos: string[];
 };
@@ -26939,32 +28147,6 @@ export interface Release {
 export interface SyncMetadata_github_releases {
   repos?: ({  owner: string;
   name: string;})[] | undefined;
-};
-
-export interface Repository {
-  id: string;
-  name: string;
-  full_name: string;
-  owner_login: string;
-  owner_id: string;
-  owner_type: string;
-  private: boolean;
-  visibility?: string | undefined;
-  html_url: string;
-  description?: string | undefined;
-  fork: boolean;
-  default_branch: string;
-  created_at?: string | undefined;
-  updated_at?: string | undefined;
-  pushed_at?: string | undefined;
-  homepage?: string | undefined;
-  language?: string | undefined;
-  size: number;
-  forks_count: number;
-  stargazers_count: number;
-  open_issues_count: number;
-  archived?: boolean | undefined;
-  disabled?: boolean | undefined;
 };
 
 export interface FileMetadata {
@@ -29545,31 +30727,6 @@ export interface ActionOutput_github_app_repositories {
   web_commit_signoff_required: boolean;})[];
 };
 
-export interface Branch {
-  id: string;
-  name: string;
-  project_id: string;
-  merged?: boolean | undefined;
-  protected?: boolean | undefined;
-  default?: boolean | undefined;
-  developers_can_push?: boolean | undefined;
-  developers_can_merge?: boolean | undefined;
-  can_push?: boolean | undefined;
-  web_url?: string | undefined;
-  commit_id?: string | undefined;
-  commit_short_id?: string | undefined;
-  commit_created_at?: string | undefined;
-  commit_title?: string | undefined;
-  commit_message?: string | undefined;
-  commit_author_name?: string | undefined;
-  commit_author_email?: string | undefined;
-  commit_authored_date?: string | undefined;
-  commit_committer_name?: string | undefined;
-  commit_committer_email?: string | undefined;
-  commit_committed_date?: string | undefined;
-  commit_web_url?: string | undefined;
-};
-
 export interface SyncMetadata_gitlab_commits {
   project_id?: string | undefined;
 };
@@ -29592,14 +30749,6 @@ export interface MergeRequest {
   labels?: string[] | undefined;
   merged_at?: string | undefined;
   closed_at?: string | undefined;
-};
-
-export interface Pipeline {
-  id: string;
-  name?: string | undefined;
-  update_time: string;
-  add_time?: string | undefined;
-  is_deal_probability_enabled?: boolean | undefined;
 };
 
 export interface SyncMetadata_gitlab_pipelines {
