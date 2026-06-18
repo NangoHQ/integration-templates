@@ -53,13 +53,14 @@ const action = createAction({
     },
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const page = input.cursor ? parseInt(input.cursor, 10) : 1;
-        if (input.cursor && isNaN(page)) {
+        const parsedPage = input.cursor ? Number(input.cursor) : 1;
+        if (input.cursor && (!Number.isInteger(parsedPage) || parsedPage < 1)) {
             throw new nango.ActionError({
                 type: 'invalid_cursor',
-                message: 'cursor must be a valid page number'
+                message: 'cursor must be a positive integer page number'
             });
         }
+        const page = parsedPage;
 
         // https://developer.bigcommerce.com/docs/rest-management/wishlists
         const response = await nango.get({

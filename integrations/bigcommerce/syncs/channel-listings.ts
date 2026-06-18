@@ -73,13 +73,12 @@ const sync = createSync({
     scopes: ['store_channel_listings_read_only'],
 
     exec: async (nango) => {
-        let metadata: z.infer<typeof MetadataSchema> | undefined;
-        try {
-            metadata = await nango.getMetadata();
-        } catch {
-            metadata = undefined;
+        const rawMetadata = await nango.getMetadata<z.infer<typeof MetadataSchema>>();
+        const parsedMetadata = MetadataSchema.safeParse(rawMetadata ?? {});
+        if (!parsedMetadata.success) {
+            throw new Error(`Invalid sync metadata: ${parsedMetadata.error.message}`);
         }
-        const channelIds = metadata?.channel_ids && metadata.channel_ids.length > 0 ? metadata.channel_ids : [1];
+        const channelIds = parsedMetadata.data.channel_ids && parsedMetadata.data.channel_ids.length > 0 ? parsedMetadata.data.channel_ids : [1];
 
         const checkpoint = CheckpointSchema.parse((await nango.getCheckpoint()) ?? { updated_after: '', channel_id: 0, after: 0 });
         const updatedAfter = checkpoint.updated_after || undefined;

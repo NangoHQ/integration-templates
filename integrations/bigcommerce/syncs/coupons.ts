@@ -73,7 +73,12 @@ const sync = createSync({
 
         // Blocker: the v2 coupons endpoint does not expose a modified-date filter,
         // so we perform a full snapshot with delete tracking.
-        await nango.trackDeletesStart('Coupon');
+        // Only start delete tracking on a full run from page 1; resuming a partial run
+        // would miss earlier pages and falsely delete those coupons.
+        const isFullRun = checkpoint.page === 1;
+        if (isFullRun) {
+            await nango.trackDeletesStart('Coupon');
+        }
 
         const limit = 50;
         let page = checkpoint.page;
@@ -129,7 +134,9 @@ const sync = createSync({
             await nango.saveCheckpoint({ page });
         }
 
-        await nango.trackDeletesEnd('Coupon');
+        if (isFullRun) {
+            await nango.trackDeletesEnd('Coupon');
+        }
         await nango.saveCheckpoint({ page: 1 });
     }
 });

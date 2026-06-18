@@ -53,7 +53,12 @@ const sync = createSync({
         const checkpoint = CheckpointSchema.parse((await nango.getCheckpoint()) ?? { page: 1 });
         let page: number | undefined = checkpoint.page;
 
-        await nango.trackDeletesStart('Brand');
+        // Only track deletes on a full run starting from page 1.
+        // Resuming mid-run skips earlier pages, which would falsely delete those records.
+        const isFullRun = checkpoint.page === 1;
+        if (isFullRun) {
+            await nango.trackDeletesStart('Brand');
+        }
 
         // https://developer.bigcommerce.com/docs/rest-management/catalog/brands
         for await (const batch of nango.paginate<z.infer<typeof BrandSchema>>({
@@ -99,7 +104,9 @@ const sync = createSync({
             }
         }
 
-        await nango.trackDeletesEnd('Brand');
+        if (isFullRun) {
+            await nango.trackDeletesEnd('Brand');
+        }
         await nango.saveCheckpoint({ page: 1 });
     }
 });

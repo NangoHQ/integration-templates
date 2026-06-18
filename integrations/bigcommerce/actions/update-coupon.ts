@@ -40,7 +40,7 @@ const ProviderCouponSchema = z
         max_uses: z.number().optional(),
         max_uses_per_customer: z.number().optional(),
         restricted_to: z.union([z.record(z.string(), z.unknown()), z.array(z.unknown())]).optional(),
-        shipping_methods: z.union([z.array(z.string()), z.null()]).optional(),
+        shipping_methods: z.array(z.string()).nullable().optional(),
         date_created: z.string().optional()
     })
     .passthrough();
@@ -62,10 +62,7 @@ const OutputSchema = z.object({
         .union([z.record(z.string(), z.unknown()), z.array(z.unknown())])
         .optional()
         .describe('Restrictions.'),
-    shipping_methods: z
-        .union([z.array(z.string()), z.null()])
-        .optional()
-        .describe('Shipping methods.'),
+    shipping_methods: z.array(z.string()).nullable().optional().describe('Shipping methods.'),
     date_created: z.string().optional().describe('Date created.')
 });
 

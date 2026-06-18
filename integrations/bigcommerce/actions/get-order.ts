@@ -40,7 +40,7 @@ const action = createAction({
             retries: 3
         });
 
-        if (response.status === 204) {
+        if (response.status === 404) {
             throw new nango.ActionError({
                 type: 'not_found',
                 message: 'Order not found'

@@ -17647,11 +17647,11 @@ export interface ActionInput_bigcommerce_createcoupon {
   /**
    * Discount type.
    */
-  type: 'per_item_discount' | 'percentage_discount' | 'per_total_discount' | 'shipping_discount' | 'free_shipping';
+  type: 'per_item_discount' | 'percentage_discount' | 'per_total_discount' | 'shipping_discount' | 'free_shipping' | 'promotion';
   /**
-   * Discount amount or percentage.
+   * Discount amount or percentage as a string (e.g. "5.0000").
    */
-  amount: number;
+  amount: string;
   /**
    * Coupon code. Must be unique.
    */
@@ -17665,9 +17665,9 @@ export interface ActionInput_bigcommerce_createcoupon {
    */
   ids: number[];};
   /**
-   * Minimum order value required.
+   * Minimum order value required as a string (e.g. "25.0000").
    */
-  min_purchase?: number | undefined;
+  min_purchase?: string | undefined;
   /**
    * Expiration date in RFC 2822 format.
    */
@@ -18026,9 +18026,9 @@ export interface ActionInput_bigcommerce_createsubscriber {
    */
   last_name?: string | undefined;
   /**
-   * The source of the subscriber. Values are: `storefront`, `order`, or `custom`. Example: "storefront"
+   * The source of the subscriber. Example: "storefront"
    */
-  source?: string | undefined;
+  source?: 'storefront' | 'order' | 'custom' | undefined;
 };
 
 export interface ActionOutput_bigcommerce_createsubscriber {
@@ -19185,7 +19185,7 @@ export interface ActionOutput_bigcommerce_updatecoupon {
   /**
    * Shipping methods.
    */
-  shipping_methods?: string[] | null | undefined;
+  shipping_methods?: string[] | undefined;
   /**
    * Date created.
    */

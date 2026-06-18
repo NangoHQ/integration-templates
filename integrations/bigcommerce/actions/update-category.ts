@@ -134,33 +134,41 @@ const action = createAction({
             data['custom_url'] = input.custom_url;
         }
 
-        const response = await nango.put({
-            // https://developer.bigcommerce.com/docs/rest-management/catalog/categories#update-a-category
-            endpoint: `/v3/catalog/categories/${encodeURIComponent(input.category_id)}`,
-            data,
-            retries: 3
-        });
-
-        if (response.status === 404) {
-            throw new nango.ActionError({
-                type: 'not_found',
-                message: `Category with ID ${input.category_id} was not found.`
+        let response: Awaited<ReturnType<typeof nango.put>>;
+        try {
+            response = await nango.put({
+                // https://developer.bigcommerce.com/docs/rest-management/catalog/categories#update-a-category
+                endpoint: `/v3/catalog/categories/${encodeURIComponent(input.category_id)}`,
+                data,
+                retries: 3
             });
-        }
-
-        if (response.status === 409) {
-            throw new nango.ActionError({
-                type: 'conflict',
-                message: 'The category was in conflict with another category. This may be due to duplicate unique values such as name or custom_url.'
-            });
-        }
-
-        if (response.status === 422) {
-            throw new nango.ActionError({
-                type: 'unprocessable_entity',
-                message: 'The category was not valid. This may be due to missing required fields or invalid data.',
-                details: response.data
-            });
+        } catch (err: unknown) {
+            if (typeof err === 'object' && err !== null && 'response' in err) {
+                const response = err.response;
+                if (typeof response === 'object' && response !== null && 'status' in response) {
+                    if (response.status === 404) {
+                        throw new nango.ActionError({
+                            type: 'not_found',
+                            message: `Category with ID ${input.category_id} was not found.`
+                        });
+                    }
+                    if (response.status === 409) {
+                        throw new nango.ActionError({
+                            type: 'conflict',
+                            message:
+                                'The category was in conflict with another category. This may be due to duplicate unique values such as name or custom_url.'
+                        });
+                    }
+                    if (response.status === 422) {
+                        throw new nango.ActionError({
+                            type: 'unprocessable_entity',
+                            message: 'The category was not valid. This may be due to missing required fields or invalid data.',
+                            details: 'data' in response ? response.data : undefined
+                        });
+                    }
+                }
+            }
+            throw err;
         }
 
         const parsed = ProviderResponseSchema.parse(response.data);

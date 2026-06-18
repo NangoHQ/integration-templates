@@ -139,7 +139,12 @@ const sync = createSync({
         // Blocker: the BigCommerce variants endpoint does not expose an incremental
         // filter (no modified_after or updated_since). We must crawl every product
         // and every variant page on each run, so we use full-refresh delete tracking.
-        await nango.trackDeletesStart('Variant');
+        // Only start delete tracking when beginning from the very first product page;
+        // resuming mid-run would skip earlier pages and falsely delete those variants.
+        const isFullRun = checkpoint.product_page === 1 && checkpoint.product_id === 0;
+        if (isFullRun) {
+            await nango.trackDeletesStart('Variant');
+        }
 
         while (true) {
             // https://developer.bigcommerce.com/docs/rest-management/catalog/products
@@ -243,7 +248,9 @@ const sync = createSync({
             await nango.saveCheckpoint({ product_page: productPage, product_id: 0, variant_page: 1 });
         }
 
-        await nango.trackDeletesEnd('Variant');
+        if (isFullRun) {
+            await nango.trackDeletesEnd('Variant');
+        }
         await nango.saveCheckpoint({ product_page: 1, product_id: 0, variant_page: 1 });
     }
 });

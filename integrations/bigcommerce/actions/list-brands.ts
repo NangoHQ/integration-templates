@@ -58,7 +58,14 @@ const action = createAction({
     },
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const page = input.cursor ? parseInt(input.cursor, 10) : 1;
+        const parsedPage = input.cursor ? Number(input.cursor) : 1;
+        if (input.cursor && (!Number.isInteger(parsedPage) || parsedPage < 1)) {
+            throw new nango.ActionError({
+                type: 'invalid_cursor',
+                message: 'cursor must be a positive integer page number'
+            });
+        }
+        const page = parsedPage;
         const limit = input.limit ?? 50;
 
         const response = await nango.get({

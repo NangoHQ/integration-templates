@@ -1,5 +1,8 @@
 {
   "nango": {
+    "getMetadata": {
+      "channel_ids": [1]
+    },
     "batchSave": {
       "ChannelListing": [
         {

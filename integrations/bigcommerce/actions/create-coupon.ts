@@ -1,7 +1,7 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const CouponTypeSchema = z.enum(['per_item_discount', 'percentage_discount', 'per_total_discount', 'shipping_discount', 'free_shipping']);
+const CouponTypeSchema = z.enum(['per_item_discount', 'percentage_discount', 'per_total_discount', 'shipping_discount', 'free_shipping', 'promotion']);
 
 const AppliesToSchema = z.object({
     entity: z.enum(['products', 'categories']).describe('What the discount applies to.'),
@@ -11,10 +11,10 @@ const AppliesToSchema = z.object({
 const InputSchema = z.object({
     name: z.string().describe('Coupon name. Must be unique.'),
     type: CouponTypeSchema.describe('Discount type.'),
-    amount: z.number().describe('Discount amount or percentage.'),
+    amount: z.string().describe('Discount amount or percentage as a string (e.g. "5.0000").'),
     code: z.string().describe('Coupon code. Must be unique.'),
     applies_to: AppliesToSchema,
-    min_purchase: z.number().optional().describe('Minimum order value required.'),
+    min_purchase: z.string().optional().describe('Minimum order value required as a string (e.g. "25.0000").'),
     expires: z.string().optional().describe('Expiration date in RFC 2822 format.'),
     enabled: z.boolean().optional().describe('Whether the coupon is enabled.'),
     max_uses: z.number().optional().describe('Maximum total uses.'),

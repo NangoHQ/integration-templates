@@ -121,7 +121,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['store_v2_orders'],
+    scopes: ['store_v2_orders', 'store_v2_products_read_only'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const productsWithOptions: Array<{

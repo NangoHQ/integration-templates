@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     cursor: z.string().optional().describe('Pagination cursor from the previous response. Pass the `next_cursor` value to fetch the next page.'),
-    limit: z.number().optional().describe('Number of results per page. Default: 50.')
+    limit: z.number().int().min(1).max(250).optional().describe('Number of results per page. Default: 50.')
 });
 
 const CouponSchema = z
@@ -46,7 +46,14 @@ const action = createAction({
     scopes: ['store_v2_marketing_read_only'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const page = input.cursor ? parseInt(input.cursor, 10) : 1;
+        const parsedPage = input.cursor ? Number(input.cursor) : 1;
+        if (input.cursor && (!Number.isInteger(parsedPage) || parsedPage < 1)) {
+            throw new nango.ActionError({
+                type: 'invalid_cursor',
+                message: 'cursor must be a positive integer page number'
+            });
+        }
+        const page = parsedPage;
         const limit = input.limit ?? 50;
 
         // https://developer.bigcommerce.com/docs/rest-management/marketing/coupons

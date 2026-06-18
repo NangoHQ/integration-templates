@@ -75,7 +75,10 @@ const sync = createSync({
         const checkpoint = CheckpointSchema.parse((await nango.getCheckpoint()) ?? { page: 1 });
         let page: number | undefined = checkpoint.page;
 
-        await nango.trackDeletesStart('Category');
+        const isFullRun = checkpoint.page === 1;
+        if (isFullRun) {
+            await nango.trackDeletesStart('Category');
+        }
 
         // https://developer.bigcommerce.com/docs/rest-management/catalog/categories#get-all-categories
         const proxyConfig: ProxyConfiguration = {
@@ -130,7 +133,9 @@ const sync = createSync({
             }
         }
 
-        await nango.trackDeletesEnd('Category');
+        if (isFullRun) {
+            await nango.trackDeletesEnd('Category');
+        }
         await nango.saveCheckpoint({ page: 1 });
     }
 });

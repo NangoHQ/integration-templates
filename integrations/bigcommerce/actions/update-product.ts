@@ -169,7 +169,7 @@ const ProviderProductSchema = z
         date_created: z.string().optional(),
         date_modified: z.string().optional(),
         calculated_price: z.number().optional(),
-        base_variant_id: z.number().optional(),
+        base_variant_id: z.number().nullable().optional(),
         primary_image: z.object({}).passthrough().optional(),
         reviews_rating_sum: z.number().optional(),
         reviews_count: z.number().optional(),
@@ -199,35 +199,43 @@ const action = createAction({
             }
         }
 
-        const response = await nango.put({
-            // https://developer.bigcommerce.com/docs/rest-management/catalog/products#update-a-product
-            endpoint: `/v3/catalog/products/${encodeURIComponent(String(input['product_id']))}`,
-            data: payload,
-            retries: 3
-        });
-
-        if (response.status === 404) {
-            throw new nango.ActionError({
-                type: 'not_found',
-                message: `Product with ID ${input['product_id']} not found.`,
-                product_id: input['product_id']
+        let response: Awaited<ReturnType<typeof nango.put>>;
+        try {
+            response = await nango.put({
+                // https://developer.bigcommerce.com/docs/rest-management/catalog/products#update-a-product
+                endpoint: `/v3/catalog/products/${encodeURIComponent(String(input['product_id']))}`,
+                data: payload,
+                retries: 3
             });
-        }
-
-        if (response.status === 409) {
-            throw new nango.ActionError({
-                type: 'conflict',
-                message: 'Product update conflict. This may be caused by duplicate unique values, missing associations, or conflicting bulk pricing rules.',
-                product_id: input['product_id']
-            });
-        }
-
-        if (response.status === 422) {
-            throw new nango.ActionError({
-                type: 'validation_error',
-                message: 'Product update failed validation. The request may contain missing required fields or invalid data.',
-                product_id: input['product_id']
-            });
+        } catch (err: unknown) {
+            if (typeof err === 'object' && err !== null && 'response' in err) {
+                const response = err.response;
+                if (typeof response === 'object' && response !== null && 'status' in response) {
+                    if (response.status === 404) {
+                        throw new nango.ActionError({
+                            type: 'not_found',
+                            message: `Product with ID ${input['product_id']} not found.`,
+                            product_id: input['product_id']
+                        });
+                    }
+                    if (response.status === 409) {
+                        throw new nango.ActionError({
+                            type: 'conflict',
+                            message:
+                                'Product update conflict. This may be caused by duplicate unique values, missing associations, or conflicting bulk pricing rules.',
+                            product_id: input['product_id']
+                        });
+                    }
+                    if (response.status === 422) {
+                        throw new nango.ActionError({
+                            type: 'validation_error',
+                            message: 'Product update failed validation. The request may contain missing required fields or invalid data.',
+                            product_id: input['product_id']
+                        });
+                    }
+                }
+            }
+            throw err;
         }
 
         const responseBody = z

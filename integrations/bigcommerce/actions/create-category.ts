@@ -30,18 +30,18 @@ const ProviderCategorySchema = z.object({
     id: z.number(),
     parent_id: z.number(),
     name: z.string(),
-    description: z.string().optional(),
-    views: z.number().optional(),
-    sort_order: z.number().optional(),
-    page_title: z.string().optional(),
-    search_keywords: z.string().optional(),
-    meta_keywords: z.array(z.string()).optional(),
-    meta_description: z.string().optional(),
-    layout_file: z.string().optional(),
+    description: z.string().nullable().optional(),
+    views: z.number().nullable().optional(),
+    sort_order: z.number().nullable().optional(),
+    page_title: z.string().nullable().optional(),
+    search_keywords: z.string().nullable().optional(),
+    meta_keywords: z.array(z.string()).nullable().optional(),
+    meta_description: z.string().nullable().optional(),
+    layout_file: z.string().nullable().optional(),
     is_visible: z.boolean().optional(),
-    default_product_sort: z.string().optional(),
-    image_url: z.string().optional(),
-    custom_url: CustomUrlSchema.optional()
+    default_product_sort: z.string().nullable().optional(),
+    image_url: z.string().nullable().optional(),
+    custom_url: CustomUrlSchema.nullable().optional()
 });
 
 const ProviderResponseSchema = z.object({
@@ -139,18 +139,18 @@ const action = createAction({
             id: category.id,
             parent_id: category.parent_id,
             name: category.name,
-            ...(category.description !== undefined && { description: category.description }),
-            ...(category.views !== undefined && { views: category.views }),
-            ...(category.sort_order !== undefined && { sort_order: category.sort_order }),
-            ...(category.page_title !== undefined && { page_title: category.page_title }),
-            ...(category.search_keywords !== undefined && { search_keywords: category.search_keywords }),
-            ...(category.meta_keywords !== undefined && { meta_keywords: category.meta_keywords }),
-            ...(category.meta_description !== undefined && { meta_description: category.meta_description }),
-            ...(category.layout_file !== undefined && { layout_file: category.layout_file }),
-            ...(category.is_visible !== undefined && { is_visible: category.is_visible }),
-            ...(category.default_product_sort !== undefined && { default_product_sort: category.default_product_sort }),
-            ...(category.image_url !== undefined && { image_url: category.image_url }),
-            ...(category.custom_url !== undefined && { custom_url: category.custom_url })
+            ...(category.description != null && { description: category.description }),
+            ...(category.views != null && { views: category.views }),
+            ...(category.sort_order != null && { sort_order: category.sort_order }),
+            ...(category.page_title != null && { page_title: category.page_title }),
+            ...(category.search_keywords != null && { search_keywords: category.search_keywords }),
+            ...(category.meta_keywords != null && { meta_keywords: category.meta_keywords }),
+            ...(category.meta_description != null && { meta_description: category.meta_description }),
+            ...(category.layout_file != null && { layout_file: category.layout_file }),
+            ...(category.is_visible != null && { is_visible: category.is_visible }),
+            ...(category.default_product_sort != null && { default_product_sort: category.default_product_sort }),
+            ...(category.image_url != null && { image_url: category.image_url }),
+            ...(category.custom_url != null && { custom_url: category.custom_url })
         };
     }
 });

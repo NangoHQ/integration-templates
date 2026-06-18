@@ -5,7 +5,7 @@ const InputSchema = z.object({
     email: z.string().email().describe('The email of the subscriber. Example: "jane.doe@example.com"'),
     first_name: z.string().optional().describe('The first name of the subscriber. Example: "Jane"'),
     last_name: z.string().optional().describe('The last name of the subscriber. Example: "Doe"'),
-    source: z.string().optional().describe('The source of the subscriber. Values are: `storefront`, `order`, or `custom`. Example: "storefront"')
+    source: z.enum(['storefront', 'order', 'custom']).optional().describe('The source of the subscriber. Example: "storefront"')
 });
 
 const ProviderSubscriberSchema = z.object({

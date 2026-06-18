@@ -125,13 +125,14 @@ const action = createAction({
     },
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const page = input.cursor ? parseInt(input.cursor, 10) : (input.page ?? 1);
-        if (Number.isNaN(page) || page < 1) {
+        const parsedPage = input.cursor ? Number(input.cursor) : (input.page ?? 1);
+        if (!Number.isInteger(parsedPage) || parsedPage < 1) {
             throw new nango.ActionError({
                 type: 'invalid_input',
                 message: 'Invalid page or cursor value. Must be a positive integer.'
             });
         }
+        const page = parsedPage;
 
         const limit = input.limit ?? 50;
 
