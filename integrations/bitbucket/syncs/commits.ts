@@ -101,8 +101,7 @@ const sync = createSync({
                         const repoSlug = repo.slug;
                         const repoUuid = repo.uuid;
                         const repoFullName = repo.full_name;
-                        const repoKey = `${workspaceSlug}/${repoSlug}`;
-                        const lastHash = lastHashes[repoKey] ?? '';
+                        const lastHash = lastHashes[repoUuid] ?? '';
 
                         const commitsProxyConfig: ProxyConfiguration = {
                             // https://developer.atlassian.com/cloud/bitbucket/rest/api-group-commits/#api-repositories-workspace-repo-slug-commits-get
@@ -180,16 +179,16 @@ const sync = createSync({
                                 await nango.batchSave(mappedCommits, 'Commit');
                             }
 
+                            if (newestHashForRepo !== '') {
+                                nextLastHashes[repoUuid] = newestHashForRepo;
+                                await nango.saveCheckpoint({
+                                    last_hashes_json: JSON.stringify(nextLastHashes)
+                                });
+                            }
+
                             if (shouldStop) {
                                 break;
                             }
-                        }
-
-                        if (newestHashForRepo !== '') {
-                            nextLastHashes[repoKey] = newestHashForRepo;
-                            await nango.saveCheckpoint({
-                                last_hashes_json: JSON.stringify(nextLastHashes)
-                            });
                         }
                     }
                 }

@@ -35,28 +35,36 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
     endpoint: {
         method: 'GET',
         path: '/actions/get-project'
     },
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const response = await nango.get({
-            // https://developer.atlassian.com/cloud/bitbucket/rest/api-group-workspaces/#api-workspaces-workspace-projects-project-key-get
-            endpoint: `/2.0/workspaces/${encodeURIComponent(input.workspace)}/projects/${encodeURIComponent(input.project_key)}`,
-            retries: 3
-        });
-
-        if (response.status === 404) {
-            throw new nango.ActionError({
-                type: 'not_found',
-                message: 'Project not found',
-                workspace: input.workspace,
-                project_key: input.project_key
+        let responseData: unknown;
+        // @allowTryCatch Catch 404 to surface a friendlier not_found error.
+        try {
+            const response = await nango.get({
+                // https://developer.atlassian.com/cloud/bitbucket/rest/api-group-workspaces/#api-workspaces-workspace-projects-project-key-get
+                endpoint: `/2.0/workspaces/${encodeURIComponent(input.workspace)}/projects/${encodeURIComponent(input.project_key)}`,
+                retries: 3
             });
+            responseData = response.data;
+        } catch (err) {
+            const message = err instanceof Error ? err.message : String(err);
+            if (message.includes('404')) {
+                throw new nango.ActionError({
+                    type: 'not_found',
+                    message: 'Project not found',
+                    workspace: input.workspace,
+                    project_key: input.project_key
+                });
+            }
+            throw err;
         }
 
-        const project = ProviderProjectSchema.parse(response.data);
+        const project = ProviderProjectSchema.parse(responseData);
 
         return {
             ...(project.type !== undefined && { type: project.type }),

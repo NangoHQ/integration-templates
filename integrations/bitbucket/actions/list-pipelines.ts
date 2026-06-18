@@ -9,13 +9,47 @@ const InputSchema = z.object({
     sort: z.string().optional().describe('Sort field. Example: "-created_on"')
 });
 
+const PipelineStateSchema = z
+    .object({
+        name: z.string().optional(),
+        type: z.string().optional(),
+        stage: z
+            .object({
+                name: z.string().optional(),
+                type: z.string().optional()
+            })
+            .optional(),
+        result: z
+            .object({
+                name: z.string().optional(),
+                type: z.string().optional()
+            })
+            .optional()
+    })
+    .optional();
+
+const PipelineTriggerSchema = z
+    .object({
+        name: z.string().optional(),
+        type: z.string().optional()
+    })
+    .optional();
+
+const PipelineTargetSchema = z
+    .object({
+        type: z.string().optional(),
+        ref_type: z.string().optional(),
+        ref_name: z.string().optional()
+    })
+    .optional();
+
 const ProviderPipelineSchema = z.object({
     uuid: z.string(),
     build_number: z.number(),
     type: z.string().optional(),
-    state: z.record(z.string(), z.unknown()).optional(),
-    target: z.record(z.string(), z.unknown()).optional(),
-    trigger: z.record(z.string(), z.unknown()).optional(),
+    state: PipelineStateSchema,
+    target: PipelineTargetSchema,
+    trigger: PipelineTriggerSchema,
     created_on: z.string().optional(),
     completed_on: z.string().optional(),
     build_seconds_used: z.number().optional()
@@ -25,9 +59,9 @@ const OutputSchema = z.object({
     uuid: z.string(),
     build_number: z.number(),
     type: z.string().optional(),
-    state: z.record(z.string(), z.unknown()).optional(),
-    target: z.record(z.string(), z.unknown()).optional(),
-    trigger: z.record(z.string(), z.unknown()).optional(),
+    state: PipelineStateSchema,
+    target: PipelineTargetSchema,
+    trigger: PipelineTriggerSchema,
     created_on: z.string().optional(),
     completed_on: z.string().optional(),
     build_seconds_used: z.number().optional()

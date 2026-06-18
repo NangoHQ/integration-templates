@@ -120,7 +120,7 @@ const sync = createSync({
             await nango.trackDeletesStart('Repository');
         }
 
-        let lastProcessedUpdatedAt: string | undefined;
+        let maxUpdatedAt: string | undefined;
 
         for (const workspaceSlug of workspaceSlugs) {
             const proxyConfig: ProxyConfiguration = {
@@ -168,14 +168,14 @@ const sync = createSync({
                         ...(validated.project?.key != null && { project_key: validated.project.key }),
                         ...(validated.mainbranch?.name != null && { mainbranch_name: validated.mainbranch.name })
                     });
+
+                    if (validated.updated_on && (maxUpdatedAt === undefined || validated.updated_on > maxUpdatedAt)) {
+                        maxUpdatedAt = validated.updated_on;
+                    }
                 }
 
                 if (repositories.length > 0) {
                     await nango.batchSave(repositories, 'Repository');
-                    const lastRepo = repositories[repositories.length - 1];
-                    if (lastRepo && lastRepo.updated_on) {
-                        lastProcessedUpdatedAt = lastRepo.updated_on;
-                    }
                 }
             }
         }
@@ -184,8 +184,8 @@ const sync = createSync({
             await nango.trackDeletesEnd('Repository');
         }
 
-        if (lastProcessedUpdatedAt) {
-            await nango.saveCheckpoint({ updated_after: lastProcessedUpdatedAt });
+        if (maxUpdatedAt) {
+            await nango.saveCheckpoint({ updated_after: maxUpdatedAt });
         }
     }
 });

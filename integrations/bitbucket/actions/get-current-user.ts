@@ -17,6 +17,7 @@ const action = createAction({
     endpoint: { method: 'GET', path: '/actions/get-current-user' },
     input: z.object({}),
     output: OutputSchema,
+    scopes: ['account'],
     exec: async (nango, _input) => {
         // https://developer.atlassian.com/cloud/bitbucket/rest/api-group-users/#api-user-get
         const response = await nango.get({

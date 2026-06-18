@@ -1,4 +1,4 @@
-import { createSync } from 'nango';
+import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
 const ProviderPipelineSchema = z.object({
@@ -118,117 +118,119 @@ const sync = createSync({
         const parsedCheckpoint = checkpoint ? CheckpointSchema.safeParse(checkpoint) : null;
         const createdAfter = parsedCheckpoint?.success ? parsedCheckpoint.data['created_after'] : undefined;
 
-        // https://developer.atlassian.com/cloud/bitbucket/rest/api-group-workspaces/#api-user-workspaces-get
-        const workspacesResponse = await nango.get({
+        const workspacesProxyConfig: ProxyConfiguration = {
+            // https://developer.atlassian.com/cloud/bitbucket/rest/api-group-workspaces/#api-user-workspaces-get
             endpoint: '/2.0/user/workspaces',
+            paginate: {
+                type: 'link',
+                link_path_in_response_body: 'next',
+                response_path: 'values',
+                limit: 30,
+                limit_name_in_request: 'pagelen'
+            },
             retries: 3
-        });
+        };
 
-        const WorkspacesResponseSchema = z.object({
-            values: z.array(
-                z.object({
-                    workspace: z.object({
-                        slug: z.string()
-                    })
-                })
-            )
+        const WorkspaceAccessSchema = z.object({
+            workspace: z.object({
+                slug: z.string()
+            })
         });
-
-        const parsedWorkspaces = WorkspacesResponseSchema.safeParse(workspacesResponse.data);
-        if (!parsedWorkspaces.success) {
-            throw new Error('Failed to parse workspaces response');
-        }
 
         let maxCreatedOn: string | undefined;
 
-        for (const workspaceAccess of parsedWorkspaces.data.values) {
-            const workspaceSlug = workspaceAccess.workspace.slug;
+        for await (const workspacesPage of nango.paginate<unknown>(workspacesProxyConfig)) {
+            const workspaces = z.array(WorkspaceAccessSchema).parse(workspacesPage);
 
-            // https://developer.atlassian.com/cloud/bitbucket/rest/api-group-repositories/#api-repositories-workspace-get
-            const reposResponse = await nango.get({
-                endpoint: `/2.0/repositories/${encodeURIComponent(workspaceSlug)}`,
-                retries: 3
-            });
+            for (const workspaceAccess of workspaces) {
+                const workspaceSlug = workspaceAccess.workspace.slug;
 
-            const ReposResponseSchema = z.object({
-                values: z.array(
-                    z.object({
-                        slug: z.string()
-                    })
-                )
-            });
+                const reposProxyConfig: ProxyConfiguration = {
+                    // https://developer.atlassian.com/cloud/bitbucket/rest/api-group-repositories/#api-repositories-workspace-get
+                    endpoint: `/2.0/repositories/${encodeURIComponent(workspaceSlug)}`,
+                    paginate: {
+                        type: 'link',
+                        link_path_in_response_body: 'next',
+                        response_path: 'values',
+                        limit: 30,
+                        limit_name_in_request: 'pagelen'
+                    },
+                    retries: 3
+                };
 
-            const parsedRepos = ReposResponseSchema.safeParse(reposResponse.data);
-            if (!parsedRepos.success) {
-                throw new Error('Failed to parse repositories response');
-            }
+                const RepoSchema = z.object({ slug: z.string() });
 
-            for (const repo of parsedRepos.data.values) {
-                const repoSlug = repo.slug;
+                for await (const reposPage of nango.paginate<unknown>(reposProxyConfig)) {
+                    const repos = z.array(RepoSchema).parse(reposPage);
 
-                // @allowTryCatch Pipelines may not be enabled on a repository,
-                // which returns 404. Skip those repositories and continue.
-                try {
-                    for await (const page of nango.paginate({
-                        // https://developer.atlassian.com/cloud/bitbucket/rest/api-group-pipelines/#api-repositories-workspace-repo-slug-pipelines-get
-                        endpoint: `/2.0/repositories/${encodeURIComponent(workspaceSlug)}/${encodeURIComponent(repoSlug)}/pipelines`,
-                        params: {
-                            sort: '-created_on'
-                        },
-                        paginate: {
-                            type: 'offset',
-                            offset_name_in_request: 'page',
-                            offset_start_value: 1,
-                            offset_calculation_method: 'per-page',
-                            limit_name_in_request: 'pagelen',
-                            limit: 10,
-                            response_path: 'values'
-                        },
-                        retries: 3
-                    })) {
-                        const pipelines = z.array(ProviderPipelineSchema).safeParse(page);
-                        if (!pipelines.success) {
-                            throw new Error('Failed to parse pipelines response');
-                        }
+                    for (const repo of repos) {
+                        const repoSlug = repo.slug;
 
-                        const newPipelines: Array<z.infer<typeof PipelineSchema>> = [];
-                        let shouldBreak = false;
+                        // @allowTryCatch Pipelines may not be enabled on a repository,
+                        // which returns 404. Skip those repositories and continue.
+                        try {
+                            for await (const page of nango.paginate({
+                                // https://developer.atlassian.com/cloud/bitbucket/rest/api-group-pipelines/#api-repositories-workspace-repo-slug-pipelines-get
+                                endpoint: `/2.0/repositories/${encodeURIComponent(workspaceSlug)}/${encodeURIComponent(repoSlug)}/pipelines`,
+                                params: {
+                                    sort: '-created_on'
+                                },
+                                paginate: {
+                                    type: 'offset',
+                                    offset_name_in_request: 'page',
+                                    offset_start_value: 1,
+                                    offset_calculation_method: 'per-page',
+                                    limit_name_in_request: 'pagelen',
+                                    limit: 10,
+                                    response_path: 'values'
+                                },
+                                retries: 3
+                            })) {
+                                const pipelines = z.array(ProviderPipelineSchema).safeParse(page);
+                                if (!pipelines.success) {
+                                    throw new Error('Failed to parse pipelines response');
+                                }
 
-                        for (const pipeline of pipelines.data) {
-                            if (createdAfter && pipeline.created_on < createdAfter) {
-                                shouldBreak = true;
-                                break;
+                                const newPipelines: Array<z.infer<typeof PipelineSchema>> = [];
+                                let shouldBreak = false;
+
+                                for (const pipeline of pipelines.data) {
+                                    if (createdAfter && pipeline.created_on < createdAfter) {
+                                        shouldBreak = true;
+                                        break;
+                                    }
+                                    newPipelines.push({
+                                        id: pipeline.uuid,
+                                        uuid: pipeline.uuid,
+                                        build_number: pipeline.build_number,
+                                        created_on: pipeline.created_on,
+                                        completed_on: pipeline.completed_on,
+                                        state: pipeline.state,
+                                        trigger: pipeline.trigger,
+                                        target: pipeline.target,
+                                        repository: pipeline.repository,
+                                        build_seconds_used: pipeline.build_seconds_used
+                                    });
+                                    if (maxCreatedOn === undefined || pipeline.created_on > maxCreatedOn) {
+                                        maxCreatedOn = pipeline.created_on;
+                                    }
+                                }
+
+                                if (newPipelines.length > 0) {
+                                    await nango.batchSave(newPipelines, 'Pipeline');
+                                }
+
+                                if (shouldBreak) {
+                                    break;
+                                }
                             }
-                            newPipelines.push({
-                                id: pipeline.uuid,
-                                uuid: pipeline.uuid,
-                                build_number: pipeline.build_number,
-                                created_on: pipeline.created_on,
-                                completed_on: pipeline.completed_on,
-                                state: pipeline.state,
-                                trigger: pipeline.trigger,
-                                target: pipeline.target,
-                                repository: pipeline.repository,
-                                build_seconds_used: pipeline.build_seconds_used
-                            });
-                            if (maxCreatedOn === undefined || pipeline.created_on > maxCreatedOn) {
-                                maxCreatedOn = pipeline.created_on;
+                        } catch (error) {
+                            if (error instanceof Error && error.message.includes('404')) {
+                                continue;
                             }
-                        }
-
-                        if (newPipelines.length > 0) {
-                            await nango.batchSave(newPipelines, 'Pipeline');
-                        }
-
-                        if (shouldBreak) {
-                            break;
+                            throw error;
                         }
                     }
-                } catch (error) {
-                    if (error instanceof Error && error.message.includes('404')) {
-                        continue;
-                    }
-                    throw error;
                 }
             }
         }

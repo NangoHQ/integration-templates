@@ -13,7 +13,9 @@ const AuthorSchema = z.object({
     user: z
         .object({
             display_name: z.string().optional(),
-            uuid: z.string().optional()
+            uuid: z.string().optional(),
+            account_id: z.string().optional(),
+            type: z.string().optional()
         })
         .optional()
 });
@@ -31,7 +33,7 @@ const SummarySchema = z.object({
 });
 
 const CommitSchema = z.object({
-    hash: z.string().optional(),
+    hash: z.string(),
     type: z.string().optional(),
     message: z.string().optional(),
     author: AuthorSchema.optional(),
@@ -41,7 +43,7 @@ const CommitSchema = z.object({
 });
 
 const OutputSchema = z.object({
-    hash: z.string().optional(),
+    hash: z.string(),
     type: z.string().optional(),
     message: z.string().optional(),
     author: AuthorSchema.optional(),
@@ -56,6 +58,7 @@ const action = createAction({
     input: InputSchema,
     output: OutputSchema,
     scopes: ['repository'],
+    endpoint: { method: 'GET', path: '/actions/get-commit' },
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
@@ -77,7 +80,7 @@ const action = createAction({
         const commit = CommitSchema.parse(response.data);
 
         return {
-            ...(commit.hash !== undefined && { hash: commit.hash }),
+            hash: commit.hash,
             ...(commit.type !== undefined && { type: commit.type }),
             ...(commit.message !== undefined && { message: commit.message }),
             ...(commit.author !== undefined && { author: commit.author }),
