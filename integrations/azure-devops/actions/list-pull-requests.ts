@@ -71,33 +71,8 @@ const InputSchema = z.object({
     top: z.number().optional().describe('The number of pull requests to retrieve.')
 });
 
-const PullRequestSchema = z.object({
-    pullRequestId: z.number().optional(),
-    codeReviewId: z.number().optional(),
-    status: z.string().optional(),
-    createdBy: IdentityRefSchema.optional(),
-    creationDate: z.string().optional(),
-    closedDate: z.string().optional(),
-    title: z.string().optional(),
-    description: z.string().optional(),
-    sourceRefName: z.string().optional(),
-    targetRefName: z.string().optional(),
-    mergeStatus: z.string().optional(),
-    mergeId: z.string().optional(),
-    lastMergeSourceCommit: GitCommitRefSchema.optional(),
-    lastMergeTargetCommit: GitCommitRefSchema.optional(),
-    lastMergeCommit: GitCommitRefSchema.optional(),
-    reviewers: z.array(IdentityRefWithVoteSchema).optional(),
-    url: z.string().optional(),
-    repository: GitRepositorySchema.optional(),
-    supportsIterations: z.boolean().optional(),
-    isDraft: z.boolean().optional(),
-    completionQueueTime: z.string().optional(),
-    closedBy: IdentityRefSchema.optional()
-});
-
 const OutputSchema = z.object({
-    items: z.array(PullRequestSchema),
+    items: z.array(GitPullRequestSchema),
     nextCursor: z.string().optional().describe('Pagination cursor for the next page. Pass this value as the cursor input to retrieve the next page.')
 });
 

@@ -92,10 +92,7 @@ const action = createAction({
 
         const items: z.infer<typeof BuildSchema>[] = [];
         for (const rawBuild of providerResponse.value) {
-            const parsed = BuildSchema.safeParse(rawBuild);
-            if (parsed.success) {
-                items.push(parsed.data);
-            }
+            items.push(BuildSchema.parse(rawBuild));
         }
 
         const continuationToken = extractContinuationToken(response.headers);

@@ -95,17 +95,22 @@ const sync = createSync({
             const projectCheckpoint = shouldRunFullCrawl ? undefined : projectState[project]?.changedAfter;
             let hasMore = true;
             let lastChangedDate: string | undefined = projectCheckpoint;
+            let lastPageLastId: number | undefined;
 
             while (hasMore) {
                 let query = 'SELECT [System.Id] FROM WorkItems WHERE [System.TeamProject] = @project';
                 const parameters: Record<string, string> = { project };
 
                 if (lastChangedDate) {
-                    query += ' AND [System.ChangedDate] > @checkpoint';
+                    if (lastPageLastId !== undefined) {
+                        query += ` AND ([System.ChangedDate] > @checkpoint OR ([System.ChangedDate] = @checkpoint AND [System.Id] > ${lastPageLastId}))`;
+                    } else {
+                        query += ' AND [System.ChangedDate] > @checkpoint';
+                    }
                     parameters['checkpoint'] = lastChangedDate;
                 }
 
-                query += ' ORDER BY [System.ChangedDate] ASC';
+                query += ' ORDER BY [System.ChangedDate] ASC, [System.Id] ASC';
 
                 // https://learn.microsoft.com/en-us/rest/api/azure/devops/wit/wiql/query-by-wiql?view=azure-devops-rest-7.2
                 const wiqlResponse = await nango.post({
@@ -129,10 +134,12 @@ const sync = createSync({
                 const workItemIds = wiqlResult.data.workItems ?? [];
                 if (workItemIds.length === 0) {
                     hasMore = false;
+                    lastPageLastId = undefined;
                     break;
                 }
 
                 const ids = workItemIds.map((item) => item.id);
+                const lastWiqlId = ids[ids.length - 1];
                 const batchSize = 200;
                 const allWorkItems: Array<{
                     id: string;
@@ -189,10 +196,12 @@ const sync = createSync({
                     if (lastItem !== undefined && lastItem.changedDate) {
                         lastChangedDate = lastItem.changedDate;
                     }
+                    lastPageLastId = lastWiqlId;
                 }
 
                 if (workItemIds.length < 20000) {
                     hasMore = false;
+                    lastPageLastId = undefined;
                 }
             }
 

@@ -257,6 +257,14 @@
                 "url": "https://dev.azure.com/nangoapi/_apis/wit/fields/System.ChangedDate"
               },
               "descending": false
+            },
+            {
+              "field": {
+                "referenceName": "System.Id",
+                "name": "ID",
+                "url": "https://dev.azure.com/nangoapi/_apis/wit/fields/System.Id"
+              },
+              "descending": false
             }
           ],
           "workItems": [
@@ -294,14 +302,14 @@
           "x-ratelimit-reset": "1781771573",
           "etag": "W/\"2cf-QU68H03roeTHWvgna/faqkjGVek\""
         },
-        "hash": "9c63856e82516c5bfce49c91ea73cff35a2e7a83",
+        "hash": "5302813b84d406677edf5f7d0d87145875eda379",
         "request": {
           "params": {
             "$top": "20000",
             "api-version": "7.2-preview.2"
           },
           "data": {
-            "query": "SELECT [System.Id] FROM WorkItems WHERE [System.TeamProject] = @project ORDER BY [System.ChangedDate] ASC",
+            "query": "SELECT [System.Id] FROM WorkItems WHERE [System.TeamProject] = @project ORDER BY [System.ChangedDate] ASC, [System.Id] ASC",
             "parameters": {
               "project": "nangodev"
             }

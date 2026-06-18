@@ -102,8 +102,8 @@ const sync = createSync({
                     await nango.batchSave(mapped, 'Repository');
                 }
 
-                const nextToken = Reflect.get(response.headers, 'x-ms-continuationtoken');
-                continuationToken = typeof nextToken === 'string' ? nextToken : undefined;
+                const rawToken = response.headers['x-ms-continuationtoken'];
+                continuationToken = Array.isArray(rawToken) ? rawToken[0] : typeof rawToken === 'string' ? rawToken : undefined;
             } while (continuationToken);
         }
 

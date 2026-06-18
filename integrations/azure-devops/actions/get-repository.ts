@@ -49,6 +49,7 @@ const action = createAction({
     },
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['vso.code'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://learn.microsoft.com/en-us/rest/api/azure/devops/git/repositories/get?view=azure-devops-rest-7.2

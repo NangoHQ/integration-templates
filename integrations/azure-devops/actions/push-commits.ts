@@ -32,18 +32,35 @@ const InputSchema = z.object({
         z.object({
             comment: z.string().describe('Commit message.'),
             changes: z.array(
-                z.object({
-                    changeType: ChangeTypeEnum,
-                    path: z.string().describe('File path. Example: "/readme.md"'),
-                    newContent: z
-                        .object({
-                            content: z.string(),
-                            contentType: ItemContentTypeEnum
-                        })
-                        .optional()
-                        .describe('New file content for add or edit operations. Omit for delete or rename without content changes.'),
-                    sourceServerItem: z.string().optional().describe('Original path for rename operations. Example: "/old-name.md"')
-                })
+                z
+                    .object({
+                        changeType: ChangeTypeEnum,
+                        path: z.string().describe('File path. Example: "/readme.md"'),
+                        newContent: z
+                            .object({
+                                content: z.string(),
+                                contentType: ItemContentTypeEnum
+                            })
+                            .optional()
+                            .describe('Required for add, edit, and encoding operations.'),
+                        sourceServerItem: z.string().optional().describe('Required for rename, sourceRename, and targetRename operations. Example: "/old-name.md"')
+                    })
+                    .superRefine((change, ctx) => {
+                        if (['add', 'edit', 'encoding'].includes(change.changeType) && change.newContent === undefined) {
+                            ctx.addIssue({
+                                code: z.ZodIssueCode.custom,
+                                message: `newContent is required for changeType '${change.changeType}'`,
+                                path: ['newContent']
+                            });
+                        }
+                        if (['rename', 'sourceRename', 'targetRename'].includes(change.changeType) && change.sourceServerItem === undefined) {
+                            ctx.addIssue({
+                                code: z.ZodIssueCode.custom,
+                                message: `sourceServerItem is required for changeType '${change.changeType}'`,
+                                path: ['sourceServerItem']
+                            });
+                        }
+                    })
             )
         })
     )

@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     project: z.string().describe('Project ID or project name. Example: "MyProject"'),
-    team: z.string().describe('Team ID or team name. Must be URL-encoded if it contains spaces. Example: "MyTeam"')
+    team: z.string().describe('Team ID or team name. Example: "MyTeam" or "My Team"')
 });
 
 const BoardSchema = z.object({

@@ -8,10 +8,22 @@ const InputSchema = z.object({
 });
 
 const ProviderWiqlResponseSchema = z.object({
+    queryType: z.string().optional(),
     workItems: z
         .array(
             z.object({
                 id: z.number()
+            })
+        )
+        .optional(),
+    workItemRelations: z
+        .array(
+            z.object({
+                target: z
+                    .object({
+                        id: z.number()
+                    })
+                    .optional()
             })
         )
         .optional()
@@ -73,7 +85,17 @@ const action = createAction({
 
         const wiqlResponse = await nango.post(wiqlConfig);
         const providerResult = ProviderWiqlResponseSchema.parse(wiqlResponse.data);
-        const ids = providerResult.workItems?.map((item) => item.id) ?? [];
+
+        let ids: number[];
+        const queryType = providerResult.queryType;
+        if (queryType === 'tree' || queryType === 'oneHop') {
+            const seen = new Set<number>();
+            ids = (providerResult.workItemRelations ?? [])
+                .map((rel) => rel.target?.id)
+                .filter((id): id is number => id !== undefined && !seen.has(id) && seen.add(id) !== undefined);
+        } else {
+            ids = providerResult.workItems?.map((item) => item.id) ?? [];
+        }
 
         if (ids.length === 0) {
             return {

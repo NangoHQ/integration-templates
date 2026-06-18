@@ -111,10 +111,54 @@ const sync = createSync({
         const reposData = RepositoryListResponseSchema.parse(reposResponse.data);
         const repos = reposData.value || [];
 
+        const mapPR = (pr: z.infer<typeof PullRequestSchema>): z.infer<typeof RecordSchema> => ({
+            id: String(pr.pullRequestId),
+            pullRequestId: pr.pullRequestId,
+            status: pr.status,
+            title: pr.title,
+            description: pr.description,
+            createdByDisplayName: pr.createdBy.displayName,
+            createdById: pr.createdBy.id,
+            creationDate: pr.creationDate,
+            sourceRefName: pr.sourceRefName,
+            targetRefName: pr.targetRefName,
+            mergeStatus: pr.mergeStatus,
+            isDraft: pr.isDraft,
+            repositoryId: pr.repository.id,
+            repositoryName: pr.repository.name,
+            projectId: pr.repository.project.id,
+            projectName: pr.repository.project.name
+        });
+
         if (repos.length > 0) {
             for (const repo of repos) {
                 const projectName = repo.project.name;
                 const repoId = repo.id;
+
+                // On incremental runs, re-fetch all active PRs first so that status/mergeStatus
+                // updates to existing PRs are not missed (minTime only filters by creationDate).
+                if (!shouldRunFullCrawl) {
+                    let activeContinuationToken: string | undefined;
+                    do {
+                        const activeResponse = await nango.get({
+                            endpoint: `/${encodeURIComponent(projectName)}/_apis/git/repositories/${encodeURIComponent(repoId)}/pullrequests`,
+                            params: {
+                                'searchCriteria.status': 'active',
+                                'api-version': '7.2-preview.1',
+                                ...(activeContinuationToken && { continuationToken: activeContinuationToken }),
+                                $top: '50'
+                            },
+                            retries: 3
+                        });
+                        const activePrData = PullRequestListResponseSchema.parse(activeResponse.data);
+                        const activePrs = activePrData.value || [];
+                        if (activePrs.length > 0) {
+                            await nango.batchSave(activePrs.map(mapPR), 'PullRequest');
+                        }
+                        const rawActiveToken = activeResponse.headers['x-ms-continuationtoken'];
+                        activeContinuationToken = typeof rawActiveToken === 'string' && rawActiveToken.trim() ? rawActiveToken.trim() : undefined;
+                    } while (activeContinuationToken);
+                }
 
                 let continuationToken: string | undefined;
 
@@ -143,25 +187,7 @@ const sync = createSync({
                         if (pr.creationDate > maxCreationDate) {
                             maxCreationDate = pr.creationDate;
                         }
-
-                        return {
-                            id: String(pr.pullRequestId),
-                            pullRequestId: pr.pullRequestId,
-                            status: pr.status,
-                            title: pr.title,
-                            description: pr.description,
-                            createdByDisplayName: pr.createdBy.displayName,
-                            createdById: pr.createdBy.id,
-                            creationDate: pr.creationDate,
-                            sourceRefName: pr.sourceRefName,
-                            targetRefName: pr.targetRefName,
-                            mergeStatus: pr.mergeStatus,
-                            isDraft: pr.isDraft,
-                            repositoryId: pr.repository.id,
-                            repositoryName: pr.repository.name,
-                            projectId: pr.repository.project.id,
-                            projectName: pr.repository.project.name
-                        };
+                        return mapPR(pr);
                     });
 
                     await nango.batchSave(records, 'PullRequest');

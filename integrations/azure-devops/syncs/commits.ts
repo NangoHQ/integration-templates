@@ -101,44 +101,50 @@ const sync = createSync({
         if (metadata?.repositories && metadata.repositories.length > 0) {
             repositories = metadata.repositories;
         } else {
-            // https://learn.microsoft.com/en-us/rest/api/azure/devops/core/projects/list?view=azure-devops-rest-7.2
-            const projectsResponse = await nango.get({
-                endpoint: '/_apis/projects',
-                params: {
-                    'api-version': '7.2-preview.1'
-                },
-                retries: 3
-            });
-
-            const projectsParsed = ProjectsResponseSchema.safeParse(projectsResponse.data);
-            if (!projectsParsed.success) {
-                throw new Error(`Failed to parse projects response: ${projectsParsed.error.message}`);
-            }
-
-            const projects = projectsParsed.data.value ?? [];
-            for (const project of projects) {
-                // https://learn.microsoft.com/en-us/rest/api/azure/devops/git/repositories/list?view=azure-devops-rest-7.2
-                const reposResponse = await nango.get({
-                    endpoint: `/${encodeURIComponent(project.id)}/_apis/git/repositories`,
+            let projectsContinuationToken: string | undefined;
+            do {
+                // https://learn.microsoft.com/en-us/rest/api/azure/devops/core/projects/list?view=azure-devops-rest-7.2
+                const projectsResponse = await nango.get({
+                    endpoint: '/_apis/projects',
                     params: {
-                        'api-version': '7.2-preview.1'
+                        'api-version': '7.2-preview.1',
+                        ...(projectsContinuationToken && { continuationToken: projectsContinuationToken })
                     },
                     retries: 3
                 });
 
-                const reposParsed = RepositoriesResponseSchema.safeParse(reposResponse.data);
-                if (!reposParsed.success) {
-                    throw new Error(`Failed to parse repositories response for project ${project.id}: ${reposParsed.error.message}`);
+                const projectsParsed = ProjectsResponseSchema.safeParse(projectsResponse.data);
+                if (!projectsParsed.success) {
+                    throw new Error(`Failed to parse projects response: ${projectsParsed.error.message}`);
                 }
 
-                const repos = reposParsed.data.value ?? [];
-                for (const repo of repos) {
-                    repositories.push({
-                        project: project.id,
-                        repositoryId: repo.id
+                const projects = projectsParsed.data.value ?? [];
+                for (const project of projects) {
+                    // https://learn.microsoft.com/en-us/rest/api/azure/devops/git/repositories/list?view=azure-devops-rest-7.2
+                    const reposResponse = await nango.get({
+                        endpoint: `/${encodeURIComponent(project.id)}/_apis/git/repositories`,
+                        params: {
+                            'api-version': '7.2-preview.1'
+                        },
+                        retries: 3
                     });
+
+                    const reposParsed = RepositoriesResponseSchema.safeParse(reposResponse.data);
+                    if (!reposParsed.success) {
+                        throw new Error(`Failed to parse repositories response for project ${project.id}: ${reposParsed.error.message}`);
+                    }
+
+                    const repos = reposParsed.data.value ?? [];
+                    for (const repo of repos) {
+                        repositories.push({
+                            project: project.id,
+                            repositoryId: repo.id
+                        });
+                    }
                 }
-            }
+                const rawProjToken = projectsResponse.headers['x-ms-continuationtoken'];
+                projectsContinuationToken = Array.isArray(rawProjToken) ? rawProjToken[0] : typeof rawProjToken === 'string' ? rawProjToken : undefined;
+            } while (projectsContinuationToken);
         }
 
         let maxCommitDate: string | undefined;

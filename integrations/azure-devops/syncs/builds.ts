@@ -112,27 +112,34 @@ const sync = createSync({
             projects = metadata.projects;
         } else {
             // https://learn.microsoft.com/en-us/rest/api/azure/devops/core/projects/list
-            const projectsResponse = await nango.get({
-                endpoint: '/_apis/projects',
-                params: {
-                    'api-version': '7.2-preview.4'
-                },
-                retries: 3
-            });
-            const parsedProjects = ProviderProjectsResponseSchema.safeParse(projectsResponse.data);
-            if (!parsedProjects.success) {
-                throw new Error(`Failed to parse projects response: ${parsedProjects.error.message}`);
-            }
-            projects = (parsedProjects.data.value ?? []).map((p) => p.name);
+            let projectsContinuationToken: string | undefined;
+            do {
+                const projectsResponse = await nango.get({
+                    endpoint: '/_apis/projects',
+                    params: {
+                        'api-version': '7.2-preview.4',
+                        ...(projectsContinuationToken && { continuationToken: projectsContinuationToken })
+                    },
+                    retries: 3
+                });
+                const parsedProjects = ProviderProjectsResponseSchema.safeParse(projectsResponse.data);
+                if (!parsedProjects.success) {
+                    throw new Error(`Failed to parse projects response: ${parsedProjects.error.message}`);
+                }
+                projects.push(...(parsedProjects.data.value ?? []).map((p) => p.name));
+                const rawToken = projectsResponse.headers['x-ms-continuationtoken'];
+                projectsContinuationToken = Array.isArray(rawToken) ? rawToken[0] : typeof rawToken === 'string' ? rawToken : undefined;
+            } while (projectsContinuationToken);
         }
 
         if (projects.length === 0) {
             throw new Error('No projects found');
         }
 
+        let globalMaxQueueTime: string | undefined;
+
         for (const project of projects) {
             let continuationToken: string | undefined;
-            let lastQueueTime: string | undefined;
 
             do {
                 const params: Record<string, string | number> = {
@@ -219,15 +226,19 @@ const sync = createSync({
 
                 const lastBuild = builds[builds.length - 1];
                 if (lastBuild && lastBuild.queueTime != null) {
-                    lastQueueTime = lastBuild.queueTime;
+                    const t = lastBuild.queueTime;
+                    if (globalMaxQueueTime === undefined || t > globalMaxQueueTime) {
+                        globalMaxQueueTime = t;
+                    }
                 }
 
-                continuationToken = response.headers?.['x-ms-continuationtoken'];
+                const rawToken = response.headers?.['x-ms-continuationtoken'];
+                continuationToken = Array.isArray(rawToken) ? rawToken[0] : typeof rawToken === 'string' ? rawToken : undefined;
             } while (continuationToken);
+        }
 
-            if (lastQueueTime) {
-                await nango.saveCheckpoint({ updated_after: lastQueueTime });
-            }
+        if (globalMaxQueueTime) {
+            await nango.saveCheckpoint({ updated_after: globalMaxQueueTime });
         }
     }
 });

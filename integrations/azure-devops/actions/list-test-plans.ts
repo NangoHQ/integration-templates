@@ -34,7 +34,7 @@ const ProviderTestPlanSchema = z.object({
 
 const ProviderResponseSchema = z.object({
     count: z.number().optional(),
-    value: z.array(ProviderTestPlanSchema).optional()
+    value: z.array(ProviderTestPlanSchema)
 });
 
 const OutputItemSchema = z.object({
@@ -88,7 +88,7 @@ const action = createAction({
             });
         }
 
-        const plans = parsed.data.value || [];
+        const plans = parsed.data.value;
         const nextCursor = response.headers['x-ms-continuationtoken'];
 
         return {
