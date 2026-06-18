@@ -65,12 +65,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List prices from Stripe.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-prices',
-        group: 'Prices'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

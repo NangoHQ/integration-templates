@@ -81,10 +81,7 @@ const JiraMetadataSchema = z.object({
  */
 export default createAction({
     description: 'Retrieve Jira issue type metadata by issue type ID.',
-    endpoint: {
-        path: '/actions/get-issue-type',
-        method: 'POST'
-    },
+    version: '0.0.1',
     input: GetIssueTypeInputSchema,
     output: GetIssueTypeOutputSchema,
     metadata: JiraMetadataSchema,

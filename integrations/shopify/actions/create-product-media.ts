@@ -63,12 +63,7 @@ const GraphQLResponseSchema = z.object({
 
 const action = createAction({
     description: 'Attach media to an existing Shopify product',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-product-media',
-        group: 'Products'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write_products'],

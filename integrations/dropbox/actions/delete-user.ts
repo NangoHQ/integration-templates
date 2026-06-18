@@ -11,13 +11,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Deletes a user in Dropbox. Requires Dropbox Business.',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'DELETE',
-        path: '/users',
-        group: 'Users'
-    },
+    version: '2.0.1',
 
     input: InputSchema,
     output: OutputSchema,

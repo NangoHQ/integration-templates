@@ -74,12 +74,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create an invitation to join an organization in Auth0.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/invite-organization-member',
-        group: 'Organizations'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['create:organization_invitations'],

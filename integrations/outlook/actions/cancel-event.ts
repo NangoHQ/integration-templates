@@ -12,12 +12,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Cancel a meeting and send the cancellation notice to attendees',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/cancel-event',
-        group: 'Events'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Calendars.ReadWrite'],

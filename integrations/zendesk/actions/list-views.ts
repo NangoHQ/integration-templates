@@ -49,12 +49,7 @@ const ListViewsOutputSchema = z.object({
 
 const action = createAction({
     description: 'List ticket views for the account',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-views',
-        group: 'Views'
-    },
+    version: '1.0.1',
     input: ListViewsInputSchema,
     output: ListViewsOutputSchema,
 

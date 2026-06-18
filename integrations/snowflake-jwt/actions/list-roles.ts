@@ -60,12 +60,7 @@ const SnowflakeAsyncStatusSchema = z.object({
 
 const action = createAction({
     description: 'List Snowflake roles with hierarchy and assignment counts.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-roles',
-        group: 'Roles'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {

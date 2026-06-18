@@ -171,12 +171,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a product variation in WooCommerce.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-product-variation',
-        group: 'Products'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write_products'],

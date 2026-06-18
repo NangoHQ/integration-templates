@@ -22,12 +22,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List employees from BambooHR.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-employees',
-        group: 'Employees'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['employee_directory'],

@@ -21,12 +21,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Grant individual users access to specific calls.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/add-call-users-access',
-        group: 'Permissions'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:call-user-access:write'],

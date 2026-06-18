@@ -28,12 +28,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List uploaded videos for a channel using its uploads playlist.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-uploaded-videos',
-        group: 'Videos'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/youtube.readonly'],

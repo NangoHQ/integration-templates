@@ -32,12 +32,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Download cohort members',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/download-cohort',
-        group: 'Cohorts'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

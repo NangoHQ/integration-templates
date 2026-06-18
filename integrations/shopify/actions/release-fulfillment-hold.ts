@@ -31,11 +31,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Release a hold on a Shopify fulfillment order.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/release-fulfillment-hold'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write_merchant_managed_fulfillment_orders'],

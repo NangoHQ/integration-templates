@@ -56,12 +56,7 @@ const OutputSchema = ThreadSchema;
 
 const action = createAction({
     description: 'Retrieve a Gmail thread and its messages.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-thread',
-        group: 'Threads'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/gmail.readonly'],

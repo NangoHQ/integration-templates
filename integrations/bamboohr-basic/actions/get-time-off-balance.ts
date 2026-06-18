@@ -33,12 +33,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve the time off balance for an employee in BambooHR.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-time-off-balance',
-        group: 'Time Off'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

@@ -31,12 +31,7 @@ const TikTokApiResponseSchema = z.object({
 
 const action = createAction({
     description: 'Upload a video creative to TikTok Ads',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/upload-video',
-        group: 'Creatives'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ads_management'],

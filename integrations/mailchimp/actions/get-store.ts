@@ -74,12 +74,7 @@ const StoreSchema = z
 
 const action = createAction({
     description: 'Retrieve a single store from Mailchimp.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-store',
-        group: 'E-commerce'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: StoreSchema,
 

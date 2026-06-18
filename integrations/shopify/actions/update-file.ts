@@ -37,12 +37,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update metadata for a Shopify file resource.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-file',
-        group: 'Files'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write_files'],

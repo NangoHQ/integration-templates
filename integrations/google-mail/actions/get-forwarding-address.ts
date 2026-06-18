@@ -19,12 +19,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a forwarding address configured for the mailbox.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-forwarding-address',
-        group: 'Forwarding Addresses'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/gmail.settings.basic'],

@@ -46,12 +46,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List comments for a file',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-comments',
-        group: 'Comments'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['root_readwrite'],

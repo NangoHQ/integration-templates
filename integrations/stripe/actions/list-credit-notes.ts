@@ -76,12 +76,7 @@ const ListOutputSchema = z.object({
 
 const action = createAction({
     description: 'List credit notes from Stripe.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-credit-notes',
-        group: 'Credit Notes'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: ListOutputSchema,
     scopes: ['read'],

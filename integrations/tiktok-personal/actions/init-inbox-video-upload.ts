@@ -42,12 +42,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Initialize a TikTok video upload to a creator inbox as a draft.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/init-inbox-video-upload',
-        group: 'Content Posting'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['video.upload'],

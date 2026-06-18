@@ -48,12 +48,7 @@ const GraphQLResponseSchema = z.object({
 
 const action = createAction({
     description: 'Create a Shopify market for international selling.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-market',
-        group: 'Markets'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read_markets', 'write_markets'],

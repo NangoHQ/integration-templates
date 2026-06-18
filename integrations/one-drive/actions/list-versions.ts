@@ -47,12 +47,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List versions for a file.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-versions',
-        group: 'Files'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Files.Read', 'offline_access'],

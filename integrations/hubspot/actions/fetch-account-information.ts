@@ -17,13 +17,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve portal account details, currency settings, timezone, and hosting region',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'GET',
-        path: '/actions/fetch-account-information',
-        group: 'Account'
-    },
+    version: '2.0.1',
 
     input: InputSchema,
     output: OutputSchema,

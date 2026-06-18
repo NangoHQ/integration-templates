@@ -7,13 +7,7 @@ import { z } from 'zod';
 
 const action = createAction({
     description: 'Retrieves information about the current RingCentral account/company.',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'GET',
-        path: '/account/current',
-        group: 'Company'
-    },
+    version: '1.0.1',
 
     input: z.void(),
     output: CompanyInfo,

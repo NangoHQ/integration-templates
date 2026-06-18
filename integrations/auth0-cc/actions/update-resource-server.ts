@@ -81,12 +81,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update an API resource server in Auth0.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-resource-server',
-        group: 'Resource Servers'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['update:resource_servers'],

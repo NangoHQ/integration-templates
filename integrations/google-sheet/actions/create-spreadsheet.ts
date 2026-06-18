@@ -42,13 +42,7 @@ const OutputSchema = z
 
 const action = createAction({
     description: 'Create a new spreadsheet',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-spreadsheet',
-        group: 'Spreadsheets'
-    },
+    version: '1.0.1',
 
     input: InputSchema,
     output: OutputSchema,

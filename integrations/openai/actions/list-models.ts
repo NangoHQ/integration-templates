@@ -30,12 +30,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List all models available to the authenticated organization',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-models',
-        group: 'Models'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['model.read'],

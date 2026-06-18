@@ -35,12 +35,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List reviews submitted on a pull request',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-pull-request-reviews',
-        group: 'Pull Requests'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['pull_requests:read'],

@@ -38,12 +38,7 @@ const ProviderResponseSchema = z.object({
 
 const action = createAction({
     description: 'Assign an annotation category to multiple annotations.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/bulk-update-annotation-categories',
-        group: 'Chart Annotations'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

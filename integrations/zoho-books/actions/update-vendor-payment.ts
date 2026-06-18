@@ -106,12 +106,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update a vendor payment in Zoho Books.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-vendor-payment',
-        group: 'Vendor Payments'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoBooks.vendorpayments.UPDATE', 'ZohoBooks.settings.READ'],

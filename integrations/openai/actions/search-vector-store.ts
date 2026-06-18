@@ -39,11 +39,7 @@ const OutputSchema = z.object({
 
 export default createAction({
     description: 'Search a vector store for semantically matching content chunks',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/search-vector-store'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['vector_stores.read'],

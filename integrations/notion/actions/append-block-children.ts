@@ -180,12 +180,7 @@ type UserResponse = z.infer<typeof UserObjectSchema>;
 
 const action = createAction({
     description: 'Append new child blocks to an existing block or page.',
-    version: '2.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/append-block-children',
-        group: 'Blocks'
-    },
+    version: '2.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

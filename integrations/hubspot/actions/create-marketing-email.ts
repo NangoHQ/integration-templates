@@ -24,13 +24,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a marketing email in HubSpot',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-marketing-email',
-        group: 'Marketing Emails'
-    },
+    version: '1.0.1',
 
     input: InputSchema,
     output: OutputSchema,

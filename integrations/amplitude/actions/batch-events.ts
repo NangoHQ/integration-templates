@@ -122,12 +122,7 @@ async function sendBatch(nango: NangoActionLocal, apiKey: string, events: Array<
 
 const action = createAction({
     description: 'Send batched events to Amplitude in bulk.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/batch-events',
-        group: 'Events'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

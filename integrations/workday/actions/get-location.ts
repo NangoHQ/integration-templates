@@ -43,12 +43,7 @@ const findId = (ids: any, type: string): string | undefined => (Array.isArray(id
 
 const action = createAction({
     description: 'Retrieve a single location from Workday.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-location',
-        group: 'Locations'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

@@ -30,13 +30,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Creates a new database as subpage with defined properties schema.',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/databases',
-        group: 'Databases'
-    },
+    version: '1.0.1',
 
     input: InputSchema,
     output: OutputSchema,

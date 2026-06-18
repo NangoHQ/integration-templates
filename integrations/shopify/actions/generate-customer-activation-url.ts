@@ -33,12 +33,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Generate an account activation URL for a Shopify customer.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/generate-customer-activation-url',
-        group: 'Customers'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write_customers'],

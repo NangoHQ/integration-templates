@@ -36,12 +36,7 @@ const MetadataSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single API key from Twilio.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-api-key',
-        group: 'API Keys'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,

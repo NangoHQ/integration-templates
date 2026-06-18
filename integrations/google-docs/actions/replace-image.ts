@@ -26,12 +26,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Replace an existing inline or positioned image with a new image from a URL.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/replace-image',
-        group: 'Images'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['documents', 'drive.readonly'],

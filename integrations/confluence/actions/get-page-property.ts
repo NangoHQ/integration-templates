@@ -34,12 +34,7 @@ const MetadataSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a content property from a Confluence page.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-page-property',
-        group: 'Pages'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,

@@ -58,12 +58,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Pay a Stripe invoice.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/pay-invoice',
-        group: 'Invoices'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

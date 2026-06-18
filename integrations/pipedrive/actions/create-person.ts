@@ -70,12 +70,7 @@ const ProviderResponseSchema = z.object({
 
 const action = createAction({
     description: 'Create a person in Pipedrive.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-person',
-        group: 'Persons'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['deals:full', 'contacts:full'],

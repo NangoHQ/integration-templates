@@ -50,12 +50,7 @@ const ProviderResponseSchema = z.object({
 
 const action = createAction({
     description: 'List configured currencies from Zoho Books.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-currencies',
-        group: 'Currencies'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoBooks.settings.READ'],

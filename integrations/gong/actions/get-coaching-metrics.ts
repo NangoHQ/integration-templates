@@ -58,11 +58,7 @@ function isUnavailableError(error: unknown): boolean {
 
 const action = createAction({
     description: 'Retrieve all coaching metrics from Gong.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-coaching-metrics'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:coaching:read'],

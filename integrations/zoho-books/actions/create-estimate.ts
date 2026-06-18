@@ -72,12 +72,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create an estimate in Zoho Books',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-estimate',
-        group: 'Estimates'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoBooks.estimates.CREATE', 'ZohoBooks.settings.READ'],

@@ -52,12 +52,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Grant item access to recipients and optionally send invitations.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/invite-recipients',
-        group: 'Permissions'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['onedrive.readwrite'],

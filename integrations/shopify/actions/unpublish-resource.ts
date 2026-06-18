@@ -33,12 +33,7 @@ const GraphQLResponseSchema = z.object({
 
 const action = createAction({
     description: 'Unpublish a Shopify resource from one or more sales channels.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/unpublish-resource',
-        group: 'Publications'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write_publications'],

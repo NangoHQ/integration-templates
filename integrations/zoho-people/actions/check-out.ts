@@ -16,12 +16,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Record an attendance check-out for an employee.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/check-out',
-        group: 'Attendance'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoPeople.attendance.ALL'],

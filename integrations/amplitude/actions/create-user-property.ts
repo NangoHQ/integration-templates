@@ -23,12 +23,7 @@ const ProviderResponseSchema = z.object({
 
 const action = createAction({
     description: 'Create a user property in taxonomy.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-user-property',
-        group: 'Taxonomy'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

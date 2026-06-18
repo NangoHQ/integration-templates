@@ -107,12 +107,7 @@ const OutputSchema = InlineCommentSchema;
 
 const action = createAction({
     description: 'Retrieve a Confluence inline comment by id.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-inline-comment',
-        group: 'Comments'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read:comment:confluence'],

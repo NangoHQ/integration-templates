@@ -55,12 +55,7 @@ const PaymentIntentSchema = z.object({
 
 const action = createAction({
     description: 'Update a payment intent in Stripe.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-payment-intent',
-        group: 'PaymentIntents'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: PaymentIntentSchema,
     scopes: [],

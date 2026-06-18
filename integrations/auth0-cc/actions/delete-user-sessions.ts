@@ -11,12 +11,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Revoke all active sessions for a user in Auth0.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-user-sessions',
-        group: 'Users'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['delete:sessions'],

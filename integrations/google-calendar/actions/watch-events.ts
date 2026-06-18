@@ -20,13 +20,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Subscribe to event changes on a calendar',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/watch-events',
-        group: 'Events'
-    },
+    version: '1.0.1',
 
     input: InputSchema,
     output: OutputSchema,

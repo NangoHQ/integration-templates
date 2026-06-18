@@ -67,12 +67,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single mention from Twitter/X.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-mention',
-        group: 'Mentions'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['tweet.read'],

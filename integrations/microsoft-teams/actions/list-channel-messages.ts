@@ -122,12 +122,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List root messages in a channel.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-channel-messages',
-        group: 'Channels'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ChannelMessage.Read.All', 'Group.Read.All'],

@@ -35,12 +35,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Enable a connection for an organization in Auth0.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-organization-connection',
-        group: 'Organizations'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['create:organization_connections'],

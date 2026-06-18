@@ -13,12 +13,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete an event from a calendar.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-event',
-        group: 'Calendar'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Calendars.ReadWrite'],

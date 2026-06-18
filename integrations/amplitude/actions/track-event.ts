@@ -36,12 +36,7 @@ const ProviderResponseSchema = z.object({
 
 const action = createAction({
     description: 'Send an event to Amplitude.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/track-event',
-        group: 'Events'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

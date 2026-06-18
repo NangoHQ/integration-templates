@@ -46,12 +46,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Add an internal note to a contact',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-note',
-        group: 'Notes'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write_contacts'],

@@ -98,12 +98,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update YouTube video metadata for an owned video.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-video',
-        group: 'Videos'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/youtube', 'https://www.googleapis.com/auth/youtube.force-ssl'],

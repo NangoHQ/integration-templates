@@ -48,12 +48,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a configured send-as alias',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-send-as-alias',
-        group: 'Settings'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/gmail.settings.basic'],

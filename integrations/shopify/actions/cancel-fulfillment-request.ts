@@ -48,12 +48,7 @@ const GraphQLResponseSchema = z.object({
 
 const action = createAction({
     description: 'Cancel a pending fulfillment request on a Shopify fulfillment order.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/cancel-fulfillment-request',
-        group: 'Fulfillments'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write_merchant_managed_fulfillment_orders', 'write_third_party_fulfillment_orders'],

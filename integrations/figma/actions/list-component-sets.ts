@@ -58,11 +58,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List component sets for a Figma team.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-component-sets'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['team_library_content:read'],

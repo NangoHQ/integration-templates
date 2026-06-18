@@ -43,12 +43,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a training record for an employee in BambooHR.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-employee-training',
-        group: 'Training'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['training.write'],

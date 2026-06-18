@@ -56,12 +56,7 @@ const MetadataSchema = z.object({
 
 const action = createAction({
     description: 'Update a comment on a Jira issue',
-    version: '1.0.0',
-    endpoint: {
-        method: 'PUT',
-        path: '/actions/update-comment',
-        group: 'Comments'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,

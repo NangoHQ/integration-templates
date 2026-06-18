@@ -22,13 +22,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Get a file revision by ID',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-revision',
-        group: 'Files'
-    },
+    version: '1.0.1',
 
     input: InputSchema,
     output: OutputSchema,

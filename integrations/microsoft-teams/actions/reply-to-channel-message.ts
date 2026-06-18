@@ -34,12 +34,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Reply to a channel message thread.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/reply-to-channel-message',
-        group: 'Messages'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ChannelMessage.Send'],

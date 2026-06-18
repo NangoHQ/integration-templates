@@ -69,12 +69,7 @@ function getMailBaseUrl(connection: unknown): string {
 
 const action = createAction({
     description: 'Delete a label in Zoho Mail.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-label',
-        group: 'Labels'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoMail.tags.ALL', 'ZohoMail.tags.DELETE'],

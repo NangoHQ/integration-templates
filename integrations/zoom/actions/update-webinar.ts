@@ -38,12 +38,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update a webinar in Zoom.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-webinar',
-        group: 'Webinars'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['webinar:write:admin', 'webinar:write'],

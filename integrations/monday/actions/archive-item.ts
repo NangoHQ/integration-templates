@@ -37,12 +37,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Archive an item in monday.com (sets state to archived, distinct from delete).',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/archive-item',
-        group: 'Items'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['boards:write'],

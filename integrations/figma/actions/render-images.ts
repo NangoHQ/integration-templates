@@ -32,12 +32,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Render images for Figma file nodes.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/render-images',
-        group: 'Files'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['file_content:read'],

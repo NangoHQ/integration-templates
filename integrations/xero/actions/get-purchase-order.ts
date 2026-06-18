@@ -40,12 +40,7 @@ const OutputSchema = ProviderPurchaseOrderSchema;
 
 const action = createAction({
     description: 'Retrieve a purchase order by PurchaseOrderID.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-purchase-order',
-        group: 'Purchase Orders'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['accounting.invoices', 'accounting.invoices.read'],

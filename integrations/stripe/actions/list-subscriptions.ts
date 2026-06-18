@@ -58,12 +58,7 @@ const ProviderListResponseSchema = z.object({
 
 const action = createAction({
     description: 'List subscriptions from Stripe.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-subscriptions',
-        group: 'Subscriptions'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

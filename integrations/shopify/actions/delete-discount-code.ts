@@ -29,12 +29,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete a code-based Shopify discount.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-discount-code',
-        group: 'Discounts'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write_discounts'],

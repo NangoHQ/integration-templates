@@ -11,13 +11,7 @@ const required: contacts[] = ['firstName', 'lastName', 'position', 'emailAddress
 
 const action = createAction({
     description: 'Create a contact in the system',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/contacts',
-        group: 'Contacts'
-    },
+    version: '2.0.1',
 
     input: Contact,
     output: Contact,

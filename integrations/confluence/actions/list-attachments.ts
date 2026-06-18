@@ -79,12 +79,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List Confluence attachments across accessible content.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-attachments',
-        group: 'Attachments'
-    },
+    version: '1.0.1',
     metadata: MetadataSchema,
     input: InputSchema,
     output: OutputSchema,

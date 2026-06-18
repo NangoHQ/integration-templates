@@ -96,12 +96,7 @@ const GraphQLResponseSchema = z.object({
 
 const action = createAction({
     description: 'Create an automatic free shipping Shopify discount.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-automatic-discount-free-shipping',
-        group: 'Discounts'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write_discounts'],

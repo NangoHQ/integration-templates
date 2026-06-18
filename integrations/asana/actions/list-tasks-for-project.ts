@@ -49,12 +49,7 @@ const ProviderResponseSchema = z.object({
 
 const action = createAction({
     description: 'List tasks in a project.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-tasks-for-project',
-        group: 'Tasks'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['tasks:read'],

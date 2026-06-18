@@ -26,13 +26,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Search companies by criteria',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/search-companies',
-        group: 'Companies'
-    },
+    version: '1.0.1',
 
     input: InputSchema,
     output: OutputSchema,

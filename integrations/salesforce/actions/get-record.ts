@@ -11,12 +11,7 @@ const ProviderResponseSchema = z.object({}).passthrough();
 
 const action = createAction({
     description: 'Retrieve a Salesforce record by object type and record ID',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-record',
-        group: 'Records'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: ProviderResponseSchema,
 

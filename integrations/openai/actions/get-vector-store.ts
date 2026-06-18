@@ -40,12 +40,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single vector store from OpenAI',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-vector-store',
-        group: 'Vector Stores'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['vector_stores.read'],

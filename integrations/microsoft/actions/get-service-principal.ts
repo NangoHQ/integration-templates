@@ -67,12 +67,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single service principal from Microsoft.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-service-principal',
-        group: 'Service Principals'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Application.Read.All'],

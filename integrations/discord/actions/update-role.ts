@@ -54,12 +54,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update a role in Discord',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-role',
-        group: 'Roles'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['guilds', 'bot'],

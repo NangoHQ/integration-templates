@@ -49,12 +49,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Upload or update the object schema fields for a CRM entity type in Gong.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/upload-crm-entity-schema',
-        group: 'CRM'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:crm:schema'],

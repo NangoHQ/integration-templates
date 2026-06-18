@@ -28,12 +28,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Add a member to a team',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/add-team-member',
-        group: 'Teams'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['TeamMember.ReadWrite.All'],

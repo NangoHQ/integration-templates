@@ -55,12 +55,7 @@ const ProviderResponseSchema = z.object({
 
 const action = createAction({
     description: 'List Shopify markets for the connected store.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-markets',
-        group: 'Markets'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read_markets'],

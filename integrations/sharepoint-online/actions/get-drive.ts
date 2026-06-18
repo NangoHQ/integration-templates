@@ -62,11 +62,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a site drive by ID.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-drive'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Sites.Read.All'],

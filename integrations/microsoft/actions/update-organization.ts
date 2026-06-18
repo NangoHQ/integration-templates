@@ -21,12 +21,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update the properties of a Microsoft organization.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-organization',
-        group: 'Organizations'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Organization.ReadWrite.All'],

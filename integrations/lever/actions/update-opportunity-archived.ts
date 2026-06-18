@@ -4,13 +4,7 @@ import { SuccessResponse, ArchiveOpportunity } from '../models.js';
 
 const action = createAction({
     description: 'Update the archived state of an opportunity',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'PUT',
-        path: '/opportunities/archived',
-        group: 'Opportunities'
-    },
+    version: '2.0.1',
 
     input: ArchiveOpportunity,
     output: SuccessResponse,

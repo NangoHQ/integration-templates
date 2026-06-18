@@ -26,12 +26,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List user properties in taxonomy',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-user-properties',
-        group: 'Taxonomy'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

@@ -76,12 +76,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List Confluence blog posts with pagination.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-blog-posts',
-        group: 'Blog Posts'
-    },
+    version: '1.0.1',
     metadata: MetadataSchema,
     input: InputSchema,
     output: OutputSchema,

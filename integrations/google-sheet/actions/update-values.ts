@@ -28,13 +28,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update values in a spreadsheet range',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-values',
-        group: 'Spreadsheets'
-    },
+    version: '1.0.1',
 
     input: InputSchema,
     output: OutputSchema,

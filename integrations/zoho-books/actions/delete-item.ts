@@ -29,12 +29,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete or archive an item in Zoho Books.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-item',
-        group: 'Items'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoBooks.items.DELETE', 'ZohoBooks.settings.READ'],

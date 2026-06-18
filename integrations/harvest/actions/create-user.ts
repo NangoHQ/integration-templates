@@ -25,13 +25,7 @@ import { User, HarvestCreateUser } from '../models.js';
  */
 const action = createAction({
     description: 'Creates a user in Harvest',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/users',
-        group: 'Users'
-    },
+    version: '1.0.1',
 
     input: HarvestCreateUser,
     output: User,

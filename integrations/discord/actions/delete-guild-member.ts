@@ -17,13 +17,8 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete or archive a guild member in Discord',
-    version: '1.0.0',
+    version: '1.0.1',
     metadata: MetadataSchema,
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-guild-member',
-        group: 'Guild Members'
-    },
     input: InputSchema,
     output: OutputSchema,
     scopes: ['guilds.members.read', 'guilds.members.write'],

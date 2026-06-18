@@ -30,12 +30,7 @@ const AsanaListResponseSchema = z.object({
 
 const action = createAction({
     description: 'List teams in a workspace.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-teams-for-workspace',
-        group: 'Teams'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['teams:read'],

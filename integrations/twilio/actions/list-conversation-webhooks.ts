@@ -43,12 +43,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List webhooks on a Twilio conversation.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-conversation-webhooks',
-        group: 'Conversations'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

@@ -36,11 +36,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List Shopify locations for the connected store.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-locations'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read_locations'],

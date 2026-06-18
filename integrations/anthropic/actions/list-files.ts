@@ -37,11 +37,7 @@ const ListResponseSchema = z.object({
 
 const action = createAction({
     description: 'List files from Anthropic.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-files'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {

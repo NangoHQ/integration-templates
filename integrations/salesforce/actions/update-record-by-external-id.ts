@@ -16,12 +16,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update a record by external ID field and value.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-record-by-external-id',
-        group: 'Records'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

@@ -82,11 +82,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List notes from Pipedrive.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-notes'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

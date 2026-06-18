@@ -90,12 +90,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update a list in ClickUp.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-list',
-        group: 'Lists'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

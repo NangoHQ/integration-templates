@@ -5,12 +5,7 @@ import { TransactionNegationActionResponse, Anonymous_anrok_action_negatetransac
 
 const action = createAction({
     description: 'Creates a negation in Anrok.',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/transactions/negate'
-    },
+    version: '1.0.1',
 
     input: Anonymous_anrok_action_negatetransaction_input,
     output: TransactionNegationActionResponse,

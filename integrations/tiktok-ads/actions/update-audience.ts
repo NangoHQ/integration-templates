@@ -27,12 +27,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update a custom audience in TikTok Ads.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-audience',
-        group: 'Audiences'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['audiences'],

@@ -61,12 +61,7 @@ const OutputSchema = ProviderJobSchema;
 
 const action = createAction({
     description: 'Retry a GitLab CI job.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/retry-job',
-        group: 'Jobs'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api'],

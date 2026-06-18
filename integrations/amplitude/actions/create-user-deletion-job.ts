@@ -57,12 +57,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a user privacy deletion job.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-user-deletion-job',
-        group: 'User Privacy'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

@@ -40,12 +40,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List CRM entity schema fields registered in Gong',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-crm-entity-schema',
-        group: 'CRM'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:crm:schema'],

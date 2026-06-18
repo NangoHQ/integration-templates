@@ -37,12 +37,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Retrieve a Trello member by ID. Use 'me' to get the authenticated user.",
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-member',
-        group: 'Members'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read'],

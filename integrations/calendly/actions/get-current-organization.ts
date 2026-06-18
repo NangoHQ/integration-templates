@@ -33,12 +33,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Fetch the authenticated user organization',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-current-organization',
-        group: 'Organizations'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['organizations:read'],

@@ -36,12 +36,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Email a Zoho Books invoice.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/send-invoice-email',
-        group: 'Invoices'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoBooks.invoices.CREATE', 'ZohoBooks.settings.READ'],

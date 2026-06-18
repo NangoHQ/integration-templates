@@ -29,11 +29,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Insert a footnote at a body location.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-footnote'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['documents'],

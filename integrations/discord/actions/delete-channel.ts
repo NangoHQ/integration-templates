@@ -52,12 +52,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete or archive a channel in Discord',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-channel',
-        group: 'Channels'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['bot'],

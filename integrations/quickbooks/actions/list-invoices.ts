@@ -208,12 +208,7 @@ function mapInvoice(rawInvoice: z.infer<typeof InvoiceSchema>): z.infer<typeof I
 
 const action = createAction({
     description: 'List invoices with the QuickBooks query endpoint',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-invoices',
-        group: 'Invoices'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

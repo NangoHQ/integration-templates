@@ -70,7 +70,7 @@ const ResponseSchema = z.object({
 
 export default createAction({
     description: 'List videos from TikTok Accounts',
-    endpoint: { method: 'GET', path: '/actions/list-videos' },
+    version: '0.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['video.list'],

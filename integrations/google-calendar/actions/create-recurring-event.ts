@@ -24,13 +24,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a recurring event with supplied start, end, and RRULE values',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-recurring-event',
-        group: 'Events'
-    },
+    version: '2.0.1',
 
     input: InputSchema,
     output: OutputSchema,

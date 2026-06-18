@@ -126,12 +126,7 @@ async function resolveTenantId(nango: {
 
 const action = createAction({
     description: 'Retrieve a credit note by CreditNoteID.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-credit-note',
-        group: 'Credit Notes'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['accounting.invoices.read', 'accounting.invoices'],

@@ -16,12 +16,7 @@ const MetadataSchema = z.object({
 
 const action = createAction({
     description: 'Delete a TwiML application in Twilio.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-twiml-app',
-        group: 'TwiML Applications'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,

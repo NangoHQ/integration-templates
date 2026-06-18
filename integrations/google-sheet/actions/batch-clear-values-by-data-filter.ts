@@ -58,13 +58,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Clear values from ranges matching data filters, preserving formatting',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/batch-clear-values-by-data-filter',
-        group: 'Values'
-    },
+    version: '1.0.1',
 
     input: InputSchema,
     output: OutputSchema,

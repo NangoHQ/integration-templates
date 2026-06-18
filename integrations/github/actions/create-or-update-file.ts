@@ -143,12 +143,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a new file or update existing repository contents in a branch.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-or-update-file',
-        group: 'Repositories'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['repo'],

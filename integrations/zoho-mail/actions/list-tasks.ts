@@ -47,12 +47,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List all personal tasks in Zoho Mail.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-tasks',
-        group: 'Tasks'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoMail.tasks.ALL'],

@@ -14,12 +14,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Remove a member from a team.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/remove-team-member',
-        group: 'Teams'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['TeamMember.ReadWrite.All'],

@@ -51,12 +51,7 @@ function normalizeTrainingRecord(record: z.infer<typeof ProviderTrainingRecordSc
 
 const action = createAction({
     description: 'List training records for an employee in BambooHR.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-employee-training',
-        group: 'Training'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

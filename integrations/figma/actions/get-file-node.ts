@@ -41,12 +41,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single file node from Figma',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-file-node',
-        group: 'Files'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['file_content:read', 'files:read'],

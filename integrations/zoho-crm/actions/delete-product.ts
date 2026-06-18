@@ -24,12 +24,7 @@ const ZohoDeleteResponseSchema = z.object({
 
 const action = createAction({
     description: 'Delete or archive a product in Zoho CRM.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-product',
-        group: 'Products'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoCRM.modules.products.ALL', 'ZohoCRM.modules.products.WRITE', 'ZohoCRM.modules.products.DELETE'],

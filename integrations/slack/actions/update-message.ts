@@ -39,13 +39,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Edit an existing message in a Slack channel',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-message',
-        group: 'Messages'
-    },
+    version: '2.0.1',
 
     input: InputSchema,
     output: OutputSchema,

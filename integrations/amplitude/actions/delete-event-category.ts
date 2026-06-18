@@ -16,12 +16,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete an event category',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-event-category',
-        group: 'Taxonomy'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

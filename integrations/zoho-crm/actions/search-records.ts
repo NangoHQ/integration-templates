@@ -37,12 +37,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Search records in a Zoho CRM module using criteria, email, phone, or word filters.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/search-records',
-        group: 'Records'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoCRM.modules.ALL', 'ZohoCRM.modules.READ'],

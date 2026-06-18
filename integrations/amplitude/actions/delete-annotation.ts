@@ -15,12 +15,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete a chart annotation',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-annotation',
-        group: 'Annotations'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

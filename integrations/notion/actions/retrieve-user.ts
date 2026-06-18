@@ -16,13 +16,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Gets a single user by their ID.',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'GET',
-        path: '/users/get',
-        group: 'Users'
-    },
+    version: '1.0.1',
 
     input: InputSchema,
     output: OutputSchema,

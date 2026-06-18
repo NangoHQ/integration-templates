@@ -33,12 +33,7 @@ const OutputSchema = z
 
 const action = createAction({
     description: 'Update a Verify service in Twilio.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-verify-service',
-        group: 'Verify'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

@@ -29,12 +29,7 @@ type Output = z.infer<typeof OutputSchema>;
 
 const action = createAction({
     description: 'Update IMAP enablement and visibility settings.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-imap-settings',
-        group: 'Settings'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/gmail.settings.basic'],

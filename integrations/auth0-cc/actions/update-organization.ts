@@ -75,12 +75,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update an organization in Auth0.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-organization',
-        group: 'Organizations'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['update:organizations'],

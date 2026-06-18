@@ -31,12 +31,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Submit a leave request for an employee',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-leave-request',
-        group: 'Leave'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoPeople.leave.ALL'],

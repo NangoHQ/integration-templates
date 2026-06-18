@@ -39,12 +39,7 @@ const AccountsResponseSchema = z.object({
 
 const action = createAction({
     description: 'List accounts in the Xero chart of accounts.',
-    version: '3.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-accounts',
-        group: 'Accounts'
-    },
+    version: '3.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['accounting.settings.read'],

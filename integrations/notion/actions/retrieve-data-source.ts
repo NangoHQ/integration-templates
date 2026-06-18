@@ -47,12 +47,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a Notion data source definition and schema.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/retrieve-data-source',
-        group: 'Data Sources'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read:content'],

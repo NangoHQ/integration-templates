@@ -50,13 +50,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List all items pinned in a specific channel',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-pins',
-        group: 'Pins'
-    },
+    version: '2.0.1',
 
     input: InputSchema,
     output: OutputSchema,

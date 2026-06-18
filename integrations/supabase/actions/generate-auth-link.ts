@@ -52,12 +52,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Generate a magic link, OTP, invite, signup, or recovery link for a user.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/generate-auth-link',
-        group: 'Auth'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['service_role'],

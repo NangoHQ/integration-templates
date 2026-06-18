@@ -63,12 +63,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Start or retrieve bounded event export',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/export-events',
-        group: 'Export'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api_key'],

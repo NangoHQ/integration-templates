@@ -49,12 +49,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a ticket form by ID.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-ticket-form',
-        group: 'Ticket Forms'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

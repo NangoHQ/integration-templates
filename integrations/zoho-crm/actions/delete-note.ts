@@ -24,12 +24,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete or archive a note in Zoho CRM',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-note',
-        group: 'Notes'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoCRM.modules.notes.ALL'],

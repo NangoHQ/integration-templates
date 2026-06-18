@@ -58,12 +58,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List sharing permissions on an item',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-permissions',
-        group: 'Permissions'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Files.Read', 'offline_access'],

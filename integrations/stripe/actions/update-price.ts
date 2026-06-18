@@ -39,12 +39,7 @@ const PriceSchema = z
 
 const action = createAction({
     description: 'Update a price in Stripe.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-price',
-        group: 'Prices'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: PriceSchema,
     scopes: [],

@@ -44,12 +44,7 @@ const TikTokResponseSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a TikTok user identity by identity ID.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-identity',
-        group: 'Identity'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

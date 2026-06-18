@@ -21,12 +21,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete or archive a record in Attio.',
-    version: '2.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-record',
-        group: 'Records'
-    },
+    version: '2.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['object_configuration:read', 'record_permission:read-write'],

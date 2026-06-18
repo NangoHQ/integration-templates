@@ -19,12 +19,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a specific message attachment payload by attachment ID.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-attachment',
-        group: 'Attachments'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/gmail.readonly'],

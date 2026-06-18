@@ -30,12 +30,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create an employee record',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-employee',
-        group: 'Employees'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

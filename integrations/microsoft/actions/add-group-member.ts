@@ -14,12 +14,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Add a member (user, group, or service principal) to a group in Microsoft.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/add-group-member',
-        group: 'Groups'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Group.ReadWrite.All'],

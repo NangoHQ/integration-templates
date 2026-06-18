@@ -36,11 +36,7 @@ const OutputSchema = ProviderTemplateSchema;
 
 const action = createAction({
     description: 'Retrieve a single template from Mailchimp.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-template'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

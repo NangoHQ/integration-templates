@@ -44,12 +44,7 @@ function isRecord(value: unknown): value is Record<string, unknown> {
 
 const action = createAction({
     description: 'List employees with pagination.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-employees',
-        group: 'Employees'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

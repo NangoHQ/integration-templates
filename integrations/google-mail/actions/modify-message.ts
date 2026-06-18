@@ -31,12 +31,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Add and remove labels on a Gmail message',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/modify-message',
-        group: 'Messages'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/gmail.modify'],

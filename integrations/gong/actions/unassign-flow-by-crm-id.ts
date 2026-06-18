@@ -35,12 +35,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Unassign prospects from an Engage flow using their CRM prospect IDs',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/unassign-flow-by-crm-id',
-        group: 'Engage Flows'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:flows:write'],

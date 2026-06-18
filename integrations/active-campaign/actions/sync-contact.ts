@@ -30,12 +30,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create or update an ActiveCampaign contact by email.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/sync-contact',
-        group: 'Contacts'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

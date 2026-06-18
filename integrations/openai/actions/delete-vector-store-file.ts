@@ -20,11 +20,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Remove a file from a vector store (does not delete the underlying file object)',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-vector-store-file'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['vector_stores.write'],

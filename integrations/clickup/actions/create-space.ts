@@ -126,12 +126,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a space in ClickUp.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-space',
-        group: 'Spaces'
-    },
+    version: '1.0.1',
     metadata: MetadataSchema,
     input: InputSchema,
     output: OutputSchema,

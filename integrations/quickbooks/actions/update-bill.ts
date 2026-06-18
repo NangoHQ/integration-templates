@@ -216,12 +216,7 @@ async function getRealmId(nango: { getConnection: () => Promise<{ connection_con
 
 const action = createAction({
     description: 'Update a bill using its current SyncToken',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-bill',
-        group: 'Bills'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['com.intuit.quickbooks.accounting'],

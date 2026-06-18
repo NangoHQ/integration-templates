@@ -66,12 +66,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Generate an AI brief for a CRM entity using Gong's AI briefer",
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-entity-brief',
-        group: 'Entities'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:ai-briefer:read'],

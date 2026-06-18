@@ -98,12 +98,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a new permission profile in a Gong workspace',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-permission-profile',
-        group: 'Permissions'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:permission-profile:write'],

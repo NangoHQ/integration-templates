@@ -45,12 +45,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List feature flags from PostHog.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-feature-flags',
-        group: 'Feature Flags'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['feature_flag:read'],

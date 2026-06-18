@@ -64,12 +64,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List footer comments for a Confluence page.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-page-footer-comments',
-        group: 'Comments'
-    },
+    version: '1.0.1',
     metadata: MetadataSchema,
     input: InputSchema,
     output: OutputSchema,

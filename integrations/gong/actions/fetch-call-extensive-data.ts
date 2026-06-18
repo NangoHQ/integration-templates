@@ -86,12 +86,7 @@ const ProviderErrorSchema = z.object({
 
 const action = createAction({
     description: 'Fetch detailed Gong call data including content, interaction, and collaboration fields for specific calls.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/fetch-call-extensive-data',
-        group: 'Calls'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:calls:read'],

@@ -20,13 +20,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List forms',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-forms',
-        group: 'Forms'
-    },
+    version: '1.0.1',
 
     input: InputSchema,
     output: OutputSchema,

@@ -68,11 +68,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List company files from BambooHR.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-company-files'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

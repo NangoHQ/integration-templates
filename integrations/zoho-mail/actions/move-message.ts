@@ -25,12 +25,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Move a Zoho Mail message to another folder.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/move-message',
-        group: 'Messages'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoMail.messages.ALL'],

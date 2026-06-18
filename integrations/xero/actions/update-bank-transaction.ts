@@ -84,12 +84,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update an existing bank transaction.',
-    version: '3.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-bank-transaction',
-        group: 'Bank Transactions'
-    },
+    version: '3.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['accounting.banktransactions'],

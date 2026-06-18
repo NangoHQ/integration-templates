@@ -30,12 +30,7 @@ const OutputSchema = z.record(z.string(), TrainingTypeSchema);
 
 const action = createAction({
     description: 'List training types configured in BambooHR.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-training-types',
-        group: 'Training'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

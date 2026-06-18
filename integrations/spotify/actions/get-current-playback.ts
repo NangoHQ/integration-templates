@@ -138,12 +138,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Fetch the user's current playback state including device, track, and progress.",
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-current-playback',
-        group: 'Player'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['user-read-playback-state'],

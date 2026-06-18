@@ -112,12 +112,7 @@ async function getCompanyRealmId(nango: Parameters<(typeof action)['exec']>[0]):
 
 const action = createAction({
     description: 'List deposits with the QuickBooks query endpoint.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-deposits',
-        group: 'Deposits'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['com.intuit.quickbooks.accounting'],

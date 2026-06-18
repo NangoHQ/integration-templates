@@ -63,12 +63,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Close a return on a Shopify order.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/close-return',
-        group: 'Returns'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write_returns'],

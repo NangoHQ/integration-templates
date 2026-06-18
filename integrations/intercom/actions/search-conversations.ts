@@ -62,12 +62,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Search conversations with a structured filter query',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/search-conversations',
-        group: 'Conversations'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read_conversations'],

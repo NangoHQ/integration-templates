@@ -44,12 +44,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a model response with text, image, file, or tool inputs',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-response',
-        group: 'Responses'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['model.request'],

@@ -22,12 +22,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single group from monday.com.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-group',
-        group: 'Groups'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['boards:read'],

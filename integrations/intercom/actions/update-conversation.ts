@@ -49,12 +49,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update mutable properties on a conversation such as custom attributes or read status',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-conversation',
-        group: 'Conversations'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['conversations:write'],

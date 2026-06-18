@@ -46,12 +46,7 @@ const UserSchema = z
 
 const action = createAction({
     description: 'Retrieve a single user from Auth0.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-user',
-        group: 'Users'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: UserSchema,
     scopes: ['read:users'],

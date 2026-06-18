@@ -98,12 +98,7 @@ function mapEntryResult(entry: z.infer<typeof RelocationEntryResultSchema>): z.i
 
 const action = createAction({
     description: 'Move multiple Dropbox files or folders to new locations in one batch job.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/batch-move-files-or-folders',
-        group: 'Files'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['files.content.write'],

@@ -64,12 +64,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List workflow runs for a repository or a specific workflow',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-workflow-runs',
-        group: 'Actions'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['actions:read'],

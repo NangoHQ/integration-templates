@@ -31,13 +31,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Set the topic of a channel',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/set-channel-topic',
-        group: 'Channels'
-    },
+    version: '2.0.1',
 
     input: InputSchema,
     output: OutputSchema,

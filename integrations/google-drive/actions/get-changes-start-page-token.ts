@@ -9,13 +9,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Get the starting token for listing future changes',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-changes-start-page-token',
-        group: 'Changes'
-    },
+    version: '1.0.1',
 
     input: InputSchema,
     output: OutputSchema,

@@ -40,12 +40,7 @@ const OutputSchema = ProviderBranchSchema;
 
 const action = createAction({
     description: 'Retrieve a single branch from GitLab.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-branch',
-        group: 'Branches'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api'],

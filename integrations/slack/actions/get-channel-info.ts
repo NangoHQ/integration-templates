@@ -39,13 +39,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve conversation details including topic, purpose, and membership state',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-channel-info',
-        group: 'Channels'
-    },
+    version: '2.0.1',
 
     input: InputSchema,
     output: OutputSchema,

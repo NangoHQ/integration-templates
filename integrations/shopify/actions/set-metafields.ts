@@ -64,12 +64,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create or update Shopify metafields in one call.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/set-metafields',
-        group: 'Metafields'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read_products', 'write_products'],

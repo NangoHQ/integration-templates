@@ -50,12 +50,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Request reviewers or teams on an open pull request',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-review-request',
-        group: 'Pull Requests'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['pull_requests:write'],

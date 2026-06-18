@@ -37,12 +37,7 @@ const OutputSchema = z
 
 const action = createAction({
     description: 'Retrieve a single routing form from Calendly.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-routing-form',
-        group: 'Routing Forms'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['routing_forms:read'],

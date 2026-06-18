@@ -53,12 +53,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete a Shopify metaobject definition.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-metaobject-definition',
-        group: 'Metaobjects'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write_metaobject_definitions'],

@@ -70,11 +70,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Update a playlist item's metadata or position.",
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-playlist-item'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/youtube', 'https://www.googleapis.com/auth/youtube.force-ssl'],

@@ -92,12 +92,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Bulk enrich people by emails or IDs. Supports up to 10 people per request.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/bulk-enrich-people',
-        group: 'People'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api_key'],

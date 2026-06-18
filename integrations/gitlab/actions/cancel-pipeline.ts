@@ -44,12 +44,7 @@ const OutputSchema = ProviderPipelineSchema;
 
 const action = createAction({
     description: 'Cancel a GitLab pipeline.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/cancel-pipeline',
-        group: 'Pipelines'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api'],

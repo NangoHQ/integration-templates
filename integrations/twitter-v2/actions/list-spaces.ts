@@ -64,12 +64,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List Spaces from Twitter/X matching a search query',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-spaces',
-        group: 'Spaces'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['space.read', 'tweet.read', 'users.read'],

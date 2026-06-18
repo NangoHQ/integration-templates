@@ -11,11 +11,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Remove one or more tracks from the current user's library.",
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-saved-track'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['user-library-modify'],

@@ -44,13 +44,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Search for messages matching a query',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'GET',
-        path: '/actions/search-messages',
-        group: 'Messages'
-    },
+    version: '2.0.1',
 
     input: InputSchema,
     output: OutputSchema,

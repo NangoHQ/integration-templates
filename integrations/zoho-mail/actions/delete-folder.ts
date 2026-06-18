@@ -24,12 +24,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete a folder and all its contents in Zoho Mail.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-folder',
-        group: 'Folders'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoMail.folders.ALL', 'ZohoMail.folders.DELETE'],

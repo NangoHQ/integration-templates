@@ -26,12 +26,7 @@ const PaginatedResponseSchema = z.object({
 
 const action = createAction({
     description: 'Get the grants associated with a user in Auth0.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-user-grants',
-        group: 'Users'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read:grants'],

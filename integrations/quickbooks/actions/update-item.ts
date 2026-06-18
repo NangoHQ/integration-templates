@@ -124,13 +124,7 @@ function buildRequestBody(input: z.infer<typeof InputSchema>): RequestBody {
 
 const action = createAction({
     description: 'Update a QuickBooks item using its current SyncToken with sparse update support.',
-    version: '2.0.0',
-    // https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/item
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-item',
-        group: 'Items'
-    },
+    version: '2.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['com.intuit.quickbooks.accounting'],

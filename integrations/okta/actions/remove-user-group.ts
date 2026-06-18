@@ -6,13 +6,7 @@ import { SuccessResponse, OktaAssignRemoveUserGroup } from '../models.js';
 
 const action = createAction({
     description: 'Unassigns a user from a group with the OKTA_GROUP type',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'DELETE',
-        path: '/user-groups',
-        group: 'User Groups'
-    },
+    version: '1.0.1',
 
     input: OktaAssignRemoveUserGroup,
     output: SuccessResponse,

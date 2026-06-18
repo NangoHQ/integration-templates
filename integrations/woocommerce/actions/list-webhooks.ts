@@ -51,11 +51,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List webhooks from WooCommerce.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-webhooks'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

@@ -8,8 +8,7 @@ const InputSchema = z.object({
 
 const action = createAction({
     description: 'Assign Auth0 roles to a user.',
-    version: '1.0.0',
-    endpoint: { method: 'POST', path: '/actions/assign-roles-to-user' },
+    version: '1.0.1',
     input: InputSchema,
     output: z.null(),
     scopes: ['update:users', 'create:role_members'],

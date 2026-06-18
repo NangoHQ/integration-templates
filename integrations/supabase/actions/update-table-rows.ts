@@ -19,12 +19,7 @@ const OutputSchema = z.array(ProviderRowSchema);
 
 const action = createAction({
     description: 'Update rows in a Supabase table.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-table-rows',
-        group: 'Tables'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

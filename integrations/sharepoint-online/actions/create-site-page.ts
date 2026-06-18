@@ -88,12 +88,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a modern site page.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-site-page',
-        group: 'Site Pages'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Sites.ReadWrite.All'],

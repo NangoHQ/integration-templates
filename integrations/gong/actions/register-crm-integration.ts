@@ -18,11 +18,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Register a generic CRM integration with Gong',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/register-crm-integration'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

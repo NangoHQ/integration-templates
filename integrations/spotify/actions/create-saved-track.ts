@@ -16,12 +16,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Save one or more tracks to the current user's library.",
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-saved-track',
-        group: 'Library'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['user-library-modify'],

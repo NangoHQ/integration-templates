@@ -53,13 +53,7 @@ const OutputSchema = z.unknown().describe('Spreadsheet object with data matching
 
 const action = createAction({
     description: 'Get spreadsheet data matching data filters',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-spreadsheet-by-data-filter',
-        group: 'Spreadsheets'
-    },
+    version: '1.0.1',
 
     input: InputSchema,
     output: OutputSchema,

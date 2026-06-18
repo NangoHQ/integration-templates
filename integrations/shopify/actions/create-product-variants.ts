@@ -69,12 +69,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create one or more variants for a Shopify product.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-product-variants',
-        group: 'Products'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write_products'],

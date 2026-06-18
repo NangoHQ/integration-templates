@@ -62,12 +62,7 @@ const ProviderColumnSchema = z
 
 const action = createAction({
     description: 'Create a column on a SharePoint list.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-list-column',
-        group: 'Lists'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: ProviderColumnSchema,
     scopes: ['Sites.ReadWrite.All', 'Files.ReadWrite.All'],

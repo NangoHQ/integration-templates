@@ -228,12 +228,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update an existing Gong permission profile.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-permission-profile',
-        group: 'Permissions'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:permission-profile:write'],

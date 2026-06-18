@@ -22,12 +22,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Copy an Algolia index to a new destination index.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/copy-index',
-        group: 'Indices'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['addObject'],

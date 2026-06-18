@@ -58,12 +58,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List playlists owned or followed by the current user.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-playlists',
-        group: 'Playlists'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['playlist-read-private', 'playlist-read-collaborative'],

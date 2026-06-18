@@ -20,11 +20,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve default field values for a quick action',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-quick-action-defaults'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api'],

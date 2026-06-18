@@ -52,12 +52,7 @@ const MondayResponseSchema = z.object({
 
 const action = createAction({
     description: 'Change a monday.com item column value.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/change-column-value',
-        group: 'Items'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['boards:write'],

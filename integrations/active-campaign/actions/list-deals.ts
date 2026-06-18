@@ -79,12 +79,7 @@ function decodeCursor(cursor: string): number {
 
 const action = createAction({
     description: 'List deals from ActiveCampaign.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-deals',
-        group: 'Deals'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

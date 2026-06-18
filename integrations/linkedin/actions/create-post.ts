@@ -72,12 +72,7 @@ function extractPostIdFromError(error: unknown): string | undefined {
 
 const action = createAction({
     description: 'Publish an organic LinkedIn post for a member or organization.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-post',
-        group: 'Posts'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['w_member_social', 'w_organization_social'],

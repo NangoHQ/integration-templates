@@ -5,12 +5,7 @@ import { TransactionDeletionActionResponse, Anonymous_anrok_action_voidtransacti
 
 const action = createAction({
     description: 'Voids a transaction in Anrok.',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/transactions/void'
-    },
+    version: '1.0.1',
 
     input: Anonymous_anrok_action_voidtransaction_input,
     output: TransactionDeletionActionResponse,

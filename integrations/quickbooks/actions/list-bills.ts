@@ -113,10 +113,7 @@ function mapBill(bill: Bill) {
 
 export default createAction<typeof InputSchema, typeof OutputSchema>({
     description: 'List bills with the QuickBooks query endpoint',
-    endpoint: {
-        path: '/actions/list-bills',
-        method: 'POST'
-    },
+    version: '0.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['com.intuit.quickbooks.accounting'],

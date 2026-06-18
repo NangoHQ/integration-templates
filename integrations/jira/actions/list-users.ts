@@ -97,12 +97,7 @@ const MetadataSchema = z.object({
 
 const action = createAction({
     description: 'Search Jira users visible to the authenticated account.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-users',
-        group: 'Users'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,

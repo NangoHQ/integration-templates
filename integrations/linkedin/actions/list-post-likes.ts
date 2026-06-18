@@ -40,12 +40,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List reactions on a LinkedIn post or comment thread. Returns all reaction types (LIKE, PRAISE, EMPATHY, APPRECIATION, etc.).',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-post-likes',
-        group: 'Social Actions'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['r_member_social', 'w_member_social', 'r_organization_social', 'r_organization_social_feed'],

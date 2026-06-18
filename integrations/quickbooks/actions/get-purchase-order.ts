@@ -59,12 +59,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a QuickBooks purchase order by ID.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-purchase-order',
-        group: 'Purchase Orders'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

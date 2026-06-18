@@ -57,12 +57,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve the user drive metadata.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-drive',
-        group: 'Drives'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['openid', 'profile', 'Files.Read', 'offline_access'],

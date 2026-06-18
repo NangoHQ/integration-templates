@@ -63,12 +63,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single update from monday.com.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-update',
-        group: 'Updates'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['updates:read'],

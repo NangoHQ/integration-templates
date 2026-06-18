@@ -33,12 +33,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Update a label's name or color in Zoho Mail.",
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-label',
-        group: 'Labels'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoMail.tags.UPDATE'],

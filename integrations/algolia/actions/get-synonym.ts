@@ -32,12 +32,7 @@ const OutputSchema = ProviderSynonymSchema;
 
 const action = createAction({
     description: 'Retrieve a single synonym from an Algolia index.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-synonym',
-        group: 'Synonyms'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['settings'],

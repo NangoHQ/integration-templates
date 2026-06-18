@@ -46,12 +46,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List lists from Attio.',
-    version: '2.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-lists',
-        group: 'Lists'
-    },
+    version: '2.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['list_configuration:read'],

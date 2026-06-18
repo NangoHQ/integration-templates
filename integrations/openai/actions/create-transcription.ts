@@ -42,11 +42,7 @@ const TranscriptionOutputSchema = z.object({
 
 const action = createAction({
     description: 'Transcribe audio to text. Use proxy script openai/proxy/transcribe-audio.ts for actual file uploads.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-transcription'
-    },
+    version: '1.0.1',
     input: TranscriptionInputSchema,
     output: TranscriptionOutputSchema,
     scopes: ['model.request'],

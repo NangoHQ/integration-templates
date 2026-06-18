@@ -34,12 +34,7 @@ const ListResponseSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single source from Ashby',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-source',
-        group: 'Sources'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['hiringProcessMetadataRead'],

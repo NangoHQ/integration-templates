@@ -13,13 +13,7 @@ import { SuccessResponse, IdEntity } from '../models.js';
  */
 const action = createAction({
     description: 'Deletes a user in Gorgias',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'DELETE',
-        path: '/users',
-        group: 'Users'
-    },
+    version: '1.0.1',
 
     input: IdEntity,
     output: SuccessResponse,

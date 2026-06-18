@@ -27,12 +27,7 @@ const ListRoutingFormsOutputSchema = z.object({
 
 const action = createAction({
     description: 'List routing forms from Calendly',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-routing-forms',
-        group: 'Routing Forms'
-    },
+    version: '1.0.1',
     input: ListRoutingFormsInputSchema,
     output: ListRoutingFormsOutputSchema,
     scopes: ['routing_forms:read'],

@@ -2,12 +2,14 @@ import { afterEach, beforeEach, vi, expect, it, describe } from 'vitest';
 
 import createSync from '../syncs/attendance.js';
 
+const FIXTURE_NOW = new Date('2026-06-15T12:00:00.000Z');
+
 describe('zoho-people attendance tests', () => {
     const models = 'Attendance'.split(',');
 
     // Fixture was recorded on 2026-06-15 (UTC); edate=15-Jun-2026, sdate=09-Jun-2026.
     beforeEach(() => {
-        vi.useFakeTimers({ now: new Date('2026-06-15T12:00:00Z') });
+        vi.useFakeTimers({ now: FIXTURE_NOW });
     });
 
     const createTestContext = () => {

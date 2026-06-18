@@ -24,13 +24,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List pending scheduled messages',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-scheduled-messages',
-        group: 'Messages'
-    },
+    version: '2.0.1',
 
     input: InputSchema,
     output: OutputSchema,

@@ -42,12 +42,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Check a Twilio Verify code.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/check-verification',
-        group: 'Verify'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

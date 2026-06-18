@@ -17,12 +17,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update an event category.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-event-category',
-        group: 'Taxonomy'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

@@ -31,12 +31,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List columns on a SharePoint list.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-list-columns',
-        group: 'Columns'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Sites.Read.All'],

@@ -6,13 +6,7 @@ import { NetsuiteCustomerCreateOutput, NetsuiteCustomerCreateInput } from '../mo
 
 const action = createAction({
     description: 'Creates a customer in Netsuite',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/customers',
-        group: 'Customers'
-    },
+    version: '2.0.1',
 
     input: NetsuiteCustomerCreateInput,
     output: NetsuiteCustomerCreateOutput,

@@ -86,12 +86,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a bank transaction by BankTransactionID.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-bank-transaction',
-        group: 'Bank Transactions'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['accounting.banktransactions', 'accounting.settings'],

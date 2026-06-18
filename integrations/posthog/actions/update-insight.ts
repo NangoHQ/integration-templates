@@ -50,12 +50,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update a insight in PostHog.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-insight',
-        group: 'Insights'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['insight:write'],

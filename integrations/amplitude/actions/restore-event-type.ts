@@ -16,12 +16,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Restore a deleted taxonomy event type.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/restore-event-type',
-        group: 'Taxonomy'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

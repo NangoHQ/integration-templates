@@ -80,12 +80,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a meeting in Zoom.',
-    version: '2.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-meeting',
-        group: 'Meetings'
-    },
+    version: '2.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['meeting:write'],

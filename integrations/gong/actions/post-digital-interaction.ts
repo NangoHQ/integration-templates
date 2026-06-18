@@ -34,12 +34,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Post a digital interaction event to Gong (web visits, email opens, content engagement, etc.)',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/post-digital-interaction',
-        group: 'Digital Interactions'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:digital-interactions:write'],

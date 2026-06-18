@@ -96,11 +96,7 @@ function extractPageId(postId: string): string | null {
 
 const action = createAction({
     description: 'List comments on a Facebook post with pagination support',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-post-comments'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['pages_read_engagement', 'pages_read_user_content'],

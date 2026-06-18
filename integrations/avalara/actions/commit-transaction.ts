@@ -18,13 +18,7 @@ import { IdEntity, TransactionCode } from '../models.js';
  */
 const action = createAction({
     description: 'Marks a transaction by changing its status to Committed',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'PUT',
-        path: '/transactions',
-        group: 'Transactions'
-    },
+    version: '2.0.1',
 
     input: TransactionCode,
     output: IdEntity,

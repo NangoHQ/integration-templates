@@ -7,13 +7,7 @@ import { User, FreshdeskCreateUser } from '../models.js';
 
 const action = createAction({
     description: 'Creates a user in FreshDesk',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/users',
-        group: 'Users'
-    },
+    version: '2.0.1',
 
     input: FreshdeskCreateUser,
     output: User,

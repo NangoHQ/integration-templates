@@ -60,12 +60,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Start a Discord thread from an existing message',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-thread-from-message',
-        group: 'Threads'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['bot'],

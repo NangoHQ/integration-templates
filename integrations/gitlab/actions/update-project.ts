@@ -68,12 +68,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update a project in GitLab.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-project',
-        group: 'Projects'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api', 'write_api'],

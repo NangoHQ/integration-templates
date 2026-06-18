@@ -23,12 +23,7 @@ const ProviderMemberSchema = z
 
 const action = createAction({
     description: 'Delete or archive a member in Mailchimp',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-member',
-        group: 'Members'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

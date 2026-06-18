@@ -59,12 +59,7 @@ function parseBoolean(value: string | null): boolean | undefined {
 
 const action = createAction({
     description: 'List Snowflake users with login, email, role, and auth details.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-users',
-        group: 'Users'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

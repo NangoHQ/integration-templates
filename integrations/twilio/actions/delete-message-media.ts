@@ -20,12 +20,7 @@ const ErrorSchema = z.object({
 
 const action = createAction({
     description: 'Delete a media resource attached to a Twilio message.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-message-media',
-        group: 'Messages'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

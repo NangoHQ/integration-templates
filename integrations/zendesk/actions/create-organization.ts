@@ -48,12 +48,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create an organization in Zendesk Support',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-organization',
-        group: 'Organizations'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read', 'write'],

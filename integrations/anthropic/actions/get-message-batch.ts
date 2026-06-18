@@ -28,12 +28,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single message batch from Anthropic.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-message-batch',
-        group: 'Message Batches'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

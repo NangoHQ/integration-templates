@@ -92,12 +92,7 @@ const ProviderListSchema = z
 
 const action = createAction({
     description: 'Retrieve a single audience from Mailchimp.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-audience',
-        group: 'Audiences'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: ProviderListSchema,
     scopes: [],

@@ -7,13 +7,7 @@ import { ExactInvoiceUpdateOutput, ExactInvoiceUpdateInput } from '../models.js'
 
 const action = createAction({
     description: 'Updates an invoice in ExactOnline',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'PUT',
-        path: '/invoices',
-        group: 'Invoices'
-    },
+    version: '2.0.1',
 
     input: ExactInvoiceUpdateInput,
     output: ExactInvoiceUpdateOutput,

@@ -49,11 +49,7 @@ const SurveySchema = z
 
 const action = createAction({
     description: 'Retrieve a single survey from PostHog.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-survey'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: SurveySchema,
     scopes: ['survey:read'],

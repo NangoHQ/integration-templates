@@ -22,12 +22,7 @@ const IngestionResponseSchema = z
 
 const action = createAction({
     description: 'Update group properties',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/group-identify',
-        group: 'Groups'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

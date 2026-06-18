@@ -148,12 +148,7 @@ async function getCompany(nango: Parameters<(typeof action)['exec']>[0]): Promis
 
 const action = createAction({
     description: 'Update an invoice using its current SyncToken',
-    version: '2.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-invoice',
-        group: 'Invoices'
-    },
+    version: '2.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['com.intuit.quickbooks.accounting'],

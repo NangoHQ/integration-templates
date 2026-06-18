@@ -52,13 +52,8 @@ const AccessibleResourceSchema = z.array(
 
 const action = createAction({
     description: 'Create a Confluence blog post in a space.',
-    version: '1.0.0',
+    version: '1.0.1',
     metadata: MetadataSchema,
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-blog-post',
-        group: 'Blog Posts'
-    },
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write:page:confluence'],

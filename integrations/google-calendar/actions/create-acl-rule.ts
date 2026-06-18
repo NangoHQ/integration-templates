@@ -35,13 +35,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create an access control rule',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-acl-rule',
-        group: 'Calendar'
-    },
+    version: '2.0.1',
 
     input: InputSchema,
     output: OutputSchema,

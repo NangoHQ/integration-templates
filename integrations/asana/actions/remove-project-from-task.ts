@@ -10,12 +10,7 @@ const OutputSchema = z.object({});
 
 const action = createAction({
     description: 'Remove a task from a project',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/remove-project-from-task',
-        group: 'Tasks'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['tasks:write'],

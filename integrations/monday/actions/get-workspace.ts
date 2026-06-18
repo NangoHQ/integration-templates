@@ -39,8 +39,7 @@ const MondayGraphQLErrorSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single workspace from monday.com.',
-    version: '1.0.0',
-    endpoint: { method: 'GET', path: '/actions/get-workspace' },
+    version: '1.0.1',
     input: InputSchema,
     output: WorkspaceSchema,
     scopes: ['workspaces:read'],

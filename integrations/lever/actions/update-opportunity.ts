@@ -8,13 +8,7 @@ import { ReturnObjUpdateOpportunity, UpdateOpportunity } from '../models.js';
 
 const action = createAction({
     description: 'Update an opportunity',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'PATCH',
-        path: '/opportunities',
-        group: 'Opportunities'
-    },
+    version: '1.0.1',
 
     input: UpdateOpportunity,
     output: ReturnObjUpdateOpportunity,

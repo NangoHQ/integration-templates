@@ -63,12 +63,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single commit from GitLab.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-commit',
-        group: 'Commits'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api'],

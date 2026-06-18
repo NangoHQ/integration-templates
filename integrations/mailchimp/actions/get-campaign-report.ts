@@ -113,12 +113,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a Mailchimp campaign report.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-campaign-report',
-        group: 'Reports'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

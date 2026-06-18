@@ -123,12 +123,7 @@ const OutputSchema = ProviderTaskSchema;
 
 const action = createAction({
     description: 'Fetch a single task by gid.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-task',
-        group: 'Tasks'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['tasks:read'],

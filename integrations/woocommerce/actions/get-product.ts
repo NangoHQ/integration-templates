@@ -131,11 +131,7 @@ const OutputSchema = ProductSchema;
 
 const action = createAction({
     description: 'Retrieve a single product from WooCommerce',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-product'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read'],

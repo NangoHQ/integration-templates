@@ -11,10 +11,7 @@ const OutputSchema = z.object({
 
 export default createAction({
     description: 'Delete an annotation category',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-annotation-category'
-    },
+    version: '0.0.1',
     input: InputSchema,
     output: OutputSchema,
     exec: async (nango, input) => {

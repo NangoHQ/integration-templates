@@ -95,12 +95,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a spend or receive money bank transaction',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-bank-transaction',
-        group: 'Bank Transactions'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['accounting.banktransactions'],

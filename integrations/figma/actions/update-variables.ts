@@ -82,12 +82,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create, update, or delete variables and variable collections in a Figma file',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-variables',
-        group: 'Variables'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['file_variables:write'],

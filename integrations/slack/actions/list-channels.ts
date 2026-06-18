@@ -31,13 +31,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List Slack conversations with optional type filters and cursor pagination.',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-channels',
-        group: 'Conversations'
-    },
+    version: '2.0.1',
 
     input: InputSchema,
     output: OutputSchema,

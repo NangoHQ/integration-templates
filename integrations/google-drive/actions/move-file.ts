@@ -16,13 +16,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Move a file to a different folder',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/move-file',
-        group: 'Files'
-    },
+    version: '1.0.1',
 
     input: InputSchema,
     output: OutputSchema,

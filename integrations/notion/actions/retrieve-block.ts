@@ -31,12 +31,7 @@ const OutputSchema = z
 
 const action = createAction({
     description: 'Retrieve a single block by block ID.',
-    version: '2.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/retrieve-block',
-        group: 'Blocks'
-    },
+    version: '2.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

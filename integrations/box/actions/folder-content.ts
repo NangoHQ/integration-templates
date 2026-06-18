@@ -42,12 +42,7 @@ const ItemSchema = z.object({
 const action = createAction({
     description:
         'Fetches the top-level content (files and folders) of a folder given its ID. If no folder ID is provided, it fetches content from the root folder.',
-    version: '3.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/folder-content',
-        group: 'Folders'
-    },
+    version: '3.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['root_readwrite'],

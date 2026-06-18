@@ -68,12 +68,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a comment on a page, block, or discussion thread',
-    version: '2.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-comment',
-        group: 'Comments'
-    },
+    version: '2.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['insert_comment'],

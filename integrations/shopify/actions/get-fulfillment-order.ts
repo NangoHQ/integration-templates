@@ -100,12 +100,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a Shopify fulfillment order by GraphQL ID.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-fulfillment-order',
-        group: 'Fulfillment Orders'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read_merchant_managed_fulfillment_orders', 'read_assigned_fulfillment_orders', 'read_third_party_fulfillment_orders'],

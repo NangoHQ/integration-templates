@@ -40,12 +40,7 @@ function getMailBaseUrl(extension: string | undefined): string {
 
 const action = createAction({
     description: 'Mark a Zoho Mail message as read',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/mark-message-read',
-        group: 'Messages'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['zohomail.messages.ALL'],

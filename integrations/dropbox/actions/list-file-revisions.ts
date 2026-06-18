@@ -36,12 +36,7 @@ const ListFileRevisionsOutputSchema = z.object({
 
 const action = createAction({
     description: 'List revisions for a Dropbox file by path or file id.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-file-revisions',
-        group: 'Files'
-    },
+    version: '1.0.1',
     input: ListFileRevisionsInputSchema,
     output: ListFileRevisionsOutputSchema,
     scopes: ['files.metadata.read'],

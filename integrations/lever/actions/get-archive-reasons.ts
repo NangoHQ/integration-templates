@@ -5,13 +5,7 @@ import { z } from 'zod';
 
 const action = createAction({
     description: 'Get all archived reasons',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'GET',
-        path: '/archived/reasons',
-        group: 'Archived'
-    },
+    version: '1.0.1',
 
     input: z.void(),
     output: SuccessResponse,

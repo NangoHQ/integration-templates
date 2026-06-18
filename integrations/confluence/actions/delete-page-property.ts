@@ -22,12 +22,7 @@ const AccessibleResourceSchema = z.array(
 
 const action = createAction({
     description: 'Delete a content property from a Confluence page.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-page-property',
-        group: 'Pages'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,

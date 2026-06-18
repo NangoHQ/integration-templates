@@ -8,13 +8,7 @@ import { z } from 'zod';
 
 const action = createAction({
     description: 'Retrieves detailed information about the current company in Bitdefender GravityZone.',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'GET',
-        path: '/company-details',
-        group: 'Company'
-    },
+    version: '1.0.1',
 
     input: z.void(),
     output: BitdefenderCompany,

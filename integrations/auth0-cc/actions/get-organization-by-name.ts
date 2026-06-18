@@ -27,12 +27,7 @@ const OutputSchema = ProviderOrganizationSchema;
 
 const action = createAction({
     description: 'Retrieve an organization by its name from Auth0.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-organization-by-name',
-        group: 'Organizations'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read:organizations'],

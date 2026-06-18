@@ -59,12 +59,7 @@ const TaxonomyGetResponseSchema = z.object({
 
 const action = createAction({
     description: 'Update a taxonomy event type.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-event-type',
-        group: 'Taxonomy'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

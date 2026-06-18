@@ -6,12 +6,7 @@ import { Company, CreateCompany } from '../models.js';
 
 const action = createAction({
     description: 'Create a company in the system',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/company'
-    },
+    version: '1.0.1',
 
     input: CreateCompany,
     output: Company,

@@ -6,13 +6,7 @@ import { SuccessResponse, EmailEntity } from '../models.js';
 
 const action = createAction({
     description: 'Deletes a user in Grammarly',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'DELETE',
-        path: '/users',
-        group: 'Users'
-    },
+    version: '1.0.1',
 
     input: EmailEntity,
     output: SuccessResponse,

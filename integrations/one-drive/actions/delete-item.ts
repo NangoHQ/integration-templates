@@ -13,12 +13,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete a file or folder.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-item',
-        group: 'Items'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Files.ReadWrite', 'offline_access'],

@@ -55,12 +55,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single conversation from Twilio.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-conversation',
-        group: 'Conversations'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

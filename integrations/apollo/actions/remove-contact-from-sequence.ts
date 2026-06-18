@@ -41,12 +41,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Remove or stop one or more contacts from an Apollo sequence.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/remove-contact-from-sequence',
-        group: 'Sequences'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

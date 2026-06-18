@@ -53,12 +53,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Complete a Shopify draft order and convert it into an order.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/complete-draft-order',
-        group: 'Draft Orders'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write_draft_orders'],

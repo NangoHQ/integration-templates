@@ -27,13 +27,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update a comment on a file',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'PATCH',
-        path: '/actions/update-comment',
-        group: 'Comments'
-    },
+    version: '1.0.1',
 
     input: InputSchema,
     output: OutputSchema,

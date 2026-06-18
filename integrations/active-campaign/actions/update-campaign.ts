@@ -81,12 +81,7 @@ function toArrayOfStringsOrUndefined(value: unknown): string[] | undefined {
 
 const action = createAction({
     description: 'Update a campaign in ActiveCampaign.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-campaign',
-        group: 'Campaigns'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['campaigns'],

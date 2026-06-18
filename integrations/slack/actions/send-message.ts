@@ -25,13 +25,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Send a message to a channel',
-    version: '3.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/send-message',
-        group: 'Messages'
-    },
+    version: '3.0.1',
 
     input: InputSchema,
     output: OutputSchema,

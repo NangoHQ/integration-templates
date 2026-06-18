@@ -18,13 +18,7 @@ import { IdEntity, CreateTransaction } from '../models.js';
  */
 const action = createAction({
     description: 'Creates a new transaction',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/transactions',
-        group: 'Transactions'
-    },
+    version: '2.0.1',
 
     input: CreateTransaction,
     output: IdEntity,

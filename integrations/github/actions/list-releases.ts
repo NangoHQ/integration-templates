@@ -39,12 +39,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List published and draft releases for a repository.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-releases',
-        group: 'Releases'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['repo'],

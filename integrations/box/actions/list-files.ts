@@ -23,12 +23,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List files from Box.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-files',
-        group: 'Files'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['root_readwrite'],

@@ -37,12 +37,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Send a new email message immediately',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/send-mail',
-        group: 'Mail'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Mail.Send'],

@@ -60,12 +60,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List service principals from Microsoft Graph',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-service-principals',
-        group: 'Service Principals'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Application.Read.All'],

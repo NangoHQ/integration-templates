@@ -48,12 +48,7 @@ const RefundSchema = z.object({
 
 const action = createAction({
     description: 'Create a refund in Stripe.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-refund',
-        group: 'Refunds'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: RefundSchema,
     scopes: [],

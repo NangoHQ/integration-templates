@@ -61,12 +61,7 @@ const ListOutputSchema = z.object({
 
 const action = createAction({
     description: 'List items under a folder in OneDrive Personal.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-children',
-        group: 'Drive Items'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: ListOutputSchema,
     scopes: ['onedrive.readonly'],

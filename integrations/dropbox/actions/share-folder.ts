@@ -59,12 +59,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Turn a Dropbox folder into a shared folder for collaborators',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/share-folder',
-        group: 'Sharing'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['sharing.write'],

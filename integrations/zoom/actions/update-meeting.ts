@@ -14,12 +14,7 @@ const InputSchema = z.object({
 
 const action = createAction({
     description: 'Update a meeting in Zoom.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-meeting',
-        group: 'Meetings'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: z.null(),
     scopes: ['meeting:write', 'meeting:write:admin'],

@@ -57,12 +57,7 @@ const StatementResponseSchema = z.object({
 
 const action = createAction({
     description: 'List Snowflake stages in a database.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-stages',
-        group: 'Stages'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['sql_api'],

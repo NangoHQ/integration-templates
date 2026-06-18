@@ -13,12 +13,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Remove a reaction from a Discord message.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-reaction',
-        group: 'Reactions'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['guilds', 'bot'],

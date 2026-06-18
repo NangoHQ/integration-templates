@@ -56,12 +56,7 @@ const AxiosErrorSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve the transcript for a single Gong call.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-call-transcript',
-        group: 'Calls'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:calls:read:transcript'],

@@ -55,12 +55,7 @@ const MetadataSchema = z.object({
 
 const action = createAction({
     description: 'List accounts.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-accounts',
-        group: 'Accounts'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Desk.basic.READ'],

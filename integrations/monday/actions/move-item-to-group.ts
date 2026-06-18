@@ -29,12 +29,7 @@ const ProviderResponseSchema = z.object({
 
 const action = createAction({
     description: 'Move an item to a different group within the same board.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/move-item-to-group',
-        group: 'Items'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['boards:write'],

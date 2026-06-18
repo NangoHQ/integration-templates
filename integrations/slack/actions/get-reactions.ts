@@ -29,13 +29,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve all reactions attached to a specific message',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-reactions',
-        group: 'Reactions'
-    },
+    version: '2.0.1',
 
     input: InputSchema,
     output: OutputSchema,

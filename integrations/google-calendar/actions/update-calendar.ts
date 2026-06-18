@@ -32,13 +32,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Update a calendar's metadata",
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-calendar',
-        group: 'Calendars'
-    },
+    version: '2.0.1',
 
     input: InputSchema,
     output: OutputSchema,

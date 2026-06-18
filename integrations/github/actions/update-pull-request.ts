@@ -134,12 +134,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Edit a pull request's title, body, base branch, or state.",
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-pull-request',
-        group: 'Pull Requests'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

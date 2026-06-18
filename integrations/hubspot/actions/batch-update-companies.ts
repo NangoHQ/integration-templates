@@ -40,13 +40,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update multiple companies at once',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/batch-update-companies',
-        group: 'Companies'
-    },
+    version: '1.0.1',
 
     input: InputSchema,
     output: OutputSchema,

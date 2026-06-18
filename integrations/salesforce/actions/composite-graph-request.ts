@@ -40,12 +40,7 @@ const OutputSchema = z.object({
 const action = createAction({
     description:
         'Execute a dependent graph of subrequests in one composite graph call. Supports up to 500 subrequests across multiple graphs with automatic rollback on failure.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/composite-graph-request',
-        group: 'Composite'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

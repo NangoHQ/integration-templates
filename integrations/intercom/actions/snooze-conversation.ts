@@ -28,12 +28,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Snooze a conversation until a given timestamp.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/snooze-conversation',
-        group: 'Conversations'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write_conversations'],

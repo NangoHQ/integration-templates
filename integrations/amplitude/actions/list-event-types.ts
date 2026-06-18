@@ -36,8 +36,7 @@ const TaxonomyResponseSchema = z.object({
 
 const action = createAction({
     description: 'List taxonomy event types',
-    version: '1.0.0',
-    endpoint: { method: 'GET', path: '/actions/list-event-types' },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     exec: async (nango, input) => {

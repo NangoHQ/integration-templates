@@ -46,12 +46,7 @@ const ProviderEnvelopeSchema = z.object({
 
 const action = createAction({
     description: 'List event properties in taxonomy.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-event-properties',
-        group: 'Taxonomy'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

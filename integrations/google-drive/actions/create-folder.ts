@@ -29,13 +29,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a new folder in Google Drive',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-folder',
-        group: 'Drive'
-    },
+    version: '1.0.1',
 
     input: InputSchema,
     output: OutputSchema,

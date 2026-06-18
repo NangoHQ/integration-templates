@@ -24,12 +24,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Remove one or more tracks from a Spotify playlist',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-playlist-track',
-        group: 'Playlists'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['playlist-modify-public', 'playlist-modify-private'],

@@ -17,12 +17,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a blank Google Doc with a title',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-document',
-        group: 'Documents'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['documents', 'drive'],

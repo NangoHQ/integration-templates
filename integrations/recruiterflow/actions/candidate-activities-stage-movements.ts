@@ -8,13 +8,7 @@ import { RecruiterFlowCandidateActivityStageMovementOutput, RecruiterFlowCandida
 
 const action = createAction({
     description: 'Fetches all candidate activities stage movements from RecruiterFlow',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'GET',
-        path: '/candidate-activities-stage-movements',
-        group: 'Candidates'
-    },
+    version: '2.0.1',
 
     input: RecruiterFlowCandidateActivityStageMovementInput,
     output: RecruiterFlowCandidateActivityStageMovementOutput,

@@ -60,12 +60,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List alerts from PostHog.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-alerts',
-        group: 'Alerts'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['alert:read'],

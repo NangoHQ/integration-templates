@@ -47,12 +47,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Assign prospects to a Gong Engage flow bypassing the cool-off period restriction.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/assign-prospects-cool-off-override',
-        group: 'Flows'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:flows:write'],

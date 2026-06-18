@@ -21,13 +21,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Get an access control rule by ID',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-acl-rule',
-        group: 'ACL'
-    },
+    version: '2.0.1',
 
     input: InputSchema,
     output: OutputSchema,

@@ -67,13 +67,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a custom CRM property for a specified HubSpot object type',
-    version: '3.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-property',
-        group: 'Properties'
-    },
+    version: '3.0.1',
 
     input: InputSchema,
     output: OutputSchema,

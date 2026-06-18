@@ -27,11 +27,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete an email signature in Zoho Mail.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-signature'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoMail.accounts.ALL'],

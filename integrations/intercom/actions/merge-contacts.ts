@@ -34,12 +34,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Merge a lead into a user contact.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/merge-contacts',
-        group: 'Contacts'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['contacts'], // Intercom contact management scope

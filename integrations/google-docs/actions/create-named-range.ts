@@ -26,12 +26,7 @@ const BatchUpdateResponseSchema = z.object({
 
 const action = createAction({
     description: 'Create a named range over a text range.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-named-range',
-        group: 'Documents'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['documents'],

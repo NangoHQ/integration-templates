@@ -26,12 +26,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a record in any form',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-form-record',
-        group: 'Forms'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

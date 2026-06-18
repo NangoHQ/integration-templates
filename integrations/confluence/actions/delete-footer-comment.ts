@@ -24,12 +24,7 @@ const AccessibleResourceSchema = z.object({
 
 const action = createAction({
     description: 'Permanently delete a Confluence footer comment.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-footer-comment',
-        group: 'Comments'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,

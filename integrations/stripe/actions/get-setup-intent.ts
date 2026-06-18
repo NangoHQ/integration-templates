@@ -9,12 +9,7 @@ const OutputSchema = z.object({}).passthrough();
 
 const action = createAction({
     description: 'Retrieve a single setup intent from Stripe.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-setup-intent',
-        group: 'SetupIntents'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

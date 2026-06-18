@@ -43,12 +43,7 @@ const ProviderResponseSchema = z.object({
 
 const action = createAction({
     description: 'List opportunities from Apollo.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-opportunities',
-        group: 'Opportunities'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

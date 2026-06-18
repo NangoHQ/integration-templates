@@ -13,12 +13,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Follow a playlist on behalf of the current user',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/follow-playlist',
-        group: 'Playlists'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['playlist-modify-public', 'playlist-modify-private'],

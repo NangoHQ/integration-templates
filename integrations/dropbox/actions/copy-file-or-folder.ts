@@ -40,12 +40,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Copy a Dropbox file or folder to a different path.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/copy-file-or-folder',
-        group: 'Files'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['files.metadata.read', 'files.content.write'],

@@ -28,12 +28,7 @@ const ProviderResponseSchema = z.object({
 
 const action = createAction({
     description: 'Delete a Shopify collection by GraphQL ID.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-collection',
-        group: 'Collections'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write_products'],

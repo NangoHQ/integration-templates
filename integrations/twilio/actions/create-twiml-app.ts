@@ -51,12 +51,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a TwiML application in Twilio',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-twiml-app',
-        group: 'Applications'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['twilio_api'],

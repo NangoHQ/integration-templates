@@ -47,12 +47,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Insert a section break in the document body.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/insert-section-break',
-        group: 'Documents'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['documents'],

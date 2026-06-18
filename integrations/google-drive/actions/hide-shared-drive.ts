@@ -13,13 +13,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Hide a shared drive from the default view',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/hide-shared-drive',
-        group: 'Shared Drives'
-    },
+    version: '1.0.1',
 
     input: InputSchema,
     output: OutputSchema,

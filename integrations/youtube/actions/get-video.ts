@@ -88,12 +88,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a YouTube video by video ID',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-video',
-        group: 'Videos'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/youtube.readonly'],

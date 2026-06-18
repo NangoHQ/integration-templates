@@ -27,12 +27,7 @@ const OutputSchema = z.array(DeletionJobSchema);
 
 const action = createAction({
     description: 'List user privacy deletion jobs in a date range.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-user-deletion-jobs',
-        group: 'User Privacy'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['deletion_jobs:read'],

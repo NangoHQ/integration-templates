@@ -53,12 +53,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Archive a Linear issue so it is removed from active workflows.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/archive-issue',
-        group: 'Issues'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write'],

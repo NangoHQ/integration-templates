@@ -61,12 +61,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a specific Gmail message with optional format selection.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-message',
-        group: 'Messages'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/gmail.readonly'],

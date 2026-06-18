@@ -55,12 +55,7 @@ const ProviderResponseSchema = z
 
 const action = createAction({
     description: 'Retrieve all local variables defined in a Figma file.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-local-variables',
-        group: 'Variables'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: ProviderResponseSchema,
     scopes: ['file_variables:read'],

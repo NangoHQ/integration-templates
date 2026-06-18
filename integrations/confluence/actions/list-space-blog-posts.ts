@@ -87,12 +87,7 @@ const MetadataSchema = z.object({
 
 const action = createAction({
     description: 'List blog posts in a specific Confluence space.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-space-blog-posts',
-        group: 'Blog Posts'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,

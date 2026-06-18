@@ -12,13 +12,7 @@ import { SuccessResponse, IdEntity } from '../models.js';
  */
 const action = createAction({
     description: 'Deletes a contact in FreshDesk',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'DELETE',
-        path: '/contacts',
-        group: 'Contacts'
-    },
+    version: '2.0.1',
 
     input: IdEntity,
     output: SuccessResponse,

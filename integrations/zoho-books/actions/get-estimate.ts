@@ -165,11 +165,7 @@ const OutputSchema = EstimateSchema;
 
 const action = createAction({
     description: 'Retrieve a single estimate from Zoho Books.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-estimate'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoBooks.estimates.READ', 'ZohoBooks.settings.READ'],

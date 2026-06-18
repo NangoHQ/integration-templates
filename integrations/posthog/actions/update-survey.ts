@@ -118,12 +118,7 @@ const OutputSchema = SurveySchema;
 
 const action = createAction({
     description: 'Update a survey in PostHog.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-survey',
-        group: 'Surveys'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['survey:write'],

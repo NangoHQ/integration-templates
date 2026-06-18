@@ -66,8 +66,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List locations from Workday with pagination support.',
-    version: '1.0.0',
-    endpoint: { method: 'GET', path: '/actions/list-locations', group: 'Locations' },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

@@ -46,12 +46,7 @@ const AccessibleResourceSchema = z.object({
 const action = createAction({
     metadata: MetadataSchema,
     description: 'Update a Confluence page by id',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-page',
-        group: 'Pages'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write:page:confluence', 'read:page:confluence'],
