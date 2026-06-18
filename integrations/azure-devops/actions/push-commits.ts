@@ -43,7 +43,10 @@ const InputSchema = z.object({
                             })
                             .optional()
                             .describe('Required for add, edit, and encoding operations.'),
-                        sourceServerItem: z.string().optional().describe('Required for rename, sourceRename, and targetRename operations. Example: "/old-name.md"')
+                        sourceServerItem: z
+                            .string()
+                            .optional()
+                            .describe('Required for rename, sourceRename, and targetRename operations. Example: "/old-name.md"')
                     })
                     .superRefine((change, ctx) => {
                         if (['add', 'edit', 'encoding'].includes(change.changeType) && change.newContent === undefined) {

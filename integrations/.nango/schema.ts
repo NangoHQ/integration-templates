@@ -14423,7 +14423,7 @@ export interface ActionInput_azure_devops_listboards {
    */
   project: string;
   /**
-   * Team ID or team name. Must be URL-encoded if it contains spaces. Example: "MyTeam"
+   * Team ID or team name. Example: "MyTeam" or "My Team"
    */
   team: string;
 };
@@ -15011,12 +15011,12 @@ export interface ActionInput_azure_devops_pushcommits {
    */
   path: string;
   /**
-   * New file content for add or edit operations. Omit for delete or rename without content changes.
+   * Required for add, edit, and encoding operations.
    */
   newContent?: {  content: string;
   contentType: 'rawText' | 'base64Encoded';} | undefined;
   /**
-   * Original path for rename operations. Example: "/old-name.md"
+   * Required for rename, sourceRename, and targetRename operations. Example: "/old-name.md"
    */
   sourceServerItem?: string | undefined;})[];})[];
 };
