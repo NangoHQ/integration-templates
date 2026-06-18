@@ -1,0 +1,41 @@
+internal/flows.zero.json
+  s_c817e527ac9ed6::t_006f92e611dfbc 23926,23965,24040,24091,24228,24267,24339,24437,24503,24569
+integrations/amplitude/syncs/annotation-categories.ts
+  s_c817e527ac9ed6::t_1032fcc85aeaa1 21
+integrations/amplitude/syncs/group-properties.ts
+  s_c817e527ac9ed6::t_1032fcc85aeaa1 36
+integrations/amplitude/syncs/cohort-members.ts
+  s_c817e527ac9ed6::t_1032fcc85aeaa1 57
+integrations/amplitude/syncs/event-properties.ts
+  s_c817e527ac9ed6::t_1032fcc85aeaa1 40
+integrations/amplitude/syncs/cohorts.ts
+  s_c817e527ac9ed6::t_1032fcc85aeaa1 82
+integrations/amplitude/syncs/events-export.ts
+  s_c817e527ac9ed6::t_1032fcc85aeaa1 143
+integrations/amplitude/syncs/annotations.ts
+  s_c817e527ac9ed6::t_1032fcc85aeaa1 44
+integrations/amplitude/syncs/event-types.ts
+  s_c817e527ac9ed6::t_1032fcc85aeaa1 51
+integrations/amplitude/syncs/user-properties.ts
+  s_c817e527ac9ed6::t_1032fcc85aeaa1 36
+integrations/amplitude/syncs/event-categories.ts
+  s_c817e527ac9ed6::t_1032fcc85aeaa1 21
+integrations/.nango/nango.json
+  s_c817e527ac9ed6::t_006f92e611dfbc 23492,23538,23621,23681,23825,23870,23950,24055,24129,24202
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.8",
+  "base_commit_sha": "a1a791d95c17d5e92afffd1f50f1ca74ffe747c0",
+  "prompts": {},
+  "sessions": {
+    "s_c817e527ac9ed6": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019ed636-1ab3-79a0-bc9f-41d491e42631",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Marcin Dobrowolski <marcindobry@hotmail.com>"
+    }
+  }
+}
