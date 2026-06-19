@@ -40,11 +40,6 @@ const OutputSchema = z.object({
 const action = createAction({
     description: 'List members of a team.',
     version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-team-members',
-        group: 'Teams'
-    },
     input: InputSchema,
     output: OutputSchema,
     scopes: ['vso.project'],

@@ -84,7 +84,6 @@ const sync = createSync({
     models: {
         PullRequest: RecordSchema
     },
-    endpoints: [{ method: 'POST', path: '/syncs/pull-requests' }],
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();

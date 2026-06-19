@@ -74,7 +74,6 @@ const sync = createSync({
     autoStart: false,
     metadata: MetadataSchema,
     checkpoint: CheckpointSchema,
-    endpoints: [{ method: 'GET', path: '/syncs/test-plans' }],
     models: {
         TestPlan: TestPlanSchema
     },

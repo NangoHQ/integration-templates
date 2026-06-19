@@ -45,11 +45,6 @@ const OutputSchema = z.object({
 const action = createAction({
     description: 'Trigger a YAML pipeline run.',
     version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/run-pipeline',
-        group: 'Pipelines'
-    },
     input: InputSchema,
     output: OutputSchema,
     scopes: ['vso.build_execute'],

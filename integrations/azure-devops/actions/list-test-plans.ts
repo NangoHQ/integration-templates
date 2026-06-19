@@ -59,11 +59,6 @@ const OutputSchema = z.object({
 const action = createAction({
     description: 'List test plans in a project.',
     version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-test-plans',
-        group: 'Test Plans'
-    },
     input: InputSchema,
     output: OutputSchema,
     scopes: ['vso.test'],

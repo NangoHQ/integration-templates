@@ -42,11 +42,6 @@ const OutputSchema = z.object({
 const action = createAction({
     description: 'List sprint iterations for a team.',
     version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-iterations',
-        group: 'Work'
-    },
     input: InputSchema,
     output: OutputSchema,
     scopes: ['vso.work'],

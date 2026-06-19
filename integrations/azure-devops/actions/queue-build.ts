@@ -55,11 +55,6 @@ const OutputSchema = z.object({
 const action = createAction({
     description: 'Queue a classic build.',
     version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/queue-build',
-        group: 'Builds'
-    },
     input: InputSchema,
     output: OutputSchema,
     scopes: ['vso.build_execute'],

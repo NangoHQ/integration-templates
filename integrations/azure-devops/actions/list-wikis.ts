@@ -32,11 +32,6 @@ const OutputSchema = z.object({
 const action = createAction({
     description: 'List wikis in a project.',
     version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-wikis',
-        group: 'Wikis'
-    },
     input: InputSchema,
     output: OutputSchema,
     scopes: ['vso.wiki'],

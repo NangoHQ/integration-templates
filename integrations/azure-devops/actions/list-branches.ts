@@ -29,7 +29,6 @@ const OutputSchema = z.object({
 export default createAction({
     description: 'List Git branches (refs/heads) in a repository',
     version: '1.0.0',
-    endpoint: { method: 'GET', path: '/actions/list-branches' },
     input: InputSchema,
     output: OutputSchema,
     scopes: ['vso.code'],

@@ -46,11 +46,6 @@ const OutputSchema = z.object({
 const action = createAction({
     description: 'List build pipeline definitions in a project.',
     version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-build-definitions',
-        group: 'Builds'
-    },
     input: InputSchema,
     output: OutputSchema,
     scopes: ['vso.build'],

@@ -58,11 +58,6 @@ function extractContinuationToken(headers: Record<string, unknown>): string | un
 const action = createAction({
     description: 'List builds in a project.',
     version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-builds',
-        group: 'Builds'
-    },
     input: InputSchema,
     output: OutputSchema,
     scopes: ['vso.build'],

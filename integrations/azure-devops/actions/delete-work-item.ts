@@ -35,11 +35,6 @@ const OutputSchema = z.object({
 const action = createAction({
     description: 'Delete a work item by ID (moves to recycle bin).',
     version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-work-item',
-        group: 'Work Items'
-    },
     input: InputSchema,
     output: OutputSchema,
     scopes: ['vso.work_write'],

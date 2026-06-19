@@ -38,11 +38,6 @@ const OutputSchema = z.object({
 const action = createAction({
     description: 'List runs for a specific YAML pipeline.',
     version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-pipeline-runs',
-        group: 'Pipelines'
-    },
     input: InputSchema,
     output: OutputSchema,
     scopes: ['vso.build'],

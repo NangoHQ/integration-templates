@@ -49,11 +49,6 @@ const OutputSchema = z.object({
 const action = createAction({
     description: 'List commits in a Git repository with optional date/branch filters.',
     version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-commits',
-        group: 'Git'
-    },
     input: InputSchema,
     output: OutputSchema,
 

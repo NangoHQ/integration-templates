@@ -96,13 +96,6 @@ const sync = createSync({
     models: {
         Build: BuildSchema
     },
-    endpoints: [
-        {
-            path: '/syncs/builds',
-            method: 'POST'
-        }
-    ],
-
     exec: async (nango) => {
         const metadata = await nango.getMetadata<z.infer<typeof MetadataSchema>>();
         const checkpoint = await nango.getCheckpoint();

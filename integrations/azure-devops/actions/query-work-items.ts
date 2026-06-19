@@ -60,11 +60,6 @@ const BATCH_SIZE = 200;
 const action = createAction({
     description: 'Run a WIQL query to get matching work item IDs, then hydrate fields in batches.',
     version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/query-work-items',
-        group: 'Work Items'
-    },
     input: InputSchema,
     output: OutputSchema,
     scopes: ['vso.work'],

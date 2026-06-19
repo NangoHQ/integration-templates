@@ -35,12 +35,6 @@ const sync = createSync({
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
-    endpoints: [
-        {
-            method: 'GET',
-            path: '/syncs/projects'
-        }
-    ],
     models: {
         Project: ProjectSchema
     },

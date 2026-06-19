@@ -53,7 +53,6 @@ const sync = createSync({
     autoStart: false,
     metadata: MetadataSchema,
     checkpoint: CheckpointSchema,
-    endpoints: [{ method: 'GET', path: '/syncs/work-items' }],
     models: {
         WorkItem: WorkItemSchema
     },

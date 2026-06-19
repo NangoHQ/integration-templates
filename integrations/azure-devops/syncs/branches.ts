@@ -50,12 +50,6 @@ const sync = createSync({
     models: {
         Branch: BranchSchema
     },
-    endpoints: [
-        {
-            method: 'GET',
-            path: '/syncs/branches'
-        }
-    ],
 
     exec: async (nango) => {
         const metadata = await nango.getMetadata();

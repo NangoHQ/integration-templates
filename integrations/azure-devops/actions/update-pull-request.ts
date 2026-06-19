@@ -60,11 +60,6 @@ const OutputSchema = z.object({
 const action = createAction({
     description: 'Update a pull request (title, description, status, reviewers, etc.).',
     version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-pull-request',
-        group: 'Git'
-    },
     input: InputSchema,
     output: OutputSchema,
     scopes: ['vso.code_write', 'vso.code'],

@@ -36,12 +36,6 @@ const sync = createSync({
     models: {
         Pipeline: PipelineSchema
     },
-    endpoints: [
-        {
-            method: 'GET',
-            path: '/syncs/pipelines'
-        }
-    ],
 
     exec: async (nango) => {
         const metadata = await nango.getMetadata();

@@ -47,7 +47,6 @@ const sync = createSync({
     models: {
         BuildDefinition: BuildDefinitionSchema
     },
-    endpoints: [{ method: 'POST', path: '/syncs/build-definitions' }],
 
     exec: async (nango) => {
         const rawMetadata = await nango.getMetadata();

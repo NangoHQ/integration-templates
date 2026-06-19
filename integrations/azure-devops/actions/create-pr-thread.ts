@@ -47,11 +47,6 @@ const ThreadSchema = z
 const action = createAction({
     description: 'Add a comment thread to a pull request.',
     version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-pr-thread',
-        group: 'Pull Requests'
-    },
     input: InputSchema,
     output: ThreadSchema,
     scopes: ['vso.code_write', 'vso.code'],

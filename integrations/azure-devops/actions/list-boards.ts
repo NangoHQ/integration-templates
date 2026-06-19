@@ -19,11 +19,6 @@ const OutputSchema = z.object({
 const action = createAction({
     description: 'List Kanban boards for a team.',
     version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-boards',
-        group: 'Work'
-    },
     input: InputSchema,
     output: OutputSchema,
     scopes: ['vso.work'],

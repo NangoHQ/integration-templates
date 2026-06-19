@@ -79,11 +79,6 @@ const OutputSchema = z.object({
 const action = createAction({
     description: 'List pull requests in a repository with searchCriteria filters.',
     version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-pull-requests',
-        group: 'Git'
-    },
     input: InputSchema,
     output: OutputSchema,
     scopes: ['vso.code'],

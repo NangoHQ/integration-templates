@@ -48,12 +48,6 @@ const sync = createSync({
     models: {
         Repository: RepositorySchema
     },
-    endpoints: [
-        {
-            path: '/syncs/repositories',
-            method: 'POST'
-        }
-    ],
 
     exec: async (nango) => {
         const metadata = await nango.getMetadata<z.infer<typeof MetadataSchema>>();

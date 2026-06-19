@@ -83,12 +83,6 @@ const sync = createSync({
     autoStart: true,
     metadata: MetadataSchema,
     checkpoint: CheckpointSchema,
-    endpoints: [
-        {
-            path: '/syncs/commits',
-            method: 'GET'
-        }
-    ],
     models: {
         Commit: CommitSchema
     },

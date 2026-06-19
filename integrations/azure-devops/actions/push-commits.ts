@@ -96,11 +96,6 @@ const OutputSchema = z.object({
 const action = createAction({
     description: 'Push one or more file changes to a Git repository branch.',
     version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/push-commits',
-        group: 'Git'
-    },
     input: InputSchema,
     output: OutputSchema,
     scopes: ['vso.code_write'],

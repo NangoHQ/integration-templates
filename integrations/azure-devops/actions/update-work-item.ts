@@ -30,11 +30,6 @@ const OutputSchema = z.object({
 const action = createAction({
     description: 'Update a work item using JSON Patch',
     version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-work-item',
-        group: 'Work Items'
-    },
     input: InputSchema,
     output: OutputSchema,
     scopes: ['vso.work_write'],

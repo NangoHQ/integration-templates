@@ -99,11 +99,6 @@ const OutputSchema = z.object({
 const action = createAction({
     description: 'List comment threads on a pull request.',
     version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-pr-threads',
-        group: 'Pull Requests'
-    },
     input: InputSchema,
     output: OutputSchema,
     scopes: ['vso.code', 'vso.threads_full'],

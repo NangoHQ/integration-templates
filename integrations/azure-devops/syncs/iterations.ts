@@ -54,12 +54,6 @@ const sync = createSync({
     models: {
         Iteration: IterationSchema
     },
-    endpoints: [
-        {
-            method: 'POST',
-            path: '/syncs/iterations'
-        }
-    ],
 
     exec: async (nango) => {
         const metadata = await nango.getMetadata();

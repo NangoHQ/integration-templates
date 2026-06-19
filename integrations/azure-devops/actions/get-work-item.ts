@@ -25,11 +25,6 @@ const OutputSchema = z.object({
 const action = createAction({
     description: 'Retrieve a work item by ID.',
     version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-work-item',
-        group: 'Work Items'
-    },
     input: InputSchema,
     output: OutputSchema,
     scopes: ['vso.work'],

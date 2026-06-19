@@ -42,11 +42,6 @@ const OutputSchema = z.object({
 const action = createAction({
     description: 'Retrieve a single Git repository by ID or name.',
     version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-repository',
-        group: 'Git'
-    },
     input: InputSchema,
     output: OutputSchema,
     scopes: ['vso.code'],

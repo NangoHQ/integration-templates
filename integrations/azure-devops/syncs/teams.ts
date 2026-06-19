@@ -36,7 +36,6 @@ const sync = createSync({
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
-    endpoints: [{ method: 'GET', path: '/syncs/teams' }],
     models: {
         Team: TeamSchema
     },
