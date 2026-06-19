@@ -1,0 +1,149 @@
+{
+  "input": {
+    "workspace": "nangodev"
+  },
+  "output": {
+    "type": "workspace",
+    "uuid": "{d8dcf202-0b5d-4568-8954-43075e98b813}",
+    "slug": "nangodev",
+    "is_private": true,
+    "name": "nangodev",
+    "is_privacy_enforced": false,
+    "forking_mode": "internal_only",
+    "created_on": "2026-06-18T14:40:03.558671+00:00",
+    "links": {
+      "avatar": {
+        "href": "https://bitbucket.org/workspaces/nangodev/avatar/?ts=1781802317"
+      },
+      "hooks": {
+        "href": "https://api.bitbucket.org/2.0/workspaces/nangodev/hooks"
+      },
+      "html": {
+        "href": "https://bitbucket.org/nangodev/"
+      },
+      "html_overview": {
+        "href": "https://bitbucket.org/nangodev/workspace/overview/"
+      },
+      "members": {
+        "href": "https://api.bitbucket.org/2.0/workspaces/nangodev/members"
+      },
+      "owners": {
+        "href": "https://api.bitbucket.org/2.0/workspaces/nangodev/members?q=permission%3D%22owner%22"
+      },
+      "projects": {
+        "href": "https://api.bitbucket.org/2.0/workspaces/nangodev/projects"
+      },
+      "repositories": {
+        "href": "https://api.bitbucket.org/2.0/repositories/nangodev"
+      },
+      "snippets": {
+        "href": "https://api.bitbucket.org/2.0/snippets/nangodev"
+      },
+      "self": {
+        "href": "https://api.bitbucket.org/2.0/workspaces/nangodev"
+      }
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/2.0/workspaces/nangodev": {
+        "response": {
+          "type": "workspace",
+          "uuid": "{d8dcf202-0b5d-4568-8954-43075e98b813}",
+          "name": "nangodev",
+          "slug": "nangodev",
+          "is_private": true,
+          "is_privacy_enforced": false,
+          "links": {
+            "avatar": {
+              "href": "https://bitbucket.org/workspaces/nangodev/avatar/?ts=1781802317"
+            },
+            "hooks": {
+              "href": "https://api.bitbucket.org/2.0/workspaces/nangodev/hooks"
+            },
+            "html": {
+              "href": "https://bitbucket.org/nangodev/"
+            },
+            "html_overview": {
+              "href": "https://bitbucket.org/nangodev/workspace/overview/"
+            },
+            "members": {
+              "href": "https://api.bitbucket.org/2.0/workspaces/nangodev/members"
+            },
+            "owners": {
+              "href": "https://api.bitbucket.org/2.0/workspaces/nangodev/members?q=permission%3D%22owner%22"
+            },
+            "projects": {
+              "href": "https://api.bitbucket.org/2.0/workspaces/nangodev/projects"
+            },
+            "repositories": {
+              "href": "https://api.bitbucket.org/2.0/repositories/nangodev"
+            },
+            "snippets": {
+              "href": "https://api.bitbucket.org/2.0/snippets/nangodev"
+            },
+            "self": {
+              "href": "https://api.bitbucket.org/2.0/workspaces/nangodev"
+            }
+          },
+          "created_on": "2026-06-18T14:40:03.558671+00:00",
+          "forking_mode": "internal_only"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 18 Jun 2026 18:52:22 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4992",
+          "x-ratelimit-reset": "1781808801",
+          "server": "AtlassianEdge",
+          "vary": "Authorization, origin, cookie, user-context, Accept-Encoding",
+          "x-used-mesh": "False",
+          "x-credential-type": "oauth2_legacy",
+          "x-asap-succeeded": "True",
+          "x-oauth-scopes": "account:write, project:write, team:write, runner:write, snippet:write, webhook, repository:delete, repository:admin, pipeline:write, wiki, project:admin, issue:write, pullrequest:write",
+          "x-view-name": "bitbucket.apps.workspaces.api.v20.handlers.WorkspaceHandler",
+          "nel": "{\"failure_fraction\": 0.01, \"include_subdomains\": true, \"max_age\": 600, \"report_to\": \"endpoint-1\"}",
+          "x-dc-location": "Micros-3",
+          "x-served-by": "c4769bb9ef2d",
+          "x-version": "8a1919825854",
+          "x-static-version": "8a1919825854",
+          "x-request-count": "2564",
+          "x-render-time": "0.0631399154663086",
+          "x-b3-traceid": "4a22249cb8d14e66913c55954526435a",
+          "x-b3-spanid": "116784ade6a87f18",
+          "cache-control": "private",
+          "x-usage-user-time": "0.050894",
+          "x-usage-system-time": "0.000000",
+          "x-usage-input-ops": "0",
+          "x-usage-output-ops": "0",
+          "x-envoy-attempt-count": "1",
+          "etag": "W/\"fed945118c147562120e750a7e94dd58\"",
+          "atl-traceid": "4a22249cb8d14e66913c55954526435a",
+          "atl-request-id": "4a22249c-b8d1-4e66-913c-55954526435a",
+          "report-to": "{\"endpoints\": [{\"url\": \"https://dz8aopenkvv6s.cloudfront.net\"}], \"group\": \"endpoint-1\", \"include_subdomains\": true, \"max_age\": 600}",
+          "x-cache": "Miss from cloudfront",
+          "via": "1.1 44ea7c219a80368d470c706d6491f204.cloudfront.net (CloudFront)",
+          "x-amz-cf-pop": "HIO52-P3",
+          "x-amz-cf-id": "J-lgM_IyEc8beutKj3CBc6lILQrPxhvrZ4IWGnP6NOkVepgFMbhKyw==",
+          "age": "0",
+          "server-timing": "cdn-upstream-layer;desc=\"EDGE\",cdn-upstream-dns;dur=0,cdn-upstream-connect;dur=0,cdn-upstream-fbl;dur=172,atl-edge;dur=102,atl-edge-internal;dur=9,atl-edge-upstream;dur=94,atl-edge-pop;desc=\"aws-us-east-1\",cdn-cache-miss,cdn-pop;desc=\"HIO52-P3\",cdn-rid;desc=\"J-lgM_IyEc8beutKj3CBc6lILQrPxhvrZ4IWGnP6NOkVepgFMbhKyw==\",cdn-downstream-fbl;dur=178"
+        },
+        "hash": "421e72d0556a990b5261f9403b01ca3527c397bf",
+        "request": {}
+      }
+    }
+  }
+}

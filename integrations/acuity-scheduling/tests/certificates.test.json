@@ -1,0 +1,307 @@
+{
+  "nango": {
+    "batchSave": {
+      "Certificate": [
+        {
+          "id": "81297390",
+          "certificate": "NANGO-TEST-001",
+          "productID": 2231275,
+          "appointmentTypeIDs": [
+            94517100
+          ],
+          "name": "testCert1",
+          "email": "bob.mctest@example.com",
+          "type": "value"
+        },
+        {
+          "id": "81297391",
+          "certificate": "NANGO-TEST-002",
+          "productID": 2231276,
+          "appointmentTypeIDs": [
+            94517100
+          ],
+          "name": "testCert2",
+          "email": "alice.mctest@example.com",
+          "type": "value"
+        },
+        {
+          "id": "81297410",
+          "certificate": "477F070A",
+          "productID": 2231275,
+          "appointmentTypeIDs": [
+            94517100
+          ],
+          "name": "testCert1",
+          "email": "",
+          "type": "value"
+        },
+        {
+          "id": "81297421",
+          "certificate": "15012B7D",
+          "productID": 2231276,
+          "orderID": 162870670,
+          "appointmentTypeIDs": [
+            94517100
+          ],
+          "name": "testCert2",
+          "email": "",
+          "type": "value"
+        },
+        {
+          "id": "81297432",
+          "certificate": "669A3344",
+          "productID": 2231279,
+          "orderID": 162870672,
+          "appointmentTypeIDs": [
+            94517100
+          ],
+          "name": "testCert5",
+          "email": "",
+          "type": "unlimited"
+        },
+        {
+          "id": "81297469",
+          "certificate": "DCEE8A13",
+          "productID": 2231275,
+          "appointmentTypeIDs": [
+            94517100
+          ],
+          "name": "testCert1",
+          "email": "bob.mctest@example.com",
+          "type": "value"
+        },
+        {
+          "id": "81297474",
+          "certificate": "BC974D54",
+          "productID": 2231275,
+          "appointmentTypeIDs": [
+            94517100
+          ],
+          "name": "testCert1",
+          "email": "bob.mctest@example.com",
+          "type": "value"
+        },
+        {
+          "id": "81297485",
+          "certificate": "E8FE66EB",
+          "productID": 2231275,
+          "appointmentTypeIDs": [
+            94517100
+          ],
+          "name": "testCert1",
+          "email": "bob.mctest@example.com",
+          "type": "value"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Certificate": []
+    }
+  },
+  "api": {
+    "get": {
+      "/certificates": {
+        "response": [
+          {
+            "id": 81297390,
+            "certificate": "NANGO-TEST-001",
+            "kind": "code",
+            "productID": 2231275,
+            "orderID": null,
+            "appointmentTypeIDs": [
+              94517100
+            ],
+            "appointmentTypes": {
+              "94517100": "Consultation "
+            },
+            "name": "testCert1",
+            "email": "bob.mctest@example.com",
+            "productType": "Gift Certificate",
+            "type": "value",
+            "remainingCounts": null,
+            "remainingMinutes": null,
+            "remainingValue": 1,
+            "remainingValueLocal": "$1.00",
+            "expiration": null
+          },
+          {
+            "id": 81297391,
+            "certificate": "NANGO-TEST-002",
+            "kind": "code",
+            "productID": 2231276,
+            "orderID": null,
+            "appointmentTypeIDs": [
+              94517100
+            ],
+            "appointmentTypes": {
+              "94517100": "Consultation "
+            },
+            "name": "testCert2",
+            "email": "alice.mctest@example.com",
+            "productType": "Gift Certificate",
+            "type": "value",
+            "remainingCounts": null,
+            "remainingMinutes": null,
+            "remainingValue": 1,
+            "remainingValueLocal": "$1.00",
+            "expiration": null
+          },
+          {
+            "id": 81297410,
+            "certificate": "477F070A",
+            "kind": "code",
+            "productID": 2231275,
+            "orderID": null,
+            "appointmentTypeIDs": [
+              94517100
+            ],
+            "appointmentTypes": {
+              "94517100": "Consultation "
+            },
+            "name": "testCert1",
+            "email": "",
+            "productType": "Gift Certificate",
+            "type": "value",
+            "remainingCounts": null,
+            "remainingMinutes": null,
+            "remainingValue": 1,
+            "remainingValueLocal": "$1.00",
+            "expiration": null
+          },
+          {
+            "id": 81297421,
+            "certificate": "15012B7D",
+            "kind": "code",
+            "productID": 2231276,
+            "orderID": 162870670,
+            "appointmentTypeIDs": [
+              94517100
+            ],
+            "appointmentTypes": {
+              "94517100": "Consultation "
+            },
+            "name": "testCert2",
+            "email": "",
+            "productType": "Gift Certificate",
+            "type": "value",
+            "remainingCounts": null,
+            "remainingMinutes": null,
+            "remainingValue": 1,
+            "remainingValueLocal": "$1.00",
+            "expiration": null
+          },
+          {
+            "id": 81297432,
+            "certificate": "669A3344",
+            "kind": "code",
+            "productID": 2231279,
+            "orderID": 162870672,
+            "appointmentTypeIDs": [
+              94517100
+            ],
+            "appointmentTypes": {
+              "94517100": "Consultation "
+            },
+            "name": "testCert5",
+            "email": "",
+            "productType": "Gift Certificate",
+            "type": "unlimited",
+            "remainingCounts": null,
+            "remainingMinutes": null,
+            "remainingValue": null,
+            "remainingValueLocal": null,
+            "expiration": null
+          },
+          {
+            "id": 81297469,
+            "certificate": "DCEE8A13",
+            "kind": "code",
+            "productID": 2231275,
+            "orderID": null,
+            "appointmentTypeIDs": [
+              94517100
+            ],
+            "appointmentTypes": {
+              "94517100": "Consultation "
+            },
+            "name": "testCert1",
+            "email": "bob.mctest@example.com",
+            "productType": "Gift Certificate",
+            "type": "value",
+            "remainingCounts": null,
+            "remainingMinutes": null,
+            "remainingValue": 1,
+            "remainingValueLocal": "$1.00",
+            "expiration": null
+          },
+          {
+            "id": 81297474,
+            "certificate": "BC974D54",
+            "kind": "code",
+            "productID": 2231275,
+            "orderID": null,
+            "appointmentTypeIDs": [
+              94517100
+            ],
+            "appointmentTypes": {
+              "94517100": "Consultation "
+            },
+            "name": "testCert1",
+            "email": "bob.mctest@example.com",
+            "productType": "Gift Certificate",
+            "type": "value",
+            "remainingCounts": null,
+            "remainingMinutes": null,
+            "remainingValue": 1,
+            "remainingValueLocal": "$1.00",
+            "expiration": null
+          },
+          {
+            "id": 81297485,
+            "certificate": "E8FE66EB",
+            "kind": "code",
+            "productID": 2231275,
+            "orderID": null,
+            "appointmentTypeIDs": [
+              94517100
+            ],
+            "appointmentTypes": {
+              "94517100": "Consultation "
+            },
+            "name": "testCert1",
+            "email": "bob.mctest@example.com",
+            "productType": "Gift Certificate",
+            "type": "value",
+            "remainingCounts": null,
+            "remainingMinutes": null,
+            "remainingValue": 1,
+            "remainingValueLocal": "$1.00",
+            "expiration": null
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Mon, 15 Jun 2026 15:43:59 GMT",
+          "content-type": "application/json",
+          "content-length": "3035",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4988",
+          "x-ratelimit-reset": "1781538279",
+          "etag": "W/\"bdb-5YXc59me6M8M6p2t5ZaHhkxMllY\""
+        },
+        "hash": "329d5e5acfe2bfea7e2497cd3f4dd69d5a9d31f9",
+        "request": {}
+      }
+    }
+  }
+}

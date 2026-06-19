@@ -1,0 +1,78 @@
+{
+  "input": {
+    "projectId": "727607ec-cf74-49dd-9579-17e253b976d2"
+  },
+  "output": {
+    "items": [
+      {
+        "id": "b9c5b7e9-6765-48c3-b9b6-52aeed02e317",
+        "name": "nangodev Team",
+        "url": "https://dev.azure.com/nangoapi/_apis/projects/727607ec-cf74-49dd-9579-17e253b976d2/teams/b9c5b7e9-6765-48c3-b9b6-52aeed02e317",
+        "description": "The default project team.",
+        "identityUrl": "https://spsprodcus7.vssps.visualstudio.com/Abf7b171b-1724-4ebf-8ae7-ccbf15d8a767/_apis/Identities/b9c5b7e9-6765-48c3-b9b6-52aeed02e317",
+        "projectName": "nangodev",
+        "projectId": "727607ec-cf74-49dd-9579-17e253b976d2"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/_apis/projects/727607ec-cf74-49dd-9579-17e253b976d2/teams": {
+        "response": {
+          "value": [
+            {
+              "id": "b9c5b7e9-6765-48c3-b9b6-52aeed02e317",
+              "name": "nangodev Team",
+              "url": "https://dev.azure.com/nangoapi/_apis/projects/727607ec-cf74-49dd-9579-17e253b976d2/teams/b9c5b7e9-6765-48c3-b9b6-52aeed02e317",
+              "description": "The default project team.",
+              "identityUrl": "https://spsprodcus7.vssps.visualstudio.com/Abf7b171b-1724-4ebf-8ae7-ccbf15d8a767/_apis/Identities/b9c5b7e9-6765-48c3-b9b6-52aeed02e317",
+              "projectName": "nangodev",
+              "projectId": "727607ec-cf74-49dd-9579-17e253b976d2"
+            }
+          ],
+          "count": 1
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 18 Jun 2026 08:11:43 GMT",
+          "content-type": "application/json; charset=utf-8; api-version=7.2-preview.3",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Request-Context",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4988",
+          "x-ratelimit-reset": "1781770345",
+          "cache-control": "no-cache, no-store, must-revalidate",
+          "pragma": "no-cache",
+          "expires": "-1",
+          "p3p": "CP=\"CAO DSP COR ADMa DEV CONo TELo CUR PSA PSD TAI IVDo OUR SAMi BUS DEM NAV STA UNI COM INT PHY ONL FIN PUR LOC CNT\"",
+          "set-cookie": "VstsSession=%7B%22PersistentSessionId%22%3A%225a55dcdf-80ef-4a0f-b088-1c1fd9c5e135%22%2C%22PendingAuthenticationSessionId%22%3A%2200000000-0000-0000-0000-000000000000%22%2C%22CurrentAuthenticationSessionId%22%3A%2200000000-0000-0000-0000-000000000000%22%2C%22SignInState%22%3A%7B%7D%7D;SameSite=None; domain=.dev.azure.com; expires=Fri, 18-Jun-2027 08:11:43 GMT; path=/; secure; HttpOnly",
+          "x-tfs-processid": "4334af1c-7396-4432-9d42-4be8dc224537",
+          "activityid": "ab7471f7-54f6-40bf-aecc-37f1d1b3f92b",
+          "x-tfs-session": "ab7471f7-54f6-40bf-aecc-37f1d1b3f92b",
+          "x-vss-e2eid": "ab7471f7-54f6-40bf-aecc-37f1d1b3f92b",
+          "x-vss-senderdeploymentid": "f466e928-5898-edb4-7123-84c15666043f",
+          "x-vss-userdata": "2a4985d2-16e6-6c2d-a9d5-6dd873b6c65d:api@nangodevelopers.onmicrosoft.com",
+          "request-context": "appId=cid-v1:ba8cca98-f9cc-4f08-a334-706ff8d04ac6",
+          "x-cache": "CONFIG_NOCACHE",
+          "x-msedge-ref": "Ref A: 8888628FD8FE4DF49CB070E039C87ED2 Ref B: YVR311000107047 Ref C: 2026-06-18T08:11:43Z"
+        },
+        "hash": "956266dcd14454f62b1171209429314aebb937b8",
+        "request": {
+          "params": {
+            "api-version": "7.2-preview.3"
+          }
+        }
+      }
+    }
+  }
+}
