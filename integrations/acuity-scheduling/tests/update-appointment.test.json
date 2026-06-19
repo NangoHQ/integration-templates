@@ -1,0 +1,111 @@
+{
+  "input": {
+    "id": 1722092210,
+    "notes": "Updated via Nango action",
+    "admin": true
+  },
+  "output": {
+    "id": 1722092210,
+    "firstName": "Jane",
+    "lastName": "McTest",
+    "phone": "1235550101",
+    "email": "jane.mctest@example.com",
+    "date": "June 15, 2026",
+    "time": "9:30am",
+    "endTime": "10:20am",
+    "dateCreated": "June 15, 2026",
+    "datetime": "2026-06-15T09:30:00+0300",
+    "price": "45.00",
+    "paid": "yes",
+    "amountPaid": "0.00",
+    "type": "Consultation ",
+    "appointmentTypeID": 94517100,
+    "classID": null,
+    "duration": "50",
+    "calendar": "Nango API",
+    "calendarID": 14209019,
+    "location": "",
+    "certificate": null,
+    "confirmationPage": "https://app.acuityscheduling.com/schedule.php?owner=39594627&action=appt&id%5B%5D=4b4b53214cba02cff18fcb13ca7f1451",
+    "formsText": "Name: Jane McTest\nPhone: (123) 555-0101\nEmail: jane.mctest@example.com\nPrice: $45.00\n",
+    "notes": "Updated via Nango action",
+    "timezone": "Indian/Mayotte",
+    "forms": []
+  },
+  "nango": {},
+  "api": {
+    "put": {
+      "/appointments/1722092210": {
+        "response": {
+          "id": 1722092210,
+          "firstName": "Jane",
+          "lastName": "McTest",
+          "phone": "1235550101",
+          "email": "jane.mctest@example.com",
+          "date": "June 15, 2026",
+          "time": "9:30am",
+          "endTime": "10:20am",
+          "dateCreated": "June 15, 2026",
+          "datetimeCreated": "2026-06-15T08:59:20-0500",
+          "datetime": "2026-06-15T09:30:00+0300",
+          "price": "45.00",
+          "priceSold": "45.00",
+          "paid": "yes",
+          "amountPaid": "0.00",
+          "type": "Consultation ",
+          "appointmentTypeID": 94517100,
+          "classID": null,
+          "addonIDs": [],
+          "category": "",
+          "duration": "50",
+          "calendar": "Nango API",
+          "calendarID": 14209019,
+          "certificate": null,
+          "confirmationPage": "https://app.acuityscheduling.com/schedule.php?owner=39594627&action=appt&id%5B%5D=4b4b53214cba02cff18fcb13ca7f1451",
+          "confirmationPagePaymentLink": "https://app.acuityscheduling.com/schedule/f40d4c97/pay/4b4b53214cba02cff18fcb13ca7f1451/?owner=39594627",
+          "location": "",
+          "notes": "Updated via Nango action",
+          "timezone": "Indian/Mayotte",
+          "calendarTimezone": "Indian/Mayotte",
+          "canceled": false,
+          "canClientCancel": false,
+          "canClientReschedule": false,
+          "labels": null,
+          "forms": [],
+          "formsText": "Name: Jane McTest\nPhone: (123) 555-0101\nEmail: jane.mctest@example.com\nPrice: $45.00\n",
+          "isVerified": false,
+          "scheduledBy": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 15 Jun 2026 14:46:24 GMT",
+          "content-type": "application/json",
+          "content-length": "1160",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4713",
+          "x-ratelimit-reset": "1781534807",
+          "etag": "W/\"488-loOegscbgYwdBcG4XCFp9orV4AM\""
+        },
+        "hash": "14112209b8c18d817a8889b188330bc03c261360",
+        "request": {
+          "params": {
+            "admin": "true"
+          },
+          "data": {
+            "notes": "Updated via Nango action"
+          }
+        }
+      }
+    }
+  }
+}
