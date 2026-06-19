@@ -1,0 +1,89 @@
+{
+  "input": {
+    "id": "task_382VgB3ktGlYhriryjM9DpZnHPw6y830bBjHtsrFWZl"
+  },
+  "output": {
+    "id": "task_382VgB3ktGlYhriryjM9DpZnHPw6y830bBjHtsrFWZl",
+    "_type": "lead",
+    "assigned_to": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+    "is_complete": false,
+    "priority": "medium",
+    "due_date": "2026-06-19",
+    "lead_id": "lead_9aTFsVklXmPMJZQBx1D11jXIg9ofDDLHBSltkWIK00k",
+    "assigned_to_name": "Nango Developer",
+    "created_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+    "created_by_name": "Nango Developer",
+    "date": "2026-06-19",
+    "date_created": "2026-06-19T12:05:47.508000+00:00",
+    "date_updated": "2026-06-19T12:05:47.508000+00:00",
+    "is_dateless": false,
+    "is_primary_lead_notification": true,
+    "lead_name": "Nango Test Lead",
+    "organization_id": "orga_bog0WeN6OXBxaN867LEXwaisIuXTy9fbbryxDywmf6V",
+    "text": "Test task for get-task action",
+    "updated_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+    "updated_by_name": "Nango Developer",
+    "view": "inbox"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1/task/task_382VgB3ktGlYhriryjM9DpZnHPw6y830bBjHtsrFWZl/": {
+        "response": {
+          "_type": "lead",
+          "agent_config_id": null,
+          "assigned_to": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+          "assigned_to_name": "Nango Developer",
+          "contact_id": null,
+          "contact_name": null,
+          "created_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+          "created_by_name": "Nango Developer",
+          "date": "2026-06-19",
+          "date_created": "2026-06-19T12:05:47.508000+00:00",
+          "date_updated": "2026-06-19T12:05:47.508000+00:00",
+          "deduplication_key": null,
+          "due_date": "2026-06-19",
+          "id": "task_382VgB3ktGlYhriryjM9DpZnHPw6y830bBjHtsrFWZl",
+          "is_complete": false,
+          "is_dateless": false,
+          "is_primary_lead_notification": true,
+          "lead_id": "lead_9aTFsVklXmPMJZQBx1D11jXIg9ofDDLHBSltkWIK00k",
+          "lead_name": "Nango Test Lead",
+          "object_id": null,
+          "object_type": null,
+          "organization_id": "orga_bog0WeN6OXBxaN867LEXwaisIuXTy9fbbryxDywmf6V",
+          "priority": "medium",
+          "resolution": null,
+          "sequence_id": null,
+          "sequence_subscription_id": null,
+          "text": "Test task for get-task action",
+          "updated_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+          "updated_by_name": "Nango Developer",
+          "view": "inbox"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 19 Jun 2026 12:06:35 GMT",
+          "content-type": "application/json",
+          "content-length": "1079",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4972",
+          "x-ratelimit-reset": "1781870820",
+          "etag": "W/\"437-tF11lJgG1ntT6HyGrcvd645x9G4\""
+        },
+        "hash": "7526ea0a2c38e02347d97469a32ff736a0bead43",
+        "request": {}
+      }
+    }
+  }
+}

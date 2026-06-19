@@ -50,10 +50,7 @@ const sync = createSync({
         const updatedAfter = checkpoint?.['updated_after'];
         const isIncremental = Boolean(updatedAfter);
         const isFullRefresh = !isIncremental;
-
-        if (isFullRefresh) {
-            await nango.trackDeletesStart('Contact');
-        }
+        let deleteTrackingStarted = false;
 
         const params: Record<string, string | number> = {
             _sort: 'date_updated'
@@ -111,11 +108,15 @@ const sync = createSync({
             }
 
             if (contacts.length > 0) {
+                if (isFullRefresh && !deleteTrackingStarted) {
+                    await nango.trackDeletesStart('Contact');
+                    deleteTrackingStarted = true;
+                }
                 await nango.batchSave(contacts, 'Contact');
             }
         }
 
-        if (isFullRefresh) {
+        if (isFullRefresh && deleteTrackingStarted) {
             await nango.trackDeletesEnd('Contact');
         }
 

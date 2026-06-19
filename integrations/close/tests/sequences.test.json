@@ -1,0 +1,187 @@
+{
+  "nango": {
+    "batchSave": {
+      "Sequence": [
+        {
+          "id": "seq_5o5zjcnKWIO7RxMz3qfbrS",
+          "name": "Test Sequence 1",
+          "status": "active",
+          "created_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+          "date_created": "2026-06-19T12:17:56.910855",
+          "date_updated": "2026-06-19T12:17:56.910866",
+          "steps": [
+            {
+              "type": "call",
+              "delay_in_hours": 0
+            }
+          ]
+        },
+        {
+          "id": "seq_7atfqtyKt5RK2yD1J55vQ6",
+          "name": "Test Sequence 2",
+          "status": "active",
+          "created_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+          "date_created": "2026-06-19T12:18:03.936553",
+          "date_updated": "2026-06-19T12:18:03.936562",
+          "steps": [
+            {
+              "type": "call",
+              "delay_in_hours": 0
+            }
+          ]
+        },
+        {
+          "id": "seq_0k4dPvbXwqlbqstX8HPbBR",
+          "name": "Test Sequence 3",
+          "status": "active",
+          "created_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+          "date_created": "2026-06-19T12:18:10.295865",
+          "date_updated": "2026-06-19T12:18:10.295870",
+          "steps": [
+            {
+              "type": "call",
+              "delay_in_hours": 0
+            }
+          ]
+        }
+      ]
+    },
+    "batchDelete": {
+      "Sequence": []
+    }
+  },
+  "api": {
+    "get": {
+      "/v1/sequence/": {
+        "response": {
+          "data": [
+            {
+              "allow_manual_enrollment": true,
+              "created_by_id": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+              "date_created": "2026-06-19T12:17:56.910855",
+              "date_updated": "2026-06-19T12:17:56.910866",
+              "id": "seq_5o5zjcnKWIO7RxMz3qfbrS",
+              "name": "Test Sequence 1",
+              "organization_id": "orga_bog0WeN6OXBxaN867LEXwaisIuXTy9fbbryxDywmf6V",
+              "owner_id": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+              "schedule": null,
+              "schedule_id": null,
+              "status": "active",
+              "steps": [
+                {
+                  "created_by_id": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+                  "date_created": "2026-06-19T12:17:56.918222",
+                  "date_updated": "2026-06-19T12:17:56.918232",
+                  "delay": 0,
+                  "email_template_id": null,
+                  "id": "seqstep_0NclJslF80PbM3zGJrFaSU",
+                  "required": true,
+                  "sms_template_id": null,
+                  "step_allowed_delay": null,
+                  "step_type": "call",
+                  "threading": null,
+                  "updated_by_id": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa"
+                }
+              ],
+              "timezone": "America/Los_Angeles",
+              "trigger_query": null,
+              "updated_by_id": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa"
+            },
+            {
+              "allow_manual_enrollment": true,
+              "created_by_id": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+              "date_created": "2026-06-19T12:18:03.936553",
+              "date_updated": "2026-06-19T12:18:03.936562",
+              "id": "seq_7atfqtyKt5RK2yD1J55vQ6",
+              "name": "Test Sequence 2",
+              "organization_id": "orga_bog0WeN6OXBxaN867LEXwaisIuXTy9fbbryxDywmf6V",
+              "owner_id": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+              "schedule": null,
+              "schedule_id": null,
+              "status": "active",
+              "steps": [
+                {
+                  "created_by_id": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+                  "date_created": "2026-06-19T12:18:03.941323",
+                  "date_updated": "2026-06-19T12:18:03.941333",
+                  "delay": 0,
+                  "email_template_id": null,
+                  "id": "seqstep_1lv63ibMJayM8EL2F95404",
+                  "required": true,
+                  "sms_template_id": null,
+                  "step_allowed_delay": null,
+                  "step_type": "call",
+                  "threading": null,
+                  "updated_by_id": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa"
+                }
+              ],
+              "timezone": "America/Los_Angeles",
+              "trigger_query": null,
+              "updated_by_id": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa"
+            },
+            {
+              "allow_manual_enrollment": true,
+              "created_by_id": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+              "date_created": "2026-06-19T12:18:10.295865",
+              "date_updated": "2026-06-19T12:18:10.295870",
+              "id": "seq_0k4dPvbXwqlbqstX8HPbBR",
+              "name": "Test Sequence 3",
+              "organization_id": "orga_bog0WeN6OXBxaN867LEXwaisIuXTy9fbbryxDywmf6V",
+              "owner_id": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+              "schedule": null,
+              "schedule_id": null,
+              "status": "active",
+              "steps": [
+                {
+                  "created_by_id": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+                  "date_created": "2026-06-19T12:18:10.299538",
+                  "date_updated": "2026-06-19T12:18:10.299545",
+                  "delay": 0,
+                  "email_template_id": null,
+                  "id": "seqstep_7Q4WFA9mxZsAdj5H9Wq5jG",
+                  "required": true,
+                  "sms_template_id": null,
+                  "step_allowed_delay": null,
+                  "step_type": "call",
+                  "threading": null,
+                  "updated_by_id": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa"
+                }
+              ],
+              "timezone": "America/Los_Angeles",
+              "trigger_query": null,
+              "updated_by_id": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa"
+            }
+          ],
+          "has_more": false
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 19 Jun 2026 12:18:32 GMT",
+          "content-type": "application/json",
+          "content-length": "3069",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4982",
+          "x-ratelimit-reset": "1781871517",
+          "etag": "W/\"bfd-/RqRc42VpbwzvwwDMix2bZjL5LY\""
+        },
+        "hash": "67b0b2f4df31bb2b8be381cfa1a5558da9db139d",
+        "request": {
+          "params": {
+            "_limit": "200",
+            "_skip": "0"
+          }
+        }
+      }
+    }
+  }
+}

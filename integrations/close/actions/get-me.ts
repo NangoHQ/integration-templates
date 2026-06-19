@@ -65,19 +65,7 @@ const ProviderMeSchema = z.object({
     phone_numbers: z.array(PhoneNumberSchema).optional()
 });
 
-const OutputSchema = z.object({
-    id: z.string(),
-    email: z.string(),
-    first_name: z.string().optional(),
-    last_name: z.string().optional(),
-    name: z.string().optional(),
-    date_created: z.string().optional(),
-    date_updated: z.string().optional(),
-    memberships: z.array(MembershipSchema).optional(),
-    organizations: z.array(OrganizationSchema).optional(),
-    email_accounts: z.array(EmailAccountSchema).optional(),
-    phone_numbers: z.array(PhoneNumberSchema).optional()
-});
+const OutputSchema = ProviderMeSchema;
 
 const action = createAction({
     description: "Retrieve the authenticated user's full profile including memberships, permissions, and organization.",

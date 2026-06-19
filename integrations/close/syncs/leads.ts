@@ -122,14 +122,14 @@ const sync = createSync({
             await nango.batchSave(leads, 'Lead');
         }
 
+        if (isFirstRun) {
+            await nango.trackDeletesEnd('Lead');
+        }
+
         if (maxDateUpdated !== '') {
             await nango.saveCheckpoint({
                 updated_after: maxDateUpdated
             });
-        }
-
-        if (isFirstRun) {
-            await nango.trackDeletesEnd('Lead');
         }
     }
 });

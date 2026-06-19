@@ -94,9 +94,13 @@ const action = createAction({
 
         const providerContact = ProviderContactSchema.parse(response.data);
 
+        if (providerContact.lead_id === null) {
+            throw new Error('Close returned null lead_id for created contact');
+        }
+
         return {
             id: providerContact.id,
-            lead_id: providerContact.lead_id || '',
+            lead_id: providerContact.lead_id,
             ...(providerContact.name != null && { name: providerContact.name }),
             ...(providerContact.title != null && { title: providerContact.title }),
             ...(providerContact.emails !== undefined && { emails: providerContact.emails }),

@@ -6,7 +6,7 @@ const InputSchema = z.object({
     status_id: z.string().optional().describe('Status ID. Example: "stat_5ZdiZqcSIkoGVnNOyxiEY58eTGQmFNG3LPlEVQ4V7Nk"'),
     value: z.number().optional().describe('Value in USD dollars (not cents). Example: 50000'),
     value_period: z.enum(['one_time', 'monthly', 'annual']).optional().describe('Value period. Example: "one_time"'),
-    confidence: z.number().optional().describe('Confidence percentage. Example: 75'),
+    confidence: z.number().min(0).max(100).optional().describe('Confidence percentage (0–100). Example: 75'),
     note: z.string().optional().describe('Plaintext note.'),
     note_html: z.string().nullable().optional().describe('Rich-text HTML note. Pass null to clear.'),
     contact_id: z.string().nullable().optional().describe('Contact ID. Pass null to remove association.'),
@@ -132,7 +132,7 @@ const action = createAction({
             // https://developer.close.com/api/resources/opportunities/update
             endpoint: `/v1/opportunity/${encodeURIComponent(input.id)}/`,
             data,
-            retries: 1
+            retries: 3
         });
 
         if (response.status === 404) {

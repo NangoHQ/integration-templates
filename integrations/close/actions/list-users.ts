@@ -38,7 +38,7 @@ const action = createAction({
 
             const body = response.data;
             if (typeof body !== 'object' || body === null || !Array.isArray(body.data)) {
-                break;
+                throw new Error(`Unexpected response shape from Close /v1/user/: ${JSON.stringify(body)}`);
             }
 
             for (const item of body.data) {

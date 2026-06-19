@@ -51,11 +51,8 @@ const sync = createSync({
 
         const isFirstRun = !updatedAfter;
 
-        if (isFirstRun) {
-            await nango.trackDeletesStart('Opportunity');
-        }
-
         let maxDateUpdated: string | undefined;
+        let deleteTrackingStarted = false;
 
         const params: Record<string, string | number> = {
             _limit: 200
@@ -106,6 +103,11 @@ const sync = createSync({
                 continue;
             }
 
+            if (isFirstRun && !deleteTrackingStarted) {
+                await nango.trackDeletesStart('Opportunity');
+                deleteTrackingStarted = true;
+            }
+
             await nango.batchSave(opportunities, 'Opportunity');
 
             for (const opp of opportunities) {
@@ -113,14 +115,14 @@ const sync = createSync({
                     maxDateUpdated = opp.date_updated;
                 }
             }
-
-            if (maxDateUpdated) {
-                await nango.saveCheckpoint({ updated_after: maxDateUpdated });
-            }
         }
 
-        if (isFirstRun) {
+        if (isFirstRun && deleteTrackingStarted) {
             await nango.trackDeletesEnd('Opportunity');
+        }
+
+        if (maxDateUpdated) {
+            await nango.saveCheckpoint({ updated_after: maxDateUpdated });
         }
     }
 });

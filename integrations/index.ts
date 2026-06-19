@@ -741,6 +741,46 @@ import './clickup/actions/update-space.js';
 import './clickup/actions/update-task.js';
 import './clickup/actions/update-time-entry.js';
 
+// -- Integration: close
+import './close/syncs/activities.js';
+import './close/syncs/contacts.js';
+import './close/syncs/leads.js';
+import './close/syncs/opportunities.js';
+import './close/syncs/pipelines.js';
+import './close/syncs/sequences.js';
+import './close/syncs/tasks.js';
+import './close/syncs/users.js';
+import './close/actions/create-contact.js';
+import './close/actions/create-lead.js';
+import './close/actions/create-note-activity.js';
+import './close/actions/create-opportunity.js';
+import './close/actions/create-task.js';
+import './close/actions/create-webhook.js';
+import './close/actions/delete-contact.js';
+import './close/actions/delete-lead.js';
+import './close/actions/delete-note-activity.js';
+import './close/actions/delete-opportunity.js';
+import './close/actions/delete-task.js';
+import './close/actions/delete-webhook.js';
+import './close/actions/get-contact.js';
+import './close/actions/get-lead.js';
+import './close/actions/get-me.js';
+import './close/actions/get-opportunity.js';
+import './close/actions/get-task.js';
+import './close/actions/get-user.js';
+import './close/actions/list-activities.js';
+import './close/actions/list-contacts.js';
+import './close/actions/list-leads.js';
+import './close/actions/list-opportunities.js';
+import './close/actions/list-tasks.js';
+import './close/actions/list-users.js';
+import './close/actions/list-webhooks.js';
+import './close/actions/update-contact.js';
+import './close/actions/update-lead.js';
+import './close/actions/update-note-activity.js';
+import './close/actions/update-opportunity.js';
+import './close/actions/update-task.js';
+
 // -- Integration: confluence
 import './confluence/syncs/attachments.js';
 import './confluence/syncs/blog-posts.js';

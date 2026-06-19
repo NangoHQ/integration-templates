@@ -1,0 +1,250 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "id": "whsub_0PUDxBrthWhqiuubhFvPiF",
+        "url": "https://webhook.site/12345678-abcd-efgh-ijkl-123456789012",
+        "events": [
+          {
+            "action": "updated",
+            "object_type": "contact"
+          },
+          {
+            "action": "created",
+            "object_type": "lead"
+          }
+        ],
+        "status": "active"
+      },
+      {
+        "id": "whsub_6mE80hGidXNMMT08HmxSEG",
+        "url": "https://webhook.site/",
+        "events": [
+          {
+            "action": "updated",
+            "object_type": "contact"
+          },
+          {
+            "action": "created",
+            "object_type": "lead"
+          }
+        ],
+        "status": "active"
+      },
+      {
+        "id": "whsub_5WCMgxGZbD4YV9F60JVZhu",
+        "url": "https://httpbin.org/post",
+        "events": [
+          {
+            "action": "deleted",
+            "object_type": "opportunity"
+          }
+        ],
+        "status": "active"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1/webhook/": {
+        "response": {
+          "data": [
+            {
+              "counters": {
+                "first_fail": 3
+              },
+              "created_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+              "date_created": "2026-06-19T12:06:27.849836",
+              "date_updated": "2026-06-19T12:06:27.849841",
+              "events": [
+                {
+                  "action": "updated",
+                  "extra_filter": null,
+                  "object_type": "contact"
+                },
+                {
+                  "action": "created",
+                  "extra_filter": null,
+                  "object_type": "lead"
+                }
+              ],
+              "health_status": null,
+              "history": {
+                "errors": [
+                  {
+                    "attempt_number": 1,
+                    "datetime": "2026-06-19T12:11:39.429745+00:00",
+                    "error": "HTTPError",
+                    "event_id": "ev_0ds2oMd4xnsl5wNIt4rXHU",
+                    "response_status_code": 404
+                  },
+                  {
+                    "attempt_number": 1,
+                    "datetime": "2026-06-19T12:11:28.496758+00:00",
+                    "error": "HTTPError",
+                    "event_id": "ev_1ZgQ44EtN4PlU3gakKi7YW",
+                    "response_status_code": 404
+                  },
+                  {
+                    "attempt_number": 1,
+                    "datetime": "2026-06-19T12:11:07.286679+00:00",
+                    "error": "HTTPError",
+                    "event_id": "ev_2rcWYH1CBks1YFgr8FHjwc",
+                    "response_status_code": 404
+                  }
+                ],
+                "successes": []
+              },
+              "id": "whsub_0PUDxBrthWhqiuubhFvPiF",
+              "latest_error": "Exception name: HTTPError, Status code: 404",
+              "pause_reason": null,
+              "recent_consecutive_fail_buckets_cnt": 0,
+              "status": "active",
+              "updated_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+              "url": "https://webhook.site/12345678-abcd-efgh-ijkl-123456789012",
+              "verify_ssl": false
+            },
+            {
+              "counters": {
+                "first_fail": 3
+              },
+              "created_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+              "date_created": "2026-06-19T12:07:06.267166",
+              "date_updated": "2026-06-19T12:07:06.267171",
+              "events": [
+                {
+                  "action": "updated",
+                  "extra_filter": null,
+                  "object_type": "contact"
+                },
+                {
+                  "action": "created",
+                  "extra_filter": null,
+                  "object_type": "lead"
+                }
+              ],
+              "health_status": null,
+              "history": {
+                "errors": [
+                  {
+                    "attempt_number": 1,
+                    "datetime": "2026-06-19T12:11:39.430103+00:00",
+                    "error": "HTTPError",
+                    "event_id": "ev_0ds2oMd4xnsl5wNIt4rXHU",
+                    "response_status_code": 404
+                  },
+                  {
+                    "attempt_number": 1,
+                    "datetime": "2026-06-19T12:11:28.497191+00:00",
+                    "error": "HTTPError",
+                    "event_id": "ev_1ZgQ44EtN4PlU3gakKi7YW",
+                    "response_status_code": 404
+                  },
+                  {
+                    "attempt_number": 1,
+                    "datetime": "2026-06-19T12:11:07.119297+00:00",
+                    "error": "HTTPError",
+                    "event_id": "ev_2rcWYH1CBks1YFgr8FHjwc",
+                    "response_status_code": 404
+                  }
+                ],
+                "successes": []
+              },
+              "id": "whsub_6mE80hGidXNMMT08HmxSEG",
+              "latest_error": "Exception name: HTTPError, Status code: 404",
+              "pause_reason": null,
+              "recent_consecutive_fail_buckets_cnt": 0,
+              "status": "active",
+              "updated_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+              "url": "https://webhook.site/",
+              "verify_ssl": false
+            },
+            {
+              "counters": {
+                "first_fail": 1,
+                "first_success": 1,
+                "retry_success": 1
+              },
+              "created_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+              "date_created": "2026-06-19T12:07:14.366524",
+              "date_updated": "2026-06-19T12:07:14.366531",
+              "events": [
+                {
+                  "action": "deleted",
+                  "extra_filter": null,
+                  "object_type": "opportunity"
+                }
+              ],
+              "health_status": null,
+              "history": {
+                "errors": [
+                  {
+                    "attempt_number": 1,
+                    "datetime": "2026-06-19T12:10:06.029833+00:00",
+                    "error": "HTTPError",
+                    "event_id": "ev_3SIWrrvou3ThroYFOjlviu",
+                    "response_status_code": 503
+                  }
+                ],
+                "successes": [
+                  {
+                    "attempt_number": 2,
+                    "datetime": "2026-06-19T12:11:07.252986+00:00",
+                    "error": null,
+                    "event_id": "ev_3SIWrrvou3ThroYFOjlviu",
+                    "response_status_code": 200
+                  },
+                  {
+                    "attempt_number": 1,
+                    "datetime": "2026-06-19T12:10:22.669400+00:00",
+                    "error": null,
+                    "event_id": "ev_3cmsO1XKdHSxEWlN8K43tA",
+                    "response_status_code": 200
+                  }
+                ]
+              },
+              "id": "whsub_5WCMgxGZbD4YV9F60JVZhu",
+              "latest_error": "Exception name: HTTPError, Status code: 503",
+              "pause_reason": null,
+              "recent_consecutive_fail_buckets_cnt": 0,
+              "status": "active",
+              "updated_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+              "url": "https://httpbin.org/post",
+              "verify_ssl": false
+            }
+          ],
+          "has_more": false
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 19 Jun 2026 12:12:03 GMT",
+          "content-type": "application/json",
+          "content-length": "3639",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4951",
+          "x-ratelimit-reset": "1781871150",
+          "etag": "W/\"e37-Mtnvve1YZyCtuUfPVyV/UEnQVWM\""
+        },
+        "hash": "4a98e78f049dd8059e8a36cc5e1ea603399a4351",
+        "request": {
+          "params": {
+            "_limit": "200",
+            "_skip": "0"
+          }
+        }
+      }
+    }
+  }
+}

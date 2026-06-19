@@ -21,7 +21,7 @@ const action = createAction({
         await nango.delete({
             // https://developer.close.com/
             endpoint: `/v1/contact/${encodeURIComponent(input.id)}/`,
-            retries: 1
+            retries: 3
         });
 
         return {

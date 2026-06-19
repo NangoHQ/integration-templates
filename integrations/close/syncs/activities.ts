@@ -89,10 +89,10 @@ const sync = createSync({
                     maxUpdatedAt = record.date_updated;
                 }
             }
+        }
 
-            if (maxUpdatedAt !== undefined) {
-                await nango.saveCheckpoint({ updated_after: maxUpdatedAt });
-            }
+        if (maxUpdatedAt !== undefined) {
+            await nango.saveCheckpoint({ updated_after: maxUpdatedAt });
         }
     }
 });

@@ -44,7 +44,7 @@ const sync = createSync({
     },
 
     exec: async (nango) => {
-        await nango.trackDeletesStart('Sequence');
+        let deleteTrackingStarted = false;
 
         const proxyConfig: ProxyConfiguration = {
             // https://developer.close.com/api/resources/sequences/list
@@ -100,11 +100,17 @@ const sync = createSync({
             }
 
             if (sequences.length > 0) {
+                if (!deleteTrackingStarted) {
+                    await nango.trackDeletesStart('Sequence');
+                    deleteTrackingStarted = true;
+                }
                 await nango.batchSave(sequences, 'Sequence');
             }
         }
 
-        await nango.trackDeletesEnd('Sequence');
+        if (deleteTrackingStarted) {
+            await nango.trackDeletesEnd('Sequence');
+        }
     }
 });
 

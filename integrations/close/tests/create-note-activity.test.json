@@ -1,0 +1,83 @@
+{
+  "input": {
+    "lead_id": "lead_ZOesO3bAQrooTNIuHeeFYrs6zksnK5E3G1jq5Pi1Yre",
+    "note": "Test note created by Nango action"
+  },
+  "output": {
+    "id": "acti_JIKGUw3ElH39M1C5vgjpRSWY0u8levRjO2o35wxDiYt",
+    "_type": "Note",
+    "date_created": "2026-06-19T12:16:56.507000+00:00",
+    "date_updated": "2026-06-19T12:16:56.507000+00:00",
+    "note": "Test note created by Nango action",
+    "note_html": "<body><p>Test note created by Nango action</p></body>",
+    "lead_id": "lead_ZOesO3bAQrooTNIuHeeFYrs6zksnK5E3G1jq5Pi1Yre",
+    "activity_at": "2026-06-19T12:16:56.507000+00:00",
+    "user_id": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+    "organization_id": "orga_bog0WeN6OXBxaN867LEXwaisIuXTy9fbbryxDywmf6V",
+    "created_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+    "updated_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+    "created_by_name": "Nango Developer",
+    "updated_by_name": "Nango Developer",
+    "user_name": "Nango Developer",
+    "users": []
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v1/activity/note/": {
+        "response": {
+          "users": [],
+          "created_by_name": "Nango Developer",
+          "contact_id": null,
+          "activity_at": "2026-06-19T12:16:56.507000+00:00",
+          "created_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+          "source": "api",
+          "attachments": [],
+          "note_mentions": [],
+          "updated_by_name": "Nango Developer",
+          "pinned": false,
+          "id": "acti_JIKGUw3ElH39M1C5vgjpRSWY0u8levRjO2o35wxDiYt",
+          "pinned_at": null,
+          "lead_id": "lead_ZOesO3bAQrooTNIuHeeFYrs6zksnK5E3G1jq5Pi1Yre",
+          "user_name": "Nango Developer",
+          "_type": "Note",
+          "updated_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+          "date_created": "2026-06-19T12:16:56.507000+00:00",
+          "date_updated": "2026-06-19T12:16:56.507000+00:00",
+          "user_id": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+          "organization_id": "orga_bog0WeN6OXBxaN867LEXwaisIuXTy9fbbryxDywmf6V",
+          "note": "Test note created by Nango action",
+          "title": null,
+          "note_html": "<body><p>Test note created by Nango action</p></body>"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 19 Jun 2026 12:16:56 GMT",
+          "content-type": "application/json",
+          "content-length": "923",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4981",
+          "x-ratelimit-reset": "1781871440",
+          "etag": "W/\"39b-7OtXdypG+tIcesVudLHnT8SUGIA\""
+        },
+        "hash": "fef75d1e8e122c634e9704762db390ab1ec03010",
+        "request": {
+          "data": {
+            "lead_id": "lead_ZOesO3bAQrooTNIuHeeFYrs6zksnK5E3G1jq5Pi1Yre",
+            "note": "Test note created by Nango action"
+          }
+        }
+      }
+    }
+  }
+}

@@ -80,7 +80,7 @@ const action = createAction({
             // https://developer.close.com/api/resources/contacts/update
             endpoint: `/v1/contact/${encodeURIComponent(id)}/`,
             data: updateData,
-            retries: 1
+            retries: 3
         });
 
         const providerContact = OutputSchema.parse(response.data);

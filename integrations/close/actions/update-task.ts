@@ -12,7 +12,7 @@ const InputSchema = z.object({
 
 const ProviderTaskSchema = z.object({
     id: z.string(),
-    lead_id: z.string(),
+    lead_id: z.string().nullable().optional(),
     assigned_to: z.string().nullable(),
     text: z.string(),
     date: z.string().nullable(),
@@ -37,7 +37,7 @@ const ProviderTaskSchema = z.object({
 
 const OutputSchema = z.object({
     id: z.string(),
-    lead_id: z.string(),
+    lead_id: z.string().optional(),
     assigned_to: z.string().optional(),
     text: z.string(),
     date: z.string().optional(),
@@ -78,14 +78,14 @@ const action = createAction({
                 ...(input.due_date !== undefined && { due_date: input.due_date }),
                 ...(input.is_complete !== undefined && { is_complete: input.is_complete })
             },
-            retries: 1
+            retries: 3
         });
 
         const providerTask = ProviderTaskSchema.parse(response.data);
 
         return {
             id: providerTask.id,
-            lead_id: providerTask.lead_id,
+            ...(providerTask.lead_id != null && { lead_id: providerTask.lead_id }),
             ...(providerTask.assigned_to != null && { assigned_to: providerTask.assigned_to }),
             text: providerTask.text,
             ...(providerTask.date != null && { date: providerTask.date }),
