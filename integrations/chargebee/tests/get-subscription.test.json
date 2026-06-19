@@ -1,0 +1,151 @@
+{
+  "input": {
+    "subscription_id": "AzZPdjVMyVrz9acf"
+  },
+  "output": {
+    "id": "AzZPdjVMyVrz9acf",
+    "customer_id": "AzqOd0VMyUhHQZf4",
+    "status": "non_renewing",
+    "currency_code": "USD",
+    "started_at": 1781856401,
+    "activated_at": 1781856401,
+    "created_at": 1781856401,
+    "updated_at": 1781856489,
+    "current_term_start": 1781856401,
+    "current_term_end": 1784448401,
+    "remaining_billing_cycles": 0,
+    "deleted": false,
+    "billing_period": 1,
+    "billing_period_unit": "month",
+    "auto_collection": "off",
+    "cancelled_at": 1784448401,
+    "has_scheduled_changes": false,
+    "cancel_schedule_created_at": 1781856489,
+    "channel": "web",
+    "resource_version": 1781856489017,
+    "object": "subscription",
+    "subscription_items": [
+      {
+        "item_price_id": "basic-plan-monthly",
+        "item_type": "plan",
+        "quantity": 1,
+        "unit_price": 1900,
+        "amount": 1900,
+        "free_quantity": 0,
+        "billing_cycles": 0,
+        "object": "subscription_item"
+      }
+    ],
+    "due_invoices_count": 1,
+    "due_since": 1781856401,
+    "total_dues": 1900,
+    "mrr": 1900,
+    "exchange_rate": 1,
+    "base_currency_code": "USD",
+    "has_scheduled_advance_invoices": false,
+    "decommissioned": false
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/v2/subscriptions/AzZPdjVMyVrz9acf": {
+        "response": {
+          "subscription": {
+            "id": "AzZPdjVMyVrz9acf",
+            "billing_period": 1,
+            "billing_period_unit": "month",
+            "remaining_billing_cycles": 0,
+            "auto_collection": "off",
+            "customer_id": "AzqOd0VMyUhHQZf4",
+            "status": "non_renewing",
+            "current_term_start": 1781856401,
+            "current_term_end": 1784448401,
+            "created_at": 1781856401,
+            "started_at": 1781856401,
+            "activated_at": 1781856401,
+            "cancelled_at": 1784448401,
+            "updated_at": 1781856489,
+            "has_scheduled_changes": false,
+            "cancel_schedule_created_at": 1781856489,
+            "channel": "web",
+            "resource_version": 1781856489017,
+            "deleted": false,
+            "object": "subscription",
+            "currency_code": "USD",
+            "subscription_items": [
+              {
+                "item_price_id": "basic-plan-monthly",
+                "item_type": "plan",
+                "quantity": 1,
+                "unit_price": 1900,
+                "amount": 1900,
+                "free_quantity": 0,
+                "billing_cycles": 0,
+                "object": "subscription_item"
+              }
+            ],
+            "due_invoices_count": 1,
+            "due_since": 1781856401,
+            "total_dues": 1900,
+            "mrr": 1900,
+            "exchange_rate": 1,
+            "base_currency_code": "USD",
+            "has_scheduled_advance_invoices": false,
+            "decommissioned": false
+          },
+          "customer": {
+            "id": "AzqOd0VMyUhHQZf4",
+            "first_name": "Alice",
+            "last_name": "Johnson",
+            "email": "alice@example.com",
+            "company": "Acme Corp",
+            "auto_collection": "on",
+            "net_term_days": 0,
+            "allow_direct_debit": false,
+            "created_at": 1781856121,
+            "taxability": "taxable",
+            "updated_at": 1781856317,
+            "pii_cleared": "active",
+            "channel": "web",
+            "resource_version": 1781856317441,
+            "deleted": false,
+            "object": "customer",
+            "card_status": "no_card",
+            "promotional_credits": 0,
+            "refundable_credits": 0,
+            "excess_payments": 0,
+            "unbilled_charges": 0,
+            "preferred_currency_code": "USD",
+            "mrr": 1900
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 19 Jun 2026 08:18:33 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4951",
+          "x-ratelimit-reset": "1781857149",
+          "cache-control": "no-store, no-cache, must-revalidate",
+          "expires": "Thu, 01 Jan 1970 00:00:00 UTC",
+          "pragma": "no-cache",
+          "vary": "Accept-Encoding",
+          "server": "ChargeBee"
+        },
+        "hash": "f833f63689dd9647bc10a1ad1235537b821b34ad",
+        "request": {}
+      }
+    }
+  }
+}
