@@ -4547,7 +4547,7 @@ export interface ActionInput_aircall_createuser {
    */
   time_zone?: string | undefined;
   /**
-   * Wrap-up time in seconds after a call. Example: 30
+   * Wrap-up time in whole seconds after a call. Example: 30
    */
   wrap_up_time?: number | undefined;
   /**
@@ -4788,9 +4788,9 @@ export interface ActionOutput_aircall_getuser {
   created_at: string;
   time_zone: string;
   language: string;
-  substatus: string;
+  substatus?: string | undefined;
   wrap_up_time: number;
-  extension: string;
+  extension?: string | undefined;
   default_number_id?: number | undefined;
   state?: string | undefined;
 };
@@ -4943,7 +4943,10 @@ export interface ActionOutput_aircall_listnumbers {
   voicemail?: string | undefined;
   closed?: string | undefined;
   callback_later?: string | undefined;})[];
-  next_page_link?: string | undefined;
+  /**
+   * Next page cursor (page number string). Pass as cursor on the next call.
+   */
+  next_cursor?: string | undefined;
 };
 
 export interface ActionInput_aircall_listtags {
@@ -5182,20 +5185,20 @@ export interface ActionOutput_aircall_searchcontacts {
   /**
    * Direct API URL. Example: https://api.aircall.io/v1/contacts/711
    */
-  direct_link: string;
-  first_name: string;
-  last_name: string;
-  company_name: string;
-  information: string;
-  is_shared: boolean;
+  direct_link?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  company_name?: string | undefined;
+  information?: string | undefined;
+  is_shared?: boolean | undefined;
   /**
    * Unix timestamp when the contact was created. Example: 1781777463
    */
-  created_at: number;
+  created_at?: number | undefined;
   /**
    * Unix timestamp when the contact was last updated. Example: 1781777463
    */
-  updated_at: number;
+  updated_at?: number | undefined;
   phone_numbers?: ({  label: string;
   value: string;})[] | undefined;
   emails?: ({  label: string;
@@ -5307,9 +5310,13 @@ export interface ActionInput_aircall_updateuser {
    */
   id: number;
   /**
-   * Full name of the user.
+   * First name of the user. Example: "John"
    */
-  name?: string | undefined;
+  first_name?: string | undefined;
+  /**
+   * Last name of the user. Example: "Doe"
+   */
+  last_name?: string | undefined;
   /**
    * Email of the user.
    */
@@ -5358,7 +5365,7 @@ export interface ActionInput_aircall_updatewebhook {
    */
   webhook_id: string;
   /**
-   * Webhook URL. Must be a valid URL.
+   * Webhook URL. Must be a valid HTTPS URL. Example: "https://example.com/webhook"
    */
   url: string;
   /**
