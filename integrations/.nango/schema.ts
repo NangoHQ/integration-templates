@@ -12717,12 +12717,15 @@ export interface Record {
 
 export interface WorkspaceMember {
   id: string;
-  first_name: string;
-  last_name: string;
-  avatar_url?: string | undefined;
-  email_address: string;
-  created_at: string;
-  access_level: string;
+  type?: string | undefined;
+  workspace_uuid?: string | undefined;
+  workspace_slug?: string | undefined;
+  workspace_name?: string | undefined;
+  user_uuid?: string | undefined;
+  user_nickname?: string | undefined;
+  user_display_name?: string | undefined;
+  user_account_id?: string | undefined;
+  permission?: string | undefined;
 };
 
 export interface ActionInput_attio_createcomment {
@@ -19837,6 +19840,1494 @@ export interface ActionInput_bill_disableuser {
 
 export interface ActionOutput_bill_disableuser {
   success: boolean;
+};
+
+export interface Branch {
+  id: string;
+  name: string;
+  project_id: string;
+  merged?: boolean | undefined;
+  protected?: boolean | undefined;
+  default?: boolean | undefined;
+  developers_can_push?: boolean | undefined;
+  developers_can_merge?: boolean | undefined;
+  can_push?: boolean | undefined;
+  web_url?: string | undefined;
+  commit_id?: string | undefined;
+  commit_short_id?: string | undefined;
+  commit_created_at?: string | undefined;
+  commit_title?: string | undefined;
+  commit_message?: string | undefined;
+  commit_author_name?: string | undefined;
+  commit_author_email?: string | undefined;
+  commit_authored_date?: string | undefined;
+  commit_committer_name?: string | undefined;
+  commit_committer_email?: string | undefined;
+  commit_committed_date?: string | undefined;
+  commit_web_url?: string | undefined;
+};
+
+export interface Commit {
+  id: string;
+  short_id?: string | undefined;
+  title?: string | undefined;
+  author_name?: string | undefined;
+  author_email?: string | undefined;
+  authored_date?: string | undefined;
+  committer_name?: string | undefined;
+  committer_email?: string | undefined;
+  committed_date?: string | undefined;
+  created_at?: string | undefined;
+  message?: string | undefined;
+  parent_ids?: string[] | undefined;
+  web_url?: string | undefined;
+};
+
+export interface Pipeline {
+  id: string;
+  name?: string | undefined;
+  update_time: string;
+  add_time?: string | undefined;
+  is_deal_probability_enabled?: boolean | undefined;
+};
+
+export interface PullRequest {
+  /**
+   * The unique identifier of the pull request (e.g., "12345")
+   */
+  id: string;
+  /**
+   * The pull request number within the repository
+   */
+  number: number;
+  /**
+   * The state of the pull request: "open", "closed"
+   */
+  state: string;
+  /**
+   * The title of the pull request
+   */
+  title: string;
+  /**
+   * The description/body of the pull request
+   */
+  body?: string | undefined;
+  /**
+   * The login/username of the PR author
+   */
+  user_login?: string | undefined;
+  /**
+   * The ID of the PR author
+   */
+  user_id?: number | undefined;
+  /**
+   * The ISO 8601 timestamp when the PR was created
+   */
+  created_at: string;
+  /**
+   * The ISO 8601 timestamp when the PR was last updated
+   */
+  updated_at: string;
+  /**
+   * The ISO 8601 timestamp when the PR was closed
+   */
+  closed_at?: string | undefined;
+  /**
+   * The ISO 8601 timestamp when the PR was merged
+   */
+  merged_at?: string | undefined;
+  /**
+   * The SHA of the merge commit
+   */
+  merge_commit_sha?: string | undefined;
+  /**
+   * The name of the head branch
+   */
+  head_ref: string;
+  /**
+   * The SHA of the head branch commit
+   */
+  head_sha: string;
+  /**
+   * The name of the base branch
+   */
+  base_ref: string;
+  /**
+   * The SHA of the base branch commit
+   */
+  base_sha: string;
+  /**
+   * Whether the pull request is a draft
+   */
+  draft: boolean;
+  /**
+   * The URL to view the pull request on GitHub
+   */
+  html_url: string;
+  /**
+   * The full name of the repository (e.g., "owner/repo")
+   */
+  repo_full_name: string;
+  /**
+   * Labels attached to the pull request
+   */
+  labels: ({  id: number;
+  name: string;
+  color: string;
+  description?: string | undefined;})[];
+  /**
+   * Users assigned to the pull request
+   */
+  assignees: ({  login: string;
+  id: number;})[];
+  /**
+   * Users requested to review the pull request
+   */
+  requested_reviewers: ({  login: string;
+  id: number;})[];
+};
+
+export interface Repository {
+  id: string;
+  name: string;
+  full_name: string;
+  owner_login: string;
+  owner_id: string;
+  owner_type: string;
+  private: boolean;
+  visibility?: string | undefined;
+  html_url: string;
+  description?: string | undefined;
+  fork: boolean;
+  default_branch: string;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  pushed_at?: string | undefined;
+  homepage?: string | undefined;
+  language?: string | undefined;
+  size: number;
+  forks_count: number;
+  stargazers_count: number;
+  open_issues_count: number;
+  archived?: boolean | undefined;
+  disabled?: boolean | undefined;
+};
+
+export interface ActionInput_bitbucket_createbranch {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * Branch name. Example: "feature-branch"
+   */
+  name: string;
+  /**
+   * Commit hash or existing branch name to branch from. Example: "master"
+   */
+  target_hash: string;
+};
+
+export interface ActionOutput_bitbucket_createbranch {
+  name: string;
+  target_hash?: string | undefined;
+};
+
+export interface ActionInput_bitbucket_createprcomment {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * Pull request ID. Example: 1
+   */
+  pull_request_id: number;
+  /**
+   * Comment content in raw markdown. Example: "This is a comment"
+   */
+  content: string;
+  /**
+   * File path for inline comment. Example: "README.md"
+   */
+  inline_path?: string | undefined;
+  /**
+   * Starting line for inline comment. Example: 1
+   */
+  inline_from?: number | undefined;
+  /**
+   * Ending line for inline comment. Example: 5
+   */
+  inline_to?: number | undefined;
+};
+
+export interface ActionOutput_bitbucket_createprcomment {
+  id: number;
+  type?: string | undefined;
+  created_on?: string | undefined;
+  updated_on?: string | undefined;
+  content?: {  raw?: string | undefined;
+  markup?: string | undefined;
+  html?: string | undefined;};
+  user?: {  type?: string | undefined;
+  uuid?: string | undefined;
+  display_name?: string | undefined;
+  account_id?: string | undefined;};
+  inline?: {  path?: string | undefined;
+  from?: number | undefined;
+  to?: number | undefined;};
+  pullrequest?: {  id?: number | undefined;
+  type?: string | undefined;};
+};
+
+export interface ActionInput_bitbucket_createproject {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Project key in uppercase. Example: "PROJ"
+   */
+  key: string;
+  /**
+   * Project name. Example: "My Project"
+   */
+  name: string;
+  /**
+   * Optional project description.
+   */
+  description?: string | undefined;
+  /**
+   * Whether the project is private.
+   */
+  is_private?: boolean | undefined;
+};
+
+export interface ActionOutput_bitbucket_createproject {
+  type?: string | undefined;
+  links?: {  html?: {  href?: string | undefined;
+  name?: string | undefined;};
+  avatar?: {  href?: string | undefined;
+  name?: string | undefined;};};
+  uuid?: string | undefined;
+  key?: string | undefined;
+  owner?: {  type?: string | undefined;};
+  name?: string | undefined;
+  description?: string | undefined;
+  is_private?: boolean | undefined;
+  created_on?: string | undefined;
+  updated_on?: string | undefined;
+  has_publicly_visible_repos?: boolean | undefined;
+};
+
+export interface ActionInput_bitbucket_createpullrequest {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * Pull request title. Example: "My PR"
+   */
+  title: string;
+  /**
+   * Source branch name. Example: "feature-branch"
+   */
+  source_branch: string;
+  /**
+   * Destination branch name. Defaults to the repository main branch.
+   */
+  destination_branch?: string | undefined;
+  /**
+   * Pull request description.
+   */
+  description?: string | undefined;
+  /**
+   * Array of reviewer UUIDs. Example: ["{504c3b62-8120-4f0c-a7bc-87800b9d6f70}"]
+   */
+  reviewers?: string[] | undefined;
+  /**
+   * Whether to close the source branch upon merging.
+   */
+  close_source_branch?: boolean | undefined;
+};
+
+export interface ActionOutput_bitbucket_createpullrequest {
+  id: number;
+  title: string;
+  description?: string | undefined;
+  state: string;
+  source_branch?: string | undefined;
+  destination_branch?: string | undefined;
+  close_source_branch?: boolean | undefined;
+  created_on?: string | undefined;
+  updated_on?: string | undefined;
+  reviewers?: ({  uuid?: string | undefined;
+  display_name?: string | undefined;
+  account_id?: string | undefined;})[];
+};
+
+export interface ActionInput_bitbucket_createrepository {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "my-repo"
+   */
+  repo_slug: string;
+  /**
+   * Source control management type. Example: "git"
+   */
+  scm?: string | undefined;
+  /**
+   * Whether the repository is private.
+   */
+  is_private?: boolean | undefined;
+  /**
+   * Repository description.
+   */
+  description?: string | undefined;
+  /**
+   * Whether the repository has a wiki.
+   */
+  has_wiki?: boolean | undefined;
+  /**
+   * Programming language. Example: "typescript"
+   */
+  language?: string | undefined;
+  /**
+   * Project key required if workspace has existing projects. Example: "PROJ"
+   */
+  project_key?: string | undefined;
+};
+
+export interface ActionOutput_bitbucket_createrepository {
+  uuid?: string | undefined;
+  name?: string | undefined;
+  slug?: string | undefined;
+  full_name?: string | undefined;
+  scm?: string | undefined;
+  description?: string | undefined;
+  is_private?: boolean | undefined;
+  has_wiki?: boolean | undefined;
+  language?: string | undefined;
+  created_on?: string | undefined;
+  updated_on?: string | undefined;
+  workspace_slug?: string | undefined;
+  project_key?: string | undefined;
+  owner_username?: string | undefined;
+  owner_uuid?: string | undefined;
+};
+
+export interface ActionInput_bitbucket_createwebhook {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * The URL to receive the webhook payload. Example: "https://example.com/webhook"
+   */
+  url: string;
+  /**
+   * Array of event keys. Example: ["repo:push", "pullrequest:created"]
+   */
+  events: string[];
+  /**
+   * Optional description for the webhook.
+   */
+  description?: string | undefined;
+  /**
+   * Whether the webhook is active. Defaults to true.
+   */
+  active?: boolean | undefined;
+  /**
+   * Optional secret for payload signing.
+   */
+  secret?: string | undefined;
+};
+
+export interface ActionOutput_bitbucket_createwebhook {
+  uuid: string;
+  url: string;
+  active: boolean;
+  description?: string | undefined;
+  events: string[];
+  created_at?: string | undefined;
+};
+
+export interface ActionInput_bitbucket_declinepullrequest {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * Pull request ID. Example: 1
+   */
+  pull_request_id: number;
+};
+
+export interface ActionOutput_bitbucket_declinepullrequest {
+  type?: string | undefined;
+  id?: number | undefined;
+  title?: string | undefined;
+  state?: string | undefined;
+  reason?: string | undefined;
+  created_on?: string | undefined;
+  updated_on?: string | undefined;
+  comment_count?: number | undefined;
+  task_count?: number | undefined;
+  close_source_branch?: boolean | undefined;
+  draft?: boolean | undefined;
+  mergeable?: boolean | undefined;
+  queued?: boolean | undefined;
+  links?: {  [key: string]: unknown | undefined;};
+  author?: {  [key: string]: unknown | undefined;};
+  source?: {  [key: string]: unknown | undefined;};
+  destination?: {  [key: string]: unknown | undefined;};
+  merge_commit?: {  [key: string]: unknown | undefined;};
+  closed_by?: {  [key: string]: unknown | undefined;};
+  rendered?: {  [key: string]: unknown | undefined;};
+  summary?: {  [key: string]: unknown | undefined;};
+  reviewers?: ({  [key: string]: unknown | undefined;})[];
+  participants?: ({  [key: string]: unknown | undefined;})[];
+};
+
+export interface ActionInput_bitbucket_deletebranch {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * Branch name to delete. Example: "main"
+   */
+  name: string;
+};
+
+export interface ActionOutput_bitbucket_deletebranch {
+  success: boolean;
+};
+
+export interface ActionInput_bitbucket_deleterepository {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-secondary-repo"
+   */
+  repo_slug: string;
+};
+
+export interface ActionOutput_bitbucket_deleterepository {
+  success: boolean;
+  workspace: string;
+  repo_slug: string;
+};
+
+export interface ActionInput_bitbucket_deletewebhook {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * Webhook UUID. Example: "{216a4943-db76-4086-9dcc-9a0b525062f5}"
+   */
+  webhook_uuid: string;
+};
+
+export interface ActionOutput_bitbucket_deletewebhook {
+  success: boolean;
+  workspace: string;
+  repo_slug: string;
+  webhook_uuid: string;
+};
+
+export interface ActionInput_bitbucket_getcommit {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * Full or abbreviated commit SHA. Example: "abc123"
+   */
+  node: string;
+};
+
+export interface ActionOutput_bitbucket_getcommit {
+  hash: string;
+  type?: string | undefined;
+  message?: string | undefined;
+  author?: {  raw?: string | undefined;
+  type?: string | undefined;
+  user?: {  display_name?: string | undefined;
+  uuid?: string | undefined;
+  account_id?: string | undefined;
+  type?: string | undefined;};};
+  date?: string | undefined;
+  parents?: ({  hash?: string | undefined;
+  type?: string | undefined;})[];
+  summary?: {  raw?: string | undefined;
+  markup?: string | undefined;
+  html?: string | undefined;
+  type?: string | undefined;};
+};
+
+export interface ActionInput_bitbucket_getcurrentuser {
+};
+
+export interface ActionOutput_bitbucket_getcurrentuser {
+  type: string;
+  uuid: string;
+  username?: string | undefined;
+  display_name?: string | undefined;
+  nickname?: string | undefined;
+  account_id?: string | undefined;
+  created_on?: string | undefined;
+};
+
+export interface ActionInput_bitbucket_getproject {
+  /**
+   * The workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * The project short uppercase key. Example: "PROJ"
+   */
+  project_key: string;
+};
+
+export interface ActionOutput_bitbucket_getproject {
+  type?: string | undefined;
+  uuid?: string | undefined;
+  key?: string | undefined;
+  name?: string | undefined;
+  description?: string | undefined;
+  is_private?: boolean | undefined;
+  created_on?: string | undefined;
+  updated_on?: string | undefined;
+  links?: {} | undefined;
+};
+
+export interface ActionInput_bitbucket_getrepository {
+  /**
+   * Workspace slug or UUID. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+};
+
+export interface ActionOutput_bitbucket_getrepository {
+  uuid: string;
+  full_name?: string | undefined;
+  name?: string | undefined;
+  description?: string | undefined;
+  created_on?: string | undefined;
+  updated_on?: string | undefined;
+  size?: number | undefined;
+  language?: string | undefined;
+  is_private?: boolean | undefined;
+  has_issues?: boolean | undefined;
+  has_wiki?: boolean | undefined;
+  fork_policy?: string | undefined;
+  scm?: string | undefined;
+  owner?: {  [key: string]: unknown | undefined;};
+  project?: {  [key: string]: unknown | undefined;};
+  mainbranch?: {  [key: string]: unknown | undefined;};
+  links?: {  [key: string]: unknown | undefined;};
+  type?: string | undefined;
+};
+
+export interface ActionInput_bitbucket_getworkspace {
+  /**
+   * Workspace slug or UUID. Example: "nangodev"
+   */
+  workspace: string;
+};
+
+export interface ActionOutput_bitbucket_getworkspace {
+  type: string;
+  uuid: string;
+  name?: string | undefined;
+  slug: string;
+  is_private: boolean;
+  is_privacy_enforced?: boolean | undefined;
+  forking_mode?: string | undefined;
+  created_on?: string | undefined;
+  updated_on?: string | undefined;
+  links?: {} | undefined;
+};
+
+export interface ActionInput_bitbucket_listbranches {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * Query string for filtering. Example: 'name ~ "feature"'
+   */
+  q?: string | undefined;
+  /**
+   * Sort string. Example: "-name"
+   */
+  sort?: string | undefined;
+  /**
+   * Number of results per page. Example: 10
+   */
+  pagelen?: number | undefined;
+  /**
+   * Page number for pagination. Example: 1
+   */
+  page?: number | undefined;
+};
+
+export interface ActionOutput_bitbucket_listbranches {
+  branches: ({  name: string;
+  type?: string | undefined;
+  default_merge_strategy?: string | undefined;
+  merge_strategies?: string[] | undefined;
+  target_hash?: string | undefined;
+  target_date?: string | undefined;
+  target_message?: string | undefined;})[];
+  next_page?: number | undefined;
+};
+
+export interface ActionInput_bitbucket_listcommits {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * Optional branch name, tag, or commit hash to filter commits.
+   */
+  revision?: string | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_bitbucket_listcommits {
+  commits: ({  hash: string;
+  type?: string | undefined;
+  date?: string | undefined;
+  message?: string | undefined;
+  author?: {  raw?: string | undefined;
+  type?: string | undefined;
+  user?: {  display_name?: string | undefined;
+  uuid?: string | undefined;
+  account_id?: string | undefined;
+  type?: string | undefined;};};
+  summary?: {  raw?: string | undefined;
+  markup?: string | undefined;
+  html?: string | undefined;
+  type?: string | undefined;};
+  parents?: ({  type?: string | undefined;
+  hash: string;})[];})[];
+  next_cursor?: string | undefined;
+  size?: number | undefined;
+};
+
+export interface ActionInput_bitbucket_listdeploymentenvironments {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_bitbucket_listdeploymentenvironments {
+  items: ({  type?: string | undefined;
+  uuid?: string | undefined;
+  name?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_bitbucket_listpipelines {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * Page number for pagination. Omit for the first page.
+   */
+  page?: number | undefined;
+  /**
+   * Number of items per page. Example: 10
+   */
+  pagelen?: number | undefined;
+  /**
+   * Sort field. Example: "-created_on"
+   */
+  sort?: string | undefined;
+};
+
+export interface ActionOutput_bitbucket_listpipelines {
+  items: ({  uuid: string;
+  build_number: number;
+  type?: string | undefined;
+  state?: {  name?: string | undefined;
+  type?: string | undefined;
+  stage?: {  name?: string | undefined;
+  type?: string | undefined;};
+  result?: {  name?: string | undefined;
+  type?: string | undefined;};};
+  target?: {  type?: string | undefined;
+  ref_type?: string | undefined;
+  ref_name?: string | undefined;};
+  trigger?: {  name?: string | undefined;
+  type?: string | undefined;};
+  created_on?: string | undefined;
+  completed_on?: string | undefined;
+  build_seconds_used?: number | undefined;})[];
+  next_page?: number | undefined;
+};
+
+export interface ActionInput_bitbucket_listpractivity {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of items per page. Example: 20
+   */
+  pagelen?: number | undefined;
+};
+
+export interface ActionOutput_bitbucket_listpractivity {
+  items: ({})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_bitbucket_listprcomments {
+  /**
+   * Workspace slug or UUID. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * Pull request ID. Example: 1
+   */
+  pull_request_id: number;
+  /**
+   * Pagination cursor (page number) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of items per page. Example: 20
+   */
+  pagelen?: number | undefined;
+};
+
+export interface ActionOutput_bitbucket_listprcomments {
+  comments: ({  id: number;
+  type?: string | undefined;
+  created_on?: string | undefined;
+  updated_on?: string | undefined;
+  content?: {  raw?: string | undefined;
+  markup?: string | undefined;
+  html?: string | undefined;
+  type?: string | undefined;};
+  user?: {  type?: string | undefined;
+  display_name?: string | undefined;
+  uuid?: string | undefined;
+  account_id?: string | undefined;
+  nickname?: string | undefined;
+  links?: {  [key: string]: unknown | undefined;};};
+  deleted?: boolean | undefined;
+  pending?: boolean | undefined;
+  parent?: {  id?: number | undefined;
+  type?: string | undefined;
+  links?: {  [key: string]: unknown | undefined;};};
+  inline?: {  path?: string | undefined;
+  from?: number | undefined;
+  to?: number | undefined;
+  outdated?: boolean | undefined;
+  context_lines?: string | undefined;};
+  links?: {  [key: string]: unknown | undefined;};
+  pullrequest?: {  type?: string | undefined;
+  id?: number | undefined;
+  title?: string | undefined;
+  draft?: boolean | undefined;
+  queued?: boolean | undefined;
+  links?: {  [key: string]: unknown | undefined;};};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_bitbucket_listprojects {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of items per page. Example: 10
+   */
+  pagelen?: number | undefined;
+};
+
+export interface ActionOutput_bitbucket_listprojects {
+  items: ({  uuid: string;
+  key: string;
+  name: string;
+  description?: string | undefined;
+  is_private?: boolean | undefined;
+  created_on?: string | undefined;
+  updated_on?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_bitbucket_listpullrequests {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * Filter by pull request state. Defaults to OPEN only if omitted.
+   */
+  state?: ({  0: 'OPEN';
+  1: 'MERGED';
+  2: 'DECLINED';
+  3: 'SUPERSEDED';})[] | undefined;
+  /**
+   * Query string to filter results. Example: "title~\"test\""
+   */
+  q?: string | undefined;
+  /**
+   * Sort field. Example: "-created_on"
+   */
+  sort?: string | undefined;
+  /**
+   * Number of items per page. Example: 10
+   */
+  pagelen?: number | undefined;
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_bitbucket_listpullrequests {
+  items: ({  id: number;
+  title: string;
+  state: 'OPEN' | 'MERGED' | 'DECLINED' | 'SUPERSEDED';
+  author?: {  type: string;
+  display_name?: string | undefined;
+  uuid?: string | undefined;
+  account_id?: string | undefined;};
+  source?: unknown | undefined;
+  destination?: unknown | undefined;
+  merge_commit?: {  hash: string;} | undefined;
+  comment_count?: number | undefined;
+  task_count?: number | undefined;
+  close_source_branch?: boolean | undefined;
+  closed_by?: {  type: string;} | undefined;
+  reason?: string | undefined;
+  created_on?: string | undefined;
+  updated_on?: string | undefined;
+  reviewers?: unknown[] | undefined;
+  participants?: unknown[] | undefined;
+  draft?: boolean | undefined;
+  queued?: boolean | undefined;
+  mergeable?: boolean | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_bitbucket_listrepositories {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Filter by role: admin, contributor, member, owner
+   */
+  role?: string | undefined;
+  /**
+   * Query string to filter repositories
+   */
+  q?: string | undefined;
+  /**
+   * Sort field
+   */
+  sort?: string | undefined;
+  /**
+   * Number of items per page. Example: 10
+   */
+  pagelen?: number | undefined;
+  /**
+   * Page number for pagination. Example: "2"
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_bitbucket_listrepositories {
+  items: ({  uuid: string;
+  slug: string;
+  name: string;
+  full_name: string;
+  description?: string | undefined;
+  is_private?: boolean | undefined;
+  created_on?: string | undefined;
+  updated_on?: string | undefined;
+  language?: string | undefined;
+  project?: {  [key: string]: unknown | undefined;};
+  owner?: {  [key: string]: unknown | undefined;};
+  links?: {  [key: string]: unknown | undefined;};
+  mainbranch?: {  [key: string]: unknown | undefined;};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_bitbucket_listtags {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * Query string to filter tags. Example: 'name ~ "v1.*"'
+   */
+  q?: string | undefined;
+  /**
+   * Sort field. Example: "-name"
+   */
+  sort?: string | undefined;
+  /**
+   * Number of items per page (max 100). Example: 10
+   */
+  pagelen?: number | undefined;
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_bitbucket_listtags {
+  tags: ({  name: string;
+  type?: string | undefined;
+  links?: {  [key: string]: unknown | undefined;};
+  target?: {  [key: string]: unknown | undefined;};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_bitbucket_listwatchers {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of items per page. Example: 10
+   */
+  pagelen?: number | undefined;
+};
+
+export interface ActionOutput_bitbucket_listwatchers {
+  watchers: ({  uuid: string;
+  username?: string | undefined;
+  display_name?: string | undefined;
+  account_id?: string | undefined;
+  type?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_bitbucket_listwebhooks {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * Page number for pagination.
+   */
+  page?: number | undefined;
+  /**
+   * Number of items per page.
+   */
+  pagelen?: number | undefined;
+};
+
+export interface ActionOutput_bitbucket_listwebhooks {
+  /**
+   * List of webhooks.
+   */
+  values: ({  /**
+   * Webhook UUID.
+   */
+  uuid: string;
+  /**
+   * Target URL for the webhook.
+   */
+  url: string;
+  /**
+   * Description of the webhook.
+   */
+  description?: string | undefined;
+  /**
+   * Whether the webhook is active.
+   */
+  active: boolean;
+  /**
+   * Creation timestamp.
+   */
+  created_at?: string | undefined;
+  /**
+   * Events that trigger the webhook.
+   */
+  events?: string[] | undefined;})[];
+  /**
+   * Current page number.
+   */
+  page?: number | undefined;
+  /**
+   * Number of items per page.
+   */
+  pagelen?: number | undefined;
+  /**
+   * Total number of webhooks.
+   */
+  size?: number | undefined;
+  /**
+   * URL for the next page of results.
+   */
+  next?: string | undefined;
+};
+
+export interface ActionInput_bitbucket_listworkspacemembers {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Pagination cursor (page number) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of items per page. Example: 10
+   */
+  pagelen?: number | undefined;
+};
+
+export interface ActionOutput_bitbucket_listworkspacemembers {
+  members: ({  type?: string | undefined;
+  user_uuid?: string | undefined;
+  user_nickname?: string | undefined;
+  user_display_name?: string | undefined;
+  user_account_id?: string | undefined;
+  workspace_uuid?: string | undefined;
+  workspace_slug?: string | undefined;
+  workspace_name?: string | undefined;})[];
+  next_page?: string | undefined;
+};
+
+export interface ActionInput_bitbucket_listworkspaces {
+  /**
+   * Page number for pagination. Omit for the first page.
+   */
+  page?: number | undefined;
+  /**
+   * Number of items per page. Example: 10
+   */
+  pagelen?: number | undefined;
+};
+
+export interface ActionOutput_bitbucket_listworkspaces {
+  items: ({  /**
+   * Workspace UUID. Example: "{d8dcf202-0b5d-4568-8954-43075e98b813}"
+   */
+  uuid: string;
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  slug: string;
+  /**
+   * Workspace name.
+   */
+  name?: string | undefined;
+  /**
+   * Workspace type.
+   */
+  type?: string | undefined;
+  /**
+   * Whether the workspace is private.
+   */
+  is_private?: boolean | undefined;})[];
+  /**
+   * Current page number.
+   */
+  page?: number | undefined;
+  /**
+   * Number of items per page.
+   */
+  pagelen?: number | undefined;
+  /**
+   * Total number of items.
+   */
+  size?: number | undefined;
+  /**
+   * URL to the next page of results.
+   */
+  next?: string | undefined;
+};
+
+export interface ActionInput_bitbucket_mergepullrequest {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * Pull request ID. Example: 108
+   */
+  pull_request_id: number;
+  /**
+   * Merge strategy. Example: "merge_commit"
+   */
+  merge_strategy?: 'merge_commit' | 'squash' | 'fast_forward' | undefined;
+  /**
+   * Merge commit message. Example: "Merging feature branch"
+   */
+  message?: string | undefined;
+  /**
+   * Whether to close the source branch after merging. Example: true
+   */
+  close_source_branch?: boolean | undefined;
+};
+
+export interface ActionOutput_bitbucket_mergepullrequest {
+  id: number;
+  title: string;
+  state: string;
+  merge_commit_hash?: string | undefined;
+  created_on?: string | undefined;
+  updated_on?: string | undefined;
+  closed_by_type?: string | undefined;
+  reason?: string | undefined;
+  close_source_branch?: boolean | undefined;
+};
+
+export interface ActionInput_bitbucket_updateproject {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Existing project key. Example: "NANGO"
+   */
+  project_key: string;
+  /**
+   * New project name.
+   */
+  name?: string | undefined;
+  /**
+   * New project description.
+   */
+  description?: string | undefined;
+  /**
+   * Whether the project is private.
+   */
+  is_private?: boolean | undefined;
+  /**
+   * New project key if renaming the project.
+   */
+  key?: string | undefined;
+  /**
+   * Avatar image URL or data URI.
+   */
+  avatar_href?: string | undefined;
+};
+
+export interface ActionOutput_bitbucket_updateproject {
+  type?: string | undefined;
+  links?: {  html?: {  href: string;
+  name?: string | undefined;};
+  avatar?: {  href: string;
+  name?: string | undefined;};};
+  uuid: string;
+  key: string;
+  owner?: {  type?: string | undefined;};
+  name: string;
+  description?: string | undefined;
+  is_private?: boolean | undefined;
+  created_on?: string | undefined;
+  updated_on?: string | undefined;
+  has_publicly_visible_repos?: boolean | undefined;
+};
+
+export interface ActionInput_bitbucket_updatepullrequest {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * Pull request ID. Example: 1
+   */
+  pull_request_id: number;
+  /**
+   * Updated title for the pull request.
+   */
+  title?: string | undefined;
+  /**
+   * Updated description for the pull request.
+   */
+  description?: string | undefined;
+  /**
+   * Updated destination branch for the pull request.
+   */
+  destination?: {  branch: {  /**
+   * Destination branch name. Example: "main"
+   */
+  name: string;};} | undefined;
+  /**
+   * Updated list of reviewers.
+   */
+  reviewers?: ({  /**
+   * User UUID. Example: "{a35738e8-3d79-470d-a80f-2a2fe4336964}"
+   */
+  uuid: string;})[] | undefined;
+};
+
+export interface ActionOutput_bitbucket_updatepullrequest {
+  id: number;
+  title: string;
+  description?: string | undefined;
+  state: string;
+  source?: {  repository?: {  type?: string | undefined;
+  name?: string | undefined;
+  full_name?: string | undefined;
+  uuid?: string | undefined;};
+  branch?: {  name: string;} | undefined;
+  commit?: {  hash?: string | undefined;
+  type?: string | undefined;};};
+  destination?: {  repository?: {  type?: string | undefined;
+  name?: string | undefined;
+  full_name?: string | undefined;
+  uuid?: string | undefined;};
+  branch?: {  name: string;} | undefined;
+  commit?: {  hash?: string | undefined;
+  type?: string | undefined;};};
+  created_on?: string | undefined;
+  updated_on?: string | undefined;
+  reviewers?: ({  type?: string | undefined;
+  uuid?: string | undefined;
+  display_name?: string | undefined;
+  account_id?: string | undefined;})[];
+  participants?: ({  type?: string | undefined;
+  uuid?: string | undefined;
+  display_name?: string | undefined;
+  account_id?: string | undefined;})[];
+  author?: {  type?: string | undefined;
+  uuid?: string | undefined;
+  display_name?: string | undefined;
+  account_id?: string | undefined;};
+  close_source_branch?: boolean | undefined;
+  draft?: boolean | undefined;
+  merge_commit?: {  hash?: string | undefined;};
+  comment_count?: number | undefined;
+  task_count?: number | undefined;
+  reason?: string | undefined;
+  summary?: {  raw?: string | undefined;
+  markup?: string | undefined;
+  html?: string | undefined;};
+  rendered?: {  title?: {  raw?: string | undefined;
+  markup?: string | undefined;
+  html?: string | undefined;};
+  description?: {  raw?: string | undefined;
+  markup?: string | undefined;
+  html?: string | undefined;};
+  reason?: {  raw?: string | undefined;
+  markup?: string | undefined;
+  html?: string | undefined;};};
+  links?: {} | undefined;
+  type?: string | undefined;
+};
+
+export interface ActionInput_bitbucket_updaterepository {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * Repository description.
+   */
+  description?: string | undefined;
+  /**
+   * Whether the repository is private.
+   */
+  is_private?: boolean | undefined;
+  /**
+   * Primary language. Example: "javascript"
+   */
+  language?: string | undefined;
+  /**
+   * Website URL associated with the repository.
+   */
+  website?: string | undefined;
+  /**
+   * Fork policy for the repository.
+   */
+  fork_policy?: 'allow_forks' | 'no_public_forks' | 'no_forks' | undefined;
+  /**
+   * Name of the main branch. Example: "main"
+   */
+  mainbranch?: string | undefined;
+};
+
+export interface ActionOutput_bitbucket_updaterepository {
+  uuid: string;
+  name: string;
+  slug: string;
+  full_name?: string | undefined;
+  description?: string | undefined;
+  is_private?: boolean | undefined;
+  language?: string | undefined;
+  website?: string | undefined;
+  fork_policy?: string | undefined;
+  mainbranch?: string | undefined;
+  workspace_slug?: string | undefined;
+  project_key?: string | undefined;
+  created_on?: string | undefined;
+  updated_on?: string | undefined;
+};
+
+export interface ActionInput_bitbucket_updatewebhook {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * Webhook UUID. Example: "{216a4943-db76-4086-9dcc-9a0b525062f5}"
+   */
+  webhook_uuid: string;
+  /**
+   * Webhook description.
+   */
+  description?: string | undefined;
+  /**
+   * Webhook URL.
+   */
+  url?: string | undefined;
+  /**
+   * Webhook secret. Pass null to remove.
+   */
+  secret?: string | undefined;
+  /**
+   * Whether the webhook is active.
+   */
+  active?: boolean | undefined;
+  /**
+   * List of event types.
+   */
+  events?: string[] | undefined;
+};
+
+export interface ActionOutput_bitbucket_updatewebhook {
+  type?: string | undefined;
+  uuid?: string | undefined;
+  url?: string | undefined;
+  description?: string | undefined;
+  subject_type?: string | undefined;
+  active?: boolean | undefined;
+  created_at?: string | undefined;
+  events?: string[] | undefined;
+  secret_set?: boolean | undefined;
 };
 
 export type ActionInput_bitdefender_getcompanydetails = void

@@ -1,0 +1,158 @@
+{
+  "nango": {
+    "batchSave": {
+      "WorkspaceMember": [
+        {
+          "id": "{d8dcf202-0b5d-4568-8954-43075e98b813}-{a35738e8-3d79-470d-a80f-2a2fe4336964}",
+          "type": "workspace_membership",
+          "workspace_uuid": "{d8dcf202-0b5d-4568-8954-43075e98b813}",
+          "workspace_slug": "nangodev",
+          "workspace_name": "nangodev",
+          "user_uuid": "{a35738e8-3d79-470d-a80f-2a2fe4336964}",
+          "user_nickname": "Nango Developer",
+          "user_display_name": "Nango Developer",
+          "user_account_id": "712020:7bf45758-6986-4e0e-aefc-a3000196d8d2"
+        }
+      ]
+    },
+    "batchDelete": {
+      "WorkspaceMember": []
+    }
+  },
+  "api": {
+    "get": {
+      "/2.0/user/workspaces": {
+        "response": {
+          "values": [
+            {
+              "type": "workspace_access",
+              "administrator": true,
+              "workspace": {
+                "type": "workspace_base",
+                "uuid": "{d8dcf202-0b5d-4568-8954-43075e98b813}",
+                "slug": "nangodev",
+                "links": {
+                  "avatar": {
+                    "href": "https://bitbucket.org/workspaces/nangodev/avatar/"
+                  },
+                  "self": {
+                    "href": "https://api.bitbucket.org/2.0/workspaces/nangodev"
+                  }
+                }
+              }
+            }
+          ],
+          "pagelen": 100,
+          "size": 1,
+          "page": 1
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 18 Jun 2026 19:32:50 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "369",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4978",
+          "x-ratelimit-reset": "1781811204",
+          "etag": "W/\"171-W+999UAJlROuRdl187bKM+lXxk4\""
+        },
+        "hash": "1d2e670e0fdd20ed1c07b3728e7782573d790938",
+        "request": {
+          "params": {
+            "page": "1",
+            "pagelen": "100"
+          }
+        }
+      },
+      "/2.0/workspaces/nangodev/members": {
+        "response": {
+          "values": [
+            {
+              "type": "workspace_membership",
+              "user": {
+                "display_name": "Nango Developer",
+                "links": {
+                  "self": {
+                    "href": "https://api.bitbucket.org/2.0/users/%7Ba35738e8-3d79-470d-a80f-2a2fe4336964%7D"
+                  },
+                  "avatar": {
+                    "href": "https://secure.gravatar.com/avatar/0f8c53293177b8e9f1658ae7951a468e?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FND-4.png"
+                  },
+                  "html": {
+                    "href": "https://bitbucket.org/%7Ba35738e8-3d79-470d-a80f-2a2fe4336964%7D/"
+                  }
+                },
+                "type": "user",
+                "uuid": "{a35738e8-3d79-470d-a80f-2a2fe4336964}",
+                "account_id": "712020:7bf45758-6986-4e0e-aefc-a3000196d8d2",
+                "nickname": "Nango Developer"
+              },
+              "workspace": {
+                "type": "workspace",
+                "uuid": "{d8dcf202-0b5d-4568-8954-43075e98b813}",
+                "name": "nangodev",
+                "slug": "nangodev",
+                "links": {
+                  "avatar": {
+                    "href": "https://bitbucket.org/workspaces/nangodev/avatar/?ts=1781802317"
+                  },
+                  "html": {
+                    "href": "https://bitbucket.org/nangodev/"
+                  },
+                  "self": {
+                    "href": "https://api.bitbucket.org/2.0/workspaces/nangodev"
+                  }
+                }
+              },
+              "links": {
+                "self": {
+                  "href": "https://api.bitbucket.org/2.0/workspaces/nangodev/members/%7Ba35738e8-3d79-470d-a80f-2a2fe4336964%7D"
+                }
+              }
+            }
+          ],
+          "pagelen": 100,
+          "size": 1,
+          "page": 1
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 18 Jun 2026 19:32:51 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "1157",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4977",
+          "x-ratelimit-reset": "1781811204",
+          "etag": "W/\"485-okAz2RtAuwJMrzExhyuqz41H5y0\""
+        },
+        "hash": "5127462ee8b52864825390028ba68bd6401e6cf3",
+        "request": {
+          "params": {
+            "page": "1",
+            "pagelen": "100"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,133 @@
+{
+  "input": {
+    "workspace": "nangodev",
+    "key": "FINAL02",
+    "name": "Final Test Project 2"
+  },
+  "output": {
+    "type": "project",
+    "links": {
+      "html": {
+        "href": "https://bitbucket.org/nangodev/workspace/projects/FINAL02"
+      },
+      "avatar": {
+        "href": "https://bitbucket.org/nangodev/workspace/projects/FINAL02/avatar/32?ts=1781808817"
+      }
+    },
+    "uuid": "{ec2e38b5-c8e8-4212-aebb-7efb54d07c63}",
+    "key": "FINAL02",
+    "owner": {
+      "type": "team",
+      "display_name": "nangodev",
+      "links": {
+        "self": {
+          "href": "https://api.bitbucket.org/2.0/workspaces/%7Bd8dcf202-0b5d-4568-8954-43075e98b813%7D"
+        },
+        "avatar": {
+          "href": "https://bitbucket.org/account/nangodev/avatar/"
+        },
+        "html": {
+          "href": "https://bitbucket.org/%7Bd8dcf202-0b5d-4568-8954-43075e98b813%7D/"
+        }
+      },
+      "uuid": "{d8dcf202-0b5d-4568-8954-43075e98b813}",
+      "username": "nangodev"
+    },
+    "name": "Final Test Project 2",
+    "is_private": false,
+    "created_on": "2026-06-18T18:53:37.908676+00:00",
+    "updated_on": "2026-06-18T18:53:37.908689+00:00",
+    "has_publicly_visible_repos": false
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/2.0/workspaces/nangodev/projects": {
+        "response": {
+          "type": "project",
+          "owner": {
+            "display_name": "nangodev",
+            "links": {
+              "self": {
+                "href": "https://api.bitbucket.org/2.0/workspaces/%7Bd8dcf202-0b5d-4568-8954-43075e98b813%7D"
+              },
+              "avatar": {
+                "href": "https://bitbucket.org/account/nangodev/avatar/"
+              },
+              "html": {
+                "href": "https://bitbucket.org/%7Bd8dcf202-0b5d-4568-8954-43075e98b813%7D/"
+              }
+            },
+            "type": "team",
+            "uuid": "{d8dcf202-0b5d-4568-8954-43075e98b813}",
+            "username": "nangodev"
+          },
+          "workspace": {
+            "type": "workspace",
+            "uuid": "{d8dcf202-0b5d-4568-8954-43075e98b813}",
+            "name": "nangodev",
+            "slug": "nangodev",
+            "links": {
+              "avatar": {
+                "href": "https://bitbucket.org/workspaces/nangodev/avatar/?ts=1781802317"
+              },
+              "html": {
+                "href": "https://bitbucket.org/nangodev/"
+              },
+              "self": {
+                "href": "https://api.bitbucket.org/2.0/workspaces/nangodev"
+              }
+            }
+          },
+          "key": "FINAL02",
+          "uuid": "{ec2e38b5-c8e8-4212-aebb-7efb54d07c63}",
+          "is_private": false,
+          "name": "Final Test Project 2",
+          "description": null,
+          "links": {
+            "self": {
+              "href": "https://api.bitbucket.org/2.0/workspaces/nangodev/projects/FINAL02"
+            },
+            "html": {
+              "href": "https://bitbucket.org/nangodev/workspace/projects/FINAL02"
+            },
+            "repositories": {},
+            "avatar": {
+              "href": "https://bitbucket.org/nangodev/workspace/projects/FINAL02/avatar/32?ts=1781808817"
+            }
+          },
+          "created_on": "2026-06-18T18:53:37.908676+00:00",
+          "updated_on": "2026-06-18T18:53:37.908689+00:00",
+          "has_publicly_visible_repos": false
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 18 Jun 2026 18:53:38 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "1351",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4949",
+          "x-ratelimit-reset": "1781808861",
+          "etag": "W/\"547-vPEwhP6TQxZm3VaL6AV00va14eQ\""
+        },
+        "hash": "7a77276d2d677973aa21b7fd0b0dad47a35a23d3",
+        "request": {
+          "data": {
+            "key": "FINAL02",
+            "name": "Final Test Project 2"
+          }
+        }
+      }
+    }
+  }
+}
