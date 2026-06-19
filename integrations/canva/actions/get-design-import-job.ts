@@ -53,10 +53,6 @@ const action = createAction({
     input: InputSchema,
     output: OutputSchema,
     scopes: ['portability:import'],
-    endpoint: {
-        path: '/actions/get-design-import-job',
-        method: 'GET'
-    },
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({

@@ -81,10 +81,6 @@ const action = createAction({
     input: InputSchema,
     output: OutputSchema,
     scopes: ['asset:write'],
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-asset'
-    },
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const requestBody: { name?: string; tags?: string[] } = {};

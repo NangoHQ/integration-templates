@@ -17,10 +17,6 @@ const action = createAction({
     input: InputSchema,
     output: OutputSchema,
     scopes: ['user:read'],
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-current-user-capabilities'
-    },
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({

@@ -46,10 +46,6 @@ const OutputSchema = z.object({
 const action = createAction({
     description: 'Retrieve design metadata.',
     version: '1.0.0',
-    endpoint: {
-        path: '/actions/get-design',
-        method: 'GET'
-    },
     input: InputSchema,
     output: OutputSchema,
     scopes: ['design:meta:read'],

@@ -28,50 +28,31 @@ const DesignSchema = z.object({
         .optional()
 });
 
-const CheckpointSchema = z.object({
-    cursor: z.string()
-});
-
 const sync = createSync({
     description: 'Sync design metadata.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
-    checkpoint: CheckpointSchema,
     models: {
         Design: DesignSchema
     },
-    endpoints: [
-        {
-            method: 'GET',
-            path: '/syncs/designs'
-        }
-    ],
 
     exec: async (nango) => {
-        const checkpoint = await nango.getCheckpoint();
-        let cursor = checkpoint != null && typeof checkpoint['cursor'] === 'string' ? checkpoint['cursor'] : undefined;
-
-        if (checkpoint == null) {
-            await nango.trackDeletesStart('Design');
-        }
+        // Always start deletion tracking before full enumeration so every run
+        // captures a complete snapshot — cursor-based partial resumption would
+        // leave earlier pages outside the tracking window and cause false deletes.
+        await nango.trackDeletesStart('Design');
 
         const proxyConfig: ProxyConfiguration = {
             // https://www.canva.dev/docs/connect/api-reference/designs/
             endpoint: '/rest/v1/designs',
-            params: {
-                ...(cursor != null && { continuation: cursor })
-            },
             paginate: {
                 type: 'cursor',
                 cursor_name_in_request: 'continuation',
                 cursor_path_in_response: 'continuation',
                 response_path: 'items',
                 limit_name_in_request: 'limit',
-                limit: 50,
-                on_page: async ({ nextPageParam }) => {
-                    cursor = typeof nextPageParam === 'string' ? nextPageParam : undefined;
-                }
+                limit: 50
             },
             retries: 3
         };
@@ -146,13 +127,8 @@ const sync = createSync({
             if (designs.length > 0) {
                 await nango.batchSave(designs, 'Design');
             }
-
-            if (cursor !== undefined) {
-                await nango.saveCheckpoint({ cursor });
-            }
         }
 
-        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Design');
     }
 });

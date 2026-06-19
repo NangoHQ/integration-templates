@@ -19816,6 +19816,10 @@ export interface ActionInput_canva_createcomment {
    * The object to attach the comment to
    */
   attached_to: {  /**
+   * The type of object to attach the comment to. Example: "design"
+   */
+  type: string;
+  /**
    * The ID of the design to attach the comment to. Example: "DAHNACmCy_g"
    */
   design_id: string;
@@ -20386,7 +20390,7 @@ export interface ActionInput_canva_getdesignpages {
 
 export interface ActionOutput_canva_getdesignpages {
   items: ({  id?: string | undefined;
-  index: number;
+  index?: number | undefined;
   page_number?: number | undefined;
   dimensions?: {  width: number;
   height: number;} | undefined;
@@ -20575,10 +20579,6 @@ export interface ActionInput_canva_listdesigns {
    * Search term to filter designs. Example: "party invites"
    */
   query?: string | undefined;
-  /**
-   * Filter designs by type. Example: "presentation"
-   */
-  design_type?: string | undefined;
   /**
    * Filter by ownership: any, owned, or shared.
    */

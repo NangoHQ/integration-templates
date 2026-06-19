@@ -4,6 +4,7 @@ import { createAction } from 'nango';
 const InputSchema = z.object({
     attached_to: z
         .object({
+            type: z.string().describe('The type of object to attach the comment to. Example: "design"'),
             design_id: z.string().describe('The ID of the design to attach the comment to. Example: "DAHNACmCy_g"'),
             element: z.unknown().optional().describe('Reference to the specific design element to anchor the comment to')
         })

@@ -17,10 +17,6 @@ const BrandTemplateSchema = z.object({
     updated_at: z.number()
 });
 
-const CheckpointSchema = z.object({
-    cursor: z.string()
-});
-
 const ListBrandTemplatesResponseSchema = z.object({
     continuation: z.string().optional(),
     items: z.array(BrandTemplateSchema)
@@ -31,20 +27,15 @@ const sync = createSync({
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
-    checkpoint: CheckpointSchema,
     models: {
         BrandTemplate: BrandTemplateSchema
     },
     exec: async (nango) => {
-        // Blocker: Canva /v1/brand-templates does not support updated_after or modified_since
-        // filters. We still save the continuation cursor so interrupted full crawls can resume.
-        const checkpoint = await nango.getCheckpoint();
-        let cursor = checkpoint != null && typeof checkpoint['cursor'] === 'string' ? checkpoint['cursor'] : undefined;
+        // Always start deletion tracking before full enumeration — cursor-based
+        // partial resumption would leave earlier pages outside the tracking window.
+        await nango.trackDeletesStart('BrandTemplate');
 
-        if (checkpoint == null) {
-            await nango.trackDeletesStart('BrandTemplate');
-        }
-
+        let cursor: string | undefined;
         let hasMore = true;
         while (hasMore) {
             // https://www.canva.dev/docs/connect/api-reference/brand-templates/
@@ -69,13 +60,9 @@ const sync = createSync({
                 await nango.batchSave(items, 'BrandTemplate');
             }
 
-            if (continuation !== undefined) {
-                cursor = continuation;
-                await nango.saveCheckpoint({ cursor });
-            }
+            cursor = continuation;
         }
 
-        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('BrandTemplate');
     }
 });

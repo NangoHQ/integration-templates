@@ -47,7 +47,6 @@ const sync = createSync({
     metadata: MetadataSchema,
     checkpoint: CheckpointSchema,
     // https://www.canva.dev/docs/connect/api-reference/designs/get-design-pages/
-    endpoints: [{ method: 'GET', path: '/syncs/design-pages' }],
     scopes: ['design:content:read'],
     models: {
         DesignPage: DesignPageSchema

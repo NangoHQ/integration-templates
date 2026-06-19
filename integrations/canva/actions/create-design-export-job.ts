@@ -47,10 +47,6 @@ const action = createAction({
     input: InputSchema,
     output: OutputSchema,
     scopes: ['design:content:read'],
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-design-export-job'
-    },
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const config: ProxyConfiguration = {

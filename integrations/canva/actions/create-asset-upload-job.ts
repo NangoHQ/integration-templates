@@ -7,7 +7,7 @@ const InputSchema = z.object({
         .describe(
             'Base64-encoded file bytes to upload. Example: "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="'
         ),
-    name: z.string().describe('The asset name. Maximum 50 characters. Example: "My Awesome Upload"')
+    name: z.string().min(1).max(50).describe('The asset name. Maximum 50 characters. Example: "My Awesome Upload"')
 });
 
 const AssetUploadErrorSchema = z.object({
@@ -53,10 +53,6 @@ const action = createAction({
     input: InputSchema,
     output: OutputSchema,
     scopes: ['asset:write'],
-    endpoint: {
-        path: '/actions/create-asset-upload-job',
-        method: 'POST'
-    },
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const fileBuffer = Buffer.from(input.file_base64, 'base64');

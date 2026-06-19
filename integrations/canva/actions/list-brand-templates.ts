@@ -20,7 +20,7 @@ const BrandTemplateSchema = z.object({
 const InputSchema = z.object({
     cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
     query: z.string().optional().describe('Search term or terms to filter brand templates.'),
-    limit: z.number().min(1).max(100).optional().describe('The number of brand templates to return. Defaults to 25.'),
+    limit: z.number().int().min(1).max(100).optional().describe('The number of brand templates to return. Defaults to 25.'),
     ownership: z.enum(['any', 'owned', 'shared']).optional().describe('Filter by ownership.'),
     sort_by: z.enum(['relevance', 'modified_descending', 'modified_ascending', 'title_descending', 'title_ascending']).optional().describe('Sort order.'),
     dataset: z.enum(['any', 'non_empty']).optional().describe('Filter by dataset definitions.')
@@ -37,10 +37,6 @@ const action = createAction({
     input: InputSchema,
     output: OutputSchema,
     scopes: ['brandtemplate:meta:read'],
-    endpoint: {
-        path: '/actions/list-brand-templates',
-        method: 'GET'
-    },
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({

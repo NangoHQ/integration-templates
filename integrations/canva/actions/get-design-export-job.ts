@@ -27,10 +27,6 @@ const action = createAction({
     input: InputSchema,
     output: OutputSchema,
     scopes: ['design:content:read'],
-    endpoint: {
-        path: '/actions/get-design-export-job',
-        method: 'GET'
-    },
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({

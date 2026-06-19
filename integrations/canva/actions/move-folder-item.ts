@@ -16,10 +16,6 @@ const action = createAction({
     input: InputSchema,
     output: OutputSchema,
     scopes: ['folder:write'],
-    endpoint: {
-        path: '/actions/move-folder-item',
-        method: 'POST'
-    },
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://www.canva.dev/docs/connect/api-reference/folders/move-folder-item/

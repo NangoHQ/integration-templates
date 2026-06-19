@@ -60,10 +60,6 @@ const action = createAction({
     input: InputSchema,
     output: OutputSchema,
     scopes: ['comment:write'],
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-comment-reply'
-    },
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({

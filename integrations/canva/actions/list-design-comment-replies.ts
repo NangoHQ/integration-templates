@@ -4,7 +4,7 @@ import { createAction } from 'nango';
 const InputSchema = z.object({
     designId: z.string().describe('The design ID. Example: "DAHNACmCy_g"'),
     threadId: z.string().describe('The ID of the thread. Example: "KAHNAKVJAd4"'),
-    limit: z.number().min(1).max(100).optional().describe('The number of replies to return. Maximum 100.'),
+    limit: z.number().int().min(1).max(100).optional().describe('The number of replies to return. Maximum 100.'),
     continuation: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.')
 });
 
@@ -56,10 +56,6 @@ const action = createAction({
     input: InputSchema,
     output: OutputSchema,
     scopes: ['comment:read'],
-    endpoint: {
-        path: '/actions/list-design-comment-replies',
-        method: 'POST'
-    },
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({

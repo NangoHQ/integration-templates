@@ -50,7 +50,6 @@ const OutputSchema = z.object({
 const action = createAction({
     description: 'Start an asset upload job from a source URL.',
     version: '1.0.0',
-    endpoint: { method: 'POST', path: '/actions/create-url-asset-upload-job', group: 'Assets' },
     input: InputSchema,
     output: OutputSchema,
     scopes: ['asset:write'],

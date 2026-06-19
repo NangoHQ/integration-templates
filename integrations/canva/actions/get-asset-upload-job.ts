@@ -69,11 +69,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['asset:write'],
-    endpoint: {
-        path: '/actions/get-asset-upload-job',
-        method: 'GET'
-    },
+    scopes: ['asset:read'],
 
     exec: async (nango, input) => {
         const response = await nango.get({

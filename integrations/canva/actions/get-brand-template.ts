@@ -37,10 +37,6 @@ const action = createAction({
     input: InputSchema,
     output: OutputSchema,
     scopes: ['brandtemplate:meta:read'],
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-brand-template'
-    },
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
             // https://www.canva.dev/docs/connect/api-reference/brand-templates/get-brand-template/

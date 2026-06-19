@@ -16,10 +16,6 @@ const action = createAction({
     input: InputSchema,
     output: OutputSchema,
     scopes: ['asset:write'],
-    endpoint: {
-        path: '/actions/delete-asset',
-        method: 'POST'
-    },
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.delete({

@@ -3,8 +3,8 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     designId: z.string().describe('The design ID. Example: "DAHNACmCy_g"'),
-    offset: z.number().min(1).max(500).optional().describe('The page index to start from (1-based). Defaults to 1.'),
-    limit: z.number().min(1).max(200).optional().describe('The number of pages to return. Defaults to 50.')
+    offset: z.number().int().min(1).max(500).optional().describe('The page index to start from (1-based). Defaults to 1.'),
+    limit: z.number().int().min(1).max(200).optional().describe('The number of pages to return. Defaults to 50.')
 });
 
 const PageDimensionsSchema = z.object({
@@ -20,7 +20,7 @@ const ThumbnailSchema = z.object({
 
 const ProviderPageSchema = z.object({
     id: z.string().optional(),
-    index: z.number(),
+    index: z.number().optional(),
     page_number: z.number().optional(),
     dimensions: PageDimensionsSchema.optional(),
     thumbnail: ThumbnailSchema.optional()
@@ -34,7 +34,7 @@ const OutputSchema = z.object({
     items: z.array(
         z.object({
             id: z.string().optional(),
-            index: z.number(),
+            index: z.number().optional(),
             page_number: z.number().optional(),
             dimensions: PageDimensionsSchema.optional(),
             thumbnail: ThumbnailSchema.optional()
@@ -48,10 +48,6 @@ const action = createAction({
     input: InputSchema,
     output: OutputSchema,
     scopes: ['design:content:read'],
-    endpoint: {
-        path: '/actions/get-design-pages',
-        method: 'GET'
-    },
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const params: { offset?: number; limit?: number } = {};

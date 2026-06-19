@@ -64,10 +64,6 @@ const OutputSchema = z.object({
 const action = createAction({
     description: 'Retrieve a design comment thread.',
     version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-design-comment-thread'
-    },
     input: InputSchema,
     output: OutputSchema,
     scopes: ['comment:read'],

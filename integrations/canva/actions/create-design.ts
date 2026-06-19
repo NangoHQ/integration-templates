@@ -59,7 +59,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['design:meta:write'],
+    scopes: ['design:content:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const requestBody: {

@@ -3,7 +3,6 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     query: z.string().optional().describe('Search term to filter designs. Example: "party invites"'),
-    design_type: z.string().optional().describe('Filter designs by type. Example: "presentation"'),
     ownership: z.enum(['any', 'owned', 'shared']).optional().describe('Filter by ownership: any, owned, or shared.'),
     continuation: z
         .string()
@@ -62,7 +61,6 @@ const action = createAction({
             endpoint: '/rest/v1/designs',
             params: {
                 ...(input.query !== undefined && { query: input.query }),
-                ...(input.design_type !== undefined && { design_type: input.design_type }),
                 ...(input.ownership !== undefined && { ownership: input.ownership }),
                 ...(input.continuation !== undefined && { continuation: input.continuation }),
                 ...(input.sort_by !== undefined && { sort_by: input.sort_by }),

@@ -56,54 +56,7 @@ const ThreadSchema = z.object({
     updated_at: z.number()
 });
 
-const OutputSchema = z.object({
-    id: z.string(),
-    design_id: z.string(),
-    thread_type: z.object({
-        type: z.string(),
-        content: z
-            .object({
-                plaintext: z.string(),
-                markdown: z.string().optional()
-            })
-            .optional(),
-        mentions: z
-            .record(
-                z.string(),
-                z.object({
-                    tag: z.string(),
-                    user: z
-                        .object({
-                            user_id: z.string(),
-                            team_id: z.string(),
-                            display_name: z.string().optional()
-                        })
-                        .optional()
-                })
-            )
-            .optional(),
-        assignee: z
-            .object({
-                id: z.string(),
-                display_name: z.string().optional()
-            })
-            .optional(),
-        resolver: z
-            .object({
-                id: z.string(),
-                display_name: z.string().optional()
-            })
-            .optional()
-    }),
-    author: z
-        .object({
-            id: z.string(),
-            display_name: z.string().optional()
-        })
-        .optional(),
-    created_at: z.number(),
-    updated_at: z.number()
-});
+const OutputSchema = ThreadSchema;
 
 const action = createAction({
     description: 'Create a floating comment thread on a design.',
@@ -111,10 +64,6 @@ const action = createAction({
     input: InputSchema,
     output: OutputSchema,
     scopes: ['comment:write'],
-    endpoint: {
-        path: '/actions/create-design-comment',
-        method: 'POST'
-    },
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({

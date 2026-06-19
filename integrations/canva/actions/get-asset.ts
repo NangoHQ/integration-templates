@@ -79,7 +79,6 @@ const ProviderGetAssetResponseSchema = z.object({
 const action = createAction({
     description: 'Retrieve asset metadata.',
     version: '1.0.0',
-    endpoint: { method: 'GET', path: '/actions/get-asset' },
     input: InputSchema,
     output: OutputSchema,
     scopes: ['asset:read'],

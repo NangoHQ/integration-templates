@@ -57,10 +57,6 @@ const action = createAction({
     input: InputSchema,
     output: OutputSchema,
     scopes: ['comment:read'],
-    endpoint: {
-        path: '/actions/get-design-comment-reply',
-        method: 'GET'
-    },
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({

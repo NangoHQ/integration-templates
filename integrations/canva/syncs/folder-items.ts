@@ -65,12 +65,6 @@ const sync = createSync({
     metadata: MetadataSchema,
     checkpoint: CheckpointSchema,
     scopes: ['folder:read'],
-    endpoints: [
-        {
-            method: 'GET',
-            path: '/syncs/folder-items'
-        }
-    ],
     models: {
         FolderItem: FolderItemSchema
     },
