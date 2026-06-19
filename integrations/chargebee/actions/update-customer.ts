@@ -90,10 +90,6 @@ const OutputSchema = z.object({
 const action = createAction({
     description: 'Update a customer.',
     version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-customer'
-    },
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

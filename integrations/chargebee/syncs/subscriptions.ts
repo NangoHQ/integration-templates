@@ -32,7 +32,7 @@ const SubscriptionSchema = z.object({
 });
 
 const CheckpointSchema = z.object({
-    updated_after: z.string(),
+    updated_after: z.number(),
     offset: z.string()
 });
 
@@ -65,7 +65,6 @@ const sync = createSync({
     version: '1.0.0',
     frequency: 'every hour',
     // https://apidocs.chargebee.com/docs/api/subscriptions
-    endpoints: [{ method: 'GET', path: '/syncs/subscriptions' }],
     checkpoint: CheckpointSchema,
     models: {
         Subscription: SubscriptionSchema
@@ -73,7 +72,8 @@ const sync = createSync({
     autoStart: true,
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();
-        const updatedAfter: string | undefined = checkpoint?.['updated_after'] || undefined;
+        const rawUpdated = checkpoint?.['updated_after'];
+        const updatedAfter: number | undefined = typeof rawUpdated === 'number' && rawUpdated !== 0 ? rawUpdated : undefined;
         let offset: string | undefined = checkpoint?.['offset'] || undefined;
 
         // https://apidocs.chargebee.com/docs/api/subscriptions
@@ -82,7 +82,7 @@ const sync = createSync({
             limit: 100
         };
         if (updatedAfter !== undefined) {
-            params['updated_at[gt]'] = updatedAfter;
+            params['updated_at[after]'] = updatedAfter;
         }
         if (offset !== undefined) {
             params['offset'] = offset;
@@ -106,7 +106,7 @@ const sync = createSync({
             retries: 3
         };
 
-        let lastUpdatedAt: string | undefined;
+        let lastUpdatedAt: number | undefined;
 
         for await (const page of nango.paginate(proxyConfig)) {
             const subscriptions = page.map((raw) => {
@@ -138,12 +138,12 @@ const sync = createSync({
             await nango.batchSave(subscriptions, 'Subscription');
             const lastSubscription = subscriptions[subscriptions.length - 1];
             if (lastSubscription !== undefined) {
-                lastUpdatedAt = String(lastSubscription.updated_at);
+                lastUpdatedAt = lastSubscription.updated_at;
             }
 
             if (offset !== undefined) {
                 await nango.saveCheckpoint({
-                    updated_after: updatedAfter || '0',
+                    updated_after: updatedAfter ?? 0,
                     offset
                 });
             }

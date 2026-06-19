@@ -36,12 +36,10 @@ const OutputSchema = z.object({
 const action = createAction({
     description: 'Retrieve a single item family by ID (Product Catalog 2.0).',
     version: '1.0.0',
-    endpoint: {
-        path: '/actions/get-item-family',
-        method: 'GET'
-    },
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
+
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
             // https://apidocs.chargebee.com/docs/api/item_families

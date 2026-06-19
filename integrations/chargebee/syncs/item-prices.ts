@@ -54,7 +54,7 @@ const sync = createSync({
             // https://apidocs.chargebee.com/docs/api/item_prices
             endpoint: '/api/v2/item_prices',
             params: {
-                ...(updatedAfter !== undefined && { 'updated_at[gt]': updatedAfter }),
+                ...(updatedAfter !== undefined && { 'updated_at[after]': updatedAfter }),
                 'sort_by[asc]': 'updated_at'
             },
             paginate: {
@@ -93,11 +93,8 @@ const sync = createSync({
             const lastItem = itemPrices.at(-1);
             if (lastItem !== undefined && lastItem.updated_at !== undefined) {
                 lastUpdatedAt = lastItem.updated_at;
+                await nango.saveCheckpoint({ updated_after: lastUpdatedAt });
             }
-        }
-
-        if (lastUpdatedAt !== undefined) {
-            await nango.saveCheckpoint({ updated_after: lastUpdatedAt });
         }
     }
 });

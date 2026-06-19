@@ -1,4 +1,4 @@
-import { createSync } from 'nango';
+import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
 const ChargebeeCustomerSchema = z.object({
@@ -13,11 +13,6 @@ const ChargebeeCustomerSchema = z.object({
 
 const ChargebeeListEntrySchema = z.object({
     customer: ChargebeeCustomerSchema
-});
-
-const ChargebeeListResponseSchema = z.object({
-    list: z.array(ChargebeeListEntrySchema),
-    next_offset: z.string().optional()
 });
 
 const CustomerSchema = z.object({
@@ -44,12 +39,6 @@ const sync = createSync({
     models: {
         Customer: CustomerSchema
     },
-    endpoints: [
-        {
-            path: '/syncs/customers',
-            method: 'GET'
-        }
-    ],
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();
@@ -58,8 +47,11 @@ const sync = createSync({
         const updatedAfter = typeof rawUpdatedAfter === 'number' && rawUpdatedAfter !== 0 ? rawUpdatedAfter : undefined;
         const isFullRefresh = updatedAfter === undefined;
 
-        const rawOffset = checkpoint?.['offset'];
-        let offset: string | undefined = isFullRefresh ? undefined : typeof rawOffset === 'string' && rawOffset !== '' ? rawOffset : undefined;
+        let offset: string | undefined = isFullRefresh
+            ? undefined
+            : typeof checkpoint?.['offset'] === 'string' && checkpoint['offset'] !== ''
+              ? checkpoint['offset']
+              : undefined;
 
         if (isFullRefresh) {
             await nango.trackDeletesStart('Customer');
@@ -67,26 +59,35 @@ const sync = createSync({
 
         let lastUpdatedAt: number | undefined;
 
-        while (true) {
-            const response = await nango.get({
-                // https://apidocs.chargebee.com/docs/api/customers
-                endpoint: '/api/v2/customers',
-                params: {
-                    sort: 'updated_at[asc]',
-                    limit: 100,
-                    ...(offset && { offset }),
-                    ...(updatedAfter !== undefined && { 'updated_at[gt]': updatedAfter.toString() })
-                },
-                retries: 3
-            });
+        const proxyConfig: ProxyConfiguration = {
+            // https://apidocs.chargebee.com/docs/api/customers
+            endpoint: '/api/v2/customers',
+            params: {
+                'sort_by[asc]': 'updated_at',
+                ...(offset !== undefined && { offset }),
+                ...(updatedAfter !== undefined && { 'updated_at[after]': updatedAfter })
+            },
+            paginate: {
+                type: 'cursor',
+                cursor_name_in_request: 'offset',
+                cursor_path_in_response: 'next_offset',
+                response_path: 'list',
+                limit_name_in_request: 'limit',
+                limit: 100,
+                on_page: async ({ nextPageParam }) => {
+                    offset = typeof nextPageParam === 'string' && nextPageParam !== '' ? nextPageParam : undefined;
+                }
+            },
+            retries: 3
+        };
 
-            if (response.data === undefined) {
-                throw new Error('Empty response from Chargebee customers API');
+        for await (const page of nango.paginate(proxyConfig)) {
+            if (!Array.isArray(page)) {
+                throw new Error('Expected page to be an array of customer wrappers');
             }
 
-            const parsed = ChargebeeListResponseSchema.parse(response.data);
-
-            const customers = parsed.list.map((entry) => {
+            const customers = page.map((rawEntry) => {
+                const entry = ChargebeeListEntrySchema.parse(rawEntry);
                 const record = entry.customer;
                 return {
                     id: record.id,
@@ -99,21 +100,18 @@ const sync = createSync({
                 };
             });
 
-            if (customers.length > 0) {
-                await nango.batchSave(customers, 'Customer');
-                const lastCustomer = customers[customers.length - 1];
-                if (lastCustomer !== undefined) {
-                    lastUpdatedAt = lastCustomer.updated_at;
-                }
+            if (customers.length === 0) {
+                continue;
             }
 
-            if (parsed.next_offset === undefined) {
-                break;
+            await nango.batchSave(customers, 'Customer');
+
+            const lastCustomer = customers[customers.length - 1];
+            if (lastCustomer !== undefined) {
+                lastUpdatedAt = lastCustomer.updated_at;
             }
 
-            offset = parsed.next_offset;
-
-            if (!isFullRefresh) {
+            if (!isFullRefresh && offset !== undefined) {
                 await nango.saveCheckpoint({
                     updated_after: updatedAfter,
                     offset

@@ -50,10 +50,8 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    endpoint: {
-        path: '/actions/list-customers',
-        method: 'GET'
-    },
+
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const params: Record<string, string | number> = {};
@@ -74,7 +72,7 @@ const action = createAction({
             params['phone'] = input.phone;
         }
         if (input.updated_at_gt !== undefined) {
-            params['updated_at[gt]'] = input.updated_at_gt;
+            params['updated_at[after]'] = input.updated_at_gt;
         }
         if (input.updated_at_lt !== undefined) {
             params['updated_at[lt]'] = input.updated_at_lt;
@@ -86,7 +84,7 @@ const action = createAction({
             params['updated_at[lte]'] = input.updated_at_lte;
         }
         if (input.created_at_gt !== undefined) {
-            params['created_at[gt]'] = input.created_at_gt;
+            params['created_at[after]'] = input.created_at_gt;
         }
         if (input.created_at_lt !== undefined) {
             params['created_at[lt]'] = input.created_at_lt;

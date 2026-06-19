@@ -109,11 +109,6 @@ const sync = createSync({
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
-    // @ts-expect-error endpoint is required by the authoritative template; the runtime accepts it.
-    endpoint: {
-        path: '/syncs/invoices',
-        method: 'GET'
-    },
     models: {
         Invoice: InvoiceSchema
     },
@@ -129,11 +124,11 @@ const sync = createSync({
             updatedAfter = checkpointResult.data.updated_after;
         }
 
-        const params: Record<string, string> = {
+        const params: Record<string, string | number> = {
             'sort_by[asc]': 'updated_at'
         };
         if (updatedAfter !== undefined) {
-            params['updated_at[gt]'] = String(updatedAfter);
+            params['updated_at[after]'] = updatedAfter;
         }
 
         const proxyConfig: ProxyConfiguration = {

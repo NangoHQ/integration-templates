@@ -53,10 +53,6 @@ const action = createAction({
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read_only'],
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-items'
-    },
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const params: Record<string, string> = {};
@@ -81,7 +77,7 @@ const action = createAction({
         }
         if (input.updated_at !== undefined) {
             if (input.updated_at.gt !== undefined) {
-                params['updated_at[gt]'] = input.updated_at.gt;
+                params['updated_at[after]'] = input.updated_at.gt;
             }
             if (input.updated_at.lt !== undefined) {
                 params['updated_at[lt]'] = input.updated_at.lt;

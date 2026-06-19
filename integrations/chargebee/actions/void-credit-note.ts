@@ -44,15 +44,14 @@ const CreditNoteSchema = z
     })
     .passthrough();
 
-const OutputSchema = z.object({
-    credit_note: CreditNoteSchema
-});
+const OutputSchema = CreditNoteSchema;
 
 const action = createAction({
     description: 'Void a credit note.',
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
@@ -71,9 +70,7 @@ const action = createAction({
 
         const creditNote = CreditNoteSchema.parse(raw.credit_note);
 
-        return {
-            credit_note: creditNote
-        };
+        return creditNote;
     }
 });
 

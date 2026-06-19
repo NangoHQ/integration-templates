@@ -67,11 +67,6 @@ const sync = createSync({
     models: {
         Transaction: TransactionSchema
     },
-    // @ts-expect-error SDK types only expose plural endpoints for syncs, but this workspace requires singular endpoint
-    endpoint: {
-        path: '/syncs/transactions',
-        method: 'GET'
-    },
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();
@@ -84,7 +79,7 @@ const sync = createSync({
             endpoint: '/api/v2/transactions',
             params: {
                 'sort_by[asc]': 'updated_at',
-                ...(updatedAfter !== undefined && { 'updated_at[gt]': String(updatedAfter) })
+                ...(updatedAfter !== undefined && { 'updated_at[after]': updatedAfter })
             },
             paginate: {
                 type: 'cursor',

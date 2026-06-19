@@ -45,12 +45,6 @@ const sync = createSync({
     models: {
         Item: ItemSchema
     },
-    endpoints: [
-        {
-            path: '/syncs/items',
-            method: 'GET'
-        }
-    ],
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();
@@ -62,7 +56,7 @@ const sync = createSync({
             endpoint: '/api/v2/items',
             params: {
                 'sort_by[asc]': 'updated_at',
-                ...(updatedAfter !== undefined && { 'updated_at[gt]': String(updatedAfter) })
+                ...(updatedAfter !== undefined && { 'updated_at[after]': updatedAfter })
             },
             paginate: {
                 type: 'cursor',

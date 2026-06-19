@@ -94,11 +94,6 @@ const action = createAction({
     output: OutputSchema,
     scopes: ['read'],
 
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-payment-sources'
-    },
-
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const params: Record<string, string | number> = {
             customer_id: input.customer_id

@@ -29,12 +29,6 @@ const sync = createSync({
     frequency: 'every hour',
     autoStart: true,
     // https://apidocs.chargebee.com/docs/api/coupon_sets
-    endpoints: [
-        {
-            method: 'GET',
-            path: '/syncs/coupon-sets'
-        }
-    ],
     models: {
         CouponSet: CouponSetSchema
     },

@@ -42,6 +42,8 @@ const action = createAction({
     input: InputSchema,
     output: OutputSchema,
 
+    scopes: [],
+
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const params: Record<string, string | number> = {
             auto_collection: input.auto_collection ?? 'off'

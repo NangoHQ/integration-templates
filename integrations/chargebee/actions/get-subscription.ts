@@ -26,17 +26,13 @@ const SubscriptionSchema = z
     })
     .passthrough();
 
-const OutputSchema = z.object({}).passthrough();
+const OutputSchema = SubscriptionSchema;
 
 const action = createAction({
     description: 'Retrieve a single subscription by ID.',
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    endpoint: {
-        path: '/actions/get-subscription',
-        method: 'POST'
-    },
     scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {

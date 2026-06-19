@@ -38,12 +38,6 @@ const sync = createSync({
         ItemFamily: ItemFamilySchema
     },
     // https://apidocs.chargebee.com/docs/api/item_families
-    endpoints: [
-        {
-            method: 'GET',
-            path: '/syncs/item-families'
-        }
-    ],
 
     exec: async (nango) => {
         // Blocker: Chargebee item_families endpoint does not support incremental filters

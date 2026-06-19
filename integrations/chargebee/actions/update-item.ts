@@ -46,10 +46,6 @@ const OutputSchema = z.object({
 const action = createAction({
     description: 'Update a catalog item (Product Catalog 2.0).',
     version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-item'
-    },
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write'],

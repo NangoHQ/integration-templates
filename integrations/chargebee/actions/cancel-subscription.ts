@@ -87,12 +87,10 @@ const OutputSchema = z.object({
 const action = createAction({
     description: 'Cancel a subscription (Product Catalog 2.0).',
     version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/cancel-subscription'
-    },
     input: InputSchema,
     output: OutputSchema,
+
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const params: Record<string, string> = {};

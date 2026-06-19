@@ -36,10 +36,6 @@ const OutputSchema = z.object({
 const action = createAction({
     description: 'List subscriptions with optional filters.',
     version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-subscriptions'
-    },
     input: InputSchema,
     output: OutputSchema,
     scopes: [],
@@ -52,11 +48,11 @@ const action = createAction({
             ...(input.item_price_id && { 'item_price_id[is]': input.item_price_id }),
             ...(input.status && { 'status[is]': input.status }),
             ...(input.status_is_not && { 'status[is_not]': input.status_is_not }),
-            ...(input.updated_at_gt !== undefined && { 'updated_at[gt]': input.updated_at_gt }),
+            ...(input.updated_at_gt !== undefined && { 'updated_at[after]': input.updated_at_gt }),
             ...(input.updated_at_lt !== undefined && { 'updated_at[lt]': input.updated_at_lt }),
             ...(input.updated_at_gte !== undefined && { 'updated_at[gte]': input.updated_at_gte }),
             ...(input.updated_at_lte !== undefined && { 'updated_at[lte]': input.updated_at_lte }),
-            ...(input.cancelled_at_gt !== undefined && { 'cancelled_at[gt]': input.cancelled_at_gt }),
+            ...(input.cancelled_at_gt !== undefined && { 'cancelled_at[after]': input.cancelled_at_gt }),
             ...(input.cancelled_at_lt !== undefined && { 'cancelled_at[lt]': input.cancelled_at_lt }),
             ...(input.cancelled_at_gte !== undefined && { 'cancelled_at[gte]': input.cancelled_at_gte }),
             ...(input.cancelled_at_lte !== undefined && { 'cancelled_at[lte]': input.cancelled_at_lte })

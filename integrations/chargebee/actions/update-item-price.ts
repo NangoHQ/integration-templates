@@ -50,10 +50,6 @@ const action = createAction({
     input: InputSchema,
     output: OutputSchema,
     scopes: [],
-    endpoint: {
-        path: '/actions/update-item-price',
-        method: 'POST'
-    },
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const params: Record<string, string | number> = {};

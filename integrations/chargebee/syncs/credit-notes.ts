@@ -43,12 +43,6 @@ const sync = createSync({
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
-    endpoints: [
-        {
-            method: 'POST',
-            path: '/syncs/credit-notes'
-        }
-    ],
     models: {
         CreditNote: CreditNoteSchema
     },
@@ -63,7 +57,7 @@ const sync = createSync({
             params: {
                 sort: 'updated_at[asc]',
                 limit: '100',
-                ...(updatedAfter !== undefined && { 'updated_at[gt]': updatedAfter.toString() })
+                ...(updatedAfter !== undefined && { 'updated_at[after]': updatedAfter })
             },
             paginate: {
                 type: 'cursor',

@@ -28,6 +28,8 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
+
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const deleteResponse = await nango.post({
             // https://apidocs.chargebee.com/docs/api/customers/delete-a-customer

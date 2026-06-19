@@ -223,11 +223,11 @@
           "vary": "Accept-Encoding",
           "server": "ChargeBee"
         },
-        "hash": "253c4f7209e1b518bdf38f3ecc5bb6c5cc060f61",
+        "hash": "5ba9a7a37c7a23a2205f3ae79d0ce0a66500b1fa",
         "request": {
           "params": {
             "limit": "100",
-            "sort": "updated_at[asc]"
+            "sort_by[asc]": "updated_at"
           }
         }
       }

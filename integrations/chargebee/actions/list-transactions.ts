@@ -52,10 +52,6 @@ const OutputSchema = z.object({
 const action = createAction({
     description: 'List transactions with optional filters.',
     version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-transactions'
-    },
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read'],
@@ -94,7 +90,7 @@ const action = createAction({
         }
 
         if (input.date_gt !== undefined) {
-            params['date[gt]'] = input.date_gt;
+            params['date[after]'] = input.date_gt;
         }
 
         if (input.date_lt !== undefined) {
@@ -110,7 +106,7 @@ const action = createAction({
         }
 
         if (input.updated_at_gt !== undefined) {
-            params['updated_at[gt]'] = input.updated_at_gt;
+            params['updated_at[after]'] = input.updated_at_gt;
         }
 
         if (input.updated_at_lt !== undefined) {

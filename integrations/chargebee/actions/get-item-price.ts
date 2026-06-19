@@ -57,10 +57,6 @@ const OutputSchema = ProviderItemPriceSchema;
 const action = createAction({
     description: 'Retrieve a single item price by ID (Product Catalog 2.0).',
     version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-item-price'
-    },
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read'],

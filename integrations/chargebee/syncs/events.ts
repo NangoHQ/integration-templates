@@ -45,12 +45,6 @@ const sync = createSync({
     models: {
         Event: EventSchema
     },
-    endpoints: [
-        {
-            path: '/syncs/events',
-            method: 'GET'
-        }
-    ],
 
     exec: async (nango) => {
         const rawCheckpoint = await nango.getCheckpoint();
@@ -65,7 +59,7 @@ const sync = createSync({
             endpoint: '/api/v2/events',
             params: {
                 sort_by: 'occurred_at[asc]',
-                ...(occurredAfter !== 0 && { 'occurred_at[gt]': String(occurredAfter) }),
+                ...(occurredAfter !== 0 && { 'occurred_at[after]': occurredAfter }),
                 ...(offset !== undefined && { offset })
             },
             paginate: {
@@ -117,7 +111,7 @@ const sync = createSync({
 
             if (offset !== undefined) {
                 await nango.saveCheckpoint({
-                    occurred_after: occurredAfter,
+                    occurred_after: lastOccurredAt ?? occurredAfter,
                     offset
                 });
             }

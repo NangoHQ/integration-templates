@@ -62,7 +62,6 @@ const OutputSchema = z.object({
 const action = createAction({
     description: 'Create a credit note against an invoice.',
     version: '1.0.0',
-    endpoint: { method: 'POST', path: '/actions/create-credit-note' },
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

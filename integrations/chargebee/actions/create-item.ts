@@ -69,10 +69,6 @@ const action = createAction({
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read_write'],
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-item'
-    },
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
             // https://apidocs.chargebee.com/docs/api/items

@@ -71,7 +71,7 @@ const action = createAction({
             params[`status[${input.status_operator}]`] = input.status;
         }
         if (input.date_gt !== undefined) {
-            params['date[gt]'] = input.date_gt;
+            params['date[after]'] = input.date_gt;
         }
         if (input.date_lt !== undefined) {
             params['date[lt]'] = input.date_lt;
@@ -83,7 +83,7 @@ const action = createAction({
             params['date[lte]'] = input.date_lte;
         }
         if (input.updated_at_gt !== undefined) {
-            params['updated_at[gt]'] = input.updated_at_gt;
+            params['updated_at[after]'] = input.updated_at_gt;
         }
         if (input.updated_at_lt !== undefined) {
             params['updated_at[lt]'] = input.updated_at_lt;

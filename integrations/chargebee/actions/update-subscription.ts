@@ -38,7 +38,6 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    endpoint: { method: 'POST', path: '/actions/update-subscription' },
     scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {

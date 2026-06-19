@@ -77,10 +77,6 @@ const action = createAction({
     input: InputSchema,
     output: OutputSchema,
     scopes: [],
-    endpoint: {
-        path: '/actions/get-credit-note',
-        method: 'GET'
-    },
 
     exec: async (nango, input) => {
         const response = await nango.get({

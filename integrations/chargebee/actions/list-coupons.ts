@@ -60,10 +60,6 @@ const action = createAction({
     input: InputSchema,
     output: OutputSchema,
     scopes: [],
-    endpoint: {
-        path: '/actions/list-coupons',
-        method: 'GET'
-    },
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
@@ -75,7 +71,7 @@ const action = createAction({
                 ...(input.discount_type !== undefined && { discount_type: input.discount_type }),
                 ...(input.status !== undefined && { status: input.status }),
                 ...(input.apply_on !== undefined && { apply_on: input.apply_on }),
-                ...(input['updated_at[gt]'] !== undefined && { 'updated_at[gt]': input['updated_at[gt]'] }),
+                ...(input['updated_at[gt]'] !== undefined && { 'updated_at[after]': input['updated_at[gt]'] }),
                 ...(input['updated_at[lt]'] !== undefined && { 'updated_at[lt]': input['updated_at[lt]'] }),
                 ...(input['updated_at[gte]'] !== undefined && { 'updated_at[gte]': input['updated_at[gte]'] }),
                 ...(input['updated_at[lte]'] !== undefined && { 'updated_at[lte]': input['updated_at[lte]'] }),

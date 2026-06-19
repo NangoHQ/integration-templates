@@ -51,10 +51,6 @@ const OutputSchema = z.object({
 const action = createAction({
     description: 'List item prices (Product Catalog 2.0).',
     version: '1.0.0',
-    endpoint: {
-        path: '/actions/list-item-prices',
-        method: 'GET'
-    },
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read_only'],
@@ -87,7 +83,7 @@ const action = createAction({
             params[`status[${operator}]`] = input.status;
         }
         if (input.updated_at_gt !== undefined) {
-            params['updated_at[gt]'] = input.updated_at_gt;
+            params['updated_at[after]'] = input.updated_at_gt;
         }
         if (input.updated_at_lt !== undefined) {
             params['updated_at[lt]'] = input.updated_at_lt;

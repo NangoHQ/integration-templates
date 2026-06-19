@@ -20281,6 +20281,22 @@ export interface ActionInput_chargebee_getsubscription {
 };
 
 export interface ActionOutput_chargebee_getsubscription {
+  id: string;
+  customer_id?: string | undefined;
+  status?: string | undefined;
+  plan_id?: string | undefined;
+  plan_quantity?: number | undefined;
+  plan_unit_price?: number | undefined;
+  currency_code?: string | undefined;
+  started_at?: number | undefined;
+  activated_at?: number | undefined;
+  created_at?: number | undefined;
+  updated_at?: number | undefined;
+  current_term_start?: number | undefined;
+  current_term_end?: number | undefined;
+  next_billing_at?: number | undefined;
+  remaining_billing_cycles?: number | undefined;
+  deleted?: boolean | undefined;
 };
 
 export interface ActionInput_chargebee_listcouponsets {
@@ -21200,7 +21216,7 @@ export interface ActionInput_chargebee_voidcreditnote {
 };
 
 export interface ActionOutput_chargebee_voidcreditnote {
-  credit_note: {  id: string;
+  id: string;
   customer_id: string;
   subscription_id?: string | undefined;
   reference_invoice_id?: string | undefined;
@@ -21233,7 +21249,7 @@ export interface ActionOutput_chargebee_voidcreditnote {
   local_currency_exchange_rate?: number | undefined;
   create_reason_code?: string | undefined;
   vat_number_prefix?: string | undefined;
-  business_entity_id?: string | undefined;};
+  business_entity_id?: string | undefined;
 };
 
 export interface BackgroundCheck {

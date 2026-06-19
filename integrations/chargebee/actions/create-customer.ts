@@ -66,10 +66,8 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    endpoint: {
-        path: '/actions/create-customer',
-        method: 'POST'
-    },
+
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const params = Object.fromEntries([

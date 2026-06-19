@@ -67,7 +67,7 @@ const action = createAction({
             params['source[is_not]'] = input.source_is_not;
         }
         if (input.occurred_at_gt !== undefined) {
-            params['occurred_at[gt]'] = input.occurred_at_gt;
+            params['occurred_at[after]'] = input.occurred_at_gt;
         }
         if (input.occurred_at_lt !== undefined) {
             params['occurred_at[lt]'] = input.occurred_at_lt;

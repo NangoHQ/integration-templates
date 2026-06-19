@@ -67,10 +67,6 @@ const action = createAction({
     input: InputSchema,
     output: OutputSchema,
     scopes: [],
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-invoices'
-    },
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const params: Record<string, string | number> = {
@@ -96,7 +92,7 @@ const action = createAction({
 
         if (input.date !== undefined) {
             if (input.date.gt !== undefined) {
-                params['date[gt]'] = input.date.gt;
+                params['date[after]'] = input.date.gt;
             }
             if (input.date.lt !== undefined) {
                 params['date[lt]'] = input.date.lt;
@@ -111,7 +107,7 @@ const action = createAction({
 
         if (input.updated_at !== undefined) {
             if (input.updated_at.gt !== undefined) {
-                params['updated_at[gt]'] = input.updated_at.gt;
+                params['updated_at[after]'] = input.updated_at.gt;
             }
             if (input.updated_at.lt !== undefined) {
                 params['updated_at[lt]'] = input.updated_at.lt;

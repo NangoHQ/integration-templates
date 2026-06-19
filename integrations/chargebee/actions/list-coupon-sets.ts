@@ -27,10 +27,6 @@ const OutputSchema = z.object({
 const action = createAction({
     description: 'List coupon sets (Product Catalog 2.0).',
     version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-coupon-sets'
-    },
     input: InputSchema,
     output: OutputSchema,
     scopes: [],
