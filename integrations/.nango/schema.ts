@@ -2940,6 +2940,1316 @@ export interface ActionOutput_active_campaign_updatetag {
   id?: string | undefined;};
 };
 
+export interface AppointmentType {
+  id: string;
+  active?: boolean | undefined;
+  name?: string | undefined;
+  description?: string | undefined;
+  duration?: number | undefined;
+  price?: string | undefined;
+  category?: string | undefined;
+  color?: string | undefined;
+  private?: boolean | undefined;
+  type?: string | undefined;
+  classSize?: number | undefined;
+  paddingAfter?: number | undefined;
+  paddingBefore?: number | undefined;
+  calendarIDs?: number[] | undefined;
+};
+
+export interface Appointment {
+  /**
+   * The appointment ID as a stable string
+   */
+  id: string;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  /**
+   * ISO 8601 datetime with explicit offset
+   */
+  datetime: string;
+  endTime?: string | undefined;
+  date?: string | undefined;
+  time?: string | undefined;
+  duration?: string | undefined;
+  timezone?: string | undefined;
+  price?: string | undefined;
+  paid?: string | undefined;
+  amountPaid?: string | undefined;
+  type?: string | undefined;
+  appointmentTypeID?: number | undefined;
+  calendarID?: number | undefined;
+  calendar?: string | undefined;
+  notes?: string | undefined;
+  location?: string | undefined;
+  cancelNote?: string | undefined;
+  isVideo?: boolean | undefined;
+  labels?: ({  id: number;
+  name?: string | undefined;
+  color?: string | undefined;})[];
+  forms?: unknown[] | undefined;
+  addonIDs?: number[] | undefined;
+  category?: string | undefined;
+};
+
+export interface Block {
+  id: string;
+  calendarID?: number | undefined;
+  start?: string | undefined;
+  end?: string | undefined;
+  notes?: string | undefined;
+  title?: string | undefined;
+};
+
+export interface Calendar {
+  id: string;
+  name?: string | undefined;
+  color?: string | undefined;
+  changeKey?: string | undefined;
+  canShare?: boolean | undefined;
+  canViewPrivateItems?: boolean | undefined;
+  canEdit?: boolean | undefined;
+  owner?: {  name?: string | undefined;
+  address?: string | undefined;};
+};
+
+export interface Certificate {
+  id: string;
+  certificate: string;
+  productID?: number | undefined;
+  orderID?: number | undefined;
+  appointmentTypeIDs?: number[] | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  type?: string | undefined;
+  remainingCounts?: {  [key: string]: number;} | undefined;
+  remainingMinutes?: number | undefined;
+  expiration?: string | undefined;
+};
+
+export interface Client {
+  id: string;
+  client_id?: string | undefined;
+  tenant?: string | undefined;
+  name?: string | undefined;
+  description?: string | undefined;
+  global?: boolean | undefined;
+  app_type?: string | undefined;
+  logo_uri?: string | undefined;
+  is_first_party?: boolean | undefined;
+  oidc_conformant?: boolean | undefined;
+  callbacks?: string[] | undefined;
+  allowed_origins?: string[] | undefined;
+  web_origins?: string[] | undefined;
+  allowed_logout_urls?: string[] | undefined;
+  grant_types?: string[] | undefined;
+  is_token_endpoint_ip_header_trusted?: boolean | undefined;
+  initiate_login_uri?: string | undefined;
+  organization_usage?: string | undefined;
+  organization_require_behavior?: string | undefined;
+  require_pushed_authorization_requests?: boolean | undefined;
+  require_proof_of_possession?: boolean | undefined;
+  sso_disabled?: boolean | undefined;
+  cross_origin_authentication?: boolean | undefined;
+  custom_login_page_on?: boolean | undefined;
+  custom_login_page?: string | undefined;
+  client_metadata?: {  [key: string]: string;} | undefined;
+};
+
+export interface Form {
+  id: string;
+  componentId: string;
+  formLinkName: string;
+  displayName?: string | undefined;
+  PermissionDetails?: unknown | undefined;
+  isVisible?: boolean | undefined;
+  viewDetails?: unknown | undefined;
+};
+
+export interface Label {
+  id: string;
+  accountId: string;
+  labelId: string;
+  displayName?: string | undefined;
+  color?: string | undefined;
+  sequence?: number | undefined;
+  tagId?: string | undefined;
+  uri?: string | undefined;
+};
+
+export interface Order {
+  id: string;
+  parent_id?: string | undefined;
+  number?: string | undefined;
+  order_key?: string | undefined;
+  created_via?: string | undefined;
+  version?: string | undefined;
+  status?: string | undefined;
+  currency?: string | undefined;
+  date_created?: string | undefined;
+  date_created_gmt?: string | undefined;
+  date_modified?: string | undefined;
+  date_modified_gmt?: string | undefined;
+  discount_total?: string | undefined;
+  discount_tax?: string | undefined;
+  shipping_total?: string | undefined;
+  shipping_tax?: string | undefined;
+  cart_tax?: string | undefined;
+  total?: string | undefined;
+  total_tax?: string | undefined;
+  prices_include_tax?: boolean | undefined;
+  customer_id?: string | undefined;
+  customer_ip_address?: string | undefined;
+  customer_user_agent?: string | undefined;
+  customer_note?: string | undefined;
+  billing?: {  first_name?: string | undefined;
+  last_name?: string | undefined;
+  company?: string | undefined;
+  address_1?: string | undefined;
+  address_2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  postcode?: string | undefined;
+  country?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;};
+  shipping?: {  first_name?: string | undefined;
+  last_name?: string | undefined;
+  company?: string | undefined;
+  address_1?: string | undefined;
+  address_2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  postcode?: string | undefined;
+  country?: string | undefined;};
+  payment_method?: string | undefined;
+  payment_method_title?: string | undefined;
+  transaction_id?: string | undefined;
+  date_paid?: string | undefined;
+  date_paid_gmt?: string | undefined;
+  date_completed?: string | undefined;
+  date_completed_gmt?: string | undefined;
+  cart_hash?: string | undefined;
+  meta_data?: unknown[] | undefined;
+  line_items?: unknown[] | undefined;
+  tax_lines?: unknown[] | undefined;
+  shipping_lines?: unknown[] | undefined;
+  fee_lines?: unknown[] | undefined;
+  coupon_lines?: unknown[] | undefined;
+  refunds?: unknown[] | undefined;
+};
+
+export interface Product {
+  id: string;
+  Product_Name?: string | undefined;
+  Product_Code?: string | undefined;
+  Product_Category?: string | undefined;
+  Unit_Price?: number | undefined;
+  Taxable?: boolean | undefined;
+  Description?: string | undefined;
+  Manufacturer?: string | undefined;
+  Usage_Unit?: string | undefined;
+  Qty_in_Stock?: number | undefined;
+  Qty_Ordered?: number | undefined;
+  Qty_in_Demand?: number | undefined;
+  Reorder_Level?: number | undefined;
+  Commission_Rate?: number | undefined;
+  Sales_Start_Date?: string | undefined;
+  Sales_End_Date?: string | undefined;
+  Support_Start_Date?: string | undefined;
+  Support_Expiry_Date?: string | undefined;
+  Handler?: {  name?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};
+  Owner?: {  name?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};
+  Created_By?: {  name?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};
+  Modified_By?: {  name?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};
+  Created_Time?: string | undefined;
+  Modified_Time?: string | undefined;
+  "$approved"?: boolean | undefined;
+  "$editable"?: boolean | undefined;
+};
+
+export interface ActionInput_acuity_scheduling_cancelappointment {
+  /**
+   * Appointment ID. Example: 1722092210
+   */
+  id: number;
+  /**
+   * A message to send with cancellation notifications.
+   */
+  cancelNote?: string | undefined;
+  /**
+   * Whether the appointment was a no show, settable by admins.
+   */
+  noShow?: boolean | undefined;
+};
+
+export interface ActionOutput_acuity_scheduling_cancelappointment {
+  id?: number | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  phone?: string | undefined;
+  email?: string | undefined;
+  date?: string | undefined;
+  time?: string | undefined;
+  endTime?: string | undefined;
+  dateCreated?: string | undefined;
+  datetime?: string | undefined;
+  price?: string | undefined;
+  paid?: string | undefined;
+  amountPaid?: string | undefined;
+  type?: string | undefined;
+  appointmentTypeID?: number | undefined;
+  classID?: number | undefined;
+  duration?: string | undefined;
+  calendar?: string | undefined;
+  calendarID?: number | undefined;
+  location?: string | undefined;
+  certificate?: string | undefined;
+  confirmationPage?: string | undefined;
+  formsText?: string | undefined;
+  notes?: string | undefined;
+  timezone?: string | undefined;
+  forms?: ({  id?: number | undefined;
+  name?: string | undefined;
+  values?: ({  value?: string | undefined;
+  name?: string | undefined;
+  fieldID?: number | undefined;
+  id?: number | undefined;})[];})[];
+  noShow?: boolean | undefined;
+};
+
+export interface ActionInput_acuity_scheduling_checkavailabilitytimes {
+  /**
+   * Date and time to check availability for. Must be parsable by strtotime. Example: "2026-06-25T09:00:00+0300"
+   */
+  datetime: string;
+  /**
+   * ID of the appointment type to check. Example: 94517100
+   */
+  appointmentTypeID: number;
+  /**
+   * ID of the calendar to check. If omitted, checks any available calendar. Example: 14209019
+   */
+  calendarID?: number | undefined;
+};
+
+export interface ActionOutput_acuity_scheduling_checkavailabilitytimes {
+  datetime: string;
+  appointmentTypeID: number;
+  calendarID?: number | undefined;
+  valid: boolean;
+  error?: string | undefined;
+  message?: string | undefined;
+};
+
+export interface ActionInput_acuity_scheduling_checkcertificate {
+  /**
+   * The certificate code to check. Example: "BFB0E13E"
+   */
+  certificate: string;
+  /**
+   * The appointment type ID to check. Example: 94517100
+   */
+  appointmentTypeID: number;
+  /**
+   * An optional email address to check if the certificate is valid for. Example: "client@example.com"
+   */
+  email?: string | undefined;
+};
+
+export interface ActionOutput_acuity_scheduling_checkcertificate {
+  /**
+   * Whether the certificate is valid for the given appointment type.
+   */
+  valid: boolean;
+  /**
+   * Certificate ID if valid. Example: 1
+   */
+  id?: number | undefined;
+  /**
+   * Certificate code if valid. Example: "BFB0E13E"
+   */
+  certificate?: string | undefined;
+  /**
+   * Product ID associated with the certificate. Example: 1
+   */
+  productID?: number | undefined;
+  /**
+   * Order ID associated with the certificate. Example: null
+   */
+  orderID?: number | undefined;
+  /**
+   * Appointment type IDs the certificate applies to. Example: [1]
+   */
+  appointmentTypeIDs?: number[] | undefined;
+  /**
+   * Name of the certificate. Example: "5 Small Builds"
+   */
+  name?: string | undefined;
+  /**
+   * Email address associated with the certificate. Example: ""
+   */
+  email?: string | undefined;
+  /**
+   * Certificate type. Example: "appointments"
+   */
+  type?: string | undefined;
+  /**
+   * Remaining usage counts per appointment type. Example: { "1": 5 }
+   */
+  remainingCounts?: {  [key: string]: number;} | undefined;
+  /**
+   * Remaining minutes on the certificate. Example: null
+   */
+  remainingMinutes?: number | undefined;
+  /**
+   * Expiration date of the certificate. Example: null
+   */
+  expiration?: string | undefined;
+  /**
+   * Error message if the certificate is invalid.
+   */
+  error?: string | undefined;
+};
+
+export interface ActionInput_acuity_scheduling_createappointment {
+  /**
+   * Required date and time for the appointment, parsed by strtotime in the business or calendar timezone. Example: "2026-06-30T10:00:00+0300"
+   */
+  datetime: string;
+  /**
+   * Appointment type ID. Example: 94517100
+   */
+  appointmentTypeID: number;
+  /**
+   * Client first name. Example: "Bob"
+   */
+  firstName: string;
+  /**
+   * Client last name. Example: "McTest"
+   */
+  lastName: string;
+  /**
+   * Client e-mail address. Example: "bob.mctest@example.com"
+   */
+  email: string;
+  /**
+   * Calendar ID. Example: 14209019
+   */
+  calendarID?: number | undefined;
+  /**
+   * Client phone number. Example: "(123) 555-0102"
+   */
+  phone?: string | undefined;
+  /**
+   * Client timezone. Example: "America/New_York"
+   */
+  timezone?: string | undefined;
+  /**
+   * Package or coupon certificate code. Example: "ABC123"
+   */
+  certificate?: string | undefined;
+  /**
+   * Intake form field values.
+   */
+  fields?: ({  /**
+   * Field ID. Example: 1
+   */
+  id: number;
+  /**
+   * Field value. Example: "Party time!"
+   */
+  value: string;})[] | undefined;
+  /**
+   * Appointment notes. Only settable when booking as an admin.
+   */
+  notes?: string | undefined;
+  /**
+   * IDs of addons to include in the appointment. Example: [1]
+   */
+  addonIDs?: number[] | undefined;
+  /**
+   * Label objects to apply to the appointment. Currently only accepts an array of length 1.
+   */
+  labels?: ({  /**
+   * Label ID. Example: 24774624
+   */
+  id: number;})[] | undefined;
+  /**
+   * Indicates whether the client has explicitly given permission to receive SMS messages.
+   */
+  smsOptIn?: boolean | undefined;
+  /**
+   * Pass true to disable availability and validation checks. Requires calendarID.
+   */
+  admin?: boolean | undefined;
+  /**
+   * Pass true to skip sending confirmation emails.
+   */
+  noEmail?: boolean | undefined;
+};
+
+export interface ActionOutput_acuity_scheduling_createappointment {
+  id: number;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  phone?: string | undefined;
+  email?: string | undefined;
+  date?: string | undefined;
+  time?: string | undefined;
+  endTime?: string | undefined;
+  dateCreated?: string | undefined;
+  datetime: string;
+  price?: string | undefined;
+  paid?: string | undefined;
+  amountPaid?: string | undefined;
+  type?: string | undefined;
+  appointmentTypeID?: number | undefined;
+  addonIDs?: number[] | undefined;
+  classID?: number | undefined;
+  duration?: string | undefined;
+  calendar?: string | undefined;
+  calendarID?: number | undefined;
+  canClientCancel?: boolean | undefined;
+  canClientReschedule?: boolean | undefined;
+  location?: string | undefined;
+  certificate?: string | undefined;
+  confirmationPage?: string | undefined;
+  formsText?: string | undefined;
+  notes?: string | undefined;
+  timezone?: string | undefined;
+  forms?: ({})[] | undefined;
+  labels?: ({  id: number;
+  name: string;
+  color: string;})[] | undefined;
+};
+
+export interface ActionInput_acuity_scheduling_createblock {
+  /**
+   * Start time of the block. Example: "2026-07-15T09:00:00+0300"
+   */
+  start: string;
+  /**
+   * End time of the block. Example: "2026-07-15T10:00:00+0300"
+   */
+  end: string;
+  /**
+   * Calendar ID for the block. Example: 14209019
+   */
+  calendarID: number;
+  /**
+   * Optional notes for the block.
+   */
+  notes?: string | undefined;
+};
+
+export interface ActionOutput_acuity_scheduling_createblock {
+  id: number;
+  calendarID?: number | undefined;
+  start?: string | undefined;
+  end?: string | undefined;
+  notes?: string | undefined;
+  owner?: string | undefined;
+};
+
+export interface ActionInput_acuity_scheduling_createcertificate {
+  /**
+   * The package ID to create a certificate for. Example: 2231275
+   */
+  productID?: number | undefined;
+  /**
+   * The coupon ID to create a certificate for.
+   */
+  couponID?: number | undefined;
+  /**
+   * Custom certificate code. Auto-generated if omitted. Example: "NANGO-TEST-001"
+   */
+  certificate?: string | undefined;
+  /**
+   * Email address to assign the certificate to. Example: "bob.mctest@example.com"
+   */
+  email?: string | undefined;
+};
+
+export interface ActionOutput_acuity_scheduling_createcertificate {
+  /**
+   * Certificate ID. Example: 81297390
+   */
+  id: number;
+  /**
+   * Certificate code. Example: "NANGO-TEST-001"
+   */
+  certificate?: string | undefined;
+  /**
+   * Associated package ID. Example: 2231275
+   */
+  productID?: number | undefined;
+  /**
+   * Associated coupon ID.
+   */
+  couponID?: number | undefined;
+  /**
+   * Assigned email address. Example: "bob.mctest@example.com"
+   */
+  email?: string | undefined;
+  /**
+   * Associated order ID, null if created via API.
+   */
+  orderID?: number | undefined;
+};
+
+export interface ActionInput_acuity_scheduling_createclient {
+  /**
+   * Client first name. Example: "Jane"
+   */
+  firstName: string;
+  /**
+   * Client last name. Example: "Doe"
+   */
+  lastName: string;
+  /**
+   * Client phone number
+   */
+  phone?: string | undefined;
+  /**
+   * Client email
+   */
+  email?: string | undefined;
+  /**
+   * Client notes
+   */
+  notes?: string | undefined;
+};
+
+export interface ActionOutput_acuity_scheduling_createclient {
+  firstName: string;
+  lastName: string;
+  phone?: string | undefined;
+  email?: string | undefined;
+  notes?: string | undefined;
+};
+
+export interface ActionInput_acuity_scheduling_deleteblock {
+  /**
+   * The ID of the block to delete. Example: 1234
+   */
+  id: number;
+};
+
+export interface ActionOutput_acuity_scheduling_deleteblock {
+  success: boolean;
+  id: number;
+};
+
+export interface ActionInput_acuity_scheduling_deletecertificate {
+  /**
+   * Certificate ID. Example: 123
+   */
+  id: number;
+};
+
+export interface ActionOutput_acuity_scheduling_deletecertificate {
+  id: number;
+  certificate?: string | undefined;
+  appointmentTypeID?: number | undefined;
+  email?: string | undefined;
+  notes?: string | undefined;
+  quantity?: number | undefined;
+  balance?: number | undefined;
+  massage?: string | undefined;
+  from?: string | undefined;
+  date?: string | undefined;
+  expiration?: string | undefined;
+  productID?: number | undefined;
+  couponID?: number | undefined;
+  orderID?: number | undefined;
+  price?: number | undefined;
+  datetime?: string | undefined;
+  calendarID?: number | undefined;
+  typeID?: number | undefined;
+  created?: string | undefined;
+};
+
+export interface ActionInput_acuity_scheduling_deleteclient {
+  /**
+   * Client first name. Example: "Bob"
+   */
+  firstName: string;
+  /**
+   * Client last name. Example: "McTest"
+   */
+  lastName: string;
+  /**
+   * Client phone number. Example: "(123) 555-0102"
+   */
+  phone?: string | undefined;
+};
+
+export interface ActionOutput_acuity_scheduling_deleteclient {
+  success: boolean;
+};
+
+export interface ActionInput_acuity_scheduling_getappointmentpayments {
+  /**
+   * Appointment ID. Example: 1722092210
+   */
+  id: number;
+};
+
+export interface ActionOutput_acuity_scheduling_getappointmentpayments {
+  payments: ({  transactionID?: string | undefined;
+  created?: string | undefined;
+  processor?: string | undefined;
+  amount?: string | undefined;})[];
+};
+
+export interface ActionInput_acuity_scheduling_getappointment {
+  /**
+   * Appointment ID. Example: 1722092210
+   */
+  id: number;
+  /**
+   * Include previous intake form answers.
+   */
+  pastFormAnswers?: boolean | undefined;
+};
+
+export interface ActionOutput_acuity_scheduling_getappointment {
+  id: number;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  date?: string | undefined;
+  time?: string | undefined;
+  endTime?: string | undefined;
+  datetime?: string | undefined;
+  datetimeCreated?: string | undefined;
+  dateCreated?: string | undefined;
+  price?: string | undefined;
+  paid?: string | undefined;
+  amountPaid?: string | undefined;
+  type?: string | undefined;
+  appointmentTypeID?: number | undefined;
+  calendar?: string | undefined;
+  calendarID?: number | undefined;
+  duration?: string | undefined;
+  timezone?: string | undefined;
+  notes?: string | undefined;
+  certificate?: string | undefined;
+  labels?: ({  id: number;
+  name?: string | undefined;
+  color?: string | undefined;})[];
+  forms?: ({  id?: number | undefined;
+  name?: string | undefined;
+  values?: ({  [key: string]: unknown | undefined;})[];})[];
+};
+
+export interface ActionInput_acuity_scheduling_getblock {
+  /**
+   * Blocked time ID. Example: 9990960594
+   */
+  id: number;
+};
+
+export interface ActionOutput_acuity_scheduling_getblock {
+  id: number;
+  calendarID: number;
+  serviceGroupID: number;
+  calendarTimezone: string;
+  start: string;
+  end: string;
+  notes?: string | undefined;
+  managed: boolean;
+  recurring?: unknown | undefined;
+  until?: unknown | undefined;
+  description?: string | undefined;
+};
+
+export interface ActionInput_acuity_scheduling_getme {
+};
+
+export interface ActionOutput_acuity_scheduling_getme {
+  id: number;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  timezone?: string | undefined;
+  schedulingPage?: string | undefined;
+  calendar?: string | undefined;
+  timeZoneName?: string | undefined;
+};
+
+export interface ActionInput_acuity_scheduling_getmeta {
+};
+
+export interface ActionOutput_acuity_scheduling_getmeta {
+  hooks?: string[] | undefined;
+};
+
+export interface ActionInput_acuity_scheduling_getorder {
+  /**
+   * Order ID. Example: 1234
+   */
+  id: number;
+};
+
+export interface ActionOutput_acuity_scheduling_getorder {
+  id: number;
+  total?: number | undefined;
+  status?: string | undefined;
+  time?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  phone?: string | undefined;
+  email?: string | undefined;
+  title?: string | undefined;
+  notes?: string | undefined;
+  products?: ({  id: number;
+  name?: string | undefined;
+  quantity?: number | undefined;
+  total?: number | undefined;})[];
+};
+
+export interface ActionInput_acuity_scheduling_listappointmentaddons {
+};
+
+export interface ActionOutput_acuity_scheduling_listappointmentaddons {
+  addons: ({  id: number;
+  name: string;
+  duration: number;
+  price: string;
+  private: boolean;})[];
+};
+
+export interface ActionInput_acuity_scheduling_listappointmenttypes {
+  /**
+   * Also include deleted appointment types in the response.
+   */
+  includeDeleted?: boolean | undefined;
+};
+
+export interface ActionOutput_acuity_scheduling_listappointmenttypes {
+  items: ({  id: number;
+  active?: string | boolean | undefined;
+  name?: string | undefined;
+  description?: string | undefined;
+  duration?: number | undefined;
+  price?: string | undefined;
+  category?: string | undefined;
+  color?: string | undefined;
+  private?: boolean | undefined;
+  type?: string | undefined;
+  classSize?: number | undefined;
+  paddingAfter?: number | undefined;
+  paddingBefore?: number | undefined;
+  calendarIDs?: number[] | undefined;})[];
+};
+
+export interface ActionInput_acuity_scheduling_listappointments {
+  /**
+   * Maximum number of results. Default: 100
+   */
+  max?: number | undefined;
+  /**
+   * Only get appointments on this date and after
+   */
+  minDate?: string | undefined;
+  /**
+   * Only get appointments on this date and before
+   */
+  maxDate?: string | undefined;
+  /**
+   * Show only appointments on calendar with specified ID
+   */
+  calendarID?: number | undefined;
+  /**
+   * Show only appointments of this type
+   */
+  appointmentTypeID?: number | undefined;
+  /**
+   * Include canceled appointments. Default: false
+   */
+  canceled?: boolean | undefined;
+  /**
+   * Filter appointments for client first name
+   */
+  firstName?: string | undefined;
+  /**
+   * Filter appointments for client last name
+   */
+  lastName?: string | undefined;
+  /**
+   * Filter appointments for client e-mail address
+   */
+  email?: string | undefined;
+  /**
+   * Filter appointments for client phone number
+   */
+  phone?: string | undefined;
+  /**
+   * Filter appointments matching a particular custom intake form field
+   */
+  fieldId?: string | undefined;
+  /**
+   * Do not include intake forms in the response. Default: false
+   */
+  excludeForms?: boolean | undefined;
+  /**
+   * Sort direction: ASC or DESC. Default: DESC
+   */
+  direction?: string | undefined;
+};
+
+export interface ActionOutput_acuity_scheduling_listappointments {
+  appointments: ({  id: number;
+  firstName: string;
+  lastName: string;
+  phone: string;
+  email: string;
+  date: string;
+  time: string;
+  endTime: string;
+  dateCreated: string;
+  datetime: string;
+  price: string;
+  paid: string;
+  amountPaid: string;
+  type: string;
+  appointmentTypeID: number;
+  addonIDs: number[];
+  classID: number;
+  duration: string;
+  calendar: string;
+  calendarID: number;
+  canClientCancel: boolean;
+  canClientReschedule: boolean;
+  location: string;
+  certificate: string;
+  confirmationPage: string;
+  formsText: string;
+  notes: string;
+  timezone: string;
+  forms: ({  id: number;
+  name: string;
+  values: ({  id: number;
+  fieldID: number;
+  name: string;
+  value: string;})[];})[];
+  labels: ({  id: number;
+  name: string;
+  color: string;})[];
+  noShow?: boolean | undefined;})[];
+};
+
+export interface ActionInput_acuity_scheduling_listavailabilityclasses {
+  /**
+   * Month to check available classes (e.g., 2026-06).
+   */
+  month?: string | undefined;
+  /**
+   * Appointment type ID to filter by.
+   */
+  appointmentTypeID?: number | undefined;
+  /**
+   * Calendar ID to filter by.
+   */
+  calendarID?: number | undefined;
+  /**
+   * Timezone for availability time conversion (e.g., America/New_York).
+   */
+  timezone?: string | undefined;
+  /**
+   * Earliest date to return classes for.
+   */
+  minDate?: string | undefined;
+  /**
+   * Latest date to return classes for.
+   */
+  maxDate?: string | undefined;
+  /**
+   * Include classes that are no longer available.
+   */
+  includeUnavailable?: boolean | undefined;
+  /**
+   * Include classes marked as private.
+   */
+  includePrivate?: boolean | undefined;
+};
+
+export interface ActionOutput_acuity_scheduling_listavailabilityclasses {
+  items: ({  id: number;
+  appointmentTypeID: number;
+  calendarID: number;
+  name: string;
+  time: string;
+  calendar: string;
+  duration: number;
+  isSeries: boolean;
+  slots: number;
+  slotsAvailable: number;})[];
+};
+
+export interface ActionInput_acuity_scheduling_listavailabilitydates {
+  /**
+   * Month to check available dates. Example: "2026-06"
+   */
+  month: string;
+  /**
+   * Numeric ID of the appointment type to check availability for. Example: 94517100
+   */
+  appointmentTypeID: number;
+  /**
+   * Numeric ID of the calendar to check availability for.
+   */
+  calendarID?: number | undefined;
+  /**
+   * Addon IDs to use when calculating availability.
+   */
+  addonIDs?: number[] | undefined;
+  /**
+   * Timezone for availability time conversion. Example: "America/New_York"
+   */
+  timezone?: string | undefined;
+};
+
+export interface ActionOutput_acuity_scheduling_listavailabilitydates {
+  /**
+   * Array of available date strings in YYYY-MM-DD format.
+   */
+  dates: string[];
+};
+
+export interface ActionInput_acuity_scheduling_listavailabilitytimes {
+  /**
+   * Date to check availability for. Example: "2026-06-15"
+   */
+  date: string;
+  /**
+   * Appointment type ID to check availability for. Example: 94517100
+   */
+  appointmentTypeID: number;
+  /**
+   * Calendar ID to filter availability by. Example: 14209019
+   */
+  calendarID?: number | undefined;
+  /**
+   * Array of addon IDs to include in availability check.
+   */
+  addonIDs?: number[] | undefined;
+  /**
+   * Timezone to use for the returned times. Example: "Indian/Mayotte"
+   */
+  timezone?: string | undefined;
+  /**
+   * Array of appointment IDs to ignore when checking availability (useful for rescheduling).
+   */
+  ignoreAppointmentIDs?: number[] | undefined;
+};
+
+export interface ActionOutput_acuity_scheduling_listavailabilitytimes {
+  times: string[];
+  calendarID?: number | undefined;
+};
+
+export interface ActionInput_acuity_scheduling_listblocks {
+  /**
+   * Maximum number of results.
+   */
+  max?: number | undefined;
+  /**
+   * Only get blocks this date and after (YYYY-MM-DD).
+   */
+  minDate?: string | undefined;
+  /**
+   * Only get blocks this date and before (YYYY-MM-DD).
+   */
+  maxDate?: string | undefined;
+  /**
+   * Only get blocks on calendar with this ID.
+   */
+  calendarID?: number | undefined;
+};
+
+export interface ActionOutput_acuity_scheduling_listblocks {
+  items: ({  id: number;
+  description: string;
+  until?: string | undefined;
+  recurring?: string | undefined;
+  notes?: string | undefined;
+  end: string;
+  start: string;
+  calendarID: number;})[];
+};
+
+export interface ActionInput_acuity_scheduling_listcalendars {
+};
+
+export interface ActionOutput_acuity_scheduling_listcalendars {
+  calendars: ({  /**
+   * Calendar ID. Example: 14209019
+   */
+  id: number;
+  /**
+   * Calendar name. Example: "Nango API"
+   */
+  name: string;
+  email?: string | undefined;
+  replyTo?: string | undefined;
+  description?: string | undefined;
+  location?: string | undefined;
+  timezone?: string | undefined;
+  image?: unknown | undefined;
+  thumbnail?: unknown | undefined;
+  isValid?: unknown | undefined;})[];
+};
+
+export interface ActionInput_acuity_scheduling_listcertificates {
+  /**
+   * Get certificate codes for a particular product.
+   */
+  productID?: string | undefined;
+  /**
+   * Get certificate codes for a particular order.
+   */
+  orderID?: string | undefined;
+  /**
+   * Get certificate codes for a particular appointment type.
+   */
+  appointmentTypeID?: string | undefined;
+  /**
+   * Get valid codes for a particular email address.
+   */
+  email?: string | undefined;
+};
+
+export interface ActionOutput_acuity_scheduling_listcertificates {
+  certificates: ({  id: number;
+  certificate?: string | undefined;
+  productID?: number | undefined;
+  orderID?: string | undefined;
+  appointmentTypeIDs?: number[] | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  type?: string | undefined;
+  remainingCounts?: {  [key: string]: number;} | undefined;
+  remainingMinutes?: string | undefined;
+  expiration?: string | undefined;})[];
+};
+
+export interface ActionInput_acuity_scheduling_listclients {
+  /**
+   * Search filter by first name, last name, or phone.
+   */
+  search?: string | undefined;
+};
+
+export interface ActionOutput_acuity_scheduling_listclients {
+  clients: ({  firstName?: string | undefined;
+  lastName?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  notes?: string | undefined;})[];
+};
+
+export interface ActionInput_acuity_scheduling_listforms {
+};
+
+export interface ActionOutput_acuity_scheduling_listforms {
+  0: {  id: number;
+  name: string;
+  description?: string | undefined;
+  hidden: boolean;
+  appointmentTypeIDs: number[];
+  fields: ({  id: number;
+  name: string;
+  required: boolean;
+  type: string;
+  options?: string[] | undefined;})[];};
+};
+
+export interface ActionInput_acuity_scheduling_listlabels {
+};
+
+export interface ActionOutput_acuity_scheduling_listlabels {
+  0: {  /**
+   * Label ID. Example: 24774624
+   */
+  id: number;
+  /**
+   * Label name. Example: "Confirmed"
+   */
+  name: string;
+  /**
+   * Label color. Example: "yellow"
+   */
+  color: string;};
+};
+
+export interface ActionInput_acuity_scheduling_listorders {
+  /**
+   * Maximum number of results
+   */
+  max?: number | undefined;
+};
+
+export interface ActionOutput_acuity_scheduling_listorders {
+  0: {  /**
+   * Order ID
+   */
+  id: number;
+  total?: string | undefined;
+  status?: string | undefined;
+  time?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  phone?: string | undefined;
+  email?: string | undefined;
+  title?: string | undefined;
+  notes?: string | undefined;};
+};
+
+export interface ActionInput_acuity_scheduling_listproducts {
+  /**
+   * Include deleted products. Defaults to false.
+   */
+  deleted?: boolean | undefined;
+};
+
+export interface ActionOutput_acuity_scheduling_listproducts {
+  items: ({  id: number;
+  name: string;
+  description?: string | undefined;
+  price?: string | undefined;
+  type: string;
+  hidden?: boolean | undefined;
+  expires?: number | undefined;
+  appointmentTypeIDs?: number[] | undefined;
+  appointmentTypeCounts?: {  [key: string]: number;} | undefined;
+  minutes?: number | undefined;})[];
+};
+
+export interface ActionInput_acuity_scheduling_rescheduleappointment {
+  /**
+   * Appointment ID. Example: 1722114448
+   */
+  id: number;
+  /**
+   * New datetime for the appointment. Example: "2026-06-25T15:00:00+0300"
+   */
+  datetime: string;
+  /**
+   * Calendar ID. Omit or pass null for auto-select.
+   */
+  calendarID?: number | undefined;
+  /**
+   * Timezone for the appointment.
+   */
+  timezone?: string | undefined;
+};
+
+export interface ActionOutput_acuity_scheduling_rescheduleappointment {
+  id: number;
+};
+
+export interface ActionInput_acuity_scheduling_updateappointment {
+  /**
+   * Appointment ID. Example: 1722114427
+   */
+  id: number;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  certificate?: string | undefined;
+  fields?: ({  id: number;
+  value: string;})[] | undefined;
+  notes?: string | undefined;
+  labels?: ({  id: number;})[] | undefined;
+  smsOptIn?: boolean | undefined;
+  admin?: boolean | undefined;
+};
+
+export interface ActionOutput_acuity_scheduling_updateappointment {
+  id: number;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  phone?: string | undefined;
+  email?: string | undefined;
+  date?: string | undefined;
+  time?: string | undefined;
+  endTime?: string | undefined;
+  dateCreated?: string | undefined;
+  datetime?: string | undefined;
+  price?: string | undefined;
+  paid?: string | undefined;
+  amountPaid?: string | number | undefined;
+  type?: string | undefined;
+  appointmentTypeID?: number | undefined;
+  classID?: number | undefined;
+  duration?: string | number | undefined;
+  calendar?: string | undefined;
+  calendarID?: number | undefined;
+  location?: string | undefined;
+  certificate?: string | undefined;
+  confirmationPage?: string | undefined;
+  formsText?: string | undefined;
+  notes?: string | undefined;
+  timezone?: string | undefined;
+  forms?: ({  id?: number | undefined;
+  name?: string | undefined;
+  values?: ({  value?: string | undefined;
+  name?: string | undefined;
+  fieldID?: number | undefined;
+  id?: number | undefined;})[];})[];
+  labels?: ({  id: number;
+  name?: string | undefined;
+  color?: string | undefined;})[];
+  fields?: ({  id: number;
+  value: string;})[] | undefined;
+};
+
+export interface ActionInput_acuity_scheduling_updateclient {
+  /**
+   * Client first name. Example: "Bob"
+   */
+  firstName: string;
+  /**
+   * Client last name. Example: "McTest"
+   */
+  lastName: string;
+  /**
+   * Client phone number. Example: "(123) 555-0102"
+   */
+  phone?: string | undefined;
+  /**
+   * Client email. Example: "bob@example.com"
+   */
+  email?: string | undefined;
+  /**
+   * Client notes.
+   */
+  notes?: string | undefined;
+};
+
+export interface ActionOutput_acuity_scheduling_updateclient {
+  firstName: string;
+  lastName: string;
+  phone?: string | undefined;
+  notes?: string | undefined;
+};
+
 export interface StandardEmployee {
   id: string;
   firstName: string;
@@ -12583,35 +13893,6 @@ export interface ActionOutput_attio_upsertrecord {
   values?: {  [key: string]: unknown | undefined;};
 };
 
-export interface Client {
-  id: string;
-  client_id?: string | undefined;
-  tenant?: string | undefined;
-  name?: string | undefined;
-  description?: string | undefined;
-  global?: boolean | undefined;
-  app_type?: string | undefined;
-  logo_uri?: string | undefined;
-  is_first_party?: boolean | undefined;
-  oidc_conformant?: boolean | undefined;
-  callbacks?: string[] | undefined;
-  allowed_origins?: string[] | undefined;
-  web_origins?: string[] | undefined;
-  allowed_logout_urls?: string[] | undefined;
-  grant_types?: string[] | undefined;
-  is_token_endpoint_ip_header_trusted?: boolean | undefined;
-  initiate_login_uri?: string | undefined;
-  organization_usage?: string | undefined;
-  organization_require_behavior?: string | undefined;
-  require_pushed_authorization_requests?: boolean | undefined;
-  require_proof_of_possession?: boolean | undefined;
-  sso_disabled?: boolean | undefined;
-  cross_origin_authentication?: boolean | undefined;
-  custom_login_page_on?: boolean | undefined;
-  custom_login_page?: string | undefined;
-  client_metadata?: {  [key: string]: string;} | undefined;
-};
-
 export interface Connection {
   id: string;
   name: string;
@@ -15434,6 +16715,1326 @@ export interface ActionInput_aws_iam_deleteuser {
 
 export interface ActionOutput_aws_iam_deleteuser {
   success: boolean;
+};
+
+export interface Branch {
+  id: string;
+  name: string;
+  project_id: string;
+  merged?: boolean | undefined;
+  protected?: boolean | undefined;
+  default?: boolean | undefined;
+  developers_can_push?: boolean | undefined;
+  developers_can_merge?: boolean | undefined;
+  can_push?: boolean | undefined;
+  web_url?: string | undefined;
+  commit_id?: string | undefined;
+  commit_short_id?: string | undefined;
+  commit_created_at?: string | undefined;
+  commit_title?: string | undefined;
+  commit_message?: string | undefined;
+  commit_author_name?: string | undefined;
+  commit_author_email?: string | undefined;
+  commit_authored_date?: string | undefined;
+  commit_committer_name?: string | undefined;
+  commit_committer_email?: string | undefined;
+  commit_committed_date?: string | undefined;
+  commit_web_url?: string | undefined;
+};
+
+export interface SyncMetadata_azure_devops_branches {
+  repositories: ({  project: string;
+  repositoryId: string;})[];
+};
+
+export interface BuildDefinition {
+  id: string;
+  name?: string | undefined;
+  path?: string | undefined;
+  projectId?: string | undefined;
+  projectName?: string | undefined;
+  url?: string | undefined;
+  revision?: number | undefined;
+  createdDate?: string | undefined;
+};
+
+export interface SyncMetadata_azure_devops_builddefinitions {
+  projects: string[];
+};
+
+export interface Build {
+  /**
+   * Build ID
+   */
+  id: string;
+  buildNumber?: string | undefined;
+  status?: string | undefined;
+  result?: string | undefined;
+  queueTime?: string | undefined;
+  startTime?: string | undefined;
+  finishTime?: string | undefined;
+  sourceBranch?: string | undefined;
+  sourceVersion?: string | undefined;
+  url?: string | undefined;
+  definition?: {  id?: number | undefined;
+  name?: string | undefined;};
+  project?: {  id?: string | undefined;
+  name?: string | undefined;};
+  requestedBy?: {  id?: string | undefined;
+  displayName?: string | undefined;};
+};
+
+export interface SyncMetadata_azure_devops_builds {
+  projects?: string[] | undefined;
+};
+
+export interface Commit {
+  id: string;
+  short_id?: string | undefined;
+  title?: string | undefined;
+  author_name?: string | undefined;
+  author_email?: string | undefined;
+  authored_date?: string | undefined;
+  committer_name?: string | undefined;
+  committer_email?: string | undefined;
+  committed_date?: string | undefined;
+  created_at?: string | undefined;
+  message?: string | undefined;
+  parent_ids?: string[] | undefined;
+  web_url?: string | undefined;
+};
+
+export interface SyncMetadata_azure_devops_commits {
+  repositories?: ({  project: string;
+  repositoryId: string;})[] | undefined;
+};
+
+export interface Iteration {
+  id: string;
+  name?: string | undefined;
+  path?: string | undefined;
+  attributes?: {  startDate?: string | undefined;
+  finishDate?: string | undefined;
+  timeFrame?: string | undefined;};
+  url?: string | undefined;
+};
+
+export interface SyncMetadata_azure_devops_iterations {
+  projectTeams: ({  projectId: string;
+  teamId: string;})[];
+};
+
+export interface Pipeline {
+  id: string;
+  name?: string | undefined;
+  update_time: string;
+  add_time?: string | undefined;
+  is_deal_probability_enabled?: boolean | undefined;
+};
+
+export interface SyncMetadata_azure_devops_pipelines {
+  projects: string[];
+};
+
+export interface PullRequest {
+  /**
+   * The unique identifier of the pull request (e.g., "12345")
+   */
+  id: string;
+  /**
+   * The pull request number within the repository
+   */
+  number: number;
+  /**
+   * The state of the pull request: "open", "closed"
+   */
+  state: string;
+  /**
+   * The title of the pull request
+   */
+  title: string;
+  /**
+   * The description/body of the pull request
+   */
+  body?: string | undefined;
+  /**
+   * The login/username of the PR author
+   */
+  user_login?: string | undefined;
+  /**
+   * The ID of the PR author
+   */
+  user_id?: number | undefined;
+  /**
+   * The ISO 8601 timestamp when the PR was created
+   */
+  created_at: string;
+  /**
+   * The ISO 8601 timestamp when the PR was last updated
+   */
+  updated_at: string;
+  /**
+   * The ISO 8601 timestamp when the PR was closed
+   */
+  closed_at?: string | undefined;
+  /**
+   * The ISO 8601 timestamp when the PR was merged
+   */
+  merged_at?: string | undefined;
+  /**
+   * The SHA of the merge commit
+   */
+  merge_commit_sha?: string | undefined;
+  /**
+   * The name of the head branch
+   */
+  head_ref: string;
+  /**
+   * The SHA of the head branch commit
+   */
+  head_sha: string;
+  /**
+   * The name of the base branch
+   */
+  base_ref: string;
+  /**
+   * The SHA of the base branch commit
+   */
+  base_sha: string;
+  /**
+   * Whether the pull request is a draft
+   */
+  draft: boolean;
+  /**
+   * The URL to view the pull request on GitHub
+   */
+  html_url: string;
+  /**
+   * The full name of the repository (e.g., "owner/repo")
+   */
+  repo_full_name: string;
+  /**
+   * Labels attached to the pull request
+   */
+  labels: ({  id: number;
+  name: string;
+  color: string;
+  description?: string | undefined;})[];
+  /**
+   * Users assigned to the pull request
+   */
+  assignees: ({  login: string;
+  id: number;})[];
+  /**
+   * Users requested to review the pull request
+   */
+  requested_reviewers: ({  login: string;
+  id: number;})[];
+};
+
+export interface Repository {
+  id: string;
+  name: string;
+  full_name: string;
+  owner_login: string;
+  owner_id: string;
+  owner_type: string;
+  private: boolean;
+  visibility?: string | undefined;
+  html_url: string;
+  description?: string | undefined;
+  fork: boolean;
+  default_branch: string;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  pushed_at?: string | undefined;
+  homepage?: string | undefined;
+  language?: string | undefined;
+  size: number;
+  forks_count: number;
+  stargazers_count: number;
+  open_issues_count: number;
+  archived?: boolean | undefined;
+  disabled?: boolean | undefined;
+};
+
+export interface SyncMetadata_azure_devops_repositories {
+  /**
+   * List of project IDs or names to sync repositories from
+   */
+  projects: string[];
+};
+
+export interface SyncMetadata_azure_devops_teams {
+  projectIds: string[];
+};
+
+export interface TestPlan {
+  /**
+   * The unique identifier of the test plan
+   */
+  id: string;
+  /**
+   * The name of the test plan
+   */
+  name: string;
+  /**
+   * The identifier of the project containing the test plan
+   */
+  projectId: string;
+  /**
+   * The name of the project containing the test plan
+   */
+  projectName: string;
+  areaPath?: string | undefined;
+  iteration?: string | undefined;
+  state?: string | undefined;
+  startDate?: string | undefined;
+  endDate?: string | undefined;
+  updatedDate?: string | undefined;
+  ownerId?: string | undefined;
+  ownerDisplayName?: string | undefined;
+  rootSuiteId?: number | undefined;
+  rootSuiteName?: string | undefined;
+  revision?: number | undefined;
+  description?: string | undefined;
+  buildId?: number | undefined;
+};
+
+export interface SyncMetadata_azure_devops_testplans {
+  projects: string[];
+};
+
+export interface WorkItem {
+  id: string;
+  project?: string | undefined;
+  url?: string | undefined;
+  type?: string | undefined;
+  state?: string | undefined;
+  title?: string | undefined;
+  createdDate?: string | undefined;
+  changedDate?: string | undefined;
+  fields?: {  [key: string]: unknown | undefined;};
+};
+
+export interface SyncMetadata_azure_devops_workitems {
+  projects: string[];
+};
+
+export interface ActionInput_azure_devops_createprthread {
+  /**
+   * Project name or ID. Example: "nangodev"
+   */
+  project: string;
+  /**
+   * Repository ID. Example: "46eadaf5-eb36-43bc-8297-a9b4043afd09"
+   */
+  repositoryId: string;
+  /**
+   * Pull request ID. Example: 1
+   */
+  pullRequestId: number;
+  /**
+   * Comment content. Example: "Looks good!"
+   */
+  content: string;
+};
+
+export interface ActionOutput_azure_devops_createprthread {
+  id: number;
+  publishedDate?: string | undefined;
+  lastUpdatedDate?: string | undefined;
+  comments?: ({  id?: number | undefined;
+  parentCommentId?: number | undefined;
+  author?: {  displayName?: string | undefined;
+  id?: string | undefined;
+  uniqueName?: string | undefined;
+  imageUrl?: string | undefined;};
+  content?: string | undefined;
+  publishedDate?: string | undefined;
+  lastUpdatedDate?: string | undefined;
+  lastContentUpdatedDate?: string | undefined;
+  commentType?: string | undefined;})[];
+  status?: string | undefined;
+  threadContext?: unknown | undefined;
+  properties?: unknown | undefined;
+  identities?: unknown | undefined;
+  isDeleted?: boolean | undefined;
+};
+
+export interface ActionInput_azure_devops_createpullrequest {
+  /**
+   * Project name or ID. Example: "nangodev"
+   */
+  project: string;
+  /**
+   * Repository ID. Example: "46eadaf5-eb36-43bc-8297-a9b4043afd09"
+   */
+  repositoryId: string;
+  /**
+   * Pull request title.
+   */
+  title: string;
+  /**
+   * Pull request description.
+   */
+  description?: string | undefined;
+  /**
+   * Source branch ref. Example: "refs/heads/feature-branch"
+   */
+  sourceRefName: string;
+  /**
+   * Target branch ref. Example: "refs/heads/main"
+   */
+  targetRefName: string;
+  /**
+   * Whether the pull request is a draft.
+   */
+  isDraft?: boolean | undefined;
+};
+
+export interface ActionOutput_azure_devops_createpullrequest {
+  pullRequestId: number;
+  status: string;
+  title: string;
+  description?: string | undefined;
+  sourceRefName: string;
+  targetRefName: string;
+  isDraft?: boolean | undefined;
+  mergeStatus?: string | undefined;
+  url?: string | undefined;
+  creationDate?: string | undefined;
+  createdBy?: {  displayName: string;
+  id: string;
+  uniqueName?: string | undefined;};
+};
+
+export interface ActionInput_azure_devops_createworkitem {
+  /**
+   * Project name or ID. Example: "MyProject"
+   */
+  project: string;
+  /**
+   * Work item type. Example: "Task"
+   */
+  type: string;
+  /**
+   * JSON Patch operations for work item fields. Example: [{ op: "add", path: "/fields/System.Title", value: "New task" }]
+   */
+  fields: ({  op: string;
+  path: string;
+  value?: unknown | undefined;
+  from?: unknown | undefined;})[];
+};
+
+export interface ActionOutput_azure_devops_createworkitem {
+  /**
+   * Work item ID.
+   */
+  id: number;
+  /**
+   * Work item revision.
+   */
+  rev: number;
+  /**
+   * Work item URL.
+   */
+  url: string;
+  /**
+   * Work item fields.
+   */
+  fields?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_azure_devops_deleteworkitem {
+  /**
+   * Project ID or project name. Example: "MyProject"
+   */
+  project: string;
+  /**
+   * ID of the work item to delete. Example: 123
+   */
+  workItemId: number;
+  /**
+   * If true, permanently destroys the work item instead of moving it to the Recycle Bin.
+   */
+  destroy?: boolean | undefined;
+};
+
+export interface ActionOutput_azure_devops_deleteworkitem {
+  /**
+   * The deleted work item ID.
+   */
+  id: number;
+  /**
+   * The project identifier used in the request.
+   */
+  project: string;
+  /**
+   * Whether the deletion succeeded.
+   */
+  deleted: boolean;
+  /**
+   * Whether the permanent destroy flag was used.
+   */
+  destroy: boolean;
+  deletedBy?: string | undefined;
+  deletedDate?: string | undefined;
+  type?: string | undefined;
+  name?: string | undefined;
+  url?: string | undefined;
+};
+
+export interface ActionInput_azure_devops_getproject {
+  /**
+   * Project ID or name. Example: "ecbf2301-2e63-41b4-a8fd-1d2d4e1f8b9c" or "Fabrikam"
+   */
+  projectId: string;
+};
+
+export interface ActionOutput_azure_devops_getproject {
+  id: string;
+  name: string;
+  url?: string | undefined;
+  state?: string | undefined;
+  revision?: number | undefined;
+  visibility?: string | undefined;
+  lastUpdateTime?: string | undefined;
+  description?: string | undefined;
+};
+
+export interface ActionInput_azure_devops_getrepository {
+  /**
+   * Project ID or name. Example: "nangoapi"
+   */
+  project: string;
+  /**
+   * Repository ID or name. Example: "my-repo"
+   */
+  repositoryId: string;
+};
+
+export interface ActionOutput_azure_devops_getrepository {
+  id: string;
+  name?: string | undefined;
+  url?: string | undefined;
+  project?: {  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  url?: string | undefined;
+  state?: string | undefined;
+  revision?: number | undefined;
+  visibility?: string | undefined;
+  lastUpdateTime?: string | undefined;};
+  defaultBranch?: string | undefined;
+  remoteUrl?: string | undefined;
+  sshUrl?: string | undefined;
+  webUrl?: string | undefined;
+};
+
+export interface ActionInput_azure_devops_getworkitem {
+  /**
+   * Project name or ID. Example: "nangoapi"
+   */
+  project: string;
+  /**
+   * Work item ID. Example: 1
+   */
+  id: number;
+};
+
+export interface ActionOutput_azure_devops_getworkitem {
+  id: number;
+  rev?: number | undefined;
+  url?: string | undefined;
+  fields?: {  [key: string]: unknown | undefined;};
+  relations?: ({})[] | undefined;
+};
+
+export interface ActionInput_azure_devops_listboards {
+  /**
+   * Project ID or project name. Example: "MyProject"
+   */
+  project: string;
+  /**
+   * Team ID or team name. Example: "MyTeam" or "My Team"
+   */
+  team: string;
+};
+
+export interface ActionOutput_azure_devops_listboards {
+  boards: ({  /**
+   * Board ID. Example: "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
+   */
+  id: string;
+  /**
+   * Board name. Example: "Backlog"
+   */
+  name: string;
+  /**
+   * Full URL to the board resource.
+   */
+  url: string;})[];
+};
+
+export interface ActionInput_azure_devops_listbranches {
+  project: string;
+  repositoryId: string;
+  continuationToken?: string | undefined;
+};
+
+export interface ActionOutput_azure_devops_listbranches {
+  branches: ({  name: string;
+  objectId: string;
+  creator?: {  displayName?: string | undefined;
+  id?: string | undefined;};
+  url?: string | undefined;})[];
+  nextContinuationToken?: string | undefined;
+};
+
+export interface ActionInput_azure_devops_listbuilddefinitions {
+  /**
+   * Project name or ID. Example: "MyProject"
+   */
+  project: string;
+  /**
+   * Pagination cursor (continuationToken) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_azure_devops_listbuilddefinitions {
+  items: ({  id: number;
+  name: string;
+  url?: string | undefined;
+  path?: string | undefined;
+  type?: string | undefined;
+  queueStatus?: string | undefined;
+  revision?: number | undefined;
+  createdDate?: string | undefined;
+  project?: {  id: string;
+  name: string;
+  url?: string | undefined;
+  state?: string | undefined;
+  revision?: number | undefined;
+  visibility?: string | undefined;
+  lastUpdateTime?: string | undefined;};})[];
+  /**
+   * Pagination cursor for the next page. Omit if there are no more pages.
+   */
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_azure_devops_listbuilds {
+  /**
+   * Project name or ID. Example: "MyProject"
+   */
+  project: string;
+  /**
+   * Minimum queue time filter (ISO 8601). Example: "2024-01-01T00:00:00Z"
+   */
+  minTime?: string | undefined;
+  /**
+   * Continuation token from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_azure_devops_listbuilds {
+  items: ({  id: number;
+  buildNumber?: string | undefined;
+  status?: string | undefined;
+  result?: string | undefined;
+  queueTime?: string | undefined;
+  startTime?: string | undefined;
+  finishTime?: string | undefined;
+  url?: string | undefined;
+  definition?: {  id?: number | undefined;
+  name?: string | undefined;};
+  project?: {  id?: string | undefined;
+  name?: string | undefined;};
+  sourceBranch?: string | undefined;
+  requestedFor?: {  id?: string | undefined;
+  displayName?: string | undefined;};})[];
+  continuationToken?: string | undefined;
+};
+
+export interface ActionInput_azure_devops_listcommits {
+  /**
+   * Project name or ID. Example: "nangoapi"
+   */
+  project: string;
+  /**
+   * Repository ID or name. Example: "my-repo"
+   */
+  repositoryId: string;
+  /**
+   * Branch name to filter commits. Example: "main"
+   */
+  branch?: string | undefined;
+  /**
+   * Filter commits created after this date (ISO 8601). Example: "2024-01-01T00:00:00Z"
+   */
+  fromDate?: string | undefined;
+  /**
+   * Number of commits to return per page. Example: 100
+   */
+  top?: number | undefined;
+  /**
+   * Number of commits to skip. Example: 0
+   */
+  skip?: number | undefined;
+  /**
+   * Pagination cursor from the previous response (continuationToken). Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_azure_devops_listcommits {
+  items: ({  commitId: string;
+  author?: {  name?: string | undefined;
+  email?: string | undefined;
+  date?: string | undefined;};
+  committer?: {  name?: string | undefined;
+  email?: string | undefined;
+  date?: string | undefined;};
+  comment?: string | undefined;
+  changeCounts?: {  Add?: number | undefined;
+  Edit?: number | undefined;
+  Delete?: number | undefined;};
+  url?: string | undefined;
+  remoteUrl?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_azure_devops_listiterations {
+  /**
+   * Project ID or project name. Example: "nangodev"
+   */
+  project: string;
+  /**
+   * Team ID or team name. Example: "nangodev Team"
+   */
+  team: string;
+  /**
+   * Filter for which iterations are returned based on relative time.
+   */
+  timeframe?: 'current' | 'past' | 'future' | undefined;
+};
+
+export interface ActionOutput_azure_devops_listiterations {
+  items: ({  id: string;
+  name: string;
+  path?: string | undefined;
+  url?: string | undefined;
+  attributes?: {  startDate?: string | undefined;
+  finishDate?: string | undefined;
+  timeFrame?: 'past' | 'current' | 'future' | undefined;};})[];
+};
+
+export interface ActionInput_azure_devops_listpipelineruns {
+  /**
+   * Project ID or project name. Example: "MyProject"
+   */
+  project: string;
+  /**
+   * Pipeline ID. Example: "123"
+   */
+  pipelineId: string | number;
+  /**
+   * Maximum number of runs to return.
+   */
+  top?: number | undefined;
+  /**
+   * Pagination token from the previous response. Omit for the first page.
+   */
+  continuationToken?: string | undefined;
+};
+
+export interface ActionOutput_azure_devops_listpipelineruns {
+  runs: ({  id?: number | undefined;
+  name?: string | undefined;
+  state?: string | undefined;
+  result?: string | undefined;
+  createdDate?: string | undefined;
+  finishedDate?: string | undefined;
+  url?: string | undefined;
+  pipeline?: {  folder?: string | undefined;
+  id?: number | undefined;
+  name?: string | undefined;
+  revision?: number | undefined;
+  url?: string | undefined;};
+  tags?: string[] | undefined;})[];
+  continuationToken?: string | undefined;
+};
+
+export interface ActionInput_azure_devops_listpipelines {
+  /**
+   * Project name or ID. Example: "nangoapi"
+   */
+  project: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_azure_devops_listpipelines {
+  items: ({  id: number;
+  name: string;
+  folder?: string | undefined;
+  url?: string | undefined;
+  revision?: number | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_azure_devops_listprthreads {
+  /**
+   * Project ID or project name.
+   */
+  project: string;
+  /**
+   * The repository ID of the pull request target branch.
+   */
+  repositoryId: string;
+  /**
+   * ID of the pull request.
+   */
+  pullRequestId: number;
+};
+
+export interface ActionOutput_azure_devops_listprthreads {
+  threads: ({  id?: number | undefined;
+  comments?: ({  id?: number | undefined;
+  parentCommentId?: number | undefined;
+  author?: {  id?: string | undefined;
+  displayName?: string | undefined;
+  uniqueName?: string | undefined;
+  url?: string | undefined;
+  imageUrl?: string | undefined;
+  isContainer?: boolean | undefined;};
+  content?: string | undefined;
+  commentType?: string | undefined;
+  publishedDate?: string | undefined;
+  lastUpdatedDate?: string | undefined;
+  lastContentUpdatedDate?: string | undefined;
+  isDeleted?: boolean | undefined;
+  usersLiked?: ({  id?: string | undefined;
+  displayName?: string | undefined;
+  uniqueName?: string | undefined;
+  url?: string | undefined;
+  imageUrl?: string | undefined;
+  isContainer?: boolean | undefined;})[];})[];
+  publishedDate?: string | undefined;
+  lastUpdatedDate?: string | undefined;
+  status?: string | undefined;
+  threadContext?: {  filePath?: string | undefined;
+  leftFileStart?: {  line?: number | undefined;
+  offset?: number | undefined;};
+  leftFileEnd?: {  line?: number | undefined;
+  offset?: number | undefined;};
+  rightFileStart?: {  line?: number | undefined;
+  offset?: number | undefined;};
+  rightFileEnd?: {  line?: number | undefined;
+  offset?: number | undefined;};};
+  pullRequestThreadContext?: {  changeTrackingId?: number | undefined;
+  iterationContext?: {  firstComparingIteration?: number | undefined;
+  secondComparingIteration?: number | undefined;};
+  trackingCriteria?: {  firstComparingIteration?: number | undefined;
+  secondComparingIteration?: number | undefined;
+  origFilePath?: string | undefined;
+  origLeftFileStart?: {  line?: number | undefined;
+  offset?: number | undefined;};
+  origLeftFileEnd?: {  line?: number | undefined;
+  offset?: number | undefined;};
+  origRightFileStart?: {  line?: number | undefined;
+  offset?: number | undefined;};
+  origRightFileEnd?: {  line?: number | undefined;
+  offset?: number | undefined;};};};
+  properties?: {  [key: string]: unknown | undefined;};
+  identities?: {  [key: string]: unknown | undefined;};
+  isDeleted?: boolean | undefined;})[];
+};
+
+export interface ActionInput_azure_devops_listprojects {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_azure_devops_listprojects {
+  items: ({  /**
+   * Project ID. Example: "6b6e62c7-9a5d-4c6c-8c8b-1234567890ab"
+   */
+  id: string;
+  /**
+   * Project name. Example: "nangoapi"
+   */
+  name: string;
+  /**
+   * Project description
+   */
+  description?: string | undefined;
+  /**
+   * Project URL
+   */
+  url?: string | undefined;
+  /**
+   * Project state. Example: "wellFormed"
+   */
+  state?: string | undefined;
+  /**
+   * Project revision
+   */
+  revision?: number | undefined;
+  /**
+   * Project visibility. Example: "private"
+   */
+  visibility?: string | undefined;
+  /**
+   * Last update time. Example: "2024-01-01T00:00:00Z"
+   */
+  lastUpdateTime?: string | undefined;})[];
+  /**
+   * Pagination cursor for the next page.
+   */
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_azure_devops_listpullrequests {
+  /**
+   * Project ID or project name. Example: "MyProject"
+   */
+  project: string;
+  /**
+   * The repository ID or name. Example: "3411ebc1-d5aa-464f-9615-0b527bc66719"
+   */
+  repositoryId: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Filter by pull request status. Defaults to Active if unset.
+   */
+  status?: 'active' | 'abandoned' | 'completed' | 'all' | undefined;
+  /**
+   * If set, search for pull requests from this branch. Example: "refs/heads/feature"
+   */
+  sourceRefName?: string | undefined;
+  /**
+   * If set, search for pull requests into this branch. Example: "refs/heads/master"
+   */
+  targetRefName?: string | undefined;
+  /**
+   * The number of pull requests to retrieve.
+   */
+  top?: number | undefined;
+};
+
+export interface ActionOutput_azure_devops_listpullrequests {
+  items: ({  pullRequestId?: number | undefined;
+  codeReviewId?: number | undefined;
+  status?: string | undefined;
+  createdBy?: {  id?: string | undefined;
+  displayName?: string | undefined;
+  uniqueName?: string | undefined;
+  url?: string | undefined;};
+  creationDate?: string | undefined;
+  closedDate?: string | undefined;
+  title?: string | undefined;
+  description?: string | undefined;
+  sourceRefName?: string | undefined;
+  targetRefName?: string | undefined;
+  mergeStatus?: string | undefined;
+  mergeId?: string | undefined;
+  lastMergeSourceCommit?: {  commitId?: string | undefined;
+  url?: string | undefined;};
+  lastMergeTargetCommit?: {  commitId?: string | undefined;
+  url?: string | undefined;};
+  lastMergeCommit?: {  commitId?: string | undefined;
+  url?: string | undefined;};
+  reviewers?: ({  id?: string | undefined;
+  displayName?: string | undefined;
+  uniqueName?: string | undefined;
+  url?: string | undefined;
+  vote?: number | undefined;
+  isRequired?: boolean | undefined;
+  reviewerUrl?: string | undefined;})[];
+  url?: string | undefined;
+  repository?: {  id?: string | undefined;
+  name?: string | undefined;
+  url?: string | undefined;
+  project?: {  id?: string | undefined;
+  name?: string | undefined;};};
+  supportsIterations?: boolean | undefined;
+  isDraft?: boolean | undefined;
+  completionQueueTime?: string | undefined;
+  closedBy?: {  id?: string | undefined;
+  displayName?: string | undefined;
+  uniqueName?: string | undefined;
+  url?: string | undefined;};})[];
+  /**
+   * Pagination cursor for the next page. Pass this value as the cursor input to retrieve the next page.
+   */
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_azure_devops_listrepositories {
+  /**
+   * Project ID or name. Example: "MyProject"
+   */
+  project: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_azure_devops_listrepositories {
+  items: ({  id: string;
+  name: string;
+  url?: string | undefined;
+  project?: {  [key: string]: unknown | undefined;};
+  defaultBranch?: string | undefined;
+  size?: number | undefined;
+  remoteUrl?: string | undefined;
+  sshUrl?: string | undefined;
+  webUrl?: string | undefined;})[];
+  continuationToken?: string | undefined;
+};
+
+export interface ActionInput_azure_devops_listteammembers {
+  /**
+   * Project ID or name. Example: "eb6e4656-77fc-42a1-9181-4c6d8e9da5d1"
+   */
+  projectId: string;
+  /**
+   * Team ID or name. Example: "564e8204-a90b-4432-883b-d4363c6125ca"
+   */
+  teamId: string;
+};
+
+export interface ActionOutput_azure_devops_listteammembers {
+  members: ({  id?: string | undefined;
+  displayName?: string | undefined;
+  uniqueName?: string | undefined;
+  url?: string | undefined;
+  imageUrl?: string | undefined;
+  isTeamAdmin?: boolean | undefined;})[];
+};
+
+export interface ActionInput_azure_devops_listteams {
+  /**
+   * Azure DevOps project ID or name. Example: "nangoapi-test"
+   */
+  projectId: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_azure_devops_listteams {
+  items: ({  id: string;
+  name: string;
+  url?: string | undefined;
+  description?: string | undefined;
+  identityUrl?: string | undefined;
+  projectName?: string | undefined;
+  projectId?: string | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_azure_devops_listtestplans {
+  /**
+   * Project name or ID. Example: "nangoapi"
+   */
+  project: string;
+  /**
+   * Pagination cursor (continuationToken) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_azure_devops_listtestplans {
+  items: ({  id: number;
+  name?: string | undefined;
+  url?: string | undefined;
+  areaPath?: string | undefined;
+  iteration?: string | undefined;
+  state?: string | undefined;
+  project?: {  id?: string | undefined;
+  name?: string | undefined;
+  url?: string | undefined;};
+  rootSuite?: {  id?: number | undefined;
+  name?: string | undefined;
+  url?: string | undefined;};
+  clientUrl?: string | undefined;
+  startDate?: string | undefined;
+  endDate?: string | undefined;})[];
+  /**
+   * Pagination cursor for the next page.
+   */
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_azure_devops_listwikis {
+  /**
+   * Project ID or project name. Example: "my-project"
+   */
+  project: string;
+};
+
+export interface ActionOutput_azure_devops_listwikis {
+  items: ({  /**
+   * Wiki ID.
+   */
+  id: string;
+  /**
+   * Wiki name.
+   */
+  name: string;
+  /**
+   * Type of the wiki: projectWiki or codeWiki.
+   */
+  type: string;
+  /**
+   * REST URL for this wiki.
+   */
+  url: string;
+  remoteUrl?: string | undefined;
+  projectId?: string | undefined;
+  repositoryId?: string | undefined;
+  mappedPath?: string | undefined;
+  isDisabled?: boolean | undefined;
+  versions?: ({  version?: string | undefined;
+  versionOptions?: string | undefined;
+  versionType?: string | undefined;})[];})[];
+  /**
+   * Total number of wikis.
+   */
+  count: number;
+};
+
+export interface ActionInput_azure_devops_pushcommits {
+  /**
+   * Project ID or project name. Example: "nangoapi"
+   */
+  project: string;
+  /**
+   * The name or ID of the repository. Example: "8ee9091d-0f54-4633-9bb2-b5ac74855a46"
+   */
+  repositoryId: string;
+  /**
+   * Branch name to push to. Example: "master" or "refs/heads/master"
+   */
+  branch: string;
+  /**
+   * The current object ID (SHA) of the branch tip. Use "0000000000000000000000000000000000000000" for an initial push to a new branch.
+   */
+  oldObjectId: string;
+  commits: ({  /**
+   * Commit message.
+   */
+  comment: string;
+  changes: ({  changeType: 'none' | 'add' | 'edit' | 'encoding' | 'rename' | 'delete' | 'undelete' | 'branch' | 'merge' | 'lock' | 'rollback' | 'sourceRename' | 'targetRename' | 'property' | 'all';
+  /**
+   * File path. Example: "/readme.md"
+   */
+  path: string;
+  /**
+   * Required for add, edit, and encoding operations.
+   */
+  newContent?: {  content: string;
+  contentType: 'rawText' | 'base64Encoded';} | undefined;
+  /**
+   * Required for rename, sourceRename, and targetRename operations. Example: "/old-name.md"
+   */
+  sourceServerItem?: string | undefined;})[];})[];
+};
+
+export interface ActionOutput_azure_devops_pushcommits {
+  pushId: number;
+  date?: string | undefined;
+  url?: string | undefined;
+  commits: ({  commitId: string;
+  comment?: string | undefined;
+  treeId?: string | undefined;
+  authorName?: string | undefined;
+  authorEmail?: string | undefined;
+  authorDate?: string | undefined;
+  url?: string | undefined;})[];
+  refUpdates: ({  name: string;
+  oldObjectId?: string | undefined;
+  newObjectId?: string | undefined;})[];
+};
+
+export interface ActionInput_azure_devops_queryworkitems {
+  /**
+   * Project name or ID. Example: "nangoapi"
+   */
+  project: string;
+  /**
+   * WIQL query string. Example: "SELECT [System.Id] FROM WorkItems WHERE [System.WorkItemType] = 'Bug'"
+   */
+  query: string;
+  /**
+   * Maximum number of work items to return.
+   */
+  top?: number | undefined;
+};
+
+export interface ActionOutput_azure_devops_queryworkitems {
+  work_items: ({  id: number;
+  rev?: number | undefined;
+  url?: string | undefined;
+  fields?: {  [key: string]: unknown | undefined;};
+  relations?: unknown[] | undefined;})[];
+};
+
+export interface ActionInput_azure_devops_queuebuild {
+  /**
+   * Project ID or name. Example: "nangoapi"
+   */
+  project: string;
+  /**
+   * Build definition ID. Example: 1
+   */
+  buildDefinitionId: number;
+  /**
+   * Source branch reference. Example: "refs/heads/main"
+   */
+  sourceBranch?: string | undefined;
+  /**
+   * Build parameters as a JSON string. Example: '{"system.debug":"true"}'
+   */
+  parameters?: string | undefined;
+};
+
+export interface ActionOutput_azure_devops_queuebuild {
+  id?: number | undefined;
+  buildNumber?: string | undefined;
+  status?: string | undefined;
+  result?: string | undefined;
+  sourceBranch?: string | undefined;
+  sourceVersion?: string | undefined;
+  url?: string | undefined;
+  definition?: {  id?: number | undefined;
+  name?: string | undefined;};
+  project?: {  id?: string | undefined;
+  name?: string | undefined;};
+};
+
+export interface ActionInput_azure_devops_runpipeline {
+  /**
+   * Project ID or project name. Example: "nangoapi"
+   */
+  project: string;
+  /**
+   * The pipeline ID. Example: 1
+   */
+  pipelineId: number;
+  /**
+   * The branch ref to run the pipeline on. Example: "refs/heads/main"
+   */
+  refName?: string | undefined;
+  variables?: {  [key: string]: {  value: string;
+  isSecret?: boolean | undefined;};};
+  templateParameters?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_azure_devops_runpipeline {
+  id: number;
+  state?: string | undefined;
+  result?: string | undefined;
+  name?: string | undefined;
+  url?: string | undefined;
+  pipelineId?: number | undefined;
+  pipelineName?: string | undefined;
+  pipelineUrl?: string | undefined;
+  createdDate?: string | undefined;
+};
+
+export interface ActionInput_azure_devops_updatepullrequest {
+  /**
+   * Project ID. Example: "nangodev"
+   */
+  projectId: string;
+  /**
+   * Repository ID. Example: "46eadaf5-eb36-43bc-8297-a9b4043afd09"
+   */
+  repositoryId: string;
+  /**
+   * Pull request ID. Example: 2
+   */
+  pullRequestId: number;
+  /**
+   * Updated title for the pull request.
+   */
+  title?: string | undefined;
+  /**
+   * Updated description for the pull request. Pass null to clear.
+   */
+  description?: string | undefined;
+  /**
+   * Updated status for the pull request.
+   */
+  status?: 'active' | 'abandoned' | 'completed' | undefined;
+  /**
+   * Whether the pull request is a draft.
+   */
+  isDraft?: boolean | undefined;
+  /**
+   * The last merge source commit ID. Required when completing a PR (status: completed).
+   */
+  lastMergeSourceCommitId?: string | undefined;
+};
+
+export interface ActionOutput_azure_devops_updatepullrequest {
+  pullRequestId: number;
+  status: string;
+  title: string;
+  description?: string | undefined;
+  sourceRefName: string;
+  targetRefName: string;
+  isDraft: boolean;
+  url: string;
+  lastMergeSourceCommit?: {  commitId: string;} | undefined;
+};
+
+export interface ActionInput_azure_devops_updateworkitem {
+  /**
+   * Project name or ID. Example: "nangodev"
+   */
+  project: string;
+  /**
+   * Work item ID to update. Example: 1
+   */
+  work_item_id: number;
+  /**
+   * JSON Patch operations. Example: [{ op: "replace", path: "/fields/System.Title", value: "New title" }]
+   */
+  patches: ({  /**
+   * JSON Patch operation. Example: "replace"
+   */
+  op: string;
+  /**
+   * Target path. Example: "/fields/System.Title"
+   */
+  path: string;
+  /**
+   * New value for the path.
+   */
+  value?: unknown | undefined;})[];
+};
+
+export interface ActionOutput_azure_devops_updateworkitem {
+  id: number;
+  rev: number;
+  url: string;
+  fields?: {  [key: string]: unknown | undefined;};
 };
 
 export interface Applicant {
@@ -37716,18 +40317,6 @@ export interface SyncMetadata_google_calendar_events {
   singleEvents?: boolean | undefined;
 };
 
-export interface Calendar {
-  id: string;
-  name?: string | undefined;
-  color?: string | undefined;
-  changeKey?: string | undefined;
-  canShare?: boolean | undefined;
-  canViewPrivateItems?: boolean | undefined;
-  canEdit?: boolean | undefined;
-  owner?: {  name?: string | undefined;
-  address?: string | undefined;};
-};
-
 export interface Setting {
   id: string;
   value: string;
@@ -42029,17 +44618,6 @@ export interface Filter {
   forward?: string | undefined;
 };
 
-export interface Label {
-  id: string;
-  accountId: string;
-  labelId: string;
-  displayName?: string | undefined;
-  color?: string | undefined;
-  sequence?: number | undefined;
-  tagId?: string | undefined;
-  uri?: string | undefined;
-};
-
 export interface SendAsAlias {
   id: string;
   sendAsEmail: string;
@@ -44872,43 +47450,6 @@ export interface Owner {
   archived: boolean;
   createdAt?: string | undefined;
   updatedAt?: string | undefined;
-};
-
-export interface Product {
-  id: string;
-  Product_Name?: string | undefined;
-  Product_Code?: string | undefined;
-  Product_Category?: string | undefined;
-  Unit_Price?: number | undefined;
-  Taxable?: boolean | undefined;
-  Description?: string | undefined;
-  Manufacturer?: string | undefined;
-  Usage_Unit?: string | undefined;
-  Qty_in_Stock?: number | undefined;
-  Qty_Ordered?: number | undefined;
-  Qty_in_Demand?: number | undefined;
-  Reorder_Level?: number | undefined;
-  Commission_Rate?: number | undefined;
-  Sales_Start_Date?: string | undefined;
-  Sales_End_Date?: string | undefined;
-  Support_Start_Date?: string | undefined;
-  Support_Expiry_Date?: string | undefined;
-  Handler?: {  name?: string | undefined;
-  id?: string | undefined;
-  email?: string | undefined;};
-  Owner?: {  name?: string | undefined;
-  id?: string | undefined;
-  email?: string | undefined;};
-  Created_By?: {  name?: string | undefined;
-  id?: string | undefined;
-  email?: string | undefined;};
-  Modified_By?: {  name?: string | undefined;
-  id?: string | undefined;
-  email?: string | undefined;};
-  Created_Time?: string | undefined;
-  Modified_Time?: string | undefined;
-  "$approved"?: boolean | undefined;
-  "$editable"?: boolean | undefined;
 };
 
 export interface ActionInput_hubspot_batchcreatecompanies {
@@ -76130,68 +78671,6 @@ export interface Metaobject {
 
 export interface SyncMetadata_shopify_metaobjects {
   types: string[];
-};
-
-export interface Order {
-  id: string;
-  parent_id?: string | undefined;
-  number?: string | undefined;
-  order_key?: string | undefined;
-  created_via?: string | undefined;
-  version?: string | undefined;
-  status?: string | undefined;
-  currency?: string | undefined;
-  date_created?: string | undefined;
-  date_created_gmt?: string | undefined;
-  date_modified?: string | undefined;
-  date_modified_gmt?: string | undefined;
-  discount_total?: string | undefined;
-  discount_tax?: string | undefined;
-  shipping_total?: string | undefined;
-  shipping_tax?: string | undefined;
-  cart_tax?: string | undefined;
-  total?: string | undefined;
-  total_tax?: string | undefined;
-  prices_include_tax?: boolean | undefined;
-  customer_id?: string | undefined;
-  customer_ip_address?: string | undefined;
-  customer_user_agent?: string | undefined;
-  customer_note?: string | undefined;
-  billing?: {  first_name?: string | undefined;
-  last_name?: string | undefined;
-  company?: string | undefined;
-  address_1?: string | undefined;
-  address_2?: string | undefined;
-  city?: string | undefined;
-  state?: string | undefined;
-  postcode?: string | undefined;
-  country?: string | undefined;
-  email?: string | undefined;
-  phone?: string | undefined;};
-  shipping?: {  first_name?: string | undefined;
-  last_name?: string | undefined;
-  company?: string | undefined;
-  address_1?: string | undefined;
-  address_2?: string | undefined;
-  city?: string | undefined;
-  state?: string | undefined;
-  postcode?: string | undefined;
-  country?: string | undefined;};
-  payment_method?: string | undefined;
-  payment_method_title?: string | undefined;
-  transaction_id?: string | undefined;
-  date_paid?: string | undefined;
-  date_paid_gmt?: string | undefined;
-  date_completed?: string | undefined;
-  date_completed_gmt?: string | undefined;
-  cart_hash?: string | undefined;
-  meta_data?: unknown[] | undefined;
-  line_items?: unknown[] | undefined;
-  tax_lines?: unknown[] | undefined;
-  shipping_lines?: unknown[] | undefined;
-  fee_lines?: unknown[] | undefined;
-  coupon_lines?: unknown[] | undefined;
-  refunds?: unknown[] | undefined;
 };
 
 export interface Return {
@@ -114883,16 +117362,6 @@ export interface FormRecord {
 
 export interface SyncMetadata_zoho_people_formrecords {
   form_link_names?: string[] | undefined;
-};
-
-export interface Form {
-  id: string;
-  componentId: string;
-  formLinkName: string;
-  displayName?: string | undefined;
-  PermissionDetails?: unknown | undefined;
-  isVisible?: boolean | undefined;
-  viewDetails?: unknown | undefined;
 };
 
 export interface Holiday {
