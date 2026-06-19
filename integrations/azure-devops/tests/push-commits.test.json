@@ -1,0 +1,188 @@
+{
+  "input": {
+    "project": "nangodev",
+    "repositoryId": "46eadaf5-eb36-43bc-8297-a9b4043afd09",
+    "branch": "test-nango-action-20250618-2",
+    "oldObjectId": "0b1450d2cdc9281c71fcf4fc4a08e66db58a850f",
+    "commits": [
+      {
+        "comment": "Test push via Nango action",
+        "changes": [
+          {
+            "changeType": "add",
+            "path": "/test-nango-push.md",
+            "newContent": {
+              "content": "# Hello from Nango\nThis is a test push.",
+              "contentType": "rawText"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "output": {
+    "pushId": 14,
+    "date": "2026-06-18T08:18:00.2322798Z",
+    "url": "https://dev.azure.com/nangoapi/nangodev/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09/pushes/14",
+    "commits": [
+      {
+        "commitId": "9f0bafafbe2760d5f67a07deae7f2e26cfe80756",
+        "comment": "Test push via Nango action",
+        "treeId": "221ba47e747fddc27e4d08eb7d7a27bb0e4f186a",
+        "authorName": "Robin Guldener",
+        "authorEmail": "api@nangodevelopers.onmicrosoft.com",
+        "authorDate": "2026-06-18T08:18:00Z",
+        "url": "https://dev.azure.com/nangoapi/727607ec-cf74-49dd-9579-17e253b976d2/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09/commits/9f0bafafbe2760d5f67a07deae7f2e26cfe80756"
+      }
+    ],
+    "refUpdates": [
+      {
+        "name": "refs/heads/test-nango-action-20250618-2",
+        "oldObjectId": "0000000000000000000000000000000000000000",
+        "newObjectId": "9f0bafafbe2760d5f67a07deae7f2e26cfe80756"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/nangodev/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09/pushes": {
+        "response": {
+          "commits": [
+            {
+              "treeId": "221ba47e747fddc27e4d08eb7d7a27bb0e4f186a",
+              "commitId": "9f0bafafbe2760d5f67a07deae7f2e26cfe80756",
+              "author": {
+                "name": "Robin Guldener",
+                "email": "api@nangodevelopers.onmicrosoft.com",
+                "date": "2026-06-18T08:18:00Z"
+              },
+              "committer": {
+                "name": "Robin Guldener",
+                "email": "api@nangodevelopers.onmicrosoft.com",
+                "date": "2026-06-18T08:18:00Z"
+              },
+              "comment": "Test push via Nango action",
+              "parents": [
+                "0b1450d2cdc9281c71fcf4fc4a08e66db58a850f"
+              ],
+              "url": "https://dev.azure.com/nangoapi/727607ec-cf74-49dd-9579-17e253b976d2/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09/commits/9f0bafafbe2760d5f67a07deae7f2e26cfe80756"
+            }
+          ],
+          "refUpdates": [
+            {
+              "repositoryId": "46eadaf5-eb36-43bc-8297-a9b4043afd09",
+              "name": "refs/heads/test-nango-action-20250618-2",
+              "oldObjectId": "0000000000000000000000000000000000000000",
+              "newObjectId": "9f0bafafbe2760d5f67a07deae7f2e26cfe80756"
+            }
+          ],
+          "repository": {
+            "id": "46eadaf5-eb36-43bc-8297-a9b4043afd09",
+            "name": "nangodev",
+            "url": "https://dev.azure.com/nangoapi/727607ec-cf74-49dd-9579-17e253b976d2/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09",
+            "project": {
+              "id": "727607ec-cf74-49dd-9579-17e253b976d2",
+              "name": "nangodev",
+              "url": "https://dev.azure.com/nangoapi/_apis/projects/727607ec-cf74-49dd-9579-17e253b976d2",
+              "state": "wellFormed",
+              "revision": 11,
+              "visibility": "private",
+              "lastUpdateTime": "2026-06-18T07:38:30.063Z"
+            },
+            "size": 256,
+            "remoteUrl": "https://nangoapi@dev.azure.com/nangoapi/nangodev/_git/nangodev",
+            "sshUrl": "git@ssh.dev.azure.com:v3/nangoapi/nangodev/nangodev",
+            "webUrl": "https://dev.azure.com/nangoapi/nangodev/_git/nangodev",
+            "isDisabled": false,
+            "isInMaintenance": false
+          },
+          "pushedBy": {
+            "displayName": "Robin Guldener",
+            "url": "https://spsprodcus7.vssps.visualstudio.com/Abf7b171b-1724-4ebf-8ae7-ccbf15d8a767/_apis/Identities/2a4985d2-16e6-6c2d-a9d5-6dd873b6c65d",
+            "_links": {
+              "avatar": {
+                "href": "https://dev.azure.com/nangoapi/_apis/GraphProfile/MemberAvatars/aad.MmE0OTg1ZDItMTZlNi03YzJkLWE5ZDUtNmRkODczYjZjNjVk"
+              }
+            },
+            "id": "2a4985d2-16e6-6c2d-a9d5-6dd873b6c65d",
+            "uniqueName": "api@nangodevelopers.onmicrosoft.com",
+            "imageUrl": "https://dev.azure.com/nangoapi/_api/_common/identityImage?id=2a4985d2-16e6-6c2d-a9d5-6dd873b6c65d",
+            "descriptor": "aad.MmE0OTg1ZDItMTZlNi03YzJkLWE5ZDUtNmRkODczYjZjNjVk"
+          },
+          "pushId": 14,
+          "date": "2026-06-18T08:18:00.2322798Z",
+          "url": "https://dev.azure.com/nangoapi/nangodev/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09/pushes/14",
+          "_links": {
+            "self": {
+              "href": "https://dev.azure.com/nangoapi/nangodev/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09/pushes/14"
+            },
+            "repository": {
+              "href": "https://dev.azure.com/nangoapi/727607ec-cf74-49dd-9579-17e253b976d2/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09"
+            },
+            "commits": {
+              "href": "https://dev.azure.com/nangoapi/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09/pushes/14/commits"
+            },
+            "pusher": {
+              "href": "https://spsprodcus7.vssps.visualstudio.com/Abf7b171b-1724-4ebf-8ae7-ccbf15d8a767/_apis/Identities/2a4985d2-16e6-6c2d-a9d5-6dd873b6c65d"
+            },
+            "refs": {
+              "href": "https://dev.azure.com/nangoapi/727607ec-cf74-49dd-9579-17e253b976d2/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09/refs/heads/test-nango-action-20250618-2"
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 18 Jun 2026 08:18:00 GMT",
+          "content-type": "application/json; charset=utf-8; api-version=7.2-preview.3",
+          "content-length": "3137",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4984",
+          "x-ratelimit-reset": "1781770687",
+          "etag": "W/\"c41-9td9BP9l1ckB7Px12ScqmsacuB0\""
+        },
+        "hash": "5ad0b2f3208a13af32f987a999739c39ac0c7205",
+        "request": {
+          "params": {
+            "api-version": "7.2-preview.3"
+          },
+          "data": {
+            "refUpdates": [
+              {
+                "name": "refs/heads/test-nango-action-20250618-2",
+                "oldObjectId": "0b1450d2cdc9281c71fcf4fc4a08e66db58a850f"
+              }
+            ],
+            "commits": [
+              {
+                "comment": "Test push via Nango action",
+                "changes": [
+                  {
+                    "changeType": "add",
+                    "item": {
+                      "path": "/test-nango-push.md"
+                    },
+                    "newContent": {
+                      "content": "# Hello from Nango\nThis is a test push.",
+                      "contentType": "rawText"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}
