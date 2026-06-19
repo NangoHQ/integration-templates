@@ -3,7 +3,7 @@ import { createAction, ProxyConfiguration } from 'nango';
 
 const InputSchema = z.object({
     webhook_id: z.string().describe('Webhook UUID. Example: "c2501111-8a69-4342-bb34-bcd6cfe564ac"'),
-    url: z.string().describe('Webhook URL. Must be a valid URL.'),
+    url: z.string().url().describe('Webhook URL. Must be a valid HTTPS URL. Example: "https://example.com/webhook"'),
     events: z.array(z.string()).optional().describe('List of events to subscribe to. Example: ["contact.created", "contact.updated"]'),
     active: z.boolean().optional().describe('Whether the webhook is active.'),
     custom_name: z.string().optional().describe('Custom name for the webhook. Default is "Webhook".')

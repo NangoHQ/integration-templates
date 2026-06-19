@@ -7,7 +7,7 @@ const ProviderUserSchema = z.object({
     name: z.string(),
     email: z.string(),
     availability_status: z.string(),
-    default_number_id: z.number().int().optional(),
+    default_number_id: z.number().int().nullable().optional(),
     created_at: z.string(),
     time_zone: z.string()
 });
@@ -58,8 +58,6 @@ const sync = createSync({
 
     exec: async (nango) => {
         // Full refresh: GET /v1/teams does not support updated_after, cursor, or since_id.
-        await nango.trackDeletesStart('Team');
-
         const proxyConfig: ProxyConfiguration = {
             // https://developer.aircall.io/api-references/#list-all-teams
             endpoint: '/v1/teams',
@@ -74,6 +72,8 @@ const sync = createSync({
             },
             retries: 3
         };
+
+        let trackingStarted = false;
 
         for await (const page of nango.paginate(proxyConfig)) {
             const teams = page.map((record: unknown) => {
@@ -93,19 +93,26 @@ const sync = createSync({
                         name: user.name,
                         email: user.email,
                         availability_status: user.availability_status,
-                        default_number_id: user.default_number_id,
+                        ...(user.default_number_id != null && { default_number_id: user.default_number_id }),
                         created_at: user.created_at,
                         time_zone: user.time_zone
                     }))
                 };
             });
 
+            if (!trackingStarted) {
+                await nango.trackDeletesStart('Team');
+                trackingStarted = true;
+            }
+
             if (teams.length > 0) {
                 await nango.batchSave(teams, 'Team');
             }
         }
 
-        await nango.trackDeletesEnd('Team');
+        if (trackingStarted) {
+            await nango.trackDeletesEnd('Team');
+        }
     }
 });
 

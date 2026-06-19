@@ -44,7 +44,7 @@ const sync = createSync({
             retries: 3
         };
 
-        await nango.trackDeletesStart('Webhook');
+        let trackingStarted = false;
 
         for await (const page of nango.paginate<z.infer<typeof ProviderWebhookSchema>>(proxyConfig)) {
             const parsed = z.array(ProviderWebhookSchema).safeParse(page);
@@ -62,12 +62,19 @@ const sync = createSync({
                 created_at: webhook.created_at
             }));
 
+            if (!trackingStarted) {
+                await nango.trackDeletesStart('Webhook');
+                trackingStarted = true;
+            }
+
             if (records.length > 0) {
                 await nango.batchSave(records, 'Webhook');
             }
         }
 
-        await nango.trackDeletesEnd('Webhook');
+        if (trackingStarted) {
+            await nango.trackDeletesEnd('Webhook');
+        }
     }
 });
 

@@ -13,14 +13,14 @@ const EmailSchema = z.object({
 
 const ContactSchema = z.object({
     id: z.number().describe('Contact ID. Example: 711'),
-    direct_link: z.string().describe('Direct API URL. Example: https://api.aircall.io/v1/contacts/711'),
-    first_name: z.string().nullable(),
-    last_name: z.string().nullable(),
-    company_name: z.string().nullable(),
-    information: z.string().nullable(),
-    is_shared: z.boolean(),
-    created_at: z.number().describe('Unix timestamp when the contact was created. Example: 1781777463'),
-    updated_at: z.number().describe('Unix timestamp when the contact was last updated. Example: 1781777463'),
+    direct_link: z.string().optional().describe('Direct API URL. Example: https://api.aircall.io/v1/contacts/711'),
+    first_name: z.string().nullable().optional(),
+    last_name: z.string().nullable().optional(),
+    company_name: z.string().nullable().optional(),
+    information: z.string().nullable().optional(),
+    is_shared: z.boolean().optional(),
+    created_at: z.number().optional().describe('Unix timestamp when the contact was created. Example: 1781777463'),
+    updated_at: z.number().optional().describe('Unix timestamp when the contact was last updated. Example: 1781777463'),
     phone_numbers: z.array(PhoneNumberSchema).optional(),
     emails: z.array(EmailSchema).optional()
 });

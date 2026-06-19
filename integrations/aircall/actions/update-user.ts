@@ -3,7 +3,8 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     id: z.number().describe('Aircall user ID. Example: 1981305'),
-    name: z.string().optional().describe('Full name of the user.'),
+    first_name: z.string().optional().describe('First name of the user. Example: "John"'),
+    last_name: z.string().optional().describe('Last name of the user. Example: "Doe"'),
     email: z.string().email().optional().describe('Email of the user.'),
     language: z.string().optional().describe('User preferred language (IETF tag). Example: en-US'),
     time_zone: z.string().optional().describe('User timezone. Example: America/New_York'),
@@ -54,8 +55,11 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const body: Record<string, unknown> = {};
 
-        if (input.name !== undefined) {
-            body['name'] = input.name;
+        if (input.first_name !== undefined) {
+            body['first_name'] = input.first_name;
+        }
+        if (input.last_name !== undefined) {
+            body['last_name'] = input.last_name;
         }
         if (input.email !== undefined) {
             body['email'] = input.email;

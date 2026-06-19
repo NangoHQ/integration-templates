@@ -15,9 +15,9 @@ const ProviderUserSchema = z.object({
     created_at: z.string(),
     time_zone: z.string(),
     language: z.string(),
-    substatus: z.string(),
+    substatus: z.string().nullable().optional(),
     wrap_up_time: z.number(),
-    extension: z.string(),
+    extension: z.string().nullable().optional(),
     default_number_id: z.number().nullable().optional(),
     state: z.string().optional()
 });
@@ -32,9 +32,9 @@ const OutputSchema = z.object({
     created_at: z.string(),
     time_zone: z.string(),
     language: z.string(),
-    substatus: z.string(),
+    substatus: z.string().optional(),
     wrap_up_time: z.number(),
-    extension: z.string(),
+    extension: z.string().optional(),
     default_number_id: z.number().optional(),
     state: z.string().optional()
 });
@@ -83,9 +83,9 @@ const action = createAction({
             created_at: providerUser.created_at,
             time_zone: providerUser.time_zone,
             language: providerUser.language,
-            substatus: providerUser.substatus,
+            ...(providerUser.substatus != null && { substatus: providerUser.substatus }),
             wrap_up_time: providerUser.wrap_up_time,
-            extension: providerUser.extension,
+            ...(providerUser.extension != null && { extension: providerUser.extension }),
             ...(providerUser.default_number_id != null && { default_number_id: providerUser.default_number_id }),
             ...(providerUser.state !== undefined && { state: providerUser.state })
         };

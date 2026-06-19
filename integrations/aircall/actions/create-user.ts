@@ -2,12 +2,12 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    email: z.string().describe('User email. Must be valid and unique. Example: "john.doe@aircall.io"'),
+    email: z.string().email().describe('User email. Must be valid and unique. Example: "john.doe@aircall.io"'),
     first_name: z.string().describe('User first name. Example: "John"'),
     last_name: z.string().describe('User last name. Example: "Doe"'),
     language: z.string().optional().describe('User preferred language in IETF format. Example: "en-US"'),
     time_zone: z.string().optional().describe('User timezone. Example: "America/New_York"'),
-    wrap_up_time: z.number().optional().describe('Wrap-up time in seconds after a call. Example: 30'),
+    wrap_up_time: z.number().int().optional().describe('Wrap-up time in whole seconds after a call. Example: 30'),
     extension: z.string().optional().describe('User extension. Example: "001"')
 });
 

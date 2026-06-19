@@ -91,7 +91,7 @@ const NumberSchema = z
 
 const OutputSchema = z.object({
     items: z.array(NumberSchema),
-    next_page_link: z.string().optional()
+    next_cursor: z.string().optional().describe('Next page cursor (page number string). Pass as cursor on the next call.')
 });
 
 const action = createAction({
@@ -148,7 +148,7 @@ const action = createAction({
                 ...(number.closed !== undefined && { closed: number.closed }),
                 ...(number.callback_later !== undefined && { callback_later: number.callback_later })
             })),
-            ...(data.meta.next_page_link !== null && { next_page_link: data.meta.next_page_link })
+            ...(data.meta.next_page_link !== null && { next_cursor: String(data.meta.current_page + 1) })
         };
     }
 });

@@ -2,8 +2,8 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    page: z.number().optional().describe('Page number. Default is 1.'),
-    per_page: z.number().optional().describe('Number of results per page. Default is 20, maximum is 50.')
+    page: z.number().int().min(1).optional().describe('Page number. Default is 1.'),
+    per_page: z.number().int().min(1).max(50).optional().describe('Number of results per page. Default is 20, maximum is 50.')
 });
 
 const TagSchema = z.object({
