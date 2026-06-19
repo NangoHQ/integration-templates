@@ -27,12 +27,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List time off types configured in BambooHR.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-time-off-types',
-        group: 'Time Off'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {

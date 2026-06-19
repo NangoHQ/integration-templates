@@ -46,12 +46,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Upload a small file directly to Dropbox.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/upload-file',
-        group: 'Files'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['files.content.write', 'files.content.read'],

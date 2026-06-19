@@ -29,12 +29,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Save an email as a draft in Zoho Mail.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-draft',
-        group: 'Messages'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoMail.messages.CREATE'],

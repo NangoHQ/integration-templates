@@ -65,13 +65,8 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List inline comments for a Confluence page.',
-    version: '1.0.0',
+    version: '1.0.1',
     metadata: MetadataSchema,
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-page-inline-comments',
-        group: 'Comments'
-    },
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read:comment:confluence'],

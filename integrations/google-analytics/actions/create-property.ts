@@ -43,12 +43,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a GA4 property under an account.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-property',
-        group: 'Properties'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/analytics.edit'],

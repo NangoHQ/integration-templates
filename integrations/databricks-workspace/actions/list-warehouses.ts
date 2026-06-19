@@ -8,13 +8,7 @@ import { z } from 'zod';
 
 const action = createAction({
     description: 'List all SQL warehouses in the workspace',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'GET',
-        path: '/warehouses',
-        group: 'Warehouses'
-    },
+    version: '2.0.1',
 
     input: z.void(),
     output: ListWarehousesResponse,

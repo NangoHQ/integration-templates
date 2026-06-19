@@ -101,12 +101,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a subscription in Stripe.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-subscription',
-        group: 'Subscriptions'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

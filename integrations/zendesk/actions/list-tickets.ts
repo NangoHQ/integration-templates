@@ -105,12 +105,7 @@ const ListTicketsOutputSchema = z.object({
 
 const action = createAction({
     description: 'List tickets in Zendesk Support',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-tickets',
-        group: 'Tickets'
-    },
+    version: '1.0.1',
     input: ListTicketsInputSchema,
     output: ListTicketsOutputSchema,
 

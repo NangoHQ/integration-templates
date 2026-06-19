@@ -22,12 +22,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Identify or update a PostHog person.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/identify-person',
-        group: 'Persons'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

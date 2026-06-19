@@ -155,12 +155,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Fetch a single issue or pull request issue record by number.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-issue',
-        group: 'Issues'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['repo'],

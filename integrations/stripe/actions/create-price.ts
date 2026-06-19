@@ -165,12 +165,7 @@ function toStripeFormUrlEncoded(obj: StripeFormData): string {
 
 const action = createAction({
     description: 'Create a price in Stripe.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-price',
-        group: 'Prices'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

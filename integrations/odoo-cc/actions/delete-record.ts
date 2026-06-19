@@ -18,12 +18,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete an Odoo model record.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-record',
-        group: 'Records'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

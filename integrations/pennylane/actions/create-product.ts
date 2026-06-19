@@ -5,13 +5,7 @@ import { PennylaneSuccessResponse, CreateProduct } from '../models.js';
 
 const action = createAction({
     description: 'Action to create a product in pennylane',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/products',
-        group: 'Products'
-    },
+    version: '2.0.1',
 
     input: CreateProduct,
     output: PennylaneSuccessResponse,

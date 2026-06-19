@@ -85,12 +85,7 @@ const ConnectionsResponseSchema = z.object({
 
 const action = createAction({
     description: 'List purchase orders with filters and pagination',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-purchase-orders',
-        group: 'Purchase Orders'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['accounting.invoices', 'accounting.settings'],

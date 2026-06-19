@@ -85,12 +85,7 @@ const GraphQLResponseSchema = z.object({
 
 const action = createAction({
     description: 'Create a Shopify collection.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-collection',
-        group: 'Collections'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write_products'],

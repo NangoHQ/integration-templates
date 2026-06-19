@@ -97,12 +97,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Grant item access to recipients and optionally send invitations.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/invite-recipients',
-        group: 'Sharing'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Files.ReadWrite', 'offline_access'],

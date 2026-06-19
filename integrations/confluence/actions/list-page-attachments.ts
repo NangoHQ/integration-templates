@@ -52,12 +52,7 @@ const MetadataSchema = z.object({
 
 const action = createAction({
     description: 'List attachments for a specific Confluence page.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-page-attachments',
-        group: 'Content'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,

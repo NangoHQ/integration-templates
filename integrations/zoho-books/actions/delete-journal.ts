@@ -23,12 +23,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete a manual journal entry in Zoho Books.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-journal',
-        group: 'Journals'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoBooks.fullaccess.ALL'],

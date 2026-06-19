@@ -21,12 +21,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete or archive a pipeline in Pipedrive',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-pipeline',
-        group: 'Pipelines'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['deals:write'],

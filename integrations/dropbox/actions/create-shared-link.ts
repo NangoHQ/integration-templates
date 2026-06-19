@@ -63,12 +63,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a shared link for a Dropbox file or folder with optional settings.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-shared-link',
-        group: 'Sharing'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['sharing.write', 'files.content.read'],

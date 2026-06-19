@@ -130,12 +130,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single deal from Zoho CRM',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-deal',
-        group: 'Deals'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoCRM.modules.Deals.READ'],

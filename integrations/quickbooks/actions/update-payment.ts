@@ -144,12 +144,7 @@ function buildUpdatePayload(input: z.infer<typeof InputSchema>): Record<string, 
 
 const action = createAction({
     description: 'Update a payment using its current SyncToken.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-payment',
-        group: 'Payments'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

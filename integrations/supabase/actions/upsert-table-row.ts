@@ -13,12 +13,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Insert or update a row in a Supabase table, merging on conflict.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/upsert-table-row',
-        group: 'Tables'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

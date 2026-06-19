@@ -48,12 +48,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create embeddings for text inputs.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-embedding',
-        group: 'Embeddings'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['model.request'],

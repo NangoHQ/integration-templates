@@ -57,12 +57,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single refund from Stripe.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-refund',
-        group: 'Refunds'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

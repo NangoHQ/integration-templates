@@ -52,12 +52,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a Chat Completions API response for compatibility workflows',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-chat-completion',
-        group: 'Chat'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['model.request'],

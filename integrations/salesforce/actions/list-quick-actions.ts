@@ -33,12 +33,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List quick actions available in the org or on an sObject',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-quick-actions',
-        group: 'Quick Actions'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api'],

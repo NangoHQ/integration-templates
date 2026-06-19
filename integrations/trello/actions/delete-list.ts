@@ -23,12 +23,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Archive a Trello list. Trello does not support permanent list deletion; lists are archived by setting closed=true.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-list',
-        group: 'Lists'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read', 'write'],

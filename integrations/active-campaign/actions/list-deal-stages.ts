@@ -49,12 +49,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List deal stages from ActiveCampaign.',
-    version: '1.0.0',
-    // https://developers.activecampaign.com/reference/list-all-deal-stages
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-deal-stages'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

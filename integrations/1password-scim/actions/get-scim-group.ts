@@ -55,12 +55,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single SCIM group from 1Password SCIM.',
-    version: '1.1.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-scim-group',
-        group: 'Groups'
-    },
+    version: '1.1.1',
     input: InputSchema,
     output: OutputSchema,
 

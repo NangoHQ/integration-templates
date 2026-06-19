@@ -71,12 +71,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List branches from GitLab.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-branches',
-        group: 'Branches'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api', 'read_repository'],

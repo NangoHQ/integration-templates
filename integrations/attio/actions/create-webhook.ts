@@ -61,12 +61,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a webhook in Attio.',
-    version: '2.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-webhook',
-        group: 'Webhooks'
-    },
+    version: '2.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['webhook:read-write'],

@@ -46,12 +46,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Copy a folder and its contents to a different location in Box.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/copy-folder',
-        group: 'Folders'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['root_readwrite'],

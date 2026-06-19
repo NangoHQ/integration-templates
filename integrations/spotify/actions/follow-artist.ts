@@ -32,12 +32,7 @@ function getStatusFromError(error: unknown): number | undefined {
 
 const action = createAction({
     description: 'Follow one or more artists on behalf of the current user.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/follow-artist',
-        group: 'Follow'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['user-follow-modify'],

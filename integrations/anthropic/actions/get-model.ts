@@ -61,12 +61,7 @@ const OutputSchema = ModelSchema;
 
 const action = createAction({
     description: 'Retrieve a single model from Anthropic.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-model',
-        group: 'Models'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

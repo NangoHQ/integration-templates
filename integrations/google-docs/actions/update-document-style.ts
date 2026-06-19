@@ -49,12 +49,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update document-level page and margin styling.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-document-style',
-        group: 'Documents'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/documents', 'https://www.googleapis.com/auth/drive.file'],

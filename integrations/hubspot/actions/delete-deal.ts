@@ -12,13 +12,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete a deal record',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-deal',
-        group: 'Deals'
-    },
+    version: '2.0.1',
 
     input: InputSchema,
     output: OutputSchema,

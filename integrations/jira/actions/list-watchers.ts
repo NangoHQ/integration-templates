@@ -42,12 +42,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List watchers on a Jira issue',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-watchers',
-        group: 'Issues'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read:jira-work'],

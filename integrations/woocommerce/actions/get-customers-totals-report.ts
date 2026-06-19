@@ -13,12 +13,7 @@ const OutputSchema = z.array(CustomerTotalSchema);
 
 const action = createAction({
     description: 'Retrieve the customers totals report from WooCommerce.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-customers-totals-report',
-        group: 'Reports'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read'],

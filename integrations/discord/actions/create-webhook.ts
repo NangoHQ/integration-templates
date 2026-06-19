@@ -52,12 +52,7 @@ const MetadataSchema = z.object({
 
 const action = createAction({
     description: 'Create a webhook in a Discord channel',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-webhook',
-        group: 'Webhooks'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,

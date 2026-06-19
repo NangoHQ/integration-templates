@@ -1,0 +1,280 @@
+{
+  "input": {
+    "cohort_id": "9apg8e8f"
+  },
+  "output": {
+    "cohort": {
+      "id": "9apg8e8f",
+      "name": "14 day user retention",
+      "finished": true,
+      "size": 0,
+      "type": "redshift",
+      "appId": 829528,
+      "archived": false,
+      "definition": {
+        "version": 3,
+        "countGroup": {
+          "name": "User",
+          "is_computed": false
+        },
+        "cohortType": "UNIQUES",
+        "andClauses": [
+          {
+            "negated": false,
+            "orClauses": [
+              {
+                "type": "retention",
+                "time_type": "rolling",
+                "time_value": 45,
+                "offset": 0,
+                "interval": 1,
+                "exclude_current_interval": false,
+                "retention_method": "bracket",
+                "start_event": {
+                  "filters": [],
+                  "group_by": [],
+                  "event_type": "_new"
+                },
+                "return_event": {
+                  "filters": [],
+                  "group_by": [],
+                  "event_type": "_active"
+                },
+                "base_bracket": [
+                  14,
+                  15
+                ],
+                "bracket_interval": 1,
+                "multi_filters": [
+                  []
+                ],
+                "granularity": -3600000,
+                "retained": true
+              }
+            ]
+          }
+        ],
+        "referenceFrameTimeParams": {},
+        "orClauses": [
+          [
+            {
+              "negated": false,
+              "orClauses": [
+                {
+                  "type": "retention",
+                  "time_type": "rolling",
+                  "time_value": 45,
+                  "offset": 0,
+                  "interval": 1,
+                  "exclude_current_interval": false,
+                  "retention_method": "bracket",
+                  "start_event": {
+                    "filters": [],
+                    "group_by": [],
+                    "event_type": "_new"
+                  },
+                  "return_event": {
+                    "filters": [],
+                    "group_by": [],
+                    "event_type": "_active"
+                  },
+                  "base_bracket": [
+                    14,
+                    15
+                  ],
+                  "bracket_interval": 1,
+                  "multi_filters": [
+                    []
+                  ],
+                  "granularity": -3600000,
+                  "retained": true
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      "description": null,
+      "published": true,
+      "lastMod": 1781554538,
+      "createdAt": 1781554538,
+      "lastComputed": 1781613113,
+      "hidden": false,
+      "metadata": null,
+      "view_count": null,
+      "popularity": null,
+      "last_viewed": null,
+      "chart_id": null,
+      "edit_id": null,
+      "is_predictive": false,
+      "is_official_content": false,
+      "location_id": null,
+      "shortcut_ids": [],
+      "per_app_metadata": null,
+      "cohort_definition_type": null,
+      "cohort_output_type": "UNIQUES",
+      "is_generated_content": false,
+      "owners": [
+        "amp"
+      ],
+      "viewers": []
+    },
+    "amplitude_ids": [],
+    "user_ids": []
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/3/cohorts/9apg8e8f": {
+        "response": {
+          "cohort": {
+            "appId": 829528,
+            "archived": false,
+            "definition": {
+              "version": 3,
+              "countGroup": {
+                "name": "User",
+                "is_computed": false
+              },
+              "cohortType": "UNIQUES",
+              "andClauses": [
+                {
+                  "negated": false,
+                  "orClauses": [
+                    {
+                      "type": "retention",
+                      "time_type": "rolling",
+                      "time_value": 45,
+                      "offset": 0,
+                      "interval": 1,
+                      "exclude_current_interval": false,
+                      "retention_method": "bracket",
+                      "start_event": {
+                        "filters": [],
+                        "group_by": [],
+                        "event_type": "_new"
+                      },
+                      "return_event": {
+                        "filters": [],
+                        "group_by": [],
+                        "event_type": "_active"
+                      },
+                      "base_bracket": [
+                        14,
+                        15
+                      ],
+                      "bracket_interval": 1,
+                      "multi_filters": [
+                        []
+                      ],
+                      "granularity": -3600000,
+                      "retained": true
+                    }
+                  ]
+                }
+              ],
+              "referenceFrameTimeParams": {},
+              "orClauses": [
+                [
+                  {
+                    "negated": false,
+                    "orClauses": [
+                      {
+                        "type": "retention",
+                        "time_type": "rolling",
+                        "time_value": 45,
+                        "offset": 0,
+                        "interval": 1,
+                        "exclude_current_interval": false,
+                        "retention_method": "bracket",
+                        "start_event": {
+                          "filters": [],
+                          "group_by": [],
+                          "event_type": "_new"
+                        },
+                        "return_event": {
+                          "filters": [],
+                          "group_by": [],
+                          "event_type": "_active"
+                        },
+                        "base_bracket": [
+                          14,
+                          15
+                        ],
+                        "bracket_interval": 1,
+                        "multi_filters": [
+                          []
+                        ],
+                        "granularity": -3600000,
+                        "retained": true
+                      }
+                    ]
+                  }
+                ]
+              ]
+            },
+            "description": null,
+            "finished": true,
+            "id": "9apg8e8f",
+            "name": "14 day user retention",
+            "published": true,
+            "type": "redshift",
+            "lastMod": 1781554538,
+            "createdAt": 1781554538,
+            "lastComputed": 1781613113,
+            "hidden": false,
+            "metadata": null,
+            "view_count": null,
+            "popularity": null,
+            "last_viewed": null,
+            "chart_id": null,
+            "edit_id": null,
+            "is_predictive": false,
+            "is_official_content": false,
+            "location_id": null,
+            "shortcut_ids": [],
+            "per_app_metadata": null,
+            "cohort_definition_type": null,
+            "cohort_output_type": "UNIQUES",
+            "is_generated_content": false,
+            "owners": [
+              "amp"
+            ],
+            "viewers": [],
+            "size": 0
+          },
+          "amplitude_ids": [],
+          "user_ids": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 16 Jun 2026 12:32:20 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload;",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4996",
+          "x-ratelimit-reset": "1781613194",
+          "etag": "W/\"dc011236feb8e39e927ed5bc50d35a159235a331\"",
+          "server-timing": "dash;dur=3568.6",
+          "x-amzn-trace-id": "Root=1-6a314250-48d4ae800684afe1035ab559",
+          "cache-control": "no-cache, no-store, must-revalidate",
+          "pragma": "no-cache",
+          "expires": "0",
+          "set-cookie": "SERVERID=; Expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/"
+        },
+        "hash": "e78d15366a7b7be990c286e06ca147aec721a18c",
+        "request": {}
+      }
+    }
+  }
+}

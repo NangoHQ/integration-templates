@@ -98,12 +98,7 @@ const GraphQLResponseSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a Linear issue by issue ID.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-issue',
-        group: 'Issues'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['issues:read'],

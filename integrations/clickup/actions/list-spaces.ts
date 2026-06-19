@@ -39,12 +39,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List spaces from ClickUp',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-spaces',
-        group: 'Spaces'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

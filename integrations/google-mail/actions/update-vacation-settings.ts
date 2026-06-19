@@ -54,12 +54,7 @@ const VacationSettingsSchema = z.object({
 
 const action = createAction({
     description: 'Update the mailbox vacation responder configuration.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-vacation-settings',
-        group: 'Settings'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: VacationSettingsSchema,
     scopes: ['https://www.googleapis.com/auth/gmail.settings.basic'],

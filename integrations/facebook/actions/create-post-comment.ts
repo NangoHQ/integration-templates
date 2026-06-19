@@ -22,12 +22,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a comment on a Facebook post',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-post-comment',
-        group: 'Comments'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['pages_manage_engagement', 'pages_show_list'],

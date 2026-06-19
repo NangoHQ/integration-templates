@@ -64,12 +64,7 @@ const ListOutputSchema = z.object({
 
 const action = createAction({
     description: 'List notes from Attio.',
-    version: '2.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-notes',
-        group: 'Notes'
-    },
+    version: '2.0.1',
     input: InputSchema,
     output: ListOutputSchema,
     scopes: ['note:read', 'object_configuration:read', 'record_permission:read'],

@@ -232,12 +232,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create an expense in Zoho Books.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-expense',
-        group: 'Expenses'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoBooks.expenses.CREATE', 'ZohoBooks.settings.READ'],

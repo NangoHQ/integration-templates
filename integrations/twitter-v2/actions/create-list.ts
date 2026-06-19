@@ -24,12 +24,7 @@ type InputKey = keyof Input;
 
 const action = createAction({
     description: 'Create a list in Twitter/X',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-list',
-        group: 'Lists'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['list.write'],

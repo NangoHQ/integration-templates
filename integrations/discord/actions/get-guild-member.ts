@@ -47,12 +47,7 @@ const GuildMemberSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single guild member from Discord',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-guild-member',
-        group: 'Guild Members'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: GuildMemberSchema,
     scopes: ['guilds', 'guilds.members.read'],

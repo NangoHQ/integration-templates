@@ -26,12 +26,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List API keys from Algolia.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-api-keys',
-        group: 'API Keys'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['admin'],

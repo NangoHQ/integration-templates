@@ -34,13 +34,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Look up a user by email address',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/lookup-user-by-email',
-        group: 'Users'
-    },
+    version: '2.0.1',
 
     input: InputSchema,
     output: OutputSchema,

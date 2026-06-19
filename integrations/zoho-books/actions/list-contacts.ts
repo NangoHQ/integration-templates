@@ -101,12 +101,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List contacts from Zoho Books.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-contacts',
-        group: 'Contacts'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoBooks.contacts.READ', 'ZohoBooks.settings.READ'],

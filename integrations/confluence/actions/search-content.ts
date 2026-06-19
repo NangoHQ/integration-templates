@@ -70,12 +70,7 @@ const SearchResponseSchema = z
 
 const action = createAction({
     description: 'Search Confluence content with CQL',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/search-content',
-        group: 'Search'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,

@@ -36,12 +36,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update a deal group (pipeline) in ActiveCampaign.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-deal-group',
-        group: 'Deals'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['deal_group_write'],

@@ -6,13 +6,7 @@ import { RecruiterFlowCandidateScorecard, RecruiterFlowCandidateScorecardInput }
 
 const action = createAction({
     description: 'Fetches all candidate scorecards from RecruiterFlow',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'GET',
-        path: '/candidate-scorecards',
-        group: 'Candidates'
-    },
+    version: '2.0.1',
 
     input: RecruiterFlowCandidateScorecardInput,
     output: RecruiterFlowCandidateScorecard,

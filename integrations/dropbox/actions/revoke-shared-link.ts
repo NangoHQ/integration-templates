@@ -11,12 +11,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Revoke a Dropbox shared link so it no longer grants access.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/revoke-shared-link',
-        group: 'Sharing'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['sharing.write'],

@@ -33,12 +33,7 @@ const SendResponseSchema = z.object({
 
 const action = createAction({
     description: 'Email an invoice using QuickBooks delivery settings',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/send-invoice',
-        group: 'Invoices'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['com.intuit.quickbooks.accounting'],

@@ -13,13 +13,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Remove a calendar from the user's calendar list",
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/remove-calendar-from-list',
-        group: 'Calendars'
-    },
+    version: '2.0.1',
 
     input: InputSchema,
     output: OutputSchema,

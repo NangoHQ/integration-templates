@@ -33,12 +33,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List delivered payload batches for an Airtable webhook.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-webhook-payloads',
-        group: 'Webhooks'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['webhook:manage'],

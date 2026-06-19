@@ -74,12 +74,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a new Airtable base in a workspace.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-base',
-        group: 'Bases'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['schema.bases:write'],

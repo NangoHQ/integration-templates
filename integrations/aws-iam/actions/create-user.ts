@@ -8,13 +8,7 @@ import { User, AWSCreateUser } from '../models.js';
 
 const action = createAction({
     description: 'Creates a user in AWS IAM.',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/users',
-        group: 'Users'
-    },
+    version: '1.0.1',
 
     input: AWSCreateUser,
     output: User,

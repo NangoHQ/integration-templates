@@ -36,12 +36,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete an address from a Shopify customer.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-customer-address',
-        group: 'Customers'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write_customers'],

@@ -14,12 +14,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete a repository label by name',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-label',
-        group: 'Labels'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

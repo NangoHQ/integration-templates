@@ -44,12 +44,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve the currently authenticated Jira user.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-myself',
-        group: 'Users'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

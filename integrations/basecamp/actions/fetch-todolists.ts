@@ -12,13 +12,7 @@ import { BasecampTodolistsResponse, BasecampFetchTodolistsInput } from '../model
 const action = createAction({
     description:
         'Fetch all todolists in a project.Fetch your projects via the fetch-projects action, then locate the project\'s dock item where "name": "todoset". The id there is your todoSetId.',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'GET',
-        path: '/todolists',
-        group: 'Todolists'
-    },
+    version: '2.0.1',
 
     input: BasecampFetchTodolistsInput,
     output: BasecampTodolistsResponse,

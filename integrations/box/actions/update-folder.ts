@@ -76,12 +76,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update a folder in Box.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-folder',
-        group: 'Folders'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['root_readwrite'],

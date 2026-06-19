@@ -108,12 +108,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create an inline comment on a page or blog post selection.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-inline-comment',
-        group: 'Comments'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     metadata: z.object({

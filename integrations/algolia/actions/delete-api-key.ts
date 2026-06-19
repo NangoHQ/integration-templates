@@ -15,12 +15,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete an API key in Algolia.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-api-key',
-        group: 'API Keys'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['deleteApiKey'],

@@ -92,12 +92,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Search tickets with Zendesk search syntax.',
-    version: '3.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/search-tickets',
-        group: 'Tickets'
-    },
+    version: '3.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read:tickets'],

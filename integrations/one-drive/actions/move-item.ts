@@ -25,12 +25,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Move or rename a file or folder',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/move-item',
-        group: 'Files'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Files.ReadWrite', 'offline_access'],

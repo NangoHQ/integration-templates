@@ -52,12 +52,7 @@ const MetadataSchema = z.object({
 
 const action = createAction({
     description: 'List comments on a Jira issue with pagination',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-issue-comments',
-        group: 'Issues'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,

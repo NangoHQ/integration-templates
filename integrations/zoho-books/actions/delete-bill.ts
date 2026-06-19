@@ -29,12 +29,7 @@ const ZohoResponseSchema = z.object({
 
 const action = createAction({
     description: 'Delete or archive a bill in Zoho Books.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-bill',
-        group: 'Bills'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoBooks.bills.DELETE', 'ZohoBooks.settings.READ'],

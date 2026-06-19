@@ -69,12 +69,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List collaborations from Box. Retrieves pending collaboration invites for this user.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-collaborations',
-        group: 'Collaborations'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['root_readwrite'],

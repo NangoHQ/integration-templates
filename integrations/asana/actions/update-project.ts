@@ -71,12 +71,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update mutable fields on a project.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-project',
-        group: 'Projects'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['projects:write'],

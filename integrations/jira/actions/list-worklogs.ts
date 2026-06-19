@@ -51,12 +51,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List worklogs on a Jira issue',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-worklogs',
-        group: 'Worklogs'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read:jira-work'],

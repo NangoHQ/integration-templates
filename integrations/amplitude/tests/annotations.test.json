@@ -1,0 +1,242 @@
+{
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {},
+    "batchSave": {
+      "Annotation": [
+        {
+          "id": "939879",
+          "start": "2026-06-16T00:00:00+00:00",
+          "label": "Dryrun Save Update",
+          "details": "Updated via dryrun save",
+          "category_id": "1",
+          "category_name": "Uncategorized"
+        },
+        {
+          "id": "939880",
+          "start": "2026-06-16T00:00:00+00:00",
+          "label": "Test Annotation",
+          "category_id": "1",
+          "category_name": "Uncategorized"
+        },
+        {
+          "id": "939881",
+          "start": "2026-06-16T12:00:00+00:00",
+          "label": "Test annotation for deletion",
+          "category_id": "1",
+          "category_name": "Uncategorized"
+        },
+        {
+          "id": "939884",
+          "start": "2026-06-16T12:00:00+00:00",
+          "label": "Test Annotation 1781611213",
+          "category_id": "1250",
+          "category_name": "Test Category 1781611211"
+        },
+        {
+          "id": "939885",
+          "start": "2026-06-16T12:00:00+00:00",
+          "label": "Test Annotation 2 1781611240",
+          "category_id": "1250",
+          "category_name": "Test Category 1781611211"
+        },
+        {
+          "id": "939886",
+          "start": "2026-06-15T00:00:00+00:00",
+          "label": "Test Annotation",
+          "category_id": "1",
+          "category_name": "Uncategorized"
+        },
+        {
+          "id": "939887",
+          "start": "2026-06-15T00:00:00+00:00",
+          "label": "Test Annotation",
+          "category_id": "1",
+          "category_name": "Uncategorized"
+        },
+        {
+          "id": "939888",
+          "start": "2026-06-15T00:00:00+00:00",
+          "label": "Test Annotation",
+          "category_id": "1",
+          "category_name": "Uncategorized"
+        },
+        {
+          "id": "939890",
+          "start": "2026-06-15T00:00:00+00:00",
+          "label": "Test Annotation",
+          "category_id": "1",
+          "category_name": "Uncategorized"
+        },
+        {
+          "id": "939891",
+          "start": "2026-06-15T00:00:00+00:00",
+          "label": "Test Annotation",
+          "category_id": "1",
+          "category_name": "Uncategorized"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Annotation": []
+    }
+  },
+  "api": {
+    "get": {
+      "/api/3/annotations": {
+        "response": {
+          "data": [
+            {
+              "id": 939879,
+              "start": "2026-06-16T00:00:00+00:00",
+              "label": "Dryrun Save Update",
+              "details": "Updated via dryrun save",
+              "category": {
+                "id": 1,
+                "category": "Uncategorized"
+              },
+              "end": null,
+              "chart_id": null
+            },
+            {
+              "id": 939880,
+              "start": "2026-06-16T00:00:00+00:00",
+              "label": "Test Annotation",
+              "details": null,
+              "category": {
+                "id": 1,
+                "category": "Uncategorized"
+              },
+              "end": null,
+              "chart_id": null
+            },
+            {
+              "id": 939881,
+              "start": "2026-06-16T12:00:00+00:00",
+              "label": "Test annotation for deletion",
+              "details": null,
+              "category": {
+                "id": 1,
+                "category": "Uncategorized"
+              },
+              "end": null,
+              "chart_id": null
+            },
+            {
+              "id": 939884,
+              "start": "2026-06-16T12:00:00+00:00",
+              "label": "Test Annotation 1781611213",
+              "details": null,
+              "category": {
+                "id": 1250,
+                "category": "Test Category 1781611211"
+              },
+              "end": null,
+              "chart_id": null
+            },
+            {
+              "id": 939885,
+              "start": "2026-06-16T12:00:00+00:00",
+              "label": "Test Annotation 2 1781611240",
+              "details": null,
+              "category": {
+                "id": 1250,
+                "category": "Test Category 1781611211"
+              },
+              "end": null,
+              "chart_id": null
+            },
+            {
+              "id": 939886,
+              "start": "2026-06-15T00:00:00+00:00",
+              "label": "Test Annotation",
+              "details": null,
+              "category": {
+                "id": 1,
+                "category": "Uncategorized"
+              },
+              "end": null,
+              "chart_id": null
+            },
+            {
+              "id": 939887,
+              "start": "2026-06-15T00:00:00+00:00",
+              "label": "Test Annotation",
+              "details": null,
+              "category": {
+                "id": 1,
+                "category": "Uncategorized"
+              },
+              "end": null,
+              "chart_id": null
+            },
+            {
+              "id": 939888,
+              "start": "2026-06-15T00:00:00+00:00",
+              "label": "Test Annotation",
+              "details": null,
+              "category": {
+                "id": 1,
+                "category": "Uncategorized"
+              },
+              "end": null,
+              "chart_id": null
+            },
+            {
+              "id": 939890,
+              "start": "2026-06-15T00:00:00+00:00",
+              "label": "Test Annotation",
+              "details": null,
+              "category": {
+                "id": 1,
+                "category": "Uncategorized"
+              },
+              "end": null,
+              "chart_id": null
+            },
+            {
+              "id": 939891,
+              "start": "2026-06-15T00:00:00+00:00",
+              "label": "Test Annotation",
+              "details": null,
+              "category": {
+                "id": 1,
+                "category": "Uncategorized"
+              },
+              "end": null,
+              "chart_id": null
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 16 Jun 2026 12:07:15 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload;",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4885",
+          "x-ratelimit-reset": "1781611642",
+          "etag": "W/\"c84817282ffa501ab7b0ee2d2cd833ed5b0c6d09\"",
+          "server-timing": "dash;dur=35.6",
+          "x-amzn-trace-id": "Root=1-6a313c73-5cb6176335b819875ba880d0",
+          "cache-control": "no-cache, no-store, must-revalidate",
+          "pragma": "no-cache",
+          "expires": "0",
+          "set-cookie": "SERVERID=; Expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/"
+        },
+        "hash": "7ab3ea17888acd0bef56595f729092265723537c",
+        "request": {}
+      }
+    }
+  }
+}

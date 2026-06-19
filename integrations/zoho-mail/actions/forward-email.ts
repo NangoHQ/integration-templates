@@ -28,12 +28,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Forward an email in Zoho Mail',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/forward-email',
-        group: 'Messages'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['zohomail.messages.ALL'],

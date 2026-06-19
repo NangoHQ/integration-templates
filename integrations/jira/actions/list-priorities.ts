@@ -32,12 +32,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List Jira priorities available to the user.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-priorities',
-        group: 'Priorities'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read:jira-work'],

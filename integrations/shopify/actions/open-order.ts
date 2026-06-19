@@ -68,11 +68,7 @@ const GraphQLResponseSchema = z.object({
 
 const action = createAction({
     description: 'Reopen a closed Shopify order',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/open-order'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write_orders'],

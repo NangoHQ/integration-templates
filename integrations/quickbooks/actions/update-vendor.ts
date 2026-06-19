@@ -101,12 +101,7 @@ async function getRealmId(nango: Parameters<(typeof action)['exec']>[0]): Promis
 
 const action = createAction({
     description: 'Update a vendor using its current SyncToken',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-vendor',
-        group: 'Vendors'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['com.intuit.quickbooks.accounting'],

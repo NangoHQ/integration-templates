@@ -12,13 +12,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete a file or folder from Google Drive',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-file',
-        group: 'Files'
-    },
+    version: '1.0.1',
 
     input: InputSchema,
     output: OutputSchema,

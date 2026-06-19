@@ -41,12 +41,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List channels from a Discord guild (server)',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-channels',
-        group: 'Channels'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['guilds'], // Bot needs guilds scope to access guild channels

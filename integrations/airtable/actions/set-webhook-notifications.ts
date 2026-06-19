@@ -34,12 +34,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Enable or disable notifications for an Airtable webhook.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/set-webhook-notifications',
-        group: 'Webhooks'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['webhook:manage'],

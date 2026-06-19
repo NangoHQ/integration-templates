@@ -35,12 +35,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single checklist from Trello.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-checklist',
-        group: 'Checklists'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read'],

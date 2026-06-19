@@ -140,12 +140,7 @@ function flattenUsers(users: z.infer<typeof InputSchema>['users']): Record<strin
 
 const action = createAction({
     description: 'Update a expense in Splitwise.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-expense',
-        group: 'Expenses'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write'],

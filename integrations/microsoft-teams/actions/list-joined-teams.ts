@@ -31,12 +31,7 @@ const ListOutputSchema = z.object({
 
 const action = createAction({
     description: 'List teams the user has joined',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-joined-teams',
-        group: 'Teams'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: ListOutputSchema,
     scopes: ['Team.ReadBasic.All', 'TeamSettings.Read.All'],

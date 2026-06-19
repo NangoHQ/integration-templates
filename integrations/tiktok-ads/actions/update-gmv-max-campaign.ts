@@ -75,12 +75,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update a GMV Max campaign in TikTok Ads.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-gmv-max-campaign',
-        group: 'Campaigns'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ads.read', 'ads.write'],

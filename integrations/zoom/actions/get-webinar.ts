@@ -55,12 +55,7 @@ const OutputSchema = ProviderWebinarSchema;
 
 const action = createAction({
     description: 'Retrieve a single webinar from Zoom.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-webinar',
-        group: 'Webinars'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['webinar:read:admin', 'webinar:read'],

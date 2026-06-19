@@ -50,12 +50,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Publish a Git tag release for a repository.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-release',
-        group: 'Releases'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['repo'],

@@ -62,12 +62,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List job openings from the BambooHR ATS.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-job-openings',
-        group: 'Applicant Tracking'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

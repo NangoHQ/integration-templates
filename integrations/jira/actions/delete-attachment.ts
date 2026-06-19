@@ -17,12 +17,7 @@ const MetadataSchema = z.object({
 
 const action = createAction({
     description: 'Delete an attachment from a Jira issue',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-attachment',
-        group: 'Attachments'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,

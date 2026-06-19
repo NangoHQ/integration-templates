@@ -233,12 +233,7 @@ function mapExpense(providerExpense: z.infer<typeof ProviderExpenseSchema>): z.i
 
 const action = createAction({
     description: 'List expenses from Splitwise.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-expenses',
-        group: 'Expenses'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {

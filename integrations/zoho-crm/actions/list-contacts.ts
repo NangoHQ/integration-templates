@@ -109,12 +109,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List contacts from Zoho CRM with optional filtering and pagination.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-contacts',
-        group: 'Contacts'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoCRM.modules.contacts.READ'],

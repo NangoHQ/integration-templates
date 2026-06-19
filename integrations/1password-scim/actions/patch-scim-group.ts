@@ -72,12 +72,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Patch attributes or membership for a 1Password SCIM group.',
-    version: '1.1.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/patch-scim-group',
-        group: 'Groups'
-    },
+    version: '1.1.1',
     input: InputSchema,
     output: OutputSchema,
 

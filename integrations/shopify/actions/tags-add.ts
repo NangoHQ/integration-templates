@@ -32,12 +32,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Add tags to a Shopify resource.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/tags-add',
-        group: 'Tags'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write_products', 'write_customers', 'write_orders', 'write_draft_orders', 'write_content', 'write_discounts'],

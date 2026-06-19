@@ -162,12 +162,7 @@ const GraphQLErrorSchema = z.object({
 
 const action = createAction({
     description: 'List refunds for a Shopify order.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-refunds',
-        group: 'Orders'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read_orders'],

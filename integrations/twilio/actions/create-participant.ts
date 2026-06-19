@@ -53,12 +53,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Add a participant to a Twilio conversation.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-participant',
-        group: 'Conversations'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

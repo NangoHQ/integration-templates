@@ -40,12 +40,7 @@ const OutputSchema = z.array(FormSchema);
 
 const action = createAction({
     description: 'List all form definitions in the organisation.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-forms',
-        group: 'Forms'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoPeople.forms.READ'],

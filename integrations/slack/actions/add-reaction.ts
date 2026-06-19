@@ -13,13 +13,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Add an emoji reaction to a specific Slack message',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/add-reaction',
-        group: 'Reactions'
-    },
+    version: '2.0.1',
 
     input: InputSchema,
     output: OutputSchema,

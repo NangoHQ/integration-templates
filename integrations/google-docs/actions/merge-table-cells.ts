@@ -27,12 +27,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Merge a rectangular range of table cells in a Google Doc',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/merge-table-cells',
-        group: 'Tables'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/documents', 'https://www.googleapis.com/auth/drive.file'],

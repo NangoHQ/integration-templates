@@ -20,12 +20,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete a Facebook Page post by post ID',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-post',
-        group: 'Posts'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['pages_manage_posts'],

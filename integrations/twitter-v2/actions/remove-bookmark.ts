@@ -18,12 +18,7 @@ const UserMeSchema = z.object({
 
 const action = createAction({
     description: 'Remove a tweet bookmark',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/remove-bookmark',
-        group: 'Bookmarks'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['bookmark.write', 'users.read', 'tweet.read'],

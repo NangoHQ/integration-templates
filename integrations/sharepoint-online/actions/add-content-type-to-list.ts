@@ -39,12 +39,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Associate a content type with a SharePoint list.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/add-content-type-to-list',
-        group: 'Content Types'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Sites.Read.All', 'Sites.ReadWrite.All'],

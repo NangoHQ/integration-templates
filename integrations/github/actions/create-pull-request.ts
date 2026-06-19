@@ -66,12 +66,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Open a pull request from one branch into another.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-pull-request',
-        group: 'Pull Requests'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

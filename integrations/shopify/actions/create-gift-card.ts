@@ -76,12 +76,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a Shopify gift card.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-gift-card',
-        group: 'Gift Cards'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write_gift_cards', 'read_gift_cards'],

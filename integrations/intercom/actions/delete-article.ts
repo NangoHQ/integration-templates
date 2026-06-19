@@ -12,10 +12,7 @@ const OutputSchema = z.object({
 
 export default createAction({
     description: 'Delete a Help Center article',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-article'
-    },
+    version: '0.0.1',
     input: InputSchema,
     output: OutputSchema,
     exec: async (nango: NangoAction, input: z.infer<typeof InputSchema>): Promise<z.infer<typeof OutputSchema>> => {

@@ -27,12 +27,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List items under a folder in a site drive.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-drive-children',
-        group: 'Drives'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Sites.Read.All'],

@@ -21,12 +21,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Schedule a Mailchimp campaign send.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/schedule-campaign',
-        group: 'Campaigns'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['campaigns:write'],

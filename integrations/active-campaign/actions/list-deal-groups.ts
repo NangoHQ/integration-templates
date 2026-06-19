@@ -56,10 +56,7 @@ const OutputSchema = z.object({
 
 export default createAction({
     description: 'List deal groups (pipelines) from ActiveCampaign',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-deal-groups'
-    },
+    version: '0.0.1',
     input: InputSchema,
     output: OutputSchema,
     exec: async (nango, input) => {

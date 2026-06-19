@@ -51,12 +51,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a share link for a file or folder.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-sharing-link',
-        group: 'Files'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Files.ReadWrite', 'offline_access'],

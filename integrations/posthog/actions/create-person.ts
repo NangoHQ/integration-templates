@@ -33,12 +33,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a person in PostHog.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-person',
-        group: 'Persons'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['project:read', 'person:read'],

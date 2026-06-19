@@ -25,11 +25,7 @@ const OutputSchema = z.object({
 const action = createAction({
     description:
         'Delete text or other removable content from a range in a Google Doc. The range must be structurally valid: it cannot span table cells, section breaks, or the final newline of a segment (body, header, or footer).',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-content-range'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['documents', 'drive', 'drive.file'],

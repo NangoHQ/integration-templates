@@ -46,12 +46,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Copy multiple files or folders to new Dropbox paths in one batch job',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/batch-copy-files-or-folders',
-        group: 'Files'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['files.content.write'],

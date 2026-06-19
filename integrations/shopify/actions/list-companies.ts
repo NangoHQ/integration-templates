@@ -83,12 +83,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List Shopify B2B companies with cursor pagination.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-companies',
-        group: 'Companies'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read_companies', 'read_customers'],

@@ -43,12 +43,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single style from Figma.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-style',
-        group: 'Styles'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['library_assets:read'],

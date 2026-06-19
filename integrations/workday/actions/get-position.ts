@@ -78,8 +78,7 @@ interface PositionResponse {
 
 const action = createAction({
     description: 'Retrieve a single position from Workday.',
-    version: '1.0.0',
-    endpoint: { method: 'POST', path: '/actions/get-position', group: 'Positions' },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

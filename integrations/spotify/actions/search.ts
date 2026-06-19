@@ -314,12 +314,7 @@ function mapPagingInfo<T extends { offset: number; limit: number; next: string |
 
 const action = createAction({
     description: 'Search the Spotify catalog for tracks, albums, artists, playlists, shows, or episodes.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/search',
-        group: 'Search'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

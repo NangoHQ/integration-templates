@@ -26,12 +26,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Validate the Gong meeting integration status.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-meeting-integration-status',
-        group: 'Meetings'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:meetings:integration:status'],

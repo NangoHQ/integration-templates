@@ -104,12 +104,7 @@ async function getCloudIdAndBaseUrl(nango: Parameters<Parameters<typeof createAc
 
 const action = createAction({
     description: 'Retrieve a Jira priority by priority ID.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-priority',
-        group: 'Priorities'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,

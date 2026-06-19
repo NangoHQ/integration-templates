@@ -17,12 +17,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete or archive a lead in Pipedrive.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-lead',
-        group: 'Leads'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

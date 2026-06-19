@@ -109,12 +109,7 @@ const OutputSchema = AttachmentSchema;
 
 const action = createAction({
     description: 'Retrieve a Confluence attachment by id.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-attachment',
-        group: 'Attachments'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,

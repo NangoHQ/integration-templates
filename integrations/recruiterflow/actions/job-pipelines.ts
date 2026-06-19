@@ -6,13 +6,7 @@ import { RecruiterFlowJobPipeline, RecruiterFlowPipelineInput } from '../models.
 
 const action = createAction({
     description: 'Fetches all job pipelines from RecruiterFlow',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'GET',
-        path: '/job-pipelines',
-        group: 'Jobs'
-    },
+    version: '2.0.1',
 
     input: RecruiterFlowPipelineInput,
     output: RecruiterFlowJobPipeline,

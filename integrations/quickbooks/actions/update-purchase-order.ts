@@ -98,12 +98,7 @@ async function getCompany(nango: Parameters<ReturnType<typeof createAction>['exe
 
 const action = createAction({
     description: 'Update a QuickBooks purchase order',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-purchase-order',
-        group: 'Purchase Orders'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

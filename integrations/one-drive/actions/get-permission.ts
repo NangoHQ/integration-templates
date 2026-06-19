@@ -96,12 +96,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a sharing permission on an item',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-permission',
-        group: 'Permissions'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Files.Read', 'Files.ReadWrite', 'offline_access'],

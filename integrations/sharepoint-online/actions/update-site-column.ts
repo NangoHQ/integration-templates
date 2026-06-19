@@ -180,12 +180,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update a site-level column definition.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-site-column',
-        group: 'Columns'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Sites.ReadWrite.All'],

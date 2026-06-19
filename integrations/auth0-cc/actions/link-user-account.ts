@@ -53,12 +53,7 @@ const OutputSchema = z.array(IdentitySchema);
 
 const action = createAction({
     description: 'Link a secondary user account to a primary account in Auth0.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/link-user-account',
-        group: 'Users'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['update:users'],

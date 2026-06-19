@@ -30,12 +30,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Fetch TikTok user statistics including follower count, likes count, and video count.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-user-stats',
-        group: 'Users'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['user.info.stats'],

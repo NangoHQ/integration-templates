@@ -92,12 +92,7 @@ function mapOrganization(org: z.infer<typeof ProviderOrganizationSchema>): z.inf
 
 const action = createAction({
     description: 'List organizations in Zendesk Support.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-organizations',
-        group: 'Organizations'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

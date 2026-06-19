@@ -14,12 +14,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Remove a LinkedIn like from a post or comment.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-like',
-        group: 'Social Actions'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['w_member_social_feed', 'w_organization_social_feed'],

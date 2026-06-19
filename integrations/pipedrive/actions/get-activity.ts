@@ -80,12 +80,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single activity from Pipedrive.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-activity',
-        group: 'Activities'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

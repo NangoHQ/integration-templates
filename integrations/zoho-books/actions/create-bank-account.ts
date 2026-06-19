@@ -82,12 +82,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a bank account in Zoho Books.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-bank-account',
-        group: 'Bank Accounts'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoBooks.banking.CREATE', 'ZohoBooks.settings.READ'],

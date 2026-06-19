@@ -36,12 +36,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Replace all matches of a string or regex in a document.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/replace-all-text',
-        group: 'Documents'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['documents', 'drive.file'],

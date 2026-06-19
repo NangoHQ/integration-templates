@@ -21,12 +21,7 @@ const OutputSchema = z
 
 const action = createAction({
     description: 'Retrieve the authenticated Facebook user profile or another accessible user object.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-user-profile',
-        group: 'Users'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['public_profile'],

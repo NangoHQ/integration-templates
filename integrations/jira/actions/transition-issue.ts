@@ -15,12 +15,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Move a Jira issue through a workflow transition.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/transition-issue',
-        group: 'Issues'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write:jira-work'],

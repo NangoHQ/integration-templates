@@ -61,12 +61,7 @@ const TikTokResponseSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single pixel from TikTok Ads.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-pixel',
-        group: 'Pixels'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['advertiser_pixels'],

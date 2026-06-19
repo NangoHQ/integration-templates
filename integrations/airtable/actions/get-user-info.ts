@@ -17,12 +17,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve information about the authenticated Airtable user and scopes.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-user-info',
-        group: 'Users'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

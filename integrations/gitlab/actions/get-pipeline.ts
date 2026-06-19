@@ -55,12 +55,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single pipeline from GitLab.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-pipeline',
-        group: 'Pipelines'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api'],

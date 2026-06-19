@@ -32,8 +32,7 @@ const graphQLResponseSchema = z.object({
 
 const action = createAction({
     description: 'Restore an archived Linear issue.',
-    version: '1.0.0',
-    endpoint: { method: 'POST', path: '/actions/unarchive-issue', group: 'Issues' },
+    version: '1.0.1',
     input: inputSchema,
     output: outputSchema,
 

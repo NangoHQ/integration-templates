@@ -19,12 +19,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Add or remove tags on a Mailchimp list member.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/tag-member',
-        group: 'Members'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

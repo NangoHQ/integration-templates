@@ -39,12 +39,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List attachments on a task or other supported object.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-attachments-for-object',
-        group: 'Attachments'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['attachments:read'],

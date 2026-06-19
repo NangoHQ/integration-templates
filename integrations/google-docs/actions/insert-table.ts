@@ -66,12 +66,7 @@ const DocumentSchema = z.object({
 
 const action = createAction({
     description: 'Insert a table with a given row and column count.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/insert-table',
-        group: 'Documents'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['documents'],

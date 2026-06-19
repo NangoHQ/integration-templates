@@ -28,12 +28,7 @@ const ProviderResponseSchema = z.object({
 
 const action = createAction({
     description: 'List records for any form by its link name.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-form-records',
-        group: 'Forms'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoPeople.forms.READ'],

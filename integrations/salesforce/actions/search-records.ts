@@ -25,12 +25,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Run a SOSL search across searchable Salesforce objects',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/search-records',
-        group: 'Search'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api', 'refresh_token'],

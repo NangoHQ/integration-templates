@@ -16,12 +16,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete a Gong meeting (Beta).',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-meeting',
-        group: 'Meetings'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:meetings:user:delete'],

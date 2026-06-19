@@ -20,12 +20,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a role in Auth0.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-role',
-        group: 'Roles'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['create:roles'],

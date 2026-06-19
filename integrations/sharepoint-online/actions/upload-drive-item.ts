@@ -30,12 +30,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Upload small file content directly to a site drive (≤4 MB). For larger files use create-drive-upload-session.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/upload-drive-item',
-        group: 'Drive Items'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Sites.ReadWrite.All'],

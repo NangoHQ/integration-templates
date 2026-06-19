@@ -12,12 +12,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete or archive a note in Attio.',
-    version: '2.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-note',
-        group: 'Notes'
-    },
+    version: '2.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['note:read-write'],

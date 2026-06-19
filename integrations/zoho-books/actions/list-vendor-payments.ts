@@ -89,12 +89,7 @@ const ProviderResponseSchema = z.object({
 
 const action = createAction({
     description: 'List vendor payments from Zoho Books',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-vendor-payments',
-        group: 'Vendor Payments'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoBooks.vendorpayments.READ', 'ZohoBooks.settings.READ'],

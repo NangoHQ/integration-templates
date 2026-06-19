@@ -45,12 +45,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List available sObject types and global metadata for the org.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/describe-global',
-        group: 'Metadata'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

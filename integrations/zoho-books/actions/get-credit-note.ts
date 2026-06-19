@@ -26,11 +26,7 @@ const ProviderResponseSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single credit note from Zoho Books.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-credit-note'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: CreditNoteSchema,
     scopes: ['ZohoBooks.creditnotes.READ', 'ZohoBooks.settings.READ'],

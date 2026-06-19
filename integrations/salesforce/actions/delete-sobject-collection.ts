@@ -44,12 +44,7 @@ const ProviderDeleteResultSchema = z.object({
 
 const action = createAction({
     description: 'Delete multiple records in one sObject collection request.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-sobject-collection',
-        group: 'sObject Collections'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api'],

@@ -25,13 +25,7 @@ const EmojiListResponseSchema = z.object({
 
 const action = createAction({
     description: 'List workspace custom emoji mappings, including alias-based emoji entries',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-custom-emoji',
-        group: 'Emoji'
-    },
+    version: '2.0.1',
 
     input: InputSchema,
     output: OutputSchema,

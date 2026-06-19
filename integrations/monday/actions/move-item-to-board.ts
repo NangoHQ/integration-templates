@@ -35,12 +35,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Move an item to another board.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/move-item-to-board',
-        group: 'Items'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['boards:write'],

@@ -25,11 +25,7 @@ const OutputSchema = z.array(ProviderOrderTotalsSchema);
 
 const action = createAction({
     description: 'Retrieve the orders totals report from WooCommerce.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-orders-totals-report'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

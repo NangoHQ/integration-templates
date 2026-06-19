@@ -60,12 +60,7 @@ const GraphQLResponseSchema = z.object({
 
 const action = createAction({
     description: 'List Linear comments with filtering and pagination.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-comments',
-        group: 'Comments'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read'],

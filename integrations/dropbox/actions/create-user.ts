@@ -31,13 +31,7 @@ const DropboxAddMembersResponseSchema = z.object({
 
 const action = createAction({
     description: 'Creates a user in Dropbox. Requires Dropbox Business.',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/users',
-        group: 'Users'
-    },
+    version: '2.0.1',
 
     input: InputSchema,
     output: OutputSchema,

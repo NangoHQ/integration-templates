@@ -69,12 +69,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List ticket fields for the account.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-ticket-fields',
-        group: 'Tickets'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

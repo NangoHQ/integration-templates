@@ -29,12 +29,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Add a comment to a Trello card.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/add-card-comment',
-        group: 'Cards'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

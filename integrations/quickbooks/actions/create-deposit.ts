@@ -85,12 +85,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a bank deposit transaction',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-deposit',
-        group: 'Deposits'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['com.intuit.quickbooks.accounting'],

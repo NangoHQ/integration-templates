@@ -23,12 +23,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single product tag from WooCommerce.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-product-tag',
-        group: 'Product Tags'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read'],

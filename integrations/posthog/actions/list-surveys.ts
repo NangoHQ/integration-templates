@@ -43,12 +43,7 @@ const ListOutputSchema = z.object({
 
 const action = createAction({
     description: 'List surveys from PostHog.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-surveys',
-        group: 'Surveys'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: ListOutputSchema,
     scopes: ['survey:read'],

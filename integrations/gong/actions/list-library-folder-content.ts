@@ -27,8 +27,8 @@ const OutputSchema = z.object({
 });
 
 export default createAction({
-    endpoint: { method: 'GET', path: '/actions/list-library-folder-content' },
     description: 'List calls within a specific Gong library folder',
+    version: '0.0.1',
     input: InputSchema,
     output: OutputSchema,
     exec: async (nango: NangoAction, input) => {

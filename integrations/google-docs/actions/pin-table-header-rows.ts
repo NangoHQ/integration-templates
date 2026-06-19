@@ -25,12 +25,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Pin or unpin a number of rows as frozen headers in a table.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/pin-table-header-rows',
-        group: 'Documents'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['documents', 'drive', 'drive.file'],

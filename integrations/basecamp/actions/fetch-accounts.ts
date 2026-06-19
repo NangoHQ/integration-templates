@@ -7,13 +7,7 @@ import { z } from 'zod';
 
 const action = createAction({
     description: 'Fetch account list and user information from Basecamp',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'GET',
-        path: '/accounts',
-        group: 'Accounts'
-    },
+    version: '1.0.1',
 
     input: z.void(),
     output: UserInformation,

@@ -65,12 +65,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List stores from Mailchimp.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-stores',
-        group: 'E-commerce Stores'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

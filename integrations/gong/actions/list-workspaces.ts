@@ -15,12 +15,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List all workspaces in the Gong account.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-workspaces',
-        group: 'Workspaces'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:workspaces:read'],

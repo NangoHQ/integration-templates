@@ -58,12 +58,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Search contacts with a structured filter query.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/search-contacts',
-        group: 'Contacts'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

@@ -6,13 +6,7 @@ import { CreateCandidateOutput, CreateCandidateInput } from '../models.js';
 
 const action = createAction({
     description: 'Create a new candidate in Gem',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/candidates',
-        group: 'Candidates'
-    },
+    version: '1.0.1',
 
     input: CreateCandidateInput,
     output: CreateCandidateOutput,

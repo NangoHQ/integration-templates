@@ -61,12 +61,7 @@ const OutputSchema = ProviderMeetingSchema;
 
 const action = createAction({
     description: 'Retrieve a single meeting from Zoom.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-meeting',
-        group: 'Meetings'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['meeting:read', 'meeting:read:admin'],

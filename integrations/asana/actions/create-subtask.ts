@@ -99,12 +99,7 @@ interface TaskCreateBody {
 
 const action = createAction({
     description: 'Create a subtask under a parent task.',
-    version: '1.0.1',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-subtask',
-        group: 'Tasks'
-    },
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['tasks:write'],

@@ -47,12 +47,7 @@ const TikTokResponseSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve Smart+ ad details from TikTok Ads.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-smart-plus-ad',
-        group: 'Smart+ Ads'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ads_read'],

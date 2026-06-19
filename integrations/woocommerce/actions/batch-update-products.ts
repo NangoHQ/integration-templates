@@ -114,11 +114,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create, update, and delete WooCommerce products in a batch.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/batch-update-products'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

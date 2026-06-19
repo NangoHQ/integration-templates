@@ -16,12 +16,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete rows from a Supabase table.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-table-rows',
-        group: 'Tables'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

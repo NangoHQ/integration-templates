@@ -36,12 +36,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve trending TikTok content and hashtags for creative inspiration.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-trending-content',
-        group: 'Discovery'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

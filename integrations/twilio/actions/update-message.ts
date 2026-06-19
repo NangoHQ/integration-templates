@@ -55,12 +55,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update a message in Twilio.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-message',
-        group: 'Messages'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

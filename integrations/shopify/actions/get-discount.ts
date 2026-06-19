@@ -36,12 +36,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a Shopify discount node by GraphQL ID.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-discount',
-        group: 'Discounts'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read_discounts'],

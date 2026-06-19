@@ -80,12 +80,7 @@ function getColumnValue(row: unknown[], columnIndex: Map<string, number>, column
 
 const action = createAction({
     description: 'List schemas in a Snowflake database',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-schemas',
-        group: 'Schemas'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

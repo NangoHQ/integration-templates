@@ -34,13 +34,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Update a shared drive's metadata",
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-shared-drive',
-        group: 'Shared Drives'
-    },
+    version: '1.0.1',
 
     input: InputSchema,
     output: OutputSchema,

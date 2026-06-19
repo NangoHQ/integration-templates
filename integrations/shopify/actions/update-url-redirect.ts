@@ -31,12 +31,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update a URL redirect in a Shopify store.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-url-redirect',
-        group: 'URL Redirects'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read_online_store_navigation', 'write_online_store_navigation'],

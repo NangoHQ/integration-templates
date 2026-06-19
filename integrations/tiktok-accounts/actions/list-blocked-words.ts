@@ -44,12 +44,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve the blocked word list for automatic comment moderation.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-blocked-words',
-        group: 'Comments'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['tt_user'],

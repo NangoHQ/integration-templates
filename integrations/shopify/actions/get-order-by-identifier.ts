@@ -214,12 +214,7 @@ const ProviderResponseSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a Shopify order by the documented order identifier input.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-order-by-identifier',
-        group: 'Orders'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema.nullable(),
 

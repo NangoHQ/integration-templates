@@ -11,13 +11,7 @@ import { User, DialpadCreateUser } from '../models.js';
  */
 const action = createAction({
     description: 'Creates a user in Dialpad',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/users',
-        group: 'Users'
-    },
+    version: '2.0.1',
 
     input: DialpadCreateUser,
     output: User,

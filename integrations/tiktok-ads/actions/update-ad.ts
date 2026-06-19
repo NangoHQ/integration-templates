@@ -90,12 +90,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update an ad in TikTok Ads.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-ad',
-        group: 'Ads'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

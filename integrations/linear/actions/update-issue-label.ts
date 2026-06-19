@@ -44,10 +44,9 @@ const IssueLabelUpdateResponseSchema = z.object({
 
 const action = createAction({
     description: 'Update an existing Linear issue label.',
-    endpoint: { method: 'POST', path: '/actions/update-issue-label' },
     input: InputSchema,
     output: OutputSchema,
-    version: '1.0.0',
+    version: '1.0.1',
     exec: async (nango, input) => {
         const mutation = `
             mutation UpdateIssueLabel($id: String!, $input: IssueLabelUpdateInput!) {

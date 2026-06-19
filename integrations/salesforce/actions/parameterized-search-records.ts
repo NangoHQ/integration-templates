@@ -47,12 +47,7 @@ type ParamsType = {
 
 const action = createAction({
     description: 'Run a parameterized search request across Salesforce objects.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/parameterized-search-records',
-        group: 'Search'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api', 'refresh_token'],

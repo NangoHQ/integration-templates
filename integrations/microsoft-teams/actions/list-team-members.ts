@@ -36,12 +36,7 @@ const ProviderResponseSchema = z.object({
 
 const action = createAction({
     description: 'List members in a team.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-team-members',
-        group: 'Teams'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['TeamMember.Read.All'],

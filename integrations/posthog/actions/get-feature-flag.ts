@@ -60,12 +60,7 @@ const FeatureFlagSchema = z
 
 const action = createAction({
     description: 'Retrieve a single feature flag from PostHog.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-feature-flag',
-        group: 'Feature Flags'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: FeatureFlagSchema,
     scopes: ['feature_flag:read'],

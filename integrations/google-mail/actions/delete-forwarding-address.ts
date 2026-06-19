@@ -11,12 +11,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete a forwarding address from Gmail settings.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-forwarding-address',
-        group: 'Forwarding Addresses'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/gmail.settings.basic'],

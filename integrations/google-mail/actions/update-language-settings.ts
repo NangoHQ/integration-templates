@@ -15,12 +15,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update the mailbox display language',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-language-settings',
-        group: 'Settings'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/gmail.settings.basic'],

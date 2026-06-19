@@ -79,12 +79,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List shared links for the current user or for a specific path',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-shared-links',
-        group: 'Sharing'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['sharing.read'],

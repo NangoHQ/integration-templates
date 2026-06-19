@@ -69,12 +69,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List files attached to an employee record in BambooHR.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-employee-files',
-        group: 'Employee Files'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['employee:file'],

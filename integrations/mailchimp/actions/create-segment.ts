@@ -51,12 +51,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a segment in Mailchimp.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-segment',
-        group: 'Segments'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

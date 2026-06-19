@@ -19,12 +19,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Unblock a user that was blocked due to anomaly detection in Auth0.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/unblock-user',
-        group: 'Users'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['update:users'],

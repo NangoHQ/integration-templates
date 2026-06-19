@@ -75,12 +75,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update an annotation in PostHog',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-annotation',
-        group: 'Annotations'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['annotation:write'],

@@ -144,12 +144,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List mailbox history records after a given history ID',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-watch-history',
-        group: 'History'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/gmail.modify'],

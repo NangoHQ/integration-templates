@@ -18,13 +18,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Copy a sheet to another spreadsheet',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/copy-sheet',
-        group: 'Sheets'
-    },
+    version: '1.0.1',
 
     input: InputSchema,
     output: OutputSchema,

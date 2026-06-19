@@ -104,12 +104,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve basic metadata for a specific sObject type including object properties, recent items, and URIs for related resources.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-sobject-basic-info',
-        group: 'Metadata'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api', 'refresh_token'],

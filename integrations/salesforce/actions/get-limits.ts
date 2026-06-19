@@ -20,12 +20,7 @@ const OutputSchema = z.record(
 
 const action = createAction({
     description: 'Retrieve current org API usage and platform limits',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-limits',
-        group: 'Limits'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

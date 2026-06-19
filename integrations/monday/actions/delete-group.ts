@@ -40,12 +40,7 @@ function extractGraphQLErrors(rawData: Record<string, unknown>): string | undefi
 
 const action = createAction({
     description: 'Delete or archive a group in monday.com.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-group',
-        group: 'Groups'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['boards:write'],

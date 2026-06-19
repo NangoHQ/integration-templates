@@ -47,12 +47,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Cancel an Anthropic Message Batch.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/cancel-message-batch',
-        group: 'Message Batches'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

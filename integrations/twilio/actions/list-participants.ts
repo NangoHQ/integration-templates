@@ -84,12 +84,7 @@ const RawResponseSchema = z.object({
 
 const action = createAction({
     description: 'List participants in a Twilio conversation.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-participants',
-        group: 'Conversations'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

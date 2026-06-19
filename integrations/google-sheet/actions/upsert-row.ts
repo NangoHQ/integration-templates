@@ -19,13 +19,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Append or update a row of values in a Google Sheet',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/upsert-row',
-        group: 'Sheets'
-    },
+    version: '1.0.1',
 
     input: InputSchema,
     output: OutputSchema,

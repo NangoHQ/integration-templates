@@ -17,13 +17,7 @@ import { BasecampTodoResponse, BasecampCreateTodoInput } from '../models.js';
 const action = createAction({
     description:
         'Create a new to-do in a specific project + list. Fetch your todolists via the fetch-todolists action. Identify the list you want to add the todo to and retrieve the id from there.',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/todos',
-        group: 'Todos'
-    },
+    version: '2.0.1',
 
     input: BasecampCreateTodoInput,
     output: BasecampTodoResponse,

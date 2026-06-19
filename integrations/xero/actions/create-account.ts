@@ -55,12 +55,7 @@ const ConnectionsResponseSchema = z.union([z.array(z.object({ tenantId: z.string
 
 const action = createAction({
     description: 'Create an account in the Xero chart of accounts.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-account',
-        group: 'Accounts'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['accounting.settings'],

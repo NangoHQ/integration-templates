@@ -18,12 +18,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update a storage bucket in Supabase.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-storage-bucket',
-        group: 'Storage'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

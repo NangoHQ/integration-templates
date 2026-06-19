@@ -81,12 +81,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Post a root message in a channel',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-channel-message',
-        group: 'Channels'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ChannelMessage.Send'],

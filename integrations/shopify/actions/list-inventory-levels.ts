@@ -95,12 +95,7 @@ const ProviderResponseSchema = z.object({
 
 const action = createAction({
     description: 'List inventory levels for a location or inventory item.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-inventory-levels',
-        group: 'Inventory'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read_inventory'],

@@ -27,12 +27,7 @@ const AccessibleResourcesSchema = z.array(AccessibleResourceSchema);
 
 const action = createAction({
     description: 'Delete a Confluence page by id.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-page',
-        group: 'Pages'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,

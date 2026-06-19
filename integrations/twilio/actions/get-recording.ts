@@ -71,12 +71,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single recording from Twilio.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-recording',
-        group: 'Recordings'
-    },
+    version: '1.0.1',
     metadata: MetadataSchema,
     input: InputSchema,
     output: OutputSchema,

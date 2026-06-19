@@ -16,13 +16,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Send a message visible only to one user in a channel',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/send-ephemeral-message',
-        group: 'Messaging'
-    },
+    version: '1.0.1',
 
     input: InputSchema,
     output: OutputSchema,

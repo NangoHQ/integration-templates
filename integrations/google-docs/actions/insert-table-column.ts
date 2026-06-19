@@ -20,12 +20,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Insert a table column to the left or right of a reference cell.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/insert-table-column',
-        group: 'Documents'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['documents', 'drive.file'],

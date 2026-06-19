@@ -41,12 +41,7 @@ const ListOutputSchema = z.object({
 
 const action = createAction({
     description: 'List job postings from Ashby',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-job-postings',
-        group: 'Job Postings'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: ListOutputSchema,
     scopes: ['jobsRead'],

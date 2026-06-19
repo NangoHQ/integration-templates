@@ -20,13 +20,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Insert a new column into a sheet',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-column',
-        group: 'Sheets'
-    },
+    version: '1.0.1',
 
     input: InputSchema,
     output: OutputSchema,

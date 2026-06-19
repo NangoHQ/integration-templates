@@ -225,12 +225,7 @@ function mapProviderWebhook(webhook: z.infer<typeof ProviderWebhookSchema>): z.i
 
 const action = createAction({
     description: 'List webhooks configured on an Airtable base.',
-    version: '2.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-webhooks',
-        group: 'Webhooks'
-    },
+    version: '2.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['webhook:manage'],

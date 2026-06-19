@@ -32,12 +32,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Copy a file or folder to another location',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/copy-item',
-        group: 'Items'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Files.ReadWrite', 'offline_access'],

@@ -15,12 +15,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete or archive a file in Box',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-file',
-        group: 'Files'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['root_readwrite'],

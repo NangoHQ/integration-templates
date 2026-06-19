@@ -164,12 +164,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a Shopify product by handle or another supported identifier.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-product-by-identifier',
-        group: 'Products'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read_products'],

@@ -48,12 +48,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create an Airtable webhook on a base.',
-    version: '2.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-webhook',
-        group: 'Webhooks'
-    },
+    version: '2.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['webhook:manage'],

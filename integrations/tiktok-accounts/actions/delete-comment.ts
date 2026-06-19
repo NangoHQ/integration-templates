@@ -26,12 +26,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete a comment from a TikTok video',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-comment',
-        group: 'Comments'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {

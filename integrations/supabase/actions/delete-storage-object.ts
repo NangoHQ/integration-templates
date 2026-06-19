@@ -27,12 +27,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete or archive a storage object in Supabase.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-storage-object',
-        group: 'Storage'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

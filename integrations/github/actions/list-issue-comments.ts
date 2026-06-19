@@ -52,12 +52,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List comments attached to an issue or pull request thread',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-issue-comments',
-        group: 'Issues'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['repo'],

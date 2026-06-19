@@ -17,13 +17,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Gets paginated list of child blocks within a block or page.',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'GET',
-        path: '/blocks/children',
-        group: 'Blocks'
-    },
+    version: '1.0.1',
 
     input: InputSchema,
     output: OutputSchema,

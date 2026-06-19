@@ -7,13 +7,7 @@ import { SuccessResponse, ExpensifyDisableUser } from '../models.js';
 
 const action = createAction({
     description: 'Disables a user in Expensify',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'DELETE',
-        path: '/users',
-        group: 'Users'
-    },
+    version: '2.0.1',
 
     input: ExpensifyDisableUser,
     output: SuccessResponse,

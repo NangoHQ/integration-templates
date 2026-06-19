@@ -197,12 +197,7 @@ async function fetchViaRest(nango: Parameters<(typeof action)['exec']>[0], input
 
 const action = createAction({
     description: 'List URL redirects in a Shopify store.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-url-redirects',
-        group: 'URL Redirects'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read_online_store_navigation'],

@@ -67,12 +67,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Submit a SQL statement to Snowflake.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/execute-statement',
-        group: 'SQL'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

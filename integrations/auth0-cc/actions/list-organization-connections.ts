@@ -31,12 +31,7 @@ const PaginatedResponseSchema = z.object({
 
 const action = createAction({
     description: 'List the enabled connections for an organization in Auth0.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-organization-connections',
-        group: 'Organizations'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read:organization_connections'],

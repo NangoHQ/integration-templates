@@ -95,12 +95,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update a chart of account entry in Zoho Books.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-chart-of-account',
-        group: 'Chart of Accounts'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoBooks.accountants.UPDATE', 'ZohoBooks.settings.READ'],

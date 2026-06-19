@@ -119,12 +119,7 @@ function extractAddress(value: unknown): z.infer<typeof AddressOutputSchema> | u
 
 const action = createAction({
     description: 'Update a organization in Pipedrive.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-organization',
-        group: 'Organizations'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

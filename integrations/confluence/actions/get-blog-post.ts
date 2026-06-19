@@ -113,12 +113,7 @@ const AccessibleResourceSchema = z.array(
 
 const action = createAction({
     description: 'Retrieve a Confluence blog post by id.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-blog-post',
-        group: 'Blog Posts'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,

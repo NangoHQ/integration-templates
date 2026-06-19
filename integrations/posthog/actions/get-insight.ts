@@ -63,12 +63,7 @@ const InsightSchema = z
 
 const action = createAction({
     description: 'Retrieve a single insight from PostHog.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-insight',
-        group: 'Insights'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: InsightSchema,
     scopes: ['insight:read'],

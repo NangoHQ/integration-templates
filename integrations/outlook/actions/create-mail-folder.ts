@@ -29,12 +29,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a child mail folder in Outlook.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-mail-folder',
-        group: 'Mail'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Mail.ReadWrite', 'Mail.ReadWrite.Shared'],

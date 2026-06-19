@@ -24,12 +24,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete or archive a refund in WooCommerce.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-refund',
-        group: 'Refunds'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read', 'write'],

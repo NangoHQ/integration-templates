@@ -127,12 +127,7 @@ const ProviderAlertSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single alert from PostHog.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-alert',
-        group: 'Alerts'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: ProviderAlertSchema,
     scopes: ['alert:read'],

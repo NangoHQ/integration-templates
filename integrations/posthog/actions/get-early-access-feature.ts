@@ -34,12 +34,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single early access feature from PostHog.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-early-access-feature',
-        group: 'Early Access Features'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['early_access_feature:read'],

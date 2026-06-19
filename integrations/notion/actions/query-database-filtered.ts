@@ -18,13 +18,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieves pages from database matching filter conditions.',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/databases/query-filtered',
-        group: 'Databases'
-    },
+    version: '1.0.1',
 
     input: InputSchema,
     output: OutputSchema,

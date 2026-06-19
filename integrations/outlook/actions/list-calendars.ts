@@ -34,12 +34,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List calendars in the mailbox.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-calendars',
-        group: 'Calendars'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Calendars.Read'],

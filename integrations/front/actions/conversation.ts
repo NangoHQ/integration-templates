@@ -6,13 +6,7 @@ import { FrontMessageOutput, SingleConversation } from '../models.js';
 
 const action = createAction({
     description: 'List the messages in a conversation in reverse chronological order (newest first).',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'GET',
-        path: '/conversations/all',
-        group: 'Conversations'
-    },
+    version: '2.0.1',
 
     input: SingleConversation,
     output: FrontMessageOutput,

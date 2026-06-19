@@ -33,8 +33,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create dev resources linked to Figma nodes',
-    version: '1.0.0',
-    endpoint: { method: 'POST', path: '/actions/create-dev-resources' },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['dev_resources:write'],

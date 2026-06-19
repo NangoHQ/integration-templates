@@ -31,12 +31,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete a Shopify draft order.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-draft-order',
-        group: 'Draft Orders'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write_draft_orders'],

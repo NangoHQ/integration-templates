@@ -44,12 +44,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Attach a label to a Linear issue.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/add-issue-label',
-        group: 'Issues'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['issues'],

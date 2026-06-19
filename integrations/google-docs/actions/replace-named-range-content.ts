@@ -32,12 +32,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Replace the contents of a named range in a Google Doc.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/replace-named-range-content',
-        group: 'Documents'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['documents'],

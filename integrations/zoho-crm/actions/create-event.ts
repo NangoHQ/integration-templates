@@ -143,12 +143,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create an event in Zoho CRM.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-event',
-        group: 'Events'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoCRM.modules.Events.CREATE', 'ZohoCRM.modules.Events.ALL'],

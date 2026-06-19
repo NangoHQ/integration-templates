@@ -51,12 +51,7 @@ const ProviderResponseSchema = z.object({
 
 const action = createAction({
     description: 'List all Zoho Books organizations accessible with the current credentials.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-organizations',
-        group: 'Organizations'
-    },
+    version: '1.0.1',
     input: z.object({}),
     output: OutputSchema,
     scopes: ['ZohoBooks.fullaccess.ALL'],

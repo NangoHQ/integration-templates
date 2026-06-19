@@ -22,13 +22,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Provision a HubSpot user with email, role, and team assignments',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-user',
-        group: 'Users'
-    },
+    version: '2.0.1',
 
     input: InputSchema,
     output: OutputSchema,

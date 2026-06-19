@@ -19,12 +19,7 @@ import { z } from 'zod';
  */
 const action = createAction({
     description: 'Fetch the possible services that Checkr offers for a background check',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'GET',
-        path: '/background-check/service-list'
-    },
+    version: '2.0.1',
 
     input: z.void(),
     output: CheckrServicesResponse,

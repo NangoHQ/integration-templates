@@ -43,12 +43,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Copy a storage object within or between buckets in Supabase.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/copy-storage-object',
-        group: 'Storage'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['storage'],

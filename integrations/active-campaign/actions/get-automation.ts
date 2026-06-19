@@ -64,12 +64,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single automation from ActiveCampaign.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-automation',
-        group: 'Automations'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

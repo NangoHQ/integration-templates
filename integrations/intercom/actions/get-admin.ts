@@ -37,12 +37,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve an admin by ID.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-admin',
-        group: 'Admins'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

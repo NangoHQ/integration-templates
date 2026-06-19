@@ -40,12 +40,7 @@ const PageTokenResponseSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve app subscriptions configured on a Facebook Page',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-page-app-subscriptions',
-        group: 'Page Subscriptions'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['pages_manage_metadata'],

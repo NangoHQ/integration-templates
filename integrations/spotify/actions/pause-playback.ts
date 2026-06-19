@@ -11,12 +11,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Pause the user's Spotify playback.",
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/pause-playback',
-        group: 'Player'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['user-modify-playback-state'],

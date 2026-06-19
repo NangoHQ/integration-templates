@@ -18,12 +18,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a new tag',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-tag',
-        group: 'Tags'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['tags:admin'],

@@ -97,12 +97,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List Shopify metafield definitions for a resource type.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-metafield-definitions',
-        group: 'Metafields'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read_metafields'],

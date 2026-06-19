@@ -114,12 +114,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List modern site pages on a site.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-site-pages',
-        group: 'Sites'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Sites.Read.All'],

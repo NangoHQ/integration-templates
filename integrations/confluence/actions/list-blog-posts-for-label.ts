@@ -72,12 +72,7 @@ function extractCursorFromNextUrl(nextUrl: string): string | undefined {
 
 const action = createAction({
     description: 'List Confluence blog posts attached to a label.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-blog-posts-for-label',
-        group: 'Blog Posts'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,

@@ -30,12 +30,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete a message in Zoho Mail. Pass expunge=true to permanently delete; otherwise moves to Trash.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-message',
-        group: 'Messages'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoMail.messages.ALL', 'ZohoMail.messages.DELETE'],

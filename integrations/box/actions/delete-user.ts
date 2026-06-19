@@ -14,12 +14,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Deletes a user in Box. Requires an enterprise account.',
-    version: '3.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-user',
-        group: 'Users'
-    },
+    version: '3.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['manage_managed_users'],

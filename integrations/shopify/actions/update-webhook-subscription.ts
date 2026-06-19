@@ -34,12 +34,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update a Shopify webhook subscription.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-webhook-subscription',
-        group: 'Webhooks'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

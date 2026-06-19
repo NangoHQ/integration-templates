@@ -37,12 +37,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a mailbox filter by filter ID.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-filter',
-        group: 'Filters'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/gmail.settings.basic'],

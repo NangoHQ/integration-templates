@@ -72,12 +72,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Send a message in a chat',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-chat-message',
-        group: 'Chats'
-    },
+    version: '1.0.1',
     scopes: ['ChatMessage.Send'],
     input: InputSchema,
     output: OutputSchema,

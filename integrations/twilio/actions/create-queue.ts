@@ -32,12 +32,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a call queue in Twilio.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-queue',
-        group: 'Queues'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

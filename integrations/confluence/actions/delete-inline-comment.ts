@@ -17,12 +17,7 @@ const AccessibleResourcesResponseSchema = z.array(
 
 const action = createAction({
     description: 'Permanently delete a Confluence inline comment.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-inline-comment',
-        group: 'Comments'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: z.null(),
     metadata: MetadataSchema,

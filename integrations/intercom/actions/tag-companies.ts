@@ -45,12 +45,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Apply a tag to one or more companies',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/tag-companies',
-        group: 'Tags'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['tags:admin'],

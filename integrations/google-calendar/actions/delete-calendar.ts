@@ -12,13 +12,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete a secondary calendar',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-calendar',
-        group: 'Calendars'
-    },
+    version: '2.0.1',
 
     input: InputSchema,
     output: OutputSchema,

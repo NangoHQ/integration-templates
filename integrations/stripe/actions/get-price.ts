@@ -57,12 +57,7 @@ const PriceSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single price from Stripe.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-price',
-        group: 'Prices'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: PriceSchema,
     scopes: [],

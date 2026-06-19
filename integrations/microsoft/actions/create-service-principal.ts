@@ -34,12 +34,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a service principal in Microsoft Entra ID for an existing application.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-service-principal',
-        group: 'Service Principals'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Application.ReadWrite.All'],

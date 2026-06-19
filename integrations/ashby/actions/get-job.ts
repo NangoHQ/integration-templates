@@ -36,12 +36,7 @@ const OutputSchema = JobSchema;
 
 const action = createAction({
     description: 'Retrieve a single job from Ashby.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-job',
-        group: 'Jobs'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['jobsRead'],

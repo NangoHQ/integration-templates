@@ -30,12 +30,7 @@ const ProviderResponseSchema = z.object({
 
 const action = createAction({
     description: 'Deactivate tracking for a Shopify inventory item at a location.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/deactivate-inventory-item-at-location',
-        group: 'Inventory'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write_inventory'],

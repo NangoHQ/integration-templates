@@ -19,12 +19,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve Gong integration settings.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-integration-settings',
-        group: 'Integration Settings'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:integration-settings:write'],

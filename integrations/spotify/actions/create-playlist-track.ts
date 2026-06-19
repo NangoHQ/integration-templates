@@ -28,12 +28,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Add one or more tracks to a Spotify playlist',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-playlist-track',
-        group: 'Playlists'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['playlist-modify-public', 'playlist-modify-private'],

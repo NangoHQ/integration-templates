@@ -11,12 +11,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Remove a user from the Calendly organization.',
-    version: '2.1.0',
-    endpoint: {
-        method: 'DELETE',
-        path: '/users',
-        group: 'Users'
-    },
+    version: '2.1.1',
     input: InputSchema,
     output: OutputSchema,
 

@@ -20,12 +20,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update an API key in Algolia.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-api-key',
-        group: 'API Keys'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['admin'],

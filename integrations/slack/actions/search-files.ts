@@ -56,13 +56,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Search workspace files with pagination',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/search-files',
-        group: 'Files'
-    },
+    version: '2.0.1',
 
     input: InputSchema,
     output: OutputSchema,

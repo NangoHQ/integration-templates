@@ -37,12 +37,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Rename or move a file or folder in a site drive.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-drive-item',
-        group: 'Drive Items'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Files.ReadWrite.All'],

@@ -74,12 +74,7 @@ async function getCompany(nango: Parameters<ReturnType<typeof createAction>['exe
 
 const action = createAction({
     description: 'Update an account using its current SyncToken',
-    version: '2.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-account',
-        group: 'Accounts'
-    },
+    version: '2.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['com.intuit.quickbooks.accounting'],

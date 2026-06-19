@@ -12,12 +12,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete or archive a role in Auth0.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-role',
-        group: 'Roles'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['delete:roles'],

@@ -23,12 +23,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List all users attached to a specific Gong permission profile',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-permission-profile-users',
-        group: 'Permissions'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:users:read'],

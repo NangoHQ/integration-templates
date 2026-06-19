@@ -28,12 +28,7 @@ const FileDeleteResponseSchema = z.object({
 
 const action = createAction({
     description: 'Delete one or more Shopify file resources.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-files',
-        group: 'Files'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write_files'],

@@ -54,12 +54,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a note in Pipedrive.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-note',
-        group: 'Notes'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['deals:read', 'deals:write', 'activities:read', 'activities:write'],

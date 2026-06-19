@@ -15,12 +15,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Set the volume for the user's current playback device.",
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/set-volume',
-        group: 'Player'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['user-modify-playback-state'],

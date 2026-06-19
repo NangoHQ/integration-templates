@@ -11,12 +11,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Unfollow (remove) a playlist from the current user's library",
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-playlist',
-        group: 'Playlists'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['playlist-modify-public', 'playlist-modify-private'],

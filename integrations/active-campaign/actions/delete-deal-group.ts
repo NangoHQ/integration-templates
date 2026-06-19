@@ -12,12 +12,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete a deal group (pipeline) in ActiveCampaign.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-deal-group',
-        group: 'Deals'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['deal'], // ActiveCampaign API requires deal permissions to manage pipelines.

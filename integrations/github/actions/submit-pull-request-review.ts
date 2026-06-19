@@ -71,12 +71,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a pull request review with approval, comment, or change request.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/submit-pull-request-review',
-        group: 'Pull Requests'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['pull_requests:write'],

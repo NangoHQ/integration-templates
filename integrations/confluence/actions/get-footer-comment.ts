@@ -100,12 +100,7 @@ const MetadataSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a Confluence footer comment by id.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-footer-comment',
-        group: 'Comments'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,

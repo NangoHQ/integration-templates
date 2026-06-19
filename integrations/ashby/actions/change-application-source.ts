@@ -78,12 +78,7 @@ const EnvelopeSchema = z.object({
 
 const action = createAction({
     description: 'Update an application source.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/change-application-source',
-        group: 'Applications'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['candidatesWrite'],

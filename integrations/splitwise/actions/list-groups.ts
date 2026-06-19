@@ -68,12 +68,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List groups from Splitwise.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-groups',
-        group: 'Groups'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

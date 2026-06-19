@@ -122,12 +122,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List tasks from a ClickUp list with optional filtering and pagination',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-tasks',
-        group: 'Tasks'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['task:read'],

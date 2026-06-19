@@ -73,12 +73,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Search Apollo people records',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/search-people',
-        group: 'People'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

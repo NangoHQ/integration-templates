@@ -58,12 +58,7 @@ const DashboardSchema = z
 
 const action = createAction({
     description: 'Retrieve a single dashboard from PostHog.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-dashboard',
-        group: 'Dashboards'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: DashboardSchema,
     scopes: ['dashboard:read'],

@@ -108,12 +108,7 @@ function extractPageToken(nextPageUri: string | null | undefined): string | unde
 
 const action = createAction({
     description: 'List TwiML applications from Twilio.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-twiml-apps',
-        group: 'Applications'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

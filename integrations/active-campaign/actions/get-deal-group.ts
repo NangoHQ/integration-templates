@@ -53,12 +53,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single deal group (pipeline) from ActiveCampaign.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-deal-group',
-        group: 'Deals'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

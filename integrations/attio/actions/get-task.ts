@@ -41,12 +41,7 @@ const OutputSchema = TaskSchema;
 
 const action = createAction({
     description: 'Retrieve a single task from Attio.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-task',
-        group: 'Tasks'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['task:read', 'object_configuration:read', 'record_permission:read', 'user_management:read'],

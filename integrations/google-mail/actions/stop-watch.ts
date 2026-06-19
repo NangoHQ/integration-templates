@@ -11,12 +11,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Stop Gmail push notification watch state for the mailbox.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/stop-watch',
-        group: 'Watch'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/gmail.modify'],

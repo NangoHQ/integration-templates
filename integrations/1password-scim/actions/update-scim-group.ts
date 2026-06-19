@@ -41,12 +41,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update a SCIM group in 1Password SCIM',
-    version: '1.1.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-scim-group',
-        group: 'Groups'
-    },
+    version: '1.1.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['scim'],

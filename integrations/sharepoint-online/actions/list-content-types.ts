@@ -42,12 +42,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List content types defined on a SharePoint site.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-content-types',
-        group: 'Content Types'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Sites.Read.All'],

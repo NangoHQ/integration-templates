@@ -18,12 +18,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete or archive an expense in Splitwise.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-expense',
-        group: 'Expenses'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

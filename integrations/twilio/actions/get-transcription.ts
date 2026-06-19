@@ -40,12 +40,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single transcription from Twilio.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-transcription',
-        group: 'Transcriptions'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

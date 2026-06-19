@@ -166,12 +166,7 @@ const OutputSchema = ProviderVendorPaymentSchema;
 
 const action = createAction({
     description: 'Retrieve a single vendor payment from Zoho Books.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-vendor-payment',
-        group: 'Vendor Payments'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoBooks.vendorpayments.READ', 'ZohoBooks.settings.READ'],

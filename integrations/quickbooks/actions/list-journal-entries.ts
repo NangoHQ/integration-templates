@@ -91,12 +91,7 @@ async function getRealmId(nango: Parameters<(typeof action)['exec']>[0]): Promis
 
 const action = createAction({
     description: 'List QuickBooks journal entries with optional filtering and pagination.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-journal-entries',
-        group: 'Journal Entries'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

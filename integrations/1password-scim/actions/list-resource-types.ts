@@ -34,12 +34,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List SCIM resource types',
-    version: '1.1.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-resource-types',
-        group: 'SCIM'
-    },
+    version: '1.1.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['scim'],

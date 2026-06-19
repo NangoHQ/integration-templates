@@ -25,12 +25,7 @@ function isRecord(value: unknown): value is Record<string, unknown> {
 
 const action = createAction({
     description: 'List Shopify discount nodes with pagination.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-discounts',
-        group: 'Discounts'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read_discounts'],

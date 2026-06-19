@@ -40,12 +40,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Remove a tag from one or more contacts',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/untag-contacts',
-        group: 'Tags'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['contacts:write', 'tags:write'],

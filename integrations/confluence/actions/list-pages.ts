@@ -141,12 +141,7 @@ function pickBody(body: z.infer<typeof ProviderBodySchema> | undefined, format: 
 
 const action = createAction({
     description: 'List Confluence pages with pagination',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-pages',
-        group: 'Pages'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,

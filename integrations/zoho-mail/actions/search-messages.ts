@@ -101,12 +101,7 @@ function coerceToString(value: unknown): string | undefined {
 
 const action = createAction({
     description: 'Search emails in Zoho Mail by keyword.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/search-messages',
-        group: 'Messages'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoMail.messages.READ'],

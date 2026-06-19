@@ -59,12 +59,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List webhook subscriptions registered for the Shopify app.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-webhook-subscriptions',
-        group: 'Webhooks'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read_webhooks'],

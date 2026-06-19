@@ -44,12 +44,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Restore a page from trash so it returns to active workspace views.',
-    version: '2.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/restore-page',
-        group: 'Pages'
-    },
+    version: '2.0.1',
     input: InputSchema,
     output: OutputSchema,
 

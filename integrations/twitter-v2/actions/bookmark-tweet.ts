@@ -18,12 +18,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Bookmark a tweet for an authenticated user.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/bookmark-tweet',
-        group: 'Bookmarks'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['tweet.read', 'users.read', 'bookmark.write'],

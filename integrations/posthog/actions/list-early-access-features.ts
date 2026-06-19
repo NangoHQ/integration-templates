@@ -66,12 +66,7 @@ function extractOffsetFromUrl(url: unknown): string | undefined {
 
 const action = createAction({
     description: 'List early access features from PostHog.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-early-access-features',
-        group: 'Early Access Features'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['early_access_feature:read'],

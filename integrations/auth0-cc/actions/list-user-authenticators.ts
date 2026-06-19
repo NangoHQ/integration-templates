@@ -23,12 +23,7 @@ const OutputSchema = z.array(AuthenticatorSchema);
 
 const action = createAction({
     description: 'List the MFA authenticators enrolled by a user in Auth0.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-user-authenticators',
-        group: 'Users'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read:authentication_methods'],

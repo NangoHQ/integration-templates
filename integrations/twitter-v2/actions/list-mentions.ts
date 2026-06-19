@@ -180,12 +180,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List mentions from Twitter/X for a specified user.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-mentions',
-        group: 'Mentions'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['tweet.read', 'users.read'],

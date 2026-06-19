@@ -19,13 +19,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Apply multiple updates to a spreadsheet in a single request',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/batch-update-spreadsheet',
-        group: 'Spreadsheets'
-    },
+    version: '1.0.1',
 
     input: InputSchema,
     output: OutputSchema,

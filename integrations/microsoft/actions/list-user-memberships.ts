@@ -56,12 +56,7 @@ type MembershipOutput = z.infer<typeof ListOutputSchema>;
 
 const action = createAction({
     description: 'List all groups, directory roles, and administrative units that a user is a member of in Microsoft.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-user-memberships',
-        group: 'Users'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: ListOutputSchema,
     scopes: ['User.Read.All', 'Directory.Read.All'],

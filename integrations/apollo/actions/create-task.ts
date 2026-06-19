@@ -32,12 +32,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a task in Apollo',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-task',
-        group: 'Tasks'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['tasks.write'],

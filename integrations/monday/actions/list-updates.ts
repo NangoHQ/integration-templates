@@ -81,12 +81,7 @@ const MondayResponseSchema = z.object({
 
 const action = createAction({
     description: 'List updates from monday.com.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-updates',
-        group: 'Updates'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['updates:read'],

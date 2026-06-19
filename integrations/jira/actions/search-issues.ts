@@ -27,12 +27,7 @@ type IssueOutput = z.infer<typeof IssueSchema>;
 
 const action = createAction({
     description: 'Search Jira issues using JQL.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/search-issues',
-        group: 'Issues'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

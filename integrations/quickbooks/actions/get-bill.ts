@@ -108,12 +108,7 @@ async function getCompany(nango: Parameters<(typeof action)['exec']>[0]): Promis
 
 const action = createAction({
     description: 'Retrieve a bill by ID.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-bill',
-        group: 'Bills'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['com.intuit.quickbooks.accounting'],

@@ -34,12 +34,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a custom send-as alias for the mailbox',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-send-as-alias',
-        group: 'Settings'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/gmail.settings.sharing'],

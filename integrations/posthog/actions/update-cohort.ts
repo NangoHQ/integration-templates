@@ -40,12 +40,7 @@ const CohortSchema = z
 
 const action = createAction({
     description: 'Update a cohort in PostHog.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-cohort',
-        group: 'Cohorts'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: CohortSchema,
     scopes: ['cohort:write'],

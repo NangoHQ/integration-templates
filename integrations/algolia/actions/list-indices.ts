@@ -34,12 +34,7 @@ const ProviderResponseSchema = z.object({
 
 const action = createAction({
     description: 'List indices from Algolia.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-indices',
-        group: 'Indices'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['listIndexes'],

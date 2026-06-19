@@ -13,12 +13,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve the coupons totals report from WooCommerce.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-coupons-totals-report',
-        group: 'Reports'
-    },
+    version: '1.0.1',
     input: z.object({}),
     output: OutputSchema,
     scopes: ['read'],

@@ -45,12 +45,7 @@ const FineTuningJobSchema = z
 
 const action = createAction({
     description: 'Cancel an OpenAI fine-tuning job.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/cancel-fine-tuning-job',
-        group: 'Fine-tuning'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: FineTuningJobSchema,
     scopes: ['fine_tuning.write'],

@@ -22,13 +22,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create an all-day calendar event using start and end dates',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-all-day-event',
-        group: 'Events'
-    },
+    version: '2.0.1',
 
     input: InputSchema,
     output: OutputSchema,

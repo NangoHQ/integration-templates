@@ -27,13 +27,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List files shared in the workspace',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-files',
-        group: 'Files'
-    },
+    version: '2.0.1',
 
     input: InputSchema,
     output: OutputSchema,

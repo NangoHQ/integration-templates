@@ -67,12 +67,7 @@ function handleErrorResponse(
 
 const action = createAction({
     description: 'Update an existing Gong meeting (Beta).',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-meeting',
-        group: 'Meetings'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:meetings:user:update'],

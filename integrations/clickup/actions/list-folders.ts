@@ -35,11 +35,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List folders from a ClickUp space',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-folders'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

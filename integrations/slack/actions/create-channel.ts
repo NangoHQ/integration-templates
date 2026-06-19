@@ -19,13 +19,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a new public or private Slack channel by name; does not create DMs or other conversation types.',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-channel',
-        group: 'Conversations'
-    },
+    version: '2.0.1',
 
     input: InputSchema,
     output: OutputSchema,

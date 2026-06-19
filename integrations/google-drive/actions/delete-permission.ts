@@ -14,13 +14,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Remove a permission from a file',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-permission',
-        group: 'Permissions'
-    },
+    version: '1.0.1',
 
     input: InputSchema,
     output: OutputSchema,

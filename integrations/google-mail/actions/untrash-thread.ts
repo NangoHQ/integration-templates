@@ -41,12 +41,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Restore a trashed Gmail thread to the mailbox.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/untrash-thread',
-        group: 'Threads'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://mail.google.com/'],

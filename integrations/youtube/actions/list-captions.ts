@@ -50,12 +50,7 @@ const ListOutputSchema = z.object({
 
 const action = createAction({
     description: 'List caption tracks for a YouTube video.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-captions',
-        group: 'Captions'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: ListOutputSchema,
     scopes: ['https://www.googleapis.com/auth/youtube.force-ssl'],

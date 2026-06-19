@@ -42,12 +42,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Add a new document tab to an existing Google Doc.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/add-document-tab',
-        group: 'Tabs'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['documents'],

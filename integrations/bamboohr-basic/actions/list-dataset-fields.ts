@@ -39,12 +39,7 @@ const OutputSchema = z.object({
 const action = createAction({
     description:
         'List available fields for a BambooHR v2 dataset (e.g. "employee"). Use this to discover valid field names before configuring the employees sync.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-dataset-fields',
-        group: 'Employees'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

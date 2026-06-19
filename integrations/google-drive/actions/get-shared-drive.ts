@@ -21,13 +21,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Get a shared drive by ID',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-shared-drive',
-        group: 'Drives'
-    },
+    version: '1.0.1',
 
     input: InputSchema,
     output: OutputSchema,

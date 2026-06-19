@@ -47,12 +47,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List ad groups from TikTok Ads.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-ad-groups',
-        group: 'Ad Groups'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ads_read'],

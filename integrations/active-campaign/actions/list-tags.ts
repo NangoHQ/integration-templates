@@ -52,12 +52,7 @@ const ProviderResponseSchema = z.object({
 
 const action = createAction({
     description: 'List tags from ActiveCampaign.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-tags',
-        group: 'Tags'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

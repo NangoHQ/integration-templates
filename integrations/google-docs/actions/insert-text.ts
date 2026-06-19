@@ -30,12 +30,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Insert text at an index or at the end of a segment.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/insert-text',
-        group: 'Documents'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/documents'],

@@ -77,12 +77,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update background, borders, padding, or alignment for table cells.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-table-cell-style',
-        group: 'Documents'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['documents'],

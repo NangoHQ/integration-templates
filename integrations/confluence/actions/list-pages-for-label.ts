@@ -92,12 +92,7 @@ const MetadataSchema = z.object({
 
 const action = createAction({
     description: 'List Confluence pages attached to a label',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-pages-for-label',
-        group: 'Pages'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,

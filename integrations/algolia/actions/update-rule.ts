@@ -56,12 +56,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update a query rule in an Algolia index.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-rule',
-        group: 'Rules'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['editSettings'],

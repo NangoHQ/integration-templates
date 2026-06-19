@@ -152,12 +152,7 @@ function normalizeIdentitySet(identitySet: z.infer<typeof ProviderIdentitySetSch
 
 const action = createAction({
     description: 'Update a modern site page draft.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-site-page',
-        group: 'Site Pages'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Sites.ReadWrite.All'],

@@ -65,11 +65,7 @@ const ListOutputSchema = z.object({
 
 const action = createAction({
     description: 'List events from a calendar or date window.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-calendar-events'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: ListOutputSchema,
     scopes: ['Calendars.Read'],

@@ -39,12 +39,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a pixel in TikTok Ads.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-pixel',
-        group: 'Pixels'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['advertiser_pixels_management'],

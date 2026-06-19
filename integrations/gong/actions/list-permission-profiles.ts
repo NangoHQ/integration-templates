@@ -17,12 +17,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List all permission profiles in a Gong workspace.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-permission-profiles',
-        group: 'Permissions'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:permission-profile:read'],

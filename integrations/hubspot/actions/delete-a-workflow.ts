@@ -12,13 +12,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete an automation workflow',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-a-workflow',
-        group: 'Workflows'
-    },
+    version: '1.0.1',
 
     input: InputSchema,
     output: OutputSchema,

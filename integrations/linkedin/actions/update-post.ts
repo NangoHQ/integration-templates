@@ -22,12 +22,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update editable fields on a LinkedIn post.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-post',
-        group: 'Posts'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['w_organization_social'],

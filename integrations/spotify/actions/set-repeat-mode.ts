@@ -15,12 +15,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Set the repeat mode for the user's playback.",
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/set-repeat-mode',
-        group: 'Player'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['user-modify-playback-state'],

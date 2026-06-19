@@ -29,13 +29,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Associate two records together',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-association',
-        group: 'Associations'
-    },
+    version: '1.0.1',
 
     input: InputSchema,
     output: OutputSchema,

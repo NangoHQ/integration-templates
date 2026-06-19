@@ -24,13 +24,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Query free/busy data and return gaps meeting a minimum duration',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/find-free-slots',
-        group: 'Calendar'
-    },
+    version: '2.0.1',
 
     input: InputSchema,
     output: OutputSchema,
