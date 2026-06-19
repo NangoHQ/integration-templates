@@ -25,11 +25,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List invoices with filters and pagination.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-invoices'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['accounting.invoices.read'],

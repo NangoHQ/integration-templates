@@ -18,12 +18,7 @@ const OutputSchema = ProviderProjectSchema;
 
 const action = createAction({
     description: 'Fetch a single project by gid.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-project',
-        group: 'Projects'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['projects:read'],

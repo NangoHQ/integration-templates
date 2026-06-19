@@ -73,8 +73,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single worker from Workday.',
-    version: '1.0.0',
-    endpoint: { method: 'GET', path: '/actions/get-worker', group: 'Workers' },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

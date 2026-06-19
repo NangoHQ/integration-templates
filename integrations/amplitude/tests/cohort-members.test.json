@@ -1,0 +1,804 @@
+{
+  "nango": {
+    "batchSave": {
+      "CohortMember": []
+    },
+    "batchDelete": {
+      "CohortMember": []
+    }
+  },
+  "api": {
+    "get": {
+      "/api/3/cohorts": {
+        "response": {
+          "cohorts": [
+            {
+              "appId": 829528,
+              "archived": false,
+              "definition": {
+                "version": 3,
+                "countGroup": {
+                  "name": "User",
+                  "is_computed": false
+                },
+                "cohortType": "UNIQUES",
+                "andClauses": [
+                  {
+                    "negated": false,
+                    "orClauses": [
+                      {
+                        "type": "retention",
+                        "time_type": "rolling",
+                        "time_value": 45,
+                        "offset": 0,
+                        "interval": 1,
+                        "exclude_current_interval": false,
+                        "retention_method": "bracket",
+                        "start_event": {
+                          "filters": [],
+                          "group_by": [],
+                          "event_type": "_new"
+                        },
+                        "return_event": {
+                          "filters": [],
+                          "group_by": [],
+                          "event_type": "_active"
+                        },
+                        "base_bracket": [
+                          14,
+                          15
+                        ],
+                        "bracket_interval": 1,
+                        "multi_filters": [
+                          []
+                        ],
+                        "granularity": -3600000,
+                        "retained": true
+                      }
+                    ]
+                  }
+                ],
+                "referenceFrameTimeParams": {},
+                "orClauses": [
+                  [
+                    {
+                      "negated": false,
+                      "orClauses": [
+                        {
+                          "type": "retention",
+                          "time_type": "rolling",
+                          "time_value": 45,
+                          "offset": 0,
+                          "interval": 1,
+                          "exclude_current_interval": false,
+                          "retention_method": "bracket",
+                          "start_event": {
+                            "filters": [],
+                            "group_by": [],
+                            "event_type": "_new"
+                          },
+                          "return_event": {
+                            "filters": [],
+                            "group_by": [],
+                            "event_type": "_active"
+                          },
+                          "base_bracket": [
+                            14,
+                            15
+                          ],
+                          "bracket_interval": 1,
+                          "multi_filters": [
+                            []
+                          ],
+                          "granularity": -3600000,
+                          "retained": true
+                        }
+                      ]
+                    }
+                  ]
+                ]
+              },
+              "description": null,
+              "finished": true,
+              "id": "9apg8e8f",
+              "name": "14 day user retention",
+              "published": true,
+              "type": "redshift",
+              "lastMod": 1781554538,
+              "createdAt": 1781554538,
+              "lastComputed": 1781611619,
+              "hidden": false,
+              "metadata": null,
+              "view_count": null,
+              "popularity": null,
+              "last_viewed": null,
+              "chart_id": null,
+              "edit_id": null,
+              "is_predictive": false,
+              "is_official_content": false,
+              "location_id": null,
+              "shortcut_ids": [],
+              "per_app_metadata": null,
+              "cohort_definition_type": null,
+              "cohort_output_type": "UNIQUES",
+              "is_generated_content": false,
+              "owners": [
+                "amp"
+              ],
+              "viewers": [],
+              "size": 0
+            },
+            {
+              "appId": 829528,
+              "archived": false,
+              "definition": {
+                "version": 3,
+                "countGroup": {
+                  "name": "User",
+                  "is_computed": false
+                },
+                "cohortType": "UNIQUES",
+                "andClauses": [
+                  {
+                    "negated": false,
+                    "orClauses": [
+                      {
+                        "type": "distinct_interval",
+                        "time_type": "rolling",
+                        "time_value": 28,
+                        "offset": 0,
+                        "interval": 1,
+                        "exclude_current_interval": false,
+                        "event": {
+                          "filters": [],
+                          "group_by": [],
+                          "event_type": "_active"
+                        },
+                        "period": 7,
+                        "count": 1,
+                        "stickiness_operator": "greater or equal",
+                        "stickiness_type": "STICKY_IN_ALL_PERIODS",
+                        "segment_filters": [],
+                        "group_by_filters": [],
+                        "granularity": 1
+                      }
+                    ]
+                  }
+                ],
+                "referenceFrameTimeParams": {},
+                "orClauses": [
+                  [
+                    {
+                      "negated": false,
+                      "orClauses": [
+                        {
+                          "type": "distinct_interval",
+                          "time_type": "rolling",
+                          "time_value": 28,
+                          "offset": 0,
+                          "interval": 1,
+                          "exclude_current_interval": false,
+                          "event": {
+                            "filters": [],
+                            "group_by": [],
+                            "event_type": "_active"
+                          },
+                          "period": 7,
+                          "count": 1,
+                          "stickiness_operator": "greater or equal",
+                          "stickiness_type": "STICKY_IN_ALL_PERIODS",
+                          "segment_filters": [],
+                          "group_by_filters": [],
+                          "granularity": 1
+                        }
+                      ]
+                    }
+                  ]
+                ]
+              },
+              "description": null,
+              "finished": false,
+              "id": "u9gtvp8t",
+              "name": "Active during the last 4 consecutive weeks",
+              "published": true,
+              "type": "redshift",
+              "lastMod": 1781554538,
+              "createdAt": 1781554538,
+              "lastComputed": null,
+              "hidden": false,
+              "metadata": null,
+              "view_count": null,
+              "popularity": null,
+              "last_viewed": null,
+              "chart_id": null,
+              "edit_id": null,
+              "is_predictive": false,
+              "is_official_content": false,
+              "location_id": null,
+              "shortcut_ids": [],
+              "per_app_metadata": null,
+              "cohort_definition_type": null,
+              "cohort_output_type": "UNIQUES",
+              "is_generated_content": false,
+              "owners": [
+                "amp"
+              ],
+              "viewers": [],
+              "size": null
+            },
+            {
+              "appId": 829528,
+              "archived": false,
+              "definition": {
+                "version": 3,
+                "countGroup": {
+                  "name": "User",
+                  "is_computed": false
+                },
+                "cohortType": "UNIQUES",
+                "andClauses": [
+                  {
+                    "negated": false,
+                    "orClauses": [
+                      {
+                        "type": "event",
+                        "time_type": "rolling",
+                        "time_value": 30,
+                        "offset": 0,
+                        "interval": 1,
+                        "exclude_current_interval": false,
+                        "type_value": "_active",
+                        "operator": ">=",
+                        "operator_value": 1,
+                        "group_by": [],
+                        "metric": null
+                      }
+                    ]
+                  }
+                ],
+                "referenceFrameTimeParams": {},
+                "orClauses": [
+                  [
+                    {
+                      "negated": false,
+                      "orClauses": [
+                        {
+                          "type": "event",
+                          "time_type": "rolling",
+                          "time_value": 30,
+                          "offset": 0,
+                          "interval": 1,
+                          "exclude_current_interval": false,
+                          "type_value": "_active",
+                          "operator": ">=",
+                          "operator_value": 1,
+                          "group_by": [],
+                          "metric": null
+                        }
+                      ]
+                    }
+                  ]
+                ]
+              },
+              "description": null,
+              "finished": false,
+              "id": "9rhqxcuf",
+              "name": "All active users in the last 30 days",
+              "published": true,
+              "type": "redshift",
+              "lastMod": 1781554538,
+              "createdAt": 1781554538,
+              "lastComputed": null,
+              "hidden": false,
+              "metadata": null,
+              "view_count": null,
+              "popularity": null,
+              "last_viewed": null,
+              "chart_id": null,
+              "edit_id": null,
+              "is_predictive": false,
+              "is_official_content": false,
+              "location_id": null,
+              "shortcut_ids": [],
+              "per_app_metadata": null,
+              "cohort_definition_type": null,
+              "cohort_output_type": "UNIQUES",
+              "is_generated_content": false,
+              "owners": [
+                "amp"
+              ],
+              "viewers": [],
+              "size": null
+            },
+            {
+              "appId": 829528,
+              "archived": false,
+              "definition": {
+                "version": 3,
+                "countGroup": {
+                  "name": "User",
+                  "is_computed": false
+                },
+                "cohortType": "UNIQUES",
+                "andClauses": [
+                  {
+                    "negated": false,
+                    "orClauses": [
+                      {
+                        "type": "new_active",
+                        "time_type": "rolling",
+                        "time_value": 30,
+                        "offset": 0,
+                        "interval": 1,
+                        "exclude_current_interval": false,
+                        "type_value": "new"
+                      }
+                    ]
+                  }
+                ],
+                "referenceFrameTimeParams": {},
+                "orClauses": [
+                  [
+                    {
+                      "negated": false,
+                      "orClauses": [
+                        {
+                          "type": "new_active",
+                          "time_type": "rolling",
+                          "time_value": 30,
+                          "offset": 0,
+                          "interval": 1,
+                          "exclude_current_interval": false,
+                          "type_value": "new"
+                        }
+                      ]
+                    }
+                  ]
+                ]
+              },
+              "description": null,
+              "finished": false,
+              "id": "coqgrzam",
+              "name": "New users in the last 30 days",
+              "published": true,
+              "type": "redshift",
+              "lastMod": 1781554538,
+              "createdAt": 1781554538,
+              "lastComputed": null,
+              "hidden": false,
+              "metadata": null,
+              "view_count": null,
+              "popularity": null,
+              "last_viewed": null,
+              "chart_id": null,
+              "edit_id": null,
+              "is_predictive": false,
+              "is_official_content": false,
+              "location_id": null,
+              "shortcut_ids": [],
+              "per_app_metadata": null,
+              "cohort_definition_type": null,
+              "cohort_output_type": "UNIQUES",
+              "is_generated_content": false,
+              "owners": [
+                "amp"
+              ],
+              "viewers": [],
+              "size": null
+            },
+            {
+              "appId": 829528,
+              "archived": false,
+              "definition": {
+                "version": 3,
+                "countGroup": {
+                  "name": "User",
+                  "is_computed": false
+                },
+                "cohortType": "UNIQUES",
+                "andClauses": [
+                  {
+                    "negated": false,
+                    "orClauses": [
+                      {
+                        "type": "new_active",
+                        "time_type": "rolling",
+                        "time_value": 8,
+                        "offset": 0,
+                        "interval": 1,
+                        "exclude_current_interval": false,
+                        "type_value": "new"
+                      }
+                    ]
+                  },
+                  {
+                    "negated": false,
+                    "orClauses": [
+                      {
+                        "type": "event",
+                        "time_type": "rolling",
+                        "time_value": 8,
+                        "offset": 0,
+                        "interval": 1,
+                        "exclude_current_interval": false,
+                        "type_value": "_active",
+                        "operator": ">=",
+                        "operator_value": 1,
+                        "group_by": [],
+                        "metric": null
+                      }
+                    ]
+                  },
+                  {
+                    "negated": true,
+                    "orClauses": [
+                      {
+                        "type": "event",
+                        "time_type": "rolling",
+                        "time_value": 7,
+                        "offset": 0,
+                        "interval": 1,
+                        "exclude_current_interval": false,
+                        "type_value": "_active",
+                        "operator": ">=",
+                        "operator_value": 1,
+                        "group_by": [],
+                        "metric": null
+                      }
+                    ]
+                  }
+                ],
+                "referenceFrameTimeParams": {},
+                "orClauses": [
+                  [
+                    {
+                      "negated": false,
+                      "orClauses": [
+                        {
+                          "type": "new_active",
+                          "time_type": "rolling",
+                          "time_value": 8,
+                          "offset": 0,
+                          "interval": 1,
+                          "exclude_current_interval": false,
+                          "type_value": "new"
+                        }
+                      ]
+                    },
+                    {
+                      "negated": false,
+                      "orClauses": [
+                        {
+                          "type": "event",
+                          "time_type": "rolling",
+                          "time_value": 8,
+                          "offset": 0,
+                          "interval": 1,
+                          "exclude_current_interval": false,
+                          "type_value": "_active",
+                          "operator": ">=",
+                          "operator_value": 1,
+                          "group_by": [],
+                          "metric": null
+                        }
+                      ]
+                    },
+                    {
+                      "negated": true,
+                      "orClauses": [
+                        {
+                          "type": "event",
+                          "time_type": "rolling",
+                          "time_value": 7,
+                          "offset": 0,
+                          "interval": 1,
+                          "exclude_current_interval": false,
+                          "type_value": "_active",
+                          "operator": ">=",
+                          "operator_value": 1,
+                          "group_by": [],
+                          "metric": null
+                        }
+                      ]
+                    }
+                  ]
+                ]
+              },
+              "description": null,
+              "finished": false,
+              "id": "fhmmzzb0",
+              "name": "New users who didn't return",
+              "published": true,
+              "type": "redshift",
+              "lastMod": 1781554538,
+              "createdAt": 1781554538,
+              "lastComputed": null,
+              "hidden": false,
+              "metadata": null,
+              "view_count": null,
+              "popularity": null,
+              "last_viewed": null,
+              "chart_id": null,
+              "edit_id": null,
+              "is_predictive": false,
+              "is_official_content": false,
+              "location_id": null,
+              "shortcut_ids": [],
+              "per_app_metadata": null,
+              "cohort_definition_type": null,
+              "cohort_output_type": "UNIQUES",
+              "is_generated_content": false,
+              "owners": [
+                "amp"
+              ],
+              "viewers": [],
+              "size": null
+            },
+            {
+              "appId": 829528,
+              "archived": false,
+              "definition": {
+                "version": 3,
+                "countGroup": {
+                  "name": "User",
+                  "is_computed": false
+                },
+                "cohortType": "UNIQUES",
+                "andClauses": [
+                  {
+                    "negated": false,
+                    "orClauses": [
+                      {
+                        "type": "event",
+                        "time_type": "rolling",
+                        "time_value": 7,
+                        "offset": 0,
+                        "interval": 1,
+                        "exclude_current_interval": false,
+                        "type_value": "_active",
+                        "operator": ">=",
+                        "operator_value": 3,
+                        "group_by": [],
+                        "metric": null
+                      }
+                    ]
+                  }
+                ],
+                "referenceFrameTimeParams": {},
+                "orClauses": [
+                  [
+                    {
+                      "negated": false,
+                      "orClauses": [
+                        {
+                          "type": "event",
+                          "time_type": "rolling",
+                          "time_value": 7,
+                          "offset": 0,
+                          "interval": 1,
+                          "exclude_current_interval": false,
+                          "type_value": "_active",
+                          "operator": ">=",
+                          "operator_value": 3,
+                          "group_by": [],
+                          "metric": null
+                        }
+                      ]
+                    }
+                  ]
+                ]
+              },
+              "description": null,
+              "finished": false,
+              "id": "su6kjm3i",
+              "name": "Product qualified leads",
+              "published": true,
+              "type": "redshift",
+              "lastMod": 1781554538,
+              "createdAt": 1781554538,
+              "lastComputed": null,
+              "hidden": false,
+              "metadata": null,
+              "view_count": null,
+              "popularity": null,
+              "last_viewed": null,
+              "chart_id": null,
+              "edit_id": null,
+              "is_predictive": false,
+              "is_official_content": false,
+              "location_id": null,
+              "shortcut_ids": [],
+              "per_app_metadata": null,
+              "cohort_definition_type": null,
+              "cohort_output_type": "UNIQUES",
+              "is_generated_content": false,
+              "owners": [
+                "amp"
+              ],
+              "viewers": [],
+              "size": null
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 16 Jun 2026 12:07:07 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload;",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4901",
+          "x-ratelimit-reset": "1781611642",
+          "etag": "W/\"68f8bcfdc53a66e0c4f047ca88f24217f72473de\"",
+          "server-timing": "dash;dur=95.5",
+          "x-amzn-trace-id": "Root=1-6a313c6a-22ce4a3306ea4b40606aad3f",
+          "cache-control": "no-cache, no-store, must-revalidate",
+          "pragma": "no-cache",
+          "expires": "0",
+          "set-cookie": "SERVERID=; Expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/"
+        },
+        "hash": "a544014258e7457024beddbc2ec25c16874f7bac",
+        "request": {}
+      },
+      "/api/3/cohorts/9apg8e8f": {
+        "response": {
+          "cohort": {
+            "appId": 829528,
+            "archived": false,
+            "definition": {
+              "version": 3,
+              "countGroup": {
+                "name": "User",
+                "is_computed": false
+              },
+              "cohortType": "UNIQUES",
+              "andClauses": [
+                {
+                  "negated": false,
+                  "orClauses": [
+                    {
+                      "type": "retention",
+                      "time_type": "rolling",
+                      "time_value": 45,
+                      "offset": 0,
+                      "interval": 1,
+                      "exclude_current_interval": false,
+                      "retention_method": "bracket",
+                      "start_event": {
+                        "filters": [],
+                        "group_by": [],
+                        "event_type": "_new"
+                      },
+                      "return_event": {
+                        "filters": [],
+                        "group_by": [],
+                        "event_type": "_active"
+                      },
+                      "base_bracket": [
+                        14,
+                        15
+                      ],
+                      "bracket_interval": 1,
+                      "multi_filters": [
+                        []
+                      ],
+                      "granularity": -3600000,
+                      "retained": true
+                    }
+                  ]
+                }
+              ],
+              "referenceFrameTimeParams": {},
+              "orClauses": [
+                [
+                  {
+                    "negated": false,
+                    "orClauses": [
+                      {
+                        "type": "retention",
+                        "time_type": "rolling",
+                        "time_value": 45,
+                        "offset": 0,
+                        "interval": 1,
+                        "exclude_current_interval": false,
+                        "retention_method": "bracket",
+                        "start_event": {
+                          "filters": [],
+                          "group_by": [],
+                          "event_type": "_new"
+                        },
+                        "return_event": {
+                          "filters": [],
+                          "group_by": [],
+                          "event_type": "_active"
+                        },
+                        "base_bracket": [
+                          14,
+                          15
+                        ],
+                        "bracket_interval": 1,
+                        "multi_filters": [
+                          []
+                        ],
+                        "granularity": -3600000,
+                        "retained": true
+                      }
+                    ]
+                  }
+                ]
+              ]
+            },
+            "description": null,
+            "finished": true,
+            "id": "9apg8e8f",
+            "name": "14 day user retention",
+            "published": true,
+            "type": "redshift",
+            "lastMod": 1781554538,
+            "createdAt": 1781554538,
+            "lastComputed": 1781611619,
+            "hidden": false,
+            "metadata": null,
+            "view_count": null,
+            "popularity": null,
+            "last_viewed": null,
+            "chart_id": null,
+            "edit_id": null,
+            "is_predictive": false,
+            "is_official_content": false,
+            "location_id": null,
+            "shortcut_ids": [],
+            "per_app_metadata": null,
+            "cohort_definition_type": null,
+            "cohort_output_type": "UNIQUES",
+            "is_generated_content": false,
+            "owners": [
+              "amp"
+            ],
+            "viewers": [],
+            "size": 0
+          },
+          "amplitude_ids": [],
+          "user_ids": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 16 Jun 2026 12:07:08 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload;",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4900",
+          "x-ratelimit-reset": "1781611642",
+          "etag": "W/\"eb9ce06415dc8a1427d3da6e434083538ed296ed\"",
+          "server-timing": "dash;dur=1502.6",
+          "x-amzn-trace-id": "Root=1-6a313c6b-30ba5a100240adad11f1628b",
+          "cache-control": "no-cache, no-store, must-revalidate",
+          "pragma": "no-cache",
+          "expires": "0",
+          "set-cookie": "SERVERID=; Expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/"
+        },
+        "hash": "e78d15366a7b7be990c286e06ca147aec721a18c",
+        "request": {}
+      }
+    }
+  }
+}

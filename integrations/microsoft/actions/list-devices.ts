@@ -40,12 +40,7 @@ const ProviderDevicesResponseSchema = z.object({
 
 const action = createAction({
     description: 'List devices from Microsoft Graph',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-devices',
-        group: 'Devices'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Device.Read.All'],

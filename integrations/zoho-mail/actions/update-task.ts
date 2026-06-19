@@ -38,12 +38,7 @@ function extractBaseUrlFromApiDomain(apiDomain: string): string | null {
 
 const action = createAction({
     description: 'Update a personal task in Zoho Mail.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-task',
-        group: 'Tasks'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoMail.tasks.UPDATE'],

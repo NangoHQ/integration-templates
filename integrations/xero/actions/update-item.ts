@@ -75,12 +75,7 @@ const ConnectionsResponseSchema = z.array(
 
 const action = createAction({
     description: 'Update an existing item.',
-    version: '3.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-item',
-        group: 'Items'
-    },
+    version: '3.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['accounting.settings'],

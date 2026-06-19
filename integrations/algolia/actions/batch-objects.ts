@@ -25,12 +25,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Batch create, update, or delete Algolia objects.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/batch-objects',
-        group: 'Objects'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['addObject'],

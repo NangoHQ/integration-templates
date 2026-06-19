@@ -55,12 +55,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single column from monday.com.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-column',
-        group: 'Columns'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['boards:read'],

@@ -90,12 +90,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single podcast episode from the Spotify catalog.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-episode',
-        group: 'Episodes'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

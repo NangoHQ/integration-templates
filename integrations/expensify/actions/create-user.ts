@@ -7,13 +7,7 @@ import { ExpsensifyNullableUser, CreateUser } from '../models.js';
 
 const action = createAction({
     description: 'Create a user in the account',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/users',
-        group: 'Users'
-    },
+    version: '2.0.1',
 
     input: CreateUser,
     output: ExpsensifyNullableUser,

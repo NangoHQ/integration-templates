@@ -41,13 +41,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Set a user's status",
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/set-status',
-        group: 'Users'
-    },
+    version: '1.0.1',
 
     input: InputSchema,
     output: OutputSchema,

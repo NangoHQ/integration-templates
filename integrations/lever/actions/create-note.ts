@@ -3,13 +3,7 @@ import { LeverOpportunityNote, LeverCreateNoteInput } from '../models.js';
 
 const action = createAction({
     description: 'Action to create a note and add it to an opportunity.',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/notes',
-        group: 'Notes'
-    },
+    version: '2.0.1',
 
     input: LeverCreateNoteInput,
     output: LeverOpportunityNote,

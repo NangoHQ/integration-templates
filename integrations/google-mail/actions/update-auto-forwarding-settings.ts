@@ -27,12 +27,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update Gmail auto-forwarding behavior and disposition',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-auto-forwarding-settings',
-        group: 'Settings'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/gmail.settings.sharing'],

@@ -43,12 +43,7 @@ const OutputSchema = ScorecardSchema;
 
 const action = createAction({
     description: 'Retrieve a single scorecard from Gong.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-scorecard',
-        group: 'Settings'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:settings:scorecards:read'],

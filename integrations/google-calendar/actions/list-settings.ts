@@ -20,13 +20,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List calendar settings',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-settings',
-        group: 'Settings'
-    },
+    version: '2.0.1',
 
     input: InputSchema,
     output: OutputSchema,

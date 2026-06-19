@@ -91,12 +91,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a comment on a LinkedIn post or comment thread.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-comment',
-        group: 'Comments'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['w_organization_social_feed', 'w_member_social_feed'],

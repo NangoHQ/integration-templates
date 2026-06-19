@@ -42,12 +42,7 @@ const GraphQLResponseSchema = z.object({
 
 const action = createAction({
     description: 'Delete Shopify metafields in one call.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-metafields',
-        group: 'Metafields'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

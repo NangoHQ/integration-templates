@@ -49,12 +49,7 @@ const MetadataSchema = z.object({
 
 const action = createAction({
     description: 'List usage and billing records from Twilio.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-usage-records',
-        group: 'Usage'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

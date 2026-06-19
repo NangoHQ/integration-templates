@@ -19,12 +19,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Query entries in a Notion data source using filters and sorts.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/query-data-source',
-        group: 'Data Sources'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read_content'],

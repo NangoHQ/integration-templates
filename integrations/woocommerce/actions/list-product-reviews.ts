@@ -59,12 +59,7 @@ function getHeaderValue(headers: unknown, name: string): string | undefined {
 
 const action = createAction({
     description: 'List product reviews from WooCommerce.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-product-reviews',
-        group: 'Product Reviews'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read'],

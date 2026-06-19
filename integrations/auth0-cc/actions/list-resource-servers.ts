@@ -56,12 +56,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List API resource servers in Auth0.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-resource-servers',
-        group: 'Resource Servers'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read:resource_servers'],

@@ -4,13 +4,7 @@ import { SuccessResponse, SinglePost } from '../models.js';
 
 const action = createAction({
     description: 'Get single post for your account in Lever',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'GET',
-        path: '/posts/single',
-        group: 'Posts'
-    },
+    version: '2.0.1',
 
     input: SinglePost,
     output: SuccessResponse,

@@ -87,12 +87,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single channel from Discord',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-channel',
-        group: 'Channels'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['bot'],

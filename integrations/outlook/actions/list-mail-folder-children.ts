@@ -45,12 +45,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List child folders under a mail folder',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-mail-folder-children',
-        group: 'Mail Folders'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Mail.Read', 'Mail.ReadBasic', 'Mail.ReadWrite'],

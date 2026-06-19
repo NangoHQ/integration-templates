@@ -12,12 +12,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete a task by gid.',
-    version: '3.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-task',
-        group: 'Tasks'
-    },
+    version: '3.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['tasks:delete'],

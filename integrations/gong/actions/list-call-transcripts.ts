@@ -61,12 +61,7 @@ const ProviderResponseSchema = z.object({
 
 const action = createAction({
     description: 'List call transcripts from Gong using date-range or other filters.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-call-transcripts',
-        group: 'Calls'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:calls:read:transcript'],

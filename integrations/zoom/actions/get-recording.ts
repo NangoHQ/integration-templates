@@ -56,12 +56,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single recording from Zoom.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-recording',
-        group: 'Cloud Recording'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['recording:read:admin', 'recording:read'],

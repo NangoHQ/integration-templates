@@ -43,12 +43,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update a time entry in ClickUp.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-time-entry',
-        group: 'Time Tracking'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

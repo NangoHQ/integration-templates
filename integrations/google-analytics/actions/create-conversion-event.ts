@@ -45,11 +45,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a conversion event for a GA4 property.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-conversion-event'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/analytics.edit'],

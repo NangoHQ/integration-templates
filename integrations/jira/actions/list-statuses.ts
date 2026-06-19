@@ -42,12 +42,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List Jira statuses available to the user',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-statuses',
-        group: 'Statuses'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,

@@ -101,12 +101,7 @@ function mapAccount(account: z.infer<typeof AccountSchema>): z.infer<typeof Acco
 
 const action = createAction({
     description: 'List accounts with the QuickBooks query endpoint',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-accounts',
-        group: 'Accounts'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['com.intuit.quickbooks.accounting'],

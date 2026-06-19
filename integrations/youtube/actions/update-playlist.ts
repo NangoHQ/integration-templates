@@ -39,12 +39,7 @@ type PlaylistUpdateBody = {
 
 const action = createAction({
     description: "Update a YouTube playlist's metadata or privacy state",
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-playlist',
-        group: 'Playlists'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/youtube'],

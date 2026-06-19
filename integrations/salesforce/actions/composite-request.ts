@@ -37,12 +37,7 @@ const ProviderCompositeResponseSchema = z.object({
 
 const action = createAction({
     description: 'Execute multiple Salesforce REST subrequests in one composite call.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/composite-request',
-        group: 'Composite'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api'],

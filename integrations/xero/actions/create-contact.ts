@@ -82,12 +82,7 @@ const ConnectionItemSchema = z.object({
 
 const action = createAction({
     description: 'Create a contact in Xero.',
-    version: '3.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-contact',
-        group: 'Contacts'
-    },
+    version: '3.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['accounting.contacts', 'accounting.invoices', 'accounting.settings'],

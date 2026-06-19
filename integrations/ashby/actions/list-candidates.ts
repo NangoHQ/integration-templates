@@ -123,12 +123,7 @@ function mapCandidate(candidate: z.infer<typeof ProviderCandidateSchema>): z.inf
 
 const action = createAction({
     description: 'List candidates from Ashby.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-candidates',
-        group: 'Candidates'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['candidatesRead'],

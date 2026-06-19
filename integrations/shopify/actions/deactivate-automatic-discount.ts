@@ -42,12 +42,7 @@ const GraphQLResponseSchema = z.object({
 
 const action = createAction({
     description: 'Deactivate an automatic Shopify discount.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/deactivate-automatic-discount',
-        group: 'Discounts'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write_discounts'],

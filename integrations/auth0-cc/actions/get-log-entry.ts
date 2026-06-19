@@ -77,12 +77,7 @@ const OutputSchema = z
 
 const action = createAction({
     description: 'Retrieve a single log entry from Auth0.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-log-entry',
-        group: 'Logs'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read:logs'],

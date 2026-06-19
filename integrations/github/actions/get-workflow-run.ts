@@ -38,11 +38,7 @@ const WorkflowRunSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a workflow run with status and conclusion details.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-workflow-run'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: WorkflowRunSchema,
 

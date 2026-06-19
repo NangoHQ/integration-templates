@@ -8,13 +8,7 @@ import { PennylaneSuccessResponse, CreateInvoice } from '../models.js';
 
 const action = createAction({
     description: 'Action to create an invoice in pennylane',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/invoices',
-        group: 'Invoices'
-    },
+    version: '2.0.1',
 
     input: CreateInvoice,
     output: PennylaneSuccessResponse,

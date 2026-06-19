@@ -35,12 +35,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Submit a fulfillment request to a third-party fulfillment service.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/submit-fulfillment-request',
-        group: 'Fulfillments'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write_third_party_fulfillment_orders'],

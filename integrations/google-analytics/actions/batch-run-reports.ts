@@ -73,12 +73,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Run multiple GA4 reports in one request.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/batch-run-reports',
-        group: 'Reports'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/analytics.readonly'],

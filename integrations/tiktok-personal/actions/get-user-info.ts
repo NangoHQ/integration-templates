@@ -58,12 +58,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Fetch TikTok user profile fields allowed by granted scopes.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-user-info',
-        group: 'Users'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['user.info.basic', 'user.info.profile', 'user.info.stats'],

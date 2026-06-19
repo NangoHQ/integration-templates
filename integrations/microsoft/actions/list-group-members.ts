@@ -34,12 +34,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List all direct members of a group in Microsoft',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-group-members',
-        group: 'Groups'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['GroupMember.Read.All'],

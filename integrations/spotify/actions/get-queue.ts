@@ -27,12 +27,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Retrieve the user's current playback queue.",
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-queue',
-        group: 'Player'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['user-read-playback-state'],

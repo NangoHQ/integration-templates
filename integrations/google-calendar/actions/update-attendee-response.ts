@@ -22,13 +22,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Fetch an event and update one attendee response status',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-attendee-response',
-        group: 'Events'
-    },
+    version: '2.0.1',
 
     input: InputSchema,
     output: OutputSchema,

@@ -67,12 +67,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update mutable file or folder metadata.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-item',
-        group: 'Drive Items'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['onedrive.readwrite'],

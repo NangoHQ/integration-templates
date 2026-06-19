@@ -68,12 +68,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Invite users or groups to access a drive item.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/add-drive-item-permission',
-        group: 'Drive Items'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Sites.ReadWrite.All'],

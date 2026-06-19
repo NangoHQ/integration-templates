@@ -14,12 +14,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Download the binary content of a file',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/download-item-content',
-        group: 'Files'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['onedrive.readonly'],

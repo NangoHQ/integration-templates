@@ -42,12 +42,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single record from Attio.',
-    version: '2.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-record',
-        group: 'Records'
-    },
+    version: '2.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['record_permission:read', 'object_configuration:read'],

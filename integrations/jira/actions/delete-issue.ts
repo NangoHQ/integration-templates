@@ -25,12 +25,7 @@ const MetadataCacheSchema = z.object({
 
 const action = createAction({
     description: 'Delete a Jira issue by ID or key',
-    version: '1.0.0',
-    endpoint: {
-        method: 'DELETE',
-        path: '/actions/delete-issue',
-        group: 'Issues'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataCacheSchema,

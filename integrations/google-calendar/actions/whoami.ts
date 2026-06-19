@@ -12,13 +12,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Return the current user's Google account ID and email",
-    version: '3.0.0',
-
-    endpoint: {
-        method: 'GET',
-        path: '/actions/whoami',
-        group: 'Users'
-    },
+    version: '3.0.1',
 
     input: InputSchema,
     output: OutputSchema,

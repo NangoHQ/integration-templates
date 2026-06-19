@@ -30,12 +30,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Send an email through Zoho Mail',
-    version: '2.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/send-email',
-        group: 'Messages'
-    },
+    version: '2.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoMail.messages.CREATE'],

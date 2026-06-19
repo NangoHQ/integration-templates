@@ -229,11 +229,7 @@ async function getCompany(nango: NangoAction, inputRealmId: string | undefined):
 
 const action = createAction({
     description: 'Update a customer using its current SyncToken.',
-    version: '2.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-customer'
-    },
+    version: '2.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['com.intuit.quickbooks.accounting'],

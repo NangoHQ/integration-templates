@@ -27,12 +27,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List files attached to a vector store',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-vector-store-files',
-        group: 'Vector Stores'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['vector_stores.read'],

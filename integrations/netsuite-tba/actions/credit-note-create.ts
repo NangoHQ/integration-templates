@@ -6,13 +6,7 @@ import { NetsuiteCreditNoteCreateOutput, NetsuiteCreditNoteCreateInput } from '.
 
 const action = createAction({
     description: 'Creates a credit note in Netsuite',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/credit-notes',
-        group: 'Credit Notes'
-    },
+    version: '2.0.1',
 
     input: NetsuiteCreditNoteCreateInput,
     output: NetsuiteCreditNoteCreateOutput,

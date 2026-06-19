@@ -148,12 +148,7 @@ async function getRealmId(nango: Parameters<ReturnType<typeof createAction>['exe
 
 const action = createAction({
     description: 'List payments using the QuickBooks query endpoint.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-payments',
-        group: 'Payments'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

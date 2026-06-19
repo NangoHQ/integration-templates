@@ -110,12 +110,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List YouTube comment threads for a video or channel.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-comment-threads',
-        group: 'Comments'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/youtube.readonly'],

@@ -28,12 +28,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Move a Gmail message to trash',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/trash-message',
-        group: 'Messages'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/gmail.modify'],

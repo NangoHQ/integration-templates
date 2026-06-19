@@ -34,12 +34,7 @@ const BatchUpdateOrdersOutputSchema = z.object({
 
 const action = createAction({
     description: 'Create, update, and delete WooCommerce orders in a batch.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/batch-update-orders',
-        group: 'Orders'
-    },
+    version: '1.0.1',
     input: BatchUpdateOrdersInputSchema,
     output: BatchUpdateOrdersOutputSchema,
     scopes: ['read', 'write'],

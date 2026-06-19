@@ -106,12 +106,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve aggregated activity statistics for users over a date range, grouped by time period.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-stats-activity-aggregate-by-period',
-        group: 'Stats'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:stats:user-actions'],

@@ -35,12 +35,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List liked tweets from a specific Twitter/X user',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-liked-tweets',
-        group: 'Likes'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['like.read', 'tweet.read', 'users.read'],

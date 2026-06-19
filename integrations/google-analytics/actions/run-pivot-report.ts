@@ -31,12 +31,7 @@ const OutputSchema = z
 
 const action = createAction({
     description: 'Run a GA4 pivot report.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/run-pivot-report',
-        group: 'Reporting'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/analytics.readonly'],

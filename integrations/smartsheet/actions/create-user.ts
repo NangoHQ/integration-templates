@@ -11,13 +11,7 @@ import { User, CreateUser } from '../models.js';
  */
 const action = createAction({
     description: 'Creates a user in Smartsheet',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/users',
-        group: 'Users'
-    },
+    version: '1.0.1',
 
     input: CreateUser,
     output: User,

@@ -56,12 +56,7 @@ interface UpdatePayload {
 
 const action = createAction({
     description: 'Update a stage in Pipedrive',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-stage',
-        group: 'Stages'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['deals:write'],

@@ -44,12 +44,7 @@ const AccessibleResourceSchema = z.object({
 
 const action = createAction({
     description: 'List Jira issue types available to the user',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-issue-types',
-        group: 'Issue Types'
-    },
+    version: '1.0.1',
     metadata: MetadataSchema,
     input: InputSchema,
     output: OutputSchema,

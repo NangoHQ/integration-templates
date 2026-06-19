@@ -65,12 +65,7 @@ const CustomerSchema = z
 
 const action = createAction({
     description: 'Retrieve a single customer from Stripe.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-customer',
-        group: 'Customers'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: CustomerSchema,
     scopes: ['read_only'],

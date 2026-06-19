@@ -55,12 +55,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Initialize a TikTok direct video upload or pull-from-url post.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/init-video-upload',
-        group: 'Content Posting'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['video.publish'],

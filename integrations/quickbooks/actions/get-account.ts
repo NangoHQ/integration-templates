@@ -95,12 +95,7 @@ async function getRealmId(nango: Parameters<ReturnType<typeof createAction>['exe
 
 const action = createAction({
     description: 'Retrieve an account by ID.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-account',
-        group: 'Accounts'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

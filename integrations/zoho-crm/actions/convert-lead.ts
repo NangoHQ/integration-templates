@@ -50,12 +50,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Convert a lead into account, contact, and deal records',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/convert-lead',
-        group: 'Leads'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoCRM.modules.leads.CREATE', 'ZohoCRM.modules.accounts.CREATE', 'ZohoCRM.modules.contacts.CREATE', 'ZohoCRM.modules.deals.CREATE'],

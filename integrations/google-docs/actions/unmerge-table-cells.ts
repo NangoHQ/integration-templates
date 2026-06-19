@@ -32,12 +32,7 @@ const BatchUpdateResponseSchema = z.object({
 
 const action = createAction({
     description: 'Unmerge previously merged table cells in a Google Doc.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/unmerge-table-cells',
-        group: 'Tables'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: BatchUpdateResponseSchema,
     scopes: ['documents'],

@@ -91,12 +91,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update an existing permission on a drive item.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-drive-item-permission',
-        group: 'Drive Items'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Sites.Read.All', 'Sites.ReadWrite.All'],

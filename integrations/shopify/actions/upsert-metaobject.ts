@@ -42,12 +42,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create or update a Shopify metaobject by type and handle.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/upsert-metaobject',
-        group: 'Metaobjects'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write_metaobjects'],

@@ -154,12 +154,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a new application in Microsoft Entra ID',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-application',
-        group: 'Applications'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Application.ReadWrite.All'],

@@ -3,13 +3,7 @@ import { PennylaneSuccessResponse, UpdateProduct } from '../models.js';
 
 const action = createAction({
     description: 'Action to update a product in pennylane',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'PATCH',
-        path: '/products',
-        group: 'Products'
-    },
+    version: '2.0.1',
 
     input: UpdateProduct,
     output: PennylaneSuccessResponse,

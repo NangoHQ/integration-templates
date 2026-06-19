@@ -97,12 +97,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update a Discord channel.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-channel',
-        group: 'Channels'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['bot'],

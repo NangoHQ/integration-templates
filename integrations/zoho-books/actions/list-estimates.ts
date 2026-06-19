@@ -83,12 +83,7 @@ const ProviderResponseSchema = z.object({
 
 const action = createAction({
     description: 'List estimates from Zoho Books.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-estimates',
-        group: 'Estimates'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoBooks.estimates.READ', 'ZohoBooks.settings.READ'],

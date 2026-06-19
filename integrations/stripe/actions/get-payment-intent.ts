@@ -50,12 +50,7 @@ const PaymentIntentSchema = z
 
 const action = createAction({
     description: 'Retrieve a single payment intent from Stripe.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-payment-intent',
-        group: 'Payment Intents'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: PaymentIntentSchema,
     scopes: [],

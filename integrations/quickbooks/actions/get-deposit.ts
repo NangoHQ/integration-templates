@@ -89,12 +89,7 @@ async function getCompany(nango: { getConnection: () => Promise<{ connection_con
 
 const action = createAction({
     description: 'Retrieve a deposit by ID',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-deposit',
-        group: 'Deposits'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['com.intuit.quickbooks.accounting'],

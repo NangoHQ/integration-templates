@@ -82,12 +82,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List insights from PostHog.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-insights',
-        group: 'Insights'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['insight:read'],

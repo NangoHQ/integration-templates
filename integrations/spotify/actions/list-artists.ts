@@ -87,12 +87,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List artists followed by the current user',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-artists',
-        group: 'Artists'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['user-follow-read'],

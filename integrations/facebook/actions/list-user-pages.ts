@@ -49,12 +49,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List Facebook Pages the authenticated user can access',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-user-pages',
-        group: 'Pages'
-    },
+    version: '1.0.1',
     input: z.object({}),
     output: OutputSchema,
     scopes: ['pages_show_list'],

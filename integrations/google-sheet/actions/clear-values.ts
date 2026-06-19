@@ -13,13 +13,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Clear values from a range, preserving formatting',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/clear-values',
-        group: 'Values'
-    },
+    version: '1.0.1',
 
     input: InputSchema,
     output: OutputSchema,

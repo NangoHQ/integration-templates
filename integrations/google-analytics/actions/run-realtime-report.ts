@@ -73,12 +73,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Run a realtime GA4 report.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/run-realtime-report',
-        group: 'Reports'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/analytics.readonly'],

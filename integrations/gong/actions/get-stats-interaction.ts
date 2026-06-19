@@ -41,12 +41,7 @@ const AxiosErrorSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve interaction statistics for users on a specific date',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-stats-interaction',
-        group: 'Stats'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:stats:interaction'],

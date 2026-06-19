@@ -76,12 +76,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a site-level column definition on a SharePoint site.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-site-column',
-        group: 'Columns'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Sites.ReadWrite.All'],

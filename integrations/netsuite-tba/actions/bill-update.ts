@@ -7,13 +7,7 @@ import { NetsuiteBillUpdateOutput, NetsuiteBillUpdateInput } from '../models.js'
 
 const action = createAction({
     description: 'Updates an existing vendor bill in Netsuite.',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'PUT',
-        path: '/bills',
-        group: 'Bills'
-    },
+    version: '2.0.1',
 
     input: NetsuiteBillUpdateInput,
     output: NetsuiteBillUpdateOutput,

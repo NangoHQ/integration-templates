@@ -71,13 +71,7 @@ const PatchEventResponseSchema = z.object({
 
 const action = createAction({
     description: 'Partially update only provided event fields like time, location, or description',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/patch-event',
-        group: 'Events'
-    },
+    version: '2.0.1',
 
     input: InputSchema,
     output: OutputSchema,

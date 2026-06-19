@@ -87,11 +87,7 @@ const InputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single API resource server from Auth0.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-resource-server'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: ProviderResourceServerSchema,
     scopes: ['read:resource_servers'],

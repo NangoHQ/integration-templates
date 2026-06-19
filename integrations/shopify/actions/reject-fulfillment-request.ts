@@ -65,12 +65,7 @@ const GraphQLResponseSchema = z.object({
 
 const action = createAction({
     description: 'Reject a fulfillment request on a Shopify fulfillment order.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/reject-fulfillment-request',
-        group: 'Fulfillment Orders'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write_assigned_fulfillment_orders'],

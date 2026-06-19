@@ -17,12 +17,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Export a Google Doc to PDF, DOCX, HTML, or plain text.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/export-document',
-        group: 'Documents'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['drive.readonly', 'drive'],

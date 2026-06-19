@@ -7,13 +7,7 @@ import { Application, UpdateApplicationInput } from '../models.js';
 
 const action = createAction({
     description: "Update an application's source",
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'PATCH',
-        path: '/application',
-        group: 'Applications'
-    },
+    version: '1.0.1',
 
     input: UpdateApplicationInput,
     output: Application,

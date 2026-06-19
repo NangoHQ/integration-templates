@@ -51,12 +51,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Log time against a Jira issue.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/add-worklog',
-        group: 'Worklogs'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write:jira-work'],

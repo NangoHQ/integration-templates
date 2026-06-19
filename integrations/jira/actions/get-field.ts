@@ -37,11 +37,7 @@ interface MetadataType {
 
 export default createAction({
     description: 'Retrieve Jira field metadata by field ID',
-    version: '1.0.0',
-    endpoint: {
-        path: '/actions/get-field',
-        method: 'POST'
-    },
+    version: '1.0.1',
     scopes: ['read:field:jira'],
     input: InputSchema,
     output: OutputSchema,

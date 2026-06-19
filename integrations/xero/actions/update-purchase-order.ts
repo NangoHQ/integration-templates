@@ -335,12 +335,7 @@ type NangoAction = Parameters<(typeof action)['exec']>[0];
 
 const action = createAction({
     description: 'Update an existing purchase order.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-purchase-order',
-        group: 'Purchase Orders'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['accounting.invoices'],

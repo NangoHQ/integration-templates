@@ -48,12 +48,7 @@ const ProjectSchema = z
 
 const action = createAction({
     description: 'Create a project in GitLab.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-project',
-        group: 'Projects'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: ProjectSchema,
     scopes: ['api'],

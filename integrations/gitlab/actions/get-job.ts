@@ -136,12 +136,7 @@ const OutputSchema = ProviderJobSchema;
 
 const action = createAction({
     description: 'Retrieve a single job from GitLab.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-job',
-        group: 'Jobs'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api', 'read_api'],

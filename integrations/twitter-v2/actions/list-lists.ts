@@ -54,12 +54,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List all Lists owned by a specified user from X API',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-lists',
-        group: 'Lists'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['list.read', 'tweet.read', 'users.read'],

@@ -43,12 +43,7 @@ const OutputSchema = z.union([PropertyItemSchema, PropertyItemListSchema]);
 
 const action = createAction({
     description: 'Retrieve a single property item value from a page.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-page-property-item',
-        group: 'Pages'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read.content'],

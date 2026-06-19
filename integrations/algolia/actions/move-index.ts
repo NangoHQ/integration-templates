@@ -22,12 +22,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Rename an Algolia index by moving it to a new name (destructive — overwrites destination).',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/move-index',
-        group: 'Indices'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['addObject'],

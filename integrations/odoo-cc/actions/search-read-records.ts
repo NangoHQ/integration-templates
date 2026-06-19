@@ -23,12 +23,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Search and read records from any Odoo model',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/search-read-records',
-        group: 'Records'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

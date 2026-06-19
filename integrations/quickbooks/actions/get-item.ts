@@ -81,12 +81,7 @@ async function getRealmId(nango: { getConnection: () => Promise<{ connection_con
 
 const action = createAction({
     description: 'Retrieve an item by ID.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-item',
-        group: 'Items'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['com.intuit.quickbooks.accounting'],

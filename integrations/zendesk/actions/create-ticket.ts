@@ -53,12 +53,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a support ticket in Zendesk',
-    version: '3.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-ticket',
-        group: 'Tickets'
-    },
+    version: '3.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['tickets:write'],

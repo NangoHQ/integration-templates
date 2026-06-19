@@ -142,12 +142,7 @@ const DataSourceOutputSchema = z.object({
 
 const action = createAction({
     description: "Update a Notion data source's title, description, or schema properties.",
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-data-source',
-        group: 'Data Sources'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: DataSourceOutputSchema,
     scopes: [],

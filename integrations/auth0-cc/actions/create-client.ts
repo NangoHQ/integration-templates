@@ -190,12 +190,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a client in Auth0.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-client',
-        group: 'Clients'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['create:clients'],

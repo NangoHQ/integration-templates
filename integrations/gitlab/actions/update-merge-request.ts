@@ -37,12 +37,7 @@ const OutputSchema = z
 
 const action = createAction({
     description: 'Update a merge request in GitLab.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-merge-request',
-        group: 'Merge Requests'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

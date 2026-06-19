@@ -121,12 +121,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single contact custom field from ActiveCampaign.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-custom-field',
-        group: 'Custom Fields'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {

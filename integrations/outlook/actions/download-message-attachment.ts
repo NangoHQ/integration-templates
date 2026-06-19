@@ -26,12 +26,7 @@ const ProviderAttachmentSchema = z.object({
 
 const action = createAction({
     description: 'Download the content of a file attachment on a message.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/download-message-attachment',
-        group: 'Messages'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Mail.Read'],

@@ -1,9 +1,16 @@
-import { afterEach, vi, expect, it, describe } from 'vitest';
+import { afterEach, beforeEach, vi, expect, it, describe } from 'vitest';
 
 import createSync from '../syncs/attendance.js';
 
+const FIXTURE_NOW = new Date('2026-06-15T12:00:00.000Z');
+
 describe('zoho-people attendance tests', () => {
     const models = 'Attendance'.split(',');
+
+    // Fixture was recorded on 2026-06-15 (UTC); edate=15-Jun-2026, sdate=09-Jun-2026.
+    beforeEach(() => {
+        vi.useFakeTimers({ now: FIXTURE_NOW });
+    });
 
     const createTestContext = () => {
         const nangoMock = new global.vitest.NangoSyncMock({
@@ -19,6 +26,7 @@ describe('zoho-people attendance tests', () => {
     };
 
     afterEach(() => {
+        vi.useRealTimers();
         vi.clearAllMocks();
         vi.restoreAllMocks();
     });

@@ -49,12 +49,7 @@ const OutputSchema = EventDefinitionSchema;
 
 const action = createAction({
     description: 'Retrieve a single event definition from PostHog.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-event-definition',
-        group: 'Event Definitions'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['event_definition:read'],

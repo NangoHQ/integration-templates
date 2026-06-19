@@ -26,12 +26,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Move a Trello card to another list or board.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/move-card',
-        group: 'Cards'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

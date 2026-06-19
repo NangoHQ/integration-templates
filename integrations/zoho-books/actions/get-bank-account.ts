@@ -82,12 +82,7 @@ const ProviderResponseSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single bank account from Zoho Books.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-bank-account',
-        group: 'Bank Accounts'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoBooks.banking.READ', 'ZohoBooks.settings.READ'],

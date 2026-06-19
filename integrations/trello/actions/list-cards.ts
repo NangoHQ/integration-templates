@@ -67,12 +67,7 @@ const ListOutputSchema = z.object({
 
 const action = createAction({
     description: 'List cards on a Trello board',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-cards',
-        group: 'Cards'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: ListOutputSchema,
     scopes: ['read'],

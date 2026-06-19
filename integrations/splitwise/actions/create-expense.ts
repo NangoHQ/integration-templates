@@ -109,12 +109,7 @@ const OutputSchema = ProviderExpenseSchema;
 
 const action = createAction({
     description: 'Create a expense in Splitwise.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-expense',
-        group: 'Expenses'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

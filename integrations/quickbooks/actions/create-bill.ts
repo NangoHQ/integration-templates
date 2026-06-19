@@ -131,12 +131,7 @@ async function getRealmId(nango: Parameters<(typeof action)['exec']>[0]): Promis
 
 const action = createAction({
     description: 'Create a vendor bill with expense or item lines',
-    version: '2.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-bill',
-        group: 'Bills'
-    },
+    version: '2.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['com.intuit.quickbooks.accounting'],

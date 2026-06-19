@@ -52,12 +52,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List Notion users and bots available to the integration.',
-    version: '2.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-users',
-        group: 'Users'
-    },
+    version: '2.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['users:read'],

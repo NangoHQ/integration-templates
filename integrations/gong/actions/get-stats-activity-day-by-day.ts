@@ -56,12 +56,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve daily activity statistics for applicable users over a date range.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-stats-activity-day-by-day',
-        group: 'Stats'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:stats:user-actions:detailed'],

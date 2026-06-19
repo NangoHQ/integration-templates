@@ -37,12 +37,7 @@ const MetadataSchema = z.object({
 
 const action = createAction({
     description: 'Delete a comment from a Jira issue',
-    version: '1.0.0',
-    endpoint: {
-        method: 'DELETE',
-        path: '/actions/delete-comment',
-        group: 'Comments'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,

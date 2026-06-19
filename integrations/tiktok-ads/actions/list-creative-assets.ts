@@ -51,12 +51,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List creative assets from TikTok Ads',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-creative-assets',
-        group: 'Creatives'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ad'],

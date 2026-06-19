@@ -51,11 +51,7 @@ const ProviderListResponseSchema = z.object({
 
 const action = createAction({
     description: 'List cohorts from PostHog.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-cohorts'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: ListOutputSchema,
     scopes: ['cohort:read'],

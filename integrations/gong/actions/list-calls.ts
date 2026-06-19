@@ -76,12 +76,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List calls from Gong with optional date-range filters.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-calls',
-        group: 'Calls'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:calls:read'],

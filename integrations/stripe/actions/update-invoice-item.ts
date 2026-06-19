@@ -119,12 +119,7 @@ function toFormUrlEncoded(data: Record<string, unknown>): string {
 
 const action = createAction({
     description: 'Update an invoice item in Stripe.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-invoice-item',
-        group: 'Invoices'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

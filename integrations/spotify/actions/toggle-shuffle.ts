@@ -12,12 +12,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Toggle shuffle mode on or off for the user's playback",
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/toggle-shuffle',
-        group: 'Player'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['user-modify-playback-state'],

@@ -13,13 +13,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Stop push notifications for a channel',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/stop-channel',
-        group: 'Channels'
-    },
+    version: '1.0.1',
 
     input: InputSchema,
     output: OutputSchema,

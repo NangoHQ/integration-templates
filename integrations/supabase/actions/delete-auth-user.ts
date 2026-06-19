@@ -13,12 +13,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete or archive a auth user in Supabase.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-auth-user',
-        group: 'Auth'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

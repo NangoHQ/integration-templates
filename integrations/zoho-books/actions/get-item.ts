@@ -90,12 +90,7 @@ const ResponseWrapperSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single item from Zoho Books',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-item',
-        group: 'Items'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoBooks.items.READ', 'ZohoBooks.settings.READ'],

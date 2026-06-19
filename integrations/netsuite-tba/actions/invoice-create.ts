@@ -6,13 +6,7 @@ import { NetsuiteInvoiceCreateOutput, NetsuiteInvoiceCreateInput } from '../mode
 
 const action = createAction({
     description: 'Creates an invoice in Netsuite',
-    version: '3.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/invoices',
-        group: 'Invoices'
-    },
+    version: '3.0.1',
 
     input: NetsuiteInvoiceCreateInput,
     output: NetsuiteInvoiceCreateOutput,

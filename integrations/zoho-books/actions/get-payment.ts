@@ -66,12 +66,7 @@ const OutputSchema = ProviderPaymentSchema;
 
 const action = createAction({
     description: 'Retrieve a single customer payment from Zoho Books.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-payment',
-        group: 'Payments'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoBooks.customerpayments.READ', 'ZohoBooks.settings.READ'],

@@ -43,12 +43,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single user from Microsoft',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-user',
-        group: 'Users'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['User.Read.All'],

@@ -74,12 +74,7 @@ const OutputSchema = z
 
 const action = createAction({
     description: 'Retrieve a single client from Auth0.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-client',
-        group: 'Clients'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read:clients'],

@@ -16,12 +16,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Refresh an Airtable webhook expiration before it expires.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/refresh-webhook',
-        group: 'Webhooks'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['webhook:manage'],

@@ -45,12 +45,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update or insert Airtable records using performUpsert match fields.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/upsert-records',
-        group: 'Records'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['data.records:write'],

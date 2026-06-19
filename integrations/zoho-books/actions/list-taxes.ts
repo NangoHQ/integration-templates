@@ -59,12 +59,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List taxes configured in Zoho Books.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-taxes',
-        group: 'Settings'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoBooks.settings.READ'],

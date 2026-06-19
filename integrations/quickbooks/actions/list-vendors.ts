@@ -62,12 +62,7 @@ async function getRealmId(nango: { getConnection: () => Promise<{ connection_con
 
 const action = createAction({
     description: 'List vendors with the QuickBooks query endpoint.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-vendors',
-        group: 'Vendors'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

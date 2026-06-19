@@ -107,12 +107,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List replies under a channel message thread',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-channel-replies',
-        group: 'Channels'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ChannelMessage.Read.All'],

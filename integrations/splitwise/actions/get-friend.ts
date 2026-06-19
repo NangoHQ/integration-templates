@@ -38,12 +38,7 @@ const OutputSchema = ProviderFriendSchema;
 
 const action = createAction({
     description: 'Retrieve a single friend from Splitwise.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-friend',
-        group: 'Friends'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

@@ -45,11 +45,7 @@ const OutputSchema = DataStreamSchema;
 
 const action = createAction({
     description: 'Update a GA4 data stream.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-data-stream'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/analytics.edit'],

@@ -69,12 +69,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single scheduled event from Calendly',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-scheduled-event',
-        group: 'Scheduled Events'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['scheduled_events:read'],

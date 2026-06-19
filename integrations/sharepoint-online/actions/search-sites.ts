@@ -36,12 +36,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Search for sites by keyword.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/search-sites',
-        group: 'Sites'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Sites.Read.All'],

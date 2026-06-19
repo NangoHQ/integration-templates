@@ -110,12 +110,7 @@ const OutputSchema = ProviderReleaseSchema;
 
 const action = createAction({
     description: 'Retrieve a single release from GitLab.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-release',
-        group: 'Releases'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api'],

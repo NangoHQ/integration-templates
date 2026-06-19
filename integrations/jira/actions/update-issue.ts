@@ -22,12 +22,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update issue fields on an existing Jira issue',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-issue',
-        group: 'Issues'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write:jira-work'],

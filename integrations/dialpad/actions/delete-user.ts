@@ -6,13 +6,7 @@ import { SuccessResponse, IdEntity } from '../models.js';
 
 const action = createAction({
     description: 'Deletes a user in Dialpad by email',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'DELETE',
-        path: '/users/email',
-        group: 'Users'
-    },
+    version: '2.0.1',
 
     input: IdEntity,
     output: SuccessResponse,

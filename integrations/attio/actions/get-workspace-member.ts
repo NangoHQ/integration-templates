@@ -32,11 +32,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single workspace member from Attio.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-workspace-member'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['user_management:read'],

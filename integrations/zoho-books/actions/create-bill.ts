@@ -95,12 +95,7 @@ function optionalNumber(obj: Record<string, unknown>, key: string): { [k: string
 
 const action = createAction({
     description: 'Create a bill in Zoho Books',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-bill',
-        group: 'Bills'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoBooks.bills.CREATE', 'ZohoBooks.settings.READ'],

@@ -112,13 +112,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update or move a conditional format rule',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-conditional-format-rule',
-        group: 'Spreadsheets'
-    },
+    version: '1.0.1',
 
     input: InputSchema,
     output: OutputSchema,

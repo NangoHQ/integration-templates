@@ -6,13 +6,7 @@ import { UploadResumeResponse, UploadResumeInput } from '../models.js';
 
 const action = createAction({
     description: 'Upload a resume for a candidate. Allowed formats are .pdf, .doc, or .docx. The file size must not exceed 2MB.',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/candidate-upload-resume',
-        group: 'Candidates'
-    },
+    version: '1.0.1',
 
     input: UploadResumeInput,
     output: UploadResumeResponse,

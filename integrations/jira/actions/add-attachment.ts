@@ -44,12 +44,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Attach a file to a Jira issue',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/add-attachment',
-        group: 'Issues'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,

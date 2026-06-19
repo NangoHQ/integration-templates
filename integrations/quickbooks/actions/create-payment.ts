@@ -123,12 +123,7 @@ async function getCompany(nango: Parameters<(typeof action)['exec']>[0]): Promis
 
 const action = createAction({
     description: 'Record a customer payment against invoices',
-    version: '2.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-payment',
-        group: 'Payments'
-    },
+    version: '2.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['com.intuit.quickbooks.accounting'],

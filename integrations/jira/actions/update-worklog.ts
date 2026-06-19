@@ -90,12 +90,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update a worklog on a Jira issue.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-worklog',
-        group: 'Issue Worklogs'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,

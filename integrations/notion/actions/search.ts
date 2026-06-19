@@ -38,12 +38,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Search pages, data sources, and other searchable Notion objects.',
-    version: '2.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/search',
-        group: 'Search'
-    },
+    version: '2.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['search:read'],

@@ -36,12 +36,7 @@ const ProviderResponseSchema = z.object({
 
 const action = createAction({
     description: 'Get attendance report for all employees over a date window',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-attendance-report',
-        group: 'Attendance'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

@@ -43,12 +43,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Search Dropbox files and folders by query text and path scope.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/search-files-and-folders',
-        group: 'Files'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['files.metadata.read'],

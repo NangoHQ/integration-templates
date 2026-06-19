@@ -85,12 +85,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Edit release metadata such as name, notes, or draft state.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-release',
-        group: 'Releases'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['repo'],

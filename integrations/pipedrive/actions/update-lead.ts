@@ -76,11 +76,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update a lead in Pipedrive',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-lead'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['deals:full:write'],

@@ -29,12 +29,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update a Trello organization (workspace).',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-organization',
-        group: 'Organizations'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read', 'write'],

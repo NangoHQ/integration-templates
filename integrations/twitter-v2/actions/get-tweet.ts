@@ -87,12 +87,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single tweet from Twitter/X.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-tweet',
-        group: 'Tweets'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['tweet.read'],

@@ -20,12 +20,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Ask a natural language question about a Gong entity using AI.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/ask-entity',
-        group: 'Entities'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

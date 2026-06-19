@@ -38,12 +38,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete an attachment from a Linear issue.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-attachment',
-        group: 'Attachments'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

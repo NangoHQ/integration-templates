@@ -71,13 +71,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Update a calendar list entry's settings",
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-calendar-list-entry',
-        group: 'Calendars'
-    },
+    version: '2.0.1',
 
     input: InputSchema,
     output: OutputSchema,

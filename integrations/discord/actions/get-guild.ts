@@ -13,12 +13,7 @@ const OutputSchema = z.object({}).passthrough();
 
 const action = createAction({
     description: 'Retrieve a single guild from Discord.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-guild',
-        group: 'Guilds'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['guilds'],

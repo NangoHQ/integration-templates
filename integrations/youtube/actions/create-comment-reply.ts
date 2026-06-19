@@ -42,12 +42,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Reply to an existing YouTube comment',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-comment-reply',
-        group: 'Comments'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/youtube.force-ssl'],

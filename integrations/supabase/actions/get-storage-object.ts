@@ -36,12 +36,7 @@ const ConnectionConfigSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve metadata for a single storage object from Supabase.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-storage-object',
-        group: 'Storage'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

@@ -34,12 +34,7 @@ const OutputSchema = z
 
 const action = createAction({
     description: 'Retrieve a single participant from a Twilio conversation.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-participant',
-        group: 'Conversations'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

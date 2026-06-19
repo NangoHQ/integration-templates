@@ -6,12 +6,7 @@ import { Anonymous_unanet_action_getcompany_output, Entity } from '../models.js'
 
 const action = createAction({
     description: 'Retrieve information about a company',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'GET',
-        path: '/company'
-    },
+    version: '1.0.1',
 
     input: Entity,
     output: Anonymous_unanet_action_getcompany_output,

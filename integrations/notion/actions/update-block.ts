@@ -21,12 +21,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Update a block's supported fields or rich text content.",
-    version: '2.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-block',
-        group: 'Blocks'
-    },
+    version: '2.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['update_content'],

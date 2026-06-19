@@ -28,13 +28,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List pipelines and stages for an object type, defaulting to deals',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'GET',
-        path: '/actions/fetch-pipelines',
-        group: 'Pipelines'
-    },
+    version: '2.0.1',
 
     input: InputSchema,
     output: OutputSchema,

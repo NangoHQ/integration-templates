@@ -12,13 +12,7 @@ import { z } from 'zod';
  */
 const action = createAction({
     description: 'Fetch all projects from Basecamp',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'GET',
-        path: '/projects',
-        group: 'Projects'
-    },
+    version: '2.0.1',
 
     input: z.void(),
     output: BasecampProjectsResponse,

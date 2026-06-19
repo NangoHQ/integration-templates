@@ -81,12 +81,7 @@ const OutputSchema = z
 
 const action = createAction({
     description: 'Create a lead in Pipedrive',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-lead',
-        group: 'Leads'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['deals:full'],

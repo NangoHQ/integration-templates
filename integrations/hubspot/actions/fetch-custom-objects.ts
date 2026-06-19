@@ -21,13 +21,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve HubSpot custom object schemas for enterprise accounts',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'GET',
-        path: '/actions/fetch-custom-objects',
-        group: 'CRM'
-    },
+    version: '2.0.1',
 
     input: z.object({}),
     output: OutputSchema,

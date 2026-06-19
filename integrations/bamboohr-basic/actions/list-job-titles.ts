@@ -34,12 +34,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List job titles configured in BambooHR.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-job-titles',
-        group: 'Metadata'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

@@ -27,12 +27,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Execute multiple independent Salesforce REST subrequests in one batch call',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/composite-batch-request',
-        group: 'Composite'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api'],

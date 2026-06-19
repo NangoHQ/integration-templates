@@ -21,12 +21,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update specific attributes of an existing Algolia object without replacing the whole record.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/partial-update-object',
-        group: 'Objects'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['addObject'],

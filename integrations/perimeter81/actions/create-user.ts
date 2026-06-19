@@ -25,13 +25,7 @@ import { User, Perimeter81CreateUser } from '../models.js';
  */
 const action = createAction({
     description: 'Creates a user in Perimeter81',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/users',
-        group: 'Users'
-    },
+    version: '1.0.1',
 
     input: Perimeter81CreateUser,
     output: User,

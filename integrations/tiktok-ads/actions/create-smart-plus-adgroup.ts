@@ -112,12 +112,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a Smart+ ad group in TikTok Ads.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-smart-plus-adgroup',
-        group: 'Ad Groups'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ad.write'],

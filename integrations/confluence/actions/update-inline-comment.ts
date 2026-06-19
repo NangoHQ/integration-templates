@@ -151,12 +151,7 @@ async function resolveCloudId(nango: NangoActionLocal): Promise<string> {
 
 const action = createAction({
     description: 'Update the body or resolution state of a Confluence inline comment.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-inline-comment',
-        group: 'Comments'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read:comment:confluence', 'write:comment:confluence'],

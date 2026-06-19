@@ -13,12 +13,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete or archive a meeting in Zoom.',
-    version: '2.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-meeting',
-        group: 'Meetings'
-    },
+    version: '2.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['meeting:write'],

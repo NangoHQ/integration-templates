@@ -14,12 +14,7 @@ const OutputSchema = z.object({});
 
 const action = createAction({
     description: 'Update a goal in ClickUp',
-    version: '1.0.0',
-    endpoint: {
-        method: 'PUT',
-        path: '/actions/update-goal',
-        group: 'Goals'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

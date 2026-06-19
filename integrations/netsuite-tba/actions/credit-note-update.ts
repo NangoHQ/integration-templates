@@ -6,13 +6,7 @@ import { NetsuiteCreditNoteUpdateOutput, NetsuiteCreditNoteUpdateInput } from '.
 
 const action = createAction({
     description: 'Updates a credit note in Netsuite',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'PUT',
-        path: '/credit-notes',
-        group: 'Credit Notes'
-    },
+    version: '2.0.1',
 
     input: NetsuiteCreditNoteUpdateInput,
     output: NetsuiteCreditNoteUpdateOutput,

@@ -50,12 +50,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List contacts attached to a company.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-company-contacts',
-        group: 'Companies'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read'],

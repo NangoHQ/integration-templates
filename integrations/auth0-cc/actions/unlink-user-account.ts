@@ -38,12 +38,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Unlink a secondary user identity from a primary account in Auth0',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/unlink-user-account',
-        group: 'Users'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['update:users'],

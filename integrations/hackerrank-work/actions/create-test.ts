@@ -7,13 +7,7 @@ const mapInputToPostData = (input: HackerRankWorkCreateTestInput): Record<string
 
 const action = createAction({
     description: 'Action to create a test on hackerrank work',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/tests',
-        group: 'Tests'
-    },
+    version: '2.0.1',
 
     input: HackerRankWorkCreateTestInput,
     output: HackerRankWorkTest,

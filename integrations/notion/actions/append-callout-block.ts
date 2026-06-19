@@ -14,13 +14,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Adds a callout block with icon to a page.',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'PATCH',
-        path: '/blocks/callout',
-        group: 'Blocks'
-    },
+    version: '1.0.1',
 
     input: InputSchema,
     output: OutputSchema,

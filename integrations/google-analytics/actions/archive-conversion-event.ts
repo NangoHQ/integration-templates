@@ -13,11 +13,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Archive a GA4 conversion event.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/archive-conversion-event'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['analytics.edit'],

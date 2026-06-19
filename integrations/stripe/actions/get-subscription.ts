@@ -66,12 +66,7 @@ const SubscriptionSchema = z
 
 const action = createAction({
     description: 'Retrieve a single subscription from Stripe.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-subscription',
-        group: 'Subscriptions'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: SubscriptionSchema,
     scopes: [],

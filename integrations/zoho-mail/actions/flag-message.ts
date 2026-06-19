@@ -24,12 +24,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Flag or unflag a Zoho Mail message.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/flag-message',
-        group: 'Messages'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoMail.messages.UPDATE'],

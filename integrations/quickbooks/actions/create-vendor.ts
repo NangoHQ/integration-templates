@@ -114,11 +114,7 @@ async function getCompany(nango: Parameters<(typeof action)['exec']>[0]): Promis
 
 const action = createAction({
     description: 'Create a vendor record in QuickBooks Online.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-vendor'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

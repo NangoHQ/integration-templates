@@ -18,12 +18,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Call an Odoo model method through execute_kw',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/execute-kw',
-        group: 'Actions'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

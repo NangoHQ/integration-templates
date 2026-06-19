@@ -56,12 +56,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List jobs in a workflow run attempt',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-workflow-jobs',
-        group: 'Workflow Jobs'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['repo'],

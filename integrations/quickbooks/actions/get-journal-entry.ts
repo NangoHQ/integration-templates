@@ -90,12 +90,7 @@ function getObjectValue(obj: unknown, keys: string[]): Record<string, unknown> |
 
 const action = createAction({
     description: 'Retrieve a QuickBooks journal entry by ID.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-journal-entry',
-        group: 'Journal Entries'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

@@ -39,12 +39,7 @@ const ListOutputSchema = z.object({
 
 const action = createAction({
     description: 'List setup intents from Stripe.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-setup-intents',
-        group: 'Setup Intents'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: ListOutputSchema,
     scopes: [],

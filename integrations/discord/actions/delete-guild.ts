@@ -17,12 +17,7 @@ const OutputSchema = z.object({
 const action = createAction({
     description:
         'Leave a guild in Discord. Note: Discord does not allow bots to delete guilds via the API; use this action to have the bot leave a guild instead.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-guild',
-        group: 'Guilds'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,

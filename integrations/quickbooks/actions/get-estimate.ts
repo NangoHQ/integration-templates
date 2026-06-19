@@ -103,12 +103,7 @@ function mapProviderToOutput(providerData: z.infer<typeof ProviderEstimateSchema
 
 const action = createAction({
     description: 'Retrieve an estimate by ID.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-estimate',
-        group: 'Estimates'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['com.intuit.quickbooks.accounting'],

@@ -72,12 +72,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List messages in a folder in Zoho Mail.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-messages',
-        group: 'Messages'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoMail.messages.READ'],

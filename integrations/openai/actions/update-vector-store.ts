@@ -45,12 +45,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update a vector store in OpenAI',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-vector-store',
-        group: 'Vector Stores'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['vector_stores.write'],

@@ -64,12 +64,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a call in Twilio',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-call',
-        group: 'Calls'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

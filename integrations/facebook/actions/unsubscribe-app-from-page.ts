@@ -20,12 +20,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Remove the app subscription from a Facebook Page',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/unsubscribe-app-from-page',
-        group: 'Pages'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['pages_manage_metadata'],

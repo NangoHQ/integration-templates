@@ -7,13 +7,7 @@ import { NetsuiteBillCreateOutput, NetsuiteBillCreateInput } from '../models.js'
 
 const action = createAction({
     description: 'Creates a vendor bill in Netsuite.',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/bills',
-        group: 'Bills'
-    },
+    version: '2.0.1',
 
     input: NetsuiteBillCreateInput,
     output: NetsuiteBillCreateOutput,

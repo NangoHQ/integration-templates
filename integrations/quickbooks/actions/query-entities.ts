@@ -94,12 +94,7 @@ function extractRecords(queryResponse: QueryResponseType): unknown[] {
 
 const action = createAction({
     description: 'Run a custom QuickBooks SQL-like query over supported entities',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/query-entities',
-        group: 'Query'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

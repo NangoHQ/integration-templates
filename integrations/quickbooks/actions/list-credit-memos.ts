@@ -107,12 +107,7 @@ async function getRealmId(nango: { getConnection: () => Promise<{ connection_con
 
 const action = createAction({
     description: 'List QuickBooks credit memos.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-credit-memos',
-        group: 'Credit Memos'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: ListOutputSchema,
 

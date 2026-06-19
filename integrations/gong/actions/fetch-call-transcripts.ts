@@ -53,12 +53,7 @@ function isHttpErrorWithStatus(error: unknown, status: number): boolean {
 const action = createAction({
     description:
         'Fetch a page of Gong call transcripts, optionally filtered by date range, workspace, or call IDs. Use the returned nextCursor to retrieve subsequent pages.',
-    version: '4.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/fetch-call-transcripts',
-        group: 'Calls'
-    },
+    version: '4.0.1',
     input: InputSchema,
     output: OutputSchema,
 

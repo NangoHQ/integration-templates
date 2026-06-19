@@ -70,12 +70,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single comment from Figma.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-comment',
-        group: 'Comments'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['file_comments:read'],

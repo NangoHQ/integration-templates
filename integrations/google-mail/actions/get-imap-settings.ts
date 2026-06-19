@@ -21,12 +21,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve IMAP settings for the mailbox',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-imap-settings',
-        group: 'Settings'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [

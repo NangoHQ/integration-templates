@@ -29,12 +29,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single list from Twitter/X',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-list',
-        group: 'Lists'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

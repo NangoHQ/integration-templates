@@ -125,12 +125,7 @@ function buildCursor(page: number, per_page: number): string {
 
 const action = createAction({
     description: 'List events from Zoho CRM.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-events',
-        group: 'Events'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoCRM.modules.events.READ'],

@@ -160,12 +160,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve YouTube channel details by ID, handle, username, or mine',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-channel',
-        group: 'Channels'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/youtube.readonly'],

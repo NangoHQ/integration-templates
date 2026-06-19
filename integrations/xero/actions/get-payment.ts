@@ -90,12 +90,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a payment by PaymentID.',
-    version: '3.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-payment',
-        group: 'Payments'
-    },
+    version: '3.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['accounting.payments', 'accounting.payments.read'],

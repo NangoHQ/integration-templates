@@ -45,12 +45,7 @@ const ProviderResponseSchema = z.object({
 
 const action = createAction({
     description: 'List notes from ActiveCampaign.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-notes',
-        group: 'Notes'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

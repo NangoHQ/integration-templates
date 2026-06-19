@@ -27,12 +27,7 @@ const MetadataSchema = z.object({
 
 const action = createAction({
     description: 'Like a tweet',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/like-tweet',
-        group: 'Likes'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,

@@ -19,13 +19,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieves filtered and sorted pages from a database with pagination.',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/databases/query',
-        group: 'Databases'
-    },
+    version: '1.0.1',
 
     input: InputSchema,
     output: OutputSchema,

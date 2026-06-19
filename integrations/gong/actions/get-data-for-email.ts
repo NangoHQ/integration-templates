@@ -72,12 +72,7 @@ const InputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve all Gong references associated with a specific email address.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-data-for-email',
-        group: 'Data Privacy'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: ProviderResponseSchema,
     scopes: ['api:data-privacy:read'],

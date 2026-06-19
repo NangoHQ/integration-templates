@@ -102,11 +102,7 @@ async function getRealmId(nango: Parameters<(typeof action)['exec']>[0]): Promis
 
 const action = createAction({
     description: 'Retrieve a payment by ID.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-payment'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

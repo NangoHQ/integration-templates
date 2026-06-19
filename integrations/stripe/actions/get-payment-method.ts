@@ -38,12 +38,7 @@ const PaymentMethodSchema = z
 
 const action = createAction({
     description: 'Retrieve a single payment method from Stripe.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-payment-method',
-        group: 'Payment Methods'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: PaymentMethodSchema,
     scopes: [],

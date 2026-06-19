@@ -52,12 +52,7 @@ const ProviderResponseSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve all component sets defined within a Figma file.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-file-component-sets',
-        group: 'Component Sets'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['library_content:read', 'files:read'],

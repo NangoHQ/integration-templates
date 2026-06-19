@@ -273,12 +273,7 @@ function mapProviderItemToOutput(item: z.infer<typeof ProviderItemSchema>): z.in
 
 const action = createAction({
     description: 'Create an inventory or catalog item.',
-    version: '3.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-item',
-        group: 'Items'
-    },
+    version: '3.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['accounting.invoices', 'accounting.settings'],

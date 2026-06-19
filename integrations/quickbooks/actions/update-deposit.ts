@@ -120,12 +120,7 @@ const ConnectionWithRealmIdSchema = z.object({
 
 const action = createAction({
     description: 'Update a deposit using its current SyncToken.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-deposit',
-        group: 'Deposits'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['com.intuit.quickbooks.accounting'],

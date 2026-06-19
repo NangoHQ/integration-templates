@@ -40,12 +40,7 @@ const CreditNoteSchema = z
 
 const action = createAction({
     description: 'Void a Stripe credit note.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/void-credit-note',
-        group: 'Credit Notes'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: CreditNoteSchema,
     scopes: [],

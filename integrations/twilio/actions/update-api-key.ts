@@ -30,12 +30,7 @@ const MetadataSchema = z.object({
 
 const action = createAction({
     description: 'Update an API key in Twilio.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-api-key',
-        group: 'Keys'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [''],

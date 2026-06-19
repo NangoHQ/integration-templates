@@ -241,12 +241,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List all accounts for the authenticated user in Zoho Mail.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-accounts',
-        group: 'Accounts'
-    },
+    version: '1.0.1',
     input: z.object({}),
     output: OutputSchema,
     scopes: ['ZohoMail.accounts.READ'],

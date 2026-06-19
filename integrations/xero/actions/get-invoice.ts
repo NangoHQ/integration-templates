@@ -65,12 +65,7 @@ const InvoicesResponseSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve an invoice by InvoiceID.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-invoice',
-        group: 'Invoices'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['accounting.invoices.read', 'accounting.invoices'],

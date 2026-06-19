@@ -60,12 +60,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Classify whether text or images violate OpenAI usage policies',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-moderation',
-        group: 'Moderations'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['model.request'],

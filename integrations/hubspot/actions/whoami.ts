@@ -13,13 +13,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Retrieve the current authenticated HubSpot user's ID and email",
-    version: '3.0.0',
-
-    endpoint: {
-        method: 'GET',
-        path: '/actions/whoami',
-        group: 'Users'
-    },
+    version: '3.0.1',
 
     input: InputSchema,
     output: OutputSchema,

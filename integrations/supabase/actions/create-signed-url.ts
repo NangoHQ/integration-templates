@@ -29,12 +29,7 @@ const MetadataSchema = z.object({
 
 const action = createAction({
     description: 'Generate a time-limited signed URL for accessing a private storage object.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-signed-url',
-        group: 'Storage'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['storage.objects.read'],

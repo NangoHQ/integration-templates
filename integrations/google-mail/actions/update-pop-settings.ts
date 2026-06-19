@@ -21,12 +21,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update POP access settings for the mailbox',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-pop-settings',
-        group: 'Settings'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/gmail.settings.basic'],

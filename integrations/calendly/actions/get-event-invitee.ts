@@ -116,12 +116,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single event invitee from Calendly.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-event-invitee',
-        group: 'Events'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

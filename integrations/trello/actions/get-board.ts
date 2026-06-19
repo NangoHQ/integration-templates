@@ -29,12 +29,7 @@ const BoardSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single board from Trello.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-board',
-        group: 'Boards'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: BoardSchema,
 

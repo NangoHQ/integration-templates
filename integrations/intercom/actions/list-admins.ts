@@ -62,12 +62,7 @@ const RawResponseSchema = z.object({
 
 const action = createAction({
     description: 'List all admins in the workspace.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-admins',
-        group: 'Admins'
-    },
+    version: '1.0.1',
     input: ListInputSchema,
     output: ListOutputSchema,
 

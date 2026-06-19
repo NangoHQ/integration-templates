@@ -32,12 +32,7 @@ const TikTokResponseSchema = z.object({
 
 const action = createAction({
     description: 'Fetch extended TikTok user profile including bio description, profile deep link, and verification status.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-user-profile',
-        group: 'Users'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['user.info.profile'],

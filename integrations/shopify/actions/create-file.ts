@@ -27,12 +27,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a file resource in Shopify after staging an upload',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-file',
-        group: 'Files'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write_files'],

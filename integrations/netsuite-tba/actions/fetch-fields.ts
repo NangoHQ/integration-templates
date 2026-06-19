@@ -6,13 +6,7 @@ import { FetchFieldsOutput, FetchFieldsInput } from '../models.js';
 
 const action = createAction({
     description: 'Fetches all fields in Netsuite',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'GET',
-        path: '/fetch-fields',
-        group: 'Fields'
-    },
+    version: '2.0.1',
 
     input: FetchFieldsInput,
     output: FetchFieldsOutput,

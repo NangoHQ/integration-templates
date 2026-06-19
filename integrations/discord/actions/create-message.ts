@@ -84,12 +84,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a message in Discord.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-message',
-        group: 'Messages'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['bot'],

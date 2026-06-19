@@ -58,12 +58,7 @@ const OutputSchema = z.looseObject({
 
 const action = createAction({
     description: 'Patch attributes for a 1Password SCIM user.',
-    version: '1.1.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/patch-scim-user',
-        group: 'Users'
-    },
+    version: '1.1.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

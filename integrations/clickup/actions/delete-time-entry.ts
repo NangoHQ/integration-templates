@@ -49,12 +49,7 @@ const MetadataSchema = z.object({
 
 const action = createAction({
     description: 'Delete a time entry in ClickUp',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-time-entry',
-        group: 'Time Tracking'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,

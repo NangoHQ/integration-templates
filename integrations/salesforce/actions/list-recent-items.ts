@@ -36,12 +36,7 @@ const ListOutputSchema = z.object({
 
 const action = createAction({
     description: 'List recently viewed records visible to the authenticated user',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-recent-items',
-        group: 'Recent Items'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: ListOutputSchema,
 

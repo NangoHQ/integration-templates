@@ -50,12 +50,7 @@ const OutputSchema = ProviderUserSchema;
 
 const action = createAction({
     description: 'Retrieve a single auth user from Supabase.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-auth-user',
-        group: 'Auth'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

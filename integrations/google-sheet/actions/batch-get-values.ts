@@ -28,13 +28,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Get values from multiple ranges',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'GET',
-        path: '/actions/batch-get-values',
-        group: 'Spreadsheets'
-    },
+    version: '1.0.1',
 
     input: InputSchema,
     output: OutputSchema,

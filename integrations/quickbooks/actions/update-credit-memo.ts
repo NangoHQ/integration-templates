@@ -154,12 +154,7 @@ async function getCompany(nango: { getConnection: () => Promise<{ connection_con
 
 const action = createAction({
     description: 'Update a QuickBooks credit memo',
-    version: '2.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-credit-memo',
-        group: 'Credit Memos'
-    },
+    version: '2.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['com.intuit.quickbooks.accounting'],

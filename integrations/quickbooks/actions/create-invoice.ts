@@ -93,12 +93,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a customer invoice with line items',
-    version: '2.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-invoice',
-        group: 'Invoices'
-    },
+    version: '2.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['com.intuit.quickbooks.accounting'],

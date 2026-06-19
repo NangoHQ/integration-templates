@@ -87,12 +87,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single release by release ID.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-release',
-        group: 'Releases'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['repo'],

@@ -114,12 +114,7 @@ const SuggestedRefundResponseSchema = z.object({
 
 const action = createAction({
     description: 'Calculate a suggested refund amount for a Shopify order.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/calculate-refund',
-        group: 'Orders'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read_orders'],

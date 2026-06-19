@@ -5,13 +5,7 @@ import { z } from 'zod';
 
 const action = createAction({
     description: 'Get all posts for your account. Note that this does\nnot paginate the response so it is possible that not all postings \nare returned.',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'GET',
-        path: '/posts/limited',
-        group: 'Posts'
-    },
+    version: '2.0.1',
 
     input: z.void(),
     output: SuccessResponse,

@@ -49,12 +49,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a record in Attio',
-    version: '2.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-record',
-        group: 'Records'
-    },
+    version: '2.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['record_permission:read-write', 'object_configuration:read'],

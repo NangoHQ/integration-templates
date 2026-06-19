@@ -163,12 +163,7 @@ const InvoiceSchema = z
 
 const action = createAction({
     description: 'Retrieve a single invoice from Stripe.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-invoice',
-        group: 'Invoices'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: InvoiceSchema,
     scopes: [],

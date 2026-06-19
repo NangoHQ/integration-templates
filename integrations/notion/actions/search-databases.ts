@@ -17,13 +17,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Searches only databases shared with the integration.',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/search/databases',
-        group: 'Search'
-    },
+    version: '1.0.1',
 
     input: InputSchema,
     output: OutputSchema,

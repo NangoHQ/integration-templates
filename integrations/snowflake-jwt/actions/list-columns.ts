@@ -52,12 +52,7 @@ function getCell(row: unknown[], index: number): unknown {
 
 const action = createAction({
     description: 'List columns in a Snowflake table with data types, nullability, and defaults.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/list-columns',
-        group: 'Metadata'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

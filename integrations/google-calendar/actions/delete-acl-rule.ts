@@ -14,13 +14,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete an access control rule from a calendar',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-acl-rule',
-        group: 'ACL'
-    },
+    version: '2.0.1',
 
     input: InputSchema,
     output: OutputSchema,

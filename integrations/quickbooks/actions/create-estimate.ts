@@ -81,11 +81,7 @@ async function getRealmId(nango: NangoAction): Promise<string> {
 
 const action = createAction({
     description: 'Create an estimate for a customer in QuickBooks Online.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-estimate'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['com.intuit.quickbooks.accounting'],

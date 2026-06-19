@@ -23,12 +23,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Replace a single Airtable record.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/replace-record',
-        group: 'Records'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['data.records:write'],

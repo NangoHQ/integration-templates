@@ -161,12 +161,7 @@ function normalizeChartOfAccount(provider: z.infer<typeof ProviderChartOfAccount
 
 const action = createAction({
     description: 'Retrieve a single chart of account entry from Zoho Books.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-chart-of-account',
-        group: 'Chart of Accounts'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoBooks.accountants.READ', 'ZohoBooks.settings.READ'],

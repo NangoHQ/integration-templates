@@ -136,12 +136,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List tasks in a project section.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-tasks-for-section',
-        group: 'Tasks'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['tasks:read'],

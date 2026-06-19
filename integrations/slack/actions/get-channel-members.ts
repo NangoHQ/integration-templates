@@ -14,13 +14,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List members in a Slack channel',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-channel-members',
-        group: 'Conversations'
-    },
+    version: '2.0.1',
 
     input: InputSchema,
     output: OutputSchema,

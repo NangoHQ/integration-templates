@@ -74,12 +74,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a Notion comment by comment ID',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/retrieve-comment',
-        group: 'Comments'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read_comment'],

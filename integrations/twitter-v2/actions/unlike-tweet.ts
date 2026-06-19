@@ -30,12 +30,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Unlike a Tweet',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/unlike-tweet',
-        group: 'Likes'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['tweet.read', 'users.read', 'like.write'],

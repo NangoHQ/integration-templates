@@ -44,12 +44,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Apply a tag to one or more contacts',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/tag-contacts',
-        group: 'Tags'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write.tags'],

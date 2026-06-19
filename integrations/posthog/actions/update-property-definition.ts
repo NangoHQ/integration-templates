@@ -57,12 +57,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update a property definition in PostHog.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-property-definition',
-        group: 'Property Definitions'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['property_definition:write'],

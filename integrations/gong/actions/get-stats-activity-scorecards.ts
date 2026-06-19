@@ -79,12 +79,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve answered scorecard statistics for reviewed users or specific scorecards over a date range.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-stats-activity-scorecards',
-        group: 'Stats'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:stats:scorecards'],

@@ -30,12 +30,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Remove tags from a Shopify resource.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/tags-remove',
-        group: 'Tags'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [

@@ -40,12 +40,7 @@ function getStringProperty(obj: unknown, key: string): string | undefined {
 
 const action = createAction({
     description: 'Record an attendance check-in for an employee.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/check-in',
-        group: 'Attendance'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoPeople.attendance.ALL'],

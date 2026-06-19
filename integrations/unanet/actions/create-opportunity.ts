@@ -9,12 +9,7 @@ import { Opportunity } from '../models.js';
 
 const action = createAction({
     description: 'Create an opportunity in the system. Requires a stage that exists\nin the system. Use the list-stages action to find the appropriate stage.',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/opportunity'
-    },
+    version: '1.0.1',
 
     input: Opportunity,
     output: Opportunity,

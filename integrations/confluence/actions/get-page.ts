@@ -160,12 +160,7 @@ const OutputSchema = z
 
 const action = createAction({
     description: 'Retrieve a Confluence page by id.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-page',
-        group: 'Pages'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,

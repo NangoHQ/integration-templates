@@ -21,12 +21,7 @@ const OutputSchema = ProviderQueueSchema;
 
 const action = createAction({
     description: 'Retrieve a single call queue from Twilio.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-queue',
-        group: 'Queues'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

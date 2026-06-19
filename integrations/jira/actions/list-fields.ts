@@ -52,12 +52,7 @@ const MetadataSchema = z.object({
 
 const action = createAction({
     description: 'List Jira field metadata available to the user.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-fields',
-        group: 'Fields'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,

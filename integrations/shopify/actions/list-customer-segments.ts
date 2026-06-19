@@ -58,12 +58,7 @@ const ShopifySegmentsResponseSchema = z.object({
 
 const action = createAction({
     description: 'List Shopify customer segments with cursor pagination.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-customer-segments',
-        group: 'Customer Segments'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read_customers'],

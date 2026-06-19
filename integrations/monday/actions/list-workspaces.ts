@@ -34,12 +34,7 @@ const DEFAULT_LIMIT = 25;
 
 const action = createAction({
     description: 'List workspaces from monday.com.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-workspaces',
-        group: 'Workspaces'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['workspaces:read'],

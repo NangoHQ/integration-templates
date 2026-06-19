@@ -67,12 +67,7 @@ const RawProjectSchema = z.object({
 
 const action = createAction({
     description: 'List Linear projects with filtering and pagination.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-projects',
-        group: 'Projects'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read'],

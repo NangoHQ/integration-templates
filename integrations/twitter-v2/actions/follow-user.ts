@@ -22,12 +22,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Follow a user from the authenticated account.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/follow-user',
-        group: 'Users'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['follows.write', 'tweet.read', 'users.read'],

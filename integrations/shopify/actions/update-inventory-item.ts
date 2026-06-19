@@ -61,12 +61,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update mutable fields on a Shopify inventory item.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-inventory-item',
-        group: 'Inventory'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write_inventory'],

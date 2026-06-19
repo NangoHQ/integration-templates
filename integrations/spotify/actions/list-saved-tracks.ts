@@ -68,12 +68,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "List tracks saved in the current user's library.",
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-saved-tracks',
-        group: 'Library'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['user-library-read'],

@@ -23,11 +23,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List Shopify returns with cursor pagination.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-returns'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read_returns'],

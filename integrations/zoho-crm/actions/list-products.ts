@@ -56,12 +56,7 @@ const ProviderResponseSchema = z.object({
 
 const action = createAction({
     description: 'List products from Zoho CRM',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-products',
-        group: 'Products'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: ListOutputSchema,
     scopes: ['ZohoCRM.modules.products.READ'],

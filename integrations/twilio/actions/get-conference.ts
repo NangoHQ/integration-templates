@@ -30,12 +30,7 @@ const OutputSchema = z
 
 const action = createAction({
     description: 'Retrieve a single conference from Twilio.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-conference',
-        group: 'Conferences'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,

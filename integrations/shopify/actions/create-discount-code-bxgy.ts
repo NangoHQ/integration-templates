@@ -102,12 +102,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a buy X get Y code discount in Shopify.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-discount-code-bxgy',
-        group: 'Discounts'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write_discounts'],

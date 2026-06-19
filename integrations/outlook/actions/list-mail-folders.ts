@@ -38,12 +38,7 @@ const ListMailFoldersOutputSchema = z.object({
 
 const action = createAction({
     description: 'List top-level mail folders from the mailbox',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-mail-folders',
-        group: 'Mail'
-    },
+    version: '1.0.1',
     input: ListMailFoldersInputSchema,
     output: ListMailFoldersOutputSchema,
     scopes: ['Mail.Read', 'Mail.ReadBasic', 'Mail.ReadWrite'],

@@ -73,8 +73,7 @@ type UpdateTaskOutput = z.infer<typeof OutputSchema>;
 const action = createAction({
     description:
         'Update a task in Apollo. Note: Due to OAuth limitations, the original task cannot be directly modified or deleted. A new task is created with the updated fields, and the original task should be manually deleted in the Apollo UI.',
-    version: '1.0.0',
-    endpoint: { method: 'POST', path: '/actions/update-task' },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

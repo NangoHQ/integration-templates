@@ -20,13 +20,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update a permission on a file',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-permission',
-        group: 'Permissions'
-    },
+    version: '1.0.1',
 
     input: InputSchema,
     output: OutputSchema,

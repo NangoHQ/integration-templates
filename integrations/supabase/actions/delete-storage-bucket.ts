@@ -21,11 +21,7 @@ const ConnectionConfigSchema = z.object({
 
 const action = createAction({
     description: 'Delete or archive a storage bucket in Supabase.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-storage-bucket'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

@@ -9,12 +9,7 @@ const OutputSchema = z.null();
 
 const action = createAction({
     description: 'Permanently delete multiple Gmail messages by ID',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/batch-delete-messages',
-        group: 'Messages'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://mail.google.com/'],

@@ -160,12 +160,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update event details in Outlook calendar.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-event',
-        group: 'Events'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Calendars.ReadWrite'],

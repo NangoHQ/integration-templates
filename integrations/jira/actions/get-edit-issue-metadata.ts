@@ -21,12 +21,7 @@ const JiraEditMetaResponseSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve editable field metadata for an existing Jira issue',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-edit-issue-metadata',
-        group: 'Issues'
-    },
+    version: '1.0.1',
     metadata: MetadataSchema,
     input: InputSchema,
     output: OutputSchema,

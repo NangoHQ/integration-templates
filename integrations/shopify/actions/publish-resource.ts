@@ -78,12 +78,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Publish a Shopify resource to one or more sales channels.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/publish-resource',
-        group: 'Publications'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write_publications'],

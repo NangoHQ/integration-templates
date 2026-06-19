@@ -26,12 +26,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Run a SOQL query that also includes deleted and archived records.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/query-all-records',
-        group: 'Query'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api', 'refresh_token'],

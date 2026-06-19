@@ -9,12 +9,7 @@ const OutputSchema = z.null();
 
 const action = createAction({
     description: 'Delete a mailbox filter by filter ID',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-filter',
-        group: 'Filters'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/gmail.settings.basic'],

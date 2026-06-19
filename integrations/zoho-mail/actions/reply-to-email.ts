@@ -31,12 +31,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Reply or reply-all to an email in Zoho Mail',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/reply-to-email',
-        group: 'Messages'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoMail.messages.CREATE'],

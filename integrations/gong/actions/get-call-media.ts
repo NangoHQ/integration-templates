@@ -34,12 +34,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve the media download URL for a Gong call recording',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-call-media',
-        group: 'Calls'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:calls:read:extensive', 'api:calls:read:media-url'],

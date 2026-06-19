@@ -113,12 +113,7 @@ async function getCompany(nango: Parameters<Parameters<typeof createAction>[0]['
 
 const action = createAction({
     description: 'Create a product or service item',
-    version: '2.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-item',
-        group: 'Items'
-    },
+    version: '2.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['com.intuit.quickbooks.accounting'],

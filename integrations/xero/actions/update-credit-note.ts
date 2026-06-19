@@ -49,12 +49,7 @@ const XeroResponseSchema = z.object({
 
 const action = createAction({
     description: 'Update an existing credit note.',
-    version: '3.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-credit-note',
-        group: 'Credit Notes'
-    },
+    version: '3.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['accounting.invoices'],

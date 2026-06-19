@@ -200,12 +200,7 @@ const OutputSchema = ProviderInvoiceSchema;
 
 const action = createAction({
     description: 'Retrieve a single invoice from Zoho Books.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-invoice',
-        group: 'Invoices'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoBooks.invoices.READ', 'ZohoBooks.settings.READ'],

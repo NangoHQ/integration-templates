@@ -78,12 +78,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a channel in Discord',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-channel',
-        group: 'Channels'
-    },
+    version: '1.0.1',
     metadata: MetadataSchema,
     input: InputSchema,
     output: OutputSchema,

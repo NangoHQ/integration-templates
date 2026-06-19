@@ -5,13 +5,7 @@ import { z } from 'zod';
 
 const action = createAction({
     description: 'Lists all the users in your Lever account. Only active users are included by default.',
-    version: '1.0.0',
-
-    endpoint: {
-        method: 'GET',
-        path: '/users',
-        group: 'Users'
-    },
+    version: '1.0.1',
 
     input: z.void(),
     output: GetUsers,

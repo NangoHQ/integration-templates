@@ -183,12 +183,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Retrieve an event by ID from the user's calendar",
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/get-event',
-        group: 'Events'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Calendars.Read'],

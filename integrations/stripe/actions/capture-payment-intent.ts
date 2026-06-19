@@ -76,12 +76,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Capture an uncaptured Stripe PaymentIntent.',
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/capture-payment-intent',
-        group: 'Payment Intents'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

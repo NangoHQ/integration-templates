@@ -34,12 +34,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Update a user-created label's name or visibility settings.",
-    version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-label',
-        group: 'Labels'
-    },
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/gmail.labels'],

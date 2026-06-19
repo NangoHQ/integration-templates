@@ -15,13 +15,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List available user roles for a HubSpot enterprise account',
-    version: '2.0.0',
-
-    endpoint: {
-        method: 'GET',
-        path: '/actions/fetch-roles',
-        group: 'Users'
-    },
+    version: '2.0.1',
 
     input: InputSchema,
     output: OutputSchema,
