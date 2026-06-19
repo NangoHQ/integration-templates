@@ -86,6 +86,51 @@ import './active-campaign/actions/update-list.js';
 import './active-campaign/actions/update-note.js';
 import './active-campaign/actions/update-tag.js';
 
+// -- Integration: acuity-scheduling
+import './acuity-scheduling/syncs/appointment-types.js';
+import './acuity-scheduling/syncs/appointments.js';
+import './acuity-scheduling/syncs/blocks.js';
+import './acuity-scheduling/syncs/calendars.js';
+import './acuity-scheduling/syncs/certificates.js';
+import './acuity-scheduling/syncs/clients.js';
+import './acuity-scheduling/syncs/forms.js';
+import './acuity-scheduling/syncs/labels.js';
+import './acuity-scheduling/syncs/orders.js';
+import './acuity-scheduling/syncs/products.js';
+import './acuity-scheduling/actions/cancel-appointment.js';
+import './acuity-scheduling/actions/check-availability-times.js';
+import './acuity-scheduling/actions/check-certificate.js';
+import './acuity-scheduling/actions/create-appointment.js';
+import './acuity-scheduling/actions/create-block.js';
+import './acuity-scheduling/actions/create-certificate.js';
+import './acuity-scheduling/actions/create-client.js';
+import './acuity-scheduling/actions/delete-block.js';
+import './acuity-scheduling/actions/delete-certificate.js';
+import './acuity-scheduling/actions/delete-client.js';
+import './acuity-scheduling/actions/get-appointment-payments.js';
+import './acuity-scheduling/actions/get-appointment.js';
+import './acuity-scheduling/actions/get-block.js';
+import './acuity-scheduling/actions/get-me.js';
+import './acuity-scheduling/actions/get-meta.js';
+import './acuity-scheduling/actions/get-order.js';
+import './acuity-scheduling/actions/list-appointment-addons.js';
+import './acuity-scheduling/actions/list-appointment-types.js';
+import './acuity-scheduling/actions/list-appointments.js';
+import './acuity-scheduling/actions/list-availability-classes.js';
+import './acuity-scheduling/actions/list-availability-dates.js';
+import './acuity-scheduling/actions/list-availability-times.js';
+import './acuity-scheduling/actions/list-blocks.js';
+import './acuity-scheduling/actions/list-calendars.js';
+import './acuity-scheduling/actions/list-certificates.js';
+import './acuity-scheduling/actions/list-clients.js';
+import './acuity-scheduling/actions/list-forms.js';
+import './acuity-scheduling/actions/list-labels.js';
+import './acuity-scheduling/actions/list-orders.js';
+import './acuity-scheduling/actions/list-products.js';
+import './acuity-scheduling/actions/reschedule-appointment.js';
+import './acuity-scheduling/actions/update-appointment.js';
+import './acuity-scheduling/actions/update-client.js';
+
 // -- Integration: adp
 import './adp/syncs/unified-employees.js';
 
