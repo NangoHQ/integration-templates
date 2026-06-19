@@ -1,0 +1,163 @@
+{
+  "input": {
+    "id": 482393545,
+    "first_name": "Echo Test Updated"
+  },
+  "output": {
+    "contact": {
+      "id": 482393545,
+      "direct_link": "https://api.aircall.io/v1/contacts/482393545",
+      "first_name": "Echo Test Updated",
+      "last_name": "Test",
+      "company_name": "Test your sound",
+      "information": "Call this number to test your sound!",
+      "is_shared": true,
+      "created_at": 1781777463,
+      "updated_at": 1781897959,
+      "phone_numbers": [
+        {
+          "id": 1811800749,
+          "label": "Main",
+          "value": "+16314402060"
+        }
+      ],
+      "emails": [
+        {
+          "id": 1811800748,
+          "label": "Main",
+          "value": "support@aircall.io"
+        }
+      ]
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1/contacts/482393545": {
+        "response": {
+          "contact": {
+            "id": 482393545,
+            "created_at": 1781777463,
+            "updated_at": 1781897948,
+            "first_name": "Echo Test Updated",
+            "last_name": "Test",
+            "information": "Call this number to test your sound!",
+            "company_name": "Test your sound",
+            "is_shared": true,
+            "direct_link": "https://api.aircall.io/v1/contacts/482393545",
+            "phone_numbers": [
+              {
+                "value": "+16314402060",
+                "id": 1811800749,
+                "label": "Main"
+              }
+            ],
+            "emails": [
+              {
+                "value": "support@aircall.io",
+                "id": 1811800748,
+                "label": "Main"
+              }
+            ]
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 19 Jun 2026 19:39:19 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "439",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4941",
+          "x-ratelimit-reset": "1781897999",
+          "etag": "W/\"1b7-W1xLojQkrPcyuM3tlnOoKmorYp4\""
+        },
+        "hash": "b75526a1804b0f932101bb7dcbfbd811250f92b1",
+        "request": {}
+      }
+    },
+    "post": {
+      "/v1/contacts/482393545": {
+        "response": {
+          "contact": {
+            "id": 482393545,
+            "created_at": 1781777463,
+            "updated_at": 1781897959,
+            "first_name": "Echo Test Updated",
+            "last_name": "Test",
+            "information": "Call this number to test your sound!",
+            "company_name": "Test your sound",
+            "is_shared": true,
+            "direct_link": "https://api.aircall.io/v1/contacts/482393545",
+            "phone_numbers": [
+              {
+                "value": "+16314402060",
+                "id": 1811800749,
+                "label": "Main"
+              }
+            ],
+            "emails": [
+              {
+                "value": "support@aircall.io",
+                "id": 1811800748,
+                "label": "Main"
+              }
+            ]
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 19 Jun 2026 19:39:19 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "439",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4940",
+          "x-ratelimit-reset": "1781897999",
+          "etag": "W/\"1b7-t96pkiK81TgSOckV8TQ2GbLPEdc\""
+        },
+        "hash": "392ce6e6e2b0e112f51a34e62556610c291e0aed",
+        "request": {
+          "data": {
+            "first_name": "Echo Test Updated",
+            "last_name": "Test",
+            "company_name": "Test your sound",
+            "information": "Call this number to test your sound!",
+            "phone_numbers": [
+              {
+                "id": 1811800749,
+                "label": "Main",
+                "value": "+16314402060"
+              }
+            ],
+            "emails": [
+              {
+                "id": 1811800748,
+                "label": "Main",
+                "value": "support@aircall.io"
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

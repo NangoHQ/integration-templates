@@ -1,0 +1,151 @@
+{
+  "input": {},
+  "output": {
+    "tags": [
+      {
+        "id": 2725523,
+        "name": "Callback Request",
+        "color": "#29C8FF",
+        "description": "queue_callback"
+      },
+      {
+        "id": 2725524,
+        "name": "Called Back",
+        "color": "#B285D1",
+        "description": "queue_called_back"
+      },
+      {
+        "id": 2725525,
+        "name": "Conference",
+        "color": "#000000",
+        "description": "conference"
+      },
+      {
+        "id": 2725526,
+        "name": "Follow Up",
+        "color": "#ff7d03",
+        "description": "follow_up_self_assign"
+      },
+      {
+        "id": 2725527,
+        "name": "Voicemail Drop",
+        "color": "#FCBB26",
+        "description": "voicemail_drop"
+      },
+      {
+        "id": 2725528,
+        "name": "Voice Virtual Agent",
+        "color": "#00B388",
+        "description": "voice_virtual_agent"
+      },
+      {
+        "id": 2733992,
+        "name": "Nango Test Tag",
+        "color": "#FF5733"
+      },
+      {
+        "id": 2733993,
+        "name": "Nango Test Tag 2",
+        "color": "#FF5733"
+      }
+    ],
+    "meta": {
+      "count": 8,
+      "total": 8,
+      "current_page": 1,
+      "per_page": 20,
+      "next_page_link": null,
+      "previous_page_link": null
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1/tags": {
+        "response": {
+          "tags": [
+            {
+              "id": 2725523,
+              "name": "Callback Request",
+              "color": "#29C8FF",
+              "description": "queue_callback"
+            },
+            {
+              "id": 2725524,
+              "name": "Called Back",
+              "color": "#B285D1",
+              "description": "queue_called_back"
+            },
+            {
+              "id": 2725525,
+              "name": "Conference",
+              "color": "#000000",
+              "description": "conference"
+            },
+            {
+              "id": 2725526,
+              "name": "Follow Up",
+              "color": "#ff7d03",
+              "description": "follow_up_self_assign"
+            },
+            {
+              "id": 2725527,
+              "name": "Voicemail Drop",
+              "color": "#FCBB26",
+              "description": "voicemail_drop"
+            },
+            {
+              "id": 2725528,
+              "name": "Voice Virtual Agent",
+              "color": "#00B388",
+              "description": "voice_virtual_agent"
+            },
+            {
+              "id": 2733992,
+              "name": "Nango Test Tag",
+              "color": "#FF5733",
+              "description": null
+            },
+            {
+              "id": 2733993,
+              "name": "Nango Test Tag 2",
+              "color": "#FF5733",
+              "description": null
+            }
+          ],
+          "meta": {
+            "count": 8,
+            "total": 8,
+            "current_page": 1,
+            "per_page": 20,
+            "next_page_link": null,
+            "previous_page_link": null
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 19 Jun 2026 19:44:47 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "806",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4917",
+          "x-ratelimit-reset": "1781898303",
+          "x-request-id": "d137ced8-33ff-9607-a9c5-e2b35b942412",
+          "etag": "W/\"326-EIcS+V1KveMGWTX/P+TCFhG9snw\""
+        },
+        "hash": "938461410b3f73d2eef05a3f6238ca87ffd2ebe7",
+        "request": {}
+      }
+    }
+  }
+}

@@ -135,9 +135,46 @@ import './acuity-scheduling/actions/update-client.js';
 import './adp/syncs/unified-employees.js';
 
 // -- Integration: aircall
+import './aircall/syncs/calls.js';
+import './aircall/syncs/contacts.js';
+import './aircall/syncs/numbers.js';
+import './aircall/syncs/tags.js';
+import './aircall/syncs/teams.js';
 import './aircall/syncs/users.js';
+import './aircall/syncs/webhooks.js';
+import './aircall/actions/add-team-member.js';
+import './aircall/actions/create-contact.js';
+import './aircall/actions/create-tag.js';
+import './aircall/actions/create-team.js';
 import './aircall/actions/create-user.js';
+import './aircall/actions/create-webhook.js';
+import './aircall/actions/delete-contact.js';
+import './aircall/actions/delete-tag.js';
+import './aircall/actions/delete-team.js';
 import './aircall/actions/delete-user.js';
+import './aircall/actions/delete-webhook.js';
+import './aircall/actions/get-company.js';
+import './aircall/actions/get-contact.js';
+import './aircall/actions/get-tag.js';
+import './aircall/actions/get-team.js';
+import './aircall/actions/get-user-availability.js';
+import './aircall/actions/get-user.js';
+import './aircall/actions/get-webhook.js';
+import './aircall/actions/list-calls.js';
+import './aircall/actions/list-contacts.js';
+import './aircall/actions/list-numbers.js';
+import './aircall/actions/list-tags.js';
+import './aircall/actions/list-teams.js';
+import './aircall/actions/list-user-availabilities.js';
+import './aircall/actions/list-users.js';
+import './aircall/actions/list-webhooks.js';
+import './aircall/actions/remove-team-member.js';
+import './aircall/actions/search-calls.js';
+import './aircall/actions/search-contacts.js';
+import './aircall/actions/update-contact.js';
+import './aircall/actions/update-tag.js';
+import './aircall/actions/update-user.js';
+import './aircall/actions/update-webhook.js';
 
 // -- Integration: airtable
 import './airtable/syncs/bases.js';
