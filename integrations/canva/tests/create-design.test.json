@@ -1,0 +1,85 @@
+{
+  "input": {
+    "design_type": {
+      "type": "preset",
+      "name": "presentation"
+    },
+    "title": "Nango Test Presentation"
+  },
+  "output": {
+    "design": {
+      "id": "DAHNA4vfOCY",
+      "title": "Nango Test Presentation",
+      "owner": {
+        "user_id": "oUYuuEIQQhvU4U2WP_v8DU",
+        "team_id": "oBYuuCsqjFP_8QlU9OaSZ0"
+      },
+      "urls": {
+        "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYwMTMxNjkxfQ..5rE-FYTbkYgV4d4L.OBmX7Mgbfa5WbSb3mhPRD9WjQyxSHLGNwP-AUOQ8aC2tLvkNvd8otmb7QmwhAPG82RAYGRLTaJaZmgrmZ9FvgH1sehEBWACKtIAnRwMwnutWYTI.vA2HN66XAgDTWKWifHa2Sw/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=66765369-596e-4d1b-b7ec-1efbbb46292b&utm_campaign=public_api_create_design_clicked_hyperlink",
+        "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYwMTMxNjkxfQ..5rE-FYTbkYgV4d4L.OBmX7Mgbfa5WbSb3mhPRD9WjQyxSHLGNwP-AUOQ8aC2tLvkNvd8otmb7QmwhAPG82RAYGRLTaJaZmgrmZ9FvgH1sehEBWACKtIAnRwMwnutWYTI.vA2HN66XAgDTWKWifHa2Sw/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=06358f2d-e63e-4295-bf9d-3cae85cd0f5b&utm_campaign=public_api_create_design_clicked_hyperlink"
+      },
+      "created_at": 1781868131,
+      "updated_at": 1781868131,
+      "page_count": 1
+    }
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/rest/v1/designs": {
+        "response": {
+          "design": {
+            "id": "DAHNA4vfOCY",
+            "title": "Nango Test Presentation",
+            "owner": {
+              "user_id": "oUYuuEIQQhvU4U2WP_v8DU",
+              "team_id": "oBYuuCsqjFP_8QlU9OaSZ0"
+            },
+            "urls": {
+              "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYwMTMxNjkxfQ..5rE-FYTbkYgV4d4L.OBmX7Mgbfa5WbSb3mhPRD9WjQyxSHLGNwP-AUOQ8aC2tLvkNvd8otmb7QmwhAPG82RAYGRLTaJaZmgrmZ9FvgH1sehEBWACKtIAnRwMwnutWYTI.vA2HN66XAgDTWKWifHa2Sw/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=66765369-596e-4d1b-b7ec-1efbbb46292b&utm_campaign=public_api_create_design_clicked_hyperlink",
+              "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYwMTMxNjkxfQ..5rE-FYTbkYgV4d4L.OBmX7Mgbfa5WbSb3mhPRD9WjQyxSHLGNwP-AUOQ8aC2tLvkNvd8otmb7QmwhAPG82RAYGRLTaJaZmgrmZ9FvgH1sehEBWACKtIAnRwMwnutWYTI.vA2HN66XAgDTWKWifHa2Sw/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=06358f2d-e63e-4295-bf9d-3cae85cd0f5b&utm_campaign=public_api_create_design_clicked_hyperlink"
+            },
+            "created_at": 1781868131,
+            "updated_at": 1781868131,
+            "page_count": 1,
+            "design_types": [
+              "presentation"
+            ]
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 19 Jun 2026 11:22:11 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "1097",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4958",
+          "x-ratelimit-reset": "1781868132",
+          "x-request-id": "a0e2278daccae8e9",
+          "etag": "W/\"449-hdiLmcW6X+k8d5/I/jRPfA5tvrA\""
+        },
+        "hash": "39d5c459043c6b358c38e9fc4c105b8315df3286",
+        "request": {
+          "data": {
+            "type": "type_and_asset",
+            "design_type": {
+              "type": "preset",
+              "name": "presentation"
+            },
+            "title": "Nango Test Presentation"
+          }
+        }
+      }
+    }
+  }
+}
