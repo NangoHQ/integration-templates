@@ -1,4 +1,4 @@
-import { afterEach, vi, expect, it, describe } from 'vitest';
+import { afterEach, beforeEach, vi, expect, it, describe } from 'vitest';
 
 import createSync from '../syncs/appointments.js';
 
@@ -18,7 +18,15 @@ describe('acuity-scheduling appointments tests', () => {
         };
     };
 
+    beforeEach(() => {
+        // Freeze time to match the fixture's date range.
+        // The sync computes today's date at runtime; without this the hash drifts daily.
+        vi.useFakeTimers();
+        vi.setSystemTime(new Date('2026-06-15T00:00:00.000Z'));
+    });
+
     afterEach(() => {
+        vi.useRealTimers();
         vi.clearAllMocks();
         vi.restoreAllMocks();
     });
