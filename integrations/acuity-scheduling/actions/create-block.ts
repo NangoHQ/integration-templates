@@ -29,11 +29,6 @@ const OutputSchema = z.object({
 const action = createAction({
     description: 'Create a calendar time block.',
     version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-block',
-        group: 'Blocks'
-    },
     input: InputSchema,
     output: OutputSchema,
 

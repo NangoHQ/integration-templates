@@ -32,7 +32,6 @@ const sync = createSync({
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
-    endpoints: [{ method: 'GET', path: '/syncs/forms' }],
     models: {
         Form: FormSchema
     },

@@ -23,7 +23,6 @@ const OutputSchema = z.array(OrderSchema);
 const action = createAction({
     description: 'List orders',
     version: '1.0.0',
-    endpoint: { method: 'GET', path: '/actions/list-orders' },
     input: InputSchema,
     output: OutputSchema,
     exec: async (nango, input) => {

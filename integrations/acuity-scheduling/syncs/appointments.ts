@@ -91,12 +91,6 @@ const sync = createSync({
     models: {
         Appointment: AppointmentSchema
     },
-    endpoints: [
-        {
-            path: '/syncs/appointments',
-            method: 'POST'
-        }
-    ],
 
     exec: async (nango) => {
         const now = new Date();

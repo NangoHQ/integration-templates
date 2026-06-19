@@ -14,11 +14,6 @@ const OutputSchema = z.object({
 const action = createAction({
     description: 'Retrieve account metadata.',
     version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-meta',
-        group: 'Meta'
-    },
     input: InputSchema,
     output: OutputSchema,
 

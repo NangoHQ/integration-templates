@@ -32,11 +32,6 @@ const OutputSchema = z.object({
 const action = createAction({
     description: 'List available class/group appointment sessions.',
     version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-availability-classes',
-        group: 'Availability'
-    },
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

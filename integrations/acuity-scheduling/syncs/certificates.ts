@@ -37,12 +37,6 @@ const sync = createSync({
     models: {
         Certificate: CertificateSchema
     },
-    endpoints: [
-        {
-            path: '/syncs/certificates',
-            method: 'GET'
-        }
-    ],
 
     exec: async (nango) => {
         await nango.trackDeletesStart('Certificate');

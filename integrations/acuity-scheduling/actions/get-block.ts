@@ -40,11 +40,6 @@ const OutputSchema = z
 const action = createAction({
     description: 'Retrieve a single calendar block.',
     version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-block',
-        group: 'Blocks'
-    },
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

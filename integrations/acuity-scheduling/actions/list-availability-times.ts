@@ -18,11 +18,6 @@ const OutputSchema = z.object({
 const action = createAction({
     description: 'List available times for a date and appointment type.',
     version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-availability-times',
-        group: 'Availability'
-    },
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api'],

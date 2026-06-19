@@ -54,11 +54,6 @@ const OutputSchema = z.object({
 const action = createAction({
     description: 'Delete a certificate.',
     version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-certificate',
-        group: 'Certificates'
-    },
     input: InputSchema,
     output: OutputSchema,
 

@@ -14,11 +14,6 @@ const OutputSchema = z.object({
 const action = createAction({
     description: 'Delete a client.',
     version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-client',
-        group: 'Clients'
-    },
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

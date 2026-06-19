@@ -25,11 +25,6 @@ const OutputSchema = z.array(FormSchema);
 const action = createAction({
     description: 'List intake forms.',
     version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-forms',
-        group: 'Forms'
-    },
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api'],

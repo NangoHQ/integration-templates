@@ -18,12 +18,6 @@ const sync = createSync({
     models: {
         Client: ClientSchema
     },
-    endpoints: [
-        {
-            method: 'POST',
-            path: '/syncs/clients'
-        }
-    ],
 
     exec: async (nango) => {
         // Blocker: GET /clients returns a flat array with no pagination, no updated_at/modified_since filter,

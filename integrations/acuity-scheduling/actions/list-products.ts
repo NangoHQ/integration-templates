@@ -38,11 +38,6 @@ const OutputSchema = z.object({
 const action = createAction({
     description: 'List products.',
     version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-products',
-        group: 'Products'
-    },
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

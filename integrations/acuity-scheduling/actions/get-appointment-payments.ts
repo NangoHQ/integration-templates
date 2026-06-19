@@ -19,11 +19,6 @@ const OutputSchema = z.object({
 const action = createAction({
     description: 'Retrieve payment transactions for an appointment.',
     version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-appointment-payments',
-        group: 'Appointments'
-    },
     input: InputSchema,
     output: OutputSchema,
 

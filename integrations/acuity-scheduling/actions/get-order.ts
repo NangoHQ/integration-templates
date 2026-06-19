@@ -31,11 +31,6 @@ const OutputSchema = ProviderOrderSchema;
 const action = createAction({
     description: 'Retrieve a single order.',
     version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-order',
-        group: 'Orders'
-    },
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api'],

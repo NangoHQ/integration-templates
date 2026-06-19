@@ -26,11 +26,6 @@ const OutputSchema = z.object({
 const action = createAction({
     description: 'Update a client.',
     version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/update-client',
-        group: 'Clients'
-    },
     input: InputSchema,
     output: OutputSchema,
 

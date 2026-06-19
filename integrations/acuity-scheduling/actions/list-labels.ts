@@ -14,11 +14,6 @@ const OutputSchema = z.array(LabelSchema);
 const action = createAction({
     description: 'List appointment labels.',
     version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-labels',
-        group: 'Labels'
-    },
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:read'],

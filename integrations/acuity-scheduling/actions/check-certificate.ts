@@ -55,11 +55,6 @@ const AxiosErrorSchema = z.object({
 const action = createAction({
     description: 'Verify a certificate or coupon code.',
     version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/check-certificate',
-        group: 'Certificates'
-    },
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

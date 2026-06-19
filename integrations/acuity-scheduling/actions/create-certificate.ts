@@ -33,11 +33,6 @@ const OutputSchema = z
 const action = createAction({
     description: 'Create a package or gift certificate.',
     version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-certificate',
-        group: 'Certificates'
-    },
     input: InputSchema,
     output: OutputSchema,
 

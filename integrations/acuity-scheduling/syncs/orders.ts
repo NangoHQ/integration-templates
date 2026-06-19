@@ -32,13 +32,6 @@ const sync = createSync({
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
-    endpoints: [
-        // https://developers.acuityscheduling.com/reference/get-orders
-        {
-            path: '/syncs/orders',
-            method: 'GET'
-        }
-    ],
     models: {
         Order: OrderSchema
     },

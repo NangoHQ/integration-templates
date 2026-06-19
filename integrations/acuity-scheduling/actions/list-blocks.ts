@@ -39,11 +39,6 @@ const OutputSchema = z.object({
 const action = createAction({
     description: 'List calendar time blocks.',
     version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-blocks',
-        group: 'Blocks'
-    },
     input: InputSchema,
     output: OutputSchema,
 

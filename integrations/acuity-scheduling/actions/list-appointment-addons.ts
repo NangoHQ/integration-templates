@@ -26,11 +26,6 @@ const OutputSchema = z.object({
 const action = createAction({
     description: 'List available add-ons for appointment types.',
     version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-appointment-addons',
-        group: 'Appointments'
-    },
     input: InputSchema,
     output: OutputSchema,
 

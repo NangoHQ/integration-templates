@@ -13,11 +13,6 @@ const OutputSchema = z.object({
 const action = createAction({
     description: 'Delete a calendar block.',
     version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/delete-block',
-        group: 'Blocks'
-    },
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api-v1'],

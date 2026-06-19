@@ -75,11 +75,6 @@ const OutputSchema = z.object({
 const action = createAction({
     description: 'Retrieve an appointment.',
     version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-appointment',
-        group: 'Appointments'
-    },
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api'],

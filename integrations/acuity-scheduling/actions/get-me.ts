@@ -30,11 +30,6 @@ const OutputSchema = z.object({
 const action = createAction({
     description: "Retrieve the authenticated user's account information.",
     version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/get-me',
-        group: 'Account'
-    },
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api'],

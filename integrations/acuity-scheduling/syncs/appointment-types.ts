@@ -42,7 +42,6 @@ const sync = createSync({
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
-    endpoints: [{ method: 'GET', path: '/syncs/appointment-types' }],
     models: {
         AppointmentType: AppointmentTypeSchema
     },

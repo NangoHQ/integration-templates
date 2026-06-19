@@ -45,11 +45,6 @@ const OutputSchema = z.object({
 const action = createAction({
     description: 'List package and gift certificates.',
     version: '1.0.0',
-    endpoint: {
-        method: 'GET',
-        path: '/actions/list-certificates',
-        group: 'Certificates'
-    },
     input: InputSchema,
     output: OutputSchema,
 

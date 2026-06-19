@@ -28,11 +28,6 @@ const OutputSchema = z.object({
 const action = createAction({
     description: 'Create a client.',
     version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/create-client',
-        group: 'Clients'
-    },
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

@@ -53,11 +53,6 @@ const OutputSchema = z.object({
 const action = createAction({
     description: 'Cancel an appointment.',
     version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/cancel-appointment',
-        group: 'Appointments'
-    },
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api'],

@@ -22,12 +22,6 @@ const sync = createSync({
     models: {
         Product: ProductSchema
     },
-    endpoints: [
-        {
-            method: 'GET',
-            path: '/syncs/products'
-        }
-    ],
 
     exec: async (nango) => {
         // Blocker: provider only exposes /products with no changed-since filter,

@@ -18,12 +18,6 @@ const sync = createSync({
     models: {
         Block: BlockSchema
     },
-    endpoints: [
-        {
-            method: 'GET',
-            path: '/syncs/blocks'
-        }
-    ],
 
     exec: async (nango) => {
         // Blocker: GET /blocks does not support updated/modified filters,

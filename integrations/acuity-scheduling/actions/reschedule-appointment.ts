@@ -23,11 +23,6 @@ const OutputSchema = z
 const action = createAction({
     description: 'Reschedule an appointment.',
     version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/reschedule-appointment',
-        group: 'Appointments'
-    },
     input: InputSchema,
     output: OutputSchema,
 

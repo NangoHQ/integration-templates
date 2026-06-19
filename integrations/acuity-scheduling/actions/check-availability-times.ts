@@ -30,11 +30,6 @@ const OutputSchema = z.object({
 const action = createAction({
     description: 'Check if a specific datetime is available for an appointment type.',
     version: '1.0.0',
-    endpoint: {
-        method: 'POST',
-        path: '/actions/check-availability-times',
-        group: 'Availability'
-    },
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api'],

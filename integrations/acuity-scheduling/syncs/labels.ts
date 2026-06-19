@@ -21,12 +21,6 @@ const sync = createSync({
     models: {
         Label: LabelSchema
     },
-    endpoints: [
-        {
-            path: '/syncs/labels',
-            method: 'GET'
-        }
-    ],
 
     exec: async (nango) => {
         // https://developers.acuityscheduling.com/reference/get-labels
