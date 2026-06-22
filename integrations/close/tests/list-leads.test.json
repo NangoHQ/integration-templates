@@ -1,0 +1,495 @@
+{
+  "input": {
+    "limit": 2
+  },
+  "output": {
+    "data": [
+      {
+        "id": "lead_7IACfyrFUKx292gsVOhMBXwY7ntFoQuLPvnlOAf3VaW",
+        "name": "Globex Industries",
+        "status_id": "stat_WB7HCgj7rTIgALdHY4wWRZMNKE30GsiPrEsrrFuPwzM",
+        "status_label": "Interested",
+        "date_created": "2026-06-19T11:04:19.934000+00:00",
+        "date_updated": "2026-06-19T12:04:18.473000+00:00",
+        "addresses": [
+          {
+            "address_1": "500 Industrial Blvd",
+            "address_2": "",
+            "city": "Chicago",
+            "country": "US",
+            "label": "headquarters",
+            "state": "IL",
+            "zipcode": "60601"
+          }
+        ],
+        "contacts": [
+          {
+            "created_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+            "date_created": "2026-06-19T11:04:43.182000+00:00",
+            "date_updated": "2026-06-19T11:04:43.182000+00:00",
+            "display_name": "Carol Martinez",
+            "emails": [
+              {
+                "email": "carol@globex.com",
+                "is_unsubscribed": false,
+                "type": "office"
+              }
+            ],
+            "id": "cont_RbAYBhiQKpTL7MIUketEppiEB4QKBXKSV5hqpV10Ps8",
+            "integration_links": [],
+            "lead_id": "lead_7IACfyrFUKx292gsVOhMBXwY7ntFoQuLPvnlOAf3VaW",
+            "name": "Carol Martinez",
+            "organization_id": "orga_bog0WeN6OXBxaN867LEXwaisIuXTy9fbbryxDywmf6V",
+            "phones": [
+              {
+                "country": "US",
+                "phone": "+13125559876",
+                "phone_formatted": "+1 312-555-9876",
+                "type": "office"
+              }
+            ],
+            "timezone": "America/Chicago",
+            "timezone_source": "inferred_from_phone_number",
+            "title": "Head of Procurement",
+            "updated_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+            "urls": []
+          },
+          {
+            "created_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+            "date_created": "2026-06-19T11:04:45.078000+00:00",
+            "date_updated": "2026-06-19T11:04:45.078000+00:00",
+            "display_name": "Dan Lee",
+            "emails": [
+              {
+                "email": "dan@globex.com",
+                "is_unsubscribed": false,
+                "type": "office"
+              }
+            ],
+            "id": "cont_NcFWmy5NpUCR8ZbVCJH81B1AoVNsb1RQdQPGoMHD0qp",
+            "integration_links": [],
+            "lead_id": "lead_7IACfyrFUKx292gsVOhMBXwY7ntFoQuLPvnlOAf3VaW",
+            "name": "Dan Lee",
+            "organization_id": "orga_bog0WeN6OXBxaN867LEXwaisIuXTy9fbbryxDywmf6V",
+            "phones": [],
+            "timezone": null,
+            "timezone_source": null,
+            "title": "CTO",
+            "updated_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+            "urls": []
+          }
+        ],
+        "created_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+        "created_by_name": "Nango Developer",
+        "custom": {},
+        "description": "Manufacturing and logistics firm",
+        "display_name": "Globex Industries",
+        "html_url": "https://app.close.com/lead/lead_7IACfyrFUKx292gsVOhMBXwY7ntFoQuLPvnlOAf3VaW/",
+        "integration_links": [],
+        "opportunities": [
+          {
+            "annualized_expected_value": 12500,
+            "annualized_value": 25000,
+            "attachments": [],
+            "confidence": 50,
+            "contact_id": null,
+            "contact_name": null,
+            "created_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+            "created_by_name": "Nango Developer",
+            "date_created": "2026-06-19T11:04:54.421000+00:00",
+            "date_lost": null,
+            "date_updated": "2026-06-19T11:04:54.421000+00:00",
+            "date_won": null,
+            "expected_value": 12500,
+            "id": "oppo_tXCqBlZiO3lVyPpcZRCleSzK4dNS8nqWOFgj96zQIzS",
+            "integration_links": [],
+            "lead_id": "lead_7IACfyrFUKx292gsVOhMBXwY7ntFoQuLPvnlOAf3VaW",
+            "lead_name": "Globex Industries",
+            "note": "Logistics integration project",
+            "note_html": "<body><p>Logistics integration project</p></body>",
+            "organization_id": "orga_bog0WeN6OXBxaN867LEXwaisIuXTy9fbbryxDywmf6V",
+            "pipeline_id": "pipe_4RR4Vuxbp8jRIcQEzEzcEJ",
+            "pipeline_name": "Sales",
+            "status_display_name": "Proposal Sent",
+            "status_id": "stat_0Qs8BMX4nLGG27jBGPuPJeWG9G07vYGSq9El36wRPWz",
+            "status_label": "Proposal Sent",
+            "status_type": "active",
+            "updated_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+            "updated_by_name": "Nango Developer",
+            "user_id": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+            "user_name": "Nango Developer",
+            "value": 25000,
+            "value_currency": "USD",
+            "value_formatted": "$250",
+            "value_period": "one_time"
+          }
+        ],
+        "organization_id": "orga_bog0WeN6OXBxaN867LEXwaisIuXTy9fbbryxDywmf6V",
+        "tasks": [],
+        "updated_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+        "updated_by_name": "Nango Developer",
+        "url": "https://globex.com"
+      },
+      {
+        "id": "lead_mELh8FRqV6vRWJ5bgGdx7GpifIkEnoQFHg0hsxmQI1z",
+        "name": "Acme Corp",
+        "status_id": "stat_o0QX2pdl7g3G8mTEBcQLUrb3xDeFzxZEjoH4ZvBOh61",
+        "status_label": "Potential",
+        "date_created": "2026-06-19T11:04:15.763000+00:00",
+        "date_updated": "2026-06-19T12:04:01.697000+00:00",
+        "addresses": [
+          {
+            "address_1": "123 Main St",
+            "address_2": "",
+            "city": "San Francisco",
+            "country": "US",
+            "label": "office",
+            "state": "CA",
+            "zipcode": "94105"
+          }
+        ],
+        "contacts": [
+          {
+            "created_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+            "date_created": "2026-06-19T11:04:37.985000+00:00",
+            "date_updated": "2026-06-19T11:04:37.985000+00:00",
+            "display_name": "Alice Johnson",
+            "emails": [
+              {
+                "email": "alice@acme.com",
+                "is_unsubscribed": false,
+                "type": "office"
+              }
+            ],
+            "id": "cont_WkCG7ujzTYPCoOTUcao7tRUj9TMChmWgeNXimiJT9eJ",
+            "integration_links": [],
+            "lead_id": "lead_mELh8FRqV6vRWJ5bgGdx7GpifIkEnoQFHg0hsxmQI1z",
+            "name": "Alice Johnson",
+            "organization_id": "orga_bog0WeN6OXBxaN867LEXwaisIuXTy9fbbryxDywmf6V",
+            "phones": [
+              {
+                "country": "US",
+                "phone": "+14155551234",
+                "phone_formatted": "+1 415-555-1234",
+                "type": "office"
+              }
+            ],
+            "timezone": "America/Los_Angeles",
+            "timezone_source": "inferred_from_phone_number",
+            "title": "VP of Engineering",
+            "updated_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+            "urls": []
+          },
+          {
+            "created_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+            "date_created": "2026-06-19T11:04:40.414000+00:00",
+            "date_updated": "2026-06-19T11:04:40.414000+00:00",
+            "display_name": "Bob Smith",
+            "emails": [
+              {
+                "email": "bob@acme.com",
+                "is_unsubscribed": false,
+                "type": "office"
+              }
+            ],
+            "id": "cont_PVCPc55Jp9YOxcrddKFvTyYWE9I58A0aNlx5focra7o",
+            "integration_links": [],
+            "lead_id": "lead_mELh8FRqV6vRWJ5bgGdx7GpifIkEnoQFHg0hsxmQI1z",
+            "name": "Bob Smith",
+            "organization_id": "orga_bog0WeN6OXBxaN867LEXwaisIuXTy9fbbryxDywmf6V",
+            "phones": [
+              {
+                "country": "US",
+                "phone": "+14155555678",
+                "phone_formatted": "+1 415-555-5678",
+                "type": "mobile"
+              }
+            ],
+            "timezone": "America/Los_Angeles",
+            "timezone_source": "inferred_from_phone_number",
+            "title": "CEO",
+            "updated_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+            "urls": []
+          }
+        ],
+        "created_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+        "created_by_name": "Nango Developer",
+        "custom": {},
+        "description": "Enterprise software company",
+        "display_name": "Acme Corp",
+        "html_url": "https://app.close.com/lead/lead_mELh8FRqV6vRWJ5bgGdx7GpifIkEnoQFHg0hsxmQI1z/",
+        "integration_links": [],
+        "opportunities": [],
+        "organization_id": "orga_bog0WeN6OXBxaN867LEXwaisIuXTy9fbbryxDywmf6V",
+        "tasks": [],
+        "updated_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+        "updated_by_name": "Nango Developer",
+        "url": "https://acme.com"
+      }
+    ],
+    "has_more": true,
+    "next_cursor": "2"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1/lead/": {
+        "response": {
+          "data": [
+            {
+              "addresses": [
+                {
+                  "address_1": "500 Industrial Blvd",
+                  "address_2": "",
+                  "city": "Chicago",
+                  "country": "US",
+                  "label": "headquarters",
+                  "state": "IL",
+                  "zipcode": "60601"
+                }
+              ],
+              "contacts": [
+                {
+                  "created_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+                  "date_created": "2026-06-19T11:04:43.182000+00:00",
+                  "date_updated": "2026-06-19T11:04:43.182000+00:00",
+                  "display_name": "Carol Martinez",
+                  "emails": [
+                    {
+                      "email": "carol@globex.com",
+                      "is_unsubscribed": false,
+                      "type": "office"
+                    }
+                  ],
+                  "id": "cont_RbAYBhiQKpTL7MIUketEppiEB4QKBXKSV5hqpV10Ps8",
+                  "integration_links": [],
+                  "lead_id": "lead_7IACfyrFUKx292gsVOhMBXwY7ntFoQuLPvnlOAf3VaW",
+                  "name": "Carol Martinez",
+                  "organization_id": "orga_bog0WeN6OXBxaN867LEXwaisIuXTy9fbbryxDywmf6V",
+                  "phones": [
+                    {
+                      "country": "US",
+                      "phone": "+13125559876",
+                      "phone_formatted": "+1 312-555-9876",
+                      "type": "office"
+                    }
+                  ],
+                  "timezone": "America/Chicago",
+                  "timezone_source": "inferred_from_phone_number",
+                  "title": "Head of Procurement",
+                  "updated_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+                  "urls": []
+                },
+                {
+                  "created_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+                  "date_created": "2026-06-19T11:04:45.078000+00:00",
+                  "date_updated": "2026-06-19T11:04:45.078000+00:00",
+                  "display_name": "Dan Lee",
+                  "emails": [
+                    {
+                      "email": "dan@globex.com",
+                      "is_unsubscribed": false,
+                      "type": "office"
+                    }
+                  ],
+                  "id": "cont_NcFWmy5NpUCR8ZbVCJH81B1AoVNsb1RQdQPGoMHD0qp",
+                  "integration_links": [],
+                  "lead_id": "lead_7IACfyrFUKx292gsVOhMBXwY7ntFoQuLPvnlOAf3VaW",
+                  "name": "Dan Lee",
+                  "organization_id": "orga_bog0WeN6OXBxaN867LEXwaisIuXTy9fbbryxDywmf6V",
+                  "phones": [],
+                  "timezone": null,
+                  "timezone_source": null,
+                  "title": "CTO",
+                  "updated_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+                  "urls": []
+                }
+              ],
+              "created_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+              "created_by_name": "Nango Developer",
+              "custom": {},
+              "date_created": "2026-06-19T11:04:19.934000+00:00",
+              "date_updated": "2026-06-19T12:04:18.473000+00:00",
+              "description": "Manufacturing and logistics firm",
+              "display_name": "Globex Industries",
+              "html_url": "https://app.close.com/lead/lead_7IACfyrFUKx292gsVOhMBXwY7ntFoQuLPvnlOAf3VaW/",
+              "id": "lead_7IACfyrFUKx292gsVOhMBXwY7ntFoQuLPvnlOAf3VaW",
+              "integration_links": [],
+              "name": "Globex Industries",
+              "opportunities": [
+                {
+                  "annualized_expected_value": 12500,
+                  "annualized_value": 25000,
+                  "attachments": [],
+                  "confidence": 50,
+                  "contact_id": null,
+                  "contact_name": null,
+                  "created_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+                  "created_by_name": "Nango Developer",
+                  "date_created": "2026-06-19T11:04:54.421000+00:00",
+                  "date_lost": null,
+                  "date_updated": "2026-06-19T11:04:54.421000+00:00",
+                  "date_won": null,
+                  "expected_value": 12500,
+                  "id": "oppo_tXCqBlZiO3lVyPpcZRCleSzK4dNS8nqWOFgj96zQIzS",
+                  "integration_links": [],
+                  "lead_id": "lead_7IACfyrFUKx292gsVOhMBXwY7ntFoQuLPvnlOAf3VaW",
+                  "lead_name": "Globex Industries",
+                  "note": "Logistics integration project",
+                  "note_html": "<body><p>Logistics integration project</p></body>",
+                  "organization_id": "orga_bog0WeN6OXBxaN867LEXwaisIuXTy9fbbryxDywmf6V",
+                  "pipeline_id": "pipe_4RR4Vuxbp8jRIcQEzEzcEJ",
+                  "pipeline_name": "Sales",
+                  "status_display_name": "Proposal Sent",
+                  "status_id": "stat_0Qs8BMX4nLGG27jBGPuPJeWG9G07vYGSq9El36wRPWz",
+                  "status_label": "Proposal Sent",
+                  "status_type": "active",
+                  "updated_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+                  "updated_by_name": "Nango Developer",
+                  "user_id": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+                  "user_name": "Nango Developer",
+                  "value": 25000,
+                  "value_currency": "USD",
+                  "value_formatted": "$250",
+                  "value_period": "one_time"
+                }
+              ],
+              "organization_id": "orga_bog0WeN6OXBxaN867LEXwaisIuXTy9fbbryxDywmf6V",
+              "status_id": "stat_WB7HCgj7rTIgALdHY4wWRZMNKE30GsiPrEsrrFuPwzM",
+              "status_label": "Interested",
+              "tasks": [],
+              "updated_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+              "updated_by_name": "Nango Developer",
+              "url": "https://globex.com"
+            },
+            {
+              "addresses": [
+                {
+                  "address_1": "123 Main St",
+                  "address_2": "",
+                  "city": "San Francisco",
+                  "country": "US",
+                  "label": "office",
+                  "state": "CA",
+                  "zipcode": "94105"
+                }
+              ],
+              "contacts": [
+                {
+                  "created_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+                  "date_created": "2026-06-19T11:04:37.985000+00:00",
+                  "date_updated": "2026-06-19T11:04:37.985000+00:00",
+                  "display_name": "Alice Johnson",
+                  "emails": [
+                    {
+                      "email": "alice@acme.com",
+                      "is_unsubscribed": false,
+                      "type": "office"
+                    }
+                  ],
+                  "id": "cont_WkCG7ujzTYPCoOTUcao7tRUj9TMChmWgeNXimiJT9eJ",
+                  "integration_links": [],
+                  "lead_id": "lead_mELh8FRqV6vRWJ5bgGdx7GpifIkEnoQFHg0hsxmQI1z",
+                  "name": "Alice Johnson",
+                  "organization_id": "orga_bog0WeN6OXBxaN867LEXwaisIuXTy9fbbryxDywmf6V",
+                  "phones": [
+                    {
+                      "country": "US",
+                      "phone": "+14155551234",
+                      "phone_formatted": "+1 415-555-1234",
+                      "type": "office"
+                    }
+                  ],
+                  "timezone": "America/Los_Angeles",
+                  "timezone_source": "inferred_from_phone_number",
+                  "title": "VP of Engineering",
+                  "updated_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+                  "urls": []
+                },
+                {
+                  "created_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+                  "date_created": "2026-06-19T11:04:40.414000+00:00",
+                  "date_updated": "2026-06-19T11:04:40.414000+00:00",
+                  "display_name": "Bob Smith",
+                  "emails": [
+                    {
+                      "email": "bob@acme.com",
+                      "is_unsubscribed": false,
+                      "type": "office"
+                    }
+                  ],
+                  "id": "cont_PVCPc55Jp9YOxcrddKFvTyYWE9I58A0aNlx5focra7o",
+                  "integration_links": [],
+                  "lead_id": "lead_mELh8FRqV6vRWJ5bgGdx7GpifIkEnoQFHg0hsxmQI1z",
+                  "name": "Bob Smith",
+                  "organization_id": "orga_bog0WeN6OXBxaN867LEXwaisIuXTy9fbbryxDywmf6V",
+                  "phones": [
+                    {
+                      "country": "US",
+                      "phone": "+14155555678",
+                      "phone_formatted": "+1 415-555-5678",
+                      "type": "mobile"
+                    }
+                  ],
+                  "timezone": "America/Los_Angeles",
+                  "timezone_source": "inferred_from_phone_number",
+                  "title": "CEO",
+                  "updated_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+                  "urls": []
+                }
+              ],
+              "created_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+              "created_by_name": "Nango Developer",
+              "custom": {},
+              "date_created": "2026-06-19T11:04:15.763000+00:00",
+              "date_updated": "2026-06-19T12:04:01.697000+00:00",
+              "description": "Enterprise software company",
+              "display_name": "Acme Corp",
+              "html_url": "https://app.close.com/lead/lead_mELh8FRqV6vRWJ5bgGdx7GpifIkEnoQFHg0hsxmQI1z/",
+              "id": "lead_mELh8FRqV6vRWJ5bgGdx7GpifIkEnoQFHg0hsxmQI1z",
+              "integration_links": [],
+              "name": "Acme Corp",
+              "opportunities": [],
+              "organization_id": "orga_bog0WeN6OXBxaN867LEXwaisIuXTy9fbbryxDywmf6V",
+              "status_id": "stat_o0QX2pdl7g3G8mTEBcQLUrb3xDeFzxZEjoH4ZvBOh61",
+              "status_label": "Potential",
+              "tasks": [],
+              "updated_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+              "updated_by_name": "Nango Developer",
+              "url": "https://acme.com"
+            }
+          ],
+          "has_more": true,
+          "total_results": 3
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 19 Jun 2026 12:04:38 GMT",
+          "content-type": "application/json",
+          "content-length": "6532",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4942",
+          "x-ratelimit-reset": "1781870699",
+          "etag": "W/\"1984-7woGwzd9htPHNvGsXfjBjrY/W1o\""
+        },
+        "hash": "ac319b210cda2a9d5845ee6541821e6a61fde577",
+        "request": {
+          "params": {
+            "_limit": "2",
+            "_skip": "0"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "input": {
+    "id": "acti_8uwxayVteXpWleO1rltLvVTosqrfOXG4EfDUMUoXEEO",
+    "note": "Updated note text via Nango action"
+  },
+  "output": {
+    "id": "acti_8uwxayVteXpWleO1rltLvVTosqrfOXG4EfDUMUoXEEO",
+    "_type": "Note",
+    "date_created": "2026-06-19T12:11:38.875000+00:00",
+    "date_updated": "2026-06-19T12:11:45.978000+00:00",
+    "organization_id": "orga_bog0WeN6OXBxaN867LEXwaisIuXTy9fbbryxDywmf6V",
+    "activity_at": "2026-06-19T12:11:38.875000+00:00",
+    "created_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+    "created_by_name": "Nango Developer",
+    "lead_id": "lead_Ya0WMcRy9Nv03bBaSv0p57EyEaNymGJZvY4PTxvMehD",
+    "updated_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+    "updated_by_name": "Nango Developer",
+    "user_id": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+    "user_name": "Nango Developer",
+    "users": [],
+    "note": "Updated note text via Nango action",
+    "note_html": "<body><p>Updated note text via Nango action</p></body>",
+    "pinned": false
+  },
+  "nango": {},
+  "api": {
+    "put": {
+      "/v1/activity/note/acti_8uwxayVteXpWleO1rltLvVTosqrfOXG4EfDUMUoXEEO/": {
+        "response": {
+          "activity_at": "2026-06-19T12:11:38.875000+00:00",
+          "note": "Updated note text via Nango action",
+          "user_id": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+          "note_mentions": [],
+          "created_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+          "lead_id": "lead_Ya0WMcRy9Nv03bBaSv0p57EyEaNymGJZvY4PTxvMehD",
+          "created_by_name": "Nango Developer",
+          "title": null,
+          "users": [],
+          "updated_by_name": "Nango Developer",
+          "date_updated": "2026-06-19T12:11:45.978000+00:00",
+          "source": "api",
+          "note_html": "<body><p>Updated note text via Nango action</p></body>",
+          "user_name": "Nango Developer",
+          "updated_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+          "contact_id": null,
+          "date_created": "2026-06-19T12:11:38.875000+00:00",
+          "_type": "Note",
+          "pinned_at": null,
+          "pinned": false,
+          "attachments": [],
+          "id": "acti_8uwxayVteXpWleO1rltLvVTosqrfOXG4EfDUMUoXEEO",
+          "organization_id": "orga_bog0WeN6OXBxaN867LEXwaisIuXTy9fbbryxDywmf6V"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 19 Jun 2026 12:11:51 GMT",
+          "content-type": "application/json",
+          "content-length": "925",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4963",
+          "x-ratelimit-reset": "1781871150",
+          "etag": "W/\"39d-PRPf37wGn1IoIpOV+MUY1MSUM+Y\""
+        },
+        "hash": "dcb3f54006e9edc564d197392e3af64df071c389",
+        "request": {
+          "data": {
+            "note": "Updated note text via Nango action"
+          }
+        }
+      }
+    }
+  }
+}

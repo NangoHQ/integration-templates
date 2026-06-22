@@ -8654,25 +8654,14 @@ export interface Organization {
 
 export interface Sequence {
   id: string;
-  name?: string | undefined;
-  active?: boolean | undefined;
-  created_at?: string | undefined;
-  updated_at?: string | undefined;
-  num_steps?: number | undefined;
-  unique_scheduled?: number | undefined;
-  unique_delivered?: number | undefined;
-  unique_opened?: number | undefined;
-  unique_replied?: number | undefined;
-  unique_bounced?: number | undefined;
-  user_id?: string | undefined;
-  email_account_id?: string | undefined;
-  label_ids?: string[] | undefined;
-  folder_id?: string | undefined;
-  tags?: string[] | undefined;
-  archived?: boolean | undefined;
-  scheduling_status?: string | undefined;
-  pause_on_out_of_office?: boolean | undefined;
-  pause_on_holiday?: boolean | undefined;
+  name: string;
+  status: 'active' | 'paused' | 'archived';
+  created_by: string;
+  date_created: string;
+  date_updated: string;
+  steps: ({  type: string;
+  delay_in_hours: number;
+  template?: string | undefined;})[];
 };
 
 export interface Task {
@@ -27794,6 +27783,1211 @@ export interface ActionOutput_clickup_updatetimeentry {
   duration: number;
   billable: boolean;
   tags: string[];
+};
+
+export interface Activity {
+  id: string;
+  subject?: string | undefined;
+  type?: string | undefined;
+  done?: boolean | undefined;
+  due_date?: string | undefined;
+  due_time?: string | undefined;
+  duration?: string | undefined;
+  add_time?: string | undefined;
+  update_time?: string | undefined;
+  user_id?: number | undefined;
+  deal_id?: number | undefined;
+  person_id?: number | undefined;
+  org_id?: number | undefined;
+  lead_id?: string | undefined;
+  note?: string | undefined;
+  active_flag?: boolean | undefined;
+  public_description?: string | undefined;
+  busy_flag?: boolean | undefined;
+  marked_as_done_time?: string | undefined;
+  created_by_user_id?: number | undefined;
+  assigned_to_user_id?: number | undefined;
+};
+
+export interface Lead {
+  id: string;
+  company?: string | undefined;
+  email?: string | undefined;
+  firstName?: string | undefined;
+  lastName: string;
+  fullName?: string | undefined;
+  phone?: string | undefined;
+  mobile?: string | undefined;
+  status?: string | undefined;
+  source?: string | undefined;
+  designation?: string | undefined;
+  website?: string | undefined;
+  industry?: string | undefined;
+  annualRevenue?: number | undefined;
+  employees?: number | undefined;
+  skypeId?: string | undefined;
+  twitter?: string | undefined;
+  street?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  zipCode?: string | undefined;
+  country?: string | undefined;
+  description?: string | undefined;
+  emailOptOut?: boolean | undefined;
+  createdTime: string;
+  modifiedTime: string;
+  createdById?: string | undefined;
+  createdByName?: string | undefined;
+  createdByEmail?: string | undefined;
+  modifiedById?: string | undefined;
+  modifiedByName?: string | undefined;
+  modifiedByEmail?: string | undefined;
+  ownerId?: string | undefined;
+  ownerName?: string | undefined;
+  ownerEmail?: string | undefined;
+  rating?: string | undefined;
+  fax?: string | undefined;
+  secondaryEmail?: string | undefined;
+  tags?: string[] | undefined;
+};
+
+export interface Pipeline {
+  id: string;
+  name?: string | undefined;
+  update_time: string;
+  add_time?: string | undefined;
+  is_deal_probability_enabled?: boolean | undefined;
+};
+
+export interface ActionInput_close_createcontact {
+  /**
+   * The ID of the lead to create the contact under. Example: lead_xxx
+   */
+  lead_id: string;
+  /**
+   * The full name of the contact.
+   */
+  name?: string | undefined;
+  /**
+   * The job title of the contact.
+   */
+  title?: string | undefined;
+  /**
+   * Email addresses for the contact.
+   */
+  emails?: ({  email: string;
+  type: 'office' | 'home' | 'other';})[] | undefined;
+  /**
+   * Phone numbers for the contact.
+   */
+  phones?: ({  phone: string;
+  type: 'office' | 'home' | 'mobile' | 'direct' | 'other';})[] | undefined;
+  /**
+   * URLs associated with the contact.
+   */
+  urls?: ({  url: string;
+  type?: string | undefined;})[];
+};
+
+export interface ActionOutput_close_createcontact {
+  id: string;
+  lead_id: string;
+  name?: string | undefined;
+  title?: string | undefined;
+  emails?: ({  email: string;
+  type: string;
+  is_unsubscribed?: boolean | undefined;})[];
+  phones?: ({  phone: string;
+  type: string;
+  country?: string | undefined;
+  phone_formatted?: string | undefined;})[];
+  urls?: ({  url: string;
+  type: string;})[] | undefined;
+};
+
+export interface ActionInput_close_createlead {
+  name: string;
+  status_id?: string | undefined;
+  url?: string | undefined;
+  description?: string | undefined;
+  addresses?: ({  address_1?: string | undefined;
+  address_2?: string | undefined;
+  city?: string | undefined;
+  country?: string | undefined;
+  label?: string | undefined;
+  state?: string | undefined;
+  zipcode?: string | undefined;})[];
+  contacts?: ({  name?: string | undefined;
+  title?: string | undefined;
+  emails?: ({  email: string;
+  type?: string | undefined;})[];
+  phones?: ({  phone: string;
+  type?: string | undefined;})[];
+  urls?: ({  url: string;
+  type?: string | undefined;})[];})[];
+};
+
+export interface ActionOutput_close_createlead {
+  id: string;
+  name?: string | undefined;
+  display_name: string;
+  status_id: string;
+  status_label: string;
+  organization_id: string;
+  url?: string | undefined;
+  description?: string | undefined;
+  date_created: string;
+  date_updated: string;
+  html_url: string;
+  addresses?: ({  address_1: string;
+  address_2: string;
+  city: string;
+  country: string;
+  label: string;
+  state: string;
+  zipcode: string;
+  tz_ids?: string[] | undefined;})[];
+  contacts?: ({  id: string;
+  name: string;
+  title: string;
+  display_name: string;
+  lead_id: string;
+  organization_id: string;
+  date_created: string;
+  date_updated: string;
+  created_by: string;
+  updated_by: string;
+  emails?: ({  email: string;
+  type: string;
+  is_unsubscribed?: boolean | undefined;})[];
+  phones?: ({  phone: string;
+  type: string;
+  phone_formatted?: string | undefined;
+  country?: string | undefined;
+  tz_ids?: string[] | undefined;})[];
+  urls?: ({  url: string;
+  type: string;})[] | undefined;})[];
+  contact_ids?: string[] | undefined;
+};
+
+export interface ActionInput_close_createnoteactivity {
+  /**
+   * Lead ID. Example: "lead_mELh8FRqV6vRWJ5bgGdx7GpifIkEnoQFHg0hsxmQI1z"
+   */
+  lead_id: string;
+  /**
+   * Plain text note content.
+   */
+  note: string;
+  /**
+   * Contact ID. Example: "cont_WkCG7ujzTYPCoOTUcao7tRUj9TMChmWgeNXimiJT9eJ"
+   */
+  contact_id?: string | undefined;
+  /**
+   * ISO timestamp. Defaults to now.
+   */
+  activity_at?: string | undefined;
+};
+
+export interface ActionOutput_close_createnoteactivity {
+  id: string;
+  _type: string;
+  note?: string | undefined;
+  note_html?: string | undefined;
+  lead_id?: string | undefined;
+  contact_id?: string | undefined;
+  activity_at?: string | undefined;
+  date_created: string;
+  date_updated: string;
+  user_id?: string | undefined;
+  organization_id?: string | undefined;
+  created_by?: string | undefined;
+  updated_by?: string | undefined;
+  created_by_name?: string | undefined;
+  updated_by_name?: string | undefined;
+  user_name?: string | undefined;
+  users?: string[] | undefined;
+};
+
+export interface ActionInput_close_createopportunity {
+  /**
+   * Lead ID. Example: "lead_mELh8FRqV6vRWJ5bgGdx7GpifIkEnoQFHg0hsxmQI1z"
+   */
+  lead_id: string;
+  /**
+   * Opportunity status ID. Example: "stat_YT79kszvqlYbs5HhEYBEtr0CkZ41Ey0RqXpLaUsr1li"
+   */
+  status_id: string;
+  /**
+   * Pipeline ID. Example: "pipe_4RR4Vuxbp8jRIcQEzEzcEJ"
+   */
+  pipeline_id?: string | undefined;
+  /**
+   * Note about the opportunity
+   */
+  note?: string | undefined;
+  /**
+   * Confidence level (0-100)
+   */
+  confidence?: number | undefined;
+  /**
+   * Opportunity value in whole USD dollars. Example: 50000
+   */
+  value?: number | undefined;
+  /**
+   * Value period: one_time, monthly, or annual
+   */
+  value_period?: 'one_time' | 'monthly' | 'annual' | undefined;
+  /**
+   * User ID to assign the opportunity to
+   */
+  user_id?: string | undefined;
+  /**
+   * Contact ID associated with the opportunity
+   */
+  contact_id?: string | undefined;
+  /**
+   * Date the opportunity was won. Example: "2026-06-19"
+   */
+  date_won?: string | undefined;
+};
+
+export interface ActionOutput_close_createopportunity {
+  id: string;
+  lead_id?: string | undefined;
+  lead_name?: string | undefined;
+  status_id?: string | undefined;
+  status_label?: string | undefined;
+  pipeline_id?: string | undefined;
+  pipeline_name?: string | undefined;
+  contact_id?: string | undefined;
+  contact_name?: string | undefined;
+  user_id?: string | undefined;
+  user_name?: string | undefined;
+  note?: string | undefined;
+  confidence?: number | undefined;
+  value?: number | undefined;
+  value_period?: 'one_time' | 'monthly' | 'annual' | undefined;
+  annualized_value?: number | undefined;
+  date_won?: string | undefined;
+  date_lost?: string | undefined;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+  organization_id?: string | undefined;
+};
+
+export interface ActionInput_close_createtask {
+  /**
+   * Lead ID. Example: "lead_abc123"
+   */
+  lead_id: string;
+  /**
+   * Task description text
+   */
+  text: string;
+  /**
+   * Task date in YYYY-MM-DD format. Omit for a dateless task.
+   */
+  date?: string | undefined;
+  /**
+   * User ID to assign the task to
+   */
+  assigned_to?: string | undefined;
+  /**
+   * Whether the task is complete. Defaults to false
+   */
+  is_complete?: boolean | undefined;
+  /**
+   * Task priority. Defaults to medium
+   */
+  priority?: 'low' | 'medium' | 'high' | undefined;
+  /**
+   * Contact ID associated with the task
+   */
+  contact_id?: string | undefined;
+};
+
+export interface ActionOutput_close_createtask {
+  id: string;
+  lead_id: string;
+  contact_id?: string | undefined;
+  text?: string | undefined;
+  assigned_to?: string | undefined;
+  date?: string | undefined;
+  is_complete: boolean;
+  is_dateless: boolean;
+  date_created: string;
+  date_updated: string;
+  organization_id: string;
+};
+
+export interface ActionInput_close_createwebhook {
+  /**
+   * HTTPS endpoint URL for the webhook subscription. Example: "https://example.com/webhook"
+   */
+  url: string;
+  events: string[];
+  /**
+   * Whether to verify the SSL certificate of the destination URL. Defaults to true.
+   */
+  verify_ssl?: boolean | undefined;
+};
+
+export interface ActionOutput_close_createwebhook {
+  id: string;
+  url: string;
+  events: ({  action: string;
+  object_type: string;})[];
+  verify_ssl?: boolean | undefined;
+  status?: string | undefined;
+  health_status?: string | undefined;
+  signature_key?: string | undefined;
+  created_by?: string | undefined;
+  updated_by?: string | undefined;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+};
+
+export interface ActionInput_close_deletecontact {
+  /**
+   * Contact ID to delete. Example: "cont_abc123"
+   */
+  id: string;
+};
+
+export interface ActionOutput_close_deletecontact {
+  id: string;
+  deleted: boolean;
+};
+
+export interface ActionInput_close_deletelead {
+  /**
+   * The ID of the lead to delete. Example: "lead_xxx"
+   */
+  id: string;
+};
+
+export interface ActionOutput_close_deletelead {
+  success: true;
+};
+
+export interface ActionInput_close_deletenoteactivity {
+  /**
+   * The ID of the note activity to delete. Example: "acti_123"
+   */
+  id: string;
+};
+
+export interface ActionOutput_close_deletenoteactivity {
+  success: boolean;
+};
+
+export interface ActionInput_close_deleteopportunity {
+  /**
+   * Opportunity ID. Example: "oppo_OCMnOPla5NoAH69U3S9cZiiWjptaqpCAUPBFWS0yOXo"
+   */
+  id: string;
+};
+
+export interface ActionOutput_close_deleteopportunity {
+  id: string;
+  success: boolean;
+};
+
+export interface ActionInput_close_deletetask {
+  /**
+   * Close task ID. Example: "task_123"
+   */
+  id: string;
+};
+
+export interface ActionOutput_close_deletetask {
+  success: boolean;
+};
+
+export interface ActionInput_close_deletewebhook {
+  /**
+   * The ID of the webhook subscription to delete. Example: "whsub_6un6NQjYTaFdgtIZsTDXP6"
+   */
+  id: string;
+};
+
+export interface ActionOutput_close_deletewebhook {
+  id?: string | undefined;
+};
+
+export interface ActionInput_close_getcontact {
+  /**
+   * Contact ID. Example: "cont_123"
+   */
+  contactId: string;
+};
+
+export interface ActionOutput_close_getcontact {
+  id: string;
+  lead_id?: string | undefined;
+  name?: string | undefined;
+  title?: string | undefined;
+  display_name?: string | undefined;
+  organization_id?: string | undefined;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+  created_by?: string | undefined;
+  updated_by?: string | undefined;
+  emails?: ({  email: string;
+  type: string;
+  is_unsubscribed?: boolean | undefined;})[];
+  phones?: ({  phone: string;
+  type: string;
+  phone_formatted?: string | undefined;
+  country?: string | undefined;
+  outbound_sms_blocked?: boolean | undefined;
+  tz_ids?: string[] | undefined;})[];
+  urls?: ({  url: string;
+  type: string;})[] | undefined;
+  timezone?: string | undefined;
+  timezone_source?: string | undefined;
+  integration_links?: ({  name: string;
+  url: string;})[] | undefined;
+};
+
+export interface ActionInput_close_getlead {
+  /**
+   * Lead ID. Example: "lead_mELh8FRqV6vRWJ5bgGdx7GpifIkEnoQFHg0hsxmQI1z"
+   */
+  id: string;
+};
+
+export interface ActionOutput_close_getlead {
+  id: string;
+  display_name?: string | undefined;
+  name?: string | undefined;
+  status_id?: string | undefined;
+  status_label?: string | undefined;
+  organization_id?: string | undefined;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+  created_by?: string | undefined;
+  updated_by?: string | undefined;
+  contacts?: ({})[] | undefined;
+  opportunities?: ({})[] | undefined;
+  tasks?: ({})[] | undefined;
+  url?: string | undefined;
+};
+
+export interface ActionInput_close_getme {
+};
+
+export interface ActionOutput_close_getme {
+  id: string;
+  email: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  name?: string | undefined;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+  memberships?: ({  id: string;
+  user_id: string;
+  organization_id: string;
+  role: string;
+  permissions_granted?: string[] | undefined;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;})[];
+  organizations?: ({  id: string;
+  name: string;
+  lead_statuses?: ({  id: string;
+  label: string;
+  organization_id?: string | undefined;})[];
+  opportunity_statuses?: ({  id: string;
+  label: string;
+  organization_id?: string | undefined;})[];
+  pipelines?: ({  id: string;
+  name: string;
+  organization_id?: string | undefined;})[];})[];
+  email_accounts?: ({  id: string;
+  email: string;})[] | undefined;
+  phone_numbers?: ({  id: string;
+  phone_number?: string | undefined;})[];
+};
+
+export interface ActionInput_close_getopportunity {
+  /**
+   * Opportunity ID. Example: "oppo_123"
+   */
+  id: string;
+};
+
+export interface ActionOutput_close_getopportunity {
+  id: string;
+  lead_id: string;
+  contact_id: string;
+  status_id: string;
+  status_label: string;
+  status_type: string;
+  status_display_name?: string | undefined;
+  user_id: string;
+  user_name?: string | undefined;
+  value: number;
+  value_period: string;
+  value_currency?: string | undefined;
+  value_formatted?: string | undefined;
+  annualized_value: number;
+  annualized_expected_value: number;
+  confidence: number;
+  expected_value: number;
+  note?: string | undefined;
+  pipeline_id?: string | undefined;
+  pipeline_name?: string | undefined;
+  lead_name?: string | undefined;
+  date_created: string;
+  date_updated: string;
+  date_won?: string | undefined;
+  date_lost?: string | undefined;
+  created_by?: string | undefined;
+  created_by_name?: string | undefined;
+  updated_by?: string | undefined;
+  updated_by_name?: string | undefined;
+  organization_id: string;
+  is_stalled?: boolean | undefined;
+  lead_primary_email?: {  email?: string | undefined;
+  type?: string | undefined;};
+  lead_primary_phone?: ({  phone?: string | undefined;
+  type?: string | undefined;})[];
+  integration_links?: ({  id?: string | undefined;
+  name?: string | undefined;
+  url?: string | undefined;})[];
+  attachments?: ({  content_type: string;
+  filename: string;
+  size: number;
+  thumbnail_url?: string | undefined;
+  url: string;})[];
+  stall_status?: {  [key: string]: unknown | undefined;};
+  suggested_action?: {  [key: string]: unknown | undefined;};
+  comment_summary?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_close_gettask {
+  /**
+   * Task ID. Example: "task_xxx"
+   */
+  id: string;
+};
+
+export interface ActionOutput_close_gettask {
+  id: string;
+  _type: string;
+  assigned_to?: string | undefined;
+  is_complete: boolean;
+  priority?: 'low' | 'medium' | 'high' | undefined;
+  due_date?: string | undefined;
+  lead_id?: string | undefined;
+};
+
+export interface ActionInput_close_getuser {
+  /**
+   * User ID. Example: "user_abc123"
+   */
+  id: string;
+};
+
+export interface ActionOutput_close_getuser {
+  id: string;
+  email?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  image?: string | undefined;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+  organizations?: string[] | undefined;
+};
+
+export interface ActionInput_close_listactivities {
+  /**
+   * Lead ID to filter activities by. Example: "lead_xxx"
+   */
+  lead_id?: string | undefined;
+  /**
+   * User ID to filter activities by. Example: "user_xxx"
+   */
+  user_id?: string | undefined;
+  /**
+   * Filter activities updated after this ISO8601 timestamp. Example: "2024-01-01T00:00:00.000000+00:00"
+   */
+  date_updated__gt?: string | undefined;
+  /**
+   * Pagination offset from the previous response (maps to _skip). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Max number of results per page. Default 100, max 100 for activity endpoint. Example: "100"
+   */
+  _limit?: string | undefined;
+};
+
+export interface ActionOutput_close_listactivities {
+  data: ({  id: string;
+  _type: string;})[];
+  has_more?: boolean | undefined;
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_close_listcontacts {
+  /**
+   * Filter contacts by lead ID. Example: "lead_xxx"
+   */
+  lead_id?: string | undefined;
+  /**
+   * Pagination cursor (skip value) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of contacts to return per page. Max 200.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_close_listcontacts {
+  items: ({  id: string;
+  lead_id: string;
+  name?: string | undefined;
+  title?: string | undefined;
+  emails?: ({  email: string;
+  type?: string | undefined;})[];
+  phones?: ({  phone: string;
+  type?: string | undefined;})[];
+  organization_name?: string | undefined;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;})[];
+  next_cursor?: string | undefined;
+  has_more: boolean;
+};
+
+export interface ActionInput_close_listleads {
+  /**
+   * Close search query syntax. Example: "name:Acme"
+   */
+  query?: string | undefined;
+  /**
+   * Pagination cursor (offset) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Max 200.
+   */
+  limit?: number | undefined;
+  /**
+   * Filter by update time. Example: "2024-01-01T00:00:00.000000+00:00"
+   */
+  date_updated__gt?: string | undefined;
+};
+
+export interface ActionOutput_close_listleads {
+  data: ({  id: string;
+  name?: string | undefined;
+  status_id?: string | undefined;
+  status_label?: string | undefined;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;})[];
+  has_more: boolean;
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_close_listopportunities {
+  /**
+   * Filter by lead ID. Example: lead_mELh8FRqV6vRWJ5bgGdx7GpifIkEnoQFHg0hsxmQI1z
+   */
+  lead_id?: string | undefined;
+  /**
+   * Filter by opportunity status ID. Example: stat_YT79kszvqlYbs5HhEYBEtr0CkZ41Ey0RqXpLaUsr1li
+   */
+  status_id?: string | undefined;
+  /**
+   * Filter by pipeline ID. Example: pipe_4RR4Vuxbp8jRIcQEzEzcEJ
+   */
+  pipeline_id?: string | undefined;
+  /**
+   * Filter by update time greater than. Example: 2024-01-01T00:00:00.000000+00:00
+   */
+  date_updated__gt?: string | undefined;
+  /**
+   * Pagination cursor (offset). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Page size. Max 200.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_close_listopportunities {
+  data: ({  id: string;
+  lead_id?: string | undefined;
+  lead_name?: string | undefined;
+  status_id?: string | undefined;
+  status_label?: string | undefined;
+  status_type?: string | undefined;
+  status_display_name?: string | undefined;
+  pipeline_id?: string | undefined;
+  pipeline_name?: string | undefined;
+  contact_id?: string | undefined;
+  contact_name?: string | undefined;
+  user_id?: string | undefined;
+  user_name?: string | undefined;
+  value?: number | undefined;
+  value_period?: string | undefined;
+  value_currency?: string | undefined;
+  value_formatted?: string | undefined;
+  annualized_value?: number | undefined;
+  expected_value?: number | undefined;
+  annualized_expected_value?: number | undefined;
+  confidence?: number | undefined;
+  note?: string | undefined;
+  note_html?: string | undefined;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+  date_won?: string | undefined;
+  date_lost?: string | undefined;
+  organization_id?: string | undefined;
+  created_by?: string | undefined;
+  created_by_name?: string | undefined;
+  updated_by?: string | undefined;
+  updated_by_name?: string | undefined;
+  is_stalled?: boolean | undefined;})[];
+  has_more?: boolean | undefined;
+  next_cursor?: string | undefined;
+  total_results?: number | undefined;
+  count_by_value_period?: {  [key: string]: number;} | undefined;
+  total_value_one_time?: number | undefined;
+  total_value_monthly?: number | undefined;
+  total_value_annual?: number | undefined;
+  total_value_annualized?: number | undefined;
+  expected_value_one_time?: number | undefined;
+  expected_value_monthly?: number | undefined;
+  expected_value_annual?: number | undefined;
+  expected_value_annualized?: number | undefined;
+};
+
+export interface ActionInput_close_listtasks {
+  /**
+   * Lead ID to filter tasks by. Example: "lead_xxx"
+   */
+  lead_id?: string | undefined;
+  /**
+   * User ID to filter tasks by assignee. Example: "user_xxx"
+   */
+  assigned_to?: string | undefined;
+  /**
+   * Filter by completion status.
+   */
+  is_complete?: boolean | undefined;
+  /**
+   * Task type to filter by. Example: "lead" or "opportunity"
+   */
+  type?: string | undefined;
+  /**
+   * Task view to filter by. Example: "inbox", "future", or "archive"
+   */
+  view?: string | undefined;
+  /**
+   * Filter by update time greater than ISO8601 timestamp. Example: "2024-01-01T00:00:00.000000+00:00"
+   */
+  date_updated__gt?: string | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results to return. Max 200.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_close_listtasks {
+  tasks: ({  id: string;
+  _type: string;
+  view: string;
+  assigned_to?: string | undefined;
+  assigned_to_name?: string | undefined;
+  contact_id?: string | undefined;
+  contact_name?: string | undefined;
+  created_by?: string | undefined;
+  created_by_name?: string | undefined;
+  date?: string | undefined;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+  is_complete?: boolean | undefined;
+  is_dateless?: boolean | undefined;
+  lead_id?: string | undefined;
+  lead_name?: string | undefined;
+  object_id?: string | undefined;
+  object_type?: string | undefined;
+  organization_id?: string | undefined;
+  text?: string | undefined;
+  updated_by?: string | undefined;
+  updated_by_name?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_close_listusers {
+};
+
+export interface ActionOutput_close_listusers {
+  0: {  id: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  organizations?: unknown[] | undefined;};
+};
+
+export interface ActionInput_close_listwebhooks {
+  /**
+   * Pagination cursor (_skip offset) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_close_listwebhooks {
+  items: ({  /**
+   * Webhook ID. Example: "whsub_123"
+   */
+  id: string;
+  /**
+   * Webhook URL. Example: "https://example.com/webhook"
+   */
+  url: string;
+  /**
+   * List of event subscriptions.
+   */
+  events: ({  action: string;
+  extra_filter?: string | undefined;
+  object_type: string;})[];
+  /**
+   * Webhook status.
+   */
+  status: 'active' | 'paused';})[];
+  /**
+   * Pagination cursor for the next page. Omitted if there are no more pages.
+   */
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_close_updatecontact {
+  /**
+   * Contact ID. Example: "cont_xxx"
+   */
+  id: string;
+  /**
+   * Contact name
+   */
+  name?: string | undefined;
+  /**
+   * Contact title
+   */
+  title?: string | undefined;
+  /**
+   * Email addresses
+   */
+  emails?: ({  email: string;
+  type?: string | undefined;})[];
+  /**
+   * Phone numbers
+   */
+  phones?: ({  phone: string;
+  type?: string | undefined;})[];
+  /**
+   * URLs
+   */
+  urls?: ({  url: string;
+  type?: string | undefined;})[];
+  /**
+   * IANA timezone identifier
+   */
+  timezone?: string | undefined;
+};
+
+export interface ActionOutput_close_updatecontact {
+  id: string;
+  name: string;
+  title: string;
+  display_name: string;
+  emails?: ({  email: string;
+  type: string;
+  is_unsubscribed: boolean;})[] | undefined;
+  phones?: ({  phone: string;
+  type: string;
+  country?: string | undefined;
+  phone_formatted?: string | undefined;
+  outbound_sms_blocked?: boolean | undefined;})[];
+  urls?: ({  url: string;
+  type: string;})[] | undefined;
+  lead_id?: string | undefined;
+  organization_id: string;
+  created_by: string;
+  updated_by: string;
+  date_created: string;
+  date_updated: string;
+  timezone?: string | undefined;
+  timezone_source?: string | undefined;
+};
+
+export interface ActionInput_close_updatelead {
+  /**
+   * Lead ID. Example: "lead_123"
+   */
+  id: string;
+  /**
+   * Lead name.
+   */
+  name?: string | undefined;
+  /**
+   * Lead URL. Pass null to clear.
+   */
+  url?: string | undefined;
+  /**
+   * Lead description. Pass null to clear.
+   */
+  description?: string | undefined;
+  /**
+   * Valid organization lead status ID. Pass null to clear.
+   */
+  status_id?: string | undefined;
+  /**
+   * Contacts to update or create.
+   */
+  contacts?: ({  id?: string | undefined;
+  name?: string | undefined;
+  title?: string | undefined;
+  phones?: ({  phone?: string | undefined;
+  type?: string | undefined;})[];
+  emails?: ({  email?: string | undefined;
+  type?: string | undefined;})[];
+  urls?: ({  url?: string | undefined;
+  type?: string | undefined;})[];
+  custom?: {  [key: string]: unknown | undefined;};})[];
+  /**
+   * Custom fields. Pass null to clear.
+   */
+  custom?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_close_updatelead {
+  id: string;
+  name?: string | undefined;
+  url?: string | undefined;
+  description?: string | undefined;
+  status_id?: string | undefined;
+  organization_id?: string | undefined;
+  html_url?: string | undefined;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+  created_by?: string | undefined;
+  updated_by?: string | undefined;
+  contacts?: ({  id?: string | undefined;
+  name?: string | undefined;
+  title?: string | undefined;
+  lead_id?: string | undefined;
+  phones?: ({  phone?: string | undefined;
+  type?: string | undefined;})[];
+  emails?: ({  email?: string | undefined;
+  type?: string | undefined;})[];
+  urls?: ({  url?: string | undefined;
+  type?: string | undefined;})[];
+  custom?: {  [key: string]: unknown | undefined;};})[];
+  custom?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_close_updatenoteactivity {
+  /**
+   * Note activity ID. Example: "acti_kwWA3rOfy4BnaZ8QQk3RIIAz51dU9ayiluy1s961Oiw"
+   */
+  id: string;
+  /**
+   * Plain text note content. Setting this overwrites note_html.
+   */
+  note?: string | undefined;
+  /**
+   * HTML note content. Takes precedence over note if both are provided.
+   */
+  note_html?: string | undefined;
+  /**
+   * Contact ID to associate with the note. Example: "cont_WkCG7ujzTYPCoOTUcao7tRUj9TMChmWgeNXimiJT9eJ"
+   */
+  contact_id?: string | undefined;
+  /**
+   * ISO 8601 timestamp for when the activity occurred. Example: "2026-06-19T12:00:00.000000+00:00"
+   */
+  activity_at?: string | undefined;
+  /**
+   * Whether the note is pinned.
+   */
+  pinned?: boolean | undefined;
+  /**
+   * Note title.
+   */
+  title?: string | undefined;
+};
+
+export interface ActionOutput_close_updatenoteactivity {
+  id: string;
+  _type: string;
+  activity_at?: string | undefined;
+  contact_id?: string | undefined;
+  created_by?: string | undefined;
+  created_by_name?: string | undefined;
+  date_created: string;
+  date_updated: string;
+  lead_id?: string | undefined;
+  organization_id: string;
+  updated_by?: string | undefined;
+  updated_by_name?: string | undefined;
+  user_id?: string | undefined;
+  user_name?: string | undefined;
+  users?: string[] | undefined;
+  note?: string | undefined;
+  note_html?: string | undefined;
+  pinned?: boolean | undefined;
+  pinned_at?: string | undefined;
+  title?: string | undefined;
+};
+
+export interface ActionInput_close_updateopportunity {
+  /**
+   * Opportunity ID. Example: "oppo_8eB77gAdf8FMy6GsNHEy84f7uoeEWv55slvUjKQZpJt"
+   */
+  id: string;
+  /**
+   * Status ID. Example: "stat_5ZdiZqcSIkoGVnNOyxiEY58eTGQmFNG3LPlEVQ4V7Nk"
+   */
+  status_id?: string | undefined;
+  /**
+   * Value in USD dollars (not cents). Example: 50000
+   */
+  value?: number | undefined;
+  /**
+   * Value period. Example: "one_time"
+   */
+  value_period?: 'one_time' | 'monthly' | 'annual' | undefined;
+  /**
+   * Confidence percentage (0–100). Example: 75
+   */
+  confidence?: number | undefined;
+  /**
+   * Plaintext note.
+   */
+  note?: string | undefined;
+  /**
+   * Rich-text HTML note. Pass null to clear.
+   */
+  note_html?: string | undefined;
+  /**
+   * Contact ID. Pass null to remove association.
+   */
+  contact_id?: string | undefined;
+  /**
+   * User ID. Pass null to remove assignment.
+   */
+  user_id?: string | undefined;
+  /**
+   * Date won (ISO 8601). Pass null to clear.
+   */
+  date_won?: string | undefined;
+  /**
+   * Date lost (ISO 8601). Pass null to clear.
+   */
+  date_lost?: string | undefined;
+  /**
+   * Deprecated status name. Prefer status_id.
+   */
+  status?: string | undefined;
+};
+
+export interface ActionOutput_close_updateopportunity {
+  id: string;
+  lead_id: string;
+  status_id: string;
+  status_label?: string | undefined;
+  status_type?: 'won' | 'lost' | 'active' | undefined;
+  value?: number | undefined;
+  value_period?: 'one_time' | 'monthly' | 'annual' | undefined;
+  value_currency?: string | undefined;
+  value_formatted?: string | undefined;
+  annualized_value?: number | undefined;
+  annualized_expected_value?: number | undefined;
+  expected_value?: number | undefined;
+  confidence?: number | undefined;
+  note?: string | undefined;
+  note_html?: string | undefined;
+  contact_id?: string | undefined;
+  contact_name?: string | undefined;
+  user_id?: string | undefined;
+  user_name?: string | undefined;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+  date_won?: string | undefined;
+  date_lost?: string | undefined;
+  organization_id?: string | undefined;
+  pipeline_id?: string | undefined;
+  pipeline_name?: string | undefined;
+  lead_name?: string | undefined;
+  created_by?: string | undefined;
+  created_by_name?: string | undefined;
+  updated_by?: string | undefined;
+  updated_by_name?: string | undefined;
+};
+
+export interface ActionInput_close_updatetask {
+  /**
+   * Task ID. Example: "task_123"
+   */
+  id: string;
+  /**
+   * Task text/description. Only modifiable for lead-type tasks.
+   */
+  text?: string | undefined;
+  /**
+   * User ID to assign the task to.
+   */
+  assigned_to?: string | undefined;
+  /**
+   * Task date in ISO 8601 or date format. Example: "2026-07-01"
+   */
+  date?: string | undefined;
+  /**
+   * Task due date in ISO 8601 or date format. Example: "2026-07-01T00:00:00+00:00"
+   */
+  due_date?: string | undefined;
+  /**
+   * Mark the task as complete.
+   */
+  is_complete?: boolean | undefined;
+};
+
+export interface ActionOutput_close_updatetask {
+  id: string;
+  lead_id?: string | undefined;
+  assigned_to?: string | undefined;
+  text: string;
+  date?: string | undefined;
+  due_date?: string | undefined;
+  is_complete: boolean;
+  is_dateless: boolean;
+  date_created: string;
+  date_updated: string;
+  organization_id: string;
+  created_by: string;
+  updated_by: string;
+  contact_id?: string | undefined;
+  contact_name?: string | undefined;
+  lead_name?: string | undefined;
+  created_by_name?: string | undefined;
+  assigned_to_name?: string | undefined;
+  updated_by_name?: string | undefined;
+  object_id?: string | undefined;
+  object_type?: string | undefined;
+  /**
+   * Task type. Example: "lead"
+   */
+  type: string;
 };
 
 export interface Attachment {
@@ -67498,72 +68692,6 @@ export interface ActionInput_perimeter81_deleteuser {
 
 export interface ActionOutput_perimeter81_deleteuser {
   success: boolean;
-};
-
-export interface Activity {
-  id: string;
-  subject?: string | undefined;
-  type?: string | undefined;
-  done?: boolean | undefined;
-  due_date?: string | undefined;
-  due_time?: string | undefined;
-  duration?: string | undefined;
-  add_time?: string | undefined;
-  update_time?: string | undefined;
-  user_id?: number | undefined;
-  deal_id?: number | undefined;
-  person_id?: number | undefined;
-  org_id?: number | undefined;
-  lead_id?: string | undefined;
-  note?: string | undefined;
-  active_flag?: boolean | undefined;
-  public_description?: string | undefined;
-  busy_flag?: boolean | undefined;
-  marked_as_done_time?: string | undefined;
-  created_by_user_id?: number | undefined;
-  assigned_to_user_id?: number | undefined;
-};
-
-export interface Lead {
-  id: string;
-  company?: string | undefined;
-  email?: string | undefined;
-  firstName?: string | undefined;
-  lastName: string;
-  fullName?: string | undefined;
-  phone?: string | undefined;
-  mobile?: string | undefined;
-  status?: string | undefined;
-  source?: string | undefined;
-  designation?: string | undefined;
-  website?: string | undefined;
-  industry?: string | undefined;
-  annualRevenue?: number | undefined;
-  employees?: number | undefined;
-  skypeId?: string | undefined;
-  twitter?: string | undefined;
-  street?: string | undefined;
-  city?: string | undefined;
-  state?: string | undefined;
-  zipCode?: string | undefined;
-  country?: string | undefined;
-  description?: string | undefined;
-  emailOptOut?: boolean | undefined;
-  createdTime: string;
-  modifiedTime: string;
-  createdById?: string | undefined;
-  createdByName?: string | undefined;
-  createdByEmail?: string | undefined;
-  modifiedById?: string | undefined;
-  modifiedByName?: string | undefined;
-  modifiedByEmail?: string | undefined;
-  ownerId?: string | undefined;
-  ownerName?: string | undefined;
-  ownerEmail?: string | undefined;
-  rating?: string | undefined;
-  fax?: string | undefined;
-  secondaryEmail?: string | undefined;
-  tags?: string[] | undefined;
 };
 
 export interface Stage {

@@ -1,0 +1,419 @@
+{
+  "input": {},
+  "output": {
+    "id": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+    "email": "api@nango.dev",
+    "first_name": "Nango",
+    "last_name": "Developer",
+    "date_created": "2026-06-19T09:22:10.543000+00:00",
+    "date_updated": "2026-06-19T09:23:14.192000+00:00",
+    "memberships": [
+      {
+        "id": "memb_887ZMenz4gYsRIj2oQt3G50LKntX8Igelb8iBUMgO5r",
+        "user_id": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+        "organization_id": "orga_bog0WeN6OXBxaN867LEXwaisIuXTy9fbbryxDywmf6V",
+        "role": "admin",
+        "permissions_granted": [
+          "ai_chat",
+          "ai_enrich",
+          "bulk_delete",
+          "bulk_edit",
+          "bulk_email",
+          "bulk_enrich",
+          "bulk_import",
+          "bulk_sequence_subscriptions",
+          "call_coach_barge",
+          "call_coach_listen",
+          "calling",
+          "delete_leads",
+          "delete_own_activities",
+          "delete_own_opportunities",
+          "delete_own_tasks",
+          "export",
+          "manage_chloe_call_tasks",
+          "manage_customizations",
+          "manage_email_sequences",
+          "manage_group_numbers",
+          "manage_organization",
+          "manage_others_activities",
+          "manage_others_opportunities",
+          "manage_others_tasks",
+          "manage_team_email_templates",
+          "manage_team_smart_views",
+          "manage_voice_agents",
+          "manage_web_forms",
+          "merge_leads",
+          "view_all_leads",
+          "view_voice_agents"
+        ]
+      }
+    ],
+    "organizations": [
+      {
+        "id": "orga_bog0WeN6OXBxaN867LEXwaisIuXTy9fbbryxDywmf6V",
+        "name": "NangoDEv",
+        "lead_statuses": [
+          {
+            "id": "stat_o0QX2pdl7g3G8mTEBcQLUrb3xDeFzxZEjoH4ZvBOh61",
+            "label": "Potential"
+          },
+          {
+            "id": "stat_H3j6f6LLLpuy4RN8vEzcyPdsfpffoIF7e0R4ls8iQDf",
+            "label": "Bad Fit"
+          },
+          {
+            "id": "stat_X09rP8shPnIYQOxnRbWswlZNCbVyImDAoOZkQjcYtNZ",
+            "label": "Qualified"
+          },
+          {
+            "id": "stat_nlVTbLRGm23cP0Yx0pczQGPEkwbfAMxLEiBT78tBAmI",
+            "label": "Customer"
+          },
+          {
+            "id": "stat_WB7HCgj7rTIgALdHY4wWRZMNKE30GsiPrEsrrFuPwzM",
+            "label": "Interested"
+          },
+          {
+            "id": "stat_r2OAL51tAbNbwu9peyiUTxi3gpCnXq3pSyf3zIKFyzS",
+            "label": "Canceled"
+          },
+          {
+            "id": "stat_r3FnL29iRMnC0b35jgYrT6feyQmwfs2GEHGnLBXLywR",
+            "label": "Not Interested"
+          }
+        ],
+        "opportunity_statuses": [
+          {
+            "id": "stat_YT79kszvqlYbs5HhEYBEtr0CkZ41Ey0RqXpLaUsr1li",
+            "label": "Demo Completed"
+          },
+          {
+            "id": "stat_0Qs8BMX4nLGG27jBGPuPJeWG9G07vYGSq9El36wRPWz",
+            "label": "Proposal Sent"
+          },
+          {
+            "id": "stat_13WiXCUUTWE7Z4o8GkdHqNQFZFJh188b8TFwmktVLRY",
+            "label": "Contract Sent"
+          },
+          {
+            "id": "stat_q7LrpFgPlu8NY0mnLMKRdq9g9O7KQxdzbTxs9Dw2zN3",
+            "label": "Won"
+          },
+          {
+            "id": "stat_w4IND4rlnYnO5mQeVzrLKptzJv3NYU4JybkXxUXelJX",
+            "label": "Lost"
+          }
+        ],
+        "pipelines": [
+          {
+            "id": "pipe_4RR4Vuxbp8jRIcQEzEzcEJ",
+            "name": "Sales",
+            "organization_id": "orga_bog0WeN6OXBxaN867LEXwaisIuXTy9fbbryxDywmf6V"
+          }
+        ]
+      }
+    ],
+    "email_accounts": [],
+    "phone_numbers": [
+      {
+        "id": "phon_bMmXRIyxUnLWV2Dbqx5bheL2Nwe0Sc5EWDXXsQP3eki"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1/me/": {
+        "response": {
+          "all_group_numbers": [],
+          "connected_accounts": [],
+          "country": "KE",
+          "date_created": "2026-06-19T09:22:10.543000+00:00",
+          "date_updated": "2026-06-19T09:23:14.192000+00:00",
+          "email": "api@nango.dev",
+          "email_accounts": [],
+          "email_signatures": [
+            {
+              "id": "emailsig_p8NhagTAcnJsaXFVMiNywhG7Ad5vK93dtJeGZ9n8qYN",
+              "membership_id": "memb_887ZMenz4gYsRIj2oQt3G50LKntX8Igelb8iBUMgO5r",
+              "value": "--<br>Nango Developer"
+            }
+          ],
+          "email_verified_at": "2026-06-19T09:22:10.556000+00:00",
+          "first_name": "Nango",
+          "google_profile_image_url": null,
+          "id": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+          "image": null,
+          "is_passwordless": true,
+          "last_name": "Developer",
+          "last_used_timezone": "Africa/Nairobi",
+          "memberships": [
+            {
+              "auto_record_calls": "unset",
+              "default_caller_id": "phon_bMmXRIyxUnLWV2Dbqx5bheL2Nwe0Sc5EWDXXsQP3eki",
+              "hangup_recording_url": null,
+              "id": "memb_887ZMenz4gYsRIj2oQt3G50LKntX8Igelb8iBUMgO5r",
+              "is_free": false,
+              "may_workflows_impersonate": false,
+              "onboarding_status": "done",
+              "organization_id": "orga_bog0WeN6OXBxaN867LEXwaisIuXTy9fbbryxDywmf6V",
+              "permissions_granted": [
+                "ai_chat",
+                "ai_enrich",
+                "bulk_delete",
+                "bulk_edit",
+                "bulk_email",
+                "bulk_enrich",
+                "bulk_import",
+                "bulk_sequence_subscriptions",
+                "call_coach_barge",
+                "call_coach_listen",
+                "calling",
+                "delete_leads",
+                "delete_own_activities",
+                "delete_own_opportunities",
+                "delete_own_tasks",
+                "export",
+                "manage_chloe_call_tasks",
+                "manage_customizations",
+                "manage_email_sequences",
+                "manage_group_numbers",
+                "manage_organization",
+                "manage_others_activities",
+                "manage_others_opportunities",
+                "manage_others_tasks",
+                "manage_team_email_templates",
+                "manage_team_smart_views",
+                "manage_voice_agents",
+                "manage_web_forms",
+                "merge_leads",
+                "view_all_leads",
+                "view_voice_agents"
+              ],
+              "primary_personal_number": "phon_bMmXRIyxUnLWV2Dbqx5bheL2Nwe0Sc5EWDXXsQP3eki",
+              "role": "admin",
+              "role_id": "admin",
+              "track_email_opens": true,
+              "user_id": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa"
+            }
+          ],
+          "organizations": [
+            {
+              "abandonment_message_url": "",
+              "billing_account_id": "acct_ZeCCRPh6NE6th9hN9eXhAqhtwqE8yMU4q3vbfWcigsc",
+              "created_by": null,
+              "currency": "USD",
+              "currency_symbol": "$",
+              "date_created": "2026-06-19T09:22:10.648000+00:00",
+              "date_updated": "2026-06-19T09:23:19.114000+00:00",
+              "enable_unsubscribe_link": false,
+              "features": [
+                "after-hours-indicator",
+                "ai-enrichment-custom-fields",
+                "ai-search",
+                "chloe-agents-tab-v2",
+                "chloe-beta-release",
+                "chloe-calls-billing",
+                "chloe-teaser-page",
+                "deemphasize-sms-groups",
+                "docked-sms-conversations",
+                "getting-started-redesign",
+                "inbox-call-tasks",
+                "inhouse-crm-migrations",
+                "lead-suggestion-name-from-logo-dev",
+                "modern-dialer",
+                "new-call-bars",
+                "new-media-player",
+                "new-trial-convert-page",
+                "notetaker",
+                "potential-leads-notifications",
+                "redirect-to-new-lead-search-page",
+                "replace-lead-search-page",
+                "stalled-opportunities-generation",
+                "stalled-opportunities-ui-c3",
+                "v5-plans",
+                "web-forms",
+                "workflow-call-tasks",
+                "workflow-filter-steps",
+                "workflow-meeting-trigger"
+              ],
+              "id": "orga_bog0WeN6OXBxaN867LEXwaisIuXTy9fbbryxDywmf6V",
+              "lead_custom_fields": [],
+              "lead_statuses": [
+                {
+                  "id": "stat_o0QX2pdl7g3G8mTEBcQLUrb3xDeFzxZEjoH4ZvBOh61",
+                  "label": "Potential"
+                },
+                {
+                  "id": "stat_H3j6f6LLLpuy4RN8vEzcyPdsfpffoIF7e0R4ls8iQDf",
+                  "label": "Bad Fit"
+                },
+                {
+                  "id": "stat_X09rP8shPnIYQOxnRbWswlZNCbVyImDAoOZkQjcYtNZ",
+                  "label": "Qualified"
+                },
+                {
+                  "id": "stat_nlVTbLRGm23cP0Yx0pczQGPEkwbfAMxLEiBT78tBAmI",
+                  "label": "Customer"
+                },
+                {
+                  "id": "stat_WB7HCgj7rTIgALdHY4wWRZMNKE30GsiPrEsrrFuPwzM",
+                  "label": "Interested"
+                },
+                {
+                  "id": "stat_r2OAL51tAbNbwu9peyiUTxi3gpCnXq3pSyf3zIKFyzS",
+                  "label": "Canceled"
+                },
+                {
+                  "id": "stat_r3FnL29iRMnC0b35jgYrT6feyQmwfs2GEHGnLBXLywR",
+                  "label": "Not Interested"
+                }
+              ],
+              "leads_email": "nangodev-1zpn4p8f@leads.close.com",
+              "limit_of_connected_accounts_per_membership": 10,
+              "name": "NangoDEv",
+              "opportunity_statuses": [
+                {
+                  "id": "stat_YT79kszvqlYbs5HhEYBEtr0CkZ41Ey0RqXpLaUsr1li",
+                  "label": "Demo Completed",
+                  "type": "active"
+                },
+                {
+                  "id": "stat_0Qs8BMX4nLGG27jBGPuPJeWG9G07vYGSq9El36wRPWz",
+                  "label": "Proposal Sent",
+                  "type": "active"
+                },
+                {
+                  "id": "stat_13WiXCUUTWE7Z4o8GkdHqNQFZFJh188b8TFwmktVLRY",
+                  "label": "Contract Sent",
+                  "type": "active"
+                },
+                {
+                  "id": "stat_q7LrpFgPlu8NY0mnLMKRdq9g9O7KQxdzbTxs9Dw2zN3",
+                  "label": "Won",
+                  "type": "won"
+                },
+                {
+                  "id": "stat_w4IND4rlnYnO5mQeVzrLKptzJv3NYU4JybkXxUXelJX",
+                  "label": "Lost",
+                  "type": "lost"
+                }
+              ],
+              "pipelines": [
+                {
+                  "created_by": null,
+                  "date_created": "2026-06-19T09:22:10.931820",
+                  "date_updated": "2026-06-19T09:22:10.931820",
+                  "id": "pipe_4RR4Vuxbp8jRIcQEzEzcEJ",
+                  "name": "Sales",
+                  "organization_id": "orga_bog0WeN6OXBxaN867LEXwaisIuXTy9fbbryxDywmf6V",
+                  "statuses": [
+                    {
+                      "id": "stat_YT79kszvqlYbs5HhEYBEtr0CkZ41Ey0RqXpLaUsr1li",
+                      "label": "Demo Completed",
+                      "type": "active"
+                    },
+                    {
+                      "id": "stat_0Qs8BMX4nLGG27jBGPuPJeWG9G07vYGSq9El36wRPWz",
+                      "label": "Proposal Sent",
+                      "type": "active"
+                    },
+                    {
+                      "id": "stat_13WiXCUUTWE7Z4o8GkdHqNQFZFJh188b8TFwmktVLRY",
+                      "label": "Contract Sent",
+                      "type": "active"
+                    },
+                    {
+                      "id": "stat_q7LrpFgPlu8NY0mnLMKRdq9g9O7KQxdzbTxs9Dw2zN3",
+                      "label": "Won",
+                      "type": "won"
+                    },
+                    {
+                      "id": "stat_w4IND4rlnYnO5mQeVzrLKptzJv3NYU4JybkXxUXelJX",
+                      "label": "Lost",
+                      "type": "lost"
+                    }
+                  ],
+                  "updated_by": null
+                }
+              ],
+              "plan_id": "scale",
+              "plan_type": "scale",
+              "plan_version": 5,
+              "predictive_dialer_status": "disabled",
+              "require_unsubscribe_link": false,
+              "status": "trial",
+              "transcript_enabled": true,
+              "updated_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa"
+            }
+          ],
+          "outbound_carrier": "twilio",
+          "phone": "+254720089691",
+          "phone_numbers": [
+            {
+              "address_id": null,
+              "bundle_id": null,
+              "carrier": "twilio",
+              "carrier_type": "local",
+              "country": "US",
+              "date_created": "2026-06-19T09:23:49.229000+00:00",
+              "date_updated": "2026-06-19T09:24:06.251000+00:00",
+              "forward_to": null,
+              "forward_to_enabled": false,
+              "forward_to_formatted": null,
+              "id": "phon_bMmXRIyxUnLWV2Dbqx5bheL2Nwe0Sc5EWDXXsQP3eki",
+              "is_group_number": false,
+              "is_premium": false,
+              "is_verified": false,
+              "label": "Personal Number",
+              "last_billed_price": 1.15,
+              "mms_enabled": true,
+              "next_billing_on": "2026-07-18",
+              "number": "+16893029506",
+              "number_formatted": "+1 689-302-9506",
+              "organization_id": "orga_bog0WeN6OXBxaN867LEXwaisIuXTy9fbbryxDywmf6V",
+              "press_1_to_accept": true,
+              "sms_enabled": true,
+              "supports_mms_to_countries": [
+                "CA",
+                "US"
+              ],
+              "supports_sms_to_countries": [
+                "CA",
+                "PR",
+                "US"
+              ],
+              "type": "internal",
+              "user_id": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+              "voicemail_greeting_url": null
+            }
+          ],
+          "preferred_twilio_edge": null,
+          "totp_auth_state": "disabled"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 19 Jun 2026 12:10:02 GMT",
+          "content-type": "application/json",
+          "content-length": "6355",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4944",
+          "x-ratelimit-reset": "1781871027",
+          "etag": "W/\"18d3-O81oCZTgkW+LVTtgZNOZY71PTB4\""
+        },
+        "hash": "2b288f48acfe1822156d50efb2e01d8bf4512cbf",
+        "request": {}
+      }
+    }
+  }
+}
