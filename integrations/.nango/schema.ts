@@ -12717,12 +12717,15 @@ export interface Record {
 
 export interface WorkspaceMember {
   id: string;
-  first_name: string;
-  last_name: string;
-  avatar_url?: string | undefined;
-  email_address: string;
-  created_at: string;
-  access_level: string;
+  type?: string | undefined;
+  workspace_uuid?: string | undefined;
+  workspace_slug?: string | undefined;
+  workspace_name?: string | undefined;
+  user_uuid?: string | undefined;
+  user_nickname?: string | undefined;
+  user_display_name?: string | undefined;
+  user_account_id?: string | undefined;
+  permission?: string | undefined;
 };
 
 export interface ActionInput_attio_createcomment {
@@ -16446,151 +16449,51 @@ export interface ActionOutput_auth0_cc_updateuser {
 
 export interface Transaction {
   id: string;
-  code: string;
-  companyId: number;
-  date: string;
-  paymentDate: string;
-  status: string;
+  customer_id?: string | undefined;
+  subscription_id?: string | undefined;
+  gateway_account_id?: string | undefined;
+  payment_source_id?: string | undefined;
+  payment_method?: string | undefined;
+  reference_number?: string | undefined;
+  gateway?: string | undefined;
   type: string;
-  batchCode: string;
-  currencyCode: string;
-  exchangeRateCurrencyCode: string;
-  customerUsageType: string;
-  entityUseCode: string;
-  customerVendorCode: string;
-  customerCode: string;
-  exemptNo: string;
-  reconciled: boolean;
-  locationCode: string;
-  reportingLocationCode: string;
-  purchaseOrderNo: string;
-  referenceCode: string;
-  salespersonCode: string;
-  taxOverrideType: string;
-  taxOverrideAmount: number;
-  taxOverrideReason: string;
-  totalAmount: number;
-  totalExempt: number;
-  totalDiscount: number;
-  totalTax: number;
-  totalTaxable: number;
-  totalTaxCalculated: number;
-  adjustmentReason: string;
-  adjustmentDescription: string;
-  locked: boolean;
-  region: string;
-  country: string;
-  version: number;
-  softwareVersion: string;
-  originAddressId: number;
-  destinationAddressId: number;
-  exchangeRateEffectiveDate: string;
-  exchangeRate: number;
-  isSellerImporterOfRecord: boolean;
-  description: string;
-  email: string;
-  businessIdentificationNo: string;
-  modifiedDate: string;
-  modifiedUserId: number;
-  taxDate: string;
-  lines: ({  id: number;
-  transactionId: number;
-  lineNumber: string;
-  boundaryOverrideId: number;
-  entityUseCode: string;
-  description: string;
-  destinationAddressId: number;
-  originAddressId: number;
-  discountAmount: number;
-  discountTypeId: number;
-  exemptAmount: number;
-  exemptCertId: number;
-  exemptNo: string;
-  isItemTaxable: boolean;
-  isSSTP: boolean;
-  itemCode: string;
-  lineAmount: number;
-  quantity: number;
-  ref1: string;
-  reportingDate: string;
-  revAccount: string;
-  sourcing: string;
-  tax: number;
-  taxableAmount: number;
-  taxCalculated: number;
-  taxCode: string;
-  taxDate: string;
-  taxEngine: string;
-  taxOverrideType: string;
-  taxOverrideAmount: number;
-  taxOverrideReason: string;
-  taxIncluded: boolean;
-  details: ({  id: number;
-  transactionLineId: number;
-  transactionId: number;
-  addressId: number;
-  country: string;
-  region: string;
-  stateFIPS: string;
-  exemptAmount: number;
-  exemptReasonId: number;
-  exemptRuleId: number;
-  inState: boolean;
-  jurisCode: string;
-  jurisName: string;
-  jurisdictionId: number;
-  signatureCode: string;
-  stateAssignedNo: string;
-  jurisType: string;
-  nonTaxableAmount: number;
-  nonTaxableRuleId: number;
-  nonTaxableType: string;
-  rate: number;
-  rateRuleId: number;
-  rateSourceId: number;
-  serCode: string;
-  sourcing: string;
-  tax: number;
-  taxableAmount: number;
-  taxType: string;
-  taxName: string;
-  taxAuthorityTypeId: number;
-  taxRegionId: number;
-  taxCalculated: number;
-  taxOverride: number;
-  rateType: string;
-  taxableUnits: number;
-  nonTaxableUnits: number;
-  exemptUnits: number;
-  reportingTaxableUnits: number;
-  reportingNonTaxableUnits: number;
-  reportingExemptUnits: number;
-  reportingTax: number;
-  reportingTaxCalculated: number;
-  recoverabilityPercentage: number;
-  recoverableAmount: number;
-  nonRecoverableAmount: number;})[];
-  vatNumberTypeId: number;
-  recoverabilityPercentage: number;
-  recoverableAmount: number;
-  nonRecoverableAmount: number;})[];
-  locationTypes: any[];
-  messages: string[];
-  summary: string[];
-  addresses: ({  id: number;
-  transactionId: number;
-  boundaryLevel: string;
-  line1: string;
-  city: string;
-  region: string;
-  postalCode: string;
-  country: string;
-  taxRegionId: number;})[];
-  taxDetailsByTaxType: ({  taxType: string;
-  totalTaxable: number;
-  totalExempt: number;
-  totalNonTaxable: number;
-  totalTax: number;})[];
+  date?: number | undefined;
+  settled_at?: number | undefined;
+  exchange_rate?: number | undefined;
+  currency_code: string;
+  amount?: number | undefined;
+  id_at_gateway?: string | undefined;
+  status?: string | undefined;
+  fraud_flag?: string | undefined;
+  initiator_type?: string | undefined;
+  three_d_secure?: boolean | undefined;
+  authorization_reason?: string | undefined;
+  error_code?: string | undefined;
+  error_text?: string | undefined;
+  voided_at?: number | undefined;
+  resource_version?: number | undefined;
+  updated_at?: number | undefined;
+  fraud_reason?: string | undefined;
+  custom_payment_method_id?: string | undefined;
+  amount_unused?: number | undefined;
+  masked_card_number?: string | undefined;
+  reference_transaction_id?: string | undefined;
+  refunded_txn_id?: string | undefined;
+  reference_authorization_id?: string | undefined;
+  amount_capturable?: number | undefined;
+  reversal_transaction_id?: string | undefined;
+  deleted: boolean;
+  iin?: string | undefined;
+  last4?: string | undefined;
+  merchant_reference_id?: string | undefined;
+  business_entity_id?: string | undefined;
+  payment_method_details?: string | undefined;
+  custom_payment_method_name?: string | undefined;
+  linked_invoices?: unknown | undefined;
+  linked_credit_notes?: unknown | undefined;
+  linked_refunds?: unknown | undefined;
+  linked_payments?: unknown | undefined;
+  error_detail?: unknown | undefined;
 };
 
 export interface SyncMetadata_avalara_transactions {
@@ -19837,6 +19740,1323 @@ export interface ActionInput_bill_disableuser {
 
 export interface ActionOutput_bill_disableuser {
   success: boolean;
+};
+
+export interface ActionInput_bitbucket_createbranch {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * Branch name. Example: "feature-branch"
+   */
+  name: string;
+  /**
+   * Commit hash or existing branch name to branch from. Example: "master"
+   */
+  target_hash: string;
+};
+
+export interface ActionOutput_bitbucket_createbranch {
+  name: string;
+  target_hash?: string | undefined;
+};
+
+export interface ActionInput_bitbucket_createprcomment {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * Pull request ID. Example: 1
+   */
+  pull_request_id: number;
+  /**
+   * Comment content in raw markdown. Example: "This is a comment"
+   */
+  content: string;
+  /**
+   * File path for inline comment. Example: "README.md"
+   */
+  inline_path?: string | undefined;
+  /**
+   * Starting line for inline comment. Example: 1
+   */
+  inline_from?: number | undefined;
+  /**
+   * Ending line for inline comment. Example: 5
+   */
+  inline_to?: number | undefined;
+};
+
+export interface ActionOutput_bitbucket_createprcomment {
+  id: number;
+  type?: string | undefined;
+  created_on?: string | undefined;
+  updated_on?: string | undefined;
+  content?: {  raw?: string | undefined;
+  markup?: string | undefined;
+  html?: string | undefined;};
+  user?: {  type?: string | undefined;
+  uuid?: string | undefined;
+  display_name?: string | undefined;
+  account_id?: string | undefined;};
+  inline?: {  path?: string | undefined;
+  from?: number | undefined;
+  to?: number | undefined;};
+  pullrequest?: {  id?: number | undefined;
+  type?: string | undefined;};
+};
+
+export interface ActionInput_bitbucket_createproject {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Project key in uppercase. Example: "PROJ"
+   */
+  key: string;
+  /**
+   * Project name. Example: "My Project"
+   */
+  name: string;
+  /**
+   * Optional project description.
+   */
+  description?: string | undefined;
+  /**
+   * Whether the project is private.
+   */
+  is_private?: boolean | undefined;
+};
+
+export interface ActionOutput_bitbucket_createproject {
+  type?: string | undefined;
+  links?: {  html?: {  href?: string | undefined;
+  name?: string | undefined;};
+  avatar?: {  href?: string | undefined;
+  name?: string | undefined;};};
+  uuid?: string | undefined;
+  key?: string | undefined;
+  owner?: {  type?: string | undefined;};
+  name?: string | undefined;
+  description?: string | undefined;
+  is_private?: boolean | undefined;
+  created_on?: string | undefined;
+  updated_on?: string | undefined;
+  has_publicly_visible_repos?: boolean | undefined;
+};
+
+export interface ActionInput_bitbucket_createpullrequest {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * Pull request title. Example: "My PR"
+   */
+  title: string;
+  /**
+   * Source branch name. Example: "feature-branch"
+   */
+  source_branch: string;
+  /**
+   * Destination branch name. Defaults to the repository main branch.
+   */
+  destination_branch?: string | undefined;
+  /**
+   * Pull request description.
+   */
+  description?: string | undefined;
+  /**
+   * Array of reviewer UUIDs. Example: ["{504c3b62-8120-4f0c-a7bc-87800b9d6f70}"]
+   */
+  reviewers?: string[] | undefined;
+  /**
+   * Whether to close the source branch upon merging.
+   */
+  close_source_branch?: boolean | undefined;
+};
+
+export interface ActionOutput_bitbucket_createpullrequest {
+  id: number;
+  title: string;
+  description?: string | undefined;
+  state: string;
+  source_branch?: string | undefined;
+  destination_branch?: string | undefined;
+  close_source_branch?: boolean | undefined;
+  created_on?: string | undefined;
+  updated_on?: string | undefined;
+  reviewers?: ({  uuid?: string | undefined;
+  display_name?: string | undefined;
+  account_id?: string | undefined;})[];
+};
+
+export interface ActionInput_bitbucket_createrepository {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "my-repo"
+   */
+  repo_slug: string;
+  /**
+   * Source control management type. Example: "git"
+   */
+  scm?: string | undefined;
+  /**
+   * Whether the repository is private.
+   */
+  is_private?: boolean | undefined;
+  /**
+   * Repository description.
+   */
+  description?: string | undefined;
+  /**
+   * Whether the repository has a wiki.
+   */
+  has_wiki?: boolean | undefined;
+  /**
+   * Programming language. Example: "typescript"
+   */
+  language?: string | undefined;
+  /**
+   * Project key required if workspace has existing projects. Example: "PROJ"
+   */
+  project_key?: string | undefined;
+};
+
+export interface ActionOutput_bitbucket_createrepository {
+  uuid?: string | undefined;
+  name?: string | undefined;
+  slug?: string | undefined;
+  full_name?: string | undefined;
+  scm?: string | undefined;
+  description?: string | undefined;
+  is_private?: boolean | undefined;
+  has_wiki?: boolean | undefined;
+  language?: string | undefined;
+  created_on?: string | undefined;
+  updated_on?: string | undefined;
+  workspace_slug?: string | undefined;
+  project_key?: string | undefined;
+  owner_username?: string | undefined;
+  owner_uuid?: string | undefined;
+};
+
+export interface ActionInput_bitbucket_createwebhook {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * The URL to receive the webhook payload. Example: "https://example.com/webhook"
+   */
+  url: string;
+  /**
+   * Array of event keys. Example: ["repo:push", "pullrequest:created"]
+   */
+  events: string[];
+  /**
+   * Optional description for the webhook.
+   */
+  description?: string | undefined;
+  /**
+   * Whether the webhook is active. Defaults to true.
+   */
+  active?: boolean | undefined;
+  /**
+   * Optional secret for payload signing.
+   */
+  secret?: string | undefined;
+};
+
+export interface ActionOutput_bitbucket_createwebhook {
+  uuid: string;
+  url: string;
+  active: boolean;
+  description?: string | undefined;
+  events: string[];
+  created_at?: string | undefined;
+};
+
+export interface ActionInput_bitbucket_declinepullrequest {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * Pull request ID. Example: 1
+   */
+  pull_request_id: number;
+};
+
+export interface ActionOutput_bitbucket_declinepullrequest {
+  type?: string | undefined;
+  id?: number | undefined;
+  title?: string | undefined;
+  state?: string | undefined;
+  reason?: string | undefined;
+  created_on?: string | undefined;
+  updated_on?: string | undefined;
+  comment_count?: number | undefined;
+  task_count?: number | undefined;
+  close_source_branch?: boolean | undefined;
+  draft?: boolean | undefined;
+  mergeable?: boolean | undefined;
+  queued?: boolean | undefined;
+  links?: {  [key: string]: unknown | undefined;};
+  author?: {  [key: string]: unknown | undefined;};
+  source?: {  [key: string]: unknown | undefined;};
+  destination?: {  [key: string]: unknown | undefined;};
+  merge_commit?: {  [key: string]: unknown | undefined;};
+  closed_by?: {  [key: string]: unknown | undefined;};
+  rendered?: {  [key: string]: unknown | undefined;};
+  summary?: {  [key: string]: unknown | undefined;};
+  reviewers?: ({  [key: string]: unknown | undefined;})[];
+  participants?: ({  [key: string]: unknown | undefined;})[];
+};
+
+export interface ActionInput_bitbucket_deletebranch {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * Branch name to delete. Example: "main"
+   */
+  name: string;
+};
+
+export interface ActionOutput_bitbucket_deletebranch {
+  success: boolean;
+};
+
+export interface ActionInput_bitbucket_deleterepository {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-secondary-repo"
+   */
+  repo_slug: string;
+};
+
+export interface ActionOutput_bitbucket_deleterepository {
+  success: boolean;
+  workspace: string;
+  repo_slug: string;
+};
+
+export interface ActionInput_bitbucket_deletewebhook {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * Webhook UUID. Example: "{216a4943-db76-4086-9dcc-9a0b525062f5}"
+   */
+  webhook_uuid: string;
+};
+
+export interface ActionOutput_bitbucket_deletewebhook {
+  success: boolean;
+  workspace: string;
+  repo_slug: string;
+  webhook_uuid: string;
+};
+
+export interface ActionInput_bitbucket_getcommit {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * Full or abbreviated commit SHA. Example: "abc123"
+   */
+  node: string;
+};
+
+export interface ActionOutput_bitbucket_getcommit {
+  hash: string;
+  type?: string | undefined;
+  message?: string | undefined;
+  author?: {  raw?: string | undefined;
+  type?: string | undefined;
+  user?: {  display_name?: string | undefined;
+  uuid?: string | undefined;
+  account_id?: string | undefined;
+  type?: string | undefined;};};
+  date?: string | undefined;
+  parents?: ({  hash?: string | undefined;
+  type?: string | undefined;})[];
+  summary?: {  raw?: string | undefined;
+  markup?: string | undefined;
+  html?: string | undefined;
+  type?: string | undefined;};
+};
+
+export interface ActionInput_bitbucket_getcurrentuser {
+};
+
+export interface ActionOutput_bitbucket_getcurrentuser {
+  type: string;
+  uuid: string;
+  username?: string | undefined;
+  display_name?: string | undefined;
+  nickname?: string | undefined;
+  account_id?: string | undefined;
+  created_on?: string | undefined;
+};
+
+export interface ActionInput_bitbucket_getproject {
+  /**
+   * The workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * The project short uppercase key. Example: "PROJ"
+   */
+  project_key: string;
+};
+
+export interface ActionOutput_bitbucket_getproject {
+  type?: string | undefined;
+  uuid?: string | undefined;
+  key?: string | undefined;
+  name?: string | undefined;
+  description?: string | undefined;
+  is_private?: boolean | undefined;
+  created_on?: string | undefined;
+  updated_on?: string | undefined;
+  links?: {} | undefined;
+};
+
+export interface ActionInput_bitbucket_getrepository {
+  /**
+   * Workspace slug or UUID. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+};
+
+export interface ActionOutput_bitbucket_getrepository {
+  uuid: string;
+  full_name?: string | undefined;
+  name?: string | undefined;
+  description?: string | undefined;
+  created_on?: string | undefined;
+  updated_on?: string | undefined;
+  size?: number | undefined;
+  language?: string | undefined;
+  is_private?: boolean | undefined;
+  has_issues?: boolean | undefined;
+  has_wiki?: boolean | undefined;
+  fork_policy?: string | undefined;
+  scm?: string | undefined;
+  owner?: {  [key: string]: unknown | undefined;};
+  project?: {  [key: string]: unknown | undefined;};
+  mainbranch?: {  [key: string]: unknown | undefined;};
+  links?: {  [key: string]: unknown | undefined;};
+  type?: string | undefined;
+};
+
+export interface ActionInput_bitbucket_getworkspace {
+  /**
+   * Workspace slug or UUID. Example: "nangodev"
+   */
+  workspace: string;
+};
+
+export interface ActionOutput_bitbucket_getworkspace {
+  type: string;
+  uuid: string;
+  name?: string | undefined;
+  slug: string;
+  is_private: boolean;
+  is_privacy_enforced?: boolean | undefined;
+  forking_mode?: string | undefined;
+  created_on?: string | undefined;
+  updated_on?: string | undefined;
+  links?: {} | undefined;
+};
+
+export interface ActionInput_bitbucket_listbranches {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * Query string for filtering. Example: 'name ~ "feature"'
+   */
+  q?: string | undefined;
+  /**
+   * Sort string. Example: "-name"
+   */
+  sort?: string | undefined;
+  /**
+   * Number of results per page. Example: 10
+   */
+  pagelen?: number | undefined;
+  /**
+   * Page number for pagination. Example: 1
+   */
+  page?: number | undefined;
+};
+
+export interface ActionOutput_bitbucket_listbranches {
+  branches: ({  name: string;
+  type?: string | undefined;
+  default_merge_strategy?: string | undefined;
+  merge_strategies?: string[] | undefined;
+  target_hash?: string | undefined;
+  target_date?: string | undefined;
+  target_message?: string | undefined;})[];
+  next_page?: number | undefined;
+};
+
+export interface ActionInput_bitbucket_listcommits {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * Optional branch name, tag, or commit hash to filter commits.
+   */
+  revision?: string | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_bitbucket_listcommits {
+  commits: ({  hash: string;
+  type?: string | undefined;
+  date?: string | undefined;
+  message?: string | undefined;
+  author?: {  raw?: string | undefined;
+  type?: string | undefined;
+  user?: {  display_name?: string | undefined;
+  uuid?: string | undefined;
+  account_id?: string | undefined;
+  type?: string | undefined;};};
+  summary?: {  raw?: string | undefined;
+  markup?: string | undefined;
+  html?: string | undefined;
+  type?: string | undefined;};
+  parents?: ({  type?: string | undefined;
+  hash: string;})[];})[];
+  next_cursor?: string | undefined;
+  size?: number | undefined;
+};
+
+export interface ActionInput_bitbucket_listdeploymentenvironments {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_bitbucket_listdeploymentenvironments {
+  items: ({  type?: string | undefined;
+  uuid?: string | undefined;
+  name?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_bitbucket_listpipelines {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * Page number for pagination. Omit for the first page.
+   */
+  page?: number | undefined;
+  /**
+   * Number of items per page. Example: 10
+   */
+  pagelen?: number | undefined;
+  /**
+   * Sort field. Example: "-created_on"
+   */
+  sort?: string | undefined;
+};
+
+export interface ActionOutput_bitbucket_listpipelines {
+  items: ({  uuid: string;
+  build_number: number;
+  type?: string | undefined;
+  state?: {  name?: string | undefined;
+  type?: string | undefined;
+  stage?: {  name?: string | undefined;
+  type?: string | undefined;};
+  result?: {  name?: string | undefined;
+  type?: string | undefined;};};
+  target?: {  type?: string | undefined;
+  ref_type?: string | undefined;
+  ref_name?: string | undefined;};
+  trigger?: {  name?: string | undefined;
+  type?: string | undefined;};
+  created_on?: string | undefined;
+  completed_on?: string | undefined;
+  build_seconds_used?: number | undefined;})[];
+  next_page?: number | undefined;
+};
+
+export interface ActionInput_bitbucket_listpractivity {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of items per page. Example: 20
+   */
+  pagelen?: number | undefined;
+};
+
+export interface ActionOutput_bitbucket_listpractivity {
+  items: ({})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_bitbucket_listprcomments {
+  /**
+   * Workspace slug or UUID. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * Pull request ID. Example: 1
+   */
+  pull_request_id: number;
+  /**
+   * Pagination cursor (page number) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of items per page. Example: 20
+   */
+  pagelen?: number | undefined;
+};
+
+export interface ActionOutput_bitbucket_listprcomments {
+  comments: ({  id: number;
+  type?: string | undefined;
+  created_on?: string | undefined;
+  updated_on?: string | undefined;
+  content?: {  raw?: string | undefined;
+  markup?: string | undefined;
+  html?: string | undefined;
+  type?: string | undefined;};
+  user?: {  type?: string | undefined;
+  display_name?: string | undefined;
+  uuid?: string | undefined;
+  account_id?: string | undefined;
+  nickname?: string | undefined;
+  links?: {  [key: string]: unknown | undefined;};};
+  deleted?: boolean | undefined;
+  pending?: boolean | undefined;
+  parent?: {  id?: number | undefined;
+  type?: string | undefined;
+  links?: {  [key: string]: unknown | undefined;};};
+  inline?: {  path?: string | undefined;
+  from?: number | undefined;
+  to?: number | undefined;
+  outdated?: boolean | undefined;
+  context_lines?: string | undefined;};
+  links?: {  [key: string]: unknown | undefined;};
+  pullrequest?: {  type?: string | undefined;
+  id?: number | undefined;
+  title?: string | undefined;
+  draft?: boolean | undefined;
+  queued?: boolean | undefined;
+  links?: {  [key: string]: unknown | undefined;};};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_bitbucket_listprojects {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of items per page. Example: 10
+   */
+  pagelen?: number | undefined;
+};
+
+export interface ActionOutput_bitbucket_listprojects {
+  items: ({  uuid: string;
+  key: string;
+  name: string;
+  description?: string | undefined;
+  is_private?: boolean | undefined;
+  created_on?: string | undefined;
+  updated_on?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_bitbucket_listpullrequests {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * Filter by pull request state. Defaults to OPEN only if omitted.
+   */
+  state?: ({  0: 'OPEN';
+  1: 'MERGED';
+  2: 'DECLINED';
+  3: 'SUPERSEDED';})[] | undefined;
+  /**
+   * Query string to filter results. Example: "title~\"test\""
+   */
+  q?: string | undefined;
+  /**
+   * Sort field. Example: "-created_on"
+   */
+  sort?: string | undefined;
+  /**
+   * Number of items per page. Example: 10
+   */
+  pagelen?: number | undefined;
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_bitbucket_listpullrequests {
+  items: ({  id: number;
+  title: string;
+  state: 'OPEN' | 'MERGED' | 'DECLINED' | 'SUPERSEDED';
+  author?: {  type: string;
+  display_name?: string | undefined;
+  uuid?: string | undefined;
+  account_id?: string | undefined;};
+  source?: unknown | undefined;
+  destination?: unknown | undefined;
+  merge_commit?: {  hash: string;} | undefined;
+  comment_count?: number | undefined;
+  task_count?: number | undefined;
+  close_source_branch?: boolean | undefined;
+  closed_by?: {  type: string;} | undefined;
+  reason?: string | undefined;
+  created_on?: string | undefined;
+  updated_on?: string | undefined;
+  reviewers?: unknown[] | undefined;
+  participants?: unknown[] | undefined;
+  draft?: boolean | undefined;
+  queued?: boolean | undefined;
+  mergeable?: boolean | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_bitbucket_listrepositories {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Filter by role: admin, contributor, member, owner
+   */
+  role?: string | undefined;
+  /**
+   * Query string to filter repositories
+   */
+  q?: string | undefined;
+  /**
+   * Sort field
+   */
+  sort?: string | undefined;
+  /**
+   * Number of items per page. Example: 10
+   */
+  pagelen?: number | undefined;
+  /**
+   * Page number for pagination. Example: "2"
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_bitbucket_listrepositories {
+  items: ({  uuid: string;
+  slug: string;
+  name: string;
+  full_name: string;
+  description?: string | undefined;
+  is_private?: boolean | undefined;
+  created_on?: string | undefined;
+  updated_on?: string | undefined;
+  language?: string | undefined;
+  project?: {  [key: string]: unknown | undefined;};
+  owner?: {  [key: string]: unknown | undefined;};
+  links?: {  [key: string]: unknown | undefined;};
+  mainbranch?: {  [key: string]: unknown | undefined;};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_bitbucket_listtags {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * Query string to filter tags. Example: 'name ~ "v1.*"'
+   */
+  q?: string | undefined;
+  /**
+   * Sort field. Example: "-name"
+   */
+  sort?: string | undefined;
+  /**
+   * Number of items per page (max 100). Example: 10
+   */
+  pagelen?: number | undefined;
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_bitbucket_listtags {
+  tags: ({  name: string;
+  type?: string | undefined;
+  links?: {  [key: string]: unknown | undefined;};
+  target?: {  [key: string]: unknown | undefined;};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_bitbucket_listwatchers {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of items per page. Example: 10
+   */
+  pagelen?: number | undefined;
+};
+
+export interface ActionOutput_bitbucket_listwatchers {
+  watchers: ({  uuid: string;
+  username?: string | undefined;
+  display_name?: string | undefined;
+  account_id?: string | undefined;
+  type?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_bitbucket_listwebhooks {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * Page number for pagination.
+   */
+  page?: number | undefined;
+  /**
+   * Number of items per page.
+   */
+  pagelen?: number | undefined;
+};
+
+export interface ActionOutput_bitbucket_listwebhooks {
+  /**
+   * List of webhooks.
+   */
+  values: ({  /**
+   * Webhook UUID.
+   */
+  uuid: string;
+  /**
+   * Target URL for the webhook.
+   */
+  url: string;
+  /**
+   * Description of the webhook.
+   */
+  description?: string | undefined;
+  /**
+   * Whether the webhook is active.
+   */
+  active: boolean;
+  /**
+   * Creation timestamp.
+   */
+  created_at?: string | undefined;
+  /**
+   * Events that trigger the webhook.
+   */
+  events?: string[] | undefined;})[];
+  /**
+   * Current page number.
+   */
+  page?: number | undefined;
+  /**
+   * Number of items per page.
+   */
+  pagelen?: number | undefined;
+  /**
+   * Total number of webhooks.
+   */
+  size?: number | undefined;
+  /**
+   * URL for the next page of results.
+   */
+  next?: string | undefined;
+};
+
+export interface ActionInput_bitbucket_listworkspacemembers {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Pagination cursor (page number) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of items per page. Example: 10
+   */
+  pagelen?: number | undefined;
+};
+
+export interface ActionOutput_bitbucket_listworkspacemembers {
+  members: ({  type?: string | undefined;
+  user_uuid?: string | undefined;
+  user_nickname?: string | undefined;
+  user_display_name?: string | undefined;
+  user_account_id?: string | undefined;
+  workspace_uuid?: string | undefined;
+  workspace_slug?: string | undefined;
+  workspace_name?: string | undefined;})[];
+  next_page?: string | undefined;
+};
+
+export interface ActionInput_bitbucket_listworkspaces {
+  /**
+   * Page number for pagination. Omit for the first page.
+   */
+  page?: number | undefined;
+  /**
+   * Number of items per page. Example: 10
+   */
+  pagelen?: number | undefined;
+};
+
+export interface ActionOutput_bitbucket_listworkspaces {
+  items: ({  /**
+   * Workspace UUID. Example: "{d8dcf202-0b5d-4568-8954-43075e98b813}"
+   */
+  uuid: string;
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  slug: string;
+  /**
+   * Workspace name.
+   */
+  name?: string | undefined;
+  /**
+   * Workspace type.
+   */
+  type?: string | undefined;
+  /**
+   * Whether the workspace is private.
+   */
+  is_private?: boolean | undefined;})[];
+  /**
+   * Current page number.
+   */
+  page?: number | undefined;
+  /**
+   * Number of items per page.
+   */
+  pagelen?: number | undefined;
+  /**
+   * Total number of items.
+   */
+  size?: number | undefined;
+  /**
+   * URL to the next page of results.
+   */
+  next?: string | undefined;
+};
+
+export interface ActionInput_bitbucket_mergepullrequest {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * Pull request ID. Example: 108
+   */
+  pull_request_id: number;
+  /**
+   * Merge strategy. Example: "merge_commit"
+   */
+  merge_strategy?: 'merge_commit' | 'squash' | 'fast_forward' | undefined;
+  /**
+   * Merge commit message. Example: "Merging feature branch"
+   */
+  message?: string | undefined;
+  /**
+   * Whether to close the source branch after merging. Example: true
+   */
+  close_source_branch?: boolean | undefined;
+};
+
+export interface ActionOutput_bitbucket_mergepullrequest {
+  id: number;
+  title: string;
+  state: string;
+  merge_commit_hash?: string | undefined;
+  created_on?: string | undefined;
+  updated_on?: string | undefined;
+  closed_by_type?: string | undefined;
+  reason?: string | undefined;
+  close_source_branch?: boolean | undefined;
+};
+
+export interface ActionInput_bitbucket_updateproject {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Existing project key. Example: "NANGO"
+   */
+  project_key: string;
+  /**
+   * New project name.
+   */
+  name?: string | undefined;
+  /**
+   * New project description.
+   */
+  description?: string | undefined;
+  /**
+   * Whether the project is private.
+   */
+  is_private?: boolean | undefined;
+  /**
+   * New project key if renaming the project.
+   */
+  key?: string | undefined;
+  /**
+   * Avatar image URL or data URI.
+   */
+  avatar_href?: string | undefined;
+};
+
+export interface ActionOutput_bitbucket_updateproject {
+  type?: string | undefined;
+  links?: {  html?: {  href: string;
+  name?: string | undefined;};
+  avatar?: {  href: string;
+  name?: string | undefined;};};
+  uuid: string;
+  key: string;
+  owner?: {  type?: string | undefined;};
+  name: string;
+  description?: string | undefined;
+  is_private?: boolean | undefined;
+  created_on?: string | undefined;
+  updated_on?: string | undefined;
+  has_publicly_visible_repos?: boolean | undefined;
+};
+
+export interface ActionInput_bitbucket_updatepullrequest {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * Pull request ID. Example: 1
+   */
+  pull_request_id: number;
+  /**
+   * Updated title for the pull request.
+   */
+  title?: string | undefined;
+  /**
+   * Updated description for the pull request.
+   */
+  description?: string | undefined;
+  /**
+   * Updated destination branch for the pull request.
+   */
+  destination?: {  branch: {  /**
+   * Destination branch name. Example: "main"
+   */
+  name: string;};} | undefined;
+  /**
+   * Updated list of reviewers.
+   */
+  reviewers?: ({  /**
+   * User UUID. Example: "{a35738e8-3d79-470d-a80f-2a2fe4336964}"
+   */
+  uuid: string;})[] | undefined;
+};
+
+export interface ActionOutput_bitbucket_updatepullrequest {
+  id: number;
+  title: string;
+  description?: string | undefined;
+  state: string;
+  source?: {  repository?: {  type?: string | undefined;
+  name?: string | undefined;
+  full_name?: string | undefined;
+  uuid?: string | undefined;};
+  branch?: {  name: string;} | undefined;
+  commit?: {  hash?: string | undefined;
+  type?: string | undefined;};};
+  destination?: {  repository?: {  type?: string | undefined;
+  name?: string | undefined;
+  full_name?: string | undefined;
+  uuid?: string | undefined;};
+  branch?: {  name: string;} | undefined;
+  commit?: {  hash?: string | undefined;
+  type?: string | undefined;};};
+  created_on?: string | undefined;
+  updated_on?: string | undefined;
+  reviewers?: ({  type?: string | undefined;
+  uuid?: string | undefined;
+  display_name?: string | undefined;
+  account_id?: string | undefined;})[];
+  participants?: ({  type?: string | undefined;
+  uuid?: string | undefined;
+  display_name?: string | undefined;
+  account_id?: string | undefined;})[];
+  author?: {  type?: string | undefined;
+  uuid?: string | undefined;
+  display_name?: string | undefined;
+  account_id?: string | undefined;};
+  close_source_branch?: boolean | undefined;
+  draft?: boolean | undefined;
+  merge_commit?: {  hash?: string | undefined;};
+  comment_count?: number | undefined;
+  task_count?: number | undefined;
+  reason?: string | undefined;
+  summary?: {  raw?: string | undefined;
+  markup?: string | undefined;
+  html?: string | undefined;};
+  rendered?: {  title?: {  raw?: string | undefined;
+  markup?: string | undefined;
+  html?: string | undefined;};
+  description?: {  raw?: string | undefined;
+  markup?: string | undefined;
+  html?: string | undefined;};
+  reason?: {  raw?: string | undefined;
+  markup?: string | undefined;
+  html?: string | undefined;};};
+  links?: {} | undefined;
+  type?: string | undefined;
+};
+
+export interface ActionInput_bitbucket_updaterepository {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * Repository description.
+   */
+  description?: string | undefined;
+  /**
+   * Whether the repository is private.
+   */
+  is_private?: boolean | undefined;
+  /**
+   * Primary language. Example: "javascript"
+   */
+  language?: string | undefined;
+  /**
+   * Website URL associated with the repository.
+   */
+  website?: string | undefined;
+  /**
+   * Fork policy for the repository.
+   */
+  fork_policy?: 'allow_forks' | 'no_public_forks' | 'no_forks' | undefined;
+  /**
+   * Name of the main branch. Example: "main"
+   */
+  mainbranch?: string | undefined;
+};
+
+export interface ActionOutput_bitbucket_updaterepository {
+  uuid: string;
+  name: string;
+  slug: string;
+  full_name?: string | undefined;
+  description?: string | undefined;
+  is_private?: boolean | undefined;
+  language?: string | undefined;
+  website?: string | undefined;
+  fork_policy?: string | undefined;
+  mainbranch?: string | undefined;
+  workspace_slug?: string | undefined;
+  project_key?: string | undefined;
+  created_on?: string | undefined;
+  updated_on?: string | undefined;
+};
+
+export interface ActionInput_bitbucket_updatewebhook {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * Webhook UUID. Example: "{216a4943-db76-4086-9dcc-9a0b525062f5}"
+   */
+  webhook_uuid: string;
+  /**
+   * Webhook description.
+   */
+  description?: string | undefined;
+  /**
+   * Webhook URL.
+   */
+  url?: string | undefined;
+  /**
+   * Webhook secret. Pass null to remove.
+   */
+  secret?: string | undefined;
+  /**
+   * Whether the webhook is active.
+   */
+  active?: boolean | undefined;
+  /**
+   * List of event types.
+   */
+  events?: string[] | undefined;
+};
+
+export interface ActionOutput_bitbucket_updatewebhook {
+  type?: string | undefined;
+  uuid?: string | undefined;
+  url?: string | undefined;
+  description?: string | undefined;
+  subject_type?: string | undefined;
+  active?: boolean | undefined;
+  created_at?: string | undefined;
+  events?: string[] | undefined;
+  secret_set?: boolean | undefined;
 };
 
 export type ActionInput_bitdefender_getcompanydetails = void
@@ -23284,6 +24504,1668 @@ export interface ActionOutput_canva_updatefolder {
   thumbnail?: {  width: number;
   height: number;
   url: string;} | undefined;
+};
+
+export interface CouponSet {
+  id: string;
+  coupon_id: string;
+  name: string;
+  total_count?: number | undefined;
+  redeemed_count?: number | undefined;
+  archived_count?: number | undefined;
+  meta_data?: {  [key: string]: unknown | undefined;};
+};
+
+export interface CreditNote {
+  id: string;
+  creditnote_number?: string | undefined;
+  status?: string | undefined;
+  reference_number?: string | undefined;
+  date?: string | undefined;
+  issued_date?: string | undefined;
+  total?: number | undefined;
+  balance?: number | undefined;
+  customer_id?: string | undefined;
+  customer_name?: string | undefined;
+  currency_code?: string | undefined;
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;
+};
+
+export interface Customer {
+  id: string;
+  email: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  role?: string | undefined;
+  username?: string | undefined;
+  date_created?: string | undefined;
+  date_created_gmt?: string | undefined;
+  date_modified?: string | undefined;
+  date_modified_gmt?: string | undefined;
+  billing?: {  first_name?: string | undefined;
+  last_name?: string | undefined;
+  company?: string | undefined;
+  address_1?: string | undefined;
+  address_2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  postcode?: string | undefined;
+  country?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;};
+  shipping?: {  first_name?: string | undefined;
+  last_name?: string | undefined;
+  company?: string | undefined;
+  address_1?: string | undefined;
+  address_2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  postcode?: string | undefined;
+  country?: string | undefined;};
+  is_paying_customer?: boolean | undefined;
+  avatar_url?: string | undefined;
+  meta_data?: ({  id?: number | undefined;
+  key?: string | undefined;
+  value?: unknown | undefined;})[];
+};
+
+export interface Invoice {
+  id: string;
+  invoice_number?: string | undefined;
+  status?: string | undefined;
+  customer_id?: string | undefined;
+  customer_name?: string | undefined;
+  reference_number?: string | undefined;
+  date?: string | undefined;
+  due_date?: string | undefined;
+  currency_code?: string | undefined;
+  total?: number | undefined;
+  balance?: number | undefined;
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;
+};
+
+export interface ItemFamily {
+  /**
+   * The unique identifier of the item family
+   */
+  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  status?: string | undefined;
+  resource_version?: number | undefined;
+  updated_at?: number | undefined;
+  created_at?: number | undefined;
+  business_entity_id?: string | undefined;
+  channel?: string | undefined;
+};
+
+export interface ItemPrice {
+  id: string;
+  name: string;
+  item_id: string;
+  item_family_id?: string | undefined;
+  item_type: string;
+  status: string;
+  currency_code: string;
+  price?: number | undefined;
+  updated_at: number;
+  created_at: number;
+  resource_version?: number | undefined;
+  period?: number | undefined;
+  period_unit?: string | undefined;
+  pricing_model?: string | undefined;
+  channel?: string | undefined;
+  trial_period?: number | undefined;
+  trial_period_unit?: string | undefined;
+  free_quantity?: number | undefined;
+  free_quantity_in_decimal?: string | undefined;
+  external_name?: string | undefined;
+  invoice_notes?: string | undefined;
+  is_taxable?: boolean | undefined;
+  metadata?: {  [key: string]: unknown | undefined;};
+  price_variant_id?: string | undefined;
+};
+
+export interface Item {
+  id: string;
+  name?: string | undefined;
+  status?: string | undefined;
+  rate?: number | undefined;
+  unit?: string | undefined;
+  description?: string | undefined;
+  item_type?: string | undefined;
+  product_type?: string | undefined;
+  tax_id?: string | undefined;
+  tax_name?: string | undefined;
+  tax_percentage?: number | undefined;
+  account_id?: string | undefined;
+  account_name?: string | undefined;
+  purchase_rate?: number | undefined;
+  purchase_account_id?: string | undefined;
+  purchase_account_name?: string | undefined;
+  can_be_sold?: boolean | undefined;
+  can_be_purchased?: boolean | undefined;
+  track_inventory?: boolean | undefined;
+  sku?: string | undefined;
+  source?: string | undefined;
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;
+};
+
+export interface Subscription {
+  id: string;
+  status: string;
+  customer: string;
+  created: number;
+  current_period_start?: number | undefined;
+  current_period_end?: number | undefined;
+  cancel_at_period_end?: boolean | undefined;
+  canceled_at?: number | undefined;
+  ended_at?: number | undefined;
+  collection_method?: string | undefined;
+  currency?: string | undefined;
+  description?: string | undefined;
+  metadata?: {  [key: string]: string;} | undefined;
+  items?: ({  id: string;
+  price_id?: string | undefined;
+  product_id?: string | undefined;
+  quantity?: number | undefined;})[];
+};
+
+export interface ActionInput_chargebee_cancelsubscription {
+  /**
+   * Chargebee subscription ID. Example: "AzqOd0VMyVsW3aOz"
+   */
+  subscription_id: string;
+  /**
+   * If true, the subscription is set to non_renewing and will cancel at the end of the current term. If false, it is cancelled immediately.
+   */
+  end_of_term?: boolean | undefined;
+  /**
+   * How to handle charges for the current term.
+   */
+  credit_option_for_current_term_charges?: 'prorate' | 'full' | 'none' | undefined;
+};
+
+export interface ActionOutput_chargebee_cancelsubscription {
+  id: string;
+  status: string;
+  customer_id?: string | undefined;
+  plan_id?: string | undefined;
+  plan_unit_price?: number | undefined;
+  plan_amount?: number | undefined;
+  billing_period?: number | undefined;
+  billing_period_unit?: string | undefined;
+  subscription_items?: ({  item_price_id?: string | undefined;
+  item_type?: string | undefined;
+  quantity?: number | undefined;
+  unit_price?: number | undefined;
+  amount?: number | undefined;
+  free_quantity?: number | undefined;
+  trial_end?: number | undefined;
+  billing_cycles?: number | undefined;
+  service_period_days?: number | undefined;
+  charge_on_event?: string | undefined;
+  charge_once?: boolean | undefined;
+  charge_on_option?: string | undefined;})[];
+  created_at?: number | undefined;
+  started_at?: number | undefined;
+  activated_at?: number | undefined;
+  cancelled_at?: number | undefined;
+  pause_date?: number | undefined;
+  resume_date?: number | undefined;
+  due_invoices_count?: number | undefined;
+  due_since?: number | undefined;
+  total_dues?: number | undefined;
+  mrr?: number | undefined;
+  exchange_rate?: number | undefined;
+  base_currency_code?: string | undefined;
+  has_scheduled_changes?: boolean | undefined;
+  channel?: string | undefined;
+  resource_version?: number | undefined;
+  updated_at?: number | undefined;
+  deleted?: boolean | undefined;
+};
+
+export interface ActionInput_chargebee_createcreditnote {
+  /**
+   * Invoice ID against which the credit note is issued. Example: "1"
+   */
+  reference_invoice_id: string;
+  /**
+   * Type of credit note.
+   */
+  type: 'adjustment' | 'refundable';
+  /**
+   * Reason for issuing the credit note.
+   */
+  reason_code?: 'write_off' | 'subscription_change' | 'subscription_cancellation' | 'chargeback' | 'order_change' | 'other' | undefined;
+  /**
+   * Total credit note amount in cents. Required if line_items is not provided.
+   */
+  total?: number | undefined;
+  /**
+   * Line items for the credit note. Flattened into bracket notation query params.
+   */
+  line_items?: ({  reference_line_item_id?: string | undefined;
+  unit_amount?: number | undefined;
+  quantity?: number | undefined;
+  amount?: number | undefined;
+  description?: string | undefined;})[];
+  /**
+   * Customer-facing notes for the credit note.
+   */
+  notes?: string | undefined;
+};
+
+export interface ActionOutput_chargebee_createcreditnote {
+  id: string;
+  reference_invoice_id?: string | undefined;
+  type: string;
+  status: string;
+  total?: number | undefined;
+  amount_allocated?: number | undefined;
+  amount_available?: number | undefined;
+  amount_refunded?: number | undefined;
+  reason_code?: string | undefined;
+  notes?: string[] | undefined;
+  customer_id?: string | undefined;
+  deleted: boolean;
+  date?: number | undefined;
+  updated_at?: number | undefined;
+};
+
+export interface ActionInput_chargebee_createcustomer {
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  company?: string | undefined;
+  phone?: string | undefined;
+  auto_collection?: 'on' | 'off' | undefined;
+  net_term_days?: number | undefined;
+  locale?: string | undefined;
+  billing_address?: {  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  company?: string | undefined;
+  phone?: string | undefined;
+  line1?: string | undefined;
+  line2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  zip?: string | undefined;
+  country?: string | undefined;};
+};
+
+export interface ActionOutput_chargebee_createcustomer {
+  id: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  company?: string | undefined;
+  phone?: string | undefined;
+  auto_collection?: string | undefined;
+  net_term_days?: number | undefined;
+  locale?: string | undefined;
+  created_at?: number | undefined;
+  deleted?: boolean | undefined;
+};
+
+export interface ActionInput_chargebee_createitemfamily {
+  /**
+   * Unique identifier for the item family. Example: "new-family"
+   */
+  id: string;
+  /**
+   * Name of the item family. Example: "New Family"
+   */
+  name: string;
+  /**
+   * Description of the item family.
+   */
+  description?: string | undefined;
+};
+
+export interface ActionOutput_chargebee_createitemfamily {
+  id: string;
+  name: string;
+  description?: string | undefined;
+  status?: string | undefined;
+  resource_version?: number | undefined;
+  updated_at?: number | undefined;
+  created_at?: number | undefined;
+  channel?: string | undefined;
+};
+
+export interface ActionInput_chargebee_createitemprice {
+  /**
+   * The identifier for the item price. Example: "basic-plan-yearly"
+   */
+  id: string;
+  /**
+   * Display name for the item price. Example: "Basic Plan Yearly"
+   */
+  name: string;
+  /**
+   * ID of the item to price. Example: "basic-plan"
+   */
+  item_id: string;
+  /**
+   * Pricing model for the item price.
+   */
+  pricing_model: 'flat_fee' | 'per_unit' | 'tiered' | 'volume' | 'stairstep';
+  /**
+   * ISO 4217 currency code. Example: "USD"
+   */
+  currency_code: string;
+  /**
+   * Billing period length. Example: 1
+   */
+  period: number;
+  /**
+   * Unit of the billing period.
+   */
+  period_unit: 'day' | 'week' | 'month' | 'year';
+  /**
+   * Price in minor currency units (cents). Required for flat_fee and per_unit.
+   */
+  price?: number | undefined;
+  description?: string | undefined;
+  external_name?: string | undefined;
+  free_quantity?: number | undefined;
+  trial_period?: number | undefined;
+  trial_period_unit?: 'day' | 'month' | undefined;
+  is_taxable?: boolean | undefined;
+};
+
+export interface ActionOutput_chargebee_createitemprice {
+  id: string;
+  name?: string | undefined;
+  item_id?: string | undefined;
+  pricing_model?: string | undefined;
+  currency_code?: string | undefined;
+  period?: number | undefined;
+  period_unit?: string | undefined;
+  price?: number | undefined;
+  status?: string | undefined;
+  created_at?: number | undefined;
+  updated_at?: number | undefined;
+  resource_version?: number | undefined;
+  external_name?: string | undefined;
+  description?: string | undefined;
+  free_quantity?: number | undefined;
+  is_taxable?: boolean | undefined;
+};
+
+export interface ActionInput_chargebee_createitem {
+  /**
+   * The identifier for the item. Example: "premium-plan"
+   */
+  id: string;
+  /**
+   * A unique display name for the item. Example: "Premium Plan"
+   */
+  name: string;
+  /**
+   * The type of the item.
+   */
+  type: 'plan' | 'addon' | 'charge';
+  /**
+   * The id of the item family that the item belongs to. Example: "saas-plans"
+   */
+  item_family_id: string;
+  /**
+   * Description of the item.
+   */
+  description?: string | undefined;
+  /**
+   * Indicates that the item is a physical product.
+   */
+  is_shippable?: boolean | undefined;
+  /**
+   * Allow the plan to be subscribed to via Checkout. Applies only for plan-items.
+   */
+  enabled_for_checkout?: boolean | undefined;
+  /**
+   * Allow customers to change their subscription to this plan via the Self-Serve Portal. Applies only for plan-items.
+   */
+  enabled_in_portal?: boolean | undefined;
+  /**
+   * Specifies whether the item undergoes metered billing.
+   */
+  metered?: boolean | undefined;
+};
+
+export interface ActionOutput_chargebee_createitem {
+  id: string;
+  name: string;
+  type: 'plan' | 'addon' | 'charge';
+  item_family_id?: string | undefined;
+  description?: string | undefined;
+  is_shippable?: boolean | undefined;
+  enabled_for_checkout?: boolean | undefined;
+  enabled_in_portal?: boolean | undefined;
+  metered?: boolean | undefined;
+  status?: string | undefined;
+  resource_version?: number | undefined;
+  updated_at?: number | undefined;
+  deleted?: boolean | undefined;
+};
+
+export interface ActionInput_chargebee_createsubscription {
+  /**
+   * The unique identifier of the customer. Example: "AzqOd0VMyVlxMaL6"
+   */
+  customer_id: string;
+  /**
+   * List of subscription items to create.
+   */
+  subscription_items: ({  /**
+   * The unique identifier of the item price. Example: "basic-plan-monthly"
+   */
+  item_price_id: string;
+  /**
+   * The quantity of the item purchased. Example: 1
+   */
+  quantity?: number | undefined;})[];
+  /**
+   * Defines whether payments need to be collected automatically. Defaults to "off" to skip payment requirement.
+   */
+  auto_collection?: 'on' | 'off' | undefined;
+  /**
+   * A unique identifier for the subscription. If not provided, it is autogenerated.
+   */
+  id?: string | undefined;
+};
+
+export interface ActionOutput_chargebee_createsubscription {
+  id: string;
+  customer_id: string;
+  status: string;
+  deleted: boolean;
+  subscription_items?: ({  item_price_id: string;
+  quantity?: number | undefined;})[];
+};
+
+export interface ActionInput_chargebee_deletecustomer {
+  /**
+   * Customer ID to delete. Example: "AzqOd0VMyVlxMaL6"
+   */
+  id: string;
+};
+
+export interface ActionOutput_chargebee_deletecustomer {
+  id: string;
+  deleted: boolean;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  company?: string | undefined;
+};
+
+export interface ActionInput_chargebee_getcreditnote {
+  /**
+   * Credit note ID. Example: "__demo_cn__7"
+   */
+  credit_note_id: string;
+};
+
+export interface ActionOutput_chargebee_getcreditnote {
+  id: string;
+  customer_id: string;
+  subscription_id?: string | undefined;
+  reference_invoice_id?: string | undefined;
+  type: string;
+  status: string;
+  reason_code?: string | undefined;
+  create_reason_code?: string | undefined;
+  currency_code: string;
+  price_type: string;
+  total?: number | undefined;
+  sub_total: number;
+  amount_allocated?: number | undefined;
+  amount_refunded?: number | undefined;
+  amount_available?: number | undefined;
+  date?: number | undefined;
+  updated_at?: number | undefined;
+  deleted: boolean;
+  resource_version?: number | undefined;
+  line_items?: ({  [key: string]: unknown | undefined;})[];
+  discounts?: ({  [key: string]: unknown | undefined;})[];
+  taxes?: ({  [key: string]: unknown | undefined;})[];
+  allocations?: ({  [key: string]: unknown | undefined;})[];
+  linked_refunds?: ({  [key: string]: unknown | undefined;})[];
+  billing_address?: {  [key: string]: unknown | undefined;};
+  shipping_address?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_chargebee_getcustomer {
+  /**
+   * Chargebee customer ID. Example: "AzqOd0VMyUhHQZf4"
+   */
+  id: string;
+};
+
+export interface ActionOutput_chargebee_getcustomer {
+  id: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  company?: string | undefined;
+  phone?: string | undefined;
+  deleted?: boolean | undefined;
+};
+
+export interface ActionInput_chargebee_getinvoice {
+  /**
+   * Invoice ID. Example: "1"
+   */
+  id: string;
+};
+
+export interface ActionOutput_chargebee_getinvoice {
+  id: string;
+  customer_id: string;
+  subscription_id?: string | undefined;
+  status: string;
+  recurring: boolean;
+  date?: number | undefined;
+  due_date?: number | undefined;
+  total?: number | undefined;
+  amount_due?: number | undefined;
+  amount_paid?: number | undefined;
+  currency_code: string;
+  deleted: boolean;
+  updated_at?: number | undefined;
+};
+
+export interface ActionInput_chargebee_getitemfamily {
+  /**
+   * Item family ID. Example: "saas-plans"
+   */
+  id: string;
+};
+
+export interface ActionOutput_chargebee_getitemfamily {
+  id: string;
+  name: string;
+  description?: string | undefined;
+  status?: string | undefined;
+  resource_version?: number | undefined;
+  updated_at?: number | undefined;
+  channel?: string | undefined;
+  business_entity_id?: string | undefined;
+  deleted?: boolean | undefined;
+};
+
+export interface ActionInput_chargebee_getitemprice {
+  /**
+   * The ID of the item price to retrieve. Example: "basic-plan-monthly"
+   */
+  item_price_id: string;
+};
+
+export interface ActionOutput_chargebee_getitemprice {
+  id: string;
+  name: string;
+  item_family_id?: string | undefined;
+  item_id?: string | undefined;
+  description?: string | undefined;
+  status?: string | undefined;
+  external_name?: string | undefined;
+  price_variant_id?: string | undefined;
+  proration_type?: string | undefined;
+  pricing_model: string;
+  price?: number | undefined;
+  price_in_decimal?: string | undefined;
+  period?: number | undefined;
+  currency_code: string;
+  period_unit?: string | undefined;
+  trial_period?: number | undefined;
+  trial_period_unit?: string | undefined;
+  trial_end_action?: string | undefined;
+  shipping_period?: number | undefined;
+  shipping_period_unit?: string | undefined;
+  billing_cycles?: number | undefined;
+  free_quantity?: number | undefined;
+  free_quantity_in_decimal?: string | undefined;
+  channel?: string | undefined;
+  resource_version?: number | undefined;
+  updated_at?: number | undefined;
+  created_at: number;
+  usage_accumulation_reset_frequency?: string | undefined;
+  archived_at?: number | undefined;
+  invoice_notes?: string | undefined;
+  is_taxable?: boolean | undefined;
+  metadata?: {  [key: string]: unknown | undefined;};
+  item_type?: string | undefined;
+  show_description_in_invoices?: boolean | undefined;
+  show_description_in_quotes?: boolean | undefined;
+  deleted: boolean;
+  business_entity_id?: string | undefined;
+  tiers?: ({  [key: string]: unknown | undefined;})[];
+  tax_detail?: {  [key: string]: unknown | undefined;};
+  tax_providers_fields?: ({  [key: string]: unknown | undefined;})[];
+  accounting_detail?: {  [key: string]: unknown | undefined;};
+  object?: string | undefined;
+};
+
+export interface ActionInput_chargebee_getitem {
+  /**
+   * The unique identifier of the item. Example: "basic-plan"
+   */
+  id: string;
+};
+
+export interface ActionOutput_chargebee_getitem {
+  id: string;
+  name: string;
+  status?: string | undefined;
+  type: string;
+  item_family_id?: string | undefined;
+  description?: string | undefined;
+  external_name?: string | undefined;
+  updated_at?: number | undefined;
+  resource_version?: number | undefined;
+  deleted?: boolean | undefined;
+  metered?: boolean | undefined;
+  is_giftable?: boolean | undefined;
+  enabled_for_checkout?: boolean | undefined;
+  enabled_in_portal?: boolean | undefined;
+  is_shippable?: boolean | undefined;
+  included_in_mrr?: boolean | undefined;
+  is_percentage_pricing?: boolean | undefined;
+  archived_at?: number | undefined;
+  channel?: string | undefined;
+  redirect_url?: string | undefined;
+  gift_claim_redirect_url?: string | undefined;
+  unit?: string | undefined;
+  item_applicability?: string | undefined;
+  usage_calculation?: string | undefined;
+  metadata?: {  [key: string]: unknown | undefined;};
+  business_entity_id?: string | undefined;
+  object?: string | undefined;
+};
+
+export interface ActionInput_chargebee_getsubscription {
+  /**
+   * Subscription ID. Example: "AzZPdjVMyVrz9acf"
+   */
+  subscription_id: string;
+};
+
+export interface ActionOutput_chargebee_getsubscription {
+  id: string;
+  customer_id?: string | undefined;
+  status?: string | undefined;
+  plan_id?: string | undefined;
+  plan_quantity?: number | undefined;
+  plan_unit_price?: number | undefined;
+  currency_code?: string | undefined;
+  started_at?: number | undefined;
+  activated_at?: number | undefined;
+  created_at?: number | undefined;
+  updated_at?: number | undefined;
+  current_term_start?: number | undefined;
+  current_term_end?: number | undefined;
+  next_billing_at?: number | undefined;
+  remaining_billing_cycles?: number | undefined;
+  deleted?: boolean | undefined;
+};
+
+export interface ActionInput_chargebee_listcouponsets {
+  /**
+   * Filter by coupon id linked to coupon set. Example: "sample_coupon"
+   */
+  coupon_id?: string | undefined;
+  /**
+   * Filter by coupon set name. Example: "Weekend Offer"
+   */
+  name?: string | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of resources to return. Min 1, max 100. Defaults to 10.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_chargebee_listcouponsets {
+  coupon_sets: ({  id: string;
+  coupon_id: string;
+  name: string;
+  total_count?: number | undefined;
+  redeemed_count?: number | undefined;
+  archived_count?: number | undefined;
+  meta_data?: {  [key: string]: unknown | undefined;};
+  object?: string | undefined;})[];
+  next_offset?: string | undefined;
+};
+
+export interface ActionInput_chargebee_listcoupons {
+  /**
+   * Coupon ID to filter by. Example: "cbdemo_earlybird"
+   */
+  id?: string | undefined;
+  /**
+   * Coupon name to filter by.
+   */
+  name?: string | undefined;
+  /**
+   * Discount type to filter by. Example: "fixed_amount" or "percentage"
+   */
+  discount_type?: string | undefined;
+  /**
+   * Coupon status to filter by. Example: "active" or "expired"
+   */
+  status?: string | undefined;
+  /**
+   * Apply on to filter by. Example: "plan_amount" or "invoice_amount"
+   */
+  apply_on?: string | undefined;
+  /**
+   * Filter coupons updated after this Unix timestamp (seconds).
+   */
+  "updated_at[gt]"?: string | undefined;
+  /**
+   * Filter coupons updated before this Unix timestamp (seconds).
+   */
+  "updated_at[lt]"?: string | undefined;
+  /**
+   * Filter coupons updated on or after this Unix timestamp (seconds).
+   */
+  "updated_at[gte]"?: string | undefined;
+  /**
+   * Filter coupons updated on or before this Unix timestamp (seconds).
+   */
+  "updated_at[lte]"?: string | undefined;
+  /**
+   * Number of records to return. Max 100.
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination offset cursor from the previous response.
+   */
+  offset?: string | undefined;
+};
+
+export interface ActionOutput_chargebee_listcoupons {
+  items: ({  id: string;
+  name?: string | undefined;
+  discount_type?: string | undefined;
+  discount_amount?: number | undefined;
+  discount_percentage?: number | undefined;
+  status?: string | undefined;
+  apply_on?: string | undefined;
+  created_at?: number | undefined;
+  updated_at?: number | undefined;
+  resource_version?: number | undefined;
+  deleted?: boolean | undefined;})[];
+  next_offset?: string | undefined;
+};
+
+export interface ActionInput_chargebee_listcreditnotes {
+  /**
+   * Customer ID to filter by. Example: "AzqOd0VMyUhHQZf4"
+   */
+  customer_id?: string | undefined;
+  /**
+   * Subscription ID to filter by. Example: "AzqOd0VMyVsW3aOz"
+   */
+  subscription_id?: string | undefined;
+  /**
+   * Type filter operator. Example: "adjustment" or "refundable"
+   */
+  type?: string | undefined;
+  /**
+   * Operator for type filter. Example: "is" or "is_not"
+   */
+  type_operator?: 'is' | 'is_not' | undefined;
+  /**
+   * Status filter value. Example: "adjusted", "refunded", "refund_due", or "voided"
+   */
+  status?: string | undefined;
+  /**
+   * Operator for status filter. Example: "is" or "is_not"
+   */
+  status_operator?: 'is' | 'is_not' | undefined;
+  /**
+   * Filter credit notes with date greater than this Unix timestamp (seconds).
+   */
+  date_gt?: number | undefined;
+  /**
+   * Filter credit notes with date less than this Unix timestamp (seconds).
+   */
+  date_lt?: number | undefined;
+  /**
+   * Filter credit notes with date greater than or equal to this Unix timestamp (seconds).
+   */
+  date_gte?: number | undefined;
+  /**
+   * Filter credit notes with date less than or equal to this Unix timestamp (seconds).
+   */
+  date_lte?: number | undefined;
+  /**
+   * Filter credit notes with updated_at greater than this Unix timestamp (seconds).
+   */
+  updated_at_gt?: number | undefined;
+  /**
+   * Filter credit notes with updated_at less than this Unix timestamp (seconds).
+   */
+  updated_at_lt?: number | undefined;
+  /**
+   * Filter credit notes with updated_at greater than or equal to this Unix timestamp (seconds).
+   */
+  updated_at_gte?: number | undefined;
+  /**
+   * Filter credit notes with updated_at less than or equal to this Unix timestamp (seconds).
+   */
+  updated_at_lte?: number | undefined;
+  /**
+   * Pagination offset cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_chargebee_listcreditnotes {
+  items: ({  id: string;
+  customer_id?: string | undefined;
+  subscription_id?: string | undefined;
+  reference_invoice_id?: string | undefined;
+  type?: string | undefined;
+  status?: string | undefined;
+  date?: number | undefined;
+  total?: number | undefined;
+  amount_allocated?: number | undefined;
+  amount_refunded?: number | undefined;
+  amount_available?: number | undefined;
+  updated_at?: number | undefined;
+  currency_code?: string | undefined;
+  reason_code?: string | undefined;})[];
+  /**
+   * Pagination cursor for the next page. Omit if there are no more pages.
+   */
+  next_offset?: string | undefined;
+};
+
+export interface ActionInput_chargebee_listcustomers {
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  company?: string | undefined;
+  phone?: string | undefined;
+  updated_at_gt?: number | undefined;
+  updated_at_lt?: number | undefined;
+  updated_at_gte?: number | undefined;
+  updated_at_lte?: number | undefined;
+  created_at_gt?: number | undefined;
+  created_at_lt?: number | undefined;
+  created_at_gte?: number | undefined;
+  created_at_lte?: number | undefined;
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_chargebee_listcustomers {
+  customers: ({  id: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  company?: string | undefined;
+  phone?: string | undefined;
+  created_at?: number | undefined;
+  updated_at?: number | undefined;})[];
+  next_offset?: string | undefined;
+};
+
+export interface ActionInput_chargebee_listevents {
+  /**
+   * Filter by event ID using the `is` operator.
+   */
+  id?: string | undefined;
+  /**
+   * Filter by event type using the `is` operator.
+   */
+  event_type?: string | undefined;
+  /**
+   * Filter by event type using the `is_not` operator.
+   */
+  event_type_is_not?: string | undefined;
+  /**
+   * Filter by event source using the `is` operator.
+   */
+  source?: string | undefined;
+  /**
+   * Filter by event source using the `is_not` operator.
+   */
+  source_is_not?: string | undefined;
+  /**
+   * Filter by occurred_at greater than (Unix seconds).
+   */
+  occurred_at_gt?: number | undefined;
+  /**
+   * Filter by occurred_at less than (Unix seconds).
+   */
+  occurred_at_lt?: number | undefined;
+  /**
+   * Filter by occurred_at greater than or equal to (Unix seconds).
+   */
+  occurred_at_gte?: number | undefined;
+  /**
+   * Filter by occurred_at less than or equal to (Unix seconds).
+   */
+  occurred_at_lte?: number | undefined;
+  /**
+   * Filter by webhook status using the `is` operator.
+   */
+  webhook_status?: string | undefined;
+  /**
+   * Filter by webhook status using the `is_not` operator.
+   */
+  webhook_status_is_not?: string | undefined;
+  /**
+   * Number of events to return (max 100).
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_chargebee_listevents {
+  items: ({  [key: string]: unknown | undefined;})[];
+  /**
+   * Pagination cursor for the next page.
+   */
+  next_offset?: string | undefined;
+};
+
+export interface ActionInput_chargebee_listinvoices {
+  /**
+   * Filter by customer ID. Example: "AzqOd0VMyUhHQZf4"
+   */
+  customer_id?: string | undefined;
+  /**
+   * Filter by subscription ID. Example: "AzZPdjVMyVrz9acf"
+   */
+  subscription_id?: string | undefined;
+  /**
+   * Filter by status. Example: "payment_due"
+   */
+  status?: string | undefined;
+  /**
+   * Status filter operator. Defaults to "is".
+   */
+  status_operator?: 'is' | 'is_not' | undefined;
+  /**
+   * Date range filter in Unix epoch seconds.
+   */
+  date?: {  gt?: number | undefined;
+  lt?: number | undefined;
+  gte?: number | undefined;
+  lte?: number | undefined;};
+  /**
+   * Updated-at range filter in Unix epoch seconds.
+   */
+  updated_at?: {  gt?: number | undefined;
+  lt?: number | undefined;
+  gte?: number | undefined;
+  lte?: number | undefined;};
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Max 100.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_chargebee_listinvoices {
+  invoices: ({  /**
+   * Invoice number. Example: "1"
+   */
+  id: string;
+  customer_id: string;
+  subscription_id?: string | undefined;
+  status: 'paid' | 'posted' | 'payment_due' | 'not_paid' | 'voided' | 'pending';
+  date?: number | undefined;
+  due_date?: number | undefined;
+  total?: number | undefined;
+  amount_due?: number | undefined;
+  amount_paid?: number | undefined;
+  currency_code: string;
+  recurring: boolean;
+  deleted: boolean;
+  updated_at?: number | undefined;
+  resource_version?: number | undefined;})[];
+  next_offset?: string | undefined;
+};
+
+export interface ActionInput_chargebee_listitemfamilies {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of resources to return. Max 100.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_chargebee_listitemfamilies {
+  item_families: ({  id: string;
+  name: string;
+  description?: string | undefined;
+  status?: string | undefined;
+  resource_version?: number | undefined;
+  updated_at?: number | undefined;
+  channel?: string | undefined;
+  business_entity_id?: string | undefined;
+  deleted: boolean;})[];
+  next_offset?: string | undefined;
+};
+
+export interface ActionInput_chargebee_listitemprices {
+  /**
+   * Filter by item ID. Example: "basic-plan"
+   */
+  item_id?: string | undefined;
+  /**
+   * Filter by item family ID. Example: "saas-plans"
+   */
+  item_family_id?: string | undefined;
+  /**
+   * Filter by item type. Example: "plan"
+   */
+  item_type?: string | undefined;
+  /**
+   * Operator for item_type filter. Default: is
+   */
+  item_type_operator?: 'is' | 'is_not' | undefined;
+  /**
+   * Filter by currency code. Example: "USD"
+   */
+  currency_code?: string | undefined;
+  /**
+   * Filter by pricing model. Example: "flat_fee"
+   */
+  pricing_model?: string | undefined;
+  /**
+   * Filter by status. Example: "active"
+   */
+  status?: string | undefined;
+  /**
+   * Operator for status filter. Default: is
+   */
+  status_operator?: 'is' | 'is_not' | undefined;
+  /**
+   * Filter by updated_at greater than. Unix epoch seconds.
+   */
+  updated_at_gt?: number | undefined;
+  /**
+   * Filter by updated_at less than. Unix epoch seconds.
+   */
+  updated_at_lt?: number | undefined;
+  /**
+   * Filter by updated_at greater than or equal. Unix epoch seconds.
+   */
+  updated_at_gte?: number | undefined;
+  /**
+   * Filter by updated_at less than or equal. Unix epoch seconds.
+   */
+  updated_at_lte?: number | undefined;
+  /**
+   * Pagination offset cursor from the previous response.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of records to return. Max 100.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_chargebee_listitemprices {
+  list: ({  id: string;
+  name?: string | undefined;
+  item_id?: string | undefined;
+  item_family_id?: string | undefined;
+  item_type?: string | undefined;
+  status?: string | undefined;
+  external_name?: string | undefined;
+  pricing_model?: string | undefined;
+  price?: number | undefined;
+  period_unit?: string | undefined;
+  period?: number | undefined;
+  currency_code?: string | undefined;
+  trial_period?: number | undefined;
+  trial_period_unit?: string | undefined;
+  free_quantity?: number | undefined;
+  resource_version?: number | undefined;
+  updated_at?: number | undefined;
+  created_at?: number | undefined;
+  is_deleted?: boolean | undefined;
+  object?: string | undefined;})[];
+  /**
+   * Offset cursor for the next page.
+   */
+  next_offset?: string | undefined;
+};
+
+export interface ActionInput_chargebee_listitems {
+  /**
+   * Pagination cursor (offset) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Filter by item ID. Example: "basic-plan"
+   */
+  id?: string | undefined;
+  /**
+   * Filter by item name.
+   */
+  name?: string | undefined;
+  /**
+   * Filter by item type.
+   */
+  type?: 'plan' | 'addon' | 'charge' | undefined;
+  /**
+   * Filter by item family ID. Example: "saas-plans"
+   */
+  item_family_id?: string | undefined;
+  /**
+   * Filter by item status.
+   */
+  status?: 'active' | 'archived' | 'deleted' | undefined;
+  /**
+   * Filter by updated_at timestamp (Unix epoch seconds).
+   */
+  updated_at?: {  gt?: string | undefined;
+  lt?: string | undefined;
+  gte?: string | undefined;
+  lte?: string | undefined;};
+};
+
+export interface ActionOutput_chargebee_listitems {
+  items: ({  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  status?: string | undefined;
+  resource_version?: number | undefined;
+  updated_at?: number | undefined;
+  item_family_id?: string | undefined;
+  type?: string | undefined;
+  is_giftable?: boolean | undefined;
+  is_shippable?: boolean | undefined;
+  enabled_in_hosted_pages?: boolean | undefined;
+  enabled_in_portal?: boolean | undefined;
+  object?: string | undefined;})[];
+  next_offset?: string | undefined;
+};
+
+export interface ActionInput_chargebee_listpaymentsources {
+  /**
+   * Customer ID. Example: "AzqOd0VMyUhHQZf4"
+   */
+  customer_id: string;
+  /**
+   * Filter by payment source type.
+   */
+  type?: 'card' | 'paypal_express_checkout' | 'amazon_payments' | 'direct_debit' | 'generic' | 'alipay' | 'unionpay' | 'apple_pay' | 'wechat_pay' | 'ideal' | 'google_pay' | 'sofort' | 'bancontact' | 'giropay' | 'dotpay' | 'netbanking_emandates' | 'upi' | 'sepa_instant_transfer' | undefined;
+  /**
+   * Type filter operator. Default: is.
+   */
+  type_operator?: 'is' | 'is_not' | undefined;
+  /**
+   * Number of records per page. Max: 100.
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination offset cursor from the previous response. Omit for the first page.
+   */
+  offset?: string | undefined;
+};
+
+export interface ActionOutput_chargebee_listpaymentsources {
+  items: ({  id: string;
+  customer_id?: string | undefined;
+  type?: string | undefined;
+  status?: string | undefined;
+  reference_id?: string | undefined;
+  gateway?: string | undefined;
+  gateway_account_id?: string | undefined;
+  ip_address?: string | undefined;
+  created_at?: number | undefined;
+  updated_at?: number | undefined;
+  resource_version?: number | undefined;
+  deleted?: boolean | undefined;
+  object?: string | undefined;
+  card?: {  [key: string]: unknown | undefined;};
+  bank_account?: {  [key: string]: unknown | undefined;};
+  amazon_payment?: {  [key: string]: unknown | undefined;};
+  paypal?: {  [key: string]: unknown | undefined;};
+  mandate?: {  [key: string]: unknown | undefined;};})[];
+  /**
+   * Pagination offset cursor for the next page.
+   */
+  next_offset?: string | undefined;
+};
+
+export interface ActionInput_chargebee_listsubscriptions {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Max 100.
+   */
+  limit?: number | undefined;
+  /**
+   * Filter by customer ID. Example: "AzqOd0VMyUhHQZf4"
+   */
+  customer_id?: string | undefined;
+  /**
+   * Filter by item price ID. Example: "basic-plan-monthly"
+   */
+  item_price_id?: string | undefined;
+  /**
+   * Filter by subscription status. Example: "active"
+   */
+  status?: string | undefined;
+  /**
+   * Exclude subscriptions with this status. Example: "cancelled"
+   */
+  status_is_not?: string | undefined;
+  /**
+   * Filter by updated_at greater than (Unix seconds).
+   */
+  updated_at_gt?: number | undefined;
+  /**
+   * Filter by updated_at less than (Unix seconds).
+   */
+  updated_at_lt?: number | undefined;
+  /**
+   * Filter by updated_at greater than or equal (Unix seconds).
+   */
+  updated_at_gte?: number | undefined;
+  /**
+   * Filter by updated_at less than or equal (Unix seconds).
+   */
+  updated_at_lte?: number | undefined;
+  /**
+   * Filter by cancelled_at greater than (Unix seconds).
+   */
+  cancelled_at_gt?: number | undefined;
+  /**
+   * Filter by cancelled_at less than (Unix seconds).
+   */
+  cancelled_at_lt?: number | undefined;
+  /**
+   * Filter by cancelled_at greater than or equal (Unix seconds).
+   */
+  cancelled_at_gte?: number | undefined;
+  /**
+   * Filter by cancelled_at less than or equal (Unix seconds).
+   */
+  cancelled_at_lte?: number | undefined;
+};
+
+export interface ActionOutput_chargebee_listsubscriptions {
+  items: ({  /**
+   * Subscription ID. Example: "AzZPdjVMyVrz9acf"
+   */
+  id: string;
+  /**
+   * Customer ID. Example: "AzqOd0VMyUhHQZf4"
+   */
+  customer_id?: string | undefined;
+  /**
+   * Subscription status. Example: "active"
+   */
+  status?: string | undefined;
+  /**
+   * Unix timestamp in seconds. Example: 1700000000
+   */
+  updated_at?: number | undefined;
+  /**
+   * Unix timestamp in seconds. Example: 1700000000
+   */
+  cancelled_at?: number | undefined;})[];
+  /**
+   * Pagination cursor to fetch the next page. Omit when there are no more pages.
+   */
+  next_offset?: string | undefined;
+};
+
+export interface ActionInput_chargebee_listtransactions {
+  /**
+   * Pagination offset cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum number of results per page. Default: 10, Max: 100.
+   */
+  limit?: number | undefined;
+  /**
+   * Filter by customer ID. Example: "AzqOd0VMyUhHQZf4"
+   */
+  customer_id?: string | undefined;
+  /**
+   * Filter by subscription ID. Example: "AzZPdjVMyVrz9acf"
+   */
+  subscription_id?: string | undefined;
+  /**
+   * Filter by transaction type.
+   */
+  type_is?: 'payment' | 'refund' | 'payment_reversal' | undefined;
+  /**
+   * Exclude by transaction type.
+   */
+  type_is_not?: 'payment' | 'refund' | 'payment_reversal' | undefined;
+  /**
+   * Filter by status.
+   */
+  status_is?: string | undefined;
+  /**
+   * Exclude by status.
+   */
+  status_is_not?: string | undefined;
+  /**
+   * Filter by date greater than (Unix epoch seconds).
+   */
+  date_gt?: number | undefined;
+  /**
+   * Filter by date less than (Unix epoch seconds).
+   */
+  date_lt?: number | undefined;
+  /**
+   * Filter by date greater than or equal (Unix epoch seconds).
+   */
+  date_gte?: number | undefined;
+  /**
+   * Filter by date less than or equal (Unix epoch seconds).
+   */
+  date_lte?: number | undefined;
+  /**
+   * Filter by updated_at greater than (Unix epoch seconds).
+   */
+  updated_at_gt?: number | undefined;
+  /**
+   * Filter by updated_at less than (Unix epoch seconds).
+   */
+  updated_at_lt?: number | undefined;
+  /**
+   * Filter by updated_at greater than or equal (Unix epoch seconds).
+   */
+  updated_at_gte?: number | undefined;
+  /**
+   * Filter by updated_at less than or equal (Unix epoch seconds).
+   */
+  updated_at_lte?: number | undefined;
+};
+
+export interface ActionOutput_chargebee_listtransactions {
+  items: ({})[];
+  next_offset?: string | undefined;
+};
+
+export interface ActionInput_chargebee_updatecustomer {
+  /**
+   * Chargebee customer ID. Example: "AzqOd0VMyUhHQZf4"
+   */
+  customer_id: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  company?: string | undefined;
+  phone?: string | undefined;
+  auto_collection?: 'on' | 'off' | undefined;
+  net_term_days?: number | undefined;
+  locale?: string | undefined;
+  billing_address?: {  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  company?: string | undefined;
+  phone?: string | undefined;
+  line1?: string | undefined;
+  line2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  zip?: string | undefined;
+  country?: string | undefined;};
+};
+
+export interface ActionOutput_chargebee_updatecustomer {
+  id: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  company?: string | undefined;
+  phone?: string | undefined;
+  auto_collection?: 'on' | 'off' | undefined;
+  net_term_days?: number | undefined;
+  locale?: string | undefined;
+  billing_address?: {  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  company?: string | undefined;
+  phone?: string | undefined;
+  line1?: string | undefined;
+  line2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  zip?: string | undefined;
+  country?: string | undefined;};
+};
+
+export interface ActionInput_chargebee_updateitemprice {
+  /**
+   * Item price ID. Example: "basic-plan-monthly"
+   */
+  id: string;
+  /**
+   * Name of the item price.
+   */
+  name?: string | undefined;
+  /**
+   * Description of the item price.
+   */
+  description?: string | undefined;
+  /**
+   * Price in minor units (cents). Example: 1900
+   */
+  price?: number | undefined;
+  /**
+   * Status of the item price.
+   */
+  status?: 'active' | 'archived' | undefined;
+  /**
+   * Tiered pricing details.
+   */
+  tiers?: ({  starting_unit?: number | undefined;
+  ending_unit?: number | undefined;
+  price?: number | undefined;})[];
+};
+
+export interface ActionOutput_chargebee_updateitemprice {
+  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  status?: 'active' | 'archived' | 'deleted' | undefined;
+  price?: number | undefined;
+  item_id?: string | undefined;
+  item_family_id?: string | undefined;
+  pricing_model?: string | undefined;
+  resource_version?: number | undefined;
+  updated_at?: number | undefined;
+  created_at?: number | undefined;
+};
+
+export interface ActionInput_chargebee_updateitem {
+  /**
+   * The ID of the item to update. Example: "basic-plan"
+   */
+  item_id: string;
+  /**
+   * The name of the item.
+   */
+  name?: string | undefined;
+  /**
+   * The description of the item.
+   */
+  description?: string | undefined;
+  /**
+   * Whether the item is shippable.
+   */
+  is_shippable?: boolean | undefined;
+  /**
+   * Whether the item is enabled for checkout.
+   */
+  enabled_for_checkout?: boolean | undefined;
+  /**
+   * Whether the item is enabled in the portal.
+   */
+  enabled_in_portal?: boolean | undefined;
+  /**
+   * The status of the item.
+   */
+  status?: 'active' | 'archived' | undefined;
+};
+
+export interface ActionOutput_chargebee_updateitem {
+  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  status?: string | undefined;
+  is_shippable?: boolean | undefined;
+  enabled_for_checkout?: boolean | undefined;
+  enabled_in_portal?: boolean | undefined;
+  resource_version?: number | undefined;
+  updated_at?: number | undefined;
+  created_at?: number | undefined;
+  item_family_id?: string | undefined;
+  type?: string | undefined;
+};
+
+export interface ActionInput_chargebee_updatesubscription {
+  /**
+   * Chargebee subscription ID. Example: "AzqOd0VMyVsW3aOz"
+   */
+  subscription_id: string;
+  /**
+   * List of subscription items to set
+   */
+  subscription_items: ({  /**
+   * Item price ID to assign. Example: "basic-plan-monthly"
+   */
+  item_price_id: string;
+  /**
+   * Quantity of the item. Omit for on-off plans/addons. Example: 2
+   */
+  quantity?: number | undefined;})[];
+  /**
+   * When true, replaces the entire subscription item list. Default: true
+   */
+  replace_items_list?: boolean | undefined;
+  /**
+   * Whether to prorate changes. Default: true
+   */
+  proration?: boolean | undefined;
+};
+
+export interface ActionOutput_chargebee_updatesubscription {
+  /**
+   * Subscription ID
+   */
+  id: string;
+  /**
+   * Subscription status
+   */
+  status: string;
+  /**
+   * Customer ID
+   */
+  customer_id: string;
+  /**
+   * Updated subscription items
+   */
+  subscription_items: ({  item_price_id: string;
+  quantity?: number | undefined;
+  unit_price?: number | undefined;
+  amount?: number | undefined;
+  item_type?: string | undefined;})[];
+  /**
+   * Current term start (Unix seconds)
+   */
+  current_term_start?: number | undefined;
+  /**
+   * Current term end (Unix seconds)
+   */
+  current_term_end?: number | undefined;
+  /**
+   * Next billing date (Unix seconds)
+   */
+  next_billing_at?: number | undefined;
+  /**
+   * Creation timestamp (Unix seconds)
+   */
+  created_at?: number | undefined;
+  /**
+   * Last update timestamp (Unix seconds)
+   */
+  updated_at?: number | undefined;
+};
+
+export interface ActionInput_chargebee_voidcreditnote {
+  /**
+   * Credit note ID. Example: "cbnote_123"
+   */
+  credit_note_id: string;
+};
+
+export interface ActionOutput_chargebee_voidcreditnote {
+  id: string;
+  customer_id: string;
+  subscription_id?: string | undefined;
+  reference_invoice_id?: string | undefined;
+  type: 'adjustment' | 'refundable' | 'store';
+  reason_code?: string | undefined;
+  status: 'adjusted' | 'refunded' | 'refund_due' | 'voided';
+  vat_number?: string | undefined;
+  date?: number | undefined;
+  price_type: 'tax_exclusive' | 'tax_inclusive';
+  currency_code: string;
+  total?: number | undefined;
+  amount_allocated?: number | undefined;
+  amount_refunded?: number | undefined;
+  amount_available?: number | undefined;
+  refunded_at?: number | undefined;
+  voided_at?: number | undefined;
+  generated_at?: number | undefined;
+  resource_version?: number | undefined;
+  updated_at?: number | undefined;
+  channel?: 'web' | 'app_store' | 'play_store' | undefined;
+  sub_total: number;
+  sub_total_in_local_currency?: number | undefined;
+  total_in_local_currency?: number | undefined;
+  local_currency_code?: string | undefined;
+  round_off_amount?: number | undefined;
+  fractional_correction?: number | undefined;
+  notes?: string[] | undefined;
+  deleted: boolean;
+  tax_category?: string | undefined;
+  local_currency_exchange_rate?: number | undefined;
+  create_reason_code?: string | undefined;
+  vat_number_prefix?: string | undefined;
+  business_entity_id?: string | undefined;
 };
 
 export interface BackgroundCheck {
@@ -60634,22 +63516,6 @@ export interface CrmLead {
   write_date?: string | undefined;
 };
 
-export interface Invoice {
-  id: string;
-  invoice_number?: string | undefined;
-  status?: string | undefined;
-  customer_id?: string | undefined;
-  customer_name?: string | undefined;
-  reference_number?: string | undefined;
-  date?: string | undefined;
-  due_date?: string | undefined;
-  currency_code?: string | undefined;
-  total?: number | undefined;
-  balance?: number | undefined;
-  created_time?: string | undefined;
-  last_modified_time?: string | undefined;
-};
-
 export interface SaleOrder {
   id: string;
   name?: string | undefined;
@@ -70934,44 +73800,6 @@ export interface CreditMemo {
   updated_at: string;
 };
 
-export interface Customer {
-  id: string;
-  email: string;
-  first_name?: string | undefined;
-  last_name?: string | undefined;
-  role?: string | undefined;
-  username?: string | undefined;
-  date_created?: string | undefined;
-  date_created_gmt?: string | undefined;
-  date_modified?: string | undefined;
-  date_modified_gmt?: string | undefined;
-  billing?: {  first_name?: string | undefined;
-  last_name?: string | undefined;
-  company?: string | undefined;
-  address_1?: string | undefined;
-  address_2?: string | undefined;
-  city?: string | undefined;
-  state?: string | undefined;
-  postcode?: string | undefined;
-  country?: string | undefined;
-  email?: string | undefined;
-  phone?: string | undefined;};
-  shipping?: {  first_name?: string | undefined;
-  last_name?: string | undefined;
-  company?: string | undefined;
-  address_1?: string | undefined;
-  address_2?: string | undefined;
-  city?: string | undefined;
-  state?: string | undefined;
-  postcode?: string | undefined;
-  country?: string | undefined;};
-  is_paying_customer?: boolean | undefined;
-  avatar_url?: string | undefined;
-  meta_data?: ({  id?: number | undefined;
-  key?: string | undefined;
-  value?: unknown | undefined;})[];
-};
-
 export interface Deposit {
   id: string;
   syncToken?: string | undefined;
@@ -71013,32 +73841,6 @@ export interface Estimate {
   line_items?: ({  [key: string]: unknown | undefined;})[];
   custom_fields?: ({  [key: string]: unknown | undefined;})[];
   tags?: ({  [key: string]: unknown | undefined;})[];
-};
-
-export interface Item {
-  id: string;
-  name?: string | undefined;
-  status?: string | undefined;
-  rate?: number | undefined;
-  unit?: string | undefined;
-  description?: string | undefined;
-  item_type?: string | undefined;
-  product_type?: string | undefined;
-  tax_id?: string | undefined;
-  tax_name?: string | undefined;
-  tax_percentage?: number | undefined;
-  account_id?: string | undefined;
-  account_name?: string | undefined;
-  purchase_rate?: number | undefined;
-  purchase_account_id?: string | undefined;
-  purchase_account_name?: string | undefined;
-  can_be_sold?: boolean | undefined;
-  can_be_purchased?: boolean | undefined;
-  track_inventory?: boolean | undefined;
-  sku?: string | undefined;
-  source?: string | undefined;
-  created_time?: string | undefined;
-  last_modified_time?: string | undefined;
 };
 
 export interface JournalEntry {
@@ -86577,22 +89379,6 @@ export interface CheckoutSession {
   url?: string | undefined;
 };
 
-export interface CreditNote {
-  id: string;
-  creditnote_number?: string | undefined;
-  status?: string | undefined;
-  reference_number?: string | undefined;
-  date?: string | undefined;
-  issued_date?: string | undefined;
-  total?: number | undefined;
-  balance?: number | undefined;
-  customer_id?: string | undefined;
-  customer_name?: string | undefined;
-  currency_code?: string | undefined;
-  created_time?: string | undefined;
-  last_modified_time?: string | undefined;
-};
-
 export interface InvoiceItem {
   id: string;
   amount: number;
@@ -86719,26 +89505,6 @@ export interface SetupIntent {
   cancellation_reason?: string | undefined;
   livemode?: boolean | undefined;
   metadata?: {  [key: string]: unknown | undefined;};
-};
-
-export interface Subscription {
-  id: string;
-  status: string;
-  customer: string;
-  created: number;
-  current_period_start?: number | undefined;
-  current_period_end?: number | undefined;
-  cancel_at_period_end?: boolean | undefined;
-  canceled_at?: number | undefined;
-  ended_at?: number | undefined;
-  collection_method?: string | undefined;
-  currency?: string | undefined;
-  description?: string | undefined;
-  metadata?: {  [key: string]: string;} | undefined;
-  items?: ({  id: string;
-  price_id?: string | undefined;
-  product_id?: string | undefined;
-  quantity?: number | undefined;})[];
 };
 
 export interface ActionInput_stripe_cancelpaymentintent {
