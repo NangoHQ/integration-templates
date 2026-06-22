@@ -1,0 +1,131 @@
+{
+  "nango": {
+    "getMetadata": {
+      "design_ids": [
+        "DAHNA4vfOCY",
+        "DAHNAJoy69Y"
+      ]
+    },
+    "batchSave": {
+      "DesignPage": [
+        {
+          "id": "DAHNA4vfOCY:PBD0GrLJvYsHMWCn",
+          "design_id": "DAHNA4vfOCY",
+          "page_number": 1,
+          "design_type": "presentation",
+          "dimensions": {
+            "width": 1920,
+            "height": 1080
+          },
+          "thumbnail": {
+            "width": 595,
+            "height": 335,
+            "url": "https://document-export.canva.com/vfOCY/DAHNA4vfOCY/1/thumbnail/0001.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWEOTUD6Q%2F20260619%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260619T002658Z&X-Amz-Expires=46839&X-Amz-Signature=afdfc8d5e31e7beaff9bbe946fd7f2fadbcb5e765dbf8dcb282440f6292e4696&X-Amz-SignedHeaders=host&response-expires=Fri%2C%2019%20Jun%202026%2013%3A27%3A37%20GMT"
+          }
+        },
+        {
+          "id": "DAHNAJoy69Y:PBR4GNmy7BhD7CGv",
+          "design_id": "DAHNAJoy69Y",
+          "page_number": 1,
+          "design_type": "doc"
+        }
+      ]
+    },
+    "batchDelete": {
+      "DesignPage": []
+    }
+  },
+  "api": {
+    "get": {
+      "/rest/v1/designs/DAHNA4vfOCY/pages": {
+        "response": {
+          "items": [
+            {
+              "id": "PBD0GrLJvYsHMWCn",
+              "index": 1,
+              "page_number": 1,
+              "dimensions": {
+                "width": 1920,
+                "height": 1080
+              },
+              "thumbnail": {
+                "width": 595,
+                "height": 335,
+                "url": "https://document-export.canva.com/vfOCY/DAHNA4vfOCY/1/thumbnail/0001.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWEOTUD6Q%2F20260619%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260619T002658Z&X-Amz-Expires=46839&X-Amz-Signature=afdfc8d5e31e7beaff9bbe946fd7f2fadbcb5e765dbf8dcb282440f6292e4696&X-Amz-SignedHeaders=host&response-expires=Fri%2C%2019%20Jun%202026%2013%3A27%3A37%20GMT"
+              },
+              "design_type": "presentation"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 19 Jun 2026 11:52:14 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "589",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4993",
+          "x-ratelimit-reset": "1781869985",
+          "x-request-id": "a0e2539188dffff0",
+          "etag": "W/\"24d-Zf3O26QD8bVbfLquCHS+GPDSL/A\""
+        },
+        "hash": "7ff2db41ede8632913834f005ee1cb30a75c3bfe",
+        "request": {
+          "params": {
+            "limit": "50",
+            "offset": "1"
+          }
+        }
+      },
+      "/rest/v1/designs/DAHNAJoy69Y/pages": {
+        "response": {
+          "items": [
+            {
+              "id": "PBR4GNmy7BhD7CGv",
+              "index": 1,
+              "page_number": 1,
+              "design_type": "doc"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 19 Jun 2026 11:52:15 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "83",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4992",
+          "x-ratelimit-reset": "1781869985",
+          "x-request-id": "a0e253950ea4ff02",
+          "etag": "W/\"53-3LNArIP3YctRdmH8YfaCWDNw29U\""
+        },
+        "hash": "f060214180273457c39ff3d63f970a691b5ae6b2",
+        "request": {
+          "params": {
+            "limit": "50",
+            "offset": "1"
+          }
+        }
+      }
+    }
+  }
+}

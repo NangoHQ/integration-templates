@@ -809,6 +809,48 @@ import './calendly/actions/list-routing-forms.js';
 import './calendly/actions/list-scheduled-events.js';
 import './calendly/actions/list-webhook-subscriptions.js';
 
+// -- Integration: canva
+import './canva/syncs/brand-templates.js';
+import './canva/syncs/design-pages.js';
+import './canva/syncs/designs.js';
+import './canva/syncs/folder-items.js';
+import './canva/actions/create-asset-upload-job.js';
+import './canva/actions/create-comment-reply.js';
+import './canva/actions/create-comment.js';
+import './canva/actions/create-design-comment-reply.js';
+import './canva/actions/create-design-comment.js';
+import './canva/actions/create-design-export-job.js';
+import './canva/actions/create-design-import-job.js';
+import './canva/actions/create-design-resize-job.js';
+import './canva/actions/create-design.js';
+import './canva/actions/create-folder.js';
+import './canva/actions/create-url-asset-upload-job.js';
+import './canva/actions/create-url-design-import-job.js';
+import './canva/actions/delete-asset.js';
+import './canva/actions/delete-folder.js';
+import './canva/actions/get-asset-upload-job.js';
+import './canva/actions/get-asset.js';
+import './canva/actions/get-brand-template.js';
+import './canva/actions/get-current-user-capabilities.js';
+import './canva/actions/get-current-user-profile.js';
+import './canva/actions/get-current-user.js';
+import './canva/actions/get-design-comment-reply.js';
+import './canva/actions/get-design-comment-thread.js';
+import './canva/actions/get-design-export-formats.js';
+import './canva/actions/get-design-export-job.js';
+import './canva/actions/get-design-import-job.js';
+import './canva/actions/get-design-pages.js';
+import './canva/actions/get-design.js';
+import './canva/actions/get-folder.js';
+import './canva/actions/get-url-asset-upload-job.js';
+import './canva/actions/get-url-design-import-job.js';
+import './canva/actions/list-brand-templates.js';
+import './canva/actions/list-design-comment-replies.js';
+import './canva/actions/list-designs.js';
+import './canva/actions/move-folder-item.js';
+import './canva/actions/update-asset.js';
+import './canva/actions/update-folder.js';
+
 // -- Integration: chargebee
 import './chargebee/syncs/coupon-sets.js';
 import './chargebee/syncs/credit-notes.js';

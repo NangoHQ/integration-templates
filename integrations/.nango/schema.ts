@@ -19742,177 +19742,6 @@ export interface ActionOutput_bill_disableuser {
   success: boolean;
 };
 
-export interface Branch {
-  id: string;
-  name: string;
-  project_id: string;
-  merged?: boolean | undefined;
-  protected?: boolean | undefined;
-  default?: boolean | undefined;
-  developers_can_push?: boolean | undefined;
-  developers_can_merge?: boolean | undefined;
-  can_push?: boolean | undefined;
-  web_url?: string | undefined;
-  commit_id?: string | undefined;
-  commit_short_id?: string | undefined;
-  commit_created_at?: string | undefined;
-  commit_title?: string | undefined;
-  commit_message?: string | undefined;
-  commit_author_name?: string | undefined;
-  commit_author_email?: string | undefined;
-  commit_authored_date?: string | undefined;
-  commit_committer_name?: string | undefined;
-  commit_committer_email?: string | undefined;
-  commit_committed_date?: string | undefined;
-  commit_web_url?: string | undefined;
-};
-
-export interface Commit {
-  id: string;
-  short_id?: string | undefined;
-  title?: string | undefined;
-  author_name?: string | undefined;
-  author_email?: string | undefined;
-  authored_date?: string | undefined;
-  committer_name?: string | undefined;
-  committer_email?: string | undefined;
-  committed_date?: string | undefined;
-  created_at?: string | undefined;
-  message?: string | undefined;
-  parent_ids?: string[] | undefined;
-  web_url?: string | undefined;
-};
-
-export interface Pipeline {
-  id: string;
-  name?: string | undefined;
-  update_time: string;
-  add_time?: string | undefined;
-  is_deal_probability_enabled?: boolean | undefined;
-};
-
-export interface PullRequest {
-  /**
-   * The unique identifier of the pull request (e.g., "12345")
-   */
-  id: string;
-  /**
-   * The pull request number within the repository
-   */
-  number: number;
-  /**
-   * The state of the pull request: "open", "closed"
-   */
-  state: string;
-  /**
-   * The title of the pull request
-   */
-  title: string;
-  /**
-   * The description/body of the pull request
-   */
-  body?: string | undefined;
-  /**
-   * The login/username of the PR author
-   */
-  user_login?: string | undefined;
-  /**
-   * The ID of the PR author
-   */
-  user_id?: number | undefined;
-  /**
-   * The ISO 8601 timestamp when the PR was created
-   */
-  created_at: string;
-  /**
-   * The ISO 8601 timestamp when the PR was last updated
-   */
-  updated_at: string;
-  /**
-   * The ISO 8601 timestamp when the PR was closed
-   */
-  closed_at?: string | undefined;
-  /**
-   * The ISO 8601 timestamp when the PR was merged
-   */
-  merged_at?: string | undefined;
-  /**
-   * The SHA of the merge commit
-   */
-  merge_commit_sha?: string | undefined;
-  /**
-   * The name of the head branch
-   */
-  head_ref: string;
-  /**
-   * The SHA of the head branch commit
-   */
-  head_sha: string;
-  /**
-   * The name of the base branch
-   */
-  base_ref: string;
-  /**
-   * The SHA of the base branch commit
-   */
-  base_sha: string;
-  /**
-   * Whether the pull request is a draft
-   */
-  draft: boolean;
-  /**
-   * The URL to view the pull request on GitHub
-   */
-  html_url: string;
-  /**
-   * The full name of the repository (e.g., "owner/repo")
-   */
-  repo_full_name: string;
-  /**
-   * Labels attached to the pull request
-   */
-  labels: ({  id: number;
-  name: string;
-  color: string;
-  description?: string | undefined;})[];
-  /**
-   * Users assigned to the pull request
-   */
-  assignees: ({  login: string;
-  id: number;})[];
-  /**
-   * Users requested to review the pull request
-   */
-  requested_reviewers: ({  login: string;
-  id: number;})[];
-};
-
-export interface Repository {
-  id: string;
-  name: string;
-  full_name: string;
-  owner_login: string;
-  owner_id: string;
-  owner_type: string;
-  private: boolean;
-  visibility?: string | undefined;
-  html_url: string;
-  description?: string | undefined;
-  fork: boolean;
-  default_branch: string;
-  created_at?: string | undefined;
-  updated_at?: string | undefined;
-  pushed_at?: string | undefined;
-  homepage?: string | undefined;
-  language?: string | undefined;
-  size: number;
-  forks_count: number;
-  stargazers_count: number;
-  open_issues_count: number;
-  archived?: boolean | undefined;
-  disabled?: boolean | undefined;
-};
-
 export interface ActionInput_bitbucket_createbranch {
   /**
    * Workspace slug. Example: "nangodev"
@@ -23680,6 +23509,1001 @@ export interface ActionOutput_calendly_listwebhooksubscriptions {
   pagination?: {  count?: number | undefined;
   next_page_token?: string | undefined;
   previous_page_token?: string | undefined;};
+};
+
+export interface BrandTemplate {
+  id: string;
+  title: string;
+  view_url: string;
+  create_url: string;
+  thumbnail?: {  width: number;
+  height: number;
+  url: string;} | undefined;
+  created_at: number;
+  updated_at: number;
+};
+
+export interface DesignPage {
+  id: string;
+  design_id: string;
+  page_number: number;
+  design_type?: string | undefined;
+  dimensions?: {  width: number;
+  height: number;} | undefined;
+  thumbnail?: {  width: number;
+  height: number;
+  url: string;} | undefined;
+};
+
+export interface SyncMetadata_canva_designpages {
+  design_ids: string[];
+};
+
+export interface Design {
+  id: string;
+  title?: string | undefined;
+  created_at: number;
+  updated_at: number;
+  page_count?: number | undefined;
+  owner?: {  user_id?: string | undefined;
+  team_id?: string | undefined;};
+  thumbnail?: {  width?: number | undefined;
+  height?: number | undefined;
+  url?: string | undefined;};
+  urls?: {  edit_url?: string | undefined;
+  view_url?: string | undefined;};
+};
+
+export interface FolderItem {
+  id: string;
+  type: string;
+  folder_id: string;
+  name?: string | undefined;
+  url?: string | undefined;
+  created_at?: number | undefined;
+  updated_at?: number | undefined;
+  thumbnail?: unknown | undefined;
+  page_count?: number | undefined;
+  tags?: string[] | undefined;
+};
+
+export interface SyncMetadata_canva_folderitems {
+  folder_ids: string[];
+};
+
+export interface ActionInput_canva_createassetuploadjob {
+  /**
+   * Base64-encoded file bytes to upload. Example: "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="
+   */
+  file_base64: string;
+  /**
+   * The asset name. Maximum 50 characters. Example: "My Awesome Upload"
+   */
+  name: string;
+};
+
+export interface ActionOutput_canva_createassetuploadjob {
+  job: {  id: string;
+  status: 'failed' | 'in_progress' | 'success';
+  error?: {  code: string;
+  message: string;} | undefined;
+  asset?: {  type: 'image' | 'video';
+  id: string;
+  name: string;
+  tags: string[];
+  owner: {  user_id: string;
+  team_id: string;};
+  created_at: number;
+  updated_at: number;
+  thumbnail?: {  width: number;
+  height: number;
+  url: string;} | undefined;
+  metadata?: {  [key: string]: unknown | undefined;};};};
+};
+
+export interface ActionInput_canva_createcommentreply {
+  /**
+   * The ID of the design the comment is on. Example: "DAFVztcvd9z"
+   */
+  designId: string;
+  /**
+   * The ID of the inline annotation comment. Example: "KeAZEAjijEb"
+   */
+  commentId: string;
+  /**
+   * The reply message in plaintext. Example: "Thanks!"
+   */
+  message_plaintext: string;
+};
+
+export interface ActionOutput_canva_createcommentreply {
+  id: string;
+  design_id: string;
+  thread_id: string;
+  content: {  plaintext: string;
+  markdown?: string | undefined;};
+  mentions?: {  [key: string]: {  tag: string;
+  user?: {  user_id?: string | undefined;
+  team_id?: string | undefined;
+  display_name?: string | undefined;};};};
+  created_at: number;
+  updated_at: number;
+  author?: {  id: string;
+  display_name?: string | undefined;};
+};
+
+export interface ActionInput_canva_createcomment {
+  /**
+   * The object to attach the comment to
+   */
+  attached_to: {  /**
+   * The type of object to attach the comment to. Example: "design"
+   */
+  type: string;
+  /**
+   * The ID of the design to attach the comment to. Example: "DAHNACmCy_g"
+   */
+  design_id: string;
+  /**
+   * Reference to the specific design element to anchor the comment to
+   */
+  element?: unknown | undefined;};
+  /**
+   * The comment message in plaintext. Example: "Great work!"
+   */
+  message_plaintext: string;
+  /**
+   * The ID of the user to assign the comment to. Example: "oUnPjZ2k2yuhftbWF7873o"
+   */
+  assignee_id?: string | undefined;
+};
+
+export interface ActionOutput_canva_createcomment {
+  id: string;
+  design_id?: string | undefined;
+  message_plaintext?: string | undefined;
+  author?: {  id: string;
+  display_name?: string | undefined;};
+  created_at?: number | undefined;
+  updated_at?: number | undefined;
+  mentions?: {  [key: string]: unknown | undefined;};
+  assignee?: {  id: string;
+  display_name?: string | undefined;};
+  resolver?: {  id: string;
+  display_name?: string | undefined;};
+};
+
+export interface ActionInput_canva_createdesigncommentreply {
+  /**
+   * The ID of the design. Example: "DAHNACmCy_g"
+   */
+  design_id: string;
+  /**
+   * The ID of the comment thread. Example: "KAHNAKVJAd4"
+   */
+  thread_id: string;
+  /**
+   * The reply message in plaintext. Example: "Thanks for the feedback!"
+   */
+  message_plaintext: string;
+};
+
+export interface ActionOutput_canva_createdesigncommentreply {
+  id: string;
+  design_id: string;
+  thread_id: string;
+  author?: {  id: string;
+  display_name?: string | undefined;};
+  content: {  plaintext: string;};
+};
+
+export interface ActionInput_canva_createdesigncomment {
+  /**
+   * The ID of the design to comment on. Example: "DAHNACmCy_g"
+   */
+  design_id: string;
+  /**
+   * The comment message in plaintext. Example: "Great work!"
+   */
+  message_plaintext: string;
+  /**
+   * The User ID to assign the comment to. You must mention this user in the message.
+   */
+  assignee_id?: string | undefined;
+};
+
+export interface ActionOutput_canva_createdesigncomment {
+  id: string;
+  design_id: string;
+  thread_type: {  type: string;
+  content?: {  plaintext: string;
+  markdown?: string | undefined;};
+  mentions?: {  [key: string]: {  tag: string;
+  user?: {  user_id: string;
+  team_id: string;
+  display_name?: string | undefined;};};};
+  assignee?: {  id: string;
+  display_name?: string | undefined;};
+  resolver?: {  id: string;
+  display_name?: string | undefined;};};
+  author?: {  id: string;
+  display_name?: string | undefined;};
+  created_at: number;
+  updated_at: number;
+};
+
+export interface ActionInput_canva_createdesignexportjob {
+  /**
+   * The design ID. Example: "DAHNACmCy_g"
+   */
+  design_id: string;
+  /**
+   * Export format details including type and format-specific options.
+   */
+  format: {  /**
+   * Export format type. Example: "pdf", "png", "jpg", "pptx", "gif", "mp4", "html_bundle", "html_standalone"
+   */
+  type: string;};
+};
+
+export interface ActionOutput_canva_createdesignexportjob {
+  job: {  id: string;
+  status: string;
+  urls?: string[] | undefined;
+  error?: {  code: string;
+  message: string;} | undefined;};
+};
+
+export interface ActionInput_canva_createdesignimportjob {
+  /**
+   * The title of the design to create. Maximum 50 characters. Example: "My Imported Design"
+   */
+  title: string;
+  /**
+   * Base64-encoded file content. Supported formats: PPTX, PDF, SVG. Example: "PHN2Zy4u."
+   */
+  file_content: string;
+  /**
+   * The MIME type of the file being imported. If not provided, Canva attempts to automatically detect the type. Example: "application/pdf"
+   */
+  mime_type?: string | undefined;
+};
+
+export interface ActionOutput_canva_createdesignimportjob {
+  job: {  id: string;
+  status: string;};
+};
+
+export interface ActionInput_canva_createdesignresizejob {
+  /**
+   * The ID of the design to resize. Example: "DAHNACmCy_g"
+   */
+  design_id: string;
+  design_type: {  type: 'preset';
+  name: 'doc' | 'email' | 'presentation' | 'whiteboard';} | {  type: 'custom';
+  width: number;
+  height: number;};
+};
+
+export interface ActionOutput_canva_createdesignresizejob {
+  job: {  id: string;
+  status: 'in_progress' | 'success' | 'failed';
+  result?: {  design: {  id: string;
+  title?: string | undefined;
+  url?: string | undefined;
+  thumbnail?: {  width: number;
+  height: number;
+  url: string;} | undefined;
+  urls: {  edit_url: string;
+  view_url: string;};
+  created_at: number;
+  updated_at: number;
+  page_count?: number | undefined;};
+  trial_information?: {  uses_remaining: number;
+  upgrade_url: string;} | undefined;};
+  error?: {  code: string;
+  message: string;} | undefined;};
+};
+
+export interface ActionInput_canva_createdesign {
+  /**
+   * The design type, either a preset or custom dimensions
+   */
+  design_type: {  type: 'preset';
+  /**
+   * The preset design type name. Example: "presentation"
+   */
+  name: 'doc' | 'email' | 'presentation' | 'whiteboard';} | {  type: 'custom';
+  /**
+   * The width of the design in pixels. Example: 1920
+   */
+  width: number;
+  /**
+   * The height of the design in pixels. Example: 1080
+   */
+  height: number;};
+  /**
+   * The ID of an asset to insert into the created design. Currently only supports image assets. Example: "MAHNAIYJM-w"
+   */
+  asset_id?: string | undefined;
+  /**
+   * The name of the design. Example: "My Holiday Presentation"
+   */
+  title?: string | undefined;
+};
+
+export interface ActionOutput_canva_createdesign {
+  design: {  id: string;
+  title?: string | undefined;
+  owner: {  user_id: string;
+  team_id: string;};
+  thumbnail?: {  width: number;
+  height: number;
+  url: string;} | undefined;
+  urls: {  edit_url: string;
+  view_url: string;};
+  created_at: number;
+  updated_at: number;
+  page_count?: number | undefined;};
+};
+
+export interface ActionInput_canva_createfolder {
+  /**
+   * The name of the folder. Example: "My awesome holiday"
+   */
+  name: string;
+  /**
+   * The folder ID of the parent folder. Use "root" for top-level or "uploads" for the Uploads folder. Example: "FAF2lZtloor"
+   */
+  parent_folder_id: string;
+};
+
+export interface ActionOutput_canva_createfolder {
+  folder: {  /**
+   * The folder ID. Example: "FAF2lZtloor"
+   */
+  id: string;
+  /**
+   * The folder name. Example: "My awesome holiday"
+   */
+  name: string;
+  /**
+   * When the folder was created, as a Unix timestamp (in seconds since the Unix Epoch).
+   */
+  created_at: number;
+  /**
+   * When the folder was last updated, as a Unix timestamp (in seconds since the Unix Epoch).
+   */
+  updated_at: number;
+  thumbnail?: {  /**
+   * The width of the thumbnail image in pixels.
+   */
+  width: number;
+  /**
+   * The height of the thumbnail image in pixels.
+   */
+  height: number;
+  /**
+   * A URL for retrieving the thumbnail image.
+   */
+  url: string;} | undefined;};
+};
+
+export interface ActionInput_canva_createurlassetuploadjob {
+  /**
+   * The URL of the file to import. Must be publicly accessible and return HTTP 200 directly. Example: "https://example.com/image.jpg"
+   */
+  url: string;
+  /**
+   * A name for the asset. Example: "My Awesome Asset"
+   */
+  name: string;
+};
+
+export interface ActionOutput_canva_createurlassetuploadjob {
+  job: {  id: string;
+  status: string;
+  error?: {  code: string;
+  message: string;} | undefined;
+  asset?: {  id: string;
+  type: string;
+  name: string;
+  tags: string[];
+  created_at: number;
+  updated_at: number;
+  owner: {  user_id: string;
+  team_id: string;};
+  thumbnail?: {  width: number;
+  height: number;
+  url: string;} | undefined;};};
+};
+
+export interface ActionInput_canva_createurldesignimportjob {
+  /**
+   * The URL of the file to import. Must be publicly accessible. Example: "https://example.com/presentation.pptx"
+   */
+  url: string;
+  /**
+   * A title for the imported design. Example: "My Awesome Design"
+   */
+  title: string;
+  /**
+   * The MIME type of the file being imported. Example: "application/vnd.openxmlformats-officedocument.presentationml.presentation"
+   */
+  mime_type?: string | undefined;
+};
+
+export interface ActionOutput_canva_createurldesignimportjob {
+  job: {  id: string;
+  status: 'in_progress' | 'success' | 'failed';
+  result?: {  designs?: ({  id: string;
+  title?: string | undefined;
+  url?: string | undefined;
+  thumbnail?: {  width?: number | undefined;
+  height?: number | undefined;
+  url?: string | undefined;};
+  urls?: {  edit_url?: string | undefined;
+  view_url?: string | undefined;};
+  created_at?: number | undefined;
+  updated_at?: number | undefined;
+  page_count?: number | undefined;})[];};
+  error?: {  code: string;
+  message: string;} | undefined;};
+};
+
+export interface ActionInput_canva_deleteasset {
+  /**
+   * The ID of the asset to delete. Example: "MAHNAO5uFww"
+   */
+  assetId: string;
+};
+
+export interface ActionOutput_canva_deleteasset {
+  assetId: string;
+  deleted: boolean;
+};
+
+export interface ActionInput_canva_deletefolder {
+  /**
+   * Folder ID. Example: "FAHNA0uMKHU"
+   */
+  folderId: string;
+};
+
+export interface ActionOutput_canva_deletefolder {
+  success: boolean;
+};
+
+export interface ActionInput_canva_getassetuploadjob {
+  /**
+   * The asset upload job ID. Example: "e08861ae-3b29-45db-8dc1-1fe0bf7f1cc8"
+   */
+  jobId: string;
+};
+
+export interface ActionOutput_canva_getassetuploadjob {
+  job: {  id: string;
+  status: 'failed' | 'in_progress' | 'success';
+  error?: {  code: string;
+  message: string;} | undefined;
+  asset?: {  type: 'image' | 'video';
+  id: string;
+  name: string;
+  tags: string[];
+  created_at: number;
+  updated_at: number;
+  owner: {  user_id: string;
+  team_id: string;};
+  thumbnail?: {  width: number;
+  height: number;
+  url: string;} | undefined;
+  metadata?: {  type: 'image';
+  width?: number | undefined;
+  height?: number | undefined;
+  smart_tags?: string[] | undefined;} | {  type: 'video';
+  width?: number | undefined;
+  height?: number | undefined;
+  duration?: number | undefined;};};};
+};
+
+export interface ActionInput_canva_getasset {
+  /**
+   * The ID of the asset. Example: "MAHNAIYJM-w"
+   */
+  assetId: string;
+};
+
+export interface ActionOutput_canva_getasset {
+  id: string;
+  type: 'image' | 'video';
+  name: string;
+  tags: string[];
+  created_at: number;
+  updated_at: number;
+  owner: {  user_id: string;
+  team_id: string;};
+  thumbnail?: {  width: number;
+  height: number;
+  url: string;} | undefined;
+  metadata?: {  type: 'image';
+  width?: number | undefined;
+  height?: number | undefined;
+  smart_tags?: string[] | undefined;} | {  type: 'video';
+  width: number;
+  height: number;
+  duration?: number | undefined;};
+};
+
+export interface ActionInput_canva_getbrandtemplate {
+  /**
+   * The brand template ID. Example: "DEMzWSwy3BI"
+   */
+  brandTemplateId: string;
+};
+
+export interface ActionOutput_canva_getbrandtemplate {
+  id: string;
+  title: string;
+  view_url: string;
+  create_url: string;
+  thumbnail?: {  width: number;
+  height: number;
+  url: string;} | undefined;
+  created_at: number;
+  updated_at: number;
+};
+
+export interface ActionInput_canva_getcurrentusercapabilities {
+};
+
+export interface ActionOutput_canva_getcurrentusercapabilities {
+  capabilities: string[];
+};
+
+export interface ActionInput_canva_getcurrentuserprofile {
+};
+
+export interface ActionOutput_canva_getcurrentuserprofile {
+  display_name: string;
+};
+
+export interface ActionInput_canva_getcurrentuser {
+};
+
+export interface ActionOutput_canva_getcurrentuser {
+  /**
+   * The ID of the user.
+   */
+  user_id: string;
+  /**
+   * The ID of the user's Canva Team.
+   */
+  team_id: string;
+};
+
+export interface ActionInput_canva_getdesigncommentreply {
+  /**
+   * The design ID. Example: "DAHNACmCy_g"
+   */
+  designId: string;
+  /**
+   * The ID of the thread. Example: "KAHNAKVJAd4"
+   */
+  threadId: string;
+  /**
+   * The ID of the reply. Example: "KAHNAD33dXY"
+   */
+  replyId: string;
+};
+
+export interface ActionOutput_canva_getdesigncommentreply {
+  id: string;
+  design_id: string;
+  thread_id: string;
+  author?: {  id: string;
+  display_name?: string | undefined;};
+  content: {  plaintext: string;
+  markdown?: string | undefined;};
+  mentions: {  [key: string]: unknown | undefined;};
+  created_at: number;
+  updated_at: number;
+};
+
+export interface ActionInput_canva_getdesigncommentthread {
+  /**
+   * The ID of the design. Example: "DAFVztcvd9z"
+   */
+  design_id: string;
+  /**
+   * The ID of the comment thread. Example: "KeAbiEAjZEj"
+   */
+  thread_id: string;
+};
+
+export interface ActionOutput_canva_getdesigncommentthread {
+  thread: {  id: string;
+  design_id: string;
+  thread_type: {  type: 'comment';
+  content: {  plaintext: string;
+  markdown?: string | undefined;};
+  mentions?: {  [key: string]: {  tag: string;
+  user?: {  user_id?: string | undefined;
+  team_id?: string | undefined;
+  display_name?: string | undefined;};};};
+  assignee?: {  id: string;
+  display_name?: string | undefined;};
+  resolver?: {  id: string;
+  display_name?: string | undefined;};} | {  type: 'suggestion';
+  suggested_edits: ({  type: 'add' | 'delete' | 'format';
+  format?: string | undefined;})[];
+  status: 'open' | 'accepted' | 'rejected';};
+  author?: {  id: string;
+  display_name?: string | undefined;};
+  created_at: number;
+  updated_at: number;};
+};
+
+export interface ActionInput_canva_getdesignexportformats {
+  /**
+   * Design ID. Example: "DAHNACmCy_g"
+   */
+  designId: string;
+};
+
+export interface ActionOutput_canva_getdesignexportformats {
+  formats: string[];
+};
+
+export interface ActionInput_canva_getdesignexportjob {
+  /**
+   * The export job ID. Example: "e08861ae-3b29-45db-8dc1-1fe0bf7f1cc8"
+   */
+  exportId: string;
+};
+
+export interface ActionOutput_canva_getdesignexportjob {
+  job: {  id: string;
+  status: 'failed' | 'in_progress' | 'success';
+  urls?: string[] | undefined;
+  error?: {  code: 'license_required' | 'approval_required' | 'internal_failure';
+  message: string;} | undefined;};
+};
+
+export interface ActionInput_canva_getdesignimportjob {
+  /**
+   * The ID of the design import job. Example: "e80335c7-afa5-4608-a815-4865c11d0025"
+   */
+  jobId: string;
+};
+
+export interface ActionOutput_canva_getdesignimportjob {
+  job: {  id: string;
+  status: 'failed' | 'in_progress' | 'success';
+  result?: {  designs?: ({  id: string;
+  title?: string | undefined;
+  url?: string | undefined;
+  thumbnail?: {  width: number;
+  height: number;
+  url: string;} | undefined;
+  urls?: {  edit_url: string;
+  view_url: string;} | undefined;
+  created_at?: number | undefined;
+  updated_at?: number | undefined;
+  page_count?: number | undefined;})[];};
+  error?: {  code: string;
+  message: string;} | undefined;};
+};
+
+export interface ActionInput_canva_getdesignpages {
+  /**
+   * The design ID. Example: "DAHNACmCy_g"
+   */
+  designId: string;
+  /**
+   * The page index to start from (1-based). Defaults to 1.
+   */
+  offset?: number | undefined;
+  /**
+   * The number of pages to return. Defaults to 50.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_canva_getdesignpages {
+  items: ({  id?: string | undefined;
+  index?: number | undefined;
+  page_number?: number | undefined;
+  dimensions?: {  width: number;
+  height: number;} | undefined;
+  thumbnail?: {  width: number;
+  height: number;
+  url: string;} | undefined;})[];
+};
+
+export interface ActionInput_canva_getdesign {
+  /**
+   * The design ID. Example: "DAHNACmCy_g"
+   */
+  designId: string;
+};
+
+export interface ActionOutput_canva_getdesign {
+  id: string;
+  title?: string | undefined;
+  owner: {  user_id: string;
+  team_id: string;};
+  thumbnail?: {  width: number;
+  height: number;
+  url: string;} | undefined;
+  urls: {  edit_url: string;
+  view_url: string;};
+  created_at: number;
+  updated_at: number;
+  page_count?: number | undefined;
+};
+
+export interface ActionInput_canva_getfolder {
+  /**
+   * The folder ID. Example: "root" or "FAHNA0uMKHU"
+   */
+  folderId: string;
+};
+
+export interface ActionOutput_canva_getfolder {
+  id: string;
+  name: string;
+  created_at: number;
+  updated_at: number;
+  thumbnail?: {  width: number;
+  height: number;
+  url: string;} | undefined;
+};
+
+export interface ActionInput_canva_geturlassetuploadjob {
+  /**
+   * The asset upload job ID. Example: "e08861ae-3b29-45db-8dc1-1fe0bf7f1cc8"
+   */
+  job_id: string;
+};
+
+export interface ActionOutput_canva_geturlassetuploadjob {
+  id: string;
+  status: 'in_progress' | 'success' | 'failed';
+  error?: {  code: 'file_too_big' | 'import_failed' | 'fetch_failed';
+  message: string;} | undefined;
+  asset?: {  id: string;
+  type: 'image' | 'video';
+  name: string;
+  tags: string[];
+  created_at: number;
+  updated_at: number;
+  owner: {  user_id?: string | undefined;
+  team_id?: string | undefined;};
+  thumbnail?: {  width: number;
+  height: number;
+  url: string;} | undefined;
+  metadata?: {  type: 'image';
+  width?: number | undefined;
+  height?: number | undefined;
+  smart_tags?: string[] | undefined;} | {  type: 'video';
+  width?: number | undefined;
+  height?: number | undefined;
+  duration?: number | undefined;};};
+};
+
+export interface ActionInput_canva_geturldesignimportjob {
+  /**
+   * The ID of the URL import job. Example: "e08861ae-3b29-45db-8dc1-1fe0bf7f1cc8"
+   */
+  jobId: string;
+};
+
+export interface ActionOutput_canva_geturldesignimportjob {
+  job: {  id: string;
+  status: 'failed' | 'in_progress' | 'success';
+  result?: {  designs: ({  id: string;
+  title?: string | undefined;
+  url?: string | undefined;
+  thumbnail?: {  width: number;
+  height: number;
+  url: string;} | undefined;
+  urls: {  edit_url: string;
+  view_url: string;};
+  created_at: number;
+  updated_at: number;
+  page_count?: number | undefined;})[];};
+  error?: {  code: string;
+  message: string;} | undefined;};
+};
+
+export interface ActionInput_canva_listbrandtemplates {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Search term or terms to filter brand templates.
+   */
+  query?: string | undefined;
+  /**
+   * The number of brand templates to return. Defaults to 25.
+   */
+  limit?: number | undefined;
+  /**
+   * Filter by ownership.
+   */
+  ownership?: 'any' | 'owned' | 'shared' | undefined;
+  /**
+   * Sort order.
+   */
+  sort_by?: 'relevance' | 'modified_descending' | 'modified_ascending' | 'title_descending' | 'title_ascending' | undefined;
+  /**
+   * Filter by dataset definitions.
+   */
+  dataset?: 'any' | 'non_empty' | undefined;
+};
+
+export interface ActionOutput_canva_listbrandtemplates {
+  items: ({  id: string;
+  title: string;
+  view_url: string;
+  create_url: string;
+  thumbnail?: {  width: number;
+  height: number;
+  url: string;} | undefined;
+  created_at: number;
+  updated_at: number;})[];
+  /**
+   * Pagination cursor for the next page.
+   */
+  continuation?: string | undefined;
+};
+
+export interface ActionInput_canva_listdesigncommentreplies {
+  /**
+   * The design ID. Example: "DAHNACmCy_g"
+   */
+  designId: string;
+  /**
+   * The ID of the thread. Example: "KAHNAKVJAd4"
+   */
+  threadId: string;
+  /**
+   * The number of replies to return. Maximum 100.
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  continuation?: string | undefined;
+};
+
+export interface ActionOutput_canva_listdesigncommentreplies {
+  items: ({  id: string;
+  design_id: string;
+  thread_id: string;
+  author?: {  id: string;
+  display_name?: string | undefined;};
+  content: {  plaintext: string;
+  markdown?: string | undefined;};
+  mentions: {  [key: string]: {  tag: string;
+  user: {  user_id: string;
+  team_id: string;
+  display_name?: string | undefined;};};};
+  created_at: number;
+  updated_at: number;})[];
+  continuation?: string | undefined;
+};
+
+export interface ActionInput_canva_listdesigns {
+  /**
+   * Search term to filter designs. Example: "party invites"
+   */
+  query?: string | undefined;
+  /**
+   * Filter by ownership: any, owned, or shared.
+   */
+  ownership?: 'any' | 'owned' | 'shared' | undefined;
+  /**
+   * Pagination cursor from the previous response. Example: "RkFGMgXlsVTDbMd:MR3L0QjiaUzycIAjx0yMyuNiV0OildoiOwL0x32G4NjNu4FwtAQNxowUQNMMYN"
+   */
+  continuation?: string | undefined;
+  /**
+   * Sort order for results.
+   */
+  sort_by?: 'relevance' | 'modified_descending' | 'modified_ascending' | 'title_descending' | 'title_ascending' | undefined;
+  /**
+   * Number of designs to return (1-100). Default: 25.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_canva_listdesigns {
+  items: ({  id: string;
+  title?: string | undefined;
+  owner: {  user_id: string;
+  team_id: string;};
+  thumbnail?: {  width: number;
+  height: number;
+  url: string;} | undefined;
+  urls: {  edit_url: string;
+  view_url: string;};
+  created_at: number;
+  updated_at: number;
+  page_count?: number | undefined;
+  design_types?: string[] | undefined;})[];
+  continuation?: string | undefined;
+};
+
+export interface ActionInput_canva_movefolderitem {
+  /**
+   * The ID of the item to move. Example: "DAHNACmCy_g"
+   */
+  item_id: string;
+  /**
+   * The ID of the destination folder. Example: "FAHNA0uMKHU"
+   */
+  to_folder_id: string;
+};
+
+export interface ActionOutput_canva_movefolderitem {
+  success: boolean;
+};
+
+export interface ActionInput_canva_updateasset {
+  /**
+   * The ID of the asset to update. Example: "MAHNAIYJM-w"
+   */
+  assetId: string;
+  /**
+   * The new name for the asset.
+   */
+  name?: string | undefined;
+  /**
+   * The replacement tags for the asset.
+   */
+  tags?: string[] | undefined;
+};
+
+export interface ActionOutput_canva_updateasset {
+  id: string;
+  name: string;
+  tags: string[];
+  type: 'image' | 'video';
+  created_at: number;
+  updated_at: number;
+  owner: {  user_id: string;
+  team_id: string;};
+  import_status?: {  state?: string | undefined;};
+  thumbnail?: {  width: number;
+  height: number;
+  url: string;} | undefined;
+  metadata?: {  type: string;
+  width?: number | undefined;
+  height?: number | undefined;
+  duration?: number | undefined;
+  smart_tags?: string[] | undefined;};
+};
+
+export interface ActionInput_canva_updatefolder {
+  /**
+   * The folder ID. Example: FAF2lZtloor
+   */
+  folderId: string;
+  /**
+   * The new folder name. Example: My awesome holiday
+   */
+  name: string;
+};
+
+export interface ActionOutput_canva_updatefolder {
+  id: string;
+  name: string;
+  created_at: number;
+  updated_at: number;
+  thumbnail?: {  width: number;
+  height: number;
+  url: string;} | undefined;
 };
 
 export interface CouponSet {

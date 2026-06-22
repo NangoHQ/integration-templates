@@ -1,0 +1,86 @@
+{
+  "input": {
+    "design_id": "DAHNACmCy_g",
+    "thread_id": "KAHNAKVJAd4"
+  },
+  "output": {
+    "thread": {
+      "id": "KAHNAKVJAd4",
+      "design_id": "DAHNACmCy_g",
+      "thread_type": {
+        "type": "comment",
+        "content": {
+          "plaintext": "This is a great design!",
+          "markdown": "This is a great design!"
+        },
+        "mentions": {
+          "UABJBJAd1:TAHJNAd1": {
+            "tag": "UABJBJAd1:TAHJNAd1",
+            "user": {
+              "user_id": "UABJBJAd1",
+              "team_id": "TAHJNAd1",
+              "display_name": "John Doe"
+            }
+          }
+        },
+        "assignee": {
+          "id": "UABJBJAd1",
+          "display_name": "John Doe"
+        },
+        "resolver": {
+          "id": "UABJBJAd1",
+          "display_name": "John Doe"
+        }
+      },
+      "author": {
+        "id": "UABJBJAd1",
+        "display_name": "John Doe"
+      },
+      "created_at": 1710506800,
+      "updated_at": 1710506800
+    }
+  },
+  "api": {
+    "get": {
+      "rest/v1/designs/DAHNACmCy_g/comments/KAHNAKVJAd4": {
+        "response": {
+          "thread": {
+            "id": "KAHNAKVJAd4",
+            "design_id": "DAHNACmCy_g",
+            "thread_type": {
+              "type": "comment",
+              "content": {
+                "plaintext": "This is a great design!",
+                "markdown": "This is a great design!"
+              },
+              "mentions": {
+                "UABJBJAd1:TAHJNAd1": {
+                  "tag": "UABJBJAd1:TAHJNAd1",
+                  "user": {
+                    "user_id": "UABJBJAd1",
+                    "team_id": "TAHJNAd1",
+                    "display_name": "John Doe"
+                  }
+                }
+              },
+              "assignee": {
+                "id": "UABJBJAd1",
+                "display_name": "John Doe"
+              },
+              "resolver": {
+                "id": "UABJBJAd1",
+                "display_name": "John Doe"
+              }
+            },
+            "author": {
+              "id": "UABJBJAd1",
+              "display_name": "John Doe"
+            },
+            "created_at": 1710506800,
+            "updated_at": 1710506800
+          }
+        }
+      }
+    }
+  }
+}

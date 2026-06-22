@@ -1,0 +1,805 @@
+{
+  "nango": {
+    "getMetadata": {
+      "folder_ids": [
+        "root"
+      ]
+    },
+    "batchSave": {
+      "FolderItem": [
+        {
+          "id": "FAHNA1fUZHo",
+          "type": "folder",
+          "folder_id": "root",
+          "name": "nango-test-delete-me",
+          "created_at": 1781868465,
+          "updated_at": 1781868465
+        },
+        {
+          "id": "DAHNA_PdHKQ",
+          "type": "design",
+          "folder_id": "root",
+          "created_at": 1781868253,
+          "updated_at": 1781868253,
+          "page_count": 1
+        },
+        {
+          "id": "FAHNA0uMKHU",
+          "type": "folder",
+          "folder_id": "root",
+          "name": "nango-test-folder-renamed",
+          "created_at": 1781867488,
+          "updated_at": 1781868228
+        },
+        {
+          "id": "MAHNAx78N5w",
+          "type": "image",
+          "folder_id": "root",
+          "name": "nango-test-url-upload",
+          "created_at": 1781868208,
+          "updated_at": 1781868209,
+          "thumbnail": {
+            "width": 184,
+            "height": 60,
+            "url": "https://media.canva.com/v2/image-resize/format:PNG/height:60/quality:100/uri:ifs%3A%2F%2FM%2F5f0b0606-8a28-4ff6-bbdf-25880021525b/watermark:F/width:184?csig=AAAAAAAAAAAAAAAAAAAAACt5A-RklSaCE_LEWPelyThA_rJ7MPMoQd6mjPsxVXMi&exp=1781887563&osig=AAAAAAAAAAAAAAAAAAAAAP9hmzR5vusEdWBg-M9kPzLdJurtK1gcStYz3fqvARQg&signer=media-rpc&x-canva-quality=thumbnail"
+          },
+          "tags": []
+        },
+        {
+          "id": "DAHNA0YapYI",
+          "type": "design",
+          "folder_id": "root",
+          "name": "Nango Test Import",
+          "created_at": 1781868182,
+          "updated_at": 1781868183,
+          "thumbnail": {
+            "width": 376,
+            "height": 531,
+            "url": "https://document-export.canva.com/YapYI/DAHNA0YapYI/1/thumbnail/0001.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWEOTUD6Q%2F20260618%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260618T190838Z&X-Amz-Expires=65228&X-Amz-Signature=7a9829b191b2140351ee52f1f566e412f6837b21d6331feac9bb46cb11e1ad0f&X-Amz-SignedHeaders=host&response-expires=Fri%2C%2019%20Jun%202026%2013%3A15%3A46%20GMT"
+          },
+          "page_count": 1
+        },
+        {
+          "id": "DAHNA4pDLYQ",
+          "type": "design",
+          "folder_id": "root",
+          "created_at": 1781868153,
+          "updated_at": 1781868153,
+          "page_count": 1
+        },
+        {
+          "id": "DAHNA1cELUM",
+          "type": "design",
+          "folder_id": "root",
+          "created_at": 1781868146,
+          "updated_at": 1781868146,
+          "page_count": 1
+        },
+        {
+          "id": "FAHNA--PofU",
+          "type": "folder",
+          "folder_id": "root",
+          "name": "nango-test-folder-2026-06-19",
+          "created_at": 1781868142,
+          "updated_at": 1781868142
+        },
+        {
+          "id": "FAHNA0UnVrk",
+          "type": "folder",
+          "folder_id": "root",
+          "name": "nango-test-folder-2026-06-19",
+          "created_at": 1781868136,
+          "updated_at": 1781868136
+        },
+        {
+          "id": "DAHNA4vfOCY",
+          "type": "design",
+          "folder_id": "root",
+          "name": "Nango Test Presentation",
+          "created_at": 1781868131,
+          "updated_at": 1781868132,
+          "thumbnail": {
+            "width": 595,
+            "height": 335,
+            "url": "https://document-export.canva.com/vfOCY/DAHNA4vfOCY/1/thumbnail/0001.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWEOTUD6Q%2F20260619%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260619T002658Z&X-Amz-Expires=46839&X-Amz-Signature=afdfc8d5e31e7beaff9bbe946fd7f2fadbcb5e765dbf8dcb282440f6292e4696&X-Amz-SignedHeaders=host&response-expires=Fri%2C%2019%20Jun%202026%2013%3A27%3A37%20GMT"
+          },
+          "page_count": 1
+        },
+        {
+          "id": "DAHNAzL6_Mo",
+          "type": "design",
+          "folder_id": "root",
+          "name": "Nango Test Presentation",
+          "created_at": 1781868125,
+          "updated_at": 1781868126,
+          "thumbnail": {
+            "width": 595,
+            "height": 335,
+            "url": "https://document-export.canva.com/L6_Mo/DAHNAzL6_Mo/1/thumbnail/0001.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWEOTUD6Q%2F20260619%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260619T073219Z&X-Amz-Expires=22467&X-Amz-Signature=d791e8d7e5ee17dc8951413aabc9eefe5821d4ac0583ac2a5d98205f30c797f1&X-Amz-SignedHeaders=host&response-expires=Fri%2C%2019%20Jun%202026%2013%3A46%3A46%20GMT"
+          },
+          "page_count": 1
+        },
+        {
+          "id": "DAHNA3hXRo4",
+          "type": "design",
+          "folder_id": "root",
+          "name": "Nango Test Import",
+          "created_at": 1781868116,
+          "updated_at": 1781868117,
+          "thumbnail": {
+            "width": 376,
+            "height": 531,
+            "url": "https://document-export.canva.com/hXRo4/DAHNA3hXRo4/1/thumbnail/0001.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWEOTUD6Q%2F20260618%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260618T131515Z&X-Amz-Expires=88351&X-Amz-Signature=fb039b2e323cc6bf91954b192fe86f4d45983643f765dda251df47295918d209&X-Amz-SignedHeaders=host&response-expires=Fri%2C%2019%20Jun%202026%2013%3A47%3A46%20GMT"
+          },
+          "page_count": 1
+        },
+        {
+          "id": "FAHNA8DgGjk",
+          "type": "folder",
+          "folder_id": "root",
+          "name": "nango-test-folder-2",
+          "created_at": 1781867524,
+          "updated_at": 1781867524
+        },
+        {
+          "id": "DAHNApcdkhk",
+          "type": "design",
+          "folder_id": "root",
+          "created_at": 1781865427,
+          "updated_at": 1781865427,
+          "page_count": 1
+        },
+        {
+          "id": "MAHNAaFrN7M",
+          "type": "image",
+          "folder_id": "root",
+          "name": "nango-test-upload",
+          "created_at": 1781860721,
+          "updated_at": 1781860721,
+          "thumbnail": {
+            "width": 1,
+            "height": 1,
+            "url": "https://media.canva.com/v2/image-resize/format:PNG/height:1/quality:100/uri:ifs%3A%2F%2FM%2Fab0d9a39-66c1-483d-b6e7-d5375bd3affe/watermark:F/width:1?csig=AAAAAAAAAAAAAAAAAAAAAPWNHipVo9XMnEgms7aJ_vY0ElhqZvZtJb_6ScrOdXGc&exp=1781886748&osig=AAAAAAAAAAAAAAAAAAAAAIGc2msS9lGuVuV8wGyyVt6Bw2a5K_0fvKaOQZrX8KbG&signer=media-rpc&x-canva-quality=thumbnail"
+          },
+          "tags": []
+        },
+        {
+          "id": "MAHNAVhNUn0",
+          "type": "image",
+          "folder_id": "root",
+          "name": "nango-test-upload",
+          "created_at": 1781860714,
+          "updated_at": 1781860715,
+          "thumbnail": {
+            "width": 1,
+            "height": 1,
+            "url": "https://media.canva.com/v2/image-resize/format:PNG/height:1/quality:100/uri:ifs%3A%2F%2FM%2F68815d25-4c40-4c84-9942-56b08aa3e16a/watermark:F/width:1?csig=AAAAAAAAAAAAAAAAAAAAAHPKCBU85QNSSQyQ4JajNNVcRRd_VQ8WZCVR4milYQxg&exp=1781885756&osig=AAAAAAAAAAAAAAAAAAAAACSrwJwVg0Npm5ukkjrrQCvaWz2YhX5pBdGPePEtRcDx&signer=media-rpc&x-canva-quality=thumbnail"
+          },
+          "tags": []
+        },
+        {
+          "id": "DAHNAcCQaUI",
+          "type": "design",
+          "folder_id": "root",
+          "name": "Nango Test Import",
+          "created_at": 1781860683,
+          "updated_at": 1781860684,
+          "thumbnail": {
+            "width": 376,
+            "height": 531,
+            "url": "https://document-export.canva.com/CQaUI/DAHNAcCQaUI/1/thumbnail/0001.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWEOTUD6Q%2F20260618%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260618T214958Z&X-Amz-Expires=54384&X-Amz-Signature=7a53244a33a16117e27fdeb854f757a286326958db4b4a4e0efe7f49d13e5029&X-Amz-SignedHeaders=host&response-expires=Fri%2C%2019%20Jun%202026%2012%3A56%3A22%20GMT"
+          },
+          "page_count": 1
+        },
+        {
+          "id": "DAHNAdFNMNM",
+          "type": "design",
+          "folder_id": "root",
+          "name": "Nango Test Import",
+          "created_at": 1781860677,
+          "updated_at": 1781860678,
+          "thumbnail": {
+            "width": 393,
+            "height": 508,
+            "url": "https://document-export.canva.com/FNMNM/DAHNAdFNMNM/1/thumbnail/0001.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWEOTUD6Q%2F20260619%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260619T025803Z&X-Amz-Expires=38447&X-Amz-Signature=099a613b26fe49b6d5a5fa4eb7d5780f7a61fb9af68fa12b91c9d8ef79376b72&X-Amz-SignedHeaders=host&response-expires=Fri%2C%2019%20Jun%202026%2013%3A38%3A50%20GMT"
+          },
+          "page_count": 1
+        },
+        {
+          "id": "DAHNAZwXeH0",
+          "type": "design",
+          "folder_id": "root",
+          "name": "Nango Test Import",
+          "created_at": 1781860664,
+          "updated_at": 1781860664,
+          "thumbnail": {
+            "width": 393,
+            "height": 508,
+            "url": "https://document-export.canva.com/wXeH0/DAHNAZwXeH0/1/thumbnail/0001.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWEOTUD6Q%2F20260619%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260619T024631Z&X-Amz-Expires=39301&X-Amz-Signature=8d6f1a22b1a8444b585b483a076b5ab57eecea2cc087846b54d71309539f3390&X-Amz-SignedHeaders=host&response-expires=Fri%2C%2019%20Jun%202026%2013%3A41%3A32%20GMT"
+          },
+          "page_count": 1
+        },
+        {
+          "id": "MAHNAWmv_7o",
+          "type": "image",
+          "folder_id": "root",
+          "name": "nango-test-binary",
+          "created_at": 1781860633,
+          "updated_at": 1781860634,
+          "thumbnail": {
+            "width": 200,
+            "height": 67,
+            "url": "https://media.canva.com/v2/image-resize/format:PNG/height:67/quality:100/uri:ifs%3A%2F%2FM%2Faaae36d6-22bd-42f4-88ac-87f6d5d344fe/watermark:F/width:200?csig=AAAAAAAAAAAAAAAAAAAAAPcGDMEi1JUt4rBUGFF4AhnXkEbsZP3dQWC9PBRQB5Wr&exp=1781884779&osig=AAAAAAAAAAAAAAAAAAAAAFEkRMUkF823AYu6gYyllEMfdvjs4IKDMOR3XBU1xBVp&signer=media-rpc&x-canva-quality=thumbnail"
+          },
+          "tags": []
+        },
+        {
+          "id": "MAHNATkjy-c",
+          "type": "image",
+          "folder_id": "root",
+          "name": "nango-test-upload-v3",
+          "created_at": 1781860607,
+          "updated_at": 1781860608,
+          "thumbnail": {
+            "width": 200,
+            "height": 67,
+            "url": "https://media.canva.com/v2/image-resize/format:PNG/height:67/quality:100/uri:ifs%3A%2F%2FM%2F5a095d9f-860f-413e-8f2f-aecdf1732225/watermark:F/width:200?csig=AAAAAAAAAAAAAAAAAAAAAHix-Kjr2wqJ4JYN1YA35uJ7MXsb2gZuhuboJ4MEOjdG&exp=1781886500&osig=AAAAAAAAAAAAAAAAAAAAAOT_w0mkCxwoyHScGTi7OchtLpNgJ6RG7BhDOL6aCZDT&signer=media-rpc&x-canva-quality=thumbnail"
+          },
+          "tags": []
+        },
+        {
+          "id": "MAHNAeWbTxU",
+          "type": "image",
+          "folder_id": "root",
+          "name": "nango-test-upload",
+          "created_at": 1781860602,
+          "updated_at": 1781860602,
+          "thumbnail": {
+            "width": 200,
+            "height": 67,
+            "url": "https://media.canva.com/v2/image-resize/format:PNG/height:67/quality:100/uri:ifs%3A%2F%2FM%2F5c3b16a8-2e8a-4bf1-8b46-589a2c16914e/watermark:F/width:200?csig=AAAAAAAAAAAAAAAAAAAAAK0tTsL-JfaKxw8Hka1hnJw099NKzBUZpTsscrqwINLI&exp=1781887393&osig=AAAAAAAAAAAAAAAAAAAAAKRM1w60VK7xM6MaEQWk-WPOWXteqBnrBbU3NXze57py&signer=media-rpc&x-canva-quality=thumbnail"
+          },
+          "tags": []
+        },
+        {
+          "id": "MAHNARlw5CI",
+          "type": "image",
+          "folder_id": "root",
+          "name": "nango-test-upload",
+          "created_at": 1781860591,
+          "updated_at": 1781860592,
+          "thumbnail": {
+            "width": 200,
+            "height": 67,
+            "url": "https://media.canva.com/v2/image-resize/format:PNG/height:67/quality:100/uri:ifs%3A%2F%2FM%2F35c7e4ac-f468-4a63-ae85-addd675f3f34/watermark:F/width:200?csig=AAAAAAAAAAAAAAAAAAAAAPXE7jmrT9EJ6zumqCDVjYwd1daT2JGBvUQ8pZNcyEEm&exp=1781887673&osig=AAAAAAAAAAAAAAAAAAAAAIMqSs8FqG1qE8E_YIw-1cEVaEMCeCAMNw8276UX9ZRo&signer=media-rpc&x-canva-quality=thumbnail"
+          },
+          "tags": []
+        },
+        {
+          "id": "MAHNAIYJM-w",
+          "type": "image",
+          "folder_id": "root",
+          "name": "nango-test-asset-renamed",
+          "created_at": 1781858544,
+          "updated_at": 1781860506,
+          "thumbnail": {
+            "width": 200,
+            "height": 200,
+            "url": "https://media.canva.com/v2/image-resize/format:PNG/height:200/quality:100/uri:ifs%3A%2F%2FM%2F97a7555e-7119-4e07-8e79-801352f95c59/watermark:F/width:200?csig=AAAAAAAAAAAAAAAAAAAAAJwZmnPoCU801RFWqHuoNmcUWj6pROuPOW66zajUHGMW&exp=1781886666&osig=AAAAAAAAAAAAAAAAAAAAALm85bkWxJh_NsIOh-XW13cjp1-qyIqTjAZyil7TS1sb&signer=media-rpc&x-canva-quality=thumbnail"
+          },
+          "tags": [
+            "nango",
+            "test",
+            "updated"
+          ]
+        },
+        {
+          "id": "DAHNAU4MgFc",
+          "type": "design",
+          "folder_id": "root",
+          "name": "Test Import",
+          "created_at": 1781860503,
+          "updated_at": 1781860504,
+          "thumbnail": {
+            "width": 376,
+            "height": 531,
+            "url": "https://document-export.canva.com/4MgFc/DAHNAU4MgFc/1/thumbnail/0001.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWEOTUD6Q%2F20260619%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260619T052713Z&X-Amz-Expires=28623&X-Amz-Signature=2d119c2331ae35de7f17766c01bfbbcb93513f7526cd654b92c02b29e5ea7307&X-Amz-SignedHeaders=host&response-expires=Fri%2C%2019%20Jun%202026%2013%3A24%3A16%20GMT"
+          },
+          "page_count": 1
+        },
+        {
+          "id": "DAHNAQ0QuzE",
+          "type": "design",
+          "folder_id": "root",
+          "name": "Test Import",
+          "created_at": 1781860497,
+          "updated_at": 1781860498,
+          "thumbnail": {
+            "width": 376,
+            "height": 531,
+            "url": "https://document-export.canva.com/0QuzE/DAHNAQ0QuzE/1/thumbnail/0001.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWEOTUD6Q%2F20260619%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260619T085511Z&X-Amz-Expires=17001&X-Amz-Signature=fb6001915c691815b9aa29e198bfae14a896b789cfd943c7b311a25146398f86&X-Amz-SignedHeaders=host&response-expires=Fri%2C%2019%20Jun%202026%2013%3A38%3A32%20GMT"
+          },
+          "page_count": 1
+        },
+        {
+          "id": "DAHNAJoy69Y",
+          "type": "design",
+          "folder_id": "root",
+          "created_at": 1781858327,
+          "updated_at": 1781858327,
+          "page_count": 1
+        },
+        {
+          "id": "uploads",
+          "type": "folder",
+          "folder_id": "root",
+          "name": "Uploads",
+          "created_at": 1781857176,
+          "updated_at": 1781857176
+        }
+      ]
+    },
+    "batchDelete": {
+      "FolderItem": []
+    }
+  },
+  "api": {
+    "get": {
+      "/rest/v1/folders/root/items": {
+        "response": {
+          "items": [
+            {
+              "type": "folder",
+              "folder": {
+                "id": "FAHNA1fUZHo",
+                "name": "nango-test-delete-me",
+                "created_at": 1781868465,
+                "updated_at": 1781868465
+              }
+            },
+            {
+              "type": "design",
+              "design": {
+                "id": "DAHNA_PdHKQ",
+                "urls": {
+                  "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTQ4ODQ2fQ..GFEibosZRzEUmaaC.JsqxiY5kUWJyNWtoqD0i6Mj4HY0cV200KplmfqO0CLbR_b9op4HqcmVs26Iputs4PyH3ApNA5LLaHH-apCci9cgfEgH-9A0RiSXbqTCTLYjkS1Y.vpBLpk9Ri4zgiKbComBelg/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=bbfb13bc-5ff7-4d95-9657-10b1725c5662&utm_campaign=public_api_list_folder_items_designs_clicked_hyperlink",
+                  "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTQ4ODQ2fQ..GFEibosZRzEUmaaC.JsqxiY5kUWJyNWtoqD0i6Mj4HY0cV200KplmfqO0CLbR_b9op4HqcmVs26Iputs4PyH3ApNA5LLaHH-apCci9cgfEgH-9A0RiSXbqTCTLYjkS1Y.vpBLpk9Ri4zgiKbComBelg/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=2fd6638c-fee3-4690-b533-04b90df04ce0&utm_campaign=public_api_list_folder_items_designs_clicked_hyperlink"
+                },
+                "created_at": 1781868253,
+                "updated_at": 1781868253,
+                "page_count": 1
+              }
+            },
+            {
+              "type": "folder",
+              "folder": {
+                "id": "FAHNA0uMKHU",
+                "name": "nango-test-folder-renamed",
+                "created_at": 1781867488,
+                "updated_at": 1781868228
+              }
+            },
+            {
+              "type": "image",
+              "image": {
+                "type": "image",
+                "id": "MAHNAx78N5w",
+                "name": "nango-test-url-upload",
+                "tags": [],
+                "created_at": 1781868208,
+                "updated_at": 1781868209,
+                "thumbnail": {
+                  "width": 184,
+                  "height": 60,
+                  "url": "https://media.canva.com/v2/image-resize/format:PNG/height:60/quality:100/uri:ifs%3A%2F%2FM%2F5f0b0606-8a28-4ff6-bbdf-25880021525b/watermark:F/width:184?csig=AAAAAAAAAAAAAAAAAAAAACt5A-RklSaCE_LEWPelyThA_rJ7MPMoQd6mjPsxVXMi&exp=1781887563&osig=AAAAAAAAAAAAAAAAAAAAAP9hmzR5vusEdWBg-M9kPzLdJurtK1gcStYz3fqvARQg&signer=media-rpc&x-canva-quality=thumbnail"
+                }
+              }
+            },
+            {
+              "type": "design",
+              "design": {
+                "id": "DAHNA0YapYI",
+                "title": "Nango Test Import",
+                "thumbnail": {
+                  "width": 376,
+                  "height": 531,
+                  "url": "https://document-export.canva.com/YapYI/DAHNA0YapYI/1/thumbnail/0001.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWEOTUD6Q%2F20260618%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260618T190838Z&X-Amz-Expires=65228&X-Amz-Signature=7a9829b191b2140351ee52f1f566e412f6837b21d6331feac9bb46cb11e1ad0f&X-Amz-SignedHeaders=host&response-expires=Fri%2C%2019%20Jun%202026%2013%3A15%3A46%20GMT"
+                },
+                "urls": {
+                  "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTQ4ODQ2fQ..IoSVTMzfJSaOC5oo.fEjRPFJuORwtubqxlIJ41rskWIbbmeF2gPgY3xgqZCazbzWOxE64yka1ToSyETs247AJuIdyupKcmZcUsa8cOLs_Syf4NGpy61LYSFdu2AMwCF4.2PhMVpvKOlgXqwADSVw-hw/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=dff76b28-a387-4211-b025-6ad229a2c961&utm_campaign=public_api_list_folder_items_designs_clicked_hyperlink",
+                  "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTQ4ODQ2fQ..IoSVTMzfJSaOC5oo.fEjRPFJuORwtubqxlIJ41rskWIbbmeF2gPgY3xgqZCazbzWOxE64yka1ToSyETs247AJuIdyupKcmZcUsa8cOLs_Syf4NGpy61LYSFdu2AMwCF4.2PhMVpvKOlgXqwADSVw-hw/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=6116e0ae-1d62-4e2a-885e-5bac4b6c387b&utm_campaign=public_api_list_folder_items_designs_clicked_hyperlink"
+                },
+                "created_at": 1781868182,
+                "updated_at": 1781868183,
+                "page_count": 1
+              }
+            },
+            {
+              "type": "design",
+              "design": {
+                "id": "DAHNA4pDLYQ",
+                "urls": {
+                  "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTQ4ODQ2fQ..bezB9jib-meqyUYo.ZZa3VtqI-Vb0VYQ-lv6vAq8EvcwNzvIaqEx29Vd4pup9uBvEpYs85bmWlQCfvkMvWeVUXTSX92wmqVx3JEBIn5rRGH7QXcnCWVfxHAFWXhdxScQ.zILia2fkJBUI8Scc5PbdxA/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=1cb70a87-87b0-4c7a-b769-801487e816a8&utm_campaign=public_api_list_folder_items_designs_clicked_hyperlink",
+                  "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTQ4ODQ2fQ..bezB9jib-meqyUYo.ZZa3VtqI-Vb0VYQ-lv6vAq8EvcwNzvIaqEx29Vd4pup9uBvEpYs85bmWlQCfvkMvWeVUXTSX92wmqVx3JEBIn5rRGH7QXcnCWVfxHAFWXhdxScQ.zILia2fkJBUI8Scc5PbdxA/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=cac23364-be33-479c-8188-4819891a9b2d&utm_campaign=public_api_list_folder_items_designs_clicked_hyperlink"
+                },
+                "created_at": 1781868153,
+                "updated_at": 1781868153,
+                "page_count": 1
+              }
+            },
+            {
+              "type": "design",
+              "design": {
+                "id": "DAHNA1cELUM",
+                "urls": {
+                  "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTQ4ODQ2fQ..tqZISO7EqULGciQW.f2vKHu4hlJgPTUvaSX93ddP-TzF_Io7jKaezkQjmbRyS5y73dxX3962UrE7GZKxoOzODg-PcC1ybwKFzP9_MgmgxF3I5pWCoDbW1DctA53L3v04.UVVVUZLI6LDxOYxFvYDvwQ/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=6c79ccc6-05e5-429e-b035-f55ba6a6a664&utm_campaign=public_api_list_folder_items_designs_clicked_hyperlink",
+                  "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTQ4ODQ2fQ..tqZISO7EqULGciQW.f2vKHu4hlJgPTUvaSX93ddP-TzF_Io7jKaezkQjmbRyS5y73dxX3962UrE7GZKxoOzODg-PcC1ybwKFzP9_MgmgxF3I5pWCoDbW1DctA53L3v04.UVVVUZLI6LDxOYxFvYDvwQ/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=b357ca4f-eceb-4884-a8d9-fc9080369740&utm_campaign=public_api_list_folder_items_designs_clicked_hyperlink"
+                },
+                "created_at": 1781868146,
+                "updated_at": 1781868146,
+                "page_count": 1
+              }
+            },
+            {
+              "type": "folder",
+              "folder": {
+                "id": "FAHNA--PofU",
+                "name": "nango-test-folder-2026-06-19",
+                "created_at": 1781868142,
+                "updated_at": 1781868142
+              }
+            },
+            {
+              "type": "folder",
+              "folder": {
+                "id": "FAHNA0UnVrk",
+                "name": "nango-test-folder-2026-06-19",
+                "created_at": 1781868136,
+                "updated_at": 1781868136
+              }
+            },
+            {
+              "type": "design",
+              "design": {
+                "id": "DAHNA4vfOCY",
+                "title": "Nango Test Presentation",
+                "thumbnail": {
+                  "width": 595,
+                  "height": 335,
+                  "url": "https://document-export.canva.com/vfOCY/DAHNA4vfOCY/1/thumbnail/0001.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWEOTUD6Q%2F20260619%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260619T002658Z&X-Amz-Expires=46839&X-Amz-Signature=afdfc8d5e31e7beaff9bbe946fd7f2fadbcb5e765dbf8dcb282440f6292e4696&X-Amz-SignedHeaders=host&response-expires=Fri%2C%2019%20Jun%202026%2013%3A27%3A37%20GMT"
+                },
+                "urls": {
+                  "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTQ4ODQ2fQ..Dv7Hc0hQFWSvOXjQ.ybFEV4Z3esxFm2j4o6LY3H-nmyunSbGauaeAEY0iMV6PK-uUhPJj7dbrZbwW01w4Uvv4zTw0wQPOlJ967LHQ5zKsmlQ4lOv2IOUH9QkAj5Qu7d4.VKTdhhvInoZgn0xqjCU1Fw/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=a20bdf06-0256-4aee-ada0-3a95c9f788e8&utm_campaign=public_api_list_folder_items_designs_clicked_hyperlink",
+                  "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTQ4ODQ2fQ..Dv7Hc0hQFWSvOXjQ.ybFEV4Z3esxFm2j4o6LY3H-nmyunSbGauaeAEY0iMV6PK-uUhPJj7dbrZbwW01w4Uvv4zTw0wQPOlJ967LHQ5zKsmlQ4lOv2IOUH9QkAj5Qu7d4.VKTdhhvInoZgn0xqjCU1Fw/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=4b69c27a-26a5-4ef6-ab98-e953ce9f0be9&utm_campaign=public_api_list_folder_items_designs_clicked_hyperlink"
+                },
+                "created_at": 1781868131,
+                "updated_at": 1781868132,
+                "page_count": 1
+              }
+            },
+            {
+              "type": "design",
+              "design": {
+                "id": "DAHNAzL6_Mo",
+                "title": "Nango Test Presentation",
+                "thumbnail": {
+                  "width": 595,
+                  "height": 335,
+                  "url": "https://document-export.canva.com/L6_Mo/DAHNAzL6_Mo/1/thumbnail/0001.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWEOTUD6Q%2F20260619%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260619T073219Z&X-Amz-Expires=22467&X-Amz-Signature=d791e8d7e5ee17dc8951413aabc9eefe5821d4ac0583ac2a5d98205f30c797f1&X-Amz-SignedHeaders=host&response-expires=Fri%2C%2019%20Jun%202026%2013%3A46%3A46%20GMT"
+                },
+                "urls": {
+                  "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTQ4ODQ2fQ..WEsldCuBZRwx6LgL.a8PkgE42oGd11uTan523ulu6hcLrmXMqUNS_FI4DgNGmE_I-oXqez9YVo5kBFIEOra_fIvHzsq3BONObZkJiYyo4yKgiBFHnlFlaXPpA7btRTtU.ulpKo_Qdxh3NiBg434PrMg/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=3d9af2ec-539d-43cd-806e-66e905209532&utm_campaign=public_api_list_folder_items_designs_clicked_hyperlink",
+                  "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTQ4ODQ2fQ..WEsldCuBZRwx6LgL.a8PkgE42oGd11uTan523ulu6hcLrmXMqUNS_FI4DgNGmE_I-oXqez9YVo5kBFIEOra_fIvHzsq3BONObZkJiYyo4yKgiBFHnlFlaXPpA7btRTtU.ulpKo_Qdxh3NiBg434PrMg/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=3fd9b8d9-b663-42e0-8285-6d12e7bc5c3a&utm_campaign=public_api_list_folder_items_designs_clicked_hyperlink"
+                },
+                "created_at": 1781868125,
+                "updated_at": 1781868126,
+                "page_count": 1
+              }
+            },
+            {
+              "type": "design",
+              "design": {
+                "id": "DAHNA3hXRo4",
+                "title": "Nango Test Import",
+                "thumbnail": {
+                  "width": 376,
+                  "height": 531,
+                  "url": "https://document-export.canva.com/hXRo4/DAHNA3hXRo4/1/thumbnail/0001.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWEOTUD6Q%2F20260618%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260618T131515Z&X-Amz-Expires=88351&X-Amz-Signature=fb039b2e323cc6bf91954b192fe86f4d45983643f765dda251df47295918d209&X-Amz-SignedHeaders=host&response-expires=Fri%2C%2019%20Jun%202026%2013%3A47%3A46%20GMT"
+                },
+                "urls": {
+                  "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTQ4ODQ2fQ..1OCnFnOLS8ZJoCS0.jyggHA67ZjIiaye9Kl6qrH24jafAtq7vD_EOYblO-dyYe57fLaDxlxjS3tfUf9-xN_DkGjiYvOv5Lzdq6Dje21qAbQJ2Wl29IVAu7YJgeAyEzhs.DKxJkv_krDMiSbeAHyM1Tg/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=76316e80-e262-42f0-8c48-eea81361b090&utm_campaign=public_api_list_folder_items_designs_clicked_hyperlink",
+                  "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTQ4ODQ2fQ..1OCnFnOLS8ZJoCS0.jyggHA67ZjIiaye9Kl6qrH24jafAtq7vD_EOYblO-dyYe57fLaDxlxjS3tfUf9-xN_DkGjiYvOv5Lzdq6Dje21qAbQJ2Wl29IVAu7YJgeAyEzhs.DKxJkv_krDMiSbeAHyM1Tg/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=8c4f29a4-02f7-499c-b363-1510b297d573&utm_campaign=public_api_list_folder_items_designs_clicked_hyperlink"
+                },
+                "created_at": 1781868116,
+                "updated_at": 1781868117,
+                "page_count": 1
+              }
+            },
+            {
+              "type": "folder",
+              "folder": {
+                "id": "FAHNA8DgGjk",
+                "name": "nango-test-folder-2",
+                "created_at": 1781867524,
+                "updated_at": 1781867524
+              }
+            },
+            {
+              "type": "design",
+              "design": {
+                "id": "DAHNApcdkhk",
+                "urls": {
+                  "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTQ4ODQ2fQ..gTm_UKwcWOdQ0CtD.RLAg9bCj2IoWpI4xtEYMkOzLuMB9sFpnh6OLEsifKUu-jM0AaEmlinlGx1FqHS3Z1OTCFf7L2gcIM4oaG43XTipyd8doFTMnAYWVvPnzNqg5TOI.fyYx3bu51EgWyRQe-lUqKw/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=4f49dd6b-721d-49ab-b932-6dd7a396f328&utm_campaign=public_api_list_folder_items_designs_clicked_hyperlink",
+                  "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTQ4ODQ2fQ..gTm_UKwcWOdQ0CtD.RLAg9bCj2IoWpI4xtEYMkOzLuMB9sFpnh6OLEsifKUu-jM0AaEmlinlGx1FqHS3Z1OTCFf7L2gcIM4oaG43XTipyd8doFTMnAYWVvPnzNqg5TOI.fyYx3bu51EgWyRQe-lUqKw/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=1bac977f-4b53-407c-b3a3-e4b2a0018787&utm_campaign=public_api_list_folder_items_designs_clicked_hyperlink"
+                },
+                "created_at": 1781865427,
+                "updated_at": 1781865427,
+                "page_count": 1
+              }
+            },
+            {
+              "type": "image",
+              "image": {
+                "type": "image",
+                "id": "MAHNAaFrN7M",
+                "name": "nango-test-upload",
+                "tags": [],
+                "created_at": 1781860721,
+                "updated_at": 1781860721,
+                "thumbnail": {
+                  "width": 1,
+                  "height": 1,
+                  "url": "https://media.canva.com/v2/image-resize/format:PNG/height:1/quality:100/uri:ifs%3A%2F%2FM%2Fab0d9a39-66c1-483d-b6e7-d5375bd3affe/watermark:F/width:1?csig=AAAAAAAAAAAAAAAAAAAAAPWNHipVo9XMnEgms7aJ_vY0ElhqZvZtJb_6ScrOdXGc&exp=1781886748&osig=AAAAAAAAAAAAAAAAAAAAAIGc2msS9lGuVuV8wGyyVt6Bw2a5K_0fvKaOQZrX8KbG&signer=media-rpc&x-canva-quality=thumbnail"
+                }
+              }
+            },
+            {
+              "type": "image",
+              "image": {
+                "type": "image",
+                "id": "MAHNAVhNUn0",
+                "name": "nango-test-upload",
+                "tags": [],
+                "created_at": 1781860714,
+                "updated_at": 1781860715,
+                "thumbnail": {
+                  "width": 1,
+                  "height": 1,
+                  "url": "https://media.canva.com/v2/image-resize/format:PNG/height:1/quality:100/uri:ifs%3A%2F%2FM%2F68815d25-4c40-4c84-9942-56b08aa3e16a/watermark:F/width:1?csig=AAAAAAAAAAAAAAAAAAAAAHPKCBU85QNSSQyQ4JajNNVcRRd_VQ8WZCVR4milYQxg&exp=1781885756&osig=AAAAAAAAAAAAAAAAAAAAACSrwJwVg0Npm5ukkjrrQCvaWz2YhX5pBdGPePEtRcDx&signer=media-rpc&x-canva-quality=thumbnail"
+                }
+              }
+            },
+            {
+              "type": "design",
+              "design": {
+                "id": "DAHNAcCQaUI",
+                "title": "Nango Test Import",
+                "thumbnail": {
+                  "width": 376,
+                  "height": 531,
+                  "url": "https://document-export.canva.com/CQaUI/DAHNAcCQaUI/1/thumbnail/0001.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWEOTUD6Q%2F20260618%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260618T214958Z&X-Amz-Expires=54384&X-Amz-Signature=7a53244a33a16117e27fdeb854f757a286326958db4b4a4e0efe7f49d13e5029&X-Amz-SignedHeaders=host&response-expires=Fri%2C%2019%20Jun%202026%2012%3A56%3A22%20GMT"
+                },
+                "urls": {
+                  "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTQ4ODQ2fQ..FfpZ6N8fUbds2cVn.N-WkoAPFAorTPwlPvmkh-7HlT52JX9GlGXUZEjARCzIPV3vOuvQNZRzqpaKjvRKHw9_a1ul961B_T6Dksa-s9UyrGXV_urSI7Wh-1-GMfIl6A3E.3eIokbqeQLa93k0sqIB9-w/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=706a5341-1374-4689-9e30-c678d46345c8&utm_campaign=public_api_list_folder_items_designs_clicked_hyperlink",
+                  "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTQ4ODQ2fQ..FfpZ6N8fUbds2cVn.N-WkoAPFAorTPwlPvmkh-7HlT52JX9GlGXUZEjARCzIPV3vOuvQNZRzqpaKjvRKHw9_a1ul961B_T6Dksa-s9UyrGXV_urSI7Wh-1-GMfIl6A3E.3eIokbqeQLa93k0sqIB9-w/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=55883272-9fa1-47b0-a9e0-7f078b0c168c&utm_campaign=public_api_list_folder_items_designs_clicked_hyperlink"
+                },
+                "created_at": 1781860683,
+                "updated_at": 1781860684,
+                "page_count": 1
+              }
+            },
+            {
+              "type": "design",
+              "design": {
+                "id": "DAHNAdFNMNM",
+                "title": "Nango Test Import",
+                "thumbnail": {
+                  "width": 393,
+                  "height": 508,
+                  "url": "https://document-export.canva.com/FNMNM/DAHNAdFNMNM/1/thumbnail/0001.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWEOTUD6Q%2F20260619%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260619T025803Z&X-Amz-Expires=38447&X-Amz-Signature=099a613b26fe49b6d5a5fa4eb7d5780f7a61fb9af68fa12b91c9d8ef79376b72&X-Amz-SignedHeaders=host&response-expires=Fri%2C%2019%20Jun%202026%2013%3A38%3A50%20GMT"
+                },
+                "urls": {
+                  "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTQ4ODQ2fQ..07QeVnsjmgTQsIAe.Mnso0Dn12eE9oVRReHK-5woUz_Q1MscTk19-wXRdMWDE_0b4o8zLEUhC3zY9C4sscEIKUSKvqcYFwArqgl_AcMnmiuq2-ZgMrPd-MubABD3bLRw.4Xl2hVegc4NWU4WgVuAlQQ/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=f0b6509c-ec47-4248-9f96-544b83d9def7&utm_campaign=public_api_list_folder_items_designs_clicked_hyperlink",
+                  "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTQ4ODQ2fQ..07QeVnsjmgTQsIAe.Mnso0Dn12eE9oVRReHK-5woUz_Q1MscTk19-wXRdMWDE_0b4o8zLEUhC3zY9C4sscEIKUSKvqcYFwArqgl_AcMnmiuq2-ZgMrPd-MubABD3bLRw.4Xl2hVegc4NWU4WgVuAlQQ/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=9927668c-4749-442f-9390-036f9883a2a7&utm_campaign=public_api_list_folder_items_designs_clicked_hyperlink"
+                },
+                "created_at": 1781860677,
+                "updated_at": 1781860678,
+                "page_count": 1
+              }
+            },
+            {
+              "type": "design",
+              "design": {
+                "id": "DAHNAZwXeH0",
+                "title": "Nango Test Import",
+                "thumbnail": {
+                  "width": 393,
+                  "height": 508,
+                  "url": "https://document-export.canva.com/wXeH0/DAHNAZwXeH0/1/thumbnail/0001.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWEOTUD6Q%2F20260619%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260619T024631Z&X-Amz-Expires=39301&X-Amz-Signature=8d6f1a22b1a8444b585b483a076b5ab57eecea2cc087846b54d71309539f3390&X-Amz-SignedHeaders=host&response-expires=Fri%2C%2019%20Jun%202026%2013%3A41%3A32%20GMT"
+                },
+                "urls": {
+                  "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTQ4ODQ2fQ..5xPlEq8haLm_NU52.crsRyeb_rw5fBOsfMGY9211LdQHcu0wZ1i74B06K4Mer4AjaOBzM5RpQ0DYj5HA_x2Zl0zTcDED-1Gr0EEsWo_ly1GvWo7dPj2eOEhUgCQTeuDY.cVBxk-dQiS8gNby-vNxP-A/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=81a29856-e74e-42fe-8b8b-4b0d5d912f43&utm_campaign=public_api_list_folder_items_designs_clicked_hyperlink",
+                  "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTQ4ODQ2fQ..5xPlEq8haLm_NU52.crsRyeb_rw5fBOsfMGY9211LdQHcu0wZ1i74B06K4Mer4AjaOBzM5RpQ0DYj5HA_x2Zl0zTcDED-1Gr0EEsWo_ly1GvWo7dPj2eOEhUgCQTeuDY.cVBxk-dQiS8gNby-vNxP-A/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=a17820f4-3f65-4d1e-abca-8ac1cc66651d&utm_campaign=public_api_list_folder_items_designs_clicked_hyperlink"
+                },
+                "created_at": 1781860664,
+                "updated_at": 1781860664,
+                "page_count": 1
+              }
+            },
+            {
+              "type": "image",
+              "image": {
+                "type": "image",
+                "id": "MAHNAWmv_7o",
+                "name": "nango-test-binary",
+                "tags": [],
+                "created_at": 1781860633,
+                "updated_at": 1781860634,
+                "thumbnail": {
+                  "width": 200,
+                  "height": 67,
+                  "url": "https://media.canva.com/v2/image-resize/format:PNG/height:67/quality:100/uri:ifs%3A%2F%2FM%2Faaae36d6-22bd-42f4-88ac-87f6d5d344fe/watermark:F/width:200?csig=AAAAAAAAAAAAAAAAAAAAAPcGDMEi1JUt4rBUGFF4AhnXkEbsZP3dQWC9PBRQB5Wr&exp=1781884779&osig=AAAAAAAAAAAAAAAAAAAAAFEkRMUkF823AYu6gYyllEMfdvjs4IKDMOR3XBU1xBVp&signer=media-rpc&x-canva-quality=thumbnail"
+                }
+              }
+            },
+            {
+              "type": "image",
+              "image": {
+                "type": "image",
+                "id": "MAHNATkjy-c",
+                "name": "nango-test-upload-v3",
+                "tags": [],
+                "created_at": 1781860607,
+                "updated_at": 1781860608,
+                "thumbnail": {
+                  "width": 200,
+                  "height": 67,
+                  "url": "https://media.canva.com/v2/image-resize/format:PNG/height:67/quality:100/uri:ifs%3A%2F%2FM%2F5a095d9f-860f-413e-8f2f-aecdf1732225/watermark:F/width:200?csig=AAAAAAAAAAAAAAAAAAAAAHix-Kjr2wqJ4JYN1YA35uJ7MXsb2gZuhuboJ4MEOjdG&exp=1781886500&osig=AAAAAAAAAAAAAAAAAAAAAOT_w0mkCxwoyHScGTi7OchtLpNgJ6RG7BhDOL6aCZDT&signer=media-rpc&x-canva-quality=thumbnail"
+                }
+              }
+            },
+            {
+              "type": "image",
+              "image": {
+                "type": "image",
+                "id": "MAHNAeWbTxU",
+                "name": "nango-test-upload",
+                "tags": [],
+                "created_at": 1781860602,
+                "updated_at": 1781860602,
+                "thumbnail": {
+                  "width": 200,
+                  "height": 67,
+                  "url": "https://media.canva.com/v2/image-resize/format:PNG/height:67/quality:100/uri:ifs%3A%2F%2FM%2F5c3b16a8-2e8a-4bf1-8b46-589a2c16914e/watermark:F/width:200?csig=AAAAAAAAAAAAAAAAAAAAAK0tTsL-JfaKxw8Hka1hnJw099NKzBUZpTsscrqwINLI&exp=1781887393&osig=AAAAAAAAAAAAAAAAAAAAAKRM1w60VK7xM6MaEQWk-WPOWXteqBnrBbU3NXze57py&signer=media-rpc&x-canva-quality=thumbnail"
+                }
+              }
+            },
+            {
+              "type": "image",
+              "image": {
+                "type": "image",
+                "id": "MAHNARlw5CI",
+                "name": "nango-test-upload",
+                "tags": [],
+                "created_at": 1781860591,
+                "updated_at": 1781860592,
+                "thumbnail": {
+                  "width": 200,
+                  "height": 67,
+                  "url": "https://media.canva.com/v2/image-resize/format:PNG/height:67/quality:100/uri:ifs%3A%2F%2FM%2F35c7e4ac-f468-4a63-ae85-addd675f3f34/watermark:F/width:200?csig=AAAAAAAAAAAAAAAAAAAAAPXE7jmrT9EJ6zumqCDVjYwd1daT2JGBvUQ8pZNcyEEm&exp=1781887673&osig=AAAAAAAAAAAAAAAAAAAAAIMqSs8FqG1qE8E_YIw-1cEVaEMCeCAMNw8276UX9ZRo&signer=media-rpc&x-canva-quality=thumbnail"
+                }
+              }
+            },
+            {
+              "type": "image",
+              "image": {
+                "type": "image",
+                "id": "MAHNAIYJM-w",
+                "name": "nango-test-asset-renamed",
+                "tags": [
+                  "nango",
+                  "test",
+                  "updated"
+                ],
+                "created_at": 1781858544,
+                "updated_at": 1781860506,
+                "thumbnail": {
+                  "width": 200,
+                  "height": 200,
+                  "url": "https://media.canva.com/v2/image-resize/format:PNG/height:200/quality:100/uri:ifs%3A%2F%2FM%2F97a7555e-7119-4e07-8e79-801352f95c59/watermark:F/width:200?csig=AAAAAAAAAAAAAAAAAAAAAJwZmnPoCU801RFWqHuoNmcUWj6pROuPOW66zajUHGMW&exp=1781886666&osig=AAAAAAAAAAAAAAAAAAAAALm85bkWxJh_NsIOh-XW13cjp1-qyIqTjAZyil7TS1sb&signer=media-rpc&x-canva-quality=thumbnail"
+                }
+              }
+            },
+            {
+              "type": "design",
+              "design": {
+                "id": "DAHNAU4MgFc",
+                "title": "Test Import",
+                "thumbnail": {
+                  "width": 376,
+                  "height": 531,
+                  "url": "https://document-export.canva.com/4MgFc/DAHNAU4MgFc/1/thumbnail/0001.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWEOTUD6Q%2F20260619%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260619T052713Z&X-Amz-Expires=28623&X-Amz-Signature=2d119c2331ae35de7f17766c01bfbbcb93513f7526cd654b92c02b29e5ea7307&X-Amz-SignedHeaders=host&response-expires=Fri%2C%2019%20Jun%202026%2013%3A24%3A16%20GMT"
+                },
+                "urls": {
+                  "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTQ4ODQ2fQ..aGEFcRHvjACZyDpQ.gfT5P-hg8O0c4PkUV2X6F75UD-bChnYlH3lcmEQQtZanMngDhCXN1ac2eJBV6lOZqwHy8GZxSDrZOHQq0Yt768024a-kpK66kM_sPYSV-cCHeXY.BO50MVV6N7w7yVFf3HNAtA/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=5e31c28b-db25-47a1-961c-824b8ef372f5&utm_campaign=public_api_list_folder_items_designs_clicked_hyperlink",
+                  "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTQ4ODQ2fQ..aGEFcRHvjACZyDpQ.gfT5P-hg8O0c4PkUV2X6F75UD-bChnYlH3lcmEQQtZanMngDhCXN1ac2eJBV6lOZqwHy8GZxSDrZOHQq0Yt768024a-kpK66kM_sPYSV-cCHeXY.BO50MVV6N7w7yVFf3HNAtA/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=231d3f4c-d1b9-40d8-9164-b8d6af760a49&utm_campaign=public_api_list_folder_items_designs_clicked_hyperlink"
+                },
+                "created_at": 1781860503,
+                "updated_at": 1781860504,
+                "page_count": 1
+              }
+            },
+            {
+              "type": "design",
+              "design": {
+                "id": "DAHNAQ0QuzE",
+                "title": "Test Import",
+                "thumbnail": {
+                  "width": 376,
+                  "height": 531,
+                  "url": "https://document-export.canva.com/0QuzE/DAHNAQ0QuzE/1/thumbnail/0001.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWEOTUD6Q%2F20260619%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260619T085511Z&X-Amz-Expires=17001&X-Amz-Signature=fb6001915c691815b9aa29e198bfae14a896b789cfd943c7b311a25146398f86&X-Amz-SignedHeaders=host&response-expires=Fri%2C%2019%20Jun%202026%2013%3A38%3A32%20GMT"
+                },
+                "urls": {
+                  "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTQ4ODQ2fQ..d4BRT7TdgPsk8gVm.m8217YOC8uYQttYswll0Hzpw24GJ9q5-ZskbbC9wwIWxfFoVkhToxl5ApoP6ic7iZA_3NvgUqh-sC5wCtD8QzqCqT1UUfmaQnQRwfV6G2Swc01U.VfUTaK9Xhj-ZuSXqYhjBBQ/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=19955255-7b6f-48d5-bedd-4ee7e99d6cd6&utm_campaign=public_api_list_folder_items_designs_clicked_hyperlink",
+                  "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTQ4ODQ2fQ..d4BRT7TdgPsk8gVm.m8217YOC8uYQttYswll0Hzpw24GJ9q5-ZskbbC9wwIWxfFoVkhToxl5ApoP6ic7iZA_3NvgUqh-sC5wCtD8QzqCqT1UUfmaQnQRwfV6G2Swc01U.VfUTaK9Xhj-ZuSXqYhjBBQ/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=f7440095-43ab-4582-a490-38a2fc3249ee&utm_campaign=public_api_list_folder_items_designs_clicked_hyperlink"
+                },
+                "created_at": 1781860497,
+                "updated_at": 1781860498,
+                "page_count": 1
+              }
+            },
+            {
+              "type": "design",
+              "design": {
+                "id": "DAHNAJoy69Y",
+                "urls": {
+                  "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTQ4ODQ2fQ..LZZ-25MQc62i5je9.RZu_M3ZPb-0kTC5rF3s0fZDwv7bilZ5NGyPccaHThho69I_kDNdJCIVGraWExMAqLibIsGKWGpGb0VLxCYD6QtUOzIF7Qc5etoBrlCR36Q4EaMk.kAH-tCjfYrS29yYAbIs3sA/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=fd6856c1-5d0d-4d3c-ac3f-052c7f654171&utm_campaign=public_api_list_folder_items_designs_clicked_hyperlink",
+                  "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTQ4ODQ2fQ..LZZ-25MQc62i5je9.RZu_M3ZPb-0kTC5rF3s0fZDwv7bilZ5NGyPccaHThho69I_kDNdJCIVGraWExMAqLibIsGKWGpGb0VLxCYD6QtUOzIF7Qc5etoBrlCR36Q4EaMk.kAH-tCjfYrS29yYAbIs3sA/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=55f60251-880d-4066-9afc-b236b4b7051d&utm_campaign=public_api_list_folder_items_designs_clicked_hyperlink"
+                },
+                "created_at": 1781858327,
+                "updated_at": 1781858327,
+                "page_count": 1
+              }
+            },
+            {
+              "type": "folder",
+              "folder": {
+                "id": "uploads",
+                "name": "Uploads",
+                "created_at": 1781857176,
+                "updated_at": 1781857176
+              }
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 19 Jun 2026 11:52:28 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "23333",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4986",
+          "x-ratelimit-reset": "1781869985",
+          "x-request-id": "a0e253eb5e5e8f7a",
+          "etag": "W/\"5b25-1RIxQbo9N0n4S6pn4XJdFi8jYwY\""
+        },
+        "hash": "0591810badd0f812cf7bd2aa8ad7e32a1cbb8236",
+        "request": {
+          "params": {
+            "limit": "100"
+          }
+        }
+      }
+    }
+  }
+}
