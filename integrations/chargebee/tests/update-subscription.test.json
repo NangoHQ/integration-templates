@@ -1,0 +1,131 @@
+{
+  "input": {
+    "subscription_id": "AzqOd0VMyVsW3aOz",
+    "subscription_items": [
+      {
+        "item_price_id": "basic-plan-monthly"
+      }
+    ]
+  },
+  "output": {
+    "id": "AzqOd0VMyVsW3aOz",
+    "status": "active",
+    "customer_id": "AzqW60VMyUhdGZi2",
+    "subscription_items": [
+      {
+        "item_price_id": "basic-plan-monthly",
+        "quantity": 1,
+        "unit_price": 1900,
+        "amount": 1900,
+        "item_type": "plan"
+      }
+    ],
+    "current_term_start": 1781856403,
+    "current_term_end": 1784448403,
+    "next_billing_at": 1784448403,
+    "created_at": 1781856403,
+    "updated_at": 1781857128
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/api/v2/subscriptions/AzqOd0VMyVsW3aOz/update_for_items": {
+        "response": {
+          "subscription": {
+            "id": "AzqOd0VMyVsW3aOz",
+            "billing_period": 1,
+            "billing_period_unit": "month",
+            "auto_collection": "off",
+            "customer_id": "AzqW60VMyUhdGZi2",
+            "status": "active",
+            "current_term_start": 1781856403,
+            "current_term_end": 1784448403,
+            "next_billing_at": 1784448403,
+            "created_at": 1781856403,
+            "started_at": 1781856403,
+            "activated_at": 1781856403,
+            "updated_at": 1781857128,
+            "has_scheduled_changes": false,
+            "channel": "web",
+            "resource_version": 1781857128933,
+            "deleted": false,
+            "object": "subscription",
+            "currency_code": "USD",
+            "subscription_items": [
+              {
+                "item_price_id": "basic-plan-monthly",
+                "item_type": "plan",
+                "quantity": 1,
+                "unit_price": 1900,
+                "amount": 1900,
+                "free_quantity": 0,
+                "object": "subscription_item"
+              }
+            ],
+            "due_invoices_count": 2,
+            "due_since": 1781856403,
+            "total_dues": 1900,
+            "mrr": 1900,
+            "exchange_rate": 1,
+            "base_currency_code": "USD",
+            "has_scheduled_advance_invoices": false,
+            "decommissioned": false
+          },
+          "customer": {
+            "id": "AzqW60VMyUhdGZi2",
+            "first_name": "Bob",
+            "last_name": "Smith",
+            "email": "bob@example.com",
+            "company": "Globex Inc",
+            "auto_collection": "on",
+            "net_term_days": 0,
+            "allow_direct_debit": false,
+            "created_at": 1781856123,
+            "taxability": "taxable",
+            "updated_at": 1781856319,
+            "pii_cleared": "active",
+            "channel": "web",
+            "resource_version": 1781856319372,
+            "deleted": false,
+            "object": "customer",
+            "card_status": "no_card",
+            "promotional_credits": 0,
+            "refundable_credits": 0,
+            "excess_payments": 0,
+            "unbilled_charges": 0,
+            "preferred_currency_code": "USD",
+            "mrr": 1900
+          },
+          "credit_notes": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 19 Jun 2026 08:18:49 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "2044",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4912",
+          "x-ratelimit-reset": "1781857149",
+          "etag": "W/\"7fc-FZbv7mA6TDHAhyevRS8EhL2NE2E\""
+        },
+        "hash": "61c20bc077c5c3eb0f8936e56631c4dbda6c9240",
+        "request": {
+          "params": {
+            "replace_items_list": "true",
+            "subscription_items[item_price_id][0]": "basic-plan-monthly"
+          }
+        }
+      }
+    }
+  }
+}

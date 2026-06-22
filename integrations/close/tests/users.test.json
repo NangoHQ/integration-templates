@@ -1,0 +1,83 @@
+{
+  "nango": {
+    "batchSave": {
+      "User": [
+        {
+          "id": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+          "first_name": "Nango",
+          "last_name": "Developer",
+          "email": "api@nango.dev",
+          "organizations": [
+            "orga_bog0WeN6OXBxaN867LEXwaisIuXTy9fbbryxDywmf6V"
+          ]
+        }
+      ]
+    },
+    "batchDelete": {
+      "User": []
+    }
+  },
+  "api": {
+    "get": {
+      "/v1/user/": {
+        "response": {
+          "data": [
+            {
+              "date_created": "2026-06-19T09:22:10.543000+00:00",
+              "date_updated": "2026-06-19T09:23:14.192000+00:00",
+              "email": "api@nango.dev",
+              "email_verified_at": "2026-06-19T09:22:10.556000+00:00",
+              "first_name": "Nango",
+              "google_profile_image_url": null,
+              "id": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+              "image": null,
+              "last_name": "Developer",
+              "last_used_timezone": "Africa/Nairobi",
+              "organizations": [
+                "orga_bog0WeN6OXBxaN867LEXwaisIuXTy9fbbryxDywmf6V"
+              ]
+            }
+          ],
+          "has_more": false
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 19 Jun 2026 12:12:43 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31556926; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "60, 60;w=1, 100;w=1",
+          "x-ratelimit-remaining": "59",
+          "x-ratelimit-reset": "1",
+          "ratelimit": "limit=240; remaining=239; reset=2",
+          "force-refresh-if-older": "2026-06-16T10:12:26Z",
+          "trace-id": "6a35323b0000000079952c49b9885e9b",
+          "set-cookie": "session=; Expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0; Secure; Path=/; SameSite=Lax",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-envoy-upstream-service-time": "34",
+          "ratelimit-limit": "60",
+          "ratelimit-remaining": "59",
+          "ratelimit-reset": "1",
+          "vary": "Accept-Encoding",
+          "server": "envoy"
+        },
+        "hash": "2146fc98db6426e820e09ab87ba2d0593ef36801",
+        "request": {
+          "params": {
+            "_limit": "200",
+            "_skip": "0"
+          }
+        }
+      }
+    }
+  }
+}

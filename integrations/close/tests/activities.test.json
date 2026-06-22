@@ -1,0 +1,212 @@
+{
+  "nango": {
+    "batchSave": {
+      "Activity": [
+        {
+          "id": "acti_QuD6irS2LnHLw41bePrHfMGgRqExKxzrNUclHjfwHKu",
+          "_type": "TaskCompleted",
+          "lead_id": "lead_9aTFsVklXmPMJZQBx1D11jXIg9ofDDLHBSltkWIK00k",
+          "user_id": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+          "activity_at": "2026-06-19T12:06:45.260000+00:00",
+          "date_updated": "2026-06-19T12:06:45.260000+00:00"
+        },
+        {
+          "id": "acti_AHQsK4GJ7aS0gvq8oW5RFN13itru7iwx6LGIKkgcCYH",
+          "_type": "Created",
+          "lead_id": "lead_9aTFsVklXmPMJZQBx1D11jXIg9ofDDLHBSltkWIK00k",
+          "user_id": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+          "activity_at": "2026-06-19T12:05:28.327000+00:00",
+          "date_updated": "2026-06-19T12:05:28.344000+00:00"
+        },
+        {
+          "id": "acti_TZ78iXjSkle0UcKrq5iXdNVtisixHF4TsQPyYLWTAxV",
+          "_type": "Created",
+          "lead_id": "lead_3ONnlKiJoZMbWTDqLwbH19wo10YTGoDbamZjFj0byUg",
+          "user_id": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+          "activity_at": "2026-06-19T12:05:21.960000+00:00",
+          "date_updated": "2026-06-19T12:05:21.982000+00:00"
+        },
+        {
+          "id": "acti_t31x05QVkXaiGc7adv1VOSGEEpPt8fNRre2OJrWdThZ",
+          "_type": "Created",
+          "lead_id": "lead_QDrYnyylydk5j1YVwDotRd14coJjlWmXKnzihG9osq9",
+          "user_id": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+          "activity_at": "2026-06-19T11:04:23.064000+00:00",
+          "date_updated": "2026-06-19T11:04:23.083000+00:00"
+        },
+        {
+          "id": "acti_TjAPEs0fvt7Hka3A9ZlQAU3A45rISkTTPbQv1zeWl25",
+          "_type": "Created",
+          "lead_id": "lead_7IACfyrFUKx292gsVOhMBXwY7ntFoQuLPvnlOAf3VaW",
+          "user_id": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+          "activity_at": "2026-06-19T11:04:19.934000+00:00",
+          "date_updated": "2026-06-19T11:04:19.947000+00:00"
+        },
+        {
+          "id": "acti_OEG3gNUhBEGDRE81OS5CW5qN9D78YjJaBvcYYgpeM7d",
+          "_type": "Created",
+          "lead_id": "lead_mELh8FRqV6vRWJ5bgGdx7GpifIkEnoQFHg0hsxmQI1z",
+          "user_id": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+          "activity_at": "2026-06-19T11:04:15.763000+00:00",
+          "date_updated": "2026-06-19T11:04:15.779000+00:00"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Activity": []
+    }
+  },
+  "api": {
+    "get": {
+      "/v1/activity/": {
+        "response": {
+          "data": [
+            {
+              "updated_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+              "id": "acti_QuD6irS2LnHLw41bePrHfMGgRqExKxzrNUclHjfwHKu",
+              "created_by_name": "Nango Developer",
+              "lead_id": "lead_9aTFsVklXmPMJZQBx1D11jXIg9ofDDLHBSltkWIK00k",
+              "organization_id": "orga_bog0WeN6OXBxaN867LEXwaisIuXTy9fbbryxDywmf6V",
+              "task_assigned_to_name": "Nango Developer",
+              "created_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+              "user_name": "Nango Developer",
+              "activity_at": "2026-06-19T12:06:45.260000+00:00",
+              "users": [],
+              "user_id": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+              "task_id": "task_382VgB3ktGlYhriryjM9DpZnHPw6y830bBjHtsrFWZl",
+              "date_created": "2026-06-19T12:06:45.260000+00:00",
+              "date_updated": "2026-06-19T12:06:45.260000+00:00",
+              "task_assigned_to": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+              "updated_by_name": "Nango Developer",
+              "_type": "TaskCompleted",
+              "task_text": "Test task for get-task action"
+            },
+            {
+              "contact_id": null,
+              "updated_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+              "id": "acti_AHQsK4GJ7aS0gvq8oW5RFN13itru7iwx6LGIKkgcCYH",
+              "created_by_name": "Nango Developer",
+              "lead_id": "lead_9aTFsVklXmPMJZQBx1D11jXIg9ofDDLHBSltkWIK00k",
+              "import_id": null,
+              "organization_id": "orga_bog0WeN6OXBxaN867LEXwaisIuXTy9fbbryxDywmf6V",
+              "created_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+              "user_name": "Nango Developer",
+              "activity_at": "2026-06-19T12:05:28.327000+00:00",
+              "source": "api",
+              "users": [],
+              "user_id": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+              "date_created": "2026-06-19T12:05:28.327000+00:00",
+              "date_updated": "2026-06-19T12:05:28.344000+00:00",
+              "updated_by_name": "Nango Developer",
+              "_type": "Created"
+            },
+            {
+              "contact_id": null,
+              "updated_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+              "id": "acti_TZ78iXjSkle0UcKrq5iXdNVtisixHF4TsQPyYLWTAxV",
+              "created_by_name": "Nango Developer",
+              "lead_id": "lead_3ONnlKiJoZMbWTDqLwbH19wo10YTGoDbamZjFj0byUg",
+              "import_id": null,
+              "organization_id": "orga_bog0WeN6OXBxaN867LEXwaisIuXTy9fbbryxDywmf6V",
+              "created_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+              "user_name": "Nango Developer",
+              "activity_at": "2026-06-19T12:05:21.960000+00:00",
+              "source": "api",
+              "users": [],
+              "user_id": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+              "date_created": "2026-06-19T12:05:21.960000+00:00",
+              "date_updated": "2026-06-19T12:05:21.982000+00:00",
+              "updated_by_name": "Nango Developer",
+              "_type": "Created"
+            },
+            {
+              "contact_id": null,
+              "updated_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+              "id": "acti_t31x05QVkXaiGc7adv1VOSGEEpPt8fNRre2OJrWdThZ",
+              "created_by_name": "Nango Developer",
+              "lead_id": "lead_QDrYnyylydk5j1YVwDotRd14coJjlWmXKnzihG9osq9",
+              "import_id": null,
+              "organization_id": "orga_bog0WeN6OXBxaN867LEXwaisIuXTy9fbbryxDywmf6V",
+              "created_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+              "user_name": "Nango Developer",
+              "activity_at": "2026-06-19T11:04:23.064000+00:00",
+              "source": "api",
+              "users": [],
+              "user_id": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+              "date_created": "2026-06-19T11:04:23.064000+00:00",
+              "date_updated": "2026-06-19T11:04:23.083000+00:00",
+              "updated_by_name": "Nango Developer",
+              "_type": "Created"
+            },
+            {
+              "contact_id": null,
+              "updated_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+              "id": "acti_TjAPEs0fvt7Hka3A9ZlQAU3A45rISkTTPbQv1zeWl25",
+              "created_by_name": "Nango Developer",
+              "lead_id": "lead_7IACfyrFUKx292gsVOhMBXwY7ntFoQuLPvnlOAf3VaW",
+              "import_id": null,
+              "organization_id": "orga_bog0WeN6OXBxaN867LEXwaisIuXTy9fbbryxDywmf6V",
+              "created_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+              "user_name": "Nango Developer",
+              "activity_at": "2026-06-19T11:04:19.934000+00:00",
+              "source": "api",
+              "users": [],
+              "user_id": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+              "date_created": "2026-06-19T11:04:19.934000+00:00",
+              "date_updated": "2026-06-19T11:04:19.947000+00:00",
+              "updated_by_name": "Nango Developer",
+              "_type": "Created"
+            },
+            {
+              "contact_id": null,
+              "updated_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+              "id": "acti_OEG3gNUhBEGDRE81OS5CW5qN9D78YjJaBvcYYgpeM7d",
+              "created_by_name": "Nango Developer",
+              "lead_id": "lead_mELh8FRqV6vRWJ5bgGdx7GpifIkEnoQFHg0hsxmQI1z",
+              "import_id": null,
+              "organization_id": "orga_bog0WeN6OXBxaN867LEXwaisIuXTy9fbbryxDywmf6V",
+              "created_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+              "user_name": "Nango Developer",
+              "activity_at": "2026-06-19T11:04:15.763000+00:00",
+              "source": "api",
+              "users": [],
+              "user_id": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+              "date_created": "2026-06-19T11:04:15.763000+00:00",
+              "date_updated": "2026-06-19T11:04:15.779000+00:00",
+              "updated_by_name": "Nango Developer",
+              "_type": "Created"
+            }
+          ],
+          "has_more": false
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 19 Jun 2026 12:08:00 GMT",
+          "content-type": "application/json",
+          "content-length": "4650",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4924",
+          "x-ratelimit-reset": "1781870881",
+          "etag": "W/\"122a-jEmy8ypXk9J31zfIDOp2ZrgCf7w\""
+        },
+        "hash": "0978d95eaaca9fc96e583ec10aead9d8f095ffea",
+        "request": {
+          "params": {
+            "_limit": "100",
+            "_skip": "0"
+          }
+        }
+      }
+    }
+  }
+}

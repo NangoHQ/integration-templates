@@ -1,0 +1,89 @@
+{
+  "input": {
+    "lead_id": "lead_mELh8FRqV6vRWJ5bgGdx7GpifIkEnoQFHg0hsxmQI1z",
+    "text": "Follow up on enterprise demo",
+    "date": "2026-07-01",
+    "assigned_to": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa"
+  },
+  "output": {
+    "id": "task_AEgVCkCybST9yw6v1eWMYSDUqXAPQljpIXjNuC5McBL",
+    "lead_id": "lead_mELh8FRqV6vRWJ5bgGdx7GpifIkEnoQFHg0hsxmQI1z",
+    "text": "Follow up on enterprise demo",
+    "assigned_to": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+    "date": "2026-07-01",
+    "is_complete": false,
+    "is_dateless": false,
+    "date_created": "2026-06-19T12:05:29.948000+00:00",
+    "date_updated": "2026-06-19T12:05:29.948000+00:00",
+    "organization_id": "orga_bog0WeN6OXBxaN867LEXwaisIuXTy9fbbryxDywmf6V"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v1/task/": {
+        "response": {
+          "_type": "lead",
+          "agent_config_id": null,
+          "assigned_to": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+          "assigned_to_name": "Nango Developer",
+          "contact_id": null,
+          "contact_name": null,
+          "created_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+          "created_by_name": "Nango Developer",
+          "date": "2026-07-01",
+          "date_created": "2026-06-19T12:05:29.948000+00:00",
+          "date_updated": "2026-06-19T12:05:29.948000+00:00",
+          "deduplication_key": null,
+          "due_date": "2026-07-01",
+          "id": "task_AEgVCkCybST9yw6v1eWMYSDUqXAPQljpIXjNuC5McBL",
+          "is_complete": false,
+          "is_dateless": false,
+          "is_primary_lead_notification": true,
+          "lead_id": "lead_mELh8FRqV6vRWJ5bgGdx7GpifIkEnoQFHg0hsxmQI1z",
+          "lead_name": "Acme Corp",
+          "object_id": null,
+          "object_type": null,
+          "organization_id": "orga_bog0WeN6OXBxaN867LEXwaisIuXTy9fbbryxDywmf6V",
+          "priority": "medium",
+          "resolution": null,
+          "sequence_id": null,
+          "sequence_subscription_id": null,
+          "text": "Follow up on enterprise demo",
+          "updated_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+          "updated_by_name": "Nango Developer",
+          "view": "future"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 19 Jun 2026 12:05:29 GMT",
+          "content-type": "application/json",
+          "content-length": "1073",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4955",
+          "x-ratelimit-reset": "1781870760",
+          "etag": "W/\"431-bmsFsHEo0jzcv0l8s7XIVyrDcKM\""
+        },
+        "hash": "9824a42529432fb4dee632086ec66d69461a4536",
+        "request": {
+          "data": {
+            "_type": "lead",
+            "lead_id": "lead_mELh8FRqV6vRWJ5bgGdx7GpifIkEnoQFHg0hsxmQI1z",
+            "text": "Follow up on enterprise demo",
+            "date": "2026-07-01",
+            "assigned_to": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "input": {
+    "id": "basic-plan"
+  },
+  "output": {
+    "id": "basic-plan",
+    "name": "Basic Plan",
+    "status": "active",
+    "type": "plan",
+    "item_family_id": "saas-plans",
+    "external_name": "Basic Plan",
+    "updated_at": 1781856314,
+    "resource_version": 1781856314191,
+    "deleted": false,
+    "metered": false,
+    "is_giftable": false,
+    "enabled_for_checkout": true,
+    "enabled_in_portal": true,
+    "is_shippable": false,
+    "channel": "web",
+    "item_applicability": "all",
+    "object": "item",
+    "bundle_items": []
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/v2/items/basic-plan": {
+        "response": {
+          "item": {
+            "id": "basic-plan",
+            "name": "Basic Plan",
+            "external_name": "Basic Plan",
+            "status": "active",
+            "resource_version": 1781856314191,
+            "updated_at": 1781856314,
+            "item_family_id": "saas-plans",
+            "type": "plan",
+            "is_shippable": false,
+            "is_giftable": false,
+            "enabled_for_checkout": true,
+            "enabled_in_portal": true,
+            "item_applicability": "all",
+            "metered": false,
+            "channel": "web",
+            "bundle_items": [],
+            "deleted": false,
+            "object": "item"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 19 Jun 2026 08:19:05 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "509",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4883",
+          "x-ratelimit-reset": "1781857149",
+          "etag": "W/\"1fd-E/VI32DNsa2tMWHcLrxHUh+eLFY\""
+        },
+        "hash": "7d0427326967967451ad5c58ac0b3b24b2d9f226",
+        "request": {}
+      }
+    }
+  }
+}

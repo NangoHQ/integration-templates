@@ -1,0 +1,87 @@
+{
+  "input": {
+    "jobId": "e7a2d32e-0a44-40c1-881d-72b11984d8f6"
+  },
+  "output": {
+    "job": {
+      "id": "e7a2d32e-0a44-40c1-881d-72b11984d8f6",
+      "status": "success",
+      "result": {
+        "designs": [
+          {
+            "id": "DAHNAcCQaUI",
+            "title": "Nango Test Import",
+            "thumbnail": {
+              "width": 376,
+              "height": 531,
+              "url": "https://document-export.canva.com/CQaUI/DAHNAcCQaUI/1/thumbnail/0001.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWEOTUD6Q%2F20260618%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260618T214958Z&X-Amz-Expires=47184&X-Amz-Signature=4a4a6968c24e99c4103ee87ed85ce6550c927d4b4c5627ad2cf18e75b1df35e9&X-Amz-SignedHeaders=host&response-expires=Fri%2C%2019%20Jun%202026%2010%3A56%3A22%20GMT"
+            },
+            "urls": {
+              "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDUyNjk4MzMwfQ..LShqkpG6Btqr_yJn.e7v83rArkfW4VcRwHxZwkGRP6eiOkzkUjzModcc6DjZymlelZ8-GKnHHPZQ5OQWflVP3Y1ydeP_sgqbSLC2Mzy8V1UgcZc5QUSilBbZ8mQD2bFE.E-PdiCbCEyed-8A7YFGu5A/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=d6fecc51-9b57-400e-a0c9-bf432ccdc14b&utm_campaign=public_api_design_import_by_url_design_clicked_hyperlink",
+              "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDUyNjk4MzMwfQ..LShqkpG6Btqr_yJn.e7v83rArkfW4VcRwHxZwkGRP6eiOkzkUjzModcc6DjZymlelZ8-GKnHHPZQ5OQWflVP3Y1ydeP_sgqbSLC2Mzy8V1UgcZc5QUSilBbZ8mQD2bFE.E-PdiCbCEyed-8A7YFGu5A/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=82d02d55-d505-4797-8d91-9370144e7fc7&utm_campaign=public_api_design_import_by_url_design_clicked_hyperlink"
+            },
+            "created_at": 1781860683,
+            "updated_at": 1781860684,
+            "page_count": 1
+          }
+        ]
+      }
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/rest/v1/url-imports/e7a2d32e-0a44-40c1-881d-72b11984d8f6": {
+        "response": {
+          "job": {
+            "id": "e7a2d32e-0a44-40c1-881d-72b11984d8f6",
+            "status": "success",
+            "result": {
+              "designs": [
+                {
+                  "id": "DAHNAcCQaUI",
+                  "title": "Nango Test Import",
+                  "thumbnail": {
+                    "width": 376,
+                    "height": 531,
+                    "url": "https://document-export.canva.com/CQaUI/DAHNAcCQaUI/1/thumbnail/0001.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWEOTUD6Q%2F20260618%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260618T214958Z&X-Amz-Expires=47184&X-Amz-Signature=4a4a6968c24e99c4103ee87ed85ce6550c927d4b4c5627ad2cf18e75b1df35e9&X-Amz-SignedHeaders=host&response-expires=Fri%2C%2019%20Jun%202026%2010%3A56%3A22%20GMT"
+                  },
+                  "urls": {
+                    "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDUyNjk4MzMwfQ..LShqkpG6Btqr_yJn.e7v83rArkfW4VcRwHxZwkGRP6eiOkzkUjzModcc6DjZymlelZ8-GKnHHPZQ5OQWflVP3Y1ydeP_sgqbSLC2Mzy8V1UgcZc5QUSilBbZ8mQD2bFE.E-PdiCbCEyed-8A7YFGu5A/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=d6fecc51-9b57-400e-a0c9-bf432ccdc14b&utm_campaign=public_api_design_import_by_url_design_clicked_hyperlink",
+                    "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDUyNjk4MzMwfQ..LShqkpG6Btqr_yJn.e7v83rArkfW4VcRwHxZwkGRP6eiOkzkUjzModcc6DjZymlelZ8-GKnHHPZQ5OQWflVP3Y1ydeP_sgqbSLC2Mzy8V1UgcZc5QUSilBbZ8mQD2bFE.E-PdiCbCEyed-8A7YFGu5A/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=82d02d55-d505-4797-8d91-9370144e7fc7&utm_campaign=public_api_design_import_by_url_design_clicked_hyperlink"
+                  },
+                  "created_at": 1781860683,
+                  "updated_at": 1781860684,
+                  "page_count": 1
+                }
+              ]
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 19 Jun 2026 09:18:18 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "1543",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4901",
+          "x-ratelimit-reset": "1781860700",
+          "x-request-id": "a0e17213af7cfef8",
+          "etag": "W/\"607-NTj3wKPtFDhK9iy7Ky9NY2uHhMY\""
+        },
+        "hash": "1d1d3bf61d32dfa938a7ece0e6917ae90d268214",
+        "request": {}
+      }
+    }
+  }
+}

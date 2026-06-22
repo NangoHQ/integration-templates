@@ -1,0 +1,74 @@
+{
+  "nango": {
+    "batchSave": {
+      "BrandTemplate": [
+        {
+          "id": "EAHNA0UgrXM",
+          "title": "",
+          "view_url": "https://www.canva.com/brand/brand-templates/EAHNA0UgrXM",
+          "create_url": "https://www.canva.com/design?create=true&template=EAHNA0UgrXM",
+          "thumbnail": {
+            "width": 800,
+            "height": 450,
+            "url": "https://template-private.canva.com/EAHNA0UgrXM/1/0/800w-TxrgCJ0-tQ0.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH7DHWAQDT%2F20260619%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260619T001658Z&X-Amz-Expires=46911&X-Amz-Signature=46806bc1af3b3f88b951bbc3ecee578e532c1c2008bc9e85d92ba9fb38690bb8&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Fri%2C%2019%20Jun%202026%2013%3A18%3A49%20GMT"
+          },
+          "created_at": 1781868225,
+          "updated_at": 1781868289
+        }
+      ]
+    },
+    "batchDelete": {
+      "BrandTemplate": []
+    }
+  },
+  "api": {
+    "get": {
+      "/rest/v1/brand-templates": {
+        "response": {
+          "items": [
+            {
+              "id": "EAHNA0UgrXM",
+              "title": "",
+              "view_url": "https://www.canva.com/brand/brand-templates/EAHNA0UgrXM",
+              "create_url": "https://www.canva.com/design?create=true&template=EAHNA0UgrXM",
+              "thumbnail": {
+                "width": 800,
+                "height": 450,
+                "url": "https://template-private.canva.com/EAHNA0UgrXM/1/0/800w-TxrgCJ0-tQ0.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH7DHWAQDT%2F20260619%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260619T001658Z&X-Amz-Expires=46911&X-Amz-Signature=46806bc1af3b3f88b951bbc3ecee578e532c1c2008bc9e85d92ba9fb38690bb8&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Fri%2C%2019%20Jun%202026%2013%3A18%3A49%20GMT"
+              },
+              "created_at": 1781868225,
+              "updated_at": 1781868289
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 19 Jun 2026 11:50:56 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "717",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4994",
+          "x-ratelimit-reset": "1781869912",
+          "x-request-id": "a0e251a73823ff02",
+          "etag": "W/\"2cd-GbAXiefd/5JbPATWbRxarM4GJmI\""
+        },
+        "hash": "5d546311d054678ff51205bdefbefc9d6e7778a3",
+        "request": {
+          "params": {
+            "limit": "100"
+          }
+        }
+      }
+    }
+  }
+}
