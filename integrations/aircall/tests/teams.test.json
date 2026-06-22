@@ -1,0 +1,99 @@
+{
+  "nango": {
+    "batchSave": {
+      "Team": [
+        {
+          "id": "244846",
+          "direct_link": "https://api.aircall.io/v1/teams/244846",
+          "name": "Nango Test Team",
+          "created_at": "2026-06-19T19:38:35.000Z",
+          "users": []
+        },
+        {
+          "id": "244847",
+          "direct_link": "https://api.aircall.io/v1/teams/244847",
+          "name": "Nango Test Team 2",
+          "created_at": "2026-06-19T19:38:47.000Z",
+          "users": []
+        },
+        {
+          "id": "244849",
+          "direct_link": "https://api.aircall.io/v1/teams/244849",
+          "name": "Nango Test Team 1781898235",
+          "created_at": "2026-06-19T19:43:59.000Z",
+          "users": []
+        }
+      ]
+    },
+    "batchDelete": {
+      "Team": []
+    }
+  },
+  "api": {
+    "get": {
+      "/v1/teams": {
+        "response": {
+          "teams": [
+            {
+              "id": 244846,
+              "name": "Nango Test Team",
+              "direct_link": "https://api.aircall.io/v1/teams/244846",
+              "created_at": "2026-06-19T19:38:35.000Z",
+              "users": []
+            },
+            {
+              "id": 244847,
+              "name": "Nango Test Team 2",
+              "direct_link": "https://api.aircall.io/v1/teams/244847",
+              "created_at": "2026-06-19T19:38:47.000Z",
+              "users": []
+            },
+            {
+              "id": 244849,
+              "name": "Nango Test Team 1781898235",
+              "direct_link": "https://api.aircall.io/v1/teams/244849",
+              "created_at": "2026-06-19T19:43:59.000Z",
+              "users": []
+            }
+          ],
+          "meta": {
+            "count": 3,
+            "total": 3,
+            "current_page": 1,
+            "per_page": 50,
+            "next_page_link": null,
+            "previous_page_link": null
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 19 Jun 2026 19:50:43 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "567",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4970",
+          "x-ratelimit-reset": "1781898645",
+          "x-request-id": "2be0860e-df25-95cc-ae90-fcac5766c816",
+          "etag": "W/\"237-PCVeUkD0IdLmzrxcX31SCQXwWOQ\""
+        },
+        "hash": "78e3b91f876a9c0432878054d4af797db367d30a",
+        "request": {
+          "params": {
+            "page": "1",
+            "per_page": "50"
+          }
+        }
+      }
+    }
+  }
+}

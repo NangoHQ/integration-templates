@@ -1,0 +1,286 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "id": 482393544,
+        "direct_link": "https://api.aircall.io/v1/contacts/482393544",
+        "first_name": "Aircall Support",
+        "last_name": "Customer Success",
+        "company_name": "Aircall",
+        "information": "Click on a number in order to call us!",
+        "is_shared": true,
+        "created_at": 1781777463,
+        "updated_at": 1781897936,
+        "emails": [
+          {
+            "id": 1811800733,
+            "label": "Main",
+            "value": "support@aircall.io"
+          },
+          {
+            "id": 1811800734,
+            "label": "Main",
+            "value": "jobs@aircall.io"
+          },
+          {
+            "id": 1811800735,
+            "label": "Main",
+            "value": "contact@aircall.io"
+          }
+        ],
+        "phone_numbers": [
+          {
+            "id": 1811800736,
+            "label": "Main",
+            "value": "+16469346142"
+          },
+          {
+            "id": 1811800737,
+            "label": "Other",
+            "value": "+14157120785"
+          },
+          {
+            "id": 1811800738,
+            "label": "Other",
+            "value": "+33176360695"
+          },
+          {
+            "id": 1811800739,
+            "label": "Other",
+            "value": "+61284172226"
+          },
+          {
+            "id": 1811800740,
+            "label": "Other",
+            "value": "+31852081002"
+          },
+          {
+            "id": 1811800741,
+            "label": "Other",
+            "value": "+390294759727"
+          },
+          {
+            "id": 1811800742,
+            "label": "Other",
+            "value": "+81345406726"
+          }
+        ]
+      },
+      {
+        "id": 482393545,
+        "direct_link": "https://api.aircall.io/v1/contacts/482393545",
+        "first_name": "Echo Test",
+        "last_name": "Test",
+        "company_name": "Test your sound",
+        "information": "Call this number to test your sound!",
+        "is_shared": true,
+        "created_at": 1781777463,
+        "updated_at": 1781897965,
+        "emails": [
+          {
+            "id": 1811800748,
+            "label": "Main",
+            "value": "support@aircall.io"
+          }
+        ],
+        "phone_numbers": [
+          {
+            "id": 1811800749,
+            "label": "Main",
+            "value": "+16314402060"
+          }
+        ]
+      },
+      {
+        "id": 482884061,
+        "direct_link": "https://api.aircall.io/v1/contacts/482884061",
+        "first_name": "Gary",
+        "last_name": "Jennings",
+        "information": "external_custom_id:87123",
+        "is_shared": true,
+        "created_at": 1781898119,
+        "updated_at": 1781898126,
+        "emails": [
+          {
+            "id": 1818273295,
+            "label": "Office",
+            "value": "gary.jennings@acme.com"
+          }
+        ],
+        "phone_numbers": [
+          {
+            "id": 1818273296,
+            "label": "Work",
+            "value": "+19001112222"
+          }
+        ]
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1/contacts": {
+        "response": {
+          "meta": {
+            "count": 3,
+            "total": 3,
+            "current_page": 1,
+            "per_page": 50,
+            "next_page_link": null,
+            "previous_page_link": null
+          },
+          "contacts": [
+            {
+              "id": 482393544,
+              "created_at": 1781777463,
+              "updated_at": 1781897936,
+              "first_name": "Aircall Support",
+              "last_name": "Customer Success",
+              "information": "Click on a number in order to call us!",
+              "company_name": "Aircall",
+              "is_shared": true,
+              "direct_link": "https://api.aircall.io/v1/contacts/482393544",
+              "phone_numbers": [
+                {
+                  "value": "+16469346142",
+                  "id": 1811800736,
+                  "label": "Main"
+                },
+                {
+                  "value": "+14157120785",
+                  "id": 1811800737,
+                  "label": "Other"
+                },
+                {
+                  "value": "+33176360695",
+                  "id": 1811800738,
+                  "label": "Other"
+                },
+                {
+                  "value": "+61284172226",
+                  "id": 1811800739,
+                  "label": "Other"
+                },
+                {
+                  "value": "+31852081002",
+                  "id": 1811800740,
+                  "label": "Other"
+                },
+                {
+                  "value": "+390294759727",
+                  "id": 1811800741,
+                  "label": "Other"
+                },
+                {
+                  "value": "+81345406726",
+                  "id": 1811800742,
+                  "label": "Other"
+                }
+              ],
+              "emails": [
+                {
+                  "value": "support@aircall.io",
+                  "id": 1811800733,
+                  "label": "Main"
+                },
+                {
+                  "value": "jobs@aircall.io",
+                  "id": 1811800734,
+                  "label": "Main"
+                },
+                {
+                  "value": "contact@aircall.io",
+                  "id": 1811800735,
+                  "label": "Main"
+                }
+              ]
+            },
+            {
+              "id": 482393545,
+              "created_at": 1781777463,
+              "updated_at": 1781897965,
+              "first_name": "Echo Test",
+              "last_name": "Test",
+              "information": "Call this number to test your sound!",
+              "company_name": "Test your sound",
+              "is_shared": true,
+              "direct_link": "https://api.aircall.io/v1/contacts/482393545",
+              "phone_numbers": [
+                {
+                  "value": "+16314402060",
+                  "id": 1811800749,
+                  "label": "Main"
+                }
+              ],
+              "emails": [
+                {
+                  "value": "support@aircall.io",
+                  "id": 1811800748,
+                  "label": "Main"
+                }
+              ]
+            },
+            {
+              "id": 482884061,
+              "created_at": 1781898119,
+              "updated_at": 1781898126,
+              "first_name": "Gary",
+              "last_name": "Jennings",
+              "information": "external_custom_id:87123",
+              "company_name": null,
+              "is_shared": true,
+              "direct_link": "https://api.aircall.io/v1/contacts/482884061",
+              "phone_numbers": [
+                {
+                  "value": "+19001112222",
+                  "id": 1818273296,
+                  "label": "Work"
+                }
+              ],
+              "emails": [
+                {
+                  "value": "gary.jennings@acme.com",
+                  "id": 1818273295,
+                  "label": "Office"
+                }
+              ]
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 19 Jun 2026 19:44:31 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4955",
+          "x-ratelimit-reset": "1781898303",
+          "etag": "W/\"72e-+Zkc8b1e2yp65VMSrwvLGBH3asc\"",
+          "server": "istio-envoy",
+          "x-powered-by": "Express",
+          "vary": "Accept-Encoding",
+          "x-envoy-upstream-service-time": "20",
+          "apigw-requestid": "fOVVCi1KPHcEMPQ=",
+          "x-cache": "Miss from cloudfront",
+          "via": "1.1 38789cdd14ddea5c4c609cb0e6656396.cloudfront.net (CloudFront)",
+          "x-amz-cf-pop": "HIO52-P4",
+          "x-amz-cf-id": "m9RhOLnPrDREu9-wDkasX3_NSOFjhHLw8f5-ehgjuAINmFLZlmci0g=="
+        },
+        "hash": "41556e101857f340d91b476b2e81ee7867d56703",
+        "request": {}
+      }
+    }
+  }
+}

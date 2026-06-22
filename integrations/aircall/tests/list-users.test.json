@@ -1,0 +1,189 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "id": 1981305,
+        "direct_link": "https://api.aircall.io/v2/users/1981305",
+        "name": "Victor Langat",
+        "email": "victor@nango.dev",
+        "available": false,
+        "availability_status": "available",
+        "created_at": "2026-06-18T10:11:02.000Z",
+        "time_zone": "Etc/UTC",
+        "language": "en-US",
+        "substatus": "always_opened",
+        "wrap_up_time": 30,
+        "extension": "001",
+        "default_number_id": null
+      },
+      {
+        "id": 1982970,
+        "direct_link": "https://api.aircall.io/v2/users/1982970",
+        "name": "Open Code",
+        "email": "opencode-test-20260619-a@example.com",
+        "available": false,
+        "availability_status": "available",
+        "created_at": "2026-06-19T19:39:01.000Z",
+        "time_zone": "Etc/UTC",
+        "language": "en-US",
+        "substatus": "always_opened",
+        "wrap_up_time": 0,
+        "extension": "002",
+        "default_number_id": null
+      },
+      {
+        "id": 1982971,
+        "direct_link": "https://api.aircall.io/v2/users/1982971",
+        "name": "Open Code",
+        "email": "opencode-test-20260619-b@example.com",
+        "available": false,
+        "availability_status": "available",
+        "created_at": "2026-06-19T19:39:23.000Z",
+        "time_zone": "Etc/UTC",
+        "language": "en-US",
+        "substatus": "always_opened",
+        "wrap_up_time": 0,
+        "extension": "003",
+        "default_number_id": null
+      },
+      {
+        "id": 1982972,
+        "direct_link": "https://api.aircall.io/v2/users/1982972",
+        "name": "Open Code",
+        "email": "opencode-test-20260619-c@example.com",
+        "available": false,
+        "availability_status": "available",
+        "created_at": "2026-06-19T19:39:38.000Z",
+        "time_zone": "Etc/UTC",
+        "language": "en-US",
+        "substatus": "always_opened",
+        "wrap_up_time": 0,
+        "extension": "004",
+        "default_number_id": null
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v2/users": {
+        "response": {
+          "users": [
+            {
+              "id": 1981305,
+              "name": "Victor Langat",
+              "email": "victor@nango.dev",
+              "direct_link": "https://api.aircall.io/v2/users/1981305",
+              "language": "en-US",
+              "created_at": "2026-06-18T10:11:02.000Z",
+              "time_zone": "Etc/UTC",
+              "state": "always_opened",
+              "wrap_up_time": 30,
+              "extension": "001",
+              "availability_status": "available",
+              "available": false,
+              "default_number_id": null,
+              "substatus": "always_opened"
+            },
+            {
+              "id": 1982970,
+              "name": "Open Code",
+              "email": "opencode-test-20260619-a@example.com",
+              "direct_link": "https://api.aircall.io/v2/users/1982970",
+              "language": "en-US",
+              "created_at": "2026-06-19T19:39:01.000Z",
+              "time_zone": "Etc/UTC",
+              "state": "always_opened",
+              "wrap_up_time": 0,
+              "extension": "002",
+              "availability_status": "available",
+              "available": false,
+              "default_number_id": null,
+              "substatus": "always_opened"
+            },
+            {
+              "id": 1982971,
+              "name": "Open Code",
+              "email": "opencode-test-20260619-b@example.com",
+              "direct_link": "https://api.aircall.io/v2/users/1982971",
+              "language": "en-US",
+              "created_at": "2026-06-19T19:39:23.000Z",
+              "time_zone": "Etc/UTC",
+              "state": "always_opened",
+              "wrap_up_time": 0,
+              "extension": "003",
+              "availability_status": "available",
+              "available": false,
+              "default_number_id": null,
+              "substatus": "always_opened"
+            },
+            {
+              "id": 1982972,
+              "name": "Open Code",
+              "email": "opencode-test-20260619-c@example.com",
+              "direct_link": "https://api.aircall.io/v2/users/1982972",
+              "language": "en-US",
+              "created_at": "2026-06-19T19:39:38.000Z",
+              "time_zone": "Etc/UTC",
+              "state": "always_opened",
+              "wrap_up_time": 0,
+              "extension": "004",
+              "availability_status": "available",
+              "available": false,
+              "default_number_id": null,
+              "substatus": "always_opened"
+            }
+          ],
+          "meta": {
+            "count": 4,
+            "total": 4,
+            "current_page": 1,
+            "per_page": 20,
+            "next_page_link": null,
+            "previous_page_link": null
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 19 Jun 2026 19:44:00 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4900",
+          "x-ratelimit-reset": "1781898242",
+          "etag": "W/\"8ee4155b54d2a43779296e677f8ed347\"",
+          "server": "istio-envoy",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "apigw-requestid": "fOVQMhKNvHcEMFg=",
+          "x-request-id": "904357d4-329b-9f47-8d61-67c0b998ede0",
+          "vary": "Origin, Accept-Encoding",
+          "x-permitted-cross-domain-policies": "none",
+          "x-runtime": "0.026976",
+          "x-envoy-upstream-service-time": "29",
+          "x-cache": "Miss from cloudfront",
+          "via": "1.1 caca3796a9753caf000b1d1a5f744530.cloudfront.net (CloudFront)",
+          "x-amz-cf-pop": "HIO52-P4",
+          "x-amz-cf-id": "2wDhGsGdvlLAXOcvJ21ZogcbnaaZy6CShn5y_YUVxYShfBsDA2yagQ=="
+        },
+        "hash": "c4fbda65b1df2bfef5d2f7a7609602e57ff026d0",
+        "request": {
+          "params": {
+            "page": "1"
+          }
+        }
+      }
+    }
+  }
+}

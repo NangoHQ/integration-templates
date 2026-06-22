@@ -1,0 +1,159 @@
+{
+  "nango": {
+    "batchSave": {
+      "Webhook": [
+        {
+          "id": "aa3c7f5e-74ac-44c8-8c16-aa115605bac4",
+          "webhook_id": "aa3c7f5e-74ac-44c8-8c16-aa115605bac4",
+          "url": "https://example.com/webhook-updated",
+          "active": true,
+          "events": [
+            "contact.updated"
+          ],
+          "token": "d0a7de5d1ec544ed9ac020dfabf4264d",
+          "created_at": "2026-06-19T19:38:30.906Z"
+        },
+        {
+          "id": "a7fbeb94-b867-4977-8bb7-ec0619ec234f",
+          "webhook_id": "a7fbeb94-b867-4977-8bb7-ec0619ec234f",
+          "url": "https://example.com/webhook",
+          "active": true,
+          "events": [
+            "contact.updated",
+            "call.created"
+          ],
+          "token": "67e939e3f7e44ff4a4a41a454447affb",
+          "created_at": "2026-06-19T19:39:03.707Z"
+        },
+        {
+          "id": "c4b532ef-f174-440d-aca2-e73bd7f17896",
+          "webhook_id": "c4b532ef-f174-440d-aca2-e73bd7f17896",
+          "url": "https://example.com/webhook",
+          "active": true,
+          "events": [
+            "contact.updated",
+            "call.created"
+          ],
+          "token": "c10edd6d1cd5440b9589557400890b7f",
+          "created_at": "2026-06-19T19:39:16.752Z"
+        },
+        {
+          "id": "a5321f51-8e05-482a-b2d2-a2596d6e547f",
+          "webhook_id": "a5321f51-8e05-482a-b2d2-a2596d6e547f",
+          "url": "https://example.com/webhook",
+          "active": true,
+          "events": [
+            "contact.updated",
+            "call.created"
+          ],
+          "token": "b8aad3bc0b2e42d48309bc3fd241426f",
+          "created_at": "2026-06-19T19:39:25.102Z"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Webhook": []
+    }
+  },
+  "api": {
+    "get": {
+      "/v1/webhooks": {
+        "response": {
+          "meta": {
+            "count": 4,
+            "total": 4,
+            "current_page": 1,
+            "per_page": 50
+          },
+          "webhooks": [
+            {
+              "id": 71258006,
+              "direct_link": "https://api.aircall.io/v1/webhooks/aa3c7f5e-74ac-44c8-8c16-aa115605bac4",
+              "url": "https://example.com/webhook-updated",
+              "active": true,
+              "events": [
+                "contact.updated"
+              ],
+              "token": "d0a7de5d1ec544ed9ac020dfabf4264d",
+              "created_at": "2026-06-19T19:38:30.906Z",
+              "webhook_id": "aa3c7f5e-74ac-44c8-8c16-aa115605bac4"
+            },
+            {
+              "id": 50952605,
+              "direct_link": "https://api.aircall.io/v1/webhooks/a7fbeb94-b867-4977-8bb7-ec0619ec234f",
+              "url": "https://example.com/webhook",
+              "active": true,
+              "events": [
+                "contact.updated",
+                "call.created"
+              ],
+              "token": "67e939e3f7e44ff4a4a41a454447affb",
+              "created_at": "2026-06-19T19:39:03.707Z",
+              "webhook_id": "a7fbeb94-b867-4977-8bb7-ec0619ec234f"
+            },
+            {
+              "id": 6216433,
+              "direct_link": "https://api.aircall.io/v1/webhooks/c4b532ef-f174-440d-aca2-e73bd7f17896",
+              "url": "https://example.com/webhook",
+              "active": true,
+              "events": [
+                "contact.updated",
+                "call.created"
+              ],
+              "token": "c10edd6d1cd5440b9589557400890b7f",
+              "created_at": "2026-06-19T19:39:16.752Z",
+              "webhook_id": "c4b532ef-f174-440d-aca2-e73bd7f17896"
+            },
+            {
+              "id": 68875597,
+              "direct_link": "https://api.aircall.io/v1/webhooks/a5321f51-8e05-482a-b2d2-a2596d6e547f",
+              "url": "https://example.com/webhook",
+              "active": true,
+              "events": [
+                "contact.updated",
+                "call.created"
+              ],
+              "token": "b8aad3bc0b2e42d48309bc3fd241426f",
+              "created_at": "2026-06-19T19:39:25.102Z",
+              "webhook_id": "a5321f51-8e05-482a-b2d2-a2596d6e547f"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 19 Jun 2026 19:45:09 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4973",
+          "x-ratelimit-reset": "1781898363",
+          "vary": "Accept-Encoding",
+          "x-amzn-requestid": "141099af-be9d-42df-9e2f-48c9b4dd89a4",
+          "x-amz-apigw-id": "fOVa-GydPHcEhZQ=",
+          "x-amzn-trace-id": "Root=1-6a359c45-72884a6351145c841f6b8b9f;Parent=1afcc6f6dc23a15d;Sampled=0;Lineage=1:751d6102:0",
+          "apigw-requestid": "fOVa9jwPvHcEMew=",
+          "x-cache": "Miss from cloudfront",
+          "via": "1.1 bb0a0a1792594c22377eddc835c4b882.cloudfront.net (CloudFront)",
+          "x-amz-cf-pop": "HIO52-P4",
+          "x-amz-cf-id": "uJwZ7qmJNzThSHJL_fpz71UCIlcrIYvsnNgBB53QB1pi0BBpw_vSuQ=="
+        },
+        "hash": "60c0b1d636fffff144bf5edbdd65c8601d888930",
+        "request": {
+          "params": {
+            "per_page": "50"
+          }
+        }
+      }
+    }
+  }
+}

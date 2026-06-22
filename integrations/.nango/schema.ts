@@ -4296,6 +4296,113 @@ export interface StandardEmployee {
 export interface SyncMetadata_adp_unifiedemployees {
 };
 
+export interface Call {
+  id: string;
+  subject?: string | undefined;
+  callType?: string | undefined;
+  callPurpose?: string | undefined;
+  callResult?: string | undefined;
+  callDuration?: string | undefined;
+  callDurationInSeconds?: string | undefined;
+  callStartTime?: string | undefined;
+  description?: string | undefined;
+  dialledNumber?: string | undefined;
+  callerId?: string | undefined;
+  reminder?: string | undefined;
+  modifiedTime: string;
+  createdTime?: string | undefined;
+  ownerName?: string | undefined;
+  ownerId?: string | undefined;
+  ownerEmail?: string | undefined;
+  createdByName?: string | undefined;
+  createdById?: string | undefined;
+  modifiedByName?: string | undefined;
+  modifiedById?: string | undefined;
+  relatedToName?: string | undefined;
+  relatedToId?: string | undefined;
+  contactName?: string | undefined;
+  contactId?: string | undefined;
+  tags?: string[] | undefined;
+};
+
+export interface SyncMetadata_aircall_calls {
+  direction?: 'inbound' | 'outbound' | undefined;
+  qualified?: boolean | undefined;
+};
+
+export interface Number {
+  /**
+   * Unique identifier for the Number
+   */
+  id: string;
+  /**
+   * Direct API URL
+   */
+  direct_link: string;
+  /**
+   * The name of the Number
+   */
+  name: string;
+  /**
+   * International format of the Number
+   */
+  digits: string;
+  /**
+   * Number in E.164 format
+   */
+  e164_digits?: string | undefined;
+  /**
+   * Timestamp when the Number was created, in UTC
+   */
+  created_at: string;
+  /**
+   * ISO 3166-1 alpha-2 country code of the Number
+   */
+  country: string;
+  /**
+   * Number's time zone, set in the Dashboard
+   */
+  time_zone: string;
+  /**
+   * Deprecated. Availability status for Smartflows numbers
+   */
+  open?: boolean | undefined;
+  /**
+   * Returns the availability status based on the first Time Rule widget in the number flow
+   */
+  availability_status?: string | undefined;
+  /**
+   * Deprecated. Whether an IVR was configured for this number
+   */
+  is_ivr?: boolean | undefined;
+  /**
+   * Whether a Number has live recording activated or not
+   */
+  live_recording_activated: boolean;
+  /**
+   * Priority level of the number used during routing of the calls
+   */
+  priority?: number | undefined;
+  /**
+   * URL to Number's music & messages files
+   */
+  messages?: {  welcome?: string | undefined;
+  waiting?: string | undefined;
+  ivr?: string | undefined;
+  voicemail?: string | undefined;
+  closed?: string | undefined;
+  callback_later?: string | undefined;
+  unanswered_call?: string | undefined;
+  after_hours?: string | undefined;
+  ringing_tone?: string | undefined;};
+};
+
+export interface Team {
+  id: string;
+  name: string;
+  picture_url?: string | undefined;
+};
+
 export interface User {
   id: string;
   first_name?: string | undefined;
@@ -4314,28 +4421,976 @@ export interface User {
   role_id?: string | undefined;
 };
 
-export interface SyncMetadata_aircall_users {
+export interface Webhook {
+  id: string;
+  event_type: string;
+  team_id: string;
+  context: string;
+  context_id: string;
+  plan_api_id: string;
+  status: string;
+  client_id: string;
+  passcode: string;
+  endpoint: string;
+  description: string;
+};
+
+export interface ActionInput_aircall_addteammember {
+  /**
+   * Team ID. Example: 244844
+   */
+  team_id: number;
+  /**
+   * User ID. Example: 1981305
+   */
+  user_id: number;
+};
+
+export interface ActionOutput_aircall_addteammember {
+  id: number;
+  name: string;
+  direct_link: string;
+  created_at: string;
+  users: ({  id: number;
+  direct_link: string;
+  name: string;
+  email: string;
+  created_at: string;
+  time_zone: string;})[];
+};
+
+export interface ActionInput_aircall_createcontact {
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  company_name?: string | undefined;
+  information?: string | undefined;
+  phone_numbers?: ({  label: string;
+  value: string;})[] | undefined;
+  emails?: ({  label: string;
+  value: string;})[] | undefined;
+};
+
+export interface ActionOutput_aircall_createcontact {
+  id: number;
+  direct_link: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  company_name?: string | undefined;
+  information?: string | undefined;
+  is_shared: boolean;
+  created_at: number;
+  updated_at: number;
+  emails: ({  id: number;
+  label: string;
+  value: string;})[];
+  phone_numbers: ({  id: number;
+  label: string;
+  value: string;})[];
+};
+
+export interface ActionInput_aircall_createtag {
+  /**
+   * The name of the tag. Example: "Priority"
+   */
+  name: string;
+  /**
+   * The hex color of the tag. Example: "#FF5733"
+   */
+  color?: string | undefined;
+  /**
+   * The description of the tag.
+   */
+  description?: string | undefined;
+};
+
+export interface ActionOutput_aircall_createtag {
+  id: number;
+  name: string;
+  color?: string | undefined;
+  description?: string | undefined;
+};
+
+export interface ActionInput_aircall_createteam {
+  /**
+   * Name of the team to create. Example: "Support USA"
+   */
+  name: string;
+};
+
+export interface ActionOutput_aircall_createteam {
+  team: {  id: number;
+  name: string;
+  direct_link: string;
+  created_at: string;
+  users: unknown[];};
 };
 
 export interface ActionInput_aircall_createuser {
-  firstName: string;
-  lastName: string;
+  /**
+   * User email. Must be valid and unique. Example: "john.doe@aircall.io"
+   */
   email: string;
+  /**
+   * User first name. Example: "John"
+   */
+  first_name: string;
+  /**
+   * User last name. Example: "Doe"
+   */
+  last_name: string;
+  /**
+   * User preferred language in IETF format. Example: "en-US"
+   */
+  language?: string | undefined;
+  /**
+   * User timezone. Example: "America/New_York"
+   */
+  time_zone?: string | undefined;
+  /**
+   * Wrap-up time in whole seconds after a call. Example: 30
+   */
+  wrap_up_time?: number | undefined;
+  /**
+   * User extension. Example: "001"
+   */
+  extension?: string | undefined;
 };
 
 export interface ActionOutput_aircall_createuser {
-  id: string;
+  id: number;
+  direct_link: string;
+  name: string;
   email: string;
-  firstName: string;
-  lastName: string;
+  available: boolean;
+  availability_status: string;
+  created_at: string;
+  time_zone?: string | undefined;
+  language?: string | undefined;
+  substatus?: string | undefined;
+  wrap_up_time?: number | undefined;
+  extension?: string | undefined;
+  default_number_id?: number | undefined;
+};
+
+export interface ActionInput_aircall_createwebhook {
+  /**
+   * Webhook URL to receive events. Example: "https://example.com/webhook"
+   */
+  url: string;
+  /**
+   * List of events to subscribe to. Example: ["call.created", "contact.updated"]
+   */
+  events: ({  0: 'call.created';
+  1: 'call.answered';
+  2: 'call.ended';
+  3: 'call.hungup';
+  4: 'call.archived';
+  5: 'contact.created';
+  6: 'contact.updated';
+  7: 'contact.deleted';
+  8: 'number.opened';
+  9: 'number.closed';
+  10: 'tag.created';
+  11: 'tag.updated';
+  12: 'tag.deleted';
+  13: 'user.created';
+  14: 'user.updated';
+  15: 'user.deleted';})[];
+};
+
+export interface ActionOutput_aircall_createwebhook {
+  webhook: {  /**
+   * UUID string identifier. Example: "13f9cf11-cc5b-4e6d-830c-a858f45cf792"
+   */
+  webhook_id: string;
+  /**
+   * Webhook URL. Example: "https://example.com/webhook"
+   */
+  url: string;
+  /**
+   * Whether the webhook is active.
+   */
+  active: boolean;
+  /**
+   * Subscribed events. Example: ["call.created", "contact.updated"]
+   */
+  events: string[];
+  /**
+   * Webhook token for verification.
+   */
+  token: string;
+  /**
+   * ISO timestamp when the webhook was created.
+   */
+  created_at: string;
+  /**
+   * Direct API URL for the webhook.
+   */
+  direct_link: string;};
+};
+
+export interface ActionInput_aircall_deletecontact {
+  /**
+   * Contact ID to delete. Example: 482881023
+   */
+  id: number;
+};
+
+export interface ActionOutput_aircall_deletecontact {
+  id: number;
+  success: boolean;
+};
+
+export interface ActionInput_aircall_deletetag {
+  /**
+   * Unique identifier of the tag to delete. Example: 2733978
+   */
+  id: number;
+};
+
+export interface ActionOutput_aircall_deletetag {
+  /**
+   * Unique identifier of the deleted tag.
+   */
+  id: number;
+};
+
+export interface ActionInput_aircall_deleteteam {
+  /**
+   * Team ID. Example: 244844
+   */
+  id: number;
+};
+
+export interface ActionOutput_aircall_deleteteam {
+  id: number;
+  success: boolean;
 };
 
 export interface ActionInput_aircall_deleteuser {
-  id: string;
+  /**
+   * User ID. Example: "123"
+   */
+  id: string | number;
 };
 
 export interface ActionOutput_aircall_deleteuser {
+  id: string | number;
   success: boolean;
+};
+
+export interface ActionInput_aircall_deletewebhook {
+  /**
+   * The UUID webhook_id of the webhook to delete. Example: "13f9cf11-cc5b-4e6d-830c-a858f45cf792"
+   */
+  webhookId: string;
+};
+
+export interface ActionOutput_aircall_deletewebhook {
+  success: boolean;
+};
+
+export interface ActionInput_aircall_getcompany {
+};
+
+export interface ActionOutput_aircall_getcompany {
+  company: {  name: string;
+  users_count: number;
+  numbers_count: number;};
+};
+
+export interface ActionInput_aircall_getcontact {
+  /**
+   * Contact ID. Example: "482393544"
+   */
+  contact_id: string;
+};
+
+export interface ActionOutput_aircall_getcontact {
+  id: number;
+  direct_link: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  company_name?: string | undefined;
+  information?: string | undefined;
+  is_shared: boolean;
+  created_at: number;
+  updated_at: number;
+  emails: ({  id: number;
+  label: string;
+  value: string;})[];
+  phone_numbers: ({  id: number;
+  label: string;
+  value: string;})[];
+};
+
+export interface ActionInput_aircall_gettag {
+  /**
+   * Tag ID. Example: 2733978
+   */
+  id: number;
+};
+
+export interface ActionOutput_aircall_gettag {
+  id: number;
+  name: string;
+  color?: string | undefined;
+};
+
+export interface ActionInput_aircall_getteam {
+  /**
+   * Team ID. Example: 244844
+   */
+  team_id: number;
+};
+
+export interface ActionOutput_aircall_getteam {
+  id: number;
+  direct_link?: string | undefined;
+  name?: string | undefined;
+  created_at?: string | undefined;
+  users?: ({  id: number;
+  direct_link?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  created_at?: string | undefined;
+  time_zone?: string | undefined;})[];
+};
+
+export interface ActionInput_aircall_getuseravailability {
+  /**
+   * User ID. Example: 1981305
+   */
+  userId: number;
+};
+
+export interface ActionOutput_aircall_getuseravailability {
+  /**
+   * Availability status. One of: available, unavailable, offline, custom
+   */
+  availability: string;
+};
+
+export interface ActionInput_aircall_getuser {
+  /**
+   * User ID or email address. Example: 1981305
+   */
+  id: number | string;
+};
+
+export interface ActionOutput_aircall_getuser {
+  id: number;
+  direct_link: string;
+  name: string;
+  email: string;
+  available: boolean;
+  availability_status: string;
+  created_at: string;
+  time_zone: string;
+  language: string;
+  substatus?: string | undefined;
+  wrap_up_time: number;
+  extension?: string | undefined;
+  default_number_id?: number | undefined;
+  state?: string | undefined;
+};
+
+export interface ActionInput_aircall_getwebhook {
+  /**
+   * The webhook UUID string. Example: "13f9cf11-cc5b-4e6d-830c-a858f45cf792"
+   */
+  id: string;
+};
+
+export interface ActionOutput_aircall_getwebhook {
+  id: number;
+  webhook_id: string;
+  url: string;
+  active: boolean;
+  events: string[];
+  token?: string | undefined;
+  created_at?: string | undefined;
+};
+
+export interface ActionInput_aircall_listcalls {
+  /**
+   * Minimal creation date for Calls (Unix timestamp).
+   */
+  from?: number | undefined;
+  /**
+   * Maximal creation date for Calls (Unix timestamp).
+   */
+  to?: number | undefined;
+  /**
+   * Direction of the Call.
+   */
+  direction?: 'inbound' | 'outbound' | undefined;
+  /**
+   * Whether to return only qualified calls.
+   */
+  qualified?: boolean | undefined;
+  /**
+   * Number of results per page. Max 50.
+   */
+  per_page?: number | undefined;
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_aircall_listcalls {
+  items: ({  id: number;
+  sid?: string | undefined;
+  direct_link?: string | undefined;
+  direction: string;
+  status: string;
+  missed_call_reason?: string | undefined;
+  started_at?: number | undefined;
+  answered_at?: number | undefined;
+  ended_at?: number | undefined;
+  duration?: number | undefined;
+  voicemail?: string | undefined;
+  recording?: string | undefined;
+  asset?: string | undefined;
+  raw_digits?: string | undefined;
+  user?: {  [key: string]: unknown | undefined;};
+  contact?: {  [key: string]: unknown | undefined;};
+  archived?: boolean | undefined;
+  assigned_to?: {  [key: string]: unknown | undefined;};
+  transferred_by?: {  [key: string]: unknown | undefined;};
+  transferred_to?: {  [key: string]: unknown | undefined;};
+  cost?: string | undefined;
+  number?: {  [key: string]: unknown | undefined;};
+  comments?: ({  [key: string]: unknown | undefined;})[];
+  tags?: ({  [key: string]: unknown | undefined;})[];
+  teams?: ({  [key: string]: unknown | undefined;})[];
+  participants?: ({  [key: string]: unknown | undefined;})[];
+  ivr_options_selected?: ({  [key: string]: unknown | undefined;})[];})[];
+  next_page?: number | undefined;
+  meta: {  count: number;
+  total: number;
+  current_page: number;
+  per_page: number;
+  next_page_link: string;
+  previous_page_link: string;};
+};
+
+export interface ActionInput_aircall_listcontacts {
+  /**
+   * Pagination cursor (page number) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Default is 20, maximum is 50.
+   */
+  per_page?: number | undefined;
+};
+
+export interface ActionOutput_aircall_listcontacts {
+  items: ({  id: number;
+  direct_link: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  company_name?: string | undefined;
+  information?: string | undefined;
+  is_shared: boolean;
+  created_at: number;
+  updated_at: number;
+  emails?: ({  id: number;
+  label: string;
+  value: string;})[] | undefined;
+  phone_numbers?: ({  id: number;
+  label: string;
+  value: string;})[] | undefined;})[];
+  /**
+   * Pagination cursor for the next page. Omitted when there are no more pages.
+   */
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_aircall_listnumbers {
+  /**
+   * Pagination cursor (page number) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_aircall_listnumbers {
+  items: ({  id: number;
+  direct_link: string;
+  name: string;
+  digits: string;
+  e164_digits?: string | undefined;
+  created_at: string;
+  country: string;
+  time_zone: string;
+  open: boolean;
+  availability_status: string;
+  is_ivr: boolean;
+  live_recording_activated: boolean;
+  users?: unknown[] | undefined;
+  priority?: number | undefined;
+  messages?: {  welcome?: string | undefined;
+  waiting?: string | undefined;
+  ringing_tone?: string | undefined;
+  unanswered_call?: string | undefined;
+  after_hours?: string | undefined;
+  ivr?: string | undefined;
+  voicemail?: string | undefined;
+  closed?: string | undefined;
+  callback_later?: string | undefined;};
+  voicemail?: string | undefined;
+  closed?: string | undefined;
+  callback_later?: string | undefined;})[];
+  /**
+   * Next page cursor (page number string). Pass as cursor on the next call.
+   */
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_aircall_listtags {
+  /**
+   * Page number. Default is 1.
+   */
+  page?: number | undefined;
+  /**
+   * Number of results per page. Default is 20, maximum is 50.
+   */
+  per_page?: number | undefined;
+};
+
+export interface ActionOutput_aircall_listtags {
+  tags: ({  id: number;
+  direct_link?: string | undefined;
+  name: string;
+  color: string;
+  description?: string | undefined;})[];
+  meta: {  count: number;
+  total: number;
+  current_page: number;
+  per_page: number;
+  next_page_link?: string | undefined;
+  previous_page_link?: string | undefined;};
+};
+
+export interface ActionInput_aircall_listteams {
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Max 50.
+   */
+  per_page?: number | undefined;
+};
+
+export interface ActionOutput_aircall_listteams {
+  teams: ({  id: number;
+  name: string;
+  direct_link: string;
+  created_at: string;
+  users: ({  id: number;
+  direct_link: string;
+  name: string;
+  email: string;
+  availability_status?: string | undefined;
+  default_number_id?: number | undefined;
+  created_at: string;
+  time_zone: string;})[];})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_aircall_listuseravailabilities {
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_aircall_listuseravailabilities {
+  items: ({  /**
+   * User ID. Example: 1981305
+   */
+  id: number;
+  /**
+   * Availability status. Values: available, unavailable, offline, custom
+   */
+  availability: string;})[];
+  /**
+   * Cursor for the next page. Omit if there are no more pages.
+   */
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_aircall_listusers {
+  /**
+   * Pagination cursor (page number) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Maximum is 50.
+   */
+  per_page?: number | undefined;
+};
+
+export interface ActionOutput_aircall_listusers {
+  items: ({  id: number;
+  direct_link: string;
+  name: string;
+  email: string;
+  available: boolean;
+  availability_status: string;
+  created_at: string;
+  time_zone: string;
+  language: string;
+  substatus: string;
+  wrap_up_time: number;
+  extension?: string | undefined;
+  default_number_id?: number | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_aircall_listwebhooks {
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_aircall_listwebhooks {
+  items: ({  id: number;
+  webhook_id: string;
+  direct_link?: string | undefined;
+  created_at?: string | undefined;
+  url?: string | undefined;
+  active?: boolean | undefined;
+  token?: string | undefined;
+  events?: string[] | undefined;})[];
+  next_page?: string | undefined;
+};
+
+export interface ActionInput_aircall_removeteammember {
+  /**
+   * Team ID. Example: 244844
+   */
+  team_id: number;
+  /**
+   * User ID. Example: 1981305
+   */
+  user_id: number;
+};
+
+export interface ActionOutput_aircall_removeteammember {
+  id: number;
+  name: string;
+  direct_link?: string | undefined;
+  created_at?: string | undefined;
+  users?: unknown[] | undefined;
+};
+
+export interface ActionInput_aircall_searchcalls {
+  /**
+   * Search string to filter calls by phone number, contact name, or other criteria.
+   */
+  query?: string | undefined;
+  /**
+   * Minimum call creation date as a Unix timestamp.
+   */
+  from?: number | undefined;
+  /**
+   * Maximum call creation date as a Unix timestamp.
+   */
+  to?: number | undefined;
+  /**
+   * Page number for pagination. Defaults to 1.
+   */
+  page?: number | undefined;
+  /**
+   * Number of results per page. Maximum is 50.
+   */
+  per_page?: number | undefined;
+};
+
+export interface ActionOutput_aircall_searchcalls {
+  calls: ({  id: number;
+  sid?: string | undefined;
+  direct_link?: string | undefined;
+  direction?: string | undefined;
+  status?: string | undefined;
+  missed_call_reason?: string | undefined;
+  started_at?: number | undefined;
+  answered_at?: number | undefined;
+  ended_at?: number | undefined;
+  duration?: number | undefined;
+  voicemail?: unknown | undefined;
+  recording?: unknown | undefined;
+  asset?: unknown | undefined;
+  raw_digits?: string | undefined;
+  user?: {  id: number;
+  direct_link?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  available?: boolean | undefined;
+  availability_status?: string | undefined;
+  created_at?: string | undefined;
+  time_zone?: string | undefined;
+  language?: string | undefined;};
+  contact?: unknown | undefined;
+  archived?: boolean | undefined;
+  assigned_to?: unknown | undefined;
+  transferred_by?: unknown | undefined;
+  transferred_to?: unknown | undefined;
+  cost?: string | undefined;
+  number?: {  id: number;
+  direct_link?: string | undefined;
+  name?: string | undefined;
+  digits?: string | undefined;
+  created_at?: string | undefined;
+  country?: string | undefined;
+  time_zone?: string | undefined;
+  open?: boolean | undefined;
+  availability_status?: string | undefined;
+  is_ivr?: boolean | undefined;
+  live_recording_activated?: boolean | undefined;
+  priority?: string | undefined;};
+  comments?: unknown[] | undefined;
+  tags?: unknown[] | undefined;
+  teams?: unknown[] | undefined;
+  ivr_options_selected?: unknown[] | undefined;})[];
+  next_page?: number | undefined;
+  total?: number | undefined;
+};
+
+export interface ActionInput_aircall_searchcontacts {
+  /**
+   * Search string to filter contacts by name, phone, or email.
+   */
+  query: string;
+  /**
+   * Number of results per page (max 50).
+   */
+  per_page?: number | undefined;
+  /**
+   * Pagination cursor (page number) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_aircall_searchcontacts {
+  contacts: ({  /**
+   * Contact ID. Example: 711
+   */
+  id: number;
+  /**
+   * Direct API URL. Example: https://api.aircall.io/v1/contacts/711
+   */
+  direct_link?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  company_name?: string | undefined;
+  information?: string | undefined;
+  is_shared?: boolean | undefined;
+  /**
+   * Unix timestamp when the contact was created. Example: 1781777463
+   */
+  created_at?: number | undefined;
+  /**
+   * Unix timestamp when the contact was last updated. Example: 1781777463
+   */
+  updated_at?: number | undefined;
+  phone_numbers?: ({  label: string;
+  value: string;})[] | undefined;
+  emails?: ({  label: string;
+  value: string;})[] | undefined;})[];
+  meta: {  count: number;
+  total: number;
+  current_page: number;
+  per_page: number;
+  next_page_link: string;
+  previous_page_link: string;};
+  /**
+   * Next page number for pagination.
+   */
+  next_page?: number | undefined;
+};
+
+export interface ActionInput_aircall_updatecontact {
+  /**
+   * Contact ID. Example: 482393544
+   */
+  id: number;
+  /**
+   * Contact first name.
+   */
+  first_name?: string | undefined;
+  /**
+   * Contact last name.
+   */
+  last_name?: string | undefined;
+  /**
+   * Contact company name.
+   */
+  company_name?: string | undefined;
+  /**
+   * Extra information about the contact.
+   */
+  information?: string | undefined;
+  /**
+   * Phone numbers for the contact.
+   */
+  phone_numbers?: ({  /**
+   * Label for the phone number. Example: "Work"
+   */
+  label: string;
+  /**
+   * The raw phone number. Example: "+19001112222"
+   */
+  value: string;})[] | undefined;
+  /**
+   * Email addresses for the contact.
+   */
+  emails?: ({  /**
+   * Label for the email. Example: "Office"
+   */
+  label: string;
+  /**
+   * The email address. Example: "gary.jennings@acme.com"
+   */
+  value: string;})[] | undefined;
+};
+
+export interface ActionOutput_aircall_updatecontact {
+  contact: {  id: number;
+  direct_link?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  company_name?: string | undefined;
+  information?: string | undefined;
+  is_shared?: boolean | undefined;
+  created_at?: number | undefined;
+  updated_at?: number | undefined;
+  phone_numbers?: ({  id?: number | undefined;
+  label?: string | undefined;
+  value: string;})[];
+  emails?: ({  id?: number | undefined;
+  label?: string | undefined;
+  value: string;})[];};
+};
+
+export interface ActionInput_aircall_updatetag {
+  /**
+   * Unique identifier for the Tag. Example: 2733978
+   */
+  id: number;
+  /**
+   * Name of the tag. Must be unique. Example: "Tier 2 Customer"
+   */
+  name?: string | undefined;
+  /**
+   * Color of the tag in hexadecimal format. Example: "#00B388"
+   */
+  color?: string | undefined;
+  /**
+   * Description of the tag. Set to null to clear. Example: "High priority clients"
+   */
+  description?: string | undefined;
+};
+
+export interface ActionOutput_aircall_updatetag {
+  id: number;
+  name: string;
+  color: string;
+  description?: string | undefined;
+};
+
+export interface ActionInput_aircall_updateuser {
+  /**
+   * Aircall user ID. Example: 1981305
+   */
+  id: number;
+  /**
+   * First name of the user. Example: "John"
+   */
+  first_name?: string | undefined;
+  /**
+   * Last name of the user. Example: "Doe"
+   */
+  last_name?: string | undefined;
+  /**
+   * Email of the user.
+   */
+  email?: string | undefined;
+  /**
+   * User preferred language (IETF tag). Example: en-US
+   */
+  language?: string | undefined;
+  /**
+   * User timezone. Example: America/New_York
+   */
+  time_zone?: string | undefined;
+  /**
+   * Wrap-up time in seconds after a call.
+   */
+  wrap_up_time?: number | undefined;
+  /**
+   * User extension.
+   */
+  extension?: string | undefined;
+  /**
+   * Default number ID for the user.
+   */
+  default_number_id?: number | undefined;
+};
+
+export interface ActionOutput_aircall_updateuser {
+  id: number;
+  direct_link: string;
+  name: string;
+  email: string;
+  available: boolean;
+  availability_status: string;
+  created_at: string;
+  time_zone: string;
+  language: string;
+  wrap_up_time: number;
+  extension?: string | undefined;
+  substatus?: string | undefined;
+  default_number_id?: number | undefined;
+};
+
+export interface ActionInput_aircall_updatewebhook {
+  /**
+   * Webhook UUID. Example: "c2501111-8a69-4342-bb34-bcd6cfe564ac"
+   */
+  webhook_id: string;
+  /**
+   * Webhook URL. Must be a valid HTTPS URL. Example: "https://example.com/webhook"
+   */
+  url: string;
+  /**
+   * List of events to subscribe to. Example: ["contact.created", "contact.updated"]
+   */
+  events?: string[] | undefined;
+  /**
+   * Whether the webhook is active.
+   */
+  active?: boolean | undefined;
+  /**
+   * Custom name for the webhook. Default is "Webhook".
+   */
+  custom_name?: string | undefined;
+};
+
+export interface ActionOutput_aircall_updatewebhook {
+  webhook_id: string;
+  direct_link: string;
+  created_at: string;
+  url: string;
+  active: boolean;
+  token: string;
+  events: string[];
+  custom_name?: string | undefined;
 };
 
 export interface Base {
@@ -4388,20 +5443,6 @@ export interface View {
   conditions?: {} | undefined;
   execution?: {} | undefined;
   restriction?: unknown | undefined;
-};
-
-export interface Webhook {
-  id: string;
-  event_type: string;
-  team_id: string;
-  context: string;
-  context_id: string;
-  plan_api_id: string;
-  status: string;
-  client_id: string;
-  passcode: string;
-  endpoint: string;
-  description: string;
 };
 
 export interface SyncMetadata_airtable_webhooks {
@@ -10045,12 +11086,6 @@ export interface SyncMetadata_asana_tasks {
   workspace_id?: string | undefined;
   project_id?: string | undefined;
   section_id?: string | undefined;
-};
-
-export interface Team {
-  id: string;
-  name: string;
-  picture_url?: string | undefined;
 };
 
 export interface Workspace {
@@ -41002,35 +42037,6 @@ export interface SyncMetadata_gong_calltranscripts {
   lastSyncBackfillPeriod?: number | undefined;
   callIds?: string[] | undefined;
   workspaceId?: string | undefined;
-};
-
-export interface Call {
-  id: string;
-  subject?: string | undefined;
-  callType?: string | undefined;
-  callPurpose?: string | undefined;
-  callResult?: string | undefined;
-  callDuration?: string | undefined;
-  callDurationInSeconds?: string | undefined;
-  callStartTime?: string | undefined;
-  description?: string | undefined;
-  dialledNumber?: string | undefined;
-  callerId?: string | undefined;
-  reminder?: string | undefined;
-  modifiedTime: string;
-  createdTime?: string | undefined;
-  ownerName?: string | undefined;
-  ownerId?: string | undefined;
-  ownerEmail?: string | undefined;
-  createdByName?: string | undefined;
-  createdById?: string | undefined;
-  modifiedByName?: string | undefined;
-  modifiedById?: string | undefined;
-  relatedToName?: string | undefined;
-  relatedToId?: string | undefined;
-  contactName?: string | undefined;
-  contactId?: string | undefined;
-  tags?: string[] | undefined;
 };
 
 export interface SyncMetadata_gong_calls {

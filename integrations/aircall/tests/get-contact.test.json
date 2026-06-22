@@ -1,0 +1,166 @@
+{
+  "input": {
+    "contact_id": "482393544"
+  },
+  "output": {
+    "id": 482393544,
+    "direct_link": "https://api.aircall.io/v1/contacts/482393544",
+    "first_name": "Aircall team",
+    "last_name": "Customer Success",
+    "company_name": "Aircall",
+    "information": "Click on a number in order to call us!",
+    "is_shared": true,
+    "created_at": 1781777463,
+    "updated_at": 1781777463,
+    "emails": [
+      {
+        "id": 1811800733,
+        "label": "Main",
+        "value": "support@aircall.io"
+      },
+      {
+        "id": 1811800734,
+        "label": "Main",
+        "value": "jobs@aircall.io"
+      },
+      {
+        "id": 1811800735,
+        "label": "Main",
+        "value": "contact@aircall.io"
+      }
+    ],
+    "phone_numbers": [
+      {
+        "id": 1811800736,
+        "label": "Main",
+        "value": "+16469346142"
+      },
+      {
+        "id": 1811800737,
+        "label": "Other",
+        "value": "+14157120785"
+      },
+      {
+        "id": 1811800738,
+        "label": "Other",
+        "value": "+33176360695"
+      },
+      {
+        "id": 1811800739,
+        "label": "Other",
+        "value": "+61284172226"
+      },
+      {
+        "id": 1811800740,
+        "label": "Other",
+        "value": "+31852081002"
+      },
+      {
+        "id": 1811800741,
+        "label": "Other",
+        "value": "+390294759727"
+      },
+      {
+        "id": 1811800742,
+        "label": "Other",
+        "value": "+81345406726"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1/contacts/482393544": {
+        "response": {
+          "contact": {
+            "id": 482393544,
+            "created_at": 1781777463,
+            "updated_at": 1781777463,
+            "first_name": "Aircall team",
+            "last_name": "Customer Success",
+            "information": "Click on a number in order to call us!",
+            "company_name": "Aircall",
+            "is_shared": true,
+            "direct_link": "https://api.aircall.io/v1/contacts/482393544",
+            "phone_numbers": [
+              {
+                "value": "+16469346142",
+                "id": 1811800736,
+                "label": "Main"
+              },
+              {
+                "value": "+14157120785",
+                "id": 1811800737,
+                "label": "Other"
+              },
+              {
+                "value": "+33176360695",
+                "id": 1811800738,
+                "label": "Other"
+              },
+              {
+                "value": "+61284172226",
+                "id": 1811800739,
+                "label": "Other"
+              },
+              {
+                "value": "+31852081002",
+                "id": 1811800740,
+                "label": "Other"
+              },
+              {
+                "value": "+390294759727",
+                "id": 1811800741,
+                "label": "Other"
+              },
+              {
+                "value": "+81345406726",
+                "id": 1811800742,
+                "label": "Other"
+              }
+            ],
+            "emails": [
+              {
+                "value": "support@aircall.io",
+                "id": 1811800733,
+                "label": "Main"
+              },
+              {
+                "value": "jobs@aircall.io",
+                "id": 1811800734,
+                "label": "Main"
+              },
+              {
+                "value": "contact@aircall.io",
+                "id": 1811800735,
+                "label": "Main"
+              }
+            ]
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 19 Jun 2026 19:38:42 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "904",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4902",
+          "x-ratelimit-reset": "1781897939",
+          "etag": "W/\"388-NC7K/E2HOmhP23e0RBw2eZLkSWc\""
+        },
+        "hash": "3c97a9c47294a2aa61362435ce8e2f07a5992578",
+        "request": {}
+      }
+    }
+  }
+}
