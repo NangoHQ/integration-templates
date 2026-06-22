@@ -1,0 +1,93 @@
+{
+  "input": {
+    "project": "nangodev",
+    "workItemId": 5
+  },
+  "output": {
+    "id": 5,
+    "project": "nangodev",
+    "deleted": true,
+    "destroy": false,
+    "deletedBy": "Robin Guldener <api@nangodevelopers.onmicrosoft.com>",
+    "deletedDate": "6/18/2026 8:06:03 AM",
+    "type": "Task",
+    "name": "Test work item for deletion mock",
+    "url": "https://dev.azure.com/nangoapi/727607ec-cf74-49dd-9579-17e253b976d2/_apis/wit/recyclebin/5"
+  },
+  "nango": {},
+  "api": {
+    "delete": {
+      "/nangodev/_apis/wit/workitems/5": {
+        "response": {
+          "id": 5,
+          "type": "Task",
+          "name": "Test work item for deletion mock",
+          "project": "nangodev",
+          "deletedDate": "6/18/2026 8:06:03 AM",
+          "deletedBy": "Robin Guldener <api@nangodevelopers.onmicrosoft.com>",
+          "code": 200,
+          "url": "https://dev.azure.com/nangoapi/727607ec-cf74-49dd-9579-17e253b976d2/_apis/wit/recyclebin/5",
+          "resource": {
+            "id": 5,
+            "rev": 2,
+            "fields": {
+              "System.AreaPath": "nangodev",
+              "System.TeamProject": "nangodev",
+              "System.IterationPath": "nangodev",
+              "System.WorkItemType": "Task",
+              "System.State": "To Do",
+              "System.Reason": "Added to backlog",
+              "System.CreatedDate": "2026-06-18T08:05:56.29Z",
+              "System.CreatedBy": "Robin Guldener <api@nangodevelopers.onmicrosoft.com>",
+              "System.ChangedDate": "2026-06-18T08:06:03.507Z",
+              "System.ChangedBy": "Robin Guldener <api@nangodevelopers.onmicrosoft.com>",
+              "System.CommentCount": 0,
+              "System.Title": "Test work item for deletion mock",
+              "Microsoft.VSTS.Common.StateChangeDate": "2026-06-18T08:05:56.29Z",
+              "Microsoft.VSTS.Common.Priority": 2
+            },
+            "multilineFieldsFormat": {},
+            "_links": {
+              "self": {
+                "href": "https://dev.azure.com/nangoapi/727607ec-cf74-49dd-9579-17e253b976d2/_apis/wit/recyclebin/5"
+              },
+              "workItemType": {
+                "href": "https://dev.azure.com/nangoapi/727607ec-cf74-49dd-9579-17e253b976d2/_apis/wit/workItemTypes/Task"
+              },
+              "fields": {
+                "href": "https://dev.azure.com/nangoapi/727607ec-cf74-49dd-9579-17e253b976d2/_apis/wit/fields"
+              }
+            },
+            "url": "https://dev.azure.com/nangoapi/727607ec-cf74-49dd-9579-17e253b976d2/_apis/wit/recyclebin/5"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 18 Jun 2026 08:06:03 GMT",
+          "content-type": "application/json; charset=utf-8; api-version=7.2-preview.3",
+          "content-length": "1412",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4935",
+          "x-ratelimit-reset": "1781769986",
+          "etag": "W/\"584-Jn5mZqVx9GFsDT8i3P96BGI5ZFc\""
+        },
+        "hash": "fcc897f8d8860d78ce156c890b87958a7552a2f4",
+        "request": {
+          "params": {
+            "api-version": "7.2-preview.3"
+          }
+        }
+      }
+    }
+  }
+}

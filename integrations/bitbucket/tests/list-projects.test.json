@@ -1,0 +1,248 @@
+{
+  "input": {
+    "workspace": "nangodev"
+  },
+  "output": {
+    "items": [
+      {
+        "uuid": "{07c9884a-d620-42cd-8ef8-c60658c9fa71}",
+        "key": "TESTP1",
+        "name": "Test Project 1",
+        "is_private": false,
+        "created_on": "2026-06-18T18:50:59.661214+00:00",
+        "updated_on": "2026-06-18T18:50:59.661227+00:00"
+      },
+      {
+        "uuid": "{a2918633-f263-4e32-9ad0-7c57fef30302}",
+        "key": "NANGO",
+        "name": "Nango Test Project",
+        "description": "Updated via Nango",
+        "is_private": false,
+        "created_on": "2026-06-18T17:28:13.222065+00:00",
+        "updated_on": "2026-06-18T18:50:56.528171+00:00"
+      },
+      {
+        "uuid": "{1ab2b594-8c17-44f1-a1ee-1bc2ef4ff2ae}",
+        "key": "PROJ",
+        "name": "Untitled project",
+        "description": "Project created by Bitbucket for nangodev",
+        "is_private": false,
+        "created_on": "2026-06-18T17:24:05.456933+00:00",
+        "updated_on": "2026-06-18T17:24:05.456946+00:00"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/2.0/workspaces/nangodev/projects": {
+        "response": {
+          "values": [
+            {
+              "type": "project",
+              "owner": {
+                "display_name": "nangodev",
+                "links": {
+                  "self": {
+                    "href": "https://api.bitbucket.org/2.0/workspaces/%7Bd8dcf202-0b5d-4568-8954-43075e98b813%7D"
+                  },
+                  "avatar": {
+                    "href": "https://bitbucket.org/account/nangodev/avatar/"
+                  },
+                  "html": {
+                    "href": "https://bitbucket.org/%7Bd8dcf202-0b5d-4568-8954-43075e98b813%7D/"
+                  }
+                },
+                "type": "team",
+                "uuid": "{d8dcf202-0b5d-4568-8954-43075e98b813}",
+                "username": "nangodev"
+              },
+              "workspace": {
+                "type": "workspace",
+                "uuid": "{d8dcf202-0b5d-4568-8954-43075e98b813}",
+                "name": "nangodev",
+                "slug": "nangodev",
+                "links": {
+                  "avatar": {
+                    "href": "https://bitbucket.org/workspaces/nangodev/avatar/?ts=1781802317"
+                  },
+                  "html": {
+                    "href": "https://bitbucket.org/nangodev/"
+                  },
+                  "self": {
+                    "href": "https://api.bitbucket.org/2.0/workspaces/nangodev"
+                  }
+                }
+              },
+              "key": "TESTP1",
+              "uuid": "{07c9884a-d620-42cd-8ef8-c60658c9fa71}",
+              "is_private": false,
+              "name": "Test Project 1",
+              "description": null,
+              "links": {
+                "self": {
+                  "href": "https://api.bitbucket.org/2.0/workspaces/nangodev/projects/TESTP1"
+                },
+                "html": {
+                  "href": "https://bitbucket.org/nangodev/workspace/projects/TESTP1"
+                },
+                "repositories": {
+                  "href": "https://api.bitbucket.org/2.0/repositories/nangodev?q=project.key=\"TESTP1\""
+                },
+                "avatar": {
+                  "href": "https://bitbucket.org/nangodev/workspace/projects/TESTP1/avatar/32?ts=1781808659"
+                }
+              },
+              "created_on": "2026-06-18T18:50:59.661214+00:00",
+              "updated_on": "2026-06-18T18:50:59.661227+00:00",
+              "has_publicly_visible_repos": false
+            },
+            {
+              "type": "project",
+              "owner": {
+                "display_name": "nangodev",
+                "links": {
+                  "self": {
+                    "href": "https://api.bitbucket.org/2.0/workspaces/%7Bd8dcf202-0b5d-4568-8954-43075e98b813%7D"
+                  },
+                  "avatar": {
+                    "href": "https://bitbucket.org/account/nangodev/avatar/"
+                  },
+                  "html": {
+                    "href": "https://bitbucket.org/%7Bd8dcf202-0b5d-4568-8954-43075e98b813%7D/"
+                  }
+                },
+                "type": "team",
+                "uuid": "{d8dcf202-0b5d-4568-8954-43075e98b813}",
+                "username": "nangodev"
+              },
+              "workspace": {
+                "type": "workspace",
+                "uuid": "{d8dcf202-0b5d-4568-8954-43075e98b813}",
+                "name": "nangodev",
+                "slug": "nangodev",
+                "links": {
+                  "avatar": {
+                    "href": "https://bitbucket.org/workspaces/nangodev/avatar/?ts=1781802317"
+                  },
+                  "html": {
+                    "href": "https://bitbucket.org/nangodev/"
+                  },
+                  "self": {
+                    "href": "https://api.bitbucket.org/2.0/workspaces/nangodev"
+                  }
+                }
+              },
+              "key": "NANGO",
+              "uuid": "{a2918633-f263-4e32-9ad0-7c57fef30302}",
+              "is_private": false,
+              "name": "Nango Test Project",
+              "description": "Updated via Nango",
+              "links": {
+                "self": {
+                  "href": "https://api.bitbucket.org/2.0/workspaces/nangodev/projects/NANGO"
+                },
+                "html": {
+                  "href": "https://bitbucket.org/nangodev/workspace/projects/NANGO"
+                },
+                "repositories": {
+                  "href": "https://api.bitbucket.org/2.0/repositories/nangodev?q=project.key=\"NANGO\""
+                },
+                "avatar": {
+                  "href": "https://bitbucket.org/nangodev/workspace/projects/NANGO/avatar/32?ts=1781808656"
+                }
+              },
+              "created_on": "2026-06-18T17:28:13.222065+00:00",
+              "updated_on": "2026-06-18T18:50:56.528171+00:00",
+              "has_publicly_visible_repos": false
+            },
+            {
+              "type": "project",
+              "owner": {
+                "display_name": "nangodev",
+                "links": {
+                  "self": {
+                    "href": "https://api.bitbucket.org/2.0/workspaces/%7Bd8dcf202-0b5d-4568-8954-43075e98b813%7D"
+                  },
+                  "avatar": {
+                    "href": "https://bitbucket.org/account/nangodev/avatar/"
+                  },
+                  "html": {
+                    "href": "https://bitbucket.org/%7Bd8dcf202-0b5d-4568-8954-43075e98b813%7D/"
+                  }
+                },
+                "type": "team",
+                "uuid": "{d8dcf202-0b5d-4568-8954-43075e98b813}",
+                "username": "nangodev"
+              },
+              "workspace": {
+                "type": "workspace",
+                "uuid": "{d8dcf202-0b5d-4568-8954-43075e98b813}",
+                "name": "nangodev",
+                "slug": "nangodev",
+                "links": {
+                  "avatar": {
+                    "href": "https://bitbucket.org/workspaces/nangodev/avatar/?ts=1781802317"
+                  },
+                  "html": {
+                    "href": "https://bitbucket.org/nangodev/"
+                  },
+                  "self": {
+                    "href": "https://api.bitbucket.org/2.0/workspaces/nangodev"
+                  }
+                }
+              },
+              "key": "PROJ",
+              "uuid": "{1ab2b594-8c17-44f1-a1ee-1bc2ef4ff2ae}",
+              "is_private": false,
+              "name": "Untitled project",
+              "description": "Project created by Bitbucket for nangodev",
+              "links": {
+                "self": {
+                  "href": "https://api.bitbucket.org/2.0/workspaces/nangodev/projects/PROJ"
+                },
+                "html": {
+                  "href": "https://bitbucket.org/nangodev/workspace/projects/PROJ"
+                },
+                "repositories": {
+                  "href": "https://api.bitbucket.org/2.0/repositories/nangodev?q=project.key=\"PROJ\""
+                },
+                "avatar": {
+                  "href": "https://bitbucket.org/nangodev/workspace/projects/PROJ/avatar/32?ts=1781803445"
+                }
+              },
+              "created_on": "2026-06-18T17:24:05.456933+00:00",
+              "updated_on": "2026-06-18T17:24:05.456946+00:00",
+              "has_publicly_visible_repos": true
+            }
+          ],
+          "pagelen": 50,
+          "size": 3,
+          "page": 1
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 18 Jun 2026 18:51:13 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "4380",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4880",
+          "x-ratelimit-reset": "1781808679",
+          "etag": "W/\"111c-aU8WuBb8EHxyjI0RdqIJ/poptr0\""
+        },
+        "hash": "f339b659a2884504f16ea2495b4a439090d3383e",
+        "request": {}
+      }
+    }
+  }
+}

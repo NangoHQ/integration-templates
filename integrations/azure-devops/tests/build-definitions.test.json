@@ -1,0 +1,202 @@
+{
+  "nango": {
+    "getMetadata": {
+      "projects": [
+        "nangodev"
+      ]
+    },
+    "batchSave": {
+      "BuildDefinition": [
+        {
+          "id": "1",
+          "name": "test-pipeline",
+          "path": "\\",
+          "projectId": "727607ec-cf74-49dd-9579-17e253b976d2",
+          "projectName": "nangodev",
+          "url": "https://dev.azure.com/nangoapi/727607ec-cf74-49dd-9579-17e253b976d2/_apis/build/Definitions/1?revision=1",
+          "revision": 1,
+          "createdDate": "2026-06-18T08:04:21.283Z"
+        },
+        {
+          "id": "2",
+          "name": "test-yaml-pipeline",
+          "path": "\\",
+          "projectId": "727607ec-cf74-49dd-9579-17e253b976d2",
+          "projectName": "nangodev",
+          "url": "https://dev.azure.com/nangoapi/727607ec-cf74-49dd-9579-17e253b976d2/_apis/build/Definitions/2?revision=1",
+          "revision": 1,
+          "createdDate": "2026-06-18T08:04:36.853Z"
+        }
+      ]
+    },
+    "batchDelete": {
+      "BuildDefinition": []
+    }
+  },
+  "api": {
+    "get": {
+      "/nangodev/_apis/build/definitions": {
+        "response": {
+          "count": 2,
+          "value": [
+            {
+              "_links": {
+                "self": {
+                  "href": "https://dev.azure.com/nangoapi/727607ec-cf74-49dd-9579-17e253b976d2/_apis/build/Definitions/1?revision=1"
+                },
+                "web": {
+                  "href": "https://dev.azure.com/nangoapi/727607ec-cf74-49dd-9579-17e253b976d2/_build/definition?definitionId=1"
+                },
+                "editor": {
+                  "href": "https://dev.azure.com/nangoapi/727607ec-cf74-49dd-9579-17e253b976d2/_build/designer?id=1&_a=edit-build-definition"
+                },
+                "badge": {
+                  "href": "https://dev.azure.com/nangoapi/727607ec-cf74-49dd-9579-17e253b976d2/_apis/build/status/1"
+                }
+              },
+              "quality": "definition",
+              "authoredBy": {
+                "displayName": "Robin Guldener",
+                "url": "https://spsprodcus7.vssps.visualstudio.com/Abf7b171b-1724-4ebf-8ae7-ccbf15d8a767/_apis/Identities/2a4985d2-16e6-6c2d-a9d5-6dd873b6c65d",
+                "_links": {
+                  "avatar": {
+                    "href": "https://dev.azure.com/nangoapi/_apis/GraphProfile/MemberAvatars/aad.MmE0OTg1ZDItMTZlNi03YzJkLWE5ZDUtNmRkODczYjZjNjVk"
+                  }
+                },
+                "id": "2a4985d2-16e6-6c2d-a9d5-6dd873b6c65d",
+                "uniqueName": "api@nangodevelopers.onmicrosoft.com",
+                "imageUrl": "https://dev.azure.com/nangoapi/_apis/GraphProfile/MemberAvatars/aad.MmE0OTg1ZDItMTZlNi03YzJkLWE5ZDUtNmRkODczYjZjNjVk",
+                "descriptor": "aad.MmE0OTg1ZDItMTZlNi03YzJkLWE5ZDUtNmRkODczYjZjNjVk"
+              },
+              "drafts": [],
+              "queue": {
+                "_links": {
+                  "self": {
+                    "href": "https://dev.azure.com/nangoapi/_apis/build/Queues/9"
+                  }
+                },
+                "id": 9,
+                "name": "Azure Pipelines",
+                "url": "https://dev.azure.com/nangoapi/_apis/build/Queues/9",
+                "pool": {
+                  "id": 9,
+                  "name": "Azure Pipelines",
+                  "isHosted": true
+                }
+              },
+              "id": 1,
+              "name": "test-pipeline",
+              "url": "https://dev.azure.com/nangoapi/727607ec-cf74-49dd-9579-17e253b976d2/_apis/build/Definitions/1?revision=1",
+              "uri": "vstfs:///Build/Definition/1",
+              "path": "\\",
+              "type": "build",
+              "queueStatus": "enabled",
+              "revision": 1,
+              "createdDate": "2026-06-18T08:04:21.283Z",
+              "project": {
+                "id": "727607ec-cf74-49dd-9579-17e253b976d2",
+                "name": "nangodev",
+                "url": "https://dev.azure.com/nangoapi/_apis/projects/727607ec-cf74-49dd-9579-17e253b976d2",
+                "state": "wellFormed",
+                "revision": 11,
+                "visibility": "private",
+                "lastUpdateTime": "2026-06-18T07:38:30.063Z"
+              }
+            },
+            {
+              "_links": {
+                "self": {
+                  "href": "https://dev.azure.com/nangoapi/727607ec-cf74-49dd-9579-17e253b976d2/_apis/build/Definitions/2?revision=1"
+                },
+                "web": {
+                  "href": "https://dev.azure.com/nangoapi/727607ec-cf74-49dd-9579-17e253b976d2/_build/definition?definitionId=2"
+                },
+                "editor": {
+                  "href": "https://dev.azure.com/nangoapi/727607ec-cf74-49dd-9579-17e253b976d2/_build/designer?id=2&_a=edit-build-definition"
+                },
+                "badge": {
+                  "href": "https://dev.azure.com/nangoapi/727607ec-cf74-49dd-9579-17e253b976d2/_apis/build/status/2"
+                }
+              },
+              "quality": "definition",
+              "authoredBy": {
+                "displayName": "Robin Guldener",
+                "url": "https://spsprodcus7.vssps.visualstudio.com/Abf7b171b-1724-4ebf-8ae7-ccbf15d8a767/_apis/Identities/2a4985d2-16e6-6c2d-a9d5-6dd873b6c65d",
+                "_links": {
+                  "avatar": {
+                    "href": "https://dev.azure.com/nangoapi/_apis/GraphProfile/MemberAvatars/aad.MmE0OTg1ZDItMTZlNi03YzJkLWE5ZDUtNmRkODczYjZjNjVk"
+                  }
+                },
+                "id": "2a4985d2-16e6-6c2d-a9d5-6dd873b6c65d",
+                "uniqueName": "api@nangodevelopers.onmicrosoft.com",
+                "imageUrl": "https://dev.azure.com/nangoapi/_apis/GraphProfile/MemberAvatars/aad.MmE0OTg1ZDItMTZlNi03YzJkLWE5ZDUtNmRkODczYjZjNjVk",
+                "descriptor": "aad.MmE0OTg1ZDItMTZlNi03YzJkLWE5ZDUtNmRkODczYjZjNjVk"
+              },
+              "drafts": [],
+              "queue": {
+                "_links": {
+                  "self": {
+                    "href": "https://dev.azure.com/nangoapi/_apis/build/Queues/9"
+                  }
+                },
+                "id": 9,
+                "name": "Azure Pipelines",
+                "url": "https://dev.azure.com/nangoapi/_apis/build/Queues/9",
+                "pool": {
+                  "id": 9,
+                  "name": "Azure Pipelines",
+                  "isHosted": true
+                }
+              },
+              "id": 2,
+              "name": "test-yaml-pipeline",
+              "url": "https://dev.azure.com/nangoapi/727607ec-cf74-49dd-9579-17e253b976d2/_apis/build/Definitions/2?revision=1",
+              "uri": "vstfs:///Build/Definition/2",
+              "path": "\\",
+              "type": "build",
+              "queueStatus": "enabled",
+              "revision": 1,
+              "createdDate": "2026-06-18T08:04:36.853Z",
+              "project": {
+                "id": "727607ec-cf74-49dd-9579-17e253b976d2",
+                "name": "nangodev",
+                "url": "https://dev.azure.com/nangoapi/_apis/projects/727607ec-cf74-49dd-9579-17e253b976d2",
+                "state": "wellFormed",
+                "revision": 11,
+                "visibility": "private",
+                "lastUpdateTime": "2026-06-18T07:38:30.063Z"
+              }
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 18 Jun 2026 08:06:00 GMT",
+          "content-type": "application/json; charset=utf-8; api-version=7.2-preview.7",
+          "content-length": "3930",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4949",
+          "x-ratelimit-reset": "1781769986",
+          "etag": "W/\"f5a-vxI1TgYctr88fsbihJJI7jMgNFw\""
+        },
+        "hash": "9d0a1b8a1a6f27d85c51b7e9572aed2d53012ed2",
+        "request": {
+          "params": {
+            "$top": "100",
+            "api-version": "7.2-preview.7"
+          }
+        }
+      }
+    }
+  }
+}

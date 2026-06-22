@@ -1,0 +1,170 @@
+{
+  "input": {
+    "project": "nangodev",
+    "type": "Task",
+    "fields": [
+      {
+        "op": "add",
+        "path": "/fields/System.Title",
+        "value": "Test work item from Nango action"
+      }
+    ]
+  },
+  "output": {
+    "id": 3,
+    "rev": 1,
+    "url": "https://dev.azure.com/nangoapi/727607ec-cf74-49dd-9579-17e253b976d2/_apis/wit/workItems/3",
+    "fields": {
+      "System.AreaPath": "nangodev",
+      "System.TeamProject": "nangodev",
+      "System.IterationPath": "nangodev",
+      "System.WorkItemType": "Task",
+      "System.State": "To Do",
+      "System.Reason": "Added to backlog",
+      "System.CreatedDate": "2026-06-18T08:03:45.66Z",
+      "System.CreatedBy": {
+        "displayName": "Robin Guldener",
+        "url": "https://spsprodcus7.vssps.visualstudio.com/Abf7b171b-1724-4ebf-8ae7-ccbf15d8a767/_apis/Identities/2a4985d2-16e6-6c2d-a9d5-6dd873b6c65d",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/nangoapi/_apis/GraphProfile/MemberAvatars/aad.MmE0OTg1ZDItMTZlNi03YzJkLWE5ZDUtNmRkODczYjZjNjVk"
+          }
+        },
+        "id": "2a4985d2-16e6-6c2d-a9d5-6dd873b6c65d",
+        "uniqueName": "api@nangodevelopers.onmicrosoft.com",
+        "imageUrl": "https://dev.azure.com/nangoapi/_apis/GraphProfile/MemberAvatars/aad.MmE0OTg1ZDItMTZlNi03YzJkLWE5ZDUtNmRkODczYjZjNjVk",
+        "descriptor": "aad.MmE0OTg1ZDItMTZlNi03YzJkLWE5ZDUtNmRkODczYjZjNjVk"
+      },
+      "System.ChangedDate": "2026-06-18T08:03:45.66Z",
+      "System.ChangedBy": {
+        "displayName": "Robin Guldener",
+        "url": "https://spsprodcus7.vssps.visualstudio.com/Abf7b171b-1724-4ebf-8ae7-ccbf15d8a767/_apis/Identities/2a4985d2-16e6-6c2d-a9d5-6dd873b6c65d",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/nangoapi/_apis/GraphProfile/MemberAvatars/aad.MmE0OTg1ZDItMTZlNi03YzJkLWE5ZDUtNmRkODczYjZjNjVk"
+          }
+        },
+        "id": "2a4985d2-16e6-6c2d-a9d5-6dd873b6c65d",
+        "uniqueName": "api@nangodevelopers.onmicrosoft.com",
+        "imageUrl": "https://dev.azure.com/nangoapi/_apis/GraphProfile/MemberAvatars/aad.MmE0OTg1ZDItMTZlNi03YzJkLWE5ZDUtNmRkODczYjZjNjVk",
+        "descriptor": "aad.MmE0OTg1ZDItMTZlNi03YzJkLWE5ZDUtNmRkODczYjZjNjVk"
+      },
+      "System.CommentCount": 0,
+      "System.Title": "Test work item from Nango action",
+      "Microsoft.VSTS.Common.StateChangeDate": "2026-06-18T08:03:45.66Z",
+      "Microsoft.VSTS.Common.Priority": 2
+    }
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/nangodev/_apis/wit/workitems/$Task": {
+        "response": {
+          "id": 3,
+          "rev": 1,
+          "fields": {
+            "System.AreaPath": "nangodev",
+            "System.TeamProject": "nangodev",
+            "System.IterationPath": "nangodev",
+            "System.WorkItemType": "Task",
+            "System.State": "To Do",
+            "System.Reason": "Added to backlog",
+            "System.CreatedDate": "2026-06-18T08:03:45.66Z",
+            "System.CreatedBy": {
+              "displayName": "Robin Guldener",
+              "url": "https://spsprodcus7.vssps.visualstudio.com/Abf7b171b-1724-4ebf-8ae7-ccbf15d8a767/_apis/Identities/2a4985d2-16e6-6c2d-a9d5-6dd873b6c65d",
+              "_links": {
+                "avatar": {
+                  "href": "https://dev.azure.com/nangoapi/_apis/GraphProfile/MemberAvatars/aad.MmE0OTg1ZDItMTZlNi03YzJkLWE5ZDUtNmRkODczYjZjNjVk"
+                }
+              },
+              "id": "2a4985d2-16e6-6c2d-a9d5-6dd873b6c65d",
+              "uniqueName": "api@nangodevelopers.onmicrosoft.com",
+              "imageUrl": "https://dev.azure.com/nangoapi/_apis/GraphProfile/MemberAvatars/aad.MmE0OTg1ZDItMTZlNi03YzJkLWE5ZDUtNmRkODczYjZjNjVk",
+              "descriptor": "aad.MmE0OTg1ZDItMTZlNi03YzJkLWE5ZDUtNmRkODczYjZjNjVk"
+            },
+            "System.ChangedDate": "2026-06-18T08:03:45.66Z",
+            "System.ChangedBy": {
+              "displayName": "Robin Guldener",
+              "url": "https://spsprodcus7.vssps.visualstudio.com/Abf7b171b-1724-4ebf-8ae7-ccbf15d8a767/_apis/Identities/2a4985d2-16e6-6c2d-a9d5-6dd873b6c65d",
+              "_links": {
+                "avatar": {
+                  "href": "https://dev.azure.com/nangoapi/_apis/GraphProfile/MemberAvatars/aad.MmE0OTg1ZDItMTZlNi03YzJkLWE5ZDUtNmRkODczYjZjNjVk"
+                }
+              },
+              "id": "2a4985d2-16e6-6c2d-a9d5-6dd873b6c65d",
+              "uniqueName": "api@nangodevelopers.onmicrosoft.com",
+              "imageUrl": "https://dev.azure.com/nangoapi/_apis/GraphProfile/MemberAvatars/aad.MmE0OTg1ZDItMTZlNi03YzJkLWE5ZDUtNmRkODczYjZjNjVk",
+              "descriptor": "aad.MmE0OTg1ZDItMTZlNi03YzJkLWE5ZDUtNmRkODczYjZjNjVk"
+            },
+            "System.CommentCount": 0,
+            "System.Title": "Test work item from Nango action",
+            "Microsoft.VSTS.Common.StateChangeDate": "2026-06-18T08:03:45.66Z",
+            "Microsoft.VSTS.Common.Priority": 2
+          },
+          "multilineFieldsFormat": {},
+          "_links": {
+            "self": {
+              "href": "https://dev.azure.com/nangoapi/727607ec-cf74-49dd-9579-17e253b976d2/_apis/wit/workItems/3"
+            },
+            "workItemUpdates": {
+              "href": "https://dev.azure.com/nangoapi/727607ec-cf74-49dd-9579-17e253b976d2/_apis/wit/workItems/3/updates"
+            },
+            "workItemRevisions": {
+              "href": "https://dev.azure.com/nangoapi/727607ec-cf74-49dd-9579-17e253b976d2/_apis/wit/workItems/3/revisions"
+            },
+            "workItemComments": {
+              "href": "https://dev.azure.com/nangoapi/727607ec-cf74-49dd-9579-17e253b976d2/_apis/wit/workItems/3/comments"
+            },
+            "html": {
+              "href": "https://dev.azure.com/nangoapi/727607ec-cf74-49dd-9579-17e253b976d2/_workitems/edit/3"
+            },
+            "workItemType": {
+              "href": "https://dev.azure.com/nangoapi/727607ec-cf74-49dd-9579-17e253b976d2/_apis/wit/workItemTypes/Task"
+            },
+            "fields": {
+              "href": "https://dev.azure.com/nangoapi/727607ec-cf74-49dd-9579-17e253b976d2/_apis/wit/fields"
+            }
+          },
+          "url": "https://dev.azure.com/nangoapi/727607ec-cf74-49dd-9579-17e253b976d2/_apis/wit/workItems/3"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 18 Jun 2026 08:03:45 GMT",
+          "content-type": "application/json; charset=utf-8; api-version=7.2-preview.3",
+          "content-length": "2713",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4960",
+          "x-ratelimit-reset": "1781769865",
+          "etag": "W/\"a99-5ho1eH/AcOwNBLLuq6mvqQoReNg\""
+        },
+        "hash": "ffef905d11cb6fd1387b2264b105f86a9b78fe1f",
+        "request": {
+          "params": {
+            "api-version": "7.2-preview.3"
+          },
+          "headers": {
+            "Content-Type": "application/json-patch+json"
+          },
+          "data": [
+            {
+              "op": "add",
+              "path": "/fields/System.Title",
+              "value": "Test work item from Nango action"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
