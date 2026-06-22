@@ -1,0 +1,95 @@
+{
+  "input": {
+    "id": "basic-plan-yearly-test-2026",
+    "name": "Basic Plan Yearly Test 2026",
+    "item_id": "basic-plan",
+    "pricing_model": "flat_fee",
+    "currency_code": "USD",
+    "period": 1,
+    "period_unit": "year",
+    "price": 19000
+  },
+  "output": {
+    "id": "basic-plan-yearly-test-2026",
+    "name": "Basic Plan Yearly Test 2026",
+    "item_id": "basic-plan",
+    "pricing_model": "flat_fee",
+    "currency_code": "USD",
+    "period": 1,
+    "period_unit": "year",
+    "price": 19000,
+    "status": "active",
+    "created_at": 1781857196,
+    "updated_at": 1781857196,
+    "resource_version": 1781857196073,
+    "external_name": "Basic Plan Yearly Test 2026",
+    "free_quantity": 0,
+    "is_taxable": true
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/api/v2/item_prices": {
+        "response": {
+          "item_price": {
+            "id": "basic-plan-yearly-test-2026",
+            "name": "Basic Plan Yearly Test 2026",
+            "item_family_id": "saas-plans",
+            "item_id": "basic-plan",
+            "status": "active",
+            "external_name": "Basic Plan Yearly Test 2026",
+            "pricing_model": "flat_fee",
+            "price": 19000,
+            "period": 1,
+            "currency_code": "USD",
+            "period_unit": "year",
+            "free_quantity": 0,
+            "channel": "web",
+            "resource_version": 1781857196073,
+            "updated_at": 1781857196,
+            "created_at": 1781857196,
+            "is_taxable": true,
+            "item_type": "plan",
+            "show_description_in_invoices": false,
+            "show_description_in_quotes": false,
+            "deleted": false,
+            "object": "item_price"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 19 Jun 2026 08:19:56 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "696",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4900",
+          "x-ratelimit-reset": "1781857209",
+          "etag": "W/\"2b8-RR7wDAUPiQIimTfxgpcaPtaC8Tk\""
+        },
+        "hash": "17e150d1952b5240016f383d7fcf39311dd45ec1",
+        "request": {
+          "params": {
+            "currency_code": "USD",
+            "id": "basic-plan-yearly-test-2026",
+            "item_id": "basic-plan",
+            "name": "Basic Plan Yearly Test 2026",
+            "period": "1",
+            "period_unit": "year",
+            "price": "19000",
+            "pricing_model": "flat_fee"
+          }
+        }
+      }
+    }
+  }
+}
