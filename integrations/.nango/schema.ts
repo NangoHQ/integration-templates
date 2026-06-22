@@ -16438,151 +16438,51 @@ export interface ActionOutput_auth0_cc_updateuser {
 
 export interface Transaction {
   id: string;
-  code: string;
-  companyId: number;
-  date: string;
-  paymentDate: string;
-  status: string;
+  customer_id?: string | undefined;
+  subscription_id?: string | undefined;
+  gateway_account_id?: string | undefined;
+  payment_source_id?: string | undefined;
+  payment_method?: string | undefined;
+  reference_number?: string | undefined;
+  gateway?: string | undefined;
   type: string;
-  batchCode: string;
-  currencyCode: string;
-  exchangeRateCurrencyCode: string;
-  customerUsageType: string;
-  entityUseCode: string;
-  customerVendorCode: string;
-  customerCode: string;
-  exemptNo: string;
-  reconciled: boolean;
-  locationCode: string;
-  reportingLocationCode: string;
-  purchaseOrderNo: string;
-  referenceCode: string;
-  salespersonCode: string;
-  taxOverrideType: string;
-  taxOverrideAmount: number;
-  taxOverrideReason: string;
-  totalAmount: number;
-  totalExempt: number;
-  totalDiscount: number;
-  totalTax: number;
-  totalTaxable: number;
-  totalTaxCalculated: number;
-  adjustmentReason: string;
-  adjustmentDescription: string;
-  locked: boolean;
-  region: string;
-  country: string;
-  version: number;
-  softwareVersion: string;
-  originAddressId: number;
-  destinationAddressId: number;
-  exchangeRateEffectiveDate: string;
-  exchangeRate: number;
-  isSellerImporterOfRecord: boolean;
-  description: string;
-  email: string;
-  businessIdentificationNo: string;
-  modifiedDate: string;
-  modifiedUserId: number;
-  taxDate: string;
-  lines: ({  id: number;
-  transactionId: number;
-  lineNumber: string;
-  boundaryOverrideId: number;
-  entityUseCode: string;
-  description: string;
-  destinationAddressId: number;
-  originAddressId: number;
-  discountAmount: number;
-  discountTypeId: number;
-  exemptAmount: number;
-  exemptCertId: number;
-  exemptNo: string;
-  isItemTaxable: boolean;
-  isSSTP: boolean;
-  itemCode: string;
-  lineAmount: number;
-  quantity: number;
-  ref1: string;
-  reportingDate: string;
-  revAccount: string;
-  sourcing: string;
-  tax: number;
-  taxableAmount: number;
-  taxCalculated: number;
-  taxCode: string;
-  taxDate: string;
-  taxEngine: string;
-  taxOverrideType: string;
-  taxOverrideAmount: number;
-  taxOverrideReason: string;
-  taxIncluded: boolean;
-  details: ({  id: number;
-  transactionLineId: number;
-  transactionId: number;
-  addressId: number;
-  country: string;
-  region: string;
-  stateFIPS: string;
-  exemptAmount: number;
-  exemptReasonId: number;
-  exemptRuleId: number;
-  inState: boolean;
-  jurisCode: string;
-  jurisName: string;
-  jurisdictionId: number;
-  signatureCode: string;
-  stateAssignedNo: string;
-  jurisType: string;
-  nonTaxableAmount: number;
-  nonTaxableRuleId: number;
-  nonTaxableType: string;
-  rate: number;
-  rateRuleId: number;
-  rateSourceId: number;
-  serCode: string;
-  sourcing: string;
-  tax: number;
-  taxableAmount: number;
-  taxType: string;
-  taxName: string;
-  taxAuthorityTypeId: number;
-  taxRegionId: number;
-  taxCalculated: number;
-  taxOverride: number;
-  rateType: string;
-  taxableUnits: number;
-  nonTaxableUnits: number;
-  exemptUnits: number;
-  reportingTaxableUnits: number;
-  reportingNonTaxableUnits: number;
-  reportingExemptUnits: number;
-  reportingTax: number;
-  reportingTaxCalculated: number;
-  recoverabilityPercentage: number;
-  recoverableAmount: number;
-  nonRecoverableAmount: number;})[];
-  vatNumberTypeId: number;
-  recoverabilityPercentage: number;
-  recoverableAmount: number;
-  nonRecoverableAmount: number;})[];
-  locationTypes: any[];
-  messages: string[];
-  summary: string[];
-  addresses: ({  id: number;
-  transactionId: number;
-  boundaryLevel: string;
-  line1: string;
-  city: string;
-  region: string;
-  postalCode: string;
-  country: string;
-  taxRegionId: number;})[];
-  taxDetailsByTaxType: ({  taxType: string;
-  totalTaxable: number;
-  totalExempt: number;
-  totalNonTaxable: number;
-  totalTax: number;})[];
+  date?: number | undefined;
+  settled_at?: number | undefined;
+  exchange_rate?: number | undefined;
+  currency_code: string;
+  amount?: number | undefined;
+  id_at_gateway?: string | undefined;
+  status?: string | undefined;
+  fraud_flag?: string | undefined;
+  initiator_type?: string | undefined;
+  three_d_secure?: boolean | undefined;
+  authorization_reason?: string | undefined;
+  error_code?: string | undefined;
+  error_text?: string | undefined;
+  voided_at?: number | undefined;
+  resource_version?: number | undefined;
+  updated_at?: number | undefined;
+  fraud_reason?: string | undefined;
+  custom_payment_method_id?: string | undefined;
+  amount_unused?: number | undefined;
+  masked_card_number?: string | undefined;
+  reference_transaction_id?: string | undefined;
+  refunded_txn_id?: string | undefined;
+  reference_authorization_id?: string | undefined;
+  amount_capturable?: number | undefined;
+  reversal_transaction_id?: string | undefined;
+  deleted: boolean;
+  iin?: string | undefined;
+  last4?: string | undefined;
+  merchant_reference_id?: string | undefined;
+  business_entity_id?: string | undefined;
+  payment_method_details?: string | undefined;
+  custom_payment_method_name?: string | undefined;
+  linked_invoices?: unknown | undefined;
+  linked_credit_notes?: unknown | undefined;
+  linked_refunds?: unknown | undefined;
+  linked_payments?: unknown | undefined;
+  error_detail?: unknown | undefined;
 };
 
 export interface SyncMetadata_avalara_transactions {
@@ -19829,177 +19729,6 @@ export interface ActionInput_bill_disableuser {
 
 export interface ActionOutput_bill_disableuser {
   success: boolean;
-};
-
-export interface Branch {
-  id: string;
-  name: string;
-  project_id: string;
-  merged?: boolean | undefined;
-  protected?: boolean | undefined;
-  default?: boolean | undefined;
-  developers_can_push?: boolean | undefined;
-  developers_can_merge?: boolean | undefined;
-  can_push?: boolean | undefined;
-  web_url?: string | undefined;
-  commit_id?: string | undefined;
-  commit_short_id?: string | undefined;
-  commit_created_at?: string | undefined;
-  commit_title?: string | undefined;
-  commit_message?: string | undefined;
-  commit_author_name?: string | undefined;
-  commit_author_email?: string | undefined;
-  commit_authored_date?: string | undefined;
-  commit_committer_name?: string | undefined;
-  commit_committer_email?: string | undefined;
-  commit_committed_date?: string | undefined;
-  commit_web_url?: string | undefined;
-};
-
-export interface Commit {
-  id: string;
-  short_id?: string | undefined;
-  title?: string | undefined;
-  author_name?: string | undefined;
-  author_email?: string | undefined;
-  authored_date?: string | undefined;
-  committer_name?: string | undefined;
-  committer_email?: string | undefined;
-  committed_date?: string | undefined;
-  created_at?: string | undefined;
-  message?: string | undefined;
-  parent_ids?: string[] | undefined;
-  web_url?: string | undefined;
-};
-
-export interface Pipeline {
-  id: string;
-  name?: string | undefined;
-  update_time: string;
-  add_time?: string | undefined;
-  is_deal_probability_enabled?: boolean | undefined;
-};
-
-export interface PullRequest {
-  /**
-   * The unique identifier of the pull request (e.g., "12345")
-   */
-  id: string;
-  /**
-   * The pull request number within the repository
-   */
-  number: number;
-  /**
-   * The state of the pull request: "open", "closed"
-   */
-  state: string;
-  /**
-   * The title of the pull request
-   */
-  title: string;
-  /**
-   * The description/body of the pull request
-   */
-  body?: string | undefined;
-  /**
-   * The login/username of the PR author
-   */
-  user_login?: string | undefined;
-  /**
-   * The ID of the PR author
-   */
-  user_id?: number | undefined;
-  /**
-   * The ISO 8601 timestamp when the PR was created
-   */
-  created_at: string;
-  /**
-   * The ISO 8601 timestamp when the PR was last updated
-   */
-  updated_at: string;
-  /**
-   * The ISO 8601 timestamp when the PR was closed
-   */
-  closed_at?: string | undefined;
-  /**
-   * The ISO 8601 timestamp when the PR was merged
-   */
-  merged_at?: string | undefined;
-  /**
-   * The SHA of the merge commit
-   */
-  merge_commit_sha?: string | undefined;
-  /**
-   * The name of the head branch
-   */
-  head_ref: string;
-  /**
-   * The SHA of the head branch commit
-   */
-  head_sha: string;
-  /**
-   * The name of the base branch
-   */
-  base_ref: string;
-  /**
-   * The SHA of the base branch commit
-   */
-  base_sha: string;
-  /**
-   * Whether the pull request is a draft
-   */
-  draft: boolean;
-  /**
-   * The URL to view the pull request on GitHub
-   */
-  html_url: string;
-  /**
-   * The full name of the repository (e.g., "owner/repo")
-   */
-  repo_full_name: string;
-  /**
-   * Labels attached to the pull request
-   */
-  labels: ({  id: number;
-  name: string;
-  color: string;
-  description?: string | undefined;})[];
-  /**
-   * Users assigned to the pull request
-   */
-  assignees: ({  login: string;
-  id: number;})[];
-  /**
-   * Users requested to review the pull request
-   */
-  requested_reviewers: ({  login: string;
-  id: number;})[];
-};
-
-export interface Repository {
-  id: string;
-  name: string;
-  full_name: string;
-  owner_login: string;
-  owner_id: string;
-  owner_type: string;
-  private: boolean;
-  visibility?: string | undefined;
-  html_url: string;
-  description?: string | undefined;
-  fork: boolean;
-  default_branch: string;
-  created_at?: string | undefined;
-  updated_at?: string | undefined;
-  pushed_at?: string | undefined;
-  homepage?: string | undefined;
-  language?: string | undefined;
-  size: number;
-  forks_count: number;
-  stargazers_count: number;
-  open_issues_count: number;
-  archived?: boolean | undefined;
-  disabled?: boolean | undefined;
 };
 
 export interface ActionInput_bitbucket_createbranch {
@@ -23769,6 +23498,2663 @@ export interface ActionOutput_calendly_listwebhooksubscriptions {
   pagination?: {  count?: number | undefined;
   next_page_token?: string | undefined;
   previous_page_token?: string | undefined;};
+};
+
+export interface BrandTemplate {
+  id: string;
+  title: string;
+  view_url: string;
+  create_url: string;
+  thumbnail?: {  width: number;
+  height: number;
+  url: string;} | undefined;
+  created_at: number;
+  updated_at: number;
+};
+
+export interface DesignPage {
+  id: string;
+  design_id: string;
+  page_number: number;
+  design_type?: string | undefined;
+  dimensions?: {  width: number;
+  height: number;} | undefined;
+  thumbnail?: {  width: number;
+  height: number;
+  url: string;} | undefined;
+};
+
+export interface SyncMetadata_canva_designpages {
+  design_ids: string[];
+};
+
+export interface Design {
+  id: string;
+  title?: string | undefined;
+  created_at: number;
+  updated_at: number;
+  page_count?: number | undefined;
+  owner?: {  user_id?: string | undefined;
+  team_id?: string | undefined;};
+  thumbnail?: {  width?: number | undefined;
+  height?: number | undefined;
+  url?: string | undefined;};
+  urls?: {  edit_url?: string | undefined;
+  view_url?: string | undefined;};
+};
+
+export interface FolderItem {
+  id: string;
+  type: string;
+  folder_id: string;
+  name?: string | undefined;
+  url?: string | undefined;
+  created_at?: number | undefined;
+  updated_at?: number | undefined;
+  thumbnail?: unknown | undefined;
+  page_count?: number | undefined;
+  tags?: string[] | undefined;
+};
+
+export interface SyncMetadata_canva_folderitems {
+  folder_ids: string[];
+};
+
+export interface ActionInput_canva_createassetuploadjob {
+  /**
+   * Base64-encoded file bytes to upload. Example: "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="
+   */
+  file_base64: string;
+  /**
+   * The asset name. Maximum 50 characters. Example: "My Awesome Upload"
+   */
+  name: string;
+};
+
+export interface ActionOutput_canva_createassetuploadjob {
+  job: {  id: string;
+  status: 'failed' | 'in_progress' | 'success';
+  error?: {  code: string;
+  message: string;} | undefined;
+  asset?: {  type: 'image' | 'video';
+  id: string;
+  name: string;
+  tags: string[];
+  owner: {  user_id: string;
+  team_id: string;};
+  created_at: number;
+  updated_at: number;
+  thumbnail?: {  width: number;
+  height: number;
+  url: string;} | undefined;
+  metadata?: {  [key: string]: unknown | undefined;};};};
+};
+
+export interface ActionInput_canva_createcommentreply {
+  /**
+   * The ID of the design the comment is on. Example: "DAFVztcvd9z"
+   */
+  designId: string;
+  /**
+   * The ID of the inline annotation comment. Example: "KeAZEAjijEb"
+   */
+  commentId: string;
+  /**
+   * The reply message in plaintext. Example: "Thanks!"
+   */
+  message_plaintext: string;
+};
+
+export interface ActionOutput_canva_createcommentreply {
+  id: string;
+  design_id: string;
+  thread_id: string;
+  content: {  plaintext: string;
+  markdown?: string | undefined;};
+  mentions?: {  [key: string]: {  tag: string;
+  user?: {  user_id?: string | undefined;
+  team_id?: string | undefined;
+  display_name?: string | undefined;};};};
+  created_at: number;
+  updated_at: number;
+  author?: {  id: string;
+  display_name?: string | undefined;};
+};
+
+export interface ActionInput_canva_createcomment {
+  /**
+   * The object to attach the comment to
+   */
+  attached_to: {  /**
+   * The type of object to attach the comment to. Example: "design"
+   */
+  type: string;
+  /**
+   * The ID of the design to attach the comment to. Example: "DAHNACmCy_g"
+   */
+  design_id: string;
+  /**
+   * Reference to the specific design element to anchor the comment to
+   */
+  element?: unknown | undefined;};
+  /**
+   * The comment message in plaintext. Example: "Great work!"
+   */
+  message_plaintext: string;
+  /**
+   * The ID of the user to assign the comment to. Example: "oUnPjZ2k2yuhftbWF7873o"
+   */
+  assignee_id?: string | undefined;
+};
+
+export interface ActionOutput_canva_createcomment {
+  id: string;
+  design_id?: string | undefined;
+  message_plaintext?: string | undefined;
+  author?: {  id: string;
+  display_name?: string | undefined;};
+  created_at?: number | undefined;
+  updated_at?: number | undefined;
+  mentions?: {  [key: string]: unknown | undefined;};
+  assignee?: {  id: string;
+  display_name?: string | undefined;};
+  resolver?: {  id: string;
+  display_name?: string | undefined;};
+};
+
+export interface ActionInput_canva_createdesigncommentreply {
+  /**
+   * The ID of the design. Example: "DAHNACmCy_g"
+   */
+  design_id: string;
+  /**
+   * The ID of the comment thread. Example: "KAHNAKVJAd4"
+   */
+  thread_id: string;
+  /**
+   * The reply message in plaintext. Example: "Thanks for the feedback!"
+   */
+  message_plaintext: string;
+};
+
+export interface ActionOutput_canva_createdesigncommentreply {
+  id: string;
+  design_id: string;
+  thread_id: string;
+  author?: {  id: string;
+  display_name?: string | undefined;};
+  content: {  plaintext: string;};
+};
+
+export interface ActionInput_canva_createdesigncomment {
+  /**
+   * The ID of the design to comment on. Example: "DAHNACmCy_g"
+   */
+  design_id: string;
+  /**
+   * The comment message in plaintext. Example: "Great work!"
+   */
+  message_plaintext: string;
+  /**
+   * The User ID to assign the comment to. You must mention this user in the message.
+   */
+  assignee_id?: string | undefined;
+};
+
+export interface ActionOutput_canva_createdesigncomment {
+  id: string;
+  design_id: string;
+  thread_type: {  type: string;
+  content?: {  plaintext: string;
+  markdown?: string | undefined;};
+  mentions?: {  [key: string]: {  tag: string;
+  user?: {  user_id: string;
+  team_id: string;
+  display_name?: string | undefined;};};};
+  assignee?: {  id: string;
+  display_name?: string | undefined;};
+  resolver?: {  id: string;
+  display_name?: string | undefined;};};
+  author?: {  id: string;
+  display_name?: string | undefined;};
+  created_at: number;
+  updated_at: number;
+};
+
+export interface ActionInput_canva_createdesignexportjob {
+  /**
+   * The design ID. Example: "DAHNACmCy_g"
+   */
+  design_id: string;
+  /**
+   * Export format details including type and format-specific options.
+   */
+  format: {  /**
+   * Export format type. Example: "pdf", "png", "jpg", "pptx", "gif", "mp4", "html_bundle", "html_standalone"
+   */
+  type: string;};
+};
+
+export interface ActionOutput_canva_createdesignexportjob {
+  job: {  id: string;
+  status: string;
+  urls?: string[] | undefined;
+  error?: {  code: string;
+  message: string;} | undefined;};
+};
+
+export interface ActionInput_canva_createdesignimportjob {
+  /**
+   * The title of the design to create. Maximum 50 characters. Example: "My Imported Design"
+   */
+  title: string;
+  /**
+   * Base64-encoded file content. Supported formats: PPTX, PDF, SVG. Example: "PHN2Zy4u."
+   */
+  file_content: string;
+  /**
+   * The MIME type of the file being imported. If not provided, Canva attempts to automatically detect the type. Example: "application/pdf"
+   */
+  mime_type?: string | undefined;
+};
+
+export interface ActionOutput_canva_createdesignimportjob {
+  job: {  id: string;
+  status: string;};
+};
+
+export interface ActionInput_canva_createdesignresizejob {
+  /**
+   * The ID of the design to resize. Example: "DAHNACmCy_g"
+   */
+  design_id: string;
+  design_type: {  type: 'preset';
+  name: 'doc' | 'email' | 'presentation' | 'whiteboard';} | {  type: 'custom';
+  width: number;
+  height: number;};
+};
+
+export interface ActionOutput_canva_createdesignresizejob {
+  job: {  id: string;
+  status: 'in_progress' | 'success' | 'failed';
+  result?: {  design: {  id: string;
+  title?: string | undefined;
+  url?: string | undefined;
+  thumbnail?: {  width: number;
+  height: number;
+  url: string;} | undefined;
+  urls: {  edit_url: string;
+  view_url: string;};
+  created_at: number;
+  updated_at: number;
+  page_count?: number | undefined;};
+  trial_information?: {  uses_remaining: number;
+  upgrade_url: string;} | undefined;};
+  error?: {  code: string;
+  message: string;} | undefined;};
+};
+
+export interface ActionInput_canva_createdesign {
+  /**
+   * The design type, either a preset or custom dimensions
+   */
+  design_type: {  type: 'preset';
+  /**
+   * The preset design type name. Example: "presentation"
+   */
+  name: 'doc' | 'email' | 'presentation' | 'whiteboard';} | {  type: 'custom';
+  /**
+   * The width of the design in pixels. Example: 1920
+   */
+  width: number;
+  /**
+   * The height of the design in pixels. Example: 1080
+   */
+  height: number;};
+  /**
+   * The ID of an asset to insert into the created design. Currently only supports image assets. Example: "MAHNAIYJM-w"
+   */
+  asset_id?: string | undefined;
+  /**
+   * The name of the design. Example: "My Holiday Presentation"
+   */
+  title?: string | undefined;
+};
+
+export interface ActionOutput_canva_createdesign {
+  design: {  id: string;
+  title?: string | undefined;
+  owner: {  user_id: string;
+  team_id: string;};
+  thumbnail?: {  width: number;
+  height: number;
+  url: string;} | undefined;
+  urls: {  edit_url: string;
+  view_url: string;};
+  created_at: number;
+  updated_at: number;
+  page_count?: number | undefined;};
+};
+
+export interface ActionInput_canva_createfolder {
+  /**
+   * The name of the folder. Example: "My awesome holiday"
+   */
+  name: string;
+  /**
+   * The folder ID of the parent folder. Use "root" for top-level or "uploads" for the Uploads folder. Example: "FAF2lZtloor"
+   */
+  parent_folder_id: string;
+};
+
+export interface ActionOutput_canva_createfolder {
+  folder: {  /**
+   * The folder ID. Example: "FAF2lZtloor"
+   */
+  id: string;
+  /**
+   * The folder name. Example: "My awesome holiday"
+   */
+  name: string;
+  /**
+   * When the folder was created, as a Unix timestamp (in seconds since the Unix Epoch).
+   */
+  created_at: number;
+  /**
+   * When the folder was last updated, as a Unix timestamp (in seconds since the Unix Epoch).
+   */
+  updated_at: number;
+  thumbnail?: {  /**
+   * The width of the thumbnail image in pixels.
+   */
+  width: number;
+  /**
+   * The height of the thumbnail image in pixels.
+   */
+  height: number;
+  /**
+   * A URL for retrieving the thumbnail image.
+   */
+  url: string;} | undefined;};
+};
+
+export interface ActionInput_canva_createurlassetuploadjob {
+  /**
+   * The URL of the file to import. Must be publicly accessible and return HTTP 200 directly. Example: "https://example.com/image.jpg"
+   */
+  url: string;
+  /**
+   * A name for the asset. Example: "My Awesome Asset"
+   */
+  name: string;
+};
+
+export interface ActionOutput_canva_createurlassetuploadjob {
+  job: {  id: string;
+  status: string;
+  error?: {  code: string;
+  message: string;} | undefined;
+  asset?: {  id: string;
+  type: string;
+  name: string;
+  tags: string[];
+  created_at: number;
+  updated_at: number;
+  owner: {  user_id: string;
+  team_id: string;};
+  thumbnail?: {  width: number;
+  height: number;
+  url: string;} | undefined;};};
+};
+
+export interface ActionInput_canva_createurldesignimportjob {
+  /**
+   * The URL of the file to import. Must be publicly accessible. Example: "https://example.com/presentation.pptx"
+   */
+  url: string;
+  /**
+   * A title for the imported design. Example: "My Awesome Design"
+   */
+  title: string;
+  /**
+   * The MIME type of the file being imported. Example: "application/vnd.openxmlformats-officedocument.presentationml.presentation"
+   */
+  mime_type?: string | undefined;
+};
+
+export interface ActionOutput_canva_createurldesignimportjob {
+  job: {  id: string;
+  status: 'in_progress' | 'success' | 'failed';
+  result?: {  designs?: ({  id: string;
+  title?: string | undefined;
+  url?: string | undefined;
+  thumbnail?: {  width?: number | undefined;
+  height?: number | undefined;
+  url?: string | undefined;};
+  urls?: {  edit_url?: string | undefined;
+  view_url?: string | undefined;};
+  created_at?: number | undefined;
+  updated_at?: number | undefined;
+  page_count?: number | undefined;})[];};
+  error?: {  code: string;
+  message: string;} | undefined;};
+};
+
+export interface ActionInput_canva_deleteasset {
+  /**
+   * The ID of the asset to delete. Example: "MAHNAO5uFww"
+   */
+  assetId: string;
+};
+
+export interface ActionOutput_canva_deleteasset {
+  assetId: string;
+  deleted: boolean;
+};
+
+export interface ActionInput_canva_deletefolder {
+  /**
+   * Folder ID. Example: "FAHNA0uMKHU"
+   */
+  folderId: string;
+};
+
+export interface ActionOutput_canva_deletefolder {
+  success: boolean;
+};
+
+export interface ActionInput_canva_getassetuploadjob {
+  /**
+   * The asset upload job ID. Example: "e08861ae-3b29-45db-8dc1-1fe0bf7f1cc8"
+   */
+  jobId: string;
+};
+
+export interface ActionOutput_canva_getassetuploadjob {
+  job: {  id: string;
+  status: 'failed' | 'in_progress' | 'success';
+  error?: {  code: string;
+  message: string;} | undefined;
+  asset?: {  type: 'image' | 'video';
+  id: string;
+  name: string;
+  tags: string[];
+  created_at: number;
+  updated_at: number;
+  owner: {  user_id: string;
+  team_id: string;};
+  thumbnail?: {  width: number;
+  height: number;
+  url: string;} | undefined;
+  metadata?: {  type: 'image';
+  width?: number | undefined;
+  height?: number | undefined;
+  smart_tags?: string[] | undefined;} | {  type: 'video';
+  width?: number | undefined;
+  height?: number | undefined;
+  duration?: number | undefined;};};};
+};
+
+export interface ActionInput_canva_getasset {
+  /**
+   * The ID of the asset. Example: "MAHNAIYJM-w"
+   */
+  assetId: string;
+};
+
+export interface ActionOutput_canva_getasset {
+  id: string;
+  type: 'image' | 'video';
+  name: string;
+  tags: string[];
+  created_at: number;
+  updated_at: number;
+  owner: {  user_id: string;
+  team_id: string;};
+  thumbnail?: {  width: number;
+  height: number;
+  url: string;} | undefined;
+  metadata?: {  type: 'image';
+  width?: number | undefined;
+  height?: number | undefined;
+  smart_tags?: string[] | undefined;} | {  type: 'video';
+  width: number;
+  height: number;
+  duration?: number | undefined;};
+};
+
+export interface ActionInput_canva_getbrandtemplate {
+  /**
+   * The brand template ID. Example: "DEMzWSwy3BI"
+   */
+  brandTemplateId: string;
+};
+
+export interface ActionOutput_canva_getbrandtemplate {
+  id: string;
+  title: string;
+  view_url: string;
+  create_url: string;
+  thumbnail?: {  width: number;
+  height: number;
+  url: string;} | undefined;
+  created_at: number;
+  updated_at: number;
+};
+
+export interface ActionInput_canva_getcurrentusercapabilities {
+};
+
+export interface ActionOutput_canva_getcurrentusercapabilities {
+  capabilities: string[];
+};
+
+export interface ActionInput_canva_getcurrentuserprofile {
+};
+
+export interface ActionOutput_canva_getcurrentuserprofile {
+  display_name: string;
+};
+
+export interface ActionInput_canva_getcurrentuser {
+};
+
+export interface ActionOutput_canva_getcurrentuser {
+  /**
+   * The ID of the user.
+   */
+  user_id: string;
+  /**
+   * The ID of the user's Canva Team.
+   */
+  team_id: string;
+};
+
+export interface ActionInput_canva_getdesigncommentreply {
+  /**
+   * The design ID. Example: "DAHNACmCy_g"
+   */
+  designId: string;
+  /**
+   * The ID of the thread. Example: "KAHNAKVJAd4"
+   */
+  threadId: string;
+  /**
+   * The ID of the reply. Example: "KAHNAD33dXY"
+   */
+  replyId: string;
+};
+
+export interface ActionOutput_canva_getdesigncommentreply {
+  id: string;
+  design_id: string;
+  thread_id: string;
+  author?: {  id: string;
+  display_name?: string | undefined;};
+  content: {  plaintext: string;
+  markdown?: string | undefined;};
+  mentions: {  [key: string]: unknown | undefined;};
+  created_at: number;
+  updated_at: number;
+};
+
+export interface ActionInput_canva_getdesigncommentthread {
+  /**
+   * The ID of the design. Example: "DAFVztcvd9z"
+   */
+  design_id: string;
+  /**
+   * The ID of the comment thread. Example: "KeAbiEAjZEj"
+   */
+  thread_id: string;
+};
+
+export interface ActionOutput_canva_getdesigncommentthread {
+  thread: {  id: string;
+  design_id: string;
+  thread_type: {  type: 'comment';
+  content: {  plaintext: string;
+  markdown?: string | undefined;};
+  mentions?: {  [key: string]: {  tag: string;
+  user?: {  user_id?: string | undefined;
+  team_id?: string | undefined;
+  display_name?: string | undefined;};};};
+  assignee?: {  id: string;
+  display_name?: string | undefined;};
+  resolver?: {  id: string;
+  display_name?: string | undefined;};} | {  type: 'suggestion';
+  suggested_edits: ({  type: 'add' | 'delete' | 'format';
+  format?: string | undefined;})[];
+  status: 'open' | 'accepted' | 'rejected';};
+  author?: {  id: string;
+  display_name?: string | undefined;};
+  created_at: number;
+  updated_at: number;};
+};
+
+export interface ActionInput_canva_getdesignexportformats {
+  /**
+   * Design ID. Example: "DAHNACmCy_g"
+   */
+  designId: string;
+};
+
+export interface ActionOutput_canva_getdesignexportformats {
+  formats: string[];
+};
+
+export interface ActionInput_canva_getdesignexportjob {
+  /**
+   * The export job ID. Example: "e08861ae-3b29-45db-8dc1-1fe0bf7f1cc8"
+   */
+  exportId: string;
+};
+
+export interface ActionOutput_canva_getdesignexportjob {
+  job: {  id: string;
+  status: 'failed' | 'in_progress' | 'success';
+  urls?: string[] | undefined;
+  error?: {  code: 'license_required' | 'approval_required' | 'internal_failure';
+  message: string;} | undefined;};
+};
+
+export interface ActionInput_canva_getdesignimportjob {
+  /**
+   * The ID of the design import job. Example: "e80335c7-afa5-4608-a815-4865c11d0025"
+   */
+  jobId: string;
+};
+
+export interface ActionOutput_canva_getdesignimportjob {
+  job: {  id: string;
+  status: 'failed' | 'in_progress' | 'success';
+  result?: {  designs?: ({  id: string;
+  title?: string | undefined;
+  url?: string | undefined;
+  thumbnail?: {  width: number;
+  height: number;
+  url: string;} | undefined;
+  urls?: {  edit_url: string;
+  view_url: string;} | undefined;
+  created_at?: number | undefined;
+  updated_at?: number | undefined;
+  page_count?: number | undefined;})[];};
+  error?: {  code: string;
+  message: string;} | undefined;};
+};
+
+export interface ActionInput_canva_getdesignpages {
+  /**
+   * The design ID. Example: "DAHNACmCy_g"
+   */
+  designId: string;
+  /**
+   * The page index to start from (1-based). Defaults to 1.
+   */
+  offset?: number | undefined;
+  /**
+   * The number of pages to return. Defaults to 50.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_canva_getdesignpages {
+  items: ({  id?: string | undefined;
+  index?: number | undefined;
+  page_number?: number | undefined;
+  dimensions?: {  width: number;
+  height: number;} | undefined;
+  thumbnail?: {  width: number;
+  height: number;
+  url: string;} | undefined;})[];
+};
+
+export interface ActionInput_canva_getdesign {
+  /**
+   * The design ID. Example: "DAHNACmCy_g"
+   */
+  designId: string;
+};
+
+export interface ActionOutput_canva_getdesign {
+  id: string;
+  title?: string | undefined;
+  owner: {  user_id: string;
+  team_id: string;};
+  thumbnail?: {  width: number;
+  height: number;
+  url: string;} | undefined;
+  urls: {  edit_url: string;
+  view_url: string;};
+  created_at: number;
+  updated_at: number;
+  page_count?: number | undefined;
+};
+
+export interface ActionInput_canva_getfolder {
+  /**
+   * The folder ID. Example: "root" or "FAHNA0uMKHU"
+   */
+  folderId: string;
+};
+
+export interface ActionOutput_canva_getfolder {
+  id: string;
+  name: string;
+  created_at: number;
+  updated_at: number;
+  thumbnail?: {  width: number;
+  height: number;
+  url: string;} | undefined;
+};
+
+export interface ActionInput_canva_geturlassetuploadjob {
+  /**
+   * The asset upload job ID. Example: "e08861ae-3b29-45db-8dc1-1fe0bf7f1cc8"
+   */
+  job_id: string;
+};
+
+export interface ActionOutput_canva_geturlassetuploadjob {
+  id: string;
+  status: 'in_progress' | 'success' | 'failed';
+  error?: {  code: 'file_too_big' | 'import_failed' | 'fetch_failed';
+  message: string;} | undefined;
+  asset?: {  id: string;
+  type: 'image' | 'video';
+  name: string;
+  tags: string[];
+  created_at: number;
+  updated_at: number;
+  owner: {  user_id?: string | undefined;
+  team_id?: string | undefined;};
+  thumbnail?: {  width: number;
+  height: number;
+  url: string;} | undefined;
+  metadata?: {  type: 'image';
+  width?: number | undefined;
+  height?: number | undefined;
+  smart_tags?: string[] | undefined;} | {  type: 'video';
+  width?: number | undefined;
+  height?: number | undefined;
+  duration?: number | undefined;};};
+};
+
+export interface ActionInput_canva_geturldesignimportjob {
+  /**
+   * The ID of the URL import job. Example: "e08861ae-3b29-45db-8dc1-1fe0bf7f1cc8"
+   */
+  jobId: string;
+};
+
+export interface ActionOutput_canva_geturldesignimportjob {
+  job: {  id: string;
+  status: 'failed' | 'in_progress' | 'success';
+  result?: {  designs: ({  id: string;
+  title?: string | undefined;
+  url?: string | undefined;
+  thumbnail?: {  width: number;
+  height: number;
+  url: string;} | undefined;
+  urls: {  edit_url: string;
+  view_url: string;};
+  created_at: number;
+  updated_at: number;
+  page_count?: number | undefined;})[];};
+  error?: {  code: string;
+  message: string;} | undefined;};
+};
+
+export interface ActionInput_canva_listbrandtemplates {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Search term or terms to filter brand templates.
+   */
+  query?: string | undefined;
+  /**
+   * The number of brand templates to return. Defaults to 25.
+   */
+  limit?: number | undefined;
+  /**
+   * Filter by ownership.
+   */
+  ownership?: 'any' | 'owned' | 'shared' | undefined;
+  /**
+   * Sort order.
+   */
+  sort_by?: 'relevance' | 'modified_descending' | 'modified_ascending' | 'title_descending' | 'title_ascending' | undefined;
+  /**
+   * Filter by dataset definitions.
+   */
+  dataset?: 'any' | 'non_empty' | undefined;
+};
+
+export interface ActionOutput_canva_listbrandtemplates {
+  items: ({  id: string;
+  title: string;
+  view_url: string;
+  create_url: string;
+  thumbnail?: {  width: number;
+  height: number;
+  url: string;} | undefined;
+  created_at: number;
+  updated_at: number;})[];
+  /**
+   * Pagination cursor for the next page.
+   */
+  continuation?: string | undefined;
+};
+
+export interface ActionInput_canva_listdesigncommentreplies {
+  /**
+   * The design ID. Example: "DAHNACmCy_g"
+   */
+  designId: string;
+  /**
+   * The ID of the thread. Example: "KAHNAKVJAd4"
+   */
+  threadId: string;
+  /**
+   * The number of replies to return. Maximum 100.
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  continuation?: string | undefined;
+};
+
+export interface ActionOutput_canva_listdesigncommentreplies {
+  items: ({  id: string;
+  design_id: string;
+  thread_id: string;
+  author?: {  id: string;
+  display_name?: string | undefined;};
+  content: {  plaintext: string;
+  markdown?: string | undefined;};
+  mentions: {  [key: string]: {  tag: string;
+  user: {  user_id: string;
+  team_id: string;
+  display_name?: string | undefined;};};};
+  created_at: number;
+  updated_at: number;})[];
+  continuation?: string | undefined;
+};
+
+export interface ActionInput_canva_listdesigns {
+  /**
+   * Search term to filter designs. Example: "party invites"
+   */
+  query?: string | undefined;
+  /**
+   * Filter by ownership: any, owned, or shared.
+   */
+  ownership?: 'any' | 'owned' | 'shared' | undefined;
+  /**
+   * Pagination cursor from the previous response. Example: "RkFGMgXlsVTDbMd:MR3L0QjiaUzycIAjx0yMyuNiV0OildoiOwL0x32G4NjNu4FwtAQNxowUQNMMYN"
+   */
+  continuation?: string | undefined;
+  /**
+   * Sort order for results.
+   */
+  sort_by?: 'relevance' | 'modified_descending' | 'modified_ascending' | 'title_descending' | 'title_ascending' | undefined;
+  /**
+   * Number of designs to return (1-100). Default: 25.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_canva_listdesigns {
+  items: ({  id: string;
+  title?: string | undefined;
+  owner: {  user_id: string;
+  team_id: string;};
+  thumbnail?: {  width: number;
+  height: number;
+  url: string;} | undefined;
+  urls: {  edit_url: string;
+  view_url: string;};
+  created_at: number;
+  updated_at: number;
+  page_count?: number | undefined;
+  design_types?: string[] | undefined;})[];
+  continuation?: string | undefined;
+};
+
+export interface ActionInput_canva_movefolderitem {
+  /**
+   * The ID of the item to move. Example: "DAHNACmCy_g"
+   */
+  item_id: string;
+  /**
+   * The ID of the destination folder. Example: "FAHNA0uMKHU"
+   */
+  to_folder_id: string;
+};
+
+export interface ActionOutput_canva_movefolderitem {
+  success: boolean;
+};
+
+export interface ActionInput_canva_updateasset {
+  /**
+   * The ID of the asset to update. Example: "MAHNAIYJM-w"
+   */
+  assetId: string;
+  /**
+   * The new name for the asset.
+   */
+  name?: string | undefined;
+  /**
+   * The replacement tags for the asset.
+   */
+  tags?: string[] | undefined;
+};
+
+export interface ActionOutput_canva_updateasset {
+  id: string;
+  name: string;
+  tags: string[];
+  type: 'image' | 'video';
+  created_at: number;
+  updated_at: number;
+  owner: {  user_id: string;
+  team_id: string;};
+  import_status?: {  state?: string | undefined;};
+  thumbnail?: {  width: number;
+  height: number;
+  url: string;} | undefined;
+  metadata?: {  type: string;
+  width?: number | undefined;
+  height?: number | undefined;
+  duration?: number | undefined;
+  smart_tags?: string[] | undefined;};
+};
+
+export interface ActionInput_canva_updatefolder {
+  /**
+   * The folder ID. Example: FAF2lZtloor
+   */
+  folderId: string;
+  /**
+   * The new folder name. Example: My awesome holiday
+   */
+  name: string;
+};
+
+export interface ActionOutput_canva_updatefolder {
+  id: string;
+  name: string;
+  created_at: number;
+  updated_at: number;
+  thumbnail?: {  width: number;
+  height: number;
+  url: string;} | undefined;
+};
+
+export interface CouponSet {
+  id: string;
+  coupon_id: string;
+  name: string;
+  total_count?: number | undefined;
+  redeemed_count?: number | undefined;
+  archived_count?: number | undefined;
+  meta_data?: {  [key: string]: unknown | undefined;};
+};
+
+export interface CreditNote {
+  id: string;
+  creditnote_number?: string | undefined;
+  status?: string | undefined;
+  reference_number?: string | undefined;
+  date?: string | undefined;
+  issued_date?: string | undefined;
+  total?: number | undefined;
+  balance?: number | undefined;
+  customer_id?: string | undefined;
+  customer_name?: string | undefined;
+  currency_code?: string | undefined;
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;
+};
+
+export interface Customer {
+  id: string;
+  email: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  role?: string | undefined;
+  username?: string | undefined;
+  date_created?: string | undefined;
+  date_created_gmt?: string | undefined;
+  date_modified?: string | undefined;
+  date_modified_gmt?: string | undefined;
+  billing?: {  first_name?: string | undefined;
+  last_name?: string | undefined;
+  company?: string | undefined;
+  address_1?: string | undefined;
+  address_2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  postcode?: string | undefined;
+  country?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;};
+  shipping?: {  first_name?: string | undefined;
+  last_name?: string | undefined;
+  company?: string | undefined;
+  address_1?: string | undefined;
+  address_2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  postcode?: string | undefined;
+  country?: string | undefined;};
+  is_paying_customer?: boolean | undefined;
+  avatar_url?: string | undefined;
+  meta_data?: ({  id?: number | undefined;
+  key?: string | undefined;
+  value?: unknown | undefined;})[];
+};
+
+export interface Invoice {
+  id: string;
+  invoice_number?: string | undefined;
+  status?: string | undefined;
+  customer_id?: string | undefined;
+  customer_name?: string | undefined;
+  reference_number?: string | undefined;
+  date?: string | undefined;
+  due_date?: string | undefined;
+  currency_code?: string | undefined;
+  total?: number | undefined;
+  balance?: number | undefined;
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;
+};
+
+export interface ItemFamily {
+  /**
+   * The unique identifier of the item family
+   */
+  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  status?: string | undefined;
+  resource_version?: number | undefined;
+  updated_at?: number | undefined;
+  created_at?: number | undefined;
+  business_entity_id?: string | undefined;
+  channel?: string | undefined;
+};
+
+export interface ItemPrice {
+  id: string;
+  name: string;
+  item_id: string;
+  item_family_id?: string | undefined;
+  item_type: string;
+  status: string;
+  currency_code: string;
+  price?: number | undefined;
+  updated_at: number;
+  created_at: number;
+  resource_version?: number | undefined;
+  period?: number | undefined;
+  period_unit?: string | undefined;
+  pricing_model?: string | undefined;
+  channel?: string | undefined;
+  trial_period?: number | undefined;
+  trial_period_unit?: string | undefined;
+  free_quantity?: number | undefined;
+  free_quantity_in_decimal?: string | undefined;
+  external_name?: string | undefined;
+  invoice_notes?: string | undefined;
+  is_taxable?: boolean | undefined;
+  metadata?: {  [key: string]: unknown | undefined;};
+  price_variant_id?: string | undefined;
+};
+
+export interface Item {
+  id: string;
+  name?: string | undefined;
+  status?: string | undefined;
+  rate?: number | undefined;
+  unit?: string | undefined;
+  description?: string | undefined;
+  item_type?: string | undefined;
+  product_type?: string | undefined;
+  tax_id?: string | undefined;
+  tax_name?: string | undefined;
+  tax_percentage?: number | undefined;
+  account_id?: string | undefined;
+  account_name?: string | undefined;
+  purchase_rate?: number | undefined;
+  purchase_account_id?: string | undefined;
+  purchase_account_name?: string | undefined;
+  can_be_sold?: boolean | undefined;
+  can_be_purchased?: boolean | undefined;
+  track_inventory?: boolean | undefined;
+  sku?: string | undefined;
+  source?: string | undefined;
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;
+};
+
+export interface Subscription {
+  id: string;
+  status: string;
+  customer: string;
+  created: number;
+  current_period_start?: number | undefined;
+  current_period_end?: number | undefined;
+  cancel_at_period_end?: boolean | undefined;
+  canceled_at?: number | undefined;
+  ended_at?: number | undefined;
+  collection_method?: string | undefined;
+  currency?: string | undefined;
+  description?: string | undefined;
+  metadata?: {  [key: string]: string;} | undefined;
+  items?: ({  id: string;
+  price_id?: string | undefined;
+  product_id?: string | undefined;
+  quantity?: number | undefined;})[];
+};
+
+export interface ActionInput_chargebee_cancelsubscription {
+  /**
+   * Chargebee subscription ID. Example: "AzqOd0VMyVsW3aOz"
+   */
+  subscription_id: string;
+  /**
+   * If true, the subscription is set to non_renewing and will cancel at the end of the current term. If false, it is cancelled immediately.
+   */
+  end_of_term?: boolean | undefined;
+  /**
+   * How to handle charges for the current term.
+   */
+  credit_option_for_current_term_charges?: 'prorate' | 'full' | 'none' | undefined;
+};
+
+export interface ActionOutput_chargebee_cancelsubscription {
+  id: string;
+  status: string;
+  customer_id?: string | undefined;
+  plan_id?: string | undefined;
+  plan_unit_price?: number | undefined;
+  plan_amount?: number | undefined;
+  billing_period?: number | undefined;
+  billing_period_unit?: string | undefined;
+  subscription_items?: ({  item_price_id?: string | undefined;
+  item_type?: string | undefined;
+  quantity?: number | undefined;
+  unit_price?: number | undefined;
+  amount?: number | undefined;
+  free_quantity?: number | undefined;
+  trial_end?: number | undefined;
+  billing_cycles?: number | undefined;
+  service_period_days?: number | undefined;
+  charge_on_event?: string | undefined;
+  charge_once?: boolean | undefined;
+  charge_on_option?: string | undefined;})[];
+  created_at?: number | undefined;
+  started_at?: number | undefined;
+  activated_at?: number | undefined;
+  cancelled_at?: number | undefined;
+  pause_date?: number | undefined;
+  resume_date?: number | undefined;
+  due_invoices_count?: number | undefined;
+  due_since?: number | undefined;
+  total_dues?: number | undefined;
+  mrr?: number | undefined;
+  exchange_rate?: number | undefined;
+  base_currency_code?: string | undefined;
+  has_scheduled_changes?: boolean | undefined;
+  channel?: string | undefined;
+  resource_version?: number | undefined;
+  updated_at?: number | undefined;
+  deleted?: boolean | undefined;
+};
+
+export interface ActionInput_chargebee_createcreditnote {
+  /**
+   * Invoice ID against which the credit note is issued. Example: "1"
+   */
+  reference_invoice_id: string;
+  /**
+   * Type of credit note.
+   */
+  type: 'adjustment' | 'refundable';
+  /**
+   * Reason for issuing the credit note.
+   */
+  reason_code?: 'write_off' | 'subscription_change' | 'subscription_cancellation' | 'chargeback' | 'order_change' | 'other' | undefined;
+  /**
+   * Total credit note amount in cents. Required if line_items is not provided.
+   */
+  total?: number | undefined;
+  /**
+   * Line items for the credit note. Flattened into bracket notation query params.
+   */
+  line_items?: ({  reference_line_item_id?: string | undefined;
+  unit_amount?: number | undefined;
+  quantity?: number | undefined;
+  amount?: number | undefined;
+  description?: string | undefined;})[];
+  /**
+   * Customer-facing notes for the credit note.
+   */
+  notes?: string | undefined;
+};
+
+export interface ActionOutput_chargebee_createcreditnote {
+  id: string;
+  reference_invoice_id?: string | undefined;
+  type: string;
+  status: string;
+  total?: number | undefined;
+  amount_allocated?: number | undefined;
+  amount_available?: number | undefined;
+  amount_refunded?: number | undefined;
+  reason_code?: string | undefined;
+  notes?: string[] | undefined;
+  customer_id?: string | undefined;
+  deleted: boolean;
+  date?: number | undefined;
+  updated_at?: number | undefined;
+};
+
+export interface ActionInput_chargebee_createcustomer {
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  company?: string | undefined;
+  phone?: string | undefined;
+  auto_collection?: 'on' | 'off' | undefined;
+  net_term_days?: number | undefined;
+  locale?: string | undefined;
+  billing_address?: {  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  company?: string | undefined;
+  phone?: string | undefined;
+  line1?: string | undefined;
+  line2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  zip?: string | undefined;
+  country?: string | undefined;};
+};
+
+export interface ActionOutput_chargebee_createcustomer {
+  id: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  company?: string | undefined;
+  phone?: string | undefined;
+  auto_collection?: string | undefined;
+  net_term_days?: number | undefined;
+  locale?: string | undefined;
+  created_at?: number | undefined;
+  deleted?: boolean | undefined;
+};
+
+export interface ActionInput_chargebee_createitemfamily {
+  /**
+   * Unique identifier for the item family. Example: "new-family"
+   */
+  id: string;
+  /**
+   * Name of the item family. Example: "New Family"
+   */
+  name: string;
+  /**
+   * Description of the item family.
+   */
+  description?: string | undefined;
+};
+
+export interface ActionOutput_chargebee_createitemfamily {
+  id: string;
+  name: string;
+  description?: string | undefined;
+  status?: string | undefined;
+  resource_version?: number | undefined;
+  updated_at?: number | undefined;
+  created_at?: number | undefined;
+  channel?: string | undefined;
+};
+
+export interface ActionInput_chargebee_createitemprice {
+  /**
+   * The identifier for the item price. Example: "basic-plan-yearly"
+   */
+  id: string;
+  /**
+   * Display name for the item price. Example: "Basic Plan Yearly"
+   */
+  name: string;
+  /**
+   * ID of the item to price. Example: "basic-plan"
+   */
+  item_id: string;
+  /**
+   * Pricing model for the item price.
+   */
+  pricing_model: 'flat_fee' | 'per_unit' | 'tiered' | 'volume' | 'stairstep';
+  /**
+   * ISO 4217 currency code. Example: "USD"
+   */
+  currency_code: string;
+  /**
+   * Billing period length. Example: 1
+   */
+  period: number;
+  /**
+   * Unit of the billing period.
+   */
+  period_unit: 'day' | 'week' | 'month' | 'year';
+  /**
+   * Price in minor currency units (cents). Required for flat_fee and per_unit.
+   */
+  price?: number | undefined;
+  description?: string | undefined;
+  external_name?: string | undefined;
+  free_quantity?: number | undefined;
+  trial_period?: number | undefined;
+  trial_period_unit?: 'day' | 'month' | undefined;
+  is_taxable?: boolean | undefined;
+};
+
+export interface ActionOutput_chargebee_createitemprice {
+  id: string;
+  name?: string | undefined;
+  item_id?: string | undefined;
+  pricing_model?: string | undefined;
+  currency_code?: string | undefined;
+  period?: number | undefined;
+  period_unit?: string | undefined;
+  price?: number | undefined;
+  status?: string | undefined;
+  created_at?: number | undefined;
+  updated_at?: number | undefined;
+  resource_version?: number | undefined;
+  external_name?: string | undefined;
+  description?: string | undefined;
+  free_quantity?: number | undefined;
+  is_taxable?: boolean | undefined;
+};
+
+export interface ActionInput_chargebee_createitem {
+  /**
+   * The identifier for the item. Example: "premium-plan"
+   */
+  id: string;
+  /**
+   * A unique display name for the item. Example: "Premium Plan"
+   */
+  name: string;
+  /**
+   * The type of the item.
+   */
+  type: 'plan' | 'addon' | 'charge';
+  /**
+   * The id of the item family that the item belongs to. Example: "saas-plans"
+   */
+  item_family_id: string;
+  /**
+   * Description of the item.
+   */
+  description?: string | undefined;
+  /**
+   * Indicates that the item is a physical product.
+   */
+  is_shippable?: boolean | undefined;
+  /**
+   * Allow the plan to be subscribed to via Checkout. Applies only for plan-items.
+   */
+  enabled_for_checkout?: boolean | undefined;
+  /**
+   * Allow customers to change their subscription to this plan via the Self-Serve Portal. Applies only for plan-items.
+   */
+  enabled_in_portal?: boolean | undefined;
+  /**
+   * Specifies whether the item undergoes metered billing.
+   */
+  metered?: boolean | undefined;
+};
+
+export interface ActionOutput_chargebee_createitem {
+  id: string;
+  name: string;
+  type: 'plan' | 'addon' | 'charge';
+  item_family_id?: string | undefined;
+  description?: string | undefined;
+  is_shippable?: boolean | undefined;
+  enabled_for_checkout?: boolean | undefined;
+  enabled_in_portal?: boolean | undefined;
+  metered?: boolean | undefined;
+  status?: string | undefined;
+  resource_version?: number | undefined;
+  updated_at?: number | undefined;
+  deleted?: boolean | undefined;
+};
+
+export interface ActionInput_chargebee_createsubscription {
+  /**
+   * The unique identifier of the customer. Example: "AzqOd0VMyVlxMaL6"
+   */
+  customer_id: string;
+  /**
+   * List of subscription items to create.
+   */
+  subscription_items: ({  /**
+   * The unique identifier of the item price. Example: "basic-plan-monthly"
+   */
+  item_price_id: string;
+  /**
+   * The quantity of the item purchased. Example: 1
+   */
+  quantity?: number | undefined;})[];
+  /**
+   * Defines whether payments need to be collected automatically. Defaults to "off" to skip payment requirement.
+   */
+  auto_collection?: 'on' | 'off' | undefined;
+  /**
+   * A unique identifier for the subscription. If not provided, it is autogenerated.
+   */
+  id?: string | undefined;
+};
+
+export interface ActionOutput_chargebee_createsubscription {
+  id: string;
+  customer_id: string;
+  status: string;
+  deleted: boolean;
+  subscription_items?: ({  item_price_id: string;
+  quantity?: number | undefined;})[];
+};
+
+export interface ActionInput_chargebee_deletecustomer {
+  /**
+   * Customer ID to delete. Example: "AzqOd0VMyVlxMaL6"
+   */
+  id: string;
+};
+
+export interface ActionOutput_chargebee_deletecustomer {
+  id: string;
+  deleted: boolean;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  company?: string | undefined;
+};
+
+export interface ActionInput_chargebee_getcreditnote {
+  /**
+   * Credit note ID. Example: "__demo_cn__7"
+   */
+  credit_note_id: string;
+};
+
+export interface ActionOutput_chargebee_getcreditnote {
+  id: string;
+  customer_id: string;
+  subscription_id?: string | undefined;
+  reference_invoice_id?: string | undefined;
+  type: string;
+  status: string;
+  reason_code?: string | undefined;
+  create_reason_code?: string | undefined;
+  currency_code: string;
+  price_type: string;
+  total?: number | undefined;
+  sub_total: number;
+  amount_allocated?: number | undefined;
+  amount_refunded?: number | undefined;
+  amount_available?: number | undefined;
+  date?: number | undefined;
+  updated_at?: number | undefined;
+  deleted: boolean;
+  resource_version?: number | undefined;
+  line_items?: ({  [key: string]: unknown | undefined;})[];
+  discounts?: ({  [key: string]: unknown | undefined;})[];
+  taxes?: ({  [key: string]: unknown | undefined;})[];
+  allocations?: ({  [key: string]: unknown | undefined;})[];
+  linked_refunds?: ({  [key: string]: unknown | undefined;})[];
+  billing_address?: {  [key: string]: unknown | undefined;};
+  shipping_address?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_chargebee_getcustomer {
+  /**
+   * Chargebee customer ID. Example: "AzqOd0VMyUhHQZf4"
+   */
+  id: string;
+};
+
+export interface ActionOutput_chargebee_getcustomer {
+  id: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  company?: string | undefined;
+  phone?: string | undefined;
+  deleted?: boolean | undefined;
+};
+
+export interface ActionInput_chargebee_getinvoice {
+  /**
+   * Invoice ID. Example: "1"
+   */
+  id: string;
+};
+
+export interface ActionOutput_chargebee_getinvoice {
+  id: string;
+  customer_id: string;
+  subscription_id?: string | undefined;
+  status: string;
+  recurring: boolean;
+  date?: number | undefined;
+  due_date?: number | undefined;
+  total?: number | undefined;
+  amount_due?: number | undefined;
+  amount_paid?: number | undefined;
+  currency_code: string;
+  deleted: boolean;
+  updated_at?: number | undefined;
+};
+
+export interface ActionInput_chargebee_getitemfamily {
+  /**
+   * Item family ID. Example: "saas-plans"
+   */
+  id: string;
+};
+
+export interface ActionOutput_chargebee_getitemfamily {
+  id: string;
+  name: string;
+  description?: string | undefined;
+  status?: string | undefined;
+  resource_version?: number | undefined;
+  updated_at?: number | undefined;
+  channel?: string | undefined;
+  business_entity_id?: string | undefined;
+  deleted?: boolean | undefined;
+};
+
+export interface ActionInput_chargebee_getitemprice {
+  /**
+   * The ID of the item price to retrieve. Example: "basic-plan-monthly"
+   */
+  item_price_id: string;
+};
+
+export interface ActionOutput_chargebee_getitemprice {
+  id: string;
+  name: string;
+  item_family_id?: string | undefined;
+  item_id?: string | undefined;
+  description?: string | undefined;
+  status?: string | undefined;
+  external_name?: string | undefined;
+  price_variant_id?: string | undefined;
+  proration_type?: string | undefined;
+  pricing_model: string;
+  price?: number | undefined;
+  price_in_decimal?: string | undefined;
+  period?: number | undefined;
+  currency_code: string;
+  period_unit?: string | undefined;
+  trial_period?: number | undefined;
+  trial_period_unit?: string | undefined;
+  trial_end_action?: string | undefined;
+  shipping_period?: number | undefined;
+  shipping_period_unit?: string | undefined;
+  billing_cycles?: number | undefined;
+  free_quantity?: number | undefined;
+  free_quantity_in_decimal?: string | undefined;
+  channel?: string | undefined;
+  resource_version?: number | undefined;
+  updated_at?: number | undefined;
+  created_at: number;
+  usage_accumulation_reset_frequency?: string | undefined;
+  archived_at?: number | undefined;
+  invoice_notes?: string | undefined;
+  is_taxable?: boolean | undefined;
+  metadata?: {  [key: string]: unknown | undefined;};
+  item_type?: string | undefined;
+  show_description_in_invoices?: boolean | undefined;
+  show_description_in_quotes?: boolean | undefined;
+  deleted: boolean;
+  business_entity_id?: string | undefined;
+  tiers?: ({  [key: string]: unknown | undefined;})[];
+  tax_detail?: {  [key: string]: unknown | undefined;};
+  tax_providers_fields?: ({  [key: string]: unknown | undefined;})[];
+  accounting_detail?: {  [key: string]: unknown | undefined;};
+  object?: string | undefined;
+};
+
+export interface ActionInput_chargebee_getitem {
+  /**
+   * The unique identifier of the item. Example: "basic-plan"
+   */
+  id: string;
+};
+
+export interface ActionOutput_chargebee_getitem {
+  id: string;
+  name: string;
+  status?: string | undefined;
+  type: string;
+  item_family_id?: string | undefined;
+  description?: string | undefined;
+  external_name?: string | undefined;
+  updated_at?: number | undefined;
+  resource_version?: number | undefined;
+  deleted?: boolean | undefined;
+  metered?: boolean | undefined;
+  is_giftable?: boolean | undefined;
+  enabled_for_checkout?: boolean | undefined;
+  enabled_in_portal?: boolean | undefined;
+  is_shippable?: boolean | undefined;
+  included_in_mrr?: boolean | undefined;
+  is_percentage_pricing?: boolean | undefined;
+  archived_at?: number | undefined;
+  channel?: string | undefined;
+  redirect_url?: string | undefined;
+  gift_claim_redirect_url?: string | undefined;
+  unit?: string | undefined;
+  item_applicability?: string | undefined;
+  usage_calculation?: string | undefined;
+  metadata?: {  [key: string]: unknown | undefined;};
+  business_entity_id?: string | undefined;
+  object?: string | undefined;
+};
+
+export interface ActionInput_chargebee_getsubscription {
+  /**
+   * Subscription ID. Example: "AzZPdjVMyVrz9acf"
+   */
+  subscription_id: string;
+};
+
+export interface ActionOutput_chargebee_getsubscription {
+  id: string;
+  customer_id?: string | undefined;
+  status?: string | undefined;
+  plan_id?: string | undefined;
+  plan_quantity?: number | undefined;
+  plan_unit_price?: number | undefined;
+  currency_code?: string | undefined;
+  started_at?: number | undefined;
+  activated_at?: number | undefined;
+  created_at?: number | undefined;
+  updated_at?: number | undefined;
+  current_term_start?: number | undefined;
+  current_term_end?: number | undefined;
+  next_billing_at?: number | undefined;
+  remaining_billing_cycles?: number | undefined;
+  deleted?: boolean | undefined;
+};
+
+export interface ActionInput_chargebee_listcouponsets {
+  /**
+   * Filter by coupon id linked to coupon set. Example: "sample_coupon"
+   */
+  coupon_id?: string | undefined;
+  /**
+   * Filter by coupon set name. Example: "Weekend Offer"
+   */
+  name?: string | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of resources to return. Min 1, max 100. Defaults to 10.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_chargebee_listcouponsets {
+  coupon_sets: ({  id: string;
+  coupon_id: string;
+  name: string;
+  total_count?: number | undefined;
+  redeemed_count?: number | undefined;
+  archived_count?: number | undefined;
+  meta_data?: {  [key: string]: unknown | undefined;};
+  object?: string | undefined;})[];
+  next_offset?: string | undefined;
+};
+
+export interface ActionInput_chargebee_listcoupons {
+  /**
+   * Coupon ID to filter by. Example: "cbdemo_earlybird"
+   */
+  id?: string | undefined;
+  /**
+   * Coupon name to filter by.
+   */
+  name?: string | undefined;
+  /**
+   * Discount type to filter by. Example: "fixed_amount" or "percentage"
+   */
+  discount_type?: string | undefined;
+  /**
+   * Coupon status to filter by. Example: "active" or "expired"
+   */
+  status?: string | undefined;
+  /**
+   * Apply on to filter by. Example: "plan_amount" or "invoice_amount"
+   */
+  apply_on?: string | undefined;
+  /**
+   * Filter coupons updated after this Unix timestamp (seconds).
+   */
+  "updated_at[gt]"?: string | undefined;
+  /**
+   * Filter coupons updated before this Unix timestamp (seconds).
+   */
+  "updated_at[lt]"?: string | undefined;
+  /**
+   * Filter coupons updated on or after this Unix timestamp (seconds).
+   */
+  "updated_at[gte]"?: string | undefined;
+  /**
+   * Filter coupons updated on or before this Unix timestamp (seconds).
+   */
+  "updated_at[lte]"?: string | undefined;
+  /**
+   * Number of records to return. Max 100.
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination offset cursor from the previous response.
+   */
+  offset?: string | undefined;
+};
+
+export interface ActionOutput_chargebee_listcoupons {
+  items: ({  id: string;
+  name?: string | undefined;
+  discount_type?: string | undefined;
+  discount_amount?: number | undefined;
+  discount_percentage?: number | undefined;
+  status?: string | undefined;
+  apply_on?: string | undefined;
+  created_at?: number | undefined;
+  updated_at?: number | undefined;
+  resource_version?: number | undefined;
+  deleted?: boolean | undefined;})[];
+  next_offset?: string | undefined;
+};
+
+export interface ActionInput_chargebee_listcreditnotes {
+  /**
+   * Customer ID to filter by. Example: "AzqOd0VMyUhHQZf4"
+   */
+  customer_id?: string | undefined;
+  /**
+   * Subscription ID to filter by. Example: "AzqOd0VMyVsW3aOz"
+   */
+  subscription_id?: string | undefined;
+  /**
+   * Type filter operator. Example: "adjustment" or "refundable"
+   */
+  type?: string | undefined;
+  /**
+   * Operator for type filter. Example: "is" or "is_not"
+   */
+  type_operator?: 'is' | 'is_not' | undefined;
+  /**
+   * Status filter value. Example: "adjusted", "refunded", "refund_due", or "voided"
+   */
+  status?: string | undefined;
+  /**
+   * Operator for status filter. Example: "is" or "is_not"
+   */
+  status_operator?: 'is' | 'is_not' | undefined;
+  /**
+   * Filter credit notes with date greater than this Unix timestamp (seconds).
+   */
+  date_gt?: number | undefined;
+  /**
+   * Filter credit notes with date less than this Unix timestamp (seconds).
+   */
+  date_lt?: number | undefined;
+  /**
+   * Filter credit notes with date greater than or equal to this Unix timestamp (seconds).
+   */
+  date_gte?: number | undefined;
+  /**
+   * Filter credit notes with date less than or equal to this Unix timestamp (seconds).
+   */
+  date_lte?: number | undefined;
+  /**
+   * Filter credit notes with updated_at greater than this Unix timestamp (seconds).
+   */
+  updated_at_gt?: number | undefined;
+  /**
+   * Filter credit notes with updated_at less than this Unix timestamp (seconds).
+   */
+  updated_at_lt?: number | undefined;
+  /**
+   * Filter credit notes with updated_at greater than or equal to this Unix timestamp (seconds).
+   */
+  updated_at_gte?: number | undefined;
+  /**
+   * Filter credit notes with updated_at less than or equal to this Unix timestamp (seconds).
+   */
+  updated_at_lte?: number | undefined;
+  /**
+   * Pagination offset cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_chargebee_listcreditnotes {
+  items: ({  id: string;
+  customer_id?: string | undefined;
+  subscription_id?: string | undefined;
+  reference_invoice_id?: string | undefined;
+  type?: string | undefined;
+  status?: string | undefined;
+  date?: number | undefined;
+  total?: number | undefined;
+  amount_allocated?: number | undefined;
+  amount_refunded?: number | undefined;
+  amount_available?: number | undefined;
+  updated_at?: number | undefined;
+  currency_code?: string | undefined;
+  reason_code?: string | undefined;})[];
+  /**
+   * Pagination cursor for the next page. Omit if there are no more pages.
+   */
+  next_offset?: string | undefined;
+};
+
+export interface ActionInput_chargebee_listcustomers {
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  company?: string | undefined;
+  phone?: string | undefined;
+  updated_at_gt?: number | undefined;
+  updated_at_lt?: number | undefined;
+  updated_at_gte?: number | undefined;
+  updated_at_lte?: number | undefined;
+  created_at_gt?: number | undefined;
+  created_at_lt?: number | undefined;
+  created_at_gte?: number | undefined;
+  created_at_lte?: number | undefined;
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_chargebee_listcustomers {
+  customers: ({  id: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  company?: string | undefined;
+  phone?: string | undefined;
+  created_at?: number | undefined;
+  updated_at?: number | undefined;})[];
+  next_offset?: string | undefined;
+};
+
+export interface ActionInput_chargebee_listevents {
+  /**
+   * Filter by event ID using the `is` operator.
+   */
+  id?: string | undefined;
+  /**
+   * Filter by event type using the `is` operator.
+   */
+  event_type?: string | undefined;
+  /**
+   * Filter by event type using the `is_not` operator.
+   */
+  event_type_is_not?: string | undefined;
+  /**
+   * Filter by event source using the `is` operator.
+   */
+  source?: string | undefined;
+  /**
+   * Filter by event source using the `is_not` operator.
+   */
+  source_is_not?: string | undefined;
+  /**
+   * Filter by occurred_at greater than (Unix seconds).
+   */
+  occurred_at_gt?: number | undefined;
+  /**
+   * Filter by occurred_at less than (Unix seconds).
+   */
+  occurred_at_lt?: number | undefined;
+  /**
+   * Filter by occurred_at greater than or equal to (Unix seconds).
+   */
+  occurred_at_gte?: number | undefined;
+  /**
+   * Filter by occurred_at less than or equal to (Unix seconds).
+   */
+  occurred_at_lte?: number | undefined;
+  /**
+   * Filter by webhook status using the `is` operator.
+   */
+  webhook_status?: string | undefined;
+  /**
+   * Filter by webhook status using the `is_not` operator.
+   */
+  webhook_status_is_not?: string | undefined;
+  /**
+   * Number of events to return (max 100).
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_chargebee_listevents {
+  items: ({  [key: string]: unknown | undefined;})[];
+  /**
+   * Pagination cursor for the next page.
+   */
+  next_offset?: string | undefined;
+};
+
+export interface ActionInput_chargebee_listinvoices {
+  /**
+   * Filter by customer ID. Example: "AzqOd0VMyUhHQZf4"
+   */
+  customer_id?: string | undefined;
+  /**
+   * Filter by subscription ID. Example: "AzZPdjVMyVrz9acf"
+   */
+  subscription_id?: string | undefined;
+  /**
+   * Filter by status. Example: "payment_due"
+   */
+  status?: string | undefined;
+  /**
+   * Status filter operator. Defaults to "is".
+   */
+  status_operator?: 'is' | 'is_not' | undefined;
+  /**
+   * Date range filter in Unix epoch seconds.
+   */
+  date?: {  gt?: number | undefined;
+  lt?: number | undefined;
+  gte?: number | undefined;
+  lte?: number | undefined;};
+  /**
+   * Updated-at range filter in Unix epoch seconds.
+   */
+  updated_at?: {  gt?: number | undefined;
+  lt?: number | undefined;
+  gte?: number | undefined;
+  lte?: number | undefined;};
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Max 100.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_chargebee_listinvoices {
+  invoices: ({  /**
+   * Invoice number. Example: "1"
+   */
+  id: string;
+  customer_id: string;
+  subscription_id?: string | undefined;
+  status: 'paid' | 'posted' | 'payment_due' | 'not_paid' | 'voided' | 'pending';
+  date?: number | undefined;
+  due_date?: number | undefined;
+  total?: number | undefined;
+  amount_due?: number | undefined;
+  amount_paid?: number | undefined;
+  currency_code: string;
+  recurring: boolean;
+  deleted: boolean;
+  updated_at?: number | undefined;
+  resource_version?: number | undefined;})[];
+  next_offset?: string | undefined;
+};
+
+export interface ActionInput_chargebee_listitemfamilies {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of resources to return. Max 100.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_chargebee_listitemfamilies {
+  item_families: ({  id: string;
+  name: string;
+  description?: string | undefined;
+  status?: string | undefined;
+  resource_version?: number | undefined;
+  updated_at?: number | undefined;
+  channel?: string | undefined;
+  business_entity_id?: string | undefined;
+  deleted: boolean;})[];
+  next_offset?: string | undefined;
+};
+
+export interface ActionInput_chargebee_listitemprices {
+  /**
+   * Filter by item ID. Example: "basic-plan"
+   */
+  item_id?: string | undefined;
+  /**
+   * Filter by item family ID. Example: "saas-plans"
+   */
+  item_family_id?: string | undefined;
+  /**
+   * Filter by item type. Example: "plan"
+   */
+  item_type?: string | undefined;
+  /**
+   * Operator for item_type filter. Default: is
+   */
+  item_type_operator?: 'is' | 'is_not' | undefined;
+  /**
+   * Filter by currency code. Example: "USD"
+   */
+  currency_code?: string | undefined;
+  /**
+   * Filter by pricing model. Example: "flat_fee"
+   */
+  pricing_model?: string | undefined;
+  /**
+   * Filter by status. Example: "active"
+   */
+  status?: string | undefined;
+  /**
+   * Operator for status filter. Default: is
+   */
+  status_operator?: 'is' | 'is_not' | undefined;
+  /**
+   * Filter by updated_at greater than. Unix epoch seconds.
+   */
+  updated_at_gt?: number | undefined;
+  /**
+   * Filter by updated_at less than. Unix epoch seconds.
+   */
+  updated_at_lt?: number | undefined;
+  /**
+   * Filter by updated_at greater than or equal. Unix epoch seconds.
+   */
+  updated_at_gte?: number | undefined;
+  /**
+   * Filter by updated_at less than or equal. Unix epoch seconds.
+   */
+  updated_at_lte?: number | undefined;
+  /**
+   * Pagination offset cursor from the previous response.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of records to return. Max 100.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_chargebee_listitemprices {
+  list: ({  id: string;
+  name?: string | undefined;
+  item_id?: string | undefined;
+  item_family_id?: string | undefined;
+  item_type?: string | undefined;
+  status?: string | undefined;
+  external_name?: string | undefined;
+  pricing_model?: string | undefined;
+  price?: number | undefined;
+  period_unit?: string | undefined;
+  period?: number | undefined;
+  currency_code?: string | undefined;
+  trial_period?: number | undefined;
+  trial_period_unit?: string | undefined;
+  free_quantity?: number | undefined;
+  resource_version?: number | undefined;
+  updated_at?: number | undefined;
+  created_at?: number | undefined;
+  is_deleted?: boolean | undefined;
+  object?: string | undefined;})[];
+  /**
+   * Offset cursor for the next page.
+   */
+  next_offset?: string | undefined;
+};
+
+export interface ActionInput_chargebee_listitems {
+  /**
+   * Pagination cursor (offset) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Filter by item ID. Example: "basic-plan"
+   */
+  id?: string | undefined;
+  /**
+   * Filter by item name.
+   */
+  name?: string | undefined;
+  /**
+   * Filter by item type.
+   */
+  type?: 'plan' | 'addon' | 'charge' | undefined;
+  /**
+   * Filter by item family ID. Example: "saas-plans"
+   */
+  item_family_id?: string | undefined;
+  /**
+   * Filter by item status.
+   */
+  status?: 'active' | 'archived' | 'deleted' | undefined;
+  /**
+   * Filter by updated_at timestamp (Unix epoch seconds).
+   */
+  updated_at?: {  gt?: string | undefined;
+  lt?: string | undefined;
+  gte?: string | undefined;
+  lte?: string | undefined;};
+};
+
+export interface ActionOutput_chargebee_listitems {
+  items: ({  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  status?: string | undefined;
+  resource_version?: number | undefined;
+  updated_at?: number | undefined;
+  item_family_id?: string | undefined;
+  type?: string | undefined;
+  is_giftable?: boolean | undefined;
+  is_shippable?: boolean | undefined;
+  enabled_in_hosted_pages?: boolean | undefined;
+  enabled_in_portal?: boolean | undefined;
+  object?: string | undefined;})[];
+  next_offset?: string | undefined;
+};
+
+export interface ActionInput_chargebee_listpaymentsources {
+  /**
+   * Customer ID. Example: "AzqOd0VMyUhHQZf4"
+   */
+  customer_id: string;
+  /**
+   * Filter by payment source type.
+   */
+  type?: 'card' | 'paypal_express_checkout' | 'amazon_payments' | 'direct_debit' | 'generic' | 'alipay' | 'unionpay' | 'apple_pay' | 'wechat_pay' | 'ideal' | 'google_pay' | 'sofort' | 'bancontact' | 'giropay' | 'dotpay' | 'netbanking_emandates' | 'upi' | 'sepa_instant_transfer' | undefined;
+  /**
+   * Type filter operator. Default: is.
+   */
+  type_operator?: 'is' | 'is_not' | undefined;
+  /**
+   * Number of records per page. Max: 100.
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination offset cursor from the previous response. Omit for the first page.
+   */
+  offset?: string | undefined;
+};
+
+export interface ActionOutput_chargebee_listpaymentsources {
+  items: ({  id: string;
+  customer_id?: string | undefined;
+  type?: string | undefined;
+  status?: string | undefined;
+  reference_id?: string | undefined;
+  gateway?: string | undefined;
+  gateway_account_id?: string | undefined;
+  ip_address?: string | undefined;
+  created_at?: number | undefined;
+  updated_at?: number | undefined;
+  resource_version?: number | undefined;
+  deleted?: boolean | undefined;
+  object?: string | undefined;
+  card?: {  [key: string]: unknown | undefined;};
+  bank_account?: {  [key: string]: unknown | undefined;};
+  amazon_payment?: {  [key: string]: unknown | undefined;};
+  paypal?: {  [key: string]: unknown | undefined;};
+  mandate?: {  [key: string]: unknown | undefined;};})[];
+  /**
+   * Pagination offset cursor for the next page.
+   */
+  next_offset?: string | undefined;
+};
+
+export interface ActionInput_chargebee_listsubscriptions {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Max 100.
+   */
+  limit?: number | undefined;
+  /**
+   * Filter by customer ID. Example: "AzqOd0VMyUhHQZf4"
+   */
+  customer_id?: string | undefined;
+  /**
+   * Filter by item price ID. Example: "basic-plan-monthly"
+   */
+  item_price_id?: string | undefined;
+  /**
+   * Filter by subscription status. Example: "active"
+   */
+  status?: string | undefined;
+  /**
+   * Exclude subscriptions with this status. Example: "cancelled"
+   */
+  status_is_not?: string | undefined;
+  /**
+   * Filter by updated_at greater than (Unix seconds).
+   */
+  updated_at_gt?: number | undefined;
+  /**
+   * Filter by updated_at less than (Unix seconds).
+   */
+  updated_at_lt?: number | undefined;
+  /**
+   * Filter by updated_at greater than or equal (Unix seconds).
+   */
+  updated_at_gte?: number | undefined;
+  /**
+   * Filter by updated_at less than or equal (Unix seconds).
+   */
+  updated_at_lte?: number | undefined;
+  /**
+   * Filter by cancelled_at greater than (Unix seconds).
+   */
+  cancelled_at_gt?: number | undefined;
+  /**
+   * Filter by cancelled_at less than (Unix seconds).
+   */
+  cancelled_at_lt?: number | undefined;
+  /**
+   * Filter by cancelled_at greater than or equal (Unix seconds).
+   */
+  cancelled_at_gte?: number | undefined;
+  /**
+   * Filter by cancelled_at less than or equal (Unix seconds).
+   */
+  cancelled_at_lte?: number | undefined;
+};
+
+export interface ActionOutput_chargebee_listsubscriptions {
+  items: ({  /**
+   * Subscription ID. Example: "AzZPdjVMyVrz9acf"
+   */
+  id: string;
+  /**
+   * Customer ID. Example: "AzqOd0VMyUhHQZf4"
+   */
+  customer_id?: string | undefined;
+  /**
+   * Subscription status. Example: "active"
+   */
+  status?: string | undefined;
+  /**
+   * Unix timestamp in seconds. Example: 1700000000
+   */
+  updated_at?: number | undefined;
+  /**
+   * Unix timestamp in seconds. Example: 1700000000
+   */
+  cancelled_at?: number | undefined;})[];
+  /**
+   * Pagination cursor to fetch the next page. Omit when there are no more pages.
+   */
+  next_offset?: string | undefined;
+};
+
+export interface ActionInput_chargebee_listtransactions {
+  /**
+   * Pagination offset cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum number of results per page. Default: 10, Max: 100.
+   */
+  limit?: number | undefined;
+  /**
+   * Filter by customer ID. Example: "AzqOd0VMyUhHQZf4"
+   */
+  customer_id?: string | undefined;
+  /**
+   * Filter by subscription ID. Example: "AzZPdjVMyVrz9acf"
+   */
+  subscription_id?: string | undefined;
+  /**
+   * Filter by transaction type.
+   */
+  type_is?: 'payment' | 'refund' | 'payment_reversal' | undefined;
+  /**
+   * Exclude by transaction type.
+   */
+  type_is_not?: 'payment' | 'refund' | 'payment_reversal' | undefined;
+  /**
+   * Filter by status.
+   */
+  status_is?: string | undefined;
+  /**
+   * Exclude by status.
+   */
+  status_is_not?: string | undefined;
+  /**
+   * Filter by date greater than (Unix epoch seconds).
+   */
+  date_gt?: number | undefined;
+  /**
+   * Filter by date less than (Unix epoch seconds).
+   */
+  date_lt?: number | undefined;
+  /**
+   * Filter by date greater than or equal (Unix epoch seconds).
+   */
+  date_gte?: number | undefined;
+  /**
+   * Filter by date less than or equal (Unix epoch seconds).
+   */
+  date_lte?: number | undefined;
+  /**
+   * Filter by updated_at greater than (Unix epoch seconds).
+   */
+  updated_at_gt?: number | undefined;
+  /**
+   * Filter by updated_at less than (Unix epoch seconds).
+   */
+  updated_at_lt?: number | undefined;
+  /**
+   * Filter by updated_at greater than or equal (Unix epoch seconds).
+   */
+  updated_at_gte?: number | undefined;
+  /**
+   * Filter by updated_at less than or equal (Unix epoch seconds).
+   */
+  updated_at_lte?: number | undefined;
+};
+
+export interface ActionOutput_chargebee_listtransactions {
+  items: ({})[];
+  next_offset?: string | undefined;
+};
+
+export interface ActionInput_chargebee_updatecustomer {
+  /**
+   * Chargebee customer ID. Example: "AzqOd0VMyUhHQZf4"
+   */
+  customer_id: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  company?: string | undefined;
+  phone?: string | undefined;
+  auto_collection?: 'on' | 'off' | undefined;
+  net_term_days?: number | undefined;
+  locale?: string | undefined;
+  billing_address?: {  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  company?: string | undefined;
+  phone?: string | undefined;
+  line1?: string | undefined;
+  line2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  zip?: string | undefined;
+  country?: string | undefined;};
+};
+
+export interface ActionOutput_chargebee_updatecustomer {
+  id: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  company?: string | undefined;
+  phone?: string | undefined;
+  auto_collection?: 'on' | 'off' | undefined;
+  net_term_days?: number | undefined;
+  locale?: string | undefined;
+  billing_address?: {  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  company?: string | undefined;
+  phone?: string | undefined;
+  line1?: string | undefined;
+  line2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  zip?: string | undefined;
+  country?: string | undefined;};
+};
+
+export interface ActionInput_chargebee_updateitemprice {
+  /**
+   * Item price ID. Example: "basic-plan-monthly"
+   */
+  id: string;
+  /**
+   * Name of the item price.
+   */
+  name?: string | undefined;
+  /**
+   * Description of the item price.
+   */
+  description?: string | undefined;
+  /**
+   * Price in minor units (cents). Example: 1900
+   */
+  price?: number | undefined;
+  /**
+   * Status of the item price.
+   */
+  status?: 'active' | 'archived' | undefined;
+  /**
+   * Tiered pricing details.
+   */
+  tiers?: ({  starting_unit?: number | undefined;
+  ending_unit?: number | undefined;
+  price?: number | undefined;})[];
+};
+
+export interface ActionOutput_chargebee_updateitemprice {
+  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  status?: 'active' | 'archived' | 'deleted' | undefined;
+  price?: number | undefined;
+  item_id?: string | undefined;
+  item_family_id?: string | undefined;
+  pricing_model?: string | undefined;
+  resource_version?: number | undefined;
+  updated_at?: number | undefined;
+  created_at?: number | undefined;
+};
+
+export interface ActionInput_chargebee_updateitem {
+  /**
+   * The ID of the item to update. Example: "basic-plan"
+   */
+  item_id: string;
+  /**
+   * The name of the item.
+   */
+  name?: string | undefined;
+  /**
+   * The description of the item.
+   */
+  description?: string | undefined;
+  /**
+   * Whether the item is shippable.
+   */
+  is_shippable?: boolean | undefined;
+  /**
+   * Whether the item is enabled for checkout.
+   */
+  enabled_for_checkout?: boolean | undefined;
+  /**
+   * Whether the item is enabled in the portal.
+   */
+  enabled_in_portal?: boolean | undefined;
+  /**
+   * The status of the item.
+   */
+  status?: 'active' | 'archived' | undefined;
+};
+
+export interface ActionOutput_chargebee_updateitem {
+  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  status?: string | undefined;
+  is_shippable?: boolean | undefined;
+  enabled_for_checkout?: boolean | undefined;
+  enabled_in_portal?: boolean | undefined;
+  resource_version?: number | undefined;
+  updated_at?: number | undefined;
+  created_at?: number | undefined;
+  item_family_id?: string | undefined;
+  type?: string | undefined;
+};
+
+export interface ActionInput_chargebee_updatesubscription {
+  /**
+   * Chargebee subscription ID. Example: "AzqOd0VMyVsW3aOz"
+   */
+  subscription_id: string;
+  /**
+   * List of subscription items to set
+   */
+  subscription_items: ({  /**
+   * Item price ID to assign. Example: "basic-plan-monthly"
+   */
+  item_price_id: string;
+  /**
+   * Quantity of the item. Omit for on-off plans/addons. Example: 2
+   */
+  quantity?: number | undefined;})[];
+  /**
+   * When true, replaces the entire subscription item list. Default: true
+   */
+  replace_items_list?: boolean | undefined;
+  /**
+   * Whether to prorate changes. Default: true
+   */
+  proration?: boolean | undefined;
+};
+
+export interface ActionOutput_chargebee_updatesubscription {
+  /**
+   * Subscription ID
+   */
+  id: string;
+  /**
+   * Subscription status
+   */
+  status: string;
+  /**
+   * Customer ID
+   */
+  customer_id: string;
+  /**
+   * Updated subscription items
+   */
+  subscription_items: ({  item_price_id: string;
+  quantity?: number | undefined;
+  unit_price?: number | undefined;
+  amount?: number | undefined;
+  item_type?: string | undefined;})[];
+  /**
+   * Current term start (Unix seconds)
+   */
+  current_term_start?: number | undefined;
+  /**
+   * Current term end (Unix seconds)
+   */
+  current_term_end?: number | undefined;
+  /**
+   * Next billing date (Unix seconds)
+   */
+  next_billing_at?: number | undefined;
+  /**
+   * Creation timestamp (Unix seconds)
+   */
+  created_at?: number | undefined;
+  /**
+   * Last update timestamp (Unix seconds)
+   */
+  updated_at?: number | undefined;
+};
+
+export interface ActionInput_chargebee_voidcreditnote {
+  /**
+   * Credit note ID. Example: "cbnote_123"
+   */
+  credit_note_id: string;
+};
+
+export interface ActionOutput_chargebee_voidcreditnote {
+  id: string;
+  customer_id: string;
+  subscription_id?: string | undefined;
+  reference_invoice_id?: string | undefined;
+  type: 'adjustment' | 'refundable' | 'store';
+  reason_code?: string | undefined;
+  status: 'adjusted' | 'refunded' | 'refund_due' | 'voided';
+  vat_number?: string | undefined;
+  date?: number | undefined;
+  price_type: 'tax_exclusive' | 'tax_inclusive';
+  currency_code: string;
+  total?: number | undefined;
+  amount_allocated?: number | undefined;
+  amount_refunded?: number | undefined;
+  amount_available?: number | undefined;
+  refunded_at?: number | undefined;
+  voided_at?: number | undefined;
+  generated_at?: number | undefined;
+  resource_version?: number | undefined;
+  updated_at?: number | undefined;
+  channel?: 'web' | 'app_store' | 'play_store' | undefined;
+  sub_total: number;
+  sub_total_in_local_currency?: number | undefined;
+  total_in_local_currency?: number | undefined;
+  local_currency_code?: string | undefined;
+  round_off_amount?: number | undefined;
+  fractional_correction?: number | undefined;
+  notes?: string[] | undefined;
+  deleted: boolean;
+  tax_category?: string | undefined;
+  local_currency_exchange_rate?: number | undefined;
+  create_reason_code?: string | undefined;
+  vat_number_prefix?: string | undefined;
+  business_entity_id?: string | undefined;
 };
 
 export interface BackgroundCheck {
@@ -62324,22 +64710,6 @@ export interface CrmLead {
   write_date?: string | undefined;
 };
 
-export interface Invoice {
-  id: string;
-  invoice_number?: string | undefined;
-  status?: string | undefined;
-  customer_id?: string | undefined;
-  customer_name?: string | undefined;
-  reference_number?: string | undefined;
-  date?: string | undefined;
-  due_date?: string | undefined;
-  currency_code?: string | undefined;
-  total?: number | undefined;
-  balance?: number | undefined;
-  created_time?: string | undefined;
-  last_modified_time?: string | undefined;
-};
-
 export interface SaleOrder {
   id: string;
   name?: string | undefined;
@@ -72558,44 +74928,6 @@ export interface CreditMemo {
   updated_at: string;
 };
 
-export interface Customer {
-  id: string;
-  email: string;
-  first_name?: string | undefined;
-  last_name?: string | undefined;
-  role?: string | undefined;
-  username?: string | undefined;
-  date_created?: string | undefined;
-  date_created_gmt?: string | undefined;
-  date_modified?: string | undefined;
-  date_modified_gmt?: string | undefined;
-  billing?: {  first_name?: string | undefined;
-  last_name?: string | undefined;
-  company?: string | undefined;
-  address_1?: string | undefined;
-  address_2?: string | undefined;
-  city?: string | undefined;
-  state?: string | undefined;
-  postcode?: string | undefined;
-  country?: string | undefined;
-  email?: string | undefined;
-  phone?: string | undefined;};
-  shipping?: {  first_name?: string | undefined;
-  last_name?: string | undefined;
-  company?: string | undefined;
-  address_1?: string | undefined;
-  address_2?: string | undefined;
-  city?: string | undefined;
-  state?: string | undefined;
-  postcode?: string | undefined;
-  country?: string | undefined;};
-  is_paying_customer?: boolean | undefined;
-  avatar_url?: string | undefined;
-  meta_data?: ({  id?: number | undefined;
-  key?: string | undefined;
-  value?: unknown | undefined;})[];
-};
-
 export interface Deposit {
   id: string;
   syncToken?: string | undefined;
@@ -72637,32 +74969,6 @@ export interface Estimate {
   line_items?: ({  [key: string]: unknown | undefined;})[];
   custom_fields?: ({  [key: string]: unknown | undefined;})[];
   tags?: ({  [key: string]: unknown | undefined;})[];
-};
-
-export interface Item {
-  id: string;
-  name?: string | undefined;
-  status?: string | undefined;
-  rate?: number | undefined;
-  unit?: string | undefined;
-  description?: string | undefined;
-  item_type?: string | undefined;
-  product_type?: string | undefined;
-  tax_id?: string | undefined;
-  tax_name?: string | undefined;
-  tax_percentage?: number | undefined;
-  account_id?: string | undefined;
-  account_name?: string | undefined;
-  purchase_rate?: number | undefined;
-  purchase_account_id?: string | undefined;
-  purchase_account_name?: string | undefined;
-  can_be_sold?: boolean | undefined;
-  can_be_purchased?: boolean | undefined;
-  track_inventory?: boolean | undefined;
-  sku?: string | undefined;
-  source?: string | undefined;
-  created_time?: string | undefined;
-  last_modified_time?: string | undefined;
 };
 
 export interface JournalEntry {
@@ -88201,22 +90507,6 @@ export interface CheckoutSession {
   url?: string | undefined;
 };
 
-export interface CreditNote {
-  id: string;
-  creditnote_number?: string | undefined;
-  status?: string | undefined;
-  reference_number?: string | undefined;
-  date?: string | undefined;
-  issued_date?: string | undefined;
-  total?: number | undefined;
-  balance?: number | undefined;
-  customer_id?: string | undefined;
-  customer_name?: string | undefined;
-  currency_code?: string | undefined;
-  created_time?: string | undefined;
-  last_modified_time?: string | undefined;
-};
-
 export interface InvoiceItem {
   id: string;
   amount: number;
@@ -88343,26 +90633,6 @@ export interface SetupIntent {
   cancellation_reason?: string | undefined;
   livemode?: boolean | undefined;
   metadata?: {  [key: string]: unknown | undefined;};
-};
-
-export interface Subscription {
-  id: string;
-  status: string;
-  customer: string;
-  created: number;
-  current_period_start?: number | undefined;
-  current_period_end?: number | undefined;
-  cancel_at_period_end?: boolean | undefined;
-  canceled_at?: number | undefined;
-  ended_at?: number | undefined;
-  collection_method?: string | undefined;
-  currency?: string | undefined;
-  description?: string | undefined;
-  metadata?: {  [key: string]: string;} | undefined;
-  items?: ({  id: string;
-  price_id?: string | undefined;
-  product_id?: string | undefined;
-  quantity?: number | undefined;})[];
 };
 
 export interface ActionInput_stripe_cancelpaymentintent {

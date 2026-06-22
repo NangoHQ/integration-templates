@@ -1,0 +1,236 @@
+{
+  "nango": {
+    "batchSave": {
+      "ItemPrice": [
+        {
+          "id": "pro-plan-monthly",
+          "name": "Pro Plan Monthly",
+          "item_id": "pro-plan",
+          "item_family_id": "saas-plans",
+          "item_type": "plan",
+          "status": "active",
+          "currency_code": "USD",
+          "price": 4900,
+          "updated_at": 1781856338,
+          "created_at": 1781856338,
+          "resource_version": 1781856338578,
+          "period": 1,
+          "period_unit": "month",
+          "pricing_model": "flat_fee",
+          "channel": "web",
+          "free_quantity": 0,
+          "external_name": "Pro Plan Monthly",
+          "is_taxable": true
+        },
+        {
+          "id": "pro-plan-annual",
+          "name": "Pro Plan Annual",
+          "item_id": "pro-plan",
+          "item_family_id": "saas-plans",
+          "item_type": "plan",
+          "status": "active",
+          "currency_code": "USD",
+          "price": 49000,
+          "updated_at": 1781856340,
+          "created_at": 1781856340,
+          "resource_version": 1781856340977,
+          "period": 1,
+          "period_unit": "year",
+          "pricing_model": "flat_fee",
+          "channel": "web",
+          "free_quantity": 0,
+          "external_name": "Pro Plan Annual",
+          "is_taxable": true
+        },
+        {
+          "id": "basic-plan-monthly",
+          "name": "Basic Plan Monthly Updated",
+          "item_id": "basic-plan",
+          "item_family_id": "saas-plans",
+          "item_type": "plan",
+          "status": "active",
+          "currency_code": "USD",
+          "price": 1900,
+          "updated_at": 1781857167,
+          "created_at": 1781856336,
+          "resource_version": 1781857167221,
+          "period": 1,
+          "period_unit": "month",
+          "pricing_model": "flat_fee",
+          "channel": "web",
+          "free_quantity": 0,
+          "external_name": "Basic Plan Monthly",
+          "is_taxable": true
+        },
+        {
+          "id": "basic-plan-yearly-test-2026",
+          "name": "Basic Plan Yearly Test 2026",
+          "item_id": "basic-plan",
+          "item_family_id": "saas-plans",
+          "item_type": "plan",
+          "status": "active",
+          "currency_code": "USD",
+          "price": 19000,
+          "updated_at": 1781857196,
+          "created_at": 1781857196,
+          "resource_version": 1781857196073,
+          "period": 1,
+          "period_unit": "year",
+          "pricing_model": "flat_fee",
+          "channel": "web",
+          "free_quantity": 0,
+          "external_name": "Basic Plan Yearly Test 2026",
+          "is_taxable": true
+        }
+      ]
+    },
+    "batchDelete": {
+      "ItemPrice": []
+    }
+  },
+  "api": {
+    "get": {
+      "/api/v2/item_prices": {
+        "response": {
+          "list": [
+            {
+              "item_price": {
+                "id": "pro-plan-monthly",
+                "name": "Pro Plan Monthly",
+                "item_family_id": "saas-plans",
+                "item_id": "pro-plan",
+                "status": "active",
+                "external_name": "Pro Plan Monthly",
+                "pricing_model": "flat_fee",
+                "price": 4900,
+                "period": 1,
+                "currency_code": "USD",
+                "period_unit": "month",
+                "free_quantity": 0,
+                "channel": "web",
+                "resource_version": 1781856338578,
+                "updated_at": 1781856338,
+                "created_at": 1781856338,
+                "is_taxable": true,
+                "item_type": "plan",
+                "show_description_in_invoices": false,
+                "show_description_in_quotes": false,
+                "deleted": false,
+                "object": "item_price"
+              }
+            },
+            {
+              "item_price": {
+                "id": "pro-plan-annual",
+                "name": "Pro Plan Annual",
+                "item_family_id": "saas-plans",
+                "item_id": "pro-plan",
+                "status": "active",
+                "external_name": "Pro Plan Annual",
+                "pricing_model": "flat_fee",
+                "price": 49000,
+                "period": 1,
+                "currency_code": "USD",
+                "period_unit": "year",
+                "free_quantity": 0,
+                "channel": "web",
+                "resource_version": 1781856340977,
+                "updated_at": 1781856340,
+                "created_at": 1781856340,
+                "is_taxable": true,
+                "item_type": "plan",
+                "show_description_in_invoices": false,
+                "show_description_in_quotes": false,
+                "deleted": false,
+                "object": "item_price"
+              }
+            },
+            {
+              "item_price": {
+                "id": "basic-plan-monthly",
+                "name": "Basic Plan Monthly Updated",
+                "item_family_id": "saas-plans",
+                "item_id": "basic-plan",
+                "status": "active",
+                "external_name": "Basic Plan Monthly",
+                "pricing_model": "flat_fee",
+                "price": 1900,
+                "period": 1,
+                "currency_code": "USD",
+                "period_unit": "month",
+                "free_quantity": 0,
+                "channel": "web",
+                "resource_version": 1781857167221,
+                "updated_at": 1781857167,
+                "created_at": 1781856336,
+                "is_taxable": true,
+                "item_type": "plan",
+                "show_description_in_invoices": false,
+                "show_description_in_quotes": false,
+                "deleted": false,
+                "object": "item_price"
+              }
+            },
+            {
+              "item_price": {
+                "id": "basic-plan-yearly-test-2026",
+                "name": "Basic Plan Yearly Test 2026",
+                "item_family_id": "saas-plans",
+                "item_id": "basic-plan",
+                "status": "active",
+                "external_name": "Basic Plan Yearly Test 2026",
+                "pricing_model": "flat_fee",
+                "price": 19000,
+                "period": 1,
+                "currency_code": "USD",
+                "period_unit": "year",
+                "free_quantity": 0,
+                "channel": "web",
+                "resource_version": 1781857196073,
+                "updated_at": 1781857196,
+                "created_at": 1781857196,
+                "is_taxable": true,
+                "item_type": "plan",
+                "show_description_in_invoices": false,
+                "show_description_in_quotes": false,
+                "deleted": false,
+                "object": "item_price"
+              }
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 19 Jun 2026 08:22:08 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4924",
+          "x-ratelimit-reset": "1781857331",
+          "cache-control": "no-store, no-cache, must-revalidate",
+          "expires": "Thu, 01 Jan 1970 00:00:00 UTC",
+          "pragma": "no-cache",
+          "vary": "Accept-Encoding",
+          "server": "ChargeBee"
+        },
+        "hash": "266647c70778a3d1248bbb6482ff3952e75a30e3",
+        "request": {
+          "params": {
+            "limit": "100",
+            "sort_by[asc]": "updated_at"
+          }
+        }
+      }
+    }
+  }
+}

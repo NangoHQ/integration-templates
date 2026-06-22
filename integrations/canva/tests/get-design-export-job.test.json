@@ -1,0 +1,53 @@
+{
+  "input": {
+    "exportId": "2b7d9e77-637d-417f-aacc-837343834dbc"
+  },
+  "output": {
+    "job": {
+      "id": "2b7d9e77-637d-417f-aacc-837343834dbc",
+      "status": "success",
+      "urls": [
+        "https://export-download.canva.com/mCy_g/DAHNACmCy_g/-1/0-8523569183235467946.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH5AO7UJ26%2F20260618%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260618T203121Z&X-Amz-Expires=59139&X-Amz-Signature=72ea2cdd2442f8b96edc8d68433942bd2cbe39a6d5246751d263628041482b8f&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Fri%2C%2019%20Jun%202026%2012%3A57%3A00%20GMT"
+      ]
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/rest/v1/exports/2b7d9e77-637d-417f-aacc-837343834dbc": {
+        "response": {
+          "job": {
+            "id": "2b7d9e77-637d-417f-aacc-837343834dbc",
+            "status": "success",
+            "urls": [
+              "https://export-download.canva.com/mCy_g/DAHNACmCy_g/-1/0-8523569183235467946.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH5AO7UJ26%2F20260618%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260618T203121Z&X-Amz-Expires=59139&X-Amz-Signature=72ea2cdd2442f8b96edc8d68433942bd2cbe39a6d5246751d263628041482b8f&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Fri%2C%2019%20Jun%202026%2012%3A57%3A00%20GMT"
+            ]
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 19 Jun 2026 11:27:36 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "525",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4989",
+          "x-ratelimit-reset": "1781868509",
+          "x-request-id": "a0e22f7aef60efc2",
+          "etag": "W/\"20d-5yg93AUVCfmghpMwGOZTRcc1Dlg\""
+        },
+        "hash": "eb466189c307f06b7075fc0624f371a0bc51cc11",
+        "request": {}
+      }
+    }
+  }
+}

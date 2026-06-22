@@ -1,0 +1,280 @@
+{
+  "input": {
+    "reference_invoice_id": "1",
+    "type": "adjustment",
+    "total": 100,
+    "reason_code": "other",
+    "notes": "Test credit note"
+  },
+  "output": {
+    "id": "TEST-CN-8",
+    "reference_invoice_id": "1",
+    "type": "adjustment",
+    "status": "adjusted",
+    "total": 100,
+    "amount_allocated": 100,
+    "amount_available": 0,
+    "amount_refunded": 0,
+    "reason_code": "other",
+    "notes": [
+      "Test credit note"
+    ],
+    "customer_id": "AzqOd0VMyUhHQZf4",
+    "deleted": false,
+    "date": 1781857636,
+    "updated_at": 1781857636
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/api/v2/credit_notes": {
+        "response": {
+          "credit_note": {
+            "id": "TEST-CN-8",
+            "customer_id": "AzqOd0VMyUhHQZf4",
+            "subscription_id": "AzZPdjVMyVrz9acf",
+            "reference_invoice_id": "1",
+            "type": "adjustment",
+            "reason_code": "other",
+            "status": "adjusted",
+            "date": 1781857636,
+            "price_type": "tax_exclusive",
+            "exchange_rate": 1,
+            "total": 100,
+            "amount_allocated": 100,
+            "amount_refunded": 0,
+            "amount_available": 0,
+            "refunded_at": 1781857636,
+            "generated_at": 1781857636,
+            "updated_at": 1781857636,
+            "channel": "web",
+            "resource_version": 1781857636421,
+            "deleted": false,
+            "object": "credit_note",
+            "create_reason_code": "Other",
+            "currency_code": "USD",
+            "round_off_amount": 0,
+            "fractional_correction": 0,
+            "base_currency_code": "USD",
+            "sub_total": 100,
+            "line_items": [
+              {
+                "id": "li_169kZjVMyb3I8dlv",
+                "date_from": 1781857636,
+                "date_to": 1781857636,
+                "unit_amount": 100,
+                "quantity": 1,
+                "amount": 100,
+                "pricing_model": "flat_fee",
+                "is_taxed": false,
+                "tax_amount": 0,
+                "object": "line_item",
+                "subscription_id": "AzZPdjVMyVrz9acf",
+                "customer_id": "AzqOd0VMyUhHQZf4",
+                "description": "Basic Plan Monthly",
+                "entity_type": "plan_item_price",
+                "entity_id": "basic-plan-monthly",
+                "reference_line_item_id": "li_AzZPdjVMyVrzuach",
+                "tax_exempt_reason": "tax_not_configured",
+                "discount_amount": 0,
+                "item_level_discount_amount": 0
+              }
+            ],
+            "taxes": [],
+            "line_item_taxes": [],
+            "line_item_discounts": [],
+            "linked_refunds": [],
+            "allocations": [
+              {
+                "allocated_amount": 100,
+                "allocated_at": 1781857636,
+                "invoice_id": "1",
+                "invoice_date": 1781856401,
+                "invoice_status": "paid"
+              }
+            ],
+            "billing_address": {
+              "first_name": "Alice",
+              "last_name": "Johnson",
+              "company": "Acme Corp",
+              "validation_status": "not_validated",
+              "object": "billing_address"
+            },
+            "customer_notes": "Test credit note",
+            "notes": [
+              "Test credit note"
+            ],
+            "site_details_at_creation": {
+              "timezone": "Africa/Nairobi"
+            }
+          },
+          "invoice": {
+            "id": "1",
+            "customer_id": "AzqOd0VMyUhHQZf4",
+            "subscription_id": "AzZPdjVMyVrz9acf",
+            "recurring": true,
+            "status": "paid",
+            "date": 1781856401,
+            "due_date": 1781856401,
+            "net_term_days": 0,
+            "price_type": "tax_exclusive",
+            "exchange_rate": 1,
+            "total": 1900,
+            "amount_due": 0,
+            "amount_adjusted": 1900,
+            "amount_paid": 0,
+            "paid_at": 1781857636,
+            "write_off_amount": 0,
+            "credits_applied": 0,
+            "updated_at": 1781857636,
+            "resource_version": 1781857636398,
+            "deleted": false,
+            "object": "invoice",
+            "first_invoice": true,
+            "amount_to_collect": 0,
+            "round_off_amount": 0,
+            "new_sales_amount": 1900,
+            "has_advance_charges": false,
+            "currency_code": "USD",
+            "base_currency_code": "USD",
+            "generated_at": 1781856401,
+            "is_gifted": false,
+            "term_finalized": true,
+            "channel": "web",
+            "tax": 0,
+            "line_items": [
+              {
+                "id": "li_AzZPdjVMyVrzuach",
+                "date_from": 1781856401,
+                "date_to": 1784448401,
+                "unit_amount": 1900,
+                "quantity": 1,
+                "amount": 1900,
+                "pricing_model": "flat_fee",
+                "is_taxed": false,
+                "tax_amount": 0,
+                "object": "line_item",
+                "subscription_id": "AzZPdjVMyVrz9acf",
+                "customer_id": "AzqOd0VMyUhHQZf4",
+                "description": "Basic Plan Monthly",
+                "entity_type": "plan_item_price",
+                "entity_id": "basic-plan-monthly",
+                "tax_exempt_reason": "tax_not_configured",
+                "discount_amount": 0,
+                "item_level_discount_amount": 0
+              }
+            ],
+            "sub_total": 1900,
+            "linked_payments": [],
+            "applied_credits": [],
+            "reference_transactions": [],
+            "adjustment_credit_notes": [
+              {
+                "cn_id": "TEST-CN-2",
+                "cn_reason_code": "other",
+                "cn_create_reason_code": "Other",
+                "cn_date": 1781857498,
+                "cn_total": 500,
+                "cn_status": "adjusted"
+              },
+              {
+                "cn_id": "TEST-CN-3",
+                "cn_reason_code": "other",
+                "cn_create_reason_code": "Other",
+                "cn_date": 1781857510,
+                "cn_total": 500,
+                "cn_status": "adjusted"
+              },
+              {
+                "cn_id": "TEST-CN-4",
+                "cn_reason_code": "other",
+                "cn_create_reason_code": "Other",
+                "cn_date": 1781857530,
+                "cn_total": 500,
+                "cn_status": "adjusted"
+              },
+              {
+                "cn_id": "TEST-CN-5",
+                "cn_reason_code": "other",
+                "cn_create_reason_code": "Other",
+                "cn_date": 1781857554,
+                "cn_total": 100,
+                "cn_status": "adjusted"
+              },
+              {
+                "cn_id": "TEST-CN-6",
+                "cn_reason_code": "other",
+                "cn_create_reason_code": "Other",
+                "cn_date": 1781857561,
+                "cn_total": 100,
+                "cn_status": "adjusted"
+              },
+              {
+                "cn_id": "TEST-CN-7",
+                "cn_reason_code": "other",
+                "cn_create_reason_code": "Other",
+                "cn_date": 1781857628,
+                "cn_total": 100,
+                "cn_status": "adjusted"
+              },
+              {
+                "cn_id": "TEST-CN-8",
+                "cn_reason_code": "other",
+                "cn_create_reason_code": "Other",
+                "cn_date": 1781857636,
+                "cn_total": 100,
+                "cn_status": "adjusted"
+              }
+            ],
+            "issued_credit_notes": [],
+            "linked_orders": [],
+            "dunning_attempts": [],
+            "billing_address": {
+              "first_name": "Alice",
+              "last_name": "Johnson",
+              "company": "Acme Corp",
+              "validation_status": "not_validated",
+              "object": "billing_address"
+            },
+            "site_details_at_creation": {
+              "timezone": "Africa/Nairobi"
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 19 Jun 2026 08:27:16 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4980",
+          "x-ratelimit-reset": "1781857678",
+          "cache-control": "no-store, no-cache, must-revalidate",
+          "pragma": "no-cache",
+          "vary": "Accept-Encoding",
+          "server": "ChargeBee"
+        },
+        "hash": "2c19a73ce6ee8d88c861d9d655cb03b50f81facc",
+        "request": {
+          "params": {
+            "customer_notes": "Test credit note",
+            "reason_code": "other",
+            "reference_invoice_id": "1",
+            "total": "100",
+            "type": "adjustment"
+          }
+        }
+      }
+    }
+  }
+}
