@@ -19,8 +19,8 @@ const SentenceSchema = z.object({
 });
 
 const MonologueSchema = z.object({
-    speakerId: z.string().optional(),
-    topic: z.string().optional(),
+    speakerId: z.string().nullable().optional(),
+    topic: z.string().nullable().optional(),
     sentences: z.array(SentenceSchema).optional()
 });
 
@@ -48,8 +48,8 @@ const CallTranscriptSchema = z.object({
     transcript: z
         .array(
             z.object({
-                speakerId: z.string().optional(),
-                topic: z.string().optional(),
+                speakerId: z.string().nullable().optional(),
+                topic: z.string().nullable().optional(),
                 sentences: z
                     .array(
                         z.object({
