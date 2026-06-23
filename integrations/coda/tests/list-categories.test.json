@@ -1,0 +1,405 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "name": "Coda AI"
+      },
+      {
+        "name": "Personal"
+      },
+      {
+        "name": "Project management"
+      },
+      {
+        "name": "Product design"
+      },
+      {
+        "name": "HR"
+      },
+      {
+        "name": "Self improvement"
+      },
+      {
+        "name": "Marketing"
+      },
+      {
+        "name": "IT admins"
+      },
+      {
+        "name": "Fitness"
+      },
+      {
+        "name": "Education"
+      },
+      {
+        "name": "Travel"
+      },
+      {
+        "name": "Events"
+      },
+      {
+        "name": "Finance"
+      },
+      {
+        "name": "Entertainment"
+      },
+      {
+        "name": "Learn Coda"
+      },
+      {
+        "name": "Scheduling"
+      },
+      {
+        "name": "Strategic planning"
+      },
+      {
+        "name": "Meetings"
+      },
+      {
+        "name": "Sales"
+      },
+      {
+        "name": "Startups"
+      },
+      {
+        "name": "Small business"
+      },
+      {
+        "name": "Engineering"
+      },
+      {
+        "name": "Enterprise"
+      },
+      {
+        "name": "Knowledge management"
+      },
+      {
+        "name": "Venture & investing firms"
+      },
+      {
+        "name": "Roadmapping"
+      },
+      {
+        "name": "Gantt charts"
+      },
+      {
+        "name": "Project planning"
+      },
+      {
+        "name": "Project proposals"
+      },
+      {
+        "name": "OKRs"
+      },
+      {
+        "name": "KPIs"
+      },
+      {
+        "name": "Sprint planning"
+      },
+      {
+        "name": "Competitor analysis"
+      },
+      {
+        "name": "Timelines"
+      },
+      {
+        "name": "To-do lists"
+      },
+      {
+        "name": "Go-to-market strategy"
+      },
+      {
+        "name": "Recruiting"
+      },
+      {
+        "name": "Progress reports"
+      },
+      {
+        "name": "Stakeholder analysis"
+      },
+      {
+        "name": "Task trackers"
+      },
+      {
+        "name": "Milestone charts"
+      },
+      {
+        "name": "Project status reports"
+      },
+      {
+        "name": "Product development"
+      },
+      {
+        "name": "Team charters"
+      },
+      {
+        "name": "Research planning"
+      },
+      {
+        "name": "Meeting agendas"
+      },
+      {
+        "name": "Kanbans"
+      },
+      {
+        "name": "Project overviews"
+      },
+      {
+        "name": "Action items"
+      },
+      {
+        "name": "Project organization"
+      },
+      {
+        "name": "Brainstorming"
+      },
+      {
+        "name": "Change logs"
+      },
+      {
+        "name": "Scrum boards"
+      },
+      {
+        "name": "Recipes"
+      },
+      {
+        "name": "Project estimates"
+      },
+      {
+        "name": "Customer success"
+      },
+      {
+        "name": "Sports"
+      },
+      {
+        "name": "Communication"
+      },
+      {
+        "name": "Gaming"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/categories": {
+        "response": {
+          "items": [
+            {
+              "name": "Coda AI"
+            },
+            {
+              "name": "Personal"
+            },
+            {
+              "name": "Project management"
+            },
+            {
+              "name": "Product design"
+            },
+            {
+              "name": "HR"
+            },
+            {
+              "name": "Self improvement"
+            },
+            {
+              "name": "Marketing"
+            },
+            {
+              "name": "IT admins"
+            },
+            {
+              "name": "Fitness"
+            },
+            {
+              "name": "Education"
+            },
+            {
+              "name": "Travel"
+            },
+            {
+              "name": "Events"
+            },
+            {
+              "name": "Finance"
+            },
+            {
+              "name": "Entertainment"
+            },
+            {
+              "name": "Learn Coda"
+            },
+            {
+              "name": "Scheduling"
+            },
+            {
+              "name": "Strategic planning"
+            },
+            {
+              "name": "Meetings"
+            },
+            {
+              "name": "Sales"
+            },
+            {
+              "name": "Startups"
+            },
+            {
+              "name": "Small business"
+            },
+            {
+              "name": "Engineering"
+            },
+            {
+              "name": "Enterprise"
+            },
+            {
+              "name": "Knowledge management"
+            },
+            {
+              "name": "Venture & investing firms"
+            },
+            {
+              "name": "Roadmapping"
+            },
+            {
+              "name": "Gantt charts"
+            },
+            {
+              "name": "Project planning"
+            },
+            {
+              "name": "Project proposals"
+            },
+            {
+              "name": "OKRs"
+            },
+            {
+              "name": "KPIs"
+            },
+            {
+              "name": "Sprint planning"
+            },
+            {
+              "name": "Competitor analysis"
+            },
+            {
+              "name": "Timelines"
+            },
+            {
+              "name": "To-do lists"
+            },
+            {
+              "name": "Go-to-market strategy"
+            },
+            {
+              "name": "Recruiting"
+            },
+            {
+              "name": "Progress reports"
+            },
+            {
+              "name": "Stakeholder analysis"
+            },
+            {
+              "name": "Task trackers"
+            },
+            {
+              "name": "Milestone charts"
+            },
+            {
+              "name": "Project status reports"
+            },
+            {
+              "name": "Product development"
+            },
+            {
+              "name": "Team charters"
+            },
+            {
+              "name": "Research planning"
+            },
+            {
+              "name": "Meeting agendas"
+            },
+            {
+              "name": "Kanbans"
+            },
+            {
+              "name": "Project overviews"
+            },
+            {
+              "name": "Action items"
+            },
+            {
+              "name": "Project organization"
+            },
+            {
+              "name": "Brainstorming"
+            },
+            {
+              "name": "Change logs"
+            },
+            {
+              "name": "Scrum boards"
+            },
+            {
+              "name": "Recipes"
+            },
+            {
+              "name": "Project estimates"
+            },
+            {
+              "name": "Customer success"
+            },
+            {
+              "name": "Sports"
+            },
+            {
+              "name": "Communication"
+            },
+            {
+              "name": "Gaming"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 23 Jun 2026 10:39:27 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4933",
+          "x-ratelimit-reset": "1782211179",
+          "x-coda-pod": "api-65c775747c-qtl2p",
+          "vary": "Origin, Accept-Encoding",
+          "surrogate-control": "no-store",
+          "cache-control": "no-store, no-cache, must-revalidate, proxy-revalidate",
+          "expires": "0",
+          "etag": "W/\"5a6-yumvEple8kTcL/J0pgOEhEyme+U\"",
+          "x-coda-server": "api",
+          "x-cache": "Miss from cloudfront",
+          "via": "1.1 699a0ab8b179c33d5bf800b6f12b0344.cloudfront.net (CloudFront)",
+          "x-amz-cf-pop": "HIO52-P5",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "x-amz-cf-id": "FI220SqIruLfXT68ogOmiPMFTAgG_Gpz9vubxUl6B5t4ZDdDhlh4WQ=="
+        },
+        "hash": "c44cfb886aea7b3b6bdc138d37433a2918ad19a0",
+        "request": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "input": {
+    "docId": "L_hgEASd6n",
+    "pageIdOrName": "canvas-51lnQjKXyv"
+  },
+  "output": {
+    "id": "canvas-51lnQjKXyv",
+    "type": "page",
+    "name": "Welcome to your playground doc!",
+    "href": "https://coda.io/apis/v1/docs/L_hgEASd6n/pages/canvas-51lnQjKXyv",
+    "browserLink": "https://coda.io/d/_dL_hgEASd6n/_sueatcQb",
+    "isHidden": false,
+    "isEffectivelyHidden": false,
+    "contentType": "canvas",
+    "children": [],
+    "subtitle": "This is your private space to learn the basics of coda.",
+    "icon": {
+      "name": "::custom::ws-Vy6QvHzdJP::21f3753a-6637-4c68-9c21-0cd340c96806::handshake",
+      "type": "application/octet-stream",
+      "browserLink": "https://codaio.imgix.net/workspaces/ws-Vy6QvHzdJP/blobs/customIcons/21f3753a-6637-4c68-9c21-0cd340c96806?fit=fill&fill=solid&w=128&h=128&fm=gif&bg=0FFF&fill-color=0FFF"
+    },
+    "createdAt": "2025-08-01T18:59:15.926Z",
+    "createdBy": {
+      "name": "Annabel Gurney",
+      "email": "annabel.gurney@grammarly.com",
+      "@context": "http://schema.org/",
+      "@type": "Person"
+    },
+    "updatedAt": "2026-03-26T22:32:03.356Z",
+    "updatedBy": {
+      "name": "Annabel Gurney",
+      "email": "annabel.gurney@grammarly.com",
+      "@context": "http://schema.org/",
+      "@type": "Person"
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/docs/L_hgEASd6n/pages/canvas-51lnQjKXyv": {
+        "response": {
+          "id": "canvas-51lnQjKXyv",
+          "type": "page",
+          "href": "https://coda.io/apis/v1/docs/L_hgEASd6n/pages/canvas-51lnQjKXyv",
+          "name": "Welcome to your playground doc!",
+          "subtitle": "This is your private space to learn the basics of coda.",
+          "contentType": "canvas",
+          "isHidden": false,
+          "isEffectivelyHidden": false,
+          "browserLink": "https://coda.io/d/_dL_hgEASd6n/_sueatcQb",
+          "children": [],
+          "icon": {
+            "name": "::custom::ws-Vy6QvHzdJP::21f3753a-6637-4c68-9c21-0cd340c96806::handshake",
+            "type": "application/octet-stream",
+            "browserLink": "https://codaio.imgix.net/workspaces/ws-Vy6QvHzdJP/blobs/customIcons/21f3753a-6637-4c68-9c21-0cd340c96806?fit=fill&fill=solid&w=128&h=128&fm=gif&bg=0FFF&fill-color=0FFF"
+          },
+          "createdAt": "2025-08-01T18:59:15.926Z",
+          "updatedAt": "2026-03-26T22:32:03.356Z",
+          "createdBy": {
+            "@context": "http://schema.org/",
+            "@type": "Person",
+            "name": "Annabel Gurney",
+            "email": "annabel.gurney@grammarly.com"
+          },
+          "updatedBy": {
+            "@context": "http://schema.org/",
+            "@type": "Person",
+            "name": "Annabel Gurney",
+            "email": "annabel.gurney@grammarly.com"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 23 Jun 2026 10:40:03 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4901",
+          "x-ratelimit-reset": "1782211239",
+          "x-coda-pod": "api-doc-8674fd7489-4tpxm",
+          "vary": "Origin, Accept-Encoding",
+          "surrogate-control": "no-store",
+          "cache-control": "no-store, no-cache, must-revalidate, proxy-revalidate",
+          "expires": "0",
+          "etag": "W/\"3e9-aI7PfsHFhQDKHheR9kBgvEFoG68\"",
+          "x-coda-server": "api-doc",
+          "x-cache": "Miss from cloudfront",
+          "via": "1.1 4344f0c5a88fb8e9a8bd30a3759d78e8.cloudfront.net (CloudFront)",
+          "x-amz-cf-pop": "HIO52-P5",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "x-amz-cf-id": "tgj3_PI_PLtSt--IioUsYdLfy1_nwhW5xKeGUz_W9GN9y9m-zfpujg=="
+        },
+        "hash": "ba850803d8150419c50b9087de969d10e5649ad2",
+        "request": {}
+      }
+    }
+  }
+}
