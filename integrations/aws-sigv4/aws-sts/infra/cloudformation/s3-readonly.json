@@ -1,0 +1,85 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "Demo-only stack that creates the IAM role required for the AWS SigV4 E2E validation.",
+  "Parameters": {
+    "TrustedAccountId": {
+      "Type": "String",
+      "Default": "",
+      "Description": "AWS account ID that owns the STS helper user."
+    },
+    "TrustedUserName": {
+      "Type": "String",
+      "Default": "NangoSigV4StsUser",
+      "Description": "IAM user name that Nango's STS helper uses."
+    },
+    "BucketName": {
+      "Type": "String",
+      "Default": "",
+      "Description": "S3 bucket ARN suffix (without the arn prefix)."
+    }
+  },
+  "Resources": {
+    "NangoSigV4DemoRole": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "RoleName": {
+          "Fn::Sub": "${AWS::StackName}-SigV4Role"
+        },
+        "AssumeRolePolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "AWS": {
+                  "Fn::Sub": "arn:aws:iam::${TrustedAccountId}:user/${TrustedUserName}"
+                }
+              },
+              "Action": "sts:AssumeRole"
+            }
+          ]
+        },
+        "Policies": [
+          {
+            "PolicyName": "AllowSigV4BucketOps",
+            "PolicyDocument": {
+              "Version": "2012-10-17",
+              "Statement": [
+                {
+                  "Effect": "Allow",
+                  "Action": [
+                    "s3:ListBucket"
+                  ],
+                  "Resource": {
+                    "Fn::Sub": "arn:aws:s3:::${BucketName}"
+                  }
+                },
+                {
+                  "Effect": "Allow",
+                  "Action": [
+                    "s3:GetObject",
+                    "s3:PutObject"
+                  ],
+                  "Resource": {
+                    "Fn::Sub": "arn:aws:s3:::${BucketName}/*"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  },
+  "Outputs": {
+    "RoleArn": {
+      "Description": "IAM Role ARN to copy into Nango Connect",
+      "Value": {
+        "Fn::GetAtt": [
+          "NangoSigV4DemoRole",
+          "Arn"
+        ]
+      }
+    }
+  }
+}
