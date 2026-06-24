@@ -1,6 +1,16 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+function is404Error(err: unknown): boolean {
+    if (typeof err !== 'object' || err === null) return false;
+    if ('status' in err && err.status === 404) return true;
+    if ('statusCode' in err && err.statusCode === 404) return true;
+    if ('response' in err && typeof err.response === 'object' && err.response !== null) {
+        if ('status' in err.response && err.response.status === 404) return true;
+    }
+    return false;
+}
+
 const InputSchema = z.object({
     title: z.string().optional().describe('Title of the new doc. Defaults to "Untitled".'),
     folderId: z.string().optional().describe('ID of the folder to create the doc in. Example: "fl-1Ab234".'),
@@ -122,18 +132,26 @@ const action = createAction({
                     await new Promise((resolve) => setTimeout(resolve, delayMs));
                 }
 
-                const statusResponse = await nango.get({
-                    // https://coda.io/developers/apis/v1#tag/Miscellaneous/operation/getMutationStatus
-                    endpoint: `/mutationStatus/${encodeURIComponent(providerDoc.requestId)}`,
-                    retries: 3
-                });
+                // @allowTryCatch Coda returns 404 for a few seconds before the mutation status is registered.
+                try {
+                    const statusResponse = await nango.get({
+                        // https://coda.io/developers/apis/v1#tag/Miscellaneous/operation/getMutationStatus
+                        endpoint: `/mutationStatus/${encodeURIComponent(providerDoc.requestId)}`,
+                        retries: 3
+                    });
 
-                const status = MutationStatusSchema.parse(statusResponse.data);
+                    const status = MutationStatusSchema.parse(statusResponse.data);
 
-                if (status.completed) {
-                    copyCompleted = true;
-                    copyWarning = status.warning;
-                    break;
+                    if (status.completed) {
+                        copyCompleted = true;
+                        copyWarning = status.warning;
+                        break;
+                    }
+                } catch (err) {
+                    if (is404Error(err)) {
+                        continue;
+                    }
+                    throw err;
                 }
             }
 

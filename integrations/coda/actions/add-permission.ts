@@ -44,7 +44,7 @@ const action = createAction({
             access: input.access,
             principal: {
                 type: input.principalType,
-                ...(input.email !== undefined && { email: input.email })
+                ...(input.principalType === 'email' && input.email !== undefined && { email: input.email })
             }
         };
 

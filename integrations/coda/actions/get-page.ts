@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     docId: z.string().describe('Doc ID. Example: "L_hgEASd6n"'),
-    pageIdOrName: z.string().describe('Page ID or URL-encoded page name. Example: "canvas-51lnQjKXyv"')
+    pageIdOrName: z.string().describe('Page ID or page name. Example: "canvas-51lnQjKXyv"')
 });
 
 const PageReferenceSchema = z

@@ -6,7 +6,7 @@ const InputSchema = z.object({
     tableIdOrName: z.string().describe('ID or name of the table. Example: grid-pqRst-U'),
     useColumnNames: z.boolean().optional().describe('Use column names instead of column IDs in the returned output'),
     valueFormat: z.enum(['simple', 'simpleWithArrays', 'rich']).optional().describe('The format that cell values are returned as'),
-    sortBy: z.enum(['natural', 'id', 'updatedAt']).optional().describe('Specifies the sort order of the rows returned'),
+    sortBy: z.enum(['natural', 'id', 'createdAt', 'updatedAt']).optional().describe('Specifies the sort order of the rows returned'),
     visibleOnly: z.boolean().optional().describe('If true, returns only visible rows and columns for the table'),
     query: z.string().optional().describe('Query used to filter returned rows, specified as <column_id_or_name>:<value>'),
     limit: z.number().optional().describe('Maximum number of results to return'),

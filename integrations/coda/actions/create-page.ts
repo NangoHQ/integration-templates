@@ -33,6 +33,9 @@ function hasStatusCode(error: unknown, status: number): boolean {
     if (typeof error !== 'object' || error === null) {
         return false;
     }
+    if ('status' in error && error.status === status) {
+        return true;
+    }
     if ('statusCode' in error && error.statusCode === status) {
         return true;
     }

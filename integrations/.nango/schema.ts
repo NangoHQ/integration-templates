@@ -30415,12 +30415,12 @@ export interface ActionOutput_coda_getdoc {
   ownerName: string;
   createdAt: string;
   updatedAt: string;
-  workspace: {  id?: string | undefined;
+  workspace?: {  id?: string | undefined;
   type?: string | undefined;
   organizationId?: string | undefined;
   browserLink?: string | undefined;
   name?: string | undefined;};
-  folder: {  id?: string | undefined;
+  folder?: {  id?: string | undefined;
   type?: string | undefined;
   browserLink?: string | undefined;
   name?: string | undefined;};
@@ -30491,7 +30491,7 @@ export interface ActionInput_coda_getpage {
    */
   docId: string;
   /**
-   * Page ID or URL-encoded page name. Example: "canvas-51lnQjKXyv"
+   * Page ID or page name. Example: "canvas-51lnQjKXyv"
    */
   pageIdOrName: string;
 };
@@ -30599,7 +30599,7 @@ export interface ActionInput_coda_gettable {
    */
   docId: string;
   /**
-   * ID or name of the table. Names should be URI-encoded. Example: "grid-pqRst-U"
+   * ID or name of the table. Example: "grid-pqRst-U"
    */
   tableIdOrName: string;
 };
@@ -30817,10 +30817,6 @@ export interface ActionInput_coda_listdocs {
    */
   folderId?: string | undefined;
   /**
-   * Filter by channel ID.
-   */
-  channelId?: string | undefined;
-  /**
    * Maximum number of results to return. Example: 10
    */
   limit?: number | undefined;
@@ -30980,7 +30976,7 @@ export interface ActionInput_coda_listrows {
   /**
    * Specifies the sort order of the rows returned
    */
-  sortBy?: 'natural' | 'id' | 'updatedAt' | undefined;
+  sortBy?: 'natural' | 'id' | 'createdAt' | 'updatedAt' | undefined;
   /**
    * If true, returns only visible rows and columns for the table
    */

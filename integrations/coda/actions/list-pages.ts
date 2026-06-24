@@ -64,29 +64,8 @@ const ProviderListResponseSchema = z.object({
     nextPageLink: z.string().optional()
 });
 
-const PageOutputSchema = z.object({
-    id: z.string(),
-    type: z.string(),
-    href: z.string(),
-    name: z.string(),
-    isHidden: z.boolean(),
-    isEffectivelyHidden: z.boolean(),
-    browserLink: z.string(),
-    children: z.array(PageReferenceSchema),
-    contentType: z.string(),
-    subtitle: z.string().optional(),
-    icon: IconSchema.optional(),
-    image: ImageSchema.optional(),
-    parent: PageReferenceSchema.optional(),
-    authors: z.array(PersonValueSchema).optional(),
-    createdAt: z.string().optional(),
-    createdBy: PersonValueSchema.optional(),
-    updatedAt: z.string().optional(),
-    updatedBy: PersonValueSchema.optional()
-});
-
 const OutputSchema = z.object({
-    items: z.array(PageOutputSchema),
+    items: z.array(ProviderPageSchema),
     nextPageToken: z.string().optional()
 });
 

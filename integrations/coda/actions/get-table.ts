@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     docId: z.string().describe('ID of the Coda doc. Example: "AbCDeFGH"'),
-    tableIdOrName: z.string().describe('ID or name of the table. Names should be URI-encoded. Example: "grid-pqRst-U"')
+    tableIdOrName: z.string().describe('ID or name of the table. Example: "grid-pqRst-U"')
 });
 
 const ColumnReferenceSchema = z.object({

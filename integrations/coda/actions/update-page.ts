@@ -1,6 +1,16 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+function is404Error(err: unknown): boolean {
+    if (typeof err !== 'object' || err === null) return false;
+    if ('status' in err && err.status === 404) return true;
+    if ('statusCode' in err && err.statusCode === 404) return true;
+    if ('response' in err && typeof err.response === 'object' && err.response !== null) {
+        if ('status' in err.response && err.response.status === 404) return true;
+    }
+    return false;
+}
+
 const InputSchema = z.object({
     docId: z.string().describe('Doc ID. Example: "L_hgEASd6n"'),
     pageIdOrName: z.string().describe('Page ID or name. Example: "canvas-bP8xBdFUGb"'),
@@ -66,8 +76,7 @@ const action = createAction({
                     break;
                 }
             } catch (_err) {
-                const errorStatus = z.object({ status: z.number().optional() }).safeParse(_err);
-                if (errorStatus.success && errorStatus.data.status === 404) {
+                if (is404Error(_err)) {
                     completed = true;
                     break;
                 }

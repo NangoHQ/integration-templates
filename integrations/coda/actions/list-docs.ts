@@ -7,7 +7,6 @@ const InputSchema = z.object({
     isPublished: z.boolean().optional().describe('Show only published docs.'),
     workspaceId: z.string().optional().describe('Show only docs belonging to the given workspace. Example: "ws-oZFDiLKJ45"'),
     folderId: z.string().optional().describe('Show only docs belonging to the given folder.'),
-    channelId: z.string().optional().describe('Filter by channel ID.'),
     limit: z.number().optional().describe('Maximum number of results to return. Example: 10'),
     pageToken: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.')
 });
@@ -51,7 +50,6 @@ const action = createAction({
                 ...(input.isPublished !== undefined && { isPublished: String(input.isPublished) }),
                 ...(input.workspaceId !== undefined && { workspaceId: input.workspaceId }),
                 ...(input.folderId !== undefined && { folderId: input.folderId }),
-                ...(input.channelId !== undefined && { channelId: input.channelId }),
                 ...(input.limit !== undefined && { limit: String(input.limit) }),
                 ...(input.pageToken !== undefined && { pageToken: input.pageToken })
             },
