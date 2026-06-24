@@ -1,0 +1,267 @@
+integrations/gong/actions/get-user-settings-history.ts
+  s_449f22cf8d82db::t_45091462e7839f 26
+  s_449f22cf8d82db::t_2cdace7d2ec641 9-11,16,21
+integrations/gong/actions/get-scorecard.ts
+  s_449f22cf8d82db::t_45091462e7839f 10,46
+  s_449f22cf8d82db::t_2cdace7d2ec641 15-22,27-34,39
+integrations/gong/tests/update-permission-profile.test.json
+  s_449f22cf8d82db::t_9aa38d7fa37cad 97-98,240
+integrations/gong/tests/list-trackers.test.json
+  s_449f22cf8d82db::t_392fa08a55174a 27-28,32-34,72-73,77-79,89-90,94-96,125-126,130-132,160-161,165-167,213-214,218-220,283-284,288-290,321-322,326-328,381-382,386-388,431-432,436-438,482-483,487-489,1021
+integrations/gong/actions/get-stats-activity-aggregate-by-period.ts
+  s_449f22cf8d82db::t_2cdace7d2ec641 16-32,38-40,46-49,56-57,65-67,69,74-75,80-96,100,104
+  s_449f22cf8d82db::t_42d4c6dd951b17 179,186,190
+  s_449f22cf8d82db::t_45091462e7839f 109
+integrations/gong/actions/get-data-for-phone.ts
+  s_449f22cf8d82db::t_2cdace7d2ec641 23-28,30
+  s_449f22cf8d82db::t_45091462e7839f 35
+integrations/gong/syncs/workspaces.ts
+  s_449f22cf8d82db::t_45091462e7839f 25
+  s_449f22cf8d82db::t_2cdace7d2ec641 6-7,16-17,20
+  s_449f22cf8d82db::t_401f86279f04f3 58-70
+  s_449f22cf8d82db::t_c12ab0d43da1ce 15
+integrations/gong/actions/create-permission-profile.ts
+  s_449f22cf8d82db::t_2cdace7d2ec641 91,96
+  s_449f22cf8d82db::t_45091462e7839f 101
+integrations/gong/actions/assign-prospects-cool-off-override.ts
+  s_449f22cf8d82db::t_2cdace7d2ec641 14-19,24,34-39,44-45
+  s_449f22cf8d82db::t_45091462e7839f 50
+integrations/gong/actions/list-flow-prospects.ts
+  s_449f22cf8d82db::t_2cdace7d2ec641 10-19,24,28-37
+  s_449f22cf8d82db::t_45091462e7839f 41,46
+integrations/gong/actions/get-coaching-metrics.ts
+  s_449f22cf8d82db::t_45091462e7839f 20,25,61
+  s_449f22cf8d82db::t_2cdace7d2ec641 13-16,21,26,31,36
+integrations/gong/actions/get-crm-entity-schema.ts
+  s_449f22cf8d82db::t_402fab03925b91 28-29,31
+  s_449f22cf8d82db::t_2cdace7d2ec641 10-11,14,16-17,26-27,30,32-33
+  s_449f22cf8d82db::t_42d4c6dd951b17 12-13,15,75-80
+  s_449f22cf8d82db::t_c12ab0d43da1ce 22
+  s_449f22cf8d82db::t_45091462e7839f 38,43
+integrations/gong/actions/get-workspace.ts
+  s_449f22cf8d82db::t_c12ab0d43da1ce 16
+  s_449f22cf8d82db::t_42d4c6dd951b17 48
+  s_449f22cf8d82db::t_2cdace7d2ec641 10-11,21-22
+  s_449f22cf8d82db::t_45091462e7839f 27
+integrations/gong/actions/get-meeting-integration-status.ts
+  s_449f22cf8d82db::t_2cdace7d2ec641 12-14
+  s_449f22cf8d82db::t_45091462e7839f 9-11,24,29
+  s_449f22cf8d82db::t_c12ab0d43da1ce 19
+integrations/gong/actions/list-workspaces.ts
+  s_449f22cf8d82db::t_45091462e7839f 8-9,13,18
+integrations/gong/actions/get-entity-brief.ts
+  s_449f22cf8d82db::t_2cdace7d2ec641 36,41-42,46-47,53,58-59,63-64
+  s_449f22cf8d82db::t_45091462e7839f 69
+integrations/gong/actions/create-meeting.ts
+  s_449f22cf8d82db::t_45091462e7839f 21,30,36
+  s_449f22cf8d82db::t_2cdace7d2ec641 22-24,31
+integrations/gong/actions/get-call-media.ts
+  s_449f22cf8d82db::t_2cdace7d2ec641 18-19,22,28,32-33
+  s_449f22cf8d82db::t_45091462e7839f 38
+  s_449f22cf8d82db::t_b007b8e10bf0b1 14-15
+integrations/gong/actions/list-calls.ts
+  s_449f22cf8d82db::t_45091462e7839f 73,79
+  s_449f22cf8d82db::t_2cdace7d2ec641 14-33,38,41-43,45,50-69,74
+integrations/gong/syncs/scorecards.ts
+  s_449f22cf8d82db::t_2cdace7d2ec641 7,12-13,20,25-26
+  s_449f22cf8d82db::t_45091462e7839f 18-19,21-24,31
+  s_449f22cf8d82db::t_c12ab0d43da1ce 5-6,8-11
+  s_449f22cf8d82db::t_401f86279f04f3 82-101
+integrations/gong/tests/list-library-folder-content.test.json
+  s_449f22cf8d82db::t_dbd29d39d7bf9e 3,6-10,18-23,25,28,34
+integrations/gong/actions/upload-crm-entities.ts
+  s_449f22cf8d82db::t_2cdace7d2ec641 25-26,31-32
+  s_449f22cf8d82db::t_45091462e7839f 37
+integrations/gong/actions/list-library-folder-content.ts
+  s_449f22cf8d82db::t_66609a0626a9f3 31
+  s_449f22cf8d82db::t_2cdace7d2ec641 11-13,18-23,26
+integrations/gong/actions/get-crm-entities.ts
+  s_449f22cf8d82db::t_45091462e7839f 26
+  s_449f22cf8d82db::t_2cdace7d2ec641 15,20-21
+integrations/gong/actions/get-crm-integration.ts
+  s_449f22cf8d82db::t_45091462e7839f 6-7,17
+  s_449f22cf8d82db::t_2cdace7d2ec641 11
+integrations/gong/actions/delete-crm-integration.ts
+  s_449f22cf8d82db::t_2cdace7d2ec641 15-16,21-22
+  s_449f22cf8d82db::t_45091462e7839f 36
+integrations/gong/tests/users.test.json
+  s_449f22cf8d82db::t_392fa08a55174a 11,14,17,19,22-24,27-28,36,39,42,44,47-49,52-53,61,64,67,69,72-74,77-78,86,89,92,94,97-99,102-103,267
+integrations/gong/actions/list-flows.ts
+  s_449f22cf8d82db::t_2cdace7d2ec641 12-15,21
+  s_449f22cf8d82db::t_45091462e7839f 20,26
+integrations/gong/actions/get-integration-settings.ts
+  s_449f22cf8d82db::t_45091462e7839f 22
+  s_449f22cf8d82db::t_2cdace7d2ec641 7,12,17
+integrations/gong/actions/get-user.ts
+  s_449f22cf8d82db::t_66609a0626a9f3 92
+  s_449f22cf8d82db::t_45091462e7839f 56-58,83
+  s_449f22cf8d82db::t_c12ab0d43da1ce 10-12,37,51
+  s_449f22cf8d82db::t_42d4c6dd951b17 108-114
+  s_449f22cf8d82db::t_f222a9e19b7138 122,125-127,130
+  s_449f22cf8d82db::t_2cdace7d2ec641 13-20,23-29,31-33,38,41,59-66,69-75,77-79,84,87
+integrations/gong/actions/list-library-folders.ts
+  s_449f22cf8d82db::t_2cdace7d2ec641 11-12,18
+  s_449f22cf8d82db::t_b007b8e10bf0b1 23-33
+  s_449f22cf8d82db::t_66609a0626a9f3 38
+  s_449f22cf8d82db::t_c12ab0d43da1ce 10,13
+integrations/gong/actions/get-data-for-email.ts
+  s_449f22cf8d82db::t_2cdace7d2ec641 5-9,13-14,18-19,24-25,33-34,39-42,46-47,51-57,62-66
+  s_449f22cf8d82db::t_45091462e7839f 75
+integrations/gong/actions/get-call-users-access.ts
+  s_449f22cf8d82db::t_45091462e7839f 32
+  s_449f22cf8d82db::t_2cdace7d2ec641 19,22,27
+integrations/gong/actions/list-flow-folders.ts
+  s_449f22cf8d82db::t_45091462e7839f 13,18,24
+  s_449f22cf8d82db::t_2cdace7d2ec641 19
+integrations/gong/actions/get-flow-steps.ts
+  s_449f22cf8d82db::t_2cdace7d2ec641 10-17,23-30,36
+  s_449f22cf8d82db::t_45091462e7839f 46
+integrations/gong/tests/get-user.test.json
+  s_449f22cf8d82db::t_d41de2261e55ec 11,14-16,27,95
+integrations/gong/tests/list-users.test.json
+  s_449f22cf8d82db::t_392fa08a55174a 11,14-16,27,36,39-41,52,61,64-66,77,86,89-91,102,260
+integrations/gong/actions/remove-prospects-from-flow.ts
+  s_449f22cf8d82db::t_45091462e7839f 15,25
+  s_449f22cf8d82db::t_c12ab0d43da1ce 10
+integrations/gong/actions/list-call-transcripts.ts
+  s_449f22cf8d82db::t_45091462e7839f 30,64
+  s_449f22cf8d82db::t_2cdace7d2ec641 13-15,19-21,25-26,31-33,52,55-57,59
+integrations/gong/tests/library-folders.test.json
+  s_449f22cf8d82db::t_92ba19fb9bfddb 4-16,26-46,49
+integrations/gong/tests/list-library-folders.test.json
+  s_449f22cf8d82db::t_dbd29d39d7bf9e 6-21,28-43,46
+integrations/gong/actions/get-logs.ts
+  s_449f22cf8d82db::t_2cdace7d2ec641 13-21,30-33,35-36,42-44,46
+  s_449f22cf8d82db::t_45091462e7839f 45,51
+integrations/gong/actions/get-bulk-assignment-results.ts
+  s_449f22cf8d82db::t_42d4c6dd951b17 101
+  s_449f22cf8d82db::t_45091462e7839f 48
+  s_449f22cf8d82db::t_2cdace7d2ec641 11-15,20-21,25,31-35,39-40,43
+integrations/gong/actions/list-permission-profile-users.ts
+  s_449f22cf8d82db::t_45091462e7839f 28
+  s_449f22cf8d82db::t_b007b8e10bf0b1 15-23
+integrations/gong/tests/list-permission-profiles.test.json
+  s_449f22cf8d82db::t_392fa08a55174a 24-25,553
+integrations/gong/syncs/call-outcomes.ts
+  s_449f22cf8d82db::t_2cdace7d2ec641 6-12,16-22
+  s_449f22cf8d82db::t_45091462e7839f 27
+integrations/gong/actions/list-call-outcomes.ts
+  s_449f22cf8d82db::t_2cdace7d2ec641 11-18,24-25,31-38,44
+  s_449f22cf8d82db::t_45091462e7839f 43
+  s_449f22cf8d82db::t_66609a0626a9f3 49
+integrations/gong/syncs/library-folders.ts
+  s_449f22cf8d82db::t_2cdace7d2ec641 6-9,14-17
+  s_449f22cf8d82db::t_66609a0626a9f3 38
+integrations/gong/actions/list-trackers.ts
+  s_449f22cf8d82db::t_2cdace7d2ec641 17-30,35-48,53-54,59
+  s_449f22cf8d82db::t_c12ab0d43da1ce 16
+  s_449f22cf8d82db::t_66609a0626a9f3 64
+  s_449f22cf8d82db::t_45091462e7839f 10-12,34,58
+  s_449f22cf8d82db::t_9b174a7753a374 103-104,108,110
+integrations/gong/actions/list-scorecards.ts
+  s_449f22cf8d82db::t_2cdace7d2ec641 12,18-26,33-40,47,50-51,53-54,60
+  s_449f22cf8d82db::t_45091462e7839f 32,59,65
+integrations/gong/actions/upload-call.ts
+  s_449f22cf8d82db::t_2cdace7d2ec641 26,32
+  s_449f22cf8d82db::t_45091462e7839f 37
+integrations/gong/actions/get-stats-activity-day-by-day.ts
+  s_449f22cf8d82db::t_2cdace7d2ec641 12-28,33-34,41,54
+  s_449f22cf8d82db::t_42d4c6dd951b17 138
+  s_449f22cf8d82db::t_45091462e7839f 38-40,52-53,59
+  s_449f22cf8d82db::t_c12ab0d43da1ce 46-47
+integrations/gong/actions/get-permission-profile.ts
+  s_449f22cf8d82db::t_2cdace7d2ec641 9-10,14-19,23-24,28-30,36-88,94,99
+  s_449f22cf8d82db::t_66609a0626a9f3 104
+integrations/gong/actions/get-crm-request-status.ts
+  s_449f22cf8d82db::t_45091462e7839f 16,29
+  s_449f22cf8d82db::t_2cdace7d2ec641 10-11,17-19
+integrations/gong/actions/get-stats-interaction.ts
+  s_449f22cf8d82db::t_2cdace7d2ec641 17-21,25-28,33-34
+  s_449f22cf8d82db::t_45091462e7839f 11-12,44
+integrations/gong/actions/get-stats-activity-aggregate.ts
+  s_449f22cf8d82db::t_45091462e7839f 57
+  s_449f22cf8d82db::t_2cdace7d2ec641 10-24,29-33,37-40,45-46,51-52
+integrations/gong/actions/list-users.ts
+  s_449f22cf8d82db::t_c12ab0d43da1ce 27
+  s_449f22cf8d82db::t_66609a0626a9f3 79
+  s_449f22cf8d82db::t_45091462e7839f 65,73
+  s_449f22cf8d82db::t_9b174a7753a374 109,112-114,117
+  s_449f22cf8d82db::t_2cdace7d2ec641 10-23,28,31,35,38-41,43,48-61,66,69,74
+integrations/gong/actions/delete-meeting.ts
+  s_449f22cf8d82db::t_2cdace7d2ec641 10,14
+  s_449f22cf8d82db::t_45091462e7839f 19
+integrations/gong/actions/update-task.ts
+  s_449f22cf8d82db::t_2cdace7d2ec641 15-18,24
+  s_449f22cf8d82db::t_45091462e7839f 21-22,38
+integrations/gong/actions/get-tracker.ts
+  s_449f22cf8d82db::t_45091462e7839f 9-11,16,18-21,24,26,28,42
+  s_449f22cf8d82db::t_2cdace7d2ec641 17,22-23,25,27,29,34-35
+integrations/gong/actions/fetch-call-extensive-data.ts
+  s_449f22cf8d82db::t_45091462e7839f 65,89
+  s_449f22cf8d82db::t_2cdace7d2ec641 53-54,57-58,60,66-68
+integrations/gong/actions/unassign-flow-by-crm-id.ts
+  s_449f22cf8d82db::t_45091462e7839f 40
+  s_449f22cf8d82db::t_2cdace7d2ec641 17
+  s_449f22cf8d82db::t_b007b8e10bf0b1 26-35
+integrations/gong/actions/list-tasks.ts
+  s_449f22cf8d82db::t_45091462e7839f 57,62
+  s_449f22cf8d82db::t_2cdace7d2ec641 24-31,38,45-52
+integrations/gong/actions/get-call-transcript.ts
+  s_449f22cf8d82db::t_2cdace7d2ec641 16,36-37,39-40
+  s_449f22cf8d82db::t_c12ab0d43da1ce 22,34-35
+  s_449f22cf8d82db::t_45091462e7839f 9-11,15,17,26-27,59
+integrations/gong/actions/get-stats-activity-scorecards.ts
+  s_449f22cf8d82db::t_c12ab0d43da1ce 13,23-26
+  s_449f22cf8d82db::t_45091462e7839f 38,48-51,82
+  s_449f22cf8d82db::t_2cdace7d2ec641 14-19,27-34,39-44,52-59,63-66,71-72,76-77
+integrations/gong/syncs/call-transcripts.ts
+  s_449f22cf8d82db::t_2cdace7d2ec641 16-18,22-24,28-29,33-36,41-42,51-52,56-58,61,64
+  s_449f22cf8d82db::t_45091462e7839f 102
+integrations/gong/syncs/trackers.ts
+  s_449f22cf8d82db::t_45091462e7839f 6,19
+  s_449f22cf8d82db::t_2cdace7d2ec641 7-14
+integrations/gong/syncs/users.ts
+  s_449f22cf8d82db::t_2cdace7d2ec641 6-16,19-24,27,31-32,35-36,41-51,54-59,62,66-67,70-71,78-81,83-84
+  s_449f22cf8d82db::t_66609a0626a9f3 98
+  s_449f22cf8d82db::t_401f86279f04f3 136-161
+integrations/gong/syncs/calls.ts
+  s_449f22cf8d82db::t_c12ab0d43da1ce 55,79-85
+  s_449f22cf8d82db::t_401f86279f04f3 311-313
+  s_449f22cf8d82db::t_2cdace7d2ec641 40-43,45-46,50-51,61-62,65,68-71,73,88,90,93-94,96,101-102,107-126,131-137,140,143-146,148,163,165,168-169,171
+  s_449f22cf8d82db::t_45091462e7839f 130,154-160,233
+integrations/gong/actions/fetch-call-transcripts.ts
+  s_449f22cf8d82db::t_2cdace7d2ec641 14-16,22-24,30-31,37-38
+  s_449f22cf8d82db::t_45091462e7839f 36,56
+integrations/gong/actions/ask-entity.ts
+  s_449f22cf8d82db::t_2cdace7d2ec641 12-13
+  s_449f22cf8d82db::t_45091462e7839f 18,23
+integrations/gong/actions/get-call.ts
+  s_449f22cf8d82db::t_2cdace7d2ec641 33-51
+  s_449f22cf8d82db::t_45091462e7839f 56
+integrations/gong/actions/list-permission-profiles.ts
+  s_449f22cf8d82db::t_66609a0626a9f3 20
+  s_449f22cf8d82db::t_45091462e7839f 15
+  s_449f22cf8d82db::t_2cdace7d2ec641 10-11
+  s_449f22cf8d82db::t_9b174a7753a374 65,77
+integrations/gong/actions/update-permission-profile.ts
+  s_449f22cf8d82db::t_2cdace7d2ec641 8,13,22,27,38,43,48,53,114,119-123,127-129,134-186,193
+  s_449f22cf8d82db::t_bcf3afb9ee6760 362-365
+  s_449f22cf8d82db::t_9af1cd49ab1ea4 112-113,115-118,124-126,130-132,189-190,196
+  s_449f22cf8d82db::t_66609a0626a9f3 200
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.11",
+  "base_commit_sha": "42f4e289794039402090e9bc8dfb240b8f885462",
+  "prompts": {},
+  "sessions": {
+    "s_449f22cf8d82db": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019ef491-2d08-7ae1-bdad-3e1d7a9f9067",
+        "model": "gpt-5.5"
+      },
+      "human_author": null
+    }
+  }
+}
