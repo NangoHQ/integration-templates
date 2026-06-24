@@ -12,18 +12,20 @@ const ProviderUserSchema = z.object({
 });
 
 const OutputSchema = z.object({
-    users: z.array(
-        z.object({
-            id: z.string(),
-            fullName: z.string().optional(),
-            emailAddress: z.string().optional()
-        })
-    )
+    users: z
+        .array(
+            z.object({
+                id: z.string(),
+                fullName: z.string().nullish(),
+                emailAddress: z.string().nullish()
+            })
+        )
+        .nullable()
 });
 
 const action = createAction({
     description: 'List all users attached to a specific Gong permission profile',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:users:read'],

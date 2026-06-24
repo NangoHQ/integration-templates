@@ -5,17 +5,17 @@ const InputSchema = z.object({});
 
 const WorkspaceSchema = z.object({
     id: z.string().describe('Gong unique identifier for the workspace. Example: "12345678901234567890"'),
-    name: z.string().describe('The name of the workspace. Example: "Sales"'),
-    description: z.string().describe('The description of the workspace. Example: "Sales workspace"')
+    name: z.string().describe('The name of the workspace. Example: "Sales"').nullable(),
+    description: z.string().describe('The description of the workspace. Example: "Sales workspace"').nullable()
 });
 
 const OutputSchema = z.object({
-    workspaces: z.array(WorkspaceSchema)
+    workspaces: z.array(WorkspaceSchema).nullable()
 });
 
 const action = createAction({
     description: 'List all workspaces in the Gong account.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:workspaces:read'],

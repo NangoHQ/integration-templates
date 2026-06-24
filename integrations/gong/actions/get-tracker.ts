@@ -6,40 +6,40 @@ const InputSchema = z.object({
 });
 
 const LanguageKeywordSchema = z.object({
-    language: z.string(),
-    keywords: z.array(z.string()),
-    includeRelatedForms: z.boolean()
+    language: z.string().nullable(),
+    keywords: z.array(z.string()).nullable(),
+    includeRelatedForms: z.boolean().nullable()
 });
 
 const TrackerSchema = z.object({
     trackerId: z.string(),
-    trackerName: z.string(),
-    workspaceId: z.string().optional(),
-    languageKeywords: z.array(LanguageKeywordSchema),
-    affiliation: z.string(),
-    partOfQuestion: z.boolean(),
-    saidAt: z.string(),
-    saidAtInterval: z.number().nullable().optional(),
-    saidAtUnit: z.string().nullable().optional(),
-    saidInTopics: z.array(z.string()),
-    filterQuery: z.string().optional(),
-    created: z.string(),
-    creatorUserId: z.string().nullable().optional(),
-    updated: z.string(),
-    updaterUserId: z.string().nullable().optional()
+    trackerName: z.string().nullable(),
+    workspaceId: z.string().nullish(),
+    languageKeywords: z.array(LanguageKeywordSchema).nullable(),
+    affiliation: z.string().nullable(),
+    partOfQuestion: z.boolean().nullable(),
+    saidAt: z.string().nullable(),
+    saidAtInterval: z.number().nullish(),
+    saidAtUnit: z.string().nullish(),
+    saidInTopics: z.array(z.string()).nullable(),
+    filterQuery: z.string().nullish(),
+    created: z.string().nullable(),
+    creatorUserId: z.string().nullish(),
+    updated: z.string().nullable(),
+    updaterUserId: z.string().nullish()
 });
 
 const ListResponseSchema = z.object({
     requestId: z.string().optional(),
-    keywordTrackers: z.array(TrackerSchema).optional(),
-    records: z.object({ cursor: z.string().optional() }).optional()
+    keywordTrackers: z.array(TrackerSchema).nullish(),
+    records: z.object({ cursor: z.string().nullish() }).nullish()
 });
 
 const OutputSchema = TrackerSchema;
 
 const action = createAction({
     description: 'Retrieve a single keyword tracker from Gong.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:settings:trackers:read'],

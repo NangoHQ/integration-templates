@@ -9,54 +9,54 @@ const InputSchema = z.object({
 });
 
 const DailyActivitySchema = z.object({
-    callsAsHost: z.array(z.string()).optional(),
-    callsGaveFeedback: z.array(z.string()).optional(),
-    callsRequestedFeedback: z.array(z.string()).optional(),
-    callsReceivedFeedback: z.array(z.string()).optional(),
-    ownCallsListenedTo: z.array(z.string()).optional(),
-    othersCallsListenedTo: z.array(z.string()).optional(),
-    callsSharedInternally: z.array(z.string()).optional(),
-    callsSharedExternally: z.array(z.string()).optional(),
-    callsAttended: z.array(z.string()).optional(),
-    callsCommentsGiven: z.array(z.string()).optional(),
-    callsCommentsReceived: z.array(z.string()).optional(),
-    callsMarkedAsFeedbackGiven: z.array(z.string()).optional(),
-    callsMarkedAsFeedbackReceived: z.array(z.string()).optional(),
-    callsScorecardsFilled: z.array(z.string()).optional(),
-    callsScorecardsReceived: z.array(z.string()).optional(),
-    fromDate: z.string().optional(),
-    toDate: z.string().optional()
+    callsAsHost: z.array(z.string()).nullish(),
+    callsGaveFeedback: z.array(z.string()).nullish(),
+    callsRequestedFeedback: z.array(z.string()).nullish(),
+    callsReceivedFeedback: z.array(z.string()).nullish(),
+    ownCallsListenedTo: z.array(z.string()).nullish(),
+    othersCallsListenedTo: z.array(z.string()).nullish(),
+    callsSharedInternally: z.array(z.string()).nullish(),
+    callsSharedExternally: z.array(z.string()).nullish(),
+    callsAttended: z.array(z.string()).nullish(),
+    callsCommentsGiven: z.array(z.string()).nullish(),
+    callsCommentsReceived: z.array(z.string()).nullish(),
+    callsMarkedAsFeedbackGiven: z.array(z.string()).nullish(),
+    callsMarkedAsFeedbackReceived: z.array(z.string()).nullish(),
+    callsScorecardsFilled: z.array(z.string()).nullish(),
+    callsScorecardsReceived: z.array(z.string()).nullish(),
+    fromDate: z.string().nullish(),
+    toDate: z.string().nullish()
 });
 
 const UserActivitySchema = z.object({
     userId: z.string(),
-    userEmailAddress: z.string().optional(),
-    userDailyActivityStats: z.array(DailyActivitySchema).optional()
+    userEmailAddress: z.string().nullish(),
+    userDailyActivityStats: z.array(DailyActivitySchema).nullish()
 });
 
 const RecordsSchema = z.object({
-    totalRecords: z.number(),
-    currentPageSize: z.number(),
-    currentPageNumber: z.number(),
-    cursor: z.string().optional()
+    totalRecords: z.number().nullable(),
+    currentPageSize: z.number().nullable(),
+    currentPageNumber: z.number().nullable(),
+    cursor: z.string().nullish()
 });
 
 const ProviderResponseSchema = z.object({
     requestId: z.string(),
-    records: RecordsSchema,
-    usersDetailedActivities: z.array(UserActivitySchema)
+    records: RecordsSchema.nullable(),
+    usersDetailedActivities: z.array(UserActivitySchema).nullable()
 });
 
 const OutputSchema = z.object({
     requestId: z.string(),
-    records: RecordsSchema,
-    usersDetailedActivities: z.array(UserActivitySchema),
-    nextCursor: z.string().optional()
+    records: RecordsSchema.nullable(),
+    usersDetailedActivities: z.array(UserActivitySchema).nullable(),
+    nextCursor: z.string().nullish()
 });
 
 const action = createAction({
     description: 'Retrieve daily activity statistics for applicable users over a date range.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:stats:user-actions:detailed'],
@@ -135,7 +135,7 @@ const action = createAction({
             requestId: parsed.requestId,
             records: parsed.records,
             usersDetailedActivities: parsed.usersDetailedActivities,
-            ...(parsed.records.cursor !== undefined && { nextCursor: parsed.records.cursor })
+            ...(parsed.records?.cursor !== undefined && { nextCursor: parsed.records.cursor })
         };
     }
 });

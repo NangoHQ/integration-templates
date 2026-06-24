@@ -3,20 +3,20 @@ import { z } from 'zod';
 
 const TrackerSchema = z.object({
     id: z.string(),
-    trackerId: z.string(),
-    trackerName: z.string().optional(),
-    workspaceId: z.string().optional(),
-    created: z.string().optional(),
-    updated: z.string().optional(),
-    affiliation: z.string().optional(),
-    partOfQuestion: z.boolean().optional(),
-    saidAt: z.string().optional(),
-    filterQuery: z.string().optional()
+    trackerId: z.string().nullable(),
+    trackerName: z.string().nullish(),
+    workspaceId: z.string().nullish(),
+    created: z.string().nullish(),
+    updated: z.string().nullish(),
+    affiliation: z.string().nullish(),
+    partOfQuestion: z.boolean().nullish(),
+    saidAt: z.string().nullish(),
+    filterQuery: z.string().nullish()
 });
 
 const sync = createSync({
     description: 'Sync keyword trackers from Gong.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     models: {

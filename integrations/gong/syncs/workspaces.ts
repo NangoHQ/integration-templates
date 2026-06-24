@@ -3,8 +3,8 @@ import { z } from 'zod';
 
 const WorkspaceSchema = z.object({
     id: z.string(),
-    name: z.string().optional(),
-    description: z.string().optional()
+    name: z.string().nullish(),
+    description: z.string().nullish()
 });
 
 const ProviderResponseSchema = z.object({
@@ -12,17 +12,17 @@ const ProviderResponseSchema = z.object({
     workspaces: z
         .array(
             z.object({
-                id: z.string(),
-                name: z.string().optional(),
-                description: z.string().optional()
+                id: z.string().nullable(),
+                name: z.string().nullish(),
+                description: z.string().nullish()
             })
         )
-        .optional()
+        .nullish()
 });
 
 const sync = createSync({
     description: 'Sync workspaces from Gong.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     models: {
@@ -55,11 +55,19 @@ const sync = createSync({
         await nango.trackDeletesStart('Workspace');
 
         const workspaces = parsed.data.workspaces ?? [];
-        const records = workspaces.map((workspace) => ({
-            id: workspace.id,
-            ...(workspace.name != null && { name: workspace.name }),
-            ...(workspace.description != null && { description: workspace.description })
-        }));
+        const records = workspaces.flatMap((workspace) => {
+            if (!workspace.id) {
+                return [];
+            }
+
+            return [
+                {
+                    id: workspace.id,
+                    ...(workspace.name != null && { name: workspace.name }),
+                    ...(workspace.description != null && { description: workspace.description })
+                }
+            ];
+        });
 
         if (records.length > 0) {
             await nango.batchSave(records, 'Workspace');

@@ -4,22 +4,22 @@ import { createAction } from 'nango';
 const InputSchema = z.object({});
 
 const IntegrationSettingsSchema = z.object({
-    id: z.string().optional()
+    id: z.string().nullish()
 });
 
 const ProviderResponseSchema = z.object({
     requestId: z.string().optional(),
-    integrationSettings: IntegrationSettingsSchema.optional()
+    integrationSettings: IntegrationSettingsSchema.nullish()
 });
 
 const OutputSchema = z.object({
     requestId: z.string().optional(),
-    integrationSettings: IntegrationSettingsSchema.optional()
+    integrationSettings: IntegrationSettingsSchema.nullish()
 });
 
 const action = createAction({
     description: 'Retrieve Gong integration settings.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:integration-settings:write'],
