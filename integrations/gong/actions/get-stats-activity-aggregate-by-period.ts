@@ -13,48 +13,48 @@ const InputSchema = z.object({
 
 const AggregateActivityWithDatesSchema = z
     .object({
-        callsAsHost: z.number().optional(),
-        callsAttended: z.number().optional(),
-        callsCommentsGiven: z.number().optional(),
-        callsCommentsReceived: z.number().optional(),
-        callsGaveFeedback: z.number().optional(),
-        callsMarkedAsFeedbackGiven: z.number().optional(),
-        callsMarkedAsFeedbackReceived: z.number().optional(),
-        callsReceivedFeedback: z.number().optional(),
-        callsRequestedFeedback: z.number().optional(),
-        callsScorecardsFilled: z.number().optional(),
-        callsScorecardsReceived: z.number().optional(),
-        callsSharedExternally: z.number().optional(),
-        callsSharedInternally: z.number().optional(),
-        fromDate: z.string().optional(),
-        othersCallsListenedTo: z.number().optional(),
-        ownCallsListenedTo: z.number().optional(),
-        toDate: z.string().optional()
+        callsAsHost: z.number().nullish(),
+        callsAttended: z.number().nullish(),
+        callsCommentsGiven: z.number().nullish(),
+        callsCommentsReceived: z.number().nullish(),
+        callsGaveFeedback: z.number().nullish(),
+        callsMarkedAsFeedbackGiven: z.number().nullish(),
+        callsMarkedAsFeedbackReceived: z.number().nullish(),
+        callsReceivedFeedback: z.number().nullish(),
+        callsRequestedFeedback: z.number().nullish(),
+        callsScorecardsFilled: z.number().nullish(),
+        callsScorecardsReceived: z.number().nullish(),
+        callsSharedExternally: z.number().nullish(),
+        callsSharedInternally: z.number().nullish(),
+        fromDate: z.string().nullish(),
+        othersCallsListenedTo: z.number().nullish(),
+        ownCallsListenedTo: z.number().nullish(),
+        toDate: z.string().nullish()
     })
     .passthrough();
 
 const UserAggregateByPeriodActivitiesSchema = z
     .object({
-        userAggregateActivity: z.array(AggregateActivityWithDatesSchema).optional(),
-        userEmailAddress: z.string().optional(),
-        userId: z.string().optional()
+        userAggregateActivity: z.array(AggregateActivityWithDatesSchema).nullish(),
+        userEmailAddress: z.string().nullish(),
+        userId: z.string().nullish()
     })
     .passthrough();
 
 const RecordsSchema = z
     .object({
-        currentPageNumber: z.number().optional(),
-        currentPageSize: z.number().optional(),
-        cursor: z.string().optional(),
-        totalRecords: z.number().optional()
+        currentPageNumber: z.number().nullish(),
+        currentPageSize: z.number().nullish(),
+        cursor: z.string().nullish(),
+        totalRecords: z.number().nullish()
     })
     .passthrough();
 
 const ProviderResponseSchema = z
     .object({
         requestId: z.string().optional(),
-        records: RecordsSchema.optional(),
-        usersAggregateActivity: z.array(UserAggregateByPeriodActivitiesSchema).optional()
+        records: RecordsSchema.nullish(),
+        usersAggregateActivity: z.array(UserAggregateByPeriodActivitiesSchema).nullish()
     })
     .passthrough();
 
@@ -62,51 +62,51 @@ const OutputSchema = z.object({
     requestId: z.string().optional(),
     records: z
         .object({
-            totalRecords: z.number().optional(),
-            currentPageSize: z.number().optional(),
-            cursor: z.string().optional()
+            totalRecords: z.number().nullish(),
+            currentPageSize: z.number().nullish(),
+            cursor: z.string().nullish()
         })
-        .optional(),
+        .nullish(),
     usersAggregateActivity: z
         .array(
             z
                 .object({
-                    userId: z.string().optional(),
-                    userEmailAddress: z.string().optional(),
+                    userId: z.string().nullish(),
+                    userEmailAddress: z.string().nullish(),
                     userAggregateActivity: z
                         .array(
                             z
                                 .object({
-                                    fromDate: z.string().optional(),
-                                    toDate: z.string().optional(),
-                                    callsAsHost: z.number().optional(),
-                                    callsAttended: z.number().optional(),
-                                    callsCommentsGiven: z.number().optional(),
-                                    callsCommentsReceived: z.number().optional(),
-                                    callsGaveFeedback: z.number().optional(),
-                                    callsMarkedAsFeedbackGiven: z.number().optional(),
-                                    callsMarkedAsFeedbackReceived: z.number().optional(),
-                                    callsReceivedFeedback: z.number().optional(),
-                                    callsRequestedFeedback: z.number().optional(),
-                                    callsScorecardsFilled: z.number().optional(),
-                                    callsScorecardsReceived: z.number().optional(),
-                                    callsSharedExternally: z.number().optional(),
-                                    callsSharedInternally: z.number().optional(),
-                                    othersCallsListenedTo: z.number().optional(),
-                                    ownCallsListenedTo: z.number().optional()
+                                    fromDate: z.string().nullish(),
+                                    toDate: z.string().nullish(),
+                                    callsAsHost: z.number().nullish(),
+                                    callsAttended: z.number().nullish(),
+                                    callsCommentsGiven: z.number().nullish(),
+                                    callsCommentsReceived: z.number().nullish(),
+                                    callsGaveFeedback: z.number().nullish(),
+                                    callsMarkedAsFeedbackGiven: z.number().nullish(),
+                                    callsMarkedAsFeedbackReceived: z.number().nullish(),
+                                    callsReceivedFeedback: z.number().nullish(),
+                                    callsRequestedFeedback: z.number().nullish(),
+                                    callsScorecardsFilled: z.number().nullish(),
+                                    callsScorecardsReceived: z.number().nullish(),
+                                    callsSharedExternally: z.number().nullish(),
+                                    callsSharedInternally: z.number().nullish(),
+                                    othersCallsListenedTo: z.number().nullish(),
+                                    ownCallsListenedTo: z.number().nullish()
                                 })
                                 .passthrough()
                         )
-                        .optional()
+                        .nullish()
                 })
                 .passthrough()
         )
-        .optional()
+        .nullish()
 });
 
 const action = createAction({
     description: 'Retrieve aggregated activity statistics for users over a date range, grouped by time period.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:stats:user-actions'],
@@ -176,18 +176,18 @@ const action = createAction({
 
         return {
             ...(data.requestId !== undefined && { requestId: data.requestId }),
-            ...(data.records !== undefined && {
+            ...(data.records != null && {
                 records: {
                     ...(data.records.totalRecords !== undefined && { totalRecords: data.records.totalRecords }),
                     ...(data.records.currentPageSize !== undefined && { currentPageSize: data.records.currentPageSize }),
                     ...(data.records.cursor !== undefined && { cursor: data.records.cursor })
                 }
             }),
-            ...(data.usersAggregateActivity !== undefined && {
+            ...(data.usersAggregateActivity != null && {
                 usersAggregateActivity: data.usersAggregateActivity.map((user) => ({
                     ...(user.userId !== undefined && { userId: user.userId }),
                     ...(user.userEmailAddress !== undefined && { userEmailAddress: user.userEmailAddress }),
-                    ...(user.userAggregateActivity !== undefined && {
+                    ...(user.userAggregateActivity != null && {
                         userAggregateActivity: user.userAggregateActivity.map((activity) => ({
                             ...(activity.fromDate !== undefined && { fromDate: activity.fromDate }),
                             ...(activity.toDate !== undefined && { toDate: activity.toDate }),

@@ -12,18 +12,18 @@ const InputSchema = z.object({
 
 const ProviderResponseSchema = z.object({
     requestId: z.string().optional(),
-    crmObjectsMap: z.record(z.string(), z.record(z.string(), z.unknown())).optional()
+    crmObjectsMap: z.record(z.string(), z.record(z.string(), z.unknown())).nullish()
 });
 
 const OutputSchema = z.object({
     requestId: z.string().optional(),
-    crmObjectsMap: z.record(z.string(), z.record(z.string(), z.unknown())).optional(),
-    next_cursor: z.string().optional()
+    crmObjectsMap: z.record(z.string(), z.record(z.string(), z.unknown())).nullish(),
+    next_cursor: z.string().nullish()
 });
 
 const action = createAction({
     description: 'Retrieve CRM objects (accounts, contacts, deals, leads) from the Gong CRM integration.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:crm:get-objects'],

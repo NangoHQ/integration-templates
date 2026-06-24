@@ -7,33 +7,33 @@ const InputSchema = z.object({
 
 const StepSchema = z
     .object({
-        number: z.number().optional(),
-        type: z.string().optional(),
-        name: z.string().optional(),
-        delayInDays: z.number().optional(),
-        subject: z.string().optional(),
-        body: z.string().optional(),
-        replyToPrevious: z.boolean().optional(),
-        sendAsNewThread: z.boolean().optional()
+        number: z.number().nullish(),
+        type: z.string().nullish(),
+        name: z.string().nullish(),
+        delayInDays: z.number().nullish(),
+        subject: z.string().nullish(),
+        body: z.string().nullish(),
+        replyToPrevious: z.boolean().nullish(),
+        sendAsNewThread: z.boolean().nullish()
     })
     .passthrough();
 
 const FlowDetailsSchema = z
     .object({
-        id: z.string().optional(),
-        name: z.string().optional(),
-        folderId: z.string().optional(),
-        folderName: z.string().optional(),
-        visibility: z.string().optional(),
-        creationDate: z.string().optional(),
-        exclusive: z.boolean().optional(),
-        steps: z.array(StepSchema).optional()
+        id: z.string().nullish(),
+        name: z.string().nullish(),
+        folderId: z.string().nullish(),
+        folderName: z.string().nullish(),
+        visibility: z.string().nullish(),
+        creationDate: z.string().nullish(),
+        exclusive: z.boolean().nullish(),
+        steps: z.array(StepSchema).nullish()
     })
     .passthrough();
 
 const OutputSchema = z.object({
     requestId: z.string().optional(),
-    flows: z.array(FlowDetailsSchema).optional()
+    flows: z.array(FlowDetailsSchema).nullish()
 });
 
 const AxiosErrorSchema = z.object({
@@ -43,7 +43,7 @@ const AxiosErrorSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve details and steps for one or more Gong Engage flows.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:flows:read'],

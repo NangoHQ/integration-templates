@@ -8,20 +8,24 @@
           "created": "2026-06-10T19:50:07.428Z",
           "emailAddress": "robin@nango.dev",
           "emailAliases": [],
+          "extension": null,
           "firstName": "Robin",
           "lastName": "Guldener",
+          "managerId": null,
           "meetingConsentPageUrl": "https://us-12100.join.gong.io/nango-partner/robin.guldener",
           "personalMeetingUrls": [],
+          "phoneNumber": null,
           "settings": {
-            "emailsImported": false,
-            "nonRecordedMeetingsImported": false,
-            "preventEmailImport": false,
+            "webConferencesRecorded": false,
             "preventWebConferenceRecording": false,
             "telephonyCallsImported": false,
-            "webConferencesRecorded": false,
+            "emailsImported": false,
+            "preventEmailImport": false,
+            "nonRecordedMeetingsImported": false,
             "gongConnectEnabled": false
           },
-          "spokenLanguages": []
+          "spokenLanguages": [],
+          "title": null
         },
         {
           "id": "1597409306735779049",
@@ -29,20 +33,24 @@
           "created": "2026-06-11T19:25:28.158Z",
           "emailAddress": "api@nango.dev",
           "emailAliases": [],
+          "extension": null,
           "firstName": "API",
           "lastName": "Developer",
+          "managerId": null,
           "meetingConsentPageUrl": "https://us-12100.join.gong.io/nango-partner/api.developer",
           "personalMeetingUrls": [],
+          "phoneNumber": null,
           "settings": {
-            "emailsImported": true,
-            "nonRecordedMeetingsImported": true,
-            "preventEmailImport": false,
+            "webConferencesRecorded": true,
             "preventWebConferenceRecording": false,
             "telephonyCallsImported": true,
-            "webConferencesRecorded": true,
+            "emailsImported": true,
+            "preventEmailImport": false,
+            "nonRecordedMeetingsImported": true,
             "gongConnectEnabled": true
           },
-          "spokenLanguages": []
+          "spokenLanguages": [],
+          "title": null
         },
         {
           "id": "3199569787656015297",
@@ -50,20 +58,24 @@
           "created": "2026-06-10T19:49:29.000Z",
           "emailAddress": "ryan@nango.dev",
           "emailAliases": [],
+          "extension": null,
           "firstName": "Ryan",
           "lastName": "West",
+          "managerId": null,
           "meetingConsentPageUrl": "https://us-12100.join.gong.io/nango-partner/ryan.west",
           "personalMeetingUrls": [],
+          "phoneNumber": null,
           "settings": {
-            "emailsImported": false,
-            "nonRecordedMeetingsImported": false,
-            "preventEmailImport": false,
+            "webConferencesRecorded": false,
             "preventWebConferenceRecording": false,
             "telephonyCallsImported": false,
-            "webConferencesRecorded": false,
+            "emailsImported": false,
+            "preventEmailImport": false,
+            "nonRecordedMeetingsImported": false,
             "gongConnectEnabled": false
           },
-          "spokenLanguages": []
+          "spokenLanguages": [],
+          "title": null
         },
         {
           "id": "7254376376091929519",
@@ -71,20 +83,24 @@
           "created": "2023-10-17T19:21:39.277Z",
           "emailAddress": "bastien@nango.dev",
           "emailAliases": [],
+          "extension": null,
           "firstName": "Bastien",
           "lastName": "Beurier",
+          "managerId": null,
           "meetingConsentPageUrl": "https://us-12100.join.gong.io/nango-partner/bastien.beurier",
           "personalMeetingUrls": [],
+          "phoneNumber": null,
           "settings": {
-            "emailsImported": false,
-            "nonRecordedMeetingsImported": false,
-            "preventEmailImport": false,
+            "webConferencesRecorded": false,
             "preventWebConferenceRecording": false,
             "telephonyCallsImported": false,
-            "webConferencesRecorded": false,
+            "emailsImported": false,
+            "preventEmailImport": false,
+            "nonRecordedMeetingsImported": false,
             "gongConnectEnabled": false
           },
-          "spokenLanguages": []
+          "spokenLanguages": [],
+          "title": null
         }
       ]
     },

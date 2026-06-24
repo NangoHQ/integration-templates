@@ -14,7 +14,7 @@ const AxiosErrorSchema = z.object({
 
 const ProviderResponseSchema = z.object({
     requestId: z.string().optional(),
-    unassignedFlowInstanceIds: z.array(z.string()).optional()
+    unassignedFlowInstanceIds: z.array(z.string()).nullish()
 });
 
 const ErrorResponseSchema = z.object({
@@ -23,19 +23,21 @@ const ErrorResponseSchema = z.object({
 });
 
 const OutputSchema = z.object({
-    results: z.array(
-        z.object({
-            crmProspectId: z.string(),
-            requestId: z.string().optional(),
-            unassignedFlowInstanceIds: z.array(z.string()).optional(),
-            error: z.string().optional()
-        })
-    )
+    results: z
+        .array(
+            z.object({
+                crmProspectId: z.string().nullable(),
+                requestId: z.string().optional(),
+                unassignedFlowInstanceIds: z.array(z.string()).nullish(),
+                error: z.string().nullish()
+            })
+        )
+        .nullable()
 });
 
 const action = createAction({
     description: 'Unassign prospects from an Engage flow using their CRM prospect IDs',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:flows:write'],

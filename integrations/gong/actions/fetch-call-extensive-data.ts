@@ -50,22 +50,22 @@ const CallSchema = z.object({}).passthrough();
 
 const ProviderResponseSchema = z
     .object({
-        calls: z.array(CallSchema).optional(),
-        cursor: z.string().optional(),
+        calls: z.array(CallSchema).nullish(),
+        cursor: z.string().nullish(),
         records: z
             .object({
-                totalRecords: z.number().optional(),
-                currentPageSize: z.number().optional()
+                totalRecords: z.number().nullish(),
+                currentPageSize: z.number().nullish()
             })
-            .optional()
+            .nullish()
     })
     .passthrough();
 
 const OutputSchema = z.object({
-    calls: z.array(z.object({}).passthrough()),
-    cursor: z.string().optional(),
-    totalRecords: z.number().optional(),
-    currentPageSize: z.number().optional()
+    calls: z.array(z.object({}).passthrough()).nullable(),
+    cursor: z.string().nullish(),
+    totalRecords: z.number().nullish(),
+    currentPageSize: z.number().nullish()
 });
 
 function isProviderError(error: unknown): error is { response: { status: number; data: unknown } } {
@@ -86,7 +86,7 @@ const ProviderErrorSchema = z.object({
 
 const action = createAction({
     description: 'Fetch detailed Gong call data including content, interaction, and collaboration fields for specific calls.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:calls:read'],

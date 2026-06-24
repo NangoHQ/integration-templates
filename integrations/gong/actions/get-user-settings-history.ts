@@ -6,24 +6,24 @@ const InputSchema = z.object({
 });
 
 const UserSettingsHistoryItemSchema = z.object({
-    setting: z.string().optional(),
-    value: z.boolean().optional(),
-    time: z.string().optional()
+    setting: z.string().nullish(),
+    value: z.boolean().nullish(),
+    time: z.string().nullish()
 });
 
 const ProviderResponseSchema = z.object({
     requestId: z.string().optional(),
-    userSettingsHistory: z.array(UserSettingsHistoryItemSchema).optional()
+    userSettingsHistory: z.array(UserSettingsHistoryItemSchema).nullish()
 });
 
 const OutputSchema = z.object({
     requestId: z.string().optional(),
-    userSettingsHistory: z.array(UserSettingsHistoryItemSchema).optional()
+    userSettingsHistory: z.array(UserSettingsHistoryItemSchema).nullish()
 });
 
 const action = createAction({
     description: 'Retrieve the settings change history for a specific Gong user.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:users:read'],

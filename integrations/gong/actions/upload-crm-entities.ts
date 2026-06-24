@@ -22,19 +22,19 @@ const InputSchema = z.object({
 
 const ProviderResponseSchema = z.object({
     requestId: z.string().optional(),
-    clientRequestId: z.string().optional(),
-    errors: z.array(z.string()).optional()
+    clientRequestId: z.string().nullish(),
+    errors: z.array(z.string()).nullish()
 });
 
 const OutputSchema = z.object({
     requestId: z.string().optional(),
-    clientRequestId: z.string().optional(),
-    errors: z.array(z.string()).optional()
+    clientRequestId: z.string().nullish(),
+    errors: z.array(z.string()).nullish()
 });
 
 const action = createAction({
     description: 'Upload CRM objects (accounts, contacts, deals, leads) to Gong.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:crm:upload'],
