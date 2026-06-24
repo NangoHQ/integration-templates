@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    groupIds: z.array(z.string()).describe('Array of group IDs to delete. Example: ["36047264", "36047265"]')
+    groupIds: z.array(z.string()).min(1).describe('Array of group IDs to delete. Example: ["36047264", "36047265"]')
 });
 
 const ProviderGroupSchema = z.object({

@@ -8,7 +8,7 @@ const ConnectConfigurationSchema = z
         configurationId: z.number().optional(),
         urlToPublishTo: z.string().optional(),
         name: z.string().optional(),
-        allowEnvelopesPublish: z.string().optional(),
+        allowEnvelopePublish: z.string().optional(),
         enableLog: z.string().optional(),
         includeDocuments: z.string().optional(),
         includeCertificateOfCompletion: z.string().optional(),
@@ -19,7 +19,7 @@ const ConnectConfigurationSchema = z
         includeEnvelopeVoidReason: z.string().optional(),
         envelopeEvents: z.array(z.string()).optional(),
         recipientEvents: z.array(z.string()).optional(),
-        includeSenderAccountAsCustomField: z.string().optional(),
+        includeSenderAccountasCustomField: z.string().optional(),
         publishToWeb: z.string().optional(),
         eventData: z
             .object({

@@ -95,7 +95,7 @@ const action = createAction({
 
         const totalSetSize = providerResponse.totalSetSize ? parseInt(providerResponse.totalSetSize, 10) : 0;
         const endPosition = providerResponse.endPosition ? parseInt(providerResponse.endPosition, 10) : 0;
-        const nextStartPosition = endPosition < totalSetSize ? String(endPosition + 1) : undefined;
+        const nextStartPosition = endPosition + 1 < totalSetSize ? String(endPosition + 1) : undefined;
 
         return {
             items,

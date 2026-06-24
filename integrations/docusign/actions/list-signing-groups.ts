@@ -43,8 +43,7 @@ const SigningGroupOutputSchema = z.object({
 });
 
 const OutputSchema = z.object({
-    items: z.array(SigningGroupOutputSchema),
-    next_cursor: z.string().optional()
+    items: z.array(SigningGroupOutputSchema)
 });
 
 const action = createAction({

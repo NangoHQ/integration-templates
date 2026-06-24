@@ -52,7 +52,8 @@ const action = createAction({
         if (!accountId) {
             const connection = await nango.getConnection();
             const connectionConfig = connection.connection_config;
-            accountId = connectionConfig ? connectionConfig['accountId'] : undefined;
+            const rawId = connectionConfig ? connectionConfig['accountId'] : undefined;
+            accountId = typeof rawId === 'string' && rawId ? rawId : undefined;
         }
 
         if (!accountId) {

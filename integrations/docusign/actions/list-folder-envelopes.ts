@@ -4,7 +4,7 @@ import { createAction } from 'nango';
 const InputSchema = z.object({
     folderId: z.string().describe('Folder ID. Example: "b97b86fd-ca82-47d7-8435-f11555c52d0e"'),
     cursor: z.string().optional().describe('Pagination cursor (start_position) from the previous response. Omit for the first page.'),
-    count: z.number().optional().describe('Number of results to return per page. Default: 50.')
+    count: z.number().int().min(1).max(100).optional().describe('Number of results to return per page. Max: 100. Default: 50.')
 });
 
 const EnvelopeSchema = z.object({
@@ -97,11 +97,10 @@ const action = createAction({
         const items = envelopes.map((envelope) => {
             const parsed = EnvelopeSchema.safeParse(envelope);
             if (!parsed.success) {
-                const fallback = z.object({ envelopeId: z.unknown() }).passthrough().safeParse(envelope);
-                const envelopeId = fallback.success && typeof fallback.data['envelopeId'] === 'string' ? fallback.data['envelopeId'] : '';
-                return {
-                    envelopeId
-                };
+                throw new nango.ActionError({
+                    type: 'invalid_envelope',
+                    message: `Failed to parse envelope from folder response: ${parsed.error.message}`
+                });
             }
             return {
                 envelopeId: parsed.data.envelopeId,

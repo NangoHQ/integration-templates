@@ -34,7 +34,7 @@ const sync = createSync({
     description: 'Sync branding profiles. Requires Branding feature (enterprise plans).',
     version: '1.0.0',
     frequency: 'every hour',
-    autoStart: true,
+    autoStart: false,
     models: {
         Brand: BrandSchema
     },
@@ -85,7 +85,17 @@ const sync = createSync({
             throw error;
         }
 
-        const brandsResult = BrandsResponseSchema.safeParse(brandsResponse.data);
+        // Guard against error-shaped responses (e.g. { errorCode, message }) that lack a brands key.
+        // A valid empty response is {} (no brands configured); a valid non-empty response has brands.
+        const responseData = brandsResponse.data;
+        if (responseData && typeof responseData === 'object' && !Array.isArray(responseData)) {
+            const keys = Object.keys(responseData);
+            if (keys.length > 0 && !('brands' in responseData)) {
+                throw new Error(`Unexpected brands response: missing brands field. Response keys: ${keys.join(', ')}`);
+            }
+        }
+
+        const brandsResult = BrandsResponseSchema.safeParse(responseData);
         if (!brandsResult.success) {
             throw new Error('Failed to parse brands response');
         }

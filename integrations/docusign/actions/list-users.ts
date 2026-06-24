@@ -71,7 +71,7 @@ const action = createAction({
 
         const accountId = metadataParsed.data.accountId;
         const startPosition = input.cursor || input.start_position || '0';
-        const count = input.count || '100';
+        const count = String(Math.min(parseInt(input.count || '100', 10), 100));
 
         const response = await nango.get({
             // https://developers.docusign.com/docs/esign-rest-api/reference/accounts/accountusers/list/

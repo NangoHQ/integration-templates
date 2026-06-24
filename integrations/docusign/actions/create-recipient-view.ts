@@ -13,7 +13,7 @@ const InputSchema = z.object({
 
 const ProviderResponseSchema = z
     .object({
-        url: z.string().optional(),
+        url: z.string(),
         recipientId: z.string().optional(),
         recipientIdGuid: z.string().optional(),
         recipientName: z.string().optional(),
@@ -30,7 +30,7 @@ const ProviderResponseSchema = z
     .passthrough();
 
 const OutputSchema = z.object({
-    url: z.string().optional(),
+    url: z.string(),
     recipientId: z.string().optional(),
     recipientIdGuid: z.string().optional(),
     recipientName: z.string().optional(),
@@ -88,10 +88,17 @@ const action = createAction({
             });
         }
 
-        const providerResponse = ProviderResponseSchema.parse(response.data);
+        const providerResult = ProviderResponseSchema.safeParse(response.data);
+        if (!providerResult.success) {
+            throw new nango.ActionError({
+                type: 'missing_url',
+                message: 'DocuSign response did not include a signing URL'
+            });
+        }
+        const providerResponse = providerResult.data;
 
         return {
-            ...(providerResponse.url !== undefined && { url: providerResponse.url }),
+            url: providerResponse.url,
             ...(providerResponse.recipientId !== undefined && { recipientId: providerResponse.recipientId }),
             ...(providerResponse.recipientIdGuid !== undefined && { recipientIdGuid: providerResponse.recipientIdGuid }),
             ...(providerResponse.recipientName !== undefined && { recipientName: providerResponse.recipientName }),

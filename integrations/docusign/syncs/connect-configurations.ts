@@ -64,7 +64,7 @@ const sync = createSync({
     description: 'Sync Connect webhook configurations with full-refresh delete tracking',
     version: '1.0.0',
     frequency: 'every hour',
-    autoStart: true,
+    autoStart: false,
     metadata: MetadataSchema,
     models: {
         ConnectConfiguration: ConnectConfigurationSchema
@@ -82,8 +82,6 @@ const sync = createSync({
             throw new Error('accountId is required in metadata');
         }
 
-        await nango.trackDeletesStart('ConnectConfiguration');
-
         // https://developers.docusign.com/docs/esign-rest-api/reference/accounts/connectconfigurations/getconnectconfigurations/
         const response = await nango.get({
             endpoint: `/restapi/v2.1/accounts/${encodeURIComponent(metadata.data.accountId)}/connect`,
@@ -95,6 +93,8 @@ const sync = createSync({
         if (!parsed.success) {
             throw new Error(`Failed to parse Connect configurations: ${parsed.error.message}`);
         }
+
+        await nango.trackDeletesStart('ConnectConfiguration');
 
         const configurations = parsed.data.configurations;
         const records = configurations.map((config) => ({

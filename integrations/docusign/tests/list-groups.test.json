@@ -1,0 +1,110 @@
+{
+  "input": {},
+  "output": {
+    "groups": [
+      {
+        "groupId": "36030091",
+        "groupName": "Administrators",
+        "groupType": "adminGroup",
+        "usersCount": "1"
+      },
+      {
+        "groupId": "36030092",
+        "groupName": "Everyone",
+        "groupType": "everyoneGroup",
+        "usersCount": "2"
+      },
+      {
+        "groupId": "36046947",
+        "groupName": "Nango Test Group Alpha",
+        "groupType": "customGroup",
+        "usersCount": "1"
+      },
+      {
+        "groupId": "36047859",
+        "groupName": "Nango Test Group Beta",
+        "groupType": "customGroup",
+        "usersCount": "0"
+      }
+    ]
+  },
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "accountId": "96bfbc88-de80-40a4-9fb7-f047e656eaaf"
+    }
+  },
+  "api": {
+    "get": {
+      "/restapi/v2.1/accounts/96bfbc88-de80-40a4-9fb7-f047e656eaaf/groups": {
+        "response": {
+          "groups": [
+            {
+              "groupId": "36030091",
+              "groupName": "Administrators",
+              "permissionProfileId": "52114901",
+              "groupType": "adminGroup",
+              "usersCount": "1",
+              "lastModifiedOn": "2026-06-23T14:05:59.560",
+              "isManagedByScim": false,
+              "userGroupType": "SystemAccount"
+            },
+            {
+              "groupId": "36030092",
+              "groupName": "Everyone",
+              "groupType": "everyoneGroup",
+              "usersCount": "2",
+              "lastModifiedOn": "2026-06-23T14:05:59.383",
+              "isManagedByScim": false,
+              "userGroupType": "SystemAccount"
+            },
+            {
+              "groupId": "36046947",
+              "groupName": "Nango Test Group Alpha",
+              "groupType": "customGroup",
+              "usersCount": "1",
+              "lastModifiedOn": "2026-06-24T12:42:30.287",
+              "isManagedByScim": false,
+              "userGroupType": "LocalAccount"
+            },
+            {
+              "groupId": "36047859",
+              "groupName": "Nango Test Group Beta",
+              "groupType": "customGroup",
+              "usersCount": "0",
+              "lastModifiedOn": "2026-06-24T12:33:52.207",
+              "isManagedByScim": false,
+              "userGroupType": "LocalAccount"
+            }
+          ],
+          "resultSetSize": "4",
+          "totalSetSize": "4",
+          "startPosition": "0",
+          "endPosition": "3"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 24 Jun 2026 12:55:43 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "906",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4991",
+          "x-ratelimit-reset": "1782305796",
+          "etag": "W/\"38a-nQN22jPtOUMGrHs0nX3Yl8DBM3Y\""
+        },
+        "hash": "0ec5128a79d0dff817b66ea728418e609435af68",
+        "request": {}
+      }
+    }
+  }
+}

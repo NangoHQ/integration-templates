@@ -1,0 +1,139 @@
+{
+  "input": {
+    "envelopeId": "ffbe2429-fc88-8ef2-803e-8ad9296118b6"
+  },
+  "output": {
+    "envelope": {
+      "envelopeId": "ffbe2429-fc88-8ef2-803e-8ad9296118b6",
+      "status": "created",
+      "emailSubject": "Updated NDA Agreement Subject",
+      "sender": {
+        "userName": "Nango Developer",
+        "userId": "c9a996ed-50d2-4df4-ac91-a45032721bb6",
+        "email": "api@nango.dev",
+        "accountId": "96bfbc88-de80-40a4-9fb7-f047e656eaaf",
+        "ipAddress": "44.247.133.183"
+      },
+      "createdDateTime": "2026-06-24T12:15:30.1530000Z",
+      "statusChangedDateTime": "2026-06-24T12:15:30.1530000Z",
+      "documentsUri": "/envelopes/ffbe2429-fc88-8ef2-803e-8ad9296118b6/documents",
+      "recipientsUri": "/envelopes/ffbe2429-fc88-8ef2-803e-8ad9296118b6/recipients",
+      "attachmentsUri": "/envelopes/ffbe2429-fc88-8ef2-803e-8ad9296118b6/attachments",
+      "envelopeUri": "/envelopes/ffbe2429-fc88-8ef2-803e-8ad9296118b6",
+      "purgeState": "unpurged",
+      "customFieldsUri": "/envelopes/ffbe2429-fc88-8ef2-803e-8ad9296118b6/custom_fields",
+      "notificationUri": "/envelopes/ffbe2429-fc88-8ef2-803e-8ad9296118b6/notification",
+      "signingLocation": "online",
+      "enableWetSign": "true",
+      "allowMarkup": "false",
+      "allowReassign": "true",
+      "lastModifiedDateTime": "2026-06-24T12:35:16.6770000Z",
+      "documentsCombinedUri": "/envelopes/ffbe2429-fc88-8ef2-803e-8ad9296118b6/documents/combined",
+      "certificateUri": "/envelopes/ffbe2429-fc88-8ef2-803e-8ad9296118b6/documents/certificate",
+      "templatesUri": "/envelopes/ffbe2429-fc88-8ef2-803e-8ad9296118b6/templates",
+      "envelopeIdStamping": "true",
+      "is21CFRPart11": "false",
+      "signerCanSignOnMobile": "true",
+      "autoNavigation": "true",
+      "isSignatureProviderEnvelope": "false",
+      "uSigState": "esign",
+      "hasFormDataChanged": "false",
+      "allowComments": "true",
+      "hasComments": "false",
+      "allowViewHistory": "true",
+      "envelopeMetadata": {
+        "allowAdvancedCorrect": "true",
+        "enableSignWithNotary": "true",
+        "allowCorrect": "true"
+      },
+      "anySigner": null,
+      "envelopeLocation": "current_site",
+      "isDynamicEnvelope": "false",
+      "burnDefaultTabData": "false",
+      "isTicketRelatedEnvelope": "false"
+    }
+  },
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "accountId": "96bfbc88-de80-40a4-9fb7-f047e656eaaf"
+    }
+  },
+  "api": {
+    "get": {
+      "/restapi/v2.1/accounts/96bfbc88-de80-40a4-9fb7-f047e656eaaf/envelopes/ffbe2429-fc88-8ef2-803e-8ad9296118b6": {
+        "response": {
+          "status": "created",
+          "documentsUri": "/envelopes/ffbe2429-fc88-8ef2-803e-8ad9296118b6/documents",
+          "recipientsUri": "/envelopes/ffbe2429-fc88-8ef2-803e-8ad9296118b6/recipients",
+          "attachmentsUri": "/envelopes/ffbe2429-fc88-8ef2-803e-8ad9296118b6/attachments",
+          "envelopeUri": "/envelopes/ffbe2429-fc88-8ef2-803e-8ad9296118b6",
+          "emailSubject": "Updated NDA Agreement Subject",
+          "envelopeId": "ffbe2429-fc88-8ef2-803e-8ad9296118b6",
+          "signingLocation": "online",
+          "customFieldsUri": "/envelopes/ffbe2429-fc88-8ef2-803e-8ad9296118b6/custom_fields",
+          "notificationUri": "/envelopes/ffbe2429-fc88-8ef2-803e-8ad9296118b6/notification",
+          "enableWetSign": "true",
+          "allowMarkup": "false",
+          "allowReassign": "true",
+          "createdDateTime": "2026-06-24T12:15:30.1530000Z",
+          "lastModifiedDateTime": "2026-06-24T12:35:16.6770000Z",
+          "statusChangedDateTime": "2026-06-24T12:15:30.1530000Z",
+          "documentsCombinedUri": "/envelopes/ffbe2429-fc88-8ef2-803e-8ad9296118b6/documents/combined",
+          "certificateUri": "/envelopes/ffbe2429-fc88-8ef2-803e-8ad9296118b6/documents/certificate",
+          "templatesUri": "/envelopes/ffbe2429-fc88-8ef2-803e-8ad9296118b6/templates",
+          "sender": {
+            "userName": "Nango Developer",
+            "userId": "c9a996ed-50d2-4df4-ac91-a45032721bb6",
+            "accountId": "96bfbc88-de80-40a4-9fb7-f047e656eaaf",
+            "email": "api@nango.dev",
+            "ipAddress": "44.247.133.183"
+          },
+          "purgeState": "unpurged",
+          "envelopeIdStamping": "true",
+          "is21CFRPart11": "false",
+          "signerCanSignOnMobile": "true",
+          "autoNavigation": "true",
+          "isSignatureProviderEnvelope": "false",
+          "uSigState": "esign",
+          "hasFormDataChanged": "false",
+          "allowComments": "true",
+          "hasComments": "false",
+          "allowViewHistory": "true",
+          "envelopeMetadata": {
+            "allowAdvancedCorrect": "true",
+            "enableSignWithNotary": "true",
+            "allowCorrect": "true"
+          },
+          "anySigner": null,
+          "envelopeLocation": "current_site",
+          "isDynamicEnvelope": "false",
+          "burnDefaultTabData": "false",
+          "isTicketRelatedEnvelope": "false"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 24 Jun 2026 12:35:22 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "1812",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4908",
+          "x-ratelimit-reset": "1782304536",
+          "etag": "W/\"714-2jajXMHmhPln8SlakWltge0tGXI\""
+        },
+        "hash": "16b40766880014be367139672f44ef014897823b",
+        "request": {}
+      }
+    }
+  }
+}

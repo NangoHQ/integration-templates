@@ -4,7 +4,7 @@ import { createAction } from 'nango';
 const InputSchema = z.object({});
 
 const MetadataSchema = z.object({
-    accountId: z.string()
+    accountId: z.string().min(1)
 });
 
 const ProviderSettingsSchema = z.object({}).passthrough();

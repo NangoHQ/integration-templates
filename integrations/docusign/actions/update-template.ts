@@ -37,7 +37,7 @@ const OutputSchema = z.object({
 });
 
 const action = createAction({
-    description: "Update a template's name, description, documents, or recipients.",
+    description: "Update a template's metadata: name, description, emailSubject, or emailBlurb.",
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
@@ -70,7 +70,7 @@ const action = createAction({
 
         const updateSummary = TemplateUpdateSummarySchema.parse(response.data);
 
-        if (updateSummary.errorDetails?.errorCode) {
+        if (updateSummary.errorDetails?.errorCode || updateSummary.errorDetails?.message) {
             throw new nango.ActionError({
                 type: 'api_error',
                 message: updateSummary.errorDetails.message || 'Template update failed',

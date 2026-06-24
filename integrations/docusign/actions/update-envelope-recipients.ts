@@ -10,7 +10,7 @@ const RecipientUpdateSchema = z.object({
 
 const InputSchema = z.object({
     envelopeId: z.string().describe('Envelope ID. Example: "ffbe2429-fc88-8ef2-803e-8ad9296118b6"'),
-    signers: z.array(RecipientUpdateSchema).optional().describe('Signers to update')
+    signers: z.array(RecipientUpdateSchema).min(1).describe('Signers to update')
 });
 
 const RecipientSchema = z.object({
@@ -55,14 +55,38 @@ const action = createAction({
             });
         }
 
-        await nango.put({
+        const PutResponseSchema = z
+            .object({
+                signers: z
+                    .array(
+                        z.object({
+                            recipientId: z.string().optional(),
+                            errorDetails: z.object({ errorCode: z.string(), message: z.string() }).optional()
+                        })
+                    )
+                    .optional()
+            })
+            .passthrough();
+
+        const putResponse = await nango.put({
             // https://developers.docusign.com/docs/esign-rest-api/reference/envelopes/enveloperecipients/update/
             endpoint: `/restapi/v2.1/accounts/${encodeURIComponent(accountId)}/envelopes/${encodeURIComponent(input.envelopeId)}/recipients`,
-            data: {
-                ...(input.signers !== undefined && { signers: input.signers })
-            },
+            data: { signers: input.signers },
             retries: 1
         });
+
+        if (putResponse.data) {
+            const putResult = PutResponseSchema.safeParse(putResponse.data);
+            if (putResult.success && putResult.data.signers) {
+                const failed = putResult.data.signers.filter((s) => s.errorDetails?.errorCode);
+                if (failed.length > 0) {
+                    throw new nango.ActionError({
+                        type: 'recipient_update_failed',
+                        message: `Failed to update ${failed.length} recipient(s): ${failed.map((s) => s.errorDetails?.message).join(', ')}`
+                    });
+                }
+            }
+        }
 
         const getResponse = await nango.get({
             // https://developers.docusign.com/docs/esign-rest-api/reference/envelopes/enveloperecipients/list/

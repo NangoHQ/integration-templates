@@ -16,7 +16,7 @@ const InputSchema = z.object({
     envelopeEvents: z.array(z.string()).optional().describe('Array of envelope-level event statuses that trigger notifications.'),
     recipientEvents: z.array(z.string()).optional().describe('Array of recipient-level event statuses that trigger notifications.'),
     events: z.array(z.string()).optional().describe('Array of event statuses for the JSON SIM event model.'),
-    deliveryMode: z.string().optional().describe('The delivery mode. Valid values: SIM, aggregate.'),
+    deliveryMode: z.enum(['SIM', 'aggregate']).optional().describe('The delivery mode.'),
     eventData: z
         .object({
             version: z.string().optional(),

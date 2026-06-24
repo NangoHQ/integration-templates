@@ -10,7 +10,7 @@ const MetadataSchema = z.object({
 });
 
 const ProviderUserSchema = z.object({
-    userId: z.string().optional(),
+    userId: z.string(),
     userName: z.string().optional(),
     email: z.string().optional(),
     userType: z.string().optional(),
@@ -45,7 +45,7 @@ const ProviderUserSchema = z.object({
 });
 
 const OutputSchema = z.object({
-    userId: z.string().optional(),
+    userId: z.string(),
     userName: z.string().optional(),
     email: z.string().optional(),
     userType: z.string().optional(),
@@ -132,7 +132,7 @@ const action = createAction({
         const providerUser = ProviderUserSchema.parse(userData);
 
         return {
-            ...(providerUser.userId !== undefined && { userId: providerUser.userId }),
+            userId: providerUser.userId,
             ...(providerUser.userName !== undefined && { userName: providerUser.userName }),
             ...(providerUser.email !== undefined && { email: providerUser.email }),
             ...(providerUser.userType !== undefined && { userType: providerUser.userType }),

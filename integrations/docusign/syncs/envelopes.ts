@@ -69,7 +69,7 @@ const sync = createSync({
     description: 'Sync envelope metadata incrementally by last-modified date.',
     version: '1.0.0',
     frequency: 'every hour',
-    autoStart: true,
+    autoStart: false,
     checkpoint: CheckpointSchema,
     models: {
         Envelope: EnvelopeSchema
@@ -166,7 +166,7 @@ const sync = createSync({
                     documents: envelope.documents
                 };
 
-                if (status === 'voided' || status === 'purged') {
+                if (status === 'purged') {
                     deletions.push({ id });
                 } else {
                     upserts.push(record);

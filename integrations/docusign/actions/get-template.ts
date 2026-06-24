@@ -40,7 +40,12 @@ const RecipientsSchema = z.object({
     carbonCopies: z.array(RecipientSchema).optional(),
     certifiedDeliveries: z.array(RecipientSchema).optional(),
     editors: z.array(RecipientSchema).optional(),
-    intermediaries: z.array(RecipientSchema).optional()
+    intermediaries: z.array(RecipientSchema).optional(),
+    agents: z.array(RecipientSchema).optional(),
+    inPersonSigners: z.array(RecipientSchema).optional(),
+    seals: z.array(RecipientSchema).optional(),
+    witnesses: z.array(RecipientSchema).optional(),
+    notaries: z.array(RecipientSchema).optional()
 });
 
 const OutputSchema = z.object({
@@ -85,7 +90,7 @@ const action = createAction({
         const response = await nango.get({
             endpoint: `/restapi/v2.1/accounts/${encodeURIComponent(accountId)}/templates/${encodeURIComponent(input.templateId)}`,
             params: {
-                include: 'documents,recipients'
+                include: 'documents,recipients,tabs'
             },
             retries: 3
         });

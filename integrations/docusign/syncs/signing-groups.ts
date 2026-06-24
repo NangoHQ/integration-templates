@@ -83,8 +83,6 @@ const sync = createSync({
             throw new Error('allowSigningGroups is not enabled for this account');
         }
 
-        await nango.trackDeletesStart('SigningGroup');
-
         // https://developers.docusign.com/docs/esign-rest-api/reference/signinggroups/signinggroups/list/
         const response = await nango.get({
             endpoint: `/restapi/v2.1/accounts/${encodeURIComponent(accountId)}/signing_groups`,
@@ -95,6 +93,8 @@ const sync = createSync({
         if (!parsed.success) {
             throw new Error('Failed to parse signing groups response');
         }
+
+        await nango.trackDeletesStart('SigningGroup');
 
         const rawGroups = parsed.data.signingGroups ?? [];
         const groups: Array<z.infer<typeof SigningGroupSchema>> = [];

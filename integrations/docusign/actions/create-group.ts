@@ -17,7 +17,7 @@ const ProviderGroupSchema = z.object({
 });
 
 const ProviderResponseSchema = z.object({
-    groups: z.array(ProviderGroupSchema).optional()
+    groups: z.array(ProviderGroupSchema)
 });
 
 const OutputSchema = z.object({
@@ -69,7 +69,13 @@ const action = createAction({
         });
 
         const parsed = ProviderResponseSchema.parse(response.data);
-        const createdGroups = parsed.groups || [];
+        const createdGroups = parsed.groups;
+        if (createdGroups.length === 0) {
+            throw new nango.ActionError({
+                type: 'no_groups_created',
+                message: 'DocuSign returned an empty groups array — no groups were created.'
+            });
+        }
 
         return {
             groups: createdGroups.map((group) => ({

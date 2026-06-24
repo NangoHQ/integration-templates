@@ -64,15 +64,15 @@ const action = createAction({
     scopes: ['signature', 'template_read', 'template_write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const metadata = await nango.getMetadata();
-        const accountId = metadata && typeof metadata === 'object' && 'accountId' in metadata ? String(metadata['accountId']) : undefined;
-
-        if (!accountId) {
+        const MetadataSchema = z.object({ accountId: z.string().min(1) });
+        const parsedMetadata = MetadataSchema.safeParse(await nango.getMetadata());
+        if (!parsedMetadata.success) {
             throw new nango.ActionError({
                 type: 'invalid_metadata',
                 message: 'accountId is required in connection metadata.'
             });
         }
+        const accountId = parsedMetadata.data.accountId;
 
         const body: Record<string, unknown> = {
             status: 'created',

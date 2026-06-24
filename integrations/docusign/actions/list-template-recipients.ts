@@ -24,7 +24,10 @@ const ProviderRecipientsResponseSchema = z
         editors: z.array(ProviderRecipientSchema).optional(),
         agents: z.array(ProviderRecipientSchema).optional(),
         seals: z.array(ProviderRecipientSchema).optional(),
-        witnesses: z.array(ProviderRecipientSchema).optional()
+        witnesses: z.array(ProviderRecipientSchema).optional(),
+        notaries: z.array(ProviderRecipientSchema).optional(),
+        notaryWitnesses: z.array(ProviderRecipientSchema).optional(),
+        participants: z.array(ProviderRecipientSchema).optional()
     })
     .passthrough();
 
@@ -92,7 +95,10 @@ const action = createAction({
             'editors',
             'agents',
             'seals',
-            'witnesses'
+            'witnesses',
+            'notaries',
+            'notaryWitnesses',
+            'participants'
         ];
 
         const recipients = [];

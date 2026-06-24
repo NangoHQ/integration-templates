@@ -20,7 +20,7 @@ const InputSchema = z.object({
 });
 
 const ProviderUserSchema = z.object({
-    userId: z.string().optional(),
+    userId: z.string(),
     userName: z.string().optional(),
     firstName: z.string().optional(),
     lastName: z.string().optional(),
@@ -84,6 +84,13 @@ const action = createAction({
             ...(input.permissionProfileId !== undefined && { permissionProfileId: input.permissionProfileId }),
             ...(input.userSettings !== undefined && { userSettings: input.userSettings })
         };
+
+        if (Object.keys(updateData).length === 0) {
+            throw new nango.ActionError({
+                type: 'no_fields_to_update',
+                message: 'At least one field must be provided to update.'
+            });
+        }
 
         // https://developers.docusign.com/docs/esign-rest-api/reference/users/users/update/
         const response = await nango.put({

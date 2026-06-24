@@ -1,18 +1,28 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const InputSchema = z.object({
-    name: z.string().describe('Name of the Connect configuration. Example: "My Webhook"'),
-    urlToPublishTo: z.string().url().describe('HTTPS URL to publish envelope events to. Example: "https://example.com/webhook"'),
-    allUsers: z.boolean().describe('When true, the configuration applies to all users in the account.'),
-    allowEnvelopePublish: z.boolean().describe('When true, envelope publish is allowed for this configuration.'),
-    envelopeEvents: z
-        .array(z.enum(['sent', 'delivered', 'completed', 'declined', 'voided']))
-        .describe('Envelope event statuses to subscribe to. Example: ["sent", "delivered", "completed"]'),
-    recipientEvents: z
-        .array(z.enum(['Sent', 'Delivered', 'Completed', 'Declined', 'AuthenticationFailed', 'AutoResponded']))
-        .describe('Recipient event statuses to subscribe to. Example: ["Sent", "Delivered", "Completed"]')
-});
+const InputSchema = z
+    .object({
+        name: z.string().describe('Name of the Connect configuration. Example: "My Webhook"'),
+        urlToPublishTo: z
+            .string()
+            .url()
+            .regex(/^https:\/\//, 'URL must use HTTPS')
+            .describe('HTTPS URL to publish envelope events to. Example: "https://example.com/webhook"'),
+        allUsers: z.boolean().describe('When true, the configuration applies to all users in the account.'),
+        userIds: z.array(z.string()).optional().describe('Array of user IDs to include when allUsers is false. Required when allUsers is false.'),
+        allowEnvelopePublish: z.boolean().describe('When true, envelope publish is allowed for this configuration.'),
+        envelopeEvents: z
+            .array(z.enum(['sent', 'delivered', 'completed', 'declined', 'voided']))
+            .describe('Envelope event statuses to subscribe to. Example: ["sent", "delivered", "completed"]'),
+        recipientEvents: z
+            .array(z.enum(['Sent', 'Delivered', 'Completed', 'Declined', 'AuthenticationFailed', 'AutoResponded']))
+            .describe('Recipient event statuses to subscribe to. Example: ["Sent", "Delivered", "Completed"]')
+    })
+    .refine((data) => data.allUsers || (data.userIds && data.userIds.length > 0), {
+        message: 'userIds must be provided when allUsers is false',
+        path: ['userIds']
+    });
 
 const MetadataSchema = z.object({
     accountId: z.string().describe('DocuSign account ID from the post-connection script.')
@@ -98,6 +108,7 @@ const action = createAction({
                 name: input.name,
                 urlToPublishTo: input.urlToPublishTo,
                 allUsers: input.allUsers,
+                ...(!input.allUsers && input.userIds && { userIds: input.userIds }),
                 allowEnvelopePublish: input.allowEnvelopePublish,
                 configurationType: 'custom',
                 envelopeEvents: input.envelopeEvents,
