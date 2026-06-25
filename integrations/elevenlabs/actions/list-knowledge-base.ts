@@ -6,6 +6,15 @@ const InputSchema = z.object({
     page_size: z.number().optional().describe('How many documents to return at maximum. Cannot exceed 100, defaults to 30.')
 });
 
+const DependentAgentSchema = z.object({
+    referenced_resource_ids: z.array(z.string()).optional(),
+    id: z.string(),
+    name: z.string().optional(),
+    type: z.string().optional(),
+    created_at_unix_secs: z.number().optional(),
+    access_level: z.string().optional()
+});
+
 const KnowledgeBaseDocumentSchema = z.object({
     id: z.string(),
     name: z.string(),
@@ -30,15 +39,22 @@ const KnowledgeBaseDocumentSchema = z.object({
         .optional(),
     folder_parent_id: z.string().nullable().optional(),
     folder_path: z.array(z.object({ id: z.string() })).optional(),
-    dependent_agents: z.array(z.unknown()).optional(),
+    dependent_agents: z.array(DependentAgentSchema).optional(),
     url: z.string().optional(),
     children_count: z.number().optional(),
     is_frozen: z.boolean().optional()
 });
 
+const ProviderResponseSchema = z.object({
+    documents: z.array(KnowledgeBaseDocumentSchema),
+    next_cursor: z.string().nullable().optional(),
+    has_more: z.boolean()
+});
+
 const OutputSchema = z.object({
     items: z.array(KnowledgeBaseDocumentSchema),
-    next_cursor: z.string().optional()
+    next_cursor: z.string().optional(),
+    has_more: z.boolean()
 });
 
 const action = createAction({
@@ -63,33 +79,12 @@ const action = createAction({
             retries: 3
         });
 
-        const data = response.data;
-
-        if (!data || typeof data !== 'object') {
-            throw new nango.ActionError({
-                type: 'invalid_response',
-                message: 'Invalid response from the ElevenLabs API.'
-            });
-        }
-
-        const documents = Array.isArray(data.documents) ? data.documents : [];
-        const next_cursor = data.next_cursor != null && typeof data.next_cursor === 'string' ? data.next_cursor : undefined;
-
-        const items = documents.map((doc: unknown) => {
-            const parsed = KnowledgeBaseDocumentSchema.safeParse(doc);
-            if (!parsed.success) {
-                throw new nango.ActionError({
-                    type: 'invalid_response',
-                    message: 'Invalid document in response.',
-                    error: parsed.error.message
-                });
-            }
-            return parsed.data;
-        });
+        const providerResponse = ProviderResponseSchema.parse(response.data);
 
         return {
-            items,
-            ...(next_cursor !== undefined && { next_cursor })
+            items: providerResponse.documents,
+            ...(providerResponse.next_cursor != null && { next_cursor: providerResponse.next_cursor }),
+            has_more: providerResponse.has_more
         };
     }
 });

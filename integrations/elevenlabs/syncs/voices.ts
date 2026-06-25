@@ -45,7 +45,6 @@ const sync = createSync({
     exec: async (nango) => {
         // Blocker: provider only exposes /v1/voices with no changed-since filter,
         // no deleted-record endpoint, and no resumable cursor.
-        await nango.trackDeletesStart('Voice');
 
         // https://elevenlabs.io/docs/api-reference/legacy/voices/get-all
         const response = await nango.get({
@@ -57,6 +56,8 @@ const sync = createSync({
         if (!parsed.success) {
             throw new Error(`Failed to parse voices response: ${parsed.error.message}`);
         }
+
+        await nango.trackDeletesStart('Voice');
 
         const voices = parsed.data.voices.map((voice) => ({
             id: voice.voice_id,

@@ -1,7 +1,8 @@
 {
   "input": {},
   "output": {
-    "items": []
+    "items": [],
+    "has_more": false
   },
   "nango": {},
   "api": {

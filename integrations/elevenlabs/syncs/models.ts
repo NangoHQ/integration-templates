@@ -69,7 +69,6 @@ const sync = createSync({
     exec: async (nango) => {
         // Blocker: GET /v1/models returns a flat array with no changed-since filter,
         // no deleted-record endpoint, no resumable cursor, and no pagination parameters.
-        await nango.trackDeletesStart('Model');
 
         // https://elevenlabs.io/docs/api-reference/models/list
         const response = await nango.get({
@@ -78,6 +77,8 @@ const sync = createSync({
         });
 
         const rawModels = z.array(ProviderModelSchema).parse(response.data);
+
+        await nango.trackDeletesStart('Model');
 
         const models = rawModels.map((model) => ({
             id: model.model_id,

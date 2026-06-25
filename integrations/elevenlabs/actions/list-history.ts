@@ -5,7 +5,7 @@ const InputSchema = z.object({
     cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
     page_size: z.number().optional().describe('How many history items to return at maximum. Can not exceed 1000, defaults to 100.'),
     voice_id: z.string().optional().describe('ID of the voice to be filtered for.'),
-    model_id: z.string().optional().describe('Search term used for filtering history items. If provided, source becomes required.'),
+    model_id: z.string().optional().describe('Filter history items by model ID.'),
     search: z.string().optional().describe('Search term used for filtering.'),
     source: z.string().optional().describe('Source of the generated history item.'),
     date_before_unix: z.number().optional().describe('Unix timestamp to filter history items before this date (exclusive).'),

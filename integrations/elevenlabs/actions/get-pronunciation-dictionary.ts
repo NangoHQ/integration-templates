@@ -7,8 +7,8 @@ const InputSchema = z.object({
 
 const ProviderRuleSchema = z.object({
     string_to_replace: z.string(),
-    case_sensitive: z.boolean(),
-    word_boundaries: z.boolean(),
+    case_sensitive: z.boolean().optional(),
+    word_boundaries: z.boolean().optional(),
     type: z.string(),
     alias: z.string().optional(),
     phoneme: z.string().optional(),
@@ -41,8 +41,8 @@ const OutputSchema = z.object({
     rules: z.array(
         z.object({
             string_to_replace: z.string(),
-            case_sensitive: z.boolean(),
-            word_boundaries: z.boolean(),
+            case_sensitive: z.boolean().optional(),
+            word_boundaries: z.boolean().optional(),
             type: z.string(),
             alias: z.string().optional(),
             phoneme: z.string().optional(),
@@ -78,8 +78,8 @@ const action = createAction({
             ...(providerResponse.description != null && { description: providerResponse.description }),
             rules: providerResponse.rules.map((rule) => ({
                 string_to_replace: rule.string_to_replace,
-                case_sensitive: rule.case_sensitive,
-                word_boundaries: rule.word_boundaries,
+                ...(rule.case_sensitive != null && { case_sensitive: rule.case_sensitive }),
+                ...(rule.word_boundaries != null && { word_boundaries: rule.word_boundaries }),
                 type: rule.type,
                 ...(rule.alias != null && { alias: rule.alias }),
                 ...(rule.phoneme != null && { phoneme: rule.phoneme }),

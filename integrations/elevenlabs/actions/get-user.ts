@@ -51,23 +51,7 @@ const ProviderUserSchema = z.object({
     seat_type: z.string().optional()
 });
 
-const OutputSchema = z.object({
-    user_id: z.string(),
-    subscription: SubscriptionSchema.optional(),
-    is_new_user: z.boolean().optional(),
-    xi_api_key: z.string().nullable().optional(),
-    can_use_delayed_payment_methods: z.boolean().optional(),
-    is_onboarding_completed: z.boolean().optional(),
-    is_onboarding_checklist_completed: z.boolean().optional(),
-    show_compliance_terms: z.boolean().nullable().optional(),
-    first_name: z.string().nullable().optional(),
-    is_api_key_hashed: z.boolean().nullable().optional(),
-    xi_api_key_preview: z.string().nullable().optional(),
-    referral_link_code: z.string().nullable().optional(),
-    partnerstack_partner_default_link: z.string().nullable().optional(),
-    created_at: z.number().optional(),
-    seat_type: z.string().optional()
-});
+const OutputSchema = ProviderUserSchema;
 
 const action = createAction({
     description: 'Get user/account details.',
@@ -85,31 +69,7 @@ const action = createAction({
             retries: 3
         });
 
-        const providerUser = ProviderUserSchema.parse(response.data);
-
-        return {
-            user_id: providerUser.user_id,
-            ...(providerUser.subscription !== undefined && { subscription: providerUser.subscription }),
-            ...(providerUser.is_new_user !== undefined && { is_new_user: providerUser.is_new_user }),
-            ...(providerUser.xi_api_key !== undefined && { xi_api_key: providerUser.xi_api_key }),
-            ...(providerUser.can_use_delayed_payment_methods !== undefined && {
-                can_use_delayed_payment_methods: providerUser.can_use_delayed_payment_methods
-            }),
-            ...(providerUser.is_onboarding_completed !== undefined && { is_onboarding_completed: providerUser.is_onboarding_completed }),
-            ...(providerUser.is_onboarding_checklist_completed !== undefined && {
-                is_onboarding_checklist_completed: providerUser.is_onboarding_checklist_completed
-            }),
-            ...(providerUser.show_compliance_terms !== undefined && { show_compliance_terms: providerUser.show_compliance_terms }),
-            ...(providerUser.first_name !== undefined && { first_name: providerUser.first_name }),
-            ...(providerUser.is_api_key_hashed !== undefined && { is_api_key_hashed: providerUser.is_api_key_hashed }),
-            ...(providerUser.xi_api_key_preview !== undefined && { xi_api_key_preview: providerUser.xi_api_key_preview }),
-            ...(providerUser.referral_link_code !== undefined && { referral_link_code: providerUser.referral_link_code }),
-            ...(providerUser.partnerstack_partner_default_link !== undefined && {
-                partnerstack_partner_default_link: providerUser.partnerstack_partner_default_link
-            }),
-            ...(providerUser.created_at !== undefined && { created_at: providerUser.created_at }),
-            ...(providerUser.seat_type !== undefined && { seat_type: providerUser.seat_type })
-        };
+        return ProviderUserSchema.parse(response.data);
     }
 });
 

@@ -28,12 +28,12 @@ const GetAgentsPageSchema = z.object({
 
 const InputSchema = z.object({
     cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
-    page_size: z.number().optional().describe('How many agents to return at maximum. Cannot exceed 100. Defaults to 30.'),
+    page_size: z.number().int().min(1).max(100).optional().describe('How many agents to return at maximum. Cannot exceed 100. Defaults to 30.'),
     search: z.string().optional().describe('Search by agent name.'),
     archived: z.boolean().optional().describe('Filter agents by archived status.'),
     show_only_owned_agents: z.boolean().optional().describe('If true, omits agents shared with you and returns only agents you own.'),
-    sort_direction: z.string().optional().describe('Sort direction. Allowed values: asc, desc.'),
-    sort_by: z.string().optional().describe('Field to sort by. Allowed values: name, created_at, call_count_7d.')
+    sort_direction: z.enum(['asc', 'desc']).optional().describe('Sort direction.'),
+    sort_by: z.enum(['name', 'created_at', 'call_count_7d']).optional().describe('Field to sort by.')
 });
 
 const OutputSchema = z.object({

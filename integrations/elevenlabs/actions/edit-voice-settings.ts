@@ -6,8 +6,8 @@ const InputSchema = z.object({
     stability: z.number().min(0).max(1).optional().describe('Determines how stable the voice is and the randomness between each generation. Defaults to 0.5'),
     use_speaker_boost: z.boolean().optional().describe('Boosts the similarity to the original speaker. Defaults to true'),
     similarity_boost: z.number().min(0).max(1).optional().describe('Determines how closely the AI should adhere to the original voice. Defaults to 0.75'),
-    style: z.number().optional().describe('Determines the style exaggeration of the voice. Defaults to 0'),
-    speed: z.number().optional().describe('Adjusts the speed of the voice. Defaults to 1')
+    style: z.number().min(0).max(1).optional().describe('Determines the style exaggeration of the voice. Must be between 0 and 1. Defaults to 0'),
+    speed: z.number().min(0.7).max(1.2).optional().describe('Adjusts the speed of the voice. Must be between 0.7 and 1.2. Defaults to 1')
 });
 
 const ProviderResponseSchema = z.object({

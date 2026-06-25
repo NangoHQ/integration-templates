@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const AliasRuleSchema = z.object({
     type: z.literal('alias'),
-    string_to_replace: z.string().describe('The string to replace. Must be a non-empty string.'),
+    string_to_replace: z.string().min(1).describe('The string to replace. Must be a non-empty string.'),
     alias: z.string().describe('The alias for the string to be replaced.'),
     case_sensitive: z.boolean().optional().describe('Whether the rule should match case-sensitively. Default: true.'),
     word_boundaries: z.boolean().optional().describe('Whether the rule should only match at word boundaries. Default: true.')
@@ -11,7 +11,7 @@ const AliasRuleSchema = z.object({
 
 const PhonemeRuleSchema = z.object({
     type: z.literal('phoneme'),
-    string_to_replace: z.string().describe('The string to replace. Must be a non-empty string.'),
+    string_to_replace: z.string().min(1).describe('The string to replace. Must be a non-empty string.'),
     phoneme: z.string().describe('The phoneme rule.'),
     alphabet: z.string().describe('The alphabet to use with the phoneme rule.'),
     case_sensitive: z.boolean().optional().describe('Whether the rule should match case-sensitively. Default: true.'),

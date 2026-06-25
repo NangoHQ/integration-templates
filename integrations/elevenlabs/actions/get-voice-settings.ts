@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    voice_id: z.string().describe('Voice ID. Example: "CwhRBWXzGAHq8TQ4Fs17"')
+    voice_id: z.string().min(1).describe('Voice ID. Example: "CwhRBWXzGAHq8TQ4Fs17"')
 });
 
 const ProviderVoiceSettingsSchema = z.object({
