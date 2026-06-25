@@ -1,5 +1,4 @@
-import { createSync } from 'nango';
-import type { OffsetPagination } from '@nangohq/types';
+import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
 const UserSchema = z.object({
@@ -70,19 +69,18 @@ const sync = createSync({
             await nango.trackDeletesStart('User');
         }
 
-        // https://developers.docusign.com/docs/esign-rest-api/reference/accounts/users/getusers/
-        const paginate: Partial<OffsetPagination> = {
-            type: 'offset',
-            offset_name_in_request: 'start_position',
-            offset_start_value: startPosition,
-            offset_calculation_method: 'per-page',
-            limit_name_in_request: 'count',
-            limit: 100,
-            response_path: 'users'
-        };
-        const proxyConfig = {
+        const proxyConfig: ProxyConfiguration = {
+            // https://developers.docusign.com/docs/esign-rest-api/reference/accounts/users/getusers/
             endpoint: `/restapi/v2.1/accounts/${encodeURIComponent(accountId)}/users`,
-            paginate,
+            paginate: {
+                type: 'offset',
+                offset_name_in_request: 'start_position',
+                offset_start_value: startPosition,
+                offset_calculation_method: 'per-page',
+                limit_name_in_request: 'count',
+                limit: 100,
+                response_path: 'users'
+            },
             retries: 3
         };
 
