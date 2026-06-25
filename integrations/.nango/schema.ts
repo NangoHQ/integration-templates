@@ -28886,14 +28886,6 @@ export interface Lead {
   tags?: string[] | undefined;
 };
 
-export interface Pipeline {
-  id: string;
-  name?: string | undefined;
-  update_time: string;
-  add_time?: string | undefined;
-  is_deal_probability_enabled?: boolean | undefined;
-};
-
 export interface ActionInput_close_createcontact {
   /**
    * The ID of the lead to create the contact under. Example: lead_xxx
@@ -34631,6 +34623,1016 @@ export interface ActionOutput_dropbox_uploadlargefile {
   file_id?: string | undefined;
   content_hash?: string | undefined;
   name?: string | undefined;
+};
+
+export interface Agent {
+  id: string;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  emailId?: string | undefined;
+  roleId?: string | undefined;
+  profileId?: string | undefined;
+  status?: string | undefined;
+  isActive?: boolean | undefined;
+  isConfirmed?: boolean | undefined;
+  photoURL?: string | undefined;
+  zuid?: string | undefined;
+  createdTime?: string | undefined;
+  modifiedTime?: string | undefined;
+};
+
+export interface History {
+  /**
+   * The stable ID of the history item.
+   */
+  id: string;
+  /**
+   * The ID of the history item.
+   */
+  history_item_id: string;
+  request_id?: string | undefined;
+  voice_id?: string | undefined;
+  model_id?: string | undefined;
+  voice_name?: string | undefined;
+  voice_category?: string | undefined;
+  text?: string | undefined;
+  /**
+   * Unix timestamp of when the item was created.
+   */
+  date_unix: number;
+  character_count_change_from: number;
+  character_count_change_to: number;
+  content_type: string;
+  state?: unknown | undefined;
+  settings?: {  [key: string]: unknown | undefined;};
+  feedback?: {} | undefined;
+  share_link_id?: string | undefined;
+  source?: string | undefined;
+  alignments?: {} | undefined;
+  dialogue?: ({})[] | undefined;
+  output_format?: string | undefined;
+};
+
+export interface PronunciationDictionary {
+  id: string;
+  latest_version_id: string;
+  latest_version_rules_num?: number | undefined;
+  name: string;
+  permission_on_resource?: string | undefined;
+  created_by: string;
+  creation_time_unix: number;
+  archived_time_unix?: number | undefined;
+  description?: string | undefined;
+};
+
+export interface Voice {
+  id: string;
+  name?: string | undefined;
+  category?: string | undefined;
+  description?: string | undefined;
+  preview_url?: string | undefined;
+  labels?: {  [key: string]: string;} | undefined;
+  created_at_unix?: number | undefined;
+  is_legacy?: boolean | undefined;
+  is_mixed?: boolean | undefined;
+  is_owner?: boolean | undefined;
+};
+
+export interface ActionInput_elevenlabs_addpronunciationdictionaryrules {
+  /**
+   * The ID of the pronunciation dictionary.
+   */
+  pronunciation_dictionary_id: string;
+  /**
+   * List of pronunciation rules to add.
+   */
+  rules: ({  0: {  type: 'alias';
+  /**
+   * The string to replace. Must be a non-empty string.
+   */
+  string_to_replace: string;
+  /**
+   * The alias for the string to be replaced.
+   */
+  alias: string;
+  /**
+   * Whether the rule should match case-sensitively. Default: true.
+   */
+  case_sensitive?: boolean | undefined;
+  /**
+   * Whether the rule should only match at word boundaries. Default: true.
+   */
+  word_boundaries?: boolean | undefined;};
+  1: {  type: 'phoneme';
+  /**
+   * The string to replace. Must be a non-empty string.
+   */
+  string_to_replace: string;
+  /**
+   * The phoneme rule.
+   */
+  phoneme: string;
+  /**
+   * The alphabet to use with the phoneme rule.
+   */
+  alphabet: string;
+  /**
+   * Whether the rule should match case-sensitively. Default: true.
+   */
+  case_sensitive?: boolean | undefined;
+  /**
+   * Whether the rule should only match at word boundaries. Default: true.
+   */
+  word_boundaries?: boolean | undefined;};})[];
+};
+
+export interface ActionOutput_elevenlabs_addpronunciationdictionaryrules {
+  /**
+   * The ID of the pronunciation dictionary.
+   */
+  id: string;
+  /**
+   * The version ID of the pronunciation dictionary.
+   */
+  version_id: string;
+  /**
+   * The number of rules in the version of the pronunciation dictionary.
+   */
+  version_rules_num: number;
+};
+
+export interface ActionInput_elevenlabs_createagent {
+  name?: string | undefined;
+  conversation_config: {};
+  tags?: string[] | undefined;
+  platform_settings?: {} | undefined;
+  workflow?: {} | undefined;
+};
+
+export interface ActionOutput_elevenlabs_createagent {
+  agent_id: string;
+};
+
+export interface ActionInput_elevenlabs_deleteagent {
+  /**
+   * The ID of the agent to delete. Example: "agent_123"
+   */
+  agent_id: string;
+};
+
+export interface ActionOutput_elevenlabs_deleteagent {
+};
+
+export interface ActionInput_elevenlabs_deleteconversation {
+  /**
+   * The ID of the conversation to delete. Example: "abc123"
+   */
+  conversation_id: string;
+};
+
+export interface ActionOutput_elevenlabs_deleteconversation {
+  success: boolean;
+};
+
+export interface ActionInput_elevenlabs_deletedubbingproject {
+  /**
+   * ID of the dubbing project to delete. Example: "qHq83s7gp3QoJRaiLh9H"
+   */
+  dubbing_id: string;
+};
+
+export interface ActionOutput_elevenlabs_deletedubbingproject {
+  /**
+   * The status of the deletion.
+   */
+  status: string;
+};
+
+export interface ActionInput_elevenlabs_deletehistoryitem {
+  /**
+   * ID of the history item to delete. Example: "JveLb9l9aA9OP7eF6zYH"
+   */
+  history_item_id: string;
+};
+
+export interface ActionOutput_elevenlabs_deletehistoryitem {
+  status: string;
+};
+
+export interface ActionInput_elevenlabs_deleteknowledgebasedocument {
+  /**
+   * The id of a document from the knowledge base. This is returned on document addition. Example: "21m00Tcm4TlvDq8ikWAM"
+   */
+  documentation_id: string;
+  /**
+   * If set to true, the document or folder will be deleted regardless of whether it is used by any agents.
+   */
+  force?: boolean | undefined;
+};
+
+export interface ActionOutput_elevenlabs_deleteknowledgebasedocument {
+};
+
+export interface ActionInput_elevenlabs_editvoicesettings {
+  /**
+   * ID of the voice to be used. Example: "29vD33N1CtxCmqQRPOHJ"
+   */
+  voice_id: string;
+  /**
+   * Determines how stable the voice is and the randomness between each generation. Defaults to 0.5
+   */
+  stability?: number | undefined;
+  /**
+   * Boosts the similarity to the original speaker. Defaults to true
+   */
+  use_speaker_boost?: boolean | undefined;
+  /**
+   * Determines how closely the AI should adhere to the original voice. Defaults to 0.75
+   */
+  similarity_boost?: number | undefined;
+  /**
+   * Determines the style exaggeration of the voice. Defaults to 0
+   */
+  style?: number | undefined;
+  /**
+   * Adjusts the speed of the voice. Defaults to 1
+   */
+  speed?: number | undefined;
+};
+
+export interface ActionOutput_elevenlabs_editvoicesettings {
+  /**
+   * The status of the voice settings edit request. If the request was successful, the status will be "ok".
+   */
+  status: string;
+};
+
+export interface ActionInput_elevenlabs_getagent {
+  /**
+   * The ID of an agent. This is returned on agent creation. Example: "agent_8301kvx0de7afd18wvh6xcq9nwqc"
+   */
+  agent_id: string;
+  /**
+   * The ID of the agent version to use
+   */
+  version_id?: string | undefined;
+  /**
+   * The ID of the branch to use
+   */
+  branch_id?: string | undefined;
+};
+
+export interface ActionOutput_elevenlabs_getagent {
+  agent_id: string;
+  name?: string | undefined;
+  conversation_config?: {  [key: string]: unknown | undefined;};
+  metadata?: {  [key: string]: unknown | undefined;};
+  platform_settings?: {  [key: string]: unknown | undefined;};
+  secrets?: ({  [key: string]: unknown | undefined;})[];
+  access_info?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_elevenlabs_getconversation {
+  /**
+   * The ID of the conversation to retrieve. Example: "abc123"
+   */
+  conversation_id: string;
+};
+
+export interface ActionOutput_elevenlabs_getconversation {
+  conversation_id: string;
+  agent_id: string;
+  agent_name?: string | undefined;
+  conversation_product?: string | undefined;
+  status: string;
+  user_id?: string | undefined;
+  branch_id?: string | undefined;
+  version_id?: string | undefined;
+  environment?: string | undefined;
+  has_audio?: boolean | undefined;
+  has_user_audio?: boolean | undefined;
+  has_response_audio?: boolean | undefined;
+  transcript?: ({  role: string;
+  message?: string | undefined;
+  agent_metadata?: unknown | undefined;
+  tool_calls?: ({  request_id: string;
+  tool_name: string;
+  params_as_json?: string | undefined;
+  tool_has_been_called?: boolean | undefined;})[];
+  tool_results?: ({  request_id: string;
+  tool_name: string;
+  result_value?: string | undefined;
+  is_error?: boolean | undefined;
+  tool_has_been_called?: boolean | undefined;})[];
+  time_in_call_secs?: number | undefined;
+  feedback?: unknown | undefined;
+  conversation_turn_id?: string | undefined;})[];
+  metadata: {  start_time_unix_secs: number;
+  accepted_time_unix_secs?: number | undefined;
+  call_duration_secs: number;
+  cost?: number | undefined;
+  deletion_settings?: unknown | undefined;
+  feedback?: unknown | undefined;
+  authorization_method?: string | undefined;
+  charging?: unknown | undefined;
+  phone_call?: unknown | undefined;
+  whatsapp?: unknown | undefined;
+  agent_phone_number?: string | undefined;
+  timezone?: string | undefined;
+  voice_rewards?: unknown | undefined;};
+  analysis?: {  evaluation_criteria_results?: unknown | undefined;
+  data_collection_results?: unknown | undefined;
+  call_successful?: string | undefined;
+  transcript_summary?: string | undefined;
+  summary?: string | undefined;
+  scoped?: unknown | undefined;};
+  visited_agents?: ({  agent_id: string;
+  branch_id?: string | undefined;})[];
+  conversation_initiation_client_data?: unknown | undefined;
+  tag_ids?: string[] | undefined;
+  otlpTraces?: unknown | undefined;
+};
+
+export interface ActionInput_elevenlabs_getdefaultvoicesettings {
+};
+
+export interface ActionOutput_elevenlabs_getdefaultvoicesettings {
+  stability?: number | undefined;
+  similarity_boost?: number | undefined;
+  style?: number | undefined;
+  use_speaker_boost?: boolean | undefined;
+  speed?: number | undefined;
+};
+
+export interface ActionInput_elevenlabs_getdubbingproject {
+  /**
+   * ID of the dubbing project. Example: "21m00Tcm4TlvDq8ikWAM"
+   */
+  dubbing_id: string;
+};
+
+export interface ActionOutput_elevenlabs_getdubbingproject {
+  dubbing_id: string;
+  name: string;
+  status: string;
+  source_language?: string | undefined;
+  target_languages: string[];
+  editable?: boolean | undefined;
+  created_at: string;
+  media_metadata?: {  content_type: string;
+  duration: number;} | undefined;
+  error?: string | undefined;
+};
+
+export interface ActionInput_elevenlabs_gethistoryitem {
+  /**
+   * ID of the history item to retrieve. Example: "JveLb9l9aA9OP7eF6zYH"
+   */
+  history_item_id: string;
+};
+
+export interface ActionOutput_elevenlabs_gethistoryitem {
+  history_item_id: string;
+  request_id?: string | undefined;
+  voice_id?: string | undefined;
+  model_id?: string | undefined;
+  voice_name?: string | undefined;
+  voice_category?: string | undefined;
+  text?: string | undefined;
+  date_unix: number;
+  character_count_change_from: number;
+  character_count_change_to: number;
+  content_type: string;
+  state?: unknown | undefined;
+  settings?: {  [key: string]: unknown | undefined;};
+  feedback?: {  thumbs_up?: boolean | undefined;
+  feedback?: string | undefined;
+  emotions?: boolean | undefined;
+  inaccurate_clone?: boolean | undefined;
+  glitches?: boolean | undefined;
+  audio_quality?: boolean | undefined;
+  other?: boolean | undefined;
+  review_status?: string | undefined;};
+  share_link_id?: string | undefined;
+  source?: string | undefined;
+  alignments?: {  alignment: {  characters: string[];
+  character_start_times_seconds: number[];
+  character_end_times_seconds: number[];};
+  normalized_alignment: {  characters: string[];
+  character_start_times_seconds: number[];
+  character_end_times_seconds: number[];};} | undefined;
+  dialogue?: ({  text: string;
+  voice_id: string;
+  voice_name: string;})[] | undefined;
+  output_format?: string | undefined;
+};
+
+export interface ActionInput_elevenlabs_getknowledgebasedocument {
+  /**
+   * The ID of a document from the knowledge base.
+   */
+  documentation_id: string;
+  /**
+   * Optional agent ID to filter the document context.
+   */
+  agent_id?: string | undefined;
+};
+
+export interface ActionOutput_elevenlabs_getknowledgebasedocument {
+  id: string;
+  name?: string | undefined;
+  metadata?: {  created_at_unix_secs?: number | undefined;
+  last_updated_at_unix_secs?: number | undefined;
+  size_bytes?: number | undefined;};
+  supported_usages?: string[] | undefined;
+  access_info?: {  is_creator?: boolean | undefined;
+  creator_name?: string | undefined;
+  creator_email?: string | undefined;
+  role?: string | undefined;
+  access_source?: string | undefined;};
+  folder_parent_id?: string | undefined;
+  folder_path?: ({  id: string;
+  name?: string | undefined;})[];
+  type?: string | undefined;
+  url?: string | undefined;
+  extracted_inner_html?: string | undefined;
+  auto_sync_info?: {  minimum_frequency_days?: number | undefined;
+  auto_remove?: boolean | undefined;
+  consec_failures?: number | undefined;
+  next_refresh_by?: number | undefined;};
+  dependent_agents?: ({  referenced_resource_ids?: string[] | undefined;
+  id: string;
+  name?: string | undefined;
+  type?: string | undefined;
+  created_at_unix_secs?: number | undefined;
+  access_level?: string | undefined;})[];
+  is_frozen?: boolean | undefined;
+};
+
+export interface ActionInput_elevenlabs_getpronunciationdictionary {
+  /**
+   * The ID of the pronunciation dictionary. Example: "pdct_123456789"
+   */
+  pronunciation_dictionary_id: string;
+};
+
+export interface ActionOutput_elevenlabs_getpronunciationdictionary {
+  id: string;
+  latest_version_id: string;
+  latest_version_rules_num: number;
+  name: string;
+  permission_on_resource?: string | undefined;
+  created_by: string;
+  creation_time_unix: number;
+  archived_time_unix?: number | undefined;
+  description?: string | undefined;
+  rules: ({  string_to_replace: string;
+  case_sensitive: boolean;
+  word_boundaries: boolean;
+  type: string;
+  alias?: string | undefined;
+  phoneme?: string | undefined;
+  alphabet?: string | undefined;})[];
+};
+
+export interface ActionInput_elevenlabs_getusersubscription {
+};
+
+export interface ActionOutput_elevenlabs_getusersubscription {
+  tier: string;
+  character_count: number;
+  character_limit: number;
+  max_character_limit_extension?: number | undefined;
+  max_credit_limit_extension?: number | undefined;
+  can_extend_character_limit: boolean;
+  allowed_to_extend_character_limit: boolean;
+  voice_slots_used: number;
+  professional_voice_slots_used: number;
+  voice_limit: number;
+  voice_add_edit_counter: number;
+  professional_voice_limit: number;
+  can_extend_voice_limit: boolean;
+  can_use_instant_voice_cloning: boolean;
+  can_use_professional_voice_cloning: boolean;
+  current_overage: {  amount: string;
+  currency: string;};
+  status?: string | undefined;
+  has_open_invoices?: boolean | undefined;
+  next_character_count_reset_unix?: number | undefined;
+  currency?: string | undefined;
+  billing_period?: string | undefined;
+  character_refresh_period?: string | undefined;
+  next_invoice?: {  amount_due_cents: number;
+  next_payment_attempt_unix: number;
+  discounts?: ({  discount_percent_off?: number | undefined;})[];
+  payment_intent_status?: string | undefined;
+  payment_intent_statusses?: string[] | undefined;
+  subtotal_cents?: number | undefined;
+  tax_cents?: number | undefined;};
+  open_invoices?: ({  amount_due_cents: number;
+  next_payment_attempt_unix: number;
+  discounts?: ({  discount_percent_off?: number | undefined;})[];
+  payment_intent_status?: string | undefined;
+  payment_intent_statusses?: string[] | undefined;
+  subtotal_cents?: number | undefined;
+  tax_cents?: number | undefined;})[];
+  pending_change?: {  [key: string]: unknown | undefined;};
+  has_used_starter_coupon_on_account?: boolean | undefined;
+  has_used_creator_coupon_on_account?: boolean | undefined;
+};
+
+export interface ActionInput_elevenlabs_getuser {
+};
+
+export interface ActionOutput_elevenlabs_getuser {
+  user_id: string;
+  subscription?: {  tier?: string | undefined;
+  character_count?: number | undefined;
+  character_limit?: number | undefined;
+  max_character_limit_extension?: number | undefined;
+  can_extend_character_limit?: boolean | undefined;
+  allowed_to_extend_character_limit?: boolean | undefined;
+  voice_slots_used?: number | undefined;
+  professional_voice_slots_used?: number | undefined;
+  voice_limit?: number | undefined;
+  voice_add_edit_counter?: number | undefined;
+  professional_voice_limit?: number | undefined;
+  can_extend_voice_limit?: boolean | undefined;
+  can_use_instant_voice_cloning?: boolean | undefined;
+  can_use_professional_voice_cloning?: boolean | undefined;
+  current_overage?: {  amount: string;
+  currency: string;} | undefined;
+  status?: string | undefined;
+  next_character_count_reset_unix?: number | undefined;
+  max_voice_add_edits?: number | undefined;
+  currency?: string | undefined;
+  billing_period?: string | undefined;
+  character_refresh_period?: string | undefined;};
+  is_new_user?: boolean | undefined;
+  xi_api_key?: string | undefined;
+  can_use_delayed_payment_methods?: boolean | undefined;
+  is_onboarding_completed?: boolean | undefined;
+  is_onboarding_checklist_completed?: boolean | undefined;
+  show_compliance_terms?: boolean | undefined;
+  first_name?: string | undefined;
+  is_api_key_hashed?: boolean | undefined;
+  xi_api_key_preview?: string | undefined;
+  referral_link_code?: string | undefined;
+  partnerstack_partner_default_link?: string | undefined;
+  created_at?: number | undefined;
+  seat_type?: string | undefined;
+};
+
+export interface ActionInput_elevenlabs_getvoicesettings {
+  /**
+   * Voice ID. Example: "CwhRBWXzGAHq8TQ4Fs17"
+   */
+  voice_id: string;
+};
+
+export interface ActionOutput_elevenlabs_getvoicesettings {
+  stability?: number | undefined;
+  similarity_boost?: number | undefined;
+  style?: number | undefined;
+  use_speaker_boost?: boolean | undefined;
+  speed?: number | undefined;
+};
+
+export interface ActionInput_elevenlabs_getvoice {
+  /**
+   * Voice ID. Example: "CwhRBWXzGAHq8TQ4Fs17"
+   */
+  voice_id: string;
+};
+
+export interface ActionOutput_elevenlabs_getvoice {
+  voice_id: string;
+  name?: string | undefined;
+  samples?: ({  sample_id?: string | undefined;
+  file_name?: string | undefined;
+  mime_type?: string | undefined;
+  size_bytes?: number | undefined;
+  hash?: string | undefined;})[];
+  category?: string | undefined;
+  fine_tuning?: {} | undefined;
+  labels?: {  [key: string]: string;} | undefined;
+  description?: string | undefined;
+  preview_url?: string | undefined;
+  available_for_tiers?: string[] | undefined;
+  settings?: {  stability?: number | undefined;
+  similarity_boost?: number | undefined;
+  style?: number | undefined;
+  use_speaker_boost?: boolean | undefined;
+  speed?: number | undefined;};
+  sharing?: {} | undefined;
+  high_quality_base_model_ids?: string[] | undefined;
+  safety_control?: string | undefined;
+  voice_verification?: {} | undefined;
+  permission_on_resource?: string | undefined;
+  is_legacy?: boolean | undefined;
+  is_mixed?: boolean | undefined;
+  is_new?: boolean | undefined;
+};
+
+export interface ActionInput_elevenlabs_listagents {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * How many agents to return at maximum. Cannot exceed 100. Defaults to 30.
+   */
+  page_size?: number | undefined;
+  /**
+   * Search by agent name.
+   */
+  search?: string | undefined;
+  /**
+   * Filter agents by archived status.
+   */
+  archived?: boolean | undefined;
+  /**
+   * If true, omits agents shared with you and returns only agents you own.
+   */
+  show_only_owned_agents?: boolean | undefined;
+  /**
+   * Sort direction. Allowed values: asc, desc.
+   */
+  sort_direction?: string | undefined;
+  /**
+   * Field to sort by. Allowed values: name, created_at, call_count_7d.
+   */
+  sort_by?: string | undefined;
+};
+
+export interface ActionOutput_elevenlabs_listagents {
+  items: ({  agent_id: string;
+  name: string;
+  tags: string[];
+  created_at_unix_secs: number;
+  access_info: {  is_creator: boolean;
+  creator_name: string;
+  creator_email: string;
+  role: string;};
+  last_call_time_unix_secs?: number | undefined;
+  archived?: boolean | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_elevenlabs_listconversations {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Agent id (agent_…) or speech engine external id (seng_).
+   */
+  agent_id?: string | undefined;
+  /**
+   * Maximum number of conversations to return. Defaults to 30.
+   */
+  page_size?: number | undefined;
+};
+
+export interface ActionOutput_elevenlabs_listconversations {
+  items: ({  agent_id: string;
+  conversation_id: string;
+  start_time_unix_secs: number;
+  call_duration_secs: number;
+  message_count: number;
+  status: string;
+  call_successful: string;
+  branch_id?: string | undefined;
+  version_id?: string | undefined;
+  agent_name?: string | undefined;
+  termination_reason?: string | undefined;
+  transcript_summary?: string | undefined;
+  call_summary_title?: string | undefined;
+  main_language?: string | undefined;
+  conversation_initiation_source?: string | undefined;
+  tool_names?: string[] | undefined;
+  direction?: string | undefined;
+  rating?: number | undefined;})[];
+  next_cursor?: string | undefined;
+  has_more: boolean;
+};
+
+export interface ActionInput_elevenlabs_listdubbingprojects {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * How many dubs to return at maximum. Cannot exceed 200, defaults to 100.
+   */
+  page_size?: number | undefined;
+  /**
+   * What state the dub is currently in.
+   */
+  dubbing_status?: 'dubbing' | 'dubbed' | 'failed' | undefined;
+  /**
+   * Filters who created the resources being listed. Defaults to all.
+   */
+  filter_by_creator?: 'personal' | 'others' | 'all' | undefined;
+  /**
+   * The field to use for ordering results from this query.
+   */
+  order_by?: 'created_at' | undefined;
+  /**
+   * The order direction to use for results from this query. Defaults to DESCENDING.
+   */
+  order_direction?: 'DESCENDING' | 'ASCENDING' | undefined;
+};
+
+export interface ActionOutput_elevenlabs_listdubbingprojects {
+  dubs: ({  dubbing_id?: string | undefined;
+  name?: string | undefined;
+  status?: string | undefined;
+  source_language?: string | undefined;
+  target_languages?: string[] | undefined;
+  created_at?: string | undefined;
+  editable?: boolean | undefined;
+  media_metadata?: {  content_type?: string | undefined;
+  duration?: number | undefined;};
+  error?: string | undefined;})[];
+  has_more?: boolean | undefined;
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_elevenlabs_listhistory {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * How many history items to return at maximum. Can not exceed 1000, defaults to 100.
+   */
+  page_size?: number | undefined;
+  /**
+   * ID of the voice to be filtered for.
+   */
+  voice_id?: string | undefined;
+  /**
+   * Search term used for filtering history items. If provided, source becomes required.
+   */
+  model_id?: string | undefined;
+  /**
+   * Search term used for filtering.
+   */
+  search?: string | undefined;
+  /**
+   * Source of the generated history item.
+   */
+  source?: string | undefined;
+  /**
+   * Unix timestamp to filter history items before this date (exclusive).
+   */
+  date_before_unix?: number | undefined;
+  /**
+   * Unix timestamp to filter history items after this date (inclusive).
+   */
+  date_after_unix?: number | undefined;
+  /**
+   * Sort direction for the results.
+   */
+  sort_direction?: string | undefined;
+};
+
+export interface ActionOutput_elevenlabs_listhistory {
+  items: ({  history_item_id: string;
+  request_id?: string | undefined;
+  voice_id?: string | undefined;
+  model_id?: string | undefined;
+  voice_name?: string | undefined;
+  voice_category?: string | undefined;
+  text?: string | undefined;
+  date_unix: number;
+  character_count_change_from: number;
+  character_count_change_to: number;
+  content_type: string;
+  state?: unknown | undefined;
+  settings?: {  [key: string]: unknown | undefined;};
+  feedback?: {  thumbs_up: boolean;
+  feedback: string;
+  emotions: boolean;
+  inaccurate_clone: boolean;
+  glitches: boolean;
+  audio_quality: boolean;
+  other: boolean;
+  review_status: string;} | undefined;
+  share_link_id?: string | undefined;
+  source?: string | undefined;
+  alignments?: unknown | undefined;
+  dialogue?: unknown[] | undefined;
+  output_format?: string | undefined;})[];
+  next_cursor?: string | undefined;
+  has_more: boolean;
+};
+
+export interface ActionInput_elevenlabs_listknowledgebase {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * How many documents to return at maximum. Cannot exceed 100, defaults to 30.
+   */
+  page_size?: number | undefined;
+};
+
+export interface ActionOutput_elevenlabs_listknowledgebase {
+  items: ({  id: string;
+  name: string;
+  type: 'file' | 'url' | 'text' | 'folder';
+  metadata?: {  created_at_unix_secs: number;
+  last_updated_at_unix_secs: number;
+  size_bytes: number;} | undefined;
+  supported_usages?: string[] | undefined;
+  access_info?: {  is_creator: boolean;
+  creator_name: string;
+  creator_email: string;
+  role: string;
+  anonymous_access_level_override?: string | undefined;
+  access_source?: string | undefined;};
+  folder_parent_id?: string | undefined;
+  folder_path?: ({  id: string;})[] | undefined;
+  dependent_agents?: unknown[] | undefined;
+  url?: string | undefined;
+  children_count?: number | undefined;
+  is_frozen?: boolean | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_elevenlabs_listmodels {
+};
+
+export interface ActionOutput_elevenlabs_listmodels {
+  items: ({  model_id: string;
+  name: string;
+  can_be_finetuned?: boolean | undefined;
+  can_do_text_to_speech?: boolean | undefined;
+  can_do_voice_conversion?: boolean | undefined;
+  can_use_style?: boolean | undefined;
+  can_use_speaker_boost?: boolean | undefined;
+  serves_pro_voices?: boolean | undefined;
+  token_cost_factor?: number | undefined;
+  description?: string | undefined;
+  requires_alpha_access?: boolean | undefined;
+  max_characters_request_free_user?: number | undefined;
+  max_characters_request_subscribed_user?: number | undefined;
+  maximum_text_length_per_request?: number | undefined;
+  languages?: ({  language_id: string;
+  name: string;})[] | undefined;
+  model_rates?: {  character_cost_multiplier?: number | undefined;
+  cost_discount_multiplier?: number | undefined;};
+  concurrency_group?: string | undefined;})[];
+};
+
+export interface ActionInput_elevenlabs_listpronunciationdictionaries {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_elevenlabs_listpronunciationdictionaries {
+  pronunciation_dictionaries: ({  id: string;
+  latest_version_id: string;
+  latest_version_rules_num: number;
+  name: string;
+  permission_on_resource: string;
+  created_by: string;
+  creation_time_unix: number;
+  archived_time_unix?: number | undefined;
+  description?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_elevenlabs_listvoices {
+};
+
+export interface ActionOutput_elevenlabs_listvoices {
+  voices: ({  /**
+   * The ID of the voice. Example: "21m00Tcm4TlvDq8ikWAM"
+   */
+  voice_id: string;
+  /**
+   * The name of the voice. Example: "Rachel"
+   */
+  name: string;
+  /**
+   * The category of the voice. Example: "premade"
+   */
+  category?: string | undefined;
+  /**
+   * The description of the voice.
+   */
+  description?: string | undefined;
+  /**
+   * The preview URL of the voice.
+   */
+  preview_url?: string | undefined;
+  /**
+   * The tiers the voice is available for.
+   */
+  available_for_tiers?: string[] | undefined;
+  /**
+   * Labels associated with the voice.
+   */
+  labels?: {  [key: string]: string;} | undefined;
+  /**
+   * Whether the voice is owned by the user.
+   */
+  is_owner?: boolean | undefined;
+  /**
+   * Whether the voice is legacy.
+   */
+  is_legacy?: boolean | undefined;
+  /**
+   * Whether the voice is mixed.
+   */
+  is_mixed?: boolean | undefined;
+  /**
+   * The creation time of the voice in Unix time.
+   */
+  created_at_unix?: number | undefined;
+  /**
+   * The base model IDs for high-quality voices.
+   */
+  high_quality_base_model_ids?: string[] | undefined;
+  /**
+   * The verified languages of the voice.
+   */
+  verified_languages?: ({  language: string;
+  model_id: string;
+  accent?: string | undefined;
+  locale?: string | undefined;
+  preview_url?: string | undefined;})[];})[];
+};
+
+export interface ActionInput_elevenlabs_removepronunciationdictionaryrules {
+  /**
+   * The ID of the pronunciation dictionary. Example: "pronunciation_dictionary_id"
+   */
+  pronunciation_dictionary_id: string;
+  /**
+   * List of strings to remove from the pronunciation dictionary. Example: ["tomato", "Tomato"]
+   */
+  rule_strings: string[];
+};
+
+export interface ActionOutput_elevenlabs_removepronunciationdictionaryrules {
+  id: string;
+  version_id: string;
+  version_rules_num: number;
+};
+
+export interface ActionInput_elevenlabs_updateagent {
+  /**
+   * The ID of the agent to update. Example: "agent_8301kvx0de7afd18wvh6xcq9nwqc"
+   */
+  agent_id: string;
+  /**
+   * A name to make the agent easier to find
+   */
+  name?: string | undefined;
+  /**
+   * Tags to help classify and filter the agent
+   */
+  tags?: string[] | undefined;
+  /**
+   * Conversation configuration for an agent
+   */
+  conversation_config?: {  [key: string]: unknown | undefined;};
+  /**
+   * Platform settings for the agent
+   */
+  platform_settings?: {  [key: string]: unknown | undefined;};
+  /**
+   * Workflow for the agent
+   */
+  workflow?: {  [key: string]: unknown | undefined;};
+  /**
+   * Description for this version when publishing changes
+   */
+  version_description?: string | undefined;
+};
+
+export interface ActionOutput_elevenlabs_updateagent {
+  agent_id: string;
+  name?: string | undefined;
+  conversation_config?: {  [key: string]: unknown | undefined;};
+  metadata?: {  created_at_unix_secs?: number | undefined;
+  updated_at_unix_secs?: number | undefined;};
+  platform_settings?: {  [key: string]: unknown | undefined;};
+  phone_numbers?: ({  [key: string]: unknown | undefined;})[];
+  whatsapp_accounts?: ({  [key: string]: unknown | undefined;})[];
+  workflow?: {  [key: string]: unknown | undefined;};
+  access_info?: {  [key: string]: unknown | undefined;};
+  tags?: string[] | undefined;
+  version_id?: string | undefined;
+  branch_id?: string | undefined;
+  main_branch_id?: string | undefined;
 };
 
 export interface EvaluAgentGroup {
@@ -119701,22 +120703,6 @@ export interface ActionOutput_zoho_crm_upsertrecords {
    * Total number of records processed
    */
   totalCount: number;
-};
-
-export interface Agent {
-  id: string;
-  firstName?: string | undefined;
-  lastName?: string | undefined;
-  emailId?: string | undefined;
-  roleId?: string | undefined;
-  profileId?: string | undefined;
-  status?: string | undefined;
-  isActive?: boolean | undefined;
-  isConfirmed?: boolean | undefined;
-  photoURL?: string | undefined;
-  zuid?: string | undefined;
-  createdTime?: string | undefined;
-  modifiedTime?: string | undefined;
 };
 
 export interface ActionInput_zoho_desk_createcontact {

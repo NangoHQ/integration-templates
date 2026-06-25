@@ -1184,6 +1184,42 @@ import './dropbox/actions/unshare-folder.js';
 import './dropbox/actions/upload-file.js';
 import './dropbox/actions/upload-large-file.js';
 
+// -- Integration: elevenlabs
+import './elevenlabs/syncs/agents.js';
+import './elevenlabs/syncs/history.js';
+import './elevenlabs/syncs/models.js';
+import './elevenlabs/syncs/pronunciation-dictionaries.js';
+import './elevenlabs/syncs/voices.js';
+import './elevenlabs/actions/add-pronunciation-dictionary-rules.js';
+import './elevenlabs/actions/create-agent.js';
+import './elevenlabs/actions/delete-agent.js';
+import './elevenlabs/actions/delete-conversation.js';
+import './elevenlabs/actions/delete-dubbing-project.js';
+import './elevenlabs/actions/delete-history-item.js';
+import './elevenlabs/actions/delete-knowledge-base-document.js';
+import './elevenlabs/actions/edit-voice-settings.js';
+import './elevenlabs/actions/get-agent.js';
+import './elevenlabs/actions/get-conversation.js';
+import './elevenlabs/actions/get-default-voice-settings.js';
+import './elevenlabs/actions/get-dubbing-project.js';
+import './elevenlabs/actions/get-history-item.js';
+import './elevenlabs/actions/get-knowledge-base-document.js';
+import './elevenlabs/actions/get-pronunciation-dictionary.js';
+import './elevenlabs/actions/get-user-subscription.js';
+import './elevenlabs/actions/get-user.js';
+import './elevenlabs/actions/get-voice-settings.js';
+import './elevenlabs/actions/get-voice.js';
+import './elevenlabs/actions/list-agents.js';
+import './elevenlabs/actions/list-conversations.js';
+import './elevenlabs/actions/list-dubbing-projects.js';
+import './elevenlabs/actions/list-history.js';
+import './elevenlabs/actions/list-knowledge-base.js';
+import './elevenlabs/actions/list-models.js';
+import './elevenlabs/actions/list-pronunciation-dictionaries.js';
+import './elevenlabs/actions/list-voices.js';
+import './elevenlabs/actions/remove-pronunciation-dictionary-rules.js';
+import './elevenlabs/actions/update-agent.js';
+
 // -- Integration: evaluagent
 import './evaluagent/syncs/groups.js';
 import './evaluagent/syncs/roles.js';

@@ -1,0 +1,2181 @@
+{
+  "nango": {
+    "batchSave": {
+      "Model": [
+        {
+          "id": "eleven_v3",
+          "name": "Eleven v3",
+          "can_be_finetuned": false,
+          "can_do_text_to_speech": true,
+          "can_do_voice_conversion": false,
+          "can_use_style": false,
+          "can_use_speaker_boost": false,
+          "serves_pro_voices": false,
+          "token_cost_factor": 1,
+          "description": "The most expressive model. Supports 70+ languages. Requires more prompt engineering than our previous models.",
+          "requires_alpha_access": false,
+          "max_characters_request_free_user": 5000,
+          "max_characters_request_subscribed_user": 5000,
+          "maximum_text_length_per_request": 5000,
+          "languages": [
+            {
+              "language_id": "af",
+              "name": "Afrikaans"
+            },
+            {
+              "language_id": "ar",
+              "name": "Arabic"
+            },
+            {
+              "language_id": "hy",
+              "name": "Armenian"
+            },
+            {
+              "language_id": "as",
+              "name": "Assamese"
+            },
+            {
+              "language_id": "az",
+              "name": "Azerbaijani"
+            },
+            {
+              "language_id": "be",
+              "name": "Belarusian"
+            },
+            {
+              "language_id": "bn",
+              "name": "Bengali"
+            },
+            {
+              "language_id": "bs",
+              "name": "Bosnian"
+            },
+            {
+              "language_id": "bg",
+              "name": "Bulgarian"
+            },
+            {
+              "language_id": "ca",
+              "name": "Catalan"
+            },
+            {
+              "language_id": "ceb",
+              "name": "Cebuano"
+            },
+            {
+              "language_id": "ny",
+              "name": "Chichewa"
+            },
+            {
+              "language_id": "hr",
+              "name": "Croatian"
+            },
+            {
+              "language_id": "cs",
+              "name": "Czech"
+            },
+            {
+              "language_id": "da",
+              "name": "Danish"
+            },
+            {
+              "language_id": "nl",
+              "name": "Dutch"
+            },
+            {
+              "language_id": "en",
+              "name": "English"
+            },
+            {
+              "language_id": "et",
+              "name": "Estonian"
+            },
+            {
+              "language_id": "fil",
+              "name": "Filipino"
+            },
+            {
+              "language_id": "fi",
+              "name": "Finnish"
+            },
+            {
+              "language_id": "fr",
+              "name": "French"
+            },
+            {
+              "language_id": "gl",
+              "name": "Galician"
+            },
+            {
+              "language_id": "ka",
+              "name": "Georgian"
+            },
+            {
+              "language_id": "de",
+              "name": "German"
+            },
+            {
+              "language_id": "el",
+              "name": "Greek"
+            },
+            {
+              "language_id": "gu",
+              "name": "Gujarati"
+            },
+            {
+              "language_id": "ha",
+              "name": "Hausa"
+            },
+            {
+              "language_id": "he",
+              "name": "Hebrew"
+            },
+            {
+              "language_id": "hi",
+              "name": "Hindi"
+            },
+            {
+              "language_id": "hu",
+              "name": "Hungarian"
+            },
+            {
+              "language_id": "is",
+              "name": "Icelandic"
+            },
+            {
+              "language_id": "id",
+              "name": "Indonesian"
+            },
+            {
+              "language_id": "ga",
+              "name": "Irish"
+            },
+            {
+              "language_id": "it",
+              "name": "Italian"
+            },
+            {
+              "language_id": "ja",
+              "name": "Japanese"
+            },
+            {
+              "language_id": "jv",
+              "name": "Javanese"
+            },
+            {
+              "language_id": "kn",
+              "name": "Kannada"
+            },
+            {
+              "language_id": "kk",
+              "name": "Kazakh"
+            },
+            {
+              "language_id": "ky",
+              "name": "Kirghiz"
+            },
+            {
+              "language_id": "ko",
+              "name": "Korean"
+            },
+            {
+              "language_id": "lv",
+              "name": "Latvian"
+            },
+            {
+              "language_id": "ln",
+              "name": "Lingala"
+            },
+            {
+              "language_id": "lt",
+              "name": "Lithuanian"
+            },
+            {
+              "language_id": "lb",
+              "name": "Luxembourgish"
+            },
+            {
+              "language_id": "mk",
+              "name": "Macedonian"
+            },
+            {
+              "language_id": "ms",
+              "name": "Malay"
+            },
+            {
+              "language_id": "ml",
+              "name": "Malayalam"
+            },
+            {
+              "language_id": "zh",
+              "name": "Mandarin Chinese"
+            },
+            {
+              "language_id": "mr",
+              "name": "Marathi"
+            },
+            {
+              "language_id": "ne",
+              "name": "Nepali"
+            },
+            {
+              "language_id": "no",
+              "name": "Norwegian"
+            },
+            {
+              "language_id": "ps",
+              "name": "Pashto"
+            },
+            {
+              "language_id": "fa",
+              "name": "Persian"
+            },
+            {
+              "language_id": "pl",
+              "name": "Polish"
+            },
+            {
+              "language_id": "pt",
+              "name": "Portuguese"
+            },
+            {
+              "language_id": "pa",
+              "name": "Punjabi"
+            },
+            {
+              "language_id": "ro",
+              "name": "Romanian"
+            },
+            {
+              "language_id": "ru",
+              "name": "Russian"
+            },
+            {
+              "language_id": "sr",
+              "name": "Serbian"
+            },
+            {
+              "language_id": "sd",
+              "name": "Sindhi"
+            },
+            {
+              "language_id": "sk",
+              "name": "Slovak"
+            },
+            {
+              "language_id": "sl",
+              "name": "Slovenian"
+            },
+            {
+              "language_id": "so",
+              "name": "Somali"
+            },
+            {
+              "language_id": "es",
+              "name": "Spanish"
+            },
+            {
+              "language_id": "sw",
+              "name": "Swahili"
+            },
+            {
+              "language_id": "sv",
+              "name": "Swedish"
+            },
+            {
+              "language_id": "ta",
+              "name": "Tamil"
+            },
+            {
+              "language_id": "te",
+              "name": "Telugu"
+            },
+            {
+              "language_id": "th",
+              "name": "Thai"
+            },
+            {
+              "language_id": "tr",
+              "name": "Turkish"
+            },
+            {
+              "language_id": "uk",
+              "name": "Ukrainian"
+            },
+            {
+              "language_id": "ur",
+              "name": "Urdu"
+            },
+            {
+              "language_id": "vi",
+              "name": "Vietnamese"
+            },
+            {
+              "language_id": "cy",
+              "name": "Welsh"
+            }
+          ],
+          "model_rates": {
+            "character_cost_multiplier": 1,
+            "cost_discount_multiplier": 1
+          },
+          "concurrency_group": "standard"
+        },
+        {
+          "id": "eleven_multilingual_v2",
+          "name": "Eleven Multilingual v2",
+          "can_be_finetuned": true,
+          "can_do_text_to_speech": true,
+          "can_do_voice_conversion": false,
+          "can_use_style": true,
+          "can_use_speaker_boost": true,
+          "serves_pro_voices": false,
+          "token_cost_factor": 1,
+          "description": "Our most life-like, emotionally rich mode in 29 languages. Best for voice overs, audiobooks, post-production, or any other content creation needs.",
+          "requires_alpha_access": false,
+          "max_characters_request_free_user": 10000,
+          "max_characters_request_subscribed_user": 10000,
+          "maximum_text_length_per_request": 10000,
+          "languages": [
+            {
+              "language_id": "en",
+              "name": "English"
+            },
+            {
+              "language_id": "ja",
+              "name": "Japanese"
+            },
+            {
+              "language_id": "zh",
+              "name": "Chinese"
+            },
+            {
+              "language_id": "de",
+              "name": "German"
+            },
+            {
+              "language_id": "hi",
+              "name": "Hindi"
+            },
+            {
+              "language_id": "fr",
+              "name": "French"
+            },
+            {
+              "language_id": "ko",
+              "name": "Korean"
+            },
+            {
+              "language_id": "pt",
+              "name": "Portuguese"
+            },
+            {
+              "language_id": "it",
+              "name": "Italian"
+            },
+            {
+              "language_id": "es",
+              "name": "Spanish"
+            },
+            {
+              "language_id": "id",
+              "name": "Indonesian"
+            },
+            {
+              "language_id": "nl",
+              "name": "Dutch"
+            },
+            {
+              "language_id": "tr",
+              "name": "Turkish"
+            },
+            {
+              "language_id": "fil",
+              "name": "Filipino"
+            },
+            {
+              "language_id": "pl",
+              "name": "Polish"
+            },
+            {
+              "language_id": "sv",
+              "name": "Swedish"
+            },
+            {
+              "language_id": "bg",
+              "name": "Bulgarian"
+            },
+            {
+              "language_id": "ro",
+              "name": "Romanian"
+            },
+            {
+              "language_id": "ar",
+              "name": "Arabic"
+            },
+            {
+              "language_id": "cs",
+              "name": "Czech"
+            },
+            {
+              "language_id": "el",
+              "name": "Greek"
+            },
+            {
+              "language_id": "fi",
+              "name": "Finnish"
+            },
+            {
+              "language_id": "hr",
+              "name": "Croatian"
+            },
+            {
+              "language_id": "ms",
+              "name": "Malay"
+            },
+            {
+              "language_id": "sk",
+              "name": "Slovak"
+            },
+            {
+              "language_id": "da",
+              "name": "Danish"
+            },
+            {
+              "language_id": "ta",
+              "name": "Tamil"
+            },
+            {
+              "language_id": "uk",
+              "name": "Ukrainian"
+            },
+            {
+              "language_id": "ru",
+              "name": "Russian"
+            }
+          ],
+          "model_rates": {
+            "character_cost_multiplier": 1,
+            "cost_discount_multiplier": 1
+          },
+          "concurrency_group": "standard"
+        },
+        {
+          "id": "eleven_flash_v2_5",
+          "name": "Eleven Flash v2.5",
+          "can_be_finetuned": true,
+          "can_do_text_to_speech": true,
+          "can_do_voice_conversion": false,
+          "can_use_style": false,
+          "can_use_speaker_boost": false,
+          "serves_pro_voices": false,
+          "token_cost_factor": 1,
+          "description": "Our ultra low latency model in 32 languages. Ideal for conversational use cases.",
+          "requires_alpha_access": false,
+          "max_characters_request_free_user": 40000,
+          "max_characters_request_subscribed_user": 40000,
+          "maximum_text_length_per_request": 40000,
+          "languages": [
+            {
+              "language_id": "en",
+              "name": "English"
+            },
+            {
+              "language_id": "ja",
+              "name": "Japanese"
+            },
+            {
+              "language_id": "zh",
+              "name": "Chinese"
+            },
+            {
+              "language_id": "de",
+              "name": "German"
+            },
+            {
+              "language_id": "hi",
+              "name": "Hindi"
+            },
+            {
+              "language_id": "fr",
+              "name": "French"
+            },
+            {
+              "language_id": "ko",
+              "name": "Korean"
+            },
+            {
+              "language_id": "pt",
+              "name": "Portuguese"
+            },
+            {
+              "language_id": "it",
+              "name": "Italian"
+            },
+            {
+              "language_id": "es",
+              "name": "Spanish"
+            },
+            {
+              "language_id": "ru",
+              "name": "Russian"
+            },
+            {
+              "language_id": "id",
+              "name": "Indonesian"
+            },
+            {
+              "language_id": "nl",
+              "name": "Dutch"
+            },
+            {
+              "language_id": "tr",
+              "name": "Turkish"
+            },
+            {
+              "language_id": "fil",
+              "name": "Filipino"
+            },
+            {
+              "language_id": "pl",
+              "name": "Polish"
+            },
+            {
+              "language_id": "sv",
+              "name": "Swedish"
+            },
+            {
+              "language_id": "bg",
+              "name": "Bulgarian"
+            },
+            {
+              "language_id": "ro",
+              "name": "Romanian"
+            },
+            {
+              "language_id": "ar",
+              "name": "Arabic"
+            },
+            {
+              "language_id": "cs",
+              "name": "Czech"
+            },
+            {
+              "language_id": "el",
+              "name": "Greek"
+            },
+            {
+              "language_id": "fi",
+              "name": "Finnish"
+            },
+            {
+              "language_id": "hr",
+              "name": "Croatian"
+            },
+            {
+              "language_id": "ms",
+              "name": "Malay"
+            },
+            {
+              "language_id": "sk",
+              "name": "Slovak"
+            },
+            {
+              "language_id": "da",
+              "name": "Danish"
+            },
+            {
+              "language_id": "ta",
+              "name": "Tamil"
+            },
+            {
+              "language_id": "uk",
+              "name": "Ukrainian"
+            },
+            {
+              "language_id": "hu",
+              "name": "Hungarian"
+            },
+            {
+              "language_id": "no",
+              "name": "Norwegian"
+            },
+            {
+              "language_id": "vi",
+              "name": "Vietnamese"
+            }
+          ],
+          "model_rates": {
+            "character_cost_multiplier": 0.5,
+            "cost_discount_multiplier": 1
+          },
+          "concurrency_group": "turbo"
+        },
+        {
+          "id": "eleven_turbo_v2_5",
+          "name": "Eleven Turbo v2.5",
+          "can_be_finetuned": true,
+          "can_do_text_to_speech": true,
+          "can_do_voice_conversion": false,
+          "can_use_style": false,
+          "can_use_speaker_boost": false,
+          "serves_pro_voices": false,
+          "token_cost_factor": 1,
+          "description": "Our high quality, low latency model in 32 languages. Best for developer use cases where speed matters and you need non-English languages.",
+          "requires_alpha_access": false,
+          "max_characters_request_free_user": 40000,
+          "max_characters_request_subscribed_user": 40000,
+          "maximum_text_length_per_request": 40000,
+          "languages": [
+            {
+              "language_id": "en",
+              "name": "English"
+            },
+            {
+              "language_id": "ja",
+              "name": "Japanese"
+            },
+            {
+              "language_id": "zh",
+              "name": "Chinese"
+            },
+            {
+              "language_id": "de",
+              "name": "German"
+            },
+            {
+              "language_id": "hi",
+              "name": "Hindi"
+            },
+            {
+              "language_id": "fr",
+              "name": "French"
+            },
+            {
+              "language_id": "ko",
+              "name": "Korean"
+            },
+            {
+              "language_id": "pt",
+              "name": "Portuguese"
+            },
+            {
+              "language_id": "it",
+              "name": "Italian"
+            },
+            {
+              "language_id": "es",
+              "name": "Spanish"
+            },
+            {
+              "language_id": "ru",
+              "name": "Russian"
+            },
+            {
+              "language_id": "id",
+              "name": "Indonesian"
+            },
+            {
+              "language_id": "nl",
+              "name": "Dutch"
+            },
+            {
+              "language_id": "tr",
+              "name": "Turkish"
+            },
+            {
+              "language_id": "fil",
+              "name": "Filipino"
+            },
+            {
+              "language_id": "pl",
+              "name": "Polish"
+            },
+            {
+              "language_id": "sv",
+              "name": "Swedish"
+            },
+            {
+              "language_id": "bg",
+              "name": "Bulgarian"
+            },
+            {
+              "language_id": "ro",
+              "name": "Romanian"
+            },
+            {
+              "language_id": "ar",
+              "name": "Arabic"
+            },
+            {
+              "language_id": "cs",
+              "name": "Czech"
+            },
+            {
+              "language_id": "el",
+              "name": "Greek"
+            },
+            {
+              "language_id": "fi",
+              "name": "Finnish"
+            },
+            {
+              "language_id": "hr",
+              "name": "Croatian"
+            },
+            {
+              "language_id": "ms",
+              "name": "Malay"
+            },
+            {
+              "language_id": "sk",
+              "name": "Slovak"
+            },
+            {
+              "language_id": "da",
+              "name": "Danish"
+            },
+            {
+              "language_id": "ta",
+              "name": "Tamil"
+            },
+            {
+              "language_id": "uk",
+              "name": "Ukrainian"
+            },
+            {
+              "language_id": "vi",
+              "name": "Vietnamese"
+            },
+            {
+              "language_id": "no",
+              "name": "Norwegian"
+            },
+            {
+              "language_id": "hu",
+              "name": "Hungarian"
+            }
+          ],
+          "model_rates": {
+            "character_cost_multiplier": 0.5,
+            "cost_discount_multiplier": 1
+          },
+          "concurrency_group": "turbo"
+        },
+        {
+          "id": "eleven_turbo_v2",
+          "name": "Eleven Turbo v2",
+          "can_be_finetuned": true,
+          "can_do_text_to_speech": true,
+          "can_do_voice_conversion": false,
+          "can_use_style": false,
+          "can_use_speaker_boost": false,
+          "serves_pro_voices": false,
+          "token_cost_factor": 1,
+          "description": "Our English-only, low latency model. Best for developer use cases where speed matters and you only need English. Performance is on par with Turbo v2.5.",
+          "requires_alpha_access": false,
+          "max_characters_request_free_user": 30000,
+          "max_characters_request_subscribed_user": 30000,
+          "maximum_text_length_per_request": 30000,
+          "languages": [
+            {
+              "language_id": "en",
+              "name": "English"
+            }
+          ],
+          "model_rates": {
+            "character_cost_multiplier": 0.5,
+            "cost_discount_multiplier": 1
+          },
+          "concurrency_group": "turbo"
+        },
+        {
+          "id": "eleven_flash_v2",
+          "name": "Eleven Flash v2",
+          "can_be_finetuned": true,
+          "can_do_text_to_speech": true,
+          "can_do_voice_conversion": false,
+          "can_use_style": false,
+          "can_use_speaker_boost": false,
+          "serves_pro_voices": false,
+          "token_cost_factor": 1,
+          "description": "Our ultra low latency model in english. Ideal for conversational use cases.",
+          "requires_alpha_access": false,
+          "max_characters_request_free_user": 30000,
+          "max_characters_request_subscribed_user": 30000,
+          "maximum_text_length_per_request": 30000,
+          "languages": [
+            {
+              "language_id": "en",
+              "name": "English"
+            }
+          ],
+          "model_rates": {
+            "character_cost_multiplier": 0.5,
+            "cost_discount_multiplier": 1
+          },
+          "concurrency_group": "turbo"
+        },
+        {
+          "id": "eleven_english_sts_v2",
+          "name": "Eleven English v2",
+          "can_be_finetuned": false,
+          "can_do_text_to_speech": false,
+          "can_do_voice_conversion": true,
+          "can_use_style": true,
+          "can_use_speaker_boost": true,
+          "serves_pro_voices": false,
+          "token_cost_factor": 1,
+          "description": "Our state-of-the-art speech to speech model suitable for scenarios where you need maximum control over the content and prosody of your generations.",
+          "requires_alpha_access": false,
+          "max_characters_request_free_user": 5000,
+          "max_characters_request_subscribed_user": 5000,
+          "maximum_text_length_per_request": 5000,
+          "languages": [
+            {
+              "language_id": "en",
+              "name": "English"
+            }
+          ],
+          "model_rates": {
+            "character_cost_multiplier": 1,
+            "cost_discount_multiplier": 1
+          },
+          "concurrency_group": "standard_eleven_english_sts_v2"
+        },
+        {
+          "id": "eleven_monolingual_v1",
+          "name": "Eleven English v1",
+          "can_be_finetuned": false,
+          "can_do_text_to_speech": true,
+          "can_do_voice_conversion": false,
+          "can_use_style": false,
+          "can_use_speaker_boost": false,
+          "serves_pro_voices": false,
+          "token_cost_factor": 1,
+          "description": "Our first ever text to speech model. Now outclassed by Multilingual v2 (for content creation) and Turbo v2.5 (for low latency use cases).",
+          "requires_alpha_access": false,
+          "max_characters_request_free_user": 10000,
+          "max_characters_request_subscribed_user": 10000,
+          "maximum_text_length_per_request": 10000,
+          "languages": [
+            {
+              "language_id": "en",
+              "name": "English"
+            }
+          ],
+          "model_rates": {
+            "character_cost_multiplier": 1,
+            "cost_discount_multiplier": 1
+          },
+          "concurrency_group": "standard"
+        },
+        {
+          "id": "eleven_multilingual_sts_v2",
+          "name": "Eleven Multilingual v2",
+          "can_be_finetuned": true,
+          "can_do_text_to_speech": false,
+          "can_do_voice_conversion": true,
+          "can_use_style": true,
+          "can_use_speaker_boost": true,
+          "serves_pro_voices": false,
+          "token_cost_factor": 1,
+          "description": "Our cutting-edge, multilingual speech-to-speech model is designed for situations that demand unparalleled control over both the content and the prosody of the generated speech across various languages.",
+          "requires_alpha_access": false,
+          "max_characters_request_free_user": 10000,
+          "max_characters_request_subscribed_user": 10000,
+          "maximum_text_length_per_request": 10000,
+          "languages": [
+            {
+              "language_id": "en",
+              "name": "English"
+            },
+            {
+              "language_id": "ja",
+              "name": "Japanese"
+            },
+            {
+              "language_id": "zh",
+              "name": "Chinese"
+            },
+            {
+              "language_id": "de",
+              "name": "German"
+            },
+            {
+              "language_id": "hi",
+              "name": "Hindi"
+            },
+            {
+              "language_id": "fr",
+              "name": "French"
+            },
+            {
+              "language_id": "ko",
+              "name": "Korean"
+            },
+            {
+              "language_id": "pt",
+              "name": "Portuguese"
+            },
+            {
+              "language_id": "it",
+              "name": "Italian"
+            },
+            {
+              "language_id": "es",
+              "name": "Spanish"
+            },
+            {
+              "language_id": "ru",
+              "name": "Russian"
+            },
+            {
+              "language_id": "id",
+              "name": "Indonesian"
+            },
+            {
+              "language_id": "nl",
+              "name": "Dutch"
+            },
+            {
+              "language_id": "tr",
+              "name": "Turkish"
+            },
+            {
+              "language_id": "fil",
+              "name": "Filipino"
+            },
+            {
+              "language_id": "pl",
+              "name": "Polish"
+            },
+            {
+              "language_id": "sv",
+              "name": "Swedish"
+            },
+            {
+              "language_id": "bg",
+              "name": "Bulgarian"
+            },
+            {
+              "language_id": "ro",
+              "name": "Romanian"
+            },
+            {
+              "language_id": "ar",
+              "name": "Arabic"
+            },
+            {
+              "language_id": "cs",
+              "name": "Czech"
+            },
+            {
+              "language_id": "el",
+              "name": "Greek"
+            },
+            {
+              "language_id": "fi",
+              "name": "Finnish"
+            },
+            {
+              "language_id": "hr",
+              "name": "Croatian"
+            },
+            {
+              "language_id": "ms",
+              "name": "Malay"
+            },
+            {
+              "language_id": "sk",
+              "name": "Slovak"
+            },
+            {
+              "language_id": "da",
+              "name": "Danish"
+            },
+            {
+              "language_id": "ta",
+              "name": "Tamil"
+            },
+            {
+              "language_id": "uk",
+              "name": "Ukrainian"
+            }
+          ],
+          "model_rates": {
+            "character_cost_multiplier": 1,
+            "cost_discount_multiplier": 1
+          },
+          "concurrency_group": "standard_eleven_multilingual_sts_v2"
+        },
+        {
+          "id": "eleven_multilingual_v1",
+          "name": "Eleven Multilingual v1",
+          "can_be_finetuned": false,
+          "can_do_text_to_speech": true,
+          "can_do_voice_conversion": false,
+          "can_use_style": false,
+          "can_use_speaker_boost": false,
+          "serves_pro_voices": false,
+          "token_cost_factor": 1,
+          "description": "Our first Multilingual model, capability of generating speech in 10 languages. Now outclassed by Multilingual v2 (for content creation) and Turbo v2.5 (for low latency use cases).",
+          "requires_alpha_access": false,
+          "max_characters_request_free_user": 10000,
+          "max_characters_request_subscribed_user": 10000,
+          "maximum_text_length_per_request": 10000,
+          "languages": [
+            {
+              "language_id": "en",
+              "name": "English"
+            },
+            {
+              "language_id": "de",
+              "name": "German"
+            },
+            {
+              "language_id": "pl",
+              "name": "Polish"
+            },
+            {
+              "language_id": "es",
+              "name": "Spanish"
+            },
+            {
+              "language_id": "it",
+              "name": "Italian"
+            },
+            {
+              "language_id": "fr",
+              "name": "French"
+            },
+            {
+              "language_id": "pt",
+              "name": "Portuguese"
+            },
+            {
+              "language_id": "hi",
+              "name": "Hindi"
+            },
+            {
+              "language_id": "ar",
+              "name": "Arabic"
+            }
+          ],
+          "model_rates": {
+            "character_cost_multiplier": 1,
+            "cost_discount_multiplier": 1
+          },
+          "concurrency_group": "standard"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Model": []
+    }
+  },
+  "api": {
+    "get": {
+      "/v1/models": {
+        "response": [
+          {
+            "model_id": "eleven_v3",
+            "name": "Eleven v3",
+            "can_be_finetuned": false,
+            "can_do_text_to_speech": true,
+            "can_do_voice_conversion": false,
+            "can_use_style": false,
+            "can_use_speaker_boost": false,
+            "serves_pro_voices": false,
+            "token_cost_factor": 1,
+            "description": "The most expressive model. Supports 70+ languages. Requires more prompt engineering than our previous models.",
+            "requires_alpha_access": false,
+            "max_characters_request_free_user": 5000,
+            "max_characters_request_subscribed_user": 5000,
+            "maximum_text_length_per_request": 5000,
+            "languages": [
+              {
+                "language_id": "af",
+                "name": "Afrikaans"
+              },
+              {
+                "language_id": "ar",
+                "name": "Arabic"
+              },
+              {
+                "language_id": "hy",
+                "name": "Armenian"
+              },
+              {
+                "language_id": "as",
+                "name": "Assamese"
+              },
+              {
+                "language_id": "az",
+                "name": "Azerbaijani"
+              },
+              {
+                "language_id": "be",
+                "name": "Belarusian"
+              },
+              {
+                "language_id": "bn",
+                "name": "Bengali"
+              },
+              {
+                "language_id": "bs",
+                "name": "Bosnian"
+              },
+              {
+                "language_id": "bg",
+                "name": "Bulgarian"
+              },
+              {
+                "language_id": "ca",
+                "name": "Catalan"
+              },
+              {
+                "language_id": "ceb",
+                "name": "Cebuano"
+              },
+              {
+                "language_id": "ny",
+                "name": "Chichewa"
+              },
+              {
+                "language_id": "hr",
+                "name": "Croatian"
+              },
+              {
+                "language_id": "cs",
+                "name": "Czech"
+              },
+              {
+                "language_id": "da",
+                "name": "Danish"
+              },
+              {
+                "language_id": "nl",
+                "name": "Dutch"
+              },
+              {
+                "language_id": "en",
+                "name": "English"
+              },
+              {
+                "language_id": "et",
+                "name": "Estonian"
+              },
+              {
+                "language_id": "fil",
+                "name": "Filipino"
+              },
+              {
+                "language_id": "fi",
+                "name": "Finnish"
+              },
+              {
+                "language_id": "fr",
+                "name": "French"
+              },
+              {
+                "language_id": "gl",
+                "name": "Galician"
+              },
+              {
+                "language_id": "ka",
+                "name": "Georgian"
+              },
+              {
+                "language_id": "de",
+                "name": "German"
+              },
+              {
+                "language_id": "el",
+                "name": "Greek"
+              },
+              {
+                "language_id": "gu",
+                "name": "Gujarati"
+              },
+              {
+                "language_id": "ha",
+                "name": "Hausa"
+              },
+              {
+                "language_id": "he",
+                "name": "Hebrew"
+              },
+              {
+                "language_id": "hi",
+                "name": "Hindi"
+              },
+              {
+                "language_id": "hu",
+                "name": "Hungarian"
+              },
+              {
+                "language_id": "is",
+                "name": "Icelandic"
+              },
+              {
+                "language_id": "id",
+                "name": "Indonesian"
+              },
+              {
+                "language_id": "ga",
+                "name": "Irish"
+              },
+              {
+                "language_id": "it",
+                "name": "Italian"
+              },
+              {
+                "language_id": "ja",
+                "name": "Japanese"
+              },
+              {
+                "language_id": "jv",
+                "name": "Javanese"
+              },
+              {
+                "language_id": "kn",
+                "name": "Kannada"
+              },
+              {
+                "language_id": "kk",
+                "name": "Kazakh"
+              },
+              {
+                "language_id": "ky",
+                "name": "Kirghiz"
+              },
+              {
+                "language_id": "ko",
+                "name": "Korean"
+              },
+              {
+                "language_id": "lv",
+                "name": "Latvian"
+              },
+              {
+                "language_id": "ln",
+                "name": "Lingala"
+              },
+              {
+                "language_id": "lt",
+                "name": "Lithuanian"
+              },
+              {
+                "language_id": "lb",
+                "name": "Luxembourgish"
+              },
+              {
+                "language_id": "mk",
+                "name": "Macedonian"
+              },
+              {
+                "language_id": "ms",
+                "name": "Malay"
+              },
+              {
+                "language_id": "ml",
+                "name": "Malayalam"
+              },
+              {
+                "language_id": "zh",
+                "name": "Mandarin Chinese"
+              },
+              {
+                "language_id": "mr",
+                "name": "Marathi"
+              },
+              {
+                "language_id": "ne",
+                "name": "Nepali"
+              },
+              {
+                "language_id": "no",
+                "name": "Norwegian"
+              },
+              {
+                "language_id": "ps",
+                "name": "Pashto"
+              },
+              {
+                "language_id": "fa",
+                "name": "Persian"
+              },
+              {
+                "language_id": "pl",
+                "name": "Polish"
+              },
+              {
+                "language_id": "pt",
+                "name": "Portuguese"
+              },
+              {
+                "language_id": "pa",
+                "name": "Punjabi"
+              },
+              {
+                "language_id": "ro",
+                "name": "Romanian"
+              },
+              {
+                "language_id": "ru",
+                "name": "Russian"
+              },
+              {
+                "language_id": "sr",
+                "name": "Serbian"
+              },
+              {
+                "language_id": "sd",
+                "name": "Sindhi"
+              },
+              {
+                "language_id": "sk",
+                "name": "Slovak"
+              },
+              {
+                "language_id": "sl",
+                "name": "Slovenian"
+              },
+              {
+                "language_id": "so",
+                "name": "Somali"
+              },
+              {
+                "language_id": "es",
+                "name": "Spanish"
+              },
+              {
+                "language_id": "sw",
+                "name": "Swahili"
+              },
+              {
+                "language_id": "sv",
+                "name": "Swedish"
+              },
+              {
+                "language_id": "ta",
+                "name": "Tamil"
+              },
+              {
+                "language_id": "te",
+                "name": "Telugu"
+              },
+              {
+                "language_id": "th",
+                "name": "Thai"
+              },
+              {
+                "language_id": "tr",
+                "name": "Turkish"
+              },
+              {
+                "language_id": "uk",
+                "name": "Ukrainian"
+              },
+              {
+                "language_id": "ur",
+                "name": "Urdu"
+              },
+              {
+                "language_id": "vi",
+                "name": "Vietnamese"
+              },
+              {
+                "language_id": "cy",
+                "name": "Welsh"
+              }
+            ],
+            "model_rates": {
+              "character_cost_multiplier": 1,
+              "cost_discount_multiplier": 1
+            },
+            "concurrency_group": "standard"
+          },
+          {
+            "model_id": "eleven_multilingual_v2",
+            "name": "Eleven Multilingual v2",
+            "can_be_finetuned": true,
+            "can_do_text_to_speech": true,
+            "can_do_voice_conversion": false,
+            "can_use_style": true,
+            "can_use_speaker_boost": true,
+            "serves_pro_voices": false,
+            "token_cost_factor": 1,
+            "description": "Our most life-like, emotionally rich mode in 29 languages. Best for voice overs, audiobooks, post-production, or any other content creation needs.",
+            "requires_alpha_access": false,
+            "max_characters_request_free_user": 10000,
+            "max_characters_request_subscribed_user": 10000,
+            "maximum_text_length_per_request": 10000,
+            "languages": [
+              {
+                "language_id": "en",
+                "name": "English"
+              },
+              {
+                "language_id": "ja",
+                "name": "Japanese"
+              },
+              {
+                "language_id": "zh",
+                "name": "Chinese"
+              },
+              {
+                "language_id": "de",
+                "name": "German"
+              },
+              {
+                "language_id": "hi",
+                "name": "Hindi"
+              },
+              {
+                "language_id": "fr",
+                "name": "French"
+              },
+              {
+                "language_id": "ko",
+                "name": "Korean"
+              },
+              {
+                "language_id": "pt",
+                "name": "Portuguese"
+              },
+              {
+                "language_id": "it",
+                "name": "Italian"
+              },
+              {
+                "language_id": "es",
+                "name": "Spanish"
+              },
+              {
+                "language_id": "id",
+                "name": "Indonesian"
+              },
+              {
+                "language_id": "nl",
+                "name": "Dutch"
+              },
+              {
+                "language_id": "tr",
+                "name": "Turkish"
+              },
+              {
+                "language_id": "fil",
+                "name": "Filipino"
+              },
+              {
+                "language_id": "pl",
+                "name": "Polish"
+              },
+              {
+                "language_id": "sv",
+                "name": "Swedish"
+              },
+              {
+                "language_id": "bg",
+                "name": "Bulgarian"
+              },
+              {
+                "language_id": "ro",
+                "name": "Romanian"
+              },
+              {
+                "language_id": "ar",
+                "name": "Arabic"
+              },
+              {
+                "language_id": "cs",
+                "name": "Czech"
+              },
+              {
+                "language_id": "el",
+                "name": "Greek"
+              },
+              {
+                "language_id": "fi",
+                "name": "Finnish"
+              },
+              {
+                "language_id": "hr",
+                "name": "Croatian"
+              },
+              {
+                "language_id": "ms",
+                "name": "Malay"
+              },
+              {
+                "language_id": "sk",
+                "name": "Slovak"
+              },
+              {
+                "language_id": "da",
+                "name": "Danish"
+              },
+              {
+                "language_id": "ta",
+                "name": "Tamil"
+              },
+              {
+                "language_id": "uk",
+                "name": "Ukrainian"
+              },
+              {
+                "language_id": "ru",
+                "name": "Russian"
+              }
+            ],
+            "model_rates": {
+              "character_cost_multiplier": 1,
+              "cost_discount_multiplier": 1
+            },
+            "concurrency_group": "standard"
+          },
+          {
+            "model_id": "eleven_flash_v2_5",
+            "name": "Eleven Flash v2.5",
+            "can_be_finetuned": true,
+            "can_do_text_to_speech": true,
+            "can_do_voice_conversion": false,
+            "can_use_style": false,
+            "can_use_speaker_boost": false,
+            "serves_pro_voices": false,
+            "token_cost_factor": 1,
+            "description": "Our ultra low latency model in 32 languages. Ideal for conversational use cases.",
+            "requires_alpha_access": false,
+            "max_characters_request_free_user": 40000,
+            "max_characters_request_subscribed_user": 40000,
+            "maximum_text_length_per_request": 40000,
+            "languages": [
+              {
+                "language_id": "en",
+                "name": "English"
+              },
+              {
+                "language_id": "ja",
+                "name": "Japanese"
+              },
+              {
+                "language_id": "zh",
+                "name": "Chinese"
+              },
+              {
+                "language_id": "de",
+                "name": "German"
+              },
+              {
+                "language_id": "hi",
+                "name": "Hindi"
+              },
+              {
+                "language_id": "fr",
+                "name": "French"
+              },
+              {
+                "language_id": "ko",
+                "name": "Korean"
+              },
+              {
+                "language_id": "pt",
+                "name": "Portuguese"
+              },
+              {
+                "language_id": "it",
+                "name": "Italian"
+              },
+              {
+                "language_id": "es",
+                "name": "Spanish"
+              },
+              {
+                "language_id": "ru",
+                "name": "Russian"
+              },
+              {
+                "language_id": "id",
+                "name": "Indonesian"
+              },
+              {
+                "language_id": "nl",
+                "name": "Dutch"
+              },
+              {
+                "language_id": "tr",
+                "name": "Turkish"
+              },
+              {
+                "language_id": "fil",
+                "name": "Filipino"
+              },
+              {
+                "language_id": "pl",
+                "name": "Polish"
+              },
+              {
+                "language_id": "sv",
+                "name": "Swedish"
+              },
+              {
+                "language_id": "bg",
+                "name": "Bulgarian"
+              },
+              {
+                "language_id": "ro",
+                "name": "Romanian"
+              },
+              {
+                "language_id": "ar",
+                "name": "Arabic"
+              },
+              {
+                "language_id": "cs",
+                "name": "Czech"
+              },
+              {
+                "language_id": "el",
+                "name": "Greek"
+              },
+              {
+                "language_id": "fi",
+                "name": "Finnish"
+              },
+              {
+                "language_id": "hr",
+                "name": "Croatian"
+              },
+              {
+                "language_id": "ms",
+                "name": "Malay"
+              },
+              {
+                "language_id": "sk",
+                "name": "Slovak"
+              },
+              {
+                "language_id": "da",
+                "name": "Danish"
+              },
+              {
+                "language_id": "ta",
+                "name": "Tamil"
+              },
+              {
+                "language_id": "uk",
+                "name": "Ukrainian"
+              },
+              {
+                "language_id": "hu",
+                "name": "Hungarian"
+              },
+              {
+                "language_id": "no",
+                "name": "Norwegian"
+              },
+              {
+                "language_id": "vi",
+                "name": "Vietnamese"
+              }
+            ],
+            "model_rates": {
+              "character_cost_multiplier": 0.5,
+              "cost_discount_multiplier": 1
+            },
+            "concurrency_group": "turbo"
+          },
+          {
+            "model_id": "eleven_turbo_v2_5",
+            "name": "Eleven Turbo v2.5",
+            "can_be_finetuned": true,
+            "can_do_text_to_speech": true,
+            "can_do_voice_conversion": false,
+            "can_use_style": false,
+            "can_use_speaker_boost": false,
+            "serves_pro_voices": false,
+            "token_cost_factor": 1,
+            "description": "Our high quality, low latency model in 32 languages. Best for developer use cases where speed matters and you need non-English languages.",
+            "requires_alpha_access": false,
+            "max_characters_request_free_user": 40000,
+            "max_characters_request_subscribed_user": 40000,
+            "maximum_text_length_per_request": 40000,
+            "languages": [
+              {
+                "language_id": "en",
+                "name": "English"
+              },
+              {
+                "language_id": "ja",
+                "name": "Japanese"
+              },
+              {
+                "language_id": "zh",
+                "name": "Chinese"
+              },
+              {
+                "language_id": "de",
+                "name": "German"
+              },
+              {
+                "language_id": "hi",
+                "name": "Hindi"
+              },
+              {
+                "language_id": "fr",
+                "name": "French"
+              },
+              {
+                "language_id": "ko",
+                "name": "Korean"
+              },
+              {
+                "language_id": "pt",
+                "name": "Portuguese"
+              },
+              {
+                "language_id": "it",
+                "name": "Italian"
+              },
+              {
+                "language_id": "es",
+                "name": "Spanish"
+              },
+              {
+                "language_id": "ru",
+                "name": "Russian"
+              },
+              {
+                "language_id": "id",
+                "name": "Indonesian"
+              },
+              {
+                "language_id": "nl",
+                "name": "Dutch"
+              },
+              {
+                "language_id": "tr",
+                "name": "Turkish"
+              },
+              {
+                "language_id": "fil",
+                "name": "Filipino"
+              },
+              {
+                "language_id": "pl",
+                "name": "Polish"
+              },
+              {
+                "language_id": "sv",
+                "name": "Swedish"
+              },
+              {
+                "language_id": "bg",
+                "name": "Bulgarian"
+              },
+              {
+                "language_id": "ro",
+                "name": "Romanian"
+              },
+              {
+                "language_id": "ar",
+                "name": "Arabic"
+              },
+              {
+                "language_id": "cs",
+                "name": "Czech"
+              },
+              {
+                "language_id": "el",
+                "name": "Greek"
+              },
+              {
+                "language_id": "fi",
+                "name": "Finnish"
+              },
+              {
+                "language_id": "hr",
+                "name": "Croatian"
+              },
+              {
+                "language_id": "ms",
+                "name": "Malay"
+              },
+              {
+                "language_id": "sk",
+                "name": "Slovak"
+              },
+              {
+                "language_id": "da",
+                "name": "Danish"
+              },
+              {
+                "language_id": "ta",
+                "name": "Tamil"
+              },
+              {
+                "language_id": "uk",
+                "name": "Ukrainian"
+              },
+              {
+                "language_id": "vi",
+                "name": "Vietnamese"
+              },
+              {
+                "language_id": "no",
+                "name": "Norwegian"
+              },
+              {
+                "language_id": "hu",
+                "name": "Hungarian"
+              }
+            ],
+            "model_rates": {
+              "character_cost_multiplier": 0.5,
+              "cost_discount_multiplier": 1
+            },
+            "concurrency_group": "turbo"
+          },
+          {
+            "model_id": "eleven_turbo_v2",
+            "name": "Eleven Turbo v2",
+            "can_be_finetuned": true,
+            "can_do_text_to_speech": true,
+            "can_do_voice_conversion": false,
+            "can_use_style": false,
+            "can_use_speaker_boost": false,
+            "serves_pro_voices": false,
+            "token_cost_factor": 1,
+            "description": "Our English-only, low latency model. Best for developer use cases where speed matters and you only need English. Performance is on par with Turbo v2.5.",
+            "requires_alpha_access": false,
+            "max_characters_request_free_user": 30000,
+            "max_characters_request_subscribed_user": 30000,
+            "maximum_text_length_per_request": 30000,
+            "languages": [
+              {
+                "language_id": "en",
+                "name": "English"
+              }
+            ],
+            "model_rates": {
+              "character_cost_multiplier": 0.5,
+              "cost_discount_multiplier": 1
+            },
+            "concurrency_group": "turbo"
+          },
+          {
+            "model_id": "eleven_flash_v2",
+            "name": "Eleven Flash v2",
+            "can_be_finetuned": true,
+            "can_do_text_to_speech": true,
+            "can_do_voice_conversion": false,
+            "can_use_style": false,
+            "can_use_speaker_boost": false,
+            "serves_pro_voices": false,
+            "token_cost_factor": 1,
+            "description": "Our ultra low latency model in english. Ideal for conversational use cases.",
+            "requires_alpha_access": false,
+            "max_characters_request_free_user": 30000,
+            "max_characters_request_subscribed_user": 30000,
+            "maximum_text_length_per_request": 30000,
+            "languages": [
+              {
+                "language_id": "en",
+                "name": "English"
+              }
+            ],
+            "model_rates": {
+              "character_cost_multiplier": 0.5,
+              "cost_discount_multiplier": 1
+            },
+            "concurrency_group": "turbo"
+          },
+          {
+            "model_id": "eleven_english_sts_v2",
+            "name": "Eleven English v2",
+            "can_be_finetuned": false,
+            "can_do_text_to_speech": false,
+            "can_do_voice_conversion": true,
+            "can_use_style": true,
+            "can_use_speaker_boost": true,
+            "serves_pro_voices": false,
+            "token_cost_factor": 1,
+            "description": "Our state-of-the-art speech to speech model suitable for scenarios where you need maximum control over the content and prosody of your generations.",
+            "requires_alpha_access": false,
+            "max_characters_request_free_user": 5000,
+            "max_characters_request_subscribed_user": 5000,
+            "maximum_text_length_per_request": 5000,
+            "languages": [
+              {
+                "language_id": "en",
+                "name": "English"
+              }
+            ],
+            "model_rates": {
+              "character_cost_multiplier": 1,
+              "cost_discount_multiplier": 1
+            },
+            "concurrency_group": "standard_eleven_english_sts_v2"
+          },
+          {
+            "model_id": "eleven_monolingual_v1",
+            "name": "Eleven English v1",
+            "can_be_finetuned": false,
+            "can_do_text_to_speech": true,
+            "can_do_voice_conversion": false,
+            "can_use_style": false,
+            "can_use_speaker_boost": false,
+            "serves_pro_voices": false,
+            "token_cost_factor": 1,
+            "description": "Our first ever text to speech model. Now outclassed by Multilingual v2 (for content creation) and Turbo v2.5 (for low latency use cases).",
+            "requires_alpha_access": false,
+            "max_characters_request_free_user": 10000,
+            "max_characters_request_subscribed_user": 10000,
+            "maximum_text_length_per_request": 10000,
+            "languages": [
+              {
+                "language_id": "en",
+                "name": "English"
+              }
+            ],
+            "model_rates": {
+              "character_cost_multiplier": 1,
+              "cost_discount_multiplier": 1
+            },
+            "concurrency_group": "standard"
+          },
+          {
+            "model_id": "eleven_multilingual_sts_v2",
+            "name": "Eleven Multilingual v2",
+            "can_be_finetuned": true,
+            "can_do_text_to_speech": false,
+            "can_do_voice_conversion": true,
+            "can_use_style": true,
+            "can_use_speaker_boost": true,
+            "serves_pro_voices": false,
+            "token_cost_factor": 1,
+            "description": "Our cutting-edge, multilingual speech-to-speech model is designed for situations that demand unparalleled control over both the content and the prosody of the generated speech across various languages.",
+            "requires_alpha_access": false,
+            "max_characters_request_free_user": 10000,
+            "max_characters_request_subscribed_user": 10000,
+            "maximum_text_length_per_request": 10000,
+            "languages": [
+              {
+                "language_id": "en",
+                "name": "English"
+              },
+              {
+                "language_id": "ja",
+                "name": "Japanese"
+              },
+              {
+                "language_id": "zh",
+                "name": "Chinese"
+              },
+              {
+                "language_id": "de",
+                "name": "German"
+              },
+              {
+                "language_id": "hi",
+                "name": "Hindi"
+              },
+              {
+                "language_id": "fr",
+                "name": "French"
+              },
+              {
+                "language_id": "ko",
+                "name": "Korean"
+              },
+              {
+                "language_id": "pt",
+                "name": "Portuguese"
+              },
+              {
+                "language_id": "it",
+                "name": "Italian"
+              },
+              {
+                "language_id": "es",
+                "name": "Spanish"
+              },
+              {
+                "language_id": "ru",
+                "name": "Russian"
+              },
+              {
+                "language_id": "id",
+                "name": "Indonesian"
+              },
+              {
+                "language_id": "nl",
+                "name": "Dutch"
+              },
+              {
+                "language_id": "tr",
+                "name": "Turkish"
+              },
+              {
+                "language_id": "fil",
+                "name": "Filipino"
+              },
+              {
+                "language_id": "pl",
+                "name": "Polish"
+              },
+              {
+                "language_id": "sv",
+                "name": "Swedish"
+              },
+              {
+                "language_id": "bg",
+                "name": "Bulgarian"
+              },
+              {
+                "language_id": "ro",
+                "name": "Romanian"
+              },
+              {
+                "language_id": "ar",
+                "name": "Arabic"
+              },
+              {
+                "language_id": "cs",
+                "name": "Czech"
+              },
+              {
+                "language_id": "el",
+                "name": "Greek"
+              },
+              {
+                "language_id": "fi",
+                "name": "Finnish"
+              },
+              {
+                "language_id": "hr",
+                "name": "Croatian"
+              },
+              {
+                "language_id": "ms",
+                "name": "Malay"
+              },
+              {
+                "language_id": "sk",
+                "name": "Slovak"
+              },
+              {
+                "language_id": "da",
+                "name": "Danish"
+              },
+              {
+                "language_id": "ta",
+                "name": "Tamil"
+              },
+              {
+                "language_id": "uk",
+                "name": "Ukrainian"
+              }
+            ],
+            "model_rates": {
+              "character_cost_multiplier": 1,
+              "cost_discount_multiplier": 1
+            },
+            "concurrency_group": "standard_eleven_multilingual_sts_v2"
+          },
+          {
+            "model_id": "eleven_multilingual_v1",
+            "name": "Eleven Multilingual v1",
+            "can_be_finetuned": false,
+            "can_do_text_to_speech": true,
+            "can_do_voice_conversion": false,
+            "can_use_style": false,
+            "can_use_speaker_boost": false,
+            "serves_pro_voices": false,
+            "token_cost_factor": 1,
+            "description": "Our first Multilingual model, capability of generating speech in 10 languages. Now outclassed by Multilingual v2 (for content creation) and Turbo v2.5 (for low latency use cases).",
+            "requires_alpha_access": false,
+            "max_characters_request_free_user": 10000,
+            "max_characters_request_subscribed_user": 10000,
+            "maximum_text_length_per_request": 10000,
+            "languages": [
+              {
+                "language_id": "en",
+                "name": "English"
+              },
+              {
+                "language_id": "de",
+                "name": "German"
+              },
+              {
+                "language_id": "pl",
+                "name": "Polish"
+              },
+              {
+                "language_id": "es",
+                "name": "Spanish"
+              },
+              {
+                "language_id": "it",
+                "name": "Italian"
+              },
+              {
+                "language_id": "fr",
+                "name": "French"
+              },
+              {
+                "language_id": "pt",
+                "name": "Portuguese"
+              },
+              {
+                "language_id": "hi",
+                "name": "Hindi"
+              },
+              {
+                "language_id": "ar",
+                "name": "Arabic"
+              }
+            ],
+            "model_rates": {
+              "character_cost_multiplier": 1,
+              "cost_discount_multiplier": 1
+            },
+            "concurrency_group": "standard"
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Wed, 24 Jun 2026 21:22:29 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=1800;",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4958",
+          "x-ratelimit-reset": "1782336195",
+          "server": "uvicorn",
+          "vary": "Accept-Language, Accept-Encoding",
+          "access-control-allow-headers": "*",
+          "access-control-allow-methods": "POST, PATCH, OPTIONS, DELETE, GET, PUT",
+          "access-control-max-age": "600",
+          "x-trace-id": "080efc6d3d72a2d892cb0c867250f925",
+          "x-region": "us-central1",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+        },
+        "hash": "84f0228c3ef3b3f1b93e5151150c16d9e6cb47f7",
+        "request": {}
+      }
+    }
+  }
+}
