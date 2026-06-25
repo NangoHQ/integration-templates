@@ -34851,11 +34851,11 @@ export interface ActionInput_elevenlabs_editvoicesettings {
    */
   similarity_boost?: number | undefined;
   /**
-   * Determines the style exaggeration of the voice. Defaults to 0
+   * Determines the style exaggeration of the voice. Must be between 0 and 1. Defaults to 0
    */
   style?: number | undefined;
   /**
-   * Adjusts the speed of the voice. Defaults to 1
+   * Adjusts the speed of the voice. Must be between 0.7 and 1.2. Defaults to 1
    */
   speed?: number | undefined;
 };
@@ -35087,8 +35087,8 @@ export interface ActionOutput_elevenlabs_getpronunciationdictionary {
   archived_time_unix?: number | undefined;
   description?: string | undefined;
   rules: ({  string_to_replace: string;
-  case_sensitive: boolean;
-  word_boundaries: boolean;
+  case_sensitive?: boolean | undefined;
+  word_boundaries?: boolean | undefined;
   type: string;
   alias?: string | undefined;
   phoneme?: string | undefined;
@@ -35256,13 +35256,13 @@ export interface ActionInput_elevenlabs_listagents {
    */
   show_only_owned_agents?: boolean | undefined;
   /**
-   * Sort direction. Allowed values: asc, desc.
+   * Sort direction.
    */
-  sort_direction?: string | undefined;
+  sort_direction?: 'asc' | 'desc' | undefined;
   /**
-   * Field to sort by. Allowed values: name, created_at, call_count_7d.
+   * Field to sort by.
    */
-  sort_by?: string | undefined;
+  sort_by?: 'name' | 'created_at' | 'call_count_7d' | undefined;
 };
 
 export interface ActionOutput_elevenlabs_listagents {
@@ -35373,7 +35373,7 @@ export interface ActionInput_elevenlabs_listhistory {
    */
   voice_id?: string | undefined;
   /**
-   * Search term used for filtering history items. If provided, source becomes required.
+   * Filter history items by model ID.
    */
   model_id?: string | undefined;
   /**
@@ -35456,11 +35456,17 @@ export interface ActionOutput_elevenlabs_listknowledgebase {
   access_source?: string | undefined;};
   folder_parent_id?: string | undefined;
   folder_path?: ({  id: string;})[] | undefined;
-  dependent_agents?: unknown[] | undefined;
+  dependent_agents?: ({  referenced_resource_ids?: string[] | undefined;
+  id: string;
+  name?: string | undefined;
+  type?: string | undefined;
+  created_at_unix_secs?: number | undefined;
+  access_level?: string | undefined;})[];
   url?: string | undefined;
   children_count?: number | undefined;
   is_frozen?: boolean | undefined;})[];
   next_cursor?: string | undefined;
+  has_more: boolean;
 };
 
 export interface ActionInput_elevenlabs_listmodels {
