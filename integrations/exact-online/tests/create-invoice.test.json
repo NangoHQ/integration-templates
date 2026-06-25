@@ -1,0 +1,429 @@
+{
+  "input": {
+    "ordered_by": "a58c29d9-ef92-40f1-b817-31b36990898c",
+    "invoice_date": "2024-08-12",
+    "sales_invoice_lines": [
+      {
+        "item": "918004e1-ab42-4b76-a196-fd57b44a3d4c",
+        "quantity": 1,
+        "net_price": 1
+      }
+    ]
+  },
+  "output": {
+    "id": "a07b5588-4d7d-4872-88f9-30b2d256440d",
+    "ordered_by": "a58c29d9-ef92-40f1-b817-31b36990898c",
+    "status": 20,
+    "invoice_date": "/Date(1723420800000)/",
+    "sales_invoice_lines": [
+      {
+        "id": "19d4c9b5-c888-4404-9b28-f454e97f74ce",
+        "item": "918004e1-ab42-4b76-a196-fd57b44a3d4c",
+        "gl_account": "93182378-d983-4d91-88ea-a5004ebdb4cc",
+        "quantity": 1,
+        "net_price": 1,
+        "description": "Marchandises"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/v1/current/Me": {
+        "response": {
+          "d": {
+            "results": [
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/current/Me(guid'cc20a11b-c137-48cc-8e55-09d4adbd4ac9')",
+                  "type": "Exact.Web.Api.Models.System.Me"
+                },
+                "CurrentDivision": 124132,
+                "DivisionCustomer": "83b186b4-483d-474a-bebc-85da71e6f1ed",
+                "DivisionCustomerCode": "           1265594",
+                "DivisionCustomerName": "Nango",
+                "DivisionCustomerVatNumber": null,
+                "DivisionCustomerSiretNumber": "",
+                "DossierDivision": null,
+                "AccountingDivision": 124132,
+                "IsEmployeeSelfServiceUser": false,
+                "IsMyFirmLiteUser": false,
+                "IsStarterUser": false,
+                "IsMyFirmPortalUser": false,
+                "IsClientUser": true,
+                "FullName": "Samuel Bodin",
+                "PictureUrl": "https://start.exactonline.fr//docs/images/placeholder_contact_myeol.png",
+                "ThumbnailPicture": null,
+                "ThumbnailPictureFormat": null,
+                "UserID": "cc20a11b-c137-48cc-8e55-09d4adbd4ac9",
+                "UserName": "samuel@nango.dev",
+                "LanguageCode": "en-GB",
+                "Legislation": "128",
+                "Email": "samuel@nango.dev",
+                "Title": "Mr.",
+                "Initials": null,
+                "FirstName": "Samuel",
+                "MiddleName": null,
+                "LastName": "Bodin",
+                "Gender": "O",
+                "Nationality": null,
+                "Language": "EN",
+                "Phone": "0606060606",
+                "PhoneExtension": null,
+                "Mobile": null,
+                "ServerTime": "2026-06-25T16:30:59",
+                "ServerUtcOffset": 7200,
+                "EmployeeID": "00000000-0000-0000-0000-000000000000",
+                "CustomerCode": "           1265594",
+                "PackageCode": "EOLAPPCENTER",
+                "IsOEIMigrationMandatory": true
+              }
+            ]
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 25 Jun 2026 14:30:59 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "1397",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4971",
+          "x-ratelimit-reset": "1782397868",
+          "etag": "W/\"575-SDIcRlpSghJvgdOmCTLuOc72BRQ\""
+        },
+        "hash": "3b1fbfe94d69bc315fcd1e7b93bc400e3eea536c",
+        "request": {}
+      },
+      "/api/v1/124132/salesinvoice/SalesInvoices(guid'a07b5588-4d7d-4872-88f9-30b2d256440d')": {
+        "response": {
+          "d": {
+            "__metadata": {
+              "uri": "https://start.exactonline.fr/api/v1/124132/salesinvoice/SalesInvoices(guid'a07b5588-4d7d-4872-88f9-30b2d256440d')",
+              "type": "Exact.Web.Api.Models.SalesInvoice"
+            },
+            "AmountFC": 1,
+            "AmountDiscount": 0,
+            "AmountDC": 1,
+            "AmountDiscountExclVat": 0,
+            "AmountFCExclVat": 1,
+            "Created": "/Date(1782405060220)/",
+            "Creator": "cc20a11b-c137-48cc-8e55-09d4adbd4ac9",
+            "CreatorFullName": "Samuel Bodin",
+            "Currency": "EUR",
+            "DeliverTo": "a58c29d9-ef92-40f1-b817-31b36990898c",
+            "DeliverToContactPerson": "1b5bfd55-a2dd-4ffe-87bd-e352800e56a7",
+            "DeliverToContactPersonFullName": "Updated Contact",
+            "DeliverToAddress": "1797e083-9f9e-4394-a044-060a91d420bd",
+            "DeliverToName": "Foobar2 Updated",
+            "Description": null,
+            "Discount": 0,
+            "DiscountType": 1,
+            "Division": 124132,
+            "Document": null,
+            "DocumentNumber": null,
+            "DocumentSubject": null,
+            "DueDate": "/Date(1723420800000)/",
+            "ExtraDutyAmountFC": null,
+            "GAccountAmountFC": null,
+            "IncotermAddress": null,
+            "IncotermCode": null,
+            "IncotermVersion": null,
+            "InvoiceDate": "/Date(1723420800000)/",
+            "InvoiceID": "a07b5588-4d7d-4872-88f9-30b2d256440d",
+            "InvoiceStatusInformation": null,
+            "InvoiceTo": "a58c29d9-ef92-40f1-b817-31b36990898c",
+            "InvoiceToContactPerson": "1b5bfd55-a2dd-4ffe-87bd-e352800e56a7",
+            "InvoiceToContactPersonFullName": "Updated Contact",
+            "InvoiceToName": "Foobar2 Updated",
+            "InvoiceNumber": null,
+            "IsExtraDuty": null,
+            "Journal": "70",
+            "JournalDescription": "Ventes",
+            "Modified": "/Date(1782405060240)/",
+            "Modifier": "cc20a11b-c137-48cc-8e55-09d4adbd4ac9",
+            "ModifierFullName": "Samuel Bodin",
+            "OrderDate": "/Date(1723420800000)/",
+            "OrderedBy": "a58c29d9-ef92-40f1-b817-31b36990898c",
+            "OrderedByContactPerson": "1b5bfd55-a2dd-4ffe-87bd-e352800e56a7",
+            "OrderedByContactPersonFullName": "Updated Contact",
+            "OrderedByName": "Foobar2 Updated",
+            "OrderNumber": 19,
+            "PaymentCondition": "00",
+            "PaymentConditionDescription": "Comptant",
+            "PaymentReference": null,
+            "Remarks": null,
+            "SalesChannel": null,
+            "SalesChannelCode": null,
+            "SalesChannelDescription": null,
+            "Salesperson": "cc20a11b-c137-48cc-8e55-09d4adbd4ac9",
+            "SalespersonFullName": "Samuel Bodin",
+            "SelectionCode": null,
+            "SelectionCodeCode": null,
+            "SelectionCodeDescription": null,
+            "ShippingMethod": null,
+            "ShippingMethodCode": null,
+            "ShippingMethodDescription": null,
+            "Status": 20,
+            "StatusDescription": "Open",
+            "TaxSchedule": null,
+            "TaxScheduleCode": null,
+            "TaxScheduleDescription": null,
+            "Type": 8023,
+            "TypeDescription": "Direct sales invoice",
+            "VATAmountFC": 0,
+            "VATAmountDC": 0,
+            "YourRef": null,
+            "SalesInvoiceLines": {
+              "results": [
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/salesinvoice/SalesInvoiceLines(guid'19d4c9b5-c888-4404-9b28-f454e97f74ce')",
+                    "type": "Exact.Web.Api.Models.SalesInvoiceLine"
+                  },
+                  "AmountDC": 1,
+                  "AmountFC": 1,
+                  "CostCenter": null,
+                  "CostCenterDescription": null,
+                  "CostUnit": null,
+                  "CostUnitDescription": null,
+                  "CustomerItemCode": null,
+                  "DeliveryDate": null,
+                  "Description": "Marchandises",
+                  "Discount": 0,
+                  "Division": 124132,
+                  "Employee": null,
+                  "EmployeeFullName": null,
+                  "EndTime": null,
+                  "ExtraDutyAmountFC": null,
+                  "ExtraDutyPercentage": null,
+                  "GLAccount": "93182378-d983-4d91-88ea-a5004ebdb4cc",
+                  "GLAccountDescription": "Ventes de produits finis",
+                  "ID": "19d4c9b5-c888-4404-9b28-f454e97f74ce",
+                  "InvoiceID": "a07b5588-4d7d-4872-88f9-30b2d256440d",
+                  "Item": "918004e1-ab42-4b76-a196-fd57b44a3d4c",
+                  "ItemDescription": "Marchandises",
+                  "ItemCode": "M",
+                  "LineNumber": 1,
+                  "NetPrice": 1,
+                  "Notes": null,
+                  "Pricelist": null,
+                  "PricelistDescription": null,
+                  "Project": null,
+                  "ProjectDescription": null,
+                  "ProjectWBS": null,
+                  "ProjectWBSDescription": null,
+                  "Quantity": 1,
+                  "SalesOrder": null,
+                  "SalesOrderLine": null,
+                  "SalesOrderLineNumber": null,
+                  "SalesOrderNumber": null,
+                  "StartTime": null,
+                  "Subscription": null,
+                  "SubscriptionDescription": null,
+                  "UnitCode": "pc",
+                  "UnitDescription": "Piece",
+                  "UnitPrice": 0,
+                  "TaxSchedule": null,
+                  "TaxScheduleCode": null,
+                  "TaxScheduleDescription": null,
+                  "VATAmountFC": 0,
+                  "VATAmountDC": 0,
+                  "VATCode": null,
+                  "VATCodeDescription": null,
+                  "VATPercentage": null,
+                  "CustomField": null
+                }
+              ]
+            },
+            "SalesInvoiceOrderChargeLines": {
+              "__deferred": {
+                "uri": "https://start.exactonline.fr/api/v1/124132/salesinvoice/SalesInvoices(guid'a07b5588-4d7d-4872-88f9-30b2d256440d')/SalesInvoiceOrderChargeLines"
+              }
+            },
+            "StarterSalesInvoiceStatus": 0,
+            "StarterSalesInvoiceStatusDescription": "Draft",
+            "WithholdingTaxAmountFC": null,
+            "WithholdingTaxBaseAmount": null,
+            "WithholdingTaxPercentage": null,
+            "Warehouse": "e4f7592d-dd76-4c75-b957-9fbeaf9dbe55"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 25 Jun 2026 14:31:00 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "4537",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4969",
+          "x-ratelimit-reset": "1782397868",
+          "etag": "W/\"11b9-xJYkDFFG/FO3JggDey0oPIyH5+8\""
+        },
+        "hash": "aa36e5963908cc9e8e95498637f397acb2026519",
+        "request": {
+          "params": {
+            "$expand": "SalesInvoiceLines"
+          }
+        }
+      }
+    },
+    "post": {
+      "/api/v1/124132/salesinvoice/SalesInvoices": {
+        "response": {
+          "d": {
+            "__metadata": {
+              "uri": "https://start.exactonline.fr/api/v1/124132/salesinvoice/SalesInvoices(guid'a07b5588-4d7d-4872-88f9-30b2d256440d')",
+              "type": "Exact.Web.Api.Models.SalesInvoice"
+            },
+            "AmountFC": 1,
+            "AmountDiscount": 0,
+            "AmountDC": 1,
+            "AmountDiscountExclVat": 0,
+            "AmountFCExclVat": 1,
+            "Created": "/Date(1782405060220)/",
+            "Creator": "cc20a11b-c137-48cc-8e55-09d4adbd4ac9",
+            "CreatorFullName": "Samuel Bodin",
+            "Currency": "EUR",
+            "DeliverTo": "a58c29d9-ef92-40f1-b817-31b36990898c",
+            "DeliverToContactPerson": "1b5bfd55-a2dd-4ffe-87bd-e352800e56a7",
+            "DeliverToContactPersonFullName": "Updated Contact",
+            "DeliverToAddress": "1797e083-9f9e-4394-a044-060a91d420bd",
+            "DeliverToName": "Foobar2 Updated",
+            "Description": null,
+            "Discount": 0,
+            "DiscountType": 1,
+            "Division": 124132,
+            "Document": null,
+            "DocumentNumber": null,
+            "DocumentSubject": null,
+            "DueDate": "/Date(1723420800000)/",
+            "ExtraDutyAmountFC": null,
+            "GAccountAmountFC": null,
+            "IncotermAddress": null,
+            "IncotermCode": null,
+            "IncotermVersion": null,
+            "InvoiceDate": "/Date(1723420800000)/",
+            "InvoiceID": "a07b5588-4d7d-4872-88f9-30b2d256440d",
+            "InvoiceStatusInformation": null,
+            "InvoiceTo": "a58c29d9-ef92-40f1-b817-31b36990898c",
+            "InvoiceToContactPerson": "1b5bfd55-a2dd-4ffe-87bd-e352800e56a7",
+            "InvoiceToContactPersonFullName": "Updated Contact",
+            "InvoiceToName": "Foobar2 Updated",
+            "InvoiceNumber": null,
+            "IsExtraDuty": null,
+            "Journal": "70",
+            "JournalDescription": "Ventes",
+            "Modified": "/Date(1782405060240)/",
+            "Modifier": "cc20a11b-c137-48cc-8e55-09d4adbd4ac9",
+            "ModifierFullName": "Samuel Bodin",
+            "OrderDate": "/Date(1723420800000)/",
+            "OrderedBy": "a58c29d9-ef92-40f1-b817-31b36990898c",
+            "OrderedByContactPerson": "1b5bfd55-a2dd-4ffe-87bd-e352800e56a7",
+            "OrderedByContactPersonFullName": "Updated Contact",
+            "OrderedByName": "Foobar2 Updated",
+            "OrderNumber": 19,
+            "PaymentCondition": "00",
+            "PaymentConditionDescription": "Comptant",
+            "PaymentReference": null,
+            "Remarks": null,
+            "SalesChannel": null,
+            "SalesChannelCode": null,
+            "SalesChannelDescription": null,
+            "Salesperson": "cc20a11b-c137-48cc-8e55-09d4adbd4ac9",
+            "SalespersonFullName": "Samuel Bodin",
+            "SelectionCode": null,
+            "SelectionCodeCode": null,
+            "SelectionCodeDescription": null,
+            "ShippingMethod": null,
+            "ShippingMethodCode": null,
+            "ShippingMethodDescription": null,
+            "Status": 20,
+            "StatusDescription": "Open",
+            "TaxSchedule": null,
+            "TaxScheduleCode": null,
+            "TaxScheduleDescription": null,
+            "Type": 8023,
+            "TypeDescription": "Direct sales invoice",
+            "VATAmountFC": null,
+            "VATAmountDC": null,
+            "YourRef": null,
+            "SalesInvoiceLines": {
+              "__deferred": {
+                "uri": "https://start.exactonline.fr/api/v1/124132/salesinvoice/SalesInvoices(guid'a07b5588-4d7d-4872-88f9-30b2d256440d')/SalesInvoiceLines"
+              }
+            },
+            "SalesInvoiceOrderChargeLines": {
+              "__deferred": {
+                "uri": "https://start.exactonline.fr/api/v1/124132/salesinvoice/SalesInvoices(guid'a07b5588-4d7d-4872-88f9-30b2d256440d')/SalesInvoiceOrderChargeLines"
+              }
+            },
+            "StarterSalesInvoiceStatus": null,
+            "StarterSalesInvoiceStatusDescription": null,
+            "WithholdingTaxAmountFC": null,
+            "WithholdingTaxBaseAmount": null,
+            "WithholdingTaxPercentage": null,
+            "Warehouse": "e4f7592d-dd76-4c75-b957-9fbeaf9dbe55"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 25 Jun 2026 14:31:00 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "3175",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4970",
+          "x-ratelimit-reset": "1782397868",
+          "etag": "W/\"c67-IXt1wUnaam8+I6xQzi6v0NMDG0k\""
+        },
+        "hash": "e1104e321809524e7345743e769eaa7a64b2a1c1",
+        "request": {
+          "data": {
+            "OrderedBy": "a58c29d9-ef92-40f1-b817-31b36990898c",
+            "Status": 20,
+            "Journal": "70",
+            "Type": 8023,
+            "Warehouse": "e4f7592d-dd76-4c75-b957-9fbeaf9dbe55",
+            "SalesInvoiceLines": [
+              {
+                "Quantity": 1,
+                "NetPrice": 1,
+                "Item": "918004e1-ab42-4b76-a196-fd57b44a3d4c"
+              }
+            ],
+            "InvoiceDate": "2024-08-12",
+            "OrderDate": "2024-08-12"
+          }
+        }
+      }
+    }
+  }
+}

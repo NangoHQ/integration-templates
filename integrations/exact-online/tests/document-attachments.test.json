@@ -1,0 +1,280 @@
+{
+  "nango": {
+    "batchSave": {
+      "DocumentAttachment": []
+    },
+    "batchDelete": {
+      "DocumentAttachment": []
+    }
+  },
+  "api": {
+    "get": {
+      "/api/v1/current/Me": {
+        "response": {
+          "d": {
+            "results": [
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/current/Me(guid'cc20a11b-c137-48cc-8e55-09d4adbd4ac9')",
+                  "type": "Exact.Web.Api.Models.System.Me"
+                },
+                "CurrentDivision": 124132,
+                "DivisionCustomer": "83b186b4-483d-474a-bebc-85da71e6f1ed",
+                "DivisionCustomerCode": "           1265594",
+                "DivisionCustomerName": "Nango",
+                "DivisionCustomerVatNumber": null,
+                "DivisionCustomerSiretNumber": "",
+                "DossierDivision": null,
+                "AccountingDivision": 124132,
+                "IsEmployeeSelfServiceUser": false,
+                "IsMyFirmLiteUser": false,
+                "IsStarterUser": false,
+                "IsMyFirmPortalUser": false,
+                "IsClientUser": true,
+                "FullName": "Samuel Bodin",
+                "PictureUrl": "https://start.exactonline.fr//docs/images/placeholder_contact_myeol.png",
+                "ThumbnailPicture": null,
+                "ThumbnailPictureFormat": null,
+                "UserID": "cc20a11b-c137-48cc-8e55-09d4adbd4ac9",
+                "UserName": "samuel@nango.dev",
+                "LanguageCode": "en-GB",
+                "Legislation": "128",
+                "Email": "samuel@nango.dev",
+                "Title": "Mr.",
+                "Initials": null,
+                "FirstName": "Samuel",
+                "MiddleName": null,
+                "LastName": "Bodin",
+                "Gender": "O",
+                "Nationality": null,
+                "Language": "EN",
+                "Phone": "0606060606",
+                "PhoneExtension": null,
+                "Mobile": null,
+                "ServerTime": "2026-06-25T16:17:15",
+                "ServerUtcOffset": 7200,
+                "EmployeeID": "00000000-0000-0000-0000-000000000000",
+                "CustomerCode": "           1265594",
+                "PackageCode": "EOLAPPCENTER",
+                "IsOEIMigrationMandatory": true
+              }
+            ]
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 25 Jun 2026 14:17:15 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "1397",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4913",
+          "x-ratelimit-reset": "1782397042",
+          "etag": "W/\"575-iPBRz/g7jFPEsINl5l9x3QW06g4\""
+        },
+        "hash": "3b1fbfe94d69bc315fcd1e7b93bc400e3eea536c",
+        "request": {}
+      },
+      "/api/v1/124132/documents/DocumentAttachments": {
+        "response": {
+          "d": {
+            "results": [
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/documents/DocumentAttachments(guid'a5dedcb5-09a7-4e5f-b703-10f1bb40f709')",
+                  "type": "Exact.Web.Api.Models.DocumentAttachment"
+                },
+                "ID": "a5dedcb5-09a7-4e5f-b703-10f1bb40f709",
+                "Attachment": null,
+                "FileName": "inv24700003.PDF",
+                "FileSize": 5181,
+                "Url": "https://start.exactonline.fr/docs/SysAttachment.aspx?ID=a5dedcb5-09a7-4e5f-b703-10f1bb40f709&_Division_=124132&Stamp=FR001",
+                "Document": "84f0a98a-de32-4731-8bea-508065fb3210"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/documents/DocumentAttachments(guid'dcb8e4d1-d95e-4a74-8816-2f4c98393246')",
+                  "type": "Exact.Web.Api.Models.DocumentAttachment"
+                },
+                "ID": "dcb8e4d1-d95e-4a74-8816-2f4c98393246",
+                "Attachment": null,
+                "FileName": "inv24700004.PDF",
+                "FileSize": 5174,
+                "Url": "https://start.exactonline.fr/docs/SysAttachment.aspx?ID=dcb8e4d1-d95e-4a74-8816-2f4c98393246&_Division_=124132&Stamp=FR001",
+                "Document": "75cbaee4-9eee-4643-a7da-5187a8c8279e"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/documents/DocumentAttachments(guid'bdd72e03-2af0-4d0a-be10-2f96804ccb8b')",
+                  "type": "Exact.Web.Api.Models.DocumentAttachment"
+                },
+                "ID": "bdd72e03-2af0-4d0a-be10-2f96804ccb8b",
+                "Attachment": null,
+                "FileName": "invoice.pdf",
+                "FileSize": 4911,
+                "Url": "https://start.exactonline.fr/docs/SysAttachment.aspx?ID=bdd72e03-2af0-4d0a-be10-2f96804ccb8b&_Division_=124132&Stamp=FR001",
+                "Document": "6b7456e7-593d-4039-b6dd-3e1dbc6746b7"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/documents/DocumentAttachments(guid'02977e98-1050-41f6-bc18-339756aa6bb2')",
+                  "type": "Exact.Web.Api.Models.DocumentAttachment"
+                },
+                "ID": "02977e98-1050-41f6-bc18-339756aa6bb2",
+                "Attachment": null,
+                "FileName": "inv24700006.PDF",
+                "FileSize": 5270,
+                "Url": "https://start.exactonline.fr/docs/SysAttachment.aspx?ID=02977e98-1050-41f6-bc18-339756aa6bb2&_Division_=124132&Stamp=FR001",
+                "Document": "1e5d4377-452a-4961-b3cf-9efebe9dce2f"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/documents/DocumentAttachments(guid'07bc2ccf-2e7c-403e-8bbd-796b37116fb7')",
+                  "type": "Exact.Web.Api.Models.DocumentAttachment"
+                },
+                "ID": "07bc2ccf-2e7c-403e-8bbd-796b37116fb7",
+                "Attachment": null,
+                "FileName": "test.txt",
+                "FileSize": 4,
+                "Url": "https://start.exactonline.fr/docs/SysAttachment.aspx?ID=07bc2ccf-2e7c-403e-8bbd-796b37116fb7&_Division_=124132&Stamp=FR001",
+                "Document": "6eaf28f8-e5ec-48fb-8be9-08cee2883550"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/documents/DocumentAttachments(guid'37e8f423-7722-4133-acbb-8231cf171264')",
+                  "type": "Exact.Web.Api.Models.DocumentAttachment"
+                },
+                "ID": "37e8f423-7722-4133-acbb-8231cf171264",
+                "Attachment": null,
+                "FileName": "test.txt",
+                "FileSize": 4,
+                "Url": "https://start.exactonline.fr/docs/SysAttachment.aspx?ID=37e8f423-7722-4133-acbb-8231cf171264&_Division_=124132&Stamp=FR001",
+                "Document": "9d648f77-9556-48b5-a701-fdcfa88f177f"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/documents/DocumentAttachments(guid'dfd1e067-0c36-4262-a7dd-8df67a47b7da')",
+                  "type": "Exact.Web.Api.Models.DocumentAttachment"
+                },
+                "ID": "dfd1e067-0c36-4262-a7dd-8df67a47b7da",
+                "Attachment": null,
+                "FileName": "inv24700010.PDF",
+                "FileSize": 5276,
+                "Url": "https://start.exactonline.fr/docs/SysAttachment.aspx?ID=dfd1e067-0c36-4262-a7dd-8df67a47b7da&_Division_=124132&Stamp=FR001",
+                "Document": "c9a8297e-61a3-4adc-bc17-167e5a7f45c5"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/documents/DocumentAttachments(guid'd104d372-1f3f-4fb9-ad47-916412883bc1')",
+                  "type": "Exact.Web.Api.Models.DocumentAttachment"
+                },
+                "ID": "d104d372-1f3f-4fb9-ad47-916412883bc1",
+                "Attachment": null,
+                "FileName": "test.txt",
+                "FileSize": 4,
+                "Url": "https://start.exactonline.fr/docs/SysAttachment.aspx?ID=d104d372-1f3f-4fb9-ad47-916412883bc1&_Division_=124132&Stamp=FR001",
+                "Document": "6e0ba503-c213-4f9f-97be-9d1fd0001b3c"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/documents/DocumentAttachments(guid'c6656c45-263d-462c-a88a-9b3a4463f177')",
+                  "type": "Exact.Web.Api.Models.DocumentAttachment"
+                },
+                "ID": "c6656c45-263d-462c-a88a-9b3a4463f177",
+                "Attachment": null,
+                "FileName": "inv24700005.PDF",
+                "FileSize": 5187,
+                "Url": "https://start.exactonline.fr/docs/SysAttachment.aspx?ID=c6656c45-263d-462c-a88a-9b3a4463f177&_Division_=124132&Stamp=FR001",
+                "Document": "0303badd-1f5a-43ef-809e-7bd3c733a690"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/documents/DocumentAttachments(guid'09f9c997-8f17-4de3-bb1b-b416b0b14177')",
+                  "type": "Exact.Web.Api.Models.DocumentAttachment"
+                },
+                "ID": "09f9c997-8f17-4de3-bb1b-b416b0b14177",
+                "Attachment": null,
+                "FileName": "plans-edd-rcp-avril-2021-1.pdf",
+                "FileSize": 3363034,
+                "Url": "https://start.exactonline.fr/docs/SysAttachment.aspx?ID=09f9c997-8f17-4de3-bb1b-b416b0b14177&_Division_=124132&Stamp=FR001",
+                "Document": "33cb0f2f-dec5-4d56-a554-97eeac3ff6ae"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/documents/DocumentAttachments(guid'5c9ce573-1a16-496b-9bd7-c7dead2faf6f')",
+                  "type": "Exact.Web.Api.Models.DocumentAttachment"
+                },
+                "ID": "5c9ce573-1a16-496b-9bd7-c7dead2faf6f",
+                "Attachment": null,
+                "FileName": "inv24700007.PDF",
+                "FileSize": 5274,
+                "Url": "https://start.exactonline.fr/docs/SysAttachment.aspx?ID=5c9ce573-1a16-496b-9bd7-c7dead2faf6f&_Division_=124132&Stamp=FR001",
+                "Document": "a1b6a518-738a-4761-b780-ea2105426279"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/documents/DocumentAttachments(guid'01da6d57-1db6-460f-a531-ca544c50c74c')",
+                  "type": "Exact.Web.Api.Models.DocumentAttachment"
+                },
+                "ID": "01da6d57-1db6-460f-a531-ca544c50c74c",
+                "Attachment": null,
+                "FileName": "inv24700002.PDF",
+                "FileSize": 5202,
+                "Url": "https://start.exactonline.fr/docs/SysAttachment.aspx?ID=01da6d57-1db6-460f-a531-ca544c50c74c&_Division_=124132&Stamp=FR001",
+                "Document": "92c63576-cee3-4743-8cec-de1bb015cdb7"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/documents/DocumentAttachments(guid'65071e90-83fc-4764-8c9d-e9887bd1cd0b')",
+                  "type": "Exact.Web.Api.Models.DocumentAttachment"
+                },
+                "ID": "65071e90-83fc-4764-8c9d-e9887bd1cd0b",
+                "Attachment": null,
+                "FileName": "inv24700001.PDF",
+                "FileSize": 5267,
+                "Url": "https://start.exactonline.fr/docs/SysAttachment.aspx?ID=65071e90-83fc-4764-8c9d-e9887bd1cd0b&_Division_=124132&Stamp=FR001",
+                "Document": "b633d9a4-11eb-4755-b602-3717356792d7"
+              }
+            ]
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 25 Jun 2026 14:17:15 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "6569",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4912",
+          "x-ratelimit-reset": "1782397042",
+          "etag": "W/\"19a9-UPDyCoIBUM9JTMtKoees2XL+QrA\""
+        },
+        "hash": "9db9c0cf67bb6f38fecec297504a0863a041fc99",
+        "request": {
+          "params": {
+            "$skip": "0",
+            "$top": "100"
+          }
+        }
+      }
+    }
+  }
+}
