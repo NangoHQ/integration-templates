@@ -31,11 +31,16 @@ const sync = createSync({
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();
-        let cursor: string | undefined = checkpoint == null ? undefined : CheckpointSchema.parse(checkpoint).cursor;
+        const isResuming = checkpoint != null;
+        let cursor: string | undefined = isResuming ? CheckpointSchema.parse(checkpoint).cursor : undefined;
 
         // The list endpoint only supports full snapshots, but its cursor allows
         // interrupted crawls to resume without restarting from page 1.
-        await nango.trackDeletesStart('PronunciationDictionary');
+        // Delete tracking is skipped on resume because a partial enumeration
+        // would falsely delete records from pages before the checkpoint cursor.
+        if (!isResuming) {
+            await nango.trackDeletesStart('PronunciationDictionary');
+        }
 
         const proxyConfig: ProxyConfiguration = {
             // https://elevenlabs.io/docs/api-reference/pronunciation-dictionaries/list
@@ -82,7 +87,9 @@ const sync = createSync({
         }
 
         await nango.clearCheckpoint();
-        await nango.trackDeletesEnd('PronunciationDictionary');
+        if (!isResuming) {
+            await nango.trackDeletesEnd('PronunciationDictionary');
+        }
     }
 });
 

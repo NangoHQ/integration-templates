@@ -62,9 +62,14 @@ const sync = createSync({
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();
-        let lastHistoryItemId: string | undefined = checkpoint == null ? undefined : CheckpointSchema.parse(checkpoint).last_history_item_id;
+        const isResuming = checkpoint != null;
+        let lastHistoryItemId: string | undefined = isResuming ? CheckpointSchema.parse(checkpoint).last_history_item_id : undefined;
 
-        await nango.trackDeletesStart('History');
+        // Delete tracking is skipped on resume because a partial enumeration
+        // would falsely delete records from pages before the checkpoint cursor.
+        if (!isResuming) {
+            await nango.trackDeletesStart('History');
+        }
 
         const proxyConfig: ProxyConfiguration = {
             // https://elevenlabs.io/docs/api-reference/history/list
@@ -181,7 +186,9 @@ const sync = createSync({
         }
 
         await nango.clearCheckpoint();
-        await nango.trackDeletesEnd('History');
+        if (!isResuming) {
+            await nango.trackDeletesEnd('History');
+        }
     }
 });
 

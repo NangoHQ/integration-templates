@@ -52,13 +52,17 @@ const sync = createSync({
     },
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();
-        let cursor: string | undefined = checkpoint == null ? undefined : CheckpointSchema.parse(checkpoint).cursor;
+        const isResuming = checkpoint != null;
+        let cursor: string | undefined = isResuming ? CheckpointSchema.parse(checkpoint).cursor : undefined;
 
         // The ElevenLabs list-agents endpoint does not expose updated or
         // modified filters, so this remains a full refresh. The checkpoint only
         // stores pagination progress so an interrupted crawl can resume.
-
-        await nango.trackDeletesStart('Agent');
+        // Delete tracking is skipped on resume because a partial enumeration
+        // would falsely delete records from pages before the checkpoint cursor.
+        if (!isResuming) {
+            await nango.trackDeletesStart('Agent');
+        }
 
         const proxyConfig: ProxyConfiguration = {
             // https://elevenlabs.io/docs/api-reference/agents/list
@@ -125,7 +129,9 @@ const sync = createSync({
         }
 
         await nango.clearCheckpoint();
-        await nango.trackDeletesEnd('Agent');
+        if (!isResuming) {
+            await nango.trackDeletesEnd('Agent');
+        }
     }
 });
 
