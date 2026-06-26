@@ -28886,14 +28886,6 @@ export interface Lead {
   tags?: string[] | undefined;
 };
 
-export interface Pipeline {
-  id: string;
-  name?: string | undefined;
-  update_time: string;
-  add_time?: string | undefined;
-  is_deal_probability_enabled?: boolean | undefined;
-};
-
 export interface ActionInput_close_createcontact {
   /**
    * The ID of the lead to create the contact under. Example: lead_xxx
@@ -34667,6 +34659,316 @@ export interface EvaluAgentUser {
 };
 
 export interface SyncMetadata_evaluagent_users {
+};
+
+export interface SearchResult {
+  id: string;
+  query: string;
+  title: string;
+  url: string;
+  publishedDate: string;
+  author?: string | undefined;
+  text?: string | undefined;
+  summary?: string | undefined;
+  highlights?: string[] | undefined;
+  highlightScores?: number[] | undefined;
+};
+
+export interface SyncMetadata_exa_configuredsearchresults {
+  queries: ({  query: string;
+  type?: string | undefined;
+  category?: string | undefined;
+  includeDomains?: string[] | undefined;
+  excludeDomains?: string[] | undefined;})[];
+};
+
+export interface ActionInput_exa_answer {
+  /**
+   * The question to answer. Example: "What is the capital of France?"
+   */
+  query: string;
+  /**
+   * If true, each citation object includes the full page text.
+   */
+  text?: boolean | undefined;
+};
+
+export interface ActionOutput_exa_answer {
+  /**
+   * The AI-generated answer, may contain markdown.
+   */
+  answer: string;
+  /**
+   * Citations backing the answer.
+   */
+  citations: ({  id: string;
+  title?: string | undefined;
+  url?: string | undefined;
+  text?: string | undefined;})[];
+};
+
+export interface ActionInput_exa_findsimilar {
+  /**
+   * The seed URL for which to find similar pages. Example: "https://arxiv.org/abs/2307.06435"
+   */
+  url: string;
+  /**
+   * Number of results to return. Default: 10. Maximum public limit is 100.
+   */
+  numResults?: number | undefined;
+  /**
+   * If true, results from the same domain as the input URL are excluded.
+   */
+  excludeSourceDomain?: boolean | undefined;
+  /**
+   * Category filter to focus the search on a specific type of content.
+   */
+  category?: 'company' | 'research paper' | 'news' | 'pdf' | 'github' | 'tweet' | 'personal site' | 'linkedin profile' | undefined;
+  /**
+   * List of domains to include in results.
+   */
+  includeDomains?: string[] | undefined;
+  /**
+   * List of domains to exclude from results.
+   */
+  excludeDomains?: string[] | undefined;
+  /**
+   * Only include links with a published date after this date. ISO 8601 format.
+   */
+  startPublishedDate?: string | undefined;
+  /**
+   * Only include links with a published date before this date. ISO 8601 format.
+   */
+  endPublishedDate?: string | undefined;
+  /**
+   * Inline content options (text, highlights, summary, extras) to fetch in the same call.
+   */
+  contents?: {  text?: boolean | {  maxCharacters?: number | undefined;
+  includeHtmlTags?: boolean | undefined;
+  verbosity?: 'compact' | 'standard' | 'full' | undefined;
+  includeSections?: string[] | undefined;
+  excludeSections?: string[] | undefined;};
+  highlights?: boolean | {  query?: string | undefined;
+  maxCharacters?: number | undefined;};
+  summary?: {  query?: string | undefined;
+  schema?: {} | undefined;};
+  extras?: {  links?: number | undefined;
+  imageLinks?: number | undefined;
+  richImageLinks?: number | undefined;
+  richLinks?: number | undefined;};};
+};
+
+export interface ActionOutput_exa_findsimilar {
+  requestId?: string | undefined;
+  results: ({  /**
+   * The result ID, which is the full URL string.
+   */
+  id: string;
+  title: string;
+  url: string;
+  /**
+   * Relevance score for the result.
+   */
+  score?: number | undefined;
+  publishedDate?: string | undefined;
+  author?: string | undefined;
+  image?: string | undefined;
+  favicon?: string | undefined;
+  text?: string | undefined;
+  highlights?: string[] | undefined;
+  highlightScores?: number[] | undefined;
+  summary?: string | undefined;
+  subpages?: ({  id?: string | undefined;
+  title: string;
+  url: string;
+  publishedDate?: string | undefined;
+  author?: string | undefined;
+  image?: string | undefined;
+  favicon?: string | undefined;})[];
+  extras?: {  links?: string[] | undefined;};
+  entities?: unknown[] | undefined;})[];
+  costDollars?: {  total?: number | undefined;
+  search?: {  neural?: number | undefined;};
+  breakDown?: ({})[] | undefined;};
+};
+
+export interface ActionInput_exa_getcontents {
+  /**
+   * Document IDs (URLs) to retrieve content for. Example: ["https://example.com"]
+   */
+  ids: string[];
+  text?: {  maxCharacters?: number | undefined;
+  includeHtmlTags?: boolean | undefined;};
+  highlights?: {  numSentences?: number | undefined;
+  highlightsPerUrl?: number | undefined;
+  query?: string | undefined;};
+  summary?: {  query?: string | undefined;};
+  livecrawl?: 'never' | 'fallback' | 'always' | 'auto' | undefined;
+};
+
+export interface ActionOutput_exa_getcontents {
+  requestId?: string | undefined;
+  results: ({  title?: string | undefined;
+  url?: string | undefined;
+  id?: string | undefined;
+  publishedDate?: string | undefined;
+  author?: string | undefined;
+  image?: string | undefined;
+  favicon?: string | undefined;
+  text?: string | undefined;
+  highlights?: string[] | undefined;
+  highlightScores?: number[] | undefined;
+  summary?: string | undefined;
+  subpages?: unknown[] | undefined;
+  extras?: {  links?: string[] | undefined;};})[];
+  statuses: ({  id: string;
+  status: 'success' | 'error';
+  source?: 'cached' | 'crawled' | undefined;
+  error?: {  tag: string;
+  httpStatusCode: number;} | undefined;})[];
+  costDollars?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_exa_search {
+  /**
+   * The search query string.
+   */
+  query: string;
+  /**
+   * Search type: 'neural' for semantic, 'keyword' for exact-match, 'auto' for AI-selected (default).
+   */
+  type?: 'neural' | 'keyword' | 'auto' | undefined;
+  /**
+   * Number of results to return (default 10).
+   */
+  numResults?: number | undefined;
+  /**
+   * Let the model rewrite the query for better neural results.
+   */
+  useAutoprompt?: boolean | undefined;
+  /**
+   * Content category filter.
+   */
+  category?: 'company' | 'research paper' | 'news' | 'pdf' | 'github' | 'tweet' | 'personal site' | 'linkedin profile' | undefined;
+  /**
+   * Only return results from these domains.
+   */
+  includeDomains?: string[] | undefined;
+  /**
+   * Exclude results from these domains.
+   */
+  excludeDomains?: string[] | undefined;
+  /**
+   * ISO 8601 start published date filter.
+   */
+  startPublishedDate?: string | undefined;
+  /**
+   * ISO 8601 end published date filter.
+   */
+  endPublishedDate?: string | undefined;
+  /**
+   * ISO 8601 start crawl date filter.
+   */
+  startCrawlDate?: string | undefined;
+  /**
+   * ISO 8601 end crawl date filter.
+   */
+  endCrawlDate?: string | undefined;
+  /**
+   * Inline text extraction options (avoids separate /contents call).
+   */
+  text?: {  /**
+   * Maximum characters to return for page text.
+   */
+  maxCharacters?: number | undefined;
+  /**
+   * Include HTML tags in returned text.
+   */
+  includeHtmlTags?: boolean | undefined;};
+  /**
+   * Inline highlight extraction options (avoids separate /contents call).
+   */
+  highlights?: {  /**
+   * Number of highlight sentences per result.
+   */
+  numSentences?: number | undefined;
+  /**
+   * Number of highlights per URL.
+   */
+  highlightsPerUrl?: number | undefined;
+  /**
+   * Custom query guiding highlight selection.
+   */
+  query?: string | undefined;};
+  /**
+   * Inline summary generation options (avoids separate /contents call).
+   */
+  summary?: {  /**
+   * Custom query for LLM-generated summary.
+   */
+  query?: string | undefined;};
+};
+
+export interface ActionOutput_exa_search {
+  /**
+   * Unique identifier for the request.
+   */
+  requestId?: string | undefined;
+  results: ({  /**
+   * Result ID (the full URL).
+   */
+  id: string;
+  /**
+   * Title of the search result.
+   */
+  title?: string | undefined;
+  /**
+   * URL of the search result.
+   */
+  url?: string | undefined;
+  /**
+   * Estimated published date in ISO 8601 format.
+   */
+  publishedDate?: string | undefined;
+  /**
+   * Author of the content, if available.
+   */
+  author?: string | undefined;
+  /**
+   * Relevance score.
+   */
+  score?: number | undefined;
+  /**
+   * URL of an image associated with the result.
+   */
+  image?: string | undefined;
+  /**
+   * URL of the favicon for the result domain.
+   */
+  favicon?: string | undefined;
+  /**
+   * Full page text, when requested via inline content.
+   */
+  text?: string | undefined;
+  /**
+   * Highlights extracted from the page, when requested via inline content.
+   */
+  highlights?: string[] | undefined;
+  /**
+   * LLM-generated summary, when requested via inline content.
+   */
+  summary?: string | undefined;})[];
+  /**
+   * Cost breakdown for the request.
+   */
+  costDollars?: {  /**
+   * Total cost in USD.
+   */
+  total?: number | undefined;
+  search?: {  /**
+   * Cost for neural search.
+   */
+  neural?: number | undefined;};};
 };
 
 export interface ExactCustomer {

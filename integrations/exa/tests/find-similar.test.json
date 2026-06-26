@@ -1,0 +1,220 @@
+{
+  "input": {
+    "url": "https://arxiv.org/abs/2307.06435"
+  },
+  "output": {
+    "requestId": "85bae4d37334ee7a8da2e0f6973728d3",
+    "results": [
+      {
+        "id": "https://arxiv.org/html/2307.06435",
+        "title": "A Comprehensive Overview of Large Language Models",
+        "url": "https://arxiv.org/html/2307.06435",
+        "score": 0.985299825668335,
+        "author": null
+      },
+      {
+        "id": "https://dl.acm.org/doi/10.1145/3744746",
+        "title": "A Comprehensive Overview of Large Language Models",
+        "url": "https://dl.acm.org/doi/10.1145/3744746",
+        "score": 0.9469163417816162,
+        "author": null
+      },
+      {
+        "id": "https://arxiv.org/pdf/2402.06196",
+        "title": "",
+        "url": "https://arxiv.org/pdf/2402.06196",
+        "score": 0.936111330986023,
+        "author": null
+      },
+      {
+        "id": "https://openreview.net/pdf/3746fd898a147036cc09abd50bba2532904e68fb.pdf",
+        "title": "A Survey of Large Language Models",
+        "url": "https://openreview.net/pdf/3746fd898a147036cc09abd50bba2532904e68fb.pdf",
+        "score": 0.9251744747161865,
+        "author": null
+      },
+      {
+        "id": "https://exa.ai/library/publication/4tgw1z0qx3n",
+        "title": "A Comprehensive Overview of Large Language Models",
+        "url": "https://exa.ai/library/publication/4tgw1z0qx3n",
+        "score": 0.9217305183410645,
+        "publishedDate": "2025-06-18T00:00:00.000Z",
+        "author": "Humza Naveed, Asad Ullah Khan, Shi Qiu, Muhammad Saqib, Saeed Anwar, Muhammad Usman, Naveed Akhtar, Nick Barnes, Ajmal Mian"
+      },
+      {
+        "id": "https://www.mdpi.com/2079-9292/14/18/3580",
+        "title": "A Survey of Large Language Models: Evolution, Architectures, Adaptation, Benchmarking, Applications, Challenges, and Societal Implications",
+        "url": "https://www.mdpi.com/2079-9292/14/18/3580",
+        "score": 0.9199236631393433,
+        "author": null
+      },
+      {
+        "id": "https://link.springer.com/article/10.1007/s10462-024-10888-y",
+        "title": "Large language models (LLMs): survey, technical frameworks, and future challenges | Artificial Intelligence Review | Springer Nature Link",
+        "url": "https://link.springer.com/article/10.1007/s10462-024-10888-y",
+        "score": 0.9189395904541016,
+        "publishedDate": "2024-08-18T00:00:00.000Z",
+        "author": null
+      },
+      {
+        "id": "https://arxiv.org/html/2401.02038",
+        "title": "Understanding LLMs: A Comprehensive Overview from Training to Inference",
+        "url": "https://arxiv.org/html/2401.02038",
+        "score": 0.9181149005889893,
+        "author": null
+      },
+      {
+        "id": "https://exa.ai/library/publication/8wpsfhfd8wf",
+        "title": "A Comprehensive Overview of Large Language Models",
+        "url": "https://exa.ai/library/publication/8wpsfhfd8wf",
+        "score": 0.9178581833839417,
+        "publishedDate": "2023-07-12T00:00:00.000Z",
+        "author": "Humza Naveed, Asad Ullah Khan, Shi Qiu, Muhammad Saqib, Saeed Anwar, Muhammad Usman, Akhtar, Naveed, Nick Barnes, Ajmal Mian"
+      },
+      {
+        "id": "https://arxiv.org/pdf/2404.11973",
+        "title": "A critical review of methods and challenges in large language models",
+        "url": "https://arxiv.org/pdf/2404.11973",
+        "score": 0.9106577634811401,
+        "author": "Zillah Zillah"
+      }
+    ],
+    "costDollars": {
+      "total": 0.007,
+      "search": {
+        "neural": 0.007
+      }
+    }
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/findSimilar": {
+        "response": {
+          "requestId": "85bae4d37334ee7a8da2e0f6973728d3",
+          "results": [
+            {
+              "id": "https://arxiv.org/html/2307.06435",
+              "title": "A Comprehensive Overview of Large Language Models",
+              "url": "https://arxiv.org/html/2307.06435",
+              "author": null,
+              "score": 0.985299825668335
+            },
+            {
+              "id": "https://dl.acm.org/doi/10.1145/3744746",
+              "title": "A Comprehensive Overview of Large Language Models",
+              "url": "https://dl.acm.org/doi/10.1145/3744746",
+              "author": null,
+              "score": 0.9469163417816162
+            },
+            {
+              "id": "https://arxiv.org/pdf/2402.06196",
+              "title": "",
+              "url": "https://arxiv.org/pdf/2402.06196",
+              "author": null,
+              "score": 0.936111330986023
+            },
+            {
+              "id": "https://openreview.net/pdf/3746fd898a147036cc09abd50bba2532904e68fb.pdf",
+              "title": "A Survey of Large Language Models",
+              "url": "https://openreview.net/pdf/3746fd898a147036cc09abd50bba2532904e68fb.pdf",
+              "author": null,
+              "score": 0.9251744747161865
+            },
+            {
+              "id": "https://exa.ai/library/publication/4tgw1z0qx3n",
+              "title": "A Comprehensive Overview of Large Language Models",
+              "url": "https://exa.ai/library/publication/4tgw1z0qx3n",
+              "publishedDate": "2025-06-18T00:00:00.000Z",
+              "author": "Humza Naveed, Asad Ullah Khan, Shi Qiu, Muhammad Saqib, Saeed Anwar, Muhammad Usman, Naveed Akhtar, Nick Barnes, Ajmal Mian",
+              "score": 0.9217305183410645
+            },
+            {
+              "id": "https://www.mdpi.com/2079-9292/14/18/3580",
+              "title": "A Survey of Large Language Models: Evolution, Architectures, Adaptation, Benchmarking, Applications, Challenges, and Societal Implications",
+              "url": "https://www.mdpi.com/2079-9292/14/18/3580",
+              "author": null,
+              "score": 0.9199236631393433
+            },
+            {
+              "id": "https://link.springer.com/article/10.1007/s10462-024-10888-y",
+              "title": "Large language models (LLMs): survey, technical frameworks, and future challenges | Artificial Intelligence Review | Springer Nature Link",
+              "url": "https://link.springer.com/article/10.1007/s10462-024-10888-y",
+              "publishedDate": "2024-08-18T00:00:00.000Z",
+              "author": null,
+              "score": 0.9189395904541016
+            },
+            {
+              "id": "https://arxiv.org/html/2401.02038",
+              "title": "Understanding LLMs: A Comprehensive Overview from Training to Inference",
+              "url": "https://arxiv.org/html/2401.02038",
+              "author": null,
+              "score": 0.9181149005889893
+            },
+            {
+              "id": "https://exa.ai/library/publication/8wpsfhfd8wf",
+              "title": "A Comprehensive Overview of Large Language Models",
+              "url": "https://exa.ai/library/publication/8wpsfhfd8wf",
+              "publishedDate": "2023-07-12T00:00:00.000Z",
+              "author": "Humza Naveed, Asad Ullah Khan, Shi Qiu, Muhammad Saqib, Saeed Anwar, Muhammad Usman, Akhtar, Naveed, Nick Barnes, Ajmal Mian",
+              "score": 0.9178581833839417
+            },
+            {
+              "id": "https://arxiv.org/pdf/2404.11973",
+              "title": "A critical review of methods and challenges in large language models",
+              "url": "https://arxiv.org/pdf/2404.11973",
+              "author": "Zillah Zillah",
+              "score": 0.9106577634811401
+            }
+          ],
+          "costDollars": {
+            "total": 0.007,
+            "search": {
+              "neural": 0.007
+            }
+          },
+          "searchTime": 322.85084099997766
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 25 Jun 2026 23:11:56 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "PAYMENT-REQUIRED,PAYMENT-RESPONSE,payment-required,payment-response",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4992",
+          "x-ratelimit-reset": "1782429164",
+          "content-security-policy": "frame-ancestors 'self'",
+          "cross-origin-opener-policy": "same-origin",
+          "cross-origin-resource-policy": "same-origin",
+          "origin-agent-cluster": "?1",
+          "referrer-policy": "no-referrer",
+          "x-permitted-cross-domain-policies": "none",
+          "vary": "Origin",
+          "access-control-allow-credentials": "true",
+          "x-exa-queued": "false",
+          "x-exa-queue-ms": "0",
+          "etag": "W/\"aba-11AEmWDA9yM5ln/KxqYkF0RRRw8\"",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "cf-ray": "a117a776499a9314-PDX"
+        },
+        "hash": "e1bee0c6f4f4bd7e53177147105b4008a008a8b4",
+        "request": {
+          "data": {
+            "url": "https://arxiv.org/abs/2307.06435"
+          }
+        }
+      }
+    }
+  }
+}
