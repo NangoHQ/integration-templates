@@ -1,0 +1,115 @@
+import { z } from 'zod';
+import { createAction } from 'nango';
+
+const InputSchema = z.object({
+    meeting_id: z.string().describe('Meeting ID to share. Example: "abc123"'),
+    emails: z.array(z.string().email()).describe('Email addresses to share with. Up to 50 emails per request.'),
+    expiry_days: z.number().optional().describe('Optional expiry period in days. Allowed values: 7, 14, or 30.')
+});
+
+const OutputSchema = z.object({
+    success: z.boolean(),
+    message: z.string().optional()
+});
+
+const ShareMeetingResultSchema = z.object({
+    success: z.boolean(),
+    message: z.string().nullable().optional()
+});
+
+const FirefliesResponseSchema = z.object({
+    data: z
+        .union([
+            z.object({
+                shareMeeting: ShareMeetingResultSchema.optional()
+            }),
+            z.null()
+        ])
+        .optional(),
+    errors: z
+        .array(
+            z.object({
+                message: z.string(),
+                code: z.string().optional()
+            })
+        )
+        .optional()
+});
+
+const action = createAction({
+    description: 'Share a meeting transcript via email with optional expiry',
+    version: '1.0.0',
+    input: InputSchema,
+    output: OutputSchema,
+    scopes: [],
+
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // https://docs.fireflies.ai/graphql-api/mutation/share-meeting
+        const response = await nango.post({
+            endpoint: '/graphql',
+            data: {
+                query: `
+                    mutation ShareMeeting($input: ShareMeetingInput!) {
+                        shareMeeting(input: $input) {
+                            success
+                            message
+                        }
+                    }
+                `,
+                variables: {
+                    input: {
+                        meeting_id: input.meeting_id,
+                        emails: input.emails,
+                        ...(input.expiry_days !== undefined && { expiry_days: input.expiry_days })
+                    }
+                }
+            },
+            retries: 10
+        });
+
+        const responseData = response.data;
+
+        if (responseData === null || typeof responseData !== 'object') {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Invalid response from Fireflies API'
+            });
+        }
+
+        const parsedResponse = FirefliesResponseSchema.safeParse(responseData);
+        if (!parsedResponse.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Unexpected response format from Fireflies API',
+                details: parsedResponse.error.format()
+            });
+        }
+
+        const graphqlErrors = parsedResponse.data.errors;
+        if (graphqlErrors && graphqlErrors.length > 0) {
+            const firstError = graphqlErrors[0];
+            if (firstError) {
+                throw new nango.ActionError({
+                    type: firstError.code || 'graphql_error',
+                    message: firstError.message
+                });
+            }
+        }
+
+        const shareMeetingResult = parsedResponse.data.data?.shareMeeting;
+        if (!shareMeetingResult) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Missing shareMeeting data in response'
+            });
+        }
+
+        return {
+            success: shareMeetingResult.success,
+            ...(shareMeetingResult.message != null && { message: shareMeetingResult.message })
+        };
+    }
+});
+
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
+export default action;
