@@ -19,7 +19,9 @@ const InputSchema = z.object({
     type: z
         .enum(['auto', 'neural', 'keyword', 'fast', 'instant', 'deep-lite', 'deep', 'deep-reasoning'])
         .optional()
-        .describe("Search type: 'auto' (default), 'neural' for semantic, 'keyword' for exact-match, 'fast', 'instant', 'deep-lite', 'deep', or 'deep-reasoning'."),
+        .describe(
+            "Search type: 'auto' (default), 'neural' for semantic, 'keyword' for exact-match, 'fast', 'instant', 'deep-lite', 'deep', or 'deep-reasoning'."
+        ),
     numResults: z.number().int().min(1).max(100).optional().describe('Number of results to return (default 10).'),
     category: z
         .enum(['company', 'research paper', 'news', 'pdf', 'github', 'personal site', 'linkedin profile', 'people', 'financial report'])

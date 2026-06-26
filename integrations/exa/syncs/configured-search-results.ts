@@ -96,12 +96,12 @@ const sync = createSync({
 
         for (const queryConfig of metadata.queries) {
             const queryKey = [
-            queryConfig.query,
-            queryConfig.type ?? '',
-            queryConfig.category ?? '',
-            (queryConfig.includeDomains ?? []).slice().sort().join(','),
-            (queryConfig.excludeDomains ?? []).slice().sort().join(',')
-        ].join('\0');
+                queryConfig.query,
+                queryConfig.type ?? '',
+                queryConfig.category ?? '',
+                (queryConfig.includeDomains ?? []).slice().sort().join(','),
+                (queryConfig.excludeDomains ?? []).slice().sort().join(',')
+            ].join('\0');
             const queryState = queryStates[queryKey] ?? {};
             const publishedAfter = queryState.published_after;
             const seenIds = new Set(queryState.seen_ids ?? []);

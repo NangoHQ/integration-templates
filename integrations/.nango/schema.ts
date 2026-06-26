@@ -34723,7 +34723,7 @@ export interface ActionInput_exa_findsimilar {
   /**
    * Category filter to focus the search on a specific type of content.
    */
-  category?: 'company' | 'research paper' | 'news' | 'pdf' | 'github' | 'tweet' | 'personal site' | 'linkedin profile' | undefined;
+  category?: 'company' | 'research paper' | 'news' | 'pdf' | 'github' | 'personal site' | 'linkedin profile' | 'people' | 'financial report' | undefined;
   /**
    * List of domains to include in results.
    */
@@ -34826,7 +34826,8 @@ export interface ActionOutput_exa_getcontents {
   source?: 'cached' | 'crawled' | undefined;
   error?: {  tag: string;
   httpStatusCode: number;} | undefined;})[];
-  costDollars?: {  [key: string]: unknown | undefined;};
+  costDollars?: {  total?: number | undefined;
+  search?: {  neural?: number | undefined;};};
 };
 
 export interface ActionInput_exa_search {
@@ -34835,21 +34836,17 @@ export interface ActionInput_exa_search {
    */
   query: string;
   /**
-   * Search type: 'neural' for semantic, 'keyword' for exact-match, 'auto' for AI-selected (default).
+   * Search type: 'auto' (default), 'neural' for semantic, 'keyword' for exact-match, 'fast', 'instant', 'deep-lite', 'deep', or 'deep-reasoning'.
    */
-  type?: 'neural' | 'keyword' | 'auto' | undefined;
+  type?: 'auto' | 'neural' | 'keyword' | 'fast' | 'instant' | 'deep-lite' | 'deep' | 'deep-reasoning' | undefined;
   /**
    * Number of results to return (default 10).
    */
   numResults?: number | undefined;
   /**
-   * Let the model rewrite the query for better neural results.
-   */
-  useAutoprompt?: boolean | undefined;
-  /**
    * Content category filter.
    */
-  category?: 'company' | 'research paper' | 'news' | 'pdf' | 'github' | 'tweet' | 'personal site' | 'linkedin profile' | undefined;
+  category?: 'company' | 'research paper' | 'news' | 'pdf' | 'github' | 'personal site' | 'linkedin profile' | 'people' | 'financial report' | undefined;
   /**
    * Only return results from these domains.
    */
@@ -34889,14 +34886,6 @@ export interface ActionInput_exa_search {
    * Inline highlight extraction options (avoids separate /contents call).
    */
   highlights?: {  /**
-   * Number of highlight sentences per result.
-   */
-  numSentences?: number | undefined;
-  /**
-   * Number of highlights per URL.
-   */
-  highlightsPerUrl?: number | undefined;
-  /**
    * Custom query guiding highlight selection.
    */
   query?: string | undefined;};
