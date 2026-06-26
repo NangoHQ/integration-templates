@@ -1,7 +1,111 @@
 {
   "nango": {
     "batchSave": {
-      "Customer": []
+      "Customer": [
+        {
+          "id": "454a5d46-ee70-4ed1-9375-9cfedeb138cd",
+          "name": "Exact Software France",
+          "status": "A",
+          "isSales": false,
+          "isPurchase": false,
+          "isSupplier": true,
+          "modified": "/Date(1537503584913)/"
+        },
+        {
+          "id": "ce741aca-7b8b-4e76-81ba-e6d5b05e5c04",
+          "name": "Administration TVA",
+          "status": "C",
+          "isSales": true,
+          "isPurchase": true,
+          "isSupplier": true,
+          "modified": "/Date(1537503585400)/"
+        },
+        {
+          "id": "11acd652-4496-48e0-a189-e0045cc206e3",
+          "name": "Test Customer 2",
+          "email": "customer@test.com",
+          "status": "C",
+          "isSales": true,
+          "isPurchase": true,
+          "isSupplier": false,
+          "modified": "/Date(1727194507253)/"
+        },
+        {
+          "id": "a58c29d9-ef92-40f1-b817-31b36990898c",
+          "name": "Foobar2 Updated",
+          "status": "C",
+          "isSales": true,
+          "isPurchase": true,
+          "isSupplier": false,
+          "modified": "/Date(1782404049930)/"
+        },
+        {
+          "id": "6f373853-0bfe-4bda-a0ff-62b759034dae",
+          "name": "Test Customer Dryrun",
+          "email": "test@example.com",
+          "phone": "+33123456789",
+          "status": "C",
+          "isSales": true,
+          "isPurchase": true,
+          "isSupplier": false,
+          "modified": "/Date(1782404307347)/"
+        },
+        {
+          "id": "b08a8c98-d5e2-4ccd-9650-c7a046ac4707",
+          "name": "Test Customer Dryrun",
+          "email": "test@example.com",
+          "phone": "+33123456789",
+          "status": "C",
+          "isSales": true,
+          "isPurchase": true,
+          "isSupplier": false,
+          "modified": "/Date(1782404335817)/"
+        },
+        {
+          "id": "a1f9e763-58b5-4391-9427-5f2191e09357",
+          "name": "Test Customer Dryrun",
+          "email": "test@example.com",
+          "phone": "+33123456789",
+          "status": "C",
+          "isSales": true,
+          "isPurchase": true,
+          "isSupplier": false,
+          "modified": "/Date(1782404365250)/"
+        },
+        {
+          "id": "812fcbe6-cd5f-4121-b2ea-211dfa563965",
+          "name": "Test Customer Dryrun",
+          "email": "test@example.com",
+          "phone": "+33123456789",
+          "status": "C",
+          "isSales": true,
+          "isPurchase": true,
+          "isSupplier": false,
+          "modified": "/Date(1782404374783)/"
+        },
+        {
+          "id": "e31eb9da-c1cb-4e8c-bc1a-395b3272067a",
+          "name": "Test Customer Dryrun",
+          "email": "test@example.com",
+          "phone": "+33123456789",
+          "status": "C",
+          "isSales": true,
+          "isPurchase": true,
+          "isSupplier": false,
+          "modified": "/Date(1782404454710)/"
+        },
+        {
+          "id": "40d4c49d-1790-4a13-b890-42909af24348",
+          "name": "Test Customer Dryrun",
+          "email": "test@example.com",
+          "phone": "+33123456789",
+          "status": "C",
+          "isSales": true,
+          "isPurchase": true,
+          "isSupplier": false,
+          "modified": "/Date(1782404464260)/"
+        }
+      ]
     },
     "batchDelete": {
       "Customer": []

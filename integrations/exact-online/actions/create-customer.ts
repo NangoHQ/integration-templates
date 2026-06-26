@@ -23,7 +23,7 @@ const MeResponseSchema = z.object({
 
 const PostResponseSchema = z.object({
     d: z.object({
-        ID: z.string().optional(),
+        ID: z.string().nullish(),
         __metadata: z
             .object({
                 uri: z.string()

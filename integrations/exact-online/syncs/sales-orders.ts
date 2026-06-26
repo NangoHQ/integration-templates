@@ -90,7 +90,7 @@ const sync = createSync({
             endpoint: `/api/v1/${encodeURIComponent(division)}/salesorder/SalesOrders`,
             params: {
                 $orderby: 'Modified asc',
-                ...(updatedAfter && { $filter: `Modified gt datetime'${updatedAfter}'` })
+                ...(updatedAfter && { $filter: `Modified ge datetime'${updatedAfter}'` })
             },
             paginate: {
                 type: 'offset',

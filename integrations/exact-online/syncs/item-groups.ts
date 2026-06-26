@@ -79,7 +79,7 @@ const sync = createSync({
                 endpoint: `/api/v1/${encodeURIComponent(currentDivision)}/logistics/ItemGroups`,
                 params: {
                     $select: 'ID,Code,Description,Modified',
-                    $orderby: 'Modified asc',
+                    $orderby: 'ID asc',
                     $top: String(limit),
                     $skip: String(skip)
                 },

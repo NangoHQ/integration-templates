@@ -105,7 +105,7 @@ const sync = createSync({
             params: {
                 $select: 'ID,EntryID,AmountDC,GLAccount,GLAccountCode,Description,VATCode,Modified',
                 $orderby: 'Modified asc',
-                ...(checkpoint != null && checkpoint['updated_after'] && { $filter: "Modified gt datetime'" + checkpoint['updated_after'] + "'" })
+                ...(checkpoint != null && checkpoint['updated_after'] && { $filter: "Modified ge datetime'" + checkpoint['updated_after'] + "'" })
             },
             paginate: paginateConfig,
             retries: 3

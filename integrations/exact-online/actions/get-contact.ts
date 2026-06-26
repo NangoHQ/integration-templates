@@ -8,13 +8,7 @@ const InputSchema = z.object({
 const OutputSchema = z.object({}).passthrough();
 
 const MeResponseSchema = z.object({
-    d: z.object({
-        results: z.array(
-            z.object({
-                CurrentDivision: z.number()
-            })
-        )
-    })
+    d: z.union([z.object({ CurrentDivision: z.number() }), z.object({ results: z.array(z.object({ CurrentDivision: z.number() })) })])
 });
 
 const action = createAction({
@@ -39,13 +33,11 @@ const action = createAction({
             throw new nango.ActionError({ message: 'Failed to retrieve current division: invalid response from Me endpoint' });
         }
 
-        const results = meParse.data.d.results;
-        const firstResult = results[0];
-        if (!firstResult) {
+        const meD = meParse.data.d;
+        const division = 'CurrentDivision' in meD ? meD.CurrentDivision : meD.results[0]?.CurrentDivision;
+        if (!division) {
             throw new nango.ActionError({ message: 'Failed to retrieve current division: no results in Me response' });
         }
-
-        const division = firstResult.CurrentDivision;
 
         // https://support.exactonline.com/community/s/article/All-All-DNO-Content-restrefdocs
         const contactResponse = await nango.get({

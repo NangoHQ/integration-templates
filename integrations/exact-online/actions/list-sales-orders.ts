@@ -57,6 +57,10 @@ const action = createAction({
     input: InputSchema,
     output: OutputSchema,
     scopes: ['SalesOrders'],
+    endpoint: {
+        method: 'GET',
+        path: '/actions/list-sales-orders'
+    },
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const meResponse = await nango.get({

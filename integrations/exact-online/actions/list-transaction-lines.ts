@@ -4,7 +4,7 @@ import { createAction } from 'nango';
 const InputSchema = z.object({
     cursor: z.string().optional().describe('Pagination cursor (skip value) from the previous response. Omit for the first page.'),
     limit: z.number().min(1).max(1000).optional().describe('Maximum number of records to return. Defaults to 100.'),
-    entryId: z.string().optional().describe('Filter transaction lines by a specific EntryID. Example: "2ab359f3-0042-4e57-b829-d7d7cc84d1ea"')
+    entryId: z.string().uuid().optional().describe('Filter transaction lines by a specific EntryID (UUID). Example: "2ab359f3-0042-4e57-b829-d7d7cc84d1ea"')
 });
 
 const TransactionLineSchema = z.object({
@@ -128,7 +128,21 @@ const action = createAction({
             }
 
             const amountDc = item['AmountDC'];
-            const parsedAmountDc = typeof amountDc === 'number' ? amountDc : typeof amountDc === 'string' ? parseFloat(amountDc) : 0;
+            let parsedAmountDc: number;
+            if (typeof amountDc === 'number') {
+                parsedAmountDc = amountDc;
+            } else if (typeof amountDc === 'string') {
+                const parsed = parseFloat(amountDc);
+                if (!Number.isFinite(parsed)) {
+                    throw new nango.ActionError({
+                        type: 'invalid_response',
+                        message: `Invalid AmountDC value: ${amountDc}`
+                    });
+                }
+                parsedAmountDc = parsed;
+            } else {
+                parsedAmountDc = 0;
+            }
 
             return {
                 ID: typeof item['ID'] === 'string' ? item['ID'] : '',

@@ -404,14 +404,13 @@
           "x-ratelimit-reset": "1782397868",
           "etag": "W/\"c67-IXt1wUnaam8+I6xQzi6v0NMDG0k\""
         },
-        "hash": "e1104e321809524e7345743e769eaa7a64b2a1c1",
+        "hash": "d03f073c8f8e9a8dbcd106aacb2bf03ace8371fe",
         "request": {
           "data": {
             "OrderedBy": "a58c29d9-ef92-40f1-b817-31b36990898c",
             "Status": 20,
             "Journal": "70",
             "Type": 8023,
-            "Warehouse": "e4f7592d-dd76-4c75-b957-9fbeaf9dbe55",
             "SalesInvoiceLines": [
               {
                 "Quantity": 1,

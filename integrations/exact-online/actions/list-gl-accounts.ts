@@ -4,7 +4,11 @@ import { createAction } from 'nango';
 const InputSchema = z.object({
     cursor: z.string().optional().describe('Pagination cursor (skip value). Omit for the first page.'),
     limit: z.number().optional().describe('Maximum number of items to return. Defaults to 100.'),
-    modified_after: z.string().optional().describe("ISO 8601 timestamp to filter accounts modified after this date. Example: '2024-01-01T00:00:00Z'")
+    modified_after: z
+        .string()
+        .regex(/^\d{4}-\d{2}-\d{2}(T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[+-]\d{2}:\d{2})?)?$/, 'modified_after must be a valid ISO 8601 datetime')
+        .optional()
+        .describe("ISO 8601 datetime to filter accounts modified after this date. Example: '2024-01-01T00:00:00Z'")
 });
 
 const ProviderGLAccountSchema = z.object({

@@ -100,7 +100,7 @@ const sync = createSync({
             };
 
             if (updatedAfter) {
-                params['$filter'] = `Modified gt datetime'${updatedAfter}'`;
+                params['$filter'] = `Modified ge datetime'${updatedAfter}'`;
             }
 
             // https://support.exactonline.com/community/s/knowledge-base#All-All-DNO-Content-rest-api

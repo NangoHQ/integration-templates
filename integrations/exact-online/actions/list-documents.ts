@@ -14,7 +14,8 @@ function parseExactDate(dateValue: string | null | undefined): string | undefine
 }
 
 const InputSchema = z.object({
-    cursor: z.string().optional().describe('Pagination cursor (ISO 8601 timestamp of the last Modified value). Omit for the first page.')
+    cursor: z.string().optional().describe('Pagination cursor from the previous response ($skiptoken). Omit for the first page.'),
+    modified_after: z.string().optional().describe('ISO 8601 timestamp to filter documents modified after this date. Example: 2024-05-30T00:00:00Z')
 });
 
 const DocumentSchema = z.object({
@@ -26,7 +27,7 @@ const DocumentSchema = z.object({
 
 const OutputSchema = z.object({
     items: z.array(DocumentSchema),
-    next_cursor: z.string().optional().describe('Cursor for the next page (last Modified timestamp in the current page).')
+    next_cursor: z.string().optional().describe('Cursor for the next page. Pass as cursor on the next call.')
 });
 
 const MeResponseSchema = z.object({
@@ -113,7 +114,9 @@ const action = createAction({
         };
 
         if (input.cursor) {
-            params['$filter'] = `Modified gt datetime'${input.cursor}'`;
+            params['$skiptoken'] = input.cursor;
+        } else if (input.modified_after) {
+            params['$filter'] = `Modified ge datetime'${input.modified_after}'`;
         }
 
         const docsResponse = await nango.get({
@@ -125,7 +128,6 @@ const action = createAction({
         const docsData = DocsResponseSchema.parse(docsResponse.data);
 
         const results = docsData.d?.results ?? [];
-        const hasMore = docsData.d?.__next != null;
 
         const items = results.map((item) => {
             const documentDate = parseExactDate(item.DocumentDate);
@@ -138,8 +140,11 @@ const action = createAction({
             };
         });
 
-        const lastItem = items.length > 0 ? items[items.length - 1] : undefined;
-        const nextCursor = hasMore && lastItem ? lastItem.Modified : undefined;
+        let nextCursor: string | undefined;
+        if (docsData.d?.__next) {
+            const nextUrl = new URL(docsData.d.__next);
+            nextCursor = nextUrl.searchParams.get('$skiptoken') ?? undefined;
+        }
 
         return {
             items,

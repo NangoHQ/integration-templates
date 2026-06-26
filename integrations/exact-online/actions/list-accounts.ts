@@ -110,7 +110,12 @@ const action = createAction({
         }
 
         if (input.cursor) {
-            params['$skip'] = input.cursor;
+            const cursorNum = Number(input.cursor);
+            if (!Number.isNaN(cursorNum)) {
+                params['$skip'] = cursorNum;
+            } else {
+                params['$skiptoken'] = input.cursor;
+            }
         }
 
         const accountsResponse = await nango.get({
@@ -143,9 +148,13 @@ const action = createAction({
 
         let nextCursor: string | undefined;
         if (accountsData.d.__next) {
-            const skipMatch = accountsData.d.__next.match(/[?&]$skip=([^&]+)/);
-            if (skipMatch && skipMatch[1]) {
-                nextCursor = decodeURIComponent(skipMatch[1]);
+            const nextUrl = new URL(accountsData.d.__next);
+            const skipToken = nextUrl.searchParams.get('$skiptoken');
+            const nextSkip = nextUrl.searchParams.get('$skip');
+            if (skipToken) {
+                nextCursor = skipToken;
+            } else if (nextSkip) {
+                nextCursor = nextSkip;
             }
         }
 

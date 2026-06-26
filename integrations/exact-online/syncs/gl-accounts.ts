@@ -29,6 +29,14 @@ const GlAccountPageItemSchema = z.object({
     Modified: z.string()
 });
 
+function normalizeModified(value: string): string {
+    const match = value.match(/^\/Date\((\d+)\)\/$/);
+    if (match) {
+        return new Date(Number(match[1])).toISOString().slice(0, 19);
+    }
+    return value;
+}
+
 const sync = createSync({
     description: 'Sync general ledger accounts as full snapshot.',
     version: '1.0.0',
@@ -68,7 +76,7 @@ const sync = createSync({
             params: {
                 $select: 'ID,Code,Description,Modified',
                 $orderby: 'Modified asc',
-                ...(checkpoint.updated_after && { $filter: `Modified gt datetime'${checkpoint.updated_after}'` })
+                ...(checkpoint.updated_after && { $filter: `Modified ge datetime'${checkpoint.updated_after}'` })
             },
             paginate: {
                 type: 'link',
@@ -106,7 +114,7 @@ const sync = createSync({
             }
 
             await nango.saveCheckpoint({
-                updated_after: lastAccount.modified
+                updated_after: normalizeModified(lastAccount.modified)
             });
         }
     }

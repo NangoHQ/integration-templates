@@ -78,7 +78,7 @@ const sync = createSync({
                 offset_calculation_method: 'per-page',
                 limit_name_in_request: '$top',
                 limit: 100,
-                response_path: 'd'
+                response_path: 'd.results'
             }
         };
 

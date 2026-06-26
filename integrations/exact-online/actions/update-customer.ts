@@ -133,7 +133,8 @@ const action = createAction({
         let providerData: z.infer<typeof ProviderAccountSchema>;
         if (putResponse.status === 204 || putResponse.status === 200) {
             if (putResponse.data && typeof putResponse.data === 'object' && Object.keys(putResponse.data).length > 0) {
-                providerData = ProviderAccountSchema.parse(putResponse.data);
+                const wrapped = z.object({ d: ProviderAccountSchema }).safeParse(putResponse.data);
+                providerData = wrapped.success ? wrapped.data.d : ProviderAccountSchema.parse(putResponse.data);
             } else {
                 // https://support.exactonline.com/community/s/knowledge-base#All-All-EON-REST-GET-CRMAccounts
                 const getResponse = await nango.get({

@@ -166,188 +166,190 @@
       },
       "/api/v1/124132/salesinvoice/SalesInvoices": {
         "response": {
-          "d": [
-            {
-              "__metadata": {
-                "uri": "https://start.exactonline.fr/api/v1/124132/salesinvoice/SalesInvoices(guid'8718b302-2f75-4b21-885a-d48101cd7870')",
-                "type": "Exact.Web.Api.Models.SalesInvoice"
+          "d": {
+            "results": [
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/salesinvoice/SalesInvoices(guid'8718b302-2f75-4b21-885a-d48101cd7870')",
+                  "type": "Exact.Web.Api.Models.SalesInvoice"
+                },
+                "AmountDC": 316.5,
+                "InvoiceID": "8718b302-2f75-4b21-885a-d48101cd7870",
+                "InvoiceNumber": 24700001,
+                "Modified": "/Date(1723472960773)/",
+                "OrderedBy": "a58c29d9-ef92-40f1-b817-31b36990898c",
+                "Status": 50
               },
-              "AmountDC": 316.5,
-              "InvoiceID": "8718b302-2f75-4b21-885a-d48101cd7870",
-              "InvoiceNumber": 24700001,
-              "Modified": "/Date(1723472960773)/",
-              "OrderedBy": "a58c29d9-ef92-40f1-b817-31b36990898c",
-              "Status": 50
-            },
-            {
-              "__metadata": {
-                "uri": "https://start.exactonline.fr/api/v1/124132/salesinvoice/SalesInvoices(guid'd4c1d3ef-0dcf-4c0b-8e11-b5aeda553da6')",
-                "type": "Exact.Web.Api.Models.SalesInvoice"
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/salesinvoice/SalesInvoices(guid'd4c1d3ef-0dcf-4c0b-8e11-b5aeda553da6')",
+                  "type": "Exact.Web.Api.Models.SalesInvoice"
+                },
+                "AmountDC": 300,
+                "InvoiceID": "d4c1d3ef-0dcf-4c0b-8e11-b5aeda553da6",
+                "InvoiceNumber": 24700002,
+                "Modified": "/Date(1723563699990)/",
+                "OrderedBy": "a58c29d9-ef92-40f1-b817-31b36990898c",
+                "Status": 50
               },
-              "AmountDC": 300,
-              "InvoiceID": "d4c1d3ef-0dcf-4c0b-8e11-b5aeda553da6",
-              "InvoiceNumber": 24700002,
-              "Modified": "/Date(1723563699990)/",
-              "OrderedBy": "a58c29d9-ef92-40f1-b817-31b36990898c",
-              "Status": 50
-            },
-            {
-              "__metadata": {
-                "uri": "https://start.exactonline.fr/api/v1/124132/salesinvoice/SalesInvoices(guid'6462f754-9aa5-412b-9203-db3e120c8e0a')",
-                "type": "Exact.Web.Api.Models.SalesInvoice"
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/salesinvoice/SalesInvoices(guid'6462f754-9aa5-412b-9203-db3e120c8e0a')",
+                  "type": "Exact.Web.Api.Models.SalesInvoice"
+                },
+                "AmountDC": 24,
+                "InvoiceID": "6462f754-9aa5-412b-9203-db3e120c8e0a",
+                "InvoiceNumber": 24700003,
+                "Modified": "/Date(1725638465470)/",
+                "OrderedBy": "a58c29d9-ef92-40f1-b817-31b36990898c",
+                "Status": 50
               },
-              "AmountDC": 24,
-              "InvoiceID": "6462f754-9aa5-412b-9203-db3e120c8e0a",
-              "InvoiceNumber": 24700003,
-              "Modified": "/Date(1725638465470)/",
-              "OrderedBy": "a58c29d9-ef92-40f1-b817-31b36990898c",
-              "Status": 50
-            },
-            {
-              "__metadata": {
-                "uri": "https://start.exactonline.fr/api/v1/124132/salesinvoice/SalesInvoices(guid'd6a7cf7b-d5d3-4de6-b9fb-d55d63543fa8')",
-                "type": "Exact.Web.Api.Models.SalesInvoice"
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/salesinvoice/SalesInvoices(guid'd6a7cf7b-d5d3-4de6-b9fb-d55d63543fa8')",
+                  "type": "Exact.Web.Api.Models.SalesInvoice"
+                },
+                "AmountDC": 10,
+                "InvoiceID": "d6a7cf7b-d5d3-4de6-b9fb-d55d63543fa8",
+                "InvoiceNumber": 24700004,
+                "Modified": "/Date(1725639171633)/",
+                "OrderedBy": "a58c29d9-ef92-40f1-b817-31b36990898c",
+                "Status": 50
               },
-              "AmountDC": 10,
-              "InvoiceID": "d6a7cf7b-d5d3-4de6-b9fb-d55d63543fa8",
-              "InvoiceNumber": 24700004,
-              "Modified": "/Date(1725639171633)/",
-              "OrderedBy": "a58c29d9-ef92-40f1-b817-31b36990898c",
-              "Status": 50
-            },
-            {
-              "__metadata": {
-                "uri": "https://start.exactonline.fr/api/v1/124132/salesinvoice/SalesInvoices(guid'f3d95ccb-1203-43aa-85c7-bd3ed6d250ed')",
-                "type": "Exact.Web.Api.Models.SalesInvoice"
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/salesinvoice/SalesInvoices(guid'f3d95ccb-1203-43aa-85c7-bd3ed6d250ed')",
+                  "type": "Exact.Web.Api.Models.SalesInvoice"
+                },
+                "AmountDC": 0.01,
+                "InvoiceID": "f3d95ccb-1203-43aa-85c7-bd3ed6d250ed",
+                "InvoiceNumber": 24700005,
+                "Modified": "/Date(1725644849737)/",
+                "OrderedBy": "a58c29d9-ef92-40f1-b817-31b36990898c",
+                "Status": 50
               },
-              "AmountDC": 0.01,
-              "InvoiceID": "f3d95ccb-1203-43aa-85c7-bd3ed6d250ed",
-              "InvoiceNumber": 24700005,
-              "Modified": "/Date(1725644849737)/",
-              "OrderedBy": "a58c29d9-ef92-40f1-b817-31b36990898c",
-              "Status": 50
-            },
-            {
-              "__metadata": {
-                "uri": "https://start.exactonline.fr/api/v1/124132/salesinvoice/SalesInvoices(guid'7b282ae4-d920-46b0-87fd-3da21b818780')",
-                "type": "Exact.Web.Api.Models.SalesInvoice"
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/salesinvoice/SalesInvoices(guid'7b282ae4-d920-46b0-87fd-3da21b818780')",
+                  "type": "Exact.Web.Api.Models.SalesInvoice"
+                },
+                "AmountDC": 1.2,
+                "InvoiceID": "7b282ae4-d920-46b0-87fd-3da21b818780",
+                "InvoiceNumber": 24700006,
+                "Modified": "/Date(1725882549703)/",
+                "OrderedBy": "a58c29d9-ef92-40f1-b817-31b36990898c",
+                "Status": 50
               },
-              "AmountDC": 1.2,
-              "InvoiceID": "7b282ae4-d920-46b0-87fd-3da21b818780",
-              "InvoiceNumber": 24700006,
-              "Modified": "/Date(1725882549703)/",
-              "OrderedBy": "a58c29d9-ef92-40f1-b817-31b36990898c",
-              "Status": 50
-            },
-            {
-              "__metadata": {
-                "uri": "https://start.exactonline.fr/api/v1/124132/salesinvoice/SalesInvoices(guid'31057b4b-be72-4748-9bcd-57ed146dd6d1')",
-                "type": "Exact.Web.Api.Models.SalesInvoice"
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/salesinvoice/SalesInvoices(guid'31057b4b-be72-4748-9bcd-57ed146dd6d1')",
+                  "type": "Exact.Web.Api.Models.SalesInvoice"
+                },
+                "AmountDC": 120,
+                "InvoiceID": "31057b4b-be72-4748-9bcd-57ed146dd6d1",
+                "InvoiceNumber": 24700007,
+                "Modified": "/Date(1725884950273)/",
+                "OrderedBy": "a58c29d9-ef92-40f1-b817-31b36990898c",
+                "Status": 50
               },
-              "AmountDC": 120,
-              "InvoiceID": "31057b4b-be72-4748-9bcd-57ed146dd6d1",
-              "InvoiceNumber": 24700007,
-              "Modified": "/Date(1725884950273)/",
-              "OrderedBy": "a58c29d9-ef92-40f1-b817-31b36990898c",
-              "Status": 50
-            },
-            {
-              "__metadata": {
-                "uri": "https://start.exactonline.fr/api/v1/124132/salesinvoice/SalesInvoices(guid'3218a374-eed2-4b50-b677-67b2d2f1e5e1')",
-                "type": "Exact.Web.Api.Models.SalesInvoice"
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/salesinvoice/SalesInvoices(guid'3218a374-eed2-4b50-b677-67b2d2f1e5e1')",
+                  "type": "Exact.Web.Api.Models.SalesInvoice"
+                },
+                "AmountDC": 120,
+                "InvoiceID": "3218a374-eed2-4b50-b677-67b2d2f1e5e1",
+                "InvoiceNumber": 24700010,
+                "Modified": "/Date(1725885629957)/",
+                "OrderedBy": "a58c29d9-ef92-40f1-b817-31b36990898c",
+                "Status": 50
               },
-              "AmountDC": 120,
-              "InvoiceID": "3218a374-eed2-4b50-b677-67b2d2f1e5e1",
-              "InvoiceNumber": 24700010,
-              "Modified": "/Date(1725885629957)/",
-              "OrderedBy": "a58c29d9-ef92-40f1-b817-31b36990898c",
-              "Status": 50
-            },
-            {
-              "__metadata": {
-                "uri": "https://start.exactonline.fr/api/v1/124132/salesinvoice/SalesInvoices(guid'610d6972-6490-4947-bf59-6ebbe6237638')",
-                "type": "Exact.Web.Api.Models.SalesInvoice"
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/salesinvoice/SalesInvoices(guid'610d6972-6490-4947-bf59-6ebbe6237638')",
+                  "type": "Exact.Web.Api.Models.SalesInvoice"
+                },
+                "AmountDC": 1,
+                "InvoiceID": "610d6972-6490-4947-bf59-6ebbe6237638",
+                "InvoiceNumber": null,
+                "Modified": "/Date(1782404417137)/",
+                "OrderedBy": "a58c29d9-ef92-40f1-b817-31b36990898c",
+                "Status": 20
               },
-              "AmountDC": 1,
-              "InvoiceID": "610d6972-6490-4947-bf59-6ebbe6237638",
-              "InvoiceNumber": null,
-              "Modified": "/Date(1782404417137)/",
-              "OrderedBy": "a58c29d9-ef92-40f1-b817-31b36990898c",
-              "Status": 20
-            },
-            {
-              "__metadata": {
-                "uri": "https://start.exactonline.fr/api/v1/124132/salesinvoice/SalesInvoices(guid'320ede2d-2087-43b5-9eed-30f09d7615c4')",
-                "type": "Exact.Web.Api.Models.SalesInvoice"
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/salesinvoice/SalesInvoices(guid'320ede2d-2087-43b5-9eed-30f09d7615c4')",
+                  "type": "Exact.Web.Api.Models.SalesInvoice"
+                },
+                "AmountDC": 1,
+                "InvoiceID": "320ede2d-2087-43b5-9eed-30f09d7615c4",
+                "InvoiceNumber": null,
+                "Modified": "/Date(1782404925530)/",
+                "OrderedBy": "a58c29d9-ef92-40f1-b817-31b36990898c",
+                "Status": 20
               },
-              "AmountDC": 1,
-              "InvoiceID": "320ede2d-2087-43b5-9eed-30f09d7615c4",
-              "InvoiceNumber": null,
-              "Modified": "/Date(1782404925530)/",
-              "OrderedBy": "a58c29d9-ef92-40f1-b817-31b36990898c",
-              "Status": 20
-            },
-            {
-              "__metadata": {
-                "uri": "https://start.exactonline.fr/api/v1/124132/salesinvoice/SalesInvoices(guid'3381ebe0-1a3e-4977-bb96-7943ebb5e1c8')",
-                "type": "Exact.Web.Api.Models.SalesInvoice"
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/salesinvoice/SalesInvoices(guid'3381ebe0-1a3e-4977-bb96-7943ebb5e1c8')",
+                  "type": "Exact.Web.Api.Models.SalesInvoice"
+                },
+                "AmountDC": 1,
+                "InvoiceID": "3381ebe0-1a3e-4977-bb96-7943ebb5e1c8",
+                "InvoiceNumber": null,
+                "Modified": "/Date(1782404952113)/",
+                "OrderedBy": "a58c29d9-ef92-40f1-b817-31b36990898c",
+                "Status": 20
               },
-              "AmountDC": 1,
-              "InvoiceID": "3381ebe0-1a3e-4977-bb96-7943ebb5e1c8",
-              "InvoiceNumber": null,
-              "Modified": "/Date(1782404952113)/",
-              "OrderedBy": "a58c29d9-ef92-40f1-b817-31b36990898c",
-              "Status": 20
-            },
-            {
-              "__metadata": {
-                "uri": "https://start.exactonline.fr/api/v1/124132/salesinvoice/SalesInvoices(guid'a85e3af8-b58c-43cb-baf0-12c893e2c436')",
-                "type": "Exact.Web.Api.Models.SalesInvoice"
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/salesinvoice/SalesInvoices(guid'a85e3af8-b58c-43cb-baf0-12c893e2c436')",
+                  "type": "Exact.Web.Api.Models.SalesInvoice"
+                },
+                "AmountDC": 1,
+                "InvoiceID": "a85e3af8-b58c-43cb-baf0-12c893e2c436",
+                "InvoiceNumber": null,
+                "Modified": "/Date(1782404966290)/",
+                "OrderedBy": "a58c29d9-ef92-40f1-b817-31b36990898c",
+                "Status": 20
               },
-              "AmountDC": 1,
-              "InvoiceID": "a85e3af8-b58c-43cb-baf0-12c893e2c436",
-              "InvoiceNumber": null,
-              "Modified": "/Date(1782404966290)/",
-              "OrderedBy": "a58c29d9-ef92-40f1-b817-31b36990898c",
-              "Status": 20
-            },
-            {
-              "__metadata": {
-                "uri": "https://start.exactonline.fr/api/v1/124132/salesinvoice/SalesInvoices(guid'b4da3c78-9dfc-44f1-a2cc-f96f3ac670a3')",
-                "type": "Exact.Web.Api.Models.SalesInvoice"
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/salesinvoice/SalesInvoices(guid'b4da3c78-9dfc-44f1-a2cc-f96f3ac670a3')",
+                  "type": "Exact.Web.Api.Models.SalesInvoice"
+                },
+                "AmountDC": 1,
+                "InvoiceID": "b4da3c78-9dfc-44f1-a2cc-f96f3ac670a3",
+                "InvoiceNumber": null,
+                "Modified": "/Date(1782404991640)/",
+                "OrderedBy": "a58c29d9-ef92-40f1-b817-31b36990898c",
+                "Status": 20
               },
-              "AmountDC": 1,
-              "InvoiceID": "b4da3c78-9dfc-44f1-a2cc-f96f3ac670a3",
-              "InvoiceNumber": null,
-              "Modified": "/Date(1782404991640)/",
-              "OrderedBy": "a58c29d9-ef92-40f1-b817-31b36990898c",
-              "Status": 20
-            },
-            {
-              "__metadata": {
-                "uri": "https://start.exactonline.fr/api/v1/124132/salesinvoice/SalesInvoices(guid'f064579d-a887-4217-971f-e540210361ba')",
-                "type": "Exact.Web.Api.Models.SalesInvoice"
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/salesinvoice/SalesInvoices(guid'f064579d-a887-4217-971f-e540210361ba')",
+                  "type": "Exact.Web.Api.Models.SalesInvoice"
+                },
+                "AmountDC": 1,
+                "InvoiceID": "f064579d-a887-4217-971f-e540210361ba",
+                "InvoiceNumber": null,
+                "Modified": "/Date(1782405036167)/",
+                "OrderedBy": "a58c29d9-ef92-40f1-b817-31b36990898c",
+                "Status": 20
               },
-              "AmountDC": 1,
-              "InvoiceID": "f064579d-a887-4217-971f-e540210361ba",
-              "InvoiceNumber": null,
-              "Modified": "/Date(1782405036167)/",
-              "OrderedBy": "a58c29d9-ef92-40f1-b817-31b36990898c",
-              "Status": 20
-            },
-            {
-              "__metadata": {
-                "uri": "https://start.exactonline.fr/api/v1/124132/salesinvoice/SalesInvoices(guid'a07b5588-4d7d-4872-88f9-30b2d256440d')",
-                "type": "Exact.Web.Api.Models.SalesInvoice"
-              },
-              "AmountDC": 1,
-              "InvoiceID": "a07b5588-4d7d-4872-88f9-30b2d256440d",
-              "InvoiceNumber": null,
-              "Modified": "/Date(1782405060240)/",
-              "OrderedBy": "a58c29d9-ef92-40f1-b817-31b36990898c",
-              "Status": 20
-            }
-          ]
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/salesinvoice/SalesInvoices(guid'a07b5588-4d7d-4872-88f9-30b2d256440d')",
+                  "type": "Exact.Web.Api.Models.SalesInvoice"
+                },
+                "AmountDC": 1,
+                "InvoiceID": "a07b5588-4d7d-4872-88f9-30b2d256440d",
+                "InvoiceNumber": null,
+                "Modified": "/Date(1782405060240)/",
+                "OrderedBy": "a58c29d9-ef92-40f1-b817-31b36990898c",
+                "Status": 20
+              }
+            ]
+          }
         },
         "status": 200,
         "headers": {

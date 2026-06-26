@@ -81,7 +81,7 @@ const sync = createSync({
             params: {
                 $select: 'ID,Subject,DocumentDate,Modified',
                 $orderby: 'Modified asc',
-                ...(checkpoint.modified_after && { $filter: `Modified gt datetime'${checkpoint.modified_after}'` })
+                ...(checkpoint.modified_after && { $filter: `Modified ge datetime'${checkpoint.modified_after}'` })
             },
             paginate: {
                 type: 'offset',

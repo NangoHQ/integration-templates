@@ -7,7 +7,8 @@ const InputSchema = z.object({
     account: z.string().describe('Customer account GUID. Example: "a58c29d9-ef92-40f1-b817-31b36990898c"'),
     type: z.number().describe('Document type number. Example: 10'),
     fileName: z.string().describe('Name of the file being attached. Example: "invoice.pdf"'),
-    fileContent: z.string().describe('Base64-encoded file content. Example: "JVBERi0xLjQKJ..."')
+    fileContent: z.string().describe('Base64-encoded file content. Example: "JVBERi0xLjQKJ..."'),
+    invoiceId: z.string().optional().describe('Sales invoice GUID to link this document to. Example: "7b282ae4-d920-46b0-87fd-3da21b818780"')
 });
 
 const OutputSchema = z.object({
@@ -36,8 +37,8 @@ const PostDocumentResponseSchema = z.object({
 });
 
 const action = createAction({
-    description: 'Attach a document/file to a sales invoice',
-    version: '3.0.0',
+    description: 'Attach a document/file and optionally link it to a sales invoice',
+    version: '3.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['documents'],
@@ -87,6 +88,17 @@ const action = createAction({
             },
             retries: 3
         });
+
+        if (input.invoiceId) {
+            // https://support.exactonline.com/community/s/article/All-All-DNO-Content-rest-api-business-cases-rest-bsncs--entrattach
+            await nango.put({
+                endpoint: `/api/v1/${encodeURIComponent(division)}/salesinvoice/SalesInvoices(guid'${encodeURIComponent(input.invoiceId)}')`,
+                data: {
+                    Document: documentId
+                },
+                retries: 3
+            });
+        }
 
         return {
             documentId: documentId

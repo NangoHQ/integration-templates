@@ -79,7 +79,7 @@ const sync = createSync({
                 $orderby: 'Modified asc',
                 ...(checkpoint &&
                     checkpoint['updated_after'] && {
-                        $filter: `Modified gt datetime'${checkpoint['updated_after']}'`
+                        $filter: `Modified ge datetime'${checkpoint['updated_after']}'`
                     })
             },
             paginate: {

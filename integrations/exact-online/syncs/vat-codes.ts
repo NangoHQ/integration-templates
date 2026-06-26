@@ -22,9 +22,9 @@ const MeResponseSchema = z.object({
 
 const VatCodeItemSchema = z.object({
     ID: z.string(),
-    Code: z.string().optional(),
-    Description: z.string().optional(),
-    Modified: z.string().optional()
+    Code: z.string().nullish(),
+    Description: z.string().nullish(),
+    Modified: z.string().nullish()
 });
 
 const PaginatePageSchema = z.union([
@@ -114,9 +114,9 @@ const sync = createSync({
                 }
                 vatCodes.push({
                     id: parsed.data.ID,
-                    ...(parsed.data.Code !== undefined && { code: parsed.data.Code.trim() }),
-                    ...(parsed.data.Description !== undefined && { description: parsed.data.Description }),
-                    ...(parsed.data.Modified !== undefined && { modified: parsed.data.Modified })
+                    ...(parsed.data.Code != null && { code: parsed.data.Code.trim() }),
+                    ...(parsed.data.Description != null && { description: parsed.data.Description }),
+                    ...(parsed.data.Modified != null && { modified: parsed.data.Modified })
                 });
             }
 

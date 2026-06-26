@@ -26,7 +26,7 @@ const MeResponseSchema = z.object({
 const DocumentAttachmentPageSchema = z.array(
     z
         .object({
-            ID: z.string().optional(),
+            ID: z.string(),
             Document: z.string().optional(),
             FileName: z.string().optional(),
             FileSize: z.number().optional(),
@@ -79,7 +79,7 @@ const sync = createSync({
                 limit: 100,
                 limit_name_in_request: '$top',
                 offset_name_in_request: '$skip',
-                response_path: 'd'
+                response_path: 'd.results'
             },
             retries: 3
         };
@@ -91,7 +91,7 @@ const sync = createSync({
             }
 
             const attachments = pageParsed.data.map((record) => ({
-                id: record.ID ?? '',
+                id: record.ID,
                 ...(record.Document != null && { document: record.Document }),
                 ...(record.FileName != null && { fileName: record.FileName }),
                 ...(record.FileSize != null && { fileSize: record.FileSize }),

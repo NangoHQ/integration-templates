@@ -17,13 +17,18 @@ const CheckpointSchema = z.object({
 });
 
 const MeResponseSchema = z.object({
-    d: z.object({
-        results: z.array(
-            z.object({
-                CurrentDivision: z.number().int()
-            })
-        )
-    })
+    d: z.union([
+        z.object({
+            CurrentDivision: z.number().int()
+        }),
+        z.object({
+            results: z.array(
+                z.object({
+                    CurrentDivision: z.number().int()
+                })
+            )
+        })
+    ])
 });
 
 const PurchaseEntryItemSchema = z.object({
@@ -61,12 +66,11 @@ const sync = createSync({
             throw new Error(`Failed to parse Me response: ${meParsed.error.message}`);
         }
 
-        const meResults = meParsed.data.d.results;
-        if (meResults.length === 0 || meResults[0] === undefined) {
+        const meD = meParsed.data.d;
+        const division = 'CurrentDivision' in meD ? meD.CurrentDivision : meD.results[0]?.CurrentDivision;
+        if (division === undefined) {
             throw new Error('CurrentDivision not found in Me response');
         }
-
-        const division = meResults[0].CurrentDivision;
 
         // https://start.exactonline.fr/docs/services/PurchaseEntries/GET
         let skip = 0;
@@ -81,7 +85,7 @@ const sync = createSync({
                     $orderby: 'Modified asc',
                     $skip: String(skip),
                     $top: String(top),
-                    ...(updatedAfter && { $filter: `Modified gt datetime'${updatedAfter}'` })
+                    ...(updatedAfter && { $filter: `Modified ge datetime'${updatedAfter}'` })
                 },
                 retries: 3
             });

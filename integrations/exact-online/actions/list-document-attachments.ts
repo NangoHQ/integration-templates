@@ -1,7 +1,9 @@
 import { z } from 'zod';
 import { createAction, ProxyConfiguration } from 'nango';
 
-const InputSchema = z.object({});
+const InputSchema = z.object({
+    cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.')
+});
 
 const ProviderMeSchema = z.object({
     d: z.object({
@@ -51,7 +53,7 @@ const action = createAction({
         method: 'GET'
     },
 
-    exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const meConfig: ProxyConfiguration = {
             // https://support.exactonline.com/community/s/knowledge-base#All-All-DNO-Content-rest-api
             endpoint: '/api/v1/current/Me',
@@ -78,7 +80,8 @@ const action = createAction({
             // https://support.exactonline.com/community/s/knowledge-base#All-All-DNO-Content-rest-api
             endpoint: `/api/v1/${division}/documents/DocumentAttachments`,
             params: {
-                $select: 'ID,Document,FileName,FileSize,Url'
+                $select: 'ID,Document,FileName,FileSize,Url',
+                ...(input.cursor && { $skiptoken: input.cursor })
             },
             retries: 3
         };
@@ -94,9 +97,15 @@ const action = createAction({
             ...(attachment.Url !== undefined && { Url: attachment.Url })
         }));
 
+        let nextCursor: string | undefined;
+        if (attachmentsData.d.__next) {
+            const nextUrl = new URL(attachmentsData.d.__next);
+            nextCursor = nextUrl.searchParams.get('$skiptoken') ?? nextUrl.searchParams.get('$skip') ?? undefined;
+        }
+
         return {
             items,
-            ...(attachmentsData.d.__next !== undefined && { nextCursor: attachmentsData.d.__next })
+            ...(nextCursor !== undefined && { nextCursor })
         };
     }
 });

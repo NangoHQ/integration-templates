@@ -44,24 +44,17 @@ const action = createAction({
 
         const meData = z
             .object({
-                d: z.object({
-                    results: z.array(
-                        z.object({
-                            CurrentDivision: z.number()
-                        })
-                    )
-                })
+                d: z.union([z.object({ CurrentDivision: z.number() }), z.object({ results: z.array(z.object({ CurrentDivision: z.number() })) })])
             })
             .parse(meResponse.data);
 
-        const firstResult = meData.d.results[0];
-        if (!firstResult) {
+        const division = 'CurrentDivision' in meData.d ? meData.d.CurrentDivision : meData.d.results[0]?.CurrentDivision;
+        if (!division) {
             throw new nango.ActionError({
                 type: 'missing_division',
                 message: 'Could not determine CurrentDivision from Me endpoint.'
             });
         }
-        const division = firstResult.CurrentDivision;
 
         const params: Record<string, string> = {
             $select: 'EntryID,EntryNumber,Date,Modified,JournalCode,JournalDescription,Status,Type,TypeDescription',
@@ -81,20 +74,26 @@ const action = createAction({
 
         const data = z
             .object({
-                d: z.object({
-                    results: z.array(z.unknown()),
-                    __next: z.string().optional()
-                })
+                d: z.union([
+                    z.array(z.unknown()),
+                    z.object({
+                        results: z.array(z.unknown()),
+                        __next: z.string().optional()
+                    })
+                ])
             })
             .parse(response.data);
 
-        const items = data.d.results.map((item) => {
+        const rawItems = Array.isArray(data.d) ? data.d : data.d.results;
+        const nextLink = Array.isArray(data.d) ? undefined : data.d.__next;
+
+        const items = rawItems.map((item) => {
             return TransactionSchema.parse(item);
         });
 
         let nextCursor: string | undefined;
-        if (data.d.__next) {
-            const url = new URL(data.d.__next);
+        if (nextLink) {
+            const url = new URL(nextLink);
             nextCursor = url.searchParams.get('$skiptoken') || undefined;
         }
 

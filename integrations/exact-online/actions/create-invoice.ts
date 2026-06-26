@@ -5,6 +5,7 @@ const InputSchema = z.object({
     ordered_by: z.string().describe('Customer account GUID. Example: a58c29d9-ef92-40f1-b817-31b36990898c'),
     invoice_date: z.string().optional().describe('Invoice date in ISO format. Example: 2024-05-30'),
     description: z.string().optional().describe('Invoice description'),
+    warehouse: z.string().optional().describe('Warehouse GUID. Tenant-specific, omit if not applicable.'),
     sales_invoice_lines: z
         .array(
             z
@@ -161,9 +162,12 @@ const action = createAction({
             Status: 20,
             Journal: '70',
             Type: 8023,
-            Warehouse: 'e4f7592d-dd76-4c75-b957-9fbeaf9dbe55',
             SalesInvoiceLines: salesInvoiceLines
         };
+
+        if (input.warehouse !== undefined) {
+            invoiceBody['Warehouse'] = input.warehouse;
+        }
 
         if (input.invoice_date !== undefined) {
             invoiceBody['InvoiceDate'] = input.invoice_date;
@@ -195,8 +199,8 @@ const action = createAction({
 
         if (!createdId && createdD.__metadata?.uri) {
             const uri = createdD.__metadata.uri;
-            const match = uri.match(/\('([^']+)'\)/);
-            if (match) {
+            const match = uri.match(/\((?:guid'|')([0-9a-fA-F-]{36})'\)/);
+            if (match && match[1]) {
                 createdId = match[1];
             }
         }

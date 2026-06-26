@@ -195,9 +195,17 @@ const action = createAction({
             }
         }
 
+        const resolvedId = providerEntry.EntryID ?? providerEntry.ID ?? undefined;
+        if (!resolvedId) {
+            throw new nango.ActionError({
+                type: 'missing_id',
+                message: 'Could not determine purchase entry ID from API response'
+            });
+        }
+
         return {
-            entryId: providerEntry.EntryID ?? providerEntry.ID ?? undefined,
-            id: providerEntry.EntryID ?? providerEntry.ID ?? undefined,
+            entryId: resolvedId,
+            id: resolvedId,
             entryNumber: providerEntry.EntryNumber ?? undefined,
             journal: providerEntry.Journal ?? undefined,
             supplier: providerEntry.Supplier ?? undefined,

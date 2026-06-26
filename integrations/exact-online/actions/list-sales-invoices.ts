@@ -62,6 +62,13 @@ const action = createAction({
         const top = 100;
         const skip = input.cursor ? parseInt(input.cursor, 10) : 0;
 
+        if (Number.isNaN(skip) || skip < 0) {
+            throw new nango.ActionError({
+                type: 'invalid_cursor',
+                message: 'Pagination cursor must be a non-negative integer string.'
+            });
+        }
+
         const params: Record<string, string | number> = {
             $top: top,
             $skip: skip,

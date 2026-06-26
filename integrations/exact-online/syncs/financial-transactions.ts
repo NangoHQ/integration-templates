@@ -94,7 +94,7 @@ const sync = createSync({
                 $select: 'EntryID,EntryNumber,Date,Modified,JournalCode,Status,Type',
                 $orderby: 'Modified asc',
                 ...(updatedAfter && {
-                    $filter: `Modified gt datetime'${updatedAfter}'`
+                    $filter: `Modified ge datetime'${updatedAfter}'`
                 })
             },
             paginate: {

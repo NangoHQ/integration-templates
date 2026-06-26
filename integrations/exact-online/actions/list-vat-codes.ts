@@ -23,7 +23,13 @@ const VatCodeResultSchema = z.object({
 });
 
 const VatCodesResponseSchema = z.object({
-    d: z.array(VatCodeResultSchema)
+    d: z.union([
+        z.array(VatCodeResultSchema),
+        z.object({
+            results: z.array(VatCodeResultSchema),
+            __next: z.string().optional()
+        })
+    ])
 });
 
 const VatCodeOutputSchema = z.object({
@@ -87,14 +93,23 @@ const action = createAction({
         });
 
         const vatData = VatCodesResponseSchema.parse(vatResponse.data);
-        const items = vatData.d.map((item) => ({
+        const resultsArray = Array.isArray(vatData.d) ? vatData.d : vatData.d.results;
+        const nextLink = Array.isArray(vatData.d) ? undefined : vatData.d.__next;
+
+        const items = resultsArray.map((item) => ({
             id: item.ID,
             ...(item.Code != null && { code: item.Code.trim() }),
             ...(item.Description != null && { description: item.Description }),
             ...(item.Modified != null && { modified: item.Modified })
         }));
 
-        const nextCursor = vatData.d.length === pageSize ? (skip + pageSize).toString() : undefined;
+        let nextCursor: string | undefined;
+        if (nextLink) {
+            const nextUrl = new URL(nextLink);
+            nextCursor = nextUrl.searchParams.get('$skiptoken') ?? nextUrl.searchParams.get('$skip') ?? undefined;
+        } else if (resultsArray.length === pageSize) {
+            nextCursor = (skip + pageSize).toString();
+        }
 
         return {
             items,

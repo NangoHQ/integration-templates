@@ -1,7 +1,99 @@
 {
   "nango": {
     "batchSave": {
-      "DocumentAttachment": []
+      "DocumentAttachment": [
+        {
+          "id": "a5dedcb5-09a7-4e5f-b703-10f1bb40f709",
+          "document": "84f0a98a-de32-4731-8bea-508065fb3210",
+          "fileName": "inv24700003.PDF",
+          "fileSize": 5181,
+          "url": "https://start.exactonline.fr/docs/SysAttachment.aspx?ID=a5dedcb5-09a7-4e5f-b703-10f1bb40f709&_Division_=124132&Stamp=FR001"
+        },
+        {
+          "id": "dcb8e4d1-d95e-4a74-8816-2f4c98393246",
+          "document": "75cbaee4-9eee-4643-a7da-5187a8c8279e",
+          "fileName": "inv24700004.PDF",
+          "fileSize": 5174,
+          "url": "https://start.exactonline.fr/docs/SysAttachment.aspx?ID=dcb8e4d1-d95e-4a74-8816-2f4c98393246&_Division_=124132&Stamp=FR001"
+        },
+        {
+          "id": "bdd72e03-2af0-4d0a-be10-2f96804ccb8b",
+          "document": "6b7456e7-593d-4039-b6dd-3e1dbc6746b7",
+          "fileName": "invoice.pdf",
+          "fileSize": 4911,
+          "url": "https://start.exactonline.fr/docs/SysAttachment.aspx?ID=bdd72e03-2af0-4d0a-be10-2f96804ccb8b&_Division_=124132&Stamp=FR001"
+        },
+        {
+          "id": "02977e98-1050-41f6-bc18-339756aa6bb2",
+          "document": "1e5d4377-452a-4961-b3cf-9efebe9dce2f",
+          "fileName": "inv24700006.PDF",
+          "fileSize": 5270,
+          "url": "https://start.exactonline.fr/docs/SysAttachment.aspx?ID=02977e98-1050-41f6-bc18-339756aa6bb2&_Division_=124132&Stamp=FR001"
+        },
+        {
+          "id": "07bc2ccf-2e7c-403e-8bbd-796b37116fb7",
+          "document": "6eaf28f8-e5ec-48fb-8be9-08cee2883550",
+          "fileName": "test.txt",
+          "fileSize": 4,
+          "url": "https://start.exactonline.fr/docs/SysAttachment.aspx?ID=07bc2ccf-2e7c-403e-8bbd-796b37116fb7&_Division_=124132&Stamp=FR001"
+        },
+        {
+          "id": "37e8f423-7722-4133-acbb-8231cf171264",
+          "document": "9d648f77-9556-48b5-a701-fdcfa88f177f",
+          "fileName": "test.txt",
+          "fileSize": 4,
+          "url": "https://start.exactonline.fr/docs/SysAttachment.aspx?ID=37e8f423-7722-4133-acbb-8231cf171264&_Division_=124132&Stamp=FR001"
+        },
+        {
+          "id": "dfd1e067-0c36-4262-a7dd-8df67a47b7da",
+          "document": "c9a8297e-61a3-4adc-bc17-167e5a7f45c5",
+          "fileName": "inv24700010.PDF",
+          "fileSize": 5276,
+          "url": "https://start.exactonline.fr/docs/SysAttachment.aspx?ID=dfd1e067-0c36-4262-a7dd-8df67a47b7da&_Division_=124132&Stamp=FR001"
+        },
+        {
+          "id": "d104d372-1f3f-4fb9-ad47-916412883bc1",
+          "document": "6e0ba503-c213-4f9f-97be-9d1fd0001b3c",
+          "fileName": "test.txt",
+          "fileSize": 4,
+          "url": "https://start.exactonline.fr/docs/SysAttachment.aspx?ID=d104d372-1f3f-4fb9-ad47-916412883bc1&_Division_=124132&Stamp=FR001"
+        },
+        {
+          "id": "c6656c45-263d-462c-a88a-9b3a4463f177",
+          "document": "0303badd-1f5a-43ef-809e-7bd3c733a690",
+          "fileName": "inv24700005.PDF",
+          "fileSize": 5187,
+          "url": "https://start.exactonline.fr/docs/SysAttachment.aspx?ID=c6656c45-263d-462c-a88a-9b3a4463f177&_Division_=124132&Stamp=FR001"
+        },
+        {
+          "id": "09f9c997-8f17-4de3-bb1b-b416b0b14177",
+          "document": "33cb0f2f-dec5-4d56-a554-97eeac3ff6ae",
+          "fileName": "plans-edd-rcp-avril-2021-1.pdf",
+          "fileSize": 3363034,
+          "url": "https://start.exactonline.fr/docs/SysAttachment.aspx?ID=09f9c997-8f17-4de3-bb1b-b416b0b14177&_Division_=124132&Stamp=FR001"
+        },
+        {
+          "id": "5c9ce573-1a16-496b-9bd7-c7dead2faf6f",
+          "document": "a1b6a518-738a-4761-b780-ea2105426279",
+          "fileName": "inv24700007.PDF",
+          "fileSize": 5274,
+          "url": "https://start.exactonline.fr/docs/SysAttachment.aspx?ID=5c9ce573-1a16-496b-9bd7-c7dead2faf6f&_Division_=124132&Stamp=FR001"
+        },
+        {
+          "id": "01da6d57-1db6-460f-a531-ca544c50c74c",
+          "document": "92c63576-cee3-4743-8cec-de1bb015cdb7",
+          "fileName": "inv24700002.PDF",
+          "fileSize": 5202,
+          "url": "https://start.exactonline.fr/docs/SysAttachment.aspx?ID=01da6d57-1db6-460f-a531-ca544c50c74c&_Division_=124132&Stamp=FR001"
+        },
+        {
+          "id": "65071e90-83fc-4764-8c9d-e9887bd1cd0b",
+          "document": "b633d9a4-11eb-4755-b602-3717356792d7",
+          "fileName": "inv24700001.PDF",
+          "fileSize": 5267,
+          "url": "https://start.exactonline.fr/docs/SysAttachment.aspx?ID=65071e90-83fc-4764-8c9d-e9887bd1cd0b&_Division_=124132&Stamp=FR001"
+        }
+      ]
     },
     "batchDelete": {
       "DocumentAttachment": []

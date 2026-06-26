@@ -83,9 +83,12 @@ const action = createAction({
         }
         const division = firstMeResult.CurrentDivision;
 
-        const cursorValue = input.cursor !== undefined ? Number(input.cursor) : undefined;
-        const skip = cursorValue !== undefined && !isNaN(cursorValue) ? cursorValue : undefined;
         const limit = input.limit ?? 60;
+
+        const cursorNum = input.cursor !== undefined ? Number(input.cursor) : undefined;
+        const isNumericCursor = cursorNum !== undefined && !Number.isNaN(cursorNum);
+        const skip = isNumericCursor ? cursorNum : undefined;
+        const skipToken = !isNumericCursor && input.cursor ? input.cursor : undefined;
 
         const contactsConfig: ProxyConfiguration = {
             // https://start.exactonline.nl/docs/HlpRestAPIResources.aspx?SourceAction=10
@@ -93,8 +96,9 @@ const action = createAction({
             params: {
                 $select: 'ID,Account,FullName,FirstName,LastName,Email,Phone,Modified',
                 ...(skip !== undefined && { $skip: skip }),
+                ...(skipToken !== undefined && { $skiptoken: skipToken }),
                 $top: limit,
-                ...(input.modifiedSince !== undefined && { $filter: `Modified gt datetime'${input.modifiedSince}'` })
+                ...(input.modifiedSince !== undefined && { $filter: `Modified ge datetime'${input.modifiedSince}'` })
             },
             retries: 3
         };

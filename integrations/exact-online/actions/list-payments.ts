@@ -136,10 +136,9 @@ const action = createAction({
         let nextCursor: string | undefined;
         if (nextLink) {
             const url = new URL(nextLink);
+            const skipToken = url.searchParams.get('$skiptoken');
             const nextSkip = url.searchParams.get('$skip');
-            if (nextSkip) {
-                nextCursor = nextSkip;
-            }
+            nextCursor = skipToken ?? nextSkip ?? undefined;
         }
 
         return {

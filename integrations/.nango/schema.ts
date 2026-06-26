@@ -34830,6 +34830,10 @@ export interface ActionInput_exact_online_attachfileinvoice {
    * Base64-encoded file content. Example: "JVBERi0xLjQKJ..."
    */
   fileContent: string;
+  /**
+   * Sales invoice GUID to link this document to. Example: "7b282ae4-d920-46b0-87fd-3da21b818780"
+   */
+  invoiceId?: string | undefined;
 };
 
 export interface ActionOutput_exact_online_attachfileinvoice {
@@ -34933,6 +34937,10 @@ export interface ActionInput_exact_online_createinvoice {
    * Invoice description
    */
   description?: string | undefined;
+  /**
+   * Warehouse GUID. Tenant-specific, omit if not applicable.
+   */
+  warehouse?: string | undefined;
   sales_invoice_lines: ({  /**
    * Item GUID
    */
@@ -35321,6 +35329,10 @@ export interface ActionOutput_exact_online_listdivisions {
 };
 
 export interface ActionInput_exact_online_listdocumentattachments {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
 };
 
 export interface ActionOutput_exact_online_listdocumentattachments {
@@ -35334,9 +35346,13 @@ export interface ActionOutput_exact_online_listdocumentattachments {
 
 export interface ActionInput_exact_online_listdocuments {
   /**
-   * Pagination cursor (ISO 8601 timestamp of the last Modified value). Omit for the first page.
+   * Pagination cursor from the previous response ($skiptoken). Omit for the first page.
    */
   cursor?: string | undefined;
+  /**
+   * ISO 8601 timestamp to filter documents modified after this date. Example: 2024-05-30T00:00:00Z
+   */
+  modified_after?: string | undefined;
 };
 
 export interface ActionOutput_exact_online_listdocuments {
@@ -35357,7 +35373,7 @@ export interface ActionOutput_exact_online_listdocuments {
    */
   Modified?: string | undefined;})[];
   /**
-   * Cursor for the next page (last Modified timestamp in the current page).
+   * Cursor for the next page. Pass as cursor on the next call.
    */
   next_cursor?: string | undefined;
 };
@@ -35399,7 +35415,7 @@ export interface ActionInput_exact_online_listglaccounts {
    */
   limit?: number | undefined;
   /**
-   * ISO 8601 timestamp to filter accounts modified after this date. Example: '2024-01-01T00:00:00Z'
+   * ISO 8601 datetime to filter accounts modified after this date. Example: '2024-01-01T00:00:00Z'
    */
   modified_after?: string | undefined;
 };
@@ -35573,7 +35589,7 @@ export interface ActionInput_exact_online_listtransactionlines {
    */
   limit?: number | undefined;
   /**
-   * Filter transaction lines by a specific EntryID. Example: "2ab359f3-0042-4e57-b829-d7d7cc84d1ea"
+   * Filter transaction lines by a specific EntryID (UUID). Example: "2ab359f3-0042-4e57-b829-d7d7cc84d1ea"
    */
   entryId?: string | undefined;
 };

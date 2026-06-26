@@ -83,7 +83,7 @@ const sync = createSync({
             $orderby: 'Modified asc'
         };
         if (updatedAfter) {
-            params['$filter'] = `Modified gt datetime'${updatedAfter}'`;
+            params['$filter'] = `Modified ge datetime'${updatedAfter}'`;
         }
 
         // https://support.exactonline.com/community/s/knowledge-base#All-All-DNS-Get-Sales-Invoices
@@ -96,7 +96,7 @@ const sync = createSync({
                 offset_calculation_method: 'by-response-size',
                 limit_name_in_request: '$top',
                 limit: 60,
-                response_path: 'd'
+                response_path: 'd.results'
             },
             retries: 3
         })) {

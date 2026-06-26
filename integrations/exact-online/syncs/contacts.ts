@@ -89,7 +89,7 @@ const sync = createSync({
                     $orderby: 'Modified asc',
                     $top: limit,
                     $skip: skip,
-                    ...(updatedAfter && { $filter: `Modified gt datetime'${updatedAfter}'` })
+                    ...(updatedAfter && { $filter: `Modified ge datetime'${updatedAfter}'` })
                 },
                 retries: 3
             });

@@ -92,7 +92,7 @@ const sync = createSync({
             params: {
                 $select: 'ID,Name,Email,Phone,Status,IsSales,IsPurchase,IsSupplier,Modified',
                 $orderby: 'Modified asc',
-                ...(updatedAfter && { $filter: `Modified gt datetime'${updatedAfter}'` })
+                ...(updatedAfter && { $filter: `Modified ge datetime'${updatedAfter}'` })
             },
             paginate: {
                 type: 'offset',
@@ -100,7 +100,7 @@ const sync = createSync({
                 offset_calculation_method: 'by-response-size',
                 limit_name_in_request: '$top',
                 limit: 100,
-                response_path: 'd'
+                response_path: 'd.results'
             },
             retries: 3
         };
