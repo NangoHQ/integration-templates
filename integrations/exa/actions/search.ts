@@ -7,8 +7,6 @@ const TextInputSchema = z.object({
 });
 
 const HighlightsInputSchema = z.object({
-    numSentences: z.number().int().optional().describe('Number of highlight sentences per result.'),
-    highlightsPerUrl: z.number().int().optional().describe('Number of highlights per URL.'),
     query: z.string().optional().describe('Custom query guiding highlight selection.')
 });
 
@@ -19,21 +17,36 @@ const SummaryInputSchema = z.object({
 const InputSchema = z.object({
     query: z.string().min(1).describe('The search query string.'),
     type: z
-        .enum(['neural', 'keyword', 'auto'])
+        .enum(['auto', 'neural', 'keyword', 'fast', 'instant', 'deep-lite', 'deep', 'deep-reasoning'])
         .optional()
-        .describe("Search type: 'neural' for semantic, 'keyword' for exact-match, 'auto' for AI-selected (default)."),
+        .describe("Search type: 'auto' (default), 'neural' for semantic, 'keyword' for exact-match, 'fast', 'instant', 'deep-lite', 'deep', or 'deep-reasoning'."),
     numResults: z.number().int().min(1).max(100).optional().describe('Number of results to return (default 10).'),
-    useAutoprompt: z.boolean().optional().describe('Let the model rewrite the query for better neural results.'),
     category: z
-        .enum(['company', 'research paper', 'news', 'pdf', 'github', 'tweet', 'personal site', 'linkedin profile'])
+        .enum(['company', 'research paper', 'news', 'pdf', 'github', 'personal site', 'linkedin profile', 'people', 'financial report'])
         .optional()
         .describe('Content category filter.'),
     includeDomains: z.array(z.string()).optional().describe('Only return results from these domains.'),
     excludeDomains: z.array(z.string()).optional().describe('Exclude results from these domains.'),
-    startPublishedDate: z.string().optional().describe('ISO 8601 start published date filter.'),
-    endPublishedDate: z.string().optional().describe('ISO 8601 end published date filter.'),
-    startCrawlDate: z.string().optional().describe('ISO 8601 start crawl date filter.'),
-    endCrawlDate: z.string().optional().describe('ISO 8601 end crawl date filter.'),
+    startPublishedDate: z
+        .string()
+        .refine((val) => !isNaN(new Date(val).getTime()), { message: 'Must be a valid ISO 8601 date string.' })
+        .optional()
+        .describe('ISO 8601 start published date filter.'),
+    endPublishedDate: z
+        .string()
+        .refine((val) => !isNaN(new Date(val).getTime()), { message: 'Must be a valid ISO 8601 date string.' })
+        .optional()
+        .describe('ISO 8601 end published date filter.'),
+    startCrawlDate: z
+        .string()
+        .refine((val) => !isNaN(new Date(val).getTime()), { message: 'Must be a valid ISO 8601 date string.' })
+        .optional()
+        .describe('ISO 8601 start crawl date filter.'),
+    endCrawlDate: z
+        .string()
+        .refine((val) => !isNaN(new Date(val).getTime()), { message: 'Must be a valid ISO 8601 date string.' })
+        .optional()
+        .describe('ISO 8601 end crawl date filter.'),
     text: TextInputSchema.optional().describe('Inline text extraction options (avoids separate /contents call).'),
     highlights: HighlightsInputSchema.optional().describe('Inline highlight extraction options (avoids separate /contents call).'),
     summary: SummaryInputSchema.optional().describe('Inline summary generation options (avoids separate /contents call).')
@@ -86,10 +99,6 @@ const action = createAction({
 
         if (input.numResults !== undefined) {
             requestBody['numResults'] = input.numResults;
-        }
-
-        if (input.useAutoprompt !== undefined) {
-            requestBody['useAutoprompt'] = input.useAutoprompt;
         }
 
         if (input.category !== undefined) {

@@ -63,11 +63,18 @@ const ResultSchema = z.object({
         .optional()
 });
 
+const CostDollarsSchema = z
+    .object({
+        total: z.number().optional(),
+        search: z.object({ neural: z.number().optional() }).optional()
+    })
+    .optional();
+
 const OutputSchema = z.object({
     requestId: z.string().optional(),
     results: z.array(ResultSchema),
     statuses: z.array(StatusSchema),
-    costDollars: z.record(z.string(), z.unknown()).optional()
+    costDollars: CostDollarsSchema
 });
 
 const action = createAction({
@@ -106,7 +113,7 @@ const action = createAction({
                 requestId: z.string().optional(),
                 results: z.array(z.unknown()).optional(),
                 statuses: z.array(z.unknown()).optional(),
-                costDollars: z.record(z.string(), z.unknown()).optional()
+                costDollars: CostDollarsSchema
             })
             .parse(response.data);
 

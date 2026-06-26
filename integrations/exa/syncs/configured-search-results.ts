@@ -95,7 +95,13 @@ const sync = createSync({
         }
 
         for (const queryConfig of metadata.queries) {
-            const queryKey = queryConfig.query;
+            const queryKey = [
+            queryConfig.query,
+            queryConfig.type ?? '',
+            queryConfig.category ?? '',
+            (queryConfig.includeDomains ?? []).slice().sort().join(','),
+            (queryConfig.excludeDomains ?? []).slice().sort().join(',')
+        ].join('\0');
             const queryState = queryStates[queryKey] ?? {};
             const publishedAfter = queryState.published_after;
             const seenIds = new Set(queryState.seen_ids ?? []);
@@ -198,7 +204,7 @@ const sync = createSync({
             }
 
             if (maxPublishedDate !== undefined) {
-                const updatedQueryStates = {
+                queryStates = {
                     ...queryStates,
                     [queryKey]: {
                         published_after: maxPublishedDate,
@@ -206,7 +212,7 @@ const sync = createSync({
                     }
                 };
                 await nango.saveCheckpoint({
-                    state: JSON.stringify(updatedQueryStates)
+                    state: JSON.stringify(queryStates)
                 });
             }
         }

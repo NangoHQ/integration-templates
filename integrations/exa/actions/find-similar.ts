@@ -54,7 +54,7 @@ const InputSchema = z.object({
     numResults: z.number().int().min(1).max(100).optional().describe('Number of results to return. Default: 10. Maximum public limit is 100.'),
     excludeSourceDomain: z.boolean().optional().describe('If true, results from the same domain as the input URL are excluded.'),
     category: z
-        .enum(['company', 'research paper', 'news', 'pdf', 'github', 'tweet', 'personal site', 'linkedin profile'])
+        .enum(['company', 'research paper', 'news', 'pdf', 'github', 'personal site', 'linkedin profile', 'people', 'financial report'])
         .optional()
         .describe('Category filter to focus the search on a specific type of content.'),
     includeDomains: z.array(z.string()).optional().describe('List of domains to include in results.'),
@@ -79,7 +79,7 @@ const ResultSchema = z.object({
     title: z.string(),
     url: z.string(),
     score: z.number().optional().describe('Relevance score for the result.'),
-    publishedDate: z.string().optional(),
+    publishedDate: z.string().nullable().optional(),
     author: z.string().nullable().optional(),
     image: z.string().optional(),
     favicon: z.string().optional(),
