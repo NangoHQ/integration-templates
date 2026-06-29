@@ -1,0 +1,479 @@
+{
+  "nango": {
+    "batchSave": {
+      "Document": [
+        {
+          "id": "33cb0f2f-dec5-4d56-a554-97eeac3ff6ae",
+          "Subject": "Coucou",
+          "DocumentDate": "/Date(1722297600000)/",
+          "Modified": "/Date(1722341598263)/"
+        },
+        {
+          "id": "6b7456e7-593d-4039-b6dd-3e1dbc6746b7",
+          "Subject": "Document subject",
+          "DocumentDate": "/Date(1722297600000)/",
+          "Modified": "/Date(1723472960587)/"
+        },
+        {
+          "id": "b633d9a4-11eb-4755-b602-3717356792d7",
+          "Subject": "Invoice: 24700001",
+          "DocumentDate": "/Date(1723420800000)/",
+          "Modified": "/Date(1723472960903)/"
+        },
+        {
+          "id": "92c63576-cee3-4743-8cec-de1bb015cdb7",
+          "Subject": "Invoice: 24700002",
+          "DocumentDate": "/Date(1723507200000)/",
+          "Modified": "/Date(1723563700410)/"
+        },
+        {
+          "id": "84f0a98a-de32-4731-8bea-508065fb3210",
+          "Subject": "Invoice: 24700003",
+          "DocumentDate": "/Date(1725580800000)/",
+          "Modified": "/Date(1725638466057)/"
+        },
+        {
+          "id": "75cbaee4-9eee-4643-a7da-5187a8c8279e",
+          "Subject": "Invoice: 24700004",
+          "DocumentDate": "/Date(1725580800000)/",
+          "Modified": "/Date(1725639171750)/"
+        },
+        {
+          "id": "0303badd-1f5a-43ef-809e-7bd3c733a690",
+          "Subject": "Invoice: 24700005",
+          "DocumentDate": "/Date(1725580800000)/",
+          "Modified": "/Date(1725644850193)/"
+        },
+        {
+          "id": "1e5d4377-452a-4961-b3cf-9efebe9dce2f",
+          "Subject": "Invoice: 24700006",
+          "DocumentDate": "/Date(1725840000000)/",
+          "Modified": "/Date(1725882549887)/"
+        },
+        {
+          "id": "a1b6a518-738a-4761-b780-ea2105426279",
+          "Subject": "Invoice: 24700007",
+          "DocumentDate": "/Date(1725840000000)/",
+          "Modified": "/Date(1725884950423)/"
+        },
+        {
+          "id": "c9a8297e-61a3-4adc-bc17-167e5a7f45c5",
+          "Subject": "Invoice: 24700010",
+          "DocumentDate": "/Date(1725840000000)/",
+          "Modified": "/Date(1725885630113)/"
+        },
+        {
+          "id": "1b8c6130-2fe8-4731-8776-f3ab53b82671",
+          "Subject": "Invoice: 24600001",
+          "DocumentDate": "/Date(1717027200000)/",
+          "Modified": "/Date(1782402892840)/"
+        },
+        {
+          "id": "9c108270-4b10-47be-a54a-1b23eddc265a",
+          "Subject": "Invoice: 24600002",
+          "DocumentDate": "/Date(1723680000000)/",
+          "Modified": "/Date(1782402918563)/"
+        },
+        {
+          "id": "6c9a7f07-edf1-4eb0-aa99-cf5d77f5fbc4",
+          "Subject": "Test attachment",
+          "DocumentDate": "/Date(1782345600000)/",
+          "Modified": "/Date(1782404074927)/"
+        },
+        {
+          "id": "57d14c66-973d-42ff-a970-71b887401fb1",
+          "Subject": "Test attachment",
+          "DocumentDate": "/Date(1782345600000)/",
+          "Modified": "/Date(1782404095633)/"
+        },
+        {
+          "id": "388ac96b-8c92-4359-81ad-81db9ca441dd",
+          "Subject": "Test attachment",
+          "DocumentDate": "/Date(1782345600000)/",
+          "Modified": "/Date(1782404108217)/"
+        },
+        {
+          "id": "6e0ba503-c213-4f9f-97be-9d1fd0001b3c",
+          "Subject": "Test attachment",
+          "DocumentDate": "/Date(1782345600000)/",
+          "Modified": "/Date(1782404121740)/"
+        },
+        {
+          "id": "d53e37a1-240e-4401-8953-74423dac3861",
+          "Subject": "Test purchase invoice via Nango",
+          "DocumentDate": "/Date(1717027200000)/",
+          "Modified": "/Date(1782404130300)/"
+        },
+        {
+          "id": "6eaf28f8-e5ec-48fb-8be9-08cee2883550",
+          "Subject": "Test attachment",
+          "DocumentDate": "/Date(1782345600000)/",
+          "Modified": "/Date(1782404132530)/"
+        },
+        {
+          "id": "5913d927-7d7d-4478-9318-b8f28599cfe9",
+          "Subject": "Test purchase invoice via Nango",
+          "DocumentDate": "/Date(1717027200000)/",
+          "Modified": "/Date(1782404160443)/"
+        },
+        {
+          "id": "71add62e-afbe-4e8c-84da-3292dff83562",
+          "Subject": "Test purchase invoice via Nango",
+          "DocumentDate": "/Date(1717027200000)/",
+          "Modified": "/Date(1782404171257)/"
+        },
+        {
+          "id": "9d648f77-9556-48b5-a701-fdcfa88f177f",
+          "Subject": "Test attachment",
+          "DocumentDate": "/Date(1782345600000)/",
+          "Modified": "/Date(1782404200637)/"
+        },
+        {
+          "id": "6affaa09-1bd4-41e7-b578-56560dc500ac",
+          "Subject": "Test purchase invoice via Nango",
+          "DocumentDate": "/Date(1717027200000)/",
+          "Modified": "/Date(1782404229417)/"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Document": []
+    }
+  },
+  "api": {
+    "get": {
+      "/api/v1/current/Me": {
+        "response": {
+          "d": {
+            "results": [
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/current/Me(guid'cc20a11b-c137-48cc-8e55-09d4adbd4ac9')",
+                  "type": "Exact.Web.Api.Models.System.Me"
+                },
+                "CurrentDivision": 124132,
+                "DivisionCustomer": "83b186b4-483d-474a-bebc-85da71e6f1ed",
+                "DivisionCustomerCode": "           1265594",
+                "DivisionCustomerName": "Nango",
+                "DivisionCustomerVatNumber": null,
+                "DivisionCustomerSiretNumber": "",
+                "DossierDivision": null,
+                "AccountingDivision": 124132,
+                "IsEmployeeSelfServiceUser": false,
+                "IsMyFirmLiteUser": false,
+                "IsStarterUser": false,
+                "IsMyFirmPortalUser": false,
+                "IsClientUser": true,
+                "FullName": "Samuel Bodin",
+                "PictureUrl": "https://start.exactonline.fr//docs/images/placeholder_contact_myeol.png",
+                "ThumbnailPicture": null,
+                "ThumbnailPictureFormat": null,
+                "UserID": "cc20a11b-c137-48cc-8e55-09d4adbd4ac9",
+                "UserName": "samuel@nango.dev",
+                "LanguageCode": "en-GB",
+                "Legislation": "128",
+                "Email": "samuel@nango.dev",
+                "Title": "Mr.",
+                "Initials": null,
+                "FirstName": "Samuel",
+                "MiddleName": null,
+                "LastName": "Bodin",
+                "Gender": "O",
+                "Nationality": null,
+                "Language": "EN",
+                "Phone": "0606060606",
+                "PhoneExtension": null,
+                "Mobile": null,
+                "ServerTime": "2026-06-25T16:26:33",
+                "ServerUtcOffset": 7200,
+                "EmployeeID": "00000000-0000-0000-0000-000000000000",
+                "CustomerCode": "           1265594",
+                "PackageCode": "EOLAPPCENTER",
+                "IsOEIMigrationMandatory": true
+              }
+            ]
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 25 Jun 2026 14:26:33 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "1397",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4905",
+          "x-ratelimit-reset": "1782397621",
+          "etag": "W/\"575-ApJf3A3iybayfK3ycutaXc22FQI\""
+        },
+        "hash": "3b1fbfe94d69bc315fcd1e7b93bc400e3eea536c",
+        "request": {}
+      },
+      "/api/v1/124132/documents/Documents": {
+        "response": {
+          "d": {
+            "results": [
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/documents/Documents(guid'33cb0f2f-dec5-4d56-a554-97eeac3ff6ae')",
+                  "type": "Exact.Web.Api.Models.Document"
+                },
+                "ID": "33cb0f2f-dec5-4d56-a554-97eeac3ff6ae",
+                "DocumentDate": "/Date(1722297600000)/",
+                "Modified": "/Date(1722341598263)/",
+                "Subject": "Coucou"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/documents/Documents(guid'6b7456e7-593d-4039-b6dd-3e1dbc6746b7')",
+                  "type": "Exact.Web.Api.Models.Document"
+                },
+                "ID": "6b7456e7-593d-4039-b6dd-3e1dbc6746b7",
+                "DocumentDate": "/Date(1722297600000)/",
+                "Modified": "/Date(1723472960587)/",
+                "Subject": "Document subject"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/documents/Documents(guid'b633d9a4-11eb-4755-b602-3717356792d7')",
+                  "type": "Exact.Web.Api.Models.Document"
+                },
+                "ID": "b633d9a4-11eb-4755-b602-3717356792d7",
+                "DocumentDate": "/Date(1723420800000)/",
+                "Modified": "/Date(1723472960903)/",
+                "Subject": "Invoice: 24700001"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/documents/Documents(guid'92c63576-cee3-4743-8cec-de1bb015cdb7')",
+                  "type": "Exact.Web.Api.Models.Document"
+                },
+                "ID": "92c63576-cee3-4743-8cec-de1bb015cdb7",
+                "DocumentDate": "/Date(1723507200000)/",
+                "Modified": "/Date(1723563700410)/",
+                "Subject": "Invoice: 24700002"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/documents/Documents(guid'84f0a98a-de32-4731-8bea-508065fb3210')",
+                  "type": "Exact.Web.Api.Models.Document"
+                },
+                "ID": "84f0a98a-de32-4731-8bea-508065fb3210",
+                "DocumentDate": "/Date(1725580800000)/",
+                "Modified": "/Date(1725638466057)/",
+                "Subject": "Invoice: 24700003"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/documents/Documents(guid'75cbaee4-9eee-4643-a7da-5187a8c8279e')",
+                  "type": "Exact.Web.Api.Models.Document"
+                },
+                "ID": "75cbaee4-9eee-4643-a7da-5187a8c8279e",
+                "DocumentDate": "/Date(1725580800000)/",
+                "Modified": "/Date(1725639171750)/",
+                "Subject": "Invoice: 24700004"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/documents/Documents(guid'0303badd-1f5a-43ef-809e-7bd3c733a690')",
+                  "type": "Exact.Web.Api.Models.Document"
+                },
+                "ID": "0303badd-1f5a-43ef-809e-7bd3c733a690",
+                "DocumentDate": "/Date(1725580800000)/",
+                "Modified": "/Date(1725644850193)/",
+                "Subject": "Invoice: 24700005"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/documents/Documents(guid'1e5d4377-452a-4961-b3cf-9efebe9dce2f')",
+                  "type": "Exact.Web.Api.Models.Document"
+                },
+                "ID": "1e5d4377-452a-4961-b3cf-9efebe9dce2f",
+                "DocumentDate": "/Date(1725840000000)/",
+                "Modified": "/Date(1725882549887)/",
+                "Subject": "Invoice: 24700006"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/documents/Documents(guid'a1b6a518-738a-4761-b780-ea2105426279')",
+                  "type": "Exact.Web.Api.Models.Document"
+                },
+                "ID": "a1b6a518-738a-4761-b780-ea2105426279",
+                "DocumentDate": "/Date(1725840000000)/",
+                "Modified": "/Date(1725884950423)/",
+                "Subject": "Invoice: 24700007"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/documents/Documents(guid'c9a8297e-61a3-4adc-bc17-167e5a7f45c5')",
+                  "type": "Exact.Web.Api.Models.Document"
+                },
+                "ID": "c9a8297e-61a3-4adc-bc17-167e5a7f45c5",
+                "DocumentDate": "/Date(1725840000000)/",
+                "Modified": "/Date(1725885630113)/",
+                "Subject": "Invoice: 24700010"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/documents/Documents(guid'1b8c6130-2fe8-4731-8776-f3ab53b82671')",
+                  "type": "Exact.Web.Api.Models.Document"
+                },
+                "ID": "1b8c6130-2fe8-4731-8776-f3ab53b82671",
+                "DocumentDate": "/Date(1717027200000)/",
+                "Modified": "/Date(1782402892840)/",
+                "Subject": "Invoice: 24600001"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/documents/Documents(guid'9c108270-4b10-47be-a54a-1b23eddc265a')",
+                  "type": "Exact.Web.Api.Models.Document"
+                },
+                "ID": "9c108270-4b10-47be-a54a-1b23eddc265a",
+                "DocumentDate": "/Date(1723680000000)/",
+                "Modified": "/Date(1782402918563)/",
+                "Subject": "Invoice: 24600002"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/documents/Documents(guid'6c9a7f07-edf1-4eb0-aa99-cf5d77f5fbc4')",
+                  "type": "Exact.Web.Api.Models.Document"
+                },
+                "ID": "6c9a7f07-edf1-4eb0-aa99-cf5d77f5fbc4",
+                "DocumentDate": "/Date(1782345600000)/",
+                "Modified": "/Date(1782404074927)/",
+                "Subject": "Test attachment"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/documents/Documents(guid'57d14c66-973d-42ff-a970-71b887401fb1')",
+                  "type": "Exact.Web.Api.Models.Document"
+                },
+                "ID": "57d14c66-973d-42ff-a970-71b887401fb1",
+                "DocumentDate": "/Date(1782345600000)/",
+                "Modified": "/Date(1782404095633)/",
+                "Subject": "Test attachment"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/documents/Documents(guid'388ac96b-8c92-4359-81ad-81db9ca441dd')",
+                  "type": "Exact.Web.Api.Models.Document"
+                },
+                "ID": "388ac96b-8c92-4359-81ad-81db9ca441dd",
+                "DocumentDate": "/Date(1782345600000)/",
+                "Modified": "/Date(1782404108217)/",
+                "Subject": "Test attachment"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/documents/Documents(guid'6e0ba503-c213-4f9f-97be-9d1fd0001b3c')",
+                  "type": "Exact.Web.Api.Models.Document"
+                },
+                "ID": "6e0ba503-c213-4f9f-97be-9d1fd0001b3c",
+                "DocumentDate": "/Date(1782345600000)/",
+                "Modified": "/Date(1782404121740)/",
+                "Subject": "Test attachment"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/documents/Documents(guid'd53e37a1-240e-4401-8953-74423dac3861')",
+                  "type": "Exact.Web.Api.Models.Document"
+                },
+                "ID": "d53e37a1-240e-4401-8953-74423dac3861",
+                "DocumentDate": "/Date(1717027200000)/",
+                "Modified": "/Date(1782404130300)/",
+                "Subject": "Test purchase invoice via Nango"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/documents/Documents(guid'6eaf28f8-e5ec-48fb-8be9-08cee2883550')",
+                  "type": "Exact.Web.Api.Models.Document"
+                },
+                "ID": "6eaf28f8-e5ec-48fb-8be9-08cee2883550",
+                "DocumentDate": "/Date(1782345600000)/",
+                "Modified": "/Date(1782404132530)/",
+                "Subject": "Test attachment"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/documents/Documents(guid'5913d927-7d7d-4478-9318-b8f28599cfe9')",
+                  "type": "Exact.Web.Api.Models.Document"
+                },
+                "ID": "5913d927-7d7d-4478-9318-b8f28599cfe9",
+                "DocumentDate": "/Date(1717027200000)/",
+                "Modified": "/Date(1782404160443)/",
+                "Subject": "Test purchase invoice via Nango"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/documents/Documents(guid'71add62e-afbe-4e8c-84da-3292dff83562')",
+                  "type": "Exact.Web.Api.Models.Document"
+                },
+                "ID": "71add62e-afbe-4e8c-84da-3292dff83562",
+                "DocumentDate": "/Date(1717027200000)/",
+                "Modified": "/Date(1782404171257)/",
+                "Subject": "Test purchase invoice via Nango"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/documents/Documents(guid'9d648f77-9556-48b5-a701-fdcfa88f177f')",
+                  "type": "Exact.Web.Api.Models.Document"
+                },
+                "ID": "9d648f77-9556-48b5-a701-fdcfa88f177f",
+                "DocumentDate": "/Date(1782345600000)/",
+                "Modified": "/Date(1782404200637)/",
+                "Subject": "Test attachment"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/documents/Documents(guid'6affaa09-1bd4-41e7-b578-56560dc500ac')",
+                  "type": "Exact.Web.Api.Models.Document"
+                },
+                "ID": "6affaa09-1bd4-41e7-b578-56560dc500ac",
+                "DocumentDate": "/Date(1717027200000)/",
+                "Modified": "/Date(1782404229417)/",
+                "Subject": "Test purchase invoice via Nango"
+              }
+            ]
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 25 Jun 2026 14:27:01 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "7633",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4901",
+          "x-ratelimit-reset": "1782397621",
+          "etag": "W/\"1dd1-pUZ7wmKK6K4WkTl8OIL6Ukfg0io\""
+        },
+        "hash": "a35dc01c25f6812dd1ee2e95a22bc3546a39b6ca",
+        "request": {
+          "params": {
+            "$orderby": "Modified asc",
+            "$select": "ID,Subject,DocumentDate,Modified",
+            "$skip": "0",
+            "$top": "100"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,242 @@
+{
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "accountId": "96bfbc88-de80-40a4-9fb7-f047e656eaaf"
+    },
+    "batchSave": {
+      "User": [
+        {
+          "id": "c9a996ed-50d2-4df4-ac91-a45032721bb6",
+          "userName": "Nango Developer",
+          "email": "api@nango.dev",
+          "userStatus": "Active",
+          "userType": "CompanyUser",
+          "createdDateTime": "2026-06-23T14:05:59.3070000Z"
+        },
+        {
+          "id": "e1f5ece4-13d5-4a0a-9ad9-17b8a4bdbeb0",
+          "userName": "Nango Test User",
+          "email": "testuser+delete@nango.dev",
+          "userStatus": "Closed",
+          "userType": "CompanyUser",
+          "createdDateTime": "2026-06-24T12:32:48.3370000Z"
+        },
+        {
+          "id": "b028e34f-87b7-4e34-b056-2d3c2f011cc5",
+          "userName": "Nango Test User",
+          "email": "nango-test-user-2026-06-24-a@example.com",
+          "userStatus": "ActivationSent",
+          "userType": "CompanyUser",
+          "createdDateTime": "2026-06-24T12:34:31.9870000Z"
+        },
+        {
+          "id": "37513dba-86ba-419b-8c51-80f43d9b122f",
+          "userName": "Nango Test User 2",
+          "email": "testuser2+delete@nango.dev",
+          "userStatus": "Closed",
+          "userType": "CompanyUser",
+          "createdDateTime": "2026-06-24T12:33:17.9170000Z"
+        },
+        {
+          "id": "292a8532-761a-4177-9c0f-f14c223ab08f",
+          "userName": "Nango Test User 3",
+          "email": "testuser3+delete@nango.dev",
+          "userStatus": "Closed",
+          "userType": "CompanyUser",
+          "createdDateTime": "2026-06-24T12:34:49.7970000Z"
+        },
+        {
+          "id": "91962556-c6cc-4c34-86d9-8780bc5bef37",
+          "userName": "Nango Test User 4",
+          "email": "testuser4+delete@nango.dev",
+          "userStatus": "Closed",
+          "userType": "CompanyUser",
+          "createdDateTime": "2026-06-24T12:35:23.7030000Z"
+        }
+      ]
+    },
+    "batchDelete": {
+      "User": []
+    }
+  },
+  "api": {
+    "get": {
+      "/restapi/v2.1/accounts/96bfbc88-de80-40a4-9fb7-f047e656eaaf/users": {
+        "response": {
+          "users": [
+            {
+              "userName": "Nango Developer",
+              "userId": "c9a996ed-50d2-4df4-ac91-a45032721bb6",
+              "userType": "CompanyUser",
+              "isAdmin": "True",
+              "isAlternateAdmin": "False",
+              "userStatus": "Active",
+              "uri": "/users/c9a996ed-50d2-4df4-ac91-a45032721bb6",
+              "email": "api@nango.dev",
+              "title": "",
+              "createdDateTime": "2026-06-23T14:05:59.3070000Z",
+              "userAddedToAccountDateTime": "2026-06-23T14:05:59.3070000Z",
+              "firstName": "Nango",
+              "middleName": "",
+              "lastName": "Developer",
+              "suffixName": "",
+              "jobTitle": "Updated Job Title",
+              "company": "",
+              "permissionProfileId": "52114901",
+              "permissionProfileName": "Account Administrator",
+              "isManagedByScim": "False",
+              "isMembershipManagedByScim": "False"
+            },
+            {
+              "userName": "Nango Test User",
+              "userId": "e1f5ece4-13d5-4a0a-9ad9-17b8a4bdbeb0",
+              "userType": "CompanyUser",
+              "isAdmin": "False",
+              "isAlternateAdmin": "False",
+              "userStatus": "Closed",
+              "uri": "/users/e1f5ece4-13d5-4a0a-9ad9-17b8a4bdbeb0",
+              "email": "testuser+delete@nango.dev",
+              "title": "",
+              "createdDateTime": "2026-06-24T12:32:48.3370000Z",
+              "userAddedToAccountDateTime": "2026-06-24T12:32:48.3370000Z",
+              "firstName": "Test",
+              "middleName": "Test",
+              "lastName": "User",
+              "suffixName": "",
+              "jobTitle": "",
+              "company": "",
+              "permissionProfileId": "52114903",
+              "permissionProfileName": "DocuSign Viewer",
+              "isManagedByScim": "False",
+              "isMembershipManagedByScim": "False"
+            },
+            {
+              "userName": "Nango Test User",
+              "userId": "b028e34f-87b7-4e34-b056-2d3c2f011cc5",
+              "userType": "CompanyUser",
+              "isAdmin": "False",
+              "isAlternateAdmin": "False",
+              "userStatus": "ActivationSent",
+              "uri": "/users/b028e34f-87b7-4e34-b056-2d3c2f011cc5",
+              "email": "nango-test-user-2026-06-24-a@example.com",
+              "title": "",
+              "createdDateTime": "2026-06-24T12:34:31.9870000Z",
+              "userAddedToAccountDateTime": "2026-06-24T12:34:31.9870000Z",
+              "firstName": "Nango",
+              "middleName": "Test",
+              "lastName": "User",
+              "suffixName": "",
+              "jobTitle": "",
+              "company": "",
+              "permissionProfileId": "",
+              "permissionProfileName": "",
+              "isManagedByScim": "False",
+              "isMembershipManagedByScim": "False"
+            },
+            {
+              "userName": "Nango Test User 2",
+              "userId": "37513dba-86ba-419b-8c51-80f43d9b122f",
+              "userType": "CompanyUser",
+              "isAdmin": "False",
+              "isAlternateAdmin": "False",
+              "userStatus": "Closed",
+              "uri": "/users/37513dba-86ba-419b-8c51-80f43d9b122f",
+              "email": "testuser2+delete@nango.dev",
+              "title": "",
+              "createdDateTime": "2026-06-24T12:33:17.9170000Z",
+              "userAddedToAccountDateTime": "2026-06-24T12:33:17.9170000Z",
+              "firstName": "Test",
+              "middleName": "Test",
+              "lastName": "User",
+              "suffixName": "",
+              "jobTitle": "",
+              "company": "",
+              "permissionProfileId": "52114903",
+              "permissionProfileName": "DocuSign Viewer",
+              "isManagedByScim": "False",
+              "isMembershipManagedByScim": "False"
+            },
+            {
+              "userName": "Nango Test User 3",
+              "userId": "292a8532-761a-4177-9c0f-f14c223ab08f",
+              "userType": "CompanyUser",
+              "isAdmin": "False",
+              "isAlternateAdmin": "False",
+              "userStatus": "Closed",
+              "uri": "/users/292a8532-761a-4177-9c0f-f14c223ab08f",
+              "email": "testuser3+delete@nango.dev",
+              "title": "",
+              "createdDateTime": "2026-06-24T12:34:49.7970000Z",
+              "userAddedToAccountDateTime": "2026-06-24T12:34:49.7970000Z",
+              "firstName": "Test",
+              "middleName": "Test",
+              "lastName": "User",
+              "suffixName": "",
+              "jobTitle": "",
+              "company": "",
+              "permissionProfileId": "52114903",
+              "permissionProfileName": "DocuSign Viewer",
+              "isManagedByScim": "False",
+              "isMembershipManagedByScim": "False"
+            },
+            {
+              "userName": "Nango Test User 4",
+              "userId": "91962556-c6cc-4c34-86d9-8780bc5bef37",
+              "userType": "CompanyUser",
+              "isAdmin": "False",
+              "isAlternateAdmin": "False",
+              "userStatus": "Closed",
+              "uri": "/users/91962556-c6cc-4c34-86d9-8780bc5bef37",
+              "email": "testuser4+delete@nango.dev",
+              "title": "",
+              "createdDateTime": "2026-06-24T12:35:23.7030000Z",
+              "userAddedToAccountDateTime": "2026-06-24T12:35:23.7200000Z",
+              "firstName": "Test",
+              "middleName": "Test",
+              "lastName": "User",
+              "suffixName": "",
+              "jobTitle": "",
+              "company": "",
+              "permissionProfileId": "52114903",
+              "permissionProfileName": "DocuSign Viewer",
+              "isManagedByScim": "False",
+              "isMembershipManagedByScim": "False"
+            }
+          ],
+          "resultSetSize": "6",
+          "totalSetSize": "6",
+          "startPosition": "0",
+          "endPosition": "5"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 24 Jun 2026 14:36:14 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "3806",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4978",
+          "x-ratelimit-reset": "1782311828",
+          "etag": "W/\"ede-sMNNbNljy+XrFi5uJy1oS3eo4Ps\""
+        },
+        "hash": "b8110ec7e856b9615461f5fb26ee6046c0b2d937",
+        "request": {
+          "params": {
+            "count": "100",
+            "start_position": "0"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,2476 @@
+{
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "docId": "6O6-VWsNpq",
+      "tableId": "grid-tE68GY5gIp"
+    },
+    "batchSave": {
+      "Control": [
+        {
+          "id": "ctrl-9wkHl8m4mn",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-9wkHl8m4mn",
+          "name": "SelectCRMCompany",
+          "controlType": "lookup",
+          "value": "Apple",
+          "parent": {
+            "id": "canvas-fbzQ3Vsy9r",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-fbzQ3Vsy9r",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su3Vsy9r",
+            "name": "CRM"
+          }
+        },
+        {
+          "id": "ctrl-RiSxIx4Peu",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-RiSxIx4Peu",
+          "name": "ButtonCRMAddOpportunity",
+          "controlType": "button",
+          "value": "{\"formatType\":\"button\",\"disabled\":false}",
+          "parent": {
+            "id": "canvas-fbzQ3Vsy9r",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-fbzQ3Vsy9r",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su3Vsy9r",
+            "name": "CRM"
+          }
+        },
+        {
+          "id": "ctrl-Ug0EwJSxkK",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-Ug0EwJSxkK",
+          "name": "ButtonCRMAddContact",
+          "controlType": "button",
+          "value": "{\"formatType\":\"button\",\"disabled\":false}",
+          "parent": {
+            "id": "canvas-fbzQ3Vsy9r",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-fbzQ3Vsy9r",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su3Vsy9r",
+            "name": "CRM"
+          }
+        },
+        {
+          "id": "ctrl-KXuxh45hBC",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-KXuxh45hBC",
+          "name": "ButtonCRMCompanySocialAdd`",
+          "controlType": "button",
+          "value": "{\"formatType\":\"button\",\"disabled\":false}",
+          "parent": {
+            "id": "canvas-fbzQ3Vsy9r",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-fbzQ3Vsy9r",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su3Vsy9r",
+            "name": "CRM"
+          }
+        },
+        {
+          "id": "ctrl-XX6p5edb_7",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-XX6p5edb_7",
+          "name": "ButtonCRMAddInvoice",
+          "controlType": "button",
+          "value": "{\"formatType\":\"button\",\"disabled\":false}",
+          "parent": {
+            "id": "canvas-fbzQ3Vsy9r",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-fbzQ3Vsy9r",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su3Vsy9r",
+            "name": "CRM"
+          }
+        },
+        {
+          "id": "ctrl-GVnCaLNAPg",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-GVnCaLNAPg",
+          "name": "ButtonCRMAddExpense",
+          "controlType": "button",
+          "value": "{\"formatType\":\"button\",\"disabled\":false}",
+          "parent": {
+            "id": "canvas-fbzQ3Vsy9r",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-fbzQ3Vsy9r",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su3Vsy9r",
+            "name": "CRM"
+          }
+        },
+        {
+          "id": "ctrl-g0ya9EjNcD",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-g0ya9EjNcD",
+          "name": "selectOpportunityPipeline",
+          "controlType": "select",
+          "value": "Current Customer",
+          "parent": {
+            "id": "canvas-pSYuhEYNJd",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-pSYuhEYNJd",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suhEYNJd",
+            "name": "Sales"
+          }
+        },
+        {
+          "id": "ctrl-W9el-BAEea",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-W9el-BAEea",
+          "name": "selectSalesYearFilter",
+          "controlType": "select",
+          "value": 2022,
+          "parent": {
+            "id": "canvas-pSYuhEYNJd",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-pSYuhEYNJd",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suhEYNJd",
+            "name": "Sales"
+          }
+        },
+        {
+          "id": "ctrl-XbdDPsMQRm",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-XbdDPsMQRm",
+          "name": "selectTeamsDepartments",
+          "controlType": "select",
+          "value": "",
+          "parent": {
+            "id": "canvas-ow9CUzcG7U",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-ow9CUzcG7U",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suUzcG7U",
+            "name": "Departments"
+          }
+        },
+        {
+          "id": "ctrl-jgkzCVZhMu",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-jgkzCVZhMu",
+          "name": "selectFinanceSummaryYear",
+          "controlType": "select",
+          "value": 2022,
+          "parent": {
+            "id": "canvas-WlPYwrtvJB",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-WlPYwrtvJB",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suwrtvJB",
+            "name": "Finance"
+          }
+        },
+        {
+          "id": "ctrl-fdgtnCJcKf",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-fdgtnCJcKf",
+          "name": "Select Companies Type",
+          "controlType": "multiselect",
+          "value": "Client",
+          "parent": {
+            "id": "canvas-vznQxgTt53",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-vznQxgTt53",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suxgTt53",
+            "name": "Clients"
+          }
+        },
+        {
+          "id": "ctrl-Kmzb7Y3Whr",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-Kmzb7Y3Whr",
+          "name": "Select Companies Status",
+          "controlType": "multiselect",
+          "value": "Active",
+          "parent": {
+            "id": "canvas-vznQxgTt53",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-vznQxgTt53",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suxgTt53",
+            "name": "Clients"
+          }
+        },
+        {
+          "id": "ctrl-Et4HX6Qz7h",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-Et4HX6Qz7h",
+          "name": "btnClearBusinessInfo",
+          "controlType": "button",
+          "value": "{\"formatType\":\"button\",\"disabled\":false}",
+          "parent": {
+            "id": "canvas-bxV94mIdan",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-bxV94mIdan",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su4mIdan",
+            "name": "Setup"
+          }
+        },
+        {
+          "id": "ctrl-ZE40nf5mqR",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-ZE40nf5mqR",
+          "name": "btnClearBusinessAddresses",
+          "controlType": "button",
+          "value": "{\"formatType\":\"button\",\"disabled\":false}",
+          "parent": {
+            "id": "canvas-bxV94mIdan",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-bxV94mIdan",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su4mIdan",
+            "name": "Setup"
+          }
+        },
+        {
+          "id": "ctrl-2VlDaqY6Ws",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-2VlDaqY6Ws",
+          "name": "btnClearBusinessWebsites",
+          "controlType": "button",
+          "value": "{\"formatType\":\"button\",\"disabled\":false}",
+          "parent": {
+            "id": "canvas-bxV94mIdan",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-bxV94mIdan",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su4mIdan",
+            "name": "Setup"
+          }
+        },
+        {
+          "id": "ctrl-4lBaNDuKsD",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-4lBaNDuKsD",
+          "name": "btnClearDepartments",
+          "controlType": "button",
+          "value": "{\"formatType\":\"button\",\"disabled\":false}",
+          "parent": {
+            "id": "canvas-ODrtTOlR0U",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-ODrtTOlR0U",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suTOlR0U",
+            "name": "Team Setup"
+          }
+        },
+        {
+          "id": "ctrl-sYHIu0kz_0",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-sYHIu0kz_0",
+          "name": "btnClearTeams",
+          "controlType": "button",
+          "value": "{\"formatType\":\"button\",\"disabled\":false}",
+          "parent": {
+            "id": "canvas-ODrtTOlR0U",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-ODrtTOlR0U",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suTOlR0U",
+            "name": "Team Setup"
+          }
+        },
+        {
+          "id": "ctrl-KHknZDSjx2",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-KHknZDSjx2",
+          "name": "btnClearStaff",
+          "controlType": "button",
+          "value": "{\"formatType\":\"button\",\"disabled\":false}",
+          "parent": {
+            "id": "canvas-ODrtTOlR0U",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-ODrtTOlR0U",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suTOlR0U",
+            "name": "Team Setup"
+          }
+        },
+        {
+          "id": "ctrl-SZp7ZFmlDZ",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-SZp7ZFmlDZ",
+          "name": "btnClearEmergencyContacts",
+          "controlType": "button",
+          "value": "{\"formatType\":\"button\",\"disabled\":false}",
+          "parent": {
+            "id": "canvas-ODrtTOlR0U",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-ODrtTOlR0U",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suTOlR0U",
+            "name": "Team Setup"
+          }
+        },
+        {
+          "id": "ctrl-txhyuXj3z9",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-txhyuXj3z9",
+          "name": "btnClearServiceCategories",
+          "controlType": "button",
+          "value": "{\"formatType\":\"button\",\"disabled\":false}",
+          "parent": {
+            "id": "canvas-md35s42UKg",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-md35s42UKg",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_sus42UKg",
+            "name": "Services Setup"
+          }
+        },
+        {
+          "id": "ctrl-g8cE7f5s0I",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-g8cE7f5s0I",
+          "name": "btnClearServices",
+          "controlType": "button",
+          "value": "{\"formatType\":\"button\",\"disabled\":false}",
+          "parent": {
+            "id": "canvas-md35s42UKg",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-md35s42UKg",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_sus42UKg",
+            "name": "Services Setup"
+          }
+        },
+        {
+          "id": "ctrl--mY2mhlWWi",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl--mY2mhlWWi",
+          "name": "btnClearServiceWork",
+          "controlType": "button",
+          "value": "{\"formatType\":\"button\",\"disabled\":false}",
+          "parent": {
+            "id": "canvas-md35s42UKg",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-md35s42UKg",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_sus42UKg",
+            "name": "Services Setup"
+          }
+        },
+        {
+          "id": "ctrl-G898e2nVed",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-G898e2nVed",
+          "name": "btnClearCurrencies",
+          "controlType": "button",
+          "value": "{\"formatType\":\"button\",\"disabled\":false}",
+          "parent": {
+            "id": "canvas-WdxkoaBM95",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-WdxkoaBM95",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suoaBM95",
+            "name": "Finance Setup"
+          }
+        },
+        {
+          "id": "ctrl-AlvUMnlUUU",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-AlvUMnlUUU",
+          "name": "btnClearSalesTaxes",
+          "controlType": "button",
+          "value": "{\"formatType\":\"button\",\"disabled\":false}",
+          "parent": {
+            "id": "canvas-WdxkoaBM95",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-WdxkoaBM95",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suoaBM95",
+            "name": "Finance Setup"
+          }
+        },
+        {
+          "id": "ctrl-4GrNX9wCOR",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-4GrNX9wCOR",
+          "name": "btnClearSalesTaxRates",
+          "controlType": "button",
+          "value": "{\"formatType\":\"button\",\"disabled\":false}",
+          "parent": {
+            "id": "canvas-WdxkoaBM95",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-WdxkoaBM95",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suoaBM95",
+            "name": "Finance Setup"
+          }
+        },
+        {
+          "id": "ctrl-p82uCGjItH",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-p82uCGjItH",
+          "name": "btnClearExpenseCategories",
+          "controlType": "button",
+          "value": "{\"formatType\":\"button\",\"disabled\":false}",
+          "parent": {
+            "id": "canvas-Tjxh3YTyEZ",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-Tjxh3YTyEZ",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su3YTyEZ",
+            "name": "Expenses Setup"
+          }
+        },
+        {
+          "id": "ctrl-VtOioMU3Y0",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-VtOioMU3Y0",
+          "name": "btnClearExpenseProviders",
+          "controlType": "button",
+          "value": "{\"formatType\":\"button\",\"disabled\":false}",
+          "parent": {
+            "id": "canvas-Tjxh3YTyEZ",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-Tjxh3YTyEZ",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su3YTyEZ",
+            "name": "Expenses Setup"
+          }
+        },
+        {
+          "id": "ctrl-EbZwEFpUQW",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-EbZwEFpUQW",
+          "name": "btnClearTaxes",
+          "controlType": "button",
+          "value": "{\"formatType\":\"button\",\"disabled\":false}",
+          "parent": {
+            "id": "canvas-WdxkoaBM95",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-WdxkoaBM95",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suoaBM95",
+            "name": "Finance Setup"
+          }
+        },
+        {
+          "id": "ctrl-bPHlfLAzl7",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-bPHlfLAzl7",
+          "name": "btnClearClientIndustries",
+          "controlType": "button",
+          "value": "{\"formatType\":\"button\",\"disabled\":false}",
+          "parent": {
+            "id": "canvas-c_MUzIVEi0",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-c_MUzIVEi0",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suzIVEi0",
+            "name": "Clients Setup"
+          }
+        },
+        {
+          "id": "ctrl-mgNLQP39HI",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-mgNLQP39HI",
+          "name": "btnClearCompanies",
+          "controlType": "button",
+          "value": "{\"formatType\":\"button\",\"disabled\":false}",
+          "parent": {
+            "id": "canvas-c_MUzIVEi0",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-c_MUzIVEi0",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suzIVEi0",
+            "name": "Clients Setup"
+          }
+        },
+        {
+          "id": "ctrl-1oNl68R5KL",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-1oNl68R5KL",
+          "name": "btnClearContacts",
+          "controlType": "button",
+          "value": "{\"formatType\":\"button\",\"disabled\":false}",
+          "parent": {
+            "id": "canvas-c_MUzIVEi0",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-c_MUzIVEi0",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suzIVEi0",
+            "name": "Clients Setup"
+          }
+        },
+        {
+          "id": "ctrl-fHi0gbkhpg",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-fHi0gbkhpg",
+          "name": "btnCopyDoc",
+          "controlType": "button",
+          "value": "",
+          "parent": {
+            "id": "canvas-IhDSkELStw",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-IhDSkELStw",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_sukELStw",
+            "name": "The Digital Agency Operating System"
+          }
+        },
+        {
+          "id": "ctrl-iQLVB7ZSuz",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-iQLVB7ZSuz",
+          "name": "btnClearOpportunities",
+          "controlType": "button",
+          "value": "{\"formatType\":\"button\",\"disabled\":false}",
+          "parent": {
+            "id": "canvas-pSYuhEYNJd",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-pSYuhEYNJd",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suhEYNJd",
+            "name": "Sales"
+          }
+        },
+        {
+          "id": "ctrl-yog4ig_Lvk",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-yog4ig_Lvk",
+          "name": "btnClearInvoices",
+          "controlType": "button",
+          "value": "{\"formatType\":\"button\",\"disabled\":false}",
+          "parent": {
+            "id": "canvas-WlPYwrtvJB",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-WlPYwrtvJB",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suwrtvJB",
+            "name": "Finance"
+          }
+        },
+        {
+          "id": "ctrl-6I8dRIJVeW",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-6I8dRIJVeW",
+          "name": "btnClearExpenses",
+          "controlType": "button",
+          "value": "{\"formatType\":\"button\",\"disabled\":false}",
+          "parent": {
+            "id": "canvas-WlPYwrtvJB",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-WlPYwrtvJB",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suwrtvJB",
+            "name": "Finance"
+          }
+        },
+        {
+          "id": "ctrl-gFQ6ZX526_",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-gFQ6ZX526_",
+          "name": "selOpportunitiesCompany",
+          "controlType": "select",
+          "value": "",
+          "parent": {
+            "id": "canvas-BM5vNDCdhy",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-BM5vNDCdhy",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suNDCdhy",
+            "name": "Opportunities"
+          }
+        }
+      ]
+    },
+    "batchDelete": {
+      "Control": []
+    }
+  },
+  "api": {
+    "get": {
+      "/docs/6O6-VWsNpq/controls": {
+        "response": {
+          "items": [
+            {
+              "id": "ctrl-9wkHl8m4mn",
+              "type": "control",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-9wkHl8m4mn",
+              "name": "SelectCRMCompany",
+              "parent": {
+                "id": "canvas-fbzQ3Vsy9r",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-fbzQ3Vsy9r",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su3Vsy9r",
+                "name": "CRM"
+              }
+            },
+            {
+              "id": "ctrl-RiSxIx4Peu",
+              "type": "control",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-RiSxIx4Peu",
+              "name": "ButtonCRMAddOpportunity",
+              "parent": {
+                "id": "canvas-fbzQ3Vsy9r",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-fbzQ3Vsy9r",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su3Vsy9r",
+                "name": "CRM"
+              }
+            },
+            {
+              "id": "ctrl-Ug0EwJSxkK",
+              "type": "control",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-Ug0EwJSxkK",
+              "name": "ButtonCRMAddContact",
+              "parent": {
+                "id": "canvas-fbzQ3Vsy9r",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-fbzQ3Vsy9r",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su3Vsy9r",
+                "name": "CRM"
+              }
+            },
+            {
+              "id": "ctrl-KXuxh45hBC",
+              "type": "control",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-KXuxh45hBC",
+              "name": "ButtonCRMCompanySocialAdd`",
+              "parent": {
+                "id": "canvas-fbzQ3Vsy9r",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-fbzQ3Vsy9r",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su3Vsy9r",
+                "name": "CRM"
+              }
+            },
+            {
+              "id": "ctrl-XX6p5edb_7",
+              "type": "control",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-XX6p5edb_7",
+              "name": "ButtonCRMAddInvoice",
+              "parent": {
+                "id": "canvas-fbzQ3Vsy9r",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-fbzQ3Vsy9r",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su3Vsy9r",
+                "name": "CRM"
+              }
+            },
+            {
+              "id": "ctrl-GVnCaLNAPg",
+              "type": "control",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-GVnCaLNAPg",
+              "name": "ButtonCRMAddExpense",
+              "parent": {
+                "id": "canvas-fbzQ3Vsy9r",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-fbzQ3Vsy9r",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su3Vsy9r",
+                "name": "CRM"
+              }
+            },
+            {
+              "id": "ctrl-g0ya9EjNcD",
+              "type": "control",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-g0ya9EjNcD",
+              "name": "selectOpportunityPipeline",
+              "parent": {
+                "id": "canvas-pSYuhEYNJd",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-pSYuhEYNJd",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suhEYNJd",
+                "name": "Sales"
+              }
+            },
+            {
+              "id": "ctrl-W9el-BAEea",
+              "type": "control",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-W9el-BAEea",
+              "name": "selectSalesYearFilter",
+              "parent": {
+                "id": "canvas-pSYuhEYNJd",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-pSYuhEYNJd",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suhEYNJd",
+                "name": "Sales"
+              }
+            },
+            {
+              "id": "ctrl-XbdDPsMQRm",
+              "type": "control",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-XbdDPsMQRm",
+              "name": "selectTeamsDepartments",
+              "parent": {
+                "id": "canvas-ow9CUzcG7U",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-ow9CUzcG7U",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suUzcG7U",
+                "name": "Departments"
+              }
+            },
+            {
+              "id": "ctrl-jgkzCVZhMu",
+              "type": "control",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-jgkzCVZhMu",
+              "name": "selectFinanceSummaryYear",
+              "parent": {
+                "id": "canvas-WlPYwrtvJB",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-WlPYwrtvJB",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suwrtvJB",
+                "name": "Finance"
+              }
+            },
+            {
+              "id": "ctrl-fdgtnCJcKf",
+              "type": "control",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-fdgtnCJcKf",
+              "name": "Select Companies Type",
+              "parent": {
+                "id": "canvas-vznQxgTt53",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-vznQxgTt53",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suxgTt53",
+                "name": "Clients"
+              }
+            },
+            {
+              "id": "ctrl-Kmzb7Y3Whr",
+              "type": "control",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-Kmzb7Y3Whr",
+              "name": "Select Companies Status",
+              "parent": {
+                "id": "canvas-vznQxgTt53",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-vznQxgTt53",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suxgTt53",
+                "name": "Clients"
+              }
+            },
+            {
+              "id": "ctrl-Et4HX6Qz7h",
+              "type": "control",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-Et4HX6Qz7h",
+              "name": "btnClearBusinessInfo",
+              "parent": {
+                "id": "canvas-bxV94mIdan",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-bxV94mIdan",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su4mIdan",
+                "name": "Setup"
+              }
+            },
+            {
+              "id": "ctrl-ZE40nf5mqR",
+              "type": "control",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-ZE40nf5mqR",
+              "name": "btnClearBusinessAddresses",
+              "parent": {
+                "id": "canvas-bxV94mIdan",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-bxV94mIdan",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su4mIdan",
+                "name": "Setup"
+              }
+            },
+            {
+              "id": "ctrl-2VlDaqY6Ws",
+              "type": "control",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-2VlDaqY6Ws",
+              "name": "btnClearBusinessWebsites",
+              "parent": {
+                "id": "canvas-bxV94mIdan",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-bxV94mIdan",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su4mIdan",
+                "name": "Setup"
+              }
+            },
+            {
+              "id": "ctrl-4lBaNDuKsD",
+              "type": "control",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-4lBaNDuKsD",
+              "name": "btnClearDepartments",
+              "parent": {
+                "id": "canvas-ODrtTOlR0U",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-ODrtTOlR0U",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suTOlR0U",
+                "name": "Team Setup"
+              }
+            },
+            {
+              "id": "ctrl-sYHIu0kz_0",
+              "type": "control",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-sYHIu0kz_0",
+              "name": "btnClearTeams",
+              "parent": {
+                "id": "canvas-ODrtTOlR0U",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-ODrtTOlR0U",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suTOlR0U",
+                "name": "Team Setup"
+              }
+            },
+            {
+              "id": "ctrl-KHknZDSjx2",
+              "type": "control",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-KHknZDSjx2",
+              "name": "btnClearStaff",
+              "parent": {
+                "id": "canvas-ODrtTOlR0U",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-ODrtTOlR0U",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suTOlR0U",
+                "name": "Team Setup"
+              }
+            },
+            {
+              "id": "ctrl-SZp7ZFmlDZ",
+              "type": "control",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-SZp7ZFmlDZ",
+              "name": "btnClearEmergencyContacts",
+              "parent": {
+                "id": "canvas-ODrtTOlR0U",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-ODrtTOlR0U",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suTOlR0U",
+                "name": "Team Setup"
+              }
+            },
+            {
+              "id": "ctrl-txhyuXj3z9",
+              "type": "control",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-txhyuXj3z9",
+              "name": "btnClearServiceCategories",
+              "parent": {
+                "id": "canvas-md35s42UKg",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-md35s42UKg",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_sus42UKg",
+                "name": "Services Setup"
+              }
+            },
+            {
+              "id": "ctrl-g8cE7f5s0I",
+              "type": "control",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-g8cE7f5s0I",
+              "name": "btnClearServices",
+              "parent": {
+                "id": "canvas-md35s42UKg",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-md35s42UKg",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_sus42UKg",
+                "name": "Services Setup"
+              }
+            },
+            {
+              "id": "ctrl--mY2mhlWWi",
+              "type": "control",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl--mY2mhlWWi",
+              "name": "btnClearServiceWork",
+              "parent": {
+                "id": "canvas-md35s42UKg",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-md35s42UKg",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_sus42UKg",
+                "name": "Services Setup"
+              }
+            },
+            {
+              "id": "ctrl-G898e2nVed",
+              "type": "control",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-G898e2nVed",
+              "name": "btnClearCurrencies",
+              "parent": {
+                "id": "canvas-WdxkoaBM95",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-WdxkoaBM95",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suoaBM95",
+                "name": "Finance Setup"
+              }
+            },
+            {
+              "id": "ctrl-AlvUMnlUUU",
+              "type": "control",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-AlvUMnlUUU",
+              "name": "btnClearSalesTaxes",
+              "parent": {
+                "id": "canvas-WdxkoaBM95",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-WdxkoaBM95",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suoaBM95",
+                "name": "Finance Setup"
+              }
+            },
+            {
+              "id": "ctrl-4GrNX9wCOR",
+              "type": "control",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-4GrNX9wCOR",
+              "name": "btnClearSalesTaxRates",
+              "parent": {
+                "id": "canvas-WdxkoaBM95",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-WdxkoaBM95",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suoaBM95",
+                "name": "Finance Setup"
+              }
+            },
+            {
+              "id": "ctrl-p82uCGjItH",
+              "type": "control",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-p82uCGjItH",
+              "name": "btnClearExpenseCategories",
+              "parent": {
+                "id": "canvas-Tjxh3YTyEZ",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-Tjxh3YTyEZ",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su3YTyEZ",
+                "name": "Expenses Setup"
+              }
+            },
+            {
+              "id": "ctrl-VtOioMU3Y0",
+              "type": "control",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-VtOioMU3Y0",
+              "name": "btnClearExpenseProviders",
+              "parent": {
+                "id": "canvas-Tjxh3YTyEZ",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-Tjxh3YTyEZ",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su3YTyEZ",
+                "name": "Expenses Setup"
+              }
+            },
+            {
+              "id": "ctrl-EbZwEFpUQW",
+              "type": "control",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-EbZwEFpUQW",
+              "name": "btnClearTaxes",
+              "parent": {
+                "id": "canvas-WdxkoaBM95",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-WdxkoaBM95",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suoaBM95",
+                "name": "Finance Setup"
+              }
+            },
+            {
+              "id": "ctrl-bPHlfLAzl7",
+              "type": "control",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-bPHlfLAzl7",
+              "name": "btnClearClientIndustries",
+              "parent": {
+                "id": "canvas-c_MUzIVEi0",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-c_MUzIVEi0",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suzIVEi0",
+                "name": "Clients Setup"
+              }
+            },
+            {
+              "id": "ctrl-mgNLQP39HI",
+              "type": "control",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-mgNLQP39HI",
+              "name": "btnClearCompanies",
+              "parent": {
+                "id": "canvas-c_MUzIVEi0",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-c_MUzIVEi0",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suzIVEi0",
+                "name": "Clients Setup"
+              }
+            },
+            {
+              "id": "ctrl-1oNl68R5KL",
+              "type": "control",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-1oNl68R5KL",
+              "name": "btnClearContacts",
+              "parent": {
+                "id": "canvas-c_MUzIVEi0",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-c_MUzIVEi0",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suzIVEi0",
+                "name": "Clients Setup"
+              }
+            },
+            {
+              "id": "ctrl-fHi0gbkhpg",
+              "type": "control",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-fHi0gbkhpg",
+              "name": "btnCopyDoc",
+              "parent": {
+                "id": "canvas-IhDSkELStw",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-IhDSkELStw",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_sukELStw",
+                "name": "The Digital Agency Operating System"
+              }
+            },
+            {
+              "id": "ctrl-iQLVB7ZSuz",
+              "type": "control",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-iQLVB7ZSuz",
+              "name": "btnClearOpportunities",
+              "parent": {
+                "id": "canvas-pSYuhEYNJd",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-pSYuhEYNJd",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suhEYNJd",
+                "name": "Sales"
+              }
+            },
+            {
+              "id": "ctrl-yog4ig_Lvk",
+              "type": "control",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-yog4ig_Lvk",
+              "name": "btnClearInvoices",
+              "parent": {
+                "id": "canvas-WlPYwrtvJB",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-WlPYwrtvJB",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suwrtvJB",
+                "name": "Finance"
+              }
+            },
+            {
+              "id": "ctrl-6I8dRIJVeW",
+              "type": "control",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-6I8dRIJVeW",
+              "name": "btnClearExpenses",
+              "parent": {
+                "id": "canvas-WlPYwrtvJB",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-WlPYwrtvJB",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suwrtvJB",
+                "name": "Finance"
+              }
+            },
+            {
+              "id": "ctrl-gFQ6ZX526_",
+              "type": "control",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-gFQ6ZX526_",
+              "name": "selOpportunitiesCompany",
+              "parent": {
+                "id": "canvas-BM5vNDCdhy",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-BM5vNDCdhy",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suNDCdhy",
+                "name": "Opportunities"
+              }
+            }
+          ],
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls?pageToken=eyJsaW1pdCI6MTAwLCJvZmZzZXQiOjAsIm9wVmVyc2lvbiI6MzE0NjMsInNjaGVtYVZlcnNpb24iOjE3N30"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 23 Jun 2026 13:44:51 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4987",
+          "x-ratelimit-reset": "1782222325",
+          "x-coda-pod": "api-doc-8674fd7489-m7qdj",
+          "vary": "Origin, Accept-Encoding",
+          "surrogate-control": "no-store",
+          "cache-control": "no-store, no-cache, must-revalidate, proxy-revalidate",
+          "expires": "0",
+          "etag": "W/\"3139-pWopBzunFcaLTSdAnBA1n/rOWvI\"",
+          "x-coda-server": "api-doc",
+          "x-cache": "Miss from cloudfront",
+          "via": "1.1 6daec11ce051cffaa3e440291c9bdce2.cloudfront.net (CloudFront)",
+          "x-amz-cf-pop": "HIO52-P5",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "x-amz-cf-id": "Juf4SkSbobglleEO0Q4rgjSdLwP0M2ylHvrId9imfiKnTHyr-V7fAA=="
+        },
+        "hash": "92fe3dbde1e5b5748d6e1df89a02e6193069e7c4",
+        "request": {
+          "params": {
+            "limit": "100"
+          }
+        }
+      },
+      "/docs/6O6-VWsNpq/controls/ctrl-9wkHl8m4mn": {
+        "response": {
+          "id": "ctrl-9wkHl8m4mn",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-9wkHl8m4mn",
+          "name": "SelectCRMCompany",
+          "controlType": "lookup",
+          "value": "Apple",
+          "parent": {
+            "id": "canvas-fbzQ3Vsy9r",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-fbzQ3Vsy9r",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su3Vsy9r",
+            "name": "CRM"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 23 Jun 2026 13:44:51 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "373",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4986",
+          "x-ratelimit-reset": "1782222325",
+          "etag": "W/\"175-vxgc7dhRrsL9kaBLqJ25B10qnf0\""
+        },
+        "hash": "3bede59fef7d78cd1893c85f38beed16d8bf751f",
+        "request": {}
+      },
+      "/docs/6O6-VWsNpq/controls/ctrl-RiSxIx4Peu": {
+        "response": {
+          "id": "ctrl-RiSxIx4Peu",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-RiSxIx4Peu",
+          "name": "ButtonCRMAddOpportunity",
+          "controlType": "button",
+          "value": "{\"formatType\":\"button\",\"disabled\":false}",
+          "parent": {
+            "id": "canvas-fbzQ3Vsy9r",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-fbzQ3Vsy9r",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su3Vsy9r",
+            "name": "CRM"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 23 Jun 2026 13:44:53 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "421",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4985",
+          "x-ratelimit-reset": "1782222325",
+          "etag": "W/\"1a5-c6yMkUFshcf5B898VpcLjISzn/0\""
+        },
+        "hash": "f5d8a5861cf16d3a73ef7a14bae5826f748d36b5",
+        "request": {}
+      },
+      "/docs/6O6-VWsNpq/controls/ctrl-Ug0EwJSxkK": {
+        "response": {
+          "id": "ctrl-Ug0EwJSxkK",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-Ug0EwJSxkK",
+          "name": "ButtonCRMAddContact",
+          "controlType": "button",
+          "value": "{\"formatType\":\"button\",\"disabled\":false}",
+          "parent": {
+            "id": "canvas-fbzQ3Vsy9r",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-fbzQ3Vsy9r",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su3Vsy9r",
+            "name": "CRM"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 23 Jun 2026 13:44:54 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "417",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4984",
+          "x-ratelimit-reset": "1782222325",
+          "etag": "W/\"1a1-vx8nOnGsUravcZg3QhFu3yX0MOY\""
+        },
+        "hash": "20a779134aaeafb05d2e36e34fd50c539bc2a037",
+        "request": {}
+      },
+      "/docs/6O6-VWsNpq/controls/ctrl-KXuxh45hBC": {
+        "response": {
+          "id": "ctrl-KXuxh45hBC",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-KXuxh45hBC",
+          "name": "ButtonCRMCompanySocialAdd`",
+          "controlType": "button",
+          "value": "{\"formatType\":\"button\",\"disabled\":false}",
+          "parent": {
+            "id": "canvas-fbzQ3Vsy9r",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-fbzQ3Vsy9r",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su3Vsy9r",
+            "name": "CRM"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 23 Jun 2026 13:44:54 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "424",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4983",
+          "x-ratelimit-reset": "1782222325",
+          "etag": "W/\"1a8-ycntF43hLMj+Xk/i05F+34nLr9U\""
+        },
+        "hash": "8c52b2fd6bf39f509666cfd423a97da23885c106",
+        "request": {}
+      },
+      "/docs/6O6-VWsNpq/controls/ctrl-XX6p5edb_7": {
+        "response": {
+          "id": "ctrl-XX6p5edb_7",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-XX6p5edb_7",
+          "name": "ButtonCRMAddInvoice",
+          "controlType": "button",
+          "value": "{\"formatType\":\"button\",\"disabled\":false}",
+          "parent": {
+            "id": "canvas-fbzQ3Vsy9r",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-fbzQ3Vsy9r",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su3Vsy9r",
+            "name": "CRM"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 23 Jun 2026 13:44:55 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "417",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4982",
+          "x-ratelimit-reset": "1782222325",
+          "etag": "W/\"1a1-MD2mXpjd70TbrWiT64NuTa3LIow\""
+        },
+        "hash": "7ca97aacaf857a8176317d22b3f36fe1d13accdd",
+        "request": {}
+      },
+      "/docs/6O6-VWsNpq/controls/ctrl-GVnCaLNAPg": {
+        "response": {
+          "id": "ctrl-GVnCaLNAPg",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-GVnCaLNAPg",
+          "name": "ButtonCRMAddExpense",
+          "controlType": "button",
+          "value": "{\"formatType\":\"button\",\"disabled\":false}",
+          "parent": {
+            "id": "canvas-fbzQ3Vsy9r",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-fbzQ3Vsy9r",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su3Vsy9r",
+            "name": "CRM"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 23 Jun 2026 13:44:59 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "417",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4981",
+          "x-ratelimit-reset": "1782222325",
+          "etag": "W/\"1a1-r5Fu+MB5fZekr9dHCKBK1Fj6vv0\""
+        },
+        "hash": "1b27946dacf6af76f00675097dd59a76d28a242c",
+        "request": {}
+      },
+      "/docs/6O6-VWsNpq/controls/ctrl-g0ya9EjNcD": {
+        "response": {
+          "id": "ctrl-g0ya9EjNcD",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-g0ya9EjNcD",
+          "name": "selectOpportunityPipeline",
+          "controlType": "select",
+          "value": "Current Customer",
+          "parent": {
+            "id": "canvas-pSYuhEYNJd",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-pSYuhEYNJd",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suhEYNJd",
+            "name": "Sales"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 23 Jun 2026 13:45:00 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "395",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4980",
+          "x-ratelimit-reset": "1782222325",
+          "etag": "W/\"18b-KtrdJyHURJ7/zZ1oehbU2WLooiM\""
+        },
+        "hash": "fd6e7f4a34a0f9bc07828bd07e82176297fce870",
+        "request": {}
+      },
+      "/docs/6O6-VWsNpq/controls/ctrl-W9el-BAEea": {
+        "response": {
+          "id": "ctrl-W9el-BAEea",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-W9el-BAEea",
+          "name": "selectSalesYearFilter",
+          "controlType": "select",
+          "value": 2022,
+          "parent": {
+            "id": "canvas-pSYuhEYNJd",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-pSYuhEYNJd",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suhEYNJd",
+            "name": "Sales"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 23 Jun 2026 13:45:01 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "377",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4979",
+          "x-ratelimit-reset": "1782222325",
+          "etag": "W/\"179-9B8E6DD/0CkwBcQbr5wwkOe6Pvc\""
+        },
+        "hash": "ae61b2f953165c1430004a7d52d79d72e563dcca",
+        "request": {}
+      },
+      "/docs/6O6-VWsNpq/controls/ctrl-XbdDPsMQRm": {
+        "response": {
+          "id": "ctrl-XbdDPsMQRm",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-XbdDPsMQRm",
+          "name": "selectTeamsDepartments",
+          "controlType": "select",
+          "value": "",
+          "parent": {
+            "id": "canvas-ow9CUzcG7U",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-ow9CUzcG7U",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suUzcG7U",
+            "name": "Departments"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 23 Jun 2026 13:45:02 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "382",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4978",
+          "x-ratelimit-reset": "1782222325",
+          "etag": "W/\"17e-Lv7vS4p9p8tuyaw9rmUVVnlnLkA\""
+        },
+        "hash": "99ddbc1ec9aa07225b97aaf2dd8de61a83d8ef28",
+        "request": {}
+      },
+      "/docs/6O6-VWsNpq/controls/ctrl-jgkzCVZhMu": {
+        "response": {
+          "id": "ctrl-jgkzCVZhMu",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-jgkzCVZhMu",
+          "name": "selectFinanceSummaryYear",
+          "controlType": "select",
+          "value": 2022,
+          "parent": {
+            "id": "canvas-WlPYwrtvJB",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-WlPYwrtvJB",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suwrtvJB",
+            "name": "Finance"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 23 Jun 2026 13:45:02 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "382",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4977",
+          "x-ratelimit-reset": "1782222325",
+          "etag": "W/\"17e-OGwW4wEdTKgZeN7g/TdPrNafyd0\""
+        },
+        "hash": "1179ba21e8988c4781bb0f9597daa2264f2b8184",
+        "request": {}
+      },
+      "/docs/6O6-VWsNpq/controls/ctrl-fdgtnCJcKf": {
+        "response": {
+          "id": "ctrl-fdgtnCJcKf",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-fdgtnCJcKf",
+          "name": "Select Companies Type",
+          "controlType": "multiselect",
+          "value": "Client",
+          "parent": {
+            "id": "canvas-vznQxgTt53",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-vznQxgTt53",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suxgTt53",
+            "name": "Clients"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 23 Jun 2026 13:45:03 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "388",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4976",
+          "x-ratelimit-reset": "1782222325",
+          "etag": "W/\"184-xKxITRxtwtNYfraBG4eF/1Pue44\""
+        },
+        "hash": "4c4d97dd3f1536ddc6bc9347418f291c262afb7d",
+        "request": {}
+      },
+      "/docs/6O6-VWsNpq/controls/ctrl-Kmzb7Y3Whr": {
+        "response": {
+          "id": "ctrl-Kmzb7Y3Whr",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-Kmzb7Y3Whr",
+          "name": "Select Companies Status",
+          "controlType": "multiselect",
+          "value": "Active",
+          "parent": {
+            "id": "canvas-vznQxgTt53",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-vznQxgTt53",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suxgTt53",
+            "name": "Clients"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 23 Jun 2026 13:45:06 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "390",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4975",
+          "x-ratelimit-reset": "1782222325",
+          "etag": "W/\"186-AkR5M98LARk01etawv32aEaRK88\""
+        },
+        "hash": "a7148c74ebd4f2f28699537f2b508d1c2ede45c9",
+        "request": {}
+      },
+      "/docs/6O6-VWsNpq/controls/ctrl-Et4HX6Qz7h": {
+        "response": {
+          "id": "ctrl-Et4HX6Qz7h",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-Et4HX6Qz7h",
+          "name": "btnClearBusinessInfo",
+          "controlType": "button",
+          "value": "{\"formatType\":\"button\",\"disabled\":false}",
+          "parent": {
+            "id": "canvas-bxV94mIdan",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-bxV94mIdan",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su4mIdan",
+            "name": "Setup"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 23 Jun 2026 13:45:49 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "420",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4974",
+          "x-ratelimit-reset": "1782222325",
+          "etag": "W/\"1a4-SrkPtu+k4B+JxBdB9DE77jLH75Y\""
+        },
+        "hash": "0eb588fe360694e2523a7e4fbf34273bc75a363d",
+        "request": {}
+      },
+      "/docs/6O6-VWsNpq/controls/ctrl-ZE40nf5mqR": {
+        "response": {
+          "id": "ctrl-ZE40nf5mqR",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-ZE40nf5mqR",
+          "name": "btnClearBusinessAddresses",
+          "controlType": "button",
+          "value": "{\"formatType\":\"button\",\"disabled\":false}",
+          "parent": {
+            "id": "canvas-bxV94mIdan",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-bxV94mIdan",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su4mIdan",
+            "name": "Setup"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 23 Jun 2026 13:45:54 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "425",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4999",
+          "x-ratelimit-reset": "1782222410",
+          "etag": "W/\"1a9-heABnXfEn3jUp/hyH96US/SeoS8\""
+        },
+        "hash": "f43bc7ab5a2365092c3a16270cfccc41b2567700",
+        "request": {}
+      },
+      "/docs/6O6-VWsNpq/controls/ctrl-2VlDaqY6Ws": {
+        "response": {
+          "id": "ctrl-2VlDaqY6Ws",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-2VlDaqY6Ws",
+          "name": "btnClearBusinessWebsites",
+          "controlType": "button",
+          "value": "{\"formatType\":\"button\",\"disabled\":false}",
+          "parent": {
+            "id": "canvas-bxV94mIdan",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-bxV94mIdan",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su4mIdan",
+            "name": "Setup"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 23 Jun 2026 13:45:56 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "424",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4998",
+          "x-ratelimit-reset": "1782222410",
+          "etag": "W/\"1a8-N96xXXKpjpPvAzBAuY8ckK8SGQM\""
+        },
+        "hash": "3a197b58f216ec932f3751fd18a6c0071cbc269a",
+        "request": {}
+      },
+      "/docs/6O6-VWsNpq/controls/ctrl-4lBaNDuKsD": {
+        "response": {
+          "id": "ctrl-4lBaNDuKsD",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-4lBaNDuKsD",
+          "name": "btnClearDepartments",
+          "controlType": "button",
+          "value": "{\"formatType\":\"button\",\"disabled\":false}",
+          "parent": {
+            "id": "canvas-ODrtTOlR0U",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-ODrtTOlR0U",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suTOlR0U",
+            "name": "Team Setup"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 23 Jun 2026 13:45:57 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "424",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4997",
+          "x-ratelimit-reset": "1782222410",
+          "etag": "W/\"1a8-lJ8YvZNt/wo0NFrVhf1wl26SXvw\""
+        },
+        "hash": "65ff4c9fa2bd5adc370158be5247788f64ad89d9",
+        "request": {}
+      },
+      "/docs/6O6-VWsNpq/controls/ctrl-sYHIu0kz_0": {
+        "response": {
+          "id": "ctrl-sYHIu0kz_0",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-sYHIu0kz_0",
+          "name": "btnClearTeams",
+          "controlType": "button",
+          "value": "{\"formatType\":\"button\",\"disabled\":false}",
+          "parent": {
+            "id": "canvas-ODrtTOlR0U",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-ODrtTOlR0U",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suTOlR0U",
+            "name": "Team Setup"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 23 Jun 2026 13:45:58 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "418",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4996",
+          "x-ratelimit-reset": "1782222410",
+          "etag": "W/\"1a2-Oso+EkR76GwOnDyItNdQ0INWWVw\""
+        },
+        "hash": "255f763a9cd34cdd096b4829bfa61a7abc0fc864",
+        "request": {}
+      },
+      "/docs/6O6-VWsNpq/controls/ctrl-KHknZDSjx2": {
+        "response": {
+          "id": "ctrl-KHknZDSjx2",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-KHknZDSjx2",
+          "name": "btnClearStaff",
+          "controlType": "button",
+          "value": "{\"formatType\":\"button\",\"disabled\":false}",
+          "parent": {
+            "id": "canvas-ODrtTOlR0U",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-ODrtTOlR0U",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suTOlR0U",
+            "name": "Team Setup"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 23 Jun 2026 13:45:58 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "418",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4995",
+          "x-ratelimit-reset": "1782222410",
+          "etag": "W/\"1a2-yHOsrXs+2PDQ8q6zLJpiparrQZg\""
+        },
+        "hash": "b18dd716306d48c2bf75f9ba657a48bd2a8e45ac",
+        "request": {}
+      },
+      "/docs/6O6-VWsNpq/controls/ctrl-SZp7ZFmlDZ": {
+        "response": {
+          "id": "ctrl-SZp7ZFmlDZ",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-SZp7ZFmlDZ",
+          "name": "btnClearEmergencyContacts",
+          "controlType": "button",
+          "value": "{\"formatType\":\"button\",\"disabled\":false}",
+          "parent": {
+            "id": "canvas-ODrtTOlR0U",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-ODrtTOlR0U",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suTOlR0U",
+            "name": "Team Setup"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 23 Jun 2026 13:46:02 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "430",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4994",
+          "x-ratelimit-reset": "1782222410",
+          "etag": "W/\"1ae-T4SxgvpIiQzyf+MGTK9tGWsqo/E\""
+        },
+        "hash": "3f09680830093c7c3bb35e24f838fdc3a6096b11",
+        "request": {}
+      },
+      "/docs/6O6-VWsNpq/controls/ctrl-txhyuXj3z9": {
+        "response": {
+          "id": "ctrl-txhyuXj3z9",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-txhyuXj3z9",
+          "name": "btnClearServiceCategories",
+          "controlType": "button",
+          "value": "{\"formatType\":\"button\",\"disabled\":false}",
+          "parent": {
+            "id": "canvas-md35s42UKg",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-md35s42UKg",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_sus42UKg",
+            "name": "Services Setup"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 23 Jun 2026 13:46:02 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "434",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4993",
+          "x-ratelimit-reset": "1782222410",
+          "etag": "W/\"1b2-ggTI5sXelQH0gAJVc4gyFiSlZDM\""
+        },
+        "hash": "df7fa241f48708b69cdcbb639d0b548dc267f625",
+        "request": {}
+      },
+      "/docs/6O6-VWsNpq/controls/ctrl-g8cE7f5s0I": {
+        "response": {
+          "id": "ctrl-g8cE7f5s0I",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-g8cE7f5s0I",
+          "name": "btnClearServices",
+          "controlType": "button",
+          "value": "{\"formatType\":\"button\",\"disabled\":false}",
+          "parent": {
+            "id": "canvas-md35s42UKg",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-md35s42UKg",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_sus42UKg",
+            "name": "Services Setup"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 23 Jun 2026 13:46:03 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "425",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4992",
+          "x-ratelimit-reset": "1782222410",
+          "etag": "W/\"1a9-zyBl0jwUh70ynV0GRuL0yH0SXKI\""
+        },
+        "hash": "4227ec2133510a07bcb5d89478bc72e95f069f45",
+        "request": {}
+      },
+      "/docs/6O6-VWsNpq/controls/ctrl--mY2mhlWWi": {
+        "response": {
+          "id": "ctrl--mY2mhlWWi",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl--mY2mhlWWi",
+          "name": "btnClearServiceWork",
+          "controlType": "button",
+          "value": "{\"formatType\":\"button\",\"disabled\":false}",
+          "parent": {
+            "id": "canvas-md35s42UKg",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-md35s42UKg",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_sus42UKg",
+            "name": "Services Setup"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 23 Jun 2026 13:46:10 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "428",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4991",
+          "x-ratelimit-reset": "1782222410",
+          "etag": "W/\"1ac-8OOBi7MH12gT5do54WJOSEVaSDM\""
+        },
+        "hash": "ab0758dff32a0f1e076b2c998e58af7a0f57badc",
+        "request": {}
+      },
+      "/docs/6O6-VWsNpq/controls/ctrl-G898e2nVed": {
+        "response": {
+          "id": "ctrl-G898e2nVed",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-G898e2nVed",
+          "name": "btnClearCurrencies",
+          "controlType": "button",
+          "value": "{\"formatType\":\"button\",\"disabled\":false}",
+          "parent": {
+            "id": "canvas-WdxkoaBM95",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-WdxkoaBM95",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suoaBM95",
+            "name": "Finance Setup"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 23 Jun 2026 13:46:12 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "426",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4990",
+          "x-ratelimit-reset": "1782222410",
+          "etag": "W/\"1aa-dne7rugok3i9sVCyr6GooZUb1C8\""
+        },
+        "hash": "b0739bbf2cc654518b365bffe5a08820da6fef0d",
+        "request": {}
+      },
+      "/docs/6O6-VWsNpq/controls/ctrl-AlvUMnlUUU": {
+        "response": {
+          "id": "ctrl-AlvUMnlUUU",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-AlvUMnlUUU",
+          "name": "btnClearSalesTaxes",
+          "controlType": "button",
+          "value": "{\"formatType\":\"button\",\"disabled\":false}",
+          "parent": {
+            "id": "canvas-WdxkoaBM95",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-WdxkoaBM95",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suoaBM95",
+            "name": "Finance Setup"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 23 Jun 2026 13:46:18 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "426",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4989",
+          "x-ratelimit-reset": "1782222410",
+          "etag": "W/\"1aa-gy70LnBUrEbz+iRElJeNHipkijU\""
+        },
+        "hash": "fa80ec2166f08cb53e28895383633e0f473631f3",
+        "request": {}
+      },
+      "/docs/6O6-VWsNpq/controls/ctrl-4GrNX9wCOR": {
+        "response": {
+          "id": "ctrl-4GrNX9wCOR",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-4GrNX9wCOR",
+          "name": "btnClearSalesTaxRates",
+          "controlType": "button",
+          "value": "{\"formatType\":\"button\",\"disabled\":false}",
+          "parent": {
+            "id": "canvas-WdxkoaBM95",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-WdxkoaBM95",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suoaBM95",
+            "name": "Finance Setup"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 23 Jun 2026 13:46:19 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "429",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4988",
+          "x-ratelimit-reset": "1782222410",
+          "etag": "W/\"1ad-ORXPZBU5u/PTdFlECpv2a2Na0+o\""
+        },
+        "hash": "0dc31c75d12bd6111aa494b29b1f009ab4db23b5",
+        "request": {}
+      },
+      "/docs/6O6-VWsNpq/controls/ctrl-p82uCGjItH": {
+        "response": {
+          "id": "ctrl-p82uCGjItH",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-p82uCGjItH",
+          "name": "btnClearExpenseCategories",
+          "controlType": "button",
+          "value": "{\"formatType\":\"button\",\"disabled\":false}",
+          "parent": {
+            "id": "canvas-Tjxh3YTyEZ",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-Tjxh3YTyEZ",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su3YTyEZ",
+            "name": "Expenses Setup"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 23 Jun 2026 13:46:19 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "434",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4987",
+          "x-ratelimit-reset": "1782222410",
+          "etag": "W/\"1b2-p/Syexnti9B+YK7U3BKP+GWwbao\""
+        },
+        "hash": "720e14cac54ae4dfe2c89979865f1c6b540e76e3",
+        "request": {}
+      },
+      "/docs/6O6-VWsNpq/controls/ctrl-VtOioMU3Y0": {
+        "response": {
+          "id": "ctrl-VtOioMU3Y0",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-VtOioMU3Y0",
+          "name": "btnClearExpenseProviders",
+          "controlType": "button",
+          "value": "{\"formatType\":\"button\",\"disabled\":false}",
+          "parent": {
+            "id": "canvas-Tjxh3YTyEZ",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-Tjxh3YTyEZ",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su3YTyEZ",
+            "name": "Expenses Setup"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 23 Jun 2026 13:46:22 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "433",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4986",
+          "x-ratelimit-reset": "1782222410",
+          "etag": "W/\"1b1-l7RCpPu0EbOaZpXQoEeS8BHyVJg\""
+        },
+        "hash": "83ed07921c13302ed638bdad9164a52aa725a3e2",
+        "request": {}
+      },
+      "/docs/6O6-VWsNpq/controls/ctrl-EbZwEFpUQW": {
+        "response": {
+          "id": "ctrl-EbZwEFpUQW",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-EbZwEFpUQW",
+          "name": "btnClearTaxes",
+          "controlType": "button",
+          "value": "{\"formatType\":\"button\",\"disabled\":false}",
+          "parent": {
+            "id": "canvas-WdxkoaBM95",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-WdxkoaBM95",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suoaBM95",
+            "name": "Finance Setup"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 23 Jun 2026 13:46:23 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "421",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4985",
+          "x-ratelimit-reset": "1782222410",
+          "etag": "W/\"1a5-5eb1cDvTYweVwjgpTOM+SVaFiWU\""
+        },
+        "hash": "3633f3d45561dbca8a95df1465d3b84b87a78eb2",
+        "request": {}
+      },
+      "/docs/6O6-VWsNpq/controls/ctrl-bPHlfLAzl7": {
+        "response": {
+          "id": "ctrl-bPHlfLAzl7",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-bPHlfLAzl7",
+          "name": "btnClearClientIndustries",
+          "controlType": "button",
+          "value": "{\"formatType\":\"button\",\"disabled\":false}",
+          "parent": {
+            "id": "canvas-c_MUzIVEi0",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-c_MUzIVEi0",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suzIVEi0",
+            "name": "Clients Setup"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 23 Jun 2026 13:46:24 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "432",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4984",
+          "x-ratelimit-reset": "1782222410",
+          "etag": "W/\"1b0-Wmj/Ho5/Gz/Dnl9vj2QSk61gYqE\""
+        },
+        "hash": "1d269f5c6f8487dbd5f2b71fe76c0390657b4234",
+        "request": {}
+      },
+      "/docs/6O6-VWsNpq/controls/ctrl-mgNLQP39HI": {
+        "response": {
+          "id": "ctrl-mgNLQP39HI",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-mgNLQP39HI",
+          "name": "btnClearCompanies",
+          "controlType": "button",
+          "value": "{\"formatType\":\"button\",\"disabled\":false}",
+          "parent": {
+            "id": "canvas-c_MUzIVEi0",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-c_MUzIVEi0",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suzIVEi0",
+            "name": "Clients Setup"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 23 Jun 2026 13:46:25 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "425",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4983",
+          "x-ratelimit-reset": "1782222410",
+          "etag": "W/\"1a9-W/zeJChz1q3zgIDtZT36uovpmsY\""
+        },
+        "hash": "d38a7f93d5d59d924b916a71079204dc7964e587",
+        "request": {}
+      },
+      "/docs/6O6-VWsNpq/controls/ctrl-1oNl68R5KL": {
+        "response": {
+          "id": "ctrl-1oNl68R5KL",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-1oNl68R5KL",
+          "name": "btnClearContacts",
+          "controlType": "button",
+          "value": "{\"formatType\":\"button\",\"disabled\":false}",
+          "parent": {
+            "id": "canvas-c_MUzIVEi0",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-c_MUzIVEi0",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suzIVEi0",
+            "name": "Clients Setup"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 23 Jun 2026 13:46:28 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "424",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4982",
+          "x-ratelimit-reset": "1782222410",
+          "etag": "W/\"1a8-PqHMLkDwJ8aK956IsTC3cHwnQc0\""
+        },
+        "hash": "1a4fd7f5ff0c24252d1d0ea8589a22ab0a37a67e",
+        "request": {}
+      },
+      "/docs/6O6-VWsNpq/controls/ctrl-fHi0gbkhpg": {
+        "response": {
+          "id": "ctrl-fHi0gbkhpg",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-fHi0gbkhpg",
+          "name": "btnCopyDoc",
+          "controlType": "button",
+          "value": "",
+          "parent": {
+            "id": "canvas-IhDSkELStw",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-IhDSkELStw",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_sukELStw",
+            "name": "The Digital Agency Operating System"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 23 Jun 2026 13:46:28 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "394",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4981",
+          "x-ratelimit-reset": "1782222410",
+          "etag": "W/\"18a-thUfsNTqDFFu3u9weStvelcmitU\""
+        },
+        "hash": "94ed38098c2fd28f369ab0348abf42b568b2d804",
+        "request": {}
+      },
+      "/docs/6O6-VWsNpq/controls/ctrl-iQLVB7ZSuz": {
+        "response": {
+          "id": "ctrl-iQLVB7ZSuz",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-iQLVB7ZSuz",
+          "name": "btnClearOpportunities",
+          "controlType": "button",
+          "value": "{\"formatType\":\"button\",\"disabled\":false}",
+          "parent": {
+            "id": "canvas-pSYuhEYNJd",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-pSYuhEYNJd",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suhEYNJd",
+            "name": "Sales"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 23 Jun 2026 13:46:29 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "421",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4980",
+          "x-ratelimit-reset": "1782222410",
+          "etag": "W/\"1a5-kil7FKksgLnbuAC7BpNPU5rTQ64\""
+        },
+        "hash": "8e79353c1c8afebd81da55f64d6972bdc173feb2",
+        "request": {}
+      },
+      "/docs/6O6-VWsNpq/controls/ctrl-yog4ig_Lvk": {
+        "response": {
+          "id": "ctrl-yog4ig_Lvk",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-yog4ig_Lvk",
+          "name": "btnClearInvoices",
+          "controlType": "button",
+          "value": "{\"formatType\":\"button\",\"disabled\":false}",
+          "parent": {
+            "id": "canvas-WlPYwrtvJB",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-WlPYwrtvJB",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suwrtvJB",
+            "name": "Finance"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 23 Jun 2026 13:46:29 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "418",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4979",
+          "x-ratelimit-reset": "1782222410",
+          "etag": "W/\"1a2-h21niHsi1/wqW95mdm+56+E1jU4\""
+        },
+        "hash": "1211a3ae3ed4e7bbf3201595392e878c6800847f",
+        "request": {}
+      },
+      "/docs/6O6-VWsNpq/controls/ctrl-6I8dRIJVeW": {
+        "response": {
+          "id": "ctrl-6I8dRIJVeW",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-6I8dRIJVeW",
+          "name": "btnClearExpenses",
+          "controlType": "button",
+          "value": "{\"formatType\":\"button\",\"disabled\":false}",
+          "parent": {
+            "id": "canvas-WlPYwrtvJB",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-WlPYwrtvJB",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suwrtvJB",
+            "name": "Finance"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 23 Jun 2026 13:46:42 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "418",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4978",
+          "x-ratelimit-reset": "1782222410",
+          "etag": "W/\"1a2-UyzxsH5K+t4WZQo1IuhI6VxEOsA\""
+        },
+        "hash": "9eae5f4cb52d0fcf9c48ee3c9c3d56f455a4ab6c",
+        "request": {}
+      },
+      "/docs/6O6-VWsNpq/controls/ctrl-gFQ6ZX526_": {
+        "response": {
+          "id": "ctrl-gFQ6ZX526_",
+          "type": "control",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/controls/ctrl-gFQ6ZX526_",
+          "name": "selOpportunitiesCompany",
+          "controlType": "select",
+          "value": "",
+          "parent": {
+            "id": "canvas-BM5vNDCdhy",
+            "type": "page",
+            "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-BM5vNDCdhy",
+            "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suNDCdhy",
+            "name": "Opportunities"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 23 Jun 2026 13:46:43 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "385",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4977",
+          "x-ratelimit-reset": "1782222410",
+          "etag": "W/\"181-oZliZ35c7OMPDG0avOwAFPaH5/o\""
+        },
+        "hash": "435d6ab66439e6722255090bc6dc177f81f60f9f",
+        "request": {}
+      }
+    }
+  }
+}

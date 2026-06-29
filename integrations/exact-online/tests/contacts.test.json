@@ -1,0 +1,242 @@
+{
+  "nango": {
+    "batchSave": {
+      "Contact": [
+        {
+          "id": "5cb718a4-f1c8-4432-9d7f-daf2bc427889",
+          "account": "11acd652-4496-48e0-a189-e0045cc206e3",
+          "fullName": "Test Contact",
+          "firstName": "Test",
+          "lastName": "Contact",
+          "email": "test@example.com",
+          "modified": "/Date(1782404007287)/"
+        },
+        {
+          "id": "52a18182-9e73-4b76-8bed-d53f60281229",
+          "account": "11acd652-4496-48e0-a189-e0045cc206e3",
+          "fullName": "Test Contact",
+          "firstName": "Test",
+          "lastName": "Contact",
+          "email": "test@example.com",
+          "modified": "/Date(1782404013497)/"
+        },
+        {
+          "id": "58a07fc0-0b8a-4417-9384-74d0e50669d7",
+          "account": "11acd652-4496-48e0-a189-e0045cc206e3",
+          "fullName": "Alice Test",
+          "firstName": "Alice",
+          "lastName": "Test",
+          "email": "alice.test@example.com",
+          "modified": "/Date(1782404044033)/"
+        },
+        {
+          "id": "d3d37654-e1d6-4d5e-a489-00ac7ccdc973",
+          "account": "11acd652-4496-48e0-a189-e0045cc206e3",
+          "fullName": "Alice Test",
+          "firstName": "Alice",
+          "lastName": "Test",
+          "email": "alice.test@example.com",
+          "modified": "/Date(1782404052403)/"
+        },
+        {
+          "id": "1b5bfd55-a2dd-4ffe-87bd-e352800e56a7",
+          "account": "a58c29d9-ef92-40f1-b817-31b36990898c",
+          "fullName": "Updated Contact",
+          "firstName": "Updated",
+          "lastName": "Contact",
+          "email": "test@example.com",
+          "modified": "/Date(1782404518027)/"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Contact": []
+    }
+  },
+  "api": {
+    "get": {
+      "/api/v1/current/Me": {
+        "response": {
+          "d": {
+            "results": [
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/current/Me(guid'cc20a11b-c137-48cc-8e55-09d4adbd4ac9')",
+                  "type": "Exact.Web.Api.Models.System.Me"
+                },
+                "CurrentDivision": 124132,
+                "DivisionCustomer": "83b186b4-483d-474a-bebc-85da71e6f1ed",
+                "DivisionCustomerCode": "           1265594",
+                "DivisionCustomerName": "Nango",
+                "DivisionCustomerVatNumber": null,
+                "DivisionCustomerSiretNumber": "",
+                "DossierDivision": null,
+                "AccountingDivision": 124132,
+                "IsEmployeeSelfServiceUser": false,
+                "IsMyFirmLiteUser": false,
+                "IsStarterUser": false,
+                "IsMyFirmPortalUser": false,
+                "IsClientUser": true,
+                "FullName": "Samuel Bodin",
+                "PictureUrl": "https://start.exactonline.fr//docs/images/placeholder_contact_myeol.png",
+                "ThumbnailPicture": null,
+                "ThumbnailPictureFormat": null,
+                "UserID": "cc20a11b-c137-48cc-8e55-09d4adbd4ac9",
+                "UserName": "samuel@nango.dev",
+                "LanguageCode": "en-GB",
+                "Legislation": "128",
+                "Email": "samuel@nango.dev",
+                "Title": "Mr.",
+                "Initials": null,
+                "FirstName": "Samuel",
+                "MiddleName": null,
+                "LastName": "Bodin",
+                "Gender": "O",
+                "Nationality": null,
+                "Language": "EN",
+                "Phone": "0606060606",
+                "PhoneExtension": null,
+                "Mobile": null,
+                "ServerTime": "2026-06-25T16:29:14",
+                "ServerUtcOffset": 7200,
+                "EmployeeID": "00000000-0000-0000-0000-000000000000",
+                "CustomerCode": "           1265594",
+                "PackageCode": "EOLAPPCENTER",
+                "IsOEIMigrationMandatory": true
+              }
+            ]
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 25 Jun 2026 14:29:14 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "1397",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4991",
+          "x-ratelimit-reset": "1782397808",
+          "etag": "W/\"575-SquSiF9hisrZTasIDUHNNGM2oKU\""
+        },
+        "hash": "3b1fbfe94d69bc315fcd1e7b93bc400e3eea536c",
+        "request": {}
+      },
+      "/api/v1/124132/crm/Contacts": {
+        "response": {
+          "d": {
+            "results": [
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/crm/Contacts(guid'5cb718a4-f1c8-4432-9d7f-daf2bc427889')",
+                  "type": "Exact.Web.Api.Models.Contact"
+                },
+                "ID": "5cb718a4-f1c8-4432-9d7f-daf2bc427889",
+                "Account": "11acd652-4496-48e0-a189-e0045cc206e3",
+                "Email": "test@example.com",
+                "FirstName": "Test",
+                "FullName": "Test Contact",
+                "LastName": "Contact",
+                "Modified": "/Date(1782404007287)/",
+                "Phone": null
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/crm/Contacts(guid'52a18182-9e73-4b76-8bed-d53f60281229')",
+                  "type": "Exact.Web.Api.Models.Contact"
+                },
+                "ID": "52a18182-9e73-4b76-8bed-d53f60281229",
+                "Account": "11acd652-4496-48e0-a189-e0045cc206e3",
+                "Email": "test@example.com",
+                "FirstName": "Test",
+                "FullName": "Test Contact",
+                "LastName": "Contact",
+                "Modified": "/Date(1782404013497)/",
+                "Phone": null
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/crm/Contacts(guid'58a07fc0-0b8a-4417-9384-74d0e50669d7')",
+                  "type": "Exact.Web.Api.Models.Contact"
+                },
+                "ID": "58a07fc0-0b8a-4417-9384-74d0e50669d7",
+                "Account": "11acd652-4496-48e0-a189-e0045cc206e3",
+                "Email": "alice.test@example.com",
+                "FirstName": "Alice",
+                "FullName": "Alice Test",
+                "LastName": "Test",
+                "Modified": "/Date(1782404044033)/",
+                "Phone": null
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/crm/Contacts(guid'd3d37654-e1d6-4d5e-a489-00ac7ccdc973')",
+                  "type": "Exact.Web.Api.Models.Contact"
+                },
+                "ID": "d3d37654-e1d6-4d5e-a489-00ac7ccdc973",
+                "Account": "11acd652-4496-48e0-a189-e0045cc206e3",
+                "Email": "alice.test@example.com",
+                "FirstName": "Alice",
+                "FullName": "Alice Test",
+                "LastName": "Test",
+                "Modified": "/Date(1782404052403)/",
+                "Phone": null
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/crm/Contacts(guid'1b5bfd55-a2dd-4ffe-87bd-e352800e56a7')",
+                  "type": "Exact.Web.Api.Models.Contact"
+                },
+                "ID": "1b5bfd55-a2dd-4ffe-87bd-e352800e56a7",
+                "Account": "a58c29d9-ef92-40f1-b817-31b36990898c",
+                "Email": "test@example.com",
+                "FirstName": "Updated",
+                "FullName": "Updated Contact",
+                "LastName": "Contact",
+                "Modified": "/Date(1782404518027)/",
+                "Phone": null
+              }
+            ]
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 25 Jun 2026 14:29:15 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "2183",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4990",
+          "x-ratelimit-reset": "1782397808",
+          "etag": "W/\"887-hIvGytm45I4xuYrojTPNUO3WDwg\""
+        },
+        "hash": "fff406f0b8b2d68be231cee0dc15872eb6db4d48",
+        "request": {
+          "params": {
+            "$orderby": "Modified asc",
+            "$select": "ID,Account,FullName,FirstName,LastName,Email,Phone,Modified",
+            "$skip": "0",
+            "$top": "100"
+          }
+        }
+      }
+    }
+  }
+}

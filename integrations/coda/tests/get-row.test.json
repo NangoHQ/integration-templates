@@ -1,0 +1,113 @@
+{
+  "input": {
+    "docId": "wGUhBwDpCh",
+    "tableIdOrName": "grid-sync-10739-Responses-dynamic-2075705ab5c5e2d993ca8a9f9a8f3d80c8f640d73cba1c5abe3213fb10a720da",
+    "rowIdOrName": "i-cf5387b004fd9907a8aefc1fb259ec8fcb30b5423f7e7290887a7607d938a6a3"
+  },
+  "output": {
+    "id": "i-cf5387b004fd9907a8aefc1fb259ec8fcb30b5423f7e7290887a7607d938a6a3",
+    "type": "row",
+    "href": "https://coda.io/apis/v1/docs/wGUhBwDpCh/tables/grid-sync-10739-Responses-dynamic-2075705ab5c5e2d993ca8a9f9a8f3d80c8f640d73cba1c5abe3213fb10a720da/rows/i-cf5387b004fd9907a8aefc1fb259ec8fcb30b5423f7e7290887a7607d938a6a3",
+    "name": "yoda@lightside.com",
+    "index": 0,
+    "browserLink": "https://coda.io/d/_dwGUhBwDpCh#_tugrid-sync-10739-Responses-dynamic-2075705ab5c5e2d993ca8a9f9a8f3d80c8f640d73cba1c5abe3213fb10a720da/_rui-cf5387b004fd9907a8aefc1fb259ec8fcb30b5423f7e7290887a7607d938a6a3",
+    "createdAt": "2022-07-19T13:16:07.446Z",
+    "updatedAt": "2022-07-19T13:29:00.979Z",
+    "values": {
+      "value": "2022-07-19T08:43:59.000-07:00",
+      "synced": true,
+      "connection": "Scott Weir",
+      "c-gw0dy6nsJ9": "yoda@lightside.com",
+      "c-V_FA_4xXF_": "Im excited for so many things!",
+      "c-mEV_n32Sk0": "2022-07-28T00:00:00.000-07:00",
+      "c-n6VkttZ6XW": "Extremely!",
+      "c-CP0upj2RTK": "blanks: wreck stuff up\nPlease Select: Green\n",
+      "c-S8Mkj1pH7v": "(123) 456-7890",
+      "c-_UjbPAXIY7": "https://www.jotform.com/uploads/Weir_Scott/220607403128042/5340438398217124336/5340438398217124336_signature_12.png",
+      "c-jq8JPd0Svt": "Yoda Moda",
+      "c-6WzY6kCmA9": "",
+      "c-pQWbBUNEmO": "7/19/2022, 8:43 AM"
+    },
+    "parent": {
+      "id": "grid-sync-10739-Responses-dynamic-2075705ab5c5e2d993ca8a9f9a8f3d80c8f640d73cba1c5abe3213fb10a720da",
+      "type": "table",
+      "tableType": "table",
+      "href": "https://coda.io/apis/v1/docs/wGUhBwDpCh/tables/grid-sync-10739-Responses-dynamic-2075705ab5c5e2d993ca8a9f9a8f3d80c8f640d73cba1c5abe3213fb10a720da",
+      "browserLink": "https://coda.io/d/_dwGUhBwDpCh#_tugrid-sync-10739-Responses-dynamic-2075705ab5c5e2d993ca8a9f9a8f3d80c8f640d73cba1c5abe3213fb10a720da",
+      "name": "Jedi School - Using the Force"
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/docs/wGUhBwDpCh/tables/grid-sync-10739-Responses-dynamic-2075705ab5c5e2d993ca8a9f9a8f3d80c8f640d73cba1c5abe3213fb10a720da/rows/i-cf5387b004fd9907a8aefc1fb259ec8fcb30b5423f7e7290887a7607d938a6a3": {
+        "response": {
+          "id": "i-cf5387b004fd9907a8aefc1fb259ec8fcb30b5423f7e7290887a7607d938a6a3",
+          "type": "row",
+          "href": "https://coda.io/apis/v1/docs/wGUhBwDpCh/tables/grid-sync-10739-Responses-dynamic-2075705ab5c5e2d993ca8a9f9a8f3d80c8f640d73cba1c5abe3213fb10a720da/rows/i-cf5387b004fd9907a8aefc1fb259ec8fcb30b5423f7e7290887a7607d938a6a3",
+          "name": "yoda@lightside.com",
+          "index": 0,
+          "createdAt": "2022-07-19T13:16:07.446Z",
+          "updatedAt": "2022-07-19T13:29:00.979Z",
+          "browserLink": "https://coda.io/d/_dwGUhBwDpCh#_tugrid-sync-10739-Responses-dynamic-2075705ab5c5e2d993ca8a9f9a8f3d80c8f640d73cba1c5abe3213fb10a720da/_rui-cf5387b004fd9907a8aefc1fb259ec8fcb30b5423f7e7290887a7607d938a6a3",
+          "values": {
+            "value": "2022-07-19T08:43:59.000-07:00",
+            "synced": true,
+            "connection": "Scott Weir",
+            "c-gw0dy6nsJ9": "yoda@lightside.com",
+            "c-V_FA_4xXF_": "Im excited for so many things!",
+            "c-mEV_n32Sk0": "2022-07-28T00:00:00.000-07:00",
+            "c-n6VkttZ6XW": "Extremely!",
+            "c-CP0upj2RTK": "blanks: wreck stuff up\nPlease Select: Green\n",
+            "c-S8Mkj1pH7v": "(123) 456-7890",
+            "c-_UjbPAXIY7": "https://www.jotform.com/uploads/Weir_Scott/220607403128042/5340438398217124336/5340438398217124336_signature_12.png",
+            "c-jq8JPd0Svt": "Yoda Moda",
+            "c-6WzY6kCmA9": "",
+            "c-pQWbBUNEmO": "7/19/2022, 8:43 AM"
+          },
+          "parent": {
+            "id": "grid-sync-10739-Responses-dynamic-2075705ab5c5e2d993ca8a9f9a8f3d80c8f640d73cba1c5abe3213fb10a720da",
+            "type": "table",
+            "tableType": "table",
+            "href": "https://coda.io/apis/v1/docs/wGUhBwDpCh/tables/grid-sync-10739-Responses-dynamic-2075705ab5c5e2d993ca8a9f9a8f3d80c8f640d73cba1c5abe3213fb10a720da",
+            "browserLink": "https://coda.io/d/_dwGUhBwDpCh#_tugrid-sync-10739-Responses-dynamic-2075705ab5c5e2d993ca8a9f9a8f3d80c8f640d73cba1c5abe3213fb10a720da",
+            "name": "Jedi School - Using the Force"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 23 Jun 2026 10:42:13 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4931",
+          "x-ratelimit-reset": "1782211359",
+          "x-coda-pod": "api-doc-8674fd7489-mwxlj",
+          "vary": "Origin, Accept-Encoding",
+          "surrogate-control": "no-store",
+          "cache-control": "no-store, no-cache, must-revalidate, proxy-revalidate",
+          "expires": "0",
+          "etag": "W/\"6a9-wad8QvDmDvSeuTE0O3wazyWfn+M\"",
+          "x-coda-server": "api-doc",
+          "x-cache": "Miss from cloudfront",
+          "via": "1.1 699a0ab8b179c33d5bf800b6f12b0344.cloudfront.net (CloudFront)",
+          "x-amz-cf-pop": "HIO52-P5",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "x-amz-cf-id": "R76KQLgGqUAr6kmBpceBmhAtPOjcaZPwWUTs_-AIyXUqeTZM7EmhGg=="
+        },
+        "hash": "72bc80fa52739d4f7d38f5325236c40790c967db",
+        "request": {}
+      }
+    }
+  }
+}

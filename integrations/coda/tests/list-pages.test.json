@@ -1,0 +1,930 @@
+{
+  "input": {
+    "docId": "L_hgEASd6n"
+  },
+  "output": {
+    "items": [
+      {
+        "id": "canvas-51lnQjKXyv",
+        "type": "page",
+        "href": "https://coda.io/apis/v1/docs/L_hgEASd6n/pages/canvas-51lnQjKXyv",
+        "name": "Welcome to your playground doc!",
+        "isHidden": false,
+        "isEffectivelyHidden": false,
+        "browserLink": "https://coda.io/d/_dL_hgEASd6n/_sueatcQb",
+        "children": [],
+        "contentType": "canvas",
+        "subtitle": "This is your private space to learn the basics of coda.",
+        "icon": {
+          "name": "::custom::ws-Vy6QvHzdJP::21f3753a-6637-4c68-9c21-0cd340c96806::handshake",
+          "type": "application/octet-stream",
+          "browserLink": "https://codaio.imgix.net/workspaces/ws-Vy6QvHzdJP/blobs/customIcons/21f3753a-6637-4c68-9c21-0cd340c96806?fit=fill&fill=solid&w=128&h=128&fm=gif&bg=0FFF&fill-color=0FFF"
+        },
+        "createdAt": "2025-08-01T18:59:15.926Z",
+        "createdBy": {
+          "@context": "http://schema.org/",
+          "@type": "Person",
+          "name": "Annabel Gurney",
+          "email": "annabel.gurney@grammarly.com"
+        },
+        "updatedAt": "2026-03-26T22:32:03.356Z",
+        "updatedBy": {
+          "@context": "http://schema.org/",
+          "@type": "Person",
+          "name": "Annabel Gurney",
+          "email": "annabel.gurney@grammarly.com"
+        }
+      },
+      {
+        "id": "canvas-8xyEifYcpq",
+        "type": "page",
+        "href": "https://coda.io/apis/v1/docs/L_hgEASd6n/pages/canvas-8xyEifYcpq",
+        "name": "My tasks",
+        "isHidden": false,
+        "isEffectivelyHidden": false,
+        "browserLink": "https://coda.io/d/_dL_hgEASd6n/_suc3GwMj",
+        "children": [],
+        "contentType": "canvas",
+        "subtitle": "",
+        "icon": {
+          "name": "::custom::ws-29ToICU4Iy::239eb028-74c8-4577-aae2-602e2c8f792a::team-hub",
+          "type": "application/octet-stream",
+          "browserLink": "https://codaio.imgix.net/workspaces/ws-29ToICU4Iy/blobs/customIcons/239eb028-74c8-4577-aae2-602e2c8f792a?fit=fill&fill=solid&w=128&h=128&fm=gif&bg=0FFF&fill-color=0FFF"
+        },
+        "createdAt": "2025-08-01T18:59:32.556Z",
+        "createdBy": {
+          "@context": "http://schema.org/",
+          "@type": "Person",
+          "name": "Annabel Gurney",
+          "email": "annabel.gurney@grammarly.com"
+        },
+        "updatedAt": "2025-09-26T17:39:07.899Z",
+        "updatedBy": {
+          "@context": "http://schema.org/",
+          "@type": "Person",
+          "name": "Christine Luo",
+          "email": "christine.luo@grammarly.com"
+        }
+      },
+      {
+        "id": "canvas-PRkVwFXft4",
+        "type": "page",
+        "href": "https://coda.io/apis/v1/docs/L_hgEASd6n/pages/canvas-PRkVwFXft4",
+        "name": "Notes and ideas",
+        "isHidden": false,
+        "isEffectivelyHidden": false,
+        "browserLink": "https://coda.io/d/_dL_hgEASd6n/_su45FOCv",
+        "children": [],
+        "contentType": "canvas",
+        "subtitle": "",
+        "icon": {
+          "name": "::custom::ws-cNqmyTG0B9::2c079597-1f42-4fd2-b29f-311bce672d80::interactive-pages-brand",
+          "type": "application/octet-stream",
+          "browserLink": "https://codaio.imgix.net/workspaces/ws-cNqmyTG0B9/blobs/customIcons/2c079597-1f42-4fd2-b29f-311bce672d80?fit=fill&fill=solid&w=128&h=128&fm=gif&bg=0FFF&fill-color=0FFF"
+        },
+        "image": {
+          "browserLink": "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDczMTJ8MHwxfHNlYXJjaHw0fHxjb2xvcnxlbnwwfDB8fHwxNzU1MDM4NTM3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+          "width": 7200,
+          "height": 4800
+        },
+        "createdAt": "2025-08-01T18:59:45.983Z",
+        "createdBy": {
+          "@context": "http://schema.org/",
+          "@type": "Person",
+          "name": "Annabel Gurney",
+          "email": "annabel.gurney@grammarly.com"
+        },
+        "updatedAt": "2025-09-02T17:57:42.004Z",
+        "updatedBy": {
+          "@context": "http://schema.org/",
+          "@type": "Person",
+          "name": "Annabel Gurney",
+          "email": "annabel.gurney@grammarly.com"
+        }
+      },
+      {
+        "id": "canvas-bP8xBdFUGb",
+        "type": "page",
+        "href": "https://coda.io/apis/v1/docs/L_hgEASd6n/pages/canvas-bP8xBdFUGb",
+        "name": "Nango Seed Page A (Updated)",
+        "isHidden": false,
+        "isEffectivelyHidden": false,
+        "browserLink": "https://coda.io/d/_dL_hgEASd6n/_suic6Bmr",
+        "children": [],
+        "contentType": "canvas",
+        "subtitle": "Test subtitle from update-page",
+        "authors": [
+          {
+            "@context": "http://schema.org/",
+            "@type": "Person",
+            "name": "Nango Developer",
+            "email": "api@nango.dev"
+          }
+        ],
+        "createdAt": "2026-06-23T10:06:46.809Z",
+        "createdBy": {
+          "@context": "http://schema.org/",
+          "@type": "Person",
+          "name": "Nango Developer",
+          "email": "api@nango.dev"
+        },
+        "updatedAt": "2026-06-23T10:08:03.832Z",
+        "updatedBy": {
+          "@context": "http://schema.org/",
+          "@type": "Person",
+          "name": "Nango Developer",
+          "email": "api@nango.dev"
+        }
+      },
+      {
+        "id": "canvas-OaNSwYzCZO",
+        "type": "page",
+        "href": "https://coda.io/apis/v1/docs/L_hgEASd6n/pages/canvas-OaNSwYzCZO",
+        "name": "Temp Mutation Status Page",
+        "isHidden": false,
+        "isEffectivelyHidden": false,
+        "browserLink": "https://coda.io/d/_dL_hgEASd6n/_sut-uSsX",
+        "children": [],
+        "contentType": "canvas",
+        "subtitle": "",
+        "authors": [
+          {
+            "@context": "http://schema.org/",
+            "@type": "Person",
+            "name": "Nango Developer",
+            "email": "api@nango.dev"
+          }
+        ],
+        "createdAt": "2026-06-23T10:39:20.391Z",
+        "createdBy": {
+          "@context": "http://schema.org/",
+          "@type": "Person",
+          "name": "Nango Developer",
+          "email": "api@nango.dev"
+        },
+        "updatedAt": "2026-06-23T10:39:20.391Z",
+        "updatedBy": {
+          "@context": "http://schema.org/",
+          "@type": "Person",
+          "name": "Nango Developer",
+          "email": "api@nango.dev"
+        }
+      },
+      {
+        "id": "canvas-QjTyi3tGRM",
+        "type": "page",
+        "href": "https://coda.io/apis/v1/docs/L_hgEASd6n/pages/canvas-QjTyi3tGRM",
+        "name": "Nango Test Page",
+        "isHidden": false,
+        "isEffectivelyHidden": false,
+        "browserLink": "https://coda.io/d/_dL_hgEASd6n/_suAwwANj",
+        "children": [],
+        "contentType": "canvas",
+        "subtitle": "",
+        "authors": [
+          {
+            "@context": "http://schema.org/",
+            "@type": "Person",
+            "name": "Nango Developer",
+            "email": "api@nango.dev"
+          }
+        ],
+        "createdAt": "2026-06-23T10:40:14.051Z",
+        "createdBy": {
+          "@context": "http://schema.org/",
+          "@type": "Person",
+          "name": "Nango Developer",
+          "email": "api@nango.dev"
+        },
+        "updatedAt": "2026-06-23T10:40:14.051Z",
+        "updatedBy": {
+          "@context": "http://schema.org/",
+          "@type": "Person",
+          "name": "Nango Developer",
+          "email": "api@nango.dev"
+        }
+      },
+      {
+        "id": "canvas-3aDEjUQY8K",
+        "type": "page",
+        "href": "https://coda.io/apis/v1/docs/L_hgEASd6n/pages/canvas-3aDEjUQY8K",
+        "name": "Nango Test Page",
+        "isHidden": false,
+        "isEffectivelyHidden": false,
+        "browserLink": "https://coda.io/d/_dL_hgEASd6n/_suPmrYD7",
+        "children": [],
+        "contentType": "canvas",
+        "subtitle": "",
+        "authors": [
+          {
+            "@context": "http://schema.org/",
+            "@type": "Person",
+            "name": "Nango Developer",
+            "email": "api@nango.dev"
+          }
+        ],
+        "createdAt": "2026-06-23T10:40:49.217Z",
+        "createdBy": {
+          "@context": "http://schema.org/",
+          "@type": "Person",
+          "name": "Nango Developer",
+          "email": "api@nango.dev"
+        },
+        "updatedAt": "2026-06-23T10:40:49.217Z",
+        "updatedBy": {
+          "@context": "http://schema.org/",
+          "@type": "Person",
+          "name": "Nango Developer",
+          "email": "api@nango.dev"
+        }
+      },
+      {
+        "id": "canvas-3HVKXrLViO",
+        "type": "page",
+        "href": "https://coda.io/apis/v1/docs/L_hgEASd6n/pages/canvas-3HVKXrLViO",
+        "name": "Nango Test Page",
+        "isHidden": false,
+        "isEffectivelyHidden": false,
+        "browserLink": "https://coda.io/d/_dL_hgEASd6n/_suX2GI0c",
+        "children": [],
+        "contentType": "canvas",
+        "subtitle": "",
+        "authors": [
+          {
+            "@context": "http://schema.org/",
+            "@type": "Person",
+            "name": "Nango Developer",
+            "email": "api@nango.dev"
+          }
+        ],
+        "createdAt": "2026-06-23T10:41:23.741Z",
+        "createdBy": {
+          "@context": "http://schema.org/",
+          "@type": "Person",
+          "name": "Nango Developer",
+          "email": "api@nango.dev"
+        },
+        "updatedAt": "2026-06-23T10:41:23.741Z",
+        "updatedBy": {
+          "@context": "http://schema.org/",
+          "@type": "Person",
+          "name": "Nango Developer",
+          "email": "api@nango.dev"
+        }
+      },
+      {
+        "id": "canvas-afU9nbTW8u",
+        "type": "page",
+        "href": "https://coda.io/apis/v1/docs/L_hgEASd6n/pages/canvas-afU9nbTW8u",
+        "name": "Nango Test Page",
+        "isHidden": false,
+        "isEffectivelyHidden": false,
+        "browserLink": "https://coda.io/d/_dL_hgEASd6n/_suxAY-pr",
+        "children": [],
+        "contentType": "canvas",
+        "subtitle": "",
+        "authors": [
+          {
+            "@context": "http://schema.org/",
+            "@type": "Person",
+            "name": "Nango Developer",
+            "email": "api@nango.dev"
+          }
+        ],
+        "createdAt": "2026-06-23T10:42:25.295Z",
+        "createdBy": {
+          "@context": "http://schema.org/",
+          "@type": "Person",
+          "name": "Nango Developer",
+          "email": "api@nango.dev"
+        },
+        "updatedAt": "2026-06-23T10:42:25.295Z",
+        "updatedBy": {
+          "@context": "http://schema.org/",
+          "@type": "Person",
+          "name": "Nango Developer",
+          "email": "api@nango.dev"
+        }
+      },
+      {
+        "id": "canvas-TvC23cbGMD",
+        "type": "page",
+        "href": "https://coda.io/apis/v1/docs/L_hgEASd6n/pages/canvas-TvC23cbGMD",
+        "name": "Nango Test Page",
+        "isHidden": false,
+        "isEffectivelyHidden": false,
+        "browserLink": "https://coda.io/d/_dL_hgEASd6n/_surPBQde",
+        "children": [],
+        "contentType": "canvas",
+        "subtitle": "",
+        "authors": [
+          {
+            "@context": "http://schema.org/",
+            "@type": "Person",
+            "name": "Nango Developer",
+            "email": "api@nango.dev"
+          }
+        ],
+        "createdAt": "2026-06-23T10:42:33.357Z",
+        "createdBy": {
+          "@context": "http://schema.org/",
+          "@type": "Person",
+          "name": "Nango Developer",
+          "email": "api@nango.dev"
+        },
+        "updatedAt": "2026-06-23T10:42:33.357Z",
+        "updatedBy": {
+          "@context": "http://schema.org/",
+          "@type": "Person",
+          "name": "Nango Developer",
+          "email": "api@nango.dev"
+        }
+      },
+      {
+        "id": "canvas-msuLHumlpE",
+        "type": "page",
+        "href": "https://coda.io/apis/v1/docs/L_hgEASd6n/pages/canvas-msuLHumlpE",
+        "name": "Nango Final Test Page",
+        "isHidden": false,
+        "isEffectivelyHidden": false,
+        "browserLink": "https://coda.io/d/_dL_hgEASd6n/_su2BNTjz",
+        "children": [],
+        "contentType": "canvas",
+        "subtitle": "",
+        "authors": [
+          {
+            "@context": "http://schema.org/",
+            "@type": "Person",
+            "name": "Nango Developer",
+            "email": "api@nango.dev"
+          }
+        ],
+        "createdAt": "2026-06-23T10:43:27.119Z",
+        "createdBy": {
+          "@context": "http://schema.org/",
+          "@type": "Person",
+          "name": "Nango Developer",
+          "email": "api@nango.dev"
+        },
+        "updatedAt": "2026-06-23T10:43:27.119Z",
+        "updatedBy": {
+          "@context": "http://schema.org/",
+          "@type": "Person",
+          "name": "Nango Developer",
+          "email": "api@nango.dev"
+        }
+      },
+      {
+        "id": "canvas-teAjvHgjGb",
+        "type": "page",
+        "href": "https://coda.io/apis/v1/docs/L_hgEASd6n/pages/canvas-teAjvHgjGb",
+        "name": "Nango Delete Page 5",
+        "isHidden": false,
+        "isEffectivelyHidden": false,
+        "browserLink": "https://coda.io/d/_dL_hgEASd6n/_suekQ4u0",
+        "children": [],
+        "contentType": "canvas",
+        "subtitle": "",
+        "authors": [
+          {
+            "@context": "http://schema.org/",
+            "@type": "Person",
+            "name": "Nango Developer",
+            "email": "api@nango.dev"
+          }
+        ],
+        "createdAt": "2026-06-23T10:46:45.729Z",
+        "createdBy": {
+          "@context": "http://schema.org/",
+          "@type": "Person",
+          "name": "Nango Developer",
+          "email": "api@nango.dev"
+        },
+        "updatedAt": "2026-06-23T10:46:45.729Z",
+        "updatedBy": {
+          "@context": "http://schema.org/",
+          "@type": "Person",
+          "name": "Nango Developer",
+          "email": "api@nango.dev"
+        }
+      },
+      {
+        "id": "canvas-mhkiYz0eGp",
+        "type": "page",
+        "href": "https://coda.io/apis/v1/docs/L_hgEASd6n/pages/canvas-mhkiYz0eGp",
+        "name": "Nango Delete Page 5",
+        "isHidden": false,
+        "isEffectivelyHidden": false,
+        "browserLink": "https://coda.io/d/_dL_hgEASd6n/_susi8NjU",
+        "children": [],
+        "contentType": "canvas",
+        "subtitle": "",
+        "authors": [
+          {
+            "@context": "http://schema.org/",
+            "@type": "Person",
+            "name": "Nango Developer",
+            "email": "api@nango.dev"
+          }
+        ],
+        "createdAt": "2026-06-23T10:47:03.297Z",
+        "createdBy": {
+          "@context": "http://schema.org/",
+          "@type": "Person",
+          "name": "Nango Developer",
+          "email": "api@nango.dev"
+        },
+        "updatedAt": "2026-06-23T10:47:03.297Z",
+        "updatedBy": {
+          "@context": "http://schema.org/",
+          "@type": "Person",
+          "name": "Nango Developer",
+          "email": "api@nango.dev"
+        }
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/docs/L_hgEASd6n/pages": {
+        "response": {
+          "items": [
+            {
+              "id": "canvas-51lnQjKXyv",
+              "type": "page",
+              "href": "https://coda.io/apis/v1/docs/L_hgEASd6n/pages/canvas-51lnQjKXyv",
+              "name": "Welcome to your playground doc!",
+              "subtitle": "This is your private space to learn the basics of coda.",
+              "contentType": "canvas",
+              "isHidden": false,
+              "isEffectivelyHidden": false,
+              "browserLink": "https://coda.io/d/_dL_hgEASd6n/_sueatcQb",
+              "children": [],
+              "icon": {
+                "name": "::custom::ws-Vy6QvHzdJP::21f3753a-6637-4c68-9c21-0cd340c96806::handshake",
+                "type": "application/octet-stream",
+                "browserLink": "https://codaio.imgix.net/workspaces/ws-Vy6QvHzdJP/blobs/customIcons/21f3753a-6637-4c68-9c21-0cd340c96806?fit=fill&fill=solid&w=128&h=128&fm=gif&bg=0FFF&fill-color=0FFF"
+              },
+              "createdAt": "2025-08-01T18:59:15.926Z",
+              "updatedAt": "2026-03-26T22:32:03.356Z",
+              "createdBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Annabel Gurney",
+                "email": "annabel.gurney@grammarly.com"
+              },
+              "updatedBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Annabel Gurney",
+                "email": "annabel.gurney@grammarly.com"
+              }
+            },
+            {
+              "id": "canvas-8xyEifYcpq",
+              "type": "page",
+              "href": "https://coda.io/apis/v1/docs/L_hgEASd6n/pages/canvas-8xyEifYcpq",
+              "name": "My tasks",
+              "subtitle": "",
+              "contentType": "canvas",
+              "isHidden": false,
+              "isEffectivelyHidden": false,
+              "browserLink": "https://coda.io/d/_dL_hgEASd6n/_suc3GwMj",
+              "children": [],
+              "icon": {
+                "name": "::custom::ws-29ToICU4Iy::239eb028-74c8-4577-aae2-602e2c8f792a::team-hub",
+                "type": "application/octet-stream",
+                "browserLink": "https://codaio.imgix.net/workspaces/ws-29ToICU4Iy/blobs/customIcons/239eb028-74c8-4577-aae2-602e2c8f792a?fit=fill&fill=solid&w=128&h=128&fm=gif&bg=0FFF&fill-color=0FFF"
+              },
+              "createdAt": "2025-08-01T18:59:32.556Z",
+              "updatedAt": "2025-09-26T17:39:07.899Z",
+              "createdBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Annabel Gurney",
+                "email": "annabel.gurney@grammarly.com"
+              },
+              "updatedBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Christine Luo",
+                "email": "christine.luo@grammarly.com"
+              }
+            },
+            {
+              "id": "canvas-PRkVwFXft4",
+              "type": "page",
+              "href": "https://coda.io/apis/v1/docs/L_hgEASd6n/pages/canvas-PRkVwFXft4",
+              "name": "Notes and ideas",
+              "subtitle": "",
+              "contentType": "canvas",
+              "isHidden": false,
+              "isEffectivelyHidden": false,
+              "browserLink": "https://coda.io/d/_dL_hgEASd6n/_su45FOCv",
+              "children": [],
+              "icon": {
+                "name": "::custom::ws-cNqmyTG0B9::2c079597-1f42-4fd2-b29f-311bce672d80::interactive-pages-brand",
+                "type": "application/octet-stream",
+                "browserLink": "https://codaio.imgix.net/workspaces/ws-cNqmyTG0B9/blobs/customIcons/2c079597-1f42-4fd2-b29f-311bce672d80?fit=fill&fill=solid&w=128&h=128&fm=gif&bg=0FFF&fill-color=0FFF"
+              },
+              "image": {
+                "browserLink": "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDczMTJ8MHwxfHNlYXJjaHw0fHxjb2xvcnxlbnwwfDB8fHwxNzU1MDM4NTM3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+                "width": 7200,
+                "height": 4800
+              },
+              "createdAt": "2025-08-01T18:59:45.983Z",
+              "updatedAt": "2025-09-02T17:57:42.004Z",
+              "createdBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Annabel Gurney",
+                "email": "annabel.gurney@grammarly.com"
+              },
+              "updatedBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Annabel Gurney",
+                "email": "annabel.gurney@grammarly.com"
+              }
+            },
+            {
+              "id": "canvas-bP8xBdFUGb",
+              "type": "page",
+              "href": "https://coda.io/apis/v1/docs/L_hgEASd6n/pages/canvas-bP8xBdFUGb",
+              "name": "Nango Seed Page A (Updated)",
+              "subtitle": "Test subtitle from update-page",
+              "contentType": "canvas",
+              "isHidden": false,
+              "isEffectivelyHidden": false,
+              "browserLink": "https://coda.io/d/_dL_hgEASd6n/_suic6Bmr",
+              "children": [],
+              "authors": [
+                {
+                  "@context": "http://schema.org/",
+                  "@type": "Person",
+                  "name": "Nango Developer",
+                  "email": "api@nango.dev"
+                }
+              ],
+              "createdAt": "2026-06-23T10:06:46.809Z",
+              "updatedAt": "2026-06-23T10:08:03.832Z",
+              "createdBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Nango Developer",
+                "email": "api@nango.dev"
+              },
+              "updatedBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Nango Developer",
+                "email": "api@nango.dev"
+              }
+            },
+            {
+              "id": "canvas-OaNSwYzCZO",
+              "type": "page",
+              "href": "https://coda.io/apis/v1/docs/L_hgEASd6n/pages/canvas-OaNSwYzCZO",
+              "name": "Temp Mutation Status Page",
+              "subtitle": "",
+              "contentType": "canvas",
+              "isHidden": false,
+              "isEffectivelyHidden": false,
+              "browserLink": "https://coda.io/d/_dL_hgEASd6n/_sut-uSsX",
+              "children": [],
+              "authors": [
+                {
+                  "@context": "http://schema.org/",
+                  "@type": "Person",
+                  "name": "Nango Developer",
+                  "email": "api@nango.dev"
+                }
+              ],
+              "createdAt": "2026-06-23T10:39:20.391Z",
+              "updatedAt": "2026-06-23T10:39:20.391Z",
+              "createdBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Nango Developer",
+                "email": "api@nango.dev"
+              },
+              "updatedBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Nango Developer",
+                "email": "api@nango.dev"
+              }
+            },
+            {
+              "id": "canvas-QjTyi3tGRM",
+              "type": "page",
+              "href": "https://coda.io/apis/v1/docs/L_hgEASd6n/pages/canvas-QjTyi3tGRM",
+              "name": "Nango Test Page",
+              "subtitle": "",
+              "contentType": "canvas",
+              "isHidden": false,
+              "isEffectivelyHidden": false,
+              "browserLink": "https://coda.io/d/_dL_hgEASd6n/_suAwwANj",
+              "children": [],
+              "authors": [
+                {
+                  "@context": "http://schema.org/",
+                  "@type": "Person",
+                  "name": "Nango Developer",
+                  "email": "api@nango.dev"
+                }
+              ],
+              "createdAt": "2026-06-23T10:40:14.051Z",
+              "updatedAt": "2026-06-23T10:40:14.051Z",
+              "createdBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Nango Developer",
+                "email": "api@nango.dev"
+              },
+              "updatedBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Nango Developer",
+                "email": "api@nango.dev"
+              }
+            },
+            {
+              "id": "canvas-3aDEjUQY8K",
+              "type": "page",
+              "href": "https://coda.io/apis/v1/docs/L_hgEASd6n/pages/canvas-3aDEjUQY8K",
+              "name": "Nango Test Page",
+              "subtitle": "",
+              "contentType": "canvas",
+              "isHidden": false,
+              "isEffectivelyHidden": false,
+              "browserLink": "https://coda.io/d/_dL_hgEASd6n/_suPmrYD7",
+              "children": [],
+              "authors": [
+                {
+                  "@context": "http://schema.org/",
+                  "@type": "Person",
+                  "name": "Nango Developer",
+                  "email": "api@nango.dev"
+                }
+              ],
+              "createdAt": "2026-06-23T10:40:49.217Z",
+              "updatedAt": "2026-06-23T10:40:49.217Z",
+              "createdBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Nango Developer",
+                "email": "api@nango.dev"
+              },
+              "updatedBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Nango Developer",
+                "email": "api@nango.dev"
+              }
+            },
+            {
+              "id": "canvas-3HVKXrLViO",
+              "type": "page",
+              "href": "https://coda.io/apis/v1/docs/L_hgEASd6n/pages/canvas-3HVKXrLViO",
+              "name": "Nango Test Page",
+              "subtitle": "",
+              "contentType": "canvas",
+              "isHidden": false,
+              "isEffectivelyHidden": false,
+              "browserLink": "https://coda.io/d/_dL_hgEASd6n/_suX2GI0c",
+              "children": [],
+              "authors": [
+                {
+                  "@context": "http://schema.org/",
+                  "@type": "Person",
+                  "name": "Nango Developer",
+                  "email": "api@nango.dev"
+                }
+              ],
+              "createdAt": "2026-06-23T10:41:23.741Z",
+              "updatedAt": "2026-06-23T10:41:23.741Z",
+              "createdBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Nango Developer",
+                "email": "api@nango.dev"
+              },
+              "updatedBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Nango Developer",
+                "email": "api@nango.dev"
+              }
+            },
+            {
+              "id": "canvas-afU9nbTW8u",
+              "type": "page",
+              "href": "https://coda.io/apis/v1/docs/L_hgEASd6n/pages/canvas-afU9nbTW8u",
+              "name": "Nango Test Page",
+              "subtitle": "",
+              "contentType": "canvas",
+              "isHidden": false,
+              "isEffectivelyHidden": false,
+              "browserLink": "https://coda.io/d/_dL_hgEASd6n/_suxAY-pr",
+              "children": [],
+              "authors": [
+                {
+                  "@context": "http://schema.org/",
+                  "@type": "Person",
+                  "name": "Nango Developer",
+                  "email": "api@nango.dev"
+                }
+              ],
+              "createdAt": "2026-06-23T10:42:25.295Z",
+              "updatedAt": "2026-06-23T10:42:25.295Z",
+              "createdBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Nango Developer",
+                "email": "api@nango.dev"
+              },
+              "updatedBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Nango Developer",
+                "email": "api@nango.dev"
+              }
+            },
+            {
+              "id": "canvas-TvC23cbGMD",
+              "type": "page",
+              "href": "https://coda.io/apis/v1/docs/L_hgEASd6n/pages/canvas-TvC23cbGMD",
+              "name": "Nango Test Page",
+              "subtitle": "",
+              "contentType": "canvas",
+              "isHidden": false,
+              "isEffectivelyHidden": false,
+              "browserLink": "https://coda.io/d/_dL_hgEASd6n/_surPBQde",
+              "children": [],
+              "authors": [
+                {
+                  "@context": "http://schema.org/",
+                  "@type": "Person",
+                  "name": "Nango Developer",
+                  "email": "api@nango.dev"
+                }
+              ],
+              "createdAt": "2026-06-23T10:42:33.357Z",
+              "updatedAt": "2026-06-23T10:42:33.357Z",
+              "createdBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Nango Developer",
+                "email": "api@nango.dev"
+              },
+              "updatedBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Nango Developer",
+                "email": "api@nango.dev"
+              }
+            },
+            {
+              "id": "canvas-msuLHumlpE",
+              "type": "page",
+              "href": "https://coda.io/apis/v1/docs/L_hgEASd6n/pages/canvas-msuLHumlpE",
+              "name": "Nango Final Test Page",
+              "subtitle": "",
+              "contentType": "canvas",
+              "isHidden": false,
+              "isEffectivelyHidden": false,
+              "browserLink": "https://coda.io/d/_dL_hgEASd6n/_su2BNTjz",
+              "children": [],
+              "authors": [
+                {
+                  "@context": "http://schema.org/",
+                  "@type": "Person",
+                  "name": "Nango Developer",
+                  "email": "api@nango.dev"
+                }
+              ],
+              "createdAt": "2026-06-23T10:43:27.119Z",
+              "updatedAt": "2026-06-23T10:43:27.119Z",
+              "createdBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Nango Developer",
+                "email": "api@nango.dev"
+              },
+              "updatedBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Nango Developer",
+                "email": "api@nango.dev"
+              }
+            },
+            {
+              "id": "canvas-teAjvHgjGb",
+              "type": "page",
+              "href": "https://coda.io/apis/v1/docs/L_hgEASd6n/pages/canvas-teAjvHgjGb",
+              "name": "Nango Delete Page 5",
+              "subtitle": "",
+              "contentType": "canvas",
+              "isHidden": false,
+              "isEffectivelyHidden": false,
+              "browserLink": "https://coda.io/d/_dL_hgEASd6n/_suekQ4u0",
+              "children": [],
+              "authors": [
+                {
+                  "@context": "http://schema.org/",
+                  "@type": "Person",
+                  "name": "Nango Developer",
+                  "email": "api@nango.dev"
+                }
+              ],
+              "createdAt": "2026-06-23T10:46:45.729Z",
+              "updatedAt": "2026-06-23T10:46:45.729Z",
+              "createdBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Nango Developer",
+                "email": "api@nango.dev"
+              },
+              "updatedBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Nango Developer",
+                "email": "api@nango.dev"
+              }
+            },
+            {
+              "id": "canvas-mhkiYz0eGp",
+              "type": "page",
+              "href": "https://coda.io/apis/v1/docs/L_hgEASd6n/pages/canvas-mhkiYz0eGp",
+              "name": "Nango Delete Page 5",
+              "subtitle": "",
+              "contentType": "canvas",
+              "isHidden": false,
+              "isEffectivelyHidden": false,
+              "browserLink": "https://coda.io/d/_dL_hgEASd6n/_susi8NjU",
+              "children": [],
+              "authors": [
+                {
+                  "@context": "http://schema.org/",
+                  "@type": "Person",
+                  "name": "Nango Developer",
+                  "email": "api@nango.dev"
+                }
+              ],
+              "createdAt": "2026-06-23T10:47:03.297Z",
+              "updatedAt": "2026-06-23T10:47:03.297Z",
+              "createdBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Nango Developer",
+                "email": "api@nango.dev"
+              },
+              "updatedBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Nango Developer",
+                "email": "api@nango.dev"
+              }
+            }
+          ],
+          "href": "https://coda.io/apis/v1/docs/L_hgEASd6n/pages?pageToken=eyJsaW1pdCI6IjEwMCIsIm9mZnNldCI6MCwib3BWZXJzaW9uIjo4NjcwLCJzY2hlbWFWZXJzaW9uIjoxNzd9"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 23 Jun 2026 11:03:11 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4996",
+          "x-ratelimit-reset": "1782212650",
+          "x-coda-pod": "api-doc-8674fd7489-4tpxm",
+          "vary": "Origin, Accept-Encoding",
+          "surrogate-control": "no-store",
+          "cache-control": "no-store, no-cache, must-revalidate, proxy-revalidate",
+          "expires": "0",
+          "etag": "W/\"28a9-HDoexHrpvVoIuibP4s7EbshFNzI\"",
+          "x-coda-server": "api-doc",
+          "x-cache": "Miss from cloudfront",
+          "via": "1.1 318fe93142e3d774ccec57a011070fba.cloudfront.net (CloudFront)",
+          "x-amz-cf-pop": "HIO52-P5",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "x-amz-cf-id": "DnkbVYcKYuc9EW64fl8M-MTn5LSlDR-_fNIEtmiUJBNAAO4yvv9YNw=="
+        },
+        "hash": "d5b170be861c05019310463b0f2bfb5132ec006b",
+        "request": {}
+      }
+    }
+  }
+}
