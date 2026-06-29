@@ -1317,6 +1317,13 @@ import './evaluagent/syncs/groups.js';
 import './evaluagent/syncs/roles.js';
 import './evaluagent/syncs/users.js';
 
+// -- Integration: exa
+import './exa/syncs/configured-search-results.js';
+import './exa/actions/answer.js';
+import './exa/actions/find-similar.js';
+import './exa/actions/get-contents.js';
+import './exa/actions/search.js';
+
 // -- Integration: exact-online
 import './exact-online/syncs/contacts.js';
 import './exact-online/syncs/customers.js';
