@@ -1,0 +1,60 @@
+{
+  "input": {
+    "envelopeId": "245d2fdb-2830-8ca8-803e-e9c113601825",
+    "recipientId": "1",
+    "email": "test@example.com",
+    "userName": "Test User",
+    "clientUserId": "test-user-123",
+    "returnUrl": "https://example.com/signed",
+    "authenticationMethod": "none"
+  },
+  "output": {
+    "url": "https://demo.docusign.net/Signing/MTRedeem/v1/a546409b-bdb7-46d3-9e2b-93cdb9b8452c?slt=eyJ0eXAiOiJNVCIsImFsZyI6IlJTMjU2Iiwia2lkIjoiNjgxODVmZjEtNGU1MS00Y2U5LWFmMWMtNjg5ODEyMjAzMzE3In0.AQYAAAABAAMABwCA2Eot_dHeSAgAgHhctB7S3kgYAAEAAAAAAAAAIQDsAgAAeyJUb2tlbklkIjoiYzMyZjkwZDAtOGYyMy00MzZhLWFlNTctN2Q1MDgxZGRkZjAxIiwiRXhwaXJhdGlvbiI6IjIwMjYtMDYtMjRUMTQ6MzU6NDUrMDA6MDAiLCJJc3N1ZWRBdCI6IjIwMjYtMDYtMjRUMTQ6MzA6NDUuODQyODIwOSswMDowMCIsIlJlc291cmNlSWQiOiIyNDVkMmZkYi0yODMwLThjYTgtODAzZS1lOWMxMTM2MDE4MjUiLCJSZXNvdXJjZXMiOiJ7XCJFbnZlbG9wZUlkXCI6XCIyNDVkMmZkYi0yODMwLThjYTgtODAzZS1lOWMxMTM2MDE4MjVcIixcIkFjdG9yVXNlcklkXCI6XCI4NThlZmIwNS00NDNlLTRiMTQtODEzNi1iMGRkMzBlODE4NzBcIixcIlJlY2lwaWVudElkXCI6XCJhZWRjMmVmNy0zZGY1LTg5ZmUtODAxYS1hZjRhNDY2MTE4ODNcIixcIkZha2VRdWVyeVN0cmluZ1wiOlwidD02ODA4MjdhYy1iY2FmLThjNzgtODA3ZS1jMjhlN2I2NzE4ZDRcIixcIkludGVncmF0b3JLZXlcIjpcImM2ZWQ1MDViLTI0N2EtNDgyMC05ZjMyLTY1YWEyMmY3OGQ1N1wiLFwiQ3JlYXRlZEF0XCI6XCIyMDI2LTA2LTI0VDE0OjMwOjQ1LjcyNzg2OTZaXCJ9IiwiVG9rZW5UeXBlIjoxLCJBdWRpZW5jZSI6IjI1ZTA5Mzk4LTAzNDQtNDkwYy04ZTUzLTNhYjJjYTU2MjdiZiIsIlJlZGlyZWN0VXJpIjoiaHR0cHM6Ly9kZW1vLmRvY3VzaWduLm5ldC9TaWduaW5nL1N0YXJ0SW5TZXNzaW9uLmFzcHgiLCJIYXNoQWxnb3JpdGhtIjowLCJIYXNoUm91bmRzIjowLCJUb2tlblN0YXR1cyI6MCwiSXNTaW5nbGVVc2UiOmZhbHNlfT8AAKCC3_3R3kg.ANaG0wkGLGJkdr0ePIvcRiub_EjIV5gesh-JHDxdFujSE8oem27xAg5cFRYdoDaG252gR6SEVVY3JPY6sjMvLwJQMpODBfB8LuvId36ZOmSp_MQF8PWADDA1DJbcDElOSobecoHLMC2WpWW6NapGRmJ7KOh9bMPPcpiwtrJXAFKHq7dzx8rSD_1NarKZBtGLtAT-QczIRzoSOGAfBD4GM3gk5kY23zxK__MaTxczpi24pecDXNrK7c3mo2Z33T4IqpvOG_FZJYo5LdWtjDUZExgUloJpfS6w3ccQ0CMY-hogyOuYEHYWrWmYYEvlUbmAO-rFdBIBvbJ0ZCYVFGAfag"
+  },
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "accountId": "96bfbc88-de80-40a4-9fb7-f047e656eaaf"
+    }
+  },
+  "api": {
+    "post": {
+      "/restapi/v2.1/accounts/96bfbc88-de80-40a4-9fb7-f047e656eaaf/envelopes/245d2fdb-2830-8ca8-803e-e9c113601825/views/recipient": {
+        "response": {
+          "url": "https://demo.docusign.net/Signing/MTRedeem/v1/a546409b-bdb7-46d3-9e2b-93cdb9b8452c?slt=eyJ0eXAiOiJNVCIsImFsZyI6IlJTMjU2Iiwia2lkIjoiNjgxODVmZjEtNGU1MS00Y2U5LWFmMWMtNjg5ODEyMjAzMzE3In0.AQYAAAABAAMABwCA2Eot_dHeSAgAgHhctB7S3kgYAAEAAAAAAAAAIQDsAgAAeyJUb2tlbklkIjoiYzMyZjkwZDAtOGYyMy00MzZhLWFlNTctN2Q1MDgxZGRkZjAxIiwiRXhwaXJhdGlvbiI6IjIwMjYtMDYtMjRUMTQ6MzU6NDUrMDA6MDAiLCJJc3N1ZWRBdCI6IjIwMjYtMDYtMjRUMTQ6MzA6NDUuODQyODIwOSswMDowMCIsIlJlc291cmNlSWQiOiIyNDVkMmZkYi0yODMwLThjYTgtODAzZS1lOWMxMTM2MDE4MjUiLCJSZXNvdXJjZXMiOiJ7XCJFbnZlbG9wZUlkXCI6XCIyNDVkMmZkYi0yODMwLThjYTgtODAzZS1lOWMxMTM2MDE4MjVcIixcIkFjdG9yVXNlcklkXCI6XCI4NThlZmIwNS00NDNlLTRiMTQtODEzNi1iMGRkMzBlODE4NzBcIixcIlJlY2lwaWVudElkXCI6XCJhZWRjMmVmNy0zZGY1LTg5ZmUtODAxYS1hZjRhNDY2MTE4ODNcIixcIkZha2VRdWVyeVN0cmluZ1wiOlwidD02ODA4MjdhYy1iY2FmLThjNzgtODA3ZS1jMjhlN2I2NzE4ZDRcIixcIkludGVncmF0b3JLZXlcIjpcImM2ZWQ1MDViLTI0N2EtNDgyMC05ZjMyLTY1YWEyMmY3OGQ1N1wiLFwiQ3JlYXRlZEF0XCI6XCIyMDI2LTA2LTI0VDE0OjMwOjQ1LjcyNzg2OTZaXCJ9IiwiVG9rZW5UeXBlIjoxLCJBdWRpZW5jZSI6IjI1ZTA5Mzk4LTAzNDQtNDkwYy04ZTUzLTNhYjJjYTU2MjdiZiIsIlJlZGlyZWN0VXJpIjoiaHR0cHM6Ly9kZW1vLmRvY3VzaWduLm5ldC9TaWduaW5nL1N0YXJ0SW5TZXNzaW9uLmFzcHgiLCJIYXNoQWxnb3JpdGhtIjowLCJIYXNoUm91bmRzIjowLCJUb2tlblN0YXR1cyI6MCwiSXNTaW5nbGVVc2UiOmZhbHNlfT8AAKCC3_3R3kg.ANaG0wkGLGJkdr0ePIvcRiub_EjIV5gesh-JHDxdFujSE8oem27xAg5cFRYdoDaG252gR6SEVVY3JPY6sjMvLwJQMpODBfB8LuvId36ZOmSp_MQF8PWADDA1DJbcDElOSobecoHLMC2WpWW6NapGRmJ7KOh9bMPPcpiwtrJXAFKHq7dzx8rSD_1NarKZBtGLtAT-QczIRzoSOGAfBD4GM3gk5kY23zxK__MaTxczpi24pecDXNrK7c3mo2Z33T4IqpvOG_FZJYo5LdWtjDUZExgUloJpfS6w3ccQ0CMY-hogyOuYEHYWrWmYYEvlUbmAO-rFdBIBvbJ0ZCYVFGAfag"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 24 Jun 2026 14:30:45 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "1607",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4985",
+          "x-ratelimit-reset": "1782311457",
+          "etag": "W/\"647-YCFYYxPw7EHGbQilnNelMCubifY\""
+        },
+        "hash": "48c73971fdffc5c0d6e9e2490d5018931fbf681f",
+        "request": {
+          "data": {
+            "returnUrl": "https://example.com/signed",
+            "authenticationMethod": "none",
+            "email": "test@example.com",
+            "userName": "Test User",
+            "recipientId": "1",
+            "clientUserId": "test-user-123"
+          }
+        }
+      }
+    }
+  }
+}

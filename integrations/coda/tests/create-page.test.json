@@ -1,0 +1,90 @@
+{
+  "input": {
+    "docId": "L_hgEASd6n",
+    "name": "Nango Test Page"
+  },
+  "output": {
+    "id": "canvas-TvC23cbGMD",
+    "requestId": "mutate:03b69174-4a84-4cde-99dd-f623f6675934",
+    "completed": true
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/docs/L_hgEASd6n/pages": {
+        "response": {
+          "id": "canvas-TvC23cbGMD",
+          "requestId": "mutate:03b69174-4a84-4cde-99dd-f623f6675934"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 23 Jun 2026 10:42:25 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "84",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4906",
+          "x-ratelimit-reset": "1782211359",
+          "etag": "W/\"54-0rwOXPmA25dt8AuSD8yaAM9lHTQ\""
+        },
+        "hash": "70886e656db4b8e8a49317eda74cab12624bc185",
+        "request": {
+          "data": {
+            "name": "Nango Test Page"
+          }
+        }
+      }
+    },
+    "get": {
+      "/mutationStatus/mutate%3A03b69174-4a84-4cde-99dd-f623f6675934": {
+        "response": {
+          "statusCode": 404,
+          "statusMessage": "Not Found",
+          "message": "No request was found with the given id, or it has expired."
+        },
+        "status": 404,
+        "headers": {
+          "date": "Tue, 23 Jun 2026 10:42:25 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "117",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4905",
+          "x-ratelimit-reset": "1782211359",
+          "x-coda-pod": "api-65c775747c-4fsjs",
+          "vary": "Origin, Accept-Encoding",
+          "surrogate-control": "no-store",
+          "cache-control": "no-store, no-cache, must-revalidate, proxy-revalidate",
+          "expires": "0",
+          "etag": "W/\"75-X3FmVdpKNLmIgV62tLcV0TT1jCE\"",
+          "x-coda-server": "api",
+          "x-cache": "Error from cloudfront",
+          "via": "1.1 27d63b295289835069372e1ce8f9ae9c.cloudfront.net (CloudFront)",
+          "x-amz-cf-pop": "HIO52-P5",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "x-amz-cf-id": "w9ZnptsRXnHwvH3_yZTkxHkvu3ymcMhDpoWKIgYHKwAG8UPMV2xB4g=="
+        },
+        "hash": "fd6c1fde5cbe143c908858fc4fa3035aea00c651",
+        "request": {}
+      }
+    }
+  }
+}
