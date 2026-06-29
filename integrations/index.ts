@@ -1036,6 +1036,46 @@ import './close/actions/update-note-activity.js';
 import './close/actions/update-opportunity.js';
 import './close/actions/update-task.js';
 
+// -- Integration: coda
+import './coda/syncs/columns.js';
+import './coda/syncs/controls.js';
+import './coda/syncs/docs.js';
+import './coda/syncs/formulas.js';
+import './coda/syncs/pages.js';
+import './coda/syncs/permissions.js';
+import './coda/syncs/rows.js';
+import './coda/syncs/tables.js';
+import './coda/actions/add-permission.js';
+import './coda/actions/create-doc.js';
+import './coda/actions/create-page.js';
+import './coda/actions/delete-doc.js';
+import './coda/actions/delete-page.js';
+import './coda/actions/delete-row.js';
+import './coda/actions/delete-rows.js';
+import './coda/actions/get-column.js';
+import './coda/actions/get-control.js';
+import './coda/actions/get-doc.js';
+import './coda/actions/get-formula.js';
+import './coda/actions/get-mutation-status.js';
+import './coda/actions/get-page.js';
+import './coda/actions/get-row.js';
+import './coda/actions/get-sharing-metadata.js';
+import './coda/actions/get-table.js';
+import './coda/actions/get-user.js';
+import './coda/actions/list-categories.js';
+import './coda/actions/list-columns.js';
+import './coda/actions/list-controls.js';
+import './coda/actions/list-doc-analytics.js';
+import './coda/actions/list-docs.js';
+import './coda/actions/list-formulas.js';
+import './coda/actions/list-pages.js';
+import './coda/actions/list-permissions.js';
+import './coda/actions/list-rows.js';
+import './coda/actions/list-tables.js';
+import './coda/actions/update-page.js';
+import './coda/actions/update-row.js';
+import './coda/actions/upsert-rows.js';
+
 // -- Integration: confluence
 import './confluence/syncs/attachments.js';
 import './confluence/syncs/blog-posts.js';

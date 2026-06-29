@@ -1,0 +1,2176 @@
+{
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "docId": "6O6-VWsNpq",
+      "tableId": "grid-tE68GY5gIp"
+    },
+    "batchSave": {
+      "Page": [
+        {
+          "id": "canvas-IhDSkELStw",
+          "name": "The Digital Agency Operating System",
+          "type": "page",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su9ISXzj",
+          "updatedAt": "2023-02-17T19:56:43.351Z",
+          "createdAt": "2022-03-28T23:58:18.104Z"
+        },
+        {
+          "id": "canvas-bxV94mIdan",
+          "name": "Setup",
+          "type": "page",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su4mIdan",
+          "updatedAt": "2023-01-31T20:45:31.591Z",
+          "createdAt": "2022-08-22T13:37:46.034Z"
+        },
+        {
+          "id": "canvas-ODrtTOlR0U",
+          "name": "Team Setup",
+          "type": "page",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suTOlR0U",
+          "updatedAt": "2023-01-30T17:55:52.438Z",
+          "createdAt": "2022-08-22T13:37:38.554Z"
+        },
+        {
+          "id": "canvas-md35s42UKg",
+          "name": "Services Setup",
+          "type": "page",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_sus42UKg",
+          "updatedAt": "2023-01-31T16:09:36.368Z",
+          "createdAt": "2023-01-12T18:50:51.203Z"
+        },
+        {
+          "id": "canvas-WdxkoaBM95",
+          "name": "Finance Setup",
+          "type": "page",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suoaBM95",
+          "updatedAt": "2023-02-02T09:46:17.331Z",
+          "createdAt": "2022-08-22T13:41:06.149Z"
+        },
+        {
+          "id": "canvas-c_MUzIVEi0",
+          "name": "Clients Setup",
+          "type": "page",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suzIVEi0",
+          "updatedAt": "2023-02-01T19:04:05.373Z",
+          "createdAt": "2022-08-22T13:40:42.078Z"
+        },
+        {
+          "id": "canvas-Tjxh3YTyEZ",
+          "name": "Expenses Setup",
+          "type": "page",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su3YTyEZ",
+          "updatedAt": "2023-01-31T21:22:33.612Z",
+          "createdAt": "2023-01-22T00:22:06.058Z"
+        },
+        {
+          "id": "canvas-IIYxZ3g6xt",
+          "name": "Opportunities Setup",
+          "type": "page",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suZ3g6xt",
+          "updatedAt": "2023-02-08T20:50:36.535Z",
+          "createdAt": "2022-08-22T13:42:01.203Z"
+        },
+        {
+          "id": "canvas-hBv0n9ttIU",
+          "name": "Sales Setup",
+          "type": "page",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_sun9ttIU",
+          "updatedAt": "2023-02-17T21:07:54.110Z",
+          "createdAt": "2023-01-27T18:53:13.269Z"
+        },
+        {
+          "id": "canvas-TC_LB4QzDP",
+          "name": "Company",
+          "type": "page",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suB4QzDP",
+          "updatedAt": "2023-02-23T20:24:05.037Z",
+          "createdAt": "2022-06-09T16:01:20.703Z"
+        },
+        {
+          "id": "canvas-ow9CUzcG7U",
+          "name": "Departments",
+          "type": "page",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suUzcG7U",
+          "updatedAt": "2023-01-23T17:24:55.977Z",
+          "createdAt": "2022-06-09T16:34:58.707Z"
+        },
+        {
+          "id": "canvas-zuGqFcp_LK",
+          "name": "Team Directory",
+          "type": "page",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suFcp_LK",
+          "updatedAt": "2022-06-09T19:05:10.959Z",
+          "createdAt": "2022-06-09T17:52:01.919Z"
+        },
+        {
+          "id": "canvas-WpqKkcnXbu",
+          "name": "Services",
+          "type": "page",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_sukcnXbu",
+          "updatedAt": "2022-06-10T00:06:40.009Z",
+          "createdAt": "2022-06-09T18:56:03.765Z"
+        },
+        {
+          "id": "canvas-SpBMLVKB8k",
+          "name": "Clients",
+          "type": "page",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suLVKB8k",
+          "updatedAt": "2023-01-22T01:03:17.419Z",
+          "createdAt": "2022-06-10T00:11:30.807Z"
+        },
+        {
+          "id": "canvas-pSYuhEYNJd",
+          "name": "Sales",
+          "type": "page",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suhEYNJd",
+          "updatedAt": "2023-02-22T22:10:08.526Z",
+          "createdAt": "2022-06-06T13:52:24.428Z"
+        },
+        {
+          "id": "canvas-fbzQ3Vsy9r",
+          "name": "CRM",
+          "type": "page",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su3Vsy9r",
+          "updatedAt": "2023-02-23T15:51:16.946Z",
+          "createdAt": "2022-06-04T16:05:47.028Z"
+        },
+        {
+          "id": "canvas-M_BUq-USED",
+          "name": "Contacts",
+          "type": "page",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suq-USED",
+          "updatedAt": "2023-01-31T20:19:10.871Z",
+          "createdAt": "2022-06-04T16:06:35.052Z"
+        },
+        {
+          "id": "canvas-vznQxgTt53",
+          "name": "Clients",
+          "type": "page",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suxgTt53",
+          "updatedAt": "2023-01-31T21:04:15.547Z",
+          "createdAt": "2022-06-04T16:06:47.064Z"
+        },
+        {
+          "id": "canvas-ekFo-qAqRO",
+          "name": "Company Social",
+          "type": "page",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su-qAqRO",
+          "updatedAt": "2023-01-22T00:45:19.048Z",
+          "createdAt": "2022-06-04T18:10:55.823Z"
+        },
+        {
+          "id": "canvas-BM5vNDCdhy",
+          "name": "Opportunities",
+          "type": "page",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suNDCdhy",
+          "updatedAt": "2023-02-22T22:10:14.571Z",
+          "createdAt": "2022-06-04T16:06:52.641Z"
+        },
+        {
+          "id": "canvas-WlPYwrtvJB",
+          "name": "Finance",
+          "type": "page",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suwrtvJB",
+          "updatedAt": "2023-02-22T17:49:47.466Z",
+          "createdAt": "2022-06-04T18:22:42.210Z"
+        },
+        {
+          "id": "canvas-UveRHSY6co",
+          "name": "Accounts Receivable",
+          "type": "page",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suHSY6co",
+          "updatedAt": "2023-01-31T20:32:44.366Z",
+          "createdAt": "2022-06-04T18:23:18.301Z"
+        },
+        {
+          "id": "canvas-krvvjfjVZs",
+          "name": "Accounts Payable",
+          "type": "page",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_sujfjVZs",
+          "updatedAt": "2022-06-29T03:14:03.260Z",
+          "createdAt": "2022-06-04T18:23:03.140Z"
+        },
+        {
+          "id": "canvas-42hPOMfreC",
+          "name": "Expenses",
+          "type": "page",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suOMfreC",
+          "updatedAt": "2023-01-31T21:05:14.421Z",
+          "createdAt": "2022-06-07T13:38:04.816Z"
+        },
+        {
+          "id": "canvas-XP18aM7opK",
+          "name": "HR",
+          "type": "page",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suaM7opK",
+          "updatedAt": "2023-01-31T18:08:40.273Z",
+          "createdAt": "2022-06-06T13:51:33.902Z"
+        },
+        {
+          "id": "canvas-my7I0GY8lw",
+          "name": "HR Data",
+          "type": "page",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su0GY8lw",
+          "updatedAt": "2026-06-23T11:04:34.479Z",
+          "createdAt": "2022-05-25T12:07:34.210Z"
+        },
+        {
+          "id": "canvas-yjnLLDo1mO",
+          "name": "Data",
+          "type": "page",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suLDo1mO",
+          "updatedAt": "2022-05-25T12:04:21.742Z",
+          "createdAt": "2022-05-25T12:04:19.238Z"
+        },
+        {
+          "id": "canvas-oZhC5CDwr9",
+          "name": "Business Data",
+          "type": "page",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su5CDwr9",
+          "updatedAt": "2023-01-31T17:20:19.002Z",
+          "createdAt": "2022-06-09T15:56:07.125Z"
+        },
+        {
+          "id": "canvas-KdB9flBmQb",
+          "name": "Services Data",
+          "type": "page",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suflBmQb",
+          "updatedAt": "2023-01-31T21:20:43.392Z",
+          "createdAt": "2022-05-25T12:42:42.852Z"
+        },
+        {
+          "id": "canvas-c_vjyerNV9",
+          "name": "Sales Data",
+          "type": "page",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suyerNV9",
+          "updatedAt": "2023-02-08T19:10:25.896Z",
+          "createdAt": "2022-05-25T12:34:53.394Z"
+        },
+        {
+          "id": "canvas-2kFFCFYXk4",
+          "name": "Invoices Data",
+          "type": "page",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suCFYXk4",
+          "updatedAt": "2023-05-21T11:40:47.797Z",
+          "createdAt": "2022-06-06T13:49:01.520Z"
+        },
+        {
+          "id": "canvas-Euu_-adhoI",
+          "name": "Expenses Data",
+          "type": "page",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su-adhoI",
+          "updatedAt": "2023-01-31T20:22:33.854Z",
+          "createdAt": "2022-06-04T14:28:19.310Z"
+        },
+        {
+          "id": "canvas-5JBYNeZ0RM",
+          "name": "Tax Data",
+          "type": "page",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suNeZ0RM",
+          "updatedAt": "2023-01-31T21:03:24.163Z",
+          "createdAt": "2022-06-04T15:04:01.911Z"
+        },
+        {
+          "id": "canvas-14BdE_osiV",
+          "name": "Finance Data",
+          "type": "page",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suE_osiV",
+          "updatedAt": "2023-05-21T11:38:41.948Z",
+          "createdAt": "2022-06-04T14:39:41.064Z"
+        },
+        {
+          "id": "canvas-PJNOGs6qeC",
+          "name": "General Data",
+          "type": "page",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suGs6qeC",
+          "updatedAt": "2026-06-23T10:54:17.264Z",
+          "createdAt": "2022-06-04T18:08:38.255Z"
+        },
+        {
+          "id": "canvas-HQhnUf1BGE",
+          "name": "Support",
+          "type": "page",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suUf1BGE",
+          "updatedAt": "2023-02-14T18:25:25.309Z",
+          "createdAt": "2023-02-14T18:23:18.389Z"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Page": []
+    }
+  },
+  "api": {
+    "get": {
+      "/docs/6O6-VWsNpq/pages": {
+        "response": {
+          "items": [
+            {
+              "id": "canvas-IhDSkELStw",
+              "type": "page",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-IhDSkELStw",
+              "name": "The Digital Agency Operating System",
+              "subtitle": "An agency-in-a-box to manage your business",
+              "contentType": "canvas",
+              "isHidden": false,
+              "isEffectivelyHidden": false,
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su9ISXzj",
+              "children": [],
+              "icon": {
+                "name": "sun",
+                "type": "image/png",
+                "browserLink": "https://cdn.coda.io/icons/png/color/sun-128.png"
+              },
+              "image": {
+                "type": "image/png",
+                "browserLink": "https://codahosted.io/docs/6O6-VWsNpq/blobs/bl-2Z715d8bgd/ab2150c5d0f3234ab4a454a95a36bba14c1ccf7966bb96b077c22716b2fd179e16edcec7911e851c66ff0c919aaae25d06ed271149c49038ba268547b7ad3021b478d5f126172b8365988820dbd2566c19b4845cc2771d3c5daa73509e1c0c424e80c5d1",
+                "width": 1920,
+                "height": 480
+              },
+              "authors": [
+                {
+                  "@context": "http://schema.org/",
+                  "@type": "Person",
+                  "name": "Mohamed Hamad",
+                  "email": "mohamed@thirdwunder.com"
+                }
+              ],
+              "createdAt": "2022-03-28T23:58:18.104Z",
+              "updatedAt": "2023-02-17T19:56:43.351Z",
+              "createdBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Mohamed Hamad",
+                "email": "mohamed@thirdwunder.com"
+              },
+              "updatedBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Laura Perez",
+                "email": "lauraperez@thirdwunder.com"
+              }
+            },
+            {
+              "id": "canvas-bxV94mIdan",
+              "type": "page",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-bxV94mIdan",
+              "name": "Setup",
+              "subtitle": "Configure your company information",
+              "contentType": "canvas",
+              "isHidden": false,
+              "isEffectivelyHidden": false,
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su4mIdan",
+              "children": [
+                {
+                  "id": "canvas-ODrtTOlR0U",
+                  "type": "page",
+                  "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-ODrtTOlR0U",
+                  "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suTOlR0U",
+                  "name": "Team Setup"
+                },
+                {
+                  "id": "canvas-md35s42UKg",
+                  "type": "page",
+                  "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-md35s42UKg",
+                  "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_sus42UKg",
+                  "name": "Services Setup"
+                },
+                {
+                  "id": "canvas-WdxkoaBM95",
+                  "type": "page",
+                  "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-WdxkoaBM95",
+                  "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suoaBM95",
+                  "name": "Finance Setup"
+                },
+                {
+                  "id": "canvas-c_MUzIVEi0",
+                  "type": "page",
+                  "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-c_MUzIVEi0",
+                  "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suzIVEi0",
+                  "name": "Clients Setup"
+                },
+                {
+                  "id": "canvas-Tjxh3YTyEZ",
+                  "type": "page",
+                  "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-Tjxh3YTyEZ",
+                  "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su3YTyEZ",
+                  "name": "Expenses Setup"
+                },
+                {
+                  "id": "canvas-IIYxZ3g6xt",
+                  "type": "page",
+                  "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-IIYxZ3g6xt",
+                  "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suZ3g6xt",
+                  "name": "Opportunities Setup"
+                },
+                {
+                  "id": "canvas-hBv0n9ttIU",
+                  "type": "page",
+                  "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-hBv0n9ttIU",
+                  "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_sun9ttIU",
+                  "name": "Sales Setup"
+                }
+              ],
+              "icon": {
+                "name": "fit-to-width",
+                "type": "image/png",
+                "browserLink": "https://cdn.coda.io/icons/png/color/fit-to-width-128.png"
+              },
+              "authors": [
+                {
+                  "@context": "http://schema.org/",
+                  "@type": "Person",
+                  "name": "Mohamed Hamad",
+                  "email": "mohamed@thirdwunder.com"
+                }
+              ],
+              "createdAt": "2022-08-22T13:37:46.034Z",
+              "updatedAt": "2023-01-31T20:45:31.591Z",
+              "createdBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Mohamed Hamad",
+                "email": "mohamed@thirdwunder.com"
+              },
+              "updatedBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Mohamed Hamad",
+                "email": "mohamed@thirdwunder.com"
+              }
+            },
+            {
+              "id": "canvas-ODrtTOlR0U",
+              "type": "page",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-ODrtTOlR0U",
+              "name": "Team Setup",
+              "subtitle": "Setup your departments, teams and staff information",
+              "contentType": "canvas",
+              "isHidden": false,
+              "isEffectivelyHidden": false,
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suTOlR0U",
+              "children": [],
+              "parent": {
+                "id": "canvas-bxV94mIdan",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-bxV94mIdan",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su4mIdan",
+                "name": "Setup"
+              },
+              "icon": {
+                "name": "conference-foreground-selected",
+                "type": "image/png",
+                "browserLink": "https://cdn.coda.io/icons/png/color/conference-foreground-selected-128.png"
+              },
+              "authors": [
+                {
+                  "@context": "http://schema.org/",
+                  "@type": "Person",
+                  "name": "Mohamed Hamad",
+                  "email": "mohamed@thirdwunder.com"
+                }
+              ],
+              "createdAt": "2022-08-22T13:37:38.554Z",
+              "updatedAt": "2023-01-30T17:55:52.438Z",
+              "createdBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Mohamed Hamad",
+                "email": "mohamed@thirdwunder.com"
+              },
+              "updatedBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Sehar Manji",
+                "email": "seharmanji@thirdwunder.com"
+              }
+            },
+            {
+              "id": "canvas-md35s42UKg",
+              "type": "page",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-md35s42UKg",
+              "name": "Services Setup",
+              "subtitle": "Setup and describe your business's services",
+              "contentType": "canvas",
+              "isHidden": false,
+              "isEffectivelyHidden": false,
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_sus42UKg",
+              "children": [],
+              "parent": {
+                "id": "canvas-bxV94mIdan",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-bxV94mIdan",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su4mIdan",
+                "name": "Setup"
+              },
+              "icon": {
+                "name": "service",
+                "type": "image/png",
+                "browserLink": "https://cdn.coda.io/icons/png/color/service-128.png"
+              },
+              "authors": [
+                {
+                  "@context": "http://schema.org/",
+                  "@type": "Person",
+                  "name": "Mohamed Hamad",
+                  "email": "mohamed@thirdwunder.com"
+                }
+              ],
+              "createdAt": "2023-01-12T18:50:51.203Z",
+              "updatedAt": "2023-01-31T16:09:36.368Z",
+              "createdBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Mohamed Hamad",
+                "email": "mohamed@thirdwunder.com"
+              },
+              "updatedBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Henri-Léonard Fabien",
+                "email": "henrifabien@thirdwunder.com"
+              }
+            },
+            {
+              "id": "canvas-WdxkoaBM95",
+              "type": "page",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-WdxkoaBM95",
+              "name": "Finance Setup",
+              "subtitle": "Configure your companies basic financial information",
+              "contentType": "canvas",
+              "isHidden": false,
+              "isEffectivelyHidden": false,
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suoaBM95",
+              "children": [],
+              "parent": {
+                "id": "canvas-bxV94mIdan",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-bxV94mIdan",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su4mIdan",
+                "name": "Setup"
+              },
+              "icon": {
+                "name": "duration-finance",
+                "type": "image/png",
+                "browserLink": "https://cdn.coda.io/icons/png/color/duration-finance-128.png"
+              },
+              "authors": [
+                {
+                  "@context": "http://schema.org/",
+                  "@type": "Person",
+                  "name": "Mohamed Hamad",
+                  "email": "mohamed@thirdwunder.com"
+                }
+              ],
+              "createdAt": "2022-08-22T13:41:06.149Z",
+              "updatedAt": "2023-02-02T09:46:17.331Z",
+              "createdBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Mohamed Hamad",
+                "email": "mohamed@thirdwunder.com"
+              },
+              "updatedBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Sehar Manji",
+                "email": "seharmanji@thirdwunder.com"
+              }
+            },
+            {
+              "id": "canvas-c_MUzIVEi0",
+              "type": "page",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-c_MUzIVEi0",
+              "name": "Clients Setup",
+              "subtitle": "Configure your customer and CRM information",
+              "contentType": "canvas",
+              "isHidden": false,
+              "isEffectivelyHidden": false,
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suzIVEi0",
+              "children": [],
+              "parent": {
+                "id": "canvas-bxV94mIdan",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-bxV94mIdan",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su4mIdan",
+                "name": "Setup"
+              },
+              "icon": {
+                "name": "customer-insight",
+                "type": "image/png",
+                "browserLink": "https://cdn.coda.io/icons/png/color/customer-insight-128.png"
+              },
+              "authors": [
+                {
+                  "@context": "http://schema.org/",
+                  "@type": "Person",
+                  "name": "Mohamed Hamad",
+                  "email": "mohamed@thirdwunder.com"
+                }
+              ],
+              "createdAt": "2022-08-22T13:40:42.078Z",
+              "updatedAt": "2023-02-01T19:04:05.373Z",
+              "createdBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Mohamed Hamad",
+                "email": "mohamed@thirdwunder.com"
+              },
+              "updatedBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Laura Perez",
+                "email": "lauraperez@thirdwunder.com"
+              }
+            },
+            {
+              "id": "canvas-Tjxh3YTyEZ",
+              "type": "page",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-Tjxh3YTyEZ",
+              "name": "Expenses Setup",
+              "subtitle": "Setup your expenses and categories",
+              "contentType": "canvas",
+              "isHidden": false,
+              "isEffectivelyHidden": false,
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su3YTyEZ",
+              "children": [],
+              "parent": {
+                "id": "canvas-bxV94mIdan",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-bxV94mIdan",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su4mIdan",
+                "name": "Setup"
+              },
+              "icon": {
+                "name": "initiate-money-transfer",
+                "type": "image/png",
+                "browserLink": "https://cdn.coda.io/icons/png/color/initiate-money-transfer-128.png"
+              },
+              "authors": [
+                {
+                  "@context": "http://schema.org/",
+                  "@type": "Person",
+                  "name": "Mohamed Hamad",
+                  "email": "mohamed@thirdwunder.com"
+                }
+              ],
+              "createdAt": "2023-01-22T00:22:06.058Z",
+              "updatedAt": "2023-01-31T21:22:33.612Z",
+              "createdBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Mohamed Hamad",
+                "email": "mohamed@thirdwunder.com"
+              },
+              "updatedBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Mohamed Hamad",
+                "email": "mohamed@thirdwunder.com"
+              }
+            },
+            {
+              "id": "canvas-IIYxZ3g6xt",
+              "type": "page",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-IIYxZ3g6xt",
+              "name": "Opportunities Setup",
+              "subtitle": "Configure your sales goals and pipelines",
+              "contentType": "canvas",
+              "isHidden": false,
+              "isEffectivelyHidden": false,
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suZ3g6xt",
+              "children": [],
+              "parent": {
+                "id": "canvas-bxV94mIdan",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-bxV94mIdan",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su4mIdan",
+                "name": "Setup"
+              },
+              "icon": {
+                "name": "handshake",
+                "type": "image/png",
+                "browserLink": "https://cdn.coda.io/icons/png/color/handshake-128.png"
+              },
+              "authors": [
+                {
+                  "@context": "http://schema.org/",
+                  "@type": "Person",
+                  "name": "Mohamed Hamad",
+                  "email": "mohamed@thirdwunder.com"
+                }
+              ],
+              "createdAt": "2022-08-22T13:42:01.203Z",
+              "updatedAt": "2023-02-08T20:50:36.535Z",
+              "createdBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Mohamed Hamad",
+                "email": "mohamed@thirdwunder.com"
+              },
+              "updatedBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Laura Perez",
+                "email": "lauraperez@thirdwunder.com"
+              }
+            },
+            {
+              "id": "canvas-hBv0n9ttIU",
+              "type": "page",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-hBv0n9ttIU",
+              "name": "Sales Setup",
+              "subtitle": "",
+              "contentType": "canvas",
+              "isHidden": false,
+              "isEffectivelyHidden": false,
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_sun9ttIU",
+              "children": [],
+              "parent": {
+                "id": "canvas-bxV94mIdan",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-bxV94mIdan",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su4mIdan",
+                "name": "Setup"
+              },
+              "icon": {
+                "name": "total-sales-1",
+                "type": "image/png",
+                "browserLink": "https://cdn.coda.io/icons/png/color/total-sales-1-128.png"
+              },
+              "authors": [
+                {
+                  "@context": "http://schema.org/",
+                  "@type": "Person",
+                  "name": "Mohamed Hamad",
+                  "email": "mohamed@thirdwunder.com"
+                }
+              ],
+              "createdAt": "2023-01-27T18:53:13.269Z",
+              "updatedAt": "2023-02-17T21:07:54.110Z",
+              "createdBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Mohamed Hamad",
+                "email": "mohamed@thirdwunder.com"
+              },
+              "updatedBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Sehar Manji",
+                "email": "seharmanji@thirdwunder.com"
+              }
+            },
+            {
+              "id": "canvas-TC_LB4QzDP",
+              "type": "page",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-TC_LB4QzDP",
+              "name": "Company",
+              "subtitle": "",
+              "contentType": "canvas",
+              "isHidden": false,
+              "isEffectivelyHidden": false,
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suB4QzDP",
+              "children": [
+                {
+                  "id": "canvas-ow9CUzcG7U",
+                  "type": "page",
+                  "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-ow9CUzcG7U",
+                  "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suUzcG7U",
+                  "name": "Departments"
+                },
+                {
+                  "id": "canvas-zuGqFcp_LK",
+                  "type": "page",
+                  "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-zuGqFcp_LK",
+                  "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suFcp_LK",
+                  "name": "Team Directory"
+                },
+                {
+                  "id": "canvas-WpqKkcnXbu",
+                  "type": "page",
+                  "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-WpqKkcnXbu",
+                  "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_sukcnXbu",
+                  "name": "Services"
+                },
+                {
+                  "id": "canvas-SpBMLVKB8k",
+                  "type": "page",
+                  "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-SpBMLVKB8k",
+                  "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suLVKB8k",
+                  "name": "Clients"
+                }
+              ],
+              "icon": {
+                "name": "company",
+                "type": "image/png",
+                "browserLink": "https://cdn.coda.io/icons/png/color/company-128.png"
+              },
+              "image": {
+                "browserLink": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMDczMTJ8MHwxfHNlYXJjaHw3fHxidXNpbmVzc3xlbnwwfDB8fHwxNjU0Nzc4NTM0&ixlib=rb-1.2.1&q=80&w=1080",
+                "width": 6000,
+                "height": 4000
+              },
+              "authors": [
+                {
+                  "@context": "http://schema.org/",
+                  "@type": "Person",
+                  "name": "Mohamed Hamad",
+                  "email": "mohamed@thirdwunder.com"
+                }
+              ],
+              "createdAt": "2022-06-09T16:01:20.703Z",
+              "updatedAt": "2023-02-23T20:24:05.037Z",
+              "createdBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Mohamed Hamad",
+                "email": "mohamed@thirdwunder.com"
+              },
+              "updatedBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Henri-Léonard Fabien",
+                "email": "henrifabien@thirdwunder.com"
+              }
+            },
+            {
+              "id": "canvas-ow9CUzcG7U",
+              "type": "page",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-ow9CUzcG7U",
+              "name": "Departments",
+              "subtitle": "",
+              "contentType": "canvas",
+              "isHidden": false,
+              "isEffectivelyHidden": false,
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suUzcG7U",
+              "children": [],
+              "parent": {
+                "id": "canvas-TC_LB4QzDP",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-TC_LB4QzDP",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suB4QzDP",
+                "name": "Company"
+              },
+              "icon": {
+                "name": "conference-foreground-selected",
+                "type": "image/png",
+                "browserLink": "https://cdn.coda.io/icons/png/color/conference-foreground-selected-128.png"
+              },
+              "image": {
+                "browserLink": "https://images.unsplash.com/photo-1560264280-88b68371db39?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMDczMTJ8MHwxfHNlYXJjaHw3fHxzZXJ2aWNlc3xlbnwwfDB8fHwxNjU0ODAwOTgx&ixlib=rb-1.2.1&q=80&w=1080",
+                "width": 3000,
+                "height": 2002
+              },
+              "authors": [
+                {
+                  "@context": "http://schema.org/",
+                  "@type": "Person",
+                  "name": "Mohamed Hamad",
+                  "email": "mohamed@thirdwunder.com"
+                }
+              ],
+              "createdAt": "2022-06-09T16:34:58.707Z",
+              "updatedAt": "2023-01-23T17:24:55.977Z",
+              "createdBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Mohamed Hamad",
+                "email": "mohamed@thirdwunder.com"
+              },
+              "updatedBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Laura Perez",
+                "email": "lauraperez@thirdwunder.com"
+              }
+            },
+            {
+              "id": "canvas-zuGqFcp_LK",
+              "type": "page",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-zuGqFcp_LK",
+              "name": "Team Directory",
+              "subtitle": "",
+              "contentType": "canvas",
+              "isHidden": false,
+              "isEffectivelyHidden": false,
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suFcp_LK",
+              "children": [],
+              "parent": {
+                "id": "canvas-TC_LB4QzDP",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-TC_LB4QzDP",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suB4QzDP",
+                "name": "Company"
+              },
+              "icon": {
+                "name": "active-directory",
+                "type": "image/png",
+                "browserLink": "https://cdn.coda.io/icons/png/color/active-directory-128.png"
+              },
+              "image": {
+                "browserLink": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMDczMTJ8MHwxfHNlYXJjaHwyfHx0ZWFtfGVufDB8MHx8fDE2NTQ3NjI1MzQ&ixlib=rb-1.2.1&q=80&w=1080",
+                "width": 7952,
+                "height": 5304
+              },
+              "authors": [
+                {
+                  "@context": "http://schema.org/",
+                  "@type": "Person",
+                  "name": "Mohamed Hamad",
+                  "email": "mohamed@thirdwunder.com"
+                }
+              ],
+              "createdAt": "2022-06-09T17:52:01.919Z",
+              "updatedAt": "2022-06-09T19:05:10.959Z",
+              "createdBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Mohamed Hamad",
+                "email": "mohamed@thirdwunder.com"
+              },
+              "updatedBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Mohamed Hamad",
+                "email": "mohamed@thirdwunder.com"
+              }
+            },
+            {
+              "id": "canvas-WpqKkcnXbu",
+              "type": "page",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-WpqKkcnXbu",
+              "name": "Services",
+              "subtitle": "",
+              "contentType": "canvas",
+              "isHidden": false,
+              "isEffectivelyHidden": false,
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_sukcnXbu",
+              "children": [],
+              "parent": {
+                "id": "canvas-TC_LB4QzDP",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-TC_LB4QzDP",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suB4QzDP",
+                "name": "Company"
+              },
+              "icon": {
+                "name": "service",
+                "type": "image/png",
+                "browserLink": "https://cdn.coda.io/icons/png/color/service-128.png"
+              },
+              "image": {
+                "browserLink": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMDczMTJ8MHwxfHNlYXJjaHw0fHxzZXJ2aWNlc3xlbnwwfDB8fHwxNjU0ODAwOTgx&ixlib=rb-1.2.1&q=80&w=1080",
+                "width": 5184,
+                "height": 3456
+              },
+              "authors": [
+                {
+                  "@context": "http://schema.org/",
+                  "@type": "Person",
+                  "name": "Mohamed Hamad",
+                  "email": "mohamed@thirdwunder.com"
+                }
+              ],
+              "createdAt": "2022-06-09T18:56:03.765Z",
+              "updatedAt": "2022-06-10T00:06:40.009Z",
+              "createdBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Mohamed Hamad",
+                "email": "mohamed@thirdwunder.com"
+              },
+              "updatedBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Mohamed Hamad",
+                "email": "mohamed@thirdwunder.com"
+              }
+            },
+            {
+              "id": "canvas-SpBMLVKB8k",
+              "type": "page",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-SpBMLVKB8k",
+              "name": "Clients",
+              "subtitle": "",
+              "contentType": "canvas",
+              "isHidden": false,
+              "isEffectivelyHidden": false,
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suLVKB8k",
+              "children": [],
+              "parent": {
+                "id": "canvas-TC_LB4QzDP",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-TC_LB4QzDP",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suB4QzDP",
+                "name": "Company"
+              },
+              "icon": {
+                "name": "key-exchange",
+                "type": "image/png",
+                "browserLink": "https://cdn.coda.io/icons/png/color/key-exchange-128.png"
+              },
+              "authors": [
+                {
+                  "@context": "http://schema.org/",
+                  "@type": "Person",
+                  "name": "Mohamed Hamad",
+                  "email": "mohamed@thirdwunder.com"
+                }
+              ],
+              "createdAt": "2022-06-10T00:11:30.807Z",
+              "updatedAt": "2023-01-22T01:03:17.419Z",
+              "createdBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Mohamed Hamad",
+                "email": "mohamed@thirdwunder.com"
+              },
+              "updatedBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Mohamed Hamad",
+                "email": "mohamed@thirdwunder.com"
+              }
+            },
+            {
+              "id": "canvas-pSYuhEYNJd",
+              "type": "page",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-pSYuhEYNJd",
+              "name": "Sales",
+              "subtitle": "An overview of sales & opportunities ",
+              "contentType": "canvas",
+              "isHidden": false,
+              "isEffectivelyHidden": false,
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suhEYNJd",
+              "children": [],
+              "icon": {
+                "name": "total-sales-1",
+                "type": "image/png",
+                "browserLink": "https://cdn.coda.io/icons/png/color/total-sales-1-128.png"
+              },
+              "image": {
+                "browserLink": "https://images.unsplash.com/photo-1608222351212-18fe0ec7b13b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMDczMTJ8MHwxfHNlYXJjaHwzfHxkYXNoYm9hcmR8ZW58MHwwfHx8MTY1NDY5MTExNg&ixlib=rb-1.2.1&q=80&w=1080",
+                "width": 3370,
+                "height": 2527
+              },
+              "authors": [
+                {
+                  "@context": "http://schema.org/",
+                  "@type": "Person",
+                  "name": "Mohamed Hamad",
+                  "email": "mohamed@thirdwunder.com"
+                }
+              ],
+              "createdAt": "2022-06-06T13:52:24.428Z",
+              "updatedAt": "2023-02-22T22:10:08.526Z",
+              "createdBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Mohamed Hamad",
+                "email": "mohamed@thirdwunder.com"
+              },
+              "updatedBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Henri-Léonard Fabien",
+                "email": "henrifabien@thirdwunder.com"
+              }
+            },
+            {
+              "id": "canvas-fbzQ3Vsy9r",
+              "type": "page",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-fbzQ3Vsy9r",
+              "name": "CRM",
+              "subtitle": "",
+              "contentType": "canvas",
+              "isHidden": false,
+              "isEffectivelyHidden": false,
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su3Vsy9r",
+              "children": [
+                {
+                  "id": "canvas-M_BUq-USED",
+                  "type": "page",
+                  "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-M_BUq-USED",
+                  "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suq-USED",
+                  "name": "Contacts"
+                },
+                {
+                  "id": "canvas-vznQxgTt53",
+                  "type": "page",
+                  "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-vznQxgTt53",
+                  "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suxgTt53",
+                  "name": "Clients"
+                },
+                {
+                  "id": "canvas-BM5vNDCdhy",
+                  "type": "page",
+                  "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-BM5vNDCdhy",
+                  "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suNDCdhy",
+                  "name": "Opportunities"
+                }
+              ],
+              "icon": {
+                "name": "sellsy",
+                "type": "image/png",
+                "browserLink": "https://cdn.coda.io/icons/png/color/sellsy-128.png"
+              },
+              "authors": [
+                {
+                  "@context": "http://schema.org/",
+                  "@type": "Person",
+                  "name": "Mohamed Hamad",
+                  "email": "mohamed@thirdwunder.com"
+                }
+              ],
+              "createdAt": "2022-06-04T16:05:47.028Z",
+              "updatedAt": "2023-02-23T15:51:16.946Z",
+              "createdBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Mohamed Hamad",
+                "email": "mohamed@thirdwunder.com"
+              },
+              "updatedBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Henri-Léonard Fabien",
+                "email": "henrifabien@thirdwunder.com"
+              }
+            },
+            {
+              "id": "canvas-M_BUq-USED",
+              "type": "page",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-M_BUq-USED",
+              "name": "Contacts",
+              "subtitle": "All company contacts",
+              "contentType": "canvas",
+              "isHidden": false,
+              "isEffectivelyHidden": false,
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suq-USED",
+              "children": [],
+              "parent": {
+                "id": "canvas-fbzQ3Vsy9r",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-fbzQ3Vsy9r",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su3Vsy9r",
+                "name": "CRM"
+              },
+              "icon": {
+                "name": "conference-call",
+                "type": "image/png",
+                "browserLink": "https://cdn.coda.io/icons/png/color/conference-call-128.png"
+              },
+              "authors": [
+                {
+                  "@context": "http://schema.org/",
+                  "@type": "Person",
+                  "name": "Mohamed Hamad",
+                  "email": "mohamed@thirdwunder.com"
+                }
+              ],
+              "createdAt": "2022-06-04T16:06:35.052Z",
+              "updatedAt": "2023-01-31T20:19:10.871Z",
+              "createdBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Mohamed Hamad",
+                "email": "mohamed@thirdwunder.com"
+              },
+              "updatedBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Laura Perez",
+                "email": "lauraperez@thirdwunder.com"
+              }
+            },
+            {
+              "id": "canvas-vznQxgTt53",
+              "type": "page",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-vznQxgTt53",
+              "name": "Clients",
+              "subtitle": "A companies (clients and vendors)",
+              "contentType": "canvas",
+              "isHidden": false,
+              "isEffectivelyHidden": false,
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suxgTt53",
+              "children": [
+                {
+                  "id": "canvas-ekFo-qAqRO",
+                  "type": "page",
+                  "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-ekFo-qAqRO",
+                  "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su-qAqRO",
+                  "name": "Company Social"
+                }
+              ],
+              "parent": {
+                "id": "canvas-fbzQ3Vsy9r",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-fbzQ3Vsy9r",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su3Vsy9r",
+                "name": "CRM"
+              },
+              "icon": {
+                "name": "company",
+                "type": "image/png",
+                "browserLink": "https://cdn.coda.io/icons/png/color/company-128.png"
+              },
+              "authors": [
+                {
+                  "@context": "http://schema.org/",
+                  "@type": "Person",
+                  "name": "Mohamed Hamad",
+                  "email": "mohamed@thirdwunder.com"
+                }
+              ],
+              "createdAt": "2022-06-04T16:06:47.064Z",
+              "updatedAt": "2023-01-31T21:04:15.547Z",
+              "createdBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Mohamed Hamad",
+                "email": "mohamed@thirdwunder.com"
+              },
+              "updatedBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Mohamed Hamad",
+                "email": "mohamed@thirdwunder.com"
+              }
+            },
+            {
+              "id": "canvas-ekFo-qAqRO",
+              "type": "page",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-ekFo-qAqRO",
+              "name": "Company Social",
+              "subtitle": "Company social profiles and links",
+              "contentType": "canvas",
+              "isHidden": false,
+              "isEffectivelyHidden": false,
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su-qAqRO",
+              "children": [],
+              "parent": {
+                "id": "canvas-vznQxgTt53",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-vznQxgTt53",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suxgTt53",
+                "name": "Clients"
+              },
+              "icon": {
+                "name": "communication",
+                "type": "image/png",
+                "browserLink": "https://cdn.coda.io/icons/png/color/communication-128.png"
+              },
+              "authors": [
+                {
+                  "@context": "http://schema.org/",
+                  "@type": "Person",
+                  "name": "Mohamed Hamad",
+                  "email": "mohamed@thirdwunder.com"
+                }
+              ],
+              "createdAt": "2022-06-04T18:10:55.823Z",
+              "updatedAt": "2023-01-22T00:45:19.048Z",
+              "createdBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Mohamed Hamad",
+                "email": "mohamed@thirdwunder.com"
+              },
+              "updatedBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Mohamed Hamad",
+                "email": "mohamed@thirdwunder.com"
+              }
+            },
+            {
+              "id": "canvas-BM5vNDCdhy",
+              "type": "page",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-BM5vNDCdhy",
+              "name": "Opportunities",
+              "subtitle": "Business deals and opportunities ",
+              "contentType": "canvas",
+              "isHidden": false,
+              "isEffectivelyHidden": false,
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suNDCdhy",
+              "children": [],
+              "parent": {
+                "id": "canvas-fbzQ3Vsy9r",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-fbzQ3Vsy9r",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su3Vsy9r",
+                "name": "CRM"
+              },
+              "icon": {
+                "name": "handshake",
+                "type": "image/png",
+                "browserLink": "https://cdn.coda.io/icons/png/color/handshake-128.png"
+              },
+              "authors": [
+                {
+                  "@context": "http://schema.org/",
+                  "@type": "Person",
+                  "name": "Mohamed Hamad",
+                  "email": "mohamed@thirdwunder.com"
+                }
+              ],
+              "createdAt": "2022-06-04T16:06:52.641Z",
+              "updatedAt": "2023-02-22T22:10:14.571Z",
+              "createdBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Mohamed Hamad",
+                "email": "mohamed@thirdwunder.com"
+              },
+              "updatedBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Henri-Léonard Fabien",
+                "email": "henrifabien@thirdwunder.com"
+              }
+            },
+            {
+              "id": "canvas-WlPYwrtvJB",
+              "type": "page",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-WlPYwrtvJB",
+              "name": "Finance",
+              "subtitle": "",
+              "contentType": "canvas",
+              "isHidden": false,
+              "isEffectivelyHidden": false,
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suwrtvJB",
+              "children": [
+                {
+                  "id": "canvas-UveRHSY6co",
+                  "type": "page",
+                  "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-UveRHSY6co",
+                  "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suHSY6co",
+                  "name": "Accounts Receivable"
+                },
+                {
+                  "id": "canvas-krvvjfjVZs",
+                  "type": "page",
+                  "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-krvvjfjVZs",
+                  "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_sujfjVZs",
+                  "name": "Accounts Payable"
+                },
+                {
+                  "id": "canvas-42hPOMfreC",
+                  "type": "page",
+                  "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-42hPOMfreC",
+                  "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suOMfreC",
+                  "name": "Expenses"
+                }
+              ],
+              "icon": {
+                "name": "bank",
+                "type": "image/png",
+                "browserLink": "https://cdn.coda.io/icons/png/color/bank-128.png"
+              },
+              "authors": [
+                {
+                  "@context": "http://schema.org/",
+                  "@type": "Person",
+                  "name": "Mohamed Hamad",
+                  "email": "mohamed@thirdwunder.com"
+                }
+              ],
+              "createdAt": "2022-06-04T18:22:42.210Z",
+              "updatedAt": "2023-02-22T17:49:47.466Z",
+              "createdBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Mohamed Hamad",
+                "email": "mohamed@thirdwunder.com"
+              },
+              "updatedBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Mohamed Hamad",
+                "email": "mohamed@thirdwunder.com"
+              }
+            },
+            {
+              "id": "canvas-UveRHSY6co",
+              "type": "page",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-UveRHSY6co",
+              "name": "Accounts Receivable",
+              "subtitle": "Client invoices and Accounts Receivable",
+              "contentType": "canvas",
+              "isHidden": false,
+              "isEffectivelyHidden": false,
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suHSY6co",
+              "children": [],
+              "parent": {
+                "id": "canvas-WlPYwrtvJB",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-WlPYwrtvJB",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suwrtvJB",
+                "name": "Finance"
+              },
+              "icon": {
+                "name": "request-money",
+                "type": "image/png",
+                "browserLink": "https://cdn.coda.io/icons/png/color/request-money-128.png"
+              },
+              "authors": [
+                {
+                  "@context": "http://schema.org/",
+                  "@type": "Person",
+                  "name": "Mohamed Hamad",
+                  "email": "mohamed@thirdwunder.com"
+                }
+              ],
+              "createdAt": "2022-06-04T18:23:18.301Z",
+              "updatedAt": "2023-01-31T20:32:44.366Z",
+              "createdBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Mohamed Hamad",
+                "email": "mohamed@thirdwunder.com"
+              },
+              "updatedBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Mohamed Hamad",
+                "email": "mohamed@thirdwunder.com"
+              }
+            },
+            {
+              "id": "canvas-krvvjfjVZs",
+              "type": "page",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-krvvjfjVZs",
+              "name": "Accounts Payable",
+              "subtitle": "Vendor Invoices and Accounts Payable",
+              "contentType": "canvas",
+              "isHidden": false,
+              "isEffectivelyHidden": false,
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_sujfjVZs",
+              "children": [],
+              "parent": {
+                "id": "canvas-WlPYwrtvJB",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-WlPYwrtvJB",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suwrtvJB",
+                "name": "Finance"
+              },
+              "icon": {
+                "name": "initiate-money-transfer",
+                "type": "image/png",
+                "browserLink": "https://cdn.coda.io/icons/png/color/initiate-money-transfer-128.png"
+              },
+              "authors": [
+                {
+                  "@context": "http://schema.org/",
+                  "@type": "Person",
+                  "name": "Mohamed Hamad",
+                  "email": "mohamed@thirdwunder.com"
+                }
+              ],
+              "createdAt": "2022-06-04T18:23:03.140Z",
+              "updatedAt": "2022-06-29T03:14:03.260Z",
+              "createdBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Mohamed Hamad",
+                "email": "mohamed@thirdwunder.com"
+              }
+            },
+            {
+              "id": "canvas-42hPOMfreC",
+              "type": "page",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-42hPOMfreC",
+              "name": "Expenses",
+              "subtitle": "Operating Expenses & service provider bills",
+              "contentType": "canvas",
+              "isHidden": false,
+              "isEffectivelyHidden": false,
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suOMfreC",
+              "children": [],
+              "parent": {
+                "id": "canvas-WlPYwrtvJB",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-WlPYwrtvJB",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suwrtvJB",
+                "name": "Finance"
+              },
+              "icon": {
+                "name": "cash-",
+                "type": "image/png",
+                "browserLink": "https://cdn.coda.io/icons/png/color/cash--128.png"
+              },
+              "authors": [
+                {
+                  "@context": "http://schema.org/",
+                  "@type": "Person",
+                  "name": "Mohamed Hamad",
+                  "email": "mohamed@thirdwunder.com"
+                }
+              ],
+              "createdAt": "2022-06-07T13:38:04.816Z",
+              "updatedAt": "2023-01-31T21:05:14.421Z",
+              "createdBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Mohamed Hamad",
+                "email": "mohamed@thirdwunder.com"
+              },
+              "updatedBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Mohamed Hamad",
+                "email": "mohamed@thirdwunder.com"
+              }
+            },
+            {
+              "id": "canvas-XP18aM7opK",
+              "type": "page",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-XP18aM7opK",
+              "name": "HR",
+              "subtitle": "",
+              "contentType": "canvas",
+              "isHidden": false,
+              "isEffectivelyHidden": false,
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suaM7opK",
+              "children": [
+                {
+                  "id": "canvas-my7I0GY8lw",
+                  "type": "page",
+                  "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-my7I0GY8lw",
+                  "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su0GY8lw",
+                  "name": "HR Data"
+                }
+              ],
+              "icon": {
+                "name": "conference-call",
+                "type": "image/png",
+                "browserLink": "https://cdn.coda.io/icons/png/color/conference-call-128.png"
+              },
+              "authors": [
+                {
+                  "@context": "http://schema.org/",
+                  "@type": "Person",
+                  "name": "Mohamed Hamad",
+                  "email": "mohamed@thirdwunder.com"
+                }
+              ],
+              "createdAt": "2022-06-06T13:51:33.902Z",
+              "updatedAt": "2023-01-31T18:08:40.273Z",
+              "createdBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Mohamed Hamad",
+                "email": "mohamed@thirdwunder.com"
+              },
+              "updatedBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Mohamed Hamad",
+                "email": "mohamed@thirdwunder.com"
+              }
+            },
+            {
+              "id": "canvas-my7I0GY8lw",
+              "type": "page",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-my7I0GY8lw",
+              "name": "HR Data",
+              "subtitle": "",
+              "contentType": "canvas",
+              "isHidden": false,
+              "isEffectivelyHidden": false,
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su0GY8lw",
+              "children": [],
+              "parent": {
+                "id": "canvas-XP18aM7opK",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-XP18aM7opK",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suaM7opK",
+                "name": "HR"
+              },
+              "icon": {
+                "name": "conference-call",
+                "type": "image/png",
+                "browserLink": "https://cdn.coda.io/icons/png/color/conference-call-128.png"
+              },
+              "authors": [
+                {
+                  "@context": "http://schema.org/",
+                  "@type": "Person",
+                  "name": "Mohamed Hamad",
+                  "email": "mohamed@thirdwunder.com"
+                }
+              ],
+              "createdAt": "2022-05-25T12:07:34.210Z",
+              "updatedAt": "2026-06-23T11:04:34.479Z",
+              "createdBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Mohamed Hamad",
+                "email": "mohamed@thirdwunder.com"
+              },
+              "updatedBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Nango Developer",
+                "email": "api@nango.dev"
+              }
+            },
+            {
+              "id": "canvas-yjnLLDo1mO",
+              "type": "page",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-yjnLLDo1mO",
+              "name": "Data",
+              "subtitle": "",
+              "contentType": "canvas",
+              "isHidden": false,
+              "isEffectivelyHidden": false,
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suLDo1mO",
+              "children": [
+                {
+                  "id": "canvas-oZhC5CDwr9",
+                  "type": "page",
+                  "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-oZhC5CDwr9",
+                  "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su5CDwr9",
+                  "name": "Business Data"
+                },
+                {
+                  "id": "canvas-KdB9flBmQb",
+                  "type": "page",
+                  "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-KdB9flBmQb",
+                  "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suflBmQb",
+                  "name": "Services Data"
+                },
+                {
+                  "id": "canvas-c_vjyerNV9",
+                  "type": "page",
+                  "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-c_vjyerNV9",
+                  "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suyerNV9",
+                  "name": "Sales Data"
+                },
+                {
+                  "id": "canvas-2kFFCFYXk4",
+                  "type": "page",
+                  "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-2kFFCFYXk4",
+                  "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suCFYXk4",
+                  "name": "Invoices Data"
+                },
+                {
+                  "id": "canvas-Euu_-adhoI",
+                  "type": "page",
+                  "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-Euu_-adhoI",
+                  "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su-adhoI",
+                  "name": "Expenses Data"
+                },
+                {
+                  "id": "canvas-5JBYNeZ0RM",
+                  "type": "page",
+                  "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-5JBYNeZ0RM",
+                  "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suNeZ0RM",
+                  "name": "Tax Data"
+                },
+                {
+                  "id": "canvas-14BdE_osiV",
+                  "type": "page",
+                  "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-14BdE_osiV",
+                  "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suE_osiV",
+                  "name": "Finance Data"
+                },
+                {
+                  "id": "canvas-PJNOGs6qeC",
+                  "type": "page",
+                  "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-PJNOGs6qeC",
+                  "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suGs6qeC",
+                  "name": "General Data"
+                }
+              ],
+              "icon": {
+                "name": "connected-no-data",
+                "type": "image/png",
+                "browserLink": "https://cdn.coda.io/icons/png/color/connected-no-data-128.png"
+              },
+              "image": {
+                "browserLink": "https://images.unsplash.com/photo-1495592822108-9e6261896da8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMDczMTJ8MHwxfHNlYXJjaHw2fHxkYXRhfGVufDB8MHx8fDE2NTQ3NDc0OTA&ixlib=rb-1.2.1&q=80&w=1080",
+                "width": 5616,
+                "height": 3744
+              },
+              "authors": [
+                {
+                  "@context": "http://schema.org/",
+                  "@type": "Person",
+                  "name": "Mohamed Hamad",
+                  "email": "mohamed@thirdwunder.com"
+                }
+              ],
+              "createdAt": "2022-05-25T12:04:19.238Z",
+              "updatedAt": "2022-05-25T12:04:21.742Z",
+              "createdBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Mohamed Hamad",
+                "email": "mohamed@thirdwunder.com"
+              },
+              "updatedBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Mohamed Hamad",
+                "email": "mohamed@thirdwunder.com"
+              }
+            },
+            {
+              "id": "canvas-oZhC5CDwr9",
+              "type": "page",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-oZhC5CDwr9",
+              "name": "Business Data",
+              "subtitle": "",
+              "contentType": "canvas",
+              "isHidden": false,
+              "isEffectivelyHidden": false,
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su5CDwr9",
+              "children": [],
+              "parent": {
+                "id": "canvas-yjnLLDo1mO",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-yjnLLDo1mO",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suLDo1mO",
+                "name": "Data"
+              },
+              "icon": {
+                "name": "client-company",
+                "type": "image/png",
+                "browserLink": "https://cdn.coda.io/icons/png/color/client-company-128.png"
+              },
+              "authors": [
+                {
+                  "@context": "http://schema.org/",
+                  "@type": "Person",
+                  "name": "Mohamed Hamad",
+                  "email": "mohamed@thirdwunder.com"
+                }
+              ],
+              "createdAt": "2022-06-09T15:56:07.125Z",
+              "updatedAt": "2023-01-31T17:20:19.002Z",
+              "createdBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Mohamed Hamad",
+                "email": "mohamed@thirdwunder.com"
+              },
+              "updatedBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Laura Perez",
+                "email": "lauraperez@thirdwunder.com"
+              }
+            },
+            {
+              "id": "canvas-KdB9flBmQb",
+              "type": "page",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-KdB9flBmQb",
+              "name": "Services Data",
+              "subtitle": "",
+              "contentType": "canvas",
+              "isHidden": false,
+              "isEffectivelyHidden": false,
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suflBmQb",
+              "children": [],
+              "parent": {
+                "id": "canvas-yjnLLDo1mO",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-yjnLLDo1mO",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suLDo1mO",
+                "name": "Data"
+              },
+              "icon": {
+                "name": "service",
+                "type": "image/png",
+                "browserLink": "https://cdn.coda.io/icons/png/color/service-128.png"
+              },
+              "authors": [
+                {
+                  "@context": "http://schema.org/",
+                  "@type": "Person",
+                  "name": "Mohamed Hamad",
+                  "email": "mohamed@thirdwunder.com"
+                }
+              ],
+              "createdAt": "2022-05-25T12:42:42.852Z",
+              "updatedAt": "2023-01-31T21:20:43.392Z",
+              "createdBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Mohamed Hamad",
+                "email": "mohamed@thirdwunder.com"
+              },
+              "updatedBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Mohamed Hamad",
+                "email": "mohamed@thirdwunder.com"
+              }
+            },
+            {
+              "id": "canvas-c_vjyerNV9",
+              "type": "page",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-c_vjyerNV9",
+              "name": "Sales Data",
+              "subtitle": "",
+              "contentType": "canvas",
+              "isHidden": false,
+              "isEffectivelyHidden": false,
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suyerNV9",
+              "children": [],
+              "parent": {
+                "id": "canvas-yjnLLDo1mO",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-yjnLLDo1mO",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suLDo1mO",
+                "name": "Data"
+              },
+              "icon": {
+                "name": "stack-of-money",
+                "type": "image/png",
+                "browserLink": "https://cdn.coda.io/icons/png/color/stack-of-money-128.png"
+              },
+              "authors": [
+                {
+                  "@context": "http://schema.org/",
+                  "@type": "Person",
+                  "name": "Mohamed Hamad",
+                  "email": "mohamed@thirdwunder.com"
+                }
+              ],
+              "createdAt": "2022-05-25T12:34:53.394Z",
+              "updatedAt": "2023-02-08T19:10:25.896Z",
+              "createdBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Mohamed Hamad",
+                "email": "mohamed@thirdwunder.com"
+              },
+              "updatedBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Laura Perez",
+                "email": "lauraperez@thirdwunder.com"
+              }
+            },
+            {
+              "id": "canvas-2kFFCFYXk4",
+              "type": "page",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-2kFFCFYXk4",
+              "name": "Invoices Data",
+              "subtitle": "",
+              "contentType": "canvas",
+              "isHidden": false,
+              "isEffectivelyHidden": false,
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suCFYXk4",
+              "children": [],
+              "parent": {
+                "id": "canvas-yjnLLDo1mO",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-yjnLLDo1mO",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suLDo1mO",
+                "name": "Data"
+              },
+              "icon": {
+                "name": "money-transfer",
+                "type": "image/png",
+                "browserLink": "https://cdn.coda.io/icons/png/color/money-transfer-128.png"
+              },
+              "authors": [
+                {
+                  "@context": "http://schema.org/",
+                  "@type": "Person",
+                  "name": "Mohamed Hamad",
+                  "email": "mohamed@thirdwunder.com"
+                }
+              ],
+              "createdAt": "2022-06-06T13:49:01.520Z",
+              "updatedAt": "2023-05-21T11:40:47.797Z",
+              "createdBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Mohamed Hamad",
+                "email": "mohamed@thirdwunder.com"
+              },
+              "updatedBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Tom Lebonvivant",
+                "email": "tomlebonvivant@thirdwunder.com"
+              }
+            },
+            {
+              "id": "canvas-Euu_-adhoI",
+              "type": "page",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-Euu_-adhoI",
+              "name": "Expenses Data",
+              "subtitle": "",
+              "contentType": "canvas",
+              "isHidden": false,
+              "isEffectivelyHidden": false,
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su-adhoI",
+              "children": [],
+              "parent": {
+                "id": "canvas-yjnLLDo1mO",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-yjnLLDo1mO",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suLDo1mO",
+                "name": "Data"
+              },
+              "icon": {
+                "name": "initiate-money-transfer",
+                "type": "image/png",
+                "browserLink": "https://cdn.coda.io/icons/png/color/initiate-money-transfer-128.png"
+              },
+              "authors": [
+                {
+                  "@context": "http://schema.org/",
+                  "@type": "Person",
+                  "name": "Mohamed Hamad",
+                  "email": "mohamed@thirdwunder.com"
+                }
+              ],
+              "createdAt": "2022-06-04T14:28:19.310Z",
+              "updatedAt": "2023-01-31T20:22:33.854Z",
+              "createdBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Mohamed Hamad",
+                "email": "mohamed@thirdwunder.com"
+              },
+              "updatedBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Mohamed Hamad",
+                "email": "mohamed@thirdwunder.com"
+              }
+            },
+            {
+              "id": "canvas-5JBYNeZ0RM",
+              "type": "page",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-5JBYNeZ0RM",
+              "name": "Tax Data",
+              "subtitle": "",
+              "contentType": "canvas",
+              "isHidden": false,
+              "isEffectivelyHidden": false,
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suNeZ0RM",
+              "children": [],
+              "parent": {
+                "id": "canvas-yjnLLDo1mO",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-yjnLLDo1mO",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suLDo1mO",
+                "name": "Data"
+              },
+              "icon": {
+                "name": "tax",
+                "type": "image/png",
+                "browserLink": "https://cdn.coda.io/icons/png/color/tax-128.png"
+              },
+              "authors": [
+                {
+                  "@context": "http://schema.org/",
+                  "@type": "Person",
+                  "name": "Mohamed Hamad",
+                  "email": "mohamed@thirdwunder.com"
+                }
+              ],
+              "createdAt": "2022-06-04T15:04:01.911Z",
+              "updatedAt": "2023-01-31T21:03:24.163Z",
+              "createdBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Mohamed Hamad",
+                "email": "mohamed@thirdwunder.com"
+              },
+              "updatedBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Mohamed Hamad",
+                "email": "mohamed@thirdwunder.com"
+              }
+            },
+            {
+              "id": "canvas-14BdE_osiV",
+              "type": "page",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-14BdE_osiV",
+              "name": "Finance Data",
+              "subtitle": "",
+              "contentType": "canvas",
+              "isHidden": false,
+              "isEffectivelyHidden": false,
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suE_osiV",
+              "children": [],
+              "parent": {
+                "id": "canvas-yjnLLDo1mO",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-yjnLLDo1mO",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suLDo1mO",
+                "name": "Data"
+              },
+              "icon": {
+                "name": "duration-finance",
+                "type": "image/png",
+                "browserLink": "https://cdn.coda.io/icons/png/color/duration-finance-128.png"
+              },
+              "authors": [
+                {
+                  "@context": "http://schema.org/",
+                  "@type": "Person",
+                  "name": "Mohamed Hamad",
+                  "email": "mohamed@thirdwunder.com"
+                }
+              ],
+              "createdAt": "2022-06-04T14:39:41.064Z",
+              "updatedAt": "2023-05-21T11:38:41.948Z",
+              "createdBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Mohamed Hamad",
+                "email": "mohamed@thirdwunder.com"
+              },
+              "updatedBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Tom Lebonvivant",
+                "email": "tomlebonvivant@thirdwunder.com"
+              }
+            },
+            {
+              "id": "canvas-PJNOGs6qeC",
+              "type": "page",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-PJNOGs6qeC",
+              "name": "General Data",
+              "subtitle": "",
+              "contentType": "canvas",
+              "isHidden": false,
+              "isEffectivelyHidden": false,
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suGs6qeC",
+              "children": [],
+              "parent": {
+                "id": "canvas-yjnLLDo1mO",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-yjnLLDo1mO",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suLDo1mO",
+                "name": "Data"
+              },
+              "icon": {
+                "name": "data-arrived",
+                "type": "image/png",
+                "browserLink": "https://cdn.coda.io/icons/png/color/data-arrived-128.png"
+              },
+              "authors": [
+                {
+                  "@context": "http://schema.org/",
+                  "@type": "Person",
+                  "name": "Mohamed Hamad",
+                  "email": "mohamed@thirdwunder.com"
+                }
+              ],
+              "createdAt": "2022-06-04T18:08:38.255Z",
+              "updatedAt": "2026-06-23T10:54:17.264Z",
+              "createdBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Mohamed Hamad",
+                "email": "mohamed@thirdwunder.com"
+              },
+              "updatedBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Nango Developer",
+                "email": "api@nango.dev"
+              }
+            },
+            {
+              "id": "canvas-HQhnUf1BGE",
+              "type": "page",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-HQhnUf1BGE",
+              "name": "Support",
+              "subtitle": "",
+              "contentType": "canvas",
+              "isHidden": false,
+              "isEffectivelyHidden": false,
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suUf1BGE",
+              "children": [],
+              "icon": {
+                "name": "customer-support",
+                "type": "image/png",
+                "browserLink": "https://cdn.coda.io/icons/png/color/customer-support-128.png"
+              },
+              "image": {
+                "browserLink": "https://images.unsplash.com/photo-1563393934034-21b781d905ef?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMDczMTJ8MHwxfHNlYXJjaHw1fHxoZWxwfGVufDB8MHx8fDE2NzYzNTI0MDc&ixlib=rb-4.0.3&q=80&w=1080",
+                "width": 6000,
+                "height": 4000
+              },
+              "authors": [
+                {
+                  "@context": "http://schema.org/",
+                  "@type": "Person",
+                  "name": "Mohamed Hamad",
+                  "email": "mohamed@thirdwunder.com"
+                }
+              ],
+              "createdAt": "2023-02-14T18:23:18.389Z",
+              "updatedAt": "2023-02-14T18:25:25.309Z",
+              "createdBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Mohamed Hamad",
+                "email": "mohamed@thirdwunder.com"
+              },
+              "updatedBy": {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Mohamed Hamad",
+                "email": "mohamed@thirdwunder.com"
+              }
+            }
+          ],
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages?pageToken=eyJsaW1pdCI6IjEwMCIsIm9mZnNldCI6MCwib3BWZXJzaW9uIjozMTQ2Mywic2NoZW1hVmVyc2lvbiI6MTc3fQ"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 23 Jun 2026 13:47:35 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4979",
+          "x-ratelimit-reset": "1782222470",
+          "x-coda-pod": "api-doc-8674fd7489-62nh8",
+          "vary": "Origin, Accept-Encoding",
+          "surrogate-control": "no-store",
+          "cache-control": "no-store, no-cache, must-revalidate, proxy-revalidate",
+          "expires": "0",
+          "etag": "W/\"aba4-Z2deNtQ1TKaFKdX5gKBt++cFYHY\"",
+          "x-coda-server": "api-doc",
+          "x-cache": "Miss from cloudfront",
+          "via": "1.1 33f44c5d40d98734c5ae4147ce95d00c.cloudfront.net (CloudFront)",
+          "x-amz-cf-pop": "HIO52-P5",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "x-amz-cf-id": "Vm6JX0DUjQ05HIhftc3PWduaAdVsceD8Wg7VEMO6P8buRZpUH0gJ1g=="
+        },
+        "hash": "fe6521695a98aed6a082fd07b07aff7b82eee58f",
+        "request": {
+          "params": {
+            "limit": "100"
+          }
+        }
+      }
+    }
+  }
+}
