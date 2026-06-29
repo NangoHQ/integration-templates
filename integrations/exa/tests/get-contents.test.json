@@ -1,0 +1,126 @@
+{
+  "input": {
+    "ids": [
+      "https://example.com"
+    ],
+    "text": {
+      "maxCharacters": 1000
+    }
+  },
+  "output": {
+    "requestId": "4ef34e841c711769ba9119d07b30ffbb",
+    "results": [
+      {
+        "title": "Example Domain",
+        "url": "https://example.com",
+        "id": "https://example.com",
+        "favicon": "data:,",
+        "text": "Example Domain\n\n# Example Domain\n\nThis domain is for use in documentation examples without needing permission. Avoid use in operations."
+      }
+    ],
+    "statuses": [
+      {
+        "id": "https://example.com",
+        "status": "success",
+        "source": "cached"
+      }
+    ],
+    "costDollars": {
+      "total": 0.001
+    }
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/contents": {
+        "response": {
+          "requestId": "4ef34e841c711769ba9119d07b30ffbb",
+          "results": [
+            {
+              "id": "https://example.com",
+              "title": "Example Domain",
+              "url": "https://example.com",
+              "author": null,
+              "text": "Example Domain\n\n# Example Domain\n\nThis domain is for use in documentation examples without needing permission. Avoid use in operations.",
+              "favicon": "data:,",
+              "entities": [
+                {
+                  "id": "https://exa.ai/library/organization/qmfkd8nk6b1",
+                  "type": "company",
+                  "version": 1,
+                  "properties": {
+                    "name": "Selbstständig",
+                    "foundedYear": null,
+                    "description": "sss",
+                    "workforce": {
+                      "total": 11136
+                    },
+                    "headquarters": null,
+                    "financials": null,
+                    "webTraffic": null
+                  }
+                }
+              ]
+            }
+          ],
+          "statuses": [
+            {
+              "id": "https://example.com",
+              "status": "success",
+              "source": "cached"
+            }
+          ],
+          "costDollars": {
+            "total": 0.001,
+            "contents": {
+              "text": 0.001
+            }
+          },
+          "searchTime": 17.544354999961797
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 25 Jun 2026 23:06:27 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "PAYMENT-REQUIRED,PAYMENT-RESPONSE,payment-required,payment-response",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4984",
+          "x-ratelimit-reset": "1782428836",
+          "content-security-policy": "frame-ancestors 'self'",
+          "cross-origin-opener-policy": "same-origin",
+          "cross-origin-resource-policy": "same-origin",
+          "origin-agent-cluster": "?1",
+          "referrer-policy": "no-referrer",
+          "x-permitted-cross-domain-policies": "none",
+          "vary": "Origin",
+          "access-control-allow-credentials": "true",
+          "etag": "W/\"2f0-v+Y+zAYkxs5AIF+IhW5Tv2SPk1A\"",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "cf-ray": "a1179f73de5e3416-PDX"
+        },
+        "hash": "13941191093f633efe8e0e9e82da1105278305d4",
+        "request": {
+          "data": {
+            "ids": [
+              "https://example.com"
+            ],
+            "text": {
+              "maxCharacters": 1000
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,350 @@
+{
+  "nango": {
+    "batchSave": {
+      "Contact": [
+        {
+          "id": "cont_3SmGzXEM1WRSxhJlJXzMntZfmvBoqVB4rMHWryx3phD",
+          "lead_id": "lead_mELh8FRqV6vRWJ5bgGdx7GpifIkEnoQFHg0hsxmQI1z",
+          "name": "Test Contact",
+          "title": "Engineer",
+          "emails": [
+            {
+              "email": "test@example.com",
+              "type": "office",
+              "is_unsubscribed": false
+            }
+          ],
+          "phones": [],
+          "urls": [],
+          "date_created": "2026-06-19T12:05:23.339000+00:00",
+          "date_updated": "2026-06-19T12:05:23.339000+00:00",
+          "created_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+          "updated_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa"
+        },
+        {
+          "id": "cont_fOxjSxxDAXjhX4yi9sQckKMrdxKv7Hoi3sDGpJp9Rvk",
+          "lead_id": "lead_mELh8FRqV6vRWJ5bgGdx7GpifIkEnoQFHg0hsxmQI1z",
+          "name": "Test Contact",
+          "title": "Engineer",
+          "emails": [
+            {
+              "email": "test@example.com",
+              "type": "office",
+              "is_unsubscribed": false
+            }
+          ],
+          "phones": [],
+          "urls": [],
+          "date_created": "2026-06-19T12:05:16.528000+00:00",
+          "date_updated": "2026-06-19T12:05:16.528000+00:00",
+          "created_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+          "updated_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa"
+        },
+        {
+          "id": "cont_NcFWmy5NpUCR8ZbVCJH81B1AoVNsb1RQdQPGoMHD0qp",
+          "lead_id": "lead_7IACfyrFUKx292gsVOhMBXwY7ntFoQuLPvnlOAf3VaW",
+          "name": "Dan Lee",
+          "title": "CTO",
+          "emails": [
+            {
+              "email": "dan@globex.com",
+              "type": "office",
+              "is_unsubscribed": false
+            }
+          ],
+          "phones": [],
+          "urls": [],
+          "date_created": "2026-06-19T11:04:45.078000+00:00",
+          "date_updated": "2026-06-19T11:04:45.078000+00:00",
+          "created_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+          "updated_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa"
+        },
+        {
+          "id": "cont_RbAYBhiQKpTL7MIUketEppiEB4QKBXKSV5hqpV10Ps8",
+          "lead_id": "lead_7IACfyrFUKx292gsVOhMBXwY7ntFoQuLPvnlOAf3VaW",
+          "name": "Carol Martinez",
+          "title": "Head of Procurement",
+          "emails": [
+            {
+              "email": "carol@globex.com",
+              "type": "office",
+              "is_unsubscribed": false
+            }
+          ],
+          "phones": [
+            {
+              "phone": "+13125559876",
+              "type": "office",
+              "country": "US",
+              "phone_formatted": "+1 312-555-9876"
+            }
+          ],
+          "urls": [],
+          "date_created": "2026-06-19T11:04:43.182000+00:00",
+          "date_updated": "2026-06-19T11:04:43.182000+00:00",
+          "created_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+          "updated_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa"
+        },
+        {
+          "id": "cont_PVCPc55Jp9YOxcrddKFvTyYWE9I58A0aNlx5focra7o",
+          "lead_id": "lead_mELh8FRqV6vRWJ5bgGdx7GpifIkEnoQFHg0hsxmQI1z",
+          "name": "Bob Smith",
+          "title": "CEO",
+          "emails": [
+            {
+              "email": "bob@acme.com",
+              "type": "office",
+              "is_unsubscribed": false
+            }
+          ],
+          "phones": [
+            {
+              "phone": "+14155555678",
+              "type": "mobile",
+              "country": "US",
+              "phone_formatted": "+1 415-555-5678"
+            }
+          ],
+          "urls": [],
+          "date_created": "2026-06-19T11:04:40.414000+00:00",
+          "date_updated": "2026-06-19T11:04:40.414000+00:00",
+          "created_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+          "updated_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa"
+        },
+        {
+          "id": "cont_WkCG7ujzTYPCoOTUcao7tRUj9TMChmWgeNXimiJT9eJ",
+          "lead_id": "lead_mELh8FRqV6vRWJ5bgGdx7GpifIkEnoQFHg0hsxmQI1z",
+          "name": "Alice Johnson",
+          "title": "Senior VP Engineering",
+          "emails": [
+            {
+              "email": "alice@acme.com",
+              "type": "office",
+              "is_unsubscribed": false
+            }
+          ],
+          "phones": [
+            {
+              "phone": "+14155551234",
+              "type": "office",
+              "country": "US",
+              "phone_formatted": "+1 415-555-1234"
+            }
+          ],
+          "urls": [],
+          "date_created": "2026-06-19T11:04:37.985000+00:00",
+          "date_updated": "2026-06-19T12:05:52.643000+00:00",
+          "created_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+          "updated_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Contact": []
+    }
+  },
+  "api": {
+    "get": {
+      "/v1/contact/": {
+        "response": {
+          "data": [
+            {
+              "created_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+              "date_created": "2026-06-19T12:05:23.339000+00:00",
+              "date_updated": "2026-06-19T12:05:23.339000+00:00",
+              "display_name": "Test Contact",
+              "emails": [
+                {
+                  "email": "test@example.com",
+                  "is_unsubscribed": false,
+                  "type": "office"
+                }
+              ],
+              "id": "cont_3SmGzXEM1WRSxhJlJXzMntZfmvBoqVB4rMHWryx3phD",
+              "integration_links": [],
+              "lead_id": "lead_mELh8FRqV6vRWJ5bgGdx7GpifIkEnoQFHg0hsxmQI1z",
+              "name": "Test Contact",
+              "organization_id": "orga_bog0WeN6OXBxaN867LEXwaisIuXTy9fbbryxDywmf6V",
+              "phones": [],
+              "timezone": null,
+              "timezone_source": null,
+              "title": "Engineer",
+              "updated_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+              "urls": []
+            },
+            {
+              "created_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+              "date_created": "2026-06-19T12:05:16.528000+00:00",
+              "date_updated": "2026-06-19T12:05:16.528000+00:00",
+              "display_name": "Test Contact",
+              "emails": [
+                {
+                  "email": "test@example.com",
+                  "is_unsubscribed": false,
+                  "type": "office"
+                }
+              ],
+              "id": "cont_fOxjSxxDAXjhX4yi9sQckKMrdxKv7Hoi3sDGpJp9Rvk",
+              "integration_links": [],
+              "lead_id": "lead_mELh8FRqV6vRWJ5bgGdx7GpifIkEnoQFHg0hsxmQI1z",
+              "name": "Test Contact",
+              "organization_id": "orga_bog0WeN6OXBxaN867LEXwaisIuXTy9fbbryxDywmf6V",
+              "phones": [],
+              "timezone": null,
+              "timezone_source": null,
+              "title": "Engineer",
+              "updated_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+              "urls": []
+            },
+            {
+              "created_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+              "date_created": "2026-06-19T11:04:45.078000+00:00",
+              "date_updated": "2026-06-19T11:04:45.078000+00:00",
+              "display_name": "Dan Lee",
+              "emails": [
+                {
+                  "email": "dan@globex.com",
+                  "is_unsubscribed": false,
+                  "type": "office"
+                }
+              ],
+              "id": "cont_NcFWmy5NpUCR8ZbVCJH81B1AoVNsb1RQdQPGoMHD0qp",
+              "integration_links": [],
+              "lead_id": "lead_7IACfyrFUKx292gsVOhMBXwY7ntFoQuLPvnlOAf3VaW",
+              "name": "Dan Lee",
+              "organization_id": "orga_bog0WeN6OXBxaN867LEXwaisIuXTy9fbbryxDywmf6V",
+              "phones": [],
+              "timezone": null,
+              "timezone_source": null,
+              "title": "CTO",
+              "updated_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+              "urls": []
+            },
+            {
+              "created_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+              "date_created": "2026-06-19T11:04:43.182000+00:00",
+              "date_updated": "2026-06-19T11:04:43.182000+00:00",
+              "display_name": "Carol Martinez",
+              "emails": [
+                {
+                  "email": "carol@globex.com",
+                  "is_unsubscribed": false,
+                  "type": "office"
+                }
+              ],
+              "id": "cont_RbAYBhiQKpTL7MIUketEppiEB4QKBXKSV5hqpV10Ps8",
+              "integration_links": [],
+              "lead_id": "lead_7IACfyrFUKx292gsVOhMBXwY7ntFoQuLPvnlOAf3VaW",
+              "name": "Carol Martinez",
+              "organization_id": "orga_bog0WeN6OXBxaN867LEXwaisIuXTy9fbbryxDywmf6V",
+              "phones": [
+                {
+                  "country": "US",
+                  "phone": "+13125559876",
+                  "phone_formatted": "+1 312-555-9876",
+                  "type": "office"
+                }
+              ],
+              "timezone": "America/Chicago",
+              "timezone_source": "inferred_from_phone_number",
+              "title": "Head of Procurement",
+              "updated_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+              "urls": []
+            },
+            {
+              "created_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+              "date_created": "2026-06-19T11:04:40.414000+00:00",
+              "date_updated": "2026-06-19T11:04:40.414000+00:00",
+              "display_name": "Bob Smith",
+              "emails": [
+                {
+                  "email": "bob@acme.com",
+                  "is_unsubscribed": false,
+                  "type": "office"
+                }
+              ],
+              "id": "cont_PVCPc55Jp9YOxcrddKFvTyYWE9I58A0aNlx5focra7o",
+              "integration_links": [],
+              "lead_id": "lead_mELh8FRqV6vRWJ5bgGdx7GpifIkEnoQFHg0hsxmQI1z",
+              "name": "Bob Smith",
+              "organization_id": "orga_bog0WeN6OXBxaN867LEXwaisIuXTy9fbbryxDywmf6V",
+              "phones": [
+                {
+                  "country": "US",
+                  "phone": "+14155555678",
+                  "phone_formatted": "+1 415-555-5678",
+                  "type": "mobile"
+                }
+              ],
+              "timezone": "America/Los_Angeles",
+              "timezone_source": "inferred_from_phone_number",
+              "title": "CEO",
+              "updated_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+              "urls": []
+            },
+            {
+              "created_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+              "date_created": "2026-06-19T11:04:37.985000+00:00",
+              "date_updated": "2026-06-19T12:05:52.643000+00:00",
+              "display_name": "Alice Johnson",
+              "emails": [
+                {
+                  "email": "alice@acme.com",
+                  "is_unsubscribed": false,
+                  "type": "office"
+                }
+              ],
+              "id": "cont_WkCG7ujzTYPCoOTUcao7tRUj9TMChmWgeNXimiJT9eJ",
+              "integration_links": [],
+              "lead_id": "lead_mELh8FRqV6vRWJ5bgGdx7GpifIkEnoQFHg0hsxmQI1z",
+              "name": "Alice Johnson",
+              "organization_id": "orga_bog0WeN6OXBxaN867LEXwaisIuXTy9fbbryxDywmf6V",
+              "phones": [
+                {
+                  "country": "US",
+                  "phone": "+14155551234",
+                  "phone_formatted": "+1 415-555-1234",
+                  "type": "office"
+                }
+              ],
+              "timezone": "America/Los_Angeles",
+              "timezone_source": "inferred_from_phone_number",
+              "title": "Senior VP Engineering",
+              "updated_by": "user_2okTTewuL7ni32DGaexRdm8OQ7uyx1IvkkWNmzEr6Wa",
+              "urls": []
+            }
+          ],
+          "has_more": false
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 19 Jun 2026 12:07:27 GMT",
+          "content-type": "application/json",
+          "content-length": "4567",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4957",
+          "x-ratelimit-reset": "1781870881",
+          "etag": "W/\"11d7-NmfUMrcMdVxU3qh59VcMTms18Kc\""
+        },
+        "hash": "83f3d768b8fb0d4f66dae53b169d25340c829bdd",
+        "request": {
+          "params": {
+            "_limit": "200",
+            "_skip": "0",
+            "_sort": "date_updated"
+          }
+        }
+      }
+    }
+  }
+}

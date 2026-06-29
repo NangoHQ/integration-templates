@@ -1,0 +1,101 @@
+{
+  "input": {
+    "workspace": "nangodev",
+    "repo_slug": "nango-api-test",
+    "webhook_uuid": "{216a4943-db76-4086-9dcc-9a0b525062f5}",
+    "description": "Updated webhook description",
+    "url": "https://example.com/webhook",
+    "active": true,
+    "events": [
+      "repo:push"
+    ]
+  },
+  "output": {
+    "type": "webhook_subscription",
+    "uuid": "{216a4943-db76-4086-9dcc-9a0b525062f5}",
+    "url": "https://example.com/webhook",
+    "description": "Updated webhook description",
+    "active": true,
+    "created_at": "2026-06-18T17:28:15.066266644Z",
+    "events": [
+      "repo:push"
+    ],
+    "secret_set": false
+  },
+  "nango": {},
+  "api": {
+    "put": {
+      "/2.0/repositories/nangodev/nango-api-test/hooks/%7B216a4943-db76-4086-9dcc-9a0b525062f5%7D": {
+        "response": {
+          "type": "webhook_subscription",
+          "uuid": "{216a4943-db76-4086-9dcc-9a0b525062f5}",
+          "description": "Updated webhook description",
+          "url": "https://example.com/webhook",
+          "active": true,
+          "skip_cert_verification": false,
+          "events": [
+            "repo:push"
+          ],
+          "created_at": "2026-06-18T17:28:15.066266644Z",
+          "subject": {
+            "type": "repository",
+            "full_name": "nangodev/nango-api-test",
+            "links": {
+              "self": {
+                "href": "https://api.bitbucket.org/2.0/repositories/nangodev/nango-api-test"
+              },
+              "html": {
+                "href": "https://bitbucket.org/nangodev/nango-api-test"
+              },
+              "avatar": {
+                "href": "https://bytebucket.org/ravatar/%7Bb32e0f1e-40bb-4b0b-833a-739edcf92d5b%7D?ts=js"
+              }
+            },
+            "name": "nango-api-test",
+            "uuid": "{b32e0f1e-40bb-4b0b-833a-739edcf92d5b}"
+          },
+          "links": {
+            "self": {
+              "href": "https://api.bitbucket.org/2.0/repositories/nangodev/nango-api-test/hooks/%7B216a4943-db76-4086-9dcc-9a0b525062f5%7D"
+            }
+          },
+          "source": null,
+          "read_only": false,
+          "history_enabled": false,
+          "secret_set": false
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 18 Jun 2026 18:51:02 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "939",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4917",
+          "x-ratelimit-reset": "1781808679",
+          "etag": "W/\"3ab-QMpWewoeXyXagr3/DWgYqBd2U7A\""
+        },
+        "hash": "bb938887ddf7f10c93a530dc2261ebbf4722527f",
+        "request": {
+          "data": {
+            "description": "Updated webhook description",
+            "url": "https://example.com/webhook",
+            "active": true,
+            "events": [
+              "repo:push"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

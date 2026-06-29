@@ -1,0 +1,74 @@
+{
+  "input": {
+    "team_id": 244845,
+    "user_id": 1981305
+  },
+  "output": {
+    "id": 244845,
+    "name": "Seed Team Two",
+    "direct_link": "https://api.aircall.io/v1/teams/244845",
+    "created_at": "2026-06-19T19:26:44.000Z",
+    "users": [
+      {
+        "id": 1981305,
+        "direct_link": "https://api.aircall.io/v1/users/1981305",
+        "name": "Victor Langat",
+        "email": "victor@nango.dev",
+        "created_at": "2026-06-18T10:11:02.000Z",
+        "time_zone": "Etc/UTC"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v1/teams/244845/users/1981305": {
+        "response": {
+          "team": {
+            "id": 244845,
+            "name": "Seed Team Two",
+            "direct_link": "https://api.aircall.io/v1/teams/244845",
+            "created_at": "2026-06-19T19:26:44.000Z",
+            "users": [
+              {
+                "id": 1981305,
+                "direct_link": "https://api.aircall.io/v1/users/1981305",
+                "name": "Victor Langat",
+                "email": "victor@nango.dev",
+                "availability_status": "available",
+                "default_number_id": null,
+                "created_at": "2026-06-18T10:11:02.000Z",
+                "time_zone": "Etc/UTC",
+                "language": "en-US",
+                "wrap_up_time": 0
+              }
+            ]
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 19 Jun 2026 19:38:25 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "428",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4949",
+          "x-ratelimit-reset": "1781897939",
+          "x-request-id": "04144a84-6a46-91a9-bc27-db8531ceaac5",
+          "etag": "W/\"1ac-RV3kNNQ9WtoVflIhMjdIpqy5NFg\""
+        },
+        "hash": "4e85fb574dd87464ff76dfc3fcd6fd3b1fb5e1ce",
+        "request": {}
+      }
+    }
+  }
+}

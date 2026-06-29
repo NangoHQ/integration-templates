@@ -1,0 +1,302 @@
+{
+  "input": {
+    "project": "nangodev",
+    "repositoryId": "nangodev",
+    "top": 10
+  },
+  "output": {
+    "items": [
+      {
+        "commitId": "1b63e3b765e4bdd5eaa97049dc48e62e849cd9e1",
+        "author": {
+          "name": "Robin Guldener",
+          "email": "api@nangodevelopers.onmicrosoft.com",
+          "date": "2026-06-18T08:02:53Z"
+        },
+        "committer": {
+          "name": "Robin Guldener",
+          "email": "api@nangodevelopers.onmicrosoft.com",
+          "date": "2026-06-18T08:02:53Z"
+        },
+        "comment": "Merge pull request 4 from test-pr-branch-2 into main",
+        "changeCounts": {
+          "Add": 1,
+          "Edit": 0,
+          "Delete": 0
+        },
+        "url": "https://dev.azure.com/nangoapi/727607ec-cf74-49dd-9579-17e253b976d2/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09/commits/1b63e3b765e4bdd5eaa97049dc48e62e849cd9e1",
+        "remoteUrl": "https://dev.azure.com/nangoapi/nangodev/_git/nangodev/commit/1b63e3b765e4bdd5eaa97049dc48e62e849cd9e1"
+      },
+      {
+        "commitId": "f3615aa4287c208f4b582afd8d1d733912e2f26c",
+        "author": {
+          "name": "Robin Guldener",
+          "email": "api@nangodevelopers.onmicrosoft.com",
+          "date": "2026-06-18T08:02:36Z"
+        },
+        "committer": {
+          "name": "Robin Guldener",
+          "email": "api@nangodevelopers.onmicrosoft.com",
+          "date": "2026-06-18T08:02:36Z"
+        },
+        "comment": "Merge pull request 2 from test-pr-branch into main",
+        "changeCounts": {
+          "Add": 1,
+          "Edit": 0,
+          "Delete": 0
+        },
+        "url": "https://dev.azure.com/nangoapi/727607ec-cf74-49dd-9579-17e253b976d2/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09/commits/f3615aa4287c208f4b582afd8d1d733912e2f26c",
+        "remoteUrl": "https://dev.azure.com/nangoapi/nangodev/_git/nangodev/commit/f3615aa4287c208f4b582afd8d1d733912e2f26c"
+      },
+      {
+        "commitId": "c4433e294709c0232e440ebbc2d3056d8129dd93",
+        "author": {
+          "name": "Robin Guldener",
+          "email": "api@nangodevelopers.onmicrosoft.com",
+          "date": "2026-06-18T08:01:54Z"
+        },
+        "committer": {
+          "name": "Robin Guldener",
+          "email": "api@nangodevelopers.onmicrosoft.com",
+          "date": "2026-06-18T08:01:54Z"
+        },
+        "comment": "test commit",
+        "changeCounts": {
+          "Add": 1,
+          "Edit": 0,
+          "Delete": 0
+        },
+        "url": "https://dev.azure.com/nangoapi/727607ec-cf74-49dd-9579-17e253b976d2/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09/commits/c4433e294709c0232e440ebbc2d3056d8129dd93",
+        "remoteUrl": "https://dev.azure.com/nangoapi/nangodev/_git/nangodev/commit/c4433e294709c0232e440ebbc2d3056d8129dd93"
+      },
+      {
+        "commitId": "cbcb80ab479208c78cb4a063e99ec6ef16eec1fd",
+        "author": {
+          "name": "Robin Guldener",
+          "email": "api@nangodevelopers.onmicrosoft.com",
+          "date": "2026-06-18T07:53:48Z"
+        },
+        "committer": {
+          "name": "Robin Guldener",
+          "email": "api@nangodevelopers.onmicrosoft.com",
+          "date": "2026-06-18T07:53:48Z"
+        },
+        "comment": "Merge pull request 1 from feature/nango-sync into main",
+        "changeCounts": {
+          "Add": 1,
+          "Edit": 0,
+          "Delete": 0
+        },
+        "url": "https://dev.azure.com/nangoapi/727607ec-cf74-49dd-9579-17e253b976d2/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09/commits/cbcb80ab479208c78cb4a063e99ec6ef16eec1fd",
+        "remoteUrl": "https://dev.azure.com/nangoapi/nangodev/_git/nangodev/commit/cbcb80ab479208c78cb4a063e99ec6ef16eec1fd"
+      },
+      {
+        "commitId": "3c3e538ad5fe358d656998317578092e10ecca43",
+        "author": {
+          "name": "Robin Guldener",
+          "email": "api@nangodevelopers.onmicrosoft.com",
+          "date": "2026-06-18T07:53:27Z"
+        },
+        "committer": {
+          "name": "Robin Guldener",
+          "email": "api@nangodevelopers.onmicrosoft.com",
+          "date": "2026-06-18T07:53:27Z"
+        },
+        "comment": "feat: add nango sync config",
+        "changeCounts": {
+          "Add": 1,
+          "Edit": 0,
+          "Delete": 0
+        },
+        "url": "https://dev.azure.com/nangoapi/727607ec-cf74-49dd-9579-17e253b976d2/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09/commits/3c3e538ad5fe358d656998317578092e10ecca43",
+        "remoteUrl": "https://dev.azure.com/nangoapi/nangodev/_git/nangodev/commit/3c3e538ad5fe358d656998317578092e10ecca43"
+      },
+      {
+        "commitId": "1f2b3d67ef157f6bcb005f07b68d6f0fab22208f",
+        "author": {
+          "name": "Robin Guldener",
+          "email": "api@nangodevelopers.onmicrosoft.com",
+          "date": "2026-06-18T07:52:55Z"
+        },
+        "committer": {
+          "name": "Robin Guldener",
+          "email": "api@nangodevelopers.onmicrosoft.com",
+          "date": "2026-06-18T07:52:55Z"
+        },
+        "comment": "Initial commit",
+        "changeCounts": {
+          "Add": 1,
+          "Edit": 0,
+          "Delete": 0
+        },
+        "url": "https://dev.azure.com/nangoapi/727607ec-cf74-49dd-9579-17e253b976d2/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09/commits/1f2b3d67ef157f6bcb005f07b68d6f0fab22208f",
+        "remoteUrl": "https://dev.azure.com/nangoapi/nangodev/_git/nangodev/commit/1f2b3d67ef157f6bcb005f07b68d6f0fab22208f"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/nangodev/_apis/git/repositories/nangodev/commits": {
+        "response": {
+          "count": 6,
+          "value": [
+            {
+              "commitId": "1b63e3b765e4bdd5eaa97049dc48e62e849cd9e1",
+              "author": {
+                "name": "Robin Guldener",
+                "email": "api@nangodevelopers.onmicrosoft.com",
+                "date": "2026-06-18T08:02:53Z"
+              },
+              "committer": {
+                "name": "Robin Guldener",
+                "email": "api@nangodevelopers.onmicrosoft.com",
+                "date": "2026-06-18T08:02:53Z"
+              },
+              "comment": "Merge pull request 4 from test-pr-branch-2 into main",
+              "changeCounts": {
+                "Add": 1,
+                "Edit": 0,
+                "Delete": 0
+              },
+              "url": "https://dev.azure.com/nangoapi/727607ec-cf74-49dd-9579-17e253b976d2/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09/commits/1b63e3b765e4bdd5eaa97049dc48e62e849cd9e1",
+              "remoteUrl": "https://dev.azure.com/nangoapi/nangodev/_git/nangodev/commit/1b63e3b765e4bdd5eaa97049dc48e62e849cd9e1"
+            },
+            {
+              "commitId": "f3615aa4287c208f4b582afd8d1d733912e2f26c",
+              "author": {
+                "name": "Robin Guldener",
+                "email": "api@nangodevelopers.onmicrosoft.com",
+                "date": "2026-06-18T08:02:36Z"
+              },
+              "committer": {
+                "name": "Robin Guldener",
+                "email": "api@nangodevelopers.onmicrosoft.com",
+                "date": "2026-06-18T08:02:36Z"
+              },
+              "comment": "Merge pull request 2 from test-pr-branch into main",
+              "changeCounts": {
+                "Add": 1,
+                "Edit": 0,
+                "Delete": 0
+              },
+              "url": "https://dev.azure.com/nangoapi/727607ec-cf74-49dd-9579-17e253b976d2/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09/commits/f3615aa4287c208f4b582afd8d1d733912e2f26c",
+              "remoteUrl": "https://dev.azure.com/nangoapi/nangodev/_git/nangodev/commit/f3615aa4287c208f4b582afd8d1d733912e2f26c"
+            },
+            {
+              "commitId": "c4433e294709c0232e440ebbc2d3056d8129dd93",
+              "author": {
+                "name": "Robin Guldener",
+                "email": "api@nangodevelopers.onmicrosoft.com",
+                "date": "2026-06-18T08:01:54Z"
+              },
+              "committer": {
+                "name": "Robin Guldener",
+                "email": "api@nangodevelopers.onmicrosoft.com",
+                "date": "2026-06-18T08:01:54Z"
+              },
+              "comment": "test commit",
+              "changeCounts": {
+                "Add": 1,
+                "Edit": 0,
+                "Delete": 0
+              },
+              "url": "https://dev.azure.com/nangoapi/727607ec-cf74-49dd-9579-17e253b976d2/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09/commits/c4433e294709c0232e440ebbc2d3056d8129dd93",
+              "remoteUrl": "https://dev.azure.com/nangoapi/nangodev/_git/nangodev/commit/c4433e294709c0232e440ebbc2d3056d8129dd93"
+            },
+            {
+              "commitId": "cbcb80ab479208c78cb4a063e99ec6ef16eec1fd",
+              "author": {
+                "name": "Robin Guldener",
+                "email": "api@nangodevelopers.onmicrosoft.com",
+                "date": "2026-06-18T07:53:48Z"
+              },
+              "committer": {
+                "name": "Robin Guldener",
+                "email": "api@nangodevelopers.onmicrosoft.com",
+                "date": "2026-06-18T07:53:48Z"
+              },
+              "comment": "Merge pull request 1 from feature/nango-sync into main",
+              "changeCounts": {
+                "Add": 1,
+                "Edit": 0,
+                "Delete": 0
+              },
+              "url": "https://dev.azure.com/nangoapi/727607ec-cf74-49dd-9579-17e253b976d2/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09/commits/cbcb80ab479208c78cb4a063e99ec6ef16eec1fd",
+              "remoteUrl": "https://dev.azure.com/nangoapi/nangodev/_git/nangodev/commit/cbcb80ab479208c78cb4a063e99ec6ef16eec1fd"
+            },
+            {
+              "commitId": "3c3e538ad5fe358d656998317578092e10ecca43",
+              "author": {
+                "name": "Robin Guldener",
+                "email": "api@nangodevelopers.onmicrosoft.com",
+                "date": "2026-06-18T07:53:27Z"
+              },
+              "committer": {
+                "name": "Robin Guldener",
+                "email": "api@nangodevelopers.onmicrosoft.com",
+                "date": "2026-06-18T07:53:27Z"
+              },
+              "comment": "feat: add nango sync config",
+              "changeCounts": {
+                "Add": 1,
+                "Edit": 0,
+                "Delete": 0
+              },
+              "url": "https://dev.azure.com/nangoapi/727607ec-cf74-49dd-9579-17e253b976d2/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09/commits/3c3e538ad5fe358d656998317578092e10ecca43",
+              "remoteUrl": "https://dev.azure.com/nangoapi/nangodev/_git/nangodev/commit/3c3e538ad5fe358d656998317578092e10ecca43"
+            },
+            {
+              "commitId": "1f2b3d67ef157f6bcb005f07b68d6f0fab22208f",
+              "author": {
+                "name": "Robin Guldener",
+                "email": "api@nangodevelopers.onmicrosoft.com",
+                "date": "2026-06-18T07:52:55Z"
+              },
+              "committer": {
+                "name": "Robin Guldener",
+                "email": "api@nangodevelopers.onmicrosoft.com",
+                "date": "2026-06-18T07:52:55Z"
+              },
+              "comment": "Initial commit",
+              "changeCounts": {
+                "Add": 1,
+                "Edit": 0,
+                "Delete": 0
+              },
+              "url": "https://dev.azure.com/nangoapi/727607ec-cf74-49dd-9579-17e253b976d2/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09/commits/1f2b3d67ef157f6bcb005f07b68d6f0fab22208f",
+              "remoteUrl": "https://dev.azure.com/nangoapi/nangodev/_git/nangodev/commit/1f2b3d67ef157f6bcb005f07b68d6f0fab22208f"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 18 Jun 2026 08:03:32 GMT",
+          "content-type": "application/json; charset=utf-8; api-version=7.2-preview.1",
+          "content-length": "4069",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4981",
+          "x-ratelimit-reset": "1781769865",
+          "etag": "W/\"fe5-e5SAjVNCEhpOG9pwX8pO9q5clmQ\""
+        },
+        "hash": "9909f0c1a74120c9f59b9ad9ed88517626d53b87",
+        "request": {
+          "params": {
+            "api-version": "7.2-preview.1",
+            "searchCriteria.$top": "10"
+          }
+        }
+      }
+    }
+  }
+}

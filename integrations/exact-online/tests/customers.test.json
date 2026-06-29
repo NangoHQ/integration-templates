@@ -1,0 +1,380 @@
+{
+  "nango": {
+    "batchSave": {
+      "Customer": [
+        {
+          "id": "454a5d46-ee70-4ed1-9375-9cfedeb138cd",
+          "name": "Exact Software France",
+          "status": "A",
+          "isSales": false,
+          "isPurchase": false,
+          "isSupplier": true,
+          "modified": "/Date(1537503584913)/"
+        },
+        {
+          "id": "ce741aca-7b8b-4e76-81ba-e6d5b05e5c04",
+          "name": "Administration TVA",
+          "status": "C",
+          "isSales": true,
+          "isPurchase": true,
+          "isSupplier": true,
+          "modified": "/Date(1537503585400)/"
+        },
+        {
+          "id": "11acd652-4496-48e0-a189-e0045cc206e3",
+          "name": "Test Customer 2",
+          "email": "customer@test.com",
+          "status": "C",
+          "isSales": true,
+          "isPurchase": true,
+          "isSupplier": false,
+          "modified": "/Date(1727194507253)/"
+        },
+        {
+          "id": "a58c29d9-ef92-40f1-b817-31b36990898c",
+          "name": "Foobar2 Updated",
+          "status": "C",
+          "isSales": true,
+          "isPurchase": true,
+          "isSupplier": false,
+          "modified": "/Date(1782404049930)/"
+        },
+        {
+          "id": "6f373853-0bfe-4bda-a0ff-62b759034dae",
+          "name": "Test Customer Dryrun",
+          "email": "test@example.com",
+          "phone": "+33123456789",
+          "status": "C",
+          "isSales": true,
+          "isPurchase": true,
+          "isSupplier": false,
+          "modified": "/Date(1782404307347)/"
+        },
+        {
+          "id": "b08a8c98-d5e2-4ccd-9650-c7a046ac4707",
+          "name": "Test Customer Dryrun",
+          "email": "test@example.com",
+          "phone": "+33123456789",
+          "status": "C",
+          "isSales": true,
+          "isPurchase": true,
+          "isSupplier": false,
+          "modified": "/Date(1782404335817)/"
+        },
+        {
+          "id": "a1f9e763-58b5-4391-9427-5f2191e09357",
+          "name": "Test Customer Dryrun",
+          "email": "test@example.com",
+          "phone": "+33123456789",
+          "status": "C",
+          "isSales": true,
+          "isPurchase": true,
+          "isSupplier": false,
+          "modified": "/Date(1782404365250)/"
+        },
+        {
+          "id": "812fcbe6-cd5f-4121-b2ea-211dfa563965",
+          "name": "Test Customer Dryrun",
+          "email": "test@example.com",
+          "phone": "+33123456789",
+          "status": "C",
+          "isSales": true,
+          "isPurchase": true,
+          "isSupplier": false,
+          "modified": "/Date(1782404374783)/"
+        },
+        {
+          "id": "e31eb9da-c1cb-4e8c-bc1a-395b3272067a",
+          "name": "Test Customer Dryrun",
+          "email": "test@example.com",
+          "phone": "+33123456789",
+          "status": "C",
+          "isSales": true,
+          "isPurchase": true,
+          "isSupplier": false,
+          "modified": "/Date(1782404454710)/"
+        },
+        {
+          "id": "40d4c49d-1790-4a13-b890-42909af24348",
+          "name": "Test Customer Dryrun",
+          "email": "test@example.com",
+          "phone": "+33123456789",
+          "status": "C",
+          "isSales": true,
+          "isPurchase": true,
+          "isSupplier": false,
+          "modified": "/Date(1782404464260)/"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Customer": []
+    }
+  },
+  "api": {
+    "get": {
+      "/api/v1/current/Me": {
+        "response": {
+          "d": {
+            "results": [
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/current/Me(guid'cc20a11b-c137-48cc-8e55-09d4adbd4ac9')",
+                  "type": "Exact.Web.Api.Models.System.Me"
+                },
+                "CurrentDivision": 124132,
+                "DivisionCustomer": "83b186b4-483d-474a-bebc-85da71e6f1ed",
+                "DivisionCustomerCode": "           1265594",
+                "DivisionCustomerName": "Nango",
+                "DivisionCustomerVatNumber": null,
+                "DivisionCustomerSiretNumber": "",
+                "DossierDivision": null,
+                "AccountingDivision": 124132,
+                "IsEmployeeSelfServiceUser": false,
+                "IsMyFirmLiteUser": false,
+                "IsStarterUser": false,
+                "IsMyFirmPortalUser": false,
+                "IsClientUser": true,
+                "FullName": "Samuel Bodin",
+                "PictureUrl": "https://start.exactonline.fr//docs/images/placeholder_contact_myeol.png",
+                "ThumbnailPicture": null,
+                "ThumbnailPictureFormat": null,
+                "UserID": "cc20a11b-c137-48cc-8e55-09d4adbd4ac9",
+                "UserName": "samuel@nango.dev",
+                "LanguageCode": "en-GB",
+                "Legislation": "128",
+                "Email": "samuel@nango.dev",
+                "Title": "Mr.",
+                "Initials": null,
+                "FirstName": "Samuel",
+                "MiddleName": null,
+                "LastName": "Bodin",
+                "Gender": "O",
+                "Nationality": null,
+                "Language": "EN",
+                "Phone": "0606060606",
+                "PhoneExtension": null,
+                "Mobile": null,
+                "ServerTime": "2026-06-25T16:24:07",
+                "ServerUtcOffset": 7200,
+                "EmployeeID": "00000000-0000-0000-0000-000000000000",
+                "CustomerCode": "           1265594",
+                "PackageCode": "EOLAPPCENTER",
+                "IsOEIMigrationMandatory": true
+              }
+            ]
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 25 Jun 2026 14:24:08 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "1397",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4920",
+          "x-ratelimit-reset": "1782397480",
+          "etag": "W/\"575-rd+dGo4lQxmpGq73A6e1XhAZr4c\""
+        },
+        "hash": "3b1fbfe94d69bc315fcd1e7b93bc400e3eea536c",
+        "request": {}
+      },
+      "/api/v1/124132/crm/Accounts": {
+        "response": {
+          "d": {
+            "results": [
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/crm/Accounts(guid'454a5d46-ee70-4ed1-9375-9cfedeb138cd')",
+                  "type": "Exact.Web.Api.Models.Account"
+                },
+                "ID": "454a5d46-ee70-4ed1-9375-9cfedeb138cd",
+                "Email": null,
+                "IsPurchase": false,
+                "IsSales": false,
+                "IsSupplier": true,
+                "Modified": "/Date(1537503584913)/",
+                "Name": "Exact Software France",
+                "Phone": null,
+                "Status": "A"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/crm/Accounts(guid'ce741aca-7b8b-4e76-81ba-e6d5b05e5c04')",
+                  "type": "Exact.Web.Api.Models.Account"
+                },
+                "ID": "ce741aca-7b8b-4e76-81ba-e6d5b05e5c04",
+                "Email": null,
+                "IsPurchase": true,
+                "IsSales": true,
+                "IsSupplier": true,
+                "Modified": "/Date(1537503585400)/",
+                "Name": "Administration TVA",
+                "Phone": null,
+                "Status": "C"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/crm/Accounts(guid'11acd652-4496-48e0-a189-e0045cc206e3')",
+                  "type": "Exact.Web.Api.Models.Account"
+                },
+                "ID": "11acd652-4496-48e0-a189-e0045cc206e3",
+                "Email": "customer@test.com",
+                "IsPurchase": true,
+                "IsSales": true,
+                "IsSupplier": false,
+                "Modified": "/Date(1727194507253)/",
+                "Name": "Test Customer 2",
+                "Phone": null,
+                "Status": "C"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/crm/Accounts(guid'a58c29d9-ef92-40f1-b817-31b36990898c')",
+                  "type": "Exact.Web.Api.Models.Account"
+                },
+                "ID": "a58c29d9-ef92-40f1-b817-31b36990898c",
+                "Email": null,
+                "IsPurchase": true,
+                "IsSales": true,
+                "IsSupplier": false,
+                "Modified": "/Date(1782404049930)/",
+                "Name": "Foobar2 Updated",
+                "Phone": null,
+                "Status": "C"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/crm/Accounts(guid'6f373853-0bfe-4bda-a0ff-62b759034dae')",
+                  "type": "Exact.Web.Api.Models.Account"
+                },
+                "ID": "6f373853-0bfe-4bda-a0ff-62b759034dae",
+                "Email": "test@example.com",
+                "IsPurchase": true,
+                "IsSales": true,
+                "IsSupplier": false,
+                "Modified": "/Date(1782404307347)/",
+                "Name": "Test Customer Dryrun",
+                "Phone": "+33123456789",
+                "Status": "C"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/crm/Accounts(guid'b08a8c98-d5e2-4ccd-9650-c7a046ac4707')",
+                  "type": "Exact.Web.Api.Models.Account"
+                },
+                "ID": "b08a8c98-d5e2-4ccd-9650-c7a046ac4707",
+                "Email": "test@example.com",
+                "IsPurchase": true,
+                "IsSales": true,
+                "IsSupplier": false,
+                "Modified": "/Date(1782404335817)/",
+                "Name": "Test Customer Dryrun",
+                "Phone": "+33123456789",
+                "Status": "C"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/crm/Accounts(guid'a1f9e763-58b5-4391-9427-5f2191e09357')",
+                  "type": "Exact.Web.Api.Models.Account"
+                },
+                "ID": "a1f9e763-58b5-4391-9427-5f2191e09357",
+                "Email": "test@example.com",
+                "IsPurchase": true,
+                "IsSales": true,
+                "IsSupplier": false,
+                "Modified": "/Date(1782404365250)/",
+                "Name": "Test Customer Dryrun",
+                "Phone": "+33123456789",
+                "Status": "C"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/crm/Accounts(guid'812fcbe6-cd5f-4121-b2ea-211dfa563965')",
+                  "type": "Exact.Web.Api.Models.Account"
+                },
+                "ID": "812fcbe6-cd5f-4121-b2ea-211dfa563965",
+                "Email": "test@example.com",
+                "IsPurchase": true,
+                "IsSales": true,
+                "IsSupplier": false,
+                "Modified": "/Date(1782404374783)/",
+                "Name": "Test Customer Dryrun",
+                "Phone": "+33123456789",
+                "Status": "C"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/crm/Accounts(guid'e31eb9da-c1cb-4e8c-bc1a-395b3272067a')",
+                  "type": "Exact.Web.Api.Models.Account"
+                },
+                "ID": "e31eb9da-c1cb-4e8c-bc1a-395b3272067a",
+                "Email": "test@example.com",
+                "IsPurchase": true,
+                "IsSales": true,
+                "IsSupplier": false,
+                "Modified": "/Date(1782404454710)/",
+                "Name": "Test Customer Dryrun",
+                "Phone": "+33123456789",
+                "Status": "C"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/crm/Accounts(guid'40d4c49d-1790-4a13-b890-42909af24348')",
+                  "type": "Exact.Web.Api.Models.Account"
+                },
+                "ID": "40d4c49d-1790-4a13-b890-42909af24348",
+                "Email": "test@example.com",
+                "IsPurchase": true,
+                "IsSales": true,
+                "IsSupplier": false,
+                "Modified": "/Date(1782404464260)/",
+                "Name": "Test Customer Dryrun",
+                "Phone": "+33123456789",
+                "Status": "C"
+              }
+            ]
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 25 Jun 2026 14:24:08 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "4141",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4918",
+          "x-ratelimit-reset": "1782397480",
+          "etag": "W/\"102d-RUnvGYESlsW8Nfd5QuA9J5/tQWY\""
+        },
+        "hash": "1a24bcb2754cdd3a2d268f66f973c4c2f7de1210",
+        "request": {
+          "params": {
+            "$orderby": "Modified asc",
+            "$select": "ID,Name,Email,Phone,Status,IsSales,IsPurchase,IsSupplier,Modified",
+            "$skip": "0",
+            "$top": "100"
+          }
+        }
+      }
+    }
+  }
+}

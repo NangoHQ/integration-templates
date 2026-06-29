@@ -4296,6 +4296,113 @@ export interface StandardEmployee {
 export interface SyncMetadata_adp_unifiedemployees {
 };
 
+export interface Call {
+  id: string;
+  subject?: string | undefined;
+  callType?: string | undefined;
+  callPurpose?: string | undefined;
+  callResult?: string | undefined;
+  callDuration?: string | undefined;
+  callDurationInSeconds?: string | undefined;
+  callStartTime?: string | undefined;
+  description?: string | undefined;
+  dialledNumber?: string | undefined;
+  callerId?: string | undefined;
+  reminder?: string | undefined;
+  modifiedTime: string;
+  createdTime?: string | undefined;
+  ownerName?: string | undefined;
+  ownerId?: string | undefined;
+  ownerEmail?: string | undefined;
+  createdByName?: string | undefined;
+  createdById?: string | undefined;
+  modifiedByName?: string | undefined;
+  modifiedById?: string | undefined;
+  relatedToName?: string | undefined;
+  relatedToId?: string | undefined;
+  contactName?: string | undefined;
+  contactId?: string | undefined;
+  tags?: string[] | undefined;
+};
+
+export interface SyncMetadata_aircall_calls {
+  direction?: 'inbound' | 'outbound' | undefined;
+  qualified?: boolean | undefined;
+};
+
+export interface Number {
+  /**
+   * Unique identifier for the Number
+   */
+  id: string;
+  /**
+   * Direct API URL
+   */
+  direct_link: string;
+  /**
+   * The name of the Number
+   */
+  name: string;
+  /**
+   * International format of the Number
+   */
+  digits: string;
+  /**
+   * Number in E.164 format
+   */
+  e164_digits?: string | undefined;
+  /**
+   * Timestamp when the Number was created, in UTC
+   */
+  created_at: string;
+  /**
+   * ISO 3166-1 alpha-2 country code of the Number
+   */
+  country: string;
+  /**
+   * Number's time zone, set in the Dashboard
+   */
+  time_zone: string;
+  /**
+   * Deprecated. Availability status for Smartflows numbers
+   */
+  open?: boolean | undefined;
+  /**
+   * Returns the availability status based on the first Time Rule widget in the number flow
+   */
+  availability_status?: string | undefined;
+  /**
+   * Deprecated. Whether an IVR was configured for this number
+   */
+  is_ivr?: boolean | undefined;
+  /**
+   * Whether a Number has live recording activated or not
+   */
+  live_recording_activated: boolean;
+  /**
+   * Priority level of the number used during routing of the calls
+   */
+  priority?: number | undefined;
+  /**
+   * URL to Number's music & messages files
+   */
+  messages?: {  welcome?: string | undefined;
+  waiting?: string | undefined;
+  ivr?: string | undefined;
+  voicemail?: string | undefined;
+  closed?: string | undefined;
+  callback_later?: string | undefined;
+  unanswered_call?: string | undefined;
+  after_hours?: string | undefined;
+  ringing_tone?: string | undefined;};
+};
+
+export interface Team {
+  id: string;
+  name: string;
+  picture_url?: string | undefined;
+};
+
 export interface User {
   id: string;
   first_name?: string | undefined;
@@ -4314,28 +4421,976 @@ export interface User {
   role_id?: string | undefined;
 };
 
-export interface SyncMetadata_aircall_users {
+export interface Webhook {
+  id: string;
+  event_type: string;
+  team_id: string;
+  context: string;
+  context_id: string;
+  plan_api_id: string;
+  status: string;
+  client_id: string;
+  passcode: string;
+  endpoint: string;
+  description: string;
+};
+
+export interface ActionInput_aircall_addteammember {
+  /**
+   * Team ID. Example: 244844
+   */
+  team_id: number;
+  /**
+   * User ID. Example: 1981305
+   */
+  user_id: number;
+};
+
+export interface ActionOutput_aircall_addteammember {
+  id: number;
+  name: string;
+  direct_link: string;
+  created_at: string;
+  users: ({  id: number;
+  direct_link: string;
+  name: string;
+  email: string;
+  created_at: string;
+  time_zone: string;})[];
+};
+
+export interface ActionInput_aircall_createcontact {
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  company_name?: string | undefined;
+  information?: string | undefined;
+  phone_numbers?: ({  label: string;
+  value: string;})[] | undefined;
+  emails?: ({  label: string;
+  value: string;})[] | undefined;
+};
+
+export interface ActionOutput_aircall_createcontact {
+  id: number;
+  direct_link: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  company_name?: string | undefined;
+  information?: string | undefined;
+  is_shared: boolean;
+  created_at: number;
+  updated_at: number;
+  emails: ({  id: number;
+  label: string;
+  value: string;})[];
+  phone_numbers: ({  id: number;
+  label: string;
+  value: string;})[];
+};
+
+export interface ActionInput_aircall_createtag {
+  /**
+   * The name of the tag. Example: "Priority"
+   */
+  name: string;
+  /**
+   * The hex color of the tag. Example: "#FF5733"
+   */
+  color?: string | undefined;
+  /**
+   * The description of the tag.
+   */
+  description?: string | undefined;
+};
+
+export interface ActionOutput_aircall_createtag {
+  id: number;
+  name: string;
+  color?: string | undefined;
+  description?: string | undefined;
+};
+
+export interface ActionInput_aircall_createteam {
+  /**
+   * Name of the team to create. Example: "Support USA"
+   */
+  name: string;
+};
+
+export interface ActionOutput_aircall_createteam {
+  team: {  id: number;
+  name: string;
+  direct_link: string;
+  created_at: string;
+  users: unknown[];};
 };
 
 export interface ActionInput_aircall_createuser {
-  firstName: string;
-  lastName: string;
+  /**
+   * User email. Must be valid and unique. Example: "john.doe@aircall.io"
+   */
   email: string;
+  /**
+   * User first name. Example: "John"
+   */
+  first_name: string;
+  /**
+   * User last name. Example: "Doe"
+   */
+  last_name: string;
+  /**
+   * User preferred language in IETF format. Example: "en-US"
+   */
+  language?: string | undefined;
+  /**
+   * User timezone. Example: "America/New_York"
+   */
+  time_zone?: string | undefined;
+  /**
+   * Wrap-up time in whole seconds after a call. Example: 30
+   */
+  wrap_up_time?: number | undefined;
+  /**
+   * User extension. Example: "001"
+   */
+  extension?: string | undefined;
 };
 
 export interface ActionOutput_aircall_createuser {
-  id: string;
+  id: number;
+  direct_link: string;
+  name: string;
   email: string;
-  firstName: string;
-  lastName: string;
+  available: boolean;
+  availability_status: string;
+  created_at: string;
+  time_zone?: string | undefined;
+  language?: string | undefined;
+  substatus?: string | undefined;
+  wrap_up_time?: number | undefined;
+  extension?: string | undefined;
+  default_number_id?: number | undefined;
+};
+
+export interface ActionInput_aircall_createwebhook {
+  /**
+   * Webhook URL to receive events. Example: "https://example.com/webhook"
+   */
+  url: string;
+  /**
+   * List of events to subscribe to. Example: ["call.created", "contact.updated"]
+   */
+  events: ({  0: 'call.created';
+  1: 'call.answered';
+  2: 'call.ended';
+  3: 'call.hungup';
+  4: 'call.archived';
+  5: 'contact.created';
+  6: 'contact.updated';
+  7: 'contact.deleted';
+  8: 'number.opened';
+  9: 'number.closed';
+  10: 'tag.created';
+  11: 'tag.updated';
+  12: 'tag.deleted';
+  13: 'user.created';
+  14: 'user.updated';
+  15: 'user.deleted';})[];
+};
+
+export interface ActionOutput_aircall_createwebhook {
+  webhook: {  /**
+   * UUID string identifier. Example: "13f9cf11-cc5b-4e6d-830c-a858f45cf792"
+   */
+  webhook_id: string;
+  /**
+   * Webhook URL. Example: "https://example.com/webhook"
+   */
+  url: string;
+  /**
+   * Whether the webhook is active.
+   */
+  active: boolean;
+  /**
+   * Subscribed events. Example: ["call.created", "contact.updated"]
+   */
+  events: string[];
+  /**
+   * Webhook token for verification.
+   */
+  token: string;
+  /**
+   * ISO timestamp when the webhook was created.
+   */
+  created_at: string;
+  /**
+   * Direct API URL for the webhook.
+   */
+  direct_link: string;};
+};
+
+export interface ActionInput_aircall_deletecontact {
+  /**
+   * Contact ID to delete. Example: 482881023
+   */
+  id: number;
+};
+
+export interface ActionOutput_aircall_deletecontact {
+  id: number;
+  success: boolean;
+};
+
+export interface ActionInput_aircall_deletetag {
+  /**
+   * Unique identifier of the tag to delete. Example: 2733978
+   */
+  id: number;
+};
+
+export interface ActionOutput_aircall_deletetag {
+  /**
+   * Unique identifier of the deleted tag.
+   */
+  id: number;
+};
+
+export interface ActionInput_aircall_deleteteam {
+  /**
+   * Team ID. Example: 244844
+   */
+  id: number;
+};
+
+export interface ActionOutput_aircall_deleteteam {
+  id: number;
+  success: boolean;
 };
 
 export interface ActionInput_aircall_deleteuser {
-  id: string;
+  /**
+   * User ID. Example: "123"
+   */
+  id: string | number;
 };
 
 export interface ActionOutput_aircall_deleteuser {
+  id: string | number;
   success: boolean;
+};
+
+export interface ActionInput_aircall_deletewebhook {
+  /**
+   * The UUID webhook_id of the webhook to delete. Example: "13f9cf11-cc5b-4e6d-830c-a858f45cf792"
+   */
+  webhookId: string;
+};
+
+export interface ActionOutput_aircall_deletewebhook {
+  success: boolean;
+};
+
+export interface ActionInput_aircall_getcompany {
+};
+
+export interface ActionOutput_aircall_getcompany {
+  company: {  name: string;
+  users_count: number;
+  numbers_count: number;};
+};
+
+export interface ActionInput_aircall_getcontact {
+  /**
+   * Contact ID. Example: "482393544"
+   */
+  contact_id: string;
+};
+
+export interface ActionOutput_aircall_getcontact {
+  id: number;
+  direct_link: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  company_name?: string | undefined;
+  information?: string | undefined;
+  is_shared: boolean;
+  created_at: number;
+  updated_at: number;
+  emails: ({  id: number;
+  label: string;
+  value: string;})[];
+  phone_numbers: ({  id: number;
+  label: string;
+  value: string;})[];
+};
+
+export interface ActionInput_aircall_gettag {
+  /**
+   * Tag ID. Example: 2733978
+   */
+  id: number;
+};
+
+export interface ActionOutput_aircall_gettag {
+  id: number;
+  name: string;
+  color?: string | undefined;
+};
+
+export interface ActionInput_aircall_getteam {
+  /**
+   * Team ID. Example: 244844
+   */
+  team_id: number;
+};
+
+export interface ActionOutput_aircall_getteam {
+  id: number;
+  direct_link?: string | undefined;
+  name?: string | undefined;
+  created_at?: string | undefined;
+  users?: ({  id: number;
+  direct_link?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  created_at?: string | undefined;
+  time_zone?: string | undefined;})[];
+};
+
+export interface ActionInput_aircall_getuseravailability {
+  /**
+   * User ID. Example: 1981305
+   */
+  userId: number;
+};
+
+export interface ActionOutput_aircall_getuseravailability {
+  /**
+   * Availability status. One of: available, unavailable, offline, custom
+   */
+  availability: string;
+};
+
+export interface ActionInput_aircall_getuser {
+  /**
+   * User ID or email address. Example: 1981305
+   */
+  id: number | string;
+};
+
+export interface ActionOutput_aircall_getuser {
+  id: number;
+  direct_link: string;
+  name: string;
+  email: string;
+  available: boolean;
+  availability_status: string;
+  created_at: string;
+  time_zone: string;
+  language: string;
+  substatus?: string | undefined;
+  wrap_up_time: number;
+  extension?: string | undefined;
+  default_number_id?: number | undefined;
+  state?: string | undefined;
+};
+
+export interface ActionInput_aircall_getwebhook {
+  /**
+   * The webhook UUID string. Example: "13f9cf11-cc5b-4e6d-830c-a858f45cf792"
+   */
+  id: string;
+};
+
+export interface ActionOutput_aircall_getwebhook {
+  id: number;
+  webhook_id: string;
+  url: string;
+  active: boolean;
+  events: string[];
+  token?: string | undefined;
+  created_at?: string | undefined;
+};
+
+export interface ActionInput_aircall_listcalls {
+  /**
+   * Minimal creation date for Calls (Unix timestamp).
+   */
+  from?: number | undefined;
+  /**
+   * Maximal creation date for Calls (Unix timestamp).
+   */
+  to?: number | undefined;
+  /**
+   * Direction of the Call.
+   */
+  direction?: 'inbound' | 'outbound' | undefined;
+  /**
+   * Whether to return only qualified calls.
+   */
+  qualified?: boolean | undefined;
+  /**
+   * Number of results per page. Max 50.
+   */
+  per_page?: number | undefined;
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_aircall_listcalls {
+  items: ({  id: number;
+  sid?: string | undefined;
+  direct_link?: string | undefined;
+  direction: string;
+  status: string;
+  missed_call_reason?: string | undefined;
+  started_at?: number | undefined;
+  answered_at?: number | undefined;
+  ended_at?: number | undefined;
+  duration?: number | undefined;
+  voicemail?: string | undefined;
+  recording?: string | undefined;
+  asset?: string | undefined;
+  raw_digits?: string | undefined;
+  user?: {  [key: string]: unknown | undefined;};
+  contact?: {  [key: string]: unknown | undefined;};
+  archived?: boolean | undefined;
+  assigned_to?: {  [key: string]: unknown | undefined;};
+  transferred_by?: {  [key: string]: unknown | undefined;};
+  transferred_to?: {  [key: string]: unknown | undefined;};
+  cost?: string | undefined;
+  number?: {  [key: string]: unknown | undefined;};
+  comments?: ({  [key: string]: unknown | undefined;})[];
+  tags?: ({  [key: string]: unknown | undefined;})[];
+  teams?: ({  [key: string]: unknown | undefined;})[];
+  participants?: ({  [key: string]: unknown | undefined;})[];
+  ivr_options_selected?: ({  [key: string]: unknown | undefined;})[];})[];
+  next_page?: number | undefined;
+  meta: {  count: number;
+  total: number;
+  current_page: number;
+  per_page: number;
+  next_page_link: string;
+  previous_page_link: string;};
+};
+
+export interface ActionInput_aircall_listcontacts {
+  /**
+   * Pagination cursor (page number) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Default is 20, maximum is 50.
+   */
+  per_page?: number | undefined;
+};
+
+export interface ActionOutput_aircall_listcontacts {
+  items: ({  id: number;
+  direct_link: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  company_name?: string | undefined;
+  information?: string | undefined;
+  is_shared: boolean;
+  created_at: number;
+  updated_at: number;
+  emails?: ({  id: number;
+  label: string;
+  value: string;})[] | undefined;
+  phone_numbers?: ({  id: number;
+  label: string;
+  value: string;})[] | undefined;})[];
+  /**
+   * Pagination cursor for the next page. Omitted when there are no more pages.
+   */
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_aircall_listnumbers {
+  /**
+   * Pagination cursor (page number) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_aircall_listnumbers {
+  items: ({  id: number;
+  direct_link: string;
+  name: string;
+  digits: string;
+  e164_digits?: string | undefined;
+  created_at: string;
+  country: string;
+  time_zone: string;
+  open: boolean;
+  availability_status: string;
+  is_ivr: boolean;
+  live_recording_activated: boolean;
+  users?: unknown[] | undefined;
+  priority?: number | undefined;
+  messages?: {  welcome?: string | undefined;
+  waiting?: string | undefined;
+  ringing_tone?: string | undefined;
+  unanswered_call?: string | undefined;
+  after_hours?: string | undefined;
+  ivr?: string | undefined;
+  voicemail?: string | undefined;
+  closed?: string | undefined;
+  callback_later?: string | undefined;};
+  voicemail?: string | undefined;
+  closed?: string | undefined;
+  callback_later?: string | undefined;})[];
+  /**
+   * Next page cursor (page number string). Pass as cursor on the next call.
+   */
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_aircall_listtags {
+  /**
+   * Page number. Default is 1.
+   */
+  page?: number | undefined;
+  /**
+   * Number of results per page. Default is 20, maximum is 50.
+   */
+  per_page?: number | undefined;
+};
+
+export interface ActionOutput_aircall_listtags {
+  tags: ({  id: number;
+  direct_link?: string | undefined;
+  name: string;
+  color: string;
+  description?: string | undefined;})[];
+  meta: {  count: number;
+  total: number;
+  current_page: number;
+  per_page: number;
+  next_page_link?: string | undefined;
+  previous_page_link?: string | undefined;};
+};
+
+export interface ActionInput_aircall_listteams {
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Max 50.
+   */
+  per_page?: number | undefined;
+};
+
+export interface ActionOutput_aircall_listteams {
+  teams: ({  id: number;
+  name: string;
+  direct_link: string;
+  created_at: string;
+  users: ({  id: number;
+  direct_link: string;
+  name: string;
+  email: string;
+  availability_status?: string | undefined;
+  default_number_id?: number | undefined;
+  created_at: string;
+  time_zone: string;})[];})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_aircall_listuseravailabilities {
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_aircall_listuseravailabilities {
+  items: ({  /**
+   * User ID. Example: 1981305
+   */
+  id: number;
+  /**
+   * Availability status. Values: available, unavailable, offline, custom
+   */
+  availability: string;})[];
+  /**
+   * Cursor for the next page. Omit if there are no more pages.
+   */
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_aircall_listusers {
+  /**
+   * Pagination cursor (page number) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Maximum is 50.
+   */
+  per_page?: number | undefined;
+};
+
+export interface ActionOutput_aircall_listusers {
+  items: ({  id: number;
+  direct_link: string;
+  name: string;
+  email: string;
+  available: boolean;
+  availability_status: string;
+  created_at: string;
+  time_zone: string;
+  language: string;
+  substatus: string;
+  wrap_up_time: number;
+  extension?: string | undefined;
+  default_number_id?: number | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_aircall_listwebhooks {
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_aircall_listwebhooks {
+  items: ({  id: number;
+  webhook_id: string;
+  direct_link?: string | undefined;
+  created_at?: string | undefined;
+  url?: string | undefined;
+  active?: boolean | undefined;
+  token?: string | undefined;
+  events?: string[] | undefined;})[];
+  next_page?: string | undefined;
+};
+
+export interface ActionInput_aircall_removeteammember {
+  /**
+   * Team ID. Example: 244844
+   */
+  team_id: number;
+  /**
+   * User ID. Example: 1981305
+   */
+  user_id: number;
+};
+
+export interface ActionOutput_aircall_removeteammember {
+  id: number;
+  name: string;
+  direct_link?: string | undefined;
+  created_at?: string | undefined;
+  users?: unknown[] | undefined;
+};
+
+export interface ActionInput_aircall_searchcalls {
+  /**
+   * Search string to filter calls by phone number, contact name, or other criteria.
+   */
+  query?: string | undefined;
+  /**
+   * Minimum call creation date as a Unix timestamp.
+   */
+  from?: number | undefined;
+  /**
+   * Maximum call creation date as a Unix timestamp.
+   */
+  to?: number | undefined;
+  /**
+   * Page number for pagination. Defaults to 1.
+   */
+  page?: number | undefined;
+  /**
+   * Number of results per page. Maximum is 50.
+   */
+  per_page?: number | undefined;
+};
+
+export interface ActionOutput_aircall_searchcalls {
+  calls: ({  id: number;
+  sid?: string | undefined;
+  direct_link?: string | undefined;
+  direction?: string | undefined;
+  status?: string | undefined;
+  missed_call_reason?: string | undefined;
+  started_at?: number | undefined;
+  answered_at?: number | undefined;
+  ended_at?: number | undefined;
+  duration?: number | undefined;
+  voicemail?: unknown | undefined;
+  recording?: unknown | undefined;
+  asset?: unknown | undefined;
+  raw_digits?: string | undefined;
+  user?: {  id: number;
+  direct_link?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  available?: boolean | undefined;
+  availability_status?: string | undefined;
+  created_at?: string | undefined;
+  time_zone?: string | undefined;
+  language?: string | undefined;};
+  contact?: unknown | undefined;
+  archived?: boolean | undefined;
+  assigned_to?: unknown | undefined;
+  transferred_by?: unknown | undefined;
+  transferred_to?: unknown | undefined;
+  cost?: string | undefined;
+  number?: {  id: number;
+  direct_link?: string | undefined;
+  name?: string | undefined;
+  digits?: string | undefined;
+  created_at?: string | undefined;
+  country?: string | undefined;
+  time_zone?: string | undefined;
+  open?: boolean | undefined;
+  availability_status?: string | undefined;
+  is_ivr?: boolean | undefined;
+  live_recording_activated?: boolean | undefined;
+  priority?: string | undefined;};
+  comments?: unknown[] | undefined;
+  tags?: unknown[] | undefined;
+  teams?: unknown[] | undefined;
+  ivr_options_selected?: unknown[] | undefined;})[];
+  next_page?: number | undefined;
+  total?: number | undefined;
+};
+
+export interface ActionInput_aircall_searchcontacts {
+  /**
+   * Search string to filter contacts by name, phone, or email.
+   */
+  query: string;
+  /**
+   * Number of results per page (max 50).
+   */
+  per_page?: number | undefined;
+  /**
+   * Pagination cursor (page number) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_aircall_searchcontacts {
+  contacts: ({  /**
+   * Contact ID. Example: 711
+   */
+  id: number;
+  /**
+   * Direct API URL. Example: https://api.aircall.io/v1/contacts/711
+   */
+  direct_link?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  company_name?: string | undefined;
+  information?: string | undefined;
+  is_shared?: boolean | undefined;
+  /**
+   * Unix timestamp when the contact was created. Example: 1781777463
+   */
+  created_at?: number | undefined;
+  /**
+   * Unix timestamp when the contact was last updated. Example: 1781777463
+   */
+  updated_at?: number | undefined;
+  phone_numbers?: ({  label: string;
+  value: string;})[] | undefined;
+  emails?: ({  label: string;
+  value: string;})[] | undefined;})[];
+  meta: {  count: number;
+  total: number;
+  current_page: number;
+  per_page: number;
+  next_page_link: string;
+  previous_page_link: string;};
+  /**
+   * Next page number for pagination.
+   */
+  next_page?: number | undefined;
+};
+
+export interface ActionInput_aircall_updatecontact {
+  /**
+   * Contact ID. Example: 482393544
+   */
+  id: number;
+  /**
+   * Contact first name.
+   */
+  first_name?: string | undefined;
+  /**
+   * Contact last name.
+   */
+  last_name?: string | undefined;
+  /**
+   * Contact company name.
+   */
+  company_name?: string | undefined;
+  /**
+   * Extra information about the contact.
+   */
+  information?: string | undefined;
+  /**
+   * Phone numbers for the contact.
+   */
+  phone_numbers?: ({  /**
+   * Label for the phone number. Example: "Work"
+   */
+  label: string;
+  /**
+   * The raw phone number. Example: "+19001112222"
+   */
+  value: string;})[] | undefined;
+  /**
+   * Email addresses for the contact.
+   */
+  emails?: ({  /**
+   * Label for the email. Example: "Office"
+   */
+  label: string;
+  /**
+   * The email address. Example: "gary.jennings@acme.com"
+   */
+  value: string;})[] | undefined;
+};
+
+export interface ActionOutput_aircall_updatecontact {
+  contact: {  id: number;
+  direct_link?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  company_name?: string | undefined;
+  information?: string | undefined;
+  is_shared?: boolean | undefined;
+  created_at?: number | undefined;
+  updated_at?: number | undefined;
+  phone_numbers?: ({  id?: number | undefined;
+  label?: string | undefined;
+  value: string;})[];
+  emails?: ({  id?: number | undefined;
+  label?: string | undefined;
+  value: string;})[];};
+};
+
+export interface ActionInput_aircall_updatetag {
+  /**
+   * Unique identifier for the Tag. Example: 2733978
+   */
+  id: number;
+  /**
+   * Name of the tag. Must be unique. Example: "Tier 2 Customer"
+   */
+  name?: string | undefined;
+  /**
+   * Color of the tag in hexadecimal format. Example: "#00B388"
+   */
+  color?: string | undefined;
+  /**
+   * Description of the tag. Set to null to clear. Example: "High priority clients"
+   */
+  description?: string | undefined;
+};
+
+export interface ActionOutput_aircall_updatetag {
+  id: number;
+  name: string;
+  color: string;
+  description?: string | undefined;
+};
+
+export interface ActionInput_aircall_updateuser {
+  /**
+   * Aircall user ID. Example: 1981305
+   */
+  id: number;
+  /**
+   * First name of the user. Example: "John"
+   */
+  first_name?: string | undefined;
+  /**
+   * Last name of the user. Example: "Doe"
+   */
+  last_name?: string | undefined;
+  /**
+   * Email of the user.
+   */
+  email?: string | undefined;
+  /**
+   * User preferred language (IETF tag). Example: en-US
+   */
+  language?: string | undefined;
+  /**
+   * User timezone. Example: America/New_York
+   */
+  time_zone?: string | undefined;
+  /**
+   * Wrap-up time in seconds after a call.
+   */
+  wrap_up_time?: number | undefined;
+  /**
+   * User extension.
+   */
+  extension?: string | undefined;
+  /**
+   * Default number ID for the user.
+   */
+  default_number_id?: number | undefined;
+};
+
+export interface ActionOutput_aircall_updateuser {
+  id: number;
+  direct_link: string;
+  name: string;
+  email: string;
+  available: boolean;
+  availability_status: string;
+  created_at: string;
+  time_zone: string;
+  language: string;
+  wrap_up_time: number;
+  extension?: string | undefined;
+  substatus?: string | undefined;
+  default_number_id?: number | undefined;
+};
+
+export interface ActionInput_aircall_updatewebhook {
+  /**
+   * Webhook UUID. Example: "c2501111-8a69-4342-bb34-bcd6cfe564ac"
+   */
+  webhook_id: string;
+  /**
+   * Webhook URL. Must be a valid HTTPS URL. Example: "https://example.com/webhook"
+   */
+  url: string;
+  /**
+   * List of events to subscribe to. Example: ["contact.created", "contact.updated"]
+   */
+  events?: string[] | undefined;
+  /**
+   * Whether the webhook is active.
+   */
+  active?: boolean | undefined;
+  /**
+   * Custom name for the webhook. Default is "Webhook".
+   */
+  custom_name?: string | undefined;
+};
+
+export interface ActionOutput_aircall_updatewebhook {
+  webhook_id: string;
+  direct_link: string;
+  created_at: string;
+  url: string;
+  active: boolean;
+  token: string;
+  events: string[];
+  custom_name?: string | undefined;
 };
 
 export interface Base {
@@ -4388,20 +5443,6 @@ export interface View {
   conditions?: {} | undefined;
   execution?: {} | undefined;
   restriction?: unknown | undefined;
-};
-
-export interface Webhook {
-  id: string;
-  event_type: string;
-  team_id: string;
-  context: string;
-  context_id: string;
-  plan_api_id: string;
-  status: string;
-  client_id: string;
-  passcode: string;
-  endpoint: string;
-  description: string;
 };
 
 export interface SyncMetadata_airtable_webhooks {
@@ -8654,25 +9695,14 @@ export interface Organization {
 
 export interface Sequence {
   id: string;
-  name?: string | undefined;
-  active?: boolean | undefined;
-  created_at?: string | undefined;
-  updated_at?: string | undefined;
-  num_steps?: number | undefined;
-  unique_scheduled?: number | undefined;
-  unique_delivered?: number | undefined;
-  unique_opened?: number | undefined;
-  unique_replied?: number | undefined;
-  unique_bounced?: number | undefined;
-  user_id?: string | undefined;
-  email_account_id?: string | undefined;
-  label_ids?: string[] | undefined;
-  folder_id?: string | undefined;
-  tags?: string[] | undefined;
-  archived?: boolean | undefined;
-  scheduling_status?: string | undefined;
-  pause_on_out_of_office?: boolean | undefined;
-  pause_on_holiday?: boolean | undefined;
+  name: string;
+  status: 'active' | 'paused' | 'archived';
+  created_by: string;
+  date_created: string;
+  date_updated: string;
+  steps: ({  type: string;
+  delay_in_hours: number;
+  template?: string | undefined;})[];
 };
 
 export interface Task {
@@ -10056,12 +11086,6 @@ export interface SyncMetadata_asana_tasks {
   workspace_id?: string | undefined;
   project_id?: string | undefined;
   section_id?: string | undefined;
-};
-
-export interface Team {
-  id: string;
-  name: string;
-  picture_url?: string | undefined;
 };
 
 export interface Workspace {
@@ -12717,12 +13741,15 @@ export interface Record {
 
 export interface WorkspaceMember {
   id: string;
-  first_name: string;
-  last_name: string;
-  avatar_url?: string | undefined;
-  email_address: string;
-  created_at: string;
-  access_level: string;
+  type?: string | undefined;
+  workspace_uuid?: string | undefined;
+  workspace_slug?: string | undefined;
+  workspace_name?: string | undefined;
+  user_uuid?: string | undefined;
+  user_nickname?: string | undefined;
+  user_display_name?: string | undefined;
+  user_account_id?: string | undefined;
+  permission?: string | undefined;
 };
 
 export interface ActionInput_attio_createcomment {
@@ -16445,152 +17472,16 @@ export interface ActionOutput_auth0_cc_updateuser {
 };
 
 export interface Transaction {
+  /**
+   * EntryID
+   */
   id: string;
-  code: string;
-  companyId: number;
-  date: string;
-  paymentDate: string;
-  status: string;
-  type: string;
-  batchCode: string;
-  currencyCode: string;
-  exchangeRateCurrencyCode: string;
-  customerUsageType: string;
-  entityUseCode: string;
-  customerVendorCode: string;
-  customerCode: string;
-  exemptNo: string;
-  reconciled: boolean;
-  locationCode: string;
-  reportingLocationCode: string;
-  purchaseOrderNo: string;
-  referenceCode: string;
-  salespersonCode: string;
-  taxOverrideType: string;
-  taxOverrideAmount: number;
-  taxOverrideReason: string;
-  totalAmount: number;
-  totalExempt: number;
-  totalDiscount: number;
-  totalTax: number;
-  totalTaxable: number;
-  totalTaxCalculated: number;
-  adjustmentReason: string;
-  adjustmentDescription: string;
-  locked: boolean;
-  region: string;
-  country: string;
-  version: number;
-  softwareVersion: string;
-  originAddressId: number;
-  destinationAddressId: number;
-  exchangeRateEffectiveDate: string;
-  exchangeRate: number;
-  isSellerImporterOfRecord: boolean;
-  description: string;
-  email: string;
-  businessIdentificationNo: string;
-  modifiedDate: string;
-  modifiedUserId: number;
-  taxDate: string;
-  lines: ({  id: number;
-  transactionId: number;
-  lineNumber: string;
-  boundaryOverrideId: number;
-  entityUseCode: string;
-  description: string;
-  destinationAddressId: number;
-  originAddressId: number;
-  discountAmount: number;
-  discountTypeId: number;
-  exemptAmount: number;
-  exemptCertId: number;
-  exemptNo: string;
-  isItemTaxable: boolean;
-  isSSTP: boolean;
-  itemCode: string;
-  lineAmount: number;
-  quantity: number;
-  ref1: string;
-  reportingDate: string;
-  revAccount: string;
-  sourcing: string;
-  tax: number;
-  taxableAmount: number;
-  taxCalculated: number;
-  taxCode: string;
-  taxDate: string;
-  taxEngine: string;
-  taxOverrideType: string;
-  taxOverrideAmount: number;
-  taxOverrideReason: string;
-  taxIncluded: boolean;
-  details: ({  id: number;
-  transactionLineId: number;
-  transactionId: number;
-  addressId: number;
-  country: string;
-  region: string;
-  stateFIPS: string;
-  exemptAmount: number;
-  exemptReasonId: number;
-  exemptRuleId: number;
-  inState: boolean;
-  jurisCode: string;
-  jurisName: string;
-  jurisdictionId: number;
-  signatureCode: string;
-  stateAssignedNo: string;
-  jurisType: string;
-  nonTaxableAmount: number;
-  nonTaxableRuleId: number;
-  nonTaxableType: string;
-  rate: number;
-  rateRuleId: number;
-  rateSourceId: number;
-  serCode: string;
-  sourcing: string;
-  tax: number;
-  taxableAmount: number;
-  taxType: string;
-  taxName: string;
-  taxAuthorityTypeId: number;
-  taxRegionId: number;
-  taxCalculated: number;
-  taxOverride: number;
-  rateType: string;
-  taxableUnits: number;
-  nonTaxableUnits: number;
-  exemptUnits: number;
-  reportingTaxableUnits: number;
-  reportingNonTaxableUnits: number;
-  reportingExemptUnits: number;
-  reportingTax: number;
-  reportingTaxCalculated: number;
-  recoverabilityPercentage: number;
-  recoverableAmount: number;
-  nonRecoverableAmount: number;})[];
-  vatNumberTypeId: number;
-  recoverabilityPercentage: number;
-  recoverableAmount: number;
-  nonRecoverableAmount: number;})[];
-  locationTypes: any[];
-  messages: string[];
-  summary: string[];
-  addresses: ({  id: number;
-  transactionId: number;
-  boundaryLevel: string;
-  line1: string;
-  city: string;
-  region: string;
-  postalCode: string;
-  country: string;
-  taxRegionId: number;})[];
-  taxDetailsByTaxType: ({  taxType: string;
-  totalTaxable: number;
-  totalExempt: number;
-  totalNonTaxable: number;
-  totalTax: number;})[];
+  entryNumber?: number | undefined;
+  date?: string | undefined;
+  modified?: string | undefined;
+  journalCode?: string | undefined;
+  status?: number | undefined;
+  type?: number | undefined;
 };
 
 export interface SyncMetadata_avalara_transactions {
@@ -16712,6 +17603,1326 @@ export interface ActionInput_aws_iam_deleteuser {
 
 export interface ActionOutput_aws_iam_deleteuser {
   success: boolean;
+};
+
+export interface Branch {
+  id: string;
+  name: string;
+  project_id: string;
+  merged?: boolean | undefined;
+  protected?: boolean | undefined;
+  default?: boolean | undefined;
+  developers_can_push?: boolean | undefined;
+  developers_can_merge?: boolean | undefined;
+  can_push?: boolean | undefined;
+  web_url?: string | undefined;
+  commit_id?: string | undefined;
+  commit_short_id?: string | undefined;
+  commit_created_at?: string | undefined;
+  commit_title?: string | undefined;
+  commit_message?: string | undefined;
+  commit_author_name?: string | undefined;
+  commit_author_email?: string | undefined;
+  commit_authored_date?: string | undefined;
+  commit_committer_name?: string | undefined;
+  commit_committer_email?: string | undefined;
+  commit_committed_date?: string | undefined;
+  commit_web_url?: string | undefined;
+};
+
+export interface SyncMetadata_azure_devops_branches {
+  repositories: ({  project: string;
+  repositoryId: string;})[];
+};
+
+export interface BuildDefinition {
+  id: string;
+  name?: string | undefined;
+  path?: string | undefined;
+  projectId?: string | undefined;
+  projectName?: string | undefined;
+  url?: string | undefined;
+  revision?: number | undefined;
+  createdDate?: string | undefined;
+};
+
+export interface SyncMetadata_azure_devops_builddefinitions {
+  projects: string[];
+};
+
+export interface Build {
+  /**
+   * Build ID
+   */
+  id: string;
+  buildNumber?: string | undefined;
+  status?: string | undefined;
+  result?: string | undefined;
+  queueTime?: string | undefined;
+  startTime?: string | undefined;
+  finishTime?: string | undefined;
+  sourceBranch?: string | undefined;
+  sourceVersion?: string | undefined;
+  url?: string | undefined;
+  definition?: {  id?: number | undefined;
+  name?: string | undefined;};
+  project?: {  id?: string | undefined;
+  name?: string | undefined;};
+  requestedBy?: {  id?: string | undefined;
+  displayName?: string | undefined;};
+};
+
+export interface SyncMetadata_azure_devops_builds {
+  projects?: string[] | undefined;
+};
+
+export interface Commit {
+  id: string;
+  short_id?: string | undefined;
+  title?: string | undefined;
+  author_name?: string | undefined;
+  author_email?: string | undefined;
+  authored_date?: string | undefined;
+  committer_name?: string | undefined;
+  committer_email?: string | undefined;
+  committed_date?: string | undefined;
+  created_at?: string | undefined;
+  message?: string | undefined;
+  parent_ids?: string[] | undefined;
+  web_url?: string | undefined;
+};
+
+export interface SyncMetadata_azure_devops_commits {
+  repositories?: ({  project: string;
+  repositoryId: string;})[] | undefined;
+};
+
+export interface Iteration {
+  id: string;
+  name?: string | undefined;
+  path?: string | undefined;
+  attributes?: {  startDate?: string | undefined;
+  finishDate?: string | undefined;
+  timeFrame?: string | undefined;};
+  url?: string | undefined;
+};
+
+export interface SyncMetadata_azure_devops_iterations {
+  projectTeams: ({  projectId: string;
+  teamId: string;})[];
+};
+
+export interface Pipeline {
+  id: string;
+  name?: string | undefined;
+  update_time: string;
+  add_time?: string | undefined;
+  is_deal_probability_enabled?: boolean | undefined;
+};
+
+export interface SyncMetadata_azure_devops_pipelines {
+  projects: string[];
+};
+
+export interface PullRequest {
+  /**
+   * The unique identifier of the pull request (e.g., "12345")
+   */
+  id: string;
+  /**
+   * The pull request number within the repository
+   */
+  number: number;
+  /**
+   * The state of the pull request: "open", "closed"
+   */
+  state: string;
+  /**
+   * The title of the pull request
+   */
+  title: string;
+  /**
+   * The description/body of the pull request
+   */
+  body?: string | undefined;
+  /**
+   * The login/username of the PR author
+   */
+  user_login?: string | undefined;
+  /**
+   * The ID of the PR author
+   */
+  user_id?: number | undefined;
+  /**
+   * The ISO 8601 timestamp when the PR was created
+   */
+  created_at: string;
+  /**
+   * The ISO 8601 timestamp when the PR was last updated
+   */
+  updated_at: string;
+  /**
+   * The ISO 8601 timestamp when the PR was closed
+   */
+  closed_at?: string | undefined;
+  /**
+   * The ISO 8601 timestamp when the PR was merged
+   */
+  merged_at?: string | undefined;
+  /**
+   * The SHA of the merge commit
+   */
+  merge_commit_sha?: string | undefined;
+  /**
+   * The name of the head branch
+   */
+  head_ref: string;
+  /**
+   * The SHA of the head branch commit
+   */
+  head_sha: string;
+  /**
+   * The name of the base branch
+   */
+  base_ref: string;
+  /**
+   * The SHA of the base branch commit
+   */
+  base_sha: string;
+  /**
+   * Whether the pull request is a draft
+   */
+  draft: boolean;
+  /**
+   * The URL to view the pull request on GitHub
+   */
+  html_url: string;
+  /**
+   * The full name of the repository (e.g., "owner/repo")
+   */
+  repo_full_name: string;
+  /**
+   * Labels attached to the pull request
+   */
+  labels: ({  id: number;
+  name: string;
+  color: string;
+  description?: string | undefined;})[];
+  /**
+   * Users assigned to the pull request
+   */
+  assignees: ({  login: string;
+  id: number;})[];
+  /**
+   * Users requested to review the pull request
+   */
+  requested_reviewers: ({  login: string;
+  id: number;})[];
+};
+
+export interface Repository {
+  id: string;
+  name: string;
+  full_name: string;
+  owner_login: string;
+  owner_id: string;
+  owner_type: string;
+  private: boolean;
+  visibility?: string | undefined;
+  html_url: string;
+  description?: string | undefined;
+  fork: boolean;
+  default_branch: string;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  pushed_at?: string | undefined;
+  homepage?: string | undefined;
+  language?: string | undefined;
+  size: number;
+  forks_count: number;
+  stargazers_count: number;
+  open_issues_count: number;
+  archived?: boolean | undefined;
+  disabled?: boolean | undefined;
+};
+
+export interface SyncMetadata_azure_devops_repositories {
+  /**
+   * List of project IDs or names to sync repositories from
+   */
+  projects: string[];
+};
+
+export interface SyncMetadata_azure_devops_teams {
+  projectIds: string[];
+};
+
+export interface TestPlan {
+  /**
+   * The unique identifier of the test plan
+   */
+  id: string;
+  /**
+   * The name of the test plan
+   */
+  name: string;
+  /**
+   * The identifier of the project containing the test plan
+   */
+  projectId: string;
+  /**
+   * The name of the project containing the test plan
+   */
+  projectName: string;
+  areaPath?: string | undefined;
+  iteration?: string | undefined;
+  state?: string | undefined;
+  startDate?: string | undefined;
+  endDate?: string | undefined;
+  updatedDate?: string | undefined;
+  ownerId?: string | undefined;
+  ownerDisplayName?: string | undefined;
+  rootSuiteId?: number | undefined;
+  rootSuiteName?: string | undefined;
+  revision?: number | undefined;
+  description?: string | undefined;
+  buildId?: number | undefined;
+};
+
+export interface SyncMetadata_azure_devops_testplans {
+  projects: string[];
+};
+
+export interface WorkItem {
+  id: string;
+  project?: string | undefined;
+  url?: string | undefined;
+  type?: string | undefined;
+  state?: string | undefined;
+  title?: string | undefined;
+  createdDate?: string | undefined;
+  changedDate?: string | undefined;
+  fields?: {  [key: string]: unknown | undefined;};
+};
+
+export interface SyncMetadata_azure_devops_workitems {
+  projects: string[];
+};
+
+export interface ActionInput_azure_devops_createprthread {
+  /**
+   * Project name or ID. Example: "nangodev"
+   */
+  project: string;
+  /**
+   * Repository ID. Example: "46eadaf5-eb36-43bc-8297-a9b4043afd09"
+   */
+  repositoryId: string;
+  /**
+   * Pull request ID. Example: 1
+   */
+  pullRequestId: number;
+  /**
+   * Comment content. Example: "Looks good!"
+   */
+  content: string;
+};
+
+export interface ActionOutput_azure_devops_createprthread {
+  id: number;
+  publishedDate?: string | undefined;
+  lastUpdatedDate?: string | undefined;
+  comments?: ({  id?: number | undefined;
+  parentCommentId?: number | undefined;
+  author?: {  displayName?: string | undefined;
+  id?: string | undefined;
+  uniqueName?: string | undefined;
+  imageUrl?: string | undefined;};
+  content?: string | undefined;
+  publishedDate?: string | undefined;
+  lastUpdatedDate?: string | undefined;
+  lastContentUpdatedDate?: string | undefined;
+  commentType?: string | undefined;})[];
+  status?: string | undefined;
+  threadContext?: unknown | undefined;
+  properties?: unknown | undefined;
+  identities?: unknown | undefined;
+  isDeleted?: boolean | undefined;
+};
+
+export interface ActionInput_azure_devops_createpullrequest {
+  /**
+   * Project name or ID. Example: "nangodev"
+   */
+  project: string;
+  /**
+   * Repository ID. Example: "46eadaf5-eb36-43bc-8297-a9b4043afd09"
+   */
+  repositoryId: string;
+  /**
+   * Pull request title.
+   */
+  title: string;
+  /**
+   * Pull request description.
+   */
+  description?: string | undefined;
+  /**
+   * Source branch ref. Example: "refs/heads/feature-branch"
+   */
+  sourceRefName: string;
+  /**
+   * Target branch ref. Example: "refs/heads/main"
+   */
+  targetRefName: string;
+  /**
+   * Whether the pull request is a draft.
+   */
+  isDraft?: boolean | undefined;
+};
+
+export interface ActionOutput_azure_devops_createpullrequest {
+  pullRequestId: number;
+  status: string;
+  title: string;
+  description?: string | undefined;
+  sourceRefName: string;
+  targetRefName: string;
+  isDraft?: boolean | undefined;
+  mergeStatus?: string | undefined;
+  url?: string | undefined;
+  creationDate?: string | undefined;
+  createdBy?: {  displayName: string;
+  id: string;
+  uniqueName?: string | undefined;};
+};
+
+export interface ActionInput_azure_devops_createworkitem {
+  /**
+   * Project name or ID. Example: "MyProject"
+   */
+  project: string;
+  /**
+   * Work item type. Example: "Task"
+   */
+  type: string;
+  /**
+   * JSON Patch operations for work item fields. Example: [{ op: "add", path: "/fields/System.Title", value: "New task" }]
+   */
+  fields: ({  op: string;
+  path: string;
+  value?: unknown | undefined;
+  from?: unknown | undefined;})[];
+};
+
+export interface ActionOutput_azure_devops_createworkitem {
+  /**
+   * Work item ID.
+   */
+  id: number;
+  /**
+   * Work item revision.
+   */
+  rev: number;
+  /**
+   * Work item URL.
+   */
+  url: string;
+  /**
+   * Work item fields.
+   */
+  fields?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_azure_devops_deleteworkitem {
+  /**
+   * Project ID or project name. Example: "MyProject"
+   */
+  project: string;
+  /**
+   * ID of the work item to delete. Example: 123
+   */
+  workItemId: number;
+  /**
+   * If true, permanently destroys the work item instead of moving it to the Recycle Bin.
+   */
+  destroy?: boolean | undefined;
+};
+
+export interface ActionOutput_azure_devops_deleteworkitem {
+  /**
+   * The deleted work item ID.
+   */
+  id: number;
+  /**
+   * The project identifier used in the request.
+   */
+  project: string;
+  /**
+   * Whether the deletion succeeded.
+   */
+  deleted: boolean;
+  /**
+   * Whether the permanent destroy flag was used.
+   */
+  destroy: boolean;
+  deletedBy?: string | undefined;
+  deletedDate?: string | undefined;
+  type?: string | undefined;
+  name?: string | undefined;
+  url?: string | undefined;
+};
+
+export interface ActionInput_azure_devops_getproject {
+  /**
+   * Project ID or name. Example: "ecbf2301-2e63-41b4-a8fd-1d2d4e1f8b9c" or "Fabrikam"
+   */
+  projectId: string;
+};
+
+export interface ActionOutput_azure_devops_getproject {
+  id: string;
+  name: string;
+  url?: string | undefined;
+  state?: string | undefined;
+  revision?: number | undefined;
+  visibility?: string | undefined;
+  lastUpdateTime?: string | undefined;
+  description?: string | undefined;
+};
+
+export interface ActionInput_azure_devops_getrepository {
+  /**
+   * Project ID or name. Example: "nangoapi"
+   */
+  project: string;
+  /**
+   * Repository ID or name. Example: "my-repo"
+   */
+  repositoryId: string;
+};
+
+export interface ActionOutput_azure_devops_getrepository {
+  id: string;
+  name?: string | undefined;
+  url?: string | undefined;
+  project?: {  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  url?: string | undefined;
+  state?: string | undefined;
+  revision?: number | undefined;
+  visibility?: string | undefined;
+  lastUpdateTime?: string | undefined;};
+  defaultBranch?: string | undefined;
+  remoteUrl?: string | undefined;
+  sshUrl?: string | undefined;
+  webUrl?: string | undefined;
+};
+
+export interface ActionInput_azure_devops_getworkitem {
+  /**
+   * Project name or ID. Example: "nangoapi"
+   */
+  project: string;
+  /**
+   * Work item ID. Example: 1
+   */
+  id: number;
+};
+
+export interface ActionOutput_azure_devops_getworkitem {
+  id: number;
+  rev?: number | undefined;
+  url?: string | undefined;
+  fields?: {  [key: string]: unknown | undefined;};
+  relations?: ({})[] | undefined;
+};
+
+export interface ActionInput_azure_devops_listboards {
+  /**
+   * Project ID or project name. Example: "MyProject"
+   */
+  project: string;
+  /**
+   * Team ID or team name. Example: "MyTeam" or "My Team"
+   */
+  team: string;
+};
+
+export interface ActionOutput_azure_devops_listboards {
+  boards: ({  /**
+   * Board ID. Example: "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
+   */
+  id: string;
+  /**
+   * Board name. Example: "Backlog"
+   */
+  name: string;
+  /**
+   * Full URL to the board resource.
+   */
+  url: string;})[];
+};
+
+export interface ActionInput_azure_devops_listbranches {
+  project: string;
+  repositoryId: string;
+  continuationToken?: string | undefined;
+};
+
+export interface ActionOutput_azure_devops_listbranches {
+  branches: ({  name: string;
+  objectId: string;
+  creator?: {  displayName?: string | undefined;
+  id?: string | undefined;};
+  url?: string | undefined;})[];
+  nextContinuationToken?: string | undefined;
+};
+
+export interface ActionInput_azure_devops_listbuilddefinitions {
+  /**
+   * Project name or ID. Example: "MyProject"
+   */
+  project: string;
+  /**
+   * Pagination cursor (continuationToken) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_azure_devops_listbuilddefinitions {
+  items: ({  id: number;
+  name: string;
+  url?: string | undefined;
+  path?: string | undefined;
+  type?: string | undefined;
+  queueStatus?: string | undefined;
+  revision?: number | undefined;
+  createdDate?: string | undefined;
+  project?: {  id: string;
+  name: string;
+  url?: string | undefined;
+  state?: string | undefined;
+  revision?: number | undefined;
+  visibility?: string | undefined;
+  lastUpdateTime?: string | undefined;};})[];
+  /**
+   * Pagination cursor for the next page. Omit if there are no more pages.
+   */
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_azure_devops_listbuilds {
+  /**
+   * Project name or ID. Example: "MyProject"
+   */
+  project: string;
+  /**
+   * Minimum queue time filter (ISO 8601). Example: "2024-01-01T00:00:00Z"
+   */
+  minTime?: string | undefined;
+  /**
+   * Continuation token from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_azure_devops_listbuilds {
+  items: ({  id: number;
+  buildNumber?: string | undefined;
+  status?: string | undefined;
+  result?: string | undefined;
+  queueTime?: string | undefined;
+  startTime?: string | undefined;
+  finishTime?: string | undefined;
+  url?: string | undefined;
+  definition?: {  id?: number | undefined;
+  name?: string | undefined;};
+  project?: {  id?: string | undefined;
+  name?: string | undefined;};
+  sourceBranch?: string | undefined;
+  requestedFor?: {  id?: string | undefined;
+  displayName?: string | undefined;};})[];
+  continuationToken?: string | undefined;
+};
+
+export interface ActionInput_azure_devops_listcommits {
+  /**
+   * Project name or ID. Example: "nangoapi"
+   */
+  project: string;
+  /**
+   * Repository ID or name. Example: "my-repo"
+   */
+  repositoryId: string;
+  /**
+   * Branch name to filter commits. Example: "main"
+   */
+  branch?: string | undefined;
+  /**
+   * Filter commits created after this date (ISO 8601). Example: "2024-01-01T00:00:00Z"
+   */
+  fromDate?: string | undefined;
+  /**
+   * Number of commits to return per page. Example: 100
+   */
+  top?: number | undefined;
+  /**
+   * Number of commits to skip. Example: 0
+   */
+  skip?: number | undefined;
+  /**
+   * Pagination cursor from the previous response (continuationToken). Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_azure_devops_listcommits {
+  items: ({  commitId: string;
+  author?: {  name?: string | undefined;
+  email?: string | undefined;
+  date?: string | undefined;};
+  committer?: {  name?: string | undefined;
+  email?: string | undefined;
+  date?: string | undefined;};
+  comment?: string | undefined;
+  changeCounts?: {  Add?: number | undefined;
+  Edit?: number | undefined;
+  Delete?: number | undefined;};
+  url?: string | undefined;
+  remoteUrl?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_azure_devops_listiterations {
+  /**
+   * Project ID or project name. Example: "nangodev"
+   */
+  project: string;
+  /**
+   * Team ID or team name. Example: "nangodev Team"
+   */
+  team: string;
+  /**
+   * Filter for which iterations are returned based on relative time.
+   */
+  timeframe?: 'current' | 'past' | 'future' | undefined;
+};
+
+export interface ActionOutput_azure_devops_listiterations {
+  items: ({  id: string;
+  name: string;
+  path?: string | undefined;
+  url?: string | undefined;
+  attributes?: {  startDate?: string | undefined;
+  finishDate?: string | undefined;
+  timeFrame?: 'past' | 'current' | 'future' | undefined;};})[];
+};
+
+export interface ActionInput_azure_devops_listpipelineruns {
+  /**
+   * Project ID or project name. Example: "MyProject"
+   */
+  project: string;
+  /**
+   * Pipeline ID. Example: "123"
+   */
+  pipelineId: string | number;
+  /**
+   * Maximum number of runs to return.
+   */
+  top?: number | undefined;
+  /**
+   * Pagination token from the previous response. Omit for the first page.
+   */
+  continuationToken?: string | undefined;
+};
+
+export interface ActionOutput_azure_devops_listpipelineruns {
+  runs: ({  id?: number | undefined;
+  name?: string | undefined;
+  state?: string | undefined;
+  result?: string | undefined;
+  createdDate?: string | undefined;
+  finishedDate?: string | undefined;
+  url?: string | undefined;
+  pipeline?: {  folder?: string | undefined;
+  id?: number | undefined;
+  name?: string | undefined;
+  revision?: number | undefined;
+  url?: string | undefined;};
+  tags?: string[] | undefined;})[];
+  continuationToken?: string | undefined;
+};
+
+export interface ActionInput_azure_devops_listpipelines {
+  /**
+   * Project name or ID. Example: "nangoapi"
+   */
+  project: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_azure_devops_listpipelines {
+  items: ({  id: number;
+  name: string;
+  folder?: string | undefined;
+  url?: string | undefined;
+  revision?: number | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_azure_devops_listprthreads {
+  /**
+   * Project ID or project name.
+   */
+  project: string;
+  /**
+   * The repository ID of the pull request target branch.
+   */
+  repositoryId: string;
+  /**
+   * ID of the pull request.
+   */
+  pullRequestId: number;
+};
+
+export interface ActionOutput_azure_devops_listprthreads {
+  threads: ({  id?: number | undefined;
+  comments?: ({  id?: number | undefined;
+  parentCommentId?: number | undefined;
+  author?: {  id?: string | undefined;
+  displayName?: string | undefined;
+  uniqueName?: string | undefined;
+  url?: string | undefined;
+  imageUrl?: string | undefined;
+  isContainer?: boolean | undefined;};
+  content?: string | undefined;
+  commentType?: string | undefined;
+  publishedDate?: string | undefined;
+  lastUpdatedDate?: string | undefined;
+  lastContentUpdatedDate?: string | undefined;
+  isDeleted?: boolean | undefined;
+  usersLiked?: ({  id?: string | undefined;
+  displayName?: string | undefined;
+  uniqueName?: string | undefined;
+  url?: string | undefined;
+  imageUrl?: string | undefined;
+  isContainer?: boolean | undefined;})[];})[];
+  publishedDate?: string | undefined;
+  lastUpdatedDate?: string | undefined;
+  status?: string | undefined;
+  threadContext?: {  filePath?: string | undefined;
+  leftFileStart?: {  line?: number | undefined;
+  offset?: number | undefined;};
+  leftFileEnd?: {  line?: number | undefined;
+  offset?: number | undefined;};
+  rightFileStart?: {  line?: number | undefined;
+  offset?: number | undefined;};
+  rightFileEnd?: {  line?: number | undefined;
+  offset?: number | undefined;};};
+  pullRequestThreadContext?: {  changeTrackingId?: number | undefined;
+  iterationContext?: {  firstComparingIteration?: number | undefined;
+  secondComparingIteration?: number | undefined;};
+  trackingCriteria?: {  firstComparingIteration?: number | undefined;
+  secondComparingIteration?: number | undefined;
+  origFilePath?: string | undefined;
+  origLeftFileStart?: {  line?: number | undefined;
+  offset?: number | undefined;};
+  origLeftFileEnd?: {  line?: number | undefined;
+  offset?: number | undefined;};
+  origRightFileStart?: {  line?: number | undefined;
+  offset?: number | undefined;};
+  origRightFileEnd?: {  line?: number | undefined;
+  offset?: number | undefined;};};};
+  properties?: {  [key: string]: unknown | undefined;};
+  identities?: {  [key: string]: unknown | undefined;};
+  isDeleted?: boolean | undefined;})[];
+};
+
+export interface ActionInput_azure_devops_listprojects {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_azure_devops_listprojects {
+  items: ({  /**
+   * Project ID. Example: "6b6e62c7-9a5d-4c6c-8c8b-1234567890ab"
+   */
+  id: string;
+  /**
+   * Project name. Example: "nangoapi"
+   */
+  name: string;
+  /**
+   * Project description
+   */
+  description?: string | undefined;
+  /**
+   * Project URL
+   */
+  url?: string | undefined;
+  /**
+   * Project state. Example: "wellFormed"
+   */
+  state?: string | undefined;
+  /**
+   * Project revision
+   */
+  revision?: number | undefined;
+  /**
+   * Project visibility. Example: "private"
+   */
+  visibility?: string | undefined;
+  /**
+   * Last update time. Example: "2024-01-01T00:00:00Z"
+   */
+  lastUpdateTime?: string | undefined;})[];
+  /**
+   * Pagination cursor for the next page.
+   */
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_azure_devops_listpullrequests {
+  /**
+   * Project ID or project name. Example: "MyProject"
+   */
+  project: string;
+  /**
+   * The repository ID or name. Example: "3411ebc1-d5aa-464f-9615-0b527bc66719"
+   */
+  repositoryId: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Filter by pull request status. Defaults to Active if unset.
+   */
+  status?: 'active' | 'abandoned' | 'completed' | 'all' | undefined;
+  /**
+   * If set, search for pull requests from this branch. Example: "refs/heads/feature"
+   */
+  sourceRefName?: string | undefined;
+  /**
+   * If set, search for pull requests into this branch. Example: "refs/heads/master"
+   */
+  targetRefName?: string | undefined;
+  /**
+   * The number of pull requests to retrieve.
+   */
+  top?: number | undefined;
+};
+
+export interface ActionOutput_azure_devops_listpullrequests {
+  items: ({  pullRequestId?: number | undefined;
+  codeReviewId?: number | undefined;
+  status?: string | undefined;
+  createdBy?: {  id?: string | undefined;
+  displayName?: string | undefined;
+  uniqueName?: string | undefined;
+  url?: string | undefined;};
+  creationDate?: string | undefined;
+  closedDate?: string | undefined;
+  title?: string | undefined;
+  description?: string | undefined;
+  sourceRefName?: string | undefined;
+  targetRefName?: string | undefined;
+  mergeStatus?: string | undefined;
+  mergeId?: string | undefined;
+  lastMergeSourceCommit?: {  commitId?: string | undefined;
+  url?: string | undefined;};
+  lastMergeTargetCommit?: {  commitId?: string | undefined;
+  url?: string | undefined;};
+  lastMergeCommit?: {  commitId?: string | undefined;
+  url?: string | undefined;};
+  reviewers?: ({  id?: string | undefined;
+  displayName?: string | undefined;
+  uniqueName?: string | undefined;
+  url?: string | undefined;
+  vote?: number | undefined;
+  isRequired?: boolean | undefined;
+  reviewerUrl?: string | undefined;})[];
+  url?: string | undefined;
+  repository?: {  id?: string | undefined;
+  name?: string | undefined;
+  url?: string | undefined;
+  project?: {  id?: string | undefined;
+  name?: string | undefined;};};
+  supportsIterations?: boolean | undefined;
+  isDraft?: boolean | undefined;
+  completionQueueTime?: string | undefined;
+  closedBy?: {  id?: string | undefined;
+  displayName?: string | undefined;
+  uniqueName?: string | undefined;
+  url?: string | undefined;};})[];
+  /**
+   * Pagination cursor for the next page. Pass this value as the cursor input to retrieve the next page.
+   */
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_azure_devops_listrepositories {
+  /**
+   * Project ID or name. Example: "MyProject"
+   */
+  project: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_azure_devops_listrepositories {
+  items: ({  id: string;
+  name: string;
+  url?: string | undefined;
+  project?: {  [key: string]: unknown | undefined;};
+  defaultBranch?: string | undefined;
+  size?: number | undefined;
+  remoteUrl?: string | undefined;
+  sshUrl?: string | undefined;
+  webUrl?: string | undefined;})[];
+  continuationToken?: string | undefined;
+};
+
+export interface ActionInput_azure_devops_listteammembers {
+  /**
+   * Project ID or name. Example: "eb6e4656-77fc-42a1-9181-4c6d8e9da5d1"
+   */
+  projectId: string;
+  /**
+   * Team ID or name. Example: "564e8204-a90b-4432-883b-d4363c6125ca"
+   */
+  teamId: string;
+};
+
+export interface ActionOutput_azure_devops_listteammembers {
+  members: ({  id?: string | undefined;
+  displayName?: string | undefined;
+  uniqueName?: string | undefined;
+  url?: string | undefined;
+  imageUrl?: string | undefined;
+  isTeamAdmin?: boolean | undefined;})[];
+};
+
+export interface ActionInput_azure_devops_listteams {
+  /**
+   * Azure DevOps project ID or name. Example: "nangoapi-test"
+   */
+  projectId: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_azure_devops_listteams {
+  items: ({  id: string;
+  name: string;
+  url?: string | undefined;
+  description?: string | undefined;
+  identityUrl?: string | undefined;
+  projectName?: string | undefined;
+  projectId?: string | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_azure_devops_listtestplans {
+  /**
+   * Project name or ID. Example: "nangoapi"
+   */
+  project: string;
+  /**
+   * Pagination cursor (continuationToken) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_azure_devops_listtestplans {
+  items: ({  id: number;
+  name?: string | undefined;
+  url?: string | undefined;
+  areaPath?: string | undefined;
+  iteration?: string | undefined;
+  state?: string | undefined;
+  project?: {  id?: string | undefined;
+  name?: string | undefined;
+  url?: string | undefined;};
+  rootSuite?: {  id?: number | undefined;
+  name?: string | undefined;
+  url?: string | undefined;};
+  clientUrl?: string | undefined;
+  startDate?: string | undefined;
+  endDate?: string | undefined;})[];
+  /**
+   * Pagination cursor for the next page.
+   */
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_azure_devops_listwikis {
+  /**
+   * Project ID or project name. Example: "my-project"
+   */
+  project: string;
+};
+
+export interface ActionOutput_azure_devops_listwikis {
+  items: ({  /**
+   * Wiki ID.
+   */
+  id: string;
+  /**
+   * Wiki name.
+   */
+  name: string;
+  /**
+   * Type of the wiki: projectWiki or codeWiki.
+   */
+  type: string;
+  /**
+   * REST URL for this wiki.
+   */
+  url: string;
+  remoteUrl?: string | undefined;
+  projectId?: string | undefined;
+  repositoryId?: string | undefined;
+  mappedPath?: string | undefined;
+  isDisabled?: boolean | undefined;
+  versions?: ({  version?: string | undefined;
+  versionOptions?: string | undefined;
+  versionType?: string | undefined;})[];})[];
+  /**
+   * Total number of wikis.
+   */
+  count: number;
+};
+
+export interface ActionInput_azure_devops_pushcommits {
+  /**
+   * Project ID or project name. Example: "nangoapi"
+   */
+  project: string;
+  /**
+   * The name or ID of the repository. Example: "8ee9091d-0f54-4633-9bb2-b5ac74855a46"
+   */
+  repositoryId: string;
+  /**
+   * Branch name to push to. Example: "master" or "refs/heads/master"
+   */
+  branch: string;
+  /**
+   * The current object ID (SHA) of the branch tip. Use "0000000000000000000000000000000000000000" for an initial push to a new branch.
+   */
+  oldObjectId: string;
+  commits: ({  /**
+   * Commit message.
+   */
+  comment: string;
+  changes: ({  changeType: 'none' | 'add' | 'edit' | 'encoding' | 'rename' | 'delete' | 'undelete' | 'branch' | 'merge' | 'lock' | 'rollback' | 'sourceRename' | 'targetRename' | 'property' | 'all';
+  /**
+   * File path. Example: "/readme.md"
+   */
+  path: string;
+  /**
+   * Required for add, edit, and encoding operations.
+   */
+  newContent?: {  content: string;
+  contentType: 'rawText' | 'base64Encoded';} | undefined;
+  /**
+   * Required for rename, sourceRename, and targetRename operations. Example: "/old-name.md"
+   */
+  sourceServerItem?: string | undefined;})[];})[];
+};
+
+export interface ActionOutput_azure_devops_pushcommits {
+  pushId: number;
+  date?: string | undefined;
+  url?: string | undefined;
+  commits: ({  commitId: string;
+  comment?: string | undefined;
+  treeId?: string | undefined;
+  authorName?: string | undefined;
+  authorEmail?: string | undefined;
+  authorDate?: string | undefined;
+  url?: string | undefined;})[];
+  refUpdates: ({  name: string;
+  oldObjectId?: string | undefined;
+  newObjectId?: string | undefined;})[];
+};
+
+export interface ActionInput_azure_devops_queryworkitems {
+  /**
+   * Project name or ID. Example: "nangoapi"
+   */
+  project: string;
+  /**
+   * WIQL query string. Example: "SELECT [System.Id] FROM WorkItems WHERE [System.WorkItemType] = 'Bug'"
+   */
+  query: string;
+  /**
+   * Maximum number of work items to return.
+   */
+  top?: number | undefined;
+};
+
+export interface ActionOutput_azure_devops_queryworkitems {
+  work_items: ({  id: number;
+  rev?: number | undefined;
+  url?: string | undefined;
+  fields?: {  [key: string]: unknown | undefined;};
+  relations?: unknown[] | undefined;})[];
+};
+
+export interface ActionInput_azure_devops_queuebuild {
+  /**
+   * Project ID or name. Example: "nangoapi"
+   */
+  project: string;
+  /**
+   * Build definition ID. Example: 1
+   */
+  buildDefinitionId: number;
+  /**
+   * Source branch reference. Example: "refs/heads/main"
+   */
+  sourceBranch?: string | undefined;
+  /**
+   * Build parameters as a JSON string. Example: '{"system.debug":"true"}'
+   */
+  parameters?: string | undefined;
+};
+
+export interface ActionOutput_azure_devops_queuebuild {
+  id?: number | undefined;
+  buildNumber?: string | undefined;
+  status?: string | undefined;
+  result?: string | undefined;
+  sourceBranch?: string | undefined;
+  sourceVersion?: string | undefined;
+  url?: string | undefined;
+  definition?: {  id?: number | undefined;
+  name?: string | undefined;};
+  project?: {  id?: string | undefined;
+  name?: string | undefined;};
+};
+
+export interface ActionInput_azure_devops_runpipeline {
+  /**
+   * Project ID or project name. Example: "nangoapi"
+   */
+  project: string;
+  /**
+   * The pipeline ID. Example: 1
+   */
+  pipelineId: number;
+  /**
+   * The branch ref to run the pipeline on. Example: "refs/heads/main"
+   */
+  refName?: string | undefined;
+  variables?: {  [key: string]: {  value: string;
+  isSecret?: boolean | undefined;};};
+  templateParameters?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_azure_devops_runpipeline {
+  id: number;
+  state?: string | undefined;
+  result?: string | undefined;
+  name?: string | undefined;
+  url?: string | undefined;
+  pipelineId?: number | undefined;
+  pipelineName?: string | undefined;
+  pipelineUrl?: string | undefined;
+  createdDate?: string | undefined;
+};
+
+export interface ActionInput_azure_devops_updatepullrequest {
+  /**
+   * Project ID. Example: "nangodev"
+   */
+  projectId: string;
+  /**
+   * Repository ID. Example: "46eadaf5-eb36-43bc-8297-a9b4043afd09"
+   */
+  repositoryId: string;
+  /**
+   * Pull request ID. Example: 2
+   */
+  pullRequestId: number;
+  /**
+   * Updated title for the pull request.
+   */
+  title?: string | undefined;
+  /**
+   * Updated description for the pull request. Pass null to clear.
+   */
+  description?: string | undefined;
+  /**
+   * Updated status for the pull request.
+   */
+  status?: 'active' | 'abandoned' | 'completed' | undefined;
+  /**
+   * Whether the pull request is a draft.
+   */
+  isDraft?: boolean | undefined;
+  /**
+   * The last merge source commit ID. Required when completing a PR (status: completed).
+   */
+  lastMergeSourceCommitId?: string | undefined;
+};
+
+export interface ActionOutput_azure_devops_updatepullrequest {
+  pullRequestId: number;
+  status: string;
+  title: string;
+  description?: string | undefined;
+  sourceRefName: string;
+  targetRefName: string;
+  isDraft: boolean;
+  url: string;
+  lastMergeSourceCommit?: {  commitId: string;} | undefined;
+};
+
+export interface ActionInput_azure_devops_updateworkitem {
+  /**
+   * Project name or ID. Example: "nangodev"
+   */
+  project: string;
+  /**
+   * Work item ID to update. Example: 1
+   */
+  work_item_id: number;
+  /**
+   * JSON Patch operations. Example: [{ op: "replace", path: "/fields/System.Title", value: "New title" }]
+   */
+  patches: ({  /**
+   * JSON Patch operation. Example: "replace"
+   */
+  op: string;
+  /**
+   * Target path. Example: "/fields/System.Title"
+   */
+  path: string;
+  /**
+   * New value for the path.
+   */
+  value?: unknown | undefined;})[];
+};
+
+export interface ActionOutput_azure_devops_updateworkitem {
+  id: number;
+  rev: number;
+  url: string;
+  fields?: {  [key: string]: unknown | undefined;};
 };
 
 export interface Applicant {
@@ -20996,6 +23207,1323 @@ export interface ActionOutput_bill_disableuser {
   success: boolean;
 };
 
+export interface ActionInput_bitbucket_createbranch {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * Branch name. Example: "feature-branch"
+   */
+  name: string;
+  /**
+   * Commit hash or existing branch name to branch from. Example: "master"
+   */
+  target_hash: string;
+};
+
+export interface ActionOutput_bitbucket_createbranch {
+  name: string;
+  target_hash?: string | undefined;
+};
+
+export interface ActionInput_bitbucket_createprcomment {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * Pull request ID. Example: 1
+   */
+  pull_request_id: number;
+  /**
+   * Comment content in raw markdown. Example: "This is a comment"
+   */
+  content: string;
+  /**
+   * File path for inline comment. Example: "README.md"
+   */
+  inline_path?: string | undefined;
+  /**
+   * Starting line for inline comment. Example: 1
+   */
+  inline_from?: number | undefined;
+  /**
+   * Ending line for inline comment. Example: 5
+   */
+  inline_to?: number | undefined;
+};
+
+export interface ActionOutput_bitbucket_createprcomment {
+  id: number;
+  type?: string | undefined;
+  created_on?: string | undefined;
+  updated_on?: string | undefined;
+  content?: {  raw?: string | undefined;
+  markup?: string | undefined;
+  html?: string | undefined;};
+  user?: {  type?: string | undefined;
+  uuid?: string | undefined;
+  display_name?: string | undefined;
+  account_id?: string | undefined;};
+  inline?: {  path?: string | undefined;
+  from?: number | undefined;
+  to?: number | undefined;};
+  pullrequest?: {  id?: number | undefined;
+  type?: string | undefined;};
+};
+
+export interface ActionInput_bitbucket_createproject {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Project key in uppercase. Example: "PROJ"
+   */
+  key: string;
+  /**
+   * Project name. Example: "My Project"
+   */
+  name: string;
+  /**
+   * Optional project description.
+   */
+  description?: string | undefined;
+  /**
+   * Whether the project is private.
+   */
+  is_private?: boolean | undefined;
+};
+
+export interface ActionOutput_bitbucket_createproject {
+  type?: string | undefined;
+  links?: {  html?: {  href?: string | undefined;
+  name?: string | undefined;};
+  avatar?: {  href?: string | undefined;
+  name?: string | undefined;};};
+  uuid?: string | undefined;
+  key?: string | undefined;
+  owner?: {  type?: string | undefined;};
+  name?: string | undefined;
+  description?: string | undefined;
+  is_private?: boolean | undefined;
+  created_on?: string | undefined;
+  updated_on?: string | undefined;
+  has_publicly_visible_repos?: boolean | undefined;
+};
+
+export interface ActionInput_bitbucket_createpullrequest {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * Pull request title. Example: "My PR"
+   */
+  title: string;
+  /**
+   * Source branch name. Example: "feature-branch"
+   */
+  source_branch: string;
+  /**
+   * Destination branch name. Defaults to the repository main branch.
+   */
+  destination_branch?: string | undefined;
+  /**
+   * Pull request description.
+   */
+  description?: string | undefined;
+  /**
+   * Array of reviewer UUIDs. Example: ["{504c3b62-8120-4f0c-a7bc-87800b9d6f70}"]
+   */
+  reviewers?: string[] | undefined;
+  /**
+   * Whether to close the source branch upon merging.
+   */
+  close_source_branch?: boolean | undefined;
+};
+
+export interface ActionOutput_bitbucket_createpullrequest {
+  id: number;
+  title: string;
+  description?: string | undefined;
+  state: string;
+  source_branch?: string | undefined;
+  destination_branch?: string | undefined;
+  close_source_branch?: boolean | undefined;
+  created_on?: string | undefined;
+  updated_on?: string | undefined;
+  reviewers?: ({  uuid?: string | undefined;
+  display_name?: string | undefined;
+  account_id?: string | undefined;})[];
+};
+
+export interface ActionInput_bitbucket_createrepository {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "my-repo"
+   */
+  repo_slug: string;
+  /**
+   * Source control management type. Example: "git"
+   */
+  scm?: string | undefined;
+  /**
+   * Whether the repository is private.
+   */
+  is_private?: boolean | undefined;
+  /**
+   * Repository description.
+   */
+  description?: string | undefined;
+  /**
+   * Whether the repository has a wiki.
+   */
+  has_wiki?: boolean | undefined;
+  /**
+   * Programming language. Example: "typescript"
+   */
+  language?: string | undefined;
+  /**
+   * Project key required if workspace has existing projects. Example: "PROJ"
+   */
+  project_key?: string | undefined;
+};
+
+export interface ActionOutput_bitbucket_createrepository {
+  uuid?: string | undefined;
+  name?: string | undefined;
+  slug?: string | undefined;
+  full_name?: string | undefined;
+  scm?: string | undefined;
+  description?: string | undefined;
+  is_private?: boolean | undefined;
+  has_wiki?: boolean | undefined;
+  language?: string | undefined;
+  created_on?: string | undefined;
+  updated_on?: string | undefined;
+  workspace_slug?: string | undefined;
+  project_key?: string | undefined;
+  owner_username?: string | undefined;
+  owner_uuid?: string | undefined;
+};
+
+export interface ActionInput_bitbucket_createwebhook {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * The URL to receive the webhook payload. Example: "https://example.com/webhook"
+   */
+  url: string;
+  /**
+   * Array of event keys. Example: ["repo:push", "pullrequest:created"]
+   */
+  events: string[];
+  /**
+   * Optional description for the webhook.
+   */
+  description?: string | undefined;
+  /**
+   * Whether the webhook is active. Defaults to true.
+   */
+  active?: boolean | undefined;
+  /**
+   * Optional secret for payload signing.
+   */
+  secret?: string | undefined;
+};
+
+export interface ActionOutput_bitbucket_createwebhook {
+  uuid: string;
+  url: string;
+  active: boolean;
+  description?: string | undefined;
+  events: string[];
+  created_at?: string | undefined;
+};
+
+export interface ActionInput_bitbucket_declinepullrequest {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * Pull request ID. Example: 1
+   */
+  pull_request_id: number;
+};
+
+export interface ActionOutput_bitbucket_declinepullrequest {
+  type?: string | undefined;
+  id?: number | undefined;
+  title?: string | undefined;
+  state?: string | undefined;
+  reason?: string | undefined;
+  created_on?: string | undefined;
+  updated_on?: string | undefined;
+  comment_count?: number | undefined;
+  task_count?: number | undefined;
+  close_source_branch?: boolean | undefined;
+  draft?: boolean | undefined;
+  mergeable?: boolean | undefined;
+  queued?: boolean | undefined;
+  links?: {  [key: string]: unknown | undefined;};
+  author?: {  [key: string]: unknown | undefined;};
+  source?: {  [key: string]: unknown | undefined;};
+  destination?: {  [key: string]: unknown | undefined;};
+  merge_commit?: {  [key: string]: unknown | undefined;};
+  closed_by?: {  [key: string]: unknown | undefined;};
+  rendered?: {  [key: string]: unknown | undefined;};
+  summary?: {  [key: string]: unknown | undefined;};
+  reviewers?: ({  [key: string]: unknown | undefined;})[];
+  participants?: ({  [key: string]: unknown | undefined;})[];
+};
+
+export interface ActionInput_bitbucket_deletebranch {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * Branch name to delete. Example: "main"
+   */
+  name: string;
+};
+
+export interface ActionOutput_bitbucket_deletebranch {
+  success: boolean;
+};
+
+export interface ActionInput_bitbucket_deleterepository {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-secondary-repo"
+   */
+  repo_slug: string;
+};
+
+export interface ActionOutput_bitbucket_deleterepository {
+  success: boolean;
+  workspace: string;
+  repo_slug: string;
+};
+
+export interface ActionInput_bitbucket_deletewebhook {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * Webhook UUID. Example: "{216a4943-db76-4086-9dcc-9a0b525062f5}"
+   */
+  webhook_uuid: string;
+};
+
+export interface ActionOutput_bitbucket_deletewebhook {
+  success: boolean;
+  workspace: string;
+  repo_slug: string;
+  webhook_uuid: string;
+};
+
+export interface ActionInput_bitbucket_getcommit {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * Full or abbreviated commit SHA. Example: "abc123"
+   */
+  node: string;
+};
+
+export interface ActionOutput_bitbucket_getcommit {
+  hash: string;
+  type?: string | undefined;
+  message?: string | undefined;
+  author?: {  raw?: string | undefined;
+  type?: string | undefined;
+  user?: {  display_name?: string | undefined;
+  uuid?: string | undefined;
+  account_id?: string | undefined;
+  type?: string | undefined;};};
+  date?: string | undefined;
+  parents?: ({  hash?: string | undefined;
+  type?: string | undefined;})[];
+  summary?: {  raw?: string | undefined;
+  markup?: string | undefined;
+  html?: string | undefined;
+  type?: string | undefined;};
+};
+
+export interface ActionInput_bitbucket_getcurrentuser {
+};
+
+export interface ActionOutput_bitbucket_getcurrentuser {
+  type: string;
+  uuid: string;
+  username?: string | undefined;
+  display_name?: string | undefined;
+  nickname?: string | undefined;
+  account_id?: string | undefined;
+  created_on?: string | undefined;
+};
+
+export interface ActionInput_bitbucket_getproject {
+  /**
+   * The workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * The project short uppercase key. Example: "PROJ"
+   */
+  project_key: string;
+};
+
+export interface ActionOutput_bitbucket_getproject {
+  type?: string | undefined;
+  uuid?: string | undefined;
+  key?: string | undefined;
+  name?: string | undefined;
+  description?: string | undefined;
+  is_private?: boolean | undefined;
+  created_on?: string | undefined;
+  updated_on?: string | undefined;
+  links?: {} | undefined;
+};
+
+export interface ActionInput_bitbucket_getrepository {
+  /**
+   * Workspace slug or UUID. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+};
+
+export interface ActionOutput_bitbucket_getrepository {
+  uuid: string;
+  full_name?: string | undefined;
+  name?: string | undefined;
+  description?: string | undefined;
+  created_on?: string | undefined;
+  updated_on?: string | undefined;
+  size?: number | undefined;
+  language?: string | undefined;
+  is_private?: boolean | undefined;
+  has_issues?: boolean | undefined;
+  has_wiki?: boolean | undefined;
+  fork_policy?: string | undefined;
+  scm?: string | undefined;
+  owner?: {  [key: string]: unknown | undefined;};
+  project?: {  [key: string]: unknown | undefined;};
+  mainbranch?: {  [key: string]: unknown | undefined;};
+  links?: {  [key: string]: unknown | undefined;};
+  type?: string | undefined;
+};
+
+export interface ActionInput_bitbucket_getworkspace {
+  /**
+   * Workspace slug or UUID. Example: "nangodev"
+   */
+  workspace: string;
+};
+
+export interface ActionOutput_bitbucket_getworkspace {
+  type: string;
+  uuid: string;
+  name?: string | undefined;
+  slug: string;
+  is_private: boolean;
+  is_privacy_enforced?: boolean | undefined;
+  forking_mode?: string | undefined;
+  created_on?: string | undefined;
+  updated_on?: string | undefined;
+  links?: {} | undefined;
+};
+
+export interface ActionInput_bitbucket_listbranches {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * Query string for filtering. Example: 'name ~ "feature"'
+   */
+  q?: string | undefined;
+  /**
+   * Sort string. Example: "-name"
+   */
+  sort?: string | undefined;
+  /**
+   * Number of results per page. Example: 10
+   */
+  pagelen?: number | undefined;
+  /**
+   * Page number for pagination. Example: 1
+   */
+  page?: number | undefined;
+};
+
+export interface ActionOutput_bitbucket_listbranches {
+  branches: ({  name: string;
+  type?: string | undefined;
+  default_merge_strategy?: string | undefined;
+  merge_strategies?: string[] | undefined;
+  target_hash?: string | undefined;
+  target_date?: string | undefined;
+  target_message?: string | undefined;})[];
+  next_page?: number | undefined;
+};
+
+export interface ActionInput_bitbucket_listcommits {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * Optional branch name, tag, or commit hash to filter commits.
+   */
+  revision?: string | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_bitbucket_listcommits {
+  commits: ({  hash: string;
+  type?: string | undefined;
+  date?: string | undefined;
+  message?: string | undefined;
+  author?: {  raw?: string | undefined;
+  type?: string | undefined;
+  user?: {  display_name?: string | undefined;
+  uuid?: string | undefined;
+  account_id?: string | undefined;
+  type?: string | undefined;};};
+  summary?: {  raw?: string | undefined;
+  markup?: string | undefined;
+  html?: string | undefined;
+  type?: string | undefined;};
+  parents?: ({  type?: string | undefined;
+  hash: string;})[];})[];
+  next_cursor?: string | undefined;
+  size?: number | undefined;
+};
+
+export interface ActionInput_bitbucket_listdeploymentenvironments {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_bitbucket_listdeploymentenvironments {
+  items: ({  type?: string | undefined;
+  uuid?: string | undefined;
+  name?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_bitbucket_listpipelines {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * Page number for pagination. Omit for the first page.
+   */
+  page?: number | undefined;
+  /**
+   * Number of items per page. Example: 10
+   */
+  pagelen?: number | undefined;
+  /**
+   * Sort field. Example: "-created_on"
+   */
+  sort?: string | undefined;
+};
+
+export interface ActionOutput_bitbucket_listpipelines {
+  items: ({  uuid: string;
+  build_number: number;
+  type?: string | undefined;
+  state?: {  name?: string | undefined;
+  type?: string | undefined;
+  stage?: {  name?: string | undefined;
+  type?: string | undefined;};
+  result?: {  name?: string | undefined;
+  type?: string | undefined;};};
+  target?: {  type?: string | undefined;
+  ref_type?: string | undefined;
+  ref_name?: string | undefined;};
+  trigger?: {  name?: string | undefined;
+  type?: string | undefined;};
+  created_on?: string | undefined;
+  completed_on?: string | undefined;
+  build_seconds_used?: number | undefined;})[];
+  next_page?: number | undefined;
+};
+
+export interface ActionInput_bitbucket_listpractivity {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of items per page. Example: 20
+   */
+  pagelen?: number | undefined;
+};
+
+export interface ActionOutput_bitbucket_listpractivity {
+  items: ({})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_bitbucket_listprcomments {
+  /**
+   * Workspace slug or UUID. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * Pull request ID. Example: 1
+   */
+  pull_request_id: number;
+  /**
+   * Pagination cursor (page number) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of items per page. Example: 20
+   */
+  pagelen?: number | undefined;
+};
+
+export interface ActionOutput_bitbucket_listprcomments {
+  comments: ({  id: number;
+  type?: string | undefined;
+  created_on?: string | undefined;
+  updated_on?: string | undefined;
+  content?: {  raw?: string | undefined;
+  markup?: string | undefined;
+  html?: string | undefined;
+  type?: string | undefined;};
+  user?: {  type?: string | undefined;
+  display_name?: string | undefined;
+  uuid?: string | undefined;
+  account_id?: string | undefined;
+  nickname?: string | undefined;
+  links?: {  [key: string]: unknown | undefined;};};
+  deleted?: boolean | undefined;
+  pending?: boolean | undefined;
+  parent?: {  id?: number | undefined;
+  type?: string | undefined;
+  links?: {  [key: string]: unknown | undefined;};};
+  inline?: {  path?: string | undefined;
+  from?: number | undefined;
+  to?: number | undefined;
+  outdated?: boolean | undefined;
+  context_lines?: string | undefined;};
+  links?: {  [key: string]: unknown | undefined;};
+  pullrequest?: {  type?: string | undefined;
+  id?: number | undefined;
+  title?: string | undefined;
+  draft?: boolean | undefined;
+  queued?: boolean | undefined;
+  links?: {  [key: string]: unknown | undefined;};};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_bitbucket_listprojects {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of items per page. Example: 10
+   */
+  pagelen?: number | undefined;
+};
+
+export interface ActionOutput_bitbucket_listprojects {
+  items: ({  uuid: string;
+  key: string;
+  name: string;
+  description?: string | undefined;
+  is_private?: boolean | undefined;
+  created_on?: string | undefined;
+  updated_on?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_bitbucket_listpullrequests {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * Filter by pull request state. Defaults to OPEN only if omitted.
+   */
+  state?: ({  0: 'OPEN';
+  1: 'MERGED';
+  2: 'DECLINED';
+  3: 'SUPERSEDED';})[] | undefined;
+  /**
+   * Query string to filter results. Example: "title~\"test\""
+   */
+  q?: string | undefined;
+  /**
+   * Sort field. Example: "-created_on"
+   */
+  sort?: string | undefined;
+  /**
+   * Number of items per page. Example: 10
+   */
+  pagelen?: number | undefined;
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_bitbucket_listpullrequests {
+  items: ({  id: number;
+  title: string;
+  state: 'OPEN' | 'MERGED' | 'DECLINED' | 'SUPERSEDED';
+  author?: {  type: string;
+  display_name?: string | undefined;
+  uuid?: string | undefined;
+  account_id?: string | undefined;};
+  source?: unknown | undefined;
+  destination?: unknown | undefined;
+  merge_commit?: {  hash: string;} | undefined;
+  comment_count?: number | undefined;
+  task_count?: number | undefined;
+  close_source_branch?: boolean | undefined;
+  closed_by?: {  type: string;} | undefined;
+  reason?: string | undefined;
+  created_on?: string | undefined;
+  updated_on?: string | undefined;
+  reviewers?: unknown[] | undefined;
+  participants?: unknown[] | undefined;
+  draft?: boolean | undefined;
+  queued?: boolean | undefined;
+  mergeable?: boolean | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_bitbucket_listrepositories {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Filter by role: admin, contributor, member, owner
+   */
+  role?: string | undefined;
+  /**
+   * Query string to filter repositories
+   */
+  q?: string | undefined;
+  /**
+   * Sort field
+   */
+  sort?: string | undefined;
+  /**
+   * Number of items per page. Example: 10
+   */
+  pagelen?: number | undefined;
+  /**
+   * Page number for pagination. Example: "2"
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_bitbucket_listrepositories {
+  items: ({  uuid: string;
+  slug: string;
+  name: string;
+  full_name: string;
+  description?: string | undefined;
+  is_private?: boolean | undefined;
+  created_on?: string | undefined;
+  updated_on?: string | undefined;
+  language?: string | undefined;
+  project?: {  [key: string]: unknown | undefined;};
+  owner?: {  [key: string]: unknown | undefined;};
+  links?: {  [key: string]: unknown | undefined;};
+  mainbranch?: {  [key: string]: unknown | undefined;};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_bitbucket_listtags {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * Query string to filter tags. Example: 'name ~ "v1.*"'
+   */
+  q?: string | undefined;
+  /**
+   * Sort field. Example: "-name"
+   */
+  sort?: string | undefined;
+  /**
+   * Number of items per page (max 100). Example: 10
+   */
+  pagelen?: number | undefined;
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_bitbucket_listtags {
+  tags: ({  name: string;
+  type?: string | undefined;
+  links?: {  [key: string]: unknown | undefined;};
+  target?: {  [key: string]: unknown | undefined;};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_bitbucket_listwatchers {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of items per page. Example: 10
+   */
+  pagelen?: number | undefined;
+};
+
+export interface ActionOutput_bitbucket_listwatchers {
+  watchers: ({  uuid: string;
+  username?: string | undefined;
+  display_name?: string | undefined;
+  account_id?: string | undefined;
+  type?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_bitbucket_listwebhooks {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * Page number for pagination.
+   */
+  page?: number | undefined;
+  /**
+   * Number of items per page.
+   */
+  pagelen?: number | undefined;
+};
+
+export interface ActionOutput_bitbucket_listwebhooks {
+  /**
+   * List of webhooks.
+   */
+  values: ({  /**
+   * Webhook UUID.
+   */
+  uuid: string;
+  /**
+   * Target URL for the webhook.
+   */
+  url: string;
+  /**
+   * Description of the webhook.
+   */
+  description?: string | undefined;
+  /**
+   * Whether the webhook is active.
+   */
+  active: boolean;
+  /**
+   * Creation timestamp.
+   */
+  created_at?: string | undefined;
+  /**
+   * Events that trigger the webhook.
+   */
+  events?: string[] | undefined;})[];
+  /**
+   * Current page number.
+   */
+  page?: number | undefined;
+  /**
+   * Number of items per page.
+   */
+  pagelen?: number | undefined;
+  /**
+   * Total number of webhooks.
+   */
+  size?: number | undefined;
+  /**
+   * URL for the next page of results.
+   */
+  next?: string | undefined;
+};
+
+export interface ActionInput_bitbucket_listworkspacemembers {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Pagination cursor (page number) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of items per page. Example: 10
+   */
+  pagelen?: number | undefined;
+};
+
+export interface ActionOutput_bitbucket_listworkspacemembers {
+  members: ({  type?: string | undefined;
+  user_uuid?: string | undefined;
+  user_nickname?: string | undefined;
+  user_display_name?: string | undefined;
+  user_account_id?: string | undefined;
+  workspace_uuid?: string | undefined;
+  workspace_slug?: string | undefined;
+  workspace_name?: string | undefined;})[];
+  next_page?: string | undefined;
+};
+
+export interface ActionInput_bitbucket_listworkspaces {
+  /**
+   * Page number for pagination. Omit for the first page.
+   */
+  page?: number | undefined;
+  /**
+   * Number of items per page. Example: 10
+   */
+  pagelen?: number | undefined;
+};
+
+export interface ActionOutput_bitbucket_listworkspaces {
+  items: ({  /**
+   * Workspace UUID. Example: "{d8dcf202-0b5d-4568-8954-43075e98b813}"
+   */
+  uuid: string;
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  slug: string;
+  /**
+   * Workspace name.
+   */
+  name?: string | undefined;
+  /**
+   * Workspace type.
+   */
+  type?: string | undefined;
+  /**
+   * Whether the workspace is private.
+   */
+  is_private?: boolean | undefined;})[];
+  /**
+   * Current page number.
+   */
+  page?: number | undefined;
+  /**
+   * Number of items per page.
+   */
+  pagelen?: number | undefined;
+  /**
+   * Total number of items.
+   */
+  size?: number | undefined;
+  /**
+   * URL to the next page of results.
+   */
+  next?: string | undefined;
+};
+
+export interface ActionInput_bitbucket_mergepullrequest {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * Pull request ID. Example: 108
+   */
+  pull_request_id: number;
+  /**
+   * Merge strategy. Example: "merge_commit"
+   */
+  merge_strategy?: 'merge_commit' | 'squash' | 'fast_forward' | undefined;
+  /**
+   * Merge commit message. Example: "Merging feature branch"
+   */
+  message?: string | undefined;
+  /**
+   * Whether to close the source branch after merging. Example: true
+   */
+  close_source_branch?: boolean | undefined;
+};
+
+export interface ActionOutput_bitbucket_mergepullrequest {
+  id: number;
+  title: string;
+  state: string;
+  merge_commit_hash?: string | undefined;
+  created_on?: string | undefined;
+  updated_on?: string | undefined;
+  closed_by_type?: string | undefined;
+  reason?: string | undefined;
+  close_source_branch?: boolean | undefined;
+};
+
+export interface ActionInput_bitbucket_updateproject {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Existing project key. Example: "NANGO"
+   */
+  project_key: string;
+  /**
+   * New project name.
+   */
+  name?: string | undefined;
+  /**
+   * New project description.
+   */
+  description?: string | undefined;
+  /**
+   * Whether the project is private.
+   */
+  is_private?: boolean | undefined;
+  /**
+   * New project key if renaming the project.
+   */
+  key?: string | undefined;
+  /**
+   * Avatar image URL or data URI.
+   */
+  avatar_href?: string | undefined;
+};
+
+export interface ActionOutput_bitbucket_updateproject {
+  type?: string | undefined;
+  links?: {  html?: {  href: string;
+  name?: string | undefined;};
+  avatar?: {  href: string;
+  name?: string | undefined;};};
+  uuid: string;
+  key: string;
+  owner?: {  type?: string | undefined;};
+  name: string;
+  description?: string | undefined;
+  is_private?: boolean | undefined;
+  created_on?: string | undefined;
+  updated_on?: string | undefined;
+  has_publicly_visible_repos?: boolean | undefined;
+};
+
+export interface ActionInput_bitbucket_updatepullrequest {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * Pull request ID. Example: 1
+   */
+  pull_request_id: number;
+  /**
+   * Updated title for the pull request.
+   */
+  title?: string | undefined;
+  /**
+   * Updated description for the pull request.
+   */
+  description?: string | undefined;
+  /**
+   * Updated destination branch for the pull request.
+   */
+  destination?: {  branch: {  /**
+   * Destination branch name. Example: "main"
+   */
+  name: string;};} | undefined;
+  /**
+   * Updated list of reviewers.
+   */
+  reviewers?: ({  /**
+   * User UUID. Example: "{a35738e8-3d79-470d-a80f-2a2fe4336964}"
+   */
+  uuid: string;})[] | undefined;
+};
+
+export interface ActionOutput_bitbucket_updatepullrequest {
+  id: number;
+  title: string;
+  description?: string | undefined;
+  state: string;
+  source?: {  repository?: {  type?: string | undefined;
+  name?: string | undefined;
+  full_name?: string | undefined;
+  uuid?: string | undefined;};
+  branch?: {  name: string;} | undefined;
+  commit?: {  hash?: string | undefined;
+  type?: string | undefined;};};
+  destination?: {  repository?: {  type?: string | undefined;
+  name?: string | undefined;
+  full_name?: string | undefined;
+  uuid?: string | undefined;};
+  branch?: {  name: string;} | undefined;
+  commit?: {  hash?: string | undefined;
+  type?: string | undefined;};};
+  created_on?: string | undefined;
+  updated_on?: string | undefined;
+  reviewers?: ({  type?: string | undefined;
+  uuid?: string | undefined;
+  display_name?: string | undefined;
+  account_id?: string | undefined;})[];
+  participants?: ({  type?: string | undefined;
+  uuid?: string | undefined;
+  display_name?: string | undefined;
+  account_id?: string | undefined;})[];
+  author?: {  type?: string | undefined;
+  uuid?: string | undefined;
+  display_name?: string | undefined;
+  account_id?: string | undefined;};
+  close_source_branch?: boolean | undefined;
+  draft?: boolean | undefined;
+  merge_commit?: {  hash?: string | undefined;};
+  comment_count?: number | undefined;
+  task_count?: number | undefined;
+  reason?: string | undefined;
+  summary?: {  raw?: string | undefined;
+  markup?: string | undefined;
+  html?: string | undefined;};
+  rendered?: {  title?: {  raw?: string | undefined;
+  markup?: string | undefined;
+  html?: string | undefined;};
+  description?: {  raw?: string | undefined;
+  markup?: string | undefined;
+  html?: string | undefined;};
+  reason?: {  raw?: string | undefined;
+  markup?: string | undefined;
+  html?: string | undefined;};};
+  links?: {} | undefined;
+  type?: string | undefined;
+};
+
+export interface ActionInput_bitbucket_updaterepository {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * Repository description.
+   */
+  description?: string | undefined;
+  /**
+   * Whether the repository is private.
+   */
+  is_private?: boolean | undefined;
+  /**
+   * Primary language. Example: "javascript"
+   */
+  language?: string | undefined;
+  /**
+   * Website URL associated with the repository.
+   */
+  website?: string | undefined;
+  /**
+   * Fork policy for the repository.
+   */
+  fork_policy?: 'allow_forks' | 'no_public_forks' | 'no_forks' | undefined;
+  /**
+   * Name of the main branch. Example: "main"
+   */
+  mainbranch?: string | undefined;
+};
+
+export interface ActionOutput_bitbucket_updaterepository {
+  uuid: string;
+  name: string;
+  slug: string;
+  full_name?: string | undefined;
+  description?: string | undefined;
+  is_private?: boolean | undefined;
+  language?: string | undefined;
+  website?: string | undefined;
+  fork_policy?: string | undefined;
+  mainbranch?: string | undefined;
+  workspace_slug?: string | undefined;
+  project_key?: string | undefined;
+  created_on?: string | undefined;
+  updated_on?: string | undefined;
+};
+
+export interface ActionInput_bitbucket_updatewebhook {
+  /**
+   * Workspace slug. Example: "nangodev"
+   */
+  workspace: string;
+  /**
+   * Repository slug. Example: "nango-api-test"
+   */
+  repo_slug: string;
+  /**
+   * Webhook UUID. Example: "{216a4943-db76-4086-9dcc-9a0b525062f5}"
+   */
+  webhook_uuid: string;
+  /**
+   * Webhook description.
+   */
+  description?: string | undefined;
+  /**
+   * Webhook URL.
+   */
+  url?: string | undefined;
+  /**
+   * Webhook secret. Pass null to remove.
+   */
+  secret?: string | undefined;
+  /**
+   * Whether the webhook is active.
+   */
+  active?: boolean | undefined;
+  /**
+   * List of event types.
+   */
+  events?: string[] | undefined;
+};
+
+export interface ActionOutput_bitbucket_updatewebhook {
+  type?: string | undefined;
+  uuid?: string | undefined;
+  url?: string | undefined;
+  description?: string | undefined;
+  subject_type?: string | undefined;
+  active?: boolean | undefined;
+  created_at?: string | undefined;
+  events?: string[] | undefined;
+  secret_set?: boolean | undefined;
+};
+
 export type ActionInput_bitdefender_getcompanydetails = void
 
 export interface ActionOutput_bitdefender_getcompanydetails {
@@ -23448,6 +26976,2663 @@ export interface ActionOutput_calendly_listwebhooksubscriptions {
   previous_page_token?: string | undefined;};
 };
 
+export interface BrandTemplate {
+  id: string;
+  title: string;
+  view_url: string;
+  create_url: string;
+  thumbnail?: {  width: number;
+  height: number;
+  url: string;} | undefined;
+  created_at: number;
+  updated_at: number;
+};
+
+export interface DesignPage {
+  id: string;
+  design_id: string;
+  page_number: number;
+  design_type?: string | undefined;
+  dimensions?: {  width: number;
+  height: number;} | undefined;
+  thumbnail?: {  width: number;
+  height: number;
+  url: string;} | undefined;
+};
+
+export interface SyncMetadata_canva_designpages {
+  design_ids: string[];
+};
+
+export interface Design {
+  id: string;
+  title?: string | undefined;
+  created_at: number;
+  updated_at: number;
+  page_count?: number | undefined;
+  owner?: {  user_id?: string | undefined;
+  team_id?: string | undefined;};
+  thumbnail?: {  width?: number | undefined;
+  height?: number | undefined;
+  url?: string | undefined;};
+  urls?: {  edit_url?: string | undefined;
+  view_url?: string | undefined;};
+};
+
+export interface FolderItem {
+  id: string;
+  type: string;
+  folder_id: string;
+  name?: string | undefined;
+  url?: string | undefined;
+  created_at?: number | undefined;
+  updated_at?: number | undefined;
+  thumbnail?: unknown | undefined;
+  page_count?: number | undefined;
+  tags?: string[] | undefined;
+};
+
+export interface SyncMetadata_canva_folderitems {
+  folder_ids: string[];
+};
+
+export interface ActionInput_canva_createassetuploadjob {
+  /**
+   * Base64-encoded file bytes to upload. Example: "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="
+   */
+  file_base64: string;
+  /**
+   * The asset name. Maximum 50 characters. Example: "My Awesome Upload"
+   */
+  name: string;
+};
+
+export interface ActionOutput_canva_createassetuploadjob {
+  job: {  id: string;
+  status: 'failed' | 'in_progress' | 'success';
+  error?: {  code: string;
+  message: string;} | undefined;
+  asset?: {  type: 'image' | 'video';
+  id: string;
+  name: string;
+  tags: string[];
+  owner: {  user_id: string;
+  team_id: string;};
+  created_at: number;
+  updated_at: number;
+  thumbnail?: {  width: number;
+  height: number;
+  url: string;} | undefined;
+  metadata?: {  [key: string]: unknown | undefined;};};};
+};
+
+export interface ActionInput_canva_createcommentreply {
+  /**
+   * The ID of the design the comment is on. Example: "DAFVztcvd9z"
+   */
+  designId: string;
+  /**
+   * The ID of the inline annotation comment. Example: "KeAZEAjijEb"
+   */
+  commentId: string;
+  /**
+   * The reply message in plaintext. Example: "Thanks!"
+   */
+  message_plaintext: string;
+};
+
+export interface ActionOutput_canva_createcommentreply {
+  id: string;
+  design_id: string;
+  thread_id: string;
+  content: {  plaintext: string;
+  markdown?: string | undefined;};
+  mentions?: {  [key: string]: {  tag: string;
+  user?: {  user_id?: string | undefined;
+  team_id?: string | undefined;
+  display_name?: string | undefined;};};};
+  created_at: number;
+  updated_at: number;
+  author?: {  id: string;
+  display_name?: string | undefined;};
+};
+
+export interface ActionInput_canva_createcomment {
+  /**
+   * The object to attach the comment to
+   */
+  attached_to: {  /**
+   * The type of object to attach the comment to. Example: "design"
+   */
+  type: string;
+  /**
+   * The ID of the design to attach the comment to. Example: "DAHNACmCy_g"
+   */
+  design_id: string;
+  /**
+   * Reference to the specific design element to anchor the comment to
+   */
+  element?: unknown | undefined;};
+  /**
+   * The comment message in plaintext. Example: "Great work!"
+   */
+  message_plaintext: string;
+  /**
+   * The ID of the user to assign the comment to. Example: "oUnPjZ2k2yuhftbWF7873o"
+   */
+  assignee_id?: string | undefined;
+};
+
+export interface ActionOutput_canva_createcomment {
+  id: string;
+  design_id?: string | undefined;
+  message_plaintext?: string | undefined;
+  author?: {  id: string;
+  display_name?: string | undefined;};
+  created_at?: number | undefined;
+  updated_at?: number | undefined;
+  mentions?: {  [key: string]: unknown | undefined;};
+  assignee?: {  id: string;
+  display_name?: string | undefined;};
+  resolver?: {  id: string;
+  display_name?: string | undefined;};
+};
+
+export interface ActionInput_canva_createdesigncommentreply {
+  /**
+   * The ID of the design. Example: "DAHNACmCy_g"
+   */
+  design_id: string;
+  /**
+   * The ID of the comment thread. Example: "KAHNAKVJAd4"
+   */
+  thread_id: string;
+  /**
+   * The reply message in plaintext. Example: "Thanks for the feedback!"
+   */
+  message_plaintext: string;
+};
+
+export interface ActionOutput_canva_createdesigncommentreply {
+  id: string;
+  design_id: string;
+  thread_id: string;
+  author?: {  id: string;
+  display_name?: string | undefined;};
+  content: {  plaintext: string;};
+};
+
+export interface ActionInput_canva_createdesigncomment {
+  /**
+   * The ID of the design to comment on. Example: "DAHNACmCy_g"
+   */
+  design_id: string;
+  /**
+   * The comment message in plaintext. Example: "Great work!"
+   */
+  message_plaintext: string;
+  /**
+   * The User ID to assign the comment to. You must mention this user in the message.
+   */
+  assignee_id?: string | undefined;
+};
+
+export interface ActionOutput_canva_createdesigncomment {
+  id: string;
+  design_id: string;
+  thread_type: {  type: string;
+  content?: {  plaintext: string;
+  markdown?: string | undefined;};
+  mentions?: {  [key: string]: {  tag: string;
+  user?: {  user_id: string;
+  team_id: string;
+  display_name?: string | undefined;};};};
+  assignee?: {  id: string;
+  display_name?: string | undefined;};
+  resolver?: {  id: string;
+  display_name?: string | undefined;};};
+  author?: {  id: string;
+  display_name?: string | undefined;};
+  created_at: number;
+  updated_at: number;
+};
+
+export interface ActionInput_canva_createdesignexportjob {
+  /**
+   * The design ID. Example: "DAHNACmCy_g"
+   */
+  design_id: string;
+  /**
+   * Export format details including type and format-specific options.
+   */
+  format: {  /**
+   * Export format type. Example: "pdf", "png", "jpg", "pptx", "gif", "mp4", "html_bundle", "html_standalone"
+   */
+  type: string;};
+};
+
+export interface ActionOutput_canva_createdesignexportjob {
+  job: {  id: string;
+  status: string;
+  urls?: string[] | undefined;
+  error?: {  code: string;
+  message: string;} | undefined;};
+};
+
+export interface ActionInput_canva_createdesignimportjob {
+  /**
+   * The title of the design to create. Maximum 50 characters. Example: "My Imported Design"
+   */
+  title: string;
+  /**
+   * Base64-encoded file content. Supported formats: PPTX, PDF, SVG. Example: "PHN2Zy4u."
+   */
+  file_content: string;
+  /**
+   * The MIME type of the file being imported. If not provided, Canva attempts to automatically detect the type. Example: "application/pdf"
+   */
+  mime_type?: string | undefined;
+};
+
+export interface ActionOutput_canva_createdesignimportjob {
+  job: {  id: string;
+  status: string;};
+};
+
+export interface ActionInput_canva_createdesignresizejob {
+  /**
+   * The ID of the design to resize. Example: "DAHNACmCy_g"
+   */
+  design_id: string;
+  design_type: {  type: 'preset';
+  name: 'doc' | 'email' | 'presentation' | 'whiteboard';} | {  type: 'custom';
+  width: number;
+  height: number;};
+};
+
+export interface ActionOutput_canva_createdesignresizejob {
+  job: {  id: string;
+  status: 'in_progress' | 'success' | 'failed';
+  result?: {  design: {  id: string;
+  title?: string | undefined;
+  url?: string | undefined;
+  thumbnail?: {  width: number;
+  height: number;
+  url: string;} | undefined;
+  urls: {  edit_url: string;
+  view_url: string;};
+  created_at: number;
+  updated_at: number;
+  page_count?: number | undefined;};
+  trial_information?: {  uses_remaining: number;
+  upgrade_url: string;} | undefined;};
+  error?: {  code: string;
+  message: string;} | undefined;};
+};
+
+export interface ActionInput_canva_createdesign {
+  /**
+   * The design type, either a preset or custom dimensions
+   */
+  design_type: {  type: 'preset';
+  /**
+   * The preset design type name. Example: "presentation"
+   */
+  name: 'doc' | 'email' | 'presentation' | 'whiteboard';} | {  type: 'custom';
+  /**
+   * The width of the design in pixels. Example: 1920
+   */
+  width: number;
+  /**
+   * The height of the design in pixels. Example: 1080
+   */
+  height: number;};
+  /**
+   * The ID of an asset to insert into the created design. Currently only supports image assets. Example: "MAHNAIYJM-w"
+   */
+  asset_id?: string | undefined;
+  /**
+   * The name of the design. Example: "My Holiday Presentation"
+   */
+  title?: string | undefined;
+};
+
+export interface ActionOutput_canva_createdesign {
+  design: {  id: string;
+  title?: string | undefined;
+  owner: {  user_id: string;
+  team_id: string;};
+  thumbnail?: {  width: number;
+  height: number;
+  url: string;} | undefined;
+  urls: {  edit_url: string;
+  view_url: string;};
+  created_at: number;
+  updated_at: number;
+  page_count?: number | undefined;};
+};
+
+export interface ActionInput_canva_createfolder {
+  /**
+   * The name of the folder. Example: "My awesome holiday"
+   */
+  name: string;
+  /**
+   * The folder ID of the parent folder. Use "root" for top-level or "uploads" for the Uploads folder. Example: "FAF2lZtloor"
+   */
+  parent_folder_id: string;
+};
+
+export interface ActionOutput_canva_createfolder {
+  folder: {  /**
+   * The folder ID. Example: "FAF2lZtloor"
+   */
+  id: string;
+  /**
+   * The folder name. Example: "My awesome holiday"
+   */
+  name: string;
+  /**
+   * When the folder was created, as a Unix timestamp (in seconds since the Unix Epoch).
+   */
+  created_at: number;
+  /**
+   * When the folder was last updated, as a Unix timestamp (in seconds since the Unix Epoch).
+   */
+  updated_at: number;
+  thumbnail?: {  /**
+   * The width of the thumbnail image in pixels.
+   */
+  width: number;
+  /**
+   * The height of the thumbnail image in pixels.
+   */
+  height: number;
+  /**
+   * A URL for retrieving the thumbnail image.
+   */
+  url: string;} | undefined;};
+};
+
+export interface ActionInput_canva_createurlassetuploadjob {
+  /**
+   * The URL of the file to import. Must be publicly accessible and return HTTP 200 directly. Example: "https://example.com/image.jpg"
+   */
+  url: string;
+  /**
+   * A name for the asset. Example: "My Awesome Asset"
+   */
+  name: string;
+};
+
+export interface ActionOutput_canva_createurlassetuploadjob {
+  job: {  id: string;
+  status: string;
+  error?: {  code: string;
+  message: string;} | undefined;
+  asset?: {  id: string;
+  type: string;
+  name: string;
+  tags: string[];
+  created_at: number;
+  updated_at: number;
+  owner: {  user_id: string;
+  team_id: string;};
+  thumbnail?: {  width: number;
+  height: number;
+  url: string;} | undefined;};};
+};
+
+export interface ActionInput_canva_createurldesignimportjob {
+  /**
+   * The URL of the file to import. Must be publicly accessible. Example: "https://example.com/presentation.pptx"
+   */
+  url: string;
+  /**
+   * A title for the imported design. Example: "My Awesome Design"
+   */
+  title: string;
+  /**
+   * The MIME type of the file being imported. Example: "application/vnd.openxmlformats-officedocument.presentationml.presentation"
+   */
+  mime_type?: string | undefined;
+};
+
+export interface ActionOutput_canva_createurldesignimportjob {
+  job: {  id: string;
+  status: 'in_progress' | 'success' | 'failed';
+  result?: {  designs?: ({  id: string;
+  title?: string | undefined;
+  url?: string | undefined;
+  thumbnail?: {  width?: number | undefined;
+  height?: number | undefined;
+  url?: string | undefined;};
+  urls?: {  edit_url?: string | undefined;
+  view_url?: string | undefined;};
+  created_at?: number | undefined;
+  updated_at?: number | undefined;
+  page_count?: number | undefined;})[];};
+  error?: {  code: string;
+  message: string;} | undefined;};
+};
+
+export interface ActionInput_canva_deleteasset {
+  /**
+   * The ID of the asset to delete. Example: "MAHNAO5uFww"
+   */
+  assetId: string;
+};
+
+export interface ActionOutput_canva_deleteasset {
+  assetId: string;
+  deleted: boolean;
+};
+
+export interface ActionInput_canva_deletefolder {
+  /**
+   * Folder ID. Example: "FAHNA0uMKHU"
+   */
+  folderId: string;
+};
+
+export interface ActionOutput_canva_deletefolder {
+  success: boolean;
+};
+
+export interface ActionInput_canva_getassetuploadjob {
+  /**
+   * The asset upload job ID. Example: "e08861ae-3b29-45db-8dc1-1fe0bf7f1cc8"
+   */
+  jobId: string;
+};
+
+export interface ActionOutput_canva_getassetuploadjob {
+  job: {  id: string;
+  status: 'failed' | 'in_progress' | 'success';
+  error?: {  code: string;
+  message: string;} | undefined;
+  asset?: {  type: 'image' | 'video';
+  id: string;
+  name: string;
+  tags: string[];
+  created_at: number;
+  updated_at: number;
+  owner: {  user_id: string;
+  team_id: string;};
+  thumbnail?: {  width: number;
+  height: number;
+  url: string;} | undefined;
+  metadata?: {  type: 'image';
+  width?: number | undefined;
+  height?: number | undefined;
+  smart_tags?: string[] | undefined;} | {  type: 'video';
+  width?: number | undefined;
+  height?: number | undefined;
+  duration?: number | undefined;};};};
+};
+
+export interface ActionInput_canva_getasset {
+  /**
+   * The ID of the asset. Example: "MAHNAIYJM-w"
+   */
+  assetId: string;
+};
+
+export interface ActionOutput_canva_getasset {
+  id: string;
+  type: 'image' | 'video';
+  name: string;
+  tags: string[];
+  created_at: number;
+  updated_at: number;
+  owner: {  user_id: string;
+  team_id: string;};
+  thumbnail?: {  width: number;
+  height: number;
+  url: string;} | undefined;
+  metadata?: {  type: 'image';
+  width?: number | undefined;
+  height?: number | undefined;
+  smart_tags?: string[] | undefined;} | {  type: 'video';
+  width: number;
+  height: number;
+  duration?: number | undefined;};
+};
+
+export interface ActionInput_canva_getbrandtemplate {
+  /**
+   * The brand template ID. Example: "DEMzWSwy3BI"
+   */
+  brandTemplateId: string;
+};
+
+export interface ActionOutput_canva_getbrandtemplate {
+  id: string;
+  title: string;
+  view_url: string;
+  create_url: string;
+  thumbnail?: {  width: number;
+  height: number;
+  url: string;} | undefined;
+  created_at: number;
+  updated_at: number;
+};
+
+export interface ActionInput_canva_getcurrentusercapabilities {
+};
+
+export interface ActionOutput_canva_getcurrentusercapabilities {
+  capabilities: string[];
+};
+
+export interface ActionInput_canva_getcurrentuserprofile {
+};
+
+export interface ActionOutput_canva_getcurrentuserprofile {
+  display_name: string;
+};
+
+export interface ActionInput_canva_getcurrentuser {
+};
+
+export interface ActionOutput_canva_getcurrentuser {
+  /**
+   * The ID of the user.
+   */
+  user_id: string;
+  /**
+   * The ID of the user's Canva Team.
+   */
+  team_id: string;
+};
+
+export interface ActionInput_canva_getdesigncommentreply {
+  /**
+   * The design ID. Example: "DAHNACmCy_g"
+   */
+  designId: string;
+  /**
+   * The ID of the thread. Example: "KAHNAKVJAd4"
+   */
+  threadId: string;
+  /**
+   * The ID of the reply. Example: "KAHNAD33dXY"
+   */
+  replyId: string;
+};
+
+export interface ActionOutput_canva_getdesigncommentreply {
+  id: string;
+  design_id: string;
+  thread_id: string;
+  author?: {  id: string;
+  display_name?: string | undefined;};
+  content: {  plaintext: string;
+  markdown?: string | undefined;};
+  mentions: {  [key: string]: unknown | undefined;};
+  created_at: number;
+  updated_at: number;
+};
+
+export interface ActionInput_canva_getdesigncommentthread {
+  /**
+   * The ID of the design. Example: "DAFVztcvd9z"
+   */
+  design_id: string;
+  /**
+   * The ID of the comment thread. Example: "KeAbiEAjZEj"
+   */
+  thread_id: string;
+};
+
+export interface ActionOutput_canva_getdesigncommentthread {
+  thread: {  id: string;
+  design_id: string;
+  thread_type: {  type: 'comment';
+  content: {  plaintext: string;
+  markdown?: string | undefined;};
+  mentions?: {  [key: string]: {  tag: string;
+  user?: {  user_id?: string | undefined;
+  team_id?: string | undefined;
+  display_name?: string | undefined;};};};
+  assignee?: {  id: string;
+  display_name?: string | undefined;};
+  resolver?: {  id: string;
+  display_name?: string | undefined;};} | {  type: 'suggestion';
+  suggested_edits: ({  type: 'add' | 'delete' | 'format';
+  format?: string | undefined;})[];
+  status: 'open' | 'accepted' | 'rejected';};
+  author?: {  id: string;
+  display_name?: string | undefined;};
+  created_at: number;
+  updated_at: number;};
+};
+
+export interface ActionInput_canva_getdesignexportformats {
+  /**
+   * Design ID. Example: "DAHNACmCy_g"
+   */
+  designId: string;
+};
+
+export interface ActionOutput_canva_getdesignexportformats {
+  formats: string[];
+};
+
+export interface ActionInput_canva_getdesignexportjob {
+  /**
+   * The export job ID. Example: "e08861ae-3b29-45db-8dc1-1fe0bf7f1cc8"
+   */
+  exportId: string;
+};
+
+export interface ActionOutput_canva_getdesignexportjob {
+  job: {  id: string;
+  status: 'failed' | 'in_progress' | 'success';
+  urls?: string[] | undefined;
+  error?: {  code: 'license_required' | 'approval_required' | 'internal_failure';
+  message: string;} | undefined;};
+};
+
+export interface ActionInput_canva_getdesignimportjob {
+  /**
+   * The ID of the design import job. Example: "e80335c7-afa5-4608-a815-4865c11d0025"
+   */
+  jobId: string;
+};
+
+export interface ActionOutput_canva_getdesignimportjob {
+  job: {  id: string;
+  status: 'failed' | 'in_progress' | 'success';
+  result?: {  designs?: ({  id: string;
+  title?: string | undefined;
+  url?: string | undefined;
+  thumbnail?: {  width: number;
+  height: number;
+  url: string;} | undefined;
+  urls?: {  edit_url: string;
+  view_url: string;} | undefined;
+  created_at?: number | undefined;
+  updated_at?: number | undefined;
+  page_count?: number | undefined;})[];};
+  error?: {  code: string;
+  message: string;} | undefined;};
+};
+
+export interface ActionInput_canva_getdesignpages {
+  /**
+   * The design ID. Example: "DAHNACmCy_g"
+   */
+  designId: string;
+  /**
+   * The page index to start from (1-based). Defaults to 1.
+   */
+  offset?: number | undefined;
+  /**
+   * The number of pages to return. Defaults to 50.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_canva_getdesignpages {
+  items: ({  id?: string | undefined;
+  index?: number | undefined;
+  page_number?: number | undefined;
+  dimensions?: {  width: number;
+  height: number;} | undefined;
+  thumbnail?: {  width: number;
+  height: number;
+  url: string;} | undefined;})[];
+};
+
+export interface ActionInput_canva_getdesign {
+  /**
+   * The design ID. Example: "DAHNACmCy_g"
+   */
+  designId: string;
+};
+
+export interface ActionOutput_canva_getdesign {
+  id: string;
+  title?: string | undefined;
+  owner: {  user_id: string;
+  team_id: string;};
+  thumbnail?: {  width: number;
+  height: number;
+  url: string;} | undefined;
+  urls: {  edit_url: string;
+  view_url: string;};
+  created_at: number;
+  updated_at: number;
+  page_count?: number | undefined;
+};
+
+export interface ActionInput_canva_getfolder {
+  /**
+   * The folder ID. Example: "root" or "FAHNA0uMKHU"
+   */
+  folderId: string;
+};
+
+export interface ActionOutput_canva_getfolder {
+  id: string;
+  name: string;
+  created_at: number;
+  updated_at: number;
+  thumbnail?: {  width: number;
+  height: number;
+  url: string;} | undefined;
+};
+
+export interface ActionInput_canva_geturlassetuploadjob {
+  /**
+   * The asset upload job ID. Example: "e08861ae-3b29-45db-8dc1-1fe0bf7f1cc8"
+   */
+  job_id: string;
+};
+
+export interface ActionOutput_canva_geturlassetuploadjob {
+  id: string;
+  status: 'in_progress' | 'success' | 'failed';
+  error?: {  code: 'file_too_big' | 'import_failed' | 'fetch_failed';
+  message: string;} | undefined;
+  asset?: {  id: string;
+  type: 'image' | 'video';
+  name: string;
+  tags: string[];
+  created_at: number;
+  updated_at: number;
+  owner: {  user_id?: string | undefined;
+  team_id?: string | undefined;};
+  thumbnail?: {  width: number;
+  height: number;
+  url: string;} | undefined;
+  metadata?: {  type: 'image';
+  width?: number | undefined;
+  height?: number | undefined;
+  smart_tags?: string[] | undefined;} | {  type: 'video';
+  width?: number | undefined;
+  height?: number | undefined;
+  duration?: number | undefined;};};
+};
+
+export interface ActionInput_canva_geturldesignimportjob {
+  /**
+   * The ID of the URL import job. Example: "e08861ae-3b29-45db-8dc1-1fe0bf7f1cc8"
+   */
+  jobId: string;
+};
+
+export interface ActionOutput_canva_geturldesignimportjob {
+  job: {  id: string;
+  status: 'failed' | 'in_progress' | 'success';
+  result?: {  designs: ({  id: string;
+  title?: string | undefined;
+  url?: string | undefined;
+  thumbnail?: {  width: number;
+  height: number;
+  url: string;} | undefined;
+  urls: {  edit_url: string;
+  view_url: string;};
+  created_at: number;
+  updated_at: number;
+  page_count?: number | undefined;})[];};
+  error?: {  code: string;
+  message: string;} | undefined;};
+};
+
+export interface ActionInput_canva_listbrandtemplates {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Search term or terms to filter brand templates.
+   */
+  query?: string | undefined;
+  /**
+   * The number of brand templates to return. Defaults to 25.
+   */
+  limit?: number | undefined;
+  /**
+   * Filter by ownership.
+   */
+  ownership?: 'any' | 'owned' | 'shared' | undefined;
+  /**
+   * Sort order.
+   */
+  sort_by?: 'relevance' | 'modified_descending' | 'modified_ascending' | 'title_descending' | 'title_ascending' | undefined;
+  /**
+   * Filter by dataset definitions.
+   */
+  dataset?: 'any' | 'non_empty' | undefined;
+};
+
+export interface ActionOutput_canva_listbrandtemplates {
+  items: ({  id: string;
+  title: string;
+  view_url: string;
+  create_url: string;
+  thumbnail?: {  width: number;
+  height: number;
+  url: string;} | undefined;
+  created_at: number;
+  updated_at: number;})[];
+  /**
+   * Pagination cursor for the next page.
+   */
+  continuation?: string | undefined;
+};
+
+export interface ActionInput_canva_listdesigncommentreplies {
+  /**
+   * The design ID. Example: "DAHNACmCy_g"
+   */
+  designId: string;
+  /**
+   * The ID of the thread. Example: "KAHNAKVJAd4"
+   */
+  threadId: string;
+  /**
+   * The number of replies to return. Maximum 100.
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  continuation?: string | undefined;
+};
+
+export interface ActionOutput_canva_listdesigncommentreplies {
+  items: ({  id: string;
+  design_id: string;
+  thread_id: string;
+  author?: {  id: string;
+  display_name?: string | undefined;};
+  content: {  plaintext: string;
+  markdown?: string | undefined;};
+  mentions: {  [key: string]: {  tag: string;
+  user: {  user_id: string;
+  team_id: string;
+  display_name?: string | undefined;};};};
+  created_at: number;
+  updated_at: number;})[];
+  continuation?: string | undefined;
+};
+
+export interface ActionInput_canva_listdesigns {
+  /**
+   * Search term to filter designs. Example: "party invites"
+   */
+  query?: string | undefined;
+  /**
+   * Filter by ownership: any, owned, or shared.
+   */
+  ownership?: 'any' | 'owned' | 'shared' | undefined;
+  /**
+   * Pagination cursor from the previous response. Example: "RkFGMgXlsVTDbMd:MR3L0QjiaUzycIAjx0yMyuNiV0OildoiOwL0x32G4NjNu4FwtAQNxowUQNMMYN"
+   */
+  continuation?: string | undefined;
+  /**
+   * Sort order for results.
+   */
+  sort_by?: 'relevance' | 'modified_descending' | 'modified_ascending' | 'title_descending' | 'title_ascending' | undefined;
+  /**
+   * Number of designs to return (1-100). Default: 25.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_canva_listdesigns {
+  items: ({  id: string;
+  title?: string | undefined;
+  owner: {  user_id: string;
+  team_id: string;};
+  thumbnail?: {  width: number;
+  height: number;
+  url: string;} | undefined;
+  urls: {  edit_url: string;
+  view_url: string;};
+  created_at: number;
+  updated_at: number;
+  page_count?: number | undefined;
+  design_types?: string[] | undefined;})[];
+  continuation?: string | undefined;
+};
+
+export interface ActionInput_canva_movefolderitem {
+  /**
+   * The ID of the item to move. Example: "DAHNACmCy_g"
+   */
+  item_id: string;
+  /**
+   * The ID of the destination folder. Example: "FAHNA0uMKHU"
+   */
+  to_folder_id: string;
+};
+
+export interface ActionOutput_canva_movefolderitem {
+  success: boolean;
+};
+
+export interface ActionInput_canva_updateasset {
+  /**
+   * The ID of the asset to update. Example: "MAHNAIYJM-w"
+   */
+  assetId: string;
+  /**
+   * The new name for the asset.
+   */
+  name?: string | undefined;
+  /**
+   * The replacement tags for the asset.
+   */
+  tags?: string[] | undefined;
+};
+
+export interface ActionOutput_canva_updateasset {
+  id: string;
+  name: string;
+  tags: string[];
+  type: 'image' | 'video';
+  created_at: number;
+  updated_at: number;
+  owner: {  user_id: string;
+  team_id: string;};
+  import_status?: {  state?: string | undefined;};
+  thumbnail?: {  width: number;
+  height: number;
+  url: string;} | undefined;
+  metadata?: {  type: string;
+  width?: number | undefined;
+  height?: number | undefined;
+  duration?: number | undefined;
+  smart_tags?: string[] | undefined;};
+};
+
+export interface ActionInput_canva_updatefolder {
+  /**
+   * The folder ID. Example: FAF2lZtloor
+   */
+  folderId: string;
+  /**
+   * The new folder name. Example: My awesome holiday
+   */
+  name: string;
+};
+
+export interface ActionOutput_canva_updatefolder {
+  id: string;
+  name: string;
+  created_at: number;
+  updated_at: number;
+  thumbnail?: {  width: number;
+  height: number;
+  url: string;} | undefined;
+};
+
+export interface CouponSet {
+  id: string;
+  coupon_id: string;
+  name: string;
+  total_count?: number | undefined;
+  redeemed_count?: number | undefined;
+  archived_count?: number | undefined;
+  meta_data?: {  [key: string]: unknown | undefined;};
+};
+
+export interface CreditNote {
+  id: string;
+  creditnote_number?: string | undefined;
+  status?: string | undefined;
+  reference_number?: string | undefined;
+  date?: string | undefined;
+  issued_date?: string | undefined;
+  total?: number | undefined;
+  balance?: number | undefined;
+  customer_id?: string | undefined;
+  customer_name?: string | undefined;
+  currency_code?: string | undefined;
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;
+};
+
+export interface Customer {
+  id: string;
+  email: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  role?: string | undefined;
+  username?: string | undefined;
+  date_created?: string | undefined;
+  date_created_gmt?: string | undefined;
+  date_modified?: string | undefined;
+  date_modified_gmt?: string | undefined;
+  billing?: {  first_name?: string | undefined;
+  last_name?: string | undefined;
+  company?: string | undefined;
+  address_1?: string | undefined;
+  address_2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  postcode?: string | undefined;
+  country?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;};
+  shipping?: {  first_name?: string | undefined;
+  last_name?: string | undefined;
+  company?: string | undefined;
+  address_1?: string | undefined;
+  address_2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  postcode?: string | undefined;
+  country?: string | undefined;};
+  is_paying_customer?: boolean | undefined;
+  avatar_url?: string | undefined;
+  meta_data?: ({  id?: number | undefined;
+  key?: string | undefined;
+  value?: unknown | undefined;})[];
+};
+
+export interface Invoice {
+  id: string;
+  invoice_number?: string | undefined;
+  status?: string | undefined;
+  customer_id?: string | undefined;
+  customer_name?: string | undefined;
+  reference_number?: string | undefined;
+  date?: string | undefined;
+  due_date?: string | undefined;
+  currency_code?: string | undefined;
+  total?: number | undefined;
+  balance?: number | undefined;
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;
+};
+
+export interface ItemFamily {
+  /**
+   * The unique identifier of the item family
+   */
+  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  status?: string | undefined;
+  resource_version?: number | undefined;
+  updated_at?: number | undefined;
+  created_at?: number | undefined;
+  business_entity_id?: string | undefined;
+  channel?: string | undefined;
+};
+
+export interface ItemPrice {
+  id: string;
+  name: string;
+  item_id: string;
+  item_family_id?: string | undefined;
+  item_type: string;
+  status: string;
+  currency_code: string;
+  price?: number | undefined;
+  updated_at: number;
+  created_at: number;
+  resource_version?: number | undefined;
+  period?: number | undefined;
+  period_unit?: string | undefined;
+  pricing_model?: string | undefined;
+  channel?: string | undefined;
+  trial_period?: number | undefined;
+  trial_period_unit?: string | undefined;
+  free_quantity?: number | undefined;
+  free_quantity_in_decimal?: string | undefined;
+  external_name?: string | undefined;
+  invoice_notes?: string | undefined;
+  is_taxable?: boolean | undefined;
+  metadata?: {  [key: string]: unknown | undefined;};
+  price_variant_id?: string | undefined;
+};
+
+export interface Item {
+  id: string;
+  name?: string | undefined;
+  status?: string | undefined;
+  rate?: number | undefined;
+  unit?: string | undefined;
+  description?: string | undefined;
+  item_type?: string | undefined;
+  product_type?: string | undefined;
+  tax_id?: string | undefined;
+  tax_name?: string | undefined;
+  tax_percentage?: number | undefined;
+  account_id?: string | undefined;
+  account_name?: string | undefined;
+  purchase_rate?: number | undefined;
+  purchase_account_id?: string | undefined;
+  purchase_account_name?: string | undefined;
+  can_be_sold?: boolean | undefined;
+  can_be_purchased?: boolean | undefined;
+  track_inventory?: boolean | undefined;
+  sku?: string | undefined;
+  source?: string | undefined;
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;
+};
+
+export interface Subscription {
+  id: string;
+  status: string;
+  customer: string;
+  created: number;
+  current_period_start?: number | undefined;
+  current_period_end?: number | undefined;
+  cancel_at_period_end?: boolean | undefined;
+  canceled_at?: number | undefined;
+  ended_at?: number | undefined;
+  collection_method?: string | undefined;
+  currency?: string | undefined;
+  description?: string | undefined;
+  metadata?: {  [key: string]: string;} | undefined;
+  items?: ({  id: string;
+  price_id?: string | undefined;
+  product_id?: string | undefined;
+  quantity?: number | undefined;})[];
+};
+
+export interface ActionInput_chargebee_cancelsubscription {
+  /**
+   * Chargebee subscription ID. Example: "AzqOd0VMyVsW3aOz"
+   */
+  subscription_id: string;
+  /**
+   * If true, the subscription is set to non_renewing and will cancel at the end of the current term. If false, it is cancelled immediately.
+   */
+  end_of_term?: boolean | undefined;
+  /**
+   * How to handle charges for the current term.
+   */
+  credit_option_for_current_term_charges?: 'prorate' | 'full' | 'none' | undefined;
+};
+
+export interface ActionOutput_chargebee_cancelsubscription {
+  id: string;
+  status: string;
+  customer_id?: string | undefined;
+  plan_id?: string | undefined;
+  plan_unit_price?: number | undefined;
+  plan_amount?: number | undefined;
+  billing_period?: number | undefined;
+  billing_period_unit?: string | undefined;
+  subscription_items?: ({  item_price_id?: string | undefined;
+  item_type?: string | undefined;
+  quantity?: number | undefined;
+  unit_price?: number | undefined;
+  amount?: number | undefined;
+  free_quantity?: number | undefined;
+  trial_end?: number | undefined;
+  billing_cycles?: number | undefined;
+  service_period_days?: number | undefined;
+  charge_on_event?: string | undefined;
+  charge_once?: boolean | undefined;
+  charge_on_option?: string | undefined;})[];
+  created_at?: number | undefined;
+  started_at?: number | undefined;
+  activated_at?: number | undefined;
+  cancelled_at?: number | undefined;
+  pause_date?: number | undefined;
+  resume_date?: number | undefined;
+  due_invoices_count?: number | undefined;
+  due_since?: number | undefined;
+  total_dues?: number | undefined;
+  mrr?: number | undefined;
+  exchange_rate?: number | undefined;
+  base_currency_code?: string | undefined;
+  has_scheduled_changes?: boolean | undefined;
+  channel?: string | undefined;
+  resource_version?: number | undefined;
+  updated_at?: number | undefined;
+  deleted?: boolean | undefined;
+};
+
+export interface ActionInput_chargebee_createcreditnote {
+  /**
+   * Invoice ID against which the credit note is issued. Example: "1"
+   */
+  reference_invoice_id: string;
+  /**
+   * Type of credit note.
+   */
+  type: 'adjustment' | 'refundable';
+  /**
+   * Reason for issuing the credit note.
+   */
+  reason_code?: 'write_off' | 'subscription_change' | 'subscription_cancellation' | 'chargeback' | 'order_change' | 'other' | undefined;
+  /**
+   * Total credit note amount in cents. Required if line_items is not provided.
+   */
+  total?: number | undefined;
+  /**
+   * Line items for the credit note. Flattened into bracket notation query params.
+   */
+  line_items?: ({  reference_line_item_id?: string | undefined;
+  unit_amount?: number | undefined;
+  quantity?: number | undefined;
+  amount?: number | undefined;
+  description?: string | undefined;})[];
+  /**
+   * Customer-facing notes for the credit note.
+   */
+  notes?: string | undefined;
+};
+
+export interface ActionOutput_chargebee_createcreditnote {
+  id: string;
+  reference_invoice_id?: string | undefined;
+  type: string;
+  status: string;
+  total?: number | undefined;
+  amount_allocated?: number | undefined;
+  amount_available?: number | undefined;
+  amount_refunded?: number | undefined;
+  reason_code?: string | undefined;
+  notes?: string[] | undefined;
+  customer_id?: string | undefined;
+  deleted: boolean;
+  date?: number | undefined;
+  updated_at?: number | undefined;
+};
+
+export interface ActionInput_chargebee_createcustomer {
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  company?: string | undefined;
+  phone?: string | undefined;
+  auto_collection?: 'on' | 'off' | undefined;
+  net_term_days?: number | undefined;
+  locale?: string | undefined;
+  billing_address?: {  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  company?: string | undefined;
+  phone?: string | undefined;
+  line1?: string | undefined;
+  line2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  zip?: string | undefined;
+  country?: string | undefined;};
+};
+
+export interface ActionOutput_chargebee_createcustomer {
+  id: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  company?: string | undefined;
+  phone?: string | undefined;
+  auto_collection?: string | undefined;
+  net_term_days?: number | undefined;
+  locale?: string | undefined;
+  created_at?: number | undefined;
+  deleted?: boolean | undefined;
+};
+
+export interface ActionInput_chargebee_createitemfamily {
+  /**
+   * Unique identifier for the item family. Example: "new-family"
+   */
+  id: string;
+  /**
+   * Name of the item family. Example: "New Family"
+   */
+  name: string;
+  /**
+   * Description of the item family.
+   */
+  description?: string | undefined;
+};
+
+export interface ActionOutput_chargebee_createitemfamily {
+  id: string;
+  name: string;
+  description?: string | undefined;
+  status?: string | undefined;
+  resource_version?: number | undefined;
+  updated_at?: number | undefined;
+  created_at?: number | undefined;
+  channel?: string | undefined;
+};
+
+export interface ActionInput_chargebee_createitemprice {
+  /**
+   * The identifier for the item price. Example: "basic-plan-yearly"
+   */
+  id: string;
+  /**
+   * Display name for the item price. Example: "Basic Plan Yearly"
+   */
+  name: string;
+  /**
+   * ID of the item to price. Example: "basic-plan"
+   */
+  item_id: string;
+  /**
+   * Pricing model for the item price.
+   */
+  pricing_model: 'flat_fee' | 'per_unit' | 'tiered' | 'volume' | 'stairstep';
+  /**
+   * ISO 4217 currency code. Example: "USD"
+   */
+  currency_code: string;
+  /**
+   * Billing period length. Example: 1
+   */
+  period: number;
+  /**
+   * Unit of the billing period.
+   */
+  period_unit: 'day' | 'week' | 'month' | 'year';
+  /**
+   * Price in minor currency units (cents). Required for flat_fee and per_unit.
+   */
+  price?: number | undefined;
+  description?: string | undefined;
+  external_name?: string | undefined;
+  free_quantity?: number | undefined;
+  trial_period?: number | undefined;
+  trial_period_unit?: 'day' | 'month' | undefined;
+  is_taxable?: boolean | undefined;
+};
+
+export interface ActionOutput_chargebee_createitemprice {
+  id: string;
+  name?: string | undefined;
+  item_id?: string | undefined;
+  pricing_model?: string | undefined;
+  currency_code?: string | undefined;
+  period?: number | undefined;
+  period_unit?: string | undefined;
+  price?: number | undefined;
+  status?: string | undefined;
+  created_at?: number | undefined;
+  updated_at?: number | undefined;
+  resource_version?: number | undefined;
+  external_name?: string | undefined;
+  description?: string | undefined;
+  free_quantity?: number | undefined;
+  is_taxable?: boolean | undefined;
+};
+
+export interface ActionInput_chargebee_createitem {
+  /**
+   * The identifier for the item. Example: "premium-plan"
+   */
+  id: string;
+  /**
+   * A unique display name for the item. Example: "Premium Plan"
+   */
+  name: string;
+  /**
+   * The type of the item.
+   */
+  type: 'plan' | 'addon' | 'charge';
+  /**
+   * The id of the item family that the item belongs to. Example: "saas-plans"
+   */
+  item_family_id: string;
+  /**
+   * Description of the item.
+   */
+  description?: string | undefined;
+  /**
+   * Indicates that the item is a physical product.
+   */
+  is_shippable?: boolean | undefined;
+  /**
+   * Allow the plan to be subscribed to via Checkout. Applies only for plan-items.
+   */
+  enabled_for_checkout?: boolean | undefined;
+  /**
+   * Allow customers to change their subscription to this plan via the Self-Serve Portal. Applies only for plan-items.
+   */
+  enabled_in_portal?: boolean | undefined;
+  /**
+   * Specifies whether the item undergoes metered billing.
+   */
+  metered?: boolean | undefined;
+};
+
+export interface ActionOutput_chargebee_createitem {
+  id: string;
+  name: string;
+  type: 'plan' | 'addon' | 'charge';
+  item_family_id?: string | undefined;
+  description?: string | undefined;
+  is_shippable?: boolean | undefined;
+  enabled_for_checkout?: boolean | undefined;
+  enabled_in_portal?: boolean | undefined;
+  metered?: boolean | undefined;
+  status?: string | undefined;
+  resource_version?: number | undefined;
+  updated_at?: number | undefined;
+  deleted?: boolean | undefined;
+};
+
+export interface ActionInput_chargebee_createsubscription {
+  /**
+   * The unique identifier of the customer. Example: "AzqOd0VMyVlxMaL6"
+   */
+  customer_id: string;
+  /**
+   * List of subscription items to create.
+   */
+  subscription_items: ({  /**
+   * The unique identifier of the item price. Example: "basic-plan-monthly"
+   */
+  item_price_id: string;
+  /**
+   * The quantity of the item purchased. Example: 1
+   */
+  quantity?: number | undefined;})[];
+  /**
+   * Defines whether payments need to be collected automatically. Defaults to "off" to skip payment requirement.
+   */
+  auto_collection?: 'on' | 'off' | undefined;
+  /**
+   * A unique identifier for the subscription. If not provided, it is autogenerated.
+   */
+  id?: string | undefined;
+};
+
+export interface ActionOutput_chargebee_createsubscription {
+  id: string;
+  customer_id: string;
+  status: string;
+  deleted: boolean;
+  subscription_items?: ({  item_price_id: string;
+  quantity?: number | undefined;})[];
+};
+
+export interface ActionInput_chargebee_deletecustomer {
+  /**
+   * Customer ID to delete. Example: "AzqOd0VMyVlxMaL6"
+   */
+  id: string;
+};
+
+export interface ActionOutput_chargebee_deletecustomer {
+  id: string;
+  deleted: boolean;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  company?: string | undefined;
+};
+
+export interface ActionInput_chargebee_getcreditnote {
+  /**
+   * Credit note ID. Example: "__demo_cn__7"
+   */
+  credit_note_id: string;
+};
+
+export interface ActionOutput_chargebee_getcreditnote {
+  id: string;
+  customer_id: string;
+  subscription_id?: string | undefined;
+  reference_invoice_id?: string | undefined;
+  type: string;
+  status: string;
+  reason_code?: string | undefined;
+  create_reason_code?: string | undefined;
+  currency_code: string;
+  price_type: string;
+  total?: number | undefined;
+  sub_total: number;
+  amount_allocated?: number | undefined;
+  amount_refunded?: number | undefined;
+  amount_available?: number | undefined;
+  date?: number | undefined;
+  updated_at?: number | undefined;
+  deleted: boolean;
+  resource_version?: number | undefined;
+  line_items?: ({  [key: string]: unknown | undefined;})[];
+  discounts?: ({  [key: string]: unknown | undefined;})[];
+  taxes?: ({  [key: string]: unknown | undefined;})[];
+  allocations?: ({  [key: string]: unknown | undefined;})[];
+  linked_refunds?: ({  [key: string]: unknown | undefined;})[];
+  billing_address?: {  [key: string]: unknown | undefined;};
+  shipping_address?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_chargebee_getcustomer {
+  /**
+   * Chargebee customer ID. Example: "AzqOd0VMyUhHQZf4"
+   */
+  id: string;
+};
+
+export interface ActionOutput_chargebee_getcustomer {
+  id: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  company?: string | undefined;
+  phone?: string | undefined;
+  deleted?: boolean | undefined;
+};
+
+export interface ActionInput_chargebee_getinvoice {
+  /**
+   * Invoice ID. Example: "1"
+   */
+  id: string;
+};
+
+export interface ActionOutput_chargebee_getinvoice {
+  id: string;
+  customer_id: string;
+  subscription_id?: string | undefined;
+  status: string;
+  recurring: boolean;
+  date?: number | undefined;
+  due_date?: number | undefined;
+  total?: number | undefined;
+  amount_due?: number | undefined;
+  amount_paid?: number | undefined;
+  currency_code: string;
+  deleted: boolean;
+  updated_at?: number | undefined;
+};
+
+export interface ActionInput_chargebee_getitemfamily {
+  /**
+   * Item family ID. Example: "saas-plans"
+   */
+  id: string;
+};
+
+export interface ActionOutput_chargebee_getitemfamily {
+  id: string;
+  name: string;
+  description?: string | undefined;
+  status?: string | undefined;
+  resource_version?: number | undefined;
+  updated_at?: number | undefined;
+  channel?: string | undefined;
+  business_entity_id?: string | undefined;
+  deleted?: boolean | undefined;
+};
+
+export interface ActionInput_chargebee_getitemprice {
+  /**
+   * The ID of the item price to retrieve. Example: "basic-plan-monthly"
+   */
+  item_price_id: string;
+};
+
+export interface ActionOutput_chargebee_getitemprice {
+  id: string;
+  name: string;
+  item_family_id?: string | undefined;
+  item_id?: string | undefined;
+  description?: string | undefined;
+  status?: string | undefined;
+  external_name?: string | undefined;
+  price_variant_id?: string | undefined;
+  proration_type?: string | undefined;
+  pricing_model: string;
+  price?: number | undefined;
+  price_in_decimal?: string | undefined;
+  period?: number | undefined;
+  currency_code: string;
+  period_unit?: string | undefined;
+  trial_period?: number | undefined;
+  trial_period_unit?: string | undefined;
+  trial_end_action?: string | undefined;
+  shipping_period?: number | undefined;
+  shipping_period_unit?: string | undefined;
+  billing_cycles?: number | undefined;
+  free_quantity?: number | undefined;
+  free_quantity_in_decimal?: string | undefined;
+  channel?: string | undefined;
+  resource_version?: number | undefined;
+  updated_at?: number | undefined;
+  created_at: number;
+  usage_accumulation_reset_frequency?: string | undefined;
+  archived_at?: number | undefined;
+  invoice_notes?: string | undefined;
+  is_taxable?: boolean | undefined;
+  metadata?: {  [key: string]: unknown | undefined;};
+  item_type?: string | undefined;
+  show_description_in_invoices?: boolean | undefined;
+  show_description_in_quotes?: boolean | undefined;
+  deleted: boolean;
+  business_entity_id?: string | undefined;
+  tiers?: ({  [key: string]: unknown | undefined;})[];
+  tax_detail?: {  [key: string]: unknown | undefined;};
+  tax_providers_fields?: ({  [key: string]: unknown | undefined;})[];
+  accounting_detail?: {  [key: string]: unknown | undefined;};
+  object?: string | undefined;
+};
+
+export interface ActionInput_chargebee_getitem {
+  /**
+   * The unique identifier of the item. Example: "basic-plan"
+   */
+  id: string;
+};
+
+export interface ActionOutput_chargebee_getitem {
+  id: string;
+  name: string;
+  status?: string | undefined;
+  type: string;
+  item_family_id?: string | undefined;
+  description?: string | undefined;
+  external_name?: string | undefined;
+  updated_at?: number | undefined;
+  resource_version?: number | undefined;
+  deleted?: boolean | undefined;
+  metered?: boolean | undefined;
+  is_giftable?: boolean | undefined;
+  enabled_for_checkout?: boolean | undefined;
+  enabled_in_portal?: boolean | undefined;
+  is_shippable?: boolean | undefined;
+  included_in_mrr?: boolean | undefined;
+  is_percentage_pricing?: boolean | undefined;
+  archived_at?: number | undefined;
+  channel?: string | undefined;
+  redirect_url?: string | undefined;
+  gift_claim_redirect_url?: string | undefined;
+  unit?: string | undefined;
+  item_applicability?: string | undefined;
+  usage_calculation?: string | undefined;
+  metadata?: {  [key: string]: unknown | undefined;};
+  business_entity_id?: string | undefined;
+  object?: string | undefined;
+};
+
+export interface ActionInput_chargebee_getsubscription {
+  /**
+   * Subscription ID. Example: "AzZPdjVMyVrz9acf"
+   */
+  subscription_id: string;
+};
+
+export interface ActionOutput_chargebee_getsubscription {
+  id: string;
+  customer_id?: string | undefined;
+  status?: string | undefined;
+  plan_id?: string | undefined;
+  plan_quantity?: number | undefined;
+  plan_unit_price?: number | undefined;
+  currency_code?: string | undefined;
+  started_at?: number | undefined;
+  activated_at?: number | undefined;
+  created_at?: number | undefined;
+  updated_at?: number | undefined;
+  current_term_start?: number | undefined;
+  current_term_end?: number | undefined;
+  next_billing_at?: number | undefined;
+  remaining_billing_cycles?: number | undefined;
+  deleted?: boolean | undefined;
+};
+
+export interface ActionInput_chargebee_listcouponsets {
+  /**
+   * Filter by coupon id linked to coupon set. Example: "sample_coupon"
+   */
+  coupon_id?: string | undefined;
+  /**
+   * Filter by coupon set name. Example: "Weekend Offer"
+   */
+  name?: string | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of resources to return. Min 1, max 100. Defaults to 10.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_chargebee_listcouponsets {
+  coupon_sets: ({  id: string;
+  coupon_id: string;
+  name: string;
+  total_count?: number | undefined;
+  redeemed_count?: number | undefined;
+  archived_count?: number | undefined;
+  meta_data?: {  [key: string]: unknown | undefined;};
+  object?: string | undefined;})[];
+  next_offset?: string | undefined;
+};
+
+export interface ActionInput_chargebee_listcoupons {
+  /**
+   * Coupon ID to filter by. Example: "cbdemo_earlybird"
+   */
+  id?: string | undefined;
+  /**
+   * Coupon name to filter by.
+   */
+  name?: string | undefined;
+  /**
+   * Discount type to filter by. Example: "fixed_amount" or "percentage"
+   */
+  discount_type?: string | undefined;
+  /**
+   * Coupon status to filter by. Example: "active" or "expired"
+   */
+  status?: string | undefined;
+  /**
+   * Apply on to filter by. Example: "plan_amount" or "invoice_amount"
+   */
+  apply_on?: string | undefined;
+  /**
+   * Filter coupons updated after this Unix timestamp (seconds).
+   */
+  "updated_at[gt]"?: string | undefined;
+  /**
+   * Filter coupons updated before this Unix timestamp (seconds).
+   */
+  "updated_at[lt]"?: string | undefined;
+  /**
+   * Filter coupons updated on or after this Unix timestamp (seconds).
+   */
+  "updated_at[gte]"?: string | undefined;
+  /**
+   * Filter coupons updated on or before this Unix timestamp (seconds).
+   */
+  "updated_at[lte]"?: string | undefined;
+  /**
+   * Number of records to return. Max 100.
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination offset cursor from the previous response.
+   */
+  offset?: string | undefined;
+};
+
+export interface ActionOutput_chargebee_listcoupons {
+  items: ({  id: string;
+  name?: string | undefined;
+  discount_type?: string | undefined;
+  discount_amount?: number | undefined;
+  discount_percentage?: number | undefined;
+  status?: string | undefined;
+  apply_on?: string | undefined;
+  created_at?: number | undefined;
+  updated_at?: number | undefined;
+  resource_version?: number | undefined;
+  deleted?: boolean | undefined;})[];
+  next_offset?: string | undefined;
+};
+
+export interface ActionInput_chargebee_listcreditnotes {
+  /**
+   * Customer ID to filter by. Example: "AzqOd0VMyUhHQZf4"
+   */
+  customer_id?: string | undefined;
+  /**
+   * Subscription ID to filter by. Example: "AzqOd0VMyVsW3aOz"
+   */
+  subscription_id?: string | undefined;
+  /**
+   * Type filter operator. Example: "adjustment" or "refundable"
+   */
+  type?: string | undefined;
+  /**
+   * Operator for type filter. Example: "is" or "is_not"
+   */
+  type_operator?: 'is' | 'is_not' | undefined;
+  /**
+   * Status filter value. Example: "adjusted", "refunded", "refund_due", or "voided"
+   */
+  status?: string | undefined;
+  /**
+   * Operator for status filter. Example: "is" or "is_not"
+   */
+  status_operator?: 'is' | 'is_not' | undefined;
+  /**
+   * Filter credit notes with date greater than this Unix timestamp (seconds).
+   */
+  date_gt?: number | undefined;
+  /**
+   * Filter credit notes with date less than this Unix timestamp (seconds).
+   */
+  date_lt?: number | undefined;
+  /**
+   * Filter credit notes with date greater than or equal to this Unix timestamp (seconds).
+   */
+  date_gte?: number | undefined;
+  /**
+   * Filter credit notes with date less than or equal to this Unix timestamp (seconds).
+   */
+  date_lte?: number | undefined;
+  /**
+   * Filter credit notes with updated_at greater than this Unix timestamp (seconds).
+   */
+  updated_at_gt?: number | undefined;
+  /**
+   * Filter credit notes with updated_at less than this Unix timestamp (seconds).
+   */
+  updated_at_lt?: number | undefined;
+  /**
+   * Filter credit notes with updated_at greater than or equal to this Unix timestamp (seconds).
+   */
+  updated_at_gte?: number | undefined;
+  /**
+   * Filter credit notes with updated_at less than or equal to this Unix timestamp (seconds).
+   */
+  updated_at_lte?: number | undefined;
+  /**
+   * Pagination offset cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_chargebee_listcreditnotes {
+  items: ({  id: string;
+  customer_id?: string | undefined;
+  subscription_id?: string | undefined;
+  reference_invoice_id?: string | undefined;
+  type?: string | undefined;
+  status?: string | undefined;
+  date?: number | undefined;
+  total?: number | undefined;
+  amount_allocated?: number | undefined;
+  amount_refunded?: number | undefined;
+  amount_available?: number | undefined;
+  updated_at?: number | undefined;
+  currency_code?: string | undefined;
+  reason_code?: string | undefined;})[];
+  /**
+   * Pagination cursor for the next page. Omit if there are no more pages.
+   */
+  next_offset?: string | undefined;
+};
+
+export interface ActionInput_chargebee_listcustomers {
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  company?: string | undefined;
+  phone?: string | undefined;
+  updated_at_gt?: number | undefined;
+  updated_at_lt?: number | undefined;
+  updated_at_gte?: number | undefined;
+  updated_at_lte?: number | undefined;
+  created_at_gt?: number | undefined;
+  created_at_lt?: number | undefined;
+  created_at_gte?: number | undefined;
+  created_at_lte?: number | undefined;
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_chargebee_listcustomers {
+  customers: ({  id: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  company?: string | undefined;
+  phone?: string | undefined;
+  created_at?: number | undefined;
+  updated_at?: number | undefined;})[];
+  next_offset?: string | undefined;
+};
+
+export interface ActionInput_chargebee_listevents {
+  /**
+   * Filter by event ID using the `is` operator.
+   */
+  id?: string | undefined;
+  /**
+   * Filter by event type using the `is` operator.
+   */
+  event_type?: string | undefined;
+  /**
+   * Filter by event type using the `is_not` operator.
+   */
+  event_type_is_not?: string | undefined;
+  /**
+   * Filter by event source using the `is` operator.
+   */
+  source?: string | undefined;
+  /**
+   * Filter by event source using the `is_not` operator.
+   */
+  source_is_not?: string | undefined;
+  /**
+   * Filter by occurred_at greater than (Unix seconds).
+   */
+  occurred_at_gt?: number | undefined;
+  /**
+   * Filter by occurred_at less than (Unix seconds).
+   */
+  occurred_at_lt?: number | undefined;
+  /**
+   * Filter by occurred_at greater than or equal to (Unix seconds).
+   */
+  occurred_at_gte?: number | undefined;
+  /**
+   * Filter by occurred_at less than or equal to (Unix seconds).
+   */
+  occurred_at_lte?: number | undefined;
+  /**
+   * Filter by webhook status using the `is` operator.
+   */
+  webhook_status?: string | undefined;
+  /**
+   * Filter by webhook status using the `is_not` operator.
+   */
+  webhook_status_is_not?: string | undefined;
+  /**
+   * Number of events to return (max 100).
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_chargebee_listevents {
+  items: ({  [key: string]: unknown | undefined;})[];
+  /**
+   * Pagination cursor for the next page.
+   */
+  next_offset?: string | undefined;
+};
+
+export interface ActionInput_chargebee_listinvoices {
+  /**
+   * Filter by customer ID. Example: "AzqOd0VMyUhHQZf4"
+   */
+  customer_id?: string | undefined;
+  /**
+   * Filter by subscription ID. Example: "AzZPdjVMyVrz9acf"
+   */
+  subscription_id?: string | undefined;
+  /**
+   * Filter by status. Example: "payment_due"
+   */
+  status?: string | undefined;
+  /**
+   * Status filter operator. Defaults to "is".
+   */
+  status_operator?: 'is' | 'is_not' | undefined;
+  /**
+   * Date range filter in Unix epoch seconds.
+   */
+  date?: {  gt?: number | undefined;
+  lt?: number | undefined;
+  gte?: number | undefined;
+  lte?: number | undefined;};
+  /**
+   * Updated-at range filter in Unix epoch seconds.
+   */
+  updated_at?: {  gt?: number | undefined;
+  lt?: number | undefined;
+  gte?: number | undefined;
+  lte?: number | undefined;};
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Max 100.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_chargebee_listinvoices {
+  invoices: ({  /**
+   * Invoice number. Example: "1"
+   */
+  id: string;
+  customer_id: string;
+  subscription_id?: string | undefined;
+  status: 'paid' | 'posted' | 'payment_due' | 'not_paid' | 'voided' | 'pending';
+  date?: number | undefined;
+  due_date?: number | undefined;
+  total?: number | undefined;
+  amount_due?: number | undefined;
+  amount_paid?: number | undefined;
+  currency_code: string;
+  recurring: boolean;
+  deleted: boolean;
+  updated_at?: number | undefined;
+  resource_version?: number | undefined;})[];
+  next_offset?: string | undefined;
+};
+
+export interface ActionInput_chargebee_listitemfamilies {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of resources to return. Max 100.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_chargebee_listitemfamilies {
+  item_families: ({  id: string;
+  name: string;
+  description?: string | undefined;
+  status?: string | undefined;
+  resource_version?: number | undefined;
+  updated_at?: number | undefined;
+  channel?: string | undefined;
+  business_entity_id?: string | undefined;
+  deleted: boolean;})[];
+  next_offset?: string | undefined;
+};
+
+export interface ActionInput_chargebee_listitemprices {
+  /**
+   * Filter by item ID. Example: "basic-plan"
+   */
+  item_id?: string | undefined;
+  /**
+   * Filter by item family ID. Example: "saas-plans"
+   */
+  item_family_id?: string | undefined;
+  /**
+   * Filter by item type. Example: "plan"
+   */
+  item_type?: string | undefined;
+  /**
+   * Operator for item_type filter. Default: is
+   */
+  item_type_operator?: 'is' | 'is_not' | undefined;
+  /**
+   * Filter by currency code. Example: "USD"
+   */
+  currency_code?: string | undefined;
+  /**
+   * Filter by pricing model. Example: "flat_fee"
+   */
+  pricing_model?: string | undefined;
+  /**
+   * Filter by status. Example: "active"
+   */
+  status?: string | undefined;
+  /**
+   * Operator for status filter. Default: is
+   */
+  status_operator?: 'is' | 'is_not' | undefined;
+  /**
+   * Filter by updated_at greater than. Unix epoch seconds.
+   */
+  updated_at_gt?: number | undefined;
+  /**
+   * Filter by updated_at less than. Unix epoch seconds.
+   */
+  updated_at_lt?: number | undefined;
+  /**
+   * Filter by updated_at greater than or equal. Unix epoch seconds.
+   */
+  updated_at_gte?: number | undefined;
+  /**
+   * Filter by updated_at less than or equal. Unix epoch seconds.
+   */
+  updated_at_lte?: number | undefined;
+  /**
+   * Pagination offset cursor from the previous response.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of records to return. Max 100.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_chargebee_listitemprices {
+  list: ({  id: string;
+  name?: string | undefined;
+  item_id?: string | undefined;
+  item_family_id?: string | undefined;
+  item_type?: string | undefined;
+  status?: string | undefined;
+  external_name?: string | undefined;
+  pricing_model?: string | undefined;
+  price?: number | undefined;
+  period_unit?: string | undefined;
+  period?: number | undefined;
+  currency_code?: string | undefined;
+  trial_period?: number | undefined;
+  trial_period_unit?: string | undefined;
+  free_quantity?: number | undefined;
+  resource_version?: number | undefined;
+  updated_at?: number | undefined;
+  created_at?: number | undefined;
+  is_deleted?: boolean | undefined;
+  object?: string | undefined;})[];
+  /**
+   * Offset cursor for the next page.
+   */
+  next_offset?: string | undefined;
+};
+
+export interface ActionInput_chargebee_listitems {
+  /**
+   * Pagination cursor (offset) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Filter by item ID. Example: "basic-plan"
+   */
+  id?: string | undefined;
+  /**
+   * Filter by item name.
+   */
+  name?: string | undefined;
+  /**
+   * Filter by item type.
+   */
+  type?: 'plan' | 'addon' | 'charge' | undefined;
+  /**
+   * Filter by item family ID. Example: "saas-plans"
+   */
+  item_family_id?: string | undefined;
+  /**
+   * Filter by item status.
+   */
+  status?: 'active' | 'archived' | 'deleted' | undefined;
+  /**
+   * Filter by updated_at timestamp (Unix epoch seconds).
+   */
+  updated_at?: {  gt?: string | undefined;
+  lt?: string | undefined;
+  gte?: string | undefined;
+  lte?: string | undefined;};
+};
+
+export interface ActionOutput_chargebee_listitems {
+  items: ({  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  status?: string | undefined;
+  resource_version?: number | undefined;
+  updated_at?: number | undefined;
+  item_family_id?: string | undefined;
+  type?: string | undefined;
+  is_giftable?: boolean | undefined;
+  is_shippable?: boolean | undefined;
+  enabled_in_hosted_pages?: boolean | undefined;
+  enabled_in_portal?: boolean | undefined;
+  object?: string | undefined;})[];
+  next_offset?: string | undefined;
+};
+
+export interface ActionInput_chargebee_listpaymentsources {
+  /**
+   * Customer ID. Example: "AzqOd0VMyUhHQZf4"
+   */
+  customer_id: string;
+  /**
+   * Filter by payment source type.
+   */
+  type?: 'card' | 'paypal_express_checkout' | 'amazon_payments' | 'direct_debit' | 'generic' | 'alipay' | 'unionpay' | 'apple_pay' | 'wechat_pay' | 'ideal' | 'google_pay' | 'sofort' | 'bancontact' | 'giropay' | 'dotpay' | 'netbanking_emandates' | 'upi' | 'sepa_instant_transfer' | undefined;
+  /**
+   * Type filter operator. Default: is.
+   */
+  type_operator?: 'is' | 'is_not' | undefined;
+  /**
+   * Number of records per page. Max: 100.
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination offset cursor from the previous response. Omit for the first page.
+   */
+  offset?: string | undefined;
+};
+
+export interface ActionOutput_chargebee_listpaymentsources {
+  items: ({  id: string;
+  customer_id?: string | undefined;
+  type?: string | undefined;
+  status?: string | undefined;
+  reference_id?: string | undefined;
+  gateway?: string | undefined;
+  gateway_account_id?: string | undefined;
+  ip_address?: string | undefined;
+  created_at?: number | undefined;
+  updated_at?: number | undefined;
+  resource_version?: number | undefined;
+  deleted?: boolean | undefined;
+  object?: string | undefined;
+  card?: {  [key: string]: unknown | undefined;};
+  bank_account?: {  [key: string]: unknown | undefined;};
+  amazon_payment?: {  [key: string]: unknown | undefined;};
+  paypal?: {  [key: string]: unknown | undefined;};
+  mandate?: {  [key: string]: unknown | undefined;};})[];
+  /**
+   * Pagination offset cursor for the next page.
+   */
+  next_offset?: string | undefined;
+};
+
+export interface ActionInput_chargebee_listsubscriptions {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Max 100.
+   */
+  limit?: number | undefined;
+  /**
+   * Filter by customer ID. Example: "AzqOd0VMyUhHQZf4"
+   */
+  customer_id?: string | undefined;
+  /**
+   * Filter by item price ID. Example: "basic-plan-monthly"
+   */
+  item_price_id?: string | undefined;
+  /**
+   * Filter by subscription status. Example: "active"
+   */
+  status?: string | undefined;
+  /**
+   * Exclude subscriptions with this status. Example: "cancelled"
+   */
+  status_is_not?: string | undefined;
+  /**
+   * Filter by updated_at greater than (Unix seconds).
+   */
+  updated_at_gt?: number | undefined;
+  /**
+   * Filter by updated_at less than (Unix seconds).
+   */
+  updated_at_lt?: number | undefined;
+  /**
+   * Filter by updated_at greater than or equal (Unix seconds).
+   */
+  updated_at_gte?: number | undefined;
+  /**
+   * Filter by updated_at less than or equal (Unix seconds).
+   */
+  updated_at_lte?: number | undefined;
+  /**
+   * Filter by cancelled_at greater than (Unix seconds).
+   */
+  cancelled_at_gt?: number | undefined;
+  /**
+   * Filter by cancelled_at less than (Unix seconds).
+   */
+  cancelled_at_lt?: number | undefined;
+  /**
+   * Filter by cancelled_at greater than or equal (Unix seconds).
+   */
+  cancelled_at_gte?: number | undefined;
+  /**
+   * Filter by cancelled_at less than or equal (Unix seconds).
+   */
+  cancelled_at_lte?: number | undefined;
+};
+
+export interface ActionOutput_chargebee_listsubscriptions {
+  items: ({  /**
+   * Subscription ID. Example: "AzZPdjVMyVrz9acf"
+   */
+  id: string;
+  /**
+   * Customer ID. Example: "AzqOd0VMyUhHQZf4"
+   */
+  customer_id?: string | undefined;
+  /**
+   * Subscription status. Example: "active"
+   */
+  status?: string | undefined;
+  /**
+   * Unix timestamp in seconds. Example: 1700000000
+   */
+  updated_at?: number | undefined;
+  /**
+   * Unix timestamp in seconds. Example: 1700000000
+   */
+  cancelled_at?: number | undefined;})[];
+  /**
+   * Pagination cursor to fetch the next page. Omit when there are no more pages.
+   */
+  next_offset?: string | undefined;
+};
+
+export interface ActionInput_chargebee_listtransactions {
+  /**
+   * Pagination offset cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum number of results per page. Default: 10, Max: 100.
+   */
+  limit?: number | undefined;
+  /**
+   * Filter by customer ID. Example: "AzqOd0VMyUhHQZf4"
+   */
+  customer_id?: string | undefined;
+  /**
+   * Filter by subscription ID. Example: "AzZPdjVMyVrz9acf"
+   */
+  subscription_id?: string | undefined;
+  /**
+   * Filter by transaction type.
+   */
+  type_is?: 'payment' | 'refund' | 'payment_reversal' | undefined;
+  /**
+   * Exclude by transaction type.
+   */
+  type_is_not?: 'payment' | 'refund' | 'payment_reversal' | undefined;
+  /**
+   * Filter by status.
+   */
+  status_is?: string | undefined;
+  /**
+   * Exclude by status.
+   */
+  status_is_not?: string | undefined;
+  /**
+   * Filter by date greater than (Unix epoch seconds).
+   */
+  date_gt?: number | undefined;
+  /**
+   * Filter by date less than (Unix epoch seconds).
+   */
+  date_lt?: number | undefined;
+  /**
+   * Filter by date greater than or equal (Unix epoch seconds).
+   */
+  date_gte?: number | undefined;
+  /**
+   * Filter by date less than or equal (Unix epoch seconds).
+   */
+  date_lte?: number | undefined;
+  /**
+   * Filter by updated_at greater than (Unix epoch seconds).
+   */
+  updated_at_gt?: number | undefined;
+  /**
+   * Filter by updated_at less than (Unix epoch seconds).
+   */
+  updated_at_lt?: number | undefined;
+  /**
+   * Filter by updated_at greater than or equal (Unix epoch seconds).
+   */
+  updated_at_gte?: number | undefined;
+  /**
+   * Filter by updated_at less than or equal (Unix epoch seconds).
+   */
+  updated_at_lte?: number | undefined;
+};
+
+export interface ActionOutput_chargebee_listtransactions {
+  items: ({})[];
+  next_offset?: string | undefined;
+};
+
+export interface ActionInput_chargebee_updatecustomer {
+  /**
+   * Chargebee customer ID. Example: "AzqOd0VMyUhHQZf4"
+   */
+  customer_id: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  company?: string | undefined;
+  phone?: string | undefined;
+  auto_collection?: 'on' | 'off' | undefined;
+  net_term_days?: number | undefined;
+  locale?: string | undefined;
+  billing_address?: {  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  company?: string | undefined;
+  phone?: string | undefined;
+  line1?: string | undefined;
+  line2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  zip?: string | undefined;
+  country?: string | undefined;};
+};
+
+export interface ActionOutput_chargebee_updatecustomer {
+  id: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  company?: string | undefined;
+  phone?: string | undefined;
+  auto_collection?: 'on' | 'off' | undefined;
+  net_term_days?: number | undefined;
+  locale?: string | undefined;
+  billing_address?: {  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  company?: string | undefined;
+  phone?: string | undefined;
+  line1?: string | undefined;
+  line2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  zip?: string | undefined;
+  country?: string | undefined;};
+};
+
+export interface ActionInput_chargebee_updateitemprice {
+  /**
+   * Item price ID. Example: "basic-plan-monthly"
+   */
+  id: string;
+  /**
+   * Name of the item price.
+   */
+  name?: string | undefined;
+  /**
+   * Description of the item price.
+   */
+  description?: string | undefined;
+  /**
+   * Price in minor units (cents). Example: 1900
+   */
+  price?: number | undefined;
+  /**
+   * Status of the item price.
+   */
+  status?: 'active' | 'archived' | undefined;
+  /**
+   * Tiered pricing details.
+   */
+  tiers?: ({  starting_unit?: number | undefined;
+  ending_unit?: number | undefined;
+  price?: number | undefined;})[];
+};
+
+export interface ActionOutput_chargebee_updateitemprice {
+  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  status?: 'active' | 'archived' | 'deleted' | undefined;
+  price?: number | undefined;
+  item_id?: string | undefined;
+  item_family_id?: string | undefined;
+  pricing_model?: string | undefined;
+  resource_version?: number | undefined;
+  updated_at?: number | undefined;
+  created_at?: number | undefined;
+};
+
+export interface ActionInput_chargebee_updateitem {
+  /**
+   * The ID of the item to update. Example: "basic-plan"
+   */
+  item_id: string;
+  /**
+   * The name of the item.
+   */
+  name?: string | undefined;
+  /**
+   * The description of the item.
+   */
+  description?: string | undefined;
+  /**
+   * Whether the item is shippable.
+   */
+  is_shippable?: boolean | undefined;
+  /**
+   * Whether the item is enabled for checkout.
+   */
+  enabled_for_checkout?: boolean | undefined;
+  /**
+   * Whether the item is enabled in the portal.
+   */
+  enabled_in_portal?: boolean | undefined;
+  /**
+   * The status of the item.
+   */
+  status?: 'active' | 'archived' | undefined;
+};
+
+export interface ActionOutput_chargebee_updateitem {
+  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  status?: string | undefined;
+  is_shippable?: boolean | undefined;
+  enabled_for_checkout?: boolean | undefined;
+  enabled_in_portal?: boolean | undefined;
+  resource_version?: number | undefined;
+  updated_at?: number | undefined;
+  created_at?: number | undefined;
+  item_family_id?: string | undefined;
+  type?: string | undefined;
+};
+
+export interface ActionInput_chargebee_updatesubscription {
+  /**
+   * Chargebee subscription ID. Example: "AzqOd0VMyVsW3aOz"
+   */
+  subscription_id: string;
+  /**
+   * List of subscription items to set
+   */
+  subscription_items: ({  /**
+   * Item price ID to assign. Example: "basic-plan-monthly"
+   */
+  item_price_id: string;
+  /**
+   * Quantity of the item. Omit for on-off plans/addons. Example: 2
+   */
+  quantity?: number | undefined;})[];
+  /**
+   * When true, replaces the entire subscription item list. Default: true
+   */
+  replace_items_list?: boolean | undefined;
+  /**
+   * Whether to prorate changes. Default: true
+   */
+  proration?: boolean | undefined;
+};
+
+export interface ActionOutput_chargebee_updatesubscription {
+  /**
+   * Subscription ID
+   */
+  id: string;
+  /**
+   * Subscription status
+   */
+  status: string;
+  /**
+   * Customer ID
+   */
+  customer_id: string;
+  /**
+   * Updated subscription items
+   */
+  subscription_items: ({  item_price_id: string;
+  quantity?: number | undefined;
+  unit_price?: number | undefined;
+  amount?: number | undefined;
+  item_type?: string | undefined;})[];
+  /**
+   * Current term start (Unix seconds)
+   */
+  current_term_start?: number | undefined;
+  /**
+   * Current term end (Unix seconds)
+   */
+  current_term_end?: number | undefined;
+  /**
+   * Next billing date (Unix seconds)
+   */
+  next_billing_at?: number | undefined;
+  /**
+   * Creation timestamp (Unix seconds)
+   */
+  created_at?: number | undefined;
+  /**
+   * Last update timestamp (Unix seconds)
+   */
+  updated_at?: number | undefined;
+};
+
+export interface ActionInput_chargebee_voidcreditnote {
+  /**
+   * Credit note ID. Example: "cbnote_123"
+   */
+  credit_note_id: string;
+};
+
+export interface ActionOutput_chargebee_voidcreditnote {
+  id: string;
+  customer_id: string;
+  subscription_id?: string | undefined;
+  reference_invoice_id?: string | undefined;
+  type: 'adjustment' | 'refundable' | 'store';
+  reason_code?: string | undefined;
+  status: 'adjusted' | 'refunded' | 'refund_due' | 'voided';
+  vat_number?: string | undefined;
+  date?: number | undefined;
+  price_type: 'tax_exclusive' | 'tax_inclusive';
+  currency_code: string;
+  total?: number | undefined;
+  amount_allocated?: number | undefined;
+  amount_refunded?: number | undefined;
+  amount_available?: number | undefined;
+  refunded_at?: number | undefined;
+  voided_at?: number | undefined;
+  generated_at?: number | undefined;
+  resource_version?: number | undefined;
+  updated_at?: number | undefined;
+  channel?: 'web' | 'app_store' | 'play_store' | undefined;
+  sub_total: number;
+  sub_total_in_local_currency?: number | undefined;
+  total_in_local_currency?: number | undefined;
+  local_currency_code?: string | undefined;
+  round_off_amount?: number | undefined;
+  fractional_correction?: number | undefined;
+  notes?: string[] | undefined;
+  deleted: boolean;
+  tax_category?: string | undefined;
+  local_currency_exchange_rate?: number | undefined;
+  create_reason_code?: string | undefined;
+  vat_number_prefix?: string | undefined;
+  business_entity_id?: string | undefined;
+};
+
 export interface BackgroundCheck {
   id: string;
   status: string;
@@ -25074,6 +31259,2347 @@ export interface ActionOutput_clickup_updatetimeentry {
   duration: number;
   billable: boolean;
   tags: string[];
+};
+
+export interface Activity {
+  id: string;
+  subject?: string | undefined;
+  type?: string | undefined;
+  done?: boolean | undefined;
+  due_date?: string | undefined;
+  due_time?: string | undefined;
+  duration?: string | undefined;
+  add_time?: string | undefined;
+  update_time?: string | undefined;
+  user_id?: number | undefined;
+  deal_id?: number | undefined;
+  person_id?: number | undefined;
+  org_id?: number | undefined;
+  lead_id?: string | undefined;
+  note?: string | undefined;
+  active_flag?: boolean | undefined;
+  public_description?: string | undefined;
+  busy_flag?: boolean | undefined;
+  marked_as_done_time?: string | undefined;
+  created_by_user_id?: number | undefined;
+  assigned_to_user_id?: number | undefined;
+};
+
+export interface Lead {
+  id: string;
+  company?: string | undefined;
+  email?: string | undefined;
+  firstName?: string | undefined;
+  lastName: string;
+  fullName?: string | undefined;
+  phone?: string | undefined;
+  mobile?: string | undefined;
+  status?: string | undefined;
+  source?: string | undefined;
+  designation?: string | undefined;
+  website?: string | undefined;
+  industry?: string | undefined;
+  annualRevenue?: number | undefined;
+  employees?: number | undefined;
+  skypeId?: string | undefined;
+  twitter?: string | undefined;
+  street?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  zipCode?: string | undefined;
+  country?: string | undefined;
+  description?: string | undefined;
+  emailOptOut?: boolean | undefined;
+  createdTime: string;
+  modifiedTime: string;
+  createdById?: string | undefined;
+  createdByName?: string | undefined;
+  createdByEmail?: string | undefined;
+  modifiedById?: string | undefined;
+  modifiedByName?: string | undefined;
+  modifiedByEmail?: string | undefined;
+  ownerId?: string | undefined;
+  ownerName?: string | undefined;
+  ownerEmail?: string | undefined;
+  rating?: string | undefined;
+  fax?: string | undefined;
+  secondaryEmail?: string | undefined;
+  tags?: string[] | undefined;
+};
+
+export interface ActionInput_close_createcontact {
+  /**
+   * The ID of the lead to create the contact under. Example: lead_xxx
+   */
+  lead_id: string;
+  /**
+   * The full name of the contact.
+   */
+  name?: string | undefined;
+  /**
+   * The job title of the contact.
+   */
+  title?: string | undefined;
+  /**
+   * Email addresses for the contact.
+   */
+  emails?: ({  email: string;
+  type: 'office' | 'home' | 'other';})[] | undefined;
+  /**
+   * Phone numbers for the contact.
+   */
+  phones?: ({  phone: string;
+  type: 'office' | 'home' | 'mobile' | 'direct' | 'other';})[] | undefined;
+  /**
+   * URLs associated with the contact.
+   */
+  urls?: ({  url: string;
+  type?: string | undefined;})[];
+};
+
+export interface ActionOutput_close_createcontact {
+  id: string;
+  lead_id: string;
+  name?: string | undefined;
+  title?: string | undefined;
+  emails?: ({  email: string;
+  type: string;
+  is_unsubscribed?: boolean | undefined;})[];
+  phones?: ({  phone: string;
+  type: string;
+  country?: string | undefined;
+  phone_formatted?: string | undefined;})[];
+  urls?: ({  url: string;
+  type: string;})[] | undefined;
+};
+
+export interface ActionInput_close_createlead {
+  name: string;
+  status_id?: string | undefined;
+  url?: string | undefined;
+  description?: string | undefined;
+  addresses?: ({  address_1?: string | undefined;
+  address_2?: string | undefined;
+  city?: string | undefined;
+  country?: string | undefined;
+  label?: string | undefined;
+  state?: string | undefined;
+  zipcode?: string | undefined;})[];
+  contacts?: ({  name?: string | undefined;
+  title?: string | undefined;
+  emails?: ({  email: string;
+  type?: string | undefined;})[];
+  phones?: ({  phone: string;
+  type?: string | undefined;})[];
+  urls?: ({  url: string;
+  type?: string | undefined;})[];})[];
+};
+
+export interface ActionOutput_close_createlead {
+  id: string;
+  name?: string | undefined;
+  display_name: string;
+  status_id: string;
+  status_label: string;
+  organization_id: string;
+  url?: string | undefined;
+  description?: string | undefined;
+  date_created: string;
+  date_updated: string;
+  html_url: string;
+  addresses?: ({  address_1: string;
+  address_2: string;
+  city: string;
+  country: string;
+  label: string;
+  state: string;
+  zipcode: string;
+  tz_ids?: string[] | undefined;})[];
+  contacts?: ({  id: string;
+  name: string;
+  title: string;
+  display_name: string;
+  lead_id: string;
+  organization_id: string;
+  date_created: string;
+  date_updated: string;
+  created_by: string;
+  updated_by: string;
+  emails?: ({  email: string;
+  type: string;
+  is_unsubscribed?: boolean | undefined;})[];
+  phones?: ({  phone: string;
+  type: string;
+  phone_formatted?: string | undefined;
+  country?: string | undefined;
+  tz_ids?: string[] | undefined;})[];
+  urls?: ({  url: string;
+  type: string;})[] | undefined;})[];
+  contact_ids?: string[] | undefined;
+};
+
+export interface ActionInput_close_createnoteactivity {
+  /**
+   * Lead ID. Example: "lead_mELh8FRqV6vRWJ5bgGdx7GpifIkEnoQFHg0hsxmQI1z"
+   */
+  lead_id: string;
+  /**
+   * Plain text note content.
+   */
+  note: string;
+  /**
+   * Contact ID. Example: "cont_WkCG7ujzTYPCoOTUcao7tRUj9TMChmWgeNXimiJT9eJ"
+   */
+  contact_id?: string | undefined;
+  /**
+   * ISO timestamp. Defaults to now.
+   */
+  activity_at?: string | undefined;
+};
+
+export interface ActionOutput_close_createnoteactivity {
+  id: string;
+  _type: string;
+  note?: string | undefined;
+  note_html?: string | undefined;
+  lead_id?: string | undefined;
+  contact_id?: string | undefined;
+  activity_at?: string | undefined;
+  date_created: string;
+  date_updated: string;
+  user_id?: string | undefined;
+  organization_id?: string | undefined;
+  created_by?: string | undefined;
+  updated_by?: string | undefined;
+  created_by_name?: string | undefined;
+  updated_by_name?: string | undefined;
+  user_name?: string | undefined;
+  users?: string[] | undefined;
+};
+
+export interface ActionInput_close_createopportunity {
+  /**
+   * Lead ID. Example: "lead_mELh8FRqV6vRWJ5bgGdx7GpifIkEnoQFHg0hsxmQI1z"
+   */
+  lead_id: string;
+  /**
+   * Opportunity status ID. Example: "stat_YT79kszvqlYbs5HhEYBEtr0CkZ41Ey0RqXpLaUsr1li"
+   */
+  status_id: string;
+  /**
+   * Pipeline ID. Example: "pipe_4RR4Vuxbp8jRIcQEzEzcEJ"
+   */
+  pipeline_id?: string | undefined;
+  /**
+   * Note about the opportunity
+   */
+  note?: string | undefined;
+  /**
+   * Confidence level (0-100)
+   */
+  confidence?: number | undefined;
+  /**
+   * Opportunity value in whole USD dollars. Example: 50000
+   */
+  value?: number | undefined;
+  /**
+   * Value period: one_time, monthly, or annual
+   */
+  value_period?: 'one_time' | 'monthly' | 'annual' | undefined;
+  /**
+   * User ID to assign the opportunity to
+   */
+  user_id?: string | undefined;
+  /**
+   * Contact ID associated with the opportunity
+   */
+  contact_id?: string | undefined;
+  /**
+   * Date the opportunity was won. Example: "2026-06-19"
+   */
+  date_won?: string | undefined;
+};
+
+export interface ActionOutput_close_createopportunity {
+  id: string;
+  lead_id?: string | undefined;
+  lead_name?: string | undefined;
+  status_id?: string | undefined;
+  status_label?: string | undefined;
+  pipeline_id?: string | undefined;
+  pipeline_name?: string | undefined;
+  contact_id?: string | undefined;
+  contact_name?: string | undefined;
+  user_id?: string | undefined;
+  user_name?: string | undefined;
+  note?: string | undefined;
+  confidence?: number | undefined;
+  value?: number | undefined;
+  value_period?: 'one_time' | 'monthly' | 'annual' | undefined;
+  annualized_value?: number | undefined;
+  date_won?: string | undefined;
+  date_lost?: string | undefined;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+  organization_id?: string | undefined;
+};
+
+export interface ActionInput_close_createtask {
+  /**
+   * Lead ID. Example: "lead_abc123"
+   */
+  lead_id: string;
+  /**
+   * Task description text
+   */
+  text: string;
+  /**
+   * Task date in YYYY-MM-DD format. Omit for a dateless task.
+   */
+  date?: string | undefined;
+  /**
+   * User ID to assign the task to
+   */
+  assigned_to?: string | undefined;
+  /**
+   * Whether the task is complete. Defaults to false
+   */
+  is_complete?: boolean | undefined;
+  /**
+   * Task priority. Defaults to medium
+   */
+  priority?: 'low' | 'medium' | 'high' | undefined;
+  /**
+   * Contact ID associated with the task
+   */
+  contact_id?: string | undefined;
+};
+
+export interface ActionOutput_close_createtask {
+  id: string;
+  lead_id: string;
+  contact_id?: string | undefined;
+  text?: string | undefined;
+  assigned_to?: string | undefined;
+  date?: string | undefined;
+  is_complete: boolean;
+  is_dateless: boolean;
+  date_created: string;
+  date_updated: string;
+  organization_id: string;
+};
+
+export interface ActionInput_close_createwebhook {
+  /**
+   * HTTPS endpoint URL for the webhook subscription. Example: "https://example.com/webhook"
+   */
+  url: string;
+  events: string[];
+  /**
+   * Whether to verify the SSL certificate of the destination URL. Defaults to true.
+   */
+  verify_ssl?: boolean | undefined;
+};
+
+export interface ActionOutput_close_createwebhook {
+  id: string;
+  url: string;
+  events: ({  action: string;
+  object_type: string;})[];
+  verify_ssl?: boolean | undefined;
+  status?: string | undefined;
+  health_status?: string | undefined;
+  signature_key?: string | undefined;
+  created_by?: string | undefined;
+  updated_by?: string | undefined;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+};
+
+export interface ActionInput_close_deletecontact {
+  /**
+   * Contact ID to delete. Example: "cont_abc123"
+   */
+  id: string;
+};
+
+export interface ActionOutput_close_deletecontact {
+  id: string;
+  deleted: boolean;
+};
+
+export interface ActionInput_close_deletelead {
+  /**
+   * The ID of the lead to delete. Example: "lead_xxx"
+   */
+  id: string;
+};
+
+export interface ActionOutput_close_deletelead {
+  success: true;
+};
+
+export interface ActionInput_close_deletenoteactivity {
+  /**
+   * The ID of the note activity to delete. Example: "acti_123"
+   */
+  id: string;
+};
+
+export interface ActionOutput_close_deletenoteactivity {
+  success: boolean;
+};
+
+export interface ActionInput_close_deleteopportunity {
+  /**
+   * Opportunity ID. Example: "oppo_OCMnOPla5NoAH69U3S9cZiiWjptaqpCAUPBFWS0yOXo"
+   */
+  id: string;
+};
+
+export interface ActionOutput_close_deleteopportunity {
+  id: string;
+  success: boolean;
+};
+
+export interface ActionInput_close_deletetask {
+  /**
+   * Close task ID. Example: "task_123"
+   */
+  id: string;
+};
+
+export interface ActionOutput_close_deletetask {
+  success: boolean;
+};
+
+export interface ActionInput_close_deletewebhook {
+  /**
+   * The ID of the webhook subscription to delete. Example: "whsub_6un6NQjYTaFdgtIZsTDXP6"
+   */
+  id: string;
+};
+
+export interface ActionOutput_close_deletewebhook {
+  id?: string | undefined;
+};
+
+export interface ActionInput_close_getcontact {
+  /**
+   * Contact ID. Example: "cont_123"
+   */
+  contactId: string;
+};
+
+export interface ActionOutput_close_getcontact {
+  id: string;
+  lead_id?: string | undefined;
+  name?: string | undefined;
+  title?: string | undefined;
+  display_name?: string | undefined;
+  organization_id?: string | undefined;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+  created_by?: string | undefined;
+  updated_by?: string | undefined;
+  emails?: ({  email: string;
+  type: string;
+  is_unsubscribed?: boolean | undefined;})[];
+  phones?: ({  phone: string;
+  type: string;
+  phone_formatted?: string | undefined;
+  country?: string | undefined;
+  outbound_sms_blocked?: boolean | undefined;
+  tz_ids?: string[] | undefined;})[];
+  urls?: ({  url: string;
+  type: string;})[] | undefined;
+  timezone?: string | undefined;
+  timezone_source?: string | undefined;
+  integration_links?: ({  name: string;
+  url: string;})[] | undefined;
+};
+
+export interface ActionInput_close_getlead {
+  /**
+   * Lead ID. Example: "lead_mELh8FRqV6vRWJ5bgGdx7GpifIkEnoQFHg0hsxmQI1z"
+   */
+  id: string;
+};
+
+export interface ActionOutput_close_getlead {
+  id: string;
+  display_name?: string | undefined;
+  name?: string | undefined;
+  status_id?: string | undefined;
+  status_label?: string | undefined;
+  organization_id?: string | undefined;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+  created_by?: string | undefined;
+  updated_by?: string | undefined;
+  contacts?: ({})[] | undefined;
+  opportunities?: ({})[] | undefined;
+  tasks?: ({})[] | undefined;
+  url?: string | undefined;
+};
+
+export interface ActionInput_close_getme {
+};
+
+export interface ActionOutput_close_getme {
+  id: string;
+  email: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  name?: string | undefined;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+  memberships?: ({  id: string;
+  user_id: string;
+  organization_id: string;
+  role: string;
+  permissions_granted?: string[] | undefined;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;})[];
+  organizations?: ({  id: string;
+  name: string;
+  lead_statuses?: ({  id: string;
+  label: string;
+  organization_id?: string | undefined;})[];
+  opportunity_statuses?: ({  id: string;
+  label: string;
+  organization_id?: string | undefined;})[];
+  pipelines?: ({  id: string;
+  name: string;
+  organization_id?: string | undefined;})[];})[];
+  email_accounts?: ({  id: string;
+  email: string;})[] | undefined;
+  phone_numbers?: ({  id: string;
+  phone_number?: string | undefined;})[];
+};
+
+export interface ActionInput_close_getopportunity {
+  /**
+   * Opportunity ID. Example: "oppo_123"
+   */
+  id: string;
+};
+
+export interface ActionOutput_close_getopportunity {
+  id: string;
+  lead_id: string;
+  contact_id: string;
+  status_id: string;
+  status_label: string;
+  status_type: string;
+  status_display_name?: string | undefined;
+  user_id: string;
+  user_name?: string | undefined;
+  value: number;
+  value_period: string;
+  value_currency?: string | undefined;
+  value_formatted?: string | undefined;
+  annualized_value: number;
+  annualized_expected_value: number;
+  confidence: number;
+  expected_value: number;
+  note?: string | undefined;
+  pipeline_id?: string | undefined;
+  pipeline_name?: string | undefined;
+  lead_name?: string | undefined;
+  date_created: string;
+  date_updated: string;
+  date_won?: string | undefined;
+  date_lost?: string | undefined;
+  created_by?: string | undefined;
+  created_by_name?: string | undefined;
+  updated_by?: string | undefined;
+  updated_by_name?: string | undefined;
+  organization_id: string;
+  is_stalled?: boolean | undefined;
+  lead_primary_email?: {  email?: string | undefined;
+  type?: string | undefined;};
+  lead_primary_phone?: ({  phone?: string | undefined;
+  type?: string | undefined;})[];
+  integration_links?: ({  id?: string | undefined;
+  name?: string | undefined;
+  url?: string | undefined;})[];
+  attachments?: ({  content_type: string;
+  filename: string;
+  size: number;
+  thumbnail_url?: string | undefined;
+  url: string;})[];
+  stall_status?: {  [key: string]: unknown | undefined;};
+  suggested_action?: {  [key: string]: unknown | undefined;};
+  comment_summary?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_close_gettask {
+  /**
+   * Task ID. Example: "task_xxx"
+   */
+  id: string;
+};
+
+export interface ActionOutput_close_gettask {
+  id: string;
+  _type: string;
+  assigned_to?: string | undefined;
+  is_complete: boolean;
+  priority?: 'low' | 'medium' | 'high' | undefined;
+  due_date?: string | undefined;
+  lead_id?: string | undefined;
+};
+
+export interface ActionInput_close_getuser {
+  /**
+   * User ID. Example: "user_abc123"
+   */
+  id: string;
+};
+
+export interface ActionOutput_close_getuser {
+  id: string;
+  email?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  image?: string | undefined;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+  organizations?: string[] | undefined;
+};
+
+export interface ActionInput_close_listactivities {
+  /**
+   * Lead ID to filter activities by. Example: "lead_xxx"
+   */
+  lead_id?: string | undefined;
+  /**
+   * User ID to filter activities by. Example: "user_xxx"
+   */
+  user_id?: string | undefined;
+  /**
+   * Filter activities updated after this ISO8601 timestamp. Example: "2024-01-01T00:00:00.000000+00:00"
+   */
+  date_updated__gt?: string | undefined;
+  /**
+   * Pagination offset from the previous response (maps to _skip). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Max number of results per page. Default 100, max 100 for activity endpoint. Example: "100"
+   */
+  _limit?: string | undefined;
+};
+
+export interface ActionOutput_close_listactivities {
+  data: ({  id: string;
+  _type: string;})[];
+  has_more?: boolean | undefined;
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_close_listcontacts {
+  /**
+   * Filter contacts by lead ID. Example: "lead_xxx"
+   */
+  lead_id?: string | undefined;
+  /**
+   * Pagination cursor (skip value) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of contacts to return per page. Max 200.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_close_listcontacts {
+  items: ({  id: string;
+  lead_id: string;
+  name?: string | undefined;
+  title?: string | undefined;
+  emails?: ({  email: string;
+  type?: string | undefined;})[];
+  phones?: ({  phone: string;
+  type?: string | undefined;})[];
+  organization_name?: string | undefined;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;})[];
+  next_cursor?: string | undefined;
+  has_more: boolean;
+};
+
+export interface ActionInput_close_listleads {
+  /**
+   * Close search query syntax. Example: "name:Acme"
+   */
+  query?: string | undefined;
+  /**
+   * Pagination cursor (offset) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Max 200.
+   */
+  limit?: number | undefined;
+  /**
+   * Filter by update time. Example: "2024-01-01T00:00:00.000000+00:00"
+   */
+  date_updated__gt?: string | undefined;
+};
+
+export interface ActionOutput_close_listleads {
+  data: ({  id: string;
+  name?: string | undefined;
+  status_id?: string | undefined;
+  status_label?: string | undefined;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;})[];
+  has_more: boolean;
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_close_listopportunities {
+  /**
+   * Filter by lead ID. Example: lead_mELh8FRqV6vRWJ5bgGdx7GpifIkEnoQFHg0hsxmQI1z
+   */
+  lead_id?: string | undefined;
+  /**
+   * Filter by opportunity status ID. Example: stat_YT79kszvqlYbs5HhEYBEtr0CkZ41Ey0RqXpLaUsr1li
+   */
+  status_id?: string | undefined;
+  /**
+   * Filter by pipeline ID. Example: pipe_4RR4Vuxbp8jRIcQEzEzcEJ
+   */
+  pipeline_id?: string | undefined;
+  /**
+   * Filter by update time greater than. Example: 2024-01-01T00:00:00.000000+00:00
+   */
+  date_updated__gt?: string | undefined;
+  /**
+   * Pagination cursor (offset). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Page size. Max 200.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_close_listopportunities {
+  data: ({  id: string;
+  lead_id?: string | undefined;
+  lead_name?: string | undefined;
+  status_id?: string | undefined;
+  status_label?: string | undefined;
+  status_type?: string | undefined;
+  status_display_name?: string | undefined;
+  pipeline_id?: string | undefined;
+  pipeline_name?: string | undefined;
+  contact_id?: string | undefined;
+  contact_name?: string | undefined;
+  user_id?: string | undefined;
+  user_name?: string | undefined;
+  value?: number | undefined;
+  value_period?: string | undefined;
+  value_currency?: string | undefined;
+  value_formatted?: string | undefined;
+  annualized_value?: number | undefined;
+  expected_value?: number | undefined;
+  annualized_expected_value?: number | undefined;
+  confidence?: number | undefined;
+  note?: string | undefined;
+  note_html?: string | undefined;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+  date_won?: string | undefined;
+  date_lost?: string | undefined;
+  organization_id?: string | undefined;
+  created_by?: string | undefined;
+  created_by_name?: string | undefined;
+  updated_by?: string | undefined;
+  updated_by_name?: string | undefined;
+  is_stalled?: boolean | undefined;})[];
+  has_more?: boolean | undefined;
+  next_cursor?: string | undefined;
+  total_results?: number | undefined;
+  count_by_value_period?: {  [key: string]: number;} | undefined;
+  total_value_one_time?: number | undefined;
+  total_value_monthly?: number | undefined;
+  total_value_annual?: number | undefined;
+  total_value_annualized?: number | undefined;
+  expected_value_one_time?: number | undefined;
+  expected_value_monthly?: number | undefined;
+  expected_value_annual?: number | undefined;
+  expected_value_annualized?: number | undefined;
+};
+
+export interface ActionInput_close_listtasks {
+  /**
+   * Lead ID to filter tasks by. Example: "lead_xxx"
+   */
+  lead_id?: string | undefined;
+  /**
+   * User ID to filter tasks by assignee. Example: "user_xxx"
+   */
+  assigned_to?: string | undefined;
+  /**
+   * Filter by completion status.
+   */
+  is_complete?: boolean | undefined;
+  /**
+   * Task type to filter by. Example: "lead" or "opportunity"
+   */
+  type?: string | undefined;
+  /**
+   * Task view to filter by. Example: "inbox", "future", or "archive"
+   */
+  view?: string | undefined;
+  /**
+   * Filter by update time greater than ISO8601 timestamp. Example: "2024-01-01T00:00:00.000000+00:00"
+   */
+  date_updated__gt?: string | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results to return. Max 200.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_close_listtasks {
+  tasks: ({  id: string;
+  _type: string;
+  view: string;
+  assigned_to?: string | undefined;
+  assigned_to_name?: string | undefined;
+  contact_id?: string | undefined;
+  contact_name?: string | undefined;
+  created_by?: string | undefined;
+  created_by_name?: string | undefined;
+  date?: string | undefined;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+  is_complete?: boolean | undefined;
+  is_dateless?: boolean | undefined;
+  lead_id?: string | undefined;
+  lead_name?: string | undefined;
+  object_id?: string | undefined;
+  object_type?: string | undefined;
+  organization_id?: string | undefined;
+  text?: string | undefined;
+  updated_by?: string | undefined;
+  updated_by_name?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_close_listusers {
+};
+
+export interface ActionOutput_close_listusers {
+  0: {  id: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  organizations?: unknown[] | undefined;};
+};
+
+export interface ActionInput_close_listwebhooks {
+  /**
+   * Pagination cursor (_skip offset) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_close_listwebhooks {
+  items: ({  /**
+   * Webhook ID. Example: "whsub_123"
+   */
+  id: string;
+  /**
+   * Webhook URL. Example: "https://example.com/webhook"
+   */
+  url: string;
+  /**
+   * List of event subscriptions.
+   */
+  events: ({  action: string;
+  extra_filter?: string | undefined;
+  object_type: string;})[];
+  /**
+   * Webhook status.
+   */
+  status: 'active' | 'paused';})[];
+  /**
+   * Pagination cursor for the next page. Omitted if there are no more pages.
+   */
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_close_updatecontact {
+  /**
+   * Contact ID. Example: "cont_xxx"
+   */
+  id: string;
+  /**
+   * Contact name
+   */
+  name?: string | undefined;
+  /**
+   * Contact title
+   */
+  title?: string | undefined;
+  /**
+   * Email addresses
+   */
+  emails?: ({  email: string;
+  type?: string | undefined;})[];
+  /**
+   * Phone numbers
+   */
+  phones?: ({  phone: string;
+  type?: string | undefined;})[];
+  /**
+   * URLs
+   */
+  urls?: ({  url: string;
+  type?: string | undefined;})[];
+  /**
+   * IANA timezone identifier
+   */
+  timezone?: string | undefined;
+};
+
+export interface ActionOutput_close_updatecontact {
+  id: string;
+  name: string;
+  title: string;
+  display_name: string;
+  emails?: ({  email: string;
+  type: string;
+  is_unsubscribed: boolean;})[] | undefined;
+  phones?: ({  phone: string;
+  type: string;
+  country?: string | undefined;
+  phone_formatted?: string | undefined;
+  outbound_sms_blocked?: boolean | undefined;})[];
+  urls?: ({  url: string;
+  type: string;})[] | undefined;
+  lead_id?: string | undefined;
+  organization_id: string;
+  created_by: string;
+  updated_by: string;
+  date_created: string;
+  date_updated: string;
+  timezone?: string | undefined;
+  timezone_source?: string | undefined;
+};
+
+export interface ActionInput_close_updatelead {
+  /**
+   * Lead ID. Example: "lead_123"
+   */
+  id: string;
+  /**
+   * Lead name.
+   */
+  name?: string | undefined;
+  /**
+   * Lead URL. Pass null to clear.
+   */
+  url?: string | undefined;
+  /**
+   * Lead description. Pass null to clear.
+   */
+  description?: string | undefined;
+  /**
+   * Valid organization lead status ID. Pass null to clear.
+   */
+  status_id?: string | undefined;
+  /**
+   * Contacts to update or create.
+   */
+  contacts?: ({  id?: string | undefined;
+  name?: string | undefined;
+  title?: string | undefined;
+  phones?: ({  phone?: string | undefined;
+  type?: string | undefined;})[];
+  emails?: ({  email?: string | undefined;
+  type?: string | undefined;})[];
+  urls?: ({  url?: string | undefined;
+  type?: string | undefined;})[];
+  custom?: {  [key: string]: unknown | undefined;};})[];
+  /**
+   * Custom fields. Pass null to clear.
+   */
+  custom?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_close_updatelead {
+  id: string;
+  name?: string | undefined;
+  url?: string | undefined;
+  description?: string | undefined;
+  status_id?: string | undefined;
+  organization_id?: string | undefined;
+  html_url?: string | undefined;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+  created_by?: string | undefined;
+  updated_by?: string | undefined;
+  contacts?: ({  id?: string | undefined;
+  name?: string | undefined;
+  title?: string | undefined;
+  lead_id?: string | undefined;
+  phones?: ({  phone?: string | undefined;
+  type?: string | undefined;})[];
+  emails?: ({  email?: string | undefined;
+  type?: string | undefined;})[];
+  urls?: ({  url?: string | undefined;
+  type?: string | undefined;})[];
+  custom?: {  [key: string]: unknown | undefined;};})[];
+  custom?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_close_updatenoteactivity {
+  /**
+   * Note activity ID. Example: "acti_kwWA3rOfy4BnaZ8QQk3RIIAz51dU9ayiluy1s961Oiw"
+   */
+  id: string;
+  /**
+   * Plain text note content. Setting this overwrites note_html.
+   */
+  note?: string | undefined;
+  /**
+   * HTML note content. Takes precedence over note if both are provided.
+   */
+  note_html?: string | undefined;
+  /**
+   * Contact ID to associate with the note. Example: "cont_WkCG7ujzTYPCoOTUcao7tRUj9TMChmWgeNXimiJT9eJ"
+   */
+  contact_id?: string | undefined;
+  /**
+   * ISO 8601 timestamp for when the activity occurred. Example: "2026-06-19T12:00:00.000000+00:00"
+   */
+  activity_at?: string | undefined;
+  /**
+   * Whether the note is pinned.
+   */
+  pinned?: boolean | undefined;
+  /**
+   * Note title.
+   */
+  title?: string | undefined;
+};
+
+export interface ActionOutput_close_updatenoteactivity {
+  id: string;
+  _type: string;
+  activity_at?: string | undefined;
+  contact_id?: string | undefined;
+  created_by?: string | undefined;
+  created_by_name?: string | undefined;
+  date_created: string;
+  date_updated: string;
+  lead_id?: string | undefined;
+  organization_id: string;
+  updated_by?: string | undefined;
+  updated_by_name?: string | undefined;
+  user_id?: string | undefined;
+  user_name?: string | undefined;
+  users?: string[] | undefined;
+  note?: string | undefined;
+  note_html?: string | undefined;
+  pinned?: boolean | undefined;
+  pinned_at?: string | undefined;
+  title?: string | undefined;
+};
+
+export interface ActionInput_close_updateopportunity {
+  /**
+   * Opportunity ID. Example: "oppo_8eB77gAdf8FMy6GsNHEy84f7uoeEWv55slvUjKQZpJt"
+   */
+  id: string;
+  /**
+   * Status ID. Example: "stat_5ZdiZqcSIkoGVnNOyxiEY58eTGQmFNG3LPlEVQ4V7Nk"
+   */
+  status_id?: string | undefined;
+  /**
+   * Value in USD dollars (not cents). Example: 50000
+   */
+  value?: number | undefined;
+  /**
+   * Value period. Example: "one_time"
+   */
+  value_period?: 'one_time' | 'monthly' | 'annual' | undefined;
+  /**
+   * Confidence percentage (0–100). Example: 75
+   */
+  confidence?: number | undefined;
+  /**
+   * Plaintext note.
+   */
+  note?: string | undefined;
+  /**
+   * Rich-text HTML note. Pass null to clear.
+   */
+  note_html?: string | undefined;
+  /**
+   * Contact ID. Pass null to remove association.
+   */
+  contact_id?: string | undefined;
+  /**
+   * User ID. Pass null to remove assignment.
+   */
+  user_id?: string | undefined;
+  /**
+   * Date won (ISO 8601). Pass null to clear.
+   */
+  date_won?: string | undefined;
+  /**
+   * Date lost (ISO 8601). Pass null to clear.
+   */
+  date_lost?: string | undefined;
+  /**
+   * Deprecated status name. Prefer status_id.
+   */
+  status?: string | undefined;
+};
+
+export interface ActionOutput_close_updateopportunity {
+  id: string;
+  lead_id: string;
+  status_id: string;
+  status_label?: string | undefined;
+  status_type?: 'won' | 'lost' | 'active' | undefined;
+  value?: number | undefined;
+  value_period?: 'one_time' | 'monthly' | 'annual' | undefined;
+  value_currency?: string | undefined;
+  value_formatted?: string | undefined;
+  annualized_value?: number | undefined;
+  annualized_expected_value?: number | undefined;
+  expected_value?: number | undefined;
+  confidence?: number | undefined;
+  note?: string | undefined;
+  note_html?: string | undefined;
+  contact_id?: string | undefined;
+  contact_name?: string | undefined;
+  user_id?: string | undefined;
+  user_name?: string | undefined;
+  date_created?: string | undefined;
+  date_updated?: string | undefined;
+  date_won?: string | undefined;
+  date_lost?: string | undefined;
+  organization_id?: string | undefined;
+  pipeline_id?: string | undefined;
+  pipeline_name?: string | undefined;
+  lead_name?: string | undefined;
+  created_by?: string | undefined;
+  created_by_name?: string | undefined;
+  updated_by?: string | undefined;
+  updated_by_name?: string | undefined;
+};
+
+export interface ActionInput_close_updatetask {
+  /**
+   * Task ID. Example: "task_123"
+   */
+  id: string;
+  /**
+   * Task text/description. Only modifiable for lead-type tasks.
+   */
+  text?: string | undefined;
+  /**
+   * User ID to assign the task to.
+   */
+  assigned_to?: string | undefined;
+  /**
+   * Task date in ISO 8601 or date format. Example: "2026-07-01"
+   */
+  date?: string | undefined;
+  /**
+   * Task due date in ISO 8601 or date format. Example: "2026-07-01T00:00:00+00:00"
+   */
+  due_date?: string | undefined;
+  /**
+   * Mark the task as complete.
+   */
+  is_complete?: boolean | undefined;
+};
+
+export interface ActionOutput_close_updatetask {
+  id: string;
+  lead_id?: string | undefined;
+  assigned_to?: string | undefined;
+  text: string;
+  date?: string | undefined;
+  due_date?: string | undefined;
+  is_complete: boolean;
+  is_dateless: boolean;
+  date_created: string;
+  date_updated: string;
+  organization_id: string;
+  created_by: string;
+  updated_by: string;
+  contact_id?: string | undefined;
+  contact_name?: string | undefined;
+  lead_name?: string | undefined;
+  created_by_name?: string | undefined;
+  assigned_to_name?: string | undefined;
+  updated_by_name?: string | undefined;
+  object_id?: string | undefined;
+  object_type?: string | undefined;
+  /**
+   * Task type. Example: "lead"
+   */
+  type: string;
+};
+
+export interface Column {
+  id: string;
+  database_name: string;
+  schema_name: string;
+  table_name: string;
+  column_name: string;
+  ordinal_position?: number | undefined;
+  data_type?: string | undefined;
+  data_type_type?: string | undefined;
+  data_type_precision?: number | undefined;
+  data_type_scale?: number | undefined;
+  data_type_byte_length?: number | undefined;
+  data_type_length?: number | undefined;
+  nullable?: boolean | undefined;
+  default_value?: string | undefined;
+  kind?: string | undefined;
+  expression?: string | undefined;
+  comment?: string | undefined;
+  autoincrement?: string | undefined;
+};
+
+export interface SyncMetadata_coda_columns {
+  docId: string;
+  tableId: string;
+};
+
+export interface Control {
+  /**
+   * e.g. ctrl-xxx
+   */
+  id: string;
+  type?: string | undefined;
+  href?: string | undefined;
+  name?: string | undefined;
+  controlType?: string | undefined;
+  value?: unknown | undefined;
+  parent?: {  id?: string | undefined;
+  type?: string | undefined;
+  href?: string | undefined;
+  browserLink?: string | undefined;
+  name?: string | undefined;};
+};
+
+export interface SyncMetadata_coda_controls {
+  /**
+   * ID of the doc to sync controls from
+   */
+  docId: string;
+};
+
+export interface Doc {
+  id: string;
+  name?: string | undefined;
+  type?: string | undefined;
+  href?: string | undefined;
+  browserLink?: string | undefined;
+  owner?: string | undefined;
+  ownerName?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  workspaceId?: string | undefined;
+  folderId?: string | undefined;
+};
+
+export interface Formula {
+  id: string;
+  name: string;
+  href?: string | undefined;
+  parentId?: string | undefined;
+  parentName?: string | undefined;
+  parentType?: string | undefined;
+};
+
+export interface SyncMetadata_coda_formulas {
+  docId: string;
+};
+
+export interface SyncMetadata_coda_pages {
+  docId: string;
+};
+
+export interface Permission {
+  id: string;
+  itemId: string;
+  permissionId: string;
+  roles?: string[] | undefined;
+  grantedToV2?: {  [key: string]: unknown | undefined;};
+  grantedToIdentitiesV2?: ({  [key: string]: unknown | undefined;})[];
+  link?: {  [key: string]: unknown | undefined;};
+  invitation?: {  [key: string]: unknown | undefined;};
+  shareId?: string | undefined;
+  expirationDateTime?: string | undefined;
+  hasPassword?: boolean | undefined;
+  inheritedFrom?: {  [key: string]: unknown | undefined;};
+};
+
+export interface SyncMetadata_coda_permissions {
+  docId: string;
+};
+
+export interface Row {
+  id: string;
+  rowIndex: number;
+  values: any[];
+};
+
+export interface SyncMetadata_coda_rows {
+  /**
+   * The ID of the Coda doc containing the table
+   */
+  docId: string;
+  /**
+   * The ID of the table to sync rows from
+   */
+  tableId: string;
+};
+
+export interface SyncMetadata_coda_tables {
+  docId: string;
+};
+
+export interface ActionInput_coda_addpermission {
+  /**
+   * ID of the doc to share. Example: "AbCDeFGH"
+   */
+  docId: string;
+  /**
+   * Access level to grant.
+   */
+  access: 'readonly' | 'write' | 'comment';
+  /**
+   * Type of principal to share with.
+   */
+  principalType: 'email' | 'anyone';
+  /**
+   * Email address of the user to share with. Required when principalType is "email".
+   */
+  email?: string | undefined;
+  /**
+   * When true, suppresses the email notification.
+   */
+  suppressEmail?: boolean | undefined;
+};
+
+export interface ActionOutput_coda_addpermission {
+  id?: string | undefined;
+  access?: string | undefined;
+  principal?: {  type?: string | undefined;
+  email?: string | undefined;};
+};
+
+export interface ActionInput_coda_createdoc {
+  /**
+   * Title of the new doc. Defaults to "Untitled".
+   */
+  title?: string | undefined;
+  /**
+   * ID of the folder to create the doc in. Example: "fl-1Ab234".
+   */
+  folderId?: string | undefined;
+  /**
+   * ID of an existing doc to copy from. Example: "AbCDeFGH".
+   */
+  sourceDoc?: string | undefined;
+};
+
+export interface ActionOutput_coda_createdoc {
+  id: string;
+  type: string;
+  href: string;
+  browserLink: string;
+  name: string;
+  owner: string;
+  ownerName: string;
+  createdAt: string;
+  updatedAt: string;
+  workspace?: {  id: string;
+  type: string;
+  organizationId?: string | undefined;
+  browserLink?: string | undefined;
+  name?: string | undefined;};
+  folder?: {  id: string;
+  type: string;
+  browserLink?: string | undefined;
+  name?: string | undefined;};
+  workspaceId?: string | undefined;
+  folderId?: string | undefined;
+  icon?: {  name?: string | undefined;
+  type?: string | undefined;
+  browserLink?: string | undefined;};
+  docSize?: {  totalRowCount?: number | undefined;
+  tableAndViewCount?: number | undefined;
+  pageCount?: number | undefined;
+  overApiSizeLimit?: boolean | undefined;};
+  sourceDoc?: {  id: string;
+  type: string;
+  href?: string | undefined;
+  browserLink?: string | undefined;};
+  published?: {  description?: string | undefined;
+  browserLink?: string | undefined;
+  imageLink?: string | undefined;
+  discoverable?: boolean | undefined;
+  earnCredit?: boolean | undefined;
+  mode?: string | undefined;
+  categories?: string[] | undefined;};
+  requestId?: string | undefined;
+  /**
+   * Whether the async copy (if any) has completed.
+   */
+  copyCompleted?: boolean | undefined;
+  /**
+   * Warning returned by the mutation status endpoint, if any.
+   */
+  copyWarning?: string | undefined;
+};
+
+export interface ActionInput_coda_createpage {
+  /**
+   * Doc ID. Example: "L_hgEASd6n"
+   */
+  docId: string;
+  /**
+   * Name of the page.
+   */
+  name: string;
+  /**
+   * Subtitle of the page.
+   */
+  subtitle?: string | undefined;
+  /**
+   * Name of the icon.
+   */
+  iconName?: string | undefined;
+  /**
+   * URL of the cover image to use.
+   */
+  imageUrl?: string | undefined;
+  /**
+   * The ID of this new page's parent, if creating a subpage.
+   */
+  parentPageId?: string | undefined;
+};
+
+export interface ActionOutput_coda_createpage {
+  id: string;
+  requestId: string;
+  completed: boolean;
+};
+
+export interface ActionInput_coda_deletedoc {
+  /**
+   * The ID of the doc to delete. Example: "a97K6uAljP"
+   */
+  docId: string;
+};
+
+export interface ActionOutput_coda_deletedoc {
+  success: boolean;
+};
+
+export interface ActionInput_coda_deletepage {
+  /**
+   * Doc ID. Example: "L_hgEASd6n"
+   */
+  docId: string;
+  /**
+   * Page ID or name. Example: "canvas-taIuEN56H1"
+   */
+  pageIdOrName: string;
+};
+
+export interface ActionOutput_coda_deletepage {
+  id: string;
+  requestId: string;
+  completed: boolean;
+};
+
+export interface ActionInput_coda_deleterow {
+  /**
+   * The ID of the document containing the table. Example: "L_hgEASd6n"
+   */
+  docId: string;
+  /**
+   * The ID or name of the table containing the row. Example: "grid-123"
+   */
+  tableIdOrName: string;
+  /**
+   * The ID or name of the row to delete. Example: "i-123"
+   */
+  rowIdOrName: string;
+};
+
+export interface ActionOutput_coda_deleterow {
+  /**
+   * The async request ID for tracking the mutation status.
+   */
+  requestId: string;
+};
+
+export interface ActionInput_coda_deleterows {
+  /**
+   * The ID of the doc containing the table. Example: "AbCDeFGH"
+   */
+  docId: string;
+  /**
+   * The ID or name of the table to delete rows from. Example: "grid-tE68GY5gIp"
+   */
+  tableIdOrName: string;
+  /**
+   * The IDs of the rows to delete. Up to 100 row IDs per call.
+   */
+  rowIds: string[];
+};
+
+export interface ActionOutput_coda_deleterows {
+  /**
+   * The mutation request ID for tracking async completion.
+   */
+  requestId: string;
+};
+
+export interface ActionInput_coda_getcolumn {
+  /**
+   * ID of the doc. Example: "AbCDeFGH"
+   */
+  docId: string;
+  /**
+   * ID or name of the table. Example: "grid-pqRst-U"
+   */
+  tableId: string;
+  /**
+   * ID or name of the column. Example: "c-tuVwxYz"
+   */
+  columnId: string;
+};
+
+export interface ActionOutput_coda_getcolumn {
+  id: string;
+  type: string;
+  name: string;
+  href: string;
+  display?: boolean | undefined;
+  calculated?: boolean | undefined;
+  formula?: string | undefined;
+  defaultValue?: string | undefined;
+  format?: {} | undefined;
+  parent?: {  id: string;
+  type: string;
+  tableType: string;
+  href: string;
+  browserLink: string;
+  name: string;
+  parent?: {  id?: string | undefined;
+  type?: string | undefined;
+  href?: string | undefined;
+  name?: string | undefined;};};
+};
+
+export interface ActionInput_coda_getcontrol {
+  /**
+   * ID of the Coda doc. Example: "L_hgEASd6n"
+   */
+  docId: string;
+  /**
+   * ID or name of the control. Example: "ctrl-F38u5bVLOn"
+   */
+  controlIdOrName: string;
+};
+
+export interface ActionOutput_coda_getcontrol {
+  id: string;
+  type: string;
+  href: string;
+  name: string;
+  controlType: string;
+  value?: unknown | undefined;
+  parent?: {  id: string;
+  type: string;
+  name?: string | undefined;};
+};
+
+export interface ActionInput_coda_getdoc {
+  /**
+   * ID of the Coda doc. Example: "AbCDeFGH"
+   */
+  docId: string;
+};
+
+export interface ActionOutput_coda_getdoc {
+  id: string;
+  type: string;
+  href: string;
+  browserLink: string;
+  name: string;
+  owner: string;
+  ownerName: string;
+  createdAt: string;
+  updatedAt: string;
+  workspace?: {  id?: string | undefined;
+  type?: string | undefined;
+  organizationId?: string | undefined;
+  browserLink?: string | undefined;
+  name?: string | undefined;};
+  folder?: {  id?: string | undefined;
+  type?: string | undefined;
+  browserLink?: string | undefined;
+  name?: string | undefined;};
+  workspaceId?: string | undefined;
+  folderId?: string | undefined;
+  icon?: {  name?: string | undefined;
+  type?: string | undefined;
+  browserLink?: string | undefined;};
+  docSize?: {  totalRowCount?: number | undefined;
+  tableAndViewCount?: number | undefined;
+  pageCount?: number | undefined;
+  overApiSizeLimit?: boolean | undefined;};
+  sourceDoc?: {  id?: string | undefined;
+  type?: string | undefined;
+  href?: string | undefined;
+  browserLink?: string | undefined;};
+  published?: {  description?: string | undefined;
+  browserLink?: string | undefined;
+  imageLink?: string | undefined;
+  discoverable?: boolean | undefined;
+  earnCredit?: boolean | undefined;
+  mode?: string | undefined;
+  categories?: string[] | undefined;};
+};
+
+export interface ActionInput_coda_getformula {
+  /**
+   * ID of the Coda doc. Example: "L_hgEASd6n"
+   */
+  docId: string;
+  /**
+   * ID or name of the formula. Example: "f-fgHijkLm"
+   */
+  formulaIdOrName: string;
+};
+
+export interface ActionOutput_coda_getformula {
+  id: string;
+  type: string;
+  href: string;
+  name: string;
+  value: string | number | boolean | ({  0: string;
+  1: number;
+  2: boolean;})[] | ({  0: string;
+  1: number;
+  2: boolean;})[];
+  parent?: {  id: string;
+  type: string;
+  href: string;
+  browserLink: string;
+  name: string;} | undefined;
+};
+
+export interface ActionInput_coda_getmutationstatus {
+  /**
+   * The requestId returned by an async mutation such as page create/update/delete or row upsert. Example: "request-123"
+   */
+  requestId: string;
+};
+
+export interface ActionOutput_coda_getmutationstatus {
+  completed: boolean;
+};
+
+export interface ActionInput_coda_getpage {
+  /**
+   * Doc ID. Example: "L_hgEASd6n"
+   */
+  docId: string;
+  /**
+   * Page ID or page name. Example: "canvas-51lnQjKXyv"
+   */
+  pageIdOrName: string;
+};
+
+export interface ActionOutput_coda_getpage {
+  id: string;
+  type: string;
+  name: string;
+  href?: string | undefined;
+  browserLink?: string | undefined;
+  isHidden?: boolean | undefined;
+  isEffectivelyHidden?: boolean | undefined;
+  contentType?: string | undefined;
+  children?: ({  id: string;
+  type: string;
+  href: string;
+  browserLink: string;
+  name: string;})[] | undefined;
+  subtitle?: string | undefined;
+  icon?: {  name?: string | undefined;
+  type?: string | undefined;
+  browserLink?: string | undefined;};
+  image?: {  browserLink?: string | undefined;
+  type?: string | undefined;
+  width?: number | undefined;
+  height?: number | undefined;};
+  parent?: {  id: string;
+  type: string;
+  href: string;
+  browserLink: string;
+  name: string;} | undefined;
+  authors?: ({  name?: string | undefined;
+  email?: string | undefined;})[];
+  createdAt?: string | undefined;
+  createdBy?: {  name?: string | undefined;
+  email?: string | undefined;};
+  updatedAt?: string | undefined;
+  updatedBy?: {  name?: string | undefined;
+  email?: string | undefined;};
+};
+
+export interface ActionInput_coda_getrow {
+  /**
+   * ID of the doc. Example: "AbCDeFGH"
+   */
+  docId: string;
+  /**
+   * ID or name of the table. Example: "grid-pqRst-U"
+   */
+  tableIdOrName: string;
+  /**
+   * ID or name of the row. Example: "i-tuVwxYz"
+   */
+  rowIdOrName: string;
+  /**
+   * Use column names instead of column IDs in the returned output.
+   */
+  useColumnNames?: boolean | undefined;
+  /**
+   * The format that cell values are returned as.
+   */
+  valueFormat?: 'simple' | 'simpleWithArrays' | 'rich' | undefined;
+};
+
+export interface ActionOutput_coda_getrow {
+  id: string;
+  type: string;
+  href?: string | undefined;
+  name?: string | undefined;
+  index?: number | undefined;
+  browserLink?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  values?: {  [key: string]: unknown | undefined;};
+  parent?: {  id: string;
+  type: string;
+  tableType?: string | undefined;
+  href?: string | undefined;
+  browserLink?: string | undefined;
+  name?: string | undefined;
+  parent?: {  id: string;
+  type: string;
+  href?: string | undefined;
+  browserLink?: string | undefined;
+  name?: string | undefined;};};
+};
+
+export interface ActionInput_coda_getsharingmetadata {
+  /**
+   * Doc ID. Example: "L_hgEASd6n"
+   */
+  docId: string;
+};
+
+export interface ActionOutput_coda_getsharingmetadata {
+  canShare: boolean;
+  canShareWithWorkspace: boolean;
+  canShareWithOrg: boolean;
+  canCopy: boolean;
+};
+
+export interface ActionInput_coda_gettable {
+  /**
+   * ID of the Coda doc. Example: "AbCDeFGH"
+   */
+  docId: string;
+  /**
+   * ID or name of the table. Example: "grid-pqRst-U"
+   */
+  tableIdOrName: string;
+};
+
+export interface ActionOutput_coda_gettable {
+  id: string;
+  type: string;
+  tableType: string;
+  href: string;
+  browserLink: string;
+  name: string;
+  parent: {  id: string;
+  type: string;
+  href: string;
+  browserLink: string;
+  name: string;};
+  displayColumn: {  id: string;
+  type: string;
+  href: string;};
+  rowCount: number;
+  sorts: ({  column: {  id: string;
+  type: string;
+  href: string;};
+  direction: string;})[];
+  layout: string;
+  createdAt: string;
+  updatedAt: string;
+  viewId?: string | undefined;
+  parentTable?: {  id: string;
+  type: string;
+  tableType: string;
+  href: string;
+  browserLink: string;
+  name: string;
+  parent?: {  id: string;
+  type: string;
+  href: string;
+  browserLink: string;
+  name: string;} | undefined;};
+  filter?: {  valid: boolean;
+  isVolatile: boolean;
+  hasUserFormula: boolean;
+  hasTodayFormula: boolean;
+  hasNowFormula: boolean;} | undefined;
+};
+
+export interface ActionInput_coda_getuser {
+};
+
+export interface ActionOutput_coda_getuser {
+  name: string;
+  loginId: string;
+  tokenName: string;
+  scoped: boolean;
+  workspace: {  id: string;
+  type: string;
+  organizationId?: string | undefined;
+  browserLink?: string | undefined;
+  name?: string | undefined;};
+};
+
+export interface ActionInput_coda_listcategories {
+};
+
+export interface ActionOutput_coda_listcategories {
+  items: ({  name: string;})[];
+};
+
+export interface ActionInput_coda_listcolumns {
+  /**
+   * Doc ID. Example: "wGUhBwDpCh"
+   */
+  docId: string;
+  /**
+   * Table ID or name. Example: "table-x21g6d40h7"
+   */
+  tableId: string;
+  /**
+   * If true, only returns visible columns.
+   */
+  visibleOnly?: boolean | undefined;
+  /**
+   * Maximum number of results to return.
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_coda_listcolumns {
+  items: ({  id: string;
+  type: string;
+  name: string;
+  href?: string | undefined;
+  display?: boolean | undefined;
+  calculated?: boolean | undefined;
+  format?: {  [key: string]: unknown | undefined;};})[];
+  nextPageToken?: string | undefined;
+};
+
+export interface ActionInput_coda_listcontrols {
+  /**
+   * ID of the Coda doc. Example: "L_hgEASd6n"
+   */
+  docId: string;
+  /**
+   * Sort order for controls. Example: "name"
+   */
+  sortBy?: 'name' | 'createdAt' | undefined;
+  /**
+   * Maximum number of results to return. Example: 25
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_coda_listcontrols {
+  items: ({  id: string;
+  type: string;
+  href: string;
+  name: string;
+  controlType?: string | undefined;
+  parent?: {  id: string;
+  type: string;
+  href: string;
+  browserLink?: string | undefined;
+  name?: string | undefined;};})[];
+  nextPageToken?: string | undefined;
+  nextPageLink?: string | undefined;
+};
+
+export interface ActionInput_coda_listdocanalytics {
+  /**
+   * ID of a doc to filter analytics. Example: "AbCDeFGH"
+   */
+  docId?: string | undefined;
+  /**
+   * Limit results to only published items.
+   */
+  isPublished?: boolean | undefined;
+  /**
+   * Filter by publish type.
+   */
+  publishType?: string | undefined;
+  /**
+   * Limit results to activity on or after this date (YYYY-MM-DD). Example: "2020-08-01"
+   */
+  sinceDate?: string | undefined;
+  /**
+   * Limit results to activity on or before this date (YYYY-MM-DD). Example: "2020-08-05"
+   */
+  untilDate?: string | undefined;
+  /**
+   * Maximum number of results to return. Example: 10
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  pageToken?: string | undefined;
+};
+
+export interface ActionOutput_coda_listdocanalytics {
+  items: ({  doc?: {  id: string;
+  type?: string | undefined;
+  href?: string | undefined;
+  browserLink?: string | undefined;
+  title?: string | undefined;
+  icon?: {  name?: string | undefined;
+  type?: string | undefined;
+  browserLink?: string | undefined;};
+  createdAt?: string | undefined;
+  publishedAt?: string | undefined;};
+  metrics?: ({  date?: string | undefined;
+  views?: number | undefined;
+  copies?: number | undefined;
+  likes?: number | undefined;
+  sessionsMobile?: number | undefined;
+  sessionsDesktop?: number | undefined;
+  sessionsOther?: number | undefined;
+  totalSessions?: number | undefined;
+  aiCreditsChat?: number | undefined;
+  aiCreditsBlock?: number | undefined;
+  aiCreditsColumn?: number | undefined;
+  aiCreditsAssistant?: number | undefined;
+  aiCreditsReviewer?: number | undefined;
+  aiCredits?: number | undefined;})[];})[];
+  nextPageToken?: string | undefined;
+};
+
+export interface ActionInput_coda_listdocs {
+  /**
+   * Search term used to filter down results. Example: "Project Tracker"
+   */
+  query?: string | undefined;
+  /**
+   * Show only docs owned by the user.
+   */
+  isOwner?: boolean | undefined;
+  /**
+   * Show only published docs.
+   */
+  isPublished?: boolean | undefined;
+  /**
+   * Show only docs belonging to the given workspace. Example: "ws-oZFDiLKJ45"
+   */
+  workspaceId?: string | undefined;
+  /**
+   * Show only docs belonging to the given folder.
+   */
+  folderId?: string | undefined;
+  /**
+   * Maximum number of results to return. Example: 10
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  pageToken?: string | undefined;
+};
+
+export interface ActionOutput_coda_listdocs {
+  items: ({  id: string;
+  type: string;
+  href: string;
+  browserLink: string;
+  name: string;
+  owner: string;
+  ownerName: string;
+  createdAt: string;
+  updatedAt: string;})[];
+  nextPageToken?: string | undefined;
+};
+
+export interface ActionInput_coda_listformulas {
+  /**
+   * Doc ID. Example: "L_hgEASd6n"
+   */
+  docId: string;
+  /**
+   * Sort order: name or createdAt
+   */
+  sortBy?: 'name' | 'createdAt' | undefined;
+  /**
+   * Maximum number of results per page
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Maps to pageToken.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_coda_listformulas {
+  items: ({  id: string;
+  type: string;
+  href: string;
+  name: string;
+  parent?: {  id: string;
+  type: string;
+  href: string;
+  browserLink: string;
+  name: string;} | undefined;})[];
+  nextPageToken?: string | undefined;
+};
+
+export interface ActionInput_coda_listpages {
+  /**
+   * ID of the Coda doc. Example: "L_hgEASd6n"
+   */
+  docId: string;
+  /**
+   * Maximum number of results to return. Example: 10
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_coda_listpages {
+  items: ({  id: string;
+  type: string;
+  href: string;
+  name: string;
+  isHidden: boolean;
+  isEffectivelyHidden: boolean;
+  browserLink: string;
+  children: ({  id: string;
+  type: string;
+  href: string;
+  browserLink: string;
+  name: string;})[];
+  contentType: string;
+  subtitle?: string | undefined;
+  icon?: {  name?: string | undefined;
+  type?: string | undefined;
+  browserLink?: string | undefined;};
+  image?: {  browserLink?: string | undefined;
+  type?: string | undefined;
+  width?: number | undefined;
+  height?: number | undefined;};
+  parent?: {  id: string;
+  type: string;
+  href: string;
+  browserLink: string;
+  name: string;} | undefined;
+  authors?: ({  "@context"?: string | undefined;
+  "@type"?: string | undefined;
+  additionalType?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;})[];
+  createdAt?: string | undefined;
+  createdBy?: {  "@context"?: string | undefined;
+  "@type"?: string | undefined;
+  additionalType?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;};
+  updatedAt?: string | undefined;
+  updatedBy?: {  "@context"?: string | undefined;
+  "@type"?: string | undefined;
+  additionalType?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;};})[];
+  nextPageToken?: string | undefined;
+};
+
+export interface ActionInput_coda_listpermissions {
+  /**
+   * ID of the Coda doc. Example: "AbCDeFGH"
+   */
+  docId: string;
+  /**
+   * Maximum number of results to return. Example: 10
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor (pageToken) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_coda_listpermissions {
+  items: ({  id: string;
+  access: string;
+  principal: {  type: string;
+  email?: string | undefined;};})[];
+  nextPageToken?: string | undefined;
+};
+
+export interface ActionInput_coda_listrows {
+  /**
+   * ID of the doc. Example: AbCDeFGH
+   */
+  docId: string;
+  /**
+   * ID or name of the table. Example: grid-pqRst-U
+   */
+  tableIdOrName: string;
+  /**
+   * Use column names instead of column IDs in the returned output
+   */
+  useColumnNames?: boolean | undefined;
+  /**
+   * The format that cell values are returned as
+   */
+  valueFormat?: 'simple' | 'simpleWithArrays' | 'rich' | undefined;
+  /**
+   * Specifies the sort order of the rows returned
+   */
+  sortBy?: 'natural' | 'id' | 'createdAt' | 'updatedAt' | undefined;
+  /**
+   * If true, returns only visible rows and columns for the table
+   */
+  visibleOnly?: boolean | undefined;
+  /**
+   * Query used to filter returned rows, specified as <column_id_or_name>:<value>
+   */
+  query?: string | undefined;
+  /**
+   * Maximum number of results to return
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Maps to the pageToken parameter.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_coda_listrows {
+  items: ({  id: string;
+  type: string;
+  href: string;
+  name?: string | undefined;
+  index?: number | undefined;
+  browserLink?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  values?: {  [key: string]: unknown | undefined;};})[];
+  nextPageToken?: string | undefined;
+  nextPageLink?: string | undefined;
+  nextSyncToken?: string | undefined;
+  href?: string | undefined;
+};
+
+export interface ActionInput_coda_listtables {
+  /**
+   * ID of the Coda doc. Example: "L_hgEASd6n"
+   */
+  docId: string;
+  /**
+   * Single table type to filter by. Do not use comma-separated values.
+   */
+  tableType?: 'table' | 'view' | 'formula' | 'detail' | undefined;
+  /**
+   * Sort order for results.
+   */
+  sortBy?: 'name' | 'createdAt' | undefined;
+  /**
+   * Maximum number of results to return.
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_coda_listtables {
+  items: ({  id: string;
+  type: string;
+  tableType?: string | undefined;
+  href: string;
+  browserLink: string;
+  name: string;
+  parent?: {  id: string;
+  type: string;
+  href: string;
+  browserLink: string;
+  name: string;} | undefined;})[];
+  nextPageToken?: string | undefined;
+};
+
+export interface ActionInput_coda_updatepage {
+  /**
+   * Doc ID. Example: "L_hgEASd6n"
+   */
+  docId: string;
+  /**
+   * Page ID or name. Example: "canvas-bP8xBdFUGb"
+   */
+  pageIdOrName: string;
+  /**
+   * New page name
+   */
+  name?: string | undefined;
+  /**
+   * New page subtitle
+   */
+  subtitle?: string | undefined;
+  /**
+   * Icon name for the page
+   */
+  iconName?: string | undefined;
+  /**
+   * Custom image URL for the page icon
+   */
+  imageUrl?: string | undefined;
+};
+
+export interface ActionOutput_coda_updatepage {
+  id: string;
+  requestId: string;
+  completed: boolean;
+};
+
+export interface ActionInput_coda_updaterow {
+  /**
+   * Doc ID. Example: "6O6-VWsNpq"
+   */
+  docId: string;
+  /**
+   * Table ID or name. Example: "grid-tE68GY5gIp"
+   */
+  tableIdOrName: string;
+  /**
+   * Row ID or name. Example: "i-qdoCaT1Gba"
+   */
+  rowIdOrName: string;
+  /**
+   * Cells to update.
+   */
+  cells: ({  /**
+   * Column ID or name. Example: "c-i_UwVI012F"
+   */
+  column: string;
+  /**
+   * New value for the cell.
+   */
+  value?: unknown | undefined;})[];
+};
+
+export interface ActionOutput_coda_updaterow {
+  id: string;
+  requestId: string;
+};
+
+export interface ActionInput_coda_upsertrows {
+  /**
+   * ID of the doc. Example: "AbCDeFGH"
+   */
+  docId: string;
+  /**
+   * ID or name of the table. Example: "grid-123"
+   */
+  tableId: string;
+  /**
+   * The rows to insert or upsert.
+   */
+  rows: ({  /**
+   * The cells to set for this row.
+   */
+  cells: ({  /**
+   * Column ID or name. Example: "c-bCdeFgh"
+   */
+  column: string;
+  /**
+   * The cell value.
+   */
+  value?: unknown | undefined;})[];})[];
+  /**
+   * Column IDs or names to use for upsert matching.
+   */
+  keyColumns?: string[] | undefined;
+};
+
+export interface ActionOutput_coda_upsertrows {
+  /**
+   * The request ID for tracking the async mutation.
+   */
+  requestId: string;
+  /**
+   * IDs of newly added rows.
+   */
+  addedRowIds?: string[] | undefined;
+  /**
+   * Whether the mutation has completed.
+   */
+  completed: boolean;
+  /**
+   * Warning if the mutation completed with caveats.
+   */
+  warning?: string | undefined;
 };
 
 export interface Attachment {
@@ -28493,37 +37019,2178 @@ export interface ActionOutput_discourse_updatetopicstatus {
   result: string;
 };
 
-export interface SyncMetadata_docusign_users {
+export interface Brand {
+  id: string;
+  brandId: string;
+  brandName?: string | undefined;
+  brandCompany?: string | undefined;
+  defaultBrandLanguage?: string | undefined;
+  brandLanguages?: string[] | undefined;
+  isSendingDefault?: boolean | undefined;
+  isSigningDefault?: boolean | undefined;
+  isOrganizationBrand?: string | undefined;
+  isOverridingCompanyName?: boolean | undefined;
+};
+
+export interface ConnectConfiguration {
+  /**
+   * The DocuSign-generated ID for the Connect configuration
+   */
+  id: string;
+  name?: string | undefined;
+  urlToPublishTo?: string | undefined;
+  allowEnvelopePublish?: string | undefined;
+  allUsers?: string | undefined;
+  enableLog?: string | undefined;
+  envelopeEvents?: string[] | undefined;
+  recipientEvents?: string[] | undefined;
+  events?: string[] | undefined;
+  configurationType?: string | undefined;
+  deliveryMode?: string | undefined;
+  requiresAcknowledgement?: string | undefined;
+  includeDocuments?: string | undefined;
+  includeCertificateOfCompletion?: string | undefined;
+  includeHMAC?: string | undefined;
+  userIds?: string[] | undefined;
+  groupIds?: string[] | undefined;
+  requireMutualTls?: string | undefined;
+  disabledBy?: string | undefined;
+  externalFolderId?: string | undefined;
+  externalFolderLabel?: string | undefined;
+};
+
+export interface SyncMetadata_docusign_connectconfigurations {
+  accountId: string;
+};
+
+export interface SyncMetadata_docusign_customfields {
+  accountId: string;
+};
+
+export interface Envelope {
+  id: string;
+  envelopeId: string;
+  status: string;
+  emailSubject?: string | undefined;
+  emailBlurb?: string | undefined;
+  statusChangedDateTime: string;
+  createdDateTime?: string | undefined;
+  sentDateTime?: string | undefined;
+  completedDateTime?: string | undefined;
+  voidedDateTime?: string | undefined;
+  voidedReason?: string | undefined;
+  senderUserName?: string | undefined;
+  senderEmail?: string | undefined;
+  senderUserId?: string | undefined;
+  documents?: ({  documentId?: string | undefined;
+  name?: string | undefined;
+  type?: string | undefined;
+  uri?: string | undefined;})[];
+};
+
+export interface SyncMetadata_docusign_folders {
+  accountId: string;
+};
+
+export interface PermissionProfile {
+  id: string;
+  permissionProfileId: string;
+  permissionProfileName?: string | undefined;
+  modifiedByUsername?: string | undefined;
+  modifiedDateTime?: string | undefined;
+  settings?: unknown | undefined;
+  userCount?: string | undefined;
+  users?: unknown[] | undefined;
+};
+
+export interface SigningGroup {
+  id: string;
+  signingGroupId: string;
+  signingGroupName?: string | undefined;
+  created?: string | undefined;
+  createdBy?: string | undefined;
+  modified?: string | undefined;
+  modifiedBy?: string | undefined;
+  signingGroupType?: string | undefined;
+};
+
+export interface Template {
+  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  created?: string | undefined;
+  lastModified?: string | undefined;
+  uri?: string | undefined;
+};
+
+export interface SyncMetadata_docusign_templates {
+  accountId: string;
+};
+
+export interface ActionInput_docusign_addgroupusers {
+  /**
+   * Group ID. Example: "36046947"
+   */
+  groupId: string;
+  /**
+   * Array of users to add to the group
+   */
+  users: ({  /**
+   * User ID. Example: "c9a996ed-50d2-4df4-ac91-a45032721bb6"
+   */
+  userId: string;})[];
+};
+
+export interface ActionOutput_docusign_addgroupusers {
+  users?: ({  userName?: string | undefined;
+  userId?: string | undefined;
+  userType?: string | undefined;
+  userStatus?: string | undefined;
+  uri?: string | undefined;})[];
+};
+
+export interface ActionInput_docusign_createconnectconfiguration {
+  /**
+   * Name of the Connect configuration. Example: "My Webhook"
+   */
+  name: string;
+  /**
+   * HTTPS URL to publish envelope events to. Example: "https://example.com/webhook"
+   */
+  urlToPublishTo: string;
+  /**
+   * When true, the configuration applies to all users in the account.
+   */
+  allUsers: boolean;
+  /**
+   * Array of user IDs to include when allUsers is false. Required when allUsers is false.
+   */
+  userIds?: string[] | undefined;
+  /**
+   * When true, envelope publish is allowed for this configuration.
+   */
+  allowEnvelopePublish: boolean;
+  /**
+   * Envelope event statuses to subscribe to. Example: ["sent", "delivered", "completed"]
+   */
+  envelopeEvents: ({  0: 'sent';
+  1: 'delivered';
+  2: 'completed';
+  3: 'declined';
+  4: 'voided';})[];
+  /**
+   * Recipient event statuses to subscribe to. Example: ["Sent", "Delivered", "Completed"]
+   */
+  recipientEvents: ({  0: 'Sent';
+  1: 'Delivered';
+  2: 'Completed';
+  3: 'Declined';
+  4: 'AuthenticationFailed';
+  5: 'AutoResponded';})[];
+};
+
+export interface ActionOutput_docusign_createconnectconfiguration {
+  /**
+   * The unique ID of the created Connect configuration.
+   */
+  connectId: string;
+  /**
+   * The type of Connect configuration.
+   */
+  configurationType: string;
+  /**
+   * The name of the Connect configuration.
+   */
+  name: string;
+  /**
+   * The URL where envelope events are published.
+   */
+  urlToPublishTo: string;
+  allowEnvelopePublish?: string | undefined;
+  allUsers?: string | undefined;
+  envelopeEvents?: string[] | undefined;
+  recipientEvents?: string[] | undefined;
+};
+
+export interface ActionInput_docusign_createenvelopefromtemplate {
+  /**
+   * Template ID. Example: "e13866df-36e6-462b-b35b-dcda35982abc"
+   */
+  templateId: string;
+  /**
+   * Role assignments for the template recipients.
+   */
+  templateRoles: ({  roleName: string;
+  name: string;
+  email: string;
+  tabs?: {  textTabs?: ({  tabLabel: string;
+  value: string;})[] | undefined;};})[];
+  /**
+   * Envelope status. Defaults to "created".
+   */
+  status?: 'created' | 'sent' | undefined;
+  /**
+   * Email subject for the envelope.
+   */
+  emailSubject?: string | undefined;
+  /**
+   * Email body/blurb for the envelope.
+   */
+  emailBody?: string | undefined;
+};
+
+export interface ActionOutput_docusign_createenvelopefromtemplate {
+  envelopeId: string;
+  uri?: string | undefined;
+  statusDateTime?: string | undefined;
+  status?: string | undefined;
+};
+
+export interface ActionInput_docusign_createenvelope {
+  /**
+   * Envelope status: created (draft) or sent (immediately). Example: "created"
+   */
+  status?: 'created' | 'sent' | undefined;
+  /**
+   * Email subject line. Example: "Please sign this document"
+   */
+  emailSubject?: string | undefined;
+  /**
+   * Email message body. Example: "Please review and sign the attached document"
+   */
+  emailBlurb?: string | undefined;
+  /**
+   * Documents to include in the envelope
+   */
+  documents?: ({  /**
+   * Base64-encoded document content. Example: "JVBERi0xLjQ..."
+   */
+  documentBase64: string;
+  /**
+   * Document name. Example: "Contract.pdf"
+   */
+  name: string;
+  /**
+   * Unique document ID within the envelope. Example: "1"
+   */
+  documentId: string;
+  /**
+   * File extension. Example: "pdf"
+   */
+  fileExtension: string;})[] | undefined;
+  /**
+   * Envelope recipients
+   */
+  recipients?: {  /**
+   * Signers
+   */
+  signers?: ({  /**
+   * Signer email address. Example: "signer@example.com"
+   */
+  email: string;
+  /**
+   * Signer name. Example: "John Doe"
+   */
+  name: string;
+  /**
+   * Unique recipient ID within the envelope. Example: "1"
+   */
+  recipientId: string;
+  /**
+   * Signing order. Example: "1"
+   */
+  routingOrder?: string | undefined;})[];
+  /**
+   * Carbon copy recipients
+   */
+  carbonCopies?: ({  /**
+   * CC recipient email address. Example: "cc@example.com"
+   */
+  email: string;
+  /**
+   * CC recipient name. Example: "Jane Doe"
+   */
+  name: string;
+  /**
+   * Unique recipient ID within the envelope. Example: "2"
+   */
+  recipientId: string;
+  /**
+   * Routing order. Example: "1"
+   */
+  routingOrder?: string | undefined;})[];};
+};
+
+export interface ActionOutput_docusign_createenvelope {
+  /**
+   * Created envelope ID. Example: "550e8400-e29b-41d4-a716-446655440000"
+   */
+  envelopeId: string;
+  /**
+   * Envelope status. Example: "created"
+   */
+  status?: string | undefined;
+  /**
+   * Status update timestamp. Example: "2026-06-24T12:00:00.000Z"
+   */
+  statusDateTime?: string | undefined;
+  /**
+   * Envelope URI. Example: "/envelopes/550e8400-e29b-41d4-a716-446655440000"
+   */
+  uri?: string | undefined;
+};
+
+export interface ActionInput_docusign_creategroup {
+  /**
+   * One or more custom groups to create.
+   */
+  groups: ({  /**
+   * Name of the custom group to create. Example: "Nango Test Group"
+   */
+  groupName: string;
+  /**
+   * Type of group. Defaults to "customGroup". System groups cannot be created via API.
+   */
+  groupType?: string | undefined;})[];
+};
+
+export interface ActionOutput_docusign_creategroup {
+  groups: ({  /**
+   * DocuSign group ID. Example: "36046947"
+   */
+  groupId: string;
+  /**
+   * Name of the group.
+   */
+  groupName: string;
+  /**
+   * Type of the group. Example: "customGroup"
+   */
+  groupType: string;})[];
+};
+
+export interface ActionInput_docusign_createrecipienttabs {
+  /**
+   * DocuSign envelope ID. Example: "ffbe2429-fc88-8ef2-803e-8ad9296118b6"
+   */
+  envelopeId: string;
+  /**
+   * DocuSign recipient ID (integer string). Example: "1"
+   */
+  recipientId: string;
+  tabs: {  signHereTabs?: ({  documentId: string;
+  pageNumber: string;
+  xPosition: string;
+  yPosition: string;})[] | undefined;
+  dateTabs?: ({  documentId: string;
+  pageNumber: string;
+  xPosition: string;
+  yPosition: string;})[] | undefined;
+  textTabs?: ({  documentId: string;
+  pageNumber: string;
+  xPosition: string;
+  yPosition: string;})[] | undefined;
+  checkboxTabs?: ({  documentId: string;
+  pageNumber: string;
+  xPosition: string;
+  yPosition: string;})[] | undefined;
+  numberTabs?: ({  documentId: string;
+  pageNumber: string;
+  xPosition: string;
+  yPosition: string;})[] | undefined;
+  initialHereTabs?: ({  documentId: string;
+  pageNumber: string;
+  xPosition: string;
+  yPosition: string;})[] | undefined;};
+};
+
+export interface ActionOutput_docusign_createrecipienttabs {
+  signHereTabs?: ({})[] | undefined;
+  dateTabs?: ({})[] | undefined;
+  textTabs?: ({})[] | undefined;
+  checkboxTabs?: ({})[] | undefined;
+  numberTabs?: ({})[] | undefined;
+  initialHereTabs?: ({})[] | undefined;
+};
+
+export interface ActionInput_docusign_createrecipientview {
+  /**
+   * DocuSign envelope ID. Example: "ffbe2429-fc88-8ef2-803e-8ad9296118b6"
+   */
+  envelopeId: string;
+  /**
+   * Recipient ID (integer string). Example: "1"
+   */
+  recipientId: string;
+  /**
+   * Recipient email address
+   */
+  email: string;
+  /**
+   * Recipient full name
+   */
+  userName: string;
+  /**
+   * Client user ID that was set when the recipient was added to the envelope
+   */
+  clientUserId: string;
+  /**
+   * URL to redirect the recipient after signing. Example: "https://example.com/signed"
+   */
+  returnUrl: string;
+  /**
+   * Authentication method for the recipient. Default: "none"
+   */
+  authenticationMethod?: string | undefined;
+};
+
+export interface ActionOutput_docusign_createrecipientview {
+  url: string;
+  recipientId?: string | undefined;
+  recipientIdGuid?: string | undefined;
+  recipientName?: string | undefined;
+  recipientEmail?: string | undefined;
+  recipientSigningStatus?: string | undefined;
+  recipientMustSign?: string | undefined;
+  recipientRoleName?: string | undefined;
+  status?: string | undefined;
+  userName?: string | undefined;
+  email?: string | undefined;
+  clientUserId?: string | undefined;
+  embeddedRecipientStartURL?: string | undefined;
+};
+
+export interface ActionInput_docusign_createtemplate {
+  /**
+   * Template name. Example: "NDA Template"
+   */
+  name: string;
+  /**
+   * Email subject for envelopes sent from this template. Example: "Please sign the NDA"
+   */
+  emailSubject: string;
+  /**
+   * Email body/blurb.
+   */
+  emailBlurb?: string | undefined;
+  /**
+   * Template description.
+   */
+  description?: string | undefined;
+  /**
+   * Documents to include in the template.
+   */
+  documents?: ({  /**
+   * Document ID. Example: "1"
+   */
+  documentId: string;
+  /**
+   * Document name. Example: "Contract.pdf"
+   */
+  name: string;
+  /**
+   * File extension. Example: "pdf"
+   */
+  fileExtension: string;
+  /**
+   * Base64-encoded document content.
+   */
+  documentBase64: string;})[] | undefined;
+  /**
+   * Template recipients with roles.
+   */
+  recipients?: {  signers?: ({  /**
+   * Template role name. Example: "Signer 1"
+   */
+  roleName: string;
+  /**
+   * Recipient ID. Example: "1"
+   */
+  recipientId: string;
+  /**
+   * Placeholder name for the role. Example: "Signer One"
+   */
+  name?: string | undefined;
+  tabs?: {  signHereTabs?: ({  /**
+   * Tab type. Example: "SignHere"
+   */
+  tabType: string;
+  /**
+   * Document ID. Example: "1"
+   */
+  documentId: string;
+  /**
+   * Page number. Example: "1"
+   */
+  pageNumber: string;
+  /**
+   * Recipient ID. Example: "1"
+   */
+  recipientId: string;
+  /**
+   * X position. Example: "100"
+   */
+  xPosition: string;
+  /**
+   * Y position. Example: "100"
+   */
+  yPosition: string;})[] | undefined;};})[];};
+};
+
+export interface ActionOutput_docusign_createtemplate {
+  /**
+   * The unique identifier of the created template.
+   */
+  templateId: string;
+  /**
+   * The name of the created template.
+   */
+  name?: string | undefined;
+  /**
+   * The URI for retrieving the template.
+   */
+  uri?: string | undefined;
 };
 
 export interface ActionInput_docusign_createuser {
-  firstName: string;
-  lastName: string;
+  /**
+   * The full name of the user to create.
+   */
+  userName: string;
+  /**
+   * The email address for the new user.
+   */
   email: string;
-  userName?: string | undefined;
-  title?: string | undefined;
-  phoneNumber?: string | undefined;
-  company?: string | undefined;
-  countryCode?: string | undefined;
-  activationAccessCode?: string | undefined;
-  settings?: {  language?: string | undefined;
-  timeZone?: string | undefined;};
-  userStatus?: string | undefined;
+  /**
+   * The password for the new user account.
+   */
+  password: string;
+  /**
+   * Permission profile ID for the user. Defaults to DocuSign Sender (52114902).
+   */
+  permissionProfileId?: string | undefined;
 };
 
 export interface ActionOutput_docusign_createuser {
-  id: string;
-  email: string;
-  firstName: string;
-  lastName: string;
+  userId?: string | undefined;
+  userName?: string | undefined;
+  email?: string | undefined;
+  created?: boolean | undefined;
+};
+
+export interface ActionInput_docusign_deleteconnectconfiguration {
+  /**
+   * Connect configuration ID to delete. Example: "22210640"
+   */
+  connectId: string;
+};
+
+export interface ActionOutput_docusign_deleteconnectconfiguration {
+  success: true;
+};
+
+export interface ActionInput_docusign_deleteenveloperecipients {
+  /**
+   * The envelope ID. Example: "ffbe2429-fc88-8ef2-803e-8ad9296118b6"
+   */
+  envelopeId: string;
+  /**
+   * Array of recipients to remove from the envelope
+   */
+  recipients: ({  /**
+   * The recipient ID to delete. Example: "1"
+   */
+  recipientId: string;})[];
+};
+
+export interface ActionOutput_docusign_deleteenveloperecipients {
+  envelopeId: string;
+  deletedRecipients: ({  recipientId: string;})[];
+};
+
+export interface ActionInput_docusign_deleteenvelope {
+  /**
+   * The ID of the draft envelope to move to the recycle bin. Example: "acdc2f1a-fba9-871d-8159-abe4af6518ef"
+   */
+  envelopeId: string;
+};
+
+export interface ActionOutput_docusign_deleteenvelope {
+  success: boolean;
+  envelopeId: string;
+  folderId: string;
+};
+
+export interface ActionInput_docusign_deletegroups {
+  /**
+   * Array of group IDs to delete. Example: ["36047264", "36047265"]
+   */
+  groupIds: string[];
+};
+
+export interface ActionOutput_docusign_deletegroups {
+  groups: ({  groupId: string;
+  groupName?: string | undefined;
+  groupType?: string | undefined;})[];
 };
 
 export interface ActionInput_docusign_deleteuser {
-  id: string;
+  /**
+   * The user ID to close/remove. Example: "c9a996ed-50d2-4df4-ac91-a45032721bb6"
+   */
+  userId: string;
 };
 
 export interface ActionOutput_docusign_deleteuser {
-  success: boolean;
+  users?: ({})[] | undefined;
+};
+
+export interface ActionInput_docusign_getaccountsettings {
+};
+
+export interface ActionOutput_docusign_getaccountsettings {
+};
+
+export interface ActionInput_docusign_getbrand {
+  /**
+   * Brand ID. Example: "12345"
+   */
+  brandId: string;
+};
+
+export interface ActionOutput_docusign_getbrand {
+  brandId?: string | undefined;
+  brandName?: string | undefined;
+  brandCompany?: string | undefined;
+  defaultBrandLanguage?: string | undefined;
+  brandLanguages?: string[] | undefined;
+  isSendingDefault?: boolean | undefined;
+  isSigningDefault?: boolean | undefined;
+  isOverridingCompanyName?: boolean | undefined;
+  isOrganizationBrand?: string | undefined;
+};
+
+export interface ActionInput_docusign_getenvelopeauditevents {
+  /**
+   * The envelope ID. Example: "ffbe2429-fc88-8ef2-803e-8ad9296118b6"
+   */
+  envelopeId: string;
+};
+
+export interface ActionOutput_docusign_getenvelopeauditevents {
+  auditEvents?: ({  eventFields?: ({  name?: string | undefined;
+  value?: string | undefined;})[];})[];
+};
+
+export interface ActionInput_docusign_getenvelopeformdata {
+  /**
+   * The envelope ID. Example: "ffbe2429-fc88-8ef2-803e-8ad9296118b6"
+   */
+  envelopeId: string;
+};
+
+export interface ActionOutput_docusign_getenvelopeformdata {
+  formData?: ({  name?: string | undefined;
+  value?: string | undefined;
+  tabLabel?: string | undefined;
+  tabName?: string | undefined;
+  originalValue?: string | undefined;
+  recipientId?: string | undefined;})[];
+  prefillFormData?: ({  name?: string | undefined;
+  value?: string | undefined;
+  tabLabel?: string | undefined;
+  tabName?: string | undefined;
+  originalValue?: string | undefined;
+  recipientId?: string | undefined;})[];
+  recipientFormData?: ({  recipientId?: string | undefined;
+  formData?: ({  name?: string | undefined;
+  value?: string | undefined;
+  tabLabel?: string | undefined;
+  tabName?: string | undefined;
+  originalValue?: string | undefined;
+  recipientId?: string | undefined;})[];})[];
+};
+
+export interface ActionInput_docusign_getenvelope {
+  /**
+   * DocuSign envelope ID. Example: "ffbe2429-fc88-8ef2-803e-8ad9296118b6"
+   */
+  envelopeId: string;
+};
+
+export interface ActionOutput_docusign_getenvelope {
+  envelope: {  envelopeId: string;
+  status: string;
+  emailSubject?: string | undefined;
+  emailBlurb?: string | undefined;
+  sender?: {  userName?: string | undefined;
+  userId?: string | undefined;
+  email?: string | undefined;};
+  sentDateTime?: string | undefined;
+  completedDateTime?: string | undefined;
+  createdDateTime?: string | undefined;
+  statusChangedDateTime?: string | undefined;
+  documentsUri?: string | undefined;
+  recipientsUri?: string | undefined;
+  attachmentsUri?: string | undefined;
+  envelopeUri?: string | undefined;
+  purgeState?: string | undefined;
+  voidedDateTime?: string | undefined;
+  voidedReason?: string | undefined;
+  expireDateTime?: string | undefined;
+  expireAfter?: string | undefined;
+  templateId?: string | undefined;
+  customFieldsUri?: string | undefined;
+  notificationUri?: string | undefined;};
+};
+
+export interface ActionInput_docusign_gettemplate {
+  /**
+   * Template ID. Example: "e13866df-36e6-462b-b35b-dcda35982abc"
+   */
+  templateId: string;
+};
+
+export interface ActionOutput_docusign_gettemplate {
+  templateId: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  emailSubject?: string | undefined;
+  emailBlurb?: string | undefined;
+  status?: string | undefined;
+  documents?: ({  documentId?: string | undefined;
+  name?: string | undefined;
+  type?: string | undefined;
+  uri?: string | undefined;})[];
+  recipients?: {  signers?: ({  recipientId?: string | undefined;
+  recipientIdGuid?: string | undefined;
+  roleName?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  tabs?: {  signHereTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  dateSignedTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  textTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  checkboxTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  radioGroupTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];};})[];
+  carbonCopies?: ({  recipientId?: string | undefined;
+  recipientIdGuid?: string | undefined;
+  roleName?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  tabs?: {  signHereTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  dateSignedTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  textTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  checkboxTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  radioGroupTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];};})[];
+  certifiedDeliveries?: ({  recipientId?: string | undefined;
+  recipientIdGuid?: string | undefined;
+  roleName?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  tabs?: {  signHereTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  dateSignedTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  textTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  checkboxTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  radioGroupTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];};})[];
+  editors?: ({  recipientId?: string | undefined;
+  recipientIdGuid?: string | undefined;
+  roleName?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  tabs?: {  signHereTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  dateSignedTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  textTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  checkboxTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  radioGroupTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];};})[];
+  intermediaries?: ({  recipientId?: string | undefined;
+  recipientIdGuid?: string | undefined;
+  roleName?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  tabs?: {  signHereTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  dateSignedTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  textTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  checkboxTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  radioGroupTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];};})[];
+  agents?: ({  recipientId?: string | undefined;
+  recipientIdGuid?: string | undefined;
+  roleName?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  tabs?: {  signHereTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  dateSignedTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  textTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  checkboxTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  radioGroupTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];};})[];
+  inPersonSigners?: ({  recipientId?: string | undefined;
+  recipientIdGuid?: string | undefined;
+  roleName?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  tabs?: {  signHereTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  dateSignedTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  textTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  checkboxTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  radioGroupTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];};})[];
+  seals?: ({  recipientId?: string | undefined;
+  recipientIdGuid?: string | undefined;
+  roleName?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  tabs?: {  signHereTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  dateSignedTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  textTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  checkboxTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  radioGroupTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];};})[];
+  witnesses?: ({  recipientId?: string | undefined;
+  recipientIdGuid?: string | undefined;
+  roleName?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  tabs?: {  signHereTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  dateSignedTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  textTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  checkboxTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  radioGroupTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];};})[];
+  notaries?: ({  recipientId?: string | undefined;
+  recipientIdGuid?: string | undefined;
+  roleName?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  tabs?: {  signHereTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  dateSignedTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  textTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  checkboxTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  radioGroupTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];};})[];};
+};
+
+export interface ActionInput_docusign_getuser {
+  /**
+   * The user ID (GUID) to retrieve. Example: "c9a996ed-50d2-4df4-ac91-a45032721bb6"
+   */
+  userId: string;
+};
+
+export interface ActionOutput_docusign_getuser {
+  userId: string;
+  userName?: string | undefined;
+  email?: string | undefined;
+  userType?: string | undefined;
+  userStatus?: string | undefined;
+  uri?: string | undefined;
+  createdDateTime?: string | undefined;
+  permissionProfileId?: string | undefined;
+  permissionProfileName?: string | undefined;
+  title?: string | undefined;
+  firstName?: string | undefined;
+  middleName?: string | undefined;
+  lastName?: string | undefined;
+  suffixName?: string | undefined;
+  jobTitle?: string | undefined;
+  companyName?: string | undefined;
+  phoneNumber?: string | undefined;
+  faxNumber?: string | undefined;
+  address?: {  address1?: string | undefined;
+  address2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  postalCode?: string | undefined;
+  country?: string | undefined;};
+  userSettings?: {  [key: string]: unknown | undefined;};
+  groupList?: ({  [key: string]: unknown | undefined;})[];
+  signatureName?: string | undefined;
+  initialsName?: string | undefined;
+};
+
+export interface ActionInput_docusign_listbrands {
+};
+
+export interface ActionOutput_docusign_listbrands {
+  brands: ({  brandId: string;
+  brandName?: string | undefined;})[];
+  recipientBrandIdDefault?: string | undefined;
+  senderBrandIdDefault?: string | undefined;
+};
+
+export interface ActionInput_docusign_listconnectconfigurations {
+};
+
+export interface ActionOutput_docusign_listconnectconfigurations {
+  configurations: ({  configurationId?: number | undefined;
+  urlToPublishTo?: string | undefined;
+  name?: string | undefined;
+  allowEnvelopePublish?: string | undefined;
+  enableLog?: string | undefined;
+  includeDocuments?: string | undefined;
+  includeCertificateOfCompletion?: string | undefined;
+  requiresAcknowledgement?: string | undefined;
+  signMessageWithX509Certificate?: string | undefined;
+  useSoapInterface?: string | undefined;
+  includeTimeZoneInformation?: string | undefined;
+  includeEnvelopeVoidReason?: string | undefined;
+  envelopeEvents?: string[] | undefined;
+  recipientEvents?: string[] | undefined;
+  includeSenderAccountasCustomField?: string | undefined;
+  publishToWeb?: string | undefined;
+  eventData?: {  version?: string | undefined;
+  format?: string | undefined;
+  includeData?: string[] | undefined;};
+  allUsers?: string | undefined;
+  integratorManaged?: string | undefined;
+  userIds?: string[] | undefined;
+  salesforcePublish?: {} | undefined;
+  externalFolderIds?: string[] | undefined;
+  allExternalFoldersEnabled?: string | undefined;})[];
+  totalRecords?: string | undefined;
+};
+
+export interface ActionInput_docusign_listenvelopedocuments {
+  /**
+   * DocuSign envelope ID. Example: "ffbe2429-fc88-8ef2-803e-8ad9296118b6"
+   */
+  envelopeId: string;
+};
+
+export interface ActionOutput_docusign_listenvelopedocuments {
+  envelopeId: string;
+  documents: ({  documentId: string;
+  name?: string | undefined;
+  type?: string | undefined;
+  uri?: string | undefined;
+  pages?: string | undefined;})[];
+};
+
+export interface ActionInput_docusign_listenveloperecipients {
+  /**
+   * The envelope ID. Example: "ffbe2429-fc88-8ef2-803e-8ad9296118b6"
+   */
+  envelopeId: string;
+};
+
+export interface ActionOutput_docusign_listenveloperecipients {
+  signers?: ({  recipientId?: string | undefined;
+  recipientIdGuid?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  routingOrder?: string | undefined;
+  status?: string | undefined;
+  deliveryMethod?: string | undefined;
+  completedCount?: string | undefined;
+  totalTabCount?: string | undefined;})[];
+  carbonCopies?: ({  recipientId?: string | undefined;
+  recipientIdGuid?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  routingOrder?: string | undefined;
+  status?: string | undefined;
+  deliveryMethod?: string | undefined;
+  completedCount?: string | undefined;
+  totalTabCount?: string | undefined;})[];
+  certifiedDeliveries?: ({  recipientId?: string | undefined;
+  recipientIdGuid?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  routingOrder?: string | undefined;
+  status?: string | undefined;
+  deliveryMethod?: string | undefined;
+  completedCount?: string | undefined;
+  totalTabCount?: string | undefined;})[];
+  inPersonSigners?: ({  recipientId?: string | undefined;
+  recipientIdGuid?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  routingOrder?: string | undefined;
+  status?: string | undefined;
+  deliveryMethod?: string | undefined;
+  completedCount?: string | undefined;
+  totalTabCount?: string | undefined;})[];
+  agents?: ({  recipientId?: string | undefined;
+  recipientIdGuid?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  routingOrder?: string | undefined;
+  status?: string | undefined;
+  deliveryMethod?: string | undefined;
+  completedCount?: string | undefined;
+  totalTabCount?: string | undefined;})[];
+  editors?: ({  recipientId?: string | undefined;
+  recipientIdGuid?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  routingOrder?: string | undefined;
+  status?: string | undefined;
+  deliveryMethod?: string | undefined;
+  completedCount?: string | undefined;
+  totalTabCount?: string | undefined;})[];
+  intermediaries?: ({  recipientId?: string | undefined;
+  recipientIdGuid?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  routingOrder?: string | undefined;
+  status?: string | undefined;
+  deliveryMethod?: string | undefined;
+  completedCount?: string | undefined;
+  totalTabCount?: string | undefined;})[];
+  seals?: ({  recipientId?: string | undefined;
+  recipientIdGuid?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  routingOrder?: string | undefined;
+  status?: string | undefined;
+  deliveryMethod?: string | undefined;
+  completedCount?: string | undefined;
+  totalTabCount?: string | undefined;})[];
+};
+
+export interface ActionInput_docusign_listenvelopes {
+  /**
+   * ISO 8601 start date. Required unless envelope_ids or transaction_ids is provided.
+   */
+  from_date?: string | undefined;
+  /**
+   * ISO 8601 end date.
+   */
+  to_date?: string | undefined;
+  /**
+   * Envelope status filter, e.g. "sent", "completed", "created".
+   */
+  status?: string | undefined;
+  /**
+   * Comma-separated folder IDs to filter by.
+   */
+  folder_ids?: string | undefined;
+  /**
+   * Comma-separated envelope IDs to filter by.
+   */
+  envelope_ids?: string | undefined;
+  /**
+   * Comma-separated transaction IDs to filter by.
+   */
+  transaction_ids?: string | undefined;
+  /**
+   * Pagination cursor (start_position). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page (count). Defaults to 50.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_docusign_listenvelopes {
+  items: ({  envelopeId: string;
+  status: string;
+  emailSubject?: string | undefined;
+  emailBlurb?: string | undefined;
+  sender?: {  userName?: string | undefined;
+  userId?: string | undefined;
+  email?: string | undefined;};
+  createdDateTime?: string | undefined;
+  sentDateTime?: string | undefined;
+  completedDateTime?: string | undefined;
+  statusChangedDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  voidedDateTime?: string | undefined;
+  voidedReason?: string | undefined;
+  declinedDateTime?: string | undefined;
+  deliveredDateTime?: string | undefined;
+  deletedDateTime?: string | undefined;
+  initialSentDateTime?: string | undefined;
+  documentsUri?: string | undefined;
+  recipientsUri?: string | undefined;
+  envelopeUri?: string | undefined;
+  customFieldsUri?: string | undefined;
+  notificationUri?: string | undefined;
+  certificateUri?: string | undefined;
+  templatesUri?: string | undefined;
+  documentsCombinedUri?: string | undefined;
+  attachmentsUri?: string | undefined;
+  customFields?: ({  [key: string]: unknown | undefined;})[];
+  notification?: {  [key: string]: unknown | undefined;};
+  recipients?: {  [key: string]: unknown | undefined;};})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_docusign_listfolderenvelopes {
+  /**
+   * Folder ID. Example: "b97b86fd-ca82-47d7-8435-f11555c52d0e"
+   */
+  folderId: string;
+  /**
+   * Pagination cursor (start_position) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results to return per page. Max: 100. Default: 50.
+   */
+  count?: number | undefined;
+};
+
+export interface ActionOutput_docusign_listfolderenvelopes {
+  items: ({  envelopeId: string;
+  status?: string | undefined;
+  emailSubject?: string | undefined;
+  emailBlurb?: string | undefined;
+  sentDateTime?: string | undefined;
+  createdDateTime?: string | undefined;
+  statusChangedDateTime?: string | undefined;
+  sender?: {  userName?: string | undefined;
+  userId?: string | undefined;
+  email?: string | undefined;};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_docusign_listfolders {
+};
+
+export interface ActionOutput_docusign_listfolders {
+  folders: ({  /**
+   * Folder ID. Example: "b97b86fd-ca82-47d7-8435-f11555c52d0e"
+   */
+  folderId: string;
+  /**
+   * Folder name. Example: "Draft"
+   */
+  name: string;
+  /**
+   * Folder type. Example: "draft", "inbox", "sentitems", "recyclebin", "custom"
+   */
+  type: string;
+  /**
+   * Number of items in the folder. Example: "5"
+   */
+  itemCount: string;})[];
+};
+
+export interface ActionInput_docusign_listgroupusers {
+  /**
+   * Group ID. Example: "36046947"
+   */
+  groupId: string;
+  /**
+   * Pagination offset. Example: "0"
+   */
+  start_position?: string | undefined;
+  /**
+   * Number of records to return. Example: "100"
+   */
+  count?: string | undefined;
+};
+
+export interface ActionOutput_docusign_listgroupusers {
+  users: ({  userId?: string | undefined;
+  userName?: string | undefined;
+  email?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  userStatus?: string | undefined;
+  userType?: string | undefined;})[];
+  next_start_position?: string | undefined;
+};
+
+export interface ActionInput_docusign_listgroups {
+};
+
+export interface ActionOutput_docusign_listgroups {
+  groups: ({  groupId: string;
+  groupName?: string | undefined;
+  groupType?: 'adminGroup' | 'everyoneGroup' | 'customGroup' | undefined;
+  usersCount?: string | undefined;})[];
+};
+
+export interface ActionInput_docusign_listpermissionprofiles {
+};
+
+export interface ActionOutput_docusign_listpermissionprofiles {
+  permissionProfiles: ({  permissionProfileId: string;
+  permissionProfileName: string;
+  modifiedDateTime?: string | undefined;})[];
+};
+
+export interface ActionInput_docusign_listrecipienttabs {
+  /**
+   * Envelope ID. Example: "ffbe2429-fc88-8ef2-803e-8ad9296118b6"
+   */
+  envelopeId: string;
+  /**
+   * Recipient ID. Example: "1"
+   */
+  recipientId: string;
+};
+
+export interface ActionOutput_docusign_listrecipienttabs {
+  signHereTabs?: ({  tabId?: string | undefined;
+  documentId?: string | undefined;
+  recipientId?: string | undefined;
+  pageNumber?: string | undefined;
+  xPosition?: string | undefined;
+  yPosition?: string | undefined;
+  tabLabel?: string | undefined;
+  name?: string | undefined;
+  value?: string | undefined;
+  locked?: string | undefined;
+  required?: string | undefined;
+  selected?: string | undefined;})[];
+  initialHereTabs?: ({  tabId?: string | undefined;
+  documentId?: string | undefined;
+  recipientId?: string | undefined;
+  pageNumber?: string | undefined;
+  xPosition?: string | undefined;
+  yPosition?: string | undefined;
+  tabLabel?: string | undefined;
+  name?: string | undefined;
+  value?: string | undefined;
+  locked?: string | undefined;
+  required?: string | undefined;
+  selected?: string | undefined;})[];
+  dateSignedTabs?: ({  tabId?: string | undefined;
+  documentId?: string | undefined;
+  recipientId?: string | undefined;
+  pageNumber?: string | undefined;
+  xPosition?: string | undefined;
+  yPosition?: string | undefined;
+  tabLabel?: string | undefined;
+  name?: string | undefined;
+  value?: string | undefined;
+  locked?: string | undefined;
+  required?: string | undefined;
+  selected?: string | undefined;})[];
+  textTabs?: ({  tabId?: string | undefined;
+  documentId?: string | undefined;
+  recipientId?: string | undefined;
+  pageNumber?: string | undefined;
+  xPosition?: string | undefined;
+  yPosition?: string | undefined;
+  tabLabel?: string | undefined;
+  name?: string | undefined;
+  value?: string | undefined;
+  locked?: string | undefined;
+  required?: string | undefined;
+  selected?: string | undefined;})[];
+  checkboxTabs?: ({  tabId?: string | undefined;
+  documentId?: string | undefined;
+  recipientId?: string | undefined;
+  pageNumber?: string | undefined;
+  xPosition?: string | undefined;
+  yPosition?: string | undefined;
+  tabLabel?: string | undefined;
+  name?: string | undefined;
+  value?: string | undefined;
+  locked?: string | undefined;
+  required?: string | undefined;
+  selected?: string | undefined;})[];
+  radioGroupTabs?: ({  tabId?: string | undefined;
+  documentId?: string | undefined;
+  recipientId?: string | undefined;
+  pageNumber?: string | undefined;
+  xPosition?: string | undefined;
+  yPosition?: string | undefined;
+  tabLabel?: string | undefined;
+  name?: string | undefined;
+  value?: string | undefined;
+  locked?: string | undefined;
+  required?: string | undefined;
+  selected?: string | undefined;})[];
+  listTabs?: ({  tabId?: string | undefined;
+  documentId?: string | undefined;
+  recipientId?: string | undefined;
+  pageNumber?: string | undefined;
+  xPosition?: string | undefined;
+  yPosition?: string | undefined;
+  tabLabel?: string | undefined;
+  name?: string | undefined;
+  value?: string | undefined;
+  locked?: string | undefined;
+  required?: string | undefined;
+  selected?: string | undefined;})[];
+  numberTabs?: ({  tabId?: string | undefined;
+  documentId?: string | undefined;
+  recipientId?: string | undefined;
+  pageNumber?: string | undefined;
+  xPosition?: string | undefined;
+  yPosition?: string | undefined;
+  tabLabel?: string | undefined;
+  name?: string | undefined;
+  value?: string | undefined;
+  locked?: string | undefined;
+  required?: string | undefined;
+  selected?: string | undefined;})[];
+  ssnTabs?: ({  tabId?: string | undefined;
+  documentId?: string | undefined;
+  recipientId?: string | undefined;
+  pageNumber?: string | undefined;
+  xPosition?: string | undefined;
+  yPosition?: string | undefined;
+  tabLabel?: string | undefined;
+  name?: string | undefined;
+  value?: string | undefined;
+  locked?: string | undefined;
+  required?: string | undefined;
+  selected?: string | undefined;})[];
+  zipTabs?: ({  tabId?: string | undefined;
+  documentId?: string | undefined;
+  recipientId?: string | undefined;
+  pageNumber?: string | undefined;
+  xPosition?: string | undefined;
+  yPosition?: string | undefined;
+  tabLabel?: string | undefined;
+  name?: string | undefined;
+  value?: string | undefined;
+  locked?: string | undefined;
+  required?: string | undefined;
+  selected?: string | undefined;})[];
+  noteTabs?: ({  tabId?: string | undefined;
+  documentId?: string | undefined;
+  recipientId?: string | undefined;
+  pageNumber?: string | undefined;
+  xPosition?: string | undefined;
+  yPosition?: string | undefined;
+  tabLabel?: string | undefined;
+  name?: string | undefined;
+  value?: string | undefined;
+  locked?: string | undefined;
+  required?: string | undefined;
+  selected?: string | undefined;})[];
+  approveTabs?: ({  tabId?: string | undefined;
+  documentId?: string | undefined;
+  recipientId?: string | undefined;
+  pageNumber?: string | undefined;
+  xPosition?: string | undefined;
+  yPosition?: string | undefined;
+  tabLabel?: string | undefined;
+  name?: string | undefined;
+  value?: string | undefined;
+  locked?: string | undefined;
+  required?: string | undefined;
+  selected?: string | undefined;})[];
+  declineTabs?: ({  tabId?: string | undefined;
+  documentId?: string | undefined;
+  recipientId?: string | undefined;
+  pageNumber?: string | undefined;
+  xPosition?: string | undefined;
+  yPosition?: string | undefined;
+  tabLabel?: string | undefined;
+  name?: string | undefined;
+  value?: string | undefined;
+  locked?: string | undefined;
+  required?: string | undefined;
+  selected?: string | undefined;})[];
+  formulaTabs?: ({  tabId?: string | undefined;
+  documentId?: string | undefined;
+  recipientId?: string | undefined;
+  pageNumber?: string | undefined;
+  xPosition?: string | undefined;
+  yPosition?: string | undefined;
+  tabLabel?: string | undefined;
+  name?: string | undefined;
+  value?: string | undefined;
+  locked?: string | undefined;
+  required?: string | undefined;
+  selected?: string | undefined;})[];
+  titleTabs?: ({  tabId?: string | undefined;
+  documentId?: string | undefined;
+  recipientId?: string | undefined;
+  pageNumber?: string | undefined;
+  xPosition?: string | undefined;
+  yPosition?: string | undefined;
+  tabLabel?: string | undefined;
+  name?: string | undefined;
+  value?: string | undefined;
+  locked?: string | undefined;
+  required?: string | undefined;
+  selected?: string | undefined;})[];
+  fullNameTabs?: ({  tabId?: string | undefined;
+  documentId?: string | undefined;
+  recipientId?: string | undefined;
+  pageNumber?: string | undefined;
+  xPosition?: string | undefined;
+  yPosition?: string | undefined;
+  tabLabel?: string | undefined;
+  name?: string | undefined;
+  value?: string | undefined;
+  locked?: string | undefined;
+  required?: string | undefined;
+  selected?: string | undefined;})[];
+  emailTabs?: ({  tabId?: string | undefined;
+  documentId?: string | undefined;
+  recipientId?: string | undefined;
+  pageNumber?: string | undefined;
+  xPosition?: string | undefined;
+  yPosition?: string | undefined;
+  tabLabel?: string | undefined;
+  name?: string | undefined;
+  value?: string | undefined;
+  locked?: string | undefined;
+  required?: string | undefined;
+  selected?: string | undefined;})[];
+  companyTabs?: ({  tabId?: string | undefined;
+  documentId?: string | undefined;
+  recipientId?: string | undefined;
+  pageNumber?: string | undefined;
+  xPosition?: string | undefined;
+  yPosition?: string | undefined;
+  tabLabel?: string | undefined;
+  name?: string | undefined;
+  value?: string | undefined;
+  locked?: string | undefined;
+  required?: string | undefined;
+  selected?: string | undefined;})[];
+  dateTabs?: ({  tabId?: string | undefined;
+  documentId?: string | undefined;
+  recipientId?: string | undefined;
+  pageNumber?: string | undefined;
+  xPosition?: string | undefined;
+  yPosition?: string | undefined;
+  tabLabel?: string | undefined;
+  name?: string | undefined;
+  value?: string | undefined;
+  locked?: string | undefined;
+  required?: string | undefined;
+  selected?: string | undefined;})[];
+  envelopeIdTabs?: ({  tabId?: string | undefined;
+  documentId?: string | undefined;
+  recipientId?: string | undefined;
+  pageNumber?: string | undefined;
+  xPosition?: string | undefined;
+  yPosition?: string | undefined;
+  tabLabel?: string | undefined;
+  name?: string | undefined;
+  value?: string | undefined;
+  locked?: string | undefined;
+  required?: string | undefined;
+  selected?: string | undefined;})[];
+  firstNameTabs?: ({  tabId?: string | undefined;
+  documentId?: string | undefined;
+  recipientId?: string | undefined;
+  pageNumber?: string | undefined;
+  xPosition?: string | undefined;
+  yPosition?: string | undefined;
+  tabLabel?: string | undefined;
+  name?: string | undefined;
+  value?: string | undefined;
+  locked?: string | undefined;
+  required?: string | undefined;
+  selected?: string | undefined;})[];
+  lastNameTabs?: ({  tabId?: string | undefined;
+  documentId?: string | undefined;
+  recipientId?: string | undefined;
+  pageNumber?: string | undefined;
+  xPosition?: string | undefined;
+  yPosition?: string | undefined;
+  tabLabel?: string | undefined;
+  name?: string | undefined;
+  value?: string | undefined;
+  locked?: string | undefined;
+  required?: string | undefined;
+  selected?: string | undefined;})[];
+};
+
+export interface ActionInput_docusign_listsigninggroups {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_docusign_listsigninggroups {
+  items: ({  signingGroupId?: string | undefined;
+  groupName?: string | undefined;
+  groupEmail?: string | undefined;
+  groupType?: string | undefined;
+  created?: string | undefined;
+  createdBy?: string | undefined;
+  modified?: string | undefined;
+  modifiedBy?: string | undefined;
+  users?: ({  email?: string | undefined;
+  userName?: string | undefined;})[];})[];
+};
+
+export interface ActionInput_docusign_listtemplaterecipients {
+  /**
+   * Template ID. Example: "e13866df-36e6-462b-b35b-dcda35982abc"
+   */
+  templateId: string;
+};
+
+export interface ActionOutput_docusign_listtemplaterecipients {
+  /**
+   * List of recipient roles defined in the template
+   */
+  recipients: ({  /**
+   * The recipient ID
+   */
+  recipientId?: string | undefined;
+  /**
+   * The role name of the recipient
+   */
+  roleName?: string | undefined;
+  /**
+   * The name of the recipient
+   */
+  name?: string | undefined;
+  /**
+   * The email of the recipient
+   */
+  email?: string | undefined;
+  /**
+   * The type of recipient (e.g., signer, carbonCopy)
+   */
+  recipientType: string;})[];
+};
+
+export interface ActionInput_docusign_listtemplates {
+  /**
+   * Search text to filter templates
+   */
+  search_text?: string | undefined;
+  /**
+   * Filter by shared status. Example: "true" or "false"
+   */
+  shared?: string | undefined;
+  /**
+   * Folder ID to filter templates
+   */
+  folder_id?: string | undefined;
+  /**
+   * Pagination start position. Example: "0"
+   */
+  start_position?: string | undefined;
+  /**
+   * Number of items to return per page. Example: "10"
+   */
+  count?: string | undefined;
+};
+
+export interface ActionOutput_docusign_listtemplates {
+  items: ({  templateId: string;
+  name?: string | undefined;
+  shared?: string | undefined;
+  description?: string | undefined;
+  created?: string | undefined;
+  lastModified?: string | undefined;
+  uri?: string | undefined;
+  folderId?: string | undefined;
+  folderName?: string | undefined;
+  folderUri?: string | undefined;})[];
+  next_start_position?: string | undefined;
+};
+
+export interface ActionInput_docusign_listusers {
+  /**
+   * Filter by email address. Example: "api@nango.dev"
+   */
+  email?: string | undefined;
+  /**
+   * Filter by user status. Example: "active"
+   */
+  status?: string | undefined;
+  /**
+   * Pagination offset. Example: "0"
+   */
+  start_position?: string | undefined;
+  /**
+   * Number of results to return. Example: "10"
+   */
+  count?: string | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_docusign_listusers {
+  items: ({  userId: string;
+  userName?: string | undefined;
+  email?: string | undefined;
+  userStatus?: string | undefined;
+  userType?: string | undefined;
+  createdDateTime?: string | undefined;
+  activationDateTime?: string | undefined;
+  lastLoginDateTime?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_docusign_removegroupusers {
+  /**
+   * Group ID. Example: "36046947"
+   */
+  groupId: string;
+  users: ({  /**
+   * User ID to remove from the group. Example: "c9a996ed-50d2-4df4-ac91-a45032721bb6"
+   */
+  userId: string;})[];
+};
+
+export interface ActionOutput_docusign_removegroupusers {
+  resultSetSize?: string | undefined;
+  startPosition?: string | undefined;
+  endPosition?: string | undefined;
+  totalSetSize?: string | undefined;
+  nextUri?: string | undefined;
+  previousUri?: string | undefined;
+  users?: ({  userId?: string | undefined;
+  userName?: string | undefined;
+  email?: string | undefined;
+  userStatus?: string | undefined;
+  userType?: string | undefined;})[];
+};
+
+export interface ActionInput_docusign_updateconnectconfiguration {
+  /**
+   * The DocuSign-generated ID for the Connect configuration. Example: "22210617"
+   */
+  connectId: string;
+  /**
+   * The name of the Connect configuration.
+   */
+  name?: string | undefined;
+  /**
+   * The HTTPS URL of the webhook listener endpoint.
+   */
+  urlToPublishTo?: string | undefined;
+  /**
+   * The type of the configuration. Valid values: custom, customrecipient, salesforce, eOriginal.
+   */
+  configurationType?: string | undefined;
+  /**
+   * Set to "true" to enable the webhook. The default is "false".
+   */
+  allowEnvelopePublish?: string | undefined;
+  /**
+   * Set to "true" to enable Connect logging.
+   */
+  enableLog?: string | undefined;
+  /**
+   * Set to "true" to require event delivery acknowledgements.
+   */
+  requiresAcknowledgement?: string | undefined;
+  /**
+   * Set to "true" to track events for all users.
+   */
+  allUsers?: string | undefined;
+  /**
+   * Set to "true" to exclude the users in userIds.
+   */
+  allUsersExcept?: string | undefined;
+  /**
+   * Array of user IDs to include or exclude.
+   */
+  userIds?: string[] | undefined;
+  /**
+   * Array of group IDs to associate with the configuration.
+   */
+  groupIds?: string[] | undefined;
+  /**
+   * Array of envelope-level event statuses that trigger notifications.
+   */
+  envelopeEvents?: string[] | undefined;
+  /**
+   * Array of recipient-level event statuses that trigger notifications.
+   */
+  recipientEvents?: string[] | undefined;
+  /**
+   * Array of event statuses for the JSON SIM event model.
+   */
+  events?: string[] | undefined;
+  /**
+   * The delivery mode.
+   */
+  deliveryMode?: 'SIM' | 'aggregate' | undefined;
+  /**
+   * Event data format configuration.
+   */
+  eventData?: {  version?: string | undefined;
+  includeData?: string[] | undefined;};
+  /**
+   * Set to "true" to use HMAC to verify the request.
+   */
+  includeHMAC?: string | undefined;
+  /**
+   * Set to "true" to enable Mutual TLS.
+   */
+  signMessageWithX509Certificate?: string | undefined;
+  /**
+   * Set to "true" to enable Mutual TLS authentication.
+   */
+  requireMutualTls?: string | undefined;
+  includeDocuments?: string | undefined;
+  includeCertificateOfCompletion?: string | undefined;
+  useSoapInterface?: string | undefined;
+  includeTimeZoneInformation?: string | undefined;
+  includeOAuth?: string | undefined;
+  includeEnvelopeVoidReason?: string | undefined;
+  includeSenderAccountasCustomField?: string | undefined;
+  includeDocumentFields?: string | undefined;
+  includeCertSoapHeader?: string | undefined;
+  pausePublish?: string | undefined;
+  enableOAuthPerConfiguration?: string | undefined;
+  integratorManaged?: string | undefined;
+  password?: string | undefined;
+  userName?: string | undefined;
+  soapNamespace?: string | undefined;
+  externalFolderId?: string | undefined;
+  externalFolderLabel?: string | undefined;
+  salesforceApiVersion?: string | undefined;
+  salesforceAuthcode?: string | undefined;
+  salesforceCallBackUrl?: string | undefined;
+  salesforceDocumentsAsContentFiles?: string | undefined;
+  senderOverride?: string | undefined;
+  senderSelectableItems?: string[] | undefined;
+  oAuthConfiguration?: {  [key: string]: unknown | undefined;};
+  sfObjects?: ({  [key: string]: unknown | undefined;})[];
+};
+
+export interface ActionOutput_docusign_updateconnectconfiguration {
+  connectId?: string | undefined;
+  configurationType?: string | undefined;
+  name?: string | undefined;
+  urlToPublishTo?: string | undefined;
+  allowEnvelopePublish?: string | undefined;
+  enableLog?: string | undefined;
+  requiresAcknowledgement?: string | undefined;
+  allUsers?: string | undefined;
+  allUsersExcept?: string | undefined;
+  deliveryMode?: string | undefined;
+  includeDocuments?: string | undefined;
+  includeCertificateOfCompletion?: string | undefined;
+  signMessageWithX509Certificate?: string | undefined;
+  useSoapInterface?: string | undefined;
+  includeTimeZoneInformation?: string | undefined;
+  includeOAuth?: string | undefined;
+  includeHMAC?: string | undefined;
+  integratorManaged?: string | undefined;
+  includeEnvelopeVoidReason?: string | undefined;
+  includeSenderAccountasCustomField?: string | undefined;
+  includeCertSoapHeader?: string | undefined;
+  requireMutualTls?: string | undefined;
+  includeDocumentFields?: string | undefined;
+  pausePublish?: string | undefined;
+  enableOAuthPerConfiguration?: string | undefined;
+  soapNamespace?: string | undefined;
+  envelopeEvents?: string[] | undefined;
+  recipientEvents?: string[] | undefined;
+  events?: string[] | undefined;
+  userIds?: string[] | undefined;
+  groupIds?: string[] | undefined;
+  password?: string | undefined;
+  userName?: string | undefined;
+  externalFolderId?: string | undefined;
+  externalFolderLabel?: string | undefined;
+  salesforceApiVersion?: string | undefined;
+  salesforceAuthcode?: string | undefined;
+  salesforceCallBackUrl?: string | undefined;
+  salesforceDocumentsAsContentFiles?: string | undefined;
+  senderOverride?: string | undefined;
+  senderSelectableItems?: string[] | undefined;
+  eventData?: {  version?: string | undefined;
+  includeData?: string[] | undefined;};
+};
+
+export interface ActionInput_docusign_updateenveloperecipients {
+  /**
+   * Envelope ID. Example: "ffbe2429-fc88-8ef2-803e-8ad9296118b6"
+   */
+  envelopeId: string;
+  /**
+   * Signers to update
+   */
+  signers: ({  /**
+   * Recipient ID. Example: "1"
+   */
+  recipientId: string;
+  /**
+   * Updated email address
+   */
+  email?: string | undefined;
+  /**
+   * Updated full name
+   */
+  name?: string | undefined;
+  /**
+   * Updated routing order
+   */
+  routingOrder?: string | undefined;})[];
+};
+
+export interface ActionOutput_docusign_updateenveloperecipients {
+  signers?: ({  recipientId: string;
+  recipientIdGuid?: string | undefined;
+  email?: string | undefined;
+  name?: string | undefined;
+  routingOrder?: string | undefined;
+  status?: string | undefined;
+  deliveryMethod?: string | undefined;
+  note?: string | undefined;})[];
+  carbonCopies?: ({  recipientId: string;
+  recipientIdGuid?: string | undefined;
+  email?: string | undefined;
+  name?: string | undefined;
+  routingOrder?: string | undefined;
+  status?: string | undefined;
+  deliveryMethod?: string | undefined;
+  note?: string | undefined;})[];
+  editors?: ({  recipientId: string;
+  recipientIdGuid?: string | undefined;
+  email?: string | undefined;
+  name?: string | undefined;
+  routingOrder?: string | undefined;
+  status?: string | undefined;
+  deliveryMethod?: string | undefined;
+  note?: string | undefined;})[];
+  intermediaries?: ({  recipientId: string;
+  recipientIdGuid?: string | undefined;
+  email?: string | undefined;
+  name?: string | undefined;
+  routingOrder?: string | undefined;
+  status?: string | undefined;
+  deliveryMethod?: string | undefined;
+  note?: string | undefined;})[];
+  agents?: ({  recipientId: string;
+  recipientIdGuid?: string | undefined;
+  email?: string | undefined;
+  name?: string | undefined;
+  routingOrder?: string | undefined;
+  status?: string | undefined;
+  deliveryMethod?: string | undefined;
+  note?: string | undefined;})[];
+  certifiedDeliveries?: ({  recipientId: string;
+  recipientIdGuid?: string | undefined;
+  email?: string | undefined;
+  name?: string | undefined;
+  routingOrder?: string | undefined;
+  status?: string | undefined;
+  deliveryMethod?: string | undefined;
+  note?: string | undefined;})[];
+  inPersonSigners?: ({  recipientId: string;
+  recipientIdGuid?: string | undefined;
+  email?: string | undefined;
+  name?: string | undefined;
+  routingOrder?: string | undefined;
+  status?: string | undefined;
+  deliveryMethod?: string | undefined;
+  note?: string | undefined;})[];
+};
+
+export interface ActionInput_docusign_updateenvelope {
+  /**
+   * DocuSign envelope ID. Example: "ffbe2429-fc88-8ef2-803e-8ad9296118b6"
+   */
+  envelopeId: string;
+  /**
+   * Updated email subject for the envelope.
+   */
+  emailSubject?: string | undefined;
+  /**
+   * Updated email body/message for the envelope.
+   */
+  emailBlurb?: string | undefined;
+  /**
+   * Notification settings for the envelope.
+   */
+  notification?: {  expirations?: {  /**
+   * "true" or "false"
+   */
+  expireEnabled?: string | undefined;
+  /**
+   * Number of days after which the envelope expires.
+   */
+  expireAfter?: string | undefined;};
+  reminders?: {  /**
+   * "true" or "false"
+   */
+  reminderEnabled?: string | undefined;
+  /**
+   * Days before first reminder.
+   */
+  reminderDelay?: string | undefined;
+  /**
+   * Days between reminders.
+   */
+  reminderFrequency?: string | undefined;};};
+};
+
+export interface ActionOutput_docusign_updateenvelope {
+  envelopeId?: string | undefined;
+  status?: string | undefined;
+  emailSubject?: string | undefined;
+  emailBlurb?: string | undefined;
+  notification?: {  expirations?: {  expireEnabled?: string | undefined;
+  expireAfter?: string | undefined;};
+  reminders?: {  reminderEnabled?: string | undefined;
+  reminderDelay?: string | undefined;
+  reminderFrequency?: string | undefined;};};
+};
+
+export interface ActionInput_docusign_updategroup {
+  /**
+   * Group ID. Example: "36046947"
+   */
+  groupId: string;
+  /**
+   * New group name.
+   */
+  groupName?: string | undefined;
+  /**
+   * Permission profile ID to assign. Example: "52114901"
+   */
+  permissionProfileId?: string | undefined;
+};
+
+export interface ActionOutput_docusign_updategroup {
+  groupId: string;
+  groupName?: string | undefined;
+  groupType?: string | undefined;
+  permissionProfileId?: string | undefined;
+  permissionProfileName?: string | undefined;
+  lastModifiedOn?: string | undefined;
+  isManagedByScim?: boolean | undefined;
+  userGroupType?: string | undefined;
+};
+
+export interface ActionInput_docusign_updaterecipienttabs {
+  /**
+   * DocuSign envelope ID. Example: "ffbe2429-fc88-8ef2-803e-8ad9296118b6"
+   */
+  envelopeId: string;
+  /**
+   * DocuSign recipient ID (integer string). Example: "1"
+   */
+  recipientId: string;
+  /**
+   * Tabs payload to update or create on the recipient.
+   */
+  tabs: {  textTabs?: ({  [key: string]: unknown | undefined;})[];
+  signHereTabs?: ({  [key: string]: unknown | undefined;})[];
+  dateSignedTabs?: ({  [key: string]: unknown | undefined;})[];
+  initialHereTabs?: ({  [key: string]: unknown | undefined;})[];
+  checkboxTabs?: ({  [key: string]: unknown | undefined;})[];
+  radioGroupTabs?: ({  [key: string]: unknown | undefined;})[];
+  listTabs?: ({  [key: string]: unknown | undefined;})[];
+  noteTabs?: ({  [key: string]: unknown | undefined;})[];
+  approveTabs?: ({  [key: string]: unknown | undefined;})[];
+  declineTabs?: ({  [key: string]: unknown | undefined;})[];
+  numberTabs?: ({  [key: string]: unknown | undefined;})[];
+  formulaTabs?: ({  [key: string]: unknown | undefined;})[];
+  titleTabs?: ({  [key: string]: unknown | undefined;})[];
+  companyTabs?: ({  [key: string]: unknown | undefined;})[];
+  fullNameTabs?: ({  [key: string]: unknown | undefined;})[];
+  emailTabs?: ({  [key: string]: unknown | undefined;})[];
+  envelopeIdTabs?: ({  [key: string]: unknown | undefined;})[];
+  ssnTabs?: ({  [key: string]: unknown | undefined;})[];
+  zipTabs?: ({  [key: string]: unknown | undefined;})[];};
+};
+
+export interface ActionOutput_docusign_updaterecipienttabs {
+  textTabs?: ({  [key: string]: unknown | undefined;})[];
+  signHereTabs?: ({  [key: string]: unknown | undefined;})[];
+  dateSignedTabs?: ({  [key: string]: unknown | undefined;})[];
+  initialHereTabs?: ({  [key: string]: unknown | undefined;})[];
+  checkboxTabs?: ({  [key: string]: unknown | undefined;})[];
+  radioGroupTabs?: ({  [key: string]: unknown | undefined;})[];
+  listTabs?: ({  [key: string]: unknown | undefined;})[];
+  noteTabs?: ({  [key: string]: unknown | undefined;})[];
+  approveTabs?: ({  [key: string]: unknown | undefined;})[];
+  declineTabs?: ({  [key: string]: unknown | undefined;})[];
+  numberTabs?: ({  [key: string]: unknown | undefined;})[];
+  formulaTabs?: ({  [key: string]: unknown | undefined;})[];
+  titleTabs?: ({  [key: string]: unknown | undefined;})[];
+  companyTabs?: ({  [key: string]: unknown | undefined;})[];
+  fullNameTabs?: ({  [key: string]: unknown | undefined;})[];
+  emailTabs?: ({  [key: string]: unknown | undefined;})[];
+  envelopeIdTabs?: ({  [key: string]: unknown | undefined;})[];
+  ssnTabs?: ({  [key: string]: unknown | undefined;})[];
+  zipTabs?: ({  [key: string]: unknown | undefined;})[];
+};
+
+export interface ActionInput_docusign_updatetemplate {
+  /**
+   * Template ID. Example: "e13866df-36e6-462b-b35b-dcda35982abc"
+   */
+  templateId: string;
+  /**
+   * New template name
+   */
+  name?: string | undefined;
+  /**
+   * New template description. Pass null to clear.
+   */
+  description?: string | undefined;
+  /**
+   * Email subject for envelopes created from this template
+   */
+  emailSubject?: string | undefined;
+  /**
+   * Email body for envelopes created from this template
+   */
+  emailBlurb?: string | undefined;
+};
+
+export interface ActionOutput_docusign_updatetemplate {
+  templateId: string;
+  name?: string | undefined;
+  description?: string | undefined;
+};
+
+export interface ActionInput_docusign_updateuser {
+  /**
+   * User ID. Example: c9a996ed-50d2-4df4-ac91-a45032721bb6
+   */
+  userId: string;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  title?: string | undefined;
+  company?: string | undefined;
+  jobTitle?: string | undefined;
+  permissionProfileId?: string | undefined;
+  userSettings?: {  canManageAccount?: string | undefined;
+  canSendEnvelope?: string | undefined;};
+};
+
+export interface ActionOutput_docusign_updateuser {
+  userId?: string | undefined;
+  userName?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  email?: string | undefined;
+  title?: string | undefined;
+  company?: string | undefined;
+  jobTitle?: string | undefined;
+  permissionProfileId?: string | undefined;
+  permissionProfileName?: string | undefined;
+  userStatus?: string | undefined;
+  userType?: string | undefined;
+  userSettings?: {  canManageAccount?: string | undefined;
+  canSendEnvelope?: string | undefined;};
+};
+
+export interface ActionInput_docusign_voidenvelope {
+  /**
+   * The envelope ID to void. Example: "4ee72f9d-d6f6-8cfd-81e1-9bdea266189e"
+   */
+  envelopeId: string;
+  /**
+   * Reason for voiding the envelope. Defaults to "Voided by user" if not provided.
+   */
+  voidedReason?: string | undefined;
+};
+
+export interface ActionOutput_docusign_voidenvelope {
+  /**
+   * The envelope ID that was voided.
+   */
+  envelopeId: string;
+  /**
+   * The updated envelope status.
+   */
+  status: string;
+  /**
+   * The date and time the status was updated.
+   */
+  statusDateTime?: string | undefined;
+  /**
+   * The reason the envelope was voided.
+   */
+  voidedReason?: string | undefined;
 };
 
 export interface SyncMetadata_dropbox_files {
@@ -29650,6 +40317,1022 @@ export interface ActionOutput_dropbox_uploadlargefile {
   name?: string | undefined;
 };
 
+export interface Agent {
+  id: string;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  emailId?: string | undefined;
+  roleId?: string | undefined;
+  profileId?: string | undefined;
+  status?: string | undefined;
+  isActive?: boolean | undefined;
+  isConfirmed?: boolean | undefined;
+  photoURL?: string | undefined;
+  zuid?: string | undefined;
+  createdTime?: string | undefined;
+  modifiedTime?: string | undefined;
+};
+
+export interface History {
+  /**
+   * The stable ID of the history item.
+   */
+  id: string;
+  /**
+   * The ID of the history item.
+   */
+  history_item_id: string;
+  request_id?: string | undefined;
+  voice_id?: string | undefined;
+  model_id?: string | undefined;
+  voice_name?: string | undefined;
+  voice_category?: string | undefined;
+  text?: string | undefined;
+  /**
+   * Unix timestamp of when the item was created.
+   */
+  date_unix: number;
+  character_count_change_from: number;
+  character_count_change_to: number;
+  content_type: string;
+  state?: unknown | undefined;
+  settings?: {  [key: string]: unknown | undefined;};
+  feedback?: {} | undefined;
+  share_link_id?: string | undefined;
+  source?: string | undefined;
+  alignments?: {} | undefined;
+  dialogue?: ({})[] | undefined;
+  output_format?: string | undefined;
+};
+
+export interface PronunciationDictionary {
+  id: string;
+  latest_version_id: string;
+  latest_version_rules_num?: number | undefined;
+  name: string;
+  permission_on_resource?: string | undefined;
+  created_by: string;
+  creation_time_unix: number;
+  archived_time_unix?: number | undefined;
+  description?: string | undefined;
+};
+
+export interface Voice {
+  id: string;
+  name?: string | undefined;
+  category?: string | undefined;
+  description?: string | undefined;
+  preview_url?: string | undefined;
+  labels?: {  [key: string]: string;} | undefined;
+  created_at_unix?: number | undefined;
+  is_legacy?: boolean | undefined;
+  is_mixed?: boolean | undefined;
+  is_owner?: boolean | undefined;
+};
+
+export interface ActionInput_elevenlabs_addpronunciationdictionaryrules {
+  /**
+   * The ID of the pronunciation dictionary.
+   */
+  pronunciation_dictionary_id: string;
+  /**
+   * List of pronunciation rules to add.
+   */
+  rules: ({  0: {  type: 'alias';
+  /**
+   * The string to replace. Must be a non-empty string.
+   */
+  string_to_replace: string;
+  /**
+   * The alias for the string to be replaced.
+   */
+  alias: string;
+  /**
+   * Whether the rule should match case-sensitively. Default: true.
+   */
+  case_sensitive?: boolean | undefined;
+  /**
+   * Whether the rule should only match at word boundaries. Default: true.
+   */
+  word_boundaries?: boolean | undefined;};
+  1: {  type: 'phoneme';
+  /**
+   * The string to replace. Must be a non-empty string.
+   */
+  string_to_replace: string;
+  /**
+   * The phoneme rule.
+   */
+  phoneme: string;
+  /**
+   * The alphabet to use with the phoneme rule.
+   */
+  alphabet: string;
+  /**
+   * Whether the rule should match case-sensitively. Default: true.
+   */
+  case_sensitive?: boolean | undefined;
+  /**
+   * Whether the rule should only match at word boundaries. Default: true.
+   */
+  word_boundaries?: boolean | undefined;};})[];
+};
+
+export interface ActionOutput_elevenlabs_addpronunciationdictionaryrules {
+  /**
+   * The ID of the pronunciation dictionary.
+   */
+  id: string;
+  /**
+   * The version ID of the pronunciation dictionary.
+   */
+  version_id: string;
+  /**
+   * The number of rules in the version of the pronunciation dictionary.
+   */
+  version_rules_num: number;
+};
+
+export interface ActionInput_elevenlabs_createagent {
+  name?: string | undefined;
+  conversation_config: {};
+  tags?: string[] | undefined;
+  platform_settings?: {} | undefined;
+  workflow?: {} | undefined;
+};
+
+export interface ActionOutput_elevenlabs_createagent {
+  agent_id: string;
+};
+
+export interface ActionInput_elevenlabs_deleteagent {
+  /**
+   * The ID of the agent to delete. Example: "agent_123"
+   */
+  agent_id: string;
+};
+
+export interface ActionOutput_elevenlabs_deleteagent {
+};
+
+export interface ActionInput_elevenlabs_deleteconversation {
+  /**
+   * The ID of the conversation to delete. Example: "abc123"
+   */
+  conversation_id: string;
+};
+
+export interface ActionOutput_elevenlabs_deleteconversation {
+  success: boolean;
+};
+
+export interface ActionInput_elevenlabs_deletedubbingproject {
+  /**
+   * ID of the dubbing project to delete. Example: "qHq83s7gp3QoJRaiLh9H"
+   */
+  dubbing_id: string;
+};
+
+export interface ActionOutput_elevenlabs_deletedubbingproject {
+  /**
+   * The status of the deletion.
+   */
+  status: string;
+};
+
+export interface ActionInput_elevenlabs_deletehistoryitem {
+  /**
+   * ID of the history item to delete. Example: "JveLb9l9aA9OP7eF6zYH"
+   */
+  history_item_id: string;
+};
+
+export interface ActionOutput_elevenlabs_deletehistoryitem {
+  status: string;
+};
+
+export interface ActionInput_elevenlabs_deleteknowledgebasedocument {
+  /**
+   * The id of a document from the knowledge base. This is returned on document addition. Example: "21m00Tcm4TlvDq8ikWAM"
+   */
+  documentation_id: string;
+  /**
+   * If set to true, the document or folder will be deleted regardless of whether it is used by any agents.
+   */
+  force?: boolean | undefined;
+};
+
+export interface ActionOutput_elevenlabs_deleteknowledgebasedocument {
+};
+
+export interface ActionInput_elevenlabs_editvoicesettings {
+  /**
+   * ID of the voice to be used. Example: "29vD33N1CtxCmqQRPOHJ"
+   */
+  voice_id: string;
+  /**
+   * Determines how stable the voice is and the randomness between each generation. Defaults to 0.5
+   */
+  stability?: number | undefined;
+  /**
+   * Boosts the similarity to the original speaker. Defaults to true
+   */
+  use_speaker_boost?: boolean | undefined;
+  /**
+   * Determines how closely the AI should adhere to the original voice. Defaults to 0.75
+   */
+  similarity_boost?: number | undefined;
+  /**
+   * Determines the style exaggeration of the voice. Must be between 0 and 1. Defaults to 0
+   */
+  style?: number | undefined;
+  /**
+   * Adjusts the speed of the voice. Must be between 0.7 and 1.2. Defaults to 1
+   */
+  speed?: number | undefined;
+};
+
+export interface ActionOutput_elevenlabs_editvoicesettings {
+  /**
+   * The status of the voice settings edit request. If the request was successful, the status will be "ok".
+   */
+  status: string;
+};
+
+export interface ActionInput_elevenlabs_getagent {
+  /**
+   * The ID of an agent. This is returned on agent creation. Example: "agent_8301kvx0de7afd18wvh6xcq9nwqc"
+   */
+  agent_id: string;
+  /**
+   * The ID of the agent version to use
+   */
+  version_id?: string | undefined;
+  /**
+   * The ID of the branch to use
+   */
+  branch_id?: string | undefined;
+};
+
+export interface ActionOutput_elevenlabs_getagent {
+  agent_id: string;
+  name?: string | undefined;
+  conversation_config?: {  [key: string]: unknown | undefined;};
+  metadata?: {  [key: string]: unknown | undefined;};
+  platform_settings?: {  [key: string]: unknown | undefined;};
+  secrets?: ({  [key: string]: unknown | undefined;})[];
+  access_info?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_elevenlabs_getconversation {
+  /**
+   * The ID of the conversation to retrieve. Example: "abc123"
+   */
+  conversation_id: string;
+};
+
+export interface ActionOutput_elevenlabs_getconversation {
+  conversation_id: string;
+  agent_id: string;
+  agent_name?: string | undefined;
+  conversation_product?: string | undefined;
+  status: string;
+  user_id?: string | undefined;
+  branch_id?: string | undefined;
+  version_id?: string | undefined;
+  environment?: string | undefined;
+  has_audio?: boolean | undefined;
+  has_user_audio?: boolean | undefined;
+  has_response_audio?: boolean | undefined;
+  transcript?: ({  role: string;
+  message?: string | undefined;
+  agent_metadata?: unknown | undefined;
+  tool_calls?: ({  request_id: string;
+  tool_name: string;
+  params_as_json?: string | undefined;
+  tool_has_been_called?: boolean | undefined;})[];
+  tool_results?: ({  request_id: string;
+  tool_name: string;
+  result_value?: string | undefined;
+  is_error?: boolean | undefined;
+  tool_has_been_called?: boolean | undefined;})[];
+  time_in_call_secs?: number | undefined;
+  feedback?: unknown | undefined;
+  conversation_turn_id?: string | undefined;})[];
+  metadata: {  start_time_unix_secs: number;
+  accepted_time_unix_secs?: number | undefined;
+  call_duration_secs: number;
+  cost?: number | undefined;
+  deletion_settings?: unknown | undefined;
+  feedback?: unknown | undefined;
+  authorization_method?: string | undefined;
+  charging?: unknown | undefined;
+  phone_call?: unknown | undefined;
+  whatsapp?: unknown | undefined;
+  agent_phone_number?: string | undefined;
+  timezone?: string | undefined;
+  voice_rewards?: unknown | undefined;};
+  analysis?: {  evaluation_criteria_results?: unknown | undefined;
+  data_collection_results?: unknown | undefined;
+  call_successful?: string | undefined;
+  transcript_summary?: string | undefined;
+  summary?: string | undefined;
+  scoped?: unknown | undefined;};
+  visited_agents?: ({  agent_id: string;
+  branch_id?: string | undefined;})[];
+  conversation_initiation_client_data?: unknown | undefined;
+  tag_ids?: string[] | undefined;
+  otlpTraces?: unknown | undefined;
+};
+
+export interface ActionInput_elevenlabs_getdefaultvoicesettings {
+};
+
+export interface ActionOutput_elevenlabs_getdefaultvoicesettings {
+  stability?: number | undefined;
+  similarity_boost?: number | undefined;
+  style?: number | undefined;
+  use_speaker_boost?: boolean | undefined;
+  speed?: number | undefined;
+};
+
+export interface ActionInput_elevenlabs_getdubbingproject {
+  /**
+   * ID of the dubbing project. Example: "21m00Tcm4TlvDq8ikWAM"
+   */
+  dubbing_id: string;
+};
+
+export interface ActionOutput_elevenlabs_getdubbingproject {
+  dubbing_id: string;
+  name: string;
+  status: string;
+  source_language?: string | undefined;
+  target_languages: string[];
+  editable?: boolean | undefined;
+  created_at: string;
+  media_metadata?: {  content_type: string;
+  duration: number;} | undefined;
+  error?: string | undefined;
+};
+
+export interface ActionInput_elevenlabs_gethistoryitem {
+  /**
+   * ID of the history item to retrieve. Example: "JveLb9l9aA9OP7eF6zYH"
+   */
+  history_item_id: string;
+};
+
+export interface ActionOutput_elevenlabs_gethistoryitem {
+  history_item_id: string;
+  request_id?: string | undefined;
+  voice_id?: string | undefined;
+  model_id?: string | undefined;
+  voice_name?: string | undefined;
+  voice_category?: string | undefined;
+  text?: string | undefined;
+  date_unix: number;
+  character_count_change_from: number;
+  character_count_change_to: number;
+  content_type: string;
+  state?: unknown | undefined;
+  settings?: {  [key: string]: unknown | undefined;};
+  feedback?: {  thumbs_up?: boolean | undefined;
+  feedback?: string | undefined;
+  emotions?: boolean | undefined;
+  inaccurate_clone?: boolean | undefined;
+  glitches?: boolean | undefined;
+  audio_quality?: boolean | undefined;
+  other?: boolean | undefined;
+  review_status?: string | undefined;};
+  share_link_id?: string | undefined;
+  source?: string | undefined;
+  alignments?: {  alignment: {  characters: string[];
+  character_start_times_seconds: number[];
+  character_end_times_seconds: number[];};
+  normalized_alignment: {  characters: string[];
+  character_start_times_seconds: number[];
+  character_end_times_seconds: number[];};} | undefined;
+  dialogue?: ({  text: string;
+  voice_id: string;
+  voice_name: string;})[] | undefined;
+  output_format?: string | undefined;
+};
+
+export interface ActionInput_elevenlabs_getknowledgebasedocument {
+  /**
+   * The ID of a document from the knowledge base.
+   */
+  documentation_id: string;
+  /**
+   * Optional agent ID to filter the document context.
+   */
+  agent_id?: string | undefined;
+};
+
+export interface ActionOutput_elevenlabs_getknowledgebasedocument {
+  id: string;
+  name?: string | undefined;
+  metadata?: {  created_at_unix_secs?: number | undefined;
+  last_updated_at_unix_secs?: number | undefined;
+  size_bytes?: number | undefined;};
+  supported_usages?: string[] | undefined;
+  access_info?: {  is_creator?: boolean | undefined;
+  creator_name?: string | undefined;
+  creator_email?: string | undefined;
+  role?: string | undefined;
+  access_source?: string | undefined;};
+  folder_parent_id?: string | undefined;
+  folder_path?: ({  id: string;
+  name?: string | undefined;})[];
+  type?: string | undefined;
+  url?: string | undefined;
+  extracted_inner_html?: string | undefined;
+  auto_sync_info?: {  minimum_frequency_days?: number | undefined;
+  auto_remove?: boolean | undefined;
+  consec_failures?: number | undefined;
+  next_refresh_by?: number | undefined;};
+  dependent_agents?: ({  referenced_resource_ids?: string[] | undefined;
+  id: string;
+  name?: string | undefined;
+  type?: string | undefined;
+  created_at_unix_secs?: number | undefined;
+  access_level?: string | undefined;})[];
+  is_frozen?: boolean | undefined;
+};
+
+export interface ActionInput_elevenlabs_getpronunciationdictionary {
+  /**
+   * The ID of the pronunciation dictionary. Example: "pdct_123456789"
+   */
+  pronunciation_dictionary_id: string;
+};
+
+export interface ActionOutput_elevenlabs_getpronunciationdictionary {
+  id: string;
+  latest_version_id: string;
+  latest_version_rules_num: number;
+  name: string;
+  permission_on_resource?: string | undefined;
+  created_by: string;
+  creation_time_unix: number;
+  archived_time_unix?: number | undefined;
+  description?: string | undefined;
+  rules: ({  string_to_replace: string;
+  case_sensitive?: boolean | undefined;
+  word_boundaries?: boolean | undefined;
+  type: string;
+  alias?: string | undefined;
+  phoneme?: string | undefined;
+  alphabet?: string | undefined;})[];
+};
+
+export interface ActionInput_elevenlabs_getusersubscription {
+};
+
+export interface ActionOutput_elevenlabs_getusersubscription {
+  tier: string;
+  character_count: number;
+  character_limit: number;
+  max_character_limit_extension?: number | undefined;
+  max_credit_limit_extension?: number | undefined;
+  can_extend_character_limit: boolean;
+  allowed_to_extend_character_limit: boolean;
+  voice_slots_used: number;
+  professional_voice_slots_used: number;
+  voice_limit: number;
+  voice_add_edit_counter: number;
+  professional_voice_limit: number;
+  can_extend_voice_limit: boolean;
+  can_use_instant_voice_cloning: boolean;
+  can_use_professional_voice_cloning: boolean;
+  current_overage: {  amount: string;
+  currency: string;};
+  status?: string | undefined;
+  has_open_invoices?: boolean | undefined;
+  next_character_count_reset_unix?: number | undefined;
+  currency?: string | undefined;
+  billing_period?: string | undefined;
+  character_refresh_period?: string | undefined;
+  next_invoice?: {  amount_due_cents: number;
+  next_payment_attempt_unix: number;
+  discounts?: ({  discount_percent_off?: number | undefined;})[];
+  payment_intent_status?: string | undefined;
+  payment_intent_statusses?: string[] | undefined;
+  subtotal_cents?: number | undefined;
+  tax_cents?: number | undefined;};
+  open_invoices?: ({  amount_due_cents: number;
+  next_payment_attempt_unix: number;
+  discounts?: ({  discount_percent_off?: number | undefined;})[];
+  payment_intent_status?: string | undefined;
+  payment_intent_statusses?: string[] | undefined;
+  subtotal_cents?: number | undefined;
+  tax_cents?: number | undefined;})[];
+  pending_change?: {  [key: string]: unknown | undefined;};
+  has_used_starter_coupon_on_account?: boolean | undefined;
+  has_used_creator_coupon_on_account?: boolean | undefined;
+};
+
+export interface ActionInput_elevenlabs_getuser {
+};
+
+export interface ActionOutput_elevenlabs_getuser {
+  user_id: string;
+  subscription?: {  tier?: string | undefined;
+  character_count?: number | undefined;
+  character_limit?: number | undefined;
+  max_character_limit_extension?: number | undefined;
+  can_extend_character_limit?: boolean | undefined;
+  allowed_to_extend_character_limit?: boolean | undefined;
+  voice_slots_used?: number | undefined;
+  professional_voice_slots_used?: number | undefined;
+  voice_limit?: number | undefined;
+  voice_add_edit_counter?: number | undefined;
+  professional_voice_limit?: number | undefined;
+  can_extend_voice_limit?: boolean | undefined;
+  can_use_instant_voice_cloning?: boolean | undefined;
+  can_use_professional_voice_cloning?: boolean | undefined;
+  current_overage?: {  amount: string;
+  currency: string;} | undefined;
+  status?: string | undefined;
+  next_character_count_reset_unix?: number | undefined;
+  max_voice_add_edits?: number | undefined;
+  currency?: string | undefined;
+  billing_period?: string | undefined;
+  character_refresh_period?: string | undefined;};
+  is_new_user?: boolean | undefined;
+  xi_api_key?: string | undefined;
+  can_use_delayed_payment_methods?: boolean | undefined;
+  is_onboarding_completed?: boolean | undefined;
+  is_onboarding_checklist_completed?: boolean | undefined;
+  show_compliance_terms?: boolean | undefined;
+  first_name?: string | undefined;
+  is_api_key_hashed?: boolean | undefined;
+  xi_api_key_preview?: string | undefined;
+  referral_link_code?: string | undefined;
+  partnerstack_partner_default_link?: string | undefined;
+  created_at?: number | undefined;
+  seat_type?: string | undefined;
+};
+
+export interface ActionInput_elevenlabs_getvoicesettings {
+  /**
+   * Voice ID. Example: "CwhRBWXzGAHq8TQ4Fs17"
+   */
+  voice_id: string;
+};
+
+export interface ActionOutput_elevenlabs_getvoicesettings {
+  stability?: number | undefined;
+  similarity_boost?: number | undefined;
+  style?: number | undefined;
+  use_speaker_boost?: boolean | undefined;
+  speed?: number | undefined;
+};
+
+export interface ActionInput_elevenlabs_getvoice {
+  /**
+   * Voice ID. Example: "CwhRBWXzGAHq8TQ4Fs17"
+   */
+  voice_id: string;
+};
+
+export interface ActionOutput_elevenlabs_getvoice {
+  voice_id: string;
+  name?: string | undefined;
+  samples?: ({  sample_id?: string | undefined;
+  file_name?: string | undefined;
+  mime_type?: string | undefined;
+  size_bytes?: number | undefined;
+  hash?: string | undefined;})[];
+  category?: string | undefined;
+  fine_tuning?: {} | undefined;
+  labels?: {  [key: string]: string;} | undefined;
+  description?: string | undefined;
+  preview_url?: string | undefined;
+  available_for_tiers?: string[] | undefined;
+  settings?: {  stability?: number | undefined;
+  similarity_boost?: number | undefined;
+  style?: number | undefined;
+  use_speaker_boost?: boolean | undefined;
+  speed?: number | undefined;};
+  sharing?: {} | undefined;
+  high_quality_base_model_ids?: string[] | undefined;
+  safety_control?: string | undefined;
+  voice_verification?: {} | undefined;
+  permission_on_resource?: string | undefined;
+  is_legacy?: boolean | undefined;
+  is_mixed?: boolean | undefined;
+  is_new?: boolean | undefined;
+};
+
+export interface ActionInput_elevenlabs_listagents {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * How many agents to return at maximum. Cannot exceed 100. Defaults to 30.
+   */
+  page_size?: number | undefined;
+  /**
+   * Search by agent name.
+   */
+  search?: string | undefined;
+  /**
+   * Filter agents by archived status.
+   */
+  archived?: boolean | undefined;
+  /**
+   * If true, omits agents shared with you and returns only agents you own.
+   */
+  show_only_owned_agents?: boolean | undefined;
+  /**
+   * Sort direction.
+   */
+  sort_direction?: 'asc' | 'desc' | undefined;
+  /**
+   * Field to sort by.
+   */
+  sort_by?: 'name' | 'created_at' | 'call_count_7d' | undefined;
+};
+
+export interface ActionOutput_elevenlabs_listagents {
+  items: ({  agent_id: string;
+  name: string;
+  tags: string[];
+  created_at_unix_secs: number;
+  access_info: {  is_creator: boolean;
+  creator_name: string;
+  creator_email: string;
+  role: string;};
+  last_call_time_unix_secs?: number | undefined;
+  archived?: boolean | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_elevenlabs_listconversations {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Agent id (agent_…) or speech engine external id (seng_).
+   */
+  agent_id?: string | undefined;
+  /**
+   * Maximum number of conversations to return. Defaults to 30.
+   */
+  page_size?: number | undefined;
+};
+
+export interface ActionOutput_elevenlabs_listconversations {
+  items: ({  agent_id: string;
+  conversation_id: string;
+  start_time_unix_secs: number;
+  call_duration_secs: number;
+  message_count: number;
+  status: string;
+  call_successful: string;
+  branch_id?: string | undefined;
+  version_id?: string | undefined;
+  agent_name?: string | undefined;
+  termination_reason?: string | undefined;
+  transcript_summary?: string | undefined;
+  call_summary_title?: string | undefined;
+  main_language?: string | undefined;
+  conversation_initiation_source?: string | undefined;
+  tool_names?: string[] | undefined;
+  direction?: string | undefined;
+  rating?: number | undefined;})[];
+  next_cursor?: string | undefined;
+  has_more: boolean;
+};
+
+export interface ActionInput_elevenlabs_listdubbingprojects {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * How many dubs to return at maximum. Cannot exceed 200, defaults to 100.
+   */
+  page_size?: number | undefined;
+  /**
+   * What state the dub is currently in.
+   */
+  dubbing_status?: 'dubbing' | 'dubbed' | 'failed' | undefined;
+  /**
+   * Filters who created the resources being listed. Defaults to all.
+   */
+  filter_by_creator?: 'personal' | 'others' | 'all' | undefined;
+  /**
+   * The field to use for ordering results from this query.
+   */
+  order_by?: 'created_at' | undefined;
+  /**
+   * The order direction to use for results from this query. Defaults to DESCENDING.
+   */
+  order_direction?: 'DESCENDING' | 'ASCENDING' | undefined;
+};
+
+export interface ActionOutput_elevenlabs_listdubbingprojects {
+  dubs: ({  dubbing_id?: string | undefined;
+  name?: string | undefined;
+  status?: string | undefined;
+  source_language?: string | undefined;
+  target_languages?: string[] | undefined;
+  created_at?: string | undefined;
+  editable?: boolean | undefined;
+  media_metadata?: {  content_type?: string | undefined;
+  duration?: number | undefined;};
+  error?: string | undefined;})[];
+  has_more?: boolean | undefined;
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_elevenlabs_listhistory {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * How many history items to return at maximum. Can not exceed 1000, defaults to 100.
+   */
+  page_size?: number | undefined;
+  /**
+   * ID of the voice to be filtered for.
+   */
+  voice_id?: string | undefined;
+  /**
+   * Filter history items by model ID.
+   */
+  model_id?: string | undefined;
+  /**
+   * Search term used for filtering.
+   */
+  search?: string | undefined;
+  /**
+   * Source of the generated history item.
+   */
+  source?: string | undefined;
+  /**
+   * Unix timestamp to filter history items before this date (exclusive).
+   */
+  date_before_unix?: number | undefined;
+  /**
+   * Unix timestamp to filter history items after this date (inclusive).
+   */
+  date_after_unix?: number | undefined;
+  /**
+   * Sort direction for the results.
+   */
+  sort_direction?: string | undefined;
+};
+
+export interface ActionOutput_elevenlabs_listhistory {
+  items: ({  history_item_id: string;
+  request_id?: string | undefined;
+  voice_id?: string | undefined;
+  model_id?: string | undefined;
+  voice_name?: string | undefined;
+  voice_category?: string | undefined;
+  text?: string | undefined;
+  date_unix: number;
+  character_count_change_from: number;
+  character_count_change_to: number;
+  content_type: string;
+  state?: unknown | undefined;
+  settings?: {  [key: string]: unknown | undefined;};
+  feedback?: {  thumbs_up: boolean;
+  feedback: string;
+  emotions: boolean;
+  inaccurate_clone: boolean;
+  glitches: boolean;
+  audio_quality: boolean;
+  other: boolean;
+  review_status: string;} | undefined;
+  share_link_id?: string | undefined;
+  source?: string | undefined;
+  alignments?: unknown | undefined;
+  dialogue?: unknown[] | undefined;
+  output_format?: string | undefined;})[];
+  next_cursor?: string | undefined;
+  has_more: boolean;
+};
+
+export interface ActionInput_elevenlabs_listknowledgebase {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * How many documents to return at maximum. Cannot exceed 100, defaults to 30.
+   */
+  page_size?: number | undefined;
+};
+
+export interface ActionOutput_elevenlabs_listknowledgebase {
+  items: ({  id: string;
+  name: string;
+  type: 'file' | 'url' | 'text' | 'folder';
+  metadata?: {  created_at_unix_secs: number;
+  last_updated_at_unix_secs: number;
+  size_bytes: number;} | undefined;
+  supported_usages?: string[] | undefined;
+  access_info?: {  is_creator: boolean;
+  creator_name: string;
+  creator_email: string;
+  role: string;
+  anonymous_access_level_override?: string | undefined;
+  access_source?: string | undefined;};
+  folder_parent_id?: string | undefined;
+  folder_path?: ({  id: string;})[] | undefined;
+  dependent_agents?: ({  referenced_resource_ids?: string[] | undefined;
+  id: string;
+  name?: string | undefined;
+  type?: string | undefined;
+  created_at_unix_secs?: number | undefined;
+  access_level?: string | undefined;})[];
+  url?: string | undefined;
+  children_count?: number | undefined;
+  is_frozen?: boolean | undefined;})[];
+  next_cursor?: string | undefined;
+  has_more: boolean;
+};
+
+export interface ActionInput_elevenlabs_listmodels {
+};
+
+export interface ActionOutput_elevenlabs_listmodels {
+  items: ({  model_id: string;
+  name: string;
+  can_be_finetuned?: boolean | undefined;
+  can_do_text_to_speech?: boolean | undefined;
+  can_do_voice_conversion?: boolean | undefined;
+  can_use_style?: boolean | undefined;
+  can_use_speaker_boost?: boolean | undefined;
+  serves_pro_voices?: boolean | undefined;
+  token_cost_factor?: number | undefined;
+  description?: string | undefined;
+  requires_alpha_access?: boolean | undefined;
+  max_characters_request_free_user?: number | undefined;
+  max_characters_request_subscribed_user?: number | undefined;
+  maximum_text_length_per_request?: number | undefined;
+  languages?: ({  language_id: string;
+  name: string;})[] | undefined;
+  model_rates?: {  character_cost_multiplier?: number | undefined;
+  cost_discount_multiplier?: number | undefined;};
+  concurrency_group?: string | undefined;})[];
+};
+
+export interface ActionInput_elevenlabs_listpronunciationdictionaries {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_elevenlabs_listpronunciationdictionaries {
+  pronunciation_dictionaries: ({  id: string;
+  latest_version_id: string;
+  latest_version_rules_num: number;
+  name: string;
+  permission_on_resource: string;
+  created_by: string;
+  creation_time_unix: number;
+  archived_time_unix?: number | undefined;
+  description?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_elevenlabs_listvoices {
+};
+
+export interface ActionOutput_elevenlabs_listvoices {
+  voices: ({  /**
+   * The ID of the voice. Example: "21m00Tcm4TlvDq8ikWAM"
+   */
+  voice_id: string;
+  /**
+   * The name of the voice. Example: "Rachel"
+   */
+  name: string;
+  /**
+   * The category of the voice. Example: "premade"
+   */
+  category?: string | undefined;
+  /**
+   * The description of the voice.
+   */
+  description?: string | undefined;
+  /**
+   * The preview URL of the voice.
+   */
+  preview_url?: string | undefined;
+  /**
+   * The tiers the voice is available for.
+   */
+  available_for_tiers?: string[] | undefined;
+  /**
+   * Labels associated with the voice.
+   */
+  labels?: {  [key: string]: string;} | undefined;
+  /**
+   * Whether the voice is owned by the user.
+   */
+  is_owner?: boolean | undefined;
+  /**
+   * Whether the voice is legacy.
+   */
+  is_legacy?: boolean | undefined;
+  /**
+   * Whether the voice is mixed.
+   */
+  is_mixed?: boolean | undefined;
+  /**
+   * The creation time of the voice in Unix time.
+   */
+  created_at_unix?: number | undefined;
+  /**
+   * The base model IDs for high-quality voices.
+   */
+  high_quality_base_model_ids?: string[] | undefined;
+  /**
+   * The verified languages of the voice.
+   */
+  verified_languages?: ({  language: string;
+  model_id: string;
+  accent?: string | undefined;
+  locale?: string | undefined;
+  preview_url?: string | undefined;})[];})[];
+};
+
+export interface ActionInput_elevenlabs_removepronunciationdictionaryrules {
+  /**
+   * The ID of the pronunciation dictionary. Example: "pronunciation_dictionary_id"
+   */
+  pronunciation_dictionary_id: string;
+  /**
+   * List of strings to remove from the pronunciation dictionary. Example: ["tomato", "Tomato"]
+   */
+  rule_strings: string[];
+};
+
+export interface ActionOutput_elevenlabs_removepronunciationdictionaryrules {
+  id: string;
+  version_id: string;
+  version_rules_num: number;
+};
+
+export interface ActionInput_elevenlabs_updateagent {
+  /**
+   * The ID of the agent to update. Example: "agent_8301kvx0de7afd18wvh6xcq9nwqc"
+   */
+  agent_id: string;
+  /**
+   * A name to make the agent easier to find
+   */
+  name?: string | undefined;
+  /**
+   * Tags to help classify and filter the agent
+   */
+  tags?: string[] | undefined;
+  /**
+   * Conversation configuration for an agent
+   */
+  conversation_config?: {  [key: string]: unknown | undefined;};
+  /**
+   * Platform settings for the agent
+   */
+  platform_settings?: {  [key: string]: unknown | undefined;};
+  /**
+   * Workflow for the agent
+   */
+  workflow?: {  [key: string]: unknown | undefined;};
+  /**
+   * Description for this version when publishing changes
+   */
+  version_description?: string | undefined;
+};
+
+export interface ActionOutput_elevenlabs_updateagent {
+  agent_id: string;
+  name?: string | undefined;
+  conversation_config?: {  [key: string]: unknown | undefined;};
+  metadata?: {  created_at_unix_secs?: number | undefined;
+  updated_at_unix_secs?: number | undefined;};
+  platform_settings?: {  [key: string]: unknown | undefined;};
+  phone_numbers?: ({  [key: string]: unknown | undefined;})[];
+  whatsapp_accounts?: ({  [key: string]: unknown | undefined;})[];
+  workflow?: {  [key: string]: unknown | undefined;};
+  access_info?: {  [key: string]: unknown | undefined;};
+  tags?: string[] | undefined;
+  version_id?: string | undefined;
+  branch_id?: string | undefined;
+  main_branch_id?: string | undefined;
+};
+
 export interface EvaluAgentGroup {
   id: string;
   name: string;
@@ -29686,116 +41369,1526 @@ export interface EvaluAgentUser {
 export interface SyncMetadata_evaluagent_users {
 };
 
-export interface ExactCustomer {
+export interface SearchResult {
   id: string;
-  division: number | null;
-  name: string;
-  email: string | null;
-  taxNumber: string | null;
-  addressLine1: string | null;
-  addressLine2: string | null;
-  city: string | null;
-  zip: string | null;
-  country: string | null;
-  state: string | null;
-  phone: string | null;
+  query: string;
+  title: string;
+  url: string;
+  publishedDate: string;
+  author?: string | undefined;
+  text?: string | undefined;
+  summary?: string | undefined;
+  highlights?: string[] | undefined;
+  highlightScores?: number[] | undefined;
 };
 
-export interface SyncMetadata_exact_online_customers {
+export interface SyncMetadata_exa_configuredsearchresults {
+  queries: ({  query: string;
+  type?: string | undefined;
+  category?: string | undefined;
+  includeDomains?: string[] | undefined;
+  excludeDomains?: string[] | undefined;})[];
 };
 
-export interface ExactPayment {
+export interface ActionInput_exa_answer {
+  /**
+   * The question to answer. Example: "What is the capital of France?"
+   */
+  query: string;
+  /**
+   * If true, each citation object includes the full page text.
+   */
+  text?: boolean | undefined;
+};
+
+export interface ActionOutput_exa_answer {
+  /**
+   * The AI-generated answer, may contain markdown.
+   */
+  answer: string;
+  /**
+   * Citations backing the answer.
+   */
+  citations: ({  id: string;
+  title?: string | undefined;
+  url?: string | undefined;
+  text?: string | undefined;})[];
+};
+
+export interface ActionInput_exa_findsimilar {
+  /**
+   * The seed URL for which to find similar pages. Example: "https://arxiv.org/abs/2307.06435"
+   */
+  url: string;
+  /**
+   * Number of results to return. Default: 10. Maximum public limit is 100.
+   */
+  numResults?: number | undefined;
+  /**
+   * If true, results from the same domain as the input URL are excluded.
+   */
+  excludeSourceDomain?: boolean | undefined;
+  /**
+   * Category filter to focus the search on a specific type of content.
+   */
+  category?: 'company' | 'research paper' | 'news' | 'pdf' | 'github' | 'personal site' | 'linkedin profile' | 'people' | 'financial report' | undefined;
+  /**
+   * List of domains to include in results.
+   */
+  includeDomains?: string[] | undefined;
+  /**
+   * List of domains to exclude from results.
+   */
+  excludeDomains?: string[] | undefined;
+  /**
+   * Only include links with a published date after this date. ISO 8601 format.
+   */
+  startPublishedDate?: string | undefined;
+  /**
+   * Only include links with a published date before this date. ISO 8601 format.
+   */
+  endPublishedDate?: string | undefined;
+  /**
+   * Inline content options (text, highlights, summary, extras) to fetch in the same call.
+   */
+  contents?: {  text?: boolean | {  maxCharacters?: number | undefined;
+  includeHtmlTags?: boolean | undefined;
+  verbosity?: 'compact' | 'standard' | 'full' | undefined;
+  includeSections?: string[] | undefined;
+  excludeSections?: string[] | undefined;};
+  highlights?: boolean | {  query?: string | undefined;
+  maxCharacters?: number | undefined;};
+  summary?: {  query?: string | undefined;
+  schema?: {} | undefined;};
+  extras?: {  links?: number | undefined;
+  imageLinks?: number | undefined;
+  richImageLinks?: number | undefined;
+  richLinks?: number | undefined;};};
+};
+
+export interface ActionOutput_exa_findsimilar {
+  requestId?: string | undefined;
+  results: ({  /**
+   * The result ID, which is the full URL string.
+   */
   id: string;
-  description: string | null;
-  division: number | null;
-  customerId: string | null;
-  amount: number | null;
-  createdAt: string | null;
-  currency: string | null;
-  journal: string | null;
-  paymentMethod: string | null;
-  paymentReference: string | null;
-  status: number | null;
-  transactionID: string | null;
+  title: string;
+  url: string;
+  /**
+   * Relevance score for the result.
+   */
+  score?: number | undefined;
+  publishedDate?: string | undefined;
+  author?: string | undefined;
+  image?: string | undefined;
+  favicon?: string | undefined;
+  text?: string | undefined;
+  highlights?: string[] | undefined;
+  highlightScores?: number[] | undefined;
+  summary?: string | undefined;
+  subpages?: ({  id?: string | undefined;
+  title: string;
+  url: string;
+  publishedDate?: string | undefined;
+  author?: string | undefined;
+  image?: string | undefined;
+  favicon?: string | undefined;})[];
+  extras?: {  links?: string[] | undefined;};
+  entities?: unknown[] | undefined;})[];
+  costDollars?: {  total?: number | undefined;
+  search?: {  neural?: number | undefined;};
+  breakDown?: ({})[] | undefined;};
 };
 
-export interface SyncMetadata_exact_online_payments {
+export interface ActionInput_exa_getcontents {
+  /**
+   * Document IDs (URLs) to retrieve content for. Example: ["https://example.com"]
+   */
+  ids: string[];
+  text?: {  maxCharacters?: number | undefined;
+  includeHtmlTags?: boolean | undefined;};
+  highlights?: {  numSentences?: number | undefined;
+  highlightsPerUrl?: number | undefined;
+  query?: string | undefined;};
+  summary?: {  query?: string | undefined;};
+  livecrawl?: 'never' | 'fallback' | 'always' | 'auto' | undefined;
+};
+
+export interface ActionOutput_exa_getcontents {
+  requestId?: string | undefined;
+  results: ({  title?: string | undefined;
+  url?: string | undefined;
+  id?: string | undefined;
+  publishedDate?: string | undefined;
+  author?: string | undefined;
+  image?: string | undefined;
+  favicon?: string | undefined;
+  text?: string | undefined;
+  highlights?: string[] | undefined;
+  highlightScores?: number[] | undefined;
+  summary?: string | undefined;
+  subpages?: unknown[] | undefined;
+  extras?: {  links?: string[] | undefined;};})[];
+  statuses: ({  id: string;
+  status: 'success' | 'error';
+  source?: 'cached' | 'crawled' | undefined;
+  error?: {  tag: string;
+  httpStatusCode: number;} | undefined;})[];
+  costDollars?: {  total?: number | undefined;
+  search?: {  neural?: number | undefined;};};
+};
+
+export interface ActionInput_exa_search {
+  /**
+   * The search query string.
+   */
+  query: string;
+  /**
+   * Search type: 'auto' (default), 'neural' for semantic, 'keyword' for exact-match, 'fast', 'instant', 'deep-lite', 'deep', or 'deep-reasoning'.
+   */
+  type?: 'auto' | 'neural' | 'keyword' | 'fast' | 'instant' | 'deep-lite' | 'deep' | 'deep-reasoning' | undefined;
+  /**
+   * Number of results to return (default 10).
+   */
+  numResults?: number | undefined;
+  /**
+   * Content category filter.
+   */
+  category?: 'company' | 'research paper' | 'news' | 'pdf' | 'github' | 'personal site' | 'linkedin profile' | 'people' | 'financial report' | undefined;
+  /**
+   * Only return results from these domains.
+   */
+  includeDomains?: string[] | undefined;
+  /**
+   * Exclude results from these domains.
+   */
+  excludeDomains?: string[] | undefined;
+  /**
+   * ISO 8601 start published date filter.
+   */
+  startPublishedDate?: string | undefined;
+  /**
+   * ISO 8601 end published date filter.
+   */
+  endPublishedDate?: string | undefined;
+  /**
+   * ISO 8601 start crawl date filter.
+   */
+  startCrawlDate?: string | undefined;
+  /**
+   * ISO 8601 end crawl date filter.
+   */
+  endCrawlDate?: string | undefined;
+  /**
+   * Inline text extraction options (avoids separate /contents call).
+   */
+  text?: {  /**
+   * Maximum characters to return for page text.
+   */
+  maxCharacters?: number | undefined;
+  /**
+   * Include HTML tags in returned text.
+   */
+  includeHtmlTags?: boolean | undefined;};
+  /**
+   * Inline highlight extraction options (avoids separate /contents call).
+   */
+  highlights?: {  /**
+   * Custom query guiding highlight selection.
+   */
+  query?: string | undefined;};
+  /**
+   * Inline summary generation options (avoids separate /contents call).
+   */
+  summary?: {  /**
+   * Custom query for LLM-generated summary.
+   */
+  query?: string | undefined;};
+};
+
+export interface ActionOutput_exa_search {
+  /**
+   * Unique identifier for the request.
+   */
+  requestId?: string | undefined;
+  results: ({  /**
+   * Result ID (the full URL).
+   */
+  id: string;
+  /**
+   * Title of the search result.
+   */
+  title?: string | undefined;
+  /**
+   * URL of the search result.
+   */
+  url?: string | undefined;
+  /**
+   * Estimated published date in ISO 8601 format.
+   */
+  publishedDate?: string | undefined;
+  /**
+   * Author of the content, if available.
+   */
+  author?: string | undefined;
+  /**
+   * Relevance score.
+   */
+  score?: number | undefined;
+  /**
+   * URL of an image associated with the result.
+   */
+  image?: string | undefined;
+  /**
+   * URL of the favicon for the result domain.
+   */
+  favicon?: string | undefined;
+  /**
+   * Full page text, when requested via inline content.
+   */
+  text?: string | undefined;
+  /**
+   * Highlights extracted from the page, when requested via inline content.
+   */
+  highlights?: string[] | undefined;
+  /**
+   * LLM-generated summary, when requested via inline content.
+   */
+  summary?: string | undefined;})[];
+  /**
+   * Cost breakdown for the request.
+   */
+  costDollars?: {  /**
+   * Total cost in USD.
+   */
+  total?: number | undefined;
+  search?: {  /**
+   * Cost for neural search.
+   */
+  neural?: number | undefined;};};
+};
+
+export interface Division {
+  id: string;
+  Code: number;
+  Description?: string | undefined;
+  Currency?: string | undefined;
+  Country?: string | undefined;
+  Status?: number | undefined;
+  Email?: string | undefined;
+};
+
+export interface DocumentAttachment {
+  id: string;
+  document?: string | undefined;
+  fileName?: string | undefined;
+  fileSize?: number | undefined;
+  url?: string | undefined;
+};
+
+export interface Document {
+  id: string;
+  Subject?: string | undefined;
+  DocumentDate?: string | undefined;
+  Modified: string;
+};
+
+export interface GlAccount {
+  id: string;
+  code?: string | undefined;
+  description?: string | undefined;
+  modified: string;
+};
+
+export interface ItemGroup {
+  id: string;
+  code?: string | undefined;
+  description?: string | undefined;
+  modified?: string | undefined;
+};
+
+export interface Journal {
+  id: string;
+  entry_number?: string | undefined;
+  reference_number?: string | undefined;
+  notes?: string | undefined;
+  currency_id?: string | undefined;
+  currency_code?: string | undefined;
+  currency_symbol?: string | undefined;
+  exchange_rate?: number | undefined;
+  journal_date?: string | undefined;
+  journal_type?: string | undefined;
+  vat_treatment?: string | undefined;
+  product_type?: string | undefined;
+  include_in_vat_return?: boolean | undefined;
+  is_bas_adjustment?: boolean | undefined;
+  line_items?: ({  line_id?: string | undefined;
+  account_id?: string | undefined;
+  customer_id?: string | undefined;
+  customer_name?: string | undefined;
+  account_name?: string | undefined;
+  description?: string | undefined;
+  debit_or_credit?: string | undefined;
+  tax_exemption_id?: string | undefined;
+  tax_exemption_type?: string | undefined;
+  tax_exemption_code?: string | undefined;
+  tax_authority_id?: string | undefined;
+  tax_authority_name?: string | undefined;
+  tax_id?: string | undefined;
+  tax_name?: string | undefined;
+  tax_type?: string | undefined;
+  tax_percentage?: string | undefined;
+  amount?: number | undefined;
+  bcy_amount?: number | undefined;
+  acquisition_vat_id?: string | undefined;
+  acquisition_vat_name?: string | undefined;
+  acquisition_vat_percentage?: string | undefined;
+  acquisition_vat_amount?: string | undefined;
+  reverse_charge_vat_id?: string | undefined;
+  reverse_charge_vat_name?: string | undefined;
+  reverse_charge_vat_percentage?: string | undefined;
+  reverse_charge_vat_amount?: string | undefined;
+  tags?: ({  tag_id?: string | undefined;
+  tag_name?: string | undefined;
+  tag_option_id?: string | undefined;
+  tag_option_name?: string | undefined;
+  is_tag_mandatory?: boolean | undefined;})[];
+  location_id?: string | undefined;
+  location_name?: string | undefined;
+  project_id?: string | undefined;
+  project_name?: string | undefined;})[];
+  location_id?: string | undefined;
+  location_name?: string | undefined;
+  line_item_total?: number | undefined;
+  total?: number | undefined;
+  bcy_total?: number | undefined;
+  price_precision?: number | undefined;
+  taxes?: ({  tax_name?: string | undefined;
+  tax_amount?: number | undefined;
+  debit_or_credit?: string | undefined;
+  tax_account?: boolean | undefined;})[];
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;
+  status?: string | undefined;
+  custom_fields?: ({  customfield_id?: string | undefined;
+  value?: string | undefined;})[];
+  tags?: ({  tag_id?: string | undefined;
+  tag_name?: string | undefined;
+  tag_option_id?: string | undefined;
+  tag_option_name?: string | undefined;
+  is_tag_mandatory?: boolean | undefined;})[];
+};
+
+export interface Payment {
+  id: string;
+  payment_id?: string | undefined;
+  payment_number?: string | undefined;
+  invoice_numbers?: string | undefined;
+  date?: string | undefined;
+  payment_mode?: string | undefined;
+  amount?: number | undefined;
+  bcy_amount?: number | undefined;
+  unused_amount?: number | undefined;
+  bcy_unused_amount?: number | undefined;
+  account_id?: string | undefined;
+  account_name?: string | undefined;
+  description?: string | undefined;
+  reference_number?: string | undefined;
+  customer_id?: string | undefined;
+  customer_name?: string | undefined;
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;
+  bcy_refunded_amount?: number | undefined;
+  payment_type?: string | undefined;
+  payment_status?: string | undefined;
+  currency_code?: string | undefined;
+  currency_symbol?: string | undefined;
+  location_id?: string | undefined;
+  location_name?: string | undefined;
+};
+
+export interface PurchaseInvoice {
+  /**
+   * EntryID
+   */
+  id: string;
+  EntryID: string;
+  EntryNumber?: number | undefined;
+  Supplier?: string | undefined;
+  AmountDC?: number | undefined;
+  EntryDate?: string | undefined;
+  Status?: number | undefined;
+  Modified: string;
+};
+
+export interface SalesOrder {
+  id: string;
+  OrderNumber?: number | undefined;
+  OrderedBy?: string | undefined;
+  AmountDC?: number | undefined;
+  Status?: number | undefined;
+  Modified?: string | undefined;
+};
+
+export interface TransactionLine {
+  id: string;
+  EntryID?: string | undefined;
+  AmountDC?: number | undefined;
+  GLAccount?: string | undefined;
+  GLAccountCode?: string | undefined;
+  Description?: string | undefined;
+  VATCode?: string | undefined;
+  Modified: string;
+};
+
+export interface VatCode {
+  id: string;
+  code?: string | undefined;
+  description?: string | undefined;
+  modified?: string | undefined;
 };
 
 export interface ActionInput_exact_online_attachfileinvoice {
-  invoiceId: string;
-  customerId: string;
+  /**
+   * Document subject. Example: "Invoice attachment"
+   */
   subject: string;
-  filename: string;
-  content: string;
+  /**
+   * Document date in ISO format. Example: "2024-05-30"
+   */
+  documentDate: string;
+  /**
+   * Customer account GUID. Example: "a58c29d9-ef92-40f1-b817-31b36990898c"
+   */
+  account: string;
+  /**
+   * Document type number. Example: 10
+   */
+  type: number;
+  /**
+   * Name of the file being attached. Example: "invoice.pdf"
+   */
+  fileName: string;
+  /**
+   * Base64-encoded file content. Example: "JVBERi0xLjQKJ..."
+   */
+  fileContent: string;
+  /**
+   * Sales invoice GUID to link this document to. Example: "7b282ae4-d920-46b0-87fd-3da21b818780"
+   */
+  invoiceId?: string | undefined;
 };
 
 export interface ActionOutput_exact_online_attachfileinvoice {
-  success: boolean;
+  /**
+   * Created document ID.
+   */
+  documentId: string;
+};
+
+export interface ActionInput_exact_online_createcontact {
+  /**
+   * Exact Online account GUID. Example: "11acd652-4496-48e0-a189-e0045cc206e3"
+   */
+  account: string;
+  /**
+   * Contact first name
+   */
+  firstName: string;
+  /**
+   * Contact last name
+   */
+  lastName: string;
+  /**
+   * Contact email address
+   */
+  email?: string | undefined;
+  /**
+   * Business phone number
+   */
+  phone?: string | undefined;
+  /**
+   * Business mobile number
+   */
+  businessMobile?: string | undefined;
+};
+
+export interface ActionOutput_exact_online_createcontact {
+  id: string;
+  account?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  businessMobile?: string | undefined;
 };
 
 export interface ActionInput_exact_online_createcustomer {
-  name: string;
-  email?: string | null | undefined;
-  taxNumber?: string | null | undefined;
-  addressLine1?: string | null | undefined;
-  addressLine2?: string | null | undefined;
-  city?: string | null | undefined;
-  zip?: string | null | undefined;
-  country?: string | null | undefined;
-  state?: string | null | undefined;
-  phone?: string | null | undefined;
+  /**
+   * Account name. Example: "Acme Corp"
+   */
+  Name: string;
+  /**
+   * Account status: C=Customer, S=Supplier
+   */
+  Status?: 'C' | 'S' | undefined;
+  /**
+   * Email address
+   */
+  Email?: string | undefined;
+  /**
+   * Phone number
+   */
+  Phone?: string | undefined;
+  /**
+   * City
+   */
+  City?: string | undefined;
+  /**
+   * Country code
+   */
+  Country?: string | undefined;
+  /**
+   * VAT number
+   */
+  VATNumber?: string | undefined;
 };
 
 export interface ActionOutput_exact_online_createcustomer {
   id: string;
+  name?: string | undefined;
+  status?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  city?: string | undefined;
+  country?: string | undefined;
+  vat_number?: string | undefined;
+  is_sales?: boolean | undefined;
+  is_purchase?: boolean | undefined;
 };
 
 export interface ActionInput_exact_online_createinvoice {
-  customerId: string;
-  journal?: number | undefined;
-  currency?: 'EUR' | undefined;
+  /**
+   * Customer account GUID. Example: a58c29d9-ef92-40f1-b817-31b36990898c
+   */
+  ordered_by: string;
+  /**
+   * Invoice date in ISO format. Example: 2024-05-30
+   */
+  invoice_date?: string | undefined;
+  /**
+   * Invoice description
+   */
   description?: string | undefined;
-  createdAt?: Date | undefined;
-  lines: ({  itemId: string;
+  /**
+   * Warehouse GUID. Tenant-specific, omit if not applicable.
+   */
+  warehouse?: string | undefined;
+  sales_invoice_lines: ({  /**
+   * Item GUID
+   */
+  item?: string | undefined;
+  /**
+   * GL Account GUID
+   */
+  gl_account?: string | undefined;
   quantity: number;
-  amountNet: number;
-  vatCode?: string | undefined;
-  description?: string | undefined;})[];
+  net_price: number;
+  description?: string | undefined;
+  /**
+   * VAT code. Example: VN
+   */
+  vat_code?: string | undefined;})[];
 };
 
 export interface ActionOutput_exact_online_createinvoice {
   id: string;
+  invoice_number?: number | undefined;
+  ordered_by?: string | undefined;
+  status?: number | undefined;
+  description?: string | undefined;
+  invoice_date?: string | undefined;
+  sales_invoice_lines?: ({  id?: string | undefined;
+  item?: string | undefined;
+  gl_account?: string | undefined;
+  quantity?: number | undefined;
+  net_price?: number | undefined;
+  description?: string | undefined;})[];
+};
+
+export interface ActionInput_exact_online_createitem {
+  /**
+   * Item code. Example: "NEW-ITEM-001"
+   */
+  code: string;
+  /**
+   * Item description. Example: "New product item"
+   */
+  description: string;
+  /**
+   * Item group GUID. Example: "e54a5a52-21b7-4ce5-80ed-976b2100c02b"
+   */
+  itemGroup: string;
+  /**
+   * Whether this item is a sales item.
+   */
+  isSalesItem?: boolean | undefined;
+  /**
+   * Whether this item is a purchase item.
+   */
+  isPurchaseItem?: boolean | undefined;
+  /**
+   * Standard cost price. Example: 10.5
+   */
+  costPriceStandard?: number | undefined;
+  /**
+   * Sales VAT code. Example: "VN"
+   */
+  salesVatCode?: string | undefined;
+};
+
+export interface ActionOutput_exact_online_createitem {
+  id: string;
+  code?: string | undefined;
+  description?: string | undefined;
+  itemGroup?: string | undefined;
+  isSalesItem?: boolean | undefined;
+  isPurchaseItem?: boolean | undefined;
+  costPriceStandard?: number | undefined;
+  salesVatCode?: string | undefined;
+};
+
+export interface ActionInput_exact_online_createpurchaseinvoice {
+  /**
+   * Journal code for purchase entries. Example: "60"
+   */
+  journalCode: string;
+  /**
+   * Supplier account ID. Example: "454a5d46-ee70-4ed1-9375-9cfedeb138cd"
+   */
+  supplierId: string;
+  /**
+   * Entry date in ISO format YYYY-MM-DD. Example: "2024-05-30"
+   */
+  entryDate: string;
+  /**
+   * Entry description
+   */
+  description?: string | undefined;
+  /**
+   * Payment term ID
+   */
+  paymentTermId?: string | undefined;
+  /**
+   * Purchase entry lines
+   */
+  purchaseEntryLines: ({  /**
+   * GL Account ID. Example: "74752c10-3d31-4725-a66d-001edba8c47f"
+   */
+  glAccountId: string;
+  /**
+   * Amount in default currency. Positive for debit, negative for credit.
+   */
+  amountDc: number;
+  /**
+   * VAT Code string. Example: "AB"
+   */
+  vatCode: string;
+  /**
+   * Line description
+   */
+  description?: string | undefined;})[];
+};
+
+export interface ActionOutput_exact_online_createpurchaseinvoice {
+  /**
+   * The created purchase entry ID
+   */
+  entryId?: string | undefined;
+  /**
+   * The created purchase entry ID (alias)
+   */
+  id?: string | undefined;
+  /**
+   * The assigned entry number
+   */
+  entryNumber?: number | undefined;
+  /**
+   * Journal code
+   */
+  journal?: string | undefined;
+  /**
+   * Supplier account ID
+   */
+  supplier?: string | undefined;
+  /**
+   * Entry date
+   */
+  entryDate?: string | undefined;
+  /**
+   * Entry description
+   */
+  description?: string | undefined;
+  /**
+   * Payment term ID
+   */
+  paymentTerm?: string | undefined;
+  /**
+   * Purchase entry lines
+   */
+  purchaseEntryLines?: ({  /**
+   * Line ID
+   */
+  id?: string | undefined;
+  /**
+   * GL Account ID
+   */
+  glAccount?: string | undefined;
+  /**
+   * Amount in default currency
+   */
+  amountDc?: number | undefined;
+  /**
+   * VAT Code string
+   */
+  vatCode?: string | undefined;
+  /**
+   * Line description
+   */
+  description?: string | undefined;})[];
+};
+
+export interface ActionInput_exact_online_createsalesorder {
+  /**
+   * Customer account GUID. Example: "a58c29d9-ef92-40f1-b817-31b36990898c"
+   */
+  OrderedBy: string;
+  /**
+   * Sales order lines
+   */
+  SalesOrderLines: ({  /**
+   * Item GUID. Example: "61facaed-0389-4183-bf67-ac1c179e1050"
+   */
+  Item: string;
+  /**
+   * Quantity. Example: 1
+   */
+  Quantity: number;
+  /**
+   * Net price. Example: 100.00
+   */
+  NetPrice: number;})[];
+  /**
+   * Order date. Defaults to today if omitted. Example: "2024-05-30"
+   */
+  OrderDate?: string | undefined;
+};
+
+export interface ActionOutput_exact_online_createsalesorder {
+  OrderID?: string | undefined;
+  OrderedBy?: string | undefined;
+  OrderDate?: string | undefined;
+  SalesOrderLines?: ({  Item?: string | undefined;
+  Quantity?: number | undefined;
+  NetPrice?: number | undefined;})[];
+};
+
+export interface ActionInput_exact_online_deletecontact {
+  /**
+   * Contact ID to delete. Example: "eee35efb-2d64-4682-9642-c6ae745bb8ce"
+   */
+  id: string;
+};
+
+export interface ActionOutput_exact_online_deletecontact {
+  id: string;
+  success: boolean;
+};
+
+export interface ActionInput_exact_online_deletecustomer {
+  /**
+   * Exact Online Account ID (GUID). Example: "2a64d87a-5e60-442a-84f0-2dff86e9d706"
+   */
+  id: string;
+};
+
+export interface ActionOutput_exact_online_deletecustomer {
+  id: string;
+  success: boolean;
+};
+
+export interface ActionInput_exact_online_deleteitem {
+  /**
+   * Item ID. Example: "1c0a1580-8e05-4c9d-a898-0148d213d8ec"
+   */
+  id: string;
+};
+
+export interface ActionOutput_exact_online_deleteitem {
+  success: boolean;
+  id: string;
+};
+
+export interface ActionInput_exact_online_getaccount {
+  /**
+   * Account ID. Example: "a58c29d9-ef92-40f1-b817-31b36990898c"
+   */
+  account_id: string;
+};
+
+export interface ActionOutput_exact_online_getaccount {
+  id: string;
+  name?: string | undefined;
+  code?: string | undefined;
+  status?: string | undefined;
+  is_sales?: boolean | undefined;
+  is_purchase?: boolean | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  address_line1?: string | undefined;
+  city?: string | undefined;
+  country?: string | undefined;
+  postcode?: string | undefined;
+  website?: string | undefined;
+  vat_number?: string | undefined;
+  modified?: string | undefined;
+};
+
+export interface ActionInput_exact_online_getcontact {
+  /**
+   * The GUID of the contact to retrieve
+   */
+  id: string;
+};
+
+export interface ActionOutput_exact_online_getcontact {
+};
+
+export interface ActionInput_exact_online_getcurrentuser {
+};
+
+export interface ActionOutput_exact_online_getcurrentuser {
+  current_division: number;
+  user_id: string;
+  full_name?: string | undefined;
+  email?: string | undefined;
+};
+
+export interface ActionInput_exact_online_getsalesinvoice {
+  /**
+   * The InvoiceID of the sales invoice. Example: "7b282ae4-d920-46b0-87fd-3da21b818780"
+   */
+  id: string;
+};
+
+export interface ActionOutput_exact_online_getsalesinvoice {
+  InvoiceID?: string | undefined;
+  InvoiceNumber?: number | undefined;
+  InvoiceDate?: string | undefined;
+  DueDate?: string | undefined;
+  Status?: number | undefined;
+  AmountDC?: number | undefined;
+  AmountFC?: number | undefined;
+  Currency?: string | undefined;
+  Description?: string | undefined;
+  Journal?: string | undefined;
+  OrderNumber?: number | undefined;
+  Type?: number | undefined;
+  Modified?: string | undefined;
+  Created?: string | undefined;
+};
+
+export interface ActionInput_exact_online_listaccounts {
+  /**
+   * Account status filter: C=Customer, S=Supplier, A=Both
+   */
+  status?: 'C' | 'S' | 'A' | undefined;
+  /**
+   * Max records per page (1-1000)
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor (skip value) from previous response
+   */
+  cursor?: string | undefined;
+  /**
+   * ISO 8601 date string for incremental sync filter
+   */
+  modified_after?: string | undefined;
+};
+
+export interface ActionOutput_exact_online_listaccounts {
+  items: ({  id: string;
+  name?: string | undefined;
+  code?: string | undefined;
+  status?: string | undefined;
+  is_sales?: boolean | undefined;
+  is_purchase?: boolean | undefined;
+  address_line1?: string | undefined;
+  city?: string | undefined;
+  country?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  modified?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_exact_online_listcontacts {
+  /**
+   * Pagination cursor. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum number of contacts to return per page. Default: 60.
+   */
+  limit?: number | undefined;
+  /**
+   * ISO 8601 timestamp to filter contacts modified after this date.
+   */
+  modifiedSince?: string | undefined;
+};
+
+export interface ActionOutput_exact_online_listcontacts {
+  items: ({  ID: string;
+  Account?: string | undefined;
+  FullName?: string | undefined;
+  FirstName?: string | undefined;
+  LastName?: string | undefined;
+  Email?: string | undefined;
+  Phone?: string | undefined;
+  Modified?: string | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_exact_online_listdivisions {
+};
+
+export interface ActionOutput_exact_online_listdivisions {
+  divisions: ({  Code: number;
+  Description?: string | undefined;
+  Currency?: string | undefined;
+  Country?: string | undefined;
+  Status?: number | undefined;})[];
+};
+
+export interface ActionInput_exact_online_listdocumentattachments {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_exact_online_listdocumentattachments {
+  items: ({  ID: string;
+  Document?: string | undefined;
+  FileName?: string | undefined;
+  FileSize?: number | undefined;
+  Url?: string | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_exact_online_listdocuments {
+  /**
+   * Pagination cursor from the previous response ($skiptoken). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * ISO 8601 timestamp to filter documents modified after this date. Example: 2024-05-30T00:00:00Z
+   */
+  modified_after?: string | undefined;
+};
+
+export interface ActionOutput_exact_online_listdocuments {
+  items: ({  /**
+   * Document ID. Example: c9a8297e-61a3-4adc-bc17-167e5a7f45c5
+   */
+  ID: string;
+  /**
+   * Document subject
+   */
+  Subject?: string | undefined;
+  /**
+   * Document date. Example: 2024-05-30
+   */
+  DocumentDate?: string | undefined;
+  /**
+   * Last modified timestamp. Example: 2024-05-30T12:00:00Z
+   */
+  Modified?: string | undefined;})[];
+  /**
+   * Cursor for the next page. Pass as cursor on the next call.
+   */
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_exact_online_listfinancialtransactions {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of items to return per page. Default: 100.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_exact_online_listfinancialtransactions {
+  items: ({  /**
+   * Unique entry ID. Example: "2ab359f3-0042-4e57-b829-d7d7cc84d1ea"
+   */
+  EntryID: string;
+  EntryNumber?: number | undefined;
+  Date?: string | undefined;
+  Modified?: string | undefined;
+  JournalCode?: string | undefined;
+  JournalDescription?: string | undefined;
+  Status?: number | undefined;
+  Type?: number | undefined;
+  TypeDescription?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_exact_online_listglaccounts {
+  /**
+   * Pagination cursor (skip value). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum number of items to return. Defaults to 100.
+   */
+  limit?: number | undefined;
+  /**
+   * ISO 8601 datetime to filter accounts modified after this date. Example: '2024-01-01T00:00:00Z'
+   */
+  modified_after?: string | undefined;
+};
+
+export interface ActionOutput_exact_online_listglaccounts {
+  items: ({  ID: string;
+  Code?: string | undefined;
+  Description?: string | undefined;
+  Modified?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_exact_online_listitemgroups {
+  /**
+   * Pagination cursor ($skip value). Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_exact_online_listitemgroups {
+  items: ({  ID: string;
+  Code?: string | undefined;
+  Description?: string | undefined;
+  Modified?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_exact_online_listitems {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_exact_online_listitems {
+  items: ({  ID: string;
+  Code?: string | undefined;
+  Description?: string | undefined;
+  ItemGroup?: string | undefined;
+  IsSalesItem?: boolean | undefined;
+  IsPurchaseItem?: boolean | undefined;
+  Modified?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_exact_online_listjournals {
+  /**
+   * Pagination cursor ($skip value) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_exact_online_listjournals {
+  items: ({  id: string;
+  code: string;
+  description?: string | undefined;
+  modified?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_exact_online_listpayments {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_exact_online_listpayments {
+  Items: ({  ID: string;
+  Account?: string | undefined;
+  AccountName?: string | undefined;
+  AmountDC?: number | undefined;
+  EntryDate?: string | undefined;
+  Description?: string | undefined;
+  PaymentReference?: string | undefined;})[];
+  NextCursor?: string | undefined;
+};
+
+export interface ActionInput_exact_online_listpurchaseinvoices {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_exact_online_listpurchaseinvoices {
+  items: ({  EntryID: string;
+  EntryNumber?: number | undefined;
+  Supplier?: string | undefined;
+  AmountDC?: number | undefined;
+  EntryDate?: string | undefined;
+  Status?: number | undefined;
+  Modified?: string | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_exact_online_listsalesinvoices {
+  /**
+   * Pagination cursor ($skip value) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Filter invoices modified after this ISO 8601 timestamp. Example: 2024-05-30T00:00:00Z
+   */
+  modified_after?: string | undefined;
+};
+
+export interface ActionOutput_exact_online_listsalesinvoices {
+  items: ({  /**
+   * Invoice ID. Example: 7b282ae4-d920-46b0-87fd-3da21b818780
+   */
+  InvoiceID: string;
+  /**
+   * Invoice number. Example: 24700006
+   */
+  InvoiceNumber?: number | undefined;
+  /**
+   * Customer account GUID. Example: a58c29d9-ef92-40f1-b817-31b36990898c
+   */
+  OrderedBy?: string | undefined;
+  /**
+   * Invoice amount in default currency
+   */
+  AmountDC?: number | undefined;
+  /**
+   * Invoice status. 20=Open, 50=Processed/Posted
+   */
+  Status?: number | undefined;
+  /**
+   * Last modified timestamp. Example: 2024-05-30T12:00:00Z
+   */
+  Modified?: string | undefined;})[];
+  /**
+   * Pagination cursor for the next page. Omit if this is the last page.
+   */
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_exact_online_listsalesorders {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Default: 50.
+   */
+  limit?: number | undefined;
+  /**
+   * ISO 8601 timestamp to filter orders modified after this date. Example: "2024-01-01T00:00:00Z"
+   */
+  modifiedAfter?: string | undefined;
+};
+
+export interface ActionOutput_exact_online_listsalesorders {
+  items: ({  OrderID: string;
+  OrderNumber?: number | undefined;
+  OrderedBy?: string | undefined;
+  AmountDC?: number | undefined;
+  Modified?: string | undefined;
+  Status?: number | undefined;})[];
+  NextCursor?: string | undefined;
+};
+
+export interface ActionInput_exact_online_listtransactionlines {
+  /**
+   * Pagination cursor (skip value) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum number of records to return. Defaults to 100.
+   */
+  limit?: number | undefined;
+  /**
+   * Filter transaction lines by a specific EntryID (UUID). Example: "2ab359f3-0042-4e57-b829-d7d7cc84d1ea"
+   */
+  entryId?: string | undefined;
+};
+
+export interface ActionOutput_exact_online_listtransactionlines {
+  items: ({  ID: string;
+  EntryID: string;
+  AmountDC: number;
+  GLAccount?: string | undefined;
+  GLAccountCode?: string | undefined;
+  Description?: string | undefined;
+  VATCode?: string | undefined;
+  Modified?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_exact_online_listvatcodes {
+  /**
+   * Pagination cursor (skip offset). Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_exact_online_listvatcodes {
+  items: ({  id: string;
+  code?: string | undefined;
+  description?: string | undefined;
+  modified?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_exact_online_updatecontact {
+  /**
+   * Contact ID. Example: "da03b498-41d7-481c-b598-4364d09c907c"
+   */
+  id: string;
+  /**
+   * First name of the contact.
+   */
+  firstName?: string | undefined;
+  /**
+   * Last name of the contact.
+   */
+  lastName?: string | undefined;
+  /**
+   * Email address of the contact.
+   */
+  email?: string | undefined;
+  /**
+   * Phone number of the contact.
+   */
+  phone?: string | undefined;
+  /**
+   * Mobile number of the contact.
+   */
+  mobile?: string | undefined;
+  /**
+   * Title of the contact.
+   */
+  title?: string | undefined;
+};
+
+export interface ActionOutput_exact_online_updatecontact {
+  id: string;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  mobile?: string | undefined;
+  title?: string | undefined;
 };
 
 export interface ActionInput_exact_online_updatecustomer {
-  name?: string | null | undefined;
-  email?: string | null | undefined;
-  taxNumber?: string | null | undefined;
-  addressLine1?: string | null | undefined;
-  addressLine2?: string | null | undefined;
-  city?: string | null | undefined;
-  zip?: string | null | undefined;
-  country?: string | null | undefined;
-  state?: string | null | undefined;
-  phone?: string | null | undefined;
+  /**
+   * Account ID (GUID). Example: a58c29d9-ef92-40f1-b817-31b36990898c
+   */
   id: string;
+  /**
+   * Account name
+   */
+  name?: string | undefined;
+  /**
+   * First address line
+   */
+  addressLine1?: string | undefined;
+  /**
+   * Second address line
+   */
+  addressLine2?: string | undefined;
+  /**
+   * City
+   */
+  city?: string | undefined;
+  /**
+   * ISO country code
+   */
+  country?: string | undefined;
+  /**
+   * Postal code
+   */
+  postcode?: string | undefined;
+  /**
+   * Phone number
+   */
+  phone?: string | undefined;
+  /**
+   * Email address
+   */
+  email?: string | undefined;
+  /**
+   * Account status: C=Customer, S=Supplier, A=Active/Both
+   */
+  status?: string | undefined;
+  /**
+   * Is a sales relation
+   */
+  isSales?: boolean | undefined;
+  /**
+   * Is a purchase relation
+   */
+  isPurchase?: boolean | undefined;
+  /**
+   * VAT number
+   */
+  vatNumber?: string | undefined;
 };
 
 export interface ActionOutput_exact_online_updatecustomer {
-  success: boolean;
+  id: string;
+  name?: string | undefined;
+  addressLine1?: string | undefined;
+  addressLine2?: string | undefined;
+  city?: string | undefined;
+  country?: string | undefined;
+  postcode?: string | undefined;
+  phone?: string | undefined;
+  email?: string | undefined;
+  status?: string | undefined;
+  isSales?: boolean | undefined;
+  isPurchase?: boolean | undefined;
+  vatNumber?: string | undefined;
 };
 
 export interface ActionInput_exact_online_updateinvoice {
-  id: string;
-  deliverTo?: string | undefined;
-  currency?: 'EUR' | undefined;
-  description?: string | undefined;
-  createdAt?: Date | undefined;
+  /**
+   * Invoice ID. Example: "610d6972-6490-4947-bf59-6ebbe6237638"
+   */
+  ID: string;
+  /**
+   * Invoice description
+   */
+  Description?: string | undefined;
+  /**
+   * Your reference
+   */
+  YourRef?: string | undefined;
+  /**
+   * Remarks
+   */
+  Remarks?: string | undefined;
+  /**
+   * Invoice date in ISO format. Example: "2024-05-30"
+   */
+  InvoiceDate?: string | undefined;
+  /**
+   * Due date in ISO format. Example: "2024-06-30"
+   */
+  DueDate?: string | undefined;
+  /**
+   * Order date in ISO format. Example: "2024-05-30"
+   */
+  OrderDate?: string | undefined;
 };
 
 export interface ActionOutput_exact_online_updateinvoice {
-  success: boolean;
+  InvoiceID: string;
+  InvoiceNumber?: number | undefined;
+  Description?: string | undefined;
+  YourRef?: string | undefined;
+  Remarks?: string | undefined;
+  InvoiceDate?: string | undefined;
+  DueDate?: string | undefined;
+  OrderDate?: string | undefined;
+  Status?: number | undefined;
+  AmountDC?: number | undefined;
+};
+
+export interface ActionInput_exact_online_updateitem {
+  /**
+   * Item ID. Example: "61facaed-0389-4183-bf67-ac1c179e1050"
+   */
+  id: string;
+  /**
+   * Item code
+   */
+  code?: string | undefined;
+  /**
+   * Item description
+   */
+  description?: string | undefined;
+  /**
+   * Extra description
+   */
+  extraDescription?: string | undefined;
+  /**
+   * Item group ID. Example: "e54a5a52-21b7-4ce5-80ed-976b2100c02b"
+   */
+  itemGroup?: string | undefined;
+  /**
+   * Sales VAT code ID
+   */
+  salesVatCode?: string | undefined;
+  /**
+   * Start date. ISO format: "2024-05-30"
+   */
+  startDate?: string | undefined;
+  /**
+   * Unit of measurement
+   */
+  unit?: string | undefined;
+  /**
+   * Whether this is a sales item
+   */
+  isSalesItem?: boolean | undefined;
+  /**
+   * Whether this is a purchase item
+   */
+  isPurchaseItem?: boolean | undefined;
+  /**
+   * Whether this is a stock item
+   */
+  isStockItem?: boolean | undefined;
+  /**
+   * Standard cost price
+   */
+  costPriceStandard?: number | undefined;
+  /**
+   * Sales price
+   */
+  salesPrice?: number | undefined;
+};
+
+export interface ActionOutput_exact_online_updateitem {
+  id?: string | undefined;
+  code?: string | undefined;
+  description?: string | undefined;
+  extraDescription?: string | undefined;
+  itemGroup?: string | undefined;
+  salesVatCode?: string | undefined;
+  startDate?: string | undefined;
+  unit?: string | undefined;
+  isSalesItem?: boolean | undefined;
+  isPurchaseItem?: boolean | undefined;
+  isStockItem?: boolean | undefined;
+  costPriceStandard?: number | undefined;
+  salesPrice?: number | undefined;
 };
 
 export interface ExpsensifyNullableUser {
@@ -31515,13 +44608,918 @@ export interface ActionOutput_figma_updatewebhook {
   description?: string | undefined;
 };
 
+export interface Analytics {
+  id: string;
+  start_time: string;
+  end_time: string;
+  team?: {  [key: string]: unknown | undefined;};
+  users?: ({  [key: string]: unknown | undefined;})[];
+};
+
+export interface Bite {
+  id: string;
+  name?: string | undefined;
+  transcript_id?: string | undefined;
+  start_time?: string | undefined;
+  end_time?: string | undefined;
+  status?: string | undefined;
+  summary?: string | undefined;
+  user_id?: string | undefined;
+  created_at?: string | undefined;
+  media_type?: string | undefined;
+};
+
+export interface Sentence {
+  id: string;
+  transcript_id: string;
+  index: number;
+  speaker_name?: string | undefined;
+  speaker_id?: string | undefined;
+  raw_text?: string | undefined;
+  text?: string | undefined;
+  start_time?: number | undefined;
+  end_time?: number | undefined;
+};
+
+export interface Transcript {
+  id: string;
+  title?: string | undefined;
+  date?: string | undefined;
+  duration?: number | undefined;
+  organizer_email?: string | undefined;
+  host_email?: string | undefined;
+  participants?: string[] | undefined;
+  privacy?: string | undefined;
+  transcript_url?: string | undefined;
+  audio_url?: string | undefined;
+  video_url?: string | undefined;
+  meeting_link?: string | undefined;
+  calendar_id?: string | undefined;
+  is_live?: boolean | undefined;
+};
+
+export interface UserGroup {
+  id: string;
+  name?: string | undefined;
+};
+
 export interface ActionInput_fireflies_addtolive {
-  query: string;
-  variables: {};
+  /**
+   * A valid HTTP URL for the meeting link, e.g. Google Meet, Zoom, etc.
+   */
+  url: string;
+  /**
+   * Title or name of the meeting. Maximum length is 256 characters.
+   */
+  title?: string | undefined;
+  /**
+   * Array of expected meeting participants.
+   */
+  attendees?: ({  /**
+   * Display name of the attendee as it appears in meeting platforms.
+   */
+  displayName?: string | undefined;
+  /**
+   * Email address of the attendee.
+   */
+  email?: string | undefined;
+  /**
+   * Phone number of the attendee.
+   */
+  phoneNumber?: string | undefined;})[];
 };
 
 export interface ActionOutput_fireflies_addtolive {
-  data: {};
+  success: boolean;
+  message?: string | undefined;
+};
+
+export interface ActionInput_fireflies_continueaskfredthread {
+  /**
+   * The ID of the existing AskFred thread to continue. Example: "thread_abc123"
+   */
+  thread_id: string;
+  /**
+   * Follow-up question or query. Maximum 2000 characters.
+   */
+  query: string;
+  /**
+   * Response format: markdown or plaintext
+   */
+  format_mode?: 'markdown' | 'plaintext' | undefined;
+  /**
+   * Language code for the response (e.g., "en" for English).
+   */
+  response_language?: string | undefined;
+};
+
+export interface ActionOutput_fireflies_continueaskfredthread {
+  message: {  id: string;
+  thread_id: string;
+  query: string;
+  answer: string;
+  suggested_queries?: string[] | undefined;
+  status: string;
+  created_at?: string | undefined;};
+};
+
+export interface ActionInput_fireflies_createaskfredthread {
+  /**
+   * Question or query about the meeting(s). Maximum 2000 characters. Example: "What were the main action items?"
+   */
+  query: string;
+  /**
+   * Specific transcript ID to query. If provided, filters are ignored.
+   */
+  transcript_id?: string | undefined;
+  /**
+   * Filters to search across multiple meetings. Only used when transcript_id is not provided.
+   */
+  filters?: {  /**
+   * ISO 8601 datetime. Example: "2024-03-01T00:00:00Z"
+   */
+  start_time?: string | undefined;
+  /**
+   * ISO 8601 datetime. Example: "2024-03-31T23:59:59Z"
+   */
+  end_time?: string | undefined;
+  /**
+   * Channel/integration IDs to filter by
+   */
+  channel_ids?: string[] | undefined;
+  /**
+   * Organizer email addresses to filter by
+   */
+  organizers?: string[] | undefined;
+  /**
+   * Participant email addresses to filter by
+   */
+  participants?: string[] | undefined;
+  /**
+   * Specific transcript IDs to filter by
+   */
+  transcript_ids?: string[] | undefined;};
+  /**
+   * Language code for the response (e.g., "en", "es").
+   */
+  response_language?: string | undefined;
+  /**
+   * Response format: "markdown" or "plaintext".
+   */
+  format_mode?: string | undefined;
+};
+
+export interface ActionOutput_fireflies_createaskfredthread {
+  id: string;
+  thread_id: string;
+  query?: string | undefined;
+  answer?: string | undefined;
+  suggested_queries?: string[] | undefined;
+  status?: string | undefined;
+  created_at?: string | undefined;
+};
+
+export interface ActionInput_fireflies_createbite {
+  /**
+   * ID of the transcript. Example: "abc123"
+   */
+  transcript_id: string;
+  /**
+   * Start time of the bite in seconds. Example: 0
+   */
+  start_time: number;
+  /**
+   * End time of the bite in seconds. Example: 5
+   */
+  end_time: number;
+  /**
+   * Name of the bite. Maximum length is 256 characters.
+   */
+  name?: string | undefined;
+  /**
+   * Type of the bite, either "video" or "audio"
+   */
+  media_type?: 'video' | 'audio' | undefined;
+  /**
+   * Array specifying the visibility of the Soundbite.
+   */
+  privacies?: ({  0: 'public';
+  1: 'team';
+  2: 'participants';})[] | undefined;
+  /**
+   * Summary for the bite. Maximum length is 500 characters.
+   */
+  summary?: string | undefined;
+};
+
+export interface ActionOutput_fireflies_createbite {
+  id?: string | undefined;
+  transcript_id?: string | undefined;
+  start_time?: string | undefined;
+  end_time?: string | undefined;
+  name?: string | undefined;
+  thumbnail?: string | undefined;
+  preview?: string | undefined;
+  status?: string | undefined;
+  summary?: string | undefined;
+  user_id?: string | undefined;
+  summary_status?: string | undefined;
+  media_type?: string | undefined;
+  privacies?: string[] | undefined;
+  created_at?: string | undefined;
+};
+
+export interface ActionInput_fireflies_createliveactionitem {
+  /**
+   * The ID of the live meeting to create the action item for. Example: "abc123"
+   */
+  meeting_id: string;
+  /**
+   * Natural language description of the action item to create. Example: "Follow up with the client about the proposal"
+   */
+  prompt: string;
+};
+
+export interface ActionOutput_fireflies_createliveactionitem {
+  success: boolean;
+};
+
+export interface ActionInput_fireflies_createlivesoundbite {
+  /**
+   * The ID of the live meeting to create the soundbite for. Example: "abc123"
+   */
+  meeting_id: string;
+  /**
+   * Natural language description of the soundbite to create. Min 5, max 255 characters. Example: "Create a soundbite from the last 2 minutes"
+   */
+  prompt: string;
+};
+
+export interface ActionOutput_fireflies_createlivesoundbite {
+  success: boolean;
+};
+
+export interface ActionInput_fireflies_deleteaskfredthread {
+  /**
+   * The unique identifier of the AskFred thread to delete. Example: "thread_abc123"
+   */
+  id: string;
+};
+
+export interface ActionOutput_fireflies_deleteaskfredthread {
+  id: string;
+  title: string;
+  transcript_id?: string | undefined;
+  user_id: string;
+  created_at: string;
+};
+
+export interface ActionInput_fireflies_deletetranscript {
+  /**
+   * Transcript ID to delete. Example: "abc123"
+   */
+  id: string;
+};
+
+export interface ActionOutput_fireflies_deletetranscript {
+  deleted: boolean;
+};
+
+export interface ActionInput_fireflies_getanalytics {
+  /**
+   * Start date in ISO 8601 format. Example: "2024-01-01T00:00:00Z"
+   */
+  start_time: string;
+  /**
+   * End date in ISO 8601 format. Example: "2024-01-31T23:59:59Z"
+   */
+  end_time: string;
+};
+
+export interface ActionOutput_fireflies_getanalytics {
+  team?: {  conversation?: {  average_filler_words?: number | undefined;
+  average_filler_words_diff_pct?: number | undefined;
+  average_monologues_count?: number | undefined;
+  average_monologues_count_diff_pct?: number | undefined;
+  average_questions?: number | undefined;
+  average_questions_diff_pct?: number | undefined;
+  average_sentiments?: {  negative_pct?: number | undefined;
+  neutral_pct?: number | undefined;
+  positive_pct?: number | undefined;};
+  average_silence_duration?: number | undefined;
+  average_silence_duration_diff_pct?: number | undefined;
+  average_talk_listen_ratio?: number | undefined;
+  average_words_per_minute?: number | undefined;
+  longest_monologue_duration_sec?: number | undefined;
+  longest_monologue_duration_diff_pct?: number | undefined;
+  total_filler_words?: number | undefined;
+  total_filler_words_diff_pct?: number | undefined;
+  total_meeting_notes_count?: number | undefined;
+  total_meetings_count?: number | undefined;
+  total_monologues_count?: number | undefined;
+  total_monologues_diff_pct?: number | undefined;
+  teammates_count?: number | undefined;
+  total_questions?: number | undefined;
+  total_questions_diff_pct?: number | undefined;
+  total_silence_duration?: number | undefined;
+  total_silence_duration_diff_pct?: number | undefined;};
+  meeting?: {  count?: number | undefined;
+  count_diff_pct?: number | undefined;
+  duration?: number | undefined;
+  duration_diff_pct?: number | undefined;
+  average_count?: number | undefined;
+  average_count_diff_pct?: number | undefined;
+  average_duration?: number | undefined;
+  average_duration_diff_pct?: number | undefined;};};
+  users?: ({  user_id?: string | undefined;
+  user_name?: string | undefined;
+  user_email?: string | undefined;
+  conversation?: {  talk_listen_pct?: number | undefined;
+  talk_listen_ratio?: number | undefined;
+  total_silence_duration?: number | undefined;
+  total_silence_duration_compare_to?: number | undefined;
+  total_silence_pct?: number | undefined;
+  total_silence_ratio?: number | undefined;
+  total_speak_duration?: number | undefined;
+  total_speak_duration_with_user?: number | undefined;
+  total_word_count?: number | undefined;
+  user_filler_words?: number | undefined;
+  user_filler_words_compare_to?: number | undefined;
+  user_filler_words_diff_pct?: number | undefined;
+  user_longest_monologue_sec?: number | undefined;
+  user_longest_monologue_compare_to?: number | undefined;
+  user_longest_monologue_diff_pct?: number | undefined;
+  user_monologues_count?: number | undefined;
+  user_monologues_count_compare_to?: number | undefined;
+  user_monologues_count_diff_pct?: number | undefined;
+  user_questions?: number | undefined;
+  user_questions_compare_to?: number | undefined;
+  user_questions_diff_pct?: number | undefined;
+  user_speak_duration?: number | undefined;
+  user_word_count?: number | undefined;
+  user_words_per_minute?: number | undefined;
+  user_words_per_minute_compare_to?: number | undefined;
+  user_words_per_minute_diff_pct?: number | undefined;};
+  meeting?: {  count?: number | undefined;
+  count_diff?: number | undefined;
+  count_diff_compared_to?: number | undefined;
+  count_diff_pct?: number | undefined;
+  duration?: number | undefined;
+  duration_diff?: number | undefined;
+  duration_diff_compared_to?: number | undefined;
+  duration_diff_pct?: number | undefined;};})[];
+};
+
+export interface ActionInput_fireflies_getaskfredthread {
+  /**
+   * The unique identifier of the AskFred thread to retrieve. Example: "thread_abc123"
+   */
+  id: string;
+};
+
+export interface ActionOutput_fireflies_getaskfredthread {
+  id?: string | undefined;
+  title?: string | undefined;
+  transcript_id?: string | undefined;
+  user_id?: string | undefined;
+  created_at?: string | undefined;
+  messages?: ({  id?: string | undefined;
+  thread_id?: string | undefined;
+  query?: string | undefined;
+  answer?: string | undefined;
+  suggested_queries?: string[] | undefined;
+  status?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;})[];
+};
+
+export interface ActionInput_fireflies_getbite {
+  /**
+   * Bite ID. Example: "bite_abc123"
+   */
+  id: string;
+};
+
+export interface ActionOutput_fireflies_getbite {
+  id: string;
+  transcript_id?: string | undefined;
+  name?: string | undefined;
+  thumbnail?: string | undefined;
+  preview?: string | undefined;
+  status?: string | undefined;
+  summary?: string | undefined;
+  user_id?: string | undefined;
+  start_time?: number | undefined;
+  end_time?: number | undefined;
+  summary_status?: string | undefined;
+  media_type?: string | undefined;
+  created_at?: string | undefined;
+};
+
+export interface ActionInput_fireflies_getchannel {
+  /**
+   * The unique identifier of the channel to fetch. Example: "channel-id-1"
+   */
+  channel_id: string;
+};
+
+export interface ActionOutput_fireflies_getchannel {
+  id: string;
+  title?: string | undefined;
+  is_private?: boolean | undefined;
+  created_by?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  members?: ({  user_id?: string | undefined;
+  email?: string | undefined;
+  name?: string | undefined;})[];
+};
+
+export interface ActionInput_fireflies_gettranscript {
+  /**
+   * Transcript ID. Example: "abc123"
+   */
+  id: string;
+};
+
+export interface ActionOutput_fireflies_gettranscript {
+  id?: string | undefined;
+  title?: string | undefined;
+  sentences?: ({  index?: number | undefined;
+  speaker_name?: string | undefined;
+  speaker_id?: string | undefined;
+  raw_text?: string | undefined;
+  start_time?: string | undefined;
+  end_time?: string | undefined;
+  text?: string | undefined;})[];
+  summary?: {  overview?: string | undefined;
+  action_items?: string | undefined;
+  keywords?: string | undefined;
+  outline?: string | undefined;
+  shorthand_bullet?: string | undefined;
+  bullet_gist?: string | undefined;
+  notes?: string | undefined;
+  gist?: string | undefined;
+  short_summary?: string | undefined;
+  topics_discussed?: string[] | undefined;
+  transcript_chapters?: string[] | undefined;
+  extended_sections?: ({  title?: string | undefined;
+  content?: string | undefined;})[];};
+  speakers?: ({  id?: string | undefined;
+  name?: string | undefined;})[];
+  meeting_info?: {  fred_joined?: boolean | undefined;
+  silent_meeting?: boolean | undefined;
+  summary_status?: string | undefined;};
+  meeting_attendees?: ({  displayName?: string | undefined;
+  email?: string | undefined;
+  phoneNumber?: string | undefined;
+  name?: string | undefined;
+  location?: string | undefined;})[];
+  analytics?: {  sentiments?: {  negative_pct?: number | undefined;
+  neutral_pct?: number | undefined;
+  positive_pct?: number | undefined;};
+  categories?: {  questions?: number | undefined;
+  date_times?: number | undefined;
+  metrics?: number | undefined;
+  tasks?: number | undefined;};
+  speakers?: ({  speaker_id?: number | undefined;
+  name?: string | undefined;
+  duration?: number | undefined;
+  word_count?: number | undefined;
+  longest_monologue?: number | undefined;
+  monologues_count?: number | undefined;
+  filler_words?: number | undefined;
+  questions?: number | undefined;
+  duration_pct?: number | undefined;
+  words_per_minute?: number | undefined;})[];};
+};
+
+export interface ActionInput_fireflies_getuser {
+  /**
+   * User ID. Omit to return the authenticated user.
+   */
+  id?: string | undefined;
+};
+
+export interface ActionOutput_fireflies_getuser {
+  user_id: string;
+  name?: string | undefined;
+  email?: string | undefined;
+  num_transcripts?: number | undefined;
+  recent_transcript?: string | undefined;
+  recent_meeting?: string | undefined;
+  minutes_consumed?: number | undefined;
+  is_admin?: boolean | undefined;
+  integrations?: string[] | undefined;
+  is_calendar_in_sync?: boolean | undefined;
+  user_groups?: ({  id: string;
+  name?: string | undefined;
+  handle?: string | undefined;
+  members?: ({  user_id: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;})[];})[];
+};
+
+export interface ActionInput_fireflies_listactivemeetings {
+  /**
+   * Filter active meetings by a specific user email address. Example: "user@example.com"
+   */
+  email?: string | undefined;
+  /**
+   * Filter active meetings by their state. Possible values: "active", "paused". If omitted, both states are returned.
+   */
+  states?: ({  0: 'active';
+  1: 'paused';})[] | undefined;
+};
+
+export interface ActionOutput_fireflies_listactivemeetings {
+  /**
+   * List of currently active/live meetings
+   */
+  meetings: ({  /**
+   * Unique identifier for the active meeting. Example: "meeting-id-1"
+   */
+  id: string;
+  /**
+   * Title of the active meeting. Example: "Team Standup"
+   */
+  title: string;
+  /**
+   * Email address of the meeting organizer. Example: "user@example.com"
+   */
+  organizer_email?: string | undefined;
+  /**
+   * The URL link to join the meeting. Example: "https://zoom.us/j/123456789"
+   */
+  meeting_link?: string | undefined;
+  /**
+   * ISO 8601 formatted timestamp indicating when the meeting started. Example: "2024-01-15T10:00:00.000Z"
+   */
+  start_time?: string | undefined;
+  /**
+   * ISO 8601 formatted timestamp indicating when the meeting is scheduled to end. Example: "2024-01-15T11:00:00.000Z"
+   */
+  end_time?: string | undefined;
+  /**
+   * Privacy setting for the meeting. Possible values: "link", "owner", "participants", "teammates_and_participants", "participating_teammates", "teammates"
+   */
+  privacy?: 'link' | 'owner' | 'participants' | 'teammates_and_participants' | 'participating_teammates' | 'teammates' | undefined;
+  /**
+   * Current state of the meeting. Possible values: "active", "paused"
+   */
+  state?: 'active' | 'paused' | undefined;})[];
+};
+
+export interface ActionInput_fireflies_listaskfredthreads {
+  /**
+   * Filter threads to only those associated with a specific transcript ID. Example: "transcript_xyz789"
+   */
+  transcript_id?: string | undefined;
+};
+
+export interface ActionOutput_fireflies_listaskfredthreads {
+  0: {  id: string;
+  title: string;
+  created_at?: string | undefined;
+  transcript_id?: string | undefined;
+  user_id?: string | undefined;};
+};
+
+export interface ActionInput_fireflies_listbites {
+  /**
+   * Fetch bites owned by the API key owner.
+   */
+  mine?: boolean | undefined;
+  /**
+   * Filter bites by a specific transcript ID.
+   */
+  transcript_id?: string | undefined;
+  /**
+   * Fetch bites for the API key owner's team.
+   */
+  my_team?: boolean | undefined;
+  /**
+   * Maximum number of bites to fetch. Max 50.
+   */
+  limit?: number | undefined;
+  /**
+   * Number of records to skip for pagination.
+   */
+  skip?: number | undefined;
+};
+
+export interface ActionOutput_fireflies_listbites {
+  0: {  id: string;
+  name?: string | undefined;
+  transcript_id?: string | undefined;
+  start_time?: string | undefined;
+  end_time?: string | undefined;
+  status?: string | undefined;
+  summary?: string | undefined;
+  user_id?: string | undefined;
+  user?: {  id: string;
+  name: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  picture?: string | undefined;};
+  created_at?: string | undefined;};
+};
+
+export interface ActionInput_fireflies_listchannels {
+};
+
+export interface ActionOutput_fireflies_listchannels {
+  channels: ({  /**
+   * Channel ID. Example: "channel-id-1"
+   */
+  id: string;
+  /**
+   * Channel title. Example: "Engineering"
+   */
+  title: string;
+  /**
+   * Creation timestamp. Example: "2024-01-01T00:00:00Z"
+   */
+  created_at: string;
+  /**
+   * Last update timestamp. Example: "2024-01-01T00:00:00Z"
+   */
+  updated_at: string;
+  /**
+   * User ID of the creator. Example: "user-id-1"
+   */
+  created_by: string;
+  /**
+   * Whether the channel is private
+   */
+  is_private: boolean;
+  members: ({  /**
+   * User ID. Example: "user-id-1"
+   */
+  user_id: string;
+  /**
+   * Email address. Example: "john@example.com"
+   */
+  email: string;
+  /**
+   * User name. Example: "John Doe"
+   */
+  name: string;})[];})[];
+};
+
+export interface ActionInput_fireflies_listcontacts {
+};
+
+export interface ActionOutput_fireflies_listcontacts {
+  contacts: ({  email: string;
+  name?: string | undefined;
+  picture?: string | undefined;
+  last_meeting_date?: string | undefined;})[];
+};
+
+export interface ActionInput_fireflies_listtranscripts {
+  /**
+   * Return all transcripts created after this date. ISO 8601 format. Example: "2024-07-08T22:13:46.660Z"
+   */
+  fromDate?: string | undefined;
+  /**
+   * Return all transcripts created before this date. ISO 8601 format. Example: "2024-07-08T22:13:46.660Z"
+   */
+  toDate?: string | undefined;
+  /**
+   * Number of transcripts to return. Maximum 50 in one query.
+   */
+  limit?: number | undefined;
+  /**
+   * Number of transcripts to skip.
+   */
+  skip?: number | undefined;
+  /**
+   * Deprecated. Use keyword instead. Title of the transcript. Mutually exclusive with keyword.
+   */
+  title?: string | undefined;
+  /**
+   * Allows searching for keywords in meeting title and/or words spoken during the meeting. Mutually exclusive with title.
+   */
+  keyword?: string | undefined;
+  /**
+   * Specify the scope for keyword search. If scope is provided, keyword becomes a required field. Defaults to TITLE if no value is provided.
+   */
+  scope?: 'title' | 'sentences' | 'all' | undefined;
+  /**
+   * User id. Filter all meetings that have this user ID as the organizer or participant.
+   */
+  user_id?: string | undefined;
+  /**
+   * Filter all meetings that have the API key owner as the organizer.
+   */
+  mine?: boolean | undefined;
+  /**
+   * Filter meetings that have any of these emails as organizers. Accepts an array of email addresses.
+   */
+  organizers?: string[] | undefined;
+  /**
+   * Filter meetings that contain any of these emails as attendees. Accepts an array of email addresses.
+   */
+  participants?: string[] | undefined;
+  /**
+   * Filter meetings that belong to a specific channel. Accepts a single channel ID.
+   */
+  channel_id?: string | undefined;
+  /**
+   * Filter all meetings accordingly to meetings that have this email as the host.
+   */
+  host_email?: string | undefined;
+  /**
+   * Deprecated. Use organizers instead. Filter meetings that have this email as the organizer.
+   */
+  organizer_email?: string | undefined;
+  /**
+   * Deprecated. Use participants instead. Filter meetings that contain this email as an attendee.
+   */
+  participant_email?: string | undefined;
+};
+
+export interface ActionOutput_fireflies_listtranscripts {
+  transcripts: ({  id: string;
+  title?: string | undefined;
+  date?: string | undefined;
+  duration?: number | undefined;
+  organizer_email?: string | undefined;
+  host_email?: string | undefined;
+  participants?: string[] | undefined;
+  fireflies_users?: string[] | undefined;
+  transcript_url?: string | undefined;
+  audio_url?: string | undefined;
+  video_url?: string | undefined;
+  meeting_link?: string | undefined;
+  is_live?: boolean | undefined;
+  privacy?: string | undefined;
+  calendar_id?: string | undefined;
+  cal_id?: string | undefined;
+  calendar_type?: string | undefined;
+  channels?: ({  id?: string | undefined;})[];
+  meeting_info?: {  fred_joined?: boolean | undefined;
+  silent_meeting?: boolean | undefined;
+  summary_status?: string | undefined;};
+  summary?: {  keywords?: string[] | undefined;
+  action_items?: string[] | undefined;
+  short_summary?: string | undefined;
+  meeting_type?: string | undefined;};})[];
+  next_skip?: number | undefined;
+};
+
+export interface ActionInput_fireflies_listusergroups {
+  /**
+   * If true, returns only user groups the current user belongs to.
+   */
+  mine?: boolean | undefined;
+};
+
+export interface ActionOutput_fireflies_listusergroups {
+  user_groups: ({  id: string;
+  name: string;
+  handle?: string | undefined;
+  members?: ({  user_id: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;})[];})[];
+};
+
+export interface ActionInput_fireflies_listusers {
+};
+
+export interface ActionOutput_fireflies_listusers {
+  users: ({  user_id: string;
+  name?: string | undefined;
+  email?: string | undefined;
+  is_admin?: boolean | undefined;
+  num_transcripts?: number | undefined;
+  recent_meeting?: string | undefined;
+  recent_transcript?: string | undefined;
+  minutes_consumed?: number | undefined;
+  is_calendar_in_sync?: boolean | undefined;})[];
+};
+
+export interface ActionInput_fireflies_revokesharedmeetingaccess {
+  /**
+   * The unique identifier of the meeting / transcript.
+   */
+  meeting_id: string;
+  /**
+   * The email address of the user whose shared access should be revoked.
+   */
+  email: string;
+};
+
+export interface ActionOutput_fireflies_revokesharedmeetingaccess {
+  success: boolean;
+  message: string;
+};
+
+export interface ActionInput_fireflies_sharemeeting {
+  /**
+   * Meeting ID to share. Example: "abc123"
+   */
+  meeting_id: string;
+  /**
+   * Email addresses to share with. Up to 50 emails per request.
+   */
+  emails: string[];
+  /**
+   * Optional expiry period in days. Allowed values: 7, 14, or 30.
+   */
+  expiry_days?: 7 | 14 | 30 | undefined;
+};
+
+export interface ActionOutput_fireflies_sharemeeting {
+  success: boolean;
+  message?: string | undefined;
+};
+
+export interface ActionInput_fireflies_updatemeetingchannel {
+  /**
+   * Array of Transcript IDs to update. Must contain 1–5 items. Example: ["transcript_id_1"]
+   */
+  transcript_ids: string[];
+  /**
+   * The target Channel ID. Example: "channel_id"
+   */
+  channel_id: string;
+};
+
+export type ActionOutput_fireflies_updatemeetingchannel = boolean
+
+export interface ActionInput_fireflies_updatemeetingprivacy {
+  /**
+   * Transcript ID. Example: "abc123"
+   */
+  id: string;
+  /**
+   * Privacy setting. Example: "teammates"
+   */
+  privacy: 'link' | 'owner' | 'participants' | 'participatingteammates' | 'teammatesandparticipants' | 'teammates';
+};
+
+export type ActionOutput_fireflies_updatemeetingprivacy = boolean
+
+export interface ActionInput_fireflies_updatemeetingstate {
+  /**
+   * Meeting ID. Example: "abc123"
+   */
+  meeting_id: string;
+  /**
+   * Action to perform. Example: "pause_recording"
+   */
+  action: 'pause_recording' | 'resume_recording';
+};
+
+export interface ActionOutput_fireflies_updatemeetingstate {
+  success: boolean;
+  action: string;
+};
+
+export interface ActionInput_fireflies_updatemeetingtitle {
+  /**
+   * Transcript ID. Example: "abc123"
+   */
+  id: string;
+  /**
+   * New meeting title. Example: "Weekly Sync"
+   */
+  title: string;
+};
+
+export type ActionOutput_fireflies_updatemeetingtitle = boolean
+
+export interface ActionInput_fireflies_uploadaudio {
+  /**
+   * The URL of the media file to be transcribed. Example: "https://example.com/audio.mp3"
+   */
+  url: string;
+  /**
+   * Title or name of the meeting. Example: "Weekly sync"
+   */
+  title?: string | undefined;
+  attendees?: ({  displayName: string;
+  email: string;
+  phoneNumber: string;})[] | undefined;
+  webhook?: string | undefined;
+  custom_language?: string | undefined;
+  client_reference_id?: string | undefined;
+  save_video?: boolean | undefined;
+  bypass_size_check?: boolean | undefined;
+  download_auth?: {  type: 'bearer_token';
+  bearer: {  token: string;};} | {  type: 'basic_auth';
+  basic: {  username?: string | undefined;
+  password: string;};};
+};
+
+export interface ActionOutput_fireflies_uploadaudio {
+  success: boolean;
+  title?: string | undefined;
+  message?: string | undefined;
 };
 
 export interface Article {
@@ -31965,22 +45963,6 @@ export interface ActionOutput_gem_uploadresume {
   download_url: string;
 };
 
-export interface Commit {
-  id: string;
-  short_id?: string | undefined;
-  title?: string | undefined;
-  author_name?: string | undefined;
-  author_email?: string | undefined;
-  authored_date?: string | undefined;
-  committer_name?: string | undefined;
-  committer_email?: string | undefined;
-  committed_date?: string | undefined;
-  created_at?: string | undefined;
-  message?: string | undefined;
-  parent_ids?: string[] | undefined;
-  web_url?: string | undefined;
-};
-
 export interface Issue {
   id: string;
   identifier?: string | undefined;
@@ -32023,102 +46005,6 @@ export interface SyncMetadata_github_listfiles {
   branch: string;
 };
 
-export interface PullRequest {
-  /**
-   * The unique identifier of the pull request (e.g., "12345")
-   */
-  id: string;
-  /**
-   * The pull request number within the repository
-   */
-  number: number;
-  /**
-   * The state of the pull request: "open", "closed"
-   */
-  state: string;
-  /**
-   * The title of the pull request
-   */
-  title: string;
-  /**
-   * The description/body of the pull request
-   */
-  body?: string | undefined;
-  /**
-   * The login/username of the PR author
-   */
-  user_login?: string | undefined;
-  /**
-   * The ID of the PR author
-   */
-  user_id?: number | undefined;
-  /**
-   * The ISO 8601 timestamp when the PR was created
-   */
-  created_at: string;
-  /**
-   * The ISO 8601 timestamp when the PR was last updated
-   */
-  updated_at: string;
-  /**
-   * The ISO 8601 timestamp when the PR was closed
-   */
-  closed_at?: string | undefined;
-  /**
-   * The ISO 8601 timestamp when the PR was merged
-   */
-  merged_at?: string | undefined;
-  /**
-   * The SHA of the merge commit
-   */
-  merge_commit_sha?: string | undefined;
-  /**
-   * The name of the head branch
-   */
-  head_ref: string;
-  /**
-   * The SHA of the head branch commit
-   */
-  head_sha: string;
-  /**
-   * The name of the base branch
-   */
-  base_ref: string;
-  /**
-   * The SHA of the base branch commit
-   */
-  base_sha: string;
-  /**
-   * Whether the pull request is a draft
-   */
-  draft: boolean;
-  /**
-   * The URL to view the pull request on GitHub
-   */
-  html_url: string;
-  /**
-   * The full name of the repository (e.g., "owner/repo")
-   */
-  repo_full_name: string;
-  /**
-   * Labels attached to the pull request
-   */
-  labels: ({  id: number;
-  name: string;
-  color: string;
-  description?: string | undefined;})[];
-  /**
-   * Users assigned to the pull request
-   */
-  assignees: ({  login: string;
-  id: number;})[];
-  /**
-   * Users requested to review the pull request
-   */
-  requested_reviewers: ({  login: string;
-  id: number;})[];
-};
-
 export interface SyncMetadata_github_pullrequests {
   repos: string[];
 };
@@ -32138,32 +46024,6 @@ export interface Release {
 export interface SyncMetadata_github_releases {
   repos?: ({  owner: string;
   name: string;})[] | undefined;
-};
-
-export interface Repository {
-  id: string;
-  name: string;
-  full_name: string;
-  owner_login: string;
-  owner_id: string;
-  owner_type: string;
-  private: boolean;
-  visibility?: string | undefined;
-  html_url: string;
-  description?: string | undefined;
-  fork: boolean;
-  default_branch: string;
-  created_at?: string | undefined;
-  updated_at?: string | undefined;
-  pushed_at?: string | undefined;
-  homepage?: string | undefined;
-  language?: string | undefined;
-  size: number;
-  forks_count: number;
-  stargazers_count: number;
-  open_issues_count: number;
-  archived?: boolean | undefined;
-  disabled?: boolean | undefined;
 };
 
 export interface FileMetadata {
@@ -34744,31 +48604,6 @@ export interface ActionOutput_github_app_repositories {
   web_commit_signoff_required: boolean;})[];
 };
 
-export interface Branch {
-  id: string;
-  name: string;
-  project_id: string;
-  merged?: boolean | undefined;
-  protected?: boolean | undefined;
-  default?: boolean | undefined;
-  developers_can_push?: boolean | undefined;
-  developers_can_merge?: boolean | undefined;
-  can_push?: boolean | undefined;
-  web_url?: string | undefined;
-  commit_id?: string | undefined;
-  commit_short_id?: string | undefined;
-  commit_created_at?: string | undefined;
-  commit_title?: string | undefined;
-  commit_message?: string | undefined;
-  commit_author_name?: string | undefined;
-  commit_author_email?: string | undefined;
-  commit_authored_date?: string | undefined;
-  commit_committer_name?: string | undefined;
-  commit_committer_email?: string | undefined;
-  commit_committed_date?: string | undefined;
-  commit_web_url?: string | undefined;
-};
-
 export interface SyncMetadata_gitlab_commits {
   project_id?: string | undefined;
 };
@@ -34791,14 +48626,6 @@ export interface MergeRequest {
   labels?: string[] | undefined;
   merged_at?: string | undefined;
   closed_at?: string | undefined;
-};
-
-export interface Pipeline {
-  id: string;
-  name?: string | undefined;
-  update_time: string;
-  add_time?: string | undefined;
-  is_deal_probability_enabled?: boolean | undefined;
 };
 
 export interface SyncMetadata_gitlab_pipelines {
@@ -37225,35 +51052,6 @@ export interface SyncMetadata_gong_calltranscripts {
   lastSyncBackfillPeriod?: number | undefined;
   callIds?: string[] | undefined;
   workspaceId?: string | undefined;
-};
-
-export interface Call {
-  id: string;
-  subject?: string | undefined;
-  callType?: string | undefined;
-  callPurpose?: string | undefined;
-  callResult?: string | undefined;
-  callDuration?: string | undefined;
-  callDurationInSeconds?: string | undefined;
-  callStartTime?: string | undefined;
-  description?: string | undefined;
-  dialledNumber?: string | undefined;
-  callerId?: string | undefined;
-  reminder?: string | undefined;
-  modifiedTime: string;
-  createdTime?: string | undefined;
-  ownerName?: string | undefined;
-  ownerId?: string | undefined;
-  ownerEmail?: string | undefined;
-  createdByName?: string | undefined;
-  createdById?: string | undefined;
-  modifiedByName?: string | undefined;
-  modifiedById?: string | undefined;
-  relatedToName?: string | undefined;
-  relatedToId?: string | undefined;
-  contactName?: string | undefined;
-  contactId?: string | undefined;
-  tags?: string[] | undefined;
 };
 
 export interface SyncMetadata_gong_calls {
@@ -43475,21 +57273,6 @@ export interface SyncMetadata_google_drive_documents {
   folders?: string[] | undefined;
 };
 
-export interface Permission {
-  id: string;
-  itemId: string;
-  permissionId: string;
-  roles?: string[] | undefined;
-  grantedToV2?: {  [key: string]: unknown | undefined;};
-  grantedToIdentitiesV2?: ({  [key: string]: unknown | undefined;})[];
-  link?: {  [key: string]: unknown | undefined;};
-  invitation?: {  [key: string]: unknown | undefined;};
-  shareId?: string | undefined;
-  expirationDateTime?: string | undefined;
-  hasPassword?: boolean | undefined;
-  inheritedFrom?: {  [key: string]: unknown | undefined;};
-};
-
 export interface SharedDrive {
   id: string;
   name: string;
@@ -45894,12 +59677,6 @@ export interface ActionOutput_google_mail_watchmailbox {
    * The expiration time of the watch as a timestamp in milliseconds.
    */
   expiration: string;
-};
-
-export interface Row {
-  id: string;
-  rowIndex: number;
-  values: any[];
 };
 
 export interface SyncMetadata_google_sheet_rows {
@@ -58011,27 +71788,6 @@ export interface Board {
   shortLink?: string | undefined;
 };
 
-export interface Column {
-  id: string;
-  database_name: string;
-  schema_name: string;
-  table_name: string;
-  column_name: string;
-  ordinal_position?: number | undefined;
-  data_type?: string | undefined;
-  data_type_type?: string | undefined;
-  data_type_precision?: number | undefined;
-  data_type_scale?: number | undefined;
-  data_type_byte_length?: number | undefined;
-  data_type_length?: number | undefined;
-  nullable?: boolean | undefined;
-  default_value?: string | undefined;
-  kind?: string | undefined;
-  expression?: string | undefined;
-  comment?: string | undefined;
-  autoincrement?: string | undefined;
-};
-
 export interface Subitem {
   id: string;
   name?: string | undefined;
@@ -60931,22 +74687,6 @@ export interface CrmLead {
   stage_id?: string | undefined;
   stage_name?: string | undefined;
   write_date?: string | undefined;
-};
-
-export interface Invoice {
-  id: string;
-  invoice_number?: string | undefined;
-  status?: string | undefined;
-  customer_id?: string | undefined;
-  customer_name?: string | undefined;
-  reference_number?: string | undefined;
-  date?: string | undefined;
-  due_date?: string | undefined;
-  currency_code?: string | undefined;
-  total?: number | undefined;
-  balance?: number | undefined;
-  created_time?: string | undefined;
-  last_modified_time?: string | undefined;
 };
 
 export interface SaleOrder {
@@ -64931,72 +78671,6 @@ export interface ActionInput_perimeter81_deleteuser {
 
 export interface ActionOutput_perimeter81_deleteuser {
   success: boolean;
-};
-
-export interface Activity {
-  id: string;
-  subject?: string | undefined;
-  type?: string | undefined;
-  done?: boolean | undefined;
-  due_date?: string | undefined;
-  due_time?: string | undefined;
-  duration?: string | undefined;
-  add_time?: string | undefined;
-  update_time?: string | undefined;
-  user_id?: number | undefined;
-  deal_id?: number | undefined;
-  person_id?: number | undefined;
-  org_id?: number | undefined;
-  lead_id?: string | undefined;
-  note?: string | undefined;
-  active_flag?: boolean | undefined;
-  public_description?: string | undefined;
-  busy_flag?: boolean | undefined;
-  marked_as_done_time?: string | undefined;
-  created_by_user_id?: number | undefined;
-  assigned_to_user_id?: number | undefined;
-};
-
-export interface Lead {
-  id: string;
-  company?: string | undefined;
-  email?: string | undefined;
-  firstName?: string | undefined;
-  lastName: string;
-  fullName?: string | undefined;
-  phone?: string | undefined;
-  mobile?: string | undefined;
-  status?: string | undefined;
-  source?: string | undefined;
-  designation?: string | undefined;
-  website?: string | undefined;
-  industry?: string | undefined;
-  annualRevenue?: number | undefined;
-  employees?: number | undefined;
-  skypeId?: string | undefined;
-  twitter?: string | undefined;
-  street?: string | undefined;
-  city?: string | undefined;
-  state?: string | undefined;
-  zipCode?: string | undefined;
-  country?: string | undefined;
-  description?: string | undefined;
-  emailOptOut?: boolean | undefined;
-  createdTime: string;
-  modifiedTime: string;
-  createdById?: string | undefined;
-  createdByName?: string | undefined;
-  createdByEmail?: string | undefined;
-  modifiedById?: string | undefined;
-  modifiedByName?: string | undefined;
-  modifiedByEmail?: string | undefined;
-  ownerId?: string | undefined;
-  ownerName?: string | undefined;
-  ownerEmail?: string | undefined;
-  rating?: string | undefined;
-  fax?: string | undefined;
-  secondaryEmail?: string | undefined;
-  tags?: string[] | undefined;
 };
 
 export interface Stage {
@@ -71276,32 +84950,6 @@ export interface Estimate {
   tags?: ({  [key: string]: unknown | undefined;})[];
 };
 
-export interface Item {
-  id: string;
-  name?: string | undefined;
-  status?: string | undefined;
-  rate?: number | undefined;
-  unit?: string | undefined;
-  description?: string | undefined;
-  item_type?: string | undefined;
-  product_type?: string | undefined;
-  tax_id?: string | undefined;
-  tax_name?: string | undefined;
-  tax_percentage?: number | undefined;
-  account_id?: string | undefined;
-  account_name?: string | undefined;
-  purchase_rate?: number | undefined;
-  purchase_account_id?: string | undefined;
-  purchase_account_name?: string | undefined;
-  can_be_sold?: boolean | undefined;
-  can_be_purchased?: boolean | undefined;
-  track_inventory?: boolean | undefined;
-  sku?: string | undefined;
-  source?: string | undefined;
-  created_time?: string | undefined;
-  last_modified_time?: string | undefined;
-};
-
 export interface JournalEntry {
   id: string;
   docNumber?: string | undefined;
@@ -71331,34 +84979,6 @@ export interface JournalEntry {
   name?: string | undefined;};
   exchangeRate?: number | undefined;
   adjustment?: boolean | undefined;
-};
-
-export interface Payment {
-  id: string;
-  payment_id?: string | undefined;
-  payment_number?: string | undefined;
-  invoice_numbers?: string | undefined;
-  date?: string | undefined;
-  payment_mode?: string | undefined;
-  amount?: number | undefined;
-  bcy_amount?: number | undefined;
-  unused_amount?: number | undefined;
-  bcy_unused_amount?: number | undefined;
-  account_id?: string | undefined;
-  account_name?: string | undefined;
-  description?: string | undefined;
-  reference_number?: string | undefined;
-  customer_id?: string | undefined;
-  customer_name?: string | undefined;
-  created_time?: string | undefined;
-  last_modified_time?: string | undefined;
-  bcy_refunded_amount?: number | undefined;
-  payment_type?: string | undefined;
-  payment_status?: string | undefined;
-  currency_code?: string | undefined;
-  currency_symbol?: string | undefined;
-  location_id?: string | undefined;
-  location_name?: string | undefined;
 };
 
 export interface Purchase {
@@ -86838,22 +100458,6 @@ export interface CheckoutSession {
   url?: string | undefined;
 };
 
-export interface CreditNote {
-  id: string;
-  creditnote_number?: string | undefined;
-  status?: string | undefined;
-  reference_number?: string | undefined;
-  date?: string | undefined;
-  issued_date?: string | undefined;
-  total?: number | undefined;
-  balance?: number | undefined;
-  customer_id?: string | undefined;
-  customer_name?: string | undefined;
-  currency_code?: string | undefined;
-  created_time?: string | undefined;
-  last_modified_time?: string | undefined;
-};
-
 export interface InvoiceItem {
   id: string;
   amount: number;
@@ -86980,26 +100584,6 @@ export interface SetupIntent {
   cancellation_reason?: string | undefined;
   livemode?: boolean | undefined;
   metadata?: {  [key: string]: unknown | undefined;};
-};
-
-export interface Subscription {
-  id: string;
-  status: string;
-  customer: string;
-  created: number;
-  current_period_start?: number | undefined;
-  current_period_end?: number | undefined;
-  cancel_at_period_end?: boolean | undefined;
-  canceled_at?: number | undefined;
-  ended_at?: number | undefined;
-  collection_method?: string | undefined;
-  currency?: string | undefined;
-  description?: string | undefined;
-  metadata?: {  [key: string]: string;} | undefined;
-  items?: ({  id: string;
-  price_id?: string | undefined;
-  product_id?: string | undefined;
-  quantity?: number | undefined;})[];
 };
 
 export interface ActionInput_stripe_cancelpaymentintent {
@@ -106954,78 +120538,6 @@ export interface SyncMetadata_zoho_books_items {
   organization_id: string;
 };
 
-export interface Journal {
-  id: string;
-  entry_number?: string | undefined;
-  reference_number?: string | undefined;
-  notes?: string | undefined;
-  currency_id?: string | undefined;
-  currency_code?: string | undefined;
-  currency_symbol?: string | undefined;
-  exchange_rate?: number | undefined;
-  journal_date?: string | undefined;
-  journal_type?: string | undefined;
-  vat_treatment?: string | undefined;
-  product_type?: string | undefined;
-  include_in_vat_return?: boolean | undefined;
-  is_bas_adjustment?: boolean | undefined;
-  line_items?: ({  line_id?: string | undefined;
-  account_id?: string | undefined;
-  customer_id?: string | undefined;
-  customer_name?: string | undefined;
-  account_name?: string | undefined;
-  description?: string | undefined;
-  debit_or_credit?: string | undefined;
-  tax_exemption_id?: string | undefined;
-  tax_exemption_type?: string | undefined;
-  tax_exemption_code?: string | undefined;
-  tax_authority_id?: string | undefined;
-  tax_authority_name?: string | undefined;
-  tax_id?: string | undefined;
-  tax_name?: string | undefined;
-  tax_type?: string | undefined;
-  tax_percentage?: string | undefined;
-  amount?: number | undefined;
-  bcy_amount?: number | undefined;
-  acquisition_vat_id?: string | undefined;
-  acquisition_vat_name?: string | undefined;
-  acquisition_vat_percentage?: string | undefined;
-  acquisition_vat_amount?: string | undefined;
-  reverse_charge_vat_id?: string | undefined;
-  reverse_charge_vat_name?: string | undefined;
-  reverse_charge_vat_percentage?: string | undefined;
-  reverse_charge_vat_amount?: string | undefined;
-  tags?: ({  tag_id?: string | undefined;
-  tag_name?: string | undefined;
-  tag_option_id?: string | undefined;
-  tag_option_name?: string | undefined;
-  is_tag_mandatory?: boolean | undefined;})[];
-  location_id?: string | undefined;
-  location_name?: string | undefined;
-  project_id?: string | undefined;
-  project_name?: string | undefined;})[];
-  location_id?: string | undefined;
-  location_name?: string | undefined;
-  line_item_total?: number | undefined;
-  total?: number | undefined;
-  bcy_total?: number | undefined;
-  price_precision?: number | undefined;
-  taxes?: ({  tax_name?: string | undefined;
-  tax_amount?: number | undefined;
-  debit_or_credit?: string | undefined;
-  tax_account?: boolean | undefined;})[];
-  created_time?: string | undefined;
-  last_modified_time?: string | undefined;
-  status?: string | undefined;
-  custom_fields?: ({  customfield_id?: string | undefined;
-  value?: string | undefined;})[];
-  tags?: ({  tag_id?: string | undefined;
-  tag_name?: string | undefined;
-  tag_option_id?: string | undefined;
-  tag_option_name?: string | undefined;
-  is_tag_mandatory?: boolean | undefined;})[];
-};
-
 export interface SyncMetadata_zoho_books_journals {
   organization_id: string;
 };
@@ -115033,22 +128545,6 @@ export interface ActionOutput_zoho_crm_upsertrecords {
    * Total number of records processed
    */
   totalCount: number;
-};
-
-export interface Agent {
-  id: string;
-  firstName?: string | undefined;
-  lastName?: string | undefined;
-  emailId?: string | undefined;
-  roleId?: string | undefined;
-  profileId?: string | undefined;
-  status?: string | undefined;
-  isActive?: boolean | undefined;
-  isConfirmed?: boolean | undefined;
-  photoURL?: string | undefined;
-  zuid?: string | undefined;
-  createdTime?: string | undefined;
-  modifiedTime?: string | undefined;
 };
 
 export interface ActionInput_zoho_desk_createcontact {

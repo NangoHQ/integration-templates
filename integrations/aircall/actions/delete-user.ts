@@ -1,30 +1,37 @@
+import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
-import { SuccessResponse, IdEntity } from '../models.js';
+
+const InputSchema = z.object({
+    id: z.union([z.string(), z.number()]).describe('User ID. Example: "123"')
+});
+
+const OutputSchema = z.object({
+    id: z.union([z.string(), z.number()]),
+    success: z.boolean()
+});
 
 const action = createAction({
-    description: 'Deletes a user in Aircall',
-    version: '2.0.1',
+    description: 'Delete a user in Aircall.',
+    version: '1.0.0',
+    input: InputSchema,
+    output: OutputSchema,
+    endpoint: {
+        path: '/actions/delete-user',
+        method: 'POST'
+    },
+    scopes: ['users:write'],
 
-    input: IdEntity,
-    output: SuccessResponse,
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const userId = typeof input.id === 'number' ? String(input.id) : input.id;
 
-    exec: async (nango, input): Promise<SuccessResponse> => {
-        if (!input || !input.id) {
-            throw new nango.ActionError({
-                message: 'Id is required'
-            });
-        }
-
-        const config: ProxyConfiguration = {
-            // https://developer.aircall.io/api-references/#delete-a-user
-            endpoint: `/v1/users/${input.id}`,
+        // https://developer.aircall.io/api-references/#delete-a-user
+        await nango.delete({
+            endpoint: `/v1/users/${encodeURIComponent(userId)}`,
             retries: 3
-        };
-
-        await nango.delete(config);
+        });
 
         return {
+            id: input.id,
             success: true
         };
     }

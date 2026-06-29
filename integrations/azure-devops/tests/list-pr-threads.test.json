@@ -1,0 +1,642 @@
+{
+  "input": {
+    "project": "nangodev",
+    "repositoryId": "46eadaf5-eb36-43bc-8297-a9b4043afd09",
+    "pullRequestId": 1
+  },
+  "output": {
+    "threads": [
+      {
+        "id": 1,
+        "comments": [
+          {
+            "id": 1,
+            "parentCommentId": 0,
+            "author": {
+              "id": "2a4985d2-16e6-6c2d-a9d5-6dd873b6c65d",
+              "displayName": "Robin Guldener",
+              "uniqueName": "api@nangodevelopers.onmicrosoft.com",
+              "url": "https://spsprodcus7.vssps.visualstudio.com/Abf7b171b-1724-4ebf-8ae7-ccbf15d8a767/_apis/Identities/2a4985d2-16e6-6c2d-a9d5-6dd873b6c65d",
+              "imageUrl": "https://dev.azure.com/nangoapi/_apis/GraphProfile/MemberAvatars/aad.MmE0OTg1ZDItMTZlNi03YzJkLWE5ZDUtNmRkODczYjZjNjVk",
+              "_links": {
+                "avatar": {
+                  "href": "https://dev.azure.com/nangoapi/_apis/GraphProfile/MemberAvatars/aad.MmE0OTg1ZDItMTZlNi03YzJkLWE5ZDUtNmRkODczYjZjNjVk"
+                }
+              },
+              "descriptor": "aad.MmE0OTg1ZDItMTZlNi03YzJkLWE5ZDUtNmRkODczYjZjNjVk"
+            },
+            "content": "Looks good to me! Nango sync config is well structured.",
+            "commentType": "text",
+            "publishedDate": "2026-06-18T07:54:18.05Z",
+            "lastUpdatedDate": "2026-06-18T07:54:18.05Z",
+            "lastContentUpdatedDate": "2026-06-18T07:54:18.05Z",
+            "usersLiked": [],
+            "_links": {
+              "self": {
+                "href": "https://dev.azure.com/nangoapi/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09/pullRequests/1/threads/1/comments/1"
+              },
+              "repository": {
+                "href": "https://dev.azure.com/nangoapi/727607ec-cf74-49dd-9579-17e253b976d2/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09"
+              },
+              "threads": {
+                "href": "https://dev.azure.com/nangoapi/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09/pullRequests/1/threads/1"
+              },
+              "pullRequests": {
+                "href": "https://dev.azure.com/nangoapi/_apis/git/pullRequests/1"
+              }
+            }
+          }
+        ],
+        "publishedDate": "2026-06-18T07:54:18.05Z",
+        "lastUpdatedDate": "2026-06-18T07:54:18.05Z",
+        "status": "active",
+        "threadContext": null,
+        "pullRequestThreadContext": null,
+        "properties": null,
+        "identities": null,
+        "isDeleted": false,
+        "_links": {
+          "self": {
+            "href": "https://dev.azure.com/nangoapi/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09/pullRequests/1/threads/1"
+          },
+          "repository": {
+            "href": "https://dev.azure.com/nangoapi/727607ec-cf74-49dd-9579-17e253b976d2/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09"
+          }
+        }
+      },
+      {
+        "id": 2,
+        "comments": [
+          {
+            "id": 1,
+            "parentCommentId": 0,
+            "author": {
+              "id": "2a4985d2-16e6-6c2d-a9d5-6dd873b6c65d",
+              "displayName": "Robin Guldener",
+              "uniqueName": "api@nangodevelopers.onmicrosoft.com",
+              "url": "https://spsprodcus7.vssps.visualstudio.com/Abf7b171b-1724-4ebf-8ae7-ccbf15d8a767/_apis/Identities/2a4985d2-16e6-6c2d-a9d5-6dd873b6c65d",
+              "imageUrl": "https://dev.azure.com/nangoapi/_apis/GraphProfile/MemberAvatars/aad.MmE0OTg1ZDItMTZlNi03YzJkLWE5ZDUtNmRkODczYjZjNjVk",
+              "_links": {
+                "avatar": {
+                  "href": "https://dev.azure.com/nangoapi/_apis/GraphProfile/MemberAvatars/aad.MmE0OTg1ZDItMTZlNi03YzJkLWE5ZDUtNmRkODczYjZjNjVk"
+                }
+              },
+              "descriptor": "aad.MmE0OTg1ZDItMTZlNi03YzJkLWE5ZDUtNmRkODczYjZjNjVk"
+            },
+            "content": "Test thread from action",
+            "commentType": "text",
+            "publishedDate": "2026-06-18T08:02:00.09Z",
+            "lastUpdatedDate": "2026-06-18T08:02:00.09Z",
+            "lastContentUpdatedDate": "2026-06-18T08:02:00.09Z",
+            "usersLiked": [],
+            "_links": {
+              "self": {
+                "href": "https://dev.azure.com/nangoapi/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09/pullRequests/1/threads/2/comments/1"
+              },
+              "repository": {
+                "href": "https://dev.azure.com/nangoapi/727607ec-cf74-49dd-9579-17e253b976d2/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09"
+              },
+              "threads": {
+                "href": "https://dev.azure.com/nangoapi/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09/pullRequests/1/threads/2"
+              },
+              "pullRequests": {
+                "href": "https://dev.azure.com/nangoapi/_apis/git/pullRequests/1"
+              }
+            }
+          }
+        ],
+        "publishedDate": "2026-06-18T08:02:00.09Z",
+        "lastUpdatedDate": "2026-06-18T08:02:00.09Z",
+        "status": "active",
+        "threadContext": null,
+        "pullRequestThreadContext": null,
+        "properties": null,
+        "identities": null,
+        "isDeleted": false,
+        "_links": {
+          "self": {
+            "href": "https://dev.azure.com/nangoapi/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09/pullRequests/1/threads/2"
+          },
+          "repository": {
+            "href": "https://dev.azure.com/nangoapi/727607ec-cf74-49dd-9579-17e253b976d2/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09"
+          }
+        }
+      },
+      {
+        "id": 3,
+        "comments": [
+          {
+            "id": 1,
+            "parentCommentId": 0,
+            "author": {
+              "id": "2a4985d2-16e6-6c2d-a9d5-6dd873b6c65d",
+              "displayName": "Robin Guldener",
+              "uniqueName": "api@nangodevelopers.onmicrosoft.com",
+              "url": "https://spsprodcus7.vssps.visualstudio.com/Abf7b171b-1724-4ebf-8ae7-ccbf15d8a767/_apis/Identities/2a4985d2-16e6-6c2d-a9d5-6dd873b6c65d",
+              "imageUrl": "https://dev.azure.com/nangoapi/_apis/GraphProfile/MemberAvatars/aad.MmE0OTg1ZDItMTZlNi03YzJkLWE5ZDUtNmRkODczYjZjNjVk",
+              "_links": {
+                "avatar": {
+                  "href": "https://dev.azure.com/nangoapi/_apis/GraphProfile/MemberAvatars/aad.MmE0OTg1ZDItMTZlNi03YzJkLWE5ZDUtNmRkODczYjZjNjVk"
+                }
+              },
+              "descriptor": "aad.MmE0OTg1ZDItMTZlNi03YzJkLWE5ZDUtNmRkODczYjZjNjVk"
+            },
+            "content": "Test comment from create-pr-thread action",
+            "commentType": "text",
+            "publishedDate": "2026-06-18T08:02:44.713Z",
+            "lastUpdatedDate": "2026-06-18T08:02:44.713Z",
+            "lastContentUpdatedDate": "2026-06-18T08:02:44.713Z",
+            "usersLiked": [],
+            "_links": {
+              "self": {
+                "href": "https://dev.azure.com/nangoapi/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09/pullRequests/1/threads/3/comments/1"
+              },
+              "repository": {
+                "href": "https://dev.azure.com/nangoapi/727607ec-cf74-49dd-9579-17e253b976d2/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09"
+              },
+              "threads": {
+                "href": "https://dev.azure.com/nangoapi/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09/pullRequests/1/threads/3"
+              },
+              "pullRequests": {
+                "href": "https://dev.azure.com/nangoapi/_apis/git/pullRequests/1"
+              }
+            }
+          }
+        ],
+        "publishedDate": "2026-06-18T08:02:44.713Z",
+        "lastUpdatedDate": "2026-06-18T08:02:44.713Z",
+        "status": "active",
+        "threadContext": null,
+        "pullRequestThreadContext": null,
+        "properties": null,
+        "identities": null,
+        "isDeleted": false,
+        "_links": {
+          "self": {
+            "href": "https://dev.azure.com/nangoapi/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09/pullRequests/1/threads/3"
+          },
+          "repository": {
+            "href": "https://dev.azure.com/nangoapi/727607ec-cf74-49dd-9579-17e253b976d2/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09"
+          }
+        }
+      },
+      {
+        "id": 4,
+        "comments": [
+          {
+            "id": 1,
+            "parentCommentId": 0,
+            "author": {
+              "id": "2a4985d2-16e6-6c2d-a9d5-6dd873b6c65d",
+              "displayName": "Robin Guldener",
+              "uniqueName": "api@nangodevelopers.onmicrosoft.com",
+              "url": "https://spsprodcus7.vssps.visualstudio.com/Abf7b171b-1724-4ebf-8ae7-ccbf15d8a767/_apis/Identities/2a4985d2-16e6-6c2d-a9d5-6dd873b6c65d",
+              "imageUrl": "https://dev.azure.com/nangoapi/_apis/GraphProfile/MemberAvatars/aad.MmE0OTg1ZDItMTZlNi03YzJkLWE5ZDUtNmRkODczYjZjNjVk",
+              "_links": {
+                "avatar": {
+                  "href": "https://dev.azure.com/nangoapi/_apis/GraphProfile/MemberAvatars/aad.MmE0OTg1ZDItMTZlNi03YzJkLWE5ZDUtNmRkODczYjZjNjVk"
+                }
+              },
+              "descriptor": "aad.MmE0OTg1ZDItMTZlNi03YzJkLWE5ZDUtNmRkODczYjZjNjVk"
+            },
+            "content": "Test comment from create-pr-thread action",
+            "commentType": "text",
+            "publishedDate": "2026-06-18T08:02:52.51Z",
+            "lastUpdatedDate": "2026-06-18T08:02:52.51Z",
+            "lastContentUpdatedDate": "2026-06-18T08:02:52.51Z",
+            "usersLiked": [],
+            "_links": {
+              "self": {
+                "href": "https://dev.azure.com/nangoapi/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09/pullRequests/1/threads/4/comments/1"
+              },
+              "repository": {
+                "href": "https://dev.azure.com/nangoapi/727607ec-cf74-49dd-9579-17e253b976d2/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09"
+              },
+              "threads": {
+                "href": "https://dev.azure.com/nangoapi/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09/pullRequests/1/threads/4"
+              },
+              "pullRequests": {
+                "href": "https://dev.azure.com/nangoapi/_apis/git/pullRequests/1"
+              }
+            }
+          }
+        ],
+        "publishedDate": "2026-06-18T08:02:52.51Z",
+        "lastUpdatedDate": "2026-06-18T08:02:52.51Z",
+        "status": "active",
+        "threadContext": null,
+        "pullRequestThreadContext": null,
+        "properties": null,
+        "identities": null,
+        "isDeleted": false,
+        "_links": {
+          "self": {
+            "href": "https://dev.azure.com/nangoapi/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09/pullRequests/1/threads/4"
+          },
+          "repository": {
+            "href": "https://dev.azure.com/nangoapi/727607ec-cf74-49dd-9579-17e253b976d2/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09"
+          }
+        }
+      },
+      {
+        "id": 5,
+        "comments": [
+          {
+            "id": 1,
+            "parentCommentId": 0,
+            "author": {
+              "id": "2a4985d2-16e6-6c2d-a9d5-6dd873b6c65d",
+              "displayName": "Robin Guldener",
+              "uniqueName": "api@nangodevelopers.onmicrosoft.com",
+              "url": "https://spsprodcus7.vssps.visualstudio.com/Abf7b171b-1724-4ebf-8ae7-ccbf15d8a767/_apis/Identities/2a4985d2-16e6-6c2d-a9d5-6dd873b6c65d",
+              "imageUrl": "https://dev.azure.com/nangoapi/_apis/GraphProfile/MemberAvatars/aad.MmE0OTg1ZDItMTZlNi03YzJkLWE5ZDUtNmRkODczYjZjNjVk",
+              "_links": {
+                "avatar": {
+                  "href": "https://dev.azure.com/nangoapi/_apis/GraphProfile/MemberAvatars/aad.MmE0OTg1ZDItMTZlNi03YzJkLWE5ZDUtNmRkODczYjZjNjVk"
+                }
+              },
+              "descriptor": "aad.MmE0OTg1ZDItMTZlNi03YzJkLWE5ZDUtNmRkODczYjZjNjVk"
+            },
+            "content": "Test comment after retries fix",
+            "commentType": "text",
+            "publishedDate": "2026-06-18T08:04:33.13Z",
+            "lastUpdatedDate": "2026-06-18T08:04:33.13Z",
+            "lastContentUpdatedDate": "2026-06-18T08:04:33.13Z",
+            "usersLiked": [],
+            "_links": {
+              "self": {
+                "href": "https://dev.azure.com/nangoapi/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09/pullRequests/1/threads/5/comments/1"
+              },
+              "repository": {
+                "href": "https://dev.azure.com/nangoapi/727607ec-cf74-49dd-9579-17e253b976d2/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09"
+              },
+              "threads": {
+                "href": "https://dev.azure.com/nangoapi/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09/pullRequests/1/threads/5"
+              },
+              "pullRequests": {
+                "href": "https://dev.azure.com/nangoapi/_apis/git/pullRequests/1"
+              }
+            }
+          }
+        ],
+        "publishedDate": "2026-06-18T08:04:33.13Z",
+        "lastUpdatedDate": "2026-06-18T08:04:33.13Z",
+        "status": "active",
+        "threadContext": null,
+        "pullRequestThreadContext": null,
+        "properties": null,
+        "identities": null,
+        "isDeleted": false,
+        "_links": {
+          "self": {
+            "href": "https://dev.azure.com/nangoapi/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09/pullRequests/1/threads/5"
+          },
+          "repository": {
+            "href": "https://dev.azure.com/nangoapi/727607ec-cf74-49dd-9579-17e253b976d2/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09"
+          }
+        }
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/nangodev/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09/pullRequests/1/threads": {
+        "response": {
+          "value": [
+            {
+              "pullRequestThreadContext": null,
+              "id": 1,
+              "publishedDate": "2026-06-18T07:54:18.05Z",
+              "lastUpdatedDate": "2026-06-18T07:54:18.05Z",
+              "comments": [
+                {
+                  "id": 1,
+                  "parentCommentId": 0,
+                  "author": {
+                    "displayName": "Robin Guldener",
+                    "url": "https://spsprodcus7.vssps.visualstudio.com/Abf7b171b-1724-4ebf-8ae7-ccbf15d8a767/_apis/Identities/2a4985d2-16e6-6c2d-a9d5-6dd873b6c65d",
+                    "_links": {
+                      "avatar": {
+                        "href": "https://dev.azure.com/nangoapi/_apis/GraphProfile/MemberAvatars/aad.MmE0OTg1ZDItMTZlNi03YzJkLWE5ZDUtNmRkODczYjZjNjVk"
+                      }
+                    },
+                    "id": "2a4985d2-16e6-6c2d-a9d5-6dd873b6c65d",
+                    "uniqueName": "api@nangodevelopers.onmicrosoft.com",
+                    "imageUrl": "https://dev.azure.com/nangoapi/_apis/GraphProfile/MemberAvatars/aad.MmE0OTg1ZDItMTZlNi03YzJkLWE5ZDUtNmRkODczYjZjNjVk",
+                    "descriptor": "aad.MmE0OTg1ZDItMTZlNi03YzJkLWE5ZDUtNmRkODczYjZjNjVk"
+                  },
+                  "content": "Looks good to me! Nango sync config is well structured.",
+                  "publishedDate": "2026-06-18T07:54:18.05Z",
+                  "lastUpdatedDate": "2026-06-18T07:54:18.05Z",
+                  "lastContentUpdatedDate": "2026-06-18T07:54:18.05Z",
+                  "commentType": "text",
+                  "usersLiked": [],
+                  "_links": {
+                    "self": {
+                      "href": "https://dev.azure.com/nangoapi/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09/pullRequests/1/threads/1/comments/1"
+                    },
+                    "repository": {
+                      "href": "https://dev.azure.com/nangoapi/727607ec-cf74-49dd-9579-17e253b976d2/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09"
+                    },
+                    "threads": {
+                      "href": "https://dev.azure.com/nangoapi/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09/pullRequests/1/threads/1"
+                    },
+                    "pullRequests": {
+                      "href": "https://dev.azure.com/nangoapi/_apis/git/pullRequests/1"
+                    }
+                  }
+                }
+              ],
+              "status": "active",
+              "threadContext": null,
+              "properties": null,
+              "identities": null,
+              "isDeleted": false,
+              "_links": {
+                "self": {
+                  "href": "https://dev.azure.com/nangoapi/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09/pullRequests/1/threads/1"
+                },
+                "repository": {
+                  "href": "https://dev.azure.com/nangoapi/727607ec-cf74-49dd-9579-17e253b976d2/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09"
+                }
+              }
+            },
+            {
+              "pullRequestThreadContext": null,
+              "id": 2,
+              "publishedDate": "2026-06-18T08:02:00.09Z",
+              "lastUpdatedDate": "2026-06-18T08:02:00.09Z",
+              "comments": [
+                {
+                  "id": 1,
+                  "parentCommentId": 0,
+                  "author": {
+                    "displayName": "Robin Guldener",
+                    "url": "https://spsprodcus7.vssps.visualstudio.com/Abf7b171b-1724-4ebf-8ae7-ccbf15d8a767/_apis/Identities/2a4985d2-16e6-6c2d-a9d5-6dd873b6c65d",
+                    "_links": {
+                      "avatar": {
+                        "href": "https://dev.azure.com/nangoapi/_apis/GraphProfile/MemberAvatars/aad.MmE0OTg1ZDItMTZlNi03YzJkLWE5ZDUtNmRkODczYjZjNjVk"
+                      }
+                    },
+                    "id": "2a4985d2-16e6-6c2d-a9d5-6dd873b6c65d",
+                    "uniqueName": "api@nangodevelopers.onmicrosoft.com",
+                    "imageUrl": "https://dev.azure.com/nangoapi/_apis/GraphProfile/MemberAvatars/aad.MmE0OTg1ZDItMTZlNi03YzJkLWE5ZDUtNmRkODczYjZjNjVk",
+                    "descriptor": "aad.MmE0OTg1ZDItMTZlNi03YzJkLWE5ZDUtNmRkODczYjZjNjVk"
+                  },
+                  "content": "Test thread from action",
+                  "publishedDate": "2026-06-18T08:02:00.09Z",
+                  "lastUpdatedDate": "2026-06-18T08:02:00.09Z",
+                  "lastContentUpdatedDate": "2026-06-18T08:02:00.09Z",
+                  "commentType": "text",
+                  "usersLiked": [],
+                  "_links": {
+                    "self": {
+                      "href": "https://dev.azure.com/nangoapi/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09/pullRequests/1/threads/2/comments/1"
+                    },
+                    "repository": {
+                      "href": "https://dev.azure.com/nangoapi/727607ec-cf74-49dd-9579-17e253b976d2/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09"
+                    },
+                    "threads": {
+                      "href": "https://dev.azure.com/nangoapi/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09/pullRequests/1/threads/2"
+                    },
+                    "pullRequests": {
+                      "href": "https://dev.azure.com/nangoapi/_apis/git/pullRequests/1"
+                    }
+                  }
+                }
+              ],
+              "status": "active",
+              "threadContext": null,
+              "properties": null,
+              "identities": null,
+              "isDeleted": false,
+              "_links": {
+                "self": {
+                  "href": "https://dev.azure.com/nangoapi/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09/pullRequests/1/threads/2"
+                },
+                "repository": {
+                  "href": "https://dev.azure.com/nangoapi/727607ec-cf74-49dd-9579-17e253b976d2/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09"
+                }
+              }
+            },
+            {
+              "pullRequestThreadContext": null,
+              "id": 3,
+              "publishedDate": "2026-06-18T08:02:44.713Z",
+              "lastUpdatedDate": "2026-06-18T08:02:44.713Z",
+              "comments": [
+                {
+                  "id": 1,
+                  "parentCommentId": 0,
+                  "author": {
+                    "displayName": "Robin Guldener",
+                    "url": "https://spsprodcus7.vssps.visualstudio.com/Abf7b171b-1724-4ebf-8ae7-ccbf15d8a767/_apis/Identities/2a4985d2-16e6-6c2d-a9d5-6dd873b6c65d",
+                    "_links": {
+                      "avatar": {
+                        "href": "https://dev.azure.com/nangoapi/_apis/GraphProfile/MemberAvatars/aad.MmE0OTg1ZDItMTZlNi03YzJkLWE5ZDUtNmRkODczYjZjNjVk"
+                      }
+                    },
+                    "id": "2a4985d2-16e6-6c2d-a9d5-6dd873b6c65d",
+                    "uniqueName": "api@nangodevelopers.onmicrosoft.com",
+                    "imageUrl": "https://dev.azure.com/nangoapi/_apis/GraphProfile/MemberAvatars/aad.MmE0OTg1ZDItMTZlNi03YzJkLWE5ZDUtNmRkODczYjZjNjVk",
+                    "descriptor": "aad.MmE0OTg1ZDItMTZlNi03YzJkLWE5ZDUtNmRkODczYjZjNjVk"
+                  },
+                  "content": "Test comment from create-pr-thread action",
+                  "publishedDate": "2026-06-18T08:02:44.713Z",
+                  "lastUpdatedDate": "2026-06-18T08:02:44.713Z",
+                  "lastContentUpdatedDate": "2026-06-18T08:02:44.713Z",
+                  "commentType": "text",
+                  "usersLiked": [],
+                  "_links": {
+                    "self": {
+                      "href": "https://dev.azure.com/nangoapi/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09/pullRequests/1/threads/3/comments/1"
+                    },
+                    "repository": {
+                      "href": "https://dev.azure.com/nangoapi/727607ec-cf74-49dd-9579-17e253b976d2/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09"
+                    },
+                    "threads": {
+                      "href": "https://dev.azure.com/nangoapi/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09/pullRequests/1/threads/3"
+                    },
+                    "pullRequests": {
+                      "href": "https://dev.azure.com/nangoapi/_apis/git/pullRequests/1"
+                    }
+                  }
+                }
+              ],
+              "status": "active",
+              "threadContext": null,
+              "properties": null,
+              "identities": null,
+              "isDeleted": false,
+              "_links": {
+                "self": {
+                  "href": "https://dev.azure.com/nangoapi/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09/pullRequests/1/threads/3"
+                },
+                "repository": {
+                  "href": "https://dev.azure.com/nangoapi/727607ec-cf74-49dd-9579-17e253b976d2/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09"
+                }
+              }
+            },
+            {
+              "pullRequestThreadContext": null,
+              "id": 4,
+              "publishedDate": "2026-06-18T08:02:52.51Z",
+              "lastUpdatedDate": "2026-06-18T08:02:52.51Z",
+              "comments": [
+                {
+                  "id": 1,
+                  "parentCommentId": 0,
+                  "author": {
+                    "displayName": "Robin Guldener",
+                    "url": "https://spsprodcus7.vssps.visualstudio.com/Abf7b171b-1724-4ebf-8ae7-ccbf15d8a767/_apis/Identities/2a4985d2-16e6-6c2d-a9d5-6dd873b6c65d",
+                    "_links": {
+                      "avatar": {
+                        "href": "https://dev.azure.com/nangoapi/_apis/GraphProfile/MemberAvatars/aad.MmE0OTg1ZDItMTZlNi03YzJkLWE5ZDUtNmRkODczYjZjNjVk"
+                      }
+                    },
+                    "id": "2a4985d2-16e6-6c2d-a9d5-6dd873b6c65d",
+                    "uniqueName": "api@nangodevelopers.onmicrosoft.com",
+                    "imageUrl": "https://dev.azure.com/nangoapi/_apis/GraphProfile/MemberAvatars/aad.MmE0OTg1ZDItMTZlNi03YzJkLWE5ZDUtNmRkODczYjZjNjVk",
+                    "descriptor": "aad.MmE0OTg1ZDItMTZlNi03YzJkLWE5ZDUtNmRkODczYjZjNjVk"
+                  },
+                  "content": "Test comment from create-pr-thread action",
+                  "publishedDate": "2026-06-18T08:02:52.51Z",
+                  "lastUpdatedDate": "2026-06-18T08:02:52.51Z",
+                  "lastContentUpdatedDate": "2026-06-18T08:02:52.51Z",
+                  "commentType": "text",
+                  "usersLiked": [],
+                  "_links": {
+                    "self": {
+                      "href": "https://dev.azure.com/nangoapi/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09/pullRequests/1/threads/4/comments/1"
+                    },
+                    "repository": {
+                      "href": "https://dev.azure.com/nangoapi/727607ec-cf74-49dd-9579-17e253b976d2/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09"
+                    },
+                    "threads": {
+                      "href": "https://dev.azure.com/nangoapi/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09/pullRequests/1/threads/4"
+                    },
+                    "pullRequests": {
+                      "href": "https://dev.azure.com/nangoapi/_apis/git/pullRequests/1"
+                    }
+                  }
+                }
+              ],
+              "status": "active",
+              "threadContext": null,
+              "properties": null,
+              "identities": null,
+              "isDeleted": false,
+              "_links": {
+                "self": {
+                  "href": "https://dev.azure.com/nangoapi/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09/pullRequests/1/threads/4"
+                },
+                "repository": {
+                  "href": "https://dev.azure.com/nangoapi/727607ec-cf74-49dd-9579-17e253b976d2/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09"
+                }
+              }
+            },
+            {
+              "pullRequestThreadContext": null,
+              "id": 5,
+              "publishedDate": "2026-06-18T08:04:33.13Z",
+              "lastUpdatedDate": "2026-06-18T08:04:33.13Z",
+              "comments": [
+                {
+                  "id": 1,
+                  "parentCommentId": 0,
+                  "author": {
+                    "displayName": "Robin Guldener",
+                    "url": "https://spsprodcus7.vssps.visualstudio.com/Abf7b171b-1724-4ebf-8ae7-ccbf15d8a767/_apis/Identities/2a4985d2-16e6-6c2d-a9d5-6dd873b6c65d",
+                    "_links": {
+                      "avatar": {
+                        "href": "https://dev.azure.com/nangoapi/_apis/GraphProfile/MemberAvatars/aad.MmE0OTg1ZDItMTZlNi03YzJkLWE5ZDUtNmRkODczYjZjNjVk"
+                      }
+                    },
+                    "id": "2a4985d2-16e6-6c2d-a9d5-6dd873b6c65d",
+                    "uniqueName": "api@nangodevelopers.onmicrosoft.com",
+                    "imageUrl": "https://dev.azure.com/nangoapi/_apis/GraphProfile/MemberAvatars/aad.MmE0OTg1ZDItMTZlNi03YzJkLWE5ZDUtNmRkODczYjZjNjVk",
+                    "descriptor": "aad.MmE0OTg1ZDItMTZlNi03YzJkLWE5ZDUtNmRkODczYjZjNjVk"
+                  },
+                  "content": "Test comment after retries fix",
+                  "publishedDate": "2026-06-18T08:04:33.13Z",
+                  "lastUpdatedDate": "2026-06-18T08:04:33.13Z",
+                  "lastContentUpdatedDate": "2026-06-18T08:04:33.13Z",
+                  "commentType": "text",
+                  "usersLiked": [],
+                  "_links": {
+                    "self": {
+                      "href": "https://dev.azure.com/nangoapi/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09/pullRequests/1/threads/5/comments/1"
+                    },
+                    "repository": {
+                      "href": "https://dev.azure.com/nangoapi/727607ec-cf74-49dd-9579-17e253b976d2/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09"
+                    },
+                    "threads": {
+                      "href": "https://dev.azure.com/nangoapi/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09/pullRequests/1/threads/5"
+                    },
+                    "pullRequests": {
+                      "href": "https://dev.azure.com/nangoapi/_apis/git/pullRequests/1"
+                    }
+                  }
+                }
+              ],
+              "status": "active",
+              "threadContext": null,
+              "properties": null,
+              "identities": null,
+              "isDeleted": false,
+              "_links": {
+                "self": {
+                  "href": "https://dev.azure.com/nangoapi/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09/pullRequests/1/threads/5"
+                },
+                "repository": {
+                  "href": "https://dev.azure.com/nangoapi/727607ec-cf74-49dd-9579-17e253b976d2/_apis/git/repositories/46eadaf5-eb36-43bc-8297-a9b4043afd09"
+                }
+              }
+            }
+          ],
+          "count": 5
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 18 Jun 2026 08:06:09 GMT",
+          "content-type": "application/json; charset=utf-8; api-version=7.2-preview.1",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Request-Context",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4930",
+          "x-ratelimit-reset": "1781769986",
+          "cache-control": "no-cache, no-store, must-revalidate",
+          "pragma": "no-cache",
+          "expires": "-1",
+          "p3p": "CP=\"CAO DSP COR ADMa DEV CONo TELo CUR PSA PSD TAI IVDo OUR SAMi BUS DEM NAV STA UNI COM INT PHY ONL FIN PUR LOC CNT\"",
+          "set-cookie": "VstsSession=%7B%22PersistentSessionId%22%3A%22fafe8cea-3311-467a-b1bd-90f81a158a0c%22%2C%22PendingAuthenticationSessionId%22%3A%2200000000-0000-0000-0000-000000000000%22%2C%22CurrentAuthenticationSessionId%22%3A%2200000000-0000-0000-0000-000000000000%22%2C%22SignInState%22%3A%7B%7D%7D;SameSite=None; domain=.dev.azure.com; expires=Fri, 18-Jun-2027 08:06:09 GMT; path=/; secure; HttpOnly",
+          "x-tfs-processid": "da017fcf-568d-48bf-963f-6d33991df129",
+          "activityid": "6fe59faa-6a49-4132-bd6d-b0d36c8b3ec1",
+          "x-tfs-session": "6fe59faa-6a49-4132-bd6d-b0d36c8b3ec1",
+          "x-vss-e2eid": "6fe59faa-6a49-4132-bd6d-b0d36c8b3ec1",
+          "x-vss-senderdeploymentid": "f466e928-5898-edb4-7123-84c15666043f",
+          "x-vss-userdata": "2a4985d2-16e6-6c2d-a9d5-6dd873b6c65d:api@nangodevelopers.onmicrosoft.com",
+          "request-context": "appId=cid-v1:ba8cca98-f9cc-4f08-a334-706ff8d04ac6",
+          "x-cache": "CONFIG_NOCACHE",
+          "x-msedge-ref": "Ref A: 92B4B64B78434D5EB6276914A9B907E5 Ref B: YVR311000111009 Ref C: 2026-06-18T08:06:09Z"
+        },
+        "hash": "102e1d74ad9fdf869faf2e734edfc372a670987b",
+        "request": {
+          "params": {
+            "api-version": "7.2-preview.1"
+          }
+        }
+      }
+    }
+  }
+}

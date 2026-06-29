@@ -1,0 +1,67 @@
+{
+  "input": {
+    "meeting_id": "01KW0SR4ECSRP8W0CVJ45XW0DT",
+    "action": "pause_recording"
+  },
+  "output": {
+    "success": true,
+    "action": "pause_recording"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/graphql": {
+        "response": {
+          "data": {
+            "updateMeetingState": {
+              "success": true,
+              "action": "pause_recording"
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 26 Jun 2026 01:49:06 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4868",
+          "x-ratelimit-reset": "1782438544",
+          "vary": "Origin",
+          "x-ratelimit-limit-api": "60",
+          "x-ratelimit-remaining-api": "22",
+          "x-ratelimit-reset-api": "5",
+          "x-ratelimit-limit-update_meeting_state": "10",
+          "x-ratelimit-remaining-update_meeting_state": "7",
+          "x-ratelimit-reset-update_meeting_state": "3533",
+          "cache-control": "no-store",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "cf-ray": "a1188da60f7efef6-PDX"
+        },
+        "hash": "fd661c1c7117f581f1a5a6dc7ad0a60f50d1b2b5",
+        "request": {
+          "data": {
+            "query": "mutation UpdateMeetingState($input: UpdateMeetingStateInput!) { updateMeetingState(input: $input) { success action } }",
+            "variables": {
+              "input": {
+                "meeting_id": "01KW0SR4ECSRP8W0CVJ45XW0DT",
+                "action": "pause_recording"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

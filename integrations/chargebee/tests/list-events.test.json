@@ -1,0 +1,1396 @@
+{
+  "input": {
+    "limit": 5
+  },
+  "output": {
+    "items": [
+      {
+        "id": "ev_AzqW60VMycOCJeF5",
+        "occurred_at": 1781857955,
+        "source": "api",
+        "event_type": "credit_note_updated",
+        "api_version": "v2",
+        "content": {
+          "credit_note": {
+            "id": "TEST-CN-11",
+            "customer_id": "169kZjVMyUi68Zxh",
+            "subscription_id": "AzqW60VMyW1TpaXK",
+            "reference_invoice_id": "3",
+            "type": "refundable",
+            "reason_code": "other",
+            "status": "voided",
+            "date": 1781857943,
+            "price_type": "tax_exclusive",
+            "exchange_rate": 1,
+            "total": 1,
+            "amount_allocated": 0,
+            "amount_refunded": 0,
+            "amount_available": 1,
+            "voided_at": 1781857954,
+            "generated_at": 1781857943,
+            "updated_at": 1781857954,
+            "channel": "web",
+            "resource_version": 1781857954945,
+            "deleted": false,
+            "object": "credit_note",
+            "create_reason_code": "Other",
+            "currency_code": "USD",
+            "round_off_amount": 0,
+            "fractional_correction": 0,
+            "base_currency_code": "USD",
+            "sub_total": 1,
+            "line_items": [
+              {
+                "id": "li_AzqOd0VMycLITe2m",
+                "date_from": 1781857943,
+                "date_to": 1781857943,
+                "unit_amount": 1,
+                "quantity": 1,
+                "amount": 1,
+                "pricing_model": "flat_fee",
+                "is_taxed": false,
+                "tax_amount": 0,
+                "object": "line_item",
+                "subscription_id": "AzqW60VMyW1TpaXK",
+                "customer_id": "169kZjVMyUi68Zxh",
+                "description": "Pro Plan Annual",
+                "entity_type": "plan_item_price",
+                "entity_id": "pro-plan-annual",
+                "reference_line_item_id": "li_AzqW60VMyW1UYaXM",
+                "tax_exempt_reason": "tax_not_configured",
+                "discount_amount": 0,
+                "item_level_discount_amount": 0
+              }
+            ],
+            "taxes": [],
+            "line_item_taxes": [],
+            "line_item_discounts": [],
+            "linked_refunds": [],
+            "allocations": [],
+            "billing_address": {
+              "first_name": "Carol",
+              "last_name": "Williams",
+              "company": "Initech LLC",
+              "validation_status": "not_validated",
+              "object": "billing_address"
+            },
+            "customer_notes": "",
+            "notes": [],
+            "site_details_at_creation": {
+              "timezone": "Africa/Nairobi"
+            }
+          }
+        },
+        "user": "full_access_key_v1",
+        "object": "event",
+        "webhook_status": "not_configured",
+        "webhook_failure_reason": ""
+      },
+      {
+        "id": "ev_AzqW60VMycOC5eF3",
+        "occurred_at": 1781857955,
+        "source": "api",
+        "event_type": "customer_changed",
+        "api_version": "v2",
+        "content": {
+          "customer": {
+            "id": "169kZjVMyUi68Zxh",
+            "first_name": "Carol",
+            "last_name": "Williams",
+            "email": "carol@example.com",
+            "company": "Initech LLC",
+            "auto_collection": "on",
+            "net_term_days": 0,
+            "allow_direct_debit": false,
+            "created_at": 1781856124,
+            "taxability": "taxable",
+            "updated_at": 1781857954,
+            "pii_cleared": "active",
+            "channel": "web",
+            "resource_version": 1781857954941,
+            "deleted": false,
+            "object": "customer",
+            "card_status": "no_card",
+            "promotional_credits": 0,
+            "refundable_credits": 0,
+            "excess_payments": 0,
+            "unbilled_charges": 0,
+            "preferred_currency_code": "USD",
+            "mrr": 4083
+          }
+        },
+        "user": "full_access_key_v1",
+        "object": "event",
+        "webhook_status": "not_configured",
+        "webhook_failure_reason": ""
+      },
+      {
+        "id": "ev_AzqW60VMycOBmeF2",
+        "occurred_at": 1781857955,
+        "source": "api",
+        "event_type": "invoice_updated",
+        "api_version": "v2",
+        "content": {
+          "invoice": {
+            "id": "3",
+            "customer_id": "169kZjVMyUi68Zxh",
+            "subscription_id": "AzqW60VMyW1TpaXK",
+            "recurring": true,
+            "status": "payment_due",
+            "date": 1781856437,
+            "due_date": 1781856437,
+            "net_term_days": 0,
+            "price_type": "tax_exclusive",
+            "exchange_rate": 1,
+            "total": 49000,
+            "amount_due": 48993,
+            "amount_adjusted": 0,
+            "amount_paid": 7,
+            "write_off_amount": 0,
+            "credits_applied": 0,
+            "updated_at": 1781857954,
+            "resource_version": 1781857954943,
+            "deleted": false,
+            "object": "invoice",
+            "first_invoice": true,
+            "amount_to_collect": 48993,
+            "round_off_amount": 0,
+            "new_sales_amount": 49000,
+            "has_advance_charges": false,
+            "currency_code": "USD",
+            "base_currency_code": "USD",
+            "generated_at": 1781856437,
+            "is_gifted": false,
+            "term_finalized": true,
+            "channel": "web",
+            "tax": 0,
+            "line_items": [
+              {
+                "id": "li_AzqW60VMyW1UYaXM",
+                "date_from": 1781856437,
+                "date_to": 1813392437,
+                "unit_amount": 49000,
+                "quantity": 1,
+                "amount": 49000,
+                "pricing_model": "flat_fee",
+                "is_taxed": false,
+                "tax_amount": 0,
+                "object": "line_item",
+                "subscription_id": "AzqW60VMyW1TpaXK",
+                "customer_id": "169kZjVMyUi68Zxh",
+                "description": "Pro Plan Annual",
+                "entity_type": "plan_item_price",
+                "entity_id": "pro-plan-annual",
+                "tax_exempt_reason": "tax_not_configured",
+                "discount_amount": 0,
+                "item_level_discount_amount": 0
+              }
+            ],
+            "sub_total": 49000,
+            "linked_payments": [
+              {
+                "txn_id": "txn_AzZPdjVMybnVrdzK",
+                "applied_amount": 1,
+                "applied_at": 1781857814,
+                "txn_status": "success",
+                "txn_date": 1781857814,
+                "txn_amount": 1
+              },
+              {
+                "txn_id": "txn_AzqW60VMybqtLdwh",
+                "applied_amount": 1,
+                "applied_at": 1781857827,
+                "txn_status": "success",
+                "txn_date": 1781857827,
+                "txn_amount": 1
+              },
+              {
+                "txn_id": "txn_169kZjVMybuGveC8",
+                "applied_amount": 1,
+                "applied_at": 1781857840,
+                "txn_status": "success",
+                "txn_date": 1781857840,
+                "txn_amount": 1
+              },
+              {
+                "txn_id": "txn_Azyh5hVMybxgneR4",
+                "applied_amount": 1,
+                "applied_at": 1781857853,
+                "txn_status": "success",
+                "txn_date": 1781857853,
+                "txn_amount": 1
+              },
+              {
+                "txn_id": "txn_AzqW60VMyc10Ie2J",
+                "applied_amount": 1,
+                "applied_at": 1781857865,
+                "txn_status": "success",
+                "txn_date": 1781857865,
+                "txn_amount": 1
+              },
+              {
+                "txn_id": "txn_AzqW60VMycCJqe8R",
+                "applied_amount": 1,
+                "applied_at": 1781857909,
+                "txn_status": "success",
+                "txn_date": 1781857909,
+                "txn_amount": 1
+              },
+              {
+                "txn_id": "txn_AzqOd0VMycLBWe2g",
+                "applied_amount": 1,
+                "applied_at": 1781857943,
+                "txn_status": "success",
+                "txn_date": 1781857943,
+                "txn_amount": 1
+              }
+            ],
+            "applied_credits": [],
+            "reference_transactions": [
+              {
+                "txn_id": "txn_AzZPdjVMybnVrdzK",
+                "applied_amount": 1,
+                "applied_at": 1781857814,
+                "txn_type": "payment",
+                "txn_status": "success",
+                "txn_date": 1781857814,
+                "txn_amount": 1
+              },
+              {
+                "txn_id": "txn_AzqW60VMybqtLdwh",
+                "applied_amount": 1,
+                "applied_at": 1781857827,
+                "txn_type": "payment",
+                "txn_status": "success",
+                "txn_date": 1781857827,
+                "txn_amount": 1
+              },
+              {
+                "txn_id": "txn_169kZjVMybuGveC8",
+                "applied_amount": 1,
+                "applied_at": 1781857840,
+                "txn_type": "payment",
+                "txn_status": "success",
+                "txn_date": 1781857840,
+                "txn_amount": 1
+              },
+              {
+                "txn_id": "txn_Azyh5hVMybxgneR4",
+                "applied_amount": 1,
+                "applied_at": 1781857853,
+                "txn_type": "payment",
+                "txn_status": "success",
+                "txn_date": 1781857853,
+                "txn_amount": 1
+              },
+              {
+                "txn_id": "txn_AzqW60VMyc10Ie2J",
+                "applied_amount": 1,
+                "applied_at": 1781857865,
+                "txn_type": "payment",
+                "txn_status": "success",
+                "txn_date": 1781857865,
+                "txn_amount": 1
+              },
+              {
+                "txn_id": "txn_AzqW60VMycCJqe8R",
+                "applied_amount": 1,
+                "applied_at": 1781857909,
+                "txn_type": "payment",
+                "txn_status": "success",
+                "txn_date": 1781857909,
+                "txn_amount": 1
+              },
+              {
+                "txn_id": "txn_AzqOd0VMycLBWe2g",
+                "applied_amount": 1,
+                "applied_at": 1781857943,
+                "txn_type": "payment",
+                "txn_status": "success",
+                "txn_date": 1781857943,
+                "txn_amount": 1
+              }
+            ],
+            "adjustment_credit_notes": [],
+            "issued_credit_notes": [
+              {
+                "cn_id": "TEST-CN-9",
+                "cn_reason_code": "other",
+                "cn_create_reason_code": "Other",
+                "cn_date": 1781857866,
+                "cn_total": 1,
+                "cn_status": "voided"
+              },
+              {
+                "cn_id": "TEST-CN-10",
+                "cn_reason_code": "other",
+                "cn_create_reason_code": "Other",
+                "cn_date": 1781857909,
+                "cn_total": 1,
+                "cn_status": "voided"
+              },
+              {
+                "cn_id": "TEST-CN-11",
+                "cn_reason_code": "other",
+                "cn_create_reason_code": "Other",
+                "cn_date": 1781857943,
+                "cn_total": 1,
+                "cn_status": "voided"
+              }
+            ],
+            "linked_orders": [],
+            "dunning_attempts": [],
+            "billing_address": {
+              "first_name": "Carol",
+              "last_name": "Williams",
+              "company": "Initech LLC",
+              "validation_status": "not_validated",
+              "object": "billing_address"
+            },
+            "site_details_at_creation": {
+              "timezone": "Africa/Nairobi"
+            }
+          }
+        },
+        "user": "full_access_key_v1",
+        "object": "event",
+        "webhook_status": "not_configured",
+        "webhook_failure_reason": ""
+      },
+      {
+        "id": "ev_AzqOd0VMycLKee2p",
+        "occurred_at": 1781857944,
+        "source": "api",
+        "event_type": "credit_note_created",
+        "api_version": "v2",
+        "content": {
+          "credit_note": {
+            "id": "TEST-CN-11",
+            "customer_id": "169kZjVMyUi68Zxh",
+            "subscription_id": "AzqW60VMyW1TpaXK",
+            "reference_invoice_id": "3",
+            "type": "refundable",
+            "reason_code": "other",
+            "status": "refund_due",
+            "date": 1781857943,
+            "price_type": "tax_exclusive",
+            "exchange_rate": 1,
+            "total": 1,
+            "amount_allocated": 0,
+            "amount_refunded": 0,
+            "amount_available": 1,
+            "generated_at": 1781857943,
+            "updated_at": 1781857943,
+            "channel": "web",
+            "resource_version": 1781857943945,
+            "deleted": false,
+            "object": "credit_note",
+            "create_reason_code": "Other",
+            "currency_code": "USD",
+            "round_off_amount": 0,
+            "fractional_correction": 0,
+            "base_currency_code": "USD",
+            "sub_total": 1,
+            "line_items": [
+              {
+                "id": "li_AzqOd0VMycLITe2m",
+                "date_from": 1781857943,
+                "date_to": 1781857943,
+                "unit_amount": 1,
+                "quantity": 1,
+                "amount": 1,
+                "pricing_model": "flat_fee",
+                "is_taxed": false,
+                "tax_amount": 0,
+                "object": "line_item",
+                "subscription_id": "AzqW60VMyW1TpaXK",
+                "customer_id": "169kZjVMyUi68Zxh",
+                "description": "Pro Plan Annual",
+                "entity_type": "plan_item_price",
+                "entity_id": "pro-plan-annual",
+                "reference_line_item_id": "li_AzqW60VMyW1UYaXM",
+                "tax_exempt_reason": "tax_not_configured",
+                "discount_amount": 0,
+                "item_level_discount_amount": 0
+              }
+            ],
+            "taxes": [],
+            "line_item_taxes": [],
+            "line_item_discounts": [],
+            "linked_refunds": [],
+            "allocations": [],
+            "billing_address": {
+              "first_name": "Carol",
+              "last_name": "Williams",
+              "company": "Initech LLC",
+              "validation_status": "not_validated",
+              "object": "billing_address"
+            },
+            "customer_notes": "",
+            "notes": [],
+            "site_details_at_creation": {
+              "timezone": "Africa/Nairobi"
+            }
+          }
+        },
+        "user": "full_access_key_v1",
+        "object": "event",
+        "webhook_status": "not_configured",
+        "webhook_failure_reason": ""
+      },
+      {
+        "id": "ev_AzqOd0VMycLKLe2o",
+        "occurred_at": 1781857944,
+        "source": "api",
+        "event_type": "invoice_updated",
+        "api_version": "v2",
+        "content": {
+          "invoice": {
+            "id": "3",
+            "customer_id": "169kZjVMyUi68Zxh",
+            "subscription_id": "AzqW60VMyW1TpaXK",
+            "recurring": true,
+            "status": "payment_due",
+            "date": 1781856437,
+            "due_date": 1781856437,
+            "net_term_days": 0,
+            "price_type": "tax_exclusive",
+            "exchange_rate": 1,
+            "total": 49000,
+            "amount_due": 48993,
+            "amount_adjusted": 0,
+            "amount_paid": 7,
+            "write_off_amount": 0,
+            "credits_applied": 0,
+            "updated_at": 1781857943,
+            "resource_version": 1781857943943,
+            "deleted": false,
+            "object": "invoice",
+            "first_invoice": true,
+            "amount_to_collect": 48993,
+            "round_off_amount": 0,
+            "new_sales_amount": 49000,
+            "has_advance_charges": false,
+            "currency_code": "USD",
+            "base_currency_code": "USD",
+            "generated_at": 1781856437,
+            "is_gifted": false,
+            "term_finalized": true,
+            "channel": "web",
+            "tax": 0,
+            "line_items": [
+              {
+                "id": "li_AzqW60VMyW1UYaXM",
+                "date_from": 1781856437,
+                "date_to": 1813392437,
+                "unit_amount": 49000,
+                "quantity": 1,
+                "amount": 49000,
+                "pricing_model": "flat_fee",
+                "is_taxed": false,
+                "tax_amount": 0,
+                "object": "line_item",
+                "subscription_id": "AzqW60VMyW1TpaXK",
+                "customer_id": "169kZjVMyUi68Zxh",
+                "description": "Pro Plan Annual",
+                "entity_type": "plan_item_price",
+                "entity_id": "pro-plan-annual",
+                "tax_exempt_reason": "tax_not_configured",
+                "discount_amount": 0,
+                "item_level_discount_amount": 0
+              }
+            ],
+            "sub_total": 49000,
+            "linked_payments": [
+              {
+                "txn_id": "txn_AzZPdjVMybnVrdzK",
+                "applied_amount": 1,
+                "applied_at": 1781857814,
+                "txn_status": "success",
+                "txn_date": 1781857814,
+                "txn_amount": 1
+              },
+              {
+                "txn_id": "txn_AzqW60VMybqtLdwh",
+                "applied_amount": 1,
+                "applied_at": 1781857827,
+                "txn_status": "success",
+                "txn_date": 1781857827,
+                "txn_amount": 1
+              },
+              {
+                "txn_id": "txn_169kZjVMybuGveC8",
+                "applied_amount": 1,
+                "applied_at": 1781857840,
+                "txn_status": "success",
+                "txn_date": 1781857840,
+                "txn_amount": 1
+              },
+              {
+                "txn_id": "txn_Azyh5hVMybxgneR4",
+                "applied_amount": 1,
+                "applied_at": 1781857853,
+                "txn_status": "success",
+                "txn_date": 1781857853,
+                "txn_amount": 1
+              },
+              {
+                "txn_id": "txn_AzqW60VMyc10Ie2J",
+                "applied_amount": 1,
+                "applied_at": 1781857865,
+                "txn_status": "success",
+                "txn_date": 1781857865,
+                "txn_amount": 1
+              },
+              {
+                "txn_id": "txn_AzqW60VMycCJqe8R",
+                "applied_amount": 1,
+                "applied_at": 1781857909,
+                "txn_status": "success",
+                "txn_date": 1781857909,
+                "txn_amount": 1
+              },
+              {
+                "txn_id": "txn_AzqOd0VMycLBWe2g",
+                "applied_amount": 1,
+                "applied_at": 1781857943,
+                "txn_status": "success",
+                "txn_date": 1781857943,
+                "txn_amount": 1
+              }
+            ],
+            "applied_credits": [],
+            "reference_transactions": [
+              {
+                "txn_id": "txn_AzZPdjVMybnVrdzK",
+                "applied_amount": 1,
+                "applied_at": 1781857814,
+                "txn_type": "payment",
+                "txn_status": "success",
+                "txn_date": 1781857814,
+                "txn_amount": 1
+              },
+              {
+                "txn_id": "txn_AzqW60VMybqtLdwh",
+                "applied_amount": 1,
+                "applied_at": 1781857827,
+                "txn_type": "payment",
+                "txn_status": "success",
+                "txn_date": 1781857827,
+                "txn_amount": 1
+              },
+              {
+                "txn_id": "txn_169kZjVMybuGveC8",
+                "applied_amount": 1,
+                "applied_at": 1781857840,
+                "txn_type": "payment",
+                "txn_status": "success",
+                "txn_date": 1781857840,
+                "txn_amount": 1
+              },
+              {
+                "txn_id": "txn_Azyh5hVMybxgneR4",
+                "applied_amount": 1,
+                "applied_at": 1781857853,
+                "txn_type": "payment",
+                "txn_status": "success",
+                "txn_date": 1781857853,
+                "txn_amount": 1
+              },
+              {
+                "txn_id": "txn_AzqW60VMyc10Ie2J",
+                "applied_amount": 1,
+                "applied_at": 1781857865,
+                "txn_type": "payment",
+                "txn_status": "success",
+                "txn_date": 1781857865,
+                "txn_amount": 1
+              },
+              {
+                "txn_id": "txn_AzqW60VMycCJqe8R",
+                "applied_amount": 1,
+                "applied_at": 1781857909,
+                "txn_type": "payment",
+                "txn_status": "success",
+                "txn_date": 1781857909,
+                "txn_amount": 1
+              },
+              {
+                "txn_id": "txn_AzqOd0VMycLBWe2g",
+                "applied_amount": 1,
+                "applied_at": 1781857943,
+                "txn_type": "payment",
+                "txn_status": "success",
+                "txn_date": 1781857943,
+                "txn_amount": 1
+              }
+            ],
+            "adjustment_credit_notes": [],
+            "issued_credit_notes": [
+              {
+                "cn_id": "TEST-CN-9",
+                "cn_reason_code": "other",
+                "cn_create_reason_code": "Other",
+                "cn_date": 1781857866,
+                "cn_total": 1,
+                "cn_status": "voided"
+              },
+              {
+                "cn_id": "TEST-CN-10",
+                "cn_reason_code": "other",
+                "cn_create_reason_code": "Other",
+                "cn_date": 1781857909,
+                "cn_total": 1,
+                "cn_status": "voided"
+              },
+              {
+                "cn_id": "TEST-CN-11",
+                "cn_reason_code": "other",
+                "cn_create_reason_code": "Other",
+                "cn_date": 1781857943,
+                "cn_total": 1,
+                "cn_status": "refund_due"
+              }
+            ],
+            "linked_orders": [],
+            "dunning_attempts": [],
+            "billing_address": {
+              "first_name": "Carol",
+              "last_name": "Williams",
+              "company": "Initech LLC",
+              "validation_status": "not_validated",
+              "object": "billing_address"
+            },
+            "site_details_at_creation": {
+              "timezone": "Africa/Nairobi"
+            }
+          }
+        },
+        "user": "full_access_key_v1",
+        "object": "event",
+        "webhook_status": "not_configured",
+        "webhook_failure_reason": ""
+      }
+    ],
+    "next_offset": "[\"1781857944000\",\"343563577\"]"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/v2/events": {
+        "response": {
+          "list": [
+            {
+              "event": {
+                "id": "ev_AzqW60VMycOCJeF5",
+                "occurred_at": 1781857955,
+                "source": "api",
+                "user": "full_access_key_v1",
+                "object": "event",
+                "api_version": "v2",
+                "content": {
+                  "credit_note": {
+                    "id": "TEST-CN-11",
+                    "customer_id": "169kZjVMyUi68Zxh",
+                    "subscription_id": "AzqW60VMyW1TpaXK",
+                    "reference_invoice_id": "3",
+                    "type": "refundable",
+                    "reason_code": "other",
+                    "status": "voided",
+                    "date": 1781857943,
+                    "price_type": "tax_exclusive",
+                    "exchange_rate": 1,
+                    "total": 1,
+                    "amount_allocated": 0,
+                    "amount_refunded": 0,
+                    "amount_available": 1,
+                    "voided_at": 1781857954,
+                    "generated_at": 1781857943,
+                    "updated_at": 1781857954,
+                    "channel": "web",
+                    "resource_version": 1781857954945,
+                    "deleted": false,
+                    "object": "credit_note",
+                    "create_reason_code": "Other",
+                    "currency_code": "USD",
+                    "round_off_amount": 0,
+                    "fractional_correction": 0,
+                    "base_currency_code": "USD",
+                    "sub_total": 1,
+                    "line_items": [
+                      {
+                        "id": "li_AzqOd0VMycLITe2m",
+                        "date_from": 1781857943,
+                        "date_to": 1781857943,
+                        "unit_amount": 1,
+                        "quantity": 1,
+                        "amount": 1,
+                        "pricing_model": "flat_fee",
+                        "is_taxed": false,
+                        "tax_amount": 0,
+                        "object": "line_item",
+                        "subscription_id": "AzqW60VMyW1TpaXK",
+                        "customer_id": "169kZjVMyUi68Zxh",
+                        "description": "Pro Plan Annual",
+                        "entity_type": "plan_item_price",
+                        "entity_id": "pro-plan-annual",
+                        "reference_line_item_id": "li_AzqW60VMyW1UYaXM",
+                        "tax_exempt_reason": "tax_not_configured",
+                        "discount_amount": 0,
+                        "item_level_discount_amount": 0
+                      }
+                    ],
+                    "taxes": [],
+                    "line_item_taxes": [],
+                    "line_item_discounts": [],
+                    "linked_refunds": [],
+                    "allocations": [],
+                    "billing_address": {
+                      "first_name": "Carol",
+                      "last_name": "Williams",
+                      "company": "Initech LLC",
+                      "validation_status": "not_validated",
+                      "object": "billing_address"
+                    },
+                    "customer_notes": "",
+                    "notes": [],
+                    "site_details_at_creation": {
+                      "timezone": "Africa/Nairobi"
+                    }
+                  }
+                },
+                "event_type": "credit_note_updated",
+                "webhook_status": "not_configured",
+                "webhook_failure_reason": ""
+              }
+            },
+            {
+              "event": {
+                "id": "ev_AzqW60VMycOC5eF3",
+                "occurred_at": 1781857955,
+                "source": "api",
+                "user": "full_access_key_v1",
+                "object": "event",
+                "api_version": "v2",
+                "content": {
+                  "customer": {
+                    "id": "169kZjVMyUi68Zxh",
+                    "first_name": "Carol",
+                    "last_name": "Williams",
+                    "email": "carol@example.com",
+                    "company": "Initech LLC",
+                    "auto_collection": "on",
+                    "net_term_days": 0,
+                    "allow_direct_debit": false,
+                    "created_at": 1781856124,
+                    "taxability": "taxable",
+                    "updated_at": 1781857954,
+                    "pii_cleared": "active",
+                    "channel": "web",
+                    "resource_version": 1781857954941,
+                    "deleted": false,
+                    "object": "customer",
+                    "card_status": "no_card",
+                    "promotional_credits": 0,
+                    "refundable_credits": 0,
+                    "excess_payments": 0,
+                    "unbilled_charges": 0,
+                    "preferred_currency_code": "USD",
+                    "mrr": 4083
+                  }
+                },
+                "event_type": "customer_changed",
+                "webhook_status": "not_configured",
+                "webhook_failure_reason": ""
+              }
+            },
+            {
+              "event": {
+                "id": "ev_AzqW60VMycOBmeF2",
+                "occurred_at": 1781857955,
+                "source": "api",
+                "user": "full_access_key_v1",
+                "object": "event",
+                "api_version": "v2",
+                "content": {
+                  "invoice": {
+                    "id": "3",
+                    "customer_id": "169kZjVMyUi68Zxh",
+                    "subscription_id": "AzqW60VMyW1TpaXK",
+                    "recurring": true,
+                    "status": "payment_due",
+                    "date": 1781856437,
+                    "due_date": 1781856437,
+                    "net_term_days": 0,
+                    "price_type": "tax_exclusive",
+                    "exchange_rate": 1,
+                    "total": 49000,
+                    "amount_due": 48993,
+                    "amount_adjusted": 0,
+                    "amount_paid": 7,
+                    "write_off_amount": 0,
+                    "credits_applied": 0,
+                    "updated_at": 1781857954,
+                    "resource_version": 1781857954943,
+                    "deleted": false,
+                    "object": "invoice",
+                    "first_invoice": true,
+                    "amount_to_collect": 48993,
+                    "round_off_amount": 0,
+                    "new_sales_amount": 49000,
+                    "has_advance_charges": false,
+                    "currency_code": "USD",
+                    "base_currency_code": "USD",
+                    "generated_at": 1781856437,
+                    "is_gifted": false,
+                    "term_finalized": true,
+                    "channel": "web",
+                    "tax": 0,
+                    "line_items": [
+                      {
+                        "id": "li_AzqW60VMyW1UYaXM",
+                        "date_from": 1781856437,
+                        "date_to": 1813392437,
+                        "unit_amount": 49000,
+                        "quantity": 1,
+                        "amount": 49000,
+                        "pricing_model": "flat_fee",
+                        "is_taxed": false,
+                        "tax_amount": 0,
+                        "object": "line_item",
+                        "subscription_id": "AzqW60VMyW1TpaXK",
+                        "customer_id": "169kZjVMyUi68Zxh",
+                        "description": "Pro Plan Annual",
+                        "entity_type": "plan_item_price",
+                        "entity_id": "pro-plan-annual",
+                        "tax_exempt_reason": "tax_not_configured",
+                        "discount_amount": 0,
+                        "item_level_discount_amount": 0
+                      }
+                    ],
+                    "sub_total": 49000,
+                    "linked_payments": [
+                      {
+                        "txn_id": "txn_AzZPdjVMybnVrdzK",
+                        "applied_amount": 1,
+                        "applied_at": 1781857814,
+                        "txn_status": "success",
+                        "txn_date": 1781857814,
+                        "txn_amount": 1
+                      },
+                      {
+                        "txn_id": "txn_AzqW60VMybqtLdwh",
+                        "applied_amount": 1,
+                        "applied_at": 1781857827,
+                        "txn_status": "success",
+                        "txn_date": 1781857827,
+                        "txn_amount": 1
+                      },
+                      {
+                        "txn_id": "txn_169kZjVMybuGveC8",
+                        "applied_amount": 1,
+                        "applied_at": 1781857840,
+                        "txn_status": "success",
+                        "txn_date": 1781857840,
+                        "txn_amount": 1
+                      },
+                      {
+                        "txn_id": "txn_Azyh5hVMybxgneR4",
+                        "applied_amount": 1,
+                        "applied_at": 1781857853,
+                        "txn_status": "success",
+                        "txn_date": 1781857853,
+                        "txn_amount": 1
+                      },
+                      {
+                        "txn_id": "txn_AzqW60VMyc10Ie2J",
+                        "applied_amount": 1,
+                        "applied_at": 1781857865,
+                        "txn_status": "success",
+                        "txn_date": 1781857865,
+                        "txn_amount": 1
+                      },
+                      {
+                        "txn_id": "txn_AzqW60VMycCJqe8R",
+                        "applied_amount": 1,
+                        "applied_at": 1781857909,
+                        "txn_status": "success",
+                        "txn_date": 1781857909,
+                        "txn_amount": 1
+                      },
+                      {
+                        "txn_id": "txn_AzqOd0VMycLBWe2g",
+                        "applied_amount": 1,
+                        "applied_at": 1781857943,
+                        "txn_status": "success",
+                        "txn_date": 1781857943,
+                        "txn_amount": 1
+                      }
+                    ],
+                    "applied_credits": [],
+                    "reference_transactions": [
+                      {
+                        "txn_id": "txn_AzZPdjVMybnVrdzK",
+                        "applied_amount": 1,
+                        "applied_at": 1781857814,
+                        "txn_type": "payment",
+                        "txn_status": "success",
+                        "txn_date": 1781857814,
+                        "txn_amount": 1
+                      },
+                      {
+                        "txn_id": "txn_AzqW60VMybqtLdwh",
+                        "applied_amount": 1,
+                        "applied_at": 1781857827,
+                        "txn_type": "payment",
+                        "txn_status": "success",
+                        "txn_date": 1781857827,
+                        "txn_amount": 1
+                      },
+                      {
+                        "txn_id": "txn_169kZjVMybuGveC8",
+                        "applied_amount": 1,
+                        "applied_at": 1781857840,
+                        "txn_type": "payment",
+                        "txn_status": "success",
+                        "txn_date": 1781857840,
+                        "txn_amount": 1
+                      },
+                      {
+                        "txn_id": "txn_Azyh5hVMybxgneR4",
+                        "applied_amount": 1,
+                        "applied_at": 1781857853,
+                        "txn_type": "payment",
+                        "txn_status": "success",
+                        "txn_date": 1781857853,
+                        "txn_amount": 1
+                      },
+                      {
+                        "txn_id": "txn_AzqW60VMyc10Ie2J",
+                        "applied_amount": 1,
+                        "applied_at": 1781857865,
+                        "txn_type": "payment",
+                        "txn_status": "success",
+                        "txn_date": 1781857865,
+                        "txn_amount": 1
+                      },
+                      {
+                        "txn_id": "txn_AzqW60VMycCJqe8R",
+                        "applied_amount": 1,
+                        "applied_at": 1781857909,
+                        "txn_type": "payment",
+                        "txn_status": "success",
+                        "txn_date": 1781857909,
+                        "txn_amount": 1
+                      },
+                      {
+                        "txn_id": "txn_AzqOd0VMycLBWe2g",
+                        "applied_amount": 1,
+                        "applied_at": 1781857943,
+                        "txn_type": "payment",
+                        "txn_status": "success",
+                        "txn_date": 1781857943,
+                        "txn_amount": 1
+                      }
+                    ],
+                    "adjustment_credit_notes": [],
+                    "issued_credit_notes": [
+                      {
+                        "cn_id": "TEST-CN-9",
+                        "cn_reason_code": "other",
+                        "cn_create_reason_code": "Other",
+                        "cn_date": 1781857866,
+                        "cn_total": 1,
+                        "cn_status": "voided"
+                      },
+                      {
+                        "cn_id": "TEST-CN-10",
+                        "cn_reason_code": "other",
+                        "cn_create_reason_code": "Other",
+                        "cn_date": 1781857909,
+                        "cn_total": 1,
+                        "cn_status": "voided"
+                      },
+                      {
+                        "cn_id": "TEST-CN-11",
+                        "cn_reason_code": "other",
+                        "cn_create_reason_code": "Other",
+                        "cn_date": 1781857943,
+                        "cn_total": 1,
+                        "cn_status": "voided"
+                      }
+                    ],
+                    "linked_orders": [],
+                    "dunning_attempts": [],
+                    "billing_address": {
+                      "first_name": "Carol",
+                      "last_name": "Williams",
+                      "company": "Initech LLC",
+                      "validation_status": "not_validated",
+                      "object": "billing_address"
+                    },
+                    "site_details_at_creation": {
+                      "timezone": "Africa/Nairobi"
+                    }
+                  }
+                },
+                "event_type": "invoice_updated",
+                "webhook_status": "not_configured",
+                "webhook_failure_reason": ""
+              }
+            },
+            {
+              "event": {
+                "id": "ev_AzqOd0VMycLKee2p",
+                "occurred_at": 1781857944,
+                "source": "api",
+                "user": "full_access_key_v1",
+                "object": "event",
+                "api_version": "v2",
+                "content": {
+                  "credit_note": {
+                    "id": "TEST-CN-11",
+                    "customer_id": "169kZjVMyUi68Zxh",
+                    "subscription_id": "AzqW60VMyW1TpaXK",
+                    "reference_invoice_id": "3",
+                    "type": "refundable",
+                    "reason_code": "other",
+                    "status": "refund_due",
+                    "date": 1781857943,
+                    "price_type": "tax_exclusive",
+                    "exchange_rate": 1,
+                    "total": 1,
+                    "amount_allocated": 0,
+                    "amount_refunded": 0,
+                    "amount_available": 1,
+                    "generated_at": 1781857943,
+                    "updated_at": 1781857943,
+                    "channel": "web",
+                    "resource_version": 1781857943945,
+                    "deleted": false,
+                    "object": "credit_note",
+                    "create_reason_code": "Other",
+                    "currency_code": "USD",
+                    "round_off_amount": 0,
+                    "fractional_correction": 0,
+                    "base_currency_code": "USD",
+                    "sub_total": 1,
+                    "line_items": [
+                      {
+                        "id": "li_AzqOd0VMycLITe2m",
+                        "date_from": 1781857943,
+                        "date_to": 1781857943,
+                        "unit_amount": 1,
+                        "quantity": 1,
+                        "amount": 1,
+                        "pricing_model": "flat_fee",
+                        "is_taxed": false,
+                        "tax_amount": 0,
+                        "object": "line_item",
+                        "subscription_id": "AzqW60VMyW1TpaXK",
+                        "customer_id": "169kZjVMyUi68Zxh",
+                        "description": "Pro Plan Annual",
+                        "entity_type": "plan_item_price",
+                        "entity_id": "pro-plan-annual",
+                        "reference_line_item_id": "li_AzqW60VMyW1UYaXM",
+                        "tax_exempt_reason": "tax_not_configured",
+                        "discount_amount": 0,
+                        "item_level_discount_amount": 0
+                      }
+                    ],
+                    "taxes": [],
+                    "line_item_taxes": [],
+                    "line_item_discounts": [],
+                    "linked_refunds": [],
+                    "allocations": [],
+                    "billing_address": {
+                      "first_name": "Carol",
+                      "last_name": "Williams",
+                      "company": "Initech LLC",
+                      "validation_status": "not_validated",
+                      "object": "billing_address"
+                    },
+                    "customer_notes": "",
+                    "notes": [],
+                    "site_details_at_creation": {
+                      "timezone": "Africa/Nairobi"
+                    }
+                  }
+                },
+                "event_type": "credit_note_created",
+                "webhook_status": "not_configured",
+                "webhook_failure_reason": ""
+              }
+            },
+            {
+              "event": {
+                "id": "ev_AzqOd0VMycLKLe2o",
+                "occurred_at": 1781857944,
+                "source": "api",
+                "user": "full_access_key_v1",
+                "object": "event",
+                "api_version": "v2",
+                "content": {
+                  "invoice": {
+                    "id": "3",
+                    "customer_id": "169kZjVMyUi68Zxh",
+                    "subscription_id": "AzqW60VMyW1TpaXK",
+                    "recurring": true,
+                    "status": "payment_due",
+                    "date": 1781856437,
+                    "due_date": 1781856437,
+                    "net_term_days": 0,
+                    "price_type": "tax_exclusive",
+                    "exchange_rate": 1,
+                    "total": 49000,
+                    "amount_due": 48993,
+                    "amount_adjusted": 0,
+                    "amount_paid": 7,
+                    "write_off_amount": 0,
+                    "credits_applied": 0,
+                    "updated_at": 1781857943,
+                    "resource_version": 1781857943943,
+                    "deleted": false,
+                    "object": "invoice",
+                    "first_invoice": true,
+                    "amount_to_collect": 48993,
+                    "round_off_amount": 0,
+                    "new_sales_amount": 49000,
+                    "has_advance_charges": false,
+                    "currency_code": "USD",
+                    "base_currency_code": "USD",
+                    "generated_at": 1781856437,
+                    "is_gifted": false,
+                    "term_finalized": true,
+                    "channel": "web",
+                    "tax": 0,
+                    "line_items": [
+                      {
+                        "id": "li_AzqW60VMyW1UYaXM",
+                        "date_from": 1781856437,
+                        "date_to": 1813392437,
+                        "unit_amount": 49000,
+                        "quantity": 1,
+                        "amount": 49000,
+                        "pricing_model": "flat_fee",
+                        "is_taxed": false,
+                        "tax_amount": 0,
+                        "object": "line_item",
+                        "subscription_id": "AzqW60VMyW1TpaXK",
+                        "customer_id": "169kZjVMyUi68Zxh",
+                        "description": "Pro Plan Annual",
+                        "entity_type": "plan_item_price",
+                        "entity_id": "pro-plan-annual",
+                        "tax_exempt_reason": "tax_not_configured",
+                        "discount_amount": 0,
+                        "item_level_discount_amount": 0
+                      }
+                    ],
+                    "sub_total": 49000,
+                    "linked_payments": [
+                      {
+                        "txn_id": "txn_AzZPdjVMybnVrdzK",
+                        "applied_amount": 1,
+                        "applied_at": 1781857814,
+                        "txn_status": "success",
+                        "txn_date": 1781857814,
+                        "txn_amount": 1
+                      },
+                      {
+                        "txn_id": "txn_AzqW60VMybqtLdwh",
+                        "applied_amount": 1,
+                        "applied_at": 1781857827,
+                        "txn_status": "success",
+                        "txn_date": 1781857827,
+                        "txn_amount": 1
+                      },
+                      {
+                        "txn_id": "txn_169kZjVMybuGveC8",
+                        "applied_amount": 1,
+                        "applied_at": 1781857840,
+                        "txn_status": "success",
+                        "txn_date": 1781857840,
+                        "txn_amount": 1
+                      },
+                      {
+                        "txn_id": "txn_Azyh5hVMybxgneR4",
+                        "applied_amount": 1,
+                        "applied_at": 1781857853,
+                        "txn_status": "success",
+                        "txn_date": 1781857853,
+                        "txn_amount": 1
+                      },
+                      {
+                        "txn_id": "txn_AzqW60VMyc10Ie2J",
+                        "applied_amount": 1,
+                        "applied_at": 1781857865,
+                        "txn_status": "success",
+                        "txn_date": 1781857865,
+                        "txn_amount": 1
+                      },
+                      {
+                        "txn_id": "txn_AzqW60VMycCJqe8R",
+                        "applied_amount": 1,
+                        "applied_at": 1781857909,
+                        "txn_status": "success",
+                        "txn_date": 1781857909,
+                        "txn_amount": 1
+                      },
+                      {
+                        "txn_id": "txn_AzqOd0VMycLBWe2g",
+                        "applied_amount": 1,
+                        "applied_at": 1781857943,
+                        "txn_status": "success",
+                        "txn_date": 1781857943,
+                        "txn_amount": 1
+                      }
+                    ],
+                    "applied_credits": [],
+                    "reference_transactions": [
+                      {
+                        "txn_id": "txn_AzZPdjVMybnVrdzK",
+                        "applied_amount": 1,
+                        "applied_at": 1781857814,
+                        "txn_type": "payment",
+                        "txn_status": "success",
+                        "txn_date": 1781857814,
+                        "txn_amount": 1
+                      },
+                      {
+                        "txn_id": "txn_AzqW60VMybqtLdwh",
+                        "applied_amount": 1,
+                        "applied_at": 1781857827,
+                        "txn_type": "payment",
+                        "txn_status": "success",
+                        "txn_date": 1781857827,
+                        "txn_amount": 1
+                      },
+                      {
+                        "txn_id": "txn_169kZjVMybuGveC8",
+                        "applied_amount": 1,
+                        "applied_at": 1781857840,
+                        "txn_type": "payment",
+                        "txn_status": "success",
+                        "txn_date": 1781857840,
+                        "txn_amount": 1
+                      },
+                      {
+                        "txn_id": "txn_Azyh5hVMybxgneR4",
+                        "applied_amount": 1,
+                        "applied_at": 1781857853,
+                        "txn_type": "payment",
+                        "txn_status": "success",
+                        "txn_date": 1781857853,
+                        "txn_amount": 1
+                      },
+                      {
+                        "txn_id": "txn_AzqW60VMyc10Ie2J",
+                        "applied_amount": 1,
+                        "applied_at": 1781857865,
+                        "txn_type": "payment",
+                        "txn_status": "success",
+                        "txn_date": 1781857865,
+                        "txn_amount": 1
+                      },
+                      {
+                        "txn_id": "txn_AzqW60VMycCJqe8R",
+                        "applied_amount": 1,
+                        "applied_at": 1781857909,
+                        "txn_type": "payment",
+                        "txn_status": "success",
+                        "txn_date": 1781857909,
+                        "txn_amount": 1
+                      },
+                      {
+                        "txn_id": "txn_AzqOd0VMycLBWe2g",
+                        "applied_amount": 1,
+                        "applied_at": 1781857943,
+                        "txn_type": "payment",
+                        "txn_status": "success",
+                        "txn_date": 1781857943,
+                        "txn_amount": 1
+                      }
+                    ],
+                    "adjustment_credit_notes": [],
+                    "issued_credit_notes": [
+                      {
+                        "cn_id": "TEST-CN-9",
+                        "cn_reason_code": "other",
+                        "cn_create_reason_code": "Other",
+                        "cn_date": 1781857866,
+                        "cn_total": 1,
+                        "cn_status": "voided"
+                      },
+                      {
+                        "cn_id": "TEST-CN-10",
+                        "cn_reason_code": "other",
+                        "cn_create_reason_code": "Other",
+                        "cn_date": 1781857909,
+                        "cn_total": 1,
+                        "cn_status": "voided"
+                      },
+                      {
+                        "cn_id": "TEST-CN-11",
+                        "cn_reason_code": "other",
+                        "cn_create_reason_code": "Other",
+                        "cn_date": 1781857943,
+                        "cn_total": 1,
+                        "cn_status": "refund_due"
+                      }
+                    ],
+                    "linked_orders": [],
+                    "dunning_attempts": [],
+                    "billing_address": {
+                      "first_name": "Carol",
+                      "last_name": "Williams",
+                      "company": "Initech LLC",
+                      "validation_status": "not_validated",
+                      "object": "billing_address"
+                    },
+                    "site_details_at_creation": {
+                      "timezone": "Africa/Nairobi"
+                    }
+                  }
+                },
+                "event_type": "invoice_updated",
+                "webhook_status": "not_configured",
+                "webhook_failure_reason": ""
+              }
+            }
+          ],
+          "next_offset": "[\"1781857944000\",\"343563577\"]"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 19 Jun 2026 08:37:50 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4975",
+          "x-ratelimit-reset": "1781858274",
+          "cache-control": "no-store, no-cache, must-revalidate",
+          "expires": "Thu, 01 Jan 1970 00:00:00 UTC",
+          "pragma": "no-cache",
+          "vary": "Accept-Encoding",
+          "server": "ChargeBee"
+        },
+        "hash": "a214cba1ef6f36225ea9f87192bd66e672352592",
+        "request": {
+          "params": {
+            "limit": "5"
+          }
+        }
+      }
+    }
+  }
+}

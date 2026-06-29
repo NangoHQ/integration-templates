@@ -1,0 +1,115 @@
+{
+  "input": {
+    "query": "OpenAI",
+    "type": "neural",
+    "numResults": 3
+  },
+  "output": {
+    "requestId": "eb0c24042814edc02d861fdd25860040",
+    "results": [
+      {
+        "id": "https://openai.com/",
+        "title": "OpenAI | OpenAI",
+        "url": "https://openai.com/",
+        "score": 1
+      },
+      {
+        "id": "https://openai.com/?413ca983_page=3&d4165e68_page=4&ee57af97_page=4",
+        "title": "OpenAI",
+        "url": "https://openai.com/?413ca983_page=3&d4165e68_page=4&ee57af97_page=4",
+        "score": 0.5
+      },
+      {
+        "id": "https://en.wikipedia.org/wiki/_OpenAI",
+        "title": "OpenAI",
+        "url": "https://en.wikipedia.org/wiki/_OpenAI",
+        "score": 0
+      }
+    ],
+    "costDollars": {
+      "total": 0.007,
+      "search": {
+        "neural": 0.007
+      }
+    }
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/search": {
+        "response": {
+          "requestId": "eb0c24042814edc02d861fdd25860040",
+          "resolvedSearchType": "",
+          "results": [
+            {
+              "id": "https://openai.com/",
+              "title": "OpenAI | OpenAI",
+              "url": "https://openai.com/",
+              "score": 1
+            },
+            {
+              "id": "https://openai.com/?413ca983_page=3&d4165e68_page=4&ee57af97_page=4",
+              "title": "OpenAI",
+              "url": "https://openai.com/?413ca983_page=3&d4165e68_page=4&ee57af97_page=4",
+              "score": 0.5
+            },
+            {
+              "id": "https://en.wikipedia.org/wiki/_OpenAI",
+              "title": "OpenAI",
+              "url": "https://en.wikipedia.org/wiki/_OpenAI",
+              "score": 0
+            }
+          ],
+          "searchTime": 375.4,
+          "costDollars": {
+            "total": 0.007,
+            "search": {
+              "neural": 0.007
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 25 Jun 2026 23:07:04 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "PAYMENT-REQUIRED,PAYMENT-RESPONSE,payment-required,payment-response",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4972",
+          "x-ratelimit-reset": "1782428836",
+          "content-security-policy": "frame-ancestors 'self'",
+          "cross-origin-opener-policy": "same-origin",
+          "cross-origin-resource-policy": "same-origin",
+          "origin-agent-cluster": "?1",
+          "referrer-policy": "no-referrer",
+          "x-permitted-cross-domain-policies": "none",
+          "vary": "Origin",
+          "access-control-allow-credentials": "true",
+          "x-exa-queued": "false",
+          "x-exa-queue-ms": "0",
+          "etag": "W/\"22a-zEG51hbMO6I/DSCglHPGdjMSj9A\"",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "cf-ray": "a117a0560d203016-PDX"
+        },
+        "hash": "c5d5b9708a81b99efd158a981e4f8b47bfcb47f2",
+        "request": {
+          "data": {
+            "query": "OpenAI",
+            "type": "neural",
+            "numResults": 3
+          }
+        }
+      }
+    }
+  }
+}

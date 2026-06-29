@@ -1,0 +1,86 @@
+{
+  "input": {
+    "thread_id": "2Ob2gNefo34v8gdv",
+    "query": "Can you provide more details?"
+  },
+  "output": {
+    "message": {
+      "id": "eBnM7gpymTyHom6l",
+      "thread_id": "2Ob2gNefo34v8gdv",
+      "query": "Can you provide more details?",
+      "answer": "I understand you'd like more details, but since there are **no meetings recorded in your Fireflies library**, there simply isn't any meeting content for me to elaborate on.\n\nCould you help me understand what you're looking for? For example:\n\n- **\"More details about setting up Fireflies?\"** — I can walk you through the setup process step by step.\n- **\"More details about a specific meeting?\"** — If you have a meeting ID or title, I can try to look it up.\n- **\"More details about Fireflies features?\"** — I can explain what Fireflies can do for you.\n\nWhat would you like to know more about? 😊",
+      "suggested_queries": [
+        "How do I set up my calendar integration?",
+        "What features can Fireflies offer for meeting management?",
+        "Can you explain how to invite Fred manually?"
+      ],
+      "status": "completed",
+      "created_at": "2026-06-26T01:48:07.219Z"
+    }
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/graphql": {
+        "response": {
+          "data": {
+            "continueAskFredThread": {
+              "message": {
+                "id": "eBnM7gpymTyHom6l",
+                "thread_id": "2Ob2gNefo34v8gdv",
+                "query": "Can you provide more details?",
+                "answer": "I understand you'd like more details, but since there are **no meetings recorded in your Fireflies library**, there simply isn't any meeting content for me to elaborate on.\n\nCould you help me understand what you're looking for? For example:\n\n- **\"More details about setting up Fireflies?\"** — I can walk you through the setup process step by step.\n- **\"More details about a specific meeting?\"** — If you have a meeting ID or title, I can try to look it up.\n- **\"More details about Fireflies features?\"** — I can explain what Fireflies can do for you.\n\nWhat would you like to know more about? 😊",
+                "suggested_queries": [
+                  "How do I set up my calendar integration?",
+                  "What features can Fireflies offer for meeting management?",
+                  "Can you explain how to invite Fred manually?"
+                ],
+                "status": "completed",
+                "created_at": "2026-06-26T01:48:07.219Z"
+              }
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 26 Jun 2026 01:48:14 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4991",
+          "x-ratelimit-reset": "1782438544",
+          "vary": "Origin",
+          "x-ratelimit-limit-api": "60",
+          "x-ratelimit-remaining-api": "15",
+          "x-ratelimit-reset-api": "2",
+          "cache-control": "no-store",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "cf-ray": "a1188c3d8c3c8f7a-PDX"
+        },
+        "hash": "d2130b7a23242b58e3a29582067192150d394360",
+        "request": {
+          "data": {
+            "query": "\n                    mutation ContinueAskFredThread($input: ContinueAskFredThreadInput!) {\n                        continueAskFredThread(input: $input) {\n                            message {\n                                id\n                                thread_id\n                                query\n                                answer\n                                suggested_queries\n                                status\n                                created_at\n                            }\n                        }\n                    }\n                ",
+            "variables": {
+              "input": {
+                "thread_id": "2Ob2gNefo34v8gdv",
+                "query": "Can you provide more details?"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

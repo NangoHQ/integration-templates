@@ -1,0 +1,159 @@
+{
+  "input": {
+    "query": "What is the capital of France?"
+  },
+  "output": {
+    "answer": "Paris is the capital of France [1][2][3]. It serves as the nation's political, economic, and cultural center and is home to major government institutions, including the Élysée Palace and the National Assembly [2][4][3]. While the capital has shifted to other locations historically—such as Versailles or Vichy—Paris has held the status of official capital for the vast majority of the last 1,500 years and has been the designated capital continuously since 1944 [5][3].",
+    "citations": [
+      {
+        "id": "https://en.wikipedia.org/wiki/Paris",
+        "title": "Paris - Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Paris"
+      },
+      {
+        "id": "https://www.worldatlas.com/articles/what-is-the-capital-of-france.html",
+        "title": "",
+        "url": "https://www.worldatlas.com/articles/what-is-the-capital-of-france.html"
+      },
+      {
+        "id": "https://irelandvoice.com/blog/what-is-the-capital-of-france/",
+        "title": "What Is the Capital of France? Facts, History & Food - Ireland Voice",
+        "url": "https://irelandvoice.com/blog/what-is-the-capital-of-france/"
+      },
+      {
+        "id": "https://worldpopulationreview.com/countries/france/capital",
+        "title": "What is the Capital of France?",
+        "url": "https://worldpopulationreview.com/countries/france/capital"
+      },
+      {
+        "id": "https://simple.wikipedia.org/wiki/Capital_of_France",
+        "title": "Capital of France",
+        "url": "https://simple.wikipedia.org/wiki/Capital_of_France"
+      },
+      {
+        "id": "https://www.paris.fr/?lang=en",
+        "title": "Paris.fr, site officiel de la Ville de Paris",
+        "url": "https://www.paris.fr/?lang=en"
+      },
+      {
+        "id": "https://wikidata.org/wiki/Q90",
+        "title": "Paris - Wikidata",
+        "url": "https://wikidata.org/wiki/Q90"
+      },
+      {
+        "id": "https://www.encyclopedia.com/places/britain-ireland-france-and-low-countries/french-political-geography/paris",
+        "title": "Paris | Encyclopedia.com",
+        "url": "https://www.encyclopedia.com/places/britain-ireland-france-and-low-countries/french-political-geography/paris"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/answer": {
+        "response": {
+          "requestId": "3ddcaf08e0c51b312eb105e712b4d9b9",
+          "answer": "Paris is the capital of France [1][2][3]. It serves as the nation's political, economic, and cultural center and is home to major government institutions, including the Élysée Palace and the National Assembly [2][4][3]. While the capital has shifted to other locations historically—such as Versailles or Vichy—Paris has held the status of official capital for the vast majority of the last 1,500 years and has been the designated capital continuously since 1944 [5][3].",
+          "citations": [
+            {
+              "id": "https://en.wikipedia.org/wiki/Paris",
+              "title": "Paris - Wikipedia",
+              "url": "https://en.wikipedia.org/wiki/Paris",
+              "publishedDate": "2001-11-06T00:00:00.000Z",
+              "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques%2C_Paris_ao%C3%BBt_2014_%282%29.jpg/1280px-La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques%2C_Paris_ao%C3%BBt_2014_%282%29.jpg",
+              "favicon": "https://en.wikipedia.org/static/apple-touch/wikipedia.png"
+            },
+            {
+              "id": "https://www.worldatlas.com/articles/what-is-the-capital-of-france.html",
+              "title": "",
+              "url": "https://www.worldatlas.com/articles/what-is-the-capital-of-france.html"
+            },
+            {
+              "id": "https://irelandvoice.com/blog/what-is-the-capital-of-france/",
+              "title": "What Is the Capital of France? Facts, History & Food - Ireland Voice",
+              "url": "https://irelandvoice.com/blog/what-is-the-capital-of-france/",
+              "publishedDate": "2026-05-19T14:05:27.000Z",
+              "author": "Thomas Morgan Thompson",
+              "image": "https://irelandvoice.com/wp-content/uploads/2026/05/copertina-what-is-the-capital-of-france-1024x585.jpg",
+              "favicon": "https://irelandvoice.com/wp-content/uploads/2026/04/site-icon-ireland_voice-1-150x150.png"
+            },
+            {
+              "id": "https://worldpopulationreview.com/countries/france/capital",
+              "title": "What is the Capital of France?",
+              "url": "https://worldpopulationreview.com/countries/france/capital",
+              "favicon": "https://worldpopulationreview.com/favicon.ico"
+            },
+            {
+              "id": "https://simple.wikipedia.org/wiki/Capital_of_France",
+              "title": "Capital of France",
+              "url": "https://simple.wikipedia.org/wiki/Capital_of_France"
+            },
+            {
+              "id": "https://www.paris.fr/?lang=en",
+              "title": "Paris.fr, site officiel de la Ville de Paris",
+              "url": "https://www.paris.fr/?lang=en",
+              "image": "https://cdn.paris.fr/paris/2022/11/10/large-bf382bfc28085cb684602d3b30a815d8.jpg",
+              "favicon": "https://www.paris.fr/favicon-32x32.png"
+            },
+            {
+              "id": "https://wikidata.org/wiki/Q90",
+              "title": "Paris - Wikidata",
+              "url": "https://wikidata.org/wiki/Q90",
+              "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques%2C_Paris_ao%C3%BBt_2014_%282%29.jpg/1280px-La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques%2C_Paris_ao%C3%BBt_2014_%282%29.jpg?utm_source=www.wikidata.org&utm_campaign=index&utm_content=thumbnail",
+              "favicon": "https://www.wikidata.org/static/apple-touch/wikidata.png"
+            },
+            {
+              "id": "https://www.encyclopedia.com/places/britain-ireland-france-and-low-countries/french-political-geography/paris",
+              "title": "Paris | Encyclopedia.com",
+              "url": "https://www.encyclopedia.com/places/britain-ireland-france-and-low-countries/french-political-geography/paris",
+              "image": "https://www.encyclopedia.com/themes/custom/trustme/images/header-logo.jpg",
+              "favicon": "https://www.encyclopedia.com/sites/default/files/favicon.ico"
+            }
+          ],
+          "costDollars": {
+            "total": 0.005
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 25 Jun 2026 23:05:26 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "PAYMENT-REQUIRED,PAYMENT-RESPONSE,payment-required,payment-response",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4992",
+          "x-ratelimit-reset": "1782428774",
+          "content-security-policy": "frame-ancestors 'self'",
+          "cross-origin-opener-policy": "same-origin",
+          "cross-origin-resource-policy": "same-origin",
+          "origin-agent-cluster": "?1",
+          "referrer-policy": "no-referrer",
+          "x-permitted-cross-domain-policies": "none",
+          "vary": "Origin",
+          "access-control-allow-credentials": "true",
+          "x-exa-queued": "false",
+          "x-exa-queue-ms": "0",
+          "etag": "W/\"cd9-fX7u0BHq6J0uY5Sh3o2wGxiIqr8\"",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "cf-ray": "a1179dec189e3016-PDX"
+        },
+        "hash": "c398a273f25a2fbe76f3fe940aaf0cf7e5afa442",
+        "request": {
+          "data": {
+            "query": "What is the capital of France?"
+          }
+        }
+      }
+    }
+  }
+}
