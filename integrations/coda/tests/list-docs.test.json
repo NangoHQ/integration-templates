@@ -1,0 +1,324 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "id": "L_hgEASd6n",
+        "type": "doc",
+        "href": "https://coda.io/apis/v1/docs/L_hgEASd6n",
+        "browserLink": "https://coda.io/d/_dL_hgEASd6n",
+        "name": "Nango's Coda Playground",
+        "owner": "api@nango.dev",
+        "ownerName": "Nango Developer",
+        "createdAt": "2026-06-23T09:53:17.066Z",
+        "updatedAt": "2026-06-23T10:39:41.383Z",
+        "icon": {
+          "name": "coda",
+          "type": "image/png",
+          "browserLink": "https://cdn.coda.io/icons/png/color/coda-128.png"
+        },
+        "docSize": {
+          "totalRowCount": 0,
+          "tableAndViewCount": 0,
+          "pageCount": 7,
+          "overApiSizeLimit": false,
+          "baseTableCount": 0
+        },
+        "sourceDoc": {
+          "id": "GSCjKrAkPV",
+          "type": "doc",
+          "href": "https://coda.io/apis/v1/docs/GSCjKrAkPV",
+          "browserLink": "https://coda.io/d/_dGSCjKrAkPV"
+        },
+        "workspaceId": "ws-oZFDiLKJ45",
+        "folderId": "fl-ncEpWaQnr6",
+        "workspace": {
+          "id": "ws-oZFDiLKJ45",
+          "type": "workspace",
+          "browserLink": "https://coda.io/docs?workspaceId=ws-oZFDiLKJ45",
+          "name": "nango.test"
+        },
+        "folder": {
+          "id": "fl-ncEpWaQnr6",
+          "type": "folder",
+          "browserLink": "https://coda.io/folders/fl-ncEpWaQnr6",
+          "name": "My docs"
+        }
+      },
+      {
+        "id": "v7J8Z9nv54",
+        "type": "doc",
+        "href": "https://coda.io/apis/v1/docs/v7J8Z9nv54",
+        "browserLink": "https://coda.io/d/_dv7J8Z9nv54",
+        "name": "Nango Test Doc",
+        "owner": "api@nango.dev",
+        "ownerName": "Nango Developer",
+        "createdAt": "2026-06-23T10:39:43.888Z",
+        "updatedAt": "2026-06-23T10:39:43.951Z",
+        "workspaceId": "ws-oZFDiLKJ45",
+        "folderId": "fl-ncEpWaQnr6",
+        "workspace": {
+          "id": "ws-oZFDiLKJ45",
+          "type": "workspace",
+          "browserLink": "https://coda.io/docs?workspaceId=ws-oZFDiLKJ45",
+          "name": "nango.test"
+        },
+        "folder": {
+          "id": "fl-ncEpWaQnr6",
+          "type": "folder",
+          "browserLink": "https://coda.io/folders/fl-ncEpWaQnr6",
+          "name": "My docs"
+        }
+      },
+      {
+        "id": "YTvdBbAt3j",
+        "type": "doc",
+        "href": "https://coda.io/apis/v1/docs/YTvdBbAt3j",
+        "browserLink": "https://coda.io/d/_dYTvdBbAt3j",
+        "name": "Nango Seed Doc A",
+        "owner": "api@nango.dev",
+        "ownerName": "Nango Developer",
+        "createdAt": "2026-06-23T10:06:38.017Z",
+        "updatedAt": "2026-06-23T10:06:38.018Z",
+        "icon": {
+          "name": "coda",
+          "type": "image/png",
+          "browserLink": "https://cdn.coda.io/icons/png/color/coda-128.png"
+        },
+        "docSize": {
+          "totalRowCount": 0,
+          "tableAndViewCount": 0,
+          "pageCount": 3,
+          "overApiSizeLimit": false,
+          "baseTableCount": 0
+        },
+        "sourceDoc": {
+          "id": "L_hgEASd6n",
+          "type": "doc",
+          "href": "https://coda.io/apis/v1/docs/L_hgEASd6n",
+          "browserLink": "https://coda.io/d/_dL_hgEASd6n"
+        },
+        "workspaceId": "ws-oZFDiLKJ45",
+        "folderId": "fl-ncEpWaQnr6",
+        "workspace": {
+          "id": "ws-oZFDiLKJ45",
+          "type": "workspace",
+          "browserLink": "https://coda.io/docs?workspaceId=ws-oZFDiLKJ45",
+          "name": "nango.test"
+        },
+        "folder": {
+          "id": "fl-ncEpWaQnr6",
+          "type": "folder",
+          "browserLink": "https://coda.io/folders/fl-ncEpWaQnr6",
+          "name": "My docs"
+        }
+      },
+      {
+        "id": "z2wQ7L7uJX",
+        "type": "doc",
+        "href": "https://coda.io/apis/v1/docs/z2wQ7L7uJX",
+        "browserLink": "https://coda.io/d/_dz2wQ7L7uJX",
+        "name": "Nango Test Doc",
+        "owner": "api@nango.dev",
+        "ownerName": "Nango Developer",
+        "createdAt": "2026-06-23T10:39:38.608Z",
+        "updatedAt": "2026-06-23T10:39:38.655Z",
+        "workspaceId": "ws-oZFDiLKJ45",
+        "folderId": "fl-ncEpWaQnr6",
+        "workspace": {
+          "id": "ws-oZFDiLKJ45",
+          "type": "workspace",
+          "browserLink": "https://coda.io/docs?workspaceId=ws-oZFDiLKJ45",
+          "name": "nango.test"
+        },
+        "folder": {
+          "id": "fl-ncEpWaQnr6",
+          "type": "folder",
+          "browserLink": "https://coda.io/folders/fl-ncEpWaQnr6",
+          "name": "My docs"
+        }
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/docs": {
+        "response": {
+          "items": [
+            {
+              "id": "L_hgEASd6n",
+              "type": "doc",
+              "href": "https://coda.io/apis/v1/docs/L_hgEASd6n",
+              "browserLink": "https://coda.io/d/_dL_hgEASd6n",
+              "name": "Nango's Coda Playground",
+              "owner": "api@nango.dev",
+              "ownerName": "Nango Developer",
+              "createdAt": "2026-06-23T09:53:17.066Z",
+              "updatedAt": "2026-06-23T10:39:41.383Z",
+              "icon": {
+                "name": "coda",
+                "type": "image/png",
+                "browserLink": "https://cdn.coda.io/icons/png/color/coda-128.png"
+              },
+              "docSize": {
+                "totalRowCount": 0,
+                "tableAndViewCount": 0,
+                "pageCount": 7,
+                "overApiSizeLimit": false,
+                "baseTableCount": 0
+              },
+              "sourceDoc": {
+                "id": "GSCjKrAkPV",
+                "type": "doc",
+                "href": "https://coda.io/apis/v1/docs/GSCjKrAkPV",
+                "browserLink": "https://coda.io/d/_dGSCjKrAkPV"
+              },
+              "workspaceId": "ws-oZFDiLKJ45",
+              "folderId": "fl-ncEpWaQnr6",
+              "workspace": {
+                "id": "ws-oZFDiLKJ45",
+                "type": "workspace",
+                "browserLink": "https://coda.io/docs?workspaceId=ws-oZFDiLKJ45",
+                "name": "nango.test"
+              },
+              "folder": {
+                "id": "fl-ncEpWaQnr6",
+                "type": "folder",
+                "browserLink": "https://coda.io/folders/fl-ncEpWaQnr6",
+                "name": "My docs"
+              }
+            },
+            {
+              "id": "v7J8Z9nv54",
+              "type": "doc",
+              "href": "https://coda.io/apis/v1/docs/v7J8Z9nv54",
+              "browserLink": "https://coda.io/d/_dv7J8Z9nv54",
+              "name": "Nango Test Doc",
+              "owner": "api@nango.dev",
+              "ownerName": "Nango Developer",
+              "createdAt": "2026-06-23T10:39:43.888Z",
+              "updatedAt": "2026-06-23T10:39:43.951Z",
+              "workspaceId": "ws-oZFDiLKJ45",
+              "folderId": "fl-ncEpWaQnr6",
+              "workspace": {
+                "id": "ws-oZFDiLKJ45",
+                "type": "workspace",
+                "browserLink": "https://coda.io/docs?workspaceId=ws-oZFDiLKJ45",
+                "name": "nango.test"
+              },
+              "folder": {
+                "id": "fl-ncEpWaQnr6",
+                "type": "folder",
+                "browserLink": "https://coda.io/folders/fl-ncEpWaQnr6",
+                "name": "My docs"
+              }
+            },
+            {
+              "id": "YTvdBbAt3j",
+              "type": "doc",
+              "href": "https://coda.io/apis/v1/docs/YTvdBbAt3j",
+              "browserLink": "https://coda.io/d/_dYTvdBbAt3j",
+              "name": "Nango Seed Doc A",
+              "owner": "api@nango.dev",
+              "ownerName": "Nango Developer",
+              "createdAt": "2026-06-23T10:06:38.017Z",
+              "updatedAt": "2026-06-23T10:06:38.018Z",
+              "icon": {
+                "name": "coda",
+                "type": "image/png",
+                "browserLink": "https://cdn.coda.io/icons/png/color/coda-128.png"
+              },
+              "docSize": {
+                "totalRowCount": 0,
+                "tableAndViewCount": 0,
+                "pageCount": 3,
+                "overApiSizeLimit": false,
+                "baseTableCount": 0
+              },
+              "sourceDoc": {
+                "id": "L_hgEASd6n",
+                "type": "doc",
+                "href": "https://coda.io/apis/v1/docs/L_hgEASd6n",
+                "browserLink": "https://coda.io/d/_dL_hgEASd6n"
+              },
+              "workspaceId": "ws-oZFDiLKJ45",
+              "folderId": "fl-ncEpWaQnr6",
+              "workspace": {
+                "id": "ws-oZFDiLKJ45",
+                "type": "workspace",
+                "browserLink": "https://coda.io/docs?workspaceId=ws-oZFDiLKJ45",
+                "name": "nango.test"
+              },
+              "folder": {
+                "id": "fl-ncEpWaQnr6",
+                "type": "folder",
+                "browserLink": "https://coda.io/folders/fl-ncEpWaQnr6",
+                "name": "My docs"
+              }
+            },
+            {
+              "id": "z2wQ7L7uJX",
+              "type": "doc",
+              "href": "https://coda.io/apis/v1/docs/z2wQ7L7uJX",
+              "browserLink": "https://coda.io/d/_dz2wQ7L7uJX",
+              "name": "Nango Test Doc",
+              "owner": "api@nango.dev",
+              "ownerName": "Nango Developer",
+              "createdAt": "2026-06-23T10:39:38.608Z",
+              "updatedAt": "2026-06-23T10:39:38.655Z",
+              "workspaceId": "ws-oZFDiLKJ45",
+              "folderId": "fl-ncEpWaQnr6",
+              "workspace": {
+                "id": "ws-oZFDiLKJ45",
+                "type": "workspace",
+                "browserLink": "https://coda.io/docs?workspaceId=ws-oZFDiLKJ45",
+                "name": "nango.test"
+              },
+              "folder": {
+                "id": "fl-ncEpWaQnr6",
+                "type": "folder",
+                "browserLink": "https://coda.io/folders/fl-ncEpWaQnr6",
+                "name": "My docs"
+              }
+            }
+          ],
+          "href": "https://coda.io/apis/v1/docs?pageToken=eyJsaW1pdCI6MTAwLCJvZmZzZXQiOjB9"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 23 Jun 2026 10:39:57 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4933",
+          "x-ratelimit-reset": "1782211239",
+          "x-coda-pod": "api-65c775747c-qtl2p",
+          "vary": "Origin, Accept-Encoding",
+          "surrogate-control": "no-store",
+          "cache-control": "no-store, no-cache, must-revalidate, proxy-revalidate",
+          "expires": "0",
+          "etag": "W/\"c8b-BD7cN1EQs03SItLmtsp9zBSQY3U\"",
+          "x-coda-server": "api",
+          "x-cache": "Miss from cloudfront",
+          "via": "1.1 a73c4443f00fb366a3a7226697ad0b6c.cloudfront.net (CloudFront)",
+          "x-amz-cf-pop": "HIO52-P5",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "x-amz-cf-id": "HeMqpMjXb2iR5zeFZvSmC04T9L6wNsuiyLNPC_OG26MyVNQNEpuNNQ=="
+        },
+        "hash": "509caa8e299c0cd41440d2258590e6e2faa8e312",
+        "request": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,1503 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "ID": "74fa0eaa-5288-4e67-ba2d-0060550c9e39",
+        "EntryID": "2ab359f3-0042-4e57-b829-d7d7cc84d1ea",
+        "AmountDC": -0.01,
+        "GLAccount": "6aa91ed1-2692-4329-b399-dd5dada9e8f2",
+        "GLAccountCode": "706000",
+        "Description": "Item 1",
+        "VATCode": "VAU",
+        "Modified": "/Date(1725644849653)/"
+      },
+      {
+        "ID": "3db7a2b3-be20-4510-8bf3-093014c312f0",
+        "EntryID": "ed30c262-cb03-46a2-b237-610d76e0475b",
+        "AmountDC": 120,
+        "GLAccount": "13274a9b-3e08-460d-8854-5cbecb64655d",
+        "GLAccountCode": "512000",
+        "Description": "Invoice:",
+        "Modified": "/Date(1725885511867)/"
+      },
+      {
+        "ID": "55e89ed6-96f8-4443-bdb4-0b08872d1a26",
+        "EntryID": "749678eb-ca6a-41d2-bb77-bc3970a0d512",
+        "AmountDC": -120,
+        "GLAccount": "d99b2d39-b997-4ac4-9bc3-2beab7e2a8dd",
+        "GLAccountCode": "411000",
+        "Description": "1234",
+        "Modified": "/Date(1725895491423)/"
+      },
+      {
+        "ID": "d0576743-4764-4ce8-864c-0da3a39637e5",
+        "EntryID": "84197b8e-d4f7-4756-aa6d-17f1edea7fd3",
+        "AmountDC": -120,
+        "GLAccount": "d99b2d39-b997-4ac4-9bc3-2beab7e2a8dd",
+        "GLAccountCode": "411000",
+        "Description": "kjkj",
+        "Modified": "/Date(1725885244293)/"
+      },
+      {
+        "ID": "5392c1d9-f39e-4a27-a92c-0df9305fce59",
+        "EntryID": "43021150-89d6-4ce6-be51-41d243616553",
+        "AmountDC": -1.2,
+        "GLAccount": "4f3cb13e-8984-4cc5-b69a-5271a9bdd7c9",
+        "GLAccountCode": "101000",
+        "Modified": "/Date(1725884692777)/"
+      },
+      {
+        "ID": "1f4bfc5c-b271-41a8-a92d-0eefe27ec4c9",
+        "EntryID": "fed30936-8c99-498f-ae5a-6d7aa94470bc",
+        "AmountDC": -100,
+        "GLAccount": "6aa91ed1-2692-4329-b399-dd5dada9e8f2",
+        "GLAccountCode": "706000",
+        "Description": "Item 1",
+        "VATCode": "VAU",
+        "Modified": "/Date(1725885629900)/"
+      },
+      {
+        "ID": "67e6c160-6e53-4785-bf80-13c48d763993",
+        "EntryID": "4a2613cc-1384-45d1-b907-15b185f32e99",
+        "AmountDC": 316.5,
+        "GLAccount": "13274a9b-3e08-460d-8854-5cbecb64655d",
+        "GLAccountCode": "512000",
+        "Description": "top tip",
+        "Modified": "/Date(1725883820270)/"
+      },
+      {
+        "ID": "2ed697b9-50fd-430a-bee9-19dc7c70c95b",
+        "EntryID": "66a5366e-4982-4b62-bf26-bf6817dfe915",
+        "AmountDC": -24,
+        "GLAccount": "d99b2d39-b997-4ac4-9bc3-2beab7e2a8dd",
+        "GLAccountCode": "411000",
+        "Description": "top",
+        "Modified": "/Date(1725638877170)/"
+      },
+      {
+        "ID": "6d3d6a8f-bddb-4778-878d-1ad0c8181731",
+        "EntryID": "7ae2791d-6de2-47e1-a8cf-3ad5f69e2e7e",
+        "AmountDC": 10,
+        "GLAccount": "09a90391-048e-4555-94cb-1d91ca883c1f",
+        "GLAccountCode": "665000",
+        "Description": "kjkj",
+        "Modified": "/Date(1725884844577)/"
+      },
+      {
+        "ID": "d0705aa8-3e75-492f-9f14-1b6725020e85",
+        "EntryID": "37d4f854-7ea9-4a08-8630-fce11944076d",
+        "AmountDC": -20,
+        "GLAccount": "64fe65e7-a677-4561-89a8-94f9e7a8a01e",
+        "GLAccountCode": "445847",
+        "Description": "1234",
+        "VATCode": "VAU",
+        "Modified": "/Date(1725884950213)/"
+      },
+      {
+        "ID": "cd067ce8-027e-4e64-9ad2-204c5a1a1399",
+        "EntryID": "62dfe663-0fb6-4e13-aff1-527fc9ad3ab9",
+        "AmountDC": -120,
+        "GLAccount": "4f3cb13e-8984-4cc5-b69a-5271a9bdd7c9",
+        "GLAccountCode": "101000",
+        "Modified": "/Date(1725894485727)/"
+      },
+      {
+        "ID": "3f03d16e-783f-45fc-8cb2-23cf32808311",
+        "EntryID": "8d51d1bb-60a3-49b4-9631-2253266b28a1",
+        "AmountDC": -24,
+        "GLAccount": "6aa91ed1-2692-4329-b399-dd5dada9e8f2",
+        "GLAccountCode": "706000",
+        "Description": "Services",
+        "Modified": "/Date(1725638465030)/"
+      },
+      {
+        "ID": "82b4c22d-bcfe-4109-aaf1-297225a8cac9",
+        "EntryID": "b907804b-5da5-4de4-9b1e-79a99c48b7ed",
+        "AmountDC": -100,
+        "GLAccount": "4f3cb13e-8984-4cc5-b69a-5271a9bdd7c9",
+        "GLAccountCode": "101000",
+        "Description": "Invoice:",
+        "VATCode": "VN ",
+        "Modified": "/Date(1725885170170)/"
+      },
+      {
+        "ID": "77fc294d-e0a5-4ac7-adee-2e73ab12da2f",
+        "EntryID": "6f003b63-6ab3-485a-ad1c-b79a5f60bd9c",
+        "AmountDC": 16.5,
+        "GLAccount": "64fe65e7-a677-4561-89a8-94f9e7a8a01e",
+        "GLAccountCode": "445847",
+        "VATCode": "VB ",
+        "Modified": "/Date(1725638960487)/"
+      },
+      {
+        "ID": "d31b4512-1a3e-457c-8c7a-40a2147a4e92",
+        "EntryID": "7ae2791d-6de2-47e1-a8cf-3ad5f69e2e7e",
+        "AmountDC": -10,
+        "GLAccount": "d99b2d39-b997-4ac4-9bc3-2beab7e2a8dd",
+        "GLAccountCode": "411000",
+        "Description": "kjkj",
+        "Modified": "/Date(1725884844517)/"
+      },
+      {
+        "ID": "56c83794-45d0-43d9-ba1b-424ebbc58bdb",
+        "EntryID": "fe91d515-9b46-44a6-b64d-237c9357ecc6",
+        "AmountDC": 0,
+        "GLAccount": "83e03d6d-4a5e-4b19-b8e8-00c6c569f2bf",
+        "GLAccountCode": "658000",
+        "Description": "Office supplies",
+        "VATCode": "AB ",
+        "Modified": "/Date(1782402918647)/"
+      },
+      {
+        "ID": "d2204fce-8533-4d40-baaf-428478a1850d",
+        "EntryID": "05fde3e2-9b20-4bd5-88fc-363f66d4a6f8",
+        "AmountDC": -50,
+        "GLAccount": "13274a9b-3e08-460d-8854-5cbecb64655d",
+        "GLAccountCode": "512000",
+        "Modified": "/Date(1725638674687)/"
+      },
+      {
+        "ID": "4709201f-f35f-4035-b9b7-60d12d87a409",
+        "EntryID": "84197b8e-d4f7-4756-aa6d-17f1edea7fd3",
+        "AmountDC": 100,
+        "GLAccount": "09a90391-048e-4555-94cb-1d91ca883c1f",
+        "GLAccountCode": "665000",
+        "Description": "kjkj",
+        "VATCode": "VAU",
+        "Modified": "/Date(1725885244367)/"
+      },
+      {
+        "ID": "55cd74b2-060d-4eac-808c-63f68ff16880",
+        "EntryID": "b6bc7cf2-94ec-4614-a07b-b0f159abf748",
+        "AmountDC": 100,
+        "GLAccount": "09a90391-048e-4555-94cb-1d91ca883c1f",
+        "GLAccountCode": "665000",
+        "Description": "kjkj",
+        "VATCode": "VN ",
+        "Modified": "/Date(1725885407657)/"
+      },
+      {
+        "ID": "ad80a6ce-9d6b-4159-aade-699703dde9a9",
+        "EntryID": "2ab359f3-0042-4e57-b829-d7d7cc84d1ea",
+        "AmountDC": 0.01,
+        "GLAccount": "d99b2d39-b997-4ac4-9bc3-2beab7e2a8dd",
+        "GLAccountCode": "411000",
+        "Description": "1234",
+        "Modified": "/Date(1725644849653)/"
+      },
+      {
+        "ID": "41cee7cd-9db4-4e12-bc4c-6f3848139691",
+        "EntryID": "bcc9eae0-082c-49b9-a7c6-d1496828c030",
+        "AmountDC": -20,
+        "GLAccount": "91e2e3b9-3ee9-4446-861d-358fa8af17dd",
+        "GLAccountCode": "445710",
+        "Description": "Invoice:",
+        "VATCode": "VN ",
+        "Modified": "/Date(1725885370223)/"
+      },
+      {
+        "ID": "c47d49ca-84af-428d-8886-70acda816ce6",
+        "EntryID": "72271f57-13cc-4a05-aaab-7db2db291b4f",
+        "AmountDC": 0.01,
+        "GLAccount": "09a90391-048e-4555-94cb-1d91ca883c1f",
+        "GLAccountCode": "665000",
+        "Description": "kjk",
+        "Modified": "/Date(1725884850990)/"
+      },
+      {
+        "ID": "37a2ea79-ecfc-4963-9a08-724326e3201c",
+        "EntryID": "075a5c5c-756e-4bd8-9adb-f2290d69f0e2",
+        "AmountDC": -1.2,
+        "GLAccount": "d99b2d39-b997-4ac4-9bc3-2beab7e2a8dd",
+        "GLAccountCode": "411000",
+        "Description": "dfdf",
+        "Modified": "/Date(1725884763457)/"
+      },
+      {
+        "ID": "c9881a5d-28ef-4d7c-86da-72feed5b0986",
+        "EntryID": "b907804b-5da5-4de4-9b1e-79a99c48b7ed",
+        "AmountDC": -20,
+        "GLAccount": "91e2e3b9-3ee9-4446-861d-358fa8af17dd",
+        "GLAccountCode": "445710",
+        "Description": "Invoice:",
+        "VATCode": "VN ",
+        "Modified": "/Date(1725885170200)/"
+      },
+      {
+        "ID": "86714e12-814b-425d-ab41-751ea147dbe2",
+        "EntryID": "050b9709-98f3-44b1-a242-662e77a29be2",
+        "AmountDC": -13,
+        "GLAccount": "4f3cb13e-8984-4cc5-b69a-5271a9bdd7c9",
+        "GLAccountCode": "101000",
+        "Modified": "/Date(1725895233487)/"
+      },
+      {
+        "ID": "e1082259-bc35-441c-bc64-75a40f09168a",
+        "EntryID": "6d4f9cd0-2474-424a-aa7d-5103a0e6d40c",
+        "AmountDC": 0,
+        "GLAccount": "f1edc15b-3506-4db1-9f32-00e6ff1910d6",
+        "GLAccountCode": "622000",
+        "Description": "Software license purchase",
+        "VATCode": "AB ",
+        "Modified": "/Date(1782402892940)/"
+      },
+      {
+        "ID": "59e08ed2-3de8-495c-a72e-82d39e4ec157",
+        "EntryID": "d469da0c-7d52-41b3-979c-27a9c2dca606",
+        "AmountDC": -0.2,
+        "GLAccount": "64fe65e7-a677-4561-89a8-94f9e7a8a01e",
+        "GLAccountCode": "445847",
+        "Description": "1234",
+        "VATCode": "VAU",
+        "Modified": "/Date(1725882549590)/"
+      },
+      {
+        "ID": "822379a5-454c-47cd-912d-87bd5b3fd2fa",
+        "EntryID": "d469da0c-7d52-41b3-979c-27a9c2dca606",
+        "AmountDC": 1.2,
+        "GLAccount": "d99b2d39-b997-4ac4-9bc3-2beab7e2a8dd",
+        "GLAccountCode": "411000",
+        "Description": "1234",
+        "Modified": "/Date(1725882549590)/"
+      },
+      {
+        "ID": "f87ddc05-405d-40f0-8002-8d7f9d9a8b98",
+        "EntryID": "4a2613cc-1384-45d1-b907-15b185f32e99",
+        "AmountDC": -316.5,
+        "GLAccount": "d99b2d39-b997-4ac4-9bc3-2beab7e2a8dd",
+        "GLAccountCode": "411000",
+        "Description": "top tip",
+        "Modified": "/Date(1725883820270)/"
+      },
+      {
+        "ID": "bc519281-32eb-4f49-9d15-8edab6169f57",
+        "EntryID": "66a5366e-4982-4b62-bf26-bf6817dfe915",
+        "AmountDC": 24,
+        "GLAccount": "57e5fb3e-4038-4b1d-ac5e-c9d93e9ed72f",
+        "GLAccountCode": "530000",
+        "Description": "top",
+        "Modified": "/Date(1725638877170)/"
+      },
+      {
+        "ID": "e165ec07-1baf-488d-84ad-8f5caf7f8907",
+        "EntryID": "bcc9eae0-082c-49b9-a7c6-d1496828c030",
+        "AmountDC": 120,
+        "GLAccount": "d99b2d39-b997-4ac4-9bc3-2beab7e2a8dd",
+        "GLAccountCode": "411000",
+        "Description": "Invoice:",
+        "Modified": "/Date(1725885374427)/"
+      },
+      {
+        "ID": "b8be2832-4ad3-43d3-ac87-920f011943d9",
+        "EntryID": "37d4f854-7ea9-4a08-8630-fce11944076d",
+        "AmountDC": -100,
+        "GLAccount": "6aa91ed1-2692-4329-b399-dd5dada9e8f2",
+        "GLAccountCode": "706000",
+        "Description": "Item 1",
+        "VATCode": "VAU",
+        "Modified": "/Date(1725884950213)/"
+      },
+      {
+        "ID": "90679efb-c310-4026-b0c5-9753204a3cb5",
+        "EntryID": "b0f04d84-4910-47b7-bb54-06089ef3cf93",
+        "AmountDC": 25,
+        "GLAccount": "57e5fb3e-4038-4b1d-ac5e-c9d93e9ed72f",
+        "GLAccountCode": "530000",
+        "Modified": "/Date(1725631177363)/"
+      },
+      {
+        "ID": "d4784044-7c1e-4da0-8432-98638e87c3d4",
+        "EntryID": "fed30936-8c99-498f-ae5a-6d7aa94470bc",
+        "AmountDC": -20,
+        "GLAccount": "64fe65e7-a677-4561-89a8-94f9e7a8a01e",
+        "GLAccountCode": "445847",
+        "Description": "1234",
+        "VATCode": "VAU",
+        "Modified": "/Date(1725885629900)/"
+      },
+      {
+        "ID": "1197ffb5-5a5f-4987-a2ff-98857d91eedb",
+        "EntryID": "3b46b33f-f054-4301-94b7-50bded985d24",
+        "AmountDC": 20,
+        "GLAccount": "64fe65e7-a677-4561-89a8-94f9e7a8a01e",
+        "GLAccountCode": "445847",
+        "VATCode": "VAU",
+        "Modified": "/Date(1725895491217)/"
+      },
+      {
+        "ID": "9f15a84b-cec1-4fe2-b596-9aa560e7f181",
+        "EntryID": "7bf5c38a-a10b-473f-ab67-8e7ba47b7a9a",
+        "AmountDC": -300,
+        "GLAccount": "6aa91ed1-2692-4329-b399-dd5dada9e8f2",
+        "GLAccountCode": "706000",
+        "Description": "Services",
+        "Modified": "/Date(1723563699910)/"
+      },
+      {
+        "ID": "0e987abf-5f59-4608-a500-9b9704e429d1",
+        "EntryID": "096cf88d-14c1-45f5-943d-b937b5c13ad1",
+        "AmountDC": 50,
+        "GLAccount": "57e5fb3e-4038-4b1d-ac5e-c9d93e9ed72f",
+        "GLAccountCode": "530000",
+        "Modified": "/Date(1725631140803)/"
+      },
+      {
+        "ID": "1cff328c-d758-412b-b8e7-9d02d3902595",
+        "EntryID": "d469da0c-7d52-41b3-979c-27a9c2dca606",
+        "AmountDC": -1,
+        "GLAccount": "6aa91ed1-2692-4329-b399-dd5dada9e8f2",
+        "GLAccountCode": "706000",
+        "Description": "Item 1",
+        "VATCode": "VAU",
+        "Modified": "/Date(1725882549590)/"
+      },
+      {
+        "ID": "24e161ef-6420-4b1b-b538-9d2bca303a76",
+        "EntryID": "4fe3d5cb-8284-486b-acdb-c2b695b466fe",
+        "AmountDC": 300,
+        "GLAccount": "83e03d6d-4a5e-4b19-b8e8-00c6c569f2bf",
+        "GLAccountCode": "658000",
+        "Description": "kjkj",
+        "Modified": "/Date(1725637750857)/"
+      },
+      {
+        "ID": "0eac5b73-e40c-4fb0-8d33-9e3ff36d6636",
+        "EntryID": "096cf88d-14c1-45f5-943d-b937b5c13ad1",
+        "AmountDC": -50,
+        "GLAccount": "4f3cb13e-8984-4cc5-b69a-5271a9bdd7c9",
+        "GLAccountCode": "101000",
+        "Modified": "/Date(1725631140803)/"
+      },
+      {
+        "ID": "00a21b92-56bf-479b-bf39-a060b78e5904",
+        "EntryID": "749678eb-ca6a-41d2-bb77-bc3970a0d512",
+        "AmountDC": 120,
+        "GLAccount": "13274a9b-3e08-460d-8854-5cbecb64655d",
+        "GLAccountCode": "512000",
+        "Description": "1234",
+        "Modified": "/Date(1725895491480)/"
+      },
+      {
+        "ID": "f526e25d-5f33-4ac9-bb2e-a0b059652121",
+        "EntryID": "17ccd52b-21ad-4969-a49c-b0aa78f5c81d",
+        "AmountDC": 120,
+        "GLAccount": "13274a9b-3e08-460d-8854-5cbecb64655d",
+        "GLAccountCode": "512000",
+        "Modified": "/Date(1725894530927)/"
+      },
+      {
+        "ID": "67795c24-e882-4f74-a526-a68992d1cfc0",
+        "EntryID": "6d4f9cd0-2474-424a-aa7d-5103a0e6d40c",
+        "AmountDC": 0,
+        "GLAccount": "43ad721f-b09a-4295-b297-0bc137a70591",
+        "GLAccountCode": "401000",
+        "Modified": "/Date(1782402892940)/"
+      },
+      {
+        "ID": "60ab1d96-0f82-4496-b04c-a68d96af7ecd",
+        "EntryID": "9fe21f39-6e64-4a1f-a2b0-7c4b9a357474",
+        "AmountDC": 1.2,
+        "GLAccount": "13274a9b-3e08-460d-8854-5cbecb64655d",
+        "GLAccountCode": "512000",
+        "Modified": "/Date(1725884862440)/"
+      },
+      {
+        "ID": "38860d29-45ee-4003-9864-a692b998a882",
+        "EntryID": "ed30c262-cb03-46a2-b237-610d76e0475b",
+        "AmountDC": -120,
+        "GLAccount": "d99b2d39-b997-4ac4-9bc3-2beab7e2a8dd",
+        "GLAccountCode": "411000",
+        "Description": "Invoice:",
+        "Modified": "/Date(1725885511817)/"
+      },
+      {
+        "ID": "7b755ae0-cbe5-4503-a1bc-a96ce4aab9bb",
+        "EntryID": "414b84b0-8001-4ea0-9571-b571e8acf7b3",
+        "AmountDC": 100,
+        "GLAccount": "13274a9b-3e08-460d-8854-5cbecb64655d",
+        "GLAccountCode": "512000",
+        "Modified": "/Date(1725883860307)/"
+      },
+      {
+        "ID": "ce854e99-8b77-4ae6-abba-b0a77198e5a1",
+        "EntryID": "20b9ba3a-d743-40f0-bcf8-15929975cff6",
+        "AmountDC": -16.5,
+        "GLAccount": "64fe65e7-a677-4561-89a8-94f9e7a8a01e",
+        "GLAccountCode": "445847",
+        "Description": "top tip",
+        "VATCode": "VB ",
+        "Modified": "/Date(1723472960657)/"
+      },
+      {
+        "ID": "fc239d1c-f1ae-4f39-bdb2-b61ca8bb64c4",
+        "EntryID": "414b84b0-8001-4ea0-9571-b571e8acf7b3",
+        "AmountDC": -100,
+        "GLAccount": "4f3cb13e-8984-4cc5-b69a-5271a9bdd7c9",
+        "GLAccountCode": "101000",
+        "Modified": "/Date(1725883860307)/"
+      },
+      {
+        "ID": "c3487ba5-9b31-47f1-9af9-b8870f5c5d89",
+        "EntryID": "20b9ba3a-d743-40f0-bcf8-15929975cff6",
+        "AmountDC": 316.5,
+        "GLAccount": "d99b2d39-b997-4ac4-9bc3-2beab7e2a8dd",
+        "GLAccountCode": "411000",
+        "Description": "top tip",
+        "Modified": "/Date(1723472960657)/"
+      },
+      {
+        "ID": "3201adb3-4c5a-4748-8a6c-bc965189e35a",
+        "EntryID": "7bf5c38a-a10b-473f-ab67-8e7ba47b7a9a",
+        "AmountDC": 300,
+        "GLAccount": "d99b2d39-b997-4ac4-9bc3-2beab7e2a8dd",
+        "GLAccountCode": "411000",
+        "Description": "this is a description",
+        "Modified": "/Date(1723563699910)/"
+      },
+      {
+        "ID": "e7e2b942-7f50-4419-8a7b-c0621e9f14e5",
+        "EntryID": "b0f04d84-4910-47b7-bb54-06089ef3cf93",
+        "AmountDC": -25,
+        "GLAccount": "4f3cb13e-8984-4cc5-b69a-5271a9bdd7c9",
+        "GLAccountCode": "101000",
+        "Modified": "/Date(1725631177363)/"
+      },
+      {
+        "ID": "ac08abc8-fbf9-4d7c-9d91-c29b0a812200",
+        "EntryID": "17ccd52b-21ad-4969-a49c-b0aa78f5c81d",
+        "AmountDC": -120,
+        "GLAccount": "4f3cb13e-8984-4cc5-b69a-5271a9bdd7c9",
+        "GLAccountCode": "101000",
+        "Modified": "/Date(1725894530890)/"
+      },
+      {
+        "ID": "f1a41b78-767c-4f67-8ea9-c2b4fb3a8247",
+        "EntryID": "20b9ba3a-d743-40f0-bcf8-15929975cff6",
+        "AmountDC": -300,
+        "GLAccount": "6aa91ed1-2692-4329-b399-dd5dada9e8f2",
+        "GLAccountCode": "706000",
+        "Description": "Item desc",
+        "VATCode": "VB ",
+        "Modified": "/Date(1723472960657)/"
+      },
+      {
+        "ID": "5755d73e-9004-4203-8481-c3bfb02b1fa0",
+        "EntryID": "050b9709-98f3-44b1-a242-662e77a29be2",
+        "AmountDC": 13,
+        "GLAccount": "13274a9b-3e08-460d-8854-5cbecb64655d",
+        "GLAccountCode": "512000",
+        "Modified": "/Date(1725895233523)/"
+      },
+      {
+        "ID": "eaa9b9f8-04bf-4430-91f8-c69a3e7b095c",
+        "EntryID": "b6bc7cf2-94ec-4614-a07b-b0f159abf748",
+        "AmountDC": -120,
+        "GLAccount": "d99b2d39-b997-4ac4-9bc3-2beab7e2a8dd",
+        "GLAccountCode": "411000",
+        "Description": "kjkj",
+        "Modified": "/Date(1725885407583)/"
+      },
+      {
+        "ID": "4d925b04-c236-4a19-a8aa-c8809084bb96",
+        "EntryID": "3b46b33f-f054-4301-94b7-50bded985d24",
+        "AmountDC": -20,
+        "GLAccount": "91e2e3b9-3ee9-4446-861d-358fa8af17dd",
+        "GLAccountCode": "445710",
+        "VATCode": "VAU",
+        "Modified": "/Date(1725895491217)/"
+      },
+      {
+        "ID": "d00a4bba-2aab-4358-b306-cba587f239c0",
+        "EntryID": "075a5c5c-756e-4bd8-9adb-f2290d69f0e2",
+        "AmountDC": 0.2,
+        "GLAccount": "64fe65e7-a677-4561-89a8-94f9e7a8a01e",
+        "GLAccountCode": "445847",
+        "Description": "dfdf",
+        "VATCode": "VAU",
+        "Modified": "/Date(1725884763613)/"
+      },
+      {
+        "ID": "d78f9438-afde-40a7-923d-cc75ffc699cc",
+        "EntryID": "20808107-baf5-481b-b3a9-4aeff08109c0",
+        "AmountDC": 10,
+        "GLAccount": "d99b2d39-b997-4ac4-9bc3-2beab7e2a8dd",
+        "GLAccountCode": "411000",
+        "Modified": "/Date(1725639171560)/"
+      },
+      {
+        "ID": "6cb00152-2c49-4cf8-a7f3-cdb87dbdb2e4",
+        "EntryID": "43021150-89d6-4ce6-be51-41d243616553",
+        "AmountDC": 1.2,
+        "GLAccount": "13274a9b-3e08-460d-8854-5cbecb64655d",
+        "GLAccountCode": "512000",
+        "Modified": "/Date(1725884692777)/"
+      },
+      {
+        "ID": "c51598da-12d8-4782-b925-d37e34c6e3fd",
+        "EntryID": "4fe3d5cb-8284-486b-acdb-c2b695b466fe",
+        "AmountDC": -300,
+        "GLAccount": "d99b2d39-b997-4ac4-9bc3-2beab7e2a8dd",
+        "GLAccountCode": "411000",
+        "Description": "kjkj",
+        "Modified": "/Date(1725637750707)/"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/v1/current/Me": {
+        "response": {
+          "d": {
+            "results": [
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/current/Me(guid'cc20a11b-c137-48cc-8e55-09d4adbd4ac9')",
+                  "type": "Exact.Web.Api.Models.System.Me"
+                },
+                "CurrentDivision": 124132,
+                "DivisionCustomer": "83b186b4-483d-474a-bebc-85da71e6f1ed",
+                "DivisionCustomerCode": "           1265594",
+                "DivisionCustomerName": "Nango",
+                "DivisionCustomerVatNumber": null,
+                "DivisionCustomerSiretNumber": "",
+                "DossierDivision": null,
+                "AccountingDivision": 124132,
+                "IsEmployeeSelfServiceUser": false,
+                "IsMyFirmLiteUser": false,
+                "IsStarterUser": false,
+                "IsMyFirmPortalUser": false,
+                "IsClientUser": true,
+                "FullName": "Samuel Bodin",
+                "PictureUrl": "https://start.exactonline.fr//docs/images/placeholder_contact_myeol.png",
+                "ThumbnailPicture": null,
+                "ThumbnailPictureFormat": null,
+                "UserID": "cc20a11b-c137-48cc-8e55-09d4adbd4ac9",
+                "UserName": "samuel@nango.dev",
+                "LanguageCode": "en-GB",
+                "Legislation": "128",
+                "Email": "samuel@nango.dev",
+                "Title": "Mr.",
+                "Initials": null,
+                "FirstName": "Samuel",
+                "MiddleName": null,
+                "LastName": "Bodin",
+                "Gender": "O",
+                "Nationality": null,
+                "Language": "EN",
+                "Phone": "0606060606",
+                "PhoneExtension": null,
+                "Mobile": null,
+                "ServerTime": "2026-06-25T16:13:43",
+                "ServerUtcOffset": 7200,
+                "EmployeeID": "00000000-0000-0000-0000-000000000000",
+                "CustomerCode": "           1265594",
+                "PackageCode": "EOLAPPCENTER",
+                "IsOEIMigrationMandatory": true
+              }
+            ]
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 25 Jun 2026 14:13:43 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "1397",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4930",
+          "x-ratelimit-reset": "1782396857",
+          "etag": "W/\"575-C3p+9FB6YU7mDsydUbTou9Zsgc0\""
+        },
+        "hash": "3b1fbfe94d69bc315fcd1e7b93bc400e3eea536c",
+        "request": {}
+      },
+      "/api/v1/124132/financialtransaction/TransactionLines": {
+        "response": {
+          "d": {
+            "results": [
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/TransactionLines(guid'74fa0eaa-5288-4e67-ba2d-0060550c9e39')",
+                  "type": "Exact.Web.Api.Models.Financial.TransactionLine"
+                },
+                "ID": "74fa0eaa-5288-4e67-ba2d-0060550c9e39",
+                "AmountDC": -0.01,
+                "Description": "Item 1",
+                "EntryID": "2ab359f3-0042-4e57-b829-d7d7cc84d1ea",
+                "GLAccount": "6aa91ed1-2692-4329-b399-dd5dada9e8f2",
+                "GLAccountCode": "706000",
+                "Modified": "/Date(1725644849653)/",
+                "VATCode": "VAU"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/TransactionLines(guid'3db7a2b3-be20-4510-8bf3-093014c312f0')",
+                  "type": "Exact.Web.Api.Models.Financial.TransactionLine"
+                },
+                "ID": "3db7a2b3-be20-4510-8bf3-093014c312f0",
+                "AmountDC": 120,
+                "Description": "Invoice:",
+                "EntryID": "ed30c262-cb03-46a2-b237-610d76e0475b",
+                "GLAccount": "13274a9b-3e08-460d-8854-5cbecb64655d",
+                "GLAccountCode": "512000",
+                "Modified": "/Date(1725885511867)/",
+                "VATCode": null
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/TransactionLines(guid'55e89ed6-96f8-4443-bdb4-0b08872d1a26')",
+                  "type": "Exact.Web.Api.Models.Financial.TransactionLine"
+                },
+                "ID": "55e89ed6-96f8-4443-bdb4-0b08872d1a26",
+                "AmountDC": -120,
+                "Description": "1234",
+                "EntryID": "749678eb-ca6a-41d2-bb77-bc3970a0d512",
+                "GLAccount": "d99b2d39-b997-4ac4-9bc3-2beab7e2a8dd",
+                "GLAccountCode": "411000",
+                "Modified": "/Date(1725895491423)/",
+                "VATCode": null
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/TransactionLines(guid'd0576743-4764-4ce8-864c-0da3a39637e5')",
+                  "type": "Exact.Web.Api.Models.Financial.TransactionLine"
+                },
+                "ID": "d0576743-4764-4ce8-864c-0da3a39637e5",
+                "AmountDC": -120,
+                "Description": "kjkj",
+                "EntryID": "84197b8e-d4f7-4756-aa6d-17f1edea7fd3",
+                "GLAccount": "d99b2d39-b997-4ac4-9bc3-2beab7e2a8dd",
+                "GLAccountCode": "411000",
+                "Modified": "/Date(1725885244293)/",
+                "VATCode": null
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/TransactionLines(guid'5392c1d9-f39e-4a27-a92c-0df9305fce59')",
+                  "type": "Exact.Web.Api.Models.Financial.TransactionLine"
+                },
+                "ID": "5392c1d9-f39e-4a27-a92c-0df9305fce59",
+                "AmountDC": -1.2,
+                "Description": null,
+                "EntryID": "43021150-89d6-4ce6-be51-41d243616553",
+                "GLAccount": "4f3cb13e-8984-4cc5-b69a-5271a9bdd7c9",
+                "GLAccountCode": "101000",
+                "Modified": "/Date(1725884692777)/",
+                "VATCode": null
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/TransactionLines(guid'1f4bfc5c-b271-41a8-a92d-0eefe27ec4c9')",
+                  "type": "Exact.Web.Api.Models.Financial.TransactionLine"
+                },
+                "ID": "1f4bfc5c-b271-41a8-a92d-0eefe27ec4c9",
+                "AmountDC": -100,
+                "Description": "Item 1",
+                "EntryID": "fed30936-8c99-498f-ae5a-6d7aa94470bc",
+                "GLAccount": "6aa91ed1-2692-4329-b399-dd5dada9e8f2",
+                "GLAccountCode": "706000",
+                "Modified": "/Date(1725885629900)/",
+                "VATCode": "VAU"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/TransactionLines(guid'67e6c160-6e53-4785-bf80-13c48d763993')",
+                  "type": "Exact.Web.Api.Models.Financial.TransactionLine"
+                },
+                "ID": "67e6c160-6e53-4785-bf80-13c48d763993",
+                "AmountDC": 316.5,
+                "Description": "top tip",
+                "EntryID": "4a2613cc-1384-45d1-b907-15b185f32e99",
+                "GLAccount": "13274a9b-3e08-460d-8854-5cbecb64655d",
+                "GLAccountCode": "512000",
+                "Modified": "/Date(1725883820270)/",
+                "VATCode": null
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/TransactionLines(guid'2ed697b9-50fd-430a-bee9-19dc7c70c95b')",
+                  "type": "Exact.Web.Api.Models.Financial.TransactionLine"
+                },
+                "ID": "2ed697b9-50fd-430a-bee9-19dc7c70c95b",
+                "AmountDC": -24,
+                "Description": "top",
+                "EntryID": "66a5366e-4982-4b62-bf26-bf6817dfe915",
+                "GLAccount": "d99b2d39-b997-4ac4-9bc3-2beab7e2a8dd",
+                "GLAccountCode": "411000",
+                "Modified": "/Date(1725638877170)/",
+                "VATCode": null
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/TransactionLines(guid'6d3d6a8f-bddb-4778-878d-1ad0c8181731')",
+                  "type": "Exact.Web.Api.Models.Financial.TransactionLine"
+                },
+                "ID": "6d3d6a8f-bddb-4778-878d-1ad0c8181731",
+                "AmountDC": 10,
+                "Description": "kjkj",
+                "EntryID": "7ae2791d-6de2-47e1-a8cf-3ad5f69e2e7e",
+                "GLAccount": "09a90391-048e-4555-94cb-1d91ca883c1f",
+                "GLAccountCode": "665000",
+                "Modified": "/Date(1725884844577)/",
+                "VATCode": null
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/TransactionLines(guid'd0705aa8-3e75-492f-9f14-1b6725020e85')",
+                  "type": "Exact.Web.Api.Models.Financial.TransactionLine"
+                },
+                "ID": "d0705aa8-3e75-492f-9f14-1b6725020e85",
+                "AmountDC": -20,
+                "Description": "1234",
+                "EntryID": "37d4f854-7ea9-4a08-8630-fce11944076d",
+                "GLAccount": "64fe65e7-a677-4561-89a8-94f9e7a8a01e",
+                "GLAccountCode": "445847",
+                "Modified": "/Date(1725884950213)/",
+                "VATCode": "VAU"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/TransactionLines(guid'cd067ce8-027e-4e64-9ad2-204c5a1a1399')",
+                  "type": "Exact.Web.Api.Models.Financial.TransactionLine"
+                },
+                "ID": "cd067ce8-027e-4e64-9ad2-204c5a1a1399",
+                "AmountDC": -120,
+                "Description": null,
+                "EntryID": "62dfe663-0fb6-4e13-aff1-527fc9ad3ab9",
+                "GLAccount": "4f3cb13e-8984-4cc5-b69a-5271a9bdd7c9",
+                "GLAccountCode": "101000",
+                "Modified": "/Date(1725894485727)/",
+                "VATCode": null
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/TransactionLines(guid'3f03d16e-783f-45fc-8cb2-23cf32808311')",
+                  "type": "Exact.Web.Api.Models.Financial.TransactionLine"
+                },
+                "ID": "3f03d16e-783f-45fc-8cb2-23cf32808311",
+                "AmountDC": -24,
+                "Description": "Services",
+                "EntryID": "8d51d1bb-60a3-49b4-9631-2253266b28a1",
+                "GLAccount": "6aa91ed1-2692-4329-b399-dd5dada9e8f2",
+                "GLAccountCode": "706000",
+                "Modified": "/Date(1725638465030)/",
+                "VATCode": null
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/TransactionLines(guid'82b4c22d-bcfe-4109-aaf1-297225a8cac9')",
+                  "type": "Exact.Web.Api.Models.Financial.TransactionLine"
+                },
+                "ID": "82b4c22d-bcfe-4109-aaf1-297225a8cac9",
+                "AmountDC": -100,
+                "Description": "Invoice:",
+                "EntryID": "b907804b-5da5-4de4-9b1e-79a99c48b7ed",
+                "GLAccount": "4f3cb13e-8984-4cc5-b69a-5271a9bdd7c9",
+                "GLAccountCode": "101000",
+                "Modified": "/Date(1725885170170)/",
+                "VATCode": "VN "
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/TransactionLines(guid'77fc294d-e0a5-4ac7-adee-2e73ab12da2f')",
+                  "type": "Exact.Web.Api.Models.Financial.TransactionLine"
+                },
+                "ID": "77fc294d-e0a5-4ac7-adee-2e73ab12da2f",
+                "AmountDC": 16.5,
+                "Description": null,
+                "EntryID": "6f003b63-6ab3-485a-ad1c-b79a5f60bd9c",
+                "GLAccount": "64fe65e7-a677-4561-89a8-94f9e7a8a01e",
+                "GLAccountCode": "445847",
+                "Modified": "/Date(1725638960487)/",
+                "VATCode": "VB "
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/TransactionLines(guid'd31b4512-1a3e-457c-8c7a-40a2147a4e92')",
+                  "type": "Exact.Web.Api.Models.Financial.TransactionLine"
+                },
+                "ID": "d31b4512-1a3e-457c-8c7a-40a2147a4e92",
+                "AmountDC": -10,
+                "Description": "kjkj",
+                "EntryID": "7ae2791d-6de2-47e1-a8cf-3ad5f69e2e7e",
+                "GLAccount": "d99b2d39-b997-4ac4-9bc3-2beab7e2a8dd",
+                "GLAccountCode": "411000",
+                "Modified": "/Date(1725884844517)/",
+                "VATCode": null
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/TransactionLines(guid'56c83794-45d0-43d9-ba1b-424ebbc58bdb')",
+                  "type": "Exact.Web.Api.Models.Financial.TransactionLine"
+                },
+                "ID": "56c83794-45d0-43d9-ba1b-424ebbc58bdb",
+                "AmountDC": 0,
+                "Description": "Office supplies",
+                "EntryID": "fe91d515-9b46-44a6-b64d-237c9357ecc6",
+                "GLAccount": "83e03d6d-4a5e-4b19-b8e8-00c6c569f2bf",
+                "GLAccountCode": "658000",
+                "Modified": "/Date(1782402918647)/",
+                "VATCode": "AB "
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/TransactionLines(guid'd2204fce-8533-4d40-baaf-428478a1850d')",
+                  "type": "Exact.Web.Api.Models.Financial.TransactionLine"
+                },
+                "ID": "d2204fce-8533-4d40-baaf-428478a1850d",
+                "AmountDC": -50,
+                "Description": null,
+                "EntryID": "05fde3e2-9b20-4bd5-88fc-363f66d4a6f8",
+                "GLAccount": "13274a9b-3e08-460d-8854-5cbecb64655d",
+                "GLAccountCode": "512000",
+                "Modified": "/Date(1725638674687)/",
+                "VATCode": null
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/TransactionLines(guid'4709201f-f35f-4035-b9b7-60d12d87a409')",
+                  "type": "Exact.Web.Api.Models.Financial.TransactionLine"
+                },
+                "ID": "4709201f-f35f-4035-b9b7-60d12d87a409",
+                "AmountDC": 100,
+                "Description": "kjkj",
+                "EntryID": "84197b8e-d4f7-4756-aa6d-17f1edea7fd3",
+                "GLAccount": "09a90391-048e-4555-94cb-1d91ca883c1f",
+                "GLAccountCode": "665000",
+                "Modified": "/Date(1725885244367)/",
+                "VATCode": "VAU"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/TransactionLines(guid'55cd74b2-060d-4eac-808c-63f68ff16880')",
+                  "type": "Exact.Web.Api.Models.Financial.TransactionLine"
+                },
+                "ID": "55cd74b2-060d-4eac-808c-63f68ff16880",
+                "AmountDC": 100,
+                "Description": "kjkj",
+                "EntryID": "b6bc7cf2-94ec-4614-a07b-b0f159abf748",
+                "GLAccount": "09a90391-048e-4555-94cb-1d91ca883c1f",
+                "GLAccountCode": "665000",
+                "Modified": "/Date(1725885407657)/",
+                "VATCode": "VN "
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/TransactionLines(guid'ad80a6ce-9d6b-4159-aade-699703dde9a9')",
+                  "type": "Exact.Web.Api.Models.Financial.TransactionLine"
+                },
+                "ID": "ad80a6ce-9d6b-4159-aade-699703dde9a9",
+                "AmountDC": 0.01,
+                "Description": "1234",
+                "EntryID": "2ab359f3-0042-4e57-b829-d7d7cc84d1ea",
+                "GLAccount": "d99b2d39-b997-4ac4-9bc3-2beab7e2a8dd",
+                "GLAccountCode": "411000",
+                "Modified": "/Date(1725644849653)/",
+                "VATCode": null
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/TransactionLines(guid'41cee7cd-9db4-4e12-bc4c-6f3848139691')",
+                  "type": "Exact.Web.Api.Models.Financial.TransactionLine"
+                },
+                "ID": "41cee7cd-9db4-4e12-bc4c-6f3848139691",
+                "AmountDC": -20,
+                "Description": "Invoice:",
+                "EntryID": "bcc9eae0-082c-49b9-a7c6-d1496828c030",
+                "GLAccount": "91e2e3b9-3ee9-4446-861d-358fa8af17dd",
+                "GLAccountCode": "445710",
+                "Modified": "/Date(1725885370223)/",
+                "VATCode": "VN "
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/TransactionLines(guid'c47d49ca-84af-428d-8886-70acda816ce6')",
+                  "type": "Exact.Web.Api.Models.Financial.TransactionLine"
+                },
+                "ID": "c47d49ca-84af-428d-8886-70acda816ce6",
+                "AmountDC": 0.01,
+                "Description": "kjk",
+                "EntryID": "72271f57-13cc-4a05-aaab-7db2db291b4f",
+                "GLAccount": "09a90391-048e-4555-94cb-1d91ca883c1f",
+                "GLAccountCode": "665000",
+                "Modified": "/Date(1725884850990)/",
+                "VATCode": null
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/TransactionLines(guid'37a2ea79-ecfc-4963-9a08-724326e3201c')",
+                  "type": "Exact.Web.Api.Models.Financial.TransactionLine"
+                },
+                "ID": "37a2ea79-ecfc-4963-9a08-724326e3201c",
+                "AmountDC": -1.2,
+                "Description": "dfdf",
+                "EntryID": "075a5c5c-756e-4bd8-9adb-f2290d69f0e2",
+                "GLAccount": "d99b2d39-b997-4ac4-9bc3-2beab7e2a8dd",
+                "GLAccountCode": "411000",
+                "Modified": "/Date(1725884763457)/",
+                "VATCode": null
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/TransactionLines(guid'c9881a5d-28ef-4d7c-86da-72feed5b0986')",
+                  "type": "Exact.Web.Api.Models.Financial.TransactionLine"
+                },
+                "ID": "c9881a5d-28ef-4d7c-86da-72feed5b0986",
+                "AmountDC": -20,
+                "Description": "Invoice:",
+                "EntryID": "b907804b-5da5-4de4-9b1e-79a99c48b7ed",
+                "GLAccount": "91e2e3b9-3ee9-4446-861d-358fa8af17dd",
+                "GLAccountCode": "445710",
+                "Modified": "/Date(1725885170200)/",
+                "VATCode": "VN "
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/TransactionLines(guid'86714e12-814b-425d-ab41-751ea147dbe2')",
+                  "type": "Exact.Web.Api.Models.Financial.TransactionLine"
+                },
+                "ID": "86714e12-814b-425d-ab41-751ea147dbe2",
+                "AmountDC": -13,
+                "Description": null,
+                "EntryID": "050b9709-98f3-44b1-a242-662e77a29be2",
+                "GLAccount": "4f3cb13e-8984-4cc5-b69a-5271a9bdd7c9",
+                "GLAccountCode": "101000",
+                "Modified": "/Date(1725895233487)/",
+                "VATCode": null
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/TransactionLines(guid'e1082259-bc35-441c-bc64-75a40f09168a')",
+                  "type": "Exact.Web.Api.Models.Financial.TransactionLine"
+                },
+                "ID": "e1082259-bc35-441c-bc64-75a40f09168a",
+                "AmountDC": 0,
+                "Description": "Software license purchase",
+                "EntryID": "6d4f9cd0-2474-424a-aa7d-5103a0e6d40c",
+                "GLAccount": "f1edc15b-3506-4db1-9f32-00e6ff1910d6",
+                "GLAccountCode": "622000",
+                "Modified": "/Date(1782402892940)/",
+                "VATCode": "AB "
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/TransactionLines(guid'59e08ed2-3de8-495c-a72e-82d39e4ec157')",
+                  "type": "Exact.Web.Api.Models.Financial.TransactionLine"
+                },
+                "ID": "59e08ed2-3de8-495c-a72e-82d39e4ec157",
+                "AmountDC": -0.2,
+                "Description": "1234",
+                "EntryID": "d469da0c-7d52-41b3-979c-27a9c2dca606",
+                "GLAccount": "64fe65e7-a677-4561-89a8-94f9e7a8a01e",
+                "GLAccountCode": "445847",
+                "Modified": "/Date(1725882549590)/",
+                "VATCode": "VAU"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/TransactionLines(guid'822379a5-454c-47cd-912d-87bd5b3fd2fa')",
+                  "type": "Exact.Web.Api.Models.Financial.TransactionLine"
+                },
+                "ID": "822379a5-454c-47cd-912d-87bd5b3fd2fa",
+                "AmountDC": 1.2,
+                "Description": "1234",
+                "EntryID": "d469da0c-7d52-41b3-979c-27a9c2dca606",
+                "GLAccount": "d99b2d39-b997-4ac4-9bc3-2beab7e2a8dd",
+                "GLAccountCode": "411000",
+                "Modified": "/Date(1725882549590)/",
+                "VATCode": null
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/TransactionLines(guid'f87ddc05-405d-40f0-8002-8d7f9d9a8b98')",
+                  "type": "Exact.Web.Api.Models.Financial.TransactionLine"
+                },
+                "ID": "f87ddc05-405d-40f0-8002-8d7f9d9a8b98",
+                "AmountDC": -316.5,
+                "Description": "top tip",
+                "EntryID": "4a2613cc-1384-45d1-b907-15b185f32e99",
+                "GLAccount": "d99b2d39-b997-4ac4-9bc3-2beab7e2a8dd",
+                "GLAccountCode": "411000",
+                "Modified": "/Date(1725883820270)/",
+                "VATCode": null
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/TransactionLines(guid'bc519281-32eb-4f49-9d15-8edab6169f57')",
+                  "type": "Exact.Web.Api.Models.Financial.TransactionLine"
+                },
+                "ID": "bc519281-32eb-4f49-9d15-8edab6169f57",
+                "AmountDC": 24,
+                "Description": "top",
+                "EntryID": "66a5366e-4982-4b62-bf26-bf6817dfe915",
+                "GLAccount": "57e5fb3e-4038-4b1d-ac5e-c9d93e9ed72f",
+                "GLAccountCode": "530000",
+                "Modified": "/Date(1725638877170)/",
+                "VATCode": null
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/TransactionLines(guid'e165ec07-1baf-488d-84ad-8f5caf7f8907')",
+                  "type": "Exact.Web.Api.Models.Financial.TransactionLine"
+                },
+                "ID": "e165ec07-1baf-488d-84ad-8f5caf7f8907",
+                "AmountDC": 120,
+                "Description": "Invoice:",
+                "EntryID": "bcc9eae0-082c-49b9-a7c6-d1496828c030",
+                "GLAccount": "d99b2d39-b997-4ac4-9bc3-2beab7e2a8dd",
+                "GLAccountCode": "411000",
+                "Modified": "/Date(1725885374427)/",
+                "VATCode": null
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/TransactionLines(guid'b8be2832-4ad3-43d3-ac87-920f011943d9')",
+                  "type": "Exact.Web.Api.Models.Financial.TransactionLine"
+                },
+                "ID": "b8be2832-4ad3-43d3-ac87-920f011943d9",
+                "AmountDC": -100,
+                "Description": "Item 1",
+                "EntryID": "37d4f854-7ea9-4a08-8630-fce11944076d",
+                "GLAccount": "6aa91ed1-2692-4329-b399-dd5dada9e8f2",
+                "GLAccountCode": "706000",
+                "Modified": "/Date(1725884950213)/",
+                "VATCode": "VAU"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/TransactionLines(guid'90679efb-c310-4026-b0c5-9753204a3cb5')",
+                  "type": "Exact.Web.Api.Models.Financial.TransactionLine"
+                },
+                "ID": "90679efb-c310-4026-b0c5-9753204a3cb5",
+                "AmountDC": 25,
+                "Description": null,
+                "EntryID": "b0f04d84-4910-47b7-bb54-06089ef3cf93",
+                "GLAccount": "57e5fb3e-4038-4b1d-ac5e-c9d93e9ed72f",
+                "GLAccountCode": "530000",
+                "Modified": "/Date(1725631177363)/",
+                "VATCode": null
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/TransactionLines(guid'd4784044-7c1e-4da0-8432-98638e87c3d4')",
+                  "type": "Exact.Web.Api.Models.Financial.TransactionLine"
+                },
+                "ID": "d4784044-7c1e-4da0-8432-98638e87c3d4",
+                "AmountDC": -20,
+                "Description": "1234",
+                "EntryID": "fed30936-8c99-498f-ae5a-6d7aa94470bc",
+                "GLAccount": "64fe65e7-a677-4561-89a8-94f9e7a8a01e",
+                "GLAccountCode": "445847",
+                "Modified": "/Date(1725885629900)/",
+                "VATCode": "VAU"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/TransactionLines(guid'1197ffb5-5a5f-4987-a2ff-98857d91eedb')",
+                  "type": "Exact.Web.Api.Models.Financial.TransactionLine"
+                },
+                "ID": "1197ffb5-5a5f-4987-a2ff-98857d91eedb",
+                "AmountDC": 20,
+                "Description": null,
+                "EntryID": "3b46b33f-f054-4301-94b7-50bded985d24",
+                "GLAccount": "64fe65e7-a677-4561-89a8-94f9e7a8a01e",
+                "GLAccountCode": "445847",
+                "Modified": "/Date(1725895491217)/",
+                "VATCode": "VAU"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/TransactionLines(guid'9f15a84b-cec1-4fe2-b596-9aa560e7f181')",
+                  "type": "Exact.Web.Api.Models.Financial.TransactionLine"
+                },
+                "ID": "9f15a84b-cec1-4fe2-b596-9aa560e7f181",
+                "AmountDC": -300,
+                "Description": "Services",
+                "EntryID": "7bf5c38a-a10b-473f-ab67-8e7ba47b7a9a",
+                "GLAccount": "6aa91ed1-2692-4329-b399-dd5dada9e8f2",
+                "GLAccountCode": "706000",
+                "Modified": "/Date(1723563699910)/",
+                "VATCode": null
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/TransactionLines(guid'0e987abf-5f59-4608-a500-9b9704e429d1')",
+                  "type": "Exact.Web.Api.Models.Financial.TransactionLine"
+                },
+                "ID": "0e987abf-5f59-4608-a500-9b9704e429d1",
+                "AmountDC": 50,
+                "Description": null,
+                "EntryID": "096cf88d-14c1-45f5-943d-b937b5c13ad1",
+                "GLAccount": "57e5fb3e-4038-4b1d-ac5e-c9d93e9ed72f",
+                "GLAccountCode": "530000",
+                "Modified": "/Date(1725631140803)/",
+                "VATCode": null
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/TransactionLines(guid'1cff328c-d758-412b-b8e7-9d02d3902595')",
+                  "type": "Exact.Web.Api.Models.Financial.TransactionLine"
+                },
+                "ID": "1cff328c-d758-412b-b8e7-9d02d3902595",
+                "AmountDC": -1,
+                "Description": "Item 1",
+                "EntryID": "d469da0c-7d52-41b3-979c-27a9c2dca606",
+                "GLAccount": "6aa91ed1-2692-4329-b399-dd5dada9e8f2",
+                "GLAccountCode": "706000",
+                "Modified": "/Date(1725882549590)/",
+                "VATCode": "VAU"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/TransactionLines(guid'24e161ef-6420-4b1b-b538-9d2bca303a76')",
+                  "type": "Exact.Web.Api.Models.Financial.TransactionLine"
+                },
+                "ID": "24e161ef-6420-4b1b-b538-9d2bca303a76",
+                "AmountDC": 300,
+                "Description": "kjkj",
+                "EntryID": "4fe3d5cb-8284-486b-acdb-c2b695b466fe",
+                "GLAccount": "83e03d6d-4a5e-4b19-b8e8-00c6c569f2bf",
+                "GLAccountCode": "658000",
+                "Modified": "/Date(1725637750857)/",
+                "VATCode": null
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/TransactionLines(guid'0eac5b73-e40c-4fb0-8d33-9e3ff36d6636')",
+                  "type": "Exact.Web.Api.Models.Financial.TransactionLine"
+                },
+                "ID": "0eac5b73-e40c-4fb0-8d33-9e3ff36d6636",
+                "AmountDC": -50,
+                "Description": null,
+                "EntryID": "096cf88d-14c1-45f5-943d-b937b5c13ad1",
+                "GLAccount": "4f3cb13e-8984-4cc5-b69a-5271a9bdd7c9",
+                "GLAccountCode": "101000",
+                "Modified": "/Date(1725631140803)/",
+                "VATCode": null
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/TransactionLines(guid'00a21b92-56bf-479b-bf39-a060b78e5904')",
+                  "type": "Exact.Web.Api.Models.Financial.TransactionLine"
+                },
+                "ID": "00a21b92-56bf-479b-bf39-a060b78e5904",
+                "AmountDC": 120,
+                "Description": "1234",
+                "EntryID": "749678eb-ca6a-41d2-bb77-bc3970a0d512",
+                "GLAccount": "13274a9b-3e08-460d-8854-5cbecb64655d",
+                "GLAccountCode": "512000",
+                "Modified": "/Date(1725895491480)/",
+                "VATCode": null
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/TransactionLines(guid'f526e25d-5f33-4ac9-bb2e-a0b059652121')",
+                  "type": "Exact.Web.Api.Models.Financial.TransactionLine"
+                },
+                "ID": "f526e25d-5f33-4ac9-bb2e-a0b059652121",
+                "AmountDC": 120,
+                "Description": null,
+                "EntryID": "17ccd52b-21ad-4969-a49c-b0aa78f5c81d",
+                "GLAccount": "13274a9b-3e08-460d-8854-5cbecb64655d",
+                "GLAccountCode": "512000",
+                "Modified": "/Date(1725894530927)/",
+                "VATCode": null
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/TransactionLines(guid'67795c24-e882-4f74-a526-a68992d1cfc0')",
+                  "type": "Exact.Web.Api.Models.Financial.TransactionLine"
+                },
+                "ID": "67795c24-e882-4f74-a526-a68992d1cfc0",
+                "AmountDC": 0,
+                "Description": null,
+                "EntryID": "6d4f9cd0-2474-424a-aa7d-5103a0e6d40c",
+                "GLAccount": "43ad721f-b09a-4295-b297-0bc137a70591",
+                "GLAccountCode": "401000",
+                "Modified": "/Date(1782402892940)/",
+                "VATCode": null
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/TransactionLines(guid'60ab1d96-0f82-4496-b04c-a68d96af7ecd')",
+                  "type": "Exact.Web.Api.Models.Financial.TransactionLine"
+                },
+                "ID": "60ab1d96-0f82-4496-b04c-a68d96af7ecd",
+                "AmountDC": 1.2,
+                "Description": null,
+                "EntryID": "9fe21f39-6e64-4a1f-a2b0-7c4b9a357474",
+                "GLAccount": "13274a9b-3e08-460d-8854-5cbecb64655d",
+                "GLAccountCode": "512000",
+                "Modified": "/Date(1725884862440)/",
+                "VATCode": null
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/TransactionLines(guid'38860d29-45ee-4003-9864-a692b998a882')",
+                  "type": "Exact.Web.Api.Models.Financial.TransactionLine"
+                },
+                "ID": "38860d29-45ee-4003-9864-a692b998a882",
+                "AmountDC": -120,
+                "Description": "Invoice:",
+                "EntryID": "ed30c262-cb03-46a2-b237-610d76e0475b",
+                "GLAccount": "d99b2d39-b997-4ac4-9bc3-2beab7e2a8dd",
+                "GLAccountCode": "411000",
+                "Modified": "/Date(1725885511817)/",
+                "VATCode": null
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/TransactionLines(guid'7b755ae0-cbe5-4503-a1bc-a96ce4aab9bb')",
+                  "type": "Exact.Web.Api.Models.Financial.TransactionLine"
+                },
+                "ID": "7b755ae0-cbe5-4503-a1bc-a96ce4aab9bb",
+                "AmountDC": 100,
+                "Description": null,
+                "EntryID": "414b84b0-8001-4ea0-9571-b571e8acf7b3",
+                "GLAccount": "13274a9b-3e08-460d-8854-5cbecb64655d",
+                "GLAccountCode": "512000",
+                "Modified": "/Date(1725883860307)/",
+                "VATCode": null
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/TransactionLines(guid'ce854e99-8b77-4ae6-abba-b0a77198e5a1')",
+                  "type": "Exact.Web.Api.Models.Financial.TransactionLine"
+                },
+                "ID": "ce854e99-8b77-4ae6-abba-b0a77198e5a1",
+                "AmountDC": -16.5,
+                "Description": "top tip",
+                "EntryID": "20b9ba3a-d743-40f0-bcf8-15929975cff6",
+                "GLAccount": "64fe65e7-a677-4561-89a8-94f9e7a8a01e",
+                "GLAccountCode": "445847",
+                "Modified": "/Date(1723472960657)/",
+                "VATCode": "VB "
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/TransactionLines(guid'fc239d1c-f1ae-4f39-bdb2-b61ca8bb64c4')",
+                  "type": "Exact.Web.Api.Models.Financial.TransactionLine"
+                },
+                "ID": "fc239d1c-f1ae-4f39-bdb2-b61ca8bb64c4",
+                "AmountDC": -100,
+                "Description": null,
+                "EntryID": "414b84b0-8001-4ea0-9571-b571e8acf7b3",
+                "GLAccount": "4f3cb13e-8984-4cc5-b69a-5271a9bdd7c9",
+                "GLAccountCode": "101000",
+                "Modified": "/Date(1725883860307)/",
+                "VATCode": null
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/TransactionLines(guid'c3487ba5-9b31-47f1-9af9-b8870f5c5d89')",
+                  "type": "Exact.Web.Api.Models.Financial.TransactionLine"
+                },
+                "ID": "c3487ba5-9b31-47f1-9af9-b8870f5c5d89",
+                "AmountDC": 316.5,
+                "Description": "top tip",
+                "EntryID": "20b9ba3a-d743-40f0-bcf8-15929975cff6",
+                "GLAccount": "d99b2d39-b997-4ac4-9bc3-2beab7e2a8dd",
+                "GLAccountCode": "411000",
+                "Modified": "/Date(1723472960657)/",
+                "VATCode": null
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/TransactionLines(guid'3201adb3-4c5a-4748-8a6c-bc965189e35a')",
+                  "type": "Exact.Web.Api.Models.Financial.TransactionLine"
+                },
+                "ID": "3201adb3-4c5a-4748-8a6c-bc965189e35a",
+                "AmountDC": 300,
+                "Description": "this is a description",
+                "EntryID": "7bf5c38a-a10b-473f-ab67-8e7ba47b7a9a",
+                "GLAccount": "d99b2d39-b997-4ac4-9bc3-2beab7e2a8dd",
+                "GLAccountCode": "411000",
+                "Modified": "/Date(1723563699910)/",
+                "VATCode": null
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/TransactionLines(guid'e7e2b942-7f50-4419-8a7b-c0621e9f14e5')",
+                  "type": "Exact.Web.Api.Models.Financial.TransactionLine"
+                },
+                "ID": "e7e2b942-7f50-4419-8a7b-c0621e9f14e5",
+                "AmountDC": -25,
+                "Description": null,
+                "EntryID": "b0f04d84-4910-47b7-bb54-06089ef3cf93",
+                "GLAccount": "4f3cb13e-8984-4cc5-b69a-5271a9bdd7c9",
+                "GLAccountCode": "101000",
+                "Modified": "/Date(1725631177363)/",
+                "VATCode": null
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/TransactionLines(guid'ac08abc8-fbf9-4d7c-9d91-c29b0a812200')",
+                  "type": "Exact.Web.Api.Models.Financial.TransactionLine"
+                },
+                "ID": "ac08abc8-fbf9-4d7c-9d91-c29b0a812200",
+                "AmountDC": -120,
+                "Description": null,
+                "EntryID": "17ccd52b-21ad-4969-a49c-b0aa78f5c81d",
+                "GLAccount": "4f3cb13e-8984-4cc5-b69a-5271a9bdd7c9",
+                "GLAccountCode": "101000",
+                "Modified": "/Date(1725894530890)/",
+                "VATCode": null
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/TransactionLines(guid'f1a41b78-767c-4f67-8ea9-c2b4fb3a8247')",
+                  "type": "Exact.Web.Api.Models.Financial.TransactionLine"
+                },
+                "ID": "f1a41b78-767c-4f67-8ea9-c2b4fb3a8247",
+                "AmountDC": -300,
+                "Description": "Item desc",
+                "EntryID": "20b9ba3a-d743-40f0-bcf8-15929975cff6",
+                "GLAccount": "6aa91ed1-2692-4329-b399-dd5dada9e8f2",
+                "GLAccountCode": "706000",
+                "Modified": "/Date(1723472960657)/",
+                "VATCode": "VB "
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/TransactionLines(guid'5755d73e-9004-4203-8481-c3bfb02b1fa0')",
+                  "type": "Exact.Web.Api.Models.Financial.TransactionLine"
+                },
+                "ID": "5755d73e-9004-4203-8481-c3bfb02b1fa0",
+                "AmountDC": 13,
+                "Description": null,
+                "EntryID": "050b9709-98f3-44b1-a242-662e77a29be2",
+                "GLAccount": "13274a9b-3e08-460d-8854-5cbecb64655d",
+                "GLAccountCode": "512000",
+                "Modified": "/Date(1725895233523)/",
+                "VATCode": null
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/TransactionLines(guid'eaa9b9f8-04bf-4430-91f8-c69a3e7b095c')",
+                  "type": "Exact.Web.Api.Models.Financial.TransactionLine"
+                },
+                "ID": "eaa9b9f8-04bf-4430-91f8-c69a3e7b095c",
+                "AmountDC": -120,
+                "Description": "kjkj",
+                "EntryID": "b6bc7cf2-94ec-4614-a07b-b0f159abf748",
+                "GLAccount": "d99b2d39-b997-4ac4-9bc3-2beab7e2a8dd",
+                "GLAccountCode": "411000",
+                "Modified": "/Date(1725885407583)/",
+                "VATCode": null
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/TransactionLines(guid'4d925b04-c236-4a19-a8aa-c8809084bb96')",
+                  "type": "Exact.Web.Api.Models.Financial.TransactionLine"
+                },
+                "ID": "4d925b04-c236-4a19-a8aa-c8809084bb96",
+                "AmountDC": -20,
+                "Description": null,
+                "EntryID": "3b46b33f-f054-4301-94b7-50bded985d24",
+                "GLAccount": "91e2e3b9-3ee9-4446-861d-358fa8af17dd",
+                "GLAccountCode": "445710",
+                "Modified": "/Date(1725895491217)/",
+                "VATCode": "VAU"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/TransactionLines(guid'd00a4bba-2aab-4358-b306-cba587f239c0')",
+                  "type": "Exact.Web.Api.Models.Financial.TransactionLine"
+                },
+                "ID": "d00a4bba-2aab-4358-b306-cba587f239c0",
+                "AmountDC": 0.2,
+                "Description": "dfdf",
+                "EntryID": "075a5c5c-756e-4bd8-9adb-f2290d69f0e2",
+                "GLAccount": "64fe65e7-a677-4561-89a8-94f9e7a8a01e",
+                "GLAccountCode": "445847",
+                "Modified": "/Date(1725884763613)/",
+                "VATCode": "VAU"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/TransactionLines(guid'd78f9438-afde-40a7-923d-cc75ffc699cc')",
+                  "type": "Exact.Web.Api.Models.Financial.TransactionLine"
+                },
+                "ID": "d78f9438-afde-40a7-923d-cc75ffc699cc",
+                "AmountDC": 10,
+                "Description": null,
+                "EntryID": "20808107-baf5-481b-b3a9-4aeff08109c0",
+                "GLAccount": "d99b2d39-b997-4ac4-9bc3-2beab7e2a8dd",
+                "GLAccountCode": "411000",
+                "Modified": "/Date(1725639171560)/",
+                "VATCode": null
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/TransactionLines(guid'6cb00152-2c49-4cf8-a7f3-cdb87dbdb2e4')",
+                  "type": "Exact.Web.Api.Models.Financial.TransactionLine"
+                },
+                "ID": "6cb00152-2c49-4cf8-a7f3-cdb87dbdb2e4",
+                "AmountDC": 1.2,
+                "Description": null,
+                "EntryID": "43021150-89d6-4ce6-be51-41d243616553",
+                "GLAccount": "13274a9b-3e08-460d-8854-5cbecb64655d",
+                "GLAccountCode": "512000",
+                "Modified": "/Date(1725884692777)/",
+                "VATCode": null
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/TransactionLines(guid'c51598da-12d8-4782-b925-d37e34c6e3fd')",
+                  "type": "Exact.Web.Api.Models.Financial.TransactionLine"
+                },
+                "ID": "c51598da-12d8-4782-b925-d37e34c6e3fd",
+                "AmountDC": -300,
+                "Description": "kjkj",
+                "EntryID": "4fe3d5cb-8284-486b-acdb-c2b695b466fe",
+                "GLAccount": "d99b2d39-b997-4ac4-9bc3-2beab7e2a8dd",
+                "GLAccountCode": "411000",
+                "Modified": "/Date(1725637750707)/",
+                "VATCode": null
+              }
+            ],
+            "__next": "https://start.exactonline.fr/api/v1/124132/financialtransaction/TransactionLines?$select=ID,EntryID,AmountDC,GLAccount,GLAccountCode,Description,VATCode,Modified&$top=40&$skiptoken=guid'c51598da-12d8-4782-b925-d37e34c6e3fd'"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 25 Jun 2026 14:13:44 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "29889",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4928",
+          "x-ratelimit-reset": "1782396857",
+          "etag": "W/\"74c1-kMUeJ8KXLfKJXIl6UzaGoGDgTm8\""
+        },
+        "hash": "a79fb523433c5a1aebb879d11b8c6c8bbc20933f",
+        "request": {
+          "params": {
+            "$select": "ID,EntryID,AmountDC,GLAccount,GLAccountCode,Description,VATCode,Modified",
+            "$top": "100"
+          }
+        }
+      }
+    }
+  }
+}

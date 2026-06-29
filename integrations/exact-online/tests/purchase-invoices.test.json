@@ -1,0 +1,265 @@
+{
+  "nango": {
+    "batchSave": {
+      "PurchaseInvoice": [
+        {
+          "id": "6d4f9cd0-2474-424a-aa7d-5103a0e6d40c",
+          "EntryID": "6d4f9cd0-2474-424a-aa7d-5103a0e6d40c",
+          "EntryNumber": 24600001,
+          "Supplier": "454a5d46-ee70-4ed1-9375-9cfedeb138cd",
+          "AmountDC": 0,
+          "EntryDate": "/Date(1717027200000)/",
+          "Status": 20,
+          "Modified": "/Date(1782402892940)/"
+        },
+        {
+          "id": "fe91d515-9b46-44a6-b64d-237c9357ecc6",
+          "EntryID": "fe91d515-9b46-44a6-b64d-237c9357ecc6",
+          "EntryNumber": 24600002,
+          "Supplier": "454a5d46-ee70-4ed1-9375-9cfedeb138cd",
+          "AmountDC": 0,
+          "EntryDate": "/Date(1723680000000)/",
+          "Status": 20,
+          "Modified": "/Date(1782402918647)/"
+        },
+        {
+          "id": "3d10fd1c-1b81-4677-8a54-0ab7f3301e01",
+          "EntryID": "3d10fd1c-1b81-4677-8a54-0ab7f3301e01",
+          "EntryNumber": 24600003,
+          "Supplier": "454a5d46-ee70-4ed1-9375-9cfedeb138cd",
+          "AmountDC": 0,
+          "EntryDate": "/Date(1717027200000)/",
+          "Status": 20,
+          "Modified": "/Date(1782404130360)/"
+        },
+        {
+          "id": "812ac629-97cd-4ae6-a079-bf3a39744b58",
+          "EntryID": "812ac629-97cd-4ae6-a079-bf3a39744b58",
+          "EntryNumber": 24600004,
+          "Supplier": "454a5d46-ee70-4ed1-9375-9cfedeb138cd",
+          "AmountDC": 0,
+          "EntryDate": "/Date(1717027200000)/",
+          "Status": 20,
+          "Modified": "/Date(1782404160517)/"
+        },
+        {
+          "id": "92bfd1ab-38c9-4d8e-96db-c556a32999e5",
+          "EntryID": "92bfd1ab-38c9-4d8e-96db-c556a32999e5",
+          "EntryNumber": 24600005,
+          "Supplier": "454a5d46-ee70-4ed1-9375-9cfedeb138cd",
+          "AmountDC": 0,
+          "EntryDate": "/Date(1717027200000)/",
+          "Status": 20,
+          "Modified": "/Date(1782404171317)/"
+        },
+        {
+          "id": "b524d973-4b85-414d-a9eb-3534a1d3b8ed",
+          "EntryID": "b524d973-4b85-414d-a9eb-3534a1d3b8ed",
+          "EntryNumber": 24600006,
+          "Supplier": "454a5d46-ee70-4ed1-9375-9cfedeb138cd",
+          "AmountDC": 0,
+          "EntryDate": "/Date(1717027200000)/",
+          "Status": 20,
+          "Modified": "/Date(1782404229480)/"
+        }
+      ]
+    },
+    "batchDelete": {
+      "PurchaseInvoice": []
+    }
+  },
+  "api": {
+    "get": {
+      "/api/v1/current/Me": {
+        "response": {
+          "d": {
+            "results": [
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/current/Me(guid'cc20a11b-c137-48cc-8e55-09d4adbd4ac9')",
+                  "type": "Exact.Web.Api.Models.System.Me"
+                },
+                "CurrentDivision": 124132,
+                "DivisionCustomer": "83b186b4-483d-474a-bebc-85da71e6f1ed",
+                "DivisionCustomerCode": "           1265594",
+                "DivisionCustomerName": "Nango",
+                "DivisionCustomerVatNumber": null,
+                "DivisionCustomerSiretNumber": "",
+                "DossierDivision": null,
+                "AccountingDivision": 124132,
+                "IsEmployeeSelfServiceUser": false,
+                "IsMyFirmLiteUser": false,
+                "IsStarterUser": false,
+                "IsMyFirmPortalUser": false,
+                "IsClientUser": true,
+                "FullName": "Samuel Bodin",
+                "PictureUrl": "https://start.exactonline.fr//docs/images/placeholder_contact_myeol.png",
+                "ThumbnailPicture": null,
+                "ThumbnailPictureFormat": null,
+                "UserID": "cc20a11b-c137-48cc-8e55-09d4adbd4ac9",
+                "UserName": "samuel@nango.dev",
+                "LanguageCode": "en-GB",
+                "Legislation": "128",
+                "Email": "samuel@nango.dev",
+                "Title": "Mr.",
+                "Initials": null,
+                "FirstName": "Samuel",
+                "MiddleName": null,
+                "LastName": "Bodin",
+                "Gender": "O",
+                "Nationality": null,
+                "Language": "EN",
+                "Phone": "0606060606",
+                "PhoneExtension": null,
+                "Mobile": null,
+                "ServerTime": "2026-06-26T00:57:47",
+                "ServerUtcOffset": 7200,
+                "EmployeeID": "00000000-0000-0000-0000-000000000000",
+                "CustomerCode": "           1265594",
+                "PackageCode": "EOLAPPCENTER",
+                "IsOEIMigrationMandatory": true
+              }
+            ]
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 25 Jun 2026 22:57:47 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "1397",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4993",
+          "x-ratelimit-reset": "1782428322",
+          "etag": "W/\"575-fgl1hIhaRWNIV426XpGDWn03WBU\""
+        },
+        "hash": "3b1fbfe94d69bc315fcd1e7b93bc400e3eea536c",
+        "request": {}
+      },
+      "/api/v1/124132/purchaseentry/PurchaseEntries": {
+        "response": {
+          "d": {
+            "results": [
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/purchaseentry/PurchaseEntries(guid'6d4f9cd0-2474-424a-aa7d-5103a0e6d40c')",
+                  "type": "Exact.Web.Api.Models.PurchaseEntry"
+                },
+                "EntryID": "6d4f9cd0-2474-424a-aa7d-5103a0e6d40c",
+                "AmountDC": 0,
+                "Supplier": "454a5d46-ee70-4ed1-9375-9cfedeb138cd",
+                "EntryDate": "/Date(1717027200000)/",
+                "EntryNumber": 24600001,
+                "Modified": "/Date(1782402892940)/",
+                "Status": 20
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/purchaseentry/PurchaseEntries(guid'fe91d515-9b46-44a6-b64d-237c9357ecc6')",
+                  "type": "Exact.Web.Api.Models.PurchaseEntry"
+                },
+                "EntryID": "fe91d515-9b46-44a6-b64d-237c9357ecc6",
+                "AmountDC": 0,
+                "Supplier": "454a5d46-ee70-4ed1-9375-9cfedeb138cd",
+                "EntryDate": "/Date(1723680000000)/",
+                "EntryNumber": 24600002,
+                "Modified": "/Date(1782402918647)/",
+                "Status": 20
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/purchaseentry/PurchaseEntries(guid'3d10fd1c-1b81-4677-8a54-0ab7f3301e01')",
+                  "type": "Exact.Web.Api.Models.PurchaseEntry"
+                },
+                "EntryID": "3d10fd1c-1b81-4677-8a54-0ab7f3301e01",
+                "AmountDC": 0,
+                "Supplier": "454a5d46-ee70-4ed1-9375-9cfedeb138cd",
+                "EntryDate": "/Date(1717027200000)/",
+                "EntryNumber": 24600003,
+                "Modified": "/Date(1782404130360)/",
+                "Status": 20
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/purchaseentry/PurchaseEntries(guid'812ac629-97cd-4ae6-a079-bf3a39744b58')",
+                  "type": "Exact.Web.Api.Models.PurchaseEntry"
+                },
+                "EntryID": "812ac629-97cd-4ae6-a079-bf3a39744b58",
+                "AmountDC": 0,
+                "Supplier": "454a5d46-ee70-4ed1-9375-9cfedeb138cd",
+                "EntryDate": "/Date(1717027200000)/",
+                "EntryNumber": 24600004,
+                "Modified": "/Date(1782404160517)/",
+                "Status": 20
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/purchaseentry/PurchaseEntries(guid'92bfd1ab-38c9-4d8e-96db-c556a32999e5')",
+                  "type": "Exact.Web.Api.Models.PurchaseEntry"
+                },
+                "EntryID": "92bfd1ab-38c9-4d8e-96db-c556a32999e5",
+                "AmountDC": 0,
+                "Supplier": "454a5d46-ee70-4ed1-9375-9cfedeb138cd",
+                "EntryDate": "/Date(1717027200000)/",
+                "EntryNumber": 24600005,
+                "Modified": "/Date(1782404171317)/",
+                "Status": 20
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/purchaseentry/PurchaseEntries(guid'b524d973-4b85-414d-a9eb-3534a1d3b8ed')",
+                  "type": "Exact.Web.Api.Models.PurchaseEntry"
+                },
+                "EntryID": "b524d973-4b85-414d-a9eb-3534a1d3b8ed",
+                "AmountDC": 0,
+                "Supplier": "454a5d46-ee70-4ed1-9375-9cfedeb138cd",
+                "EntryDate": "/Date(1717027200000)/",
+                "EntryNumber": 24600006,
+                "Modified": "/Date(1782404229480)/",
+                "Status": 20
+              }
+            ]
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 25 Jun 2026 22:57:48 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "2643",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4992",
+          "x-ratelimit-reset": "1782428322",
+          "etag": "W/\"a53-o6zLsNim+0Wwy5/mDB011lxmD7M\""
+        },
+        "hash": "c59aac0c0f7f3bbdaa9cc37d21a4e1daa674b221",
+        "request": {
+          "params": {
+            "$orderby": "Modified asc",
+            "$select": "EntryID,EntryNumber,Supplier,AmountDC,EntryDate,Status,Modified",
+            "$skip": "0",
+            "$top": "100"
+          }
+        }
+      }
+    }
+  }
+}
