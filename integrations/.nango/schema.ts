@@ -34612,37 +34612,2178 @@ export interface ActionOutput_discourse_updatetopicstatus {
   result: string;
 };
 
-export interface SyncMetadata_docusign_users {
+export interface Brand {
+  id: string;
+  brandId: string;
+  brandName?: string | undefined;
+  brandCompany?: string | undefined;
+  defaultBrandLanguage?: string | undefined;
+  brandLanguages?: string[] | undefined;
+  isSendingDefault?: boolean | undefined;
+  isSigningDefault?: boolean | undefined;
+  isOrganizationBrand?: string | undefined;
+  isOverridingCompanyName?: boolean | undefined;
+};
+
+export interface ConnectConfiguration {
+  /**
+   * The DocuSign-generated ID for the Connect configuration
+   */
+  id: string;
+  name?: string | undefined;
+  urlToPublishTo?: string | undefined;
+  allowEnvelopePublish?: string | undefined;
+  allUsers?: string | undefined;
+  enableLog?: string | undefined;
+  envelopeEvents?: string[] | undefined;
+  recipientEvents?: string[] | undefined;
+  events?: string[] | undefined;
+  configurationType?: string | undefined;
+  deliveryMode?: string | undefined;
+  requiresAcknowledgement?: string | undefined;
+  includeDocuments?: string | undefined;
+  includeCertificateOfCompletion?: string | undefined;
+  includeHMAC?: string | undefined;
+  userIds?: string[] | undefined;
+  groupIds?: string[] | undefined;
+  requireMutualTls?: string | undefined;
+  disabledBy?: string | undefined;
+  externalFolderId?: string | undefined;
+  externalFolderLabel?: string | undefined;
+};
+
+export interface SyncMetadata_docusign_connectconfigurations {
+  accountId: string;
+};
+
+export interface SyncMetadata_docusign_customfields {
+  accountId: string;
+};
+
+export interface Envelope {
+  id: string;
+  envelopeId: string;
+  status: string;
+  emailSubject?: string | undefined;
+  emailBlurb?: string | undefined;
+  statusChangedDateTime: string;
+  createdDateTime?: string | undefined;
+  sentDateTime?: string | undefined;
+  completedDateTime?: string | undefined;
+  voidedDateTime?: string | undefined;
+  voidedReason?: string | undefined;
+  senderUserName?: string | undefined;
+  senderEmail?: string | undefined;
+  senderUserId?: string | undefined;
+  documents?: ({  documentId?: string | undefined;
+  name?: string | undefined;
+  type?: string | undefined;
+  uri?: string | undefined;})[];
+};
+
+export interface SyncMetadata_docusign_folders {
+  accountId: string;
+};
+
+export interface PermissionProfile {
+  id: string;
+  permissionProfileId: string;
+  permissionProfileName?: string | undefined;
+  modifiedByUsername?: string | undefined;
+  modifiedDateTime?: string | undefined;
+  settings?: unknown | undefined;
+  userCount?: string | undefined;
+  users?: unknown[] | undefined;
+};
+
+export interface SigningGroup {
+  id: string;
+  signingGroupId: string;
+  signingGroupName?: string | undefined;
+  created?: string | undefined;
+  createdBy?: string | undefined;
+  modified?: string | undefined;
+  modifiedBy?: string | undefined;
+  signingGroupType?: string | undefined;
+};
+
+export interface Template {
+  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  created?: string | undefined;
+  lastModified?: string | undefined;
+  uri?: string | undefined;
+};
+
+export interface SyncMetadata_docusign_templates {
+  accountId: string;
+};
+
+export interface ActionInput_docusign_addgroupusers {
+  /**
+   * Group ID. Example: "36046947"
+   */
+  groupId: string;
+  /**
+   * Array of users to add to the group
+   */
+  users: ({  /**
+   * User ID. Example: "c9a996ed-50d2-4df4-ac91-a45032721bb6"
+   */
+  userId: string;})[];
+};
+
+export interface ActionOutput_docusign_addgroupusers {
+  users?: ({  userName?: string | undefined;
+  userId?: string | undefined;
+  userType?: string | undefined;
+  userStatus?: string | undefined;
+  uri?: string | undefined;})[];
+};
+
+export interface ActionInput_docusign_createconnectconfiguration {
+  /**
+   * Name of the Connect configuration. Example: "My Webhook"
+   */
+  name: string;
+  /**
+   * HTTPS URL to publish envelope events to. Example: "https://example.com/webhook"
+   */
+  urlToPublishTo: string;
+  /**
+   * When true, the configuration applies to all users in the account.
+   */
+  allUsers: boolean;
+  /**
+   * Array of user IDs to include when allUsers is false. Required when allUsers is false.
+   */
+  userIds?: string[] | undefined;
+  /**
+   * When true, envelope publish is allowed for this configuration.
+   */
+  allowEnvelopePublish: boolean;
+  /**
+   * Envelope event statuses to subscribe to. Example: ["sent", "delivered", "completed"]
+   */
+  envelopeEvents: ({  0: 'sent';
+  1: 'delivered';
+  2: 'completed';
+  3: 'declined';
+  4: 'voided';})[];
+  /**
+   * Recipient event statuses to subscribe to. Example: ["Sent", "Delivered", "Completed"]
+   */
+  recipientEvents: ({  0: 'Sent';
+  1: 'Delivered';
+  2: 'Completed';
+  3: 'Declined';
+  4: 'AuthenticationFailed';
+  5: 'AutoResponded';})[];
+};
+
+export interface ActionOutput_docusign_createconnectconfiguration {
+  /**
+   * The unique ID of the created Connect configuration.
+   */
+  connectId: string;
+  /**
+   * The type of Connect configuration.
+   */
+  configurationType: string;
+  /**
+   * The name of the Connect configuration.
+   */
+  name: string;
+  /**
+   * The URL where envelope events are published.
+   */
+  urlToPublishTo: string;
+  allowEnvelopePublish?: string | undefined;
+  allUsers?: string | undefined;
+  envelopeEvents?: string[] | undefined;
+  recipientEvents?: string[] | undefined;
+};
+
+export interface ActionInput_docusign_createenvelopefromtemplate {
+  /**
+   * Template ID. Example: "e13866df-36e6-462b-b35b-dcda35982abc"
+   */
+  templateId: string;
+  /**
+   * Role assignments for the template recipients.
+   */
+  templateRoles: ({  roleName: string;
+  name: string;
+  email: string;
+  tabs?: {  textTabs?: ({  tabLabel: string;
+  value: string;})[] | undefined;};})[];
+  /**
+   * Envelope status. Defaults to "created".
+   */
+  status?: 'created' | 'sent' | undefined;
+  /**
+   * Email subject for the envelope.
+   */
+  emailSubject?: string | undefined;
+  /**
+   * Email body/blurb for the envelope.
+   */
+  emailBody?: string | undefined;
+};
+
+export interface ActionOutput_docusign_createenvelopefromtemplate {
+  envelopeId: string;
+  uri?: string | undefined;
+  statusDateTime?: string | undefined;
+  status?: string | undefined;
+};
+
+export interface ActionInput_docusign_createenvelope {
+  /**
+   * Envelope status: created (draft) or sent (immediately). Example: "created"
+   */
+  status?: 'created' | 'sent' | undefined;
+  /**
+   * Email subject line. Example: "Please sign this document"
+   */
+  emailSubject?: string | undefined;
+  /**
+   * Email message body. Example: "Please review and sign the attached document"
+   */
+  emailBlurb?: string | undefined;
+  /**
+   * Documents to include in the envelope
+   */
+  documents?: ({  /**
+   * Base64-encoded document content. Example: "JVBERi0xLjQ..."
+   */
+  documentBase64: string;
+  /**
+   * Document name. Example: "Contract.pdf"
+   */
+  name: string;
+  /**
+   * Unique document ID within the envelope. Example: "1"
+   */
+  documentId: string;
+  /**
+   * File extension. Example: "pdf"
+   */
+  fileExtension: string;})[] | undefined;
+  /**
+   * Envelope recipients
+   */
+  recipients?: {  /**
+   * Signers
+   */
+  signers?: ({  /**
+   * Signer email address. Example: "signer@example.com"
+   */
+  email: string;
+  /**
+   * Signer name. Example: "John Doe"
+   */
+  name: string;
+  /**
+   * Unique recipient ID within the envelope. Example: "1"
+   */
+  recipientId: string;
+  /**
+   * Signing order. Example: "1"
+   */
+  routingOrder?: string | undefined;})[];
+  /**
+   * Carbon copy recipients
+   */
+  carbonCopies?: ({  /**
+   * CC recipient email address. Example: "cc@example.com"
+   */
+  email: string;
+  /**
+   * CC recipient name. Example: "Jane Doe"
+   */
+  name: string;
+  /**
+   * Unique recipient ID within the envelope. Example: "2"
+   */
+  recipientId: string;
+  /**
+   * Routing order. Example: "1"
+   */
+  routingOrder?: string | undefined;})[];};
+};
+
+export interface ActionOutput_docusign_createenvelope {
+  /**
+   * Created envelope ID. Example: "550e8400-e29b-41d4-a716-446655440000"
+   */
+  envelopeId: string;
+  /**
+   * Envelope status. Example: "created"
+   */
+  status?: string | undefined;
+  /**
+   * Status update timestamp. Example: "2026-06-24T12:00:00.000Z"
+   */
+  statusDateTime?: string | undefined;
+  /**
+   * Envelope URI. Example: "/envelopes/550e8400-e29b-41d4-a716-446655440000"
+   */
+  uri?: string | undefined;
+};
+
+export interface ActionInput_docusign_creategroup {
+  /**
+   * One or more custom groups to create.
+   */
+  groups: ({  /**
+   * Name of the custom group to create. Example: "Nango Test Group"
+   */
+  groupName: string;
+  /**
+   * Type of group. Defaults to "customGroup". System groups cannot be created via API.
+   */
+  groupType?: string | undefined;})[];
+};
+
+export interface ActionOutput_docusign_creategroup {
+  groups: ({  /**
+   * DocuSign group ID. Example: "36046947"
+   */
+  groupId: string;
+  /**
+   * Name of the group.
+   */
+  groupName: string;
+  /**
+   * Type of the group. Example: "customGroup"
+   */
+  groupType: string;})[];
+};
+
+export interface ActionInput_docusign_createrecipienttabs {
+  /**
+   * DocuSign envelope ID. Example: "ffbe2429-fc88-8ef2-803e-8ad9296118b6"
+   */
+  envelopeId: string;
+  /**
+   * DocuSign recipient ID (integer string). Example: "1"
+   */
+  recipientId: string;
+  tabs: {  signHereTabs?: ({  documentId: string;
+  pageNumber: string;
+  xPosition: string;
+  yPosition: string;})[] | undefined;
+  dateTabs?: ({  documentId: string;
+  pageNumber: string;
+  xPosition: string;
+  yPosition: string;})[] | undefined;
+  textTabs?: ({  documentId: string;
+  pageNumber: string;
+  xPosition: string;
+  yPosition: string;})[] | undefined;
+  checkboxTabs?: ({  documentId: string;
+  pageNumber: string;
+  xPosition: string;
+  yPosition: string;})[] | undefined;
+  numberTabs?: ({  documentId: string;
+  pageNumber: string;
+  xPosition: string;
+  yPosition: string;})[] | undefined;
+  initialHereTabs?: ({  documentId: string;
+  pageNumber: string;
+  xPosition: string;
+  yPosition: string;})[] | undefined;};
+};
+
+export interface ActionOutput_docusign_createrecipienttabs {
+  signHereTabs?: ({})[] | undefined;
+  dateTabs?: ({})[] | undefined;
+  textTabs?: ({})[] | undefined;
+  checkboxTabs?: ({})[] | undefined;
+  numberTabs?: ({})[] | undefined;
+  initialHereTabs?: ({})[] | undefined;
+};
+
+export interface ActionInput_docusign_createrecipientview {
+  /**
+   * DocuSign envelope ID. Example: "ffbe2429-fc88-8ef2-803e-8ad9296118b6"
+   */
+  envelopeId: string;
+  /**
+   * Recipient ID (integer string). Example: "1"
+   */
+  recipientId: string;
+  /**
+   * Recipient email address
+   */
+  email: string;
+  /**
+   * Recipient full name
+   */
+  userName: string;
+  /**
+   * Client user ID that was set when the recipient was added to the envelope
+   */
+  clientUserId: string;
+  /**
+   * URL to redirect the recipient after signing. Example: "https://example.com/signed"
+   */
+  returnUrl: string;
+  /**
+   * Authentication method for the recipient. Default: "none"
+   */
+  authenticationMethod?: string | undefined;
+};
+
+export interface ActionOutput_docusign_createrecipientview {
+  url: string;
+  recipientId?: string | undefined;
+  recipientIdGuid?: string | undefined;
+  recipientName?: string | undefined;
+  recipientEmail?: string | undefined;
+  recipientSigningStatus?: string | undefined;
+  recipientMustSign?: string | undefined;
+  recipientRoleName?: string | undefined;
+  status?: string | undefined;
+  userName?: string | undefined;
+  email?: string | undefined;
+  clientUserId?: string | undefined;
+  embeddedRecipientStartURL?: string | undefined;
+};
+
+export interface ActionInput_docusign_createtemplate {
+  /**
+   * Template name. Example: "NDA Template"
+   */
+  name: string;
+  /**
+   * Email subject for envelopes sent from this template. Example: "Please sign the NDA"
+   */
+  emailSubject: string;
+  /**
+   * Email body/blurb.
+   */
+  emailBlurb?: string | undefined;
+  /**
+   * Template description.
+   */
+  description?: string | undefined;
+  /**
+   * Documents to include in the template.
+   */
+  documents?: ({  /**
+   * Document ID. Example: "1"
+   */
+  documentId: string;
+  /**
+   * Document name. Example: "Contract.pdf"
+   */
+  name: string;
+  /**
+   * File extension. Example: "pdf"
+   */
+  fileExtension: string;
+  /**
+   * Base64-encoded document content.
+   */
+  documentBase64: string;})[] | undefined;
+  /**
+   * Template recipients with roles.
+   */
+  recipients?: {  signers?: ({  /**
+   * Template role name. Example: "Signer 1"
+   */
+  roleName: string;
+  /**
+   * Recipient ID. Example: "1"
+   */
+  recipientId: string;
+  /**
+   * Placeholder name for the role. Example: "Signer One"
+   */
+  name?: string | undefined;
+  tabs?: {  signHereTabs?: ({  /**
+   * Tab type. Example: "SignHere"
+   */
+  tabType: string;
+  /**
+   * Document ID. Example: "1"
+   */
+  documentId: string;
+  /**
+   * Page number. Example: "1"
+   */
+  pageNumber: string;
+  /**
+   * Recipient ID. Example: "1"
+   */
+  recipientId: string;
+  /**
+   * X position. Example: "100"
+   */
+  xPosition: string;
+  /**
+   * Y position. Example: "100"
+   */
+  yPosition: string;})[] | undefined;};})[];};
+};
+
+export interface ActionOutput_docusign_createtemplate {
+  /**
+   * The unique identifier of the created template.
+   */
+  templateId: string;
+  /**
+   * The name of the created template.
+   */
+  name?: string | undefined;
+  /**
+   * The URI for retrieving the template.
+   */
+  uri?: string | undefined;
 };
 
 export interface ActionInput_docusign_createuser {
-  firstName: string;
-  lastName: string;
+  /**
+   * The full name of the user to create.
+   */
+  userName: string;
+  /**
+   * The email address for the new user.
+   */
   email: string;
-  userName?: string | undefined;
-  title?: string | undefined;
-  phoneNumber?: string | undefined;
-  company?: string | undefined;
-  countryCode?: string | undefined;
-  activationAccessCode?: string | undefined;
-  settings?: {  language?: string | undefined;
-  timeZone?: string | undefined;};
-  userStatus?: string | undefined;
+  /**
+   * The password for the new user account.
+   */
+  password: string;
+  /**
+   * Permission profile ID for the user. Defaults to DocuSign Sender (52114902).
+   */
+  permissionProfileId?: string | undefined;
 };
 
 export interface ActionOutput_docusign_createuser {
-  id: string;
-  email: string;
-  firstName: string;
-  lastName: string;
+  userId?: string | undefined;
+  userName?: string | undefined;
+  email?: string | undefined;
+  created?: boolean | undefined;
+};
+
+export interface ActionInput_docusign_deleteconnectconfiguration {
+  /**
+   * Connect configuration ID to delete. Example: "22210640"
+   */
+  connectId: string;
+};
+
+export interface ActionOutput_docusign_deleteconnectconfiguration {
+  success: true;
+};
+
+export interface ActionInput_docusign_deleteenveloperecipients {
+  /**
+   * The envelope ID. Example: "ffbe2429-fc88-8ef2-803e-8ad9296118b6"
+   */
+  envelopeId: string;
+  /**
+   * Array of recipients to remove from the envelope
+   */
+  recipients: ({  /**
+   * The recipient ID to delete. Example: "1"
+   */
+  recipientId: string;})[];
+};
+
+export interface ActionOutput_docusign_deleteenveloperecipients {
+  envelopeId: string;
+  deletedRecipients: ({  recipientId: string;})[];
+};
+
+export interface ActionInput_docusign_deleteenvelope {
+  /**
+   * The ID of the draft envelope to move to the recycle bin. Example: "acdc2f1a-fba9-871d-8159-abe4af6518ef"
+   */
+  envelopeId: string;
+};
+
+export interface ActionOutput_docusign_deleteenvelope {
+  success: boolean;
+  envelopeId: string;
+  folderId: string;
+};
+
+export interface ActionInput_docusign_deletegroups {
+  /**
+   * Array of group IDs to delete. Example: ["36047264", "36047265"]
+   */
+  groupIds: string[];
+};
+
+export interface ActionOutput_docusign_deletegroups {
+  groups: ({  groupId: string;
+  groupName?: string | undefined;
+  groupType?: string | undefined;})[];
 };
 
 export interface ActionInput_docusign_deleteuser {
-  id: string;
+  /**
+   * The user ID to close/remove. Example: "c9a996ed-50d2-4df4-ac91-a45032721bb6"
+   */
+  userId: string;
 };
 
 export interface ActionOutput_docusign_deleteuser {
-  success: boolean;
+  users?: ({})[] | undefined;
+};
+
+export interface ActionInput_docusign_getaccountsettings {
+};
+
+export interface ActionOutput_docusign_getaccountsettings {
+};
+
+export interface ActionInput_docusign_getbrand {
+  /**
+   * Brand ID. Example: "12345"
+   */
+  brandId: string;
+};
+
+export interface ActionOutput_docusign_getbrand {
+  brandId?: string | undefined;
+  brandName?: string | undefined;
+  brandCompany?: string | undefined;
+  defaultBrandLanguage?: string | undefined;
+  brandLanguages?: string[] | undefined;
+  isSendingDefault?: boolean | undefined;
+  isSigningDefault?: boolean | undefined;
+  isOverridingCompanyName?: boolean | undefined;
+  isOrganizationBrand?: string | undefined;
+};
+
+export interface ActionInput_docusign_getenvelopeauditevents {
+  /**
+   * The envelope ID. Example: "ffbe2429-fc88-8ef2-803e-8ad9296118b6"
+   */
+  envelopeId: string;
+};
+
+export interface ActionOutput_docusign_getenvelopeauditevents {
+  auditEvents?: ({  eventFields?: ({  name?: string | undefined;
+  value?: string | undefined;})[];})[];
+};
+
+export interface ActionInput_docusign_getenvelopeformdata {
+  /**
+   * The envelope ID. Example: "ffbe2429-fc88-8ef2-803e-8ad9296118b6"
+   */
+  envelopeId: string;
+};
+
+export interface ActionOutput_docusign_getenvelopeformdata {
+  formData?: ({  name?: string | undefined;
+  value?: string | undefined;
+  tabLabel?: string | undefined;
+  tabName?: string | undefined;
+  originalValue?: string | undefined;
+  recipientId?: string | undefined;})[];
+  prefillFormData?: ({  name?: string | undefined;
+  value?: string | undefined;
+  tabLabel?: string | undefined;
+  tabName?: string | undefined;
+  originalValue?: string | undefined;
+  recipientId?: string | undefined;})[];
+  recipientFormData?: ({  recipientId?: string | undefined;
+  formData?: ({  name?: string | undefined;
+  value?: string | undefined;
+  tabLabel?: string | undefined;
+  tabName?: string | undefined;
+  originalValue?: string | undefined;
+  recipientId?: string | undefined;})[];})[];
+};
+
+export interface ActionInput_docusign_getenvelope {
+  /**
+   * DocuSign envelope ID. Example: "ffbe2429-fc88-8ef2-803e-8ad9296118b6"
+   */
+  envelopeId: string;
+};
+
+export interface ActionOutput_docusign_getenvelope {
+  envelope: {  envelopeId: string;
+  status: string;
+  emailSubject?: string | undefined;
+  emailBlurb?: string | undefined;
+  sender?: {  userName?: string | undefined;
+  userId?: string | undefined;
+  email?: string | undefined;};
+  sentDateTime?: string | undefined;
+  completedDateTime?: string | undefined;
+  createdDateTime?: string | undefined;
+  statusChangedDateTime?: string | undefined;
+  documentsUri?: string | undefined;
+  recipientsUri?: string | undefined;
+  attachmentsUri?: string | undefined;
+  envelopeUri?: string | undefined;
+  purgeState?: string | undefined;
+  voidedDateTime?: string | undefined;
+  voidedReason?: string | undefined;
+  expireDateTime?: string | undefined;
+  expireAfter?: string | undefined;
+  templateId?: string | undefined;
+  customFieldsUri?: string | undefined;
+  notificationUri?: string | undefined;};
+};
+
+export interface ActionInput_docusign_gettemplate {
+  /**
+   * Template ID. Example: "e13866df-36e6-462b-b35b-dcda35982abc"
+   */
+  templateId: string;
+};
+
+export interface ActionOutput_docusign_gettemplate {
+  templateId: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  emailSubject?: string | undefined;
+  emailBlurb?: string | undefined;
+  status?: string | undefined;
+  documents?: ({  documentId?: string | undefined;
+  name?: string | undefined;
+  type?: string | undefined;
+  uri?: string | undefined;})[];
+  recipients?: {  signers?: ({  recipientId?: string | undefined;
+  recipientIdGuid?: string | undefined;
+  roleName?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  tabs?: {  signHereTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  dateSignedTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  textTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  checkboxTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  radioGroupTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];};})[];
+  carbonCopies?: ({  recipientId?: string | undefined;
+  recipientIdGuid?: string | undefined;
+  roleName?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  tabs?: {  signHereTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  dateSignedTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  textTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  checkboxTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  radioGroupTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];};})[];
+  certifiedDeliveries?: ({  recipientId?: string | undefined;
+  recipientIdGuid?: string | undefined;
+  roleName?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  tabs?: {  signHereTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  dateSignedTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  textTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  checkboxTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  radioGroupTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];};})[];
+  editors?: ({  recipientId?: string | undefined;
+  recipientIdGuid?: string | undefined;
+  roleName?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  tabs?: {  signHereTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  dateSignedTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  textTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  checkboxTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  radioGroupTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];};})[];
+  intermediaries?: ({  recipientId?: string | undefined;
+  recipientIdGuid?: string | undefined;
+  roleName?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  tabs?: {  signHereTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  dateSignedTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  textTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  checkboxTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  radioGroupTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];};})[];
+  agents?: ({  recipientId?: string | undefined;
+  recipientIdGuid?: string | undefined;
+  roleName?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  tabs?: {  signHereTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  dateSignedTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  textTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  checkboxTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  radioGroupTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];};})[];
+  inPersonSigners?: ({  recipientId?: string | undefined;
+  recipientIdGuid?: string | undefined;
+  roleName?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  tabs?: {  signHereTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  dateSignedTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  textTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  checkboxTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  radioGroupTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];};})[];
+  seals?: ({  recipientId?: string | undefined;
+  recipientIdGuid?: string | undefined;
+  roleName?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  tabs?: {  signHereTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  dateSignedTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  textTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  checkboxTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  radioGroupTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];};})[];
+  witnesses?: ({  recipientId?: string | undefined;
+  recipientIdGuid?: string | undefined;
+  roleName?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  tabs?: {  signHereTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  dateSignedTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  textTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  checkboxTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  radioGroupTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];};})[];
+  notaries?: ({  recipientId?: string | undefined;
+  recipientIdGuid?: string | undefined;
+  roleName?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  tabs?: {  signHereTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  dateSignedTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  textTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  checkboxTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];
+  radioGroupTabs?: ({  tabId?: string | undefined;
+  tabLabel?: string | undefined;
+  type?: string | undefined;})[];};})[];};
+};
+
+export interface ActionInput_docusign_getuser {
+  /**
+   * The user ID (GUID) to retrieve. Example: "c9a996ed-50d2-4df4-ac91-a45032721bb6"
+   */
+  userId: string;
+};
+
+export interface ActionOutput_docusign_getuser {
+  userId: string;
+  userName?: string | undefined;
+  email?: string | undefined;
+  userType?: string | undefined;
+  userStatus?: string | undefined;
+  uri?: string | undefined;
+  createdDateTime?: string | undefined;
+  permissionProfileId?: string | undefined;
+  permissionProfileName?: string | undefined;
+  title?: string | undefined;
+  firstName?: string | undefined;
+  middleName?: string | undefined;
+  lastName?: string | undefined;
+  suffixName?: string | undefined;
+  jobTitle?: string | undefined;
+  companyName?: string | undefined;
+  phoneNumber?: string | undefined;
+  faxNumber?: string | undefined;
+  address?: {  address1?: string | undefined;
+  address2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  postalCode?: string | undefined;
+  country?: string | undefined;};
+  userSettings?: {  [key: string]: unknown | undefined;};
+  groupList?: ({  [key: string]: unknown | undefined;})[];
+  signatureName?: string | undefined;
+  initialsName?: string | undefined;
+};
+
+export interface ActionInput_docusign_listbrands {
+};
+
+export interface ActionOutput_docusign_listbrands {
+  brands: ({  brandId: string;
+  brandName?: string | undefined;})[];
+  recipientBrandIdDefault?: string | undefined;
+  senderBrandIdDefault?: string | undefined;
+};
+
+export interface ActionInput_docusign_listconnectconfigurations {
+};
+
+export interface ActionOutput_docusign_listconnectconfigurations {
+  configurations: ({  configurationId?: number | undefined;
+  urlToPublishTo?: string | undefined;
+  name?: string | undefined;
+  allowEnvelopePublish?: string | undefined;
+  enableLog?: string | undefined;
+  includeDocuments?: string | undefined;
+  includeCertificateOfCompletion?: string | undefined;
+  requiresAcknowledgement?: string | undefined;
+  signMessageWithX509Certificate?: string | undefined;
+  useSoapInterface?: string | undefined;
+  includeTimeZoneInformation?: string | undefined;
+  includeEnvelopeVoidReason?: string | undefined;
+  envelopeEvents?: string[] | undefined;
+  recipientEvents?: string[] | undefined;
+  includeSenderAccountasCustomField?: string | undefined;
+  publishToWeb?: string | undefined;
+  eventData?: {  version?: string | undefined;
+  format?: string | undefined;
+  includeData?: string[] | undefined;};
+  allUsers?: string | undefined;
+  integratorManaged?: string | undefined;
+  userIds?: string[] | undefined;
+  salesforcePublish?: {} | undefined;
+  externalFolderIds?: string[] | undefined;
+  allExternalFoldersEnabled?: string | undefined;})[];
+  totalRecords?: string | undefined;
+};
+
+export interface ActionInput_docusign_listenvelopedocuments {
+  /**
+   * DocuSign envelope ID. Example: "ffbe2429-fc88-8ef2-803e-8ad9296118b6"
+   */
+  envelopeId: string;
+};
+
+export interface ActionOutput_docusign_listenvelopedocuments {
+  envelopeId: string;
+  documents: ({  documentId: string;
+  name?: string | undefined;
+  type?: string | undefined;
+  uri?: string | undefined;
+  pages?: string | undefined;})[];
+};
+
+export interface ActionInput_docusign_listenveloperecipients {
+  /**
+   * The envelope ID. Example: "ffbe2429-fc88-8ef2-803e-8ad9296118b6"
+   */
+  envelopeId: string;
+};
+
+export interface ActionOutput_docusign_listenveloperecipients {
+  signers?: ({  recipientId?: string | undefined;
+  recipientIdGuid?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  routingOrder?: string | undefined;
+  status?: string | undefined;
+  deliveryMethod?: string | undefined;
+  completedCount?: string | undefined;
+  totalTabCount?: string | undefined;})[];
+  carbonCopies?: ({  recipientId?: string | undefined;
+  recipientIdGuid?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  routingOrder?: string | undefined;
+  status?: string | undefined;
+  deliveryMethod?: string | undefined;
+  completedCount?: string | undefined;
+  totalTabCount?: string | undefined;})[];
+  certifiedDeliveries?: ({  recipientId?: string | undefined;
+  recipientIdGuid?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  routingOrder?: string | undefined;
+  status?: string | undefined;
+  deliveryMethod?: string | undefined;
+  completedCount?: string | undefined;
+  totalTabCount?: string | undefined;})[];
+  inPersonSigners?: ({  recipientId?: string | undefined;
+  recipientIdGuid?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  routingOrder?: string | undefined;
+  status?: string | undefined;
+  deliveryMethod?: string | undefined;
+  completedCount?: string | undefined;
+  totalTabCount?: string | undefined;})[];
+  agents?: ({  recipientId?: string | undefined;
+  recipientIdGuid?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  routingOrder?: string | undefined;
+  status?: string | undefined;
+  deliveryMethod?: string | undefined;
+  completedCount?: string | undefined;
+  totalTabCount?: string | undefined;})[];
+  editors?: ({  recipientId?: string | undefined;
+  recipientIdGuid?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  routingOrder?: string | undefined;
+  status?: string | undefined;
+  deliveryMethod?: string | undefined;
+  completedCount?: string | undefined;
+  totalTabCount?: string | undefined;})[];
+  intermediaries?: ({  recipientId?: string | undefined;
+  recipientIdGuid?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  routingOrder?: string | undefined;
+  status?: string | undefined;
+  deliveryMethod?: string | undefined;
+  completedCount?: string | undefined;
+  totalTabCount?: string | undefined;})[];
+  seals?: ({  recipientId?: string | undefined;
+  recipientIdGuid?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  routingOrder?: string | undefined;
+  status?: string | undefined;
+  deliveryMethod?: string | undefined;
+  completedCount?: string | undefined;
+  totalTabCount?: string | undefined;})[];
+};
+
+export interface ActionInput_docusign_listenvelopes {
+  /**
+   * ISO 8601 start date. Required unless envelope_ids or transaction_ids is provided.
+   */
+  from_date?: string | undefined;
+  /**
+   * ISO 8601 end date.
+   */
+  to_date?: string | undefined;
+  /**
+   * Envelope status filter, e.g. "sent", "completed", "created".
+   */
+  status?: string | undefined;
+  /**
+   * Comma-separated folder IDs to filter by.
+   */
+  folder_ids?: string | undefined;
+  /**
+   * Comma-separated envelope IDs to filter by.
+   */
+  envelope_ids?: string | undefined;
+  /**
+   * Comma-separated transaction IDs to filter by.
+   */
+  transaction_ids?: string | undefined;
+  /**
+   * Pagination cursor (start_position). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page (count). Defaults to 50.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_docusign_listenvelopes {
+  items: ({  envelopeId: string;
+  status: string;
+  emailSubject?: string | undefined;
+  emailBlurb?: string | undefined;
+  sender?: {  userName?: string | undefined;
+  userId?: string | undefined;
+  email?: string | undefined;};
+  createdDateTime?: string | undefined;
+  sentDateTime?: string | undefined;
+  completedDateTime?: string | undefined;
+  statusChangedDateTime?: string | undefined;
+  lastModifiedDateTime?: string | undefined;
+  voidedDateTime?: string | undefined;
+  voidedReason?: string | undefined;
+  declinedDateTime?: string | undefined;
+  deliveredDateTime?: string | undefined;
+  deletedDateTime?: string | undefined;
+  initialSentDateTime?: string | undefined;
+  documentsUri?: string | undefined;
+  recipientsUri?: string | undefined;
+  envelopeUri?: string | undefined;
+  customFieldsUri?: string | undefined;
+  notificationUri?: string | undefined;
+  certificateUri?: string | undefined;
+  templatesUri?: string | undefined;
+  documentsCombinedUri?: string | undefined;
+  attachmentsUri?: string | undefined;
+  customFields?: ({  [key: string]: unknown | undefined;})[];
+  notification?: {  [key: string]: unknown | undefined;};
+  recipients?: {  [key: string]: unknown | undefined;};})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_docusign_listfolderenvelopes {
+  /**
+   * Folder ID. Example: "b97b86fd-ca82-47d7-8435-f11555c52d0e"
+   */
+  folderId: string;
+  /**
+   * Pagination cursor (start_position) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results to return per page. Max: 100. Default: 50.
+   */
+  count?: number | undefined;
+};
+
+export interface ActionOutput_docusign_listfolderenvelopes {
+  items: ({  envelopeId: string;
+  status?: string | undefined;
+  emailSubject?: string | undefined;
+  emailBlurb?: string | undefined;
+  sentDateTime?: string | undefined;
+  createdDateTime?: string | undefined;
+  statusChangedDateTime?: string | undefined;
+  sender?: {  userName?: string | undefined;
+  userId?: string | undefined;
+  email?: string | undefined;};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_docusign_listfolders {
+};
+
+export interface ActionOutput_docusign_listfolders {
+  folders: ({  /**
+   * Folder ID. Example: "b97b86fd-ca82-47d7-8435-f11555c52d0e"
+   */
+  folderId: string;
+  /**
+   * Folder name. Example: "Draft"
+   */
+  name: string;
+  /**
+   * Folder type. Example: "draft", "inbox", "sentitems", "recyclebin", "custom"
+   */
+  type: string;
+  /**
+   * Number of items in the folder. Example: "5"
+   */
+  itemCount: string;})[];
+};
+
+export interface ActionInput_docusign_listgroupusers {
+  /**
+   * Group ID. Example: "36046947"
+   */
+  groupId: string;
+  /**
+   * Pagination offset. Example: "0"
+   */
+  start_position?: string | undefined;
+  /**
+   * Number of records to return. Example: "100"
+   */
+  count?: string | undefined;
+};
+
+export interface ActionOutput_docusign_listgroupusers {
+  users: ({  userId?: string | undefined;
+  userName?: string | undefined;
+  email?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  userStatus?: string | undefined;
+  userType?: string | undefined;})[];
+  next_start_position?: string | undefined;
+};
+
+export interface ActionInput_docusign_listgroups {
+};
+
+export interface ActionOutput_docusign_listgroups {
+  groups: ({  groupId: string;
+  groupName?: string | undefined;
+  groupType?: 'adminGroup' | 'everyoneGroup' | 'customGroup' | undefined;
+  usersCount?: string | undefined;})[];
+};
+
+export interface ActionInput_docusign_listpermissionprofiles {
+};
+
+export interface ActionOutput_docusign_listpermissionprofiles {
+  permissionProfiles: ({  permissionProfileId: string;
+  permissionProfileName: string;
+  modifiedDateTime?: string | undefined;})[];
+};
+
+export interface ActionInput_docusign_listrecipienttabs {
+  /**
+   * Envelope ID. Example: "ffbe2429-fc88-8ef2-803e-8ad9296118b6"
+   */
+  envelopeId: string;
+  /**
+   * Recipient ID. Example: "1"
+   */
+  recipientId: string;
+};
+
+export interface ActionOutput_docusign_listrecipienttabs {
+  signHereTabs?: ({  tabId?: string | undefined;
+  documentId?: string | undefined;
+  recipientId?: string | undefined;
+  pageNumber?: string | undefined;
+  xPosition?: string | undefined;
+  yPosition?: string | undefined;
+  tabLabel?: string | undefined;
+  name?: string | undefined;
+  value?: string | undefined;
+  locked?: string | undefined;
+  required?: string | undefined;
+  selected?: string | undefined;})[];
+  initialHereTabs?: ({  tabId?: string | undefined;
+  documentId?: string | undefined;
+  recipientId?: string | undefined;
+  pageNumber?: string | undefined;
+  xPosition?: string | undefined;
+  yPosition?: string | undefined;
+  tabLabel?: string | undefined;
+  name?: string | undefined;
+  value?: string | undefined;
+  locked?: string | undefined;
+  required?: string | undefined;
+  selected?: string | undefined;})[];
+  dateSignedTabs?: ({  tabId?: string | undefined;
+  documentId?: string | undefined;
+  recipientId?: string | undefined;
+  pageNumber?: string | undefined;
+  xPosition?: string | undefined;
+  yPosition?: string | undefined;
+  tabLabel?: string | undefined;
+  name?: string | undefined;
+  value?: string | undefined;
+  locked?: string | undefined;
+  required?: string | undefined;
+  selected?: string | undefined;})[];
+  textTabs?: ({  tabId?: string | undefined;
+  documentId?: string | undefined;
+  recipientId?: string | undefined;
+  pageNumber?: string | undefined;
+  xPosition?: string | undefined;
+  yPosition?: string | undefined;
+  tabLabel?: string | undefined;
+  name?: string | undefined;
+  value?: string | undefined;
+  locked?: string | undefined;
+  required?: string | undefined;
+  selected?: string | undefined;})[];
+  checkboxTabs?: ({  tabId?: string | undefined;
+  documentId?: string | undefined;
+  recipientId?: string | undefined;
+  pageNumber?: string | undefined;
+  xPosition?: string | undefined;
+  yPosition?: string | undefined;
+  tabLabel?: string | undefined;
+  name?: string | undefined;
+  value?: string | undefined;
+  locked?: string | undefined;
+  required?: string | undefined;
+  selected?: string | undefined;})[];
+  radioGroupTabs?: ({  tabId?: string | undefined;
+  documentId?: string | undefined;
+  recipientId?: string | undefined;
+  pageNumber?: string | undefined;
+  xPosition?: string | undefined;
+  yPosition?: string | undefined;
+  tabLabel?: string | undefined;
+  name?: string | undefined;
+  value?: string | undefined;
+  locked?: string | undefined;
+  required?: string | undefined;
+  selected?: string | undefined;})[];
+  listTabs?: ({  tabId?: string | undefined;
+  documentId?: string | undefined;
+  recipientId?: string | undefined;
+  pageNumber?: string | undefined;
+  xPosition?: string | undefined;
+  yPosition?: string | undefined;
+  tabLabel?: string | undefined;
+  name?: string | undefined;
+  value?: string | undefined;
+  locked?: string | undefined;
+  required?: string | undefined;
+  selected?: string | undefined;})[];
+  numberTabs?: ({  tabId?: string | undefined;
+  documentId?: string | undefined;
+  recipientId?: string | undefined;
+  pageNumber?: string | undefined;
+  xPosition?: string | undefined;
+  yPosition?: string | undefined;
+  tabLabel?: string | undefined;
+  name?: string | undefined;
+  value?: string | undefined;
+  locked?: string | undefined;
+  required?: string | undefined;
+  selected?: string | undefined;})[];
+  ssnTabs?: ({  tabId?: string | undefined;
+  documentId?: string | undefined;
+  recipientId?: string | undefined;
+  pageNumber?: string | undefined;
+  xPosition?: string | undefined;
+  yPosition?: string | undefined;
+  tabLabel?: string | undefined;
+  name?: string | undefined;
+  value?: string | undefined;
+  locked?: string | undefined;
+  required?: string | undefined;
+  selected?: string | undefined;})[];
+  zipTabs?: ({  tabId?: string | undefined;
+  documentId?: string | undefined;
+  recipientId?: string | undefined;
+  pageNumber?: string | undefined;
+  xPosition?: string | undefined;
+  yPosition?: string | undefined;
+  tabLabel?: string | undefined;
+  name?: string | undefined;
+  value?: string | undefined;
+  locked?: string | undefined;
+  required?: string | undefined;
+  selected?: string | undefined;})[];
+  noteTabs?: ({  tabId?: string | undefined;
+  documentId?: string | undefined;
+  recipientId?: string | undefined;
+  pageNumber?: string | undefined;
+  xPosition?: string | undefined;
+  yPosition?: string | undefined;
+  tabLabel?: string | undefined;
+  name?: string | undefined;
+  value?: string | undefined;
+  locked?: string | undefined;
+  required?: string | undefined;
+  selected?: string | undefined;})[];
+  approveTabs?: ({  tabId?: string | undefined;
+  documentId?: string | undefined;
+  recipientId?: string | undefined;
+  pageNumber?: string | undefined;
+  xPosition?: string | undefined;
+  yPosition?: string | undefined;
+  tabLabel?: string | undefined;
+  name?: string | undefined;
+  value?: string | undefined;
+  locked?: string | undefined;
+  required?: string | undefined;
+  selected?: string | undefined;})[];
+  declineTabs?: ({  tabId?: string | undefined;
+  documentId?: string | undefined;
+  recipientId?: string | undefined;
+  pageNumber?: string | undefined;
+  xPosition?: string | undefined;
+  yPosition?: string | undefined;
+  tabLabel?: string | undefined;
+  name?: string | undefined;
+  value?: string | undefined;
+  locked?: string | undefined;
+  required?: string | undefined;
+  selected?: string | undefined;})[];
+  formulaTabs?: ({  tabId?: string | undefined;
+  documentId?: string | undefined;
+  recipientId?: string | undefined;
+  pageNumber?: string | undefined;
+  xPosition?: string | undefined;
+  yPosition?: string | undefined;
+  tabLabel?: string | undefined;
+  name?: string | undefined;
+  value?: string | undefined;
+  locked?: string | undefined;
+  required?: string | undefined;
+  selected?: string | undefined;})[];
+  titleTabs?: ({  tabId?: string | undefined;
+  documentId?: string | undefined;
+  recipientId?: string | undefined;
+  pageNumber?: string | undefined;
+  xPosition?: string | undefined;
+  yPosition?: string | undefined;
+  tabLabel?: string | undefined;
+  name?: string | undefined;
+  value?: string | undefined;
+  locked?: string | undefined;
+  required?: string | undefined;
+  selected?: string | undefined;})[];
+  fullNameTabs?: ({  tabId?: string | undefined;
+  documentId?: string | undefined;
+  recipientId?: string | undefined;
+  pageNumber?: string | undefined;
+  xPosition?: string | undefined;
+  yPosition?: string | undefined;
+  tabLabel?: string | undefined;
+  name?: string | undefined;
+  value?: string | undefined;
+  locked?: string | undefined;
+  required?: string | undefined;
+  selected?: string | undefined;})[];
+  emailTabs?: ({  tabId?: string | undefined;
+  documentId?: string | undefined;
+  recipientId?: string | undefined;
+  pageNumber?: string | undefined;
+  xPosition?: string | undefined;
+  yPosition?: string | undefined;
+  tabLabel?: string | undefined;
+  name?: string | undefined;
+  value?: string | undefined;
+  locked?: string | undefined;
+  required?: string | undefined;
+  selected?: string | undefined;})[];
+  companyTabs?: ({  tabId?: string | undefined;
+  documentId?: string | undefined;
+  recipientId?: string | undefined;
+  pageNumber?: string | undefined;
+  xPosition?: string | undefined;
+  yPosition?: string | undefined;
+  tabLabel?: string | undefined;
+  name?: string | undefined;
+  value?: string | undefined;
+  locked?: string | undefined;
+  required?: string | undefined;
+  selected?: string | undefined;})[];
+  dateTabs?: ({  tabId?: string | undefined;
+  documentId?: string | undefined;
+  recipientId?: string | undefined;
+  pageNumber?: string | undefined;
+  xPosition?: string | undefined;
+  yPosition?: string | undefined;
+  tabLabel?: string | undefined;
+  name?: string | undefined;
+  value?: string | undefined;
+  locked?: string | undefined;
+  required?: string | undefined;
+  selected?: string | undefined;})[];
+  envelopeIdTabs?: ({  tabId?: string | undefined;
+  documentId?: string | undefined;
+  recipientId?: string | undefined;
+  pageNumber?: string | undefined;
+  xPosition?: string | undefined;
+  yPosition?: string | undefined;
+  tabLabel?: string | undefined;
+  name?: string | undefined;
+  value?: string | undefined;
+  locked?: string | undefined;
+  required?: string | undefined;
+  selected?: string | undefined;})[];
+  firstNameTabs?: ({  tabId?: string | undefined;
+  documentId?: string | undefined;
+  recipientId?: string | undefined;
+  pageNumber?: string | undefined;
+  xPosition?: string | undefined;
+  yPosition?: string | undefined;
+  tabLabel?: string | undefined;
+  name?: string | undefined;
+  value?: string | undefined;
+  locked?: string | undefined;
+  required?: string | undefined;
+  selected?: string | undefined;})[];
+  lastNameTabs?: ({  tabId?: string | undefined;
+  documentId?: string | undefined;
+  recipientId?: string | undefined;
+  pageNumber?: string | undefined;
+  xPosition?: string | undefined;
+  yPosition?: string | undefined;
+  tabLabel?: string | undefined;
+  name?: string | undefined;
+  value?: string | undefined;
+  locked?: string | undefined;
+  required?: string | undefined;
+  selected?: string | undefined;})[];
+};
+
+export interface ActionInput_docusign_listsigninggroups {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_docusign_listsigninggroups {
+  items: ({  signingGroupId?: string | undefined;
+  groupName?: string | undefined;
+  groupEmail?: string | undefined;
+  groupType?: string | undefined;
+  created?: string | undefined;
+  createdBy?: string | undefined;
+  modified?: string | undefined;
+  modifiedBy?: string | undefined;
+  users?: ({  email?: string | undefined;
+  userName?: string | undefined;})[];})[];
+};
+
+export interface ActionInput_docusign_listtemplaterecipients {
+  /**
+   * Template ID. Example: "e13866df-36e6-462b-b35b-dcda35982abc"
+   */
+  templateId: string;
+};
+
+export interface ActionOutput_docusign_listtemplaterecipients {
+  /**
+   * List of recipient roles defined in the template
+   */
+  recipients: ({  /**
+   * The recipient ID
+   */
+  recipientId?: string | undefined;
+  /**
+   * The role name of the recipient
+   */
+  roleName?: string | undefined;
+  /**
+   * The name of the recipient
+   */
+  name?: string | undefined;
+  /**
+   * The email of the recipient
+   */
+  email?: string | undefined;
+  /**
+   * The type of recipient (e.g., signer, carbonCopy)
+   */
+  recipientType: string;})[];
+};
+
+export interface ActionInput_docusign_listtemplates {
+  /**
+   * Search text to filter templates
+   */
+  search_text?: string | undefined;
+  /**
+   * Filter by shared status. Example: "true" or "false"
+   */
+  shared?: string | undefined;
+  /**
+   * Folder ID to filter templates
+   */
+  folder_id?: string | undefined;
+  /**
+   * Pagination start position. Example: "0"
+   */
+  start_position?: string | undefined;
+  /**
+   * Number of items to return per page. Example: "10"
+   */
+  count?: string | undefined;
+};
+
+export interface ActionOutput_docusign_listtemplates {
+  items: ({  templateId: string;
+  name?: string | undefined;
+  shared?: string | undefined;
+  description?: string | undefined;
+  created?: string | undefined;
+  lastModified?: string | undefined;
+  uri?: string | undefined;
+  folderId?: string | undefined;
+  folderName?: string | undefined;
+  folderUri?: string | undefined;})[];
+  next_start_position?: string | undefined;
+};
+
+export interface ActionInput_docusign_listusers {
+  /**
+   * Filter by email address. Example: "api@nango.dev"
+   */
+  email?: string | undefined;
+  /**
+   * Filter by user status. Example: "active"
+   */
+  status?: string | undefined;
+  /**
+   * Pagination offset. Example: "0"
+   */
+  start_position?: string | undefined;
+  /**
+   * Number of results to return. Example: "10"
+   */
+  count?: string | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_docusign_listusers {
+  items: ({  userId: string;
+  userName?: string | undefined;
+  email?: string | undefined;
+  userStatus?: string | undefined;
+  userType?: string | undefined;
+  createdDateTime?: string | undefined;
+  activationDateTime?: string | undefined;
+  lastLoginDateTime?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_docusign_removegroupusers {
+  /**
+   * Group ID. Example: "36046947"
+   */
+  groupId: string;
+  users: ({  /**
+   * User ID to remove from the group. Example: "c9a996ed-50d2-4df4-ac91-a45032721bb6"
+   */
+  userId: string;})[];
+};
+
+export interface ActionOutput_docusign_removegroupusers {
+  resultSetSize?: string | undefined;
+  startPosition?: string | undefined;
+  endPosition?: string | undefined;
+  totalSetSize?: string | undefined;
+  nextUri?: string | undefined;
+  previousUri?: string | undefined;
+  users?: ({  userId?: string | undefined;
+  userName?: string | undefined;
+  email?: string | undefined;
+  userStatus?: string | undefined;
+  userType?: string | undefined;})[];
+};
+
+export interface ActionInput_docusign_updateconnectconfiguration {
+  /**
+   * The DocuSign-generated ID for the Connect configuration. Example: "22210617"
+   */
+  connectId: string;
+  /**
+   * The name of the Connect configuration.
+   */
+  name?: string | undefined;
+  /**
+   * The HTTPS URL of the webhook listener endpoint.
+   */
+  urlToPublishTo?: string | undefined;
+  /**
+   * The type of the configuration. Valid values: custom, customrecipient, salesforce, eOriginal.
+   */
+  configurationType?: string | undefined;
+  /**
+   * Set to "true" to enable the webhook. The default is "false".
+   */
+  allowEnvelopePublish?: string | undefined;
+  /**
+   * Set to "true" to enable Connect logging.
+   */
+  enableLog?: string | undefined;
+  /**
+   * Set to "true" to require event delivery acknowledgements.
+   */
+  requiresAcknowledgement?: string | undefined;
+  /**
+   * Set to "true" to track events for all users.
+   */
+  allUsers?: string | undefined;
+  /**
+   * Set to "true" to exclude the users in userIds.
+   */
+  allUsersExcept?: string | undefined;
+  /**
+   * Array of user IDs to include or exclude.
+   */
+  userIds?: string[] | undefined;
+  /**
+   * Array of group IDs to associate with the configuration.
+   */
+  groupIds?: string[] | undefined;
+  /**
+   * Array of envelope-level event statuses that trigger notifications.
+   */
+  envelopeEvents?: string[] | undefined;
+  /**
+   * Array of recipient-level event statuses that trigger notifications.
+   */
+  recipientEvents?: string[] | undefined;
+  /**
+   * Array of event statuses for the JSON SIM event model.
+   */
+  events?: string[] | undefined;
+  /**
+   * The delivery mode.
+   */
+  deliveryMode?: 'SIM' | 'aggregate' | undefined;
+  /**
+   * Event data format configuration.
+   */
+  eventData?: {  version?: string | undefined;
+  includeData?: string[] | undefined;};
+  /**
+   * Set to "true" to use HMAC to verify the request.
+   */
+  includeHMAC?: string | undefined;
+  /**
+   * Set to "true" to enable Mutual TLS.
+   */
+  signMessageWithX509Certificate?: string | undefined;
+  /**
+   * Set to "true" to enable Mutual TLS authentication.
+   */
+  requireMutualTls?: string | undefined;
+  includeDocuments?: string | undefined;
+  includeCertificateOfCompletion?: string | undefined;
+  useSoapInterface?: string | undefined;
+  includeTimeZoneInformation?: string | undefined;
+  includeOAuth?: string | undefined;
+  includeEnvelopeVoidReason?: string | undefined;
+  includeSenderAccountasCustomField?: string | undefined;
+  includeDocumentFields?: string | undefined;
+  includeCertSoapHeader?: string | undefined;
+  pausePublish?: string | undefined;
+  enableOAuthPerConfiguration?: string | undefined;
+  integratorManaged?: string | undefined;
+  password?: string | undefined;
+  userName?: string | undefined;
+  soapNamespace?: string | undefined;
+  externalFolderId?: string | undefined;
+  externalFolderLabel?: string | undefined;
+  salesforceApiVersion?: string | undefined;
+  salesforceAuthcode?: string | undefined;
+  salesforceCallBackUrl?: string | undefined;
+  salesforceDocumentsAsContentFiles?: string | undefined;
+  senderOverride?: string | undefined;
+  senderSelectableItems?: string[] | undefined;
+  oAuthConfiguration?: {  [key: string]: unknown | undefined;};
+  sfObjects?: ({  [key: string]: unknown | undefined;})[];
+};
+
+export interface ActionOutput_docusign_updateconnectconfiguration {
+  connectId?: string | undefined;
+  configurationType?: string | undefined;
+  name?: string | undefined;
+  urlToPublishTo?: string | undefined;
+  allowEnvelopePublish?: string | undefined;
+  enableLog?: string | undefined;
+  requiresAcknowledgement?: string | undefined;
+  allUsers?: string | undefined;
+  allUsersExcept?: string | undefined;
+  deliveryMode?: string | undefined;
+  includeDocuments?: string | undefined;
+  includeCertificateOfCompletion?: string | undefined;
+  signMessageWithX509Certificate?: string | undefined;
+  useSoapInterface?: string | undefined;
+  includeTimeZoneInformation?: string | undefined;
+  includeOAuth?: string | undefined;
+  includeHMAC?: string | undefined;
+  integratorManaged?: string | undefined;
+  includeEnvelopeVoidReason?: string | undefined;
+  includeSenderAccountasCustomField?: string | undefined;
+  includeCertSoapHeader?: string | undefined;
+  requireMutualTls?: string | undefined;
+  includeDocumentFields?: string | undefined;
+  pausePublish?: string | undefined;
+  enableOAuthPerConfiguration?: string | undefined;
+  soapNamespace?: string | undefined;
+  envelopeEvents?: string[] | undefined;
+  recipientEvents?: string[] | undefined;
+  events?: string[] | undefined;
+  userIds?: string[] | undefined;
+  groupIds?: string[] | undefined;
+  password?: string | undefined;
+  userName?: string | undefined;
+  externalFolderId?: string | undefined;
+  externalFolderLabel?: string | undefined;
+  salesforceApiVersion?: string | undefined;
+  salesforceAuthcode?: string | undefined;
+  salesforceCallBackUrl?: string | undefined;
+  salesforceDocumentsAsContentFiles?: string | undefined;
+  senderOverride?: string | undefined;
+  senderSelectableItems?: string[] | undefined;
+  eventData?: {  version?: string | undefined;
+  includeData?: string[] | undefined;};
+};
+
+export interface ActionInput_docusign_updateenveloperecipients {
+  /**
+   * Envelope ID. Example: "ffbe2429-fc88-8ef2-803e-8ad9296118b6"
+   */
+  envelopeId: string;
+  /**
+   * Signers to update
+   */
+  signers: ({  /**
+   * Recipient ID. Example: "1"
+   */
+  recipientId: string;
+  /**
+   * Updated email address
+   */
+  email?: string | undefined;
+  /**
+   * Updated full name
+   */
+  name?: string | undefined;
+  /**
+   * Updated routing order
+   */
+  routingOrder?: string | undefined;})[];
+};
+
+export interface ActionOutput_docusign_updateenveloperecipients {
+  signers?: ({  recipientId: string;
+  recipientIdGuid?: string | undefined;
+  email?: string | undefined;
+  name?: string | undefined;
+  routingOrder?: string | undefined;
+  status?: string | undefined;
+  deliveryMethod?: string | undefined;
+  note?: string | undefined;})[];
+  carbonCopies?: ({  recipientId: string;
+  recipientIdGuid?: string | undefined;
+  email?: string | undefined;
+  name?: string | undefined;
+  routingOrder?: string | undefined;
+  status?: string | undefined;
+  deliveryMethod?: string | undefined;
+  note?: string | undefined;})[];
+  editors?: ({  recipientId: string;
+  recipientIdGuid?: string | undefined;
+  email?: string | undefined;
+  name?: string | undefined;
+  routingOrder?: string | undefined;
+  status?: string | undefined;
+  deliveryMethod?: string | undefined;
+  note?: string | undefined;})[];
+  intermediaries?: ({  recipientId: string;
+  recipientIdGuid?: string | undefined;
+  email?: string | undefined;
+  name?: string | undefined;
+  routingOrder?: string | undefined;
+  status?: string | undefined;
+  deliveryMethod?: string | undefined;
+  note?: string | undefined;})[];
+  agents?: ({  recipientId: string;
+  recipientIdGuid?: string | undefined;
+  email?: string | undefined;
+  name?: string | undefined;
+  routingOrder?: string | undefined;
+  status?: string | undefined;
+  deliveryMethod?: string | undefined;
+  note?: string | undefined;})[];
+  certifiedDeliveries?: ({  recipientId: string;
+  recipientIdGuid?: string | undefined;
+  email?: string | undefined;
+  name?: string | undefined;
+  routingOrder?: string | undefined;
+  status?: string | undefined;
+  deliveryMethod?: string | undefined;
+  note?: string | undefined;})[];
+  inPersonSigners?: ({  recipientId: string;
+  recipientIdGuid?: string | undefined;
+  email?: string | undefined;
+  name?: string | undefined;
+  routingOrder?: string | undefined;
+  status?: string | undefined;
+  deliveryMethod?: string | undefined;
+  note?: string | undefined;})[];
+};
+
+export interface ActionInput_docusign_updateenvelope {
+  /**
+   * DocuSign envelope ID. Example: "ffbe2429-fc88-8ef2-803e-8ad9296118b6"
+   */
+  envelopeId: string;
+  /**
+   * Updated email subject for the envelope.
+   */
+  emailSubject?: string | undefined;
+  /**
+   * Updated email body/message for the envelope.
+   */
+  emailBlurb?: string | undefined;
+  /**
+   * Notification settings for the envelope.
+   */
+  notification?: {  expirations?: {  /**
+   * "true" or "false"
+   */
+  expireEnabled?: string | undefined;
+  /**
+   * Number of days after which the envelope expires.
+   */
+  expireAfter?: string | undefined;};
+  reminders?: {  /**
+   * "true" or "false"
+   */
+  reminderEnabled?: string | undefined;
+  /**
+   * Days before first reminder.
+   */
+  reminderDelay?: string | undefined;
+  /**
+   * Days between reminders.
+   */
+  reminderFrequency?: string | undefined;};};
+};
+
+export interface ActionOutput_docusign_updateenvelope {
+  envelopeId?: string | undefined;
+  status?: string | undefined;
+  emailSubject?: string | undefined;
+  emailBlurb?: string | undefined;
+  notification?: {  expirations?: {  expireEnabled?: string | undefined;
+  expireAfter?: string | undefined;};
+  reminders?: {  reminderEnabled?: string | undefined;
+  reminderDelay?: string | undefined;
+  reminderFrequency?: string | undefined;};};
+};
+
+export interface ActionInput_docusign_updategroup {
+  /**
+   * Group ID. Example: "36046947"
+   */
+  groupId: string;
+  /**
+   * New group name.
+   */
+  groupName?: string | undefined;
+  /**
+   * Permission profile ID to assign. Example: "52114901"
+   */
+  permissionProfileId?: string | undefined;
+};
+
+export interface ActionOutput_docusign_updategroup {
+  groupId: string;
+  groupName?: string | undefined;
+  groupType?: string | undefined;
+  permissionProfileId?: string | undefined;
+  permissionProfileName?: string | undefined;
+  lastModifiedOn?: string | undefined;
+  isManagedByScim?: boolean | undefined;
+  userGroupType?: string | undefined;
+};
+
+export interface ActionInput_docusign_updaterecipienttabs {
+  /**
+   * DocuSign envelope ID. Example: "ffbe2429-fc88-8ef2-803e-8ad9296118b6"
+   */
+  envelopeId: string;
+  /**
+   * DocuSign recipient ID (integer string). Example: "1"
+   */
+  recipientId: string;
+  /**
+   * Tabs payload to update or create on the recipient.
+   */
+  tabs: {  textTabs?: ({  [key: string]: unknown | undefined;})[];
+  signHereTabs?: ({  [key: string]: unknown | undefined;})[];
+  dateSignedTabs?: ({  [key: string]: unknown | undefined;})[];
+  initialHereTabs?: ({  [key: string]: unknown | undefined;})[];
+  checkboxTabs?: ({  [key: string]: unknown | undefined;})[];
+  radioGroupTabs?: ({  [key: string]: unknown | undefined;})[];
+  listTabs?: ({  [key: string]: unknown | undefined;})[];
+  noteTabs?: ({  [key: string]: unknown | undefined;})[];
+  approveTabs?: ({  [key: string]: unknown | undefined;})[];
+  declineTabs?: ({  [key: string]: unknown | undefined;})[];
+  numberTabs?: ({  [key: string]: unknown | undefined;})[];
+  formulaTabs?: ({  [key: string]: unknown | undefined;})[];
+  titleTabs?: ({  [key: string]: unknown | undefined;})[];
+  companyTabs?: ({  [key: string]: unknown | undefined;})[];
+  fullNameTabs?: ({  [key: string]: unknown | undefined;})[];
+  emailTabs?: ({  [key: string]: unknown | undefined;})[];
+  envelopeIdTabs?: ({  [key: string]: unknown | undefined;})[];
+  ssnTabs?: ({  [key: string]: unknown | undefined;})[];
+  zipTabs?: ({  [key: string]: unknown | undefined;})[];};
+};
+
+export interface ActionOutput_docusign_updaterecipienttabs {
+  textTabs?: ({  [key: string]: unknown | undefined;})[];
+  signHereTabs?: ({  [key: string]: unknown | undefined;})[];
+  dateSignedTabs?: ({  [key: string]: unknown | undefined;})[];
+  initialHereTabs?: ({  [key: string]: unknown | undefined;})[];
+  checkboxTabs?: ({  [key: string]: unknown | undefined;})[];
+  radioGroupTabs?: ({  [key: string]: unknown | undefined;})[];
+  listTabs?: ({  [key: string]: unknown | undefined;})[];
+  noteTabs?: ({  [key: string]: unknown | undefined;})[];
+  approveTabs?: ({  [key: string]: unknown | undefined;})[];
+  declineTabs?: ({  [key: string]: unknown | undefined;})[];
+  numberTabs?: ({  [key: string]: unknown | undefined;})[];
+  formulaTabs?: ({  [key: string]: unknown | undefined;})[];
+  titleTabs?: ({  [key: string]: unknown | undefined;})[];
+  companyTabs?: ({  [key: string]: unknown | undefined;})[];
+  fullNameTabs?: ({  [key: string]: unknown | undefined;})[];
+  emailTabs?: ({  [key: string]: unknown | undefined;})[];
+  envelopeIdTabs?: ({  [key: string]: unknown | undefined;})[];
+  ssnTabs?: ({  [key: string]: unknown | undefined;})[];
+  zipTabs?: ({  [key: string]: unknown | undefined;})[];
+};
+
+export interface ActionInput_docusign_updatetemplate {
+  /**
+   * Template ID. Example: "e13866df-36e6-462b-b35b-dcda35982abc"
+   */
+  templateId: string;
+  /**
+   * New template name
+   */
+  name?: string | undefined;
+  /**
+   * New template description. Pass null to clear.
+   */
+  description?: string | undefined;
+  /**
+   * Email subject for envelopes created from this template
+   */
+  emailSubject?: string | undefined;
+  /**
+   * Email body for envelopes created from this template
+   */
+  emailBlurb?: string | undefined;
+};
+
+export interface ActionOutput_docusign_updatetemplate {
+  templateId: string;
+  name?: string | undefined;
+  description?: string | undefined;
+};
+
+export interface ActionInput_docusign_updateuser {
+  /**
+   * User ID. Example: c9a996ed-50d2-4df4-ac91-a45032721bb6
+   */
+  userId: string;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  title?: string | undefined;
+  company?: string | undefined;
+  jobTitle?: string | undefined;
+  permissionProfileId?: string | undefined;
+  userSettings?: {  canManageAccount?: string | undefined;
+  canSendEnvelope?: string | undefined;};
+};
+
+export interface ActionOutput_docusign_updateuser {
+  userId?: string | undefined;
+  userName?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  email?: string | undefined;
+  title?: string | undefined;
+  company?: string | undefined;
+  jobTitle?: string | undefined;
+  permissionProfileId?: string | undefined;
+  permissionProfileName?: string | undefined;
+  userStatus?: string | undefined;
+  userType?: string | undefined;
+  userSettings?: {  canManageAccount?: string | undefined;
+  canSendEnvelope?: string | undefined;};
+};
+
+export interface ActionInput_docusign_voidenvelope {
+  /**
+   * The envelope ID to void. Example: "4ee72f9d-d6f6-8cfd-81e1-9bdea266189e"
+   */
+  envelopeId: string;
+  /**
+   * Reason for voiding the envelope. Defaults to "Voided by user" if not provided.
+   */
+  voidedReason?: string | undefined;
+};
+
+export interface ActionOutput_docusign_voidenvelope {
+  /**
+   * The envelope ID that was voided.
+   */
+  envelopeId: string;
+  /**
+   * The updated envelope status.
+   */
+  status: string;
+  /**
+   * The date and time the status was updated.
+   */
+  statusDateTime?: string | undefined;
+  /**
+   * The reason the envelope was voided.
+   */
+  voidedReason?: string | undefined;
 };
 
 export interface SyncMetadata_dropbox_files {

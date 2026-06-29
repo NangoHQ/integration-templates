@@ -1,0 +1,219 @@
+{
+  "input": {
+    "folderId": "b97b86fd-ca82-47d7-8435-f11555c52d0e"
+  },
+  "output": {
+    "items": [
+      {
+        "envelopeId": "38192618-24db-844c-80e7-5b887f6118d2",
+        "status": "created",
+        "emailSubject": "Test Embedded Signing",
+        "createdDateTime": "2026-06-24T12:30:27.2130000Z",
+        "statusChangedDateTime": "2026-06-24T12:30:27.2130000Z",
+        "sender": {
+          "userName": "Nango Developer",
+          "userId": "c9a996ed-50d2-4df4-ac91-a45032721bb6",
+          "email": "api@nango.dev"
+        }
+      },
+      {
+        "envelopeId": "f80b227d-0ef8-8b2e-801b-18db7c64186c",
+        "status": "created",
+        "emailSubject": "Nango Delete Test Envelope B - Partnership Agreement",
+        "createdDateTime": "2026-06-24T12:21:11.5930000Z",
+        "statusChangedDateTime": "2026-06-24T12:21:11.5930000Z",
+        "sender": {
+          "userName": "Nango Developer",
+          "userId": "c9a996ed-50d2-4df4-ac91-a45032721bb6",
+          "email": "api@nango.dev"
+        }
+      },
+      {
+        "envelopeId": "77e0201e-c39b-8715-8069-2845b16518a9",
+        "status": "created",
+        "emailSubject": "Nango Test Envelope 2 - Service Agreement",
+        "createdDateTime": "2026-06-24T12:15:44.2670000Z",
+        "statusChangedDateTime": "2026-06-24T12:15:44.2670000Z",
+        "sender": {
+          "userName": "Nango Developer",
+          "userId": "c9a996ed-50d2-4df4-ac91-a45032721bb6",
+          "email": "api@nango.dev"
+        }
+      },
+      {
+        "envelopeId": "ffbe2429-fc88-8ef2-803e-8ad9296118b6",
+        "status": "created",
+        "emailSubject": "Updated NDA Agreement Subject",
+        "createdDateTime": "2026-06-24T12:15:30.1530000Z",
+        "statusChangedDateTime": "2026-06-24T12:15:30.1530000Z",
+        "sender": {
+          "userName": "Nango Developer",
+          "userId": "c9a996ed-50d2-4df4-ac91-a45032721bb6",
+          "email": "api@nango.dev"
+        }
+      }
+    ]
+  },
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "accountId": "96bfbc88-de80-40a4-9fb7-f047e656eaaf"
+    }
+  },
+  "api": {
+    "get": {
+      "/restapi/v2.1/accounts/96bfbc88-de80-40a4-9fb7-f047e656eaaf/envelopes": {
+        "response": {
+          "resultSetSize": "4",
+          "startPosition": "0",
+          "endPosition": "3",
+          "totalSetSize": "4",
+          "nextUri": "",
+          "previousUri": "",
+          "envelopes": [
+            {
+              "status": "created",
+              "documentsUri": "/envelopes/38192618-24db-844c-80e7-5b887f6118d2/documents",
+              "recipientsUri": "/envelopes/38192618-24db-844c-80e7-5b887f6118d2/recipients",
+              "attachmentsUri": "/envelopes/38192618-24db-844c-80e7-5b887f6118d2/attachments",
+              "envelopeUri": "/envelopes/38192618-24db-844c-80e7-5b887f6118d2",
+              "emailSubject": "Test Embedded Signing",
+              "envelopeId": "38192618-24db-844c-80e7-5b887f6118d2",
+              "customFieldsUri": "/envelopes/38192618-24db-844c-80e7-5b887f6118d2/custom_fields",
+              "notificationUri": "/envelopes/38192618-24db-844c-80e7-5b887f6118d2/notification",
+              "createdDateTime": "2026-06-24T12:30:27.2130000Z",
+              "lastModifiedDateTime": "2026-06-24T12:30:27.2130000Z",
+              "statusChangedDateTime": "2026-06-24T12:30:27.2130000Z",
+              "documentsCombinedUri": "/envelopes/38192618-24db-844c-80e7-5b887f6118d2/documents/combined",
+              "certificateUri": "/envelopes/38192618-24db-844c-80e7-5b887f6118d2/documents/certificate",
+              "templatesUri": "/envelopes/38192618-24db-844c-80e7-5b887f6118d2/templates",
+              "sender": {
+                "userName": "Nango Developer",
+                "userId": "c9a996ed-50d2-4df4-ac91-a45032721bb6",
+                "accountId": "96bfbc88-de80-40a4-9fb7-f047e656eaaf",
+                "email": "api@nango.dev"
+              },
+              "purgeState": "unpurged",
+              "isSignatureProviderEnvelope": "false",
+              "uSigState": "esign",
+              "anySigner": null,
+              "envelopeLocation": "not_specified"
+            },
+            {
+              "status": "created",
+              "documentsUri": "/envelopes/f80b227d-0ef8-8b2e-801b-18db7c64186c/documents",
+              "recipientsUri": "/envelopes/f80b227d-0ef8-8b2e-801b-18db7c64186c/recipients",
+              "attachmentsUri": "/envelopes/f80b227d-0ef8-8b2e-801b-18db7c64186c/attachments",
+              "envelopeUri": "/envelopes/f80b227d-0ef8-8b2e-801b-18db7c64186c",
+              "emailSubject": "Nango Delete Test Envelope B - Partnership Agreement",
+              "envelopeId": "f80b227d-0ef8-8b2e-801b-18db7c64186c",
+              "customFieldsUri": "/envelopes/f80b227d-0ef8-8b2e-801b-18db7c64186c/custom_fields",
+              "notificationUri": "/envelopes/f80b227d-0ef8-8b2e-801b-18db7c64186c/notification",
+              "createdDateTime": "2026-06-24T12:21:11.5930000Z",
+              "lastModifiedDateTime": "2026-06-24T12:21:11.5930000Z",
+              "statusChangedDateTime": "2026-06-24T12:21:11.5930000Z",
+              "documentsCombinedUri": "/envelopes/f80b227d-0ef8-8b2e-801b-18db7c64186c/documents/combined",
+              "certificateUri": "/envelopes/f80b227d-0ef8-8b2e-801b-18db7c64186c/documents/certificate",
+              "templatesUri": "/envelopes/f80b227d-0ef8-8b2e-801b-18db7c64186c/templates",
+              "sender": {
+                "userName": "Nango Developer",
+                "userId": "c9a996ed-50d2-4df4-ac91-a45032721bb6",
+                "accountId": "96bfbc88-de80-40a4-9fb7-f047e656eaaf",
+                "email": "api@nango.dev"
+              },
+              "purgeState": "unpurged",
+              "isSignatureProviderEnvelope": "false",
+              "uSigState": "esign",
+              "anySigner": null,
+              "envelopeLocation": "not_specified"
+            },
+            {
+              "status": "created",
+              "documentsUri": "/envelopes/77e0201e-c39b-8715-8069-2845b16518a9/documents",
+              "recipientsUri": "/envelopes/77e0201e-c39b-8715-8069-2845b16518a9/recipients",
+              "attachmentsUri": "/envelopes/77e0201e-c39b-8715-8069-2845b16518a9/attachments",
+              "envelopeUri": "/envelopes/77e0201e-c39b-8715-8069-2845b16518a9",
+              "emailSubject": "Nango Test Envelope 2 - Service Agreement",
+              "envelopeId": "77e0201e-c39b-8715-8069-2845b16518a9",
+              "customFieldsUri": "/envelopes/77e0201e-c39b-8715-8069-2845b16518a9/custom_fields",
+              "notificationUri": "/envelopes/77e0201e-c39b-8715-8069-2845b16518a9/notification",
+              "createdDateTime": "2026-06-24T12:15:44.2670000Z",
+              "lastModifiedDateTime": "2026-06-24T12:15:44.2670000Z",
+              "statusChangedDateTime": "2026-06-24T12:15:44.2670000Z",
+              "documentsCombinedUri": "/envelopes/77e0201e-c39b-8715-8069-2845b16518a9/documents/combined",
+              "certificateUri": "/envelopes/77e0201e-c39b-8715-8069-2845b16518a9/documents/certificate",
+              "templatesUri": "/envelopes/77e0201e-c39b-8715-8069-2845b16518a9/templates",
+              "sender": {
+                "userName": "Nango Developer",
+                "userId": "c9a996ed-50d2-4df4-ac91-a45032721bb6",
+                "accountId": "96bfbc88-de80-40a4-9fb7-f047e656eaaf",
+                "email": "api@nango.dev"
+              },
+              "purgeState": "unpurged",
+              "isSignatureProviderEnvelope": "false",
+              "uSigState": "esign",
+              "anySigner": null,
+              "envelopeLocation": "not_specified"
+            },
+            {
+              "status": "created",
+              "documentsUri": "/envelopes/ffbe2429-fc88-8ef2-803e-8ad9296118b6/documents",
+              "recipientsUri": "/envelopes/ffbe2429-fc88-8ef2-803e-8ad9296118b6/recipients",
+              "attachmentsUri": "/envelopes/ffbe2429-fc88-8ef2-803e-8ad9296118b6/attachments",
+              "envelopeUri": "/envelopes/ffbe2429-fc88-8ef2-803e-8ad9296118b6",
+              "emailSubject": "Updated NDA Agreement Subject",
+              "envelopeId": "ffbe2429-fc88-8ef2-803e-8ad9296118b6",
+              "customFieldsUri": "/envelopes/ffbe2429-fc88-8ef2-803e-8ad9296118b6/custom_fields",
+              "notificationUri": "/envelopes/ffbe2429-fc88-8ef2-803e-8ad9296118b6/notification",
+              "createdDateTime": "2026-06-24T12:15:30.1530000Z",
+              "lastModifiedDateTime": "2026-06-24T12:34:18.5470000Z",
+              "statusChangedDateTime": "2026-06-24T12:15:30.1530000Z",
+              "documentsCombinedUri": "/envelopes/ffbe2429-fc88-8ef2-803e-8ad9296118b6/documents/combined",
+              "certificateUri": "/envelopes/ffbe2429-fc88-8ef2-803e-8ad9296118b6/documents/certificate",
+              "templatesUri": "/envelopes/ffbe2429-fc88-8ef2-803e-8ad9296118b6/templates",
+              "sender": {
+                "userName": "Nango Developer",
+                "userId": "c9a996ed-50d2-4df4-ac91-a45032721bb6",
+                "accountId": "96bfbc88-de80-40a4-9fb7-f047e656eaaf",
+                "email": "api@nango.dev"
+              },
+              "purgeState": "unpurged",
+              "isSignatureProviderEnvelope": "false",
+              "uSigState": "esign",
+              "anySigner": null,
+              "envelopeLocation": "not_specified"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 24 Jun 2026 12:34:33 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "5305",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4846",
+          "x-ratelimit-reset": "1782304473",
+          "etag": "W/\"14b9-NIfQp8suGu5cu5FiPl4cDfH5fJw\""
+        },
+        "hash": "fb06c02fcfbcf849c3bb5cbba71bcc623859fca4",
+        "request": {
+          "params": {
+            "count": "50",
+            "folder_ids": "b97b86fd-ca82-47d7-8435-f11555c52d0e",
+            "from_date": "2000-01-01"
+          }
+        }
+      }
+    }
+  }
+}

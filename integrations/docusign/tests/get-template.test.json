@@ -1,0 +1,173 @@
+{
+  "input": {
+    "templateId": "e13866df-36e6-462b-b35b-dcda35982abc"
+  },
+  "output": {
+    "templateId": "e13866df-36e6-462b-b35b-dcda35982abc",
+    "name": "Nango NDA Template",
+    "description": "Standard non-disclosure agreement template",
+    "emailSubject": "",
+    "emailBlurb": "",
+    "documents": [
+      {
+        "documentId": "1",
+        "name": "NDA_Template.pdf",
+        "uri": "/envelopes/e13866df-36e6-462b-b35b-dcda35982abc/documents/1"
+      }
+    ],
+    "recipients": {
+      "signers": [
+        {
+          "recipientId": "1",
+          "recipientIdGuid": "00000000-0000-0000-0000-000000000000",
+          "roleName": "Signer",
+          "name": "{{Signer Name}}",
+          "email": "signer@example.com"
+        }
+      ],
+      "carbonCopies": [],
+      "certifiedDeliveries": [],
+      "editors": [],
+      "intermediaries": [],
+      "agents": [],
+      "inPersonSigners": [],
+      "seals": [],
+      "witnesses": [],
+      "notaries": []
+    }
+  },
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "accountId": "96bfbc88-de80-40a4-9fb7-f047e656eaaf"
+    }
+  },
+  "api": {
+    "get": {
+      "/restapi/v2.1/accounts/96bfbc88-de80-40a4-9fb7-f047e656eaaf/templates/e13866df-36e6-462b-b35b-dcda35982abc": {
+        "response": {
+          "templateId": "e13866df-36e6-462b-b35b-dcda35982abc",
+          "uri": "/templates/e13866df-36e6-462b-b35b-dcda35982abc",
+          "name": "Nango NDA Template",
+          "shared": "false",
+          "passwordProtected": "false",
+          "description": "Standard non-disclosure agreement template",
+          "created": "2026-06-24T12:15:58.9400000Z",
+          "lastModified": "2026-06-24T12:15:59.3770000Z",
+          "lastModifiedBy": {
+            "userName": "Nango Developer",
+            "userId": "c9a996ed-50d2-4df4-ac91-a45032721bb6",
+            "email": "api@nango.dev",
+            "uri": "/users/c9a996ed-50d2-4df4-ac91-a45032721bb6"
+          },
+          "lastUsed": "2026-06-24T12:15:59.4100000Z",
+          "owner": {
+            "userName": "Nango Developer",
+            "userId": "c9a996ed-50d2-4df4-ac91-a45032721bb6",
+            "email": "api@nango.dev"
+          },
+          "pageCount": "1",
+          "folderId": "3ad0fd14-232f-4c7c-8025-d3c3394c3cb2",
+          "folderName": "Templates",
+          "folderIds": [
+            "3ad0fd14-232f-4c7c-8025-d3c3394c3cb2"
+          ],
+          "autoMatch": "true",
+          "autoMatchSpecifiedByUser": "false",
+          "documents": [
+            {
+              "documentId": "1",
+              "uri": "/envelopes/e13866df-36e6-462b-b35b-dcda35982abc/documents/1",
+              "name": "NDA_Template.pdf",
+              "order": "1",
+              "pages": "1",
+              "documentBase64": "JVBERi0xLjQKMSAwIG9iajw8L1R5cGUvQ2F0YWxvZy9QYWdlcyAyIDAgUj4+ZW5kb2JqCjIgMCBvYmo8PC9UeXBlL1BhZ2VzL0tpZHNbMyAwIFJdL0NvdW50IDE+PmVuZG9iagozIDAgb2JqPDwvVHlwZS9QYWdlL01lZGlhQm94WzAgMCA2MTIgNzkyXS9QYXJlbnQgMiAwIFIvUmVzb3VyY2VzPDwvRm9udDw8L0YxIDQgMCBSPj4+Pj4+ZW5kb2JqCjQgMCBvYmo8PC9UeXBlL0ZvbnQvU3VidHlwZS9UeXBlMS9CYXNlRm9udC9IZWx2ZXRpY2E+PmVuZG9iago1IDAgb2JqPDwvTGVuZ3RoIDQ0Pj4Kc3RyZWFtCkJUIC9GMSAxMiBUZiAxMDAgNzAwIFRkIChUZXN0IERvY3VtZW50KSBUaiBFVAplbmRzdHJlYW0KZW5kb2JqCnhyZWYKMCA2CjAwMDAwMDAwMDAgNjU1MzUgZiAKMDAwMDAwMDAwOSAwMDAwMCBuIAowMDAwMDAwMDU4IDAwMDAwIG4gCjAwMDAwMDAxMTUgMDAwMDAgbiAKMDAwMDAwMDI2NiAwMDAwMCBuIAowMDAwMDAwMzQ2IDAwMDAwIG4gCnRyYWlsZXI8PC9TaXplIDYvUm9vdCAxIDAgUj4+CnN0YXJ0eHJlZgo0NDAKJSVFT0Y=",
+              "display": "inline",
+              "includeInDownload": "true",
+              "signerMustAcknowledge": "no_interaction",
+              "templateLocked": "false",
+              "templateRequired": "false"
+            }
+          ],
+          "emailSubject": "",
+          "emailBlurb": "",
+          "signingLocation": "Online",
+          "authoritativeCopy": "false",
+          "enforceSignerVisibility": "false",
+          "enableWetSign": "true",
+          "allowMarkup": "false",
+          "allowReassign": "true",
+          "recipients": {
+            "signers": [
+              {
+                "defaultRecipient": "false",
+                "signInEachLocation": "false",
+                "agentCanEditEmail": "false",
+                "agentCanEditName": "false",
+                "requireUploadSignature": "false",
+                "name": "{{Signer Name}}",
+                "email": "signer@example.com",
+                "recipientId": "1",
+                "recipientIdGuid": "00000000-0000-0000-0000-000000000000",
+                "accessCode": "",
+                "requireIdLookup": "false",
+                "routingOrder": "1",
+                "note": "",
+                "roleName": "Signer",
+                "completedCount": "0",
+                "deliveryMethod": "email",
+                "templateLocked": "false",
+                "templateRequired": "false",
+                "inheritEmailNotificationConfiguration": "false",
+                "recipientType": "signer"
+              }
+            ],
+            "agents": [],
+            "editors": [],
+            "intermediaries": [],
+            "carbonCopies": [],
+            "certifiedDeliveries": [],
+            "inPersonSigners": [],
+            "seals": [],
+            "witnesses": [],
+            "notaries": [],
+            "recipientCount": "1"
+          },
+          "envelopeIdStamping": "true",
+          "autoNavigation": "true",
+          "uSigState": "esign",
+          "allowComments": "true",
+          "disableResponsiveDocument": "true",
+          "anySigner": null,
+          "envelopeLocation": "current_site"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 24 Jun 2026 12:31:44 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "2971",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4942",
+          "x-ratelimit-reset": "1782304352",
+          "etag": "W/\"b9b-pp4VOzbtHf6069bG26nAqe+gQ7U\""
+        },
+        "hash": "58211c0cc1086e03578c5b408fccf14aa659a163",
+        "request": {
+          "params": {
+            "include": "documents,recipients,tabs"
+          }
+        }
+      }
+    }
+  }
+}
