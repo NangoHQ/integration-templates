@@ -1,0 +1,166 @@
+{
+  "input": {
+    "order_id": 100,
+    "staff_notes": "Updated via Nango action 7",
+    "customer_message": "Hello from Nango 7"
+  },
+  "output": {
+    "id": 100,
+    "status_id": 11,
+    "status": "Awaiting Fulfillment",
+    "customer_message": "Hello from Nango 7",
+    "staff_notes": "Updated via Nango action 7",
+    "total_inc_tax": "109.0000",
+    "total_ex_tax": "109.0000"
+  },
+  "nango": {},
+  "api": {
+    "put": {
+      "/v2/orders/100": {
+        "response": {
+          "id": 100,
+          "customer_id": 0,
+          "date_created": "Thu, 18 Jun 2026 12:05:04 +0000",
+          "is_tax_inclusive_pricing": false,
+          "date_modified": "Thu, 18 Jun 2026 14:33:48 +0000",
+          "date_shipped": "",
+          "status_id": 11,
+          "status": "Awaiting Fulfillment",
+          "subtotal_ex_tax": "109.0000",
+          "subtotal_inc_tax": "109.0000",
+          "subtotal_tax": "0.0000",
+          "base_shipping_cost": "0.0000",
+          "shipping_cost_ex_tax": "0.0000",
+          "shipping_cost_inc_tax": "0.0000",
+          "shipping_cost_tax": "0.0000",
+          "shipping_cost_tax_class_id": 0,
+          "base_handling_cost": "0.0000",
+          "handling_cost_ex_tax": "0.0000",
+          "handling_cost_inc_tax": "0.0000",
+          "handling_cost_tax": "0.0000",
+          "handling_cost_tax_class_id": 0,
+          "base_wrapping_cost": "0.0000",
+          "wrapping_cost_ex_tax": "0.0000",
+          "wrapping_cost_inc_tax": "0.0000",
+          "wrapping_cost_tax": "0.0000",
+          "wrapping_cost_tax_class_id": 0,
+          "total_ex_tax": "109.0000",
+          "total_inc_tax": "109.0000",
+          "total_tax": "0.0000",
+          "items_total": 1,
+          "items_shipped": 0,
+          "payment_method": "Manual",
+          "payment_provider_id": null,
+          "payment_status": "",
+          "refunded_amount": "0.0000",
+          "order_is_digital": false,
+          "store_credit_amount": "0.0000",
+          "gift_certificate_amount": "0.0000",
+          "ip_address": "",
+          "ip_address_v6": "",
+          "geoip_country": "",
+          "geoip_country_iso2": "",
+          "currency_id": 1,
+          "currency_code": "KES",
+          "currency_exchange_rate": "1.0000000000",
+          "default_currency_id": 1,
+          "default_currency_code": "KES",
+          "staff_notes": "Updated via Nango action 7",
+          "customer_message": "Hello from Nango 7",
+          "discount_amount": "0.0000",
+          "coupon_discount": "0.0000",
+          "shipping_address_count": 1,
+          "is_deleted": false,
+          "ebay_order_id": "0",
+          "cart_id": null,
+          "billing_address": {
+            "first_name": "Test",
+            "last_name": "User",
+            "company": "",
+            "street_1": "123 Main St",
+            "street_2": "",
+            "city": "Austin",
+            "state": "TX",
+            "zip": "78701",
+            "country": "United States",
+            "country_iso2": "US",
+            "phone": "",
+            "email": "testuser@nangotest.com",
+            "form_fields": []
+          },
+          "fees": {
+            "url": "https://api.bigcommerce.com/stores/hc5d9t2irc/v2/orders/100/fees",
+            "resource": "/orders/100/fees"
+          },
+          "is_email_opt_in": false,
+          "credit_card_type": null,
+          "order_source": "external",
+          "channel_id": 1,
+          "external_source": null,
+          "consignments": {
+            "url": "https://api.bigcommerce.com/stores/hc5d9t2irc/v2/orders/100/consignments",
+            "resource": "/orders/100/consignments"
+          },
+          "products": {
+            "url": "https://api.bigcommerce.com/stores/hc5d9t2irc/v2/orders/100/products",
+            "resource": "/orders/100/products"
+          },
+          "shipping_addresses": {
+            "url": "https://api.bigcommerce.com/stores/hc5d9t2irc/v2/orders/100/shipping_addresses",
+            "resource": "/orders/100/shipping_addresses"
+          },
+          "coupons": {
+            "url": "https://api.bigcommerce.com/stores/hc5d9t2irc/v2/orders/100/coupons",
+            "resource": "/orders/100/coupons"
+          },
+          "external_id": null,
+          "external_merchant_id": null,
+          "tax_provider_id": "",
+          "customer_locale": "en",
+          "external_order_id": "",
+          "store_default_currency_code": "KES",
+          "store_default_to_transactional_exchange_rate": "1.0000000000",
+          "custom_status": "Awaiting Fulfillment"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 18 Jun 2026 14:33:48 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4972",
+          "x-ratelimit-reset": "1781793272",
+          "vary": "Accept-Encoding",
+          "x-request-id": "8f9e8cde3683102f166da6c9a0301b5e",
+          "last-modified": "Thu, 18 Jun 2026 14:33:48 +0000",
+          "x-bc-store-version": "7.6.0",
+          "x-bc-apilimit-remaining": "20000",
+          "x-rate-limit-requests-left": "145",
+          "x-rate-limit-time-reset-ms": "16234",
+          "x-rate-limit-requests-quota": "150",
+          "x-rate-limit-time-window-ms": "30000"
+        },
+        "hash": "2e3e49162146048923f8dc3a0aca88de46fe126c",
+        "request": {
+          "headers": {
+            "X-Auth-Token": "fermiatee6aufil63xw3o6e85lo0wwx"
+          },
+          "data": {
+            "staff_notes": "Updated via Nango action 7",
+            "customer_message": "Hello from Nango 7"
+          }
+        }
+      }
+    }
+  }
+}

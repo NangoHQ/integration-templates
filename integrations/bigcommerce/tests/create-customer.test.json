@@ -1,0 +1,98 @@
+{
+  "input": {
+    "email": "test-agent-2026-0618-1438@example.com",
+    "first_name": "Test",
+    "last_name": "Agent"
+  },
+  "output": {
+    "id": 12,
+    "email": "test-agent-2026-0618-1438@example.com",
+    "first_name": "Test",
+    "last_name": "Agent",
+    "company": "",
+    "phone": "",
+    "notes": "",
+    "tax_exempt_category": "",
+    "customer_group_id": 0,
+    "accepts_product_review_abandoned_cart_emails": false,
+    "origin_channel_id": 1,
+    "date_created": "2026-06-18T14:37:37Z",
+    "date_modified": "2026-06-18T14:37:37Z"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v3/customers": {
+        "response": {
+          "data": [
+            {
+              "id": 12,
+              "authentication": {
+                "force_password_reset": false
+              },
+              "company": "",
+              "customer_group_id": 0,
+              "email": "test-agent-2026-0618-1438@example.com",
+              "first_name": "Test",
+              "last_name": "Agent",
+              "notes": "",
+              "phone": "",
+              "registration_ip_address": "",
+              "tax_exempt_category": "",
+              "date_created": "2026-06-18T14:37:37Z",
+              "date_modified": "2026-06-18T14:37:37Z",
+              "accepts_product_review_abandoned_cart_emails": false,
+              "store_credit_amounts": [
+                {
+                  "amount": 0
+                }
+              ],
+              "origin_channel_id": 1,
+              "channel_ids": null
+            }
+          ],
+          "meta": {}
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 18 Jun 2026 14:37:37 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4996",
+          "x-ratelimit-reset": "1781793515",
+          "vary": "Accept-Encoding",
+          "x-rate-limit-requests-left": "148",
+          "x-rate-limit-time-reset-ms": "23186",
+          "x-rate-limit-requests-quota": "150",
+          "x-rate-limit-time-window-ms": "30000",
+          "x-request-id": "830786d90150dc2ca7a416e8b024875a"
+        },
+        "hash": "747012e2dd61f167c15da796617b0bdb6c6650cc",
+        "request": {
+          "headers": {
+            "Nango-Base-Url-Override": "https://api.bigcommerce.com/stores/hc5d9t2irc",
+            "X-Auth-Token": "fermiatee6aufil63xw3o6e85lo0wwx"
+          },
+          "data": [
+            {
+              "email": "test-agent-2026-0618-1438@example.com",
+              "first_name": "Test",
+              "last_name": "Agent"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

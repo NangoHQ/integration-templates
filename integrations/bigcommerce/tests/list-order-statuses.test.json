@@ -1,0 +1,259 @@
+{
+  "input": {},
+  "output": {
+    "statuses": [
+      {
+        "id": 0,
+        "name": "Incomplete",
+        "system_label": "Incomplete",
+        "custom_label": "Incomplete"
+      },
+      {
+        "id": 1,
+        "name": "Pending",
+        "system_label": "Pending",
+        "custom_label": "Pending"
+      },
+      {
+        "id": 2,
+        "name": "Shipped",
+        "system_label": "Shipped",
+        "custom_label": "Shipped"
+      },
+      {
+        "id": 3,
+        "name": "Partially Shipped",
+        "system_label": "Partially Shipped",
+        "custom_label": "Partially Shipped"
+      },
+      {
+        "id": 4,
+        "name": "Refunded",
+        "system_label": "Refunded",
+        "custom_label": "Refunded"
+      },
+      {
+        "id": 5,
+        "name": "Cancelled",
+        "system_label": "Cancelled",
+        "custom_label": "Cancelled"
+      },
+      {
+        "id": 6,
+        "name": "Declined",
+        "system_label": "Declined",
+        "custom_label": "Declined"
+      },
+      {
+        "id": 7,
+        "name": "Awaiting Payment",
+        "system_label": "Awaiting Payment",
+        "custom_label": "Awaiting Payment"
+      },
+      {
+        "id": 8,
+        "name": "Awaiting Pickup",
+        "system_label": "Awaiting Pickup",
+        "custom_label": "Awaiting Pickup"
+      },
+      {
+        "id": 9,
+        "name": "Awaiting Shipment",
+        "system_label": "Awaiting Shipment",
+        "custom_label": "Awaiting Shipment"
+      },
+      {
+        "id": 10,
+        "name": "Completed",
+        "system_label": "Completed",
+        "custom_label": "Completed"
+      },
+      {
+        "id": 11,
+        "name": "Awaiting Fulfillment",
+        "system_label": "Awaiting Fulfillment",
+        "custom_label": "Awaiting Fulfillment"
+      },
+      {
+        "id": 12,
+        "name": "Manual Verification Required",
+        "system_label": "Manual Verification Required",
+        "custom_label": "Manual Verification Required"
+      },
+      {
+        "id": 13,
+        "name": "Disputed",
+        "system_label": "Disputed",
+        "custom_label": "Disputed"
+      },
+      {
+        "id": 14,
+        "name": "Partially Refunded",
+        "system_label": "Partially Refunded",
+        "custom_label": "Partially Refunded"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v2/order_statuses": {
+        "response": [
+          {
+            "id": 0,
+            "name": "Incomplete",
+            "system_label": "Incomplete",
+            "custom_label": "Incomplete",
+            "system_description": "An incomplete order happens when a shopper reached the payment page, but did not complete the transaction.",
+            "order": 0
+          },
+          {
+            "id": 1,
+            "name": "Pending",
+            "system_label": "Pending",
+            "custom_label": "Pending",
+            "system_description": "Customer started the checkout process, but did not complete it.",
+            "order": 1
+          },
+          {
+            "id": 2,
+            "name": "Shipped",
+            "system_label": "Shipped",
+            "custom_label": "Shipped",
+            "system_description": "Order has been shipped, but receipt has not been confirmed; seller has used the Ship Items action.",
+            "order": 8
+          },
+          {
+            "id": 3,
+            "name": "Partially Shipped",
+            "system_label": "Partially Shipped",
+            "custom_label": "Partially Shipped",
+            "system_description": "Only some items in the order have been shipped, due to some products being pre-order only or other reasons.",
+            "order": 6
+          },
+          {
+            "id": 4,
+            "name": "Refunded",
+            "system_label": "Refunded",
+            "custom_label": "Refunded",
+            "system_description": "Seller has used the Refund action.",
+            "order": 11
+          },
+          {
+            "id": 5,
+            "name": "Cancelled",
+            "system_label": "Cancelled",
+            "custom_label": "Cancelled",
+            "system_description": "Seller has cancelled an order, due to a stock inconsistency or other reasons.",
+            "order": 9
+          },
+          {
+            "id": 6,
+            "name": "Declined",
+            "system_label": "Declined",
+            "custom_label": "Declined",
+            "system_description": "Seller has marked the order as declined for lack of manual payment, or other reasons.",
+            "order": 10
+          },
+          {
+            "id": 7,
+            "name": "Awaiting Payment",
+            "system_label": "Awaiting Payment",
+            "custom_label": "Awaiting Payment",
+            "system_description": "Customer has completed checkout process, but payment has yet to be confirmed.",
+            "order": 2
+          },
+          {
+            "id": 8,
+            "name": "Awaiting Pickup",
+            "system_label": "Awaiting Pickup",
+            "custom_label": "Awaiting Pickup",
+            "system_description": "Order has been pulled, and is awaiting customer pickup from a seller-specified location.",
+            "order": 5
+          },
+          {
+            "id": 9,
+            "name": "Awaiting Shipment",
+            "system_label": "Awaiting Shipment",
+            "custom_label": "Awaiting Shipment",
+            "system_description": "Order has been pulled and packaged, and is awaiting collection from a shipping provider.",
+            "order": 4
+          },
+          {
+            "id": 10,
+            "name": "Completed",
+            "system_label": "Completed",
+            "custom_label": "Completed",
+            "system_description": "Client has paid for their digital product and their file(s) are available for download.",
+            "order": 7
+          },
+          {
+            "id": 11,
+            "name": "Awaiting Fulfillment",
+            "system_label": "Awaiting Fulfillment",
+            "custom_label": "Awaiting Fulfillment",
+            "system_description": "Customer has completed the checkout process and payment has been confirmed.",
+            "order": 3
+          },
+          {
+            "id": 12,
+            "name": "Manual Verification Required",
+            "system_label": "Manual Verification Required",
+            "custom_label": "Manual Verification Required",
+            "system_description": "Order on hold while some aspect needs to be manually confirmed.",
+            "order": 13
+          },
+          {
+            "id": 13,
+            "name": "Disputed",
+            "system_label": "Disputed",
+            "custom_label": "Disputed",
+            "system_description": "Customer has initiated a dispute resolution process for the PayPal transaction that paid for the order.",
+            "order": 12
+          },
+          {
+            "id": 14,
+            "name": "Partially Refunded",
+            "system_label": "Partially Refunded",
+            "custom_label": "Partially Refunded",
+            "system_description": "Seller has partially refunded the order.",
+            "order": 14
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Thu, 18 Jun 2026 14:40:31 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4932",
+          "x-ratelimit-reset": "1781793649",
+          "vary": "Accept-Encoding",
+          "x-request-id": "4b345a265ffe4fe529c8dfe3932fd860",
+          "x-bc-store-version": "7.6.0",
+          "x-bc-apilimit-remaining": "20000",
+          "x-rate-limit-requests-left": "112",
+          "x-rate-limit-time-reset-ms": "4552",
+          "x-rate-limit-requests-quota": "150",
+          "x-rate-limit-time-window-ms": "30000"
+        },
+        "hash": "69db3ce9fffc7a4c5c19139d878e5ad67a80550d",
+        "request": {
+          "headers": {
+            "X-Auth-Token": "fermiatee6aufil63xw3o6e85lo0wwx"
+          }
+        }
+      }
+    }
+  }
+}

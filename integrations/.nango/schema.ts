@@ -20704,6 +20704,2483 @@ export interface ActionOutput_basecamp_fetchtodolists {
   app_todos_url?: string | undefined;})[];
 };
 
+export interface Brand {
+  id: string;
+  name?: string | undefined;
+  page_title?: string | undefined;
+  meta_keywords?: string[] | undefined;
+  meta_description?: string | undefined;
+  image_url?: string | undefined;
+  search_keywords?: string | undefined;
+  custom_url?: {  url?: string | undefined;
+  is_customized?: boolean | undefined;};
+};
+
+export interface Category {
+  id: string;
+  name: string;
+  description?: string | undefined;
+  locale: string;
+  source_locale?: string | undefined;
+  position?: number | undefined;
+  outdated?: boolean | undefined;
+  created_at: string;
+  updated_at: string;
+  html_url?: string | undefined;
+  url?: string | undefined;
+};
+
+export interface ChannelListing {
+  id: string;
+  channel_id: number;
+  listing_id: number;
+  external_id?: string | undefined;
+  product_id: number;
+  state?: string | undefined;
+  name?: string | undefined;
+  description?: string | undefined;
+  date_created?: string | undefined;
+  date_modified?: string | undefined;
+  variants?: ({  channel_id?: number | undefined;
+  product_id?: number | undefined;
+  variant_id?: number | undefined;
+  external_id?: string | undefined;
+  state?: string | undefined;
+  name?: string | undefined;
+  description?: string | undefined;
+  date_created?: string | undefined;
+  date_modified?: string | undefined;})[];
+};
+
+export interface SyncMetadata_bigcommerce_channellistings {
+  channel_ids?: number[] | undefined;
+};
+
+export interface Channel {
+  id: string;
+  title?: string | undefined;
+  description?: string | undefined;
+  customUrl?: string | undefined;
+  publishedAt?: string | undefined;
+  thumbnailDefaultUrl?: string | undefined;
+  thumbnailMediumUrl?: string | undefined;
+  thumbnailHighUrl?: string | undefined;
+  viewCount?: number | undefined;
+  subscriberCount?: number | undefined;
+  hiddenSubscriberCount?: boolean | undefined;
+  videoCount?: number | undefined;
+  country?: string | undefined;
+  privacyStatus?: string | undefined;
+  isLinked?: boolean | undefined;
+  madeForKids?: boolean | undefined;
+  selfDeclaredMadeForKids?: boolean | undefined;
+};
+
+export interface Coupon {
+  id: string;
+  code: string;
+  amount?: string | undefined;
+  date_created?: string | undefined;
+  date_modified?: string | undefined;
+  discount_type?: string | undefined;
+  description?: string | undefined;
+  date_expires?: string | undefined;
+  usage_count?: number | undefined;
+  individual_use?: boolean | undefined;
+  product_ids?: number[] | undefined;
+  excluded_product_ids?: number[] | undefined;
+  usage_limit?: number | undefined;
+  usage_limit_per_user?: number | undefined;
+  limit_usage_to_x_items?: number | undefined;
+  free_shipping?: boolean | undefined;
+  product_categories?: number[] | undefined;
+  excluded_product_categories?: number[] | undefined;
+  exclude_sale_items?: boolean | undefined;
+  minimum_amount?: string | undefined;
+  maximum_amount?: string | undefined;
+  email_restrictions?: string[] | undefined;
+  used_by?: string[] | undefined;
+  meta_data?: ({  id?: number | undefined;
+  key?: string | undefined;
+  value?: unknown | undefined;})[];
+};
+
+export interface Customer {
+  id: string;
+  email: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  role?: string | undefined;
+  username?: string | undefined;
+  date_created?: string | undefined;
+  date_created_gmt?: string | undefined;
+  date_modified?: string | undefined;
+  date_modified_gmt?: string | undefined;
+  billing?: {  first_name?: string | undefined;
+  last_name?: string | undefined;
+  company?: string | undefined;
+  address_1?: string | undefined;
+  address_2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  postcode?: string | undefined;
+  country?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;};
+  shipping?: {  first_name?: string | undefined;
+  last_name?: string | undefined;
+  company?: string | undefined;
+  address_1?: string | undefined;
+  address_2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  postcode?: string | undefined;
+  country?: string | undefined;};
+  is_paying_customer?: boolean | undefined;
+  avatar_url?: string | undefined;
+  meta_data?: ({  id?: number | undefined;
+  key?: string | undefined;
+  value?: unknown | undefined;})[];
+};
+
+export interface Order {
+  id: string;
+  parent_id?: string | undefined;
+  number?: string | undefined;
+  order_key?: string | undefined;
+  created_via?: string | undefined;
+  version?: string | undefined;
+  status?: string | undefined;
+  currency?: string | undefined;
+  date_created?: string | undefined;
+  date_created_gmt?: string | undefined;
+  date_modified?: string | undefined;
+  date_modified_gmt?: string | undefined;
+  discount_total?: string | undefined;
+  discount_tax?: string | undefined;
+  shipping_total?: string | undefined;
+  shipping_tax?: string | undefined;
+  cart_tax?: string | undefined;
+  total?: string | undefined;
+  total_tax?: string | undefined;
+  prices_include_tax?: boolean | undefined;
+  customer_id?: string | undefined;
+  customer_ip_address?: string | undefined;
+  customer_user_agent?: string | undefined;
+  customer_note?: string | undefined;
+  billing?: {  first_name?: string | undefined;
+  last_name?: string | undefined;
+  company?: string | undefined;
+  address_1?: string | undefined;
+  address_2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  postcode?: string | undefined;
+  country?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;};
+  shipping?: {  first_name?: string | undefined;
+  last_name?: string | undefined;
+  company?: string | undefined;
+  address_1?: string | undefined;
+  address_2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  postcode?: string | undefined;
+  country?: string | undefined;};
+  payment_method?: string | undefined;
+  payment_method_title?: string | undefined;
+  transaction_id?: string | undefined;
+  date_paid?: string | undefined;
+  date_paid_gmt?: string | undefined;
+  date_completed?: string | undefined;
+  date_completed_gmt?: string | undefined;
+  cart_hash?: string | undefined;
+  meta_data?: unknown[] | undefined;
+  line_items?: unknown[] | undefined;
+  tax_lines?: unknown[] | undefined;
+  shipping_lines?: unknown[] | undefined;
+  fee_lines?: unknown[] | undefined;
+  coupon_lines?: unknown[] | undefined;
+  refunds?: unknown[] | undefined;
+};
+
+export interface Product {
+  id: string;
+  Product_Name?: string | undefined;
+  Product_Code?: string | undefined;
+  Product_Category?: string | undefined;
+  Unit_Price?: number | undefined;
+  Taxable?: boolean | undefined;
+  Description?: string | undefined;
+  Manufacturer?: string | undefined;
+  Usage_Unit?: string | undefined;
+  Qty_in_Stock?: number | undefined;
+  Qty_Ordered?: number | undefined;
+  Qty_in_Demand?: number | undefined;
+  Reorder_Level?: number | undefined;
+  Commission_Rate?: number | undefined;
+  Sales_Start_Date?: string | undefined;
+  Sales_End_Date?: string | undefined;
+  Support_Start_Date?: string | undefined;
+  Support_Expiry_Date?: string | undefined;
+  Handler?: {  name?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};
+  Owner?: {  name?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};
+  Created_By?: {  name?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};
+  Modified_By?: {  name?: string | undefined;
+  id?: string | undefined;
+  email?: string | undefined;};
+  Created_Time?: string | undefined;
+  Modified_Time?: string | undefined;
+  "$approved"?: boolean | undefined;
+  "$editable"?: boolean | undefined;
+};
+
+export interface Subscriber {
+  id: string;
+  email: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  source?: string | undefined;
+  order_id?: number | undefined;
+  channel_id?: number | undefined;
+  consents?: string[] | undefined;
+  date_modified: string;
+  date_created?: string | undefined;
+};
+
+export interface Variant {
+  id: string;
+  product_id: number;
+  sku?: string | undefined;
+  price?: number | undefined;
+  calculated_price?: number | undefined;
+  sale_price?: number | undefined;
+  retail_price?: number | undefined;
+  map_price?: number | undefined;
+  weight?: number | undefined;
+  calculated_weight?: number | undefined;
+  width?: number | undefined;
+  height?: number | undefined;
+  depth?: number | undefined;
+  is_free_shipping?: boolean | undefined;
+  fixed_cost_shipping_price?: number | undefined;
+  purchasing_disabled?: boolean | undefined;
+  purchasing_disabled_message?: string | undefined;
+  upc?: string | undefined;
+  inventory_level?: number | undefined;
+  inventory_warning_level?: number | undefined;
+  bin_picking_number?: string | undefined;
+  mpn?: string | undefined;
+  gtin?: string | undefined;
+  option_values?: ({})[] | undefined;
+};
+
+export interface Wishlist {
+  id: string;
+  customer_id: number;
+  name: string;
+  is_public: boolean;
+  token: string;
+  items?: ({  id: number;
+  product_id: number;
+  variant_id?: number | undefined;})[];
+};
+
+export interface ActionInput_bigcommerce_createbrand {
+  /**
+   * The name of the brand. Must be unique. Example: "Common Good"
+   */
+  name: string;
+  /**
+   * The title shown in the browser while viewing the brand.
+   */
+  page_title?: string | undefined;
+  /**
+   * An array of meta keywords to include in the HTML.
+   */
+  meta_keywords?: string[] | undefined;
+  /**
+   * A meta description to include.
+   */
+  meta_description?: string | undefined;
+  /**
+   * A comma-separated list of keywords that can be used to locate this brand.
+   */
+  search_keywords?: string | undefined;
+  /**
+   * Image URL used for this brand on the storefront.
+   */
+  image_url?: string | undefined;
+  /**
+   * The custom URL for the brand on the storefront.
+   */
+  custom_url?: {  url?: string | undefined;
+  is_customized?: boolean | undefined;};
+};
+
+export interface ActionOutput_bigcommerce_createbrand {
+  /**
+   * Unique ID of the brand. Example: 50
+   */
+  id: number;
+  /**
+   * The name of the brand.
+   */
+  name: string;
+  page_title?: string | undefined;
+  meta_keywords?: string[] | undefined;
+  meta_description?: string | undefined;
+  search_keywords?: string | undefined;
+  image_url?: string | undefined;
+  custom_url?: {  url?: string | undefined;
+  is_customized?: boolean | undefined;};
+};
+
+export interface ActionInput_bigcommerce_createcategory {
+  /**
+   * The unique numeric ID of the category's parent. Set to 0 for a top-level category. Example: 0
+   */
+  parent_id: number;
+  /**
+   * The name displayed for the category. Example: "Bath"
+   */
+  name: string;
+  /**
+   * The category description, which can include HTML formatting.
+   */
+  description?: string | undefined;
+  /**
+   * Number of views the category has on the storefront.
+   */
+  views?: number | undefined;
+  /**
+   * Priority this category will be given when included in the menu and category pages.
+   */
+  sort_order?: number | undefined;
+  /**
+   * Custom title for the category page.
+   */
+  page_title?: string | undefined;
+  /**
+   * A comma-separated list of keywords that can be used to locate the category.
+   */
+  search_keywords?: string | undefined;
+  /**
+   * Custom meta keywords for the category page. Must post as an array like: ["awesome","sauce"].
+   */
+  meta_keywords?: string[] | undefined;
+  /**
+   * Custom meta description for the category page.
+   */
+  meta_description?: string | undefined;
+  /**
+   * A valid layout file.
+   */
+  layout_file?: string | undefined;
+  /**
+   * Flag to determine whether the category should be displayed to customers.
+   */
+  is_visible?: boolean | undefined;
+  /**
+   * Determines how the products are sorted on category page load.
+   */
+  default_product_sort?: 'use_store_settings' | 'featured' | 'newest' | 'best_selling' | 'alpha_asc' | 'alpha_desc' | 'avg_customer_review' | 'price_asc' | 'price_desc' | undefined;
+  /**
+   * Image URL used for this category on the storefront.
+   */
+  image_url?: string | undefined;
+  /**
+   * The custom URL for the category on the storefront.
+   */
+  custom_url?: {  url?: string | undefined;
+  is_customized?: boolean | undefined;};
+};
+
+export interface ActionOutput_bigcommerce_createcategory {
+  /**
+   * Unique ID of the Category.
+   */
+  id: number;
+  /**
+   * The unique numeric ID of the category's parent.
+   */
+  parent_id: number;
+  /**
+   * The name displayed for the category.
+   */
+  name: string;
+  description?: string | undefined;
+  views?: number | undefined;
+  sort_order?: number | undefined;
+  page_title?: string | undefined;
+  search_keywords?: string | undefined;
+  meta_keywords?: string[] | undefined;
+  meta_description?: string | undefined;
+  layout_file?: string | undefined;
+  is_visible?: boolean | undefined;
+  default_product_sort?: string | undefined;
+  image_url?: string | undefined;
+  custom_url?: {  url?: string | undefined;
+  is_customized?: boolean | undefined;};
+};
+
+export interface ActionInput_bigcommerce_createcoupon {
+  /**
+   * Coupon name. Must be unique.
+   */
+  name: string;
+  /**
+   * Discount type.
+   */
+  type: 'per_item_discount' | 'percentage_discount' | 'per_total_discount' | 'shipping_discount' | 'free_shipping' | 'promotion';
+  /**
+   * Discount amount or percentage as a string (e.g. "5.0000").
+   */
+  amount: string;
+  /**
+   * Coupon code. Must be unique.
+   */
+  code: string;
+  applies_to: {  /**
+   * What the discount applies to.
+   */
+  entity: 'products' | 'categories';
+  /**
+   * IDs of the products or categories.
+   */
+  ids: number[];};
+  /**
+   * Minimum order value required as a string (e.g. "25.0000").
+   */
+  min_purchase?: string | undefined;
+  /**
+   * Expiration date in RFC 2822 format.
+   */
+  expires?: string | undefined;
+  /**
+   * Whether the coupon is enabled.
+   */
+  enabled?: boolean | undefined;
+  /**
+   * Maximum total uses.
+   */
+  max_uses?: number | undefined;
+  /**
+   * Maximum uses per customer.
+   */
+  max_uses_per_customer?: number | undefined;
+};
+
+export interface ActionOutput_bigcommerce_createcoupon {
+  /**
+   * Coupon ID.
+   */
+  id: number;
+  /**
+   * Coupon name.
+   */
+  name: string;
+  /**
+   * Discount type.
+   */
+  type: string;
+  /**
+   * Discount amount.
+   */
+  amount: string;
+  /**
+   * Minimum order value.
+   */
+  min_purchase?: string | undefined;
+  /**
+   * Expiration date.
+   */
+  expires?: string | undefined;
+  /**
+   * Whether enabled.
+   */
+  enabled?: boolean | undefined;
+  /**
+   * Coupon code.
+   */
+  code: string;
+  /**
+   * What the discount applies to.
+   */
+  applies_to: {  /**
+   * Entity type.
+   */
+  entity: string;
+  /**
+   * Entity IDs.
+   */
+  ids: number[];};
+  /**
+   * Maximum total uses.
+   */
+  max_uses?: number | undefined;
+  /**
+   * Maximum uses per customer.
+   */
+  max_uses_per_customer?: number | undefined;
+  /**
+   * Restriction object.
+   */
+  restricted_to?: unknown | undefined;
+  /**
+   * Shipping methods.
+   */
+  shipping_methods?: string[] | undefined;
+  /**
+   * Date created.
+   */
+  date_created?: string | undefined;
+  /**
+   * Number of uses.
+   */
+  num_uses?: number | undefined;
+};
+
+export interface ActionInput_bigcommerce_createcustomer {
+  /**
+   * The email of the customer. Must be unique. Example: "new@example.com"
+   */
+  email: string;
+  /**
+   * The first name of the customer. Example: "Jane"
+   */
+  first_name: string;
+  /**
+   * The last name of the customer. Example: "Doe"
+   */
+  last_name: string;
+  /**
+   * The company of the customer.
+   */
+  company?: string | undefined;
+  /**
+   * The phone number of the customer.
+   */
+  phone?: string | undefined;
+  /**
+   * The customer notes.
+   */
+  notes?: string | undefined;
+  /**
+   * The tax exempt category code for the customer.
+   */
+  tax_exempt_category?: string | undefined;
+  /**
+   * ID of the group which this customer belongs to.
+   */
+  customer_group_id?: number | undefined;
+  /**
+   * Authentication settings for the customer.
+   */
+  authentication?: {  new_password?: string | undefined;
+  force_password_reset?: boolean | undefined;};
+  /**
+   * Whether the customer accepts product review and abandoned cart emails.
+   */
+  accepts_product_review_abandoned_cart_emails?: boolean | undefined;
+  /**
+   * Channel ID of the customer that has created the form.
+   */
+  origin_channel_id?: number | undefined;
+  /**
+   * Array of channels the customer can access.
+   */
+  channel_ids?: number[] | undefined;
+  /**
+   * Array of customer addresses. Limited to 10.
+   */
+  addresses?: ({})[] | undefined;
+  /**
+   * Array of customer attributes. Limited to 10.
+   */
+  attributes?: ({})[] | undefined;
+};
+
+export interface ActionOutput_bigcommerce_createcustomer {
+  /**
+   * The unique numeric ID of the customer.
+   */
+  id: number;
+  email: string;
+  first_name: string;
+  last_name: string;
+  company?: string | undefined;
+  phone?: string | undefined;
+  notes?: string | undefined;
+  tax_exempt_category?: string | undefined;
+  customer_group_id?: number | undefined;
+  accepts_product_review_abandoned_cart_emails?: boolean | undefined;
+  origin_channel_id?: number | undefined;
+  channel_ids?: number[] | undefined;
+  date_created?: string | undefined;
+  date_modified?: string | undefined;
+};
+
+export interface ActionInput_bigcommerce_createorder {
+  billing_address: {  first_name: string;
+  last_name: string;
+  street_1: string;
+  city: string;
+  state: string;
+  zip: string;
+  country: string;
+  country_iso2: string;
+  email: string;};
+  products: ({  product_id: number;
+  quantity: number;
+  product_options?: ({  id: number;
+  value: number;})[] | undefined;})[];
+};
+
+export interface ActionOutput_bigcommerce_createorder {
+  id: number;
+  customer_id: number;
+  status: string;
+  status_id: number;
+  total_ex_tax: string;
+  total_inc_tax: string;
+  billing_address?: {  first_name: string;
+  last_name: string;
+  street_1: string;
+  city: string;
+  state: string;
+  zip: string;
+  country: string;
+  country_iso2: string;
+  email: string;} | undefined;
+  date_created?: string | undefined;
+  date_modified?: string | undefined;
+};
+
+export interface ActionInput_bigcommerce_createpricelist {
+  /**
+   * The unique name of the Price List. Example: "Wholesale"
+   */
+  name: string;
+  /**
+   * Boolean value that specifies whether this Price List and its prices are active or not. Defaults to true.
+   */
+  active?: boolean | undefined;
+};
+
+export interface ActionOutput_bigcommerce_createpricelist {
+  id: number;
+  date_created?: string | undefined;
+  date_modified?: string | undefined;
+  name?: string | undefined;
+  active?: boolean | undefined;
+};
+
+export interface ActionInput_bigcommerce_createproductvariant {
+  /**
+   * Product ID to create the variant for. Example: 192
+   */
+  product_id: number;
+  /**
+   * Variant SKU. Example: "SMIT-2"
+   */
+  sku: string;
+  /**
+   * Variant base price. Example: 25
+   */
+  price?: number | undefined;
+  /**
+   * Array of option value objects defining this variant.
+   */
+  option_values: ({  /**
+   * Option value ID. Example: 146
+   */
+  id: number;
+  /**
+   * Option value label. Example: "Black"
+   */
+  label: string;
+  /**
+   * Option ID. Example: 151
+   */
+  option_id: number;})[];
+};
+
+export interface ActionOutput_bigcommerce_createproductvariant {
+  id: number;
+  product_id: number;
+  sku: string;
+  sku_id?: number | undefined;
+  price?: number | undefined;
+  cost_price?: number | undefined;
+  sale_price?: number | undefined;
+  retail_price?: number | undefined;
+  weight?: number | undefined;
+  width?: number | undefined;
+  height?: number | undefined;
+  depth?: number | undefined;
+  is_free_shipping?: boolean | undefined;
+  fixed_cost_shipping_price?: number | undefined;
+  purchasing_disabled?: boolean | undefined;
+  purchasing_disabled_message?: string | undefined;
+  image_url?: string | undefined;
+  upc?: string | undefined;
+  mpn?: string | undefined;
+  gtin?: string | undefined;
+  inventory_level?: number | undefined;
+  inventory_warning_level?: number | undefined;
+  bin_picking_number?: string | undefined;
+  option_values?: ({  id: number;
+  option_id: number;
+  option_display_name?: string | undefined;
+  label: string;})[];
+  calculated_price?: number | undefined;
+  calculated_weight?: number | undefined;
+};
+
+export interface ActionInput_bigcommerce_createproduct {
+  /**
+   * Product name. Example: "BigCommerce Coffee Mug"
+   */
+  name: string;
+  /**
+   * Product type. Example: "physical"
+   */
+  type: 'physical' | 'digital';
+  /**
+   * Product weight. Example: 4
+   */
+  weight: number;
+  /**
+   * Product price. Example: 10
+   */
+  price: number;
+  /**
+   * Array of category IDs. Example: [18, 19]
+   */
+  categories: number[];
+  /**
+   * Product SKU. Example: "SKU-123"
+   */
+  sku?: string | undefined;
+  /**
+   * Product description. Example: "<h4>Great T-shirt</h4>The best t-shirt ever."
+   */
+  description?: string | undefined;
+  /**
+   * Brand ID. Example: 1
+   */
+  brand_id?: number | undefined;
+  /**
+   * Inventory level. Example: 100
+   */
+  inventory_level?: number | undefined;
+  /**
+   * Whether the product is visible on the storefront. Example: true
+   */
+  is_visible?: boolean | undefined;
+};
+
+export interface ActionOutput_bigcommerce_createproduct {
+  id: number;
+  name: string;
+  type: string;
+  sku?: string | undefined;
+  description?: string | undefined;
+  weight?: number | undefined;
+  price?: number | undefined;
+  categories?: number[] | undefined;
+  brand_id?: number | undefined;
+  inventory_level?: number | undefined;
+  is_visible?: boolean | undefined;
+  date_created?: string | undefined;
+  date_modified?: string | undefined;
+};
+
+export interface ActionInput_bigcommerce_createsubscriber {
+  /**
+   * The email of the subscriber. Example: "jane.doe@example.com"
+   */
+  email: string;
+  /**
+   * The first name of the subscriber. Example: "Jane"
+   */
+  first_name?: string | undefined;
+  /**
+   * The last name of the subscriber. Example: "Doe"
+   */
+  last_name?: string | undefined;
+  /**
+   * The source of the subscriber. Example: "storefront"
+   */
+  source?: 'storefront' | 'order' | 'custom' | undefined;
+};
+
+export interface ActionOutput_bigcommerce_createsubscriber {
+  id?: number | undefined;
+  email?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  source?: string | undefined;
+  order_id?: number | undefined;
+  channel_id?: number | undefined;
+  date_created?: string | undefined;
+  date_modified?: string | undefined;
+  consents?: string[] | undefined;
+};
+
+export interface ActionInput_bigcommerce_createwishlist {
+  /**
+   * The title of the wishlist. Example: "School Shopping"
+   */
+  name: string;
+  /**
+   * The customer ID. Example: 1
+   */
+  customer_id: number;
+  /**
+   * Whether the wishlist is available to the public. Example: false
+   */
+  is_public?: boolean | undefined;
+  /**
+   * Array of wishlist items to add during creation.
+   */
+  items?: ({  /**
+   * Product ID. Example: 77
+   */
+  product_id: number;
+  /**
+   * Variant ID. Example: 1
+   */
+  variant_id: number;})[] | undefined;
+};
+
+export interface ActionOutput_bigcommerce_createwishlist {
+  id: number;
+  customer_id: number;
+  name: string;
+  is_public: boolean;
+  token: string;
+  items: ({  id: number;
+  product_id: number;
+  variant_id: number;})[];
+};
+
+export interface ActionInput_bigcommerce_deletebrand {
+  /**
+   * Brand ID to delete. Example: 1
+   */
+  brand_id: number;
+};
+
+export interface ActionOutput_bigcommerce_deletebrand {
+  success: boolean;
+  brand_id: number;
+};
+
+export interface ActionInput_bigcommerce_deletecategory {
+  /**
+   * Category ID. Example: 23
+   */
+  category_id: number;
+};
+
+export interface ActionOutput_bigcommerce_deletecategory {
+  success: boolean;
+};
+
+export interface ActionInput_bigcommerce_deletecoupon {
+  /**
+   * Coupon ID. Example: 1
+   */
+  coupon_id: number;
+};
+
+export interface ActionOutput_bigcommerce_deletecoupon {
+  success: boolean;
+  coupon_id: number;
+};
+
+export interface ActionInput_bigcommerce_deletecustomer {
+  /**
+   * Customer ID. Example: 1
+   */
+  customer_id: number;
+};
+
+export interface ActionOutput_bigcommerce_deletecustomer {
+  success: boolean;
+  customer_id: number;
+};
+
+export interface ActionInput_bigcommerce_deleteproductvariant {
+  /**
+   * The ID of the product to which the variant belongs. Example: 123
+   */
+  product_id: number;
+  /**
+   * The ID of the variant to delete. Example: 456
+   */
+  variant_id: number;
+};
+
+export interface ActionOutput_bigcommerce_deleteproductvariant {
+  success: boolean;
+};
+
+export interface ActionInput_bigcommerce_deleteproduct {
+  /**
+   * Product ID to delete. Example: 123
+   */
+  product_id: number;
+};
+
+export interface ActionOutput_bigcommerce_deleteproduct {
+  /**
+   * Deleted product ID
+   */
+  id: number;
+  success: boolean;
+};
+
+export interface ActionInput_bigcommerce_deletesubscriber {
+  /**
+   * The ID of the subscriber to delete. Example: 1
+   */
+  subscriber_id: number;
+};
+
+export interface ActionOutput_bigcommerce_deletesubscriber {
+  success: boolean;
+};
+
+export interface ActionInput_bigcommerce_getbrand {
+  /**
+   * The ID of the brand to retrieve. Example: 35
+   */
+  brand_id: number;
+};
+
+export interface ActionOutput_bigcommerce_getbrand {
+  id: number;
+  name: string;
+  page_title?: string | undefined;
+  meta_keywords?: string[] | undefined;
+  meta_description?: string | undefined;
+  search_keywords?: string | undefined;
+  image_url?: string | undefined;
+  custom_url?: {  url: string;
+  is_customized: boolean;} | undefined;
+};
+
+export interface ActionInput_bigcommerce_getcategory {
+  /**
+   * Category ID. Example: 12
+   */
+  category_id: number;
+};
+
+export interface ActionOutput_bigcommerce_getcategory {
+  id: number;
+  parent_id?: number | undefined;
+  name?: string | undefined;
+  description?: string | undefined;
+  views?: number | undefined;
+  sort_order?: number | undefined;
+  page_title?: string | undefined;
+  search_keywords?: string | undefined;
+  meta_keywords?: string[] | undefined;
+  meta_description?: string | undefined;
+  layout_file?: string | undefined;
+  is_visible?: boolean | undefined;
+  default_product_sort?: string | undefined;
+  image_url?: string | undefined;
+  custom_url?: {  url?: string | undefined;
+  is_customized?: boolean | undefined;};
+};
+
+export interface ActionInput_bigcommerce_getcoupon {
+  /**
+   * Coupon ID. Example: 1
+   */
+  id: number;
+};
+
+export interface ActionOutput_bigcommerce_getcoupon {
+  id: number;
+  name: string;
+  type: string;
+  amount: string;
+  code: string;
+  applies_to: {  entity?: string | undefined;
+  ids?: number[] | undefined;};
+  num_uses: number;
+  date_created: string;
+  min_purchase?: string | undefined;
+  expires?: string | undefined;
+  enabled?: boolean | undefined;
+  max_uses?: number | undefined;
+  max_uses_per_customer?: number | undefined;
+  restricted_to?: {} | undefined;
+  shipping_methods?: string[] | undefined;
+};
+
+export interface ActionInput_bigcommerce_getorderproducts {
+  /**
+   * ID of the order. Example: 149
+   */
+  order_id: number;
+  /**
+   * The page to return in the response. Defaults to 1.
+   */
+  page?: number | undefined;
+  /**
+   * Number of results to return. Defaults to 50.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_bigcommerce_getorderproducts {
+  items: ({  id: number;
+  order_id?: number | undefined;
+  product_id?: number | undefined;
+  order_pickup_method_id?: number | undefined;
+  order_address_id?: number | undefined;
+  name?: string | undefined;
+  sku?: string | undefined;
+  type?: string | undefined;
+  base_price?: string | undefined;
+  price_ex_tax?: string | undefined;
+  price_inc_tax?: string | undefined;
+  price_tax?: string | undefined;
+  base_total?: string | undefined;
+  total_ex_tax?: string | undefined;
+  total_inc_tax?: string | undefined;
+  total_tax?: string | undefined;
+  quantity?: number | undefined;
+  base_cost_price?: string | undefined;
+  cost_price_inc_tax?: string | undefined;
+  cost_price_ex_tax?: string | undefined;
+  weight?: number | string | undefined;
+  width?: string | undefined;
+  height?: string | undefined;
+  depth?: string | undefined;
+  cost_price_tax?: string | undefined;
+  is_refunded?: boolean | undefined;
+  quantity_refunded?: number | undefined;
+  refund_amount?: string | undefined;
+  return_id?: number | undefined;
+  wrapping_id?: number | undefined;
+  wrapping_name?: string | undefined;
+  base_wrapping_cost?: string | number | undefined;
+  wrapping_cost_ex_tax?: string | undefined;
+  wrapping_cost_inc_tax?: string | undefined;
+  wrapping_cost_tax?: string | undefined;
+  wrapping_message?: string | undefined;
+  quantity_shipped?: number | undefined;
+  event_name?: string | undefined;
+  event_date?: string | undefined;
+  fixed_shipping_cost?: string | undefined;
+  ebay_item_id?: string | undefined;
+  ebay_transaction_id?: string | undefined;
+  option_set_id?: number | undefined;
+  parent_order_product_id?: number | undefined;
+  is_bundled_product?: boolean | undefined;
+  bin_picking_number?: string | undefined;
+  external_id?: string | undefined;
+  brand?: string | undefined;
+  applied_discounts?: ({  id?: string | undefined;
+  amount?: string | undefined;
+  name?: string | undefined;
+  code?: string | undefined;
+  target?: string | undefined;})[];
+  product_options?: ({  id?: number | undefined;
+  option_id?: number | undefined;
+  order_product_id?: number | undefined;
+  product_option_id?: number | undefined;
+  display_name?: string | undefined;
+  display_value?: string | undefined;
+  value?: string | undefined;
+  type?: string | undefined;
+  name?: string | undefined;
+  display_style?: string | undefined;
+  display_name_customer?: string | undefined;
+  display_name_merchant?: string | undefined;
+  display_value_customer?: string | undefined;
+  display_value_merchant?: string | undefined;})[];
+  configurable_fields?: ({  name?: string | undefined;
+  value?: string | undefined;})[];
+  upc?: string | undefined;
+  variant_id?: number | undefined;
+  name_customer?: string | undefined;
+  name_merchant?: string | undefined;
+  gift_certificate_id?: number | undefined;
+  discounted_total_inc_tax?: string | undefined;})[];
+  /**
+   * The next page number if more results are available.
+   */
+  next_page?: number | undefined;
+};
+
+export interface ActionInput_bigcommerce_getordershippingaddresses {
+  /**
+   * BigCommerce order ID. Example: 100
+   */
+  order_id: number;
+};
+
+export interface ActionOutput_bigcommerce_getordershippingaddresses {
+  shipping_addresses: ({  id: number;
+  order_id: number;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  company?: string | undefined;
+  street_1?: string | undefined;
+  street_2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  zip?: string | undefined;
+  country?: string | undefined;
+  country_iso2?: string | undefined;
+  phone?: string | undefined;
+  email?: string | undefined;
+  shipping_method?: string | undefined;})[];
+};
+
+export interface ActionInput_bigcommerce_getorder {
+  /**
+   * Order ID. Example: 100
+   */
+  order_id: number;
+};
+
+export interface ActionOutput_bigcommerce_getorder {
+  id: number;
+  customer_id?: number | undefined;
+  status?: string | undefined;
+  status_id?: number | undefined;
+  total_inc_tax?: string | undefined;
+  total_ex_tax?: string | undefined;
+  subtotal_inc_tax?: string | undefined;
+  subtotal_ex_tax?: string | undefined;
+  items_total?: number | undefined;
+  items_shipped?: number | undefined;
+  date_created?: string | undefined;
+  date_modified?: string | undefined;
+};
+
+export interface ActionInput_bigcommerce_getproduct {
+  /**
+   * Product ID. Example: 77
+   */
+  product_id: number;
+};
+
+export interface ActionOutput_bigcommerce_getproduct {
+  id: number;
+  name: string;
+  type?: string | undefined;
+  sku?: string | undefined;
+  description?: string | undefined;
+  weight?: number | undefined;
+  width?: number | undefined;
+  depth?: number | undefined;
+  height?: number | undefined;
+  price?: number | undefined;
+  cost_price?: number | undefined;
+  retail_price?: number | undefined;
+  sale_price?: number | undefined;
+  map_price?: number | undefined;
+  tax_class_id?: number | undefined;
+  product_tax_code?: string | undefined;
+  calculated_price?: number | undefined;
+  categories?: number[] | undefined;
+  brand_id?: number | undefined;
+  option_set_id?: number | undefined;
+  option_set_display?: string | undefined;
+  inventory_level?: number | undefined;
+  inventory_warning_level?: number | undefined;
+  inventory_tracking?: string | undefined;
+  reviews_rating_sum?: number | undefined;
+  reviews_count?: number | undefined;
+  total_sold?: number | undefined;
+  fixed_cost_shipping_price?: number | undefined;
+  is_free_shipping?: boolean | undefined;
+  is_visible?: boolean | undefined;
+  is_featured?: boolean | undefined;
+  related_products?: number[] | undefined;
+  warranty?: string | undefined;
+  bin_picking_number?: string | undefined;
+  layout_file?: string | undefined;
+  upc?: string | undefined;
+  mpn?: string | undefined;
+  gtin?: string | undefined;
+  date_last_imported?: string | undefined;
+  search_keywords?: string | undefined;
+  availability?: string | undefined;
+  availability_description?: string | undefined;
+  gift_wrapping_options_type?: string | undefined;
+  gift_wrapping_options_list?: string[] | undefined;
+  sort_order?: number | undefined;
+  condition?: string | undefined;
+  is_condition_shown?: boolean | undefined;
+  order_quantity_minimum?: number | undefined;
+  order_quantity_maximum?: number | undefined;
+  page_title?: string | undefined;
+  meta_keywords?: string[] | undefined;
+  meta_description?: string | undefined;
+  date_created?: string | undefined;
+  date_modified?: string | undefined;
+  view_count?: number | undefined;
+  preorder_release_date?: string | undefined;
+  preorder_message?: string | undefined;
+  is_preorder_only?: boolean | undefined;
+  is_price_hidden?: boolean | undefined;
+  price_hidden_label?: string | undefined;
+  custom_url?: {  url: string;
+  is_customized: boolean;} | undefined;
+  base_variant_id?: number | undefined;
+  open_graph_type?: string | undefined;
+  open_graph_title?: string | undefined;
+  open_graph_description?: string | undefined;
+  open_graph_use_meta_description?: boolean | undefined;
+  open_graph_use_product_name?: boolean | undefined;
+  open_graph_use_image?: boolean | undefined;
+};
+
+export interface ActionInput_bigcommerce_listbrands {
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of items per page. Default: 50.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_bigcommerce_listbrands {
+  items: ({  id: number;
+  name: string;
+  page_title?: string | undefined;
+  meta_keywords?: string[] | undefined;
+  meta_description?: string | undefined;
+  image_url?: string | undefined;
+  search_keywords?: string | undefined;
+  custom_url?: {  url: string;
+  is_customized: boolean;} | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_bigcommerce_listcategories {
+  /**
+   * Pagination cursor (page number) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of items per page. Default: 50.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_bigcommerce_listcategories {
+  items: ({  id: number;
+  parent_id?: number | undefined;
+  name?: string | undefined;
+  description?: string | undefined;
+  views?: number | undefined;
+  sort_order?: number | undefined;
+  page_title?: string | undefined;
+  meta_keywords?: string[] | undefined;
+  meta_description?: string | undefined;
+  layout_file?: string | undefined;
+  image_url?: string | undefined;
+  is_visible?: boolean | undefined;
+  search_keywords?: string | undefined;
+  default_product_sort?: string | undefined;
+  custom_url?: {  url?: string | undefined;
+  is_customized?: boolean | undefined;};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_bigcommerce_listchannellistings {
+  /**
+   * BigCommerce channel ID. Example: 1
+   */
+  channel_id: number;
+  /**
+   * Pagination cursor (after) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Example: 50
+   */
+  limit?: number | undefined;
+  /**
+   * ISO8601 timestamp to filter listings modified after this date. Example: 2026-01-01T00:00:00Z
+   */
+  date_modified_min?: string | undefined;
+  /**
+   * Array of product IDs to filter listings by. Example: [123, 456]
+   */
+  product_id_in?: number[] | undefined;
+};
+
+export interface ActionOutput_bigcommerce_listchannellistings {
+  listings: ({  channel_id: number;
+  listing_id: number;
+  product_id: number;
+  external_id?: string | undefined;
+  state?: string | undefined;
+  name?: string | undefined;
+  description?: string | undefined;
+  date_created?: string | undefined;
+  date_modified?: string | undefined;
+  variants?: ({  variant_id: number;
+  channel_id?: number | undefined;
+  product_id?: number | undefined;
+  external_id?: string | undefined;
+  state?: string | undefined;
+  name?: string | undefined;
+  description?: string | undefined;
+  date_created?: string | undefined;
+  date_modified?: string | undefined;})[];})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_bigcommerce_listchannels {
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of items per page. Example: 50
+   */
+  limit?: number | undefined;
+  /**
+   * Filter by minimum date modified. Example: 2026-01-01T00:00:00Z
+   */
+  date_modified_min?: string | undefined;
+  /**
+   * Filter by channel types. Example: ["storefront", "marketplace"]
+   */
+  type_in?: string[] | undefined;
+  /**
+   * Filter by platforms. Example: ["bigcommerce", "amazon"]
+   */
+  platform_in?: string[] | undefined;
+  /**
+   * Filter by statuses. Example: ["active", "connected"]
+   */
+  status_in?: string[] | undefined;
+};
+
+export interface ActionOutput_bigcommerce_listchannels {
+  items: ({  id: number;
+  name: string;
+  external_id?: string | undefined;
+  is_listable_from_ui?: boolean | undefined;
+  is_enabled?: boolean | undefined;
+  is_visible?: boolean | undefined;
+  status?: string | undefined;
+  type?: string | undefined;
+  platform?: string | undefined;
+  date_created?: string | undefined;
+  date_modified?: string | undefined;
+  icon_url?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_bigcommerce_listcoupons {
+  /**
+   * Pagination cursor from the previous response. Pass the `next_cursor` value to fetch the next page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Default: 50.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_bigcommerce_listcoupons {
+  items: ({  id: number;
+  name: string;
+  type: string;
+  amount: string;
+  min_purchase?: string | undefined;
+  expires?: string | undefined;
+  enabled: boolean;
+  code: string;
+  applies_to?: {  entity: string;
+  ids: number[];} | {  [key: string]: unknown | undefined;};
+  num_uses?: number | undefined;
+  max_uses?: number | undefined;
+  max_uses_per_customer?: number | undefined;
+  restricted_to?: {  [key: string]: unknown | undefined;} | unknown[];
+  shipping_methods?: string[] | undefined;
+  date_created?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_bigcommerce_listcustomeraddresses {
+  /**
+   * Customer ID. Example: "1"
+   */
+  customer_id: string;
+  /**
+   * Page number. Example: 1
+   */
+  page?: number | undefined;
+  /**
+   * Items per page. Example: 50
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_bigcommerce_listcustomeraddresses {
+  items: ({  address1: string;
+  address2?: string | undefined;
+  address_type?: 'residential' | 'commercial' | undefined;
+  city: string;
+  company?: string | undefined;
+  country?: string | undefined;
+  country_code: string;
+  customer_id: number;
+  first_name: string;
+  id: number;
+  last_name: string;
+  phone?: string | undefined;
+  postal_code: string;
+  state_or_province: string;
+  form_fields?: ({  name: string;
+  value?: string | number | string[] | undefined;
+  address_id?: number | undefined;})[];})[];
+  next_page?: number | undefined;
+};
+
+export interface ActionInput_bigcommerce_listcustomers {
+  /**
+   * Page number from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Default is 50, maximum is 250.
+   */
+  limit?: number | undefined;
+  /**
+   * ISO8601 timestamp. Only return customers modified after this date. Example: "2026-01-01T00:00:00Z".
+   */
+  date_modified_min?: string | undefined;
+};
+
+export interface ActionOutput_bigcommerce_listcustomers {
+  items: ({  /**
+   * Customer ID. Example: 1
+   */
+  id: number;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  company?: string | undefined;
+  date_created?: string | undefined;
+  date_modified?: string | undefined;
+  address_count?: number | undefined;
+  customer_group_id?: number | undefined;
+  notes?: string | undefined;
+  tax_exempt_category?: string | undefined;
+  accepts_product_review_abandoned_cart_emails?: boolean | undefined;
+  store_credit?: {  amount?: number | undefined;
+  currency?: string | undefined;};
+  channel_ids?: number[] | undefined;
+  origin_channel_id?: number | undefined;
+  attributes?: ({  id?: number | undefined;
+  name?: string | undefined;
+  value?: unknown | undefined;})[];})[];
+  /**
+   * Page number for the next page. Omit when there are no more pages.
+   */
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_bigcommerce_listorderstatuses {
+};
+
+export interface ActionOutput_bigcommerce_listorderstatuses {
+  statuses: ({  id: number;
+  name: string;
+  system_label: string;
+  custom_label?: string | undefined;})[];
+};
+
+export interface ActionInput_bigcommerce_listorders {
+  /**
+   * Pagination cursor. For this API, pass the page number as a string. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Max 250. Defaults to 50.
+   */
+  limit?: number | undefined;
+  /**
+   * Minimum date the order was modified in ISO-8601 or RFC-2822.
+   */
+  min_date_modified?: string | undefined;
+};
+
+export interface ActionOutput_bigcommerce_listorders {
+  items: ({  id: number;
+  customer_id?: number | undefined;
+  date_created?: string | undefined;
+  date_modified?: string | undefined;
+  date_shipped?: string | undefined;
+  status_id?: number | undefined;
+  status?: string | undefined;
+  subtotal_ex_tax?: string | undefined;
+  subtotal_inc_tax?: string | undefined;
+  subtotal_tax?: string | undefined;
+  base_shipping_cost?: string | undefined;
+  shipping_cost_ex_tax?: string | undefined;
+  shipping_cost_inc_tax?: string | undefined;
+  shipping_cost_tax?: string | undefined;
+  shipping_cost_tax_class_id?: number | undefined;
+  base_handling_cost?: string | undefined;
+  handling_cost_ex_tax?: string | undefined;
+  handling_cost_inc_tax?: string | undefined;
+  handling_cost_tax?: string | undefined;
+  handling_cost_tax_class_id?: number | undefined;
+  base_wrapping_cost?: string | undefined;
+  wrapping_cost_ex_tax?: string | undefined;
+  wrapping_cost_inc_tax?: string | undefined;
+  wrapping_cost_tax?: string | undefined;
+  wrapping_cost_tax_class_id?: number | undefined;
+  total_ex_tax?: string | undefined;
+  total_inc_tax?: string | undefined;
+  total_tax?: string | undefined;
+  items_total?: number | undefined;
+  items_shipped?: number | undefined;
+  payment_method?: string | undefined;
+  payment_provider_id?: string | undefined;
+  payment_status?: string | undefined;
+  refunded_amount?: string | undefined;
+  order_is_digital?: boolean | undefined;
+  store_credit_amount?: string | undefined;
+  gift_certificate_amount?: string | undefined;
+  ip_address?: string | undefined;
+  ip_address_v6?: string | undefined;
+  geoip_country?: string | undefined;
+  geoip_country_iso2?: string | undefined;
+  currency_id?: number | undefined;
+  currency_code?: string | undefined;
+  currency_exchange_rate?: string | undefined;
+  default_currency_id?: number | undefined;
+  default_currency_code?: string | undefined;
+  store_default_currency_code?: string | undefined;
+  store_default_to_transactional_exchange_rate?: string | undefined;
+  staff_notes?: string | undefined;
+  customer_message?: string | undefined;
+  discount_amount?: string | undefined;
+  coupon_discount?: string | undefined;
+  shipping_address_count?: number | undefined;
+  is_deleted?: boolean | undefined;
+  ebay_order_id?: string | undefined;
+  cart_id?: string | undefined;
+  billing_address?: {  first_name?: string | undefined;
+  last_name?: string | undefined;
+  company?: string | undefined;
+  street_1?: string | undefined;
+  street_2?: string | undefined;
+  city?: string | undefined;
+  state?: string | undefined;
+  zip?: string | undefined;
+  country?: string | undefined;
+  country_iso2?: string | undefined;
+  phone?: string | undefined;
+  email?: string | undefined;
+  form_fields?: ({  name: string;
+  value?: string | undefined;})[];};
+  is_email_opt_in?: boolean | undefined;
+  credit_card_type?: string | undefined;
+  order_source?: string | undefined;
+  channel_id?: number | undefined;
+  external_source?: string | undefined;
+  products?: {  url: string;
+  resource: string;} | undefined;
+  shipping_addresses?: {  url: string;
+  resource: string;} | undefined;
+  coupons?: {  url: string;
+  resource: string;} | undefined;
+  consignments?: {  url: string;
+  resource: string;} | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_bigcommerce_listpricelists {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of items to return per page. Defaults to 50.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_bigcommerce_listpricelists {
+  items: ({  id: number;
+  name: string;
+  date_created?: string | undefined;
+  date_modified?: string | undefined;
+  active?: boolean | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_bigcommerce_listproductvariants {
+  /**
+   * Product ID. Example: 192
+   */
+  product_id: number;
+  /**
+   * Page number for pagination. Defaults to 1.
+   */
+  page?: number | undefined;
+  /**
+   * Number of items per page. Defaults to 50.
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_bigcommerce_listproductvariants {
+  variants: ({  id: number;
+  product_id: number;
+  sku: string;
+  sku_id?: number | undefined;
+  price?: number | undefined;
+  calculated_price?: number | undefined;
+  sale_price?: number | undefined;
+  retail_price?: number | undefined;
+  map_price?: number | {} | undefined;
+  weight?: number | undefined;
+  calculated_weight?: number | undefined;
+  width?: number | undefined;
+  height?: number | undefined;
+  depth?: number | undefined;
+  is_free_shipping?: boolean | undefined;
+  fixed_cost_shipping_price?: number | undefined;
+  purchasing_disabled?: boolean | undefined;
+  purchasing_disabled_message?: string | undefined;
+  image_url?: string | undefined;
+  cost_price?: number | undefined;
+  upc?: string | undefined;
+  mpn?: string | undefined;
+  gtin?: string | undefined;
+  inventory_level?: number | undefined;
+  inventory_warning_level?: number | undefined;
+  bin_picking_number?: string | undefined;
+  option_values?: ({  id: number;
+  label: string;
+  option_id: number;
+  option_display_name: string;})[] | undefined;})[];
+  next_page?: string | undefined;
+};
+
+export interface ActionInput_bigcommerce_listproducts {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of items per page. Defaults to 50.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_bigcommerce_listproducts {
+  items: ({  id: number;
+  name: string;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_bigcommerce_listsubscribers {
+  /**
+   * Filter subscribers modified after this ISO8601 timestamp. Example: "2026-01-01T00:00:00Z"
+   */
+  date_modified_min?: string | undefined;
+  /**
+   * Page number for pagination. Defaults to 1.
+   */
+  page?: number | undefined;
+  /**
+   * Number of results per page. Defaults to 50.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_bigcommerce_listsubscribers {
+  items: ({  id: number;
+  email: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  source?: string | undefined;
+  order_id?: number | undefined;
+  channel_id?: number | undefined;
+  date_created?: string | undefined;
+  date_modified?: string | undefined;})[];
+  next_page?: number | undefined;
+};
+
+export interface ActionInput_bigcommerce_listwishlists {
+  /**
+   * Pagination cursor (page number) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of items to return per page. Default is 50, maximum is 250.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_bigcommerce_listwishlists {
+  items: ({  id: number;
+  customer_id: number;
+  name: string;
+  is_public: boolean;
+  token?: string | undefined;
+  items?: ({  id: number;
+  product_id: number;
+  variant_id?: number | undefined;})[];})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_bigcommerce_updatebrand {
+  /**
+   * The ID of the brand to update. Example: 35
+   */
+  brand_id: number;
+  /**
+   * The name of the brand. Must be unique.
+   */
+  name?: string | undefined;
+  /**
+   * The title shown in the browser while viewing the brand.
+   */
+  page_title?: string | undefined;
+  /**
+   * An array of meta keywords to include in the HTML.
+   */
+  meta_keywords?: string[] | undefined;
+  /**
+   * A meta description to include.
+   */
+  meta_description?: string | undefined;
+  /**
+   * A comma-separated list of keywords that can be used to locate this brand.
+   */
+  search_keywords?: string | undefined;
+  /**
+   * Image URL used for this brand on the storefront.
+   */
+  image_url?: string | undefined;
+  /**
+   * The custom URL for the brand on the storefront.
+   */
+  custom_url?: {  url?: string | undefined;
+  is_customized?: boolean | undefined;};
+};
+
+export interface ActionOutput_bigcommerce_updatebrand {
+  id: number;
+  name: string;
+  page_title?: string | undefined;
+  meta_keywords?: string[] | undefined;
+  meta_description?: string | undefined;
+  search_keywords?: string | undefined;
+  image_url?: string | undefined;
+  custom_url?: {  url?: string | undefined;
+  is_customized?: boolean | undefined;};
+};
+
+export interface ActionInput_bigcommerce_updatecategory {
+  /**
+   * The ID of the Category to update. Example: 1
+   */
+  category_id: number;
+  parent_id?: number | undefined;
+  name?: string | undefined;
+  description?: string | undefined;
+  views?: number | undefined;
+  sort_order?: number | undefined;
+  page_title?: string | undefined;
+  search_keywords?: string | undefined;
+  meta_keywords?: string[] | undefined;
+  meta_description?: string | undefined;
+  layout_file?: string | undefined;
+  is_visible?: boolean | undefined;
+  default_product_sort?: 'use_store_settings' | 'featured' | 'newest' | 'best_selling' | 'alpha_asc' | 'alpha_desc' | 'avg_customer_review' | 'price_asc' | 'price_desc' | undefined;
+  image_url?: string | undefined;
+  custom_url?: {  url?: string | undefined;
+  is_customized?: boolean | undefined;};
+};
+
+export interface ActionOutput_bigcommerce_updatecategory {
+  id: number;
+  parent_id?: number | undefined;
+  name?: string | undefined;
+  description?: string | undefined;
+  views?: number | undefined;
+  sort_order?: number | undefined;
+  page_title?: string | undefined;
+  search_keywords?: string | undefined;
+  meta_keywords?: string[] | undefined;
+  meta_description?: string | undefined;
+  layout_file?: string | undefined;
+  is_visible?: boolean | undefined;
+  default_product_sort?: string | undefined;
+  image_url?: string | undefined;
+  custom_url?: {  url?: string | undefined;
+  is_customized?: boolean | undefined;};
+};
+
+export interface ActionInput_bigcommerce_updatecoupon {
+  /**
+   * ID of the coupon to update. Example: 1
+   */
+  id: number;
+  /**
+   * Name of the coupon. Example: "$5 off"
+   */
+  name?: string | undefined;
+  /**
+   * Type of coupon. Example: "per_total_discount"
+   */
+  type?: 'per_item_discount' | 'per_total_discount' | 'shipping_discount' | 'free_shipping' | 'percentage_discount' | 'promotion' | undefined;
+  /**
+   * Discount amount or percentage. Example: "5.0000"
+   */
+  amount?: string | undefined;
+  /**
+   * Unique coupon code. Example: "S2549JM0Y"
+   */
+  code?: string | undefined;
+  /**
+   * What the discount applies to. Omitting this field clears the existing value.
+   */
+  applies_to?: {  /**
+   * What the discount applies to. Example: "categories"
+   */
+  entity: 'products' | 'categories';
+  /**
+   * Array of product or category IDs. Example: [0]
+   */
+  ids: number[];} | undefined;
+  /**
+   * Minimum purchase amount required. Example: "0.0000"
+   */
+  min_purchase?: string | undefined;
+  /**
+   * Maximum number of times the coupon can be used. Example: 0
+   */
+  max_uses?: number | undefined;
+  /**
+   * Maximum number of times the coupon can be used per customer. Example: 0
+   */
+  max_uses_per_customer?: number | undefined;
+  /**
+   * Whether the coupon is enabled. Example: true
+   */
+  enabled?: boolean | undefined;
+  /**
+   * Expiration date string. Example: ""
+   */
+  expires?: string | undefined;
+  /**
+   * Restrictions object.
+   */
+  restricted_to?: {  [key: string]: unknown | undefined;};
+  /**
+   * Shipping method names.
+   */
+  shipping_methods?: string[] | undefined;
+};
+
+export interface ActionOutput_bigcommerce_updatecoupon {
+  /**
+   * Coupon ID.
+   */
+  id: number;
+  /**
+   * Coupon name.
+   */
+  name?: string | undefined;
+  /**
+   * Coupon type.
+   */
+  type?: string | undefined;
+  /**
+   * Discount amount.
+   */
+  amount?: string | undefined;
+  /**
+   * Minimum purchase amount.
+   */
+  min_purchase?: string | undefined;
+  /**
+   * Expiration date.
+   */
+  expires?: string | undefined;
+  /**
+   * Whether the coupon is enabled.
+   */
+  enabled?: boolean | undefined;
+  /**
+   * Coupon code.
+   */
+  code?: string | undefined;
+  /**
+   * What the discount applies to.
+   */
+  applies_to?: {  /**
+   * What the discount applies to. Example: "categories"
+   */
+  entity: 'products' | 'categories';
+  /**
+   * Array of product or category IDs. Example: [0]
+   */
+  ids: number[];} | undefined;
+  /**
+   * Number of times the coupon has been used.
+   */
+  num_uses?: number | undefined;
+  /**
+   * Maximum number of uses.
+   */
+  max_uses?: number | undefined;
+  /**
+   * Max uses per customer.
+   */
+  max_uses_per_customer?: number | undefined;
+  /**
+   * Restrictions.
+   */
+  restricted_to?: {  [key: string]: unknown | undefined;} | unknown[];
+  /**
+   * Shipping methods.
+   */
+  shipping_methods?: string[] | undefined;
+  /**
+   * Date created.
+   */
+  date_created?: string | undefined;
+};
+
+export interface ActionInput_bigcommerce_updatecustomer {
+  /**
+   * The unique numeric ID of the customer. Example: 1
+   */
+  id: number;
+  /**
+   * Email of the customer. Must be unique.
+   */
+  email?: string | undefined;
+  /**
+   * First name of the customer.
+   */
+  first_name?: string | undefined;
+  /**
+   * Last name of the customer.
+   */
+  last_name?: string | undefined;
+  /**
+   * Company of the customer.
+   */
+  company?: string | undefined;
+  /**
+   * Phone number of the customer.
+   */
+  phone?: string | undefined;
+  /**
+   * Notes for the customer.
+   */
+  notes?: string | undefined;
+  /**
+   * Tax-exempt category for the customer.
+   */
+  tax_exempt_category?: string | undefined;
+  /**
+   * Customer group ID for the customer.
+   */
+  customer_group_id?: number | undefined;
+  /**
+   * Whether the customer accepts product review and abandoned cart emails.
+   */
+  accepts_product_review_abandoned_cart_emails?: boolean | undefined;
+  /**
+   * Store credit amounts for the customer.
+   */
+  store_credit_amounts?: ({  amount?: number | undefined;})[];
+  /**
+   * Array of channel IDs the customer can access.
+   */
+  channel_ids?: number[] | undefined;
+  /**
+   * Custom form fields for the customer.
+   */
+  form_fields?: ({  name?: string | undefined;
+  value?: string | undefined;})[];
+  /**
+   * Authentication settings for the customer.
+   */
+  authentication?: {  force_password_reset?: boolean | undefined;
+  new_password?: string | undefined;};
+};
+
+export interface ActionOutput_bigcommerce_updatecustomer {
+  /**
+   * The unique numeric ID of the customer.
+   */
+  id: number;
+  /**
+   * Email of the customer.
+   */
+  email?: string | undefined;
+  /**
+   * First name of the customer.
+   */
+  first_name?: string | undefined;
+  /**
+   * Last name of the customer.
+   */
+  last_name?: string | undefined;
+  /**
+   * Company of the customer.
+   */
+  company?: string | undefined;
+  /**
+   * Phone number of the customer.
+   */
+  phone?: string | undefined;
+  /**
+   * Notes for the customer.
+   */
+  notes?: string | undefined;
+  /**
+   * Tax-exempt category for the customer.
+   */
+  tax_exempt_category?: string | undefined;
+  /**
+   * Customer group ID for the customer.
+   */
+  customer_group_id?: number | undefined;
+  /**
+   * Whether the customer accepts product review and abandoned cart emails.
+   */
+  accepts_product_review_abandoned_cart_emails?: boolean | undefined;
+  /**
+   * Store credit amounts for the customer.
+   */
+  store_credit_amounts?: ({  amount?: number | undefined;})[];
+  /**
+   * Channel ID of the customer.
+   */
+  origin_channel_id?: number | undefined;
+  /**
+   * Array of channel IDs the customer can access.
+   */
+  channel_ids?: number[] | undefined;
+  /**
+   * Custom form fields for the customer.
+   */
+  form_fields?: ({  name?: string | undefined;
+  value?: string | undefined;})[];
+  /**
+   * Authentication settings for the customer.
+   */
+  authentication?: {  force_password_reset?: boolean | undefined;
+  new_password?: string | undefined;};
+  /**
+   * The IP address from which this customer was registered.
+   */
+  registration_ip_address?: string | undefined;
+  /**
+   * The date the customer was created.
+   */
+  date_created?: string | undefined;
+  /**
+   * The date the customer was last modified.
+   */
+  date_modified?: string | undefined;
+};
+
+export interface ActionInput_bigcommerce_updateorder {
+  /**
+   * ID of the order to update. Example: 123
+   */
+  order_id: number;
+  /**
+   * New status ID for the order. See GET /v2/order_statuses for valid values.
+   */
+  status_id?: number | undefined;
+  /**
+   * Staff notes to set on the order.
+   */
+  staff_notes?: string | undefined;
+  /**
+   * Customer message to set on the order.
+   */
+  customer_message?: string | undefined;
+};
+
+export interface ActionOutput_bigcommerce_updateorder {
+  id: number;
+  status_id?: number | undefined;
+  status?: string | undefined;
+  customer_message?: string | undefined;
+  staff_notes?: string | undefined;
+  total_inc_tax?: string | undefined;
+  total_ex_tax?: string | undefined;
+};
+
+export interface ActionInput_bigcommerce_updateproductvariant {
+  /**
+   * Product ID. Example: 81
+   */
+  product_id: number;
+  /**
+   * Variant ID. Example: 65
+   */
+  variant_id: number;
+  /**
+   * Cost price of the variant.
+   */
+  cost_price?: number | undefined;
+  /**
+   * Base price of the variant.
+   */
+  price?: number | undefined;
+  /**
+   * Sale price of the variant.
+   */
+  sale_price?: number | undefined;
+  /**
+   * Retail price of the variant.
+   */
+  retail_price?: number | undefined;
+  /**
+   * Weight of the variant.
+   */
+  weight?: number | undefined;
+  /**
+   * Width of the variant.
+   */
+  width?: number | undefined;
+  /**
+   * Height of the variant.
+   */
+  height?: number | undefined;
+  /**
+   * Depth of the variant.
+   */
+  depth?: number | undefined;
+  /**
+   * Whether the variant has free shipping.
+   */
+  is_free_shipping?: boolean | undefined;
+  /**
+   * Fixed shipping cost for the variant.
+   */
+  fixed_cost_shipping_price?: number | undefined;
+  /**
+   * If true, this variant will not be purchasable.
+   */
+  purchasing_disabled?: boolean | undefined;
+  /**
+   * Message shown when purchasing_disabled is true.
+   */
+  purchasing_disabled_message?: string | undefined;
+  /**
+   * UPC code for the variant.
+   */
+  upc?: string | undefined;
+  /**
+   * Publicly available image URL.
+   */
+  image_url?: string | undefined;
+  /**
+   * Inventory level for the variant.
+   */
+  inventory_level?: number | undefined;
+  /**
+   * Inventory warning level for the variant.
+   */
+  inventory_warning_level?: number | undefined;
+  /**
+   * Warehouse location identifier.
+   */
+  bin_picking_number?: string | undefined;
+  /**
+   * Manufacturer Part Number.
+   */
+  mpn?: string | undefined;
+  /**
+   * Global Trade Item Number.
+   */
+  gtin?: string | undefined;
+  /**
+   * SKU for the variant.
+   */
+  sku?: string | undefined;
+};
+
+export interface ActionOutput_bigcommerce_updateproductvariant {
+  /**
+   * Variant ID.
+   */
+  id: number;
+  /**
+   * Product ID.
+   */
+  product_id: number;
+  sku?: string | undefined;
+  cost_price?: number | undefined;
+  price?: number | undefined;
+  sale_price?: number | undefined;
+  retail_price?: number | undefined;
+  weight?: number | undefined;
+  width?: number | undefined;
+  height?: number | undefined;
+  depth?: number | undefined;
+  is_free_shipping?: boolean | undefined;
+  fixed_cost_shipping_price?: number | undefined;
+  purchasing_disabled?: boolean | undefined;
+  purchasing_disabled_message?: string | undefined;
+  upc?: string | undefined;
+  image_url?: string | undefined;
+  inventory_level?: number | undefined;
+  inventory_warning_level?: number | undefined;
+  bin_picking_number?: string | undefined;
+  mpn?: string | undefined;
+  gtin?: string | undefined;
+  calculated_price?: number | undefined;
+  calculated_weight?: number | undefined;
+  option_values?: ({  id: number;
+  option_id: number;
+  option_display_name: string;
+  label: string;})[] | undefined;
+};
+
+export interface ActionInput_bigcommerce_updateproduct {
+  /**
+   * The ID of the Product to update. Example: 123
+   */
+  product_id: number;
+  name?: string | undefined;
+  sku?: string | undefined;
+  description?: string | undefined;
+  price?: number | undefined;
+  sale_price?: number | undefined;
+  cost_price?: number | undefined;
+  retail_price?: number | undefined;
+  map_price?: number | undefined;
+  weight?: number | undefined;
+  width?: number | undefined;
+  depth?: number | undefined;
+  height?: number | undefined;
+  categories?: number[] | undefined;
+  brand_id?: number | undefined;
+  brand_name?: string | undefined;
+  inventory_level?: number | undefined;
+  inventory_warning_level?: number | undefined;
+  inventory_tracking?: 'none' | 'product' | 'variant' | undefined;
+  is_visible?: boolean | undefined;
+  is_featured?: boolean | undefined;
+  is_free_shipping?: boolean | undefined;
+  availability?: 'available' | 'disabled' | 'preorder' | undefined;
+  condition?: 'New' | 'Used' | 'Refurbished' | undefined;
+  is_condition_shown?: boolean | undefined;
+  order_quantity_minimum?: number | undefined;
+  order_quantity_maximum?: number | undefined;
+  page_title?: string | undefined;
+  meta_description?: string | undefined;
+  meta_keywords?: string[] | undefined;
+  search_keywords?: string | undefined;
+  upc?: string | undefined;
+  mpn?: string | undefined;
+  gtin?: string | undefined;
+  tax_class_id?: number | undefined;
+  product_tax_code?: string | undefined;
+  fixed_cost_shipping_price?: number | undefined;
+  warranty?: string | undefined;
+  bin_picking_number?: string | undefined;
+  layout_file?: string | undefined;
+  availability_description?: string | undefined;
+  sort_order?: number | undefined;
+  preorder_release_date?: string | undefined;
+  preorder_message?: string | undefined;
+  is_preorder_only?: boolean | undefined;
+  is_price_hidden?: boolean | undefined;
+  price_hidden_label?: string | undefined;
+  open_graph_type?: 'product' | 'album' | 'book' | 'drink' | 'food' | 'game' | 'movie' | 'song' | 'tv_show' | undefined;
+  open_graph_title?: string | undefined;
+  open_graph_description?: string | undefined;
+  open_graph_use_meta_description?: boolean | undefined;
+  open_graph_use_product_name?: boolean | undefined;
+  open_graph_use_image?: boolean | undefined;
+  type?: 'physical' | 'digital' | undefined;
+  custom_url?: {  url?: string | undefined;
+  is_customized?: boolean | undefined;
+  create_redirect?: boolean | undefined;};
+  related_products?: number[] | undefined;
+  gift_wrapping_options_type?: 'any' | 'none' | 'list' | undefined;
+  gift_wrapping_options_list?: number[] | undefined;
+  custom_fields?: ({  id?: number | undefined;
+  name: string;
+  value: string;})[];
+  bulk_pricing_rules?: ({  id?: number | undefined;
+  quantity_min: number;
+  quantity_max: number;
+  type: 'price' | 'percent' | 'fixed';
+  amount: number | string;})[];
+  images?: ({  image_url?: string | undefined;
+  is_thumbnail?: boolean | undefined;
+  sort_order?: number | undefined;
+  description?: string | undefined;})[];
+  videos?: ({  title?: string | undefined;
+  description?: string | undefined;
+  sort_order?: number | undefined;
+  type?: 'youtube' | undefined;
+  video_id?: string | undefined;})[];
+};
+
+export interface ActionOutput_bigcommerce_updateproduct {
+  /**
+   * ID of the product. Example: 123
+   */
+  id: number;
+  name?: string | undefined;
+  sku?: string | undefined;
+  description?: string | undefined;
+  price?: number | undefined;
+  sale_price?: number | undefined;
+  cost_price?: number | undefined;
+  retail_price?: number | undefined;
+  map_price?: number | undefined;
+  weight?: number | undefined;
+  width?: number | undefined;
+  depth?: number | undefined;
+  height?: number | undefined;
+  categories?: number[] | undefined;
+  brand_id?: number | undefined;
+  inventory_level?: number | undefined;
+  inventory_warning_level?: number | undefined;
+  inventory_tracking?: string | undefined;
+  is_visible?: boolean | undefined;
+  is_featured?: boolean | undefined;
+  is_free_shipping?: boolean | undefined;
+  availability?: string | undefined;
+  condition?: string | undefined;
+  is_condition_shown?: boolean | undefined;
+  order_quantity_minimum?: number | undefined;
+  order_quantity_maximum?: number | undefined;
+  page_title?: string | undefined;
+  meta_description?: string | undefined;
+  meta_keywords?: string[] | undefined;
+  search_keywords?: string | undefined;
+  upc?: string | undefined;
+  mpn?: string | undefined;
+  gtin?: string | undefined;
+  tax_class_id?: number | undefined;
+  product_tax_code?: string | undefined;
+  fixed_cost_shipping_price?: number | undefined;
+  warranty?: string | undefined;
+  bin_picking_number?: string | undefined;
+  layout_file?: string | undefined;
+  availability_description?: string | undefined;
+  sort_order?: number | undefined;
+  preorder_release_date?: string | undefined;
+  preorder_message?: string | undefined;
+  is_preorder_only?: boolean | undefined;
+  is_price_hidden?: boolean | undefined;
+  price_hidden_label?: string | undefined;
+  type?: string | undefined;
+  custom_url?: {} | undefined;
+  related_products?: number[] | undefined;
+  gift_wrapping_options_type?: string | undefined;
+  gift_wrapping_options_list?: number[] | undefined;
+  custom_fields?: ({})[] | undefined;
+  bulk_pricing_rules?: ({})[] | undefined;
+  images?: ({})[] | undefined;
+  videos?: ({})[] | undefined;
+  date_created?: string | undefined;
+  date_modified?: string | undefined;
+  calculated_price?: number | undefined;
+  base_variant_id?: number | undefined;
+  primary_image?: {} | undefined;
+  reviews_rating_sum?: number | undefined;
+  reviews_count?: number | undefined;
+  total_sold?: number | undefined;
+  view_count?: number | undefined;
+};
+
+export interface ActionInput_bigcommerce_updatesubscriber {
+  /**
+   * The ID of the subscriber to update. Example: 1
+   */
+  subscriber_id: number;
+  /**
+   * The email of the subscriber. Must be unique.
+   */
+  email?: string | undefined;
+  /**
+   * The first name of the subscriber. Max length: 255.
+   */
+  first_name?: string | undefined;
+  /**
+   * The last name of the subscriber. Max length: 255.
+   */
+  last_name?: string | undefined;
+  /**
+   * The source of the subscriber.
+   */
+  source?: 'storefront' | 'order' | 'custom' | undefined;
+  /**
+   * The ID of the source order, if source was order.
+   */
+  order_id?: number | undefined;
+  /**
+   * The channel ID where the subscriber was created.
+   */
+  channel_id?: number | undefined;
+  /**
+   * Array of consent values.
+   */
+  consents?: ({  0: 'marketing_newsletter';
+  1: 'abandoned_cart';})[] | undefined;
+};
+
+export interface ActionOutput_bigcommerce_updatesubscriber {
+  id: number;
+  email?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  source?: string | undefined;
+  order_id?: number | undefined;
+  channel_id?: number | undefined;
+  consents?: string[] | undefined;
+  date_created?: string | undefined;
+  date_modified?: string | undefined;
+};
+
 export interface SyncMetadata_bill_users {
 };
 
@@ -32862,26 +35339,6 @@ export interface ActionOutput_dialpad_deleteuser {
   success: boolean;
 };
 
-export interface Channel {
-  id: string;
-  title?: string | undefined;
-  description?: string | undefined;
-  customUrl?: string | undefined;
-  publishedAt?: string | undefined;
-  thumbnailDefaultUrl?: string | undefined;
-  thumbnailMediumUrl?: string | undefined;
-  thumbnailHighUrl?: string | undefined;
-  viewCount?: number | undefined;
-  subscriberCount?: number | undefined;
-  hiddenSubscriberCount?: boolean | undefined;
-  videoCount?: number | undefined;
-  country?: string | undefined;
-  privacyStatus?: string | undefined;
-  isLinked?: boolean | undefined;
-  madeForKids?: boolean | undefined;
-  selfDeclaredMadeForKids?: boolean | undefined;
-};
-
 export interface GuildMember {
   id: string;
   guild_id: string;
@@ -34516,20 +36973,6 @@ export interface ActionOutput_discord_updatewebhook {
 };
 
 export interface SyncMetadata_discourse_activeusers {
-};
-
-export interface Category {
-  id: string;
-  name: string;
-  description?: string | undefined;
-  locale: string;
-  source_locale?: string | undefined;
-  position?: number | undefined;
-  outdated?: boolean | undefined;
-  created_at: string;
-  updated_at: string;
-  html_url?: string | undefined;
-  url?: string | undefined;
 };
 
 export interface SyncMetadata_discourse_categories {
@@ -110356,35 +112799,6 @@ export interface WildixPbxColleague {
 };
 
 export interface SyncMetadata_wildix_pbx_colleagues {
-};
-
-export interface Coupon {
-  id: string;
-  code: string;
-  amount?: string | undefined;
-  date_created?: string | undefined;
-  date_modified?: string | undefined;
-  discount_type?: string | undefined;
-  description?: string | undefined;
-  date_expires?: string | undefined;
-  usage_count?: number | undefined;
-  individual_use?: boolean | undefined;
-  product_ids?: number[] | undefined;
-  excluded_product_ids?: number[] | undefined;
-  usage_limit?: number | undefined;
-  usage_limit_per_user?: number | undefined;
-  limit_usage_to_x_items?: number | undefined;
-  free_shipping?: boolean | undefined;
-  product_categories?: number[] | undefined;
-  excluded_product_categories?: number[] | undefined;
-  exclude_sale_items?: boolean | undefined;
-  minimum_amount?: string | undefined;
-  maximum_amount?: string | undefined;
-  email_restrictions?: string[] | undefined;
-  used_by?: string[] | undefined;
-  meta_data?: ({  id?: number | undefined;
-  key?: string | undefined;
-  value?: unknown | undefined;})[];
 };
 
 export interface ProductCategory {
