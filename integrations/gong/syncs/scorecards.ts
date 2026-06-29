@@ -2,33 +2,33 @@ import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
 const GongScorecardSchema = z.object({
-    scorecardId: z.string(),
-    scorecardName: z.string(),
-    workspaceId: z.string().nullable().optional(),
-    enabled: z.boolean(),
-    updaterUserId: z.string(),
-    created: z.string(),
-    updated: z.string(),
-    reviewMethod: z.string().nullable().optional(),
-    questions: z.array(z.record(z.string(), z.unknown())).optional()
+    scorecardId: z.string().nullable(),
+    scorecardName: z.string().nullable(),
+    workspaceId: z.string().nullish(),
+    enabled: z.boolean().nullable(),
+    updaterUserId: z.string().nullable(),
+    created: z.string().nullable(),
+    updated: z.string().nullable(),
+    reviewMethod: z.string().nullish(),
+    questions: z.array(z.record(z.string(), z.unknown())).nullish()
 });
 
 const ScorecardSchema = z.object({
     id: z.string(),
-    scorecardId: z.string(),
-    scorecardName: z.string(),
-    workspaceId: z.string().optional(),
-    enabled: z.boolean(),
-    updaterUserId: z.string(),
-    created: z.string(),
-    updated: z.string(),
-    reviewMethod: z.string().optional(),
-    questions: z.array(z.record(z.string(), z.unknown())).optional()
+    scorecardId: z.string().nullable(),
+    scorecardName: z.string().nullable(),
+    workspaceId: z.string().nullish(),
+    enabled: z.boolean().nullable(),
+    updaterUserId: z.string().nullable(),
+    created: z.string().nullable(),
+    updated: z.string().nullable(),
+    reviewMethod: z.string().nullish(),
+    questions: z.array(z.record(z.string(), z.unknown())).nullish()
 });
 
 const sync = createSync({
     description: 'Sync scorecards from Gong',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     models: {
@@ -79,18 +79,26 @@ const sync = createSync({
         // Only reach here after a successful full enumeration — safe to open delete tracking.
         await nango.trackDeletesStart('Scorecard');
 
-        const mapped = allMapped.map((scorecard) => ({
-            id: scorecard.scorecardId,
-            scorecardId: scorecard.scorecardId,
-            scorecardName: scorecard.scorecardName,
-            ...(scorecard.workspaceId != null && { workspaceId: scorecard.workspaceId }),
-            enabled: scorecard.enabled,
-            updaterUserId: scorecard.updaterUserId,
-            created: scorecard.created,
-            updated: scorecard.updated,
-            ...(scorecard.reviewMethod != null && { reviewMethod: scorecard.reviewMethod }),
-            ...(scorecard.questions != null && { questions: scorecard.questions })
-        }));
+        const mapped = allMapped.flatMap((scorecard) => {
+            if (!scorecard.scorecardId) {
+                return [];
+            }
+
+            return [
+                {
+                    id: scorecard.scorecardId,
+                    scorecardId: scorecard.scorecardId,
+                    scorecardName: scorecard.scorecardName,
+                    ...(scorecard.workspaceId != null && { workspaceId: scorecard.workspaceId }),
+                    enabled: scorecard.enabled,
+                    updaterUserId: scorecard.updaterUserId,
+                    created: scorecard.created,
+                    updated: scorecard.updated,
+                    ...(scorecard.reviewMethod != null && { reviewMethod: scorecard.reviewMethod }),
+                    ...(scorecard.questions != null && { questions: scorecard.questions })
+                }
+            ];
+        });
 
         if (mapped.length > 0) {
             await nango.batchSave(mapped, 'Scorecard');

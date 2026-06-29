@@ -6,38 +6,38 @@ const InputSchema = z.object({
 });
 
 const SentenceSchema = z.object({
-    start: z.number(),
-    end: z.number(),
-    text: z.string()
+    start: z.number().nullable(),
+    end: z.number().nullable(),
+    text: z.string().nullable()
 });
 
 const MonologueSchema = z.object({
-    speakerId: z.string(),
-    topic: z.string().optional(),
-    sentences: z.array(SentenceSchema)
+    speakerId: z.string().nullable(),
+    topic: z.string().nullish(),
+    sentences: z.array(SentenceSchema).nullable()
 });
 
 const CallTranscriptSchema = z.object({
     callId: z.string(),
-    transcript: z.array(MonologueSchema)
+    transcript: z.array(MonologueSchema).nullable()
 });
 
 const OutputSchema = z.object({
-    callId: z.string(),
-    transcript: z.array(MonologueSchema)
+    callId: z.string().nullable(),
+    transcript: z.array(MonologueSchema).nullable()
 });
 
 const ProviderResponseSchema = z.object({
     requestId: z.string().optional(),
     records: z
         .object({
-            totalRecords: z.number(),
-            currentPageSize: z.number(),
-            currentPageNumber: z.number().optional(),
-            cursor: z.string().optional()
+            totalRecords: z.number().nullable(),
+            currentPageSize: z.number().nullable(),
+            currentPageNumber: z.number().nullish(),
+            cursor: z.string().nullish()
         })
-        .optional(),
-    callTranscripts: z.array(CallTranscriptSchema).optional()
+        .nullish(),
+    callTranscripts: z.array(CallTranscriptSchema).nullish()
 });
 
 const ErrorResponseSchema = z.object({
@@ -56,7 +56,7 @@ const AxiosErrorSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve the transcript for a single Gong call.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:calls:read:transcript'],

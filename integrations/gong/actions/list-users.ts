@@ -7,76 +7,76 @@ const InputSchema = z.object({
 
 const ProviderUserSchema = z.object({
     id: z.string(),
-    emailAddress: z.string().optional(),
-    created: z.string().optional(),
-    active: z.boolean().optional(),
-    emailAliases: z.array(z.string()).optional(),
-    trustedEmailAddress: z.string().nullable().optional(),
-    firstName: z.string().optional(),
-    lastName: z.string().optional(),
-    title: z.string().nullable().optional(),
-    phoneNumber: z.string().nullable().optional(),
-    extension: z.string().nullable().optional(),
-    personalMeetingUrls: z.array(z.string()).optional(),
-    settings: z.record(z.string(), z.unknown()).optional(),
-    managerId: z.string().nullable().optional(),
-    meetingConsentPageUrl: z.string().nullable().optional(),
+    emailAddress: z.string().nullish(),
+    created: z.string().nullish(),
+    active: z.boolean().nullish(),
+    emailAliases: z.array(z.string()).nullish(),
+    trustedEmailAddress: z.string().nullish(),
+    firstName: z.string().nullish(),
+    lastName: z.string().nullish(),
+    title: z.string().nullish(),
+    phoneNumber: z.string().nullish(),
+    extension: z.string().nullish(),
+    personalMeetingUrls: z.array(z.string()).nullish(),
+    settings: z.record(z.string(), z.unknown()).nullish(),
+    managerId: z.string().nullish(),
+    meetingConsentPageUrl: z.string().nullish(),
     spokenLanguages: z
         .array(
             z.object({
-                language: z.string(),
-                primary: z.boolean().optional()
+                language: z.string().nullable(),
+                primary: z.boolean().nullish()
             })
         )
-        .optional()
+        .nullish()
 });
 
 const GongUsersResponseSchema = z.object({
-    users: z.array(z.object({}).passthrough()).optional(),
+    users: z.array(z.object({}).passthrough()).nullish(),
     records: z
         .object({
-            totalRecords: z.number().optional(),
-            currentPageSize: z.number().optional(),
-            currentPageNumber: z.number().optional(),
-            cursor: z.string().optional()
+            totalRecords: z.number().nullish(),
+            currentPageSize: z.number().nullish(),
+            currentPageNumber: z.number().nullish(),
+            cursor: z.string().nullish()
         })
-        .optional()
+        .nullish()
 });
 
 const OutputUserSchema = z.object({
     id: z.string(),
-    emailAddress: z.string().optional(),
-    created: z.string().optional(),
-    active: z.boolean().optional(),
-    emailAliases: z.array(z.string()).optional(),
-    trustedEmailAddress: z.string().optional(),
-    firstName: z.string().optional(),
-    lastName: z.string().optional(),
-    title: z.string().optional(),
-    phoneNumber: z.string().optional(),
-    extension: z.string().optional(),
-    personalMeetingUrls: z.array(z.string()).optional(),
-    settings: z.record(z.string(), z.unknown()).optional(),
-    managerId: z.string().optional(),
-    meetingConsentPageUrl: z.string().optional(),
+    emailAddress: z.string().nullish(),
+    created: z.string().nullish(),
+    active: z.boolean().nullish(),
+    emailAliases: z.array(z.string()).nullish(),
+    trustedEmailAddress: z.string().nullish(),
+    firstName: z.string().nullish(),
+    lastName: z.string().nullish(),
+    title: z.string().nullish(),
+    phoneNumber: z.string().nullish(),
+    extension: z.string().nullish(),
+    personalMeetingUrls: z.array(z.string()).nullish(),
+    settings: z.record(z.string(), z.unknown()).nullish(),
+    managerId: z.string().nullish(),
+    meetingConsentPageUrl: z.string().nullish(),
     spokenLanguages: z
         .array(
             z.object({
-                language: z.string(),
-                primary: z.boolean().optional()
+                language: z.string().nullable(),
+                primary: z.boolean().nullish()
             })
         )
-        .optional()
+        .nullish()
 });
 
 const OutputSchema = z.object({
-    users: z.array(OutputUserSchema),
-    nextCursor: z.string().optional()
+    users: z.array(OutputUserSchema).nullable(),
+    nextCursor: z.string().nullish()
 });
 
 const action = createAction({
     description: 'List users from Gong',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:users:read'],
@@ -106,15 +106,15 @@ const action = createAction({
                 ...(user.created !== undefined && { created: user.created }),
                 ...(user.active !== undefined && { active: user.active }),
                 ...(user.emailAliases !== undefined && { emailAliases: user.emailAliases }),
-                ...(user.trustedEmailAddress != null && { trustedEmailAddress: user.trustedEmailAddress }),
+                ...(user.trustedEmailAddress !== undefined && { trustedEmailAddress: user.trustedEmailAddress }),
                 ...(user.firstName !== undefined && { firstName: user.firstName }),
                 ...(user.lastName !== undefined && { lastName: user.lastName }),
-                ...(user.title != null && { title: user.title }),
-                ...(user.phoneNumber != null && { phoneNumber: user.phoneNumber }),
-                ...(user.extension != null && { extension: user.extension }),
+                ...(user.title !== undefined && { title: user.title }),
+                ...(user.phoneNumber !== undefined && { phoneNumber: user.phoneNumber }),
+                ...(user.extension !== undefined && { extension: user.extension }),
                 ...(user.personalMeetingUrls !== undefined && { personalMeetingUrls: user.personalMeetingUrls }),
                 ...(user.settings !== undefined && { settings: user.settings }),
-                ...(user.managerId != null && { managerId: user.managerId }),
+                ...(user.managerId !== undefined && { managerId: user.managerId }),
                 ...(user.meetingConsentPageUrl != null && { meetingConsentPageUrl: user.meetingConsentPageUrl }),
                 ...(user.spokenLanguages !== undefined && { spokenLanguages: user.spokenLanguages })
             });

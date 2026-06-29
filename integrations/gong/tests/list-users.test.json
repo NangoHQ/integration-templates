@@ -8,8 +8,12 @@
         "created": "2026-06-10T21:50:07.428+02:00",
         "active": true,
         "emailAliases": [],
+        "trustedEmailAddress": null,
         "firstName": "Robin",
         "lastName": "Guldener",
+        "title": null,
+        "phoneNumber": null,
+        "extension": null,
         "personalMeetingUrls": [],
         "settings": {
           "webConferencesRecorded": false,
@@ -20,6 +24,7 @@
           "nonRecordedMeetingsImported": false,
           "gongConnectEnabled": false
         },
+        "managerId": null,
         "spokenLanguages": []
       },
       {
@@ -28,8 +33,12 @@
         "created": "2026-06-11T21:25:28.158+02:00",
         "active": true,
         "emailAliases": [],
+        "trustedEmailAddress": null,
         "firstName": "API",
         "lastName": "Developer",
+        "title": null,
+        "phoneNumber": null,
+        "extension": null,
         "personalMeetingUrls": [],
         "settings": {
           "webConferencesRecorded": false,
@@ -40,6 +49,7 @@
           "nonRecordedMeetingsImported": false,
           "gongConnectEnabled": false
         },
+        "managerId": null,
         "spokenLanguages": []
       },
       {
@@ -48,8 +58,12 @@
         "created": "2026-06-10T21:49:29.000+02:00",
         "active": true,
         "emailAliases": [],
+        "trustedEmailAddress": null,
         "firstName": "Ryan",
         "lastName": "West",
+        "title": null,
+        "phoneNumber": null,
+        "extension": null,
         "personalMeetingUrls": [],
         "settings": {
           "webConferencesRecorded": false,
@@ -60,6 +74,7 @@
           "nonRecordedMeetingsImported": false,
           "gongConnectEnabled": false
         },
+        "managerId": null,
         "spokenLanguages": []
       },
       {
@@ -68,8 +83,12 @@
         "created": "2023-10-17T21:21:39.277+02:00",
         "active": true,
         "emailAliases": [],
+        "trustedEmailAddress": null,
         "firstName": "Bastien",
         "lastName": "Beurier",
+        "title": null,
+        "phoneNumber": null,
+        "extension": null,
         "personalMeetingUrls": [],
         "settings": {
           "webConferencesRecorded": false,
@@ -80,6 +99,7 @@
           "nonRecordedMeetingsImported": false,
           "gongConnectEnabled": false
         },
+        "managerId": null,
         "spokenLanguages": []
       }
     ]

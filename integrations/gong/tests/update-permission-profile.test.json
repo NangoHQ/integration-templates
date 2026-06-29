@@ -94,7 +94,8 @@
     "manageRevenueAnalytics": false,
     "engageReassignFlowToDosToOthers": false,
     "engageAssignFlowToDosToOthers": false,
-    "dealsDataExport": false
+    "dealsDataExport": false,
+    "orchestrateCreateAndManagePlays": null
   },
   "nango": {},
   "api": {

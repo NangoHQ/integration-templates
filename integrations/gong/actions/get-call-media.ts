@@ -11,30 +11,31 @@ const ProviderCallSchema = z
             .object({
                 id: z.string().optional()
             })
-            .passthrough(),
+            .passthrough()
+            .nullable(),
         media: z
             .object({
-                audioUrl: z.string().optional(),
-                videoUrl: z.string().optional()
+                audioUrl: z.string().nullish(),
+                videoUrl: z.string().nullish()
             })
             .passthrough()
-            .optional()
+            .nullish()
     })
     .passthrough();
 
 const ProviderResponseSchema = z.object({
     requestId: z.string().optional(),
-    calls: z.array(ProviderCallSchema).optional()
+    calls: z.array(ProviderCallSchema).nullish()
 });
 
 const OutputSchema = z.object({
-    audioUrl: z.string().optional().describe('Signed URL for the audio recording. Valid for 8 hours.'),
-    videoUrl: z.string().optional().describe('Signed URL for the video recording. Valid for 8 hours.')
+    audioUrl: z.string().nullish().describe('Signed URL for the audio recording. Valid for 8 hours.'),
+    videoUrl: z.string().nullish().describe('Signed URL for the video recording. Valid for 8 hours.')
 });
 
 const action = createAction({
     description: 'Retrieve the media download URL for a Gong call recording',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:calls:read:extensive', 'api:calls:read:media-url'],

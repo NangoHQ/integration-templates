@@ -11,31 +11,31 @@ const InputSchema = z.object({
 
 const SentenceSchema = z
     .object({
-        start: z.number().optional(),
-        end: z.number().optional(),
-        text: z.string().optional()
+        start: z.number().nullish(),
+        end: z.number().nullish(),
+        text: z.string().nullish()
     })
     .passthrough();
 
 const TranscriptBlockSchema = z
     .object({
-        speakerId: z.string().optional(),
-        topic: z.string().optional(),
-        sentences: z.array(SentenceSchema).optional()
+        speakerId: z.string().nullish(),
+        topic: z.string().nullish(),
+        sentences: z.array(SentenceSchema).nullish()
     })
     .passthrough();
 
 const CallTranscriptSchema = z
     .object({
-        callId: z.string().optional(),
-        transcript: z.array(TranscriptBlockSchema).optional()
+        callId: z.string().nullish(),
+        transcript: z.array(TranscriptBlockSchema).nullish()
     })
     .passthrough();
 
 const OutputSchema = z.object({
-    transcripts: z.array(CallTranscriptSchema).describe('Transcript data for the returned page'),
-    nextCursor: z.string().optional().describe('Pass this cursor to the next call to retrieve the following page. Absent when there are no more pages.'),
-    totalRecords: z.number().optional().describe('Total number of matching transcripts across all pages')
+    transcripts: z.array(CallTranscriptSchema).describe('Transcript data for the returned page').nullable(),
+    nextCursor: z.string().nullish().describe('Pass this cursor to the next call to retrieve the following page. Absent when there are no more pages.'),
+    totalRecords: z.number().nullish().describe('Total number of matching transcripts across all pages')
 });
 
 const AxiosErrorSchema = z.object({
@@ -53,7 +53,7 @@ function isHttpErrorWithStatus(error: unknown, status: number): boolean {
 const action = createAction({
     description:
         'Fetch a page of Gong call transcripts, optionally filtered by date range, workspace, or call IDs. Use the returned nextCursor to retrieve subsequent pages.',
-    version: '4.0.1',
+    version: '4.0.2',
     input: InputSchema,
     output: OutputSchema,
 
