@@ -1,0 +1,308 @@
+{
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "accountId": "96bfbc88-de80-40a4-9fb7-f047e656eaaf"
+    },
+    "batchSave": {
+      "ConnectConfiguration": [
+        {
+          "id": "22210617",
+          "name": "Test Connect",
+          "urlToPublishTo": "https://example.com/webhook",
+          "allowEnvelopePublish": "true",
+          "allUsers": "true",
+          "enableLog": "false",
+          "envelopeEvents": [
+            "sent",
+            "delivered",
+            "completed"
+          ],
+          "recipientEvents": [
+            "Sent",
+            "Delivered",
+            "Completed"
+          ],
+          "configurationType": "custom",
+          "deliveryMode": "",
+          "requiresAcknowledgement": "true",
+          "includeDocuments": "false",
+          "includeCertificateOfCompletion": "false",
+          "includeHMAC": "false",
+          "requireMutualTls": "false"
+        },
+        {
+          "id": "22210619",
+          "name": "Test Connect Bool",
+          "urlToPublishTo": "https://example.com/webhook",
+          "allowEnvelopePublish": "true",
+          "allUsers": "true",
+          "enableLog": "false",
+          "envelopeEvents": [
+            "sent"
+          ],
+          "recipientEvents": [
+            "Sent"
+          ],
+          "configurationType": "custom",
+          "deliveryMode": "",
+          "requiresAcknowledgement": "true",
+          "includeDocuments": "false",
+          "includeCertificateOfCompletion": "false",
+          "includeHMAC": "false",
+          "requireMutualTls": "false"
+        },
+        {
+          "id": "22210640",
+          "name": "Nango Connect Validation",
+          "urlToPublishTo": "https://example.com/webhook/nango",
+          "allowEnvelopePublish": "true",
+          "allUsers": "true",
+          "enableLog": "false",
+          "envelopeEvents": [
+            "sent",
+            "delivered",
+            "completed"
+          ],
+          "recipientEvents": [
+            "Sent",
+            "Delivered",
+            "Completed"
+          ],
+          "configurationType": "custom",
+          "deliveryMode": "",
+          "requiresAcknowledgement": "true",
+          "includeDocuments": "false",
+          "includeCertificateOfCompletion": "false",
+          "includeHMAC": "false",
+          "requireMutualTls": "false"
+        },
+        {
+          "id": "22210641",
+          "name": "Nango Connect Validation",
+          "urlToPublishTo": "https://example.com/webhook/nango",
+          "allowEnvelopePublish": "true",
+          "allUsers": "true",
+          "enableLog": "false",
+          "envelopeEvents": [
+            "sent",
+            "delivered",
+            "completed"
+          ],
+          "recipientEvents": [
+            "Sent",
+            "Delivered",
+            "Completed"
+          ],
+          "configurationType": "custom",
+          "deliveryMode": "",
+          "requiresAcknowledgement": "true",
+          "includeDocuments": "false",
+          "includeCertificateOfCompletion": "false",
+          "includeHMAC": "false",
+          "requireMutualTls": "false"
+        }
+      ]
+    },
+    "batchDelete": {
+      "ConnectConfiguration": []
+    }
+  },
+  "api": {
+    "get": {
+      "/restapi/v2.1/accounts/96bfbc88-de80-40a4-9fb7-f047e656eaaf/connect": {
+        "response": {
+          "configurations": [
+            {
+              "connectId": "22210617",
+              "configurationType": "custom",
+              "urlToPublishTo": "https://example.com/webhook",
+              "name": "Test Connect",
+              "allowEnvelopePublish": "true",
+              "deliveryMode": "",
+              "enableLog": "false",
+              "includeDocuments": "false",
+              "includeCertificateOfCompletion": "false",
+              "requiresAcknowledgement": "true",
+              "signMessageWithX509Certificate": "false",
+              "useSoapInterface": "false",
+              "includeTimeZoneInformation": "false",
+              "includeOAuth": "false",
+              "includeHMAC": "false",
+              "integratorManaged": "false",
+              "includeEnvelopeVoidReason": "false",
+              "includeSenderAccountasCustomField": "false",
+              "envelopeEvents": [
+                "sent",
+                "delivered",
+                "completed"
+              ],
+              "recipientEvents": [
+                "Sent",
+                "Delivered",
+                "Completed"
+              ],
+              "soapNamespace": "",
+              "allUsers": "true",
+              "allUsersExcept": "false",
+              "includeCertSoapHeader": "false",
+              "requireMutualTls": "false",
+              "includeDocumentFields": "false",
+              "pausePublish": "false",
+              "eventData": {
+                "version": "",
+                "includeData": []
+              },
+              "enableOAuthPerConfiguration": "false"
+            },
+            {
+              "connectId": "22210619",
+              "configurationType": "custom",
+              "urlToPublishTo": "https://example.com/webhook",
+              "name": "Test Connect Bool",
+              "allowEnvelopePublish": "true",
+              "deliveryMode": "",
+              "enableLog": "false",
+              "includeDocuments": "false",
+              "includeCertificateOfCompletion": "false",
+              "requiresAcknowledgement": "true",
+              "signMessageWithX509Certificate": "false",
+              "useSoapInterface": "false",
+              "includeTimeZoneInformation": "false",
+              "includeOAuth": "false",
+              "includeHMAC": "false",
+              "integratorManaged": "false",
+              "includeEnvelopeVoidReason": "false",
+              "includeSenderAccountasCustomField": "false",
+              "envelopeEvents": [
+                "sent"
+              ],
+              "recipientEvents": [
+                "Sent"
+              ],
+              "soapNamespace": "",
+              "allUsers": "true",
+              "allUsersExcept": "false",
+              "includeCertSoapHeader": "false",
+              "requireMutualTls": "false",
+              "includeDocumentFields": "false",
+              "pausePublish": "false",
+              "eventData": {
+                "version": "",
+                "includeData": []
+              },
+              "enableOAuthPerConfiguration": "false"
+            },
+            {
+              "connectId": "22210640",
+              "configurationType": "custom",
+              "urlToPublishTo": "https://example.com/webhook/nango",
+              "name": "Nango Connect Validation",
+              "allowEnvelopePublish": "true",
+              "deliveryMode": "",
+              "enableLog": "false",
+              "includeDocuments": "false",
+              "includeCertificateOfCompletion": "false",
+              "requiresAcknowledgement": "true",
+              "signMessageWithX509Certificate": "false",
+              "useSoapInterface": "false",
+              "includeTimeZoneInformation": "false",
+              "includeOAuth": "false",
+              "includeHMAC": "false",
+              "integratorManaged": "false",
+              "includeEnvelopeVoidReason": "false",
+              "includeSenderAccountasCustomField": "false",
+              "envelopeEvents": [
+                "sent",
+                "delivered",
+                "completed"
+              ],
+              "recipientEvents": [
+                "Sent",
+                "Delivered",
+                "Completed"
+              ],
+              "soapNamespace": "",
+              "allUsers": "true",
+              "allUsersExcept": "false",
+              "includeCertSoapHeader": "false",
+              "requireMutualTls": "false",
+              "includeDocumentFields": "false",
+              "pausePublish": "false",
+              "eventData": {
+                "version": "",
+                "includeData": []
+              },
+              "enableOAuthPerConfiguration": "false"
+            },
+            {
+              "connectId": "22210641",
+              "configurationType": "custom",
+              "urlToPublishTo": "https://example.com/webhook/nango",
+              "name": "Nango Connect Validation",
+              "allowEnvelopePublish": "true",
+              "deliveryMode": "",
+              "enableLog": "false",
+              "includeDocuments": "false",
+              "includeCertificateOfCompletion": "false",
+              "requiresAcknowledgement": "true",
+              "signMessageWithX509Certificate": "false",
+              "useSoapInterface": "false",
+              "includeTimeZoneInformation": "false",
+              "includeOAuth": "false",
+              "includeHMAC": "false",
+              "integratorManaged": "false",
+              "includeEnvelopeVoidReason": "false",
+              "includeSenderAccountasCustomField": "false",
+              "envelopeEvents": [
+                "sent",
+                "delivered",
+                "completed"
+              ],
+              "recipientEvents": [
+                "Sent",
+                "Delivered",
+                "Completed"
+              ],
+              "soapNamespace": "",
+              "allUsers": "true",
+              "allUsersExcept": "false",
+              "includeCertSoapHeader": "false",
+              "requireMutualTls": "false",
+              "includeDocumentFields": "false",
+              "pausePublish": "false",
+              "eventData": {
+                "version": "",
+                "includeData": []
+              },
+              "enableOAuthPerConfiguration": "false"
+            }
+          ],
+          "totalRecords": "4"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 24 Jun 2026 12:36:10 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "3668",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4957",
+          "x-ratelimit-reset": "1782304597",
+          "etag": "W/\"e54-aMLnkakic29z8HZnsXePN+IOzmU\""
+        },
+        "hash": "b0dc224973a27c8009df70780646031e1ae221ca",
+        "request": {}
+      }
+    }
+  }
+}

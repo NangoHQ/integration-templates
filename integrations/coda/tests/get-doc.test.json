@@ -1,0 +1,119 @@
+{
+  "input": {
+    "docId": "L_hgEASd6n"
+  },
+  "output": {
+    "id": "L_hgEASd6n",
+    "type": "doc",
+    "href": "https://coda.io/apis/v1/docs/L_hgEASd6n",
+    "browserLink": "https://coda.io/d/_dL_hgEASd6n",
+    "name": "Nango's Coda Playground",
+    "owner": "api@nango.dev",
+    "ownerName": "Nango Developer",
+    "createdAt": "2026-06-23T09:53:17.066Z",
+    "updatedAt": "2026-06-23T10:12:35.633Z",
+    "workspace": {
+      "id": "ws-oZFDiLKJ45",
+      "type": "workspace",
+      "browserLink": "https://coda.io/docs?workspaceId=ws-oZFDiLKJ45",
+      "name": "nango.test"
+    },
+    "folder": {
+      "id": "fl-ncEpWaQnr6",
+      "type": "folder",
+      "browserLink": "https://coda.io/folders/fl-ncEpWaQnr6",
+      "name": "My docs"
+    },
+    "workspaceId": "ws-oZFDiLKJ45",
+    "folderId": "fl-ncEpWaQnr6",
+    "icon": {
+      "name": "coda",
+      "type": "image/png",
+      "browserLink": "https://cdn.coda.io/icons/png/color/coda-128.png"
+    },
+    "docSize": {
+      "totalRowCount": 0,
+      "tableAndViewCount": 0,
+      "pageCount": 6,
+      "overApiSizeLimit": false
+    },
+    "sourceDoc": {
+      "id": "GSCjKrAkPV",
+      "type": "doc",
+      "href": "https://coda.io/apis/v1/docs/GSCjKrAkPV",
+      "browserLink": "https://coda.io/d/_dGSCjKrAkPV"
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/docs/L_hgEASd6n": {
+        "response": {
+          "id": "L_hgEASd6n",
+          "type": "doc",
+          "href": "https://coda.io/apis/v1/docs/L_hgEASd6n",
+          "browserLink": "https://coda.io/d/_dL_hgEASd6n",
+          "name": "Nango's Coda Playground",
+          "owner": "api@nango.dev",
+          "ownerName": "Nango Developer",
+          "createdAt": "2026-06-23T09:53:17.066Z",
+          "updatedAt": "2026-06-23T10:12:35.633Z",
+          "icon": {
+            "name": "coda",
+            "type": "image/png",
+            "browserLink": "https://cdn.coda.io/icons/png/color/coda-128.png"
+          },
+          "docSize": {
+            "totalRowCount": 0,
+            "tableAndViewCount": 0,
+            "pageCount": 6,
+            "overApiSizeLimit": false,
+            "baseTableCount": 0
+          },
+          "sourceDoc": {
+            "id": "GSCjKrAkPV",
+            "type": "doc",
+            "href": "https://coda.io/apis/v1/docs/GSCjKrAkPV",
+            "browserLink": "https://coda.io/d/_dGSCjKrAkPV"
+          },
+          "workspaceId": "ws-oZFDiLKJ45",
+          "folderId": "fl-ncEpWaQnr6",
+          "workspace": {
+            "id": "ws-oZFDiLKJ45",
+            "type": "workspace",
+            "browserLink": "https://coda.io/docs?workspaceId=ws-oZFDiLKJ45",
+            "name": "nango.test"
+          },
+          "folder": {
+            "id": "fl-ncEpWaQnr6",
+            "type": "folder",
+            "browserLink": "https://coda.io/folders/fl-ncEpWaQnr6",
+            "name": "My docs"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 23 Jun 2026 10:39:14 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "964",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4975",
+          "x-ratelimit-reset": "1782211179",
+          "etag": "W/\"3c4-q/GWWxIv4DedAfsVZBPqgrPKW+s\""
+        },
+        "hash": "2762b280f54ea2bc7bb942c57a9a615b47be0025",
+        "request": {}
+      }
+    }
+  }
+}

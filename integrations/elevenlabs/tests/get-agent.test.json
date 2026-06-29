@@ -1,0 +1,944 @@
+{
+  "input": {
+    "agent_id": "agent_7101kvxrczg2fc9bszcctm7ek0km"
+  },
+  "output": {
+    "agent_id": "agent_7101kvxrczg2fc9bszcctm7ek0km",
+    "name": "Updated Test Agent",
+    "conversation_config": {
+      "asr": {
+        "quality": "high",
+        "provider": "scribe_realtime",
+        "user_input_audio_format": "pcm_16000",
+        "keywords": []
+      },
+      "turn": {
+        "turn_timeout": 7,
+        "initial_wait_time": null,
+        "silence_end_call_timeout": -1,
+        "mode": "turn",
+        "turn_eagerness": "normal",
+        "spelling_patience": "auto",
+        "speculative_turn": false,
+        "retranscribe_on_turn_timeout": false,
+        "turn_model": "turn_v3",
+        "interruption_ignore_terms": [],
+        "transcribe_on_disabled_interruptions": false,
+        "soft_timeout_config": {
+          "timeout_seconds": -1,
+          "message": "Hhmmmm...yeah.",
+          "additional_soft_timeout_messages": [],
+          "use_llm_generated_message": false,
+          "randomize_fillers": false,
+          "max_soft_timeouts_per_generation": 1,
+          "llm_generated_message_prompt_override": null
+        }
+      },
+      "tts": {
+        "model_id": "eleven_flash_v2",
+        "voice_id": "cjVigY5qzO86Huf0OWal",
+        "supported_voices": [],
+        "expressive_mode": false,
+        "suggested_audio_tags": [],
+        "agent_output_audio_format": "pcm_16000",
+        "optimize_streaming_latency": 3,
+        "stability": 0.5,
+        "speed": 1,
+        "similarity_boost": 0.8,
+        "text_normalisation_type": "system_prompt",
+        "pronunciation_dictionary_locators": [],
+        "enable_phoneme_tags": false
+      },
+      "conversation": {
+        "text_only": false,
+        "max_duration_seconds": 600,
+        "client_events": [
+          "audio",
+          "interruption",
+          "agent_response",
+          "user_transcript",
+          "agent_response_correction",
+          "agent_tool_response"
+        ],
+        "file_input": {
+          "enabled": true,
+          "max_files_per_conversation": 10
+        },
+        "monitoring_enabled": false,
+        "monitoring_events": [
+          "user_transcript",
+          "agent_response",
+          "agent_response_correction"
+        ],
+        "dtmf_input_settings": null,
+        "background_sound": {
+          "source_type": null,
+          "source_id": null,
+          "volume": 0.6,
+          "crossfade_loop": false
+        },
+        "source_attribution": false
+      },
+      "language_presets": {},
+      "vad": {
+        "background_voice_detection": false
+      },
+      "agent": {
+        "first_message": "",
+        "language": "en",
+        "hinglish_mode": false,
+        "dynamic_variables": {
+          "dynamic_variable_placeholders": {}
+        },
+        "disable_first_message_interruptions": false,
+        "max_conversation_duration_message": "",
+        "text_behavior_overrides": null,
+        "prompt": {
+          "prompt": "",
+          "llm": "gemini-2.5-flash",
+          "reasoning_effort": null,
+          "thinking_budget": null,
+          "temperature": 0,
+          "max_tokens": -1,
+          "tool_ids": [],
+          "built_in_tools": {
+            "end_call": null,
+            "language_detection": null,
+            "transfer_to_agent": null,
+            "transfer_to_number": null,
+            "skip_turn": null,
+            "play_keypad_touch_tone": null,
+            "voicemail_detection": null,
+            "update_state": null,
+            "memory_entry_search": null,
+            "memory_entry_create": null,
+            "memory_entry_update": null,
+            "memory_entry_delete": null,
+            "agent_prompt_change": null,
+            "procedure_update": null,
+            "procedure_create": null,
+            "procedure_delete": null,
+            "transfer_to_genesys_chat": null
+          },
+          "enable_parallel_tool_calls": false,
+          "mcp_server_ids": [],
+          "native_mcp_server_ids": [],
+          "knowledge_base": [],
+          "custom_llm": null,
+          "speech_engine": null,
+          "ignore_default_personality": false,
+          "rag": {
+            "enabled": false,
+            "embedding_model": "e5_mistral_7b_instruct",
+            "optional_rag_enabled": false,
+            "max_vector_distance": 0.6,
+            "max_documents_length": 50000,
+            "max_retrieved_rag_chunks_count": 20,
+            "num_candidates": null,
+            "query_rewrite_prompt_override": null
+          },
+          "timezone": null,
+          "backup_llm_config": {
+            "preference": "default"
+          },
+          "cascade_timeout_seconds": 8,
+          "tools": []
+        }
+      }
+    },
+    "metadata": {
+      "created_at_unix_secs": 1782336356,
+      "updated_at_unix_secs": 1782336378
+    },
+    "platform_settings": {
+      "evaluation": {
+        "criteria": []
+      },
+      "widget": {
+        "variant": "full",
+        "placement": "bottom-right",
+        "expandable": "never",
+        "avatar": {
+          "type": "orb",
+          "color_1": "#2792dc",
+          "color_2": "#9ce6e6"
+        },
+        "feedback_mode": "during",
+        "end_feedback": {
+          "type": "rating"
+        },
+        "bg_color": "#ffffff",
+        "text_color": "#000000",
+        "btn_color": "#000000",
+        "btn_text_color": "#ffffff",
+        "border_color": "#e1e1e1",
+        "focus_color": "#000000",
+        "border_radius": null,
+        "btn_radius": null,
+        "action_text": null,
+        "start_call_text": null,
+        "end_call_text": null,
+        "expand_text": null,
+        "listening_text": null,
+        "speaking_text": null,
+        "shareable_page_text": null,
+        "shareable_page_show_terms": true,
+        "terms_text": "#### Terms and conditions\n\nBy clicking \"Agree,\" and each time I interact with this AI agent, I consent to the recording, storage, and sharing of my communications with third-party service providers, and as described in the Privacy Policy.\nIf you do not wish to have your conversations recorded, please refrain from using this service.",
+        "terms_html": null,
+        "terms_key": null,
+        "show_avatar_when_collapsed": false,
+        "disable_banner": false,
+        "override_link": null,
+        "markdown_link_allowed_hosts": [],
+        "markdown_link_include_www": true,
+        "markdown_link_allow_http": true,
+        "mic_muting_enabled": false,
+        "transcript_enabled": false,
+        "text_input_enabled": true,
+        "conversation_mode_toggle_enabled": false,
+        "default_expanded": false,
+        "always_expanded": false,
+        "dismissible": false,
+        "show_agent_status": false,
+        "show_conversation_id": true,
+        "strip_audio_tags": true,
+        "syntax_highlight_theme": null,
+        "text_contents": {
+          "main_label": null,
+          "start_call": null,
+          "start_chat": null,
+          "new_call": null,
+          "end_call": null,
+          "mute_microphone": null,
+          "change_language": null,
+          "collapse": null,
+          "expand": null,
+          "copied": null,
+          "accept_terms": null,
+          "dismiss_terms": null,
+          "listening_status": null,
+          "speaking_status": null,
+          "connecting_status": null,
+          "chatting_status": null,
+          "input_label": null,
+          "input_placeholder": null,
+          "input_placeholder_text_only": null,
+          "input_placeholder_new_conversation": null,
+          "user_ended_conversation": null,
+          "agent_ended_conversation": null,
+          "conversation_id": null,
+          "error_occurred": null,
+          "copy_id": null,
+          "initiate_feedback": null,
+          "request_follow_up_feedback": null,
+          "thanks_for_feedback": null,
+          "thanks_for_feedback_details": null,
+          "follow_up_feedback_placeholder": null,
+          "submit": null,
+          "go_back": null,
+          "send_message": null,
+          "text_mode": null,
+          "voice_mode": null,
+          "switched_to_text_mode": null,
+          "switched_to_voice_mode": null,
+          "copy": null,
+          "download": null,
+          "wrap": null,
+          "agent_working": null,
+          "agent_done": null,
+          "agent_error": null
+        },
+        "styles": {
+          "base": null,
+          "base_hover": null,
+          "base_active": null,
+          "base_border": null,
+          "base_subtle": null,
+          "base_primary": null,
+          "base_error": null,
+          "accent": null,
+          "accent_hover": null,
+          "accent_active": null,
+          "accent_border": null,
+          "accent_subtle": null,
+          "accent_primary": null,
+          "overlay_padding": null,
+          "button_radius": null,
+          "input_radius": null,
+          "bubble_radius": null,
+          "sheet_radius": null,
+          "compact_sheet_radius": null,
+          "dropdown_sheet_radius": null
+        },
+        "language_selector": false,
+        "supports_text_only": true,
+        "custom_avatar_path": null,
+        "language_presets": {}
+      },
+      "data_collection": {},
+      "data_collection_scopes": {},
+      "overrides": {
+        "conversation_config_override": {
+          "asr": {
+            "keywords": false
+          },
+          "turn": {
+            "soft_timeout_config": {
+              "message": false
+            }
+          },
+          "tts": {
+            "voice_id": false,
+            "stability": false,
+            "speed": false,
+            "similarity_boost": false
+          },
+          "conversation": {
+            "text_only": true
+          },
+          "agent": {
+            "first_message": false,
+            "language": false,
+            "max_conversation_duration_message": false,
+            "prompt": {
+              "prompt": false,
+              "llm": false,
+              "tool_ids": false,
+              "native_mcp_server_ids": false,
+              "knowledge_base": false
+            }
+          }
+        },
+        "custom_llm_extra_body": false,
+        "enable_conversation_initiation_client_data_from_webhook": false,
+        "enable_starting_workflow_node_id_from_client": false
+      },
+      "workspace_overrides": {
+        "conversation_initiation_client_data_webhook": null,
+        "webhooks": {
+          "post_call_webhook_id": null,
+          "events": [
+            "transcript"
+          ],
+          "transcript_format": "json",
+          "send_audio": null
+        }
+      },
+      "testing": {
+        "attached_tests": [],
+        "referenced_tests_ids": []
+      },
+      "archived": false,
+      "guardrails": {
+        "version": "1",
+        "focus": {
+          "is_enabled": false
+        },
+        "prompt_injection": {
+          "is_enabled": false
+        },
+        "content": {
+          "execution_mode": "streaming",
+          "config": {
+            "sexual": {
+              "is_enabled": false,
+              "threshold": "medium"
+            },
+            "violence": {
+              "is_enabled": false,
+              "threshold": "medium"
+            },
+            "harassment": {
+              "is_enabled": false,
+              "threshold": "medium"
+            },
+            "self_harm": {
+              "is_enabled": false,
+              "threshold": "medium"
+            },
+            "profanity": {
+              "is_enabled": false,
+              "threshold": "medium"
+            },
+            "religion_or_politics": {
+              "is_enabled": false,
+              "threshold": "medium"
+            },
+            "medical_and_legal_information": {
+              "is_enabled": false,
+              "threshold": "medium"
+            }
+          },
+          "trigger_action": {
+            "type": "end_call"
+          }
+        },
+        "moderation": null,
+        "custom": {
+          "config": {
+            "configs": []
+          }
+        }
+      },
+      "summary_language": null,
+      "auth": {
+        "enable_auth": false,
+        "allowlist": [],
+        "require_origin_header": false,
+        "shareable_token": null
+      },
+      "call_limits": {
+        "agent_concurrency_limit": -1,
+        "daily_limit": 100000,
+        "bursting_enabled": true
+      },
+      "ban": null,
+      "smb_metadata": null,
+      "privacy": {
+        "record_voice": true,
+        "retention_days": -1,
+        "delete_transcript_and_pii": false,
+        "delete_audio": false,
+        "apply_to_existing_conversations": false,
+        "zero_retention_mode": false,
+        "conversation_history_redaction": {
+          "enabled": false,
+          "entities": []
+        }
+      },
+      "trust_context": "unknown",
+      "analysis_llm": "gemini-2.5-flash",
+      "topic_discovery": {
+        "enabled": true
+      },
+      "alerting": null,
+      "overview_dashboard_template_id": null,
+      "safety": {
+        "is_blocked_ivc": false,
+        "is_blocked_non_ivc": false,
+        "ignore_safety_evaluation": false
+      }
+    },
+    "access_info": {
+      "is_creator": true,
+      "creator_name": "Nango Developer",
+      "creator_email": "api@nango.dev",
+      "role": "admin",
+      "anonymous_access_level_override": null,
+      "access_source": "creator"
+    },
+    "phone_numbers": [],
+    "whatsapp_accounts": [],
+    "workflow": {
+      "edges": {},
+      "nodes": {
+        "start_node": {
+          "type": "start",
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "edge_order": []
+        }
+      },
+      "prevent_subagent_loops": false
+    },
+    "tags": [
+      "updated",
+      "test"
+    ],
+    "version_id": "agtvrsn_4401kvxrdns9fzf8av8gswh9a80j",
+    "branch_id": "agtbrch_1801kvxrd07vehb91vxp44v21yjx",
+    "main_branch_id": "agtbrch_1801kvxrd07vehb91vxp44v21yjx",
+    "procedures": {},
+    "trust_context": "unknown"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1/convai/agents/agent_7101kvxrczg2fc9bszcctm7ek0km": {
+        "response": {
+          "agent_id": "agent_7101kvxrczg2fc9bszcctm7ek0km",
+          "name": "Updated Test Agent",
+          "conversation_config": {
+            "asr": {
+              "quality": "high",
+              "provider": "scribe_realtime",
+              "user_input_audio_format": "pcm_16000",
+              "keywords": []
+            },
+            "turn": {
+              "turn_timeout": 7,
+              "initial_wait_time": null,
+              "silence_end_call_timeout": -1,
+              "mode": "turn",
+              "turn_eagerness": "normal",
+              "spelling_patience": "auto",
+              "speculative_turn": false,
+              "retranscribe_on_turn_timeout": false,
+              "turn_model": "turn_v3",
+              "interruption_ignore_terms": [],
+              "transcribe_on_disabled_interruptions": false,
+              "soft_timeout_config": {
+                "timeout_seconds": -1,
+                "message": "Hhmmmm...yeah.",
+                "additional_soft_timeout_messages": [],
+                "use_llm_generated_message": false,
+                "randomize_fillers": false,
+                "max_soft_timeouts_per_generation": 1,
+                "llm_generated_message_prompt_override": null
+              }
+            },
+            "tts": {
+              "model_id": "eleven_flash_v2",
+              "voice_id": "cjVigY5qzO86Huf0OWal",
+              "supported_voices": [],
+              "expressive_mode": false,
+              "suggested_audio_tags": [],
+              "agent_output_audio_format": "pcm_16000",
+              "optimize_streaming_latency": 3,
+              "stability": 0.5,
+              "speed": 1,
+              "similarity_boost": 0.8,
+              "text_normalisation_type": "system_prompt",
+              "pronunciation_dictionary_locators": [],
+              "enable_phoneme_tags": false
+            },
+            "conversation": {
+              "text_only": false,
+              "max_duration_seconds": 600,
+              "client_events": [
+                "audio",
+                "interruption",
+                "agent_response",
+                "user_transcript",
+                "agent_response_correction",
+                "agent_tool_response"
+              ],
+              "file_input": {
+                "enabled": true,
+                "max_files_per_conversation": 10
+              },
+              "monitoring_enabled": false,
+              "monitoring_events": [
+                "user_transcript",
+                "agent_response",
+                "agent_response_correction"
+              ],
+              "dtmf_input_settings": null,
+              "background_sound": {
+                "source_type": null,
+                "source_id": null,
+                "volume": 0.6,
+                "crossfade_loop": false
+              },
+              "source_attribution": false
+            },
+            "language_presets": {},
+            "vad": {
+              "background_voice_detection": false
+            },
+            "agent": {
+              "first_message": "",
+              "language": "en",
+              "hinglish_mode": false,
+              "dynamic_variables": {
+                "dynamic_variable_placeholders": {}
+              },
+              "disable_first_message_interruptions": false,
+              "max_conversation_duration_message": "",
+              "text_behavior_overrides": null,
+              "prompt": {
+                "prompt": "",
+                "llm": "gemini-2.5-flash",
+                "reasoning_effort": null,
+                "thinking_budget": null,
+                "temperature": 0,
+                "max_tokens": -1,
+                "tool_ids": [],
+                "built_in_tools": {
+                  "end_call": null,
+                  "language_detection": null,
+                  "transfer_to_agent": null,
+                  "transfer_to_number": null,
+                  "skip_turn": null,
+                  "play_keypad_touch_tone": null,
+                  "voicemail_detection": null,
+                  "update_state": null,
+                  "memory_entry_search": null,
+                  "memory_entry_create": null,
+                  "memory_entry_update": null,
+                  "memory_entry_delete": null,
+                  "agent_prompt_change": null,
+                  "procedure_update": null,
+                  "procedure_create": null,
+                  "procedure_delete": null,
+                  "transfer_to_genesys_chat": null
+                },
+                "enable_parallel_tool_calls": false,
+                "mcp_server_ids": [],
+                "native_mcp_server_ids": [],
+                "knowledge_base": [],
+                "custom_llm": null,
+                "speech_engine": null,
+                "ignore_default_personality": false,
+                "rag": {
+                  "enabled": false,
+                  "embedding_model": "e5_mistral_7b_instruct",
+                  "optional_rag_enabled": false,
+                  "max_vector_distance": 0.6,
+                  "max_documents_length": 50000,
+                  "max_retrieved_rag_chunks_count": 20,
+                  "num_candidates": null,
+                  "query_rewrite_prompt_override": null
+                },
+                "timezone": null,
+                "backup_llm_config": {
+                  "preference": "default"
+                },
+                "cascade_timeout_seconds": 8,
+                "tools": []
+              }
+            }
+          },
+          "metadata": {
+            "created_at_unix_secs": 1782336356,
+            "updated_at_unix_secs": 1782336378
+          },
+          "platform_settings": {
+            "evaluation": {
+              "criteria": []
+            },
+            "widget": {
+              "variant": "full",
+              "placement": "bottom-right",
+              "expandable": "never",
+              "avatar": {
+                "type": "orb",
+                "color_1": "#2792dc",
+                "color_2": "#9ce6e6"
+              },
+              "feedback_mode": "during",
+              "end_feedback": {
+                "type": "rating"
+              },
+              "bg_color": "#ffffff",
+              "text_color": "#000000",
+              "btn_color": "#000000",
+              "btn_text_color": "#ffffff",
+              "border_color": "#e1e1e1",
+              "focus_color": "#000000",
+              "border_radius": null,
+              "btn_radius": null,
+              "action_text": null,
+              "start_call_text": null,
+              "end_call_text": null,
+              "expand_text": null,
+              "listening_text": null,
+              "speaking_text": null,
+              "shareable_page_text": null,
+              "shareable_page_show_terms": true,
+              "terms_text": "#### Terms and conditions\n\nBy clicking \"Agree,\" and each time I interact with this AI agent, I consent to the recording, storage, and sharing of my communications with third-party service providers, and as described in the Privacy Policy.\nIf you do not wish to have your conversations recorded, please refrain from using this service.",
+              "terms_html": null,
+              "terms_key": null,
+              "show_avatar_when_collapsed": false,
+              "disable_banner": false,
+              "override_link": null,
+              "markdown_link_allowed_hosts": [],
+              "markdown_link_include_www": true,
+              "markdown_link_allow_http": true,
+              "mic_muting_enabled": false,
+              "transcript_enabled": false,
+              "text_input_enabled": true,
+              "conversation_mode_toggle_enabled": false,
+              "default_expanded": false,
+              "always_expanded": false,
+              "dismissible": false,
+              "show_agent_status": false,
+              "show_conversation_id": true,
+              "strip_audio_tags": true,
+              "syntax_highlight_theme": null,
+              "text_contents": {
+                "main_label": null,
+                "start_call": null,
+                "start_chat": null,
+                "new_call": null,
+                "end_call": null,
+                "mute_microphone": null,
+                "change_language": null,
+                "collapse": null,
+                "expand": null,
+                "copied": null,
+                "accept_terms": null,
+                "dismiss_terms": null,
+                "listening_status": null,
+                "speaking_status": null,
+                "connecting_status": null,
+                "chatting_status": null,
+                "input_label": null,
+                "input_placeholder": null,
+                "input_placeholder_text_only": null,
+                "input_placeholder_new_conversation": null,
+                "user_ended_conversation": null,
+                "agent_ended_conversation": null,
+                "conversation_id": null,
+                "error_occurred": null,
+                "copy_id": null,
+                "initiate_feedback": null,
+                "request_follow_up_feedback": null,
+                "thanks_for_feedback": null,
+                "thanks_for_feedback_details": null,
+                "follow_up_feedback_placeholder": null,
+                "submit": null,
+                "go_back": null,
+                "send_message": null,
+                "text_mode": null,
+                "voice_mode": null,
+                "switched_to_text_mode": null,
+                "switched_to_voice_mode": null,
+                "copy": null,
+                "download": null,
+                "wrap": null,
+                "agent_working": null,
+                "agent_done": null,
+                "agent_error": null
+              },
+              "styles": {
+                "base": null,
+                "base_hover": null,
+                "base_active": null,
+                "base_border": null,
+                "base_subtle": null,
+                "base_primary": null,
+                "base_error": null,
+                "accent": null,
+                "accent_hover": null,
+                "accent_active": null,
+                "accent_border": null,
+                "accent_subtle": null,
+                "accent_primary": null,
+                "overlay_padding": null,
+                "button_radius": null,
+                "input_radius": null,
+                "bubble_radius": null,
+                "sheet_radius": null,
+                "compact_sheet_radius": null,
+                "dropdown_sheet_radius": null
+              },
+              "language_selector": false,
+              "supports_text_only": true,
+              "custom_avatar_path": null,
+              "language_presets": {}
+            },
+            "data_collection": {},
+            "data_collection_scopes": {},
+            "overrides": {
+              "conversation_config_override": {
+                "asr": {
+                  "keywords": false
+                },
+                "turn": {
+                  "soft_timeout_config": {
+                    "message": false
+                  }
+                },
+                "tts": {
+                  "voice_id": false,
+                  "stability": false,
+                  "speed": false,
+                  "similarity_boost": false
+                },
+                "conversation": {
+                  "text_only": true
+                },
+                "agent": {
+                  "first_message": false,
+                  "language": false,
+                  "max_conversation_duration_message": false,
+                  "prompt": {
+                    "prompt": false,
+                    "llm": false,
+                    "tool_ids": false,
+                    "native_mcp_server_ids": false,
+                    "knowledge_base": false
+                  }
+                }
+              },
+              "custom_llm_extra_body": false,
+              "enable_conversation_initiation_client_data_from_webhook": false,
+              "enable_starting_workflow_node_id_from_client": false
+            },
+            "workspace_overrides": {
+              "conversation_initiation_client_data_webhook": null,
+              "webhooks": {
+                "post_call_webhook_id": null,
+                "events": [
+                  "transcript"
+                ],
+                "transcript_format": "json",
+                "send_audio": null
+              }
+            },
+            "testing": {
+              "attached_tests": [],
+              "referenced_tests_ids": []
+            },
+            "archived": false,
+            "guardrails": {
+              "version": "1",
+              "focus": {
+                "is_enabled": false
+              },
+              "prompt_injection": {
+                "is_enabled": false
+              },
+              "content": {
+                "execution_mode": "streaming",
+                "config": {
+                  "sexual": {
+                    "is_enabled": false,
+                    "threshold": "medium"
+                  },
+                  "violence": {
+                    "is_enabled": false,
+                    "threshold": "medium"
+                  },
+                  "harassment": {
+                    "is_enabled": false,
+                    "threshold": "medium"
+                  },
+                  "self_harm": {
+                    "is_enabled": false,
+                    "threshold": "medium"
+                  },
+                  "profanity": {
+                    "is_enabled": false,
+                    "threshold": "medium"
+                  },
+                  "religion_or_politics": {
+                    "is_enabled": false,
+                    "threshold": "medium"
+                  },
+                  "medical_and_legal_information": {
+                    "is_enabled": false,
+                    "threshold": "medium"
+                  }
+                },
+                "trigger_action": {
+                  "type": "end_call"
+                }
+              },
+              "moderation": null,
+              "custom": {
+                "config": {
+                  "configs": []
+                }
+              }
+            },
+            "summary_language": null,
+            "auth": {
+              "enable_auth": false,
+              "allowlist": [],
+              "require_origin_header": false,
+              "shareable_token": null
+            },
+            "call_limits": {
+              "agent_concurrency_limit": -1,
+              "daily_limit": 100000,
+              "bursting_enabled": true
+            },
+            "ban": null,
+            "smb_metadata": null,
+            "privacy": {
+              "record_voice": true,
+              "retention_days": -1,
+              "delete_transcript_and_pii": false,
+              "delete_audio": false,
+              "apply_to_existing_conversations": false,
+              "zero_retention_mode": false,
+              "conversation_history_redaction": {
+                "enabled": false,
+                "entities": []
+              }
+            },
+            "trust_context": "unknown",
+            "analysis_llm": "gemini-2.5-flash",
+            "topic_discovery": {
+              "enabled": true
+            },
+            "alerting": null,
+            "overview_dashboard_template_id": null,
+            "safety": {
+              "is_blocked_ivc": false,
+              "is_blocked_non_ivc": false,
+              "ignore_safety_evaluation": false
+            }
+          },
+          "phone_numbers": [],
+          "whatsapp_accounts": [],
+          "workflow": {
+            "edges": {},
+            "nodes": {
+              "start_node": {
+                "type": "start",
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "edge_order": []
+              }
+            },
+            "prevent_subagent_loops": false
+          },
+          "access_info": {
+            "is_creator": true,
+            "creator_name": "Nango Developer",
+            "creator_email": "api@nango.dev",
+            "role": "admin",
+            "anonymous_access_level_override": null,
+            "access_source": "creator"
+          },
+          "tags": [
+            "updated",
+            "test"
+          ],
+          "version_id": "agtvrsn_4401kvxrdns9fzf8av8gswh9a80j",
+          "branch_id": "agtbrch_1801kvxrd07vehb91vxp44v21yjx",
+          "main_branch_id": "agtbrch_1801kvxrd07vehb91vxp44v21yjx",
+          "procedures": {},
+          "trust_context": "unknown"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 24 Jun 2026 21:33:08 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=1800;",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4997",
+          "x-ratelimit-reset": "1782336847",
+          "server": "uvicorn",
+          "vary": "Accept-Language, Accept-Encoding",
+          "access-control-allow-headers": "*",
+          "access-control-allow-methods": "POST, PATCH, OPTIONS, DELETE, GET, PUT",
+          "access-control-max-age": "600",
+          "x-trace-id": "c8c0c7cb4351bb77181021b7de46cde7",
+          "x-region": "us-central1",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=2592000"
+        },
+        "hash": "c84fa4b4aee32965128db61d78a27290c35dd6d4",
+        "request": {}
+      }
+    }
+  }
+}

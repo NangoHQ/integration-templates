@@ -1,0 +1,140 @@
+{
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "accountId": "96bfbc88-de80-40a4-9fb7-f047e656eaaf"
+    },
+    "batchSave": {
+      "Folder": [
+        {
+          "id": "b97b86fd-ca82-47d7-8435-f11555c52d0e",
+          "name": "Draft",
+          "type": "draft",
+          "itemCount": "2",
+          "subFolderCount": "0"
+        },
+        {
+          "id": "8b964855-0e96-49ce-8fc8-c9778f414536",
+          "name": "Inbox",
+          "type": "inbox",
+          "itemCount": "0",
+          "subFolderCount": "0"
+        },
+        {
+          "id": "8a304694-3e67-479b-8800-f7f349d821ea",
+          "name": "Deleted Items",
+          "type": "recyclebin",
+          "itemCount": "1",
+          "subFolderCount": "0"
+        },
+        {
+          "id": "4ea31575-4882-414e-886e-34720703cc6f",
+          "name": "Sent Items",
+          "type": "sentitems",
+          "itemCount": "4",
+          "subFolderCount": "0"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Folder": []
+    }
+  },
+  "api": {
+    "get": {
+      "/restapi/v2.1/accounts/96bfbc88-de80-40a4-9fb7-f047e656eaaf/folders": {
+        "response": {
+          "resultSetSize": "4",
+          "startPosition": "0",
+          "endPosition": "3",
+          "totalSetSize": "4",
+          "folders": [
+            {
+              "name": "Draft",
+              "type": "draft",
+              "owner": {
+                "userName": "Nango Developer",
+                "userId": "c9a996ed-50d2-4df4-ac91-a45032721bb6",
+                "email": "api@nango.dev"
+              },
+              "folderId": "b97b86fd-ca82-47d7-8435-f11555c52d0e",
+              "uri": "/folders/b97b86fd-ca82-47d7-8435-f11555c52d0e",
+              "itemCount": "2",
+              "subFolderCount": "0",
+              "hasSubFolders": "false"
+            },
+            {
+              "name": "Inbox",
+              "type": "inbox",
+              "owner": {
+                "userName": "Nango Developer",
+                "userId": "c9a996ed-50d2-4df4-ac91-a45032721bb6",
+                "email": "api@nango.dev"
+              },
+              "folderId": "8b964855-0e96-49ce-8fc8-c9778f414536",
+              "uri": "/folders/8b964855-0e96-49ce-8fc8-c9778f414536",
+              "itemCount": "0",
+              "subFolderCount": "0",
+              "hasSubFolders": "false"
+            },
+            {
+              "name": "Deleted Items",
+              "type": "recyclebin",
+              "owner": {
+                "userName": "Nango Developer",
+                "userId": "c9a996ed-50d2-4df4-ac91-a45032721bb6",
+                "email": "api@nango.dev"
+              },
+              "folderId": "8a304694-3e67-479b-8800-f7f349d821ea",
+              "uri": "/folders/8a304694-3e67-479b-8800-f7f349d821ea",
+              "itemCount": "1",
+              "subFolderCount": "0",
+              "hasSubFolders": "false"
+            },
+            {
+              "name": "Sent Items",
+              "type": "sentitems",
+              "owner": {
+                "userName": "Nango Developer",
+                "userId": "c9a996ed-50d2-4df4-ac91-a45032721bb6",
+                "email": "api@nango.dev"
+              },
+              "folderId": "4ea31575-4882-414e-886e-34720703cc6f",
+              "uri": "/folders/4ea31575-4882-414e-886e-34720703cc6f",
+              "itemCount": "4",
+              "subFolderCount": "0",
+              "hasSubFolders": "false"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 24 Jun 2026 12:45:51 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "1344",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4990",
+          "x-ratelimit-reset": "1782305200",
+          "etag": "W/\"540-kN4TXKP2phR6AYDmQSCgF14bdcc\""
+        },
+        "hash": "10bf146a9e40089241e7a6c53ac8f624cb74b581",
+        "request": {
+          "params": {
+            "count": "50",
+            "start_position": "0"
+          }
+        }
+      }
+    }
+  }
+}
