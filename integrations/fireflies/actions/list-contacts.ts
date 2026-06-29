@@ -48,7 +48,10 @@ const action = createAction({
 
         const graphqlWrapper = z
             .object({
-                data: z.object({ contacts: z.array(z.unknown()) }).nullable().optional(),
+                data: z
+                    .object({ contacts: z.array(z.unknown()) })
+                    .nullable()
+                    .optional(),
                 errors: z.array(z.object({ message: z.string() })).optional()
             })
             .safeParse(data);

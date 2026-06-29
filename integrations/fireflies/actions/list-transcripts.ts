@@ -16,7 +16,9 @@ const InputSchema = z
         scope: z
             .enum(['title', 'sentences', 'all'])
             .optional()
-            .describe('Specify the scope for keyword search. If scope is provided, keyword becomes a required field. Defaults to TITLE if no value is provided.'),
+            .describe(
+                'Specify the scope for keyword search. If scope is provided, keyword becomes a required field. Defaults to TITLE if no value is provided.'
+            ),
         user_id: z.string().optional().describe('User id. Filter all meetings that have this user ID as the organizer or participant.'),
         mine: z.boolean().optional().describe('Filter all meetings that have the API key owner as the organizer.'),
         organizers: z
