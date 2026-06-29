@@ -28886,14 +28886,6 @@ export interface Lead {
   tags?: string[] | undefined;
 };
 
-export interface Pipeline {
-  id: string;
-  name?: string | undefined;
-  update_time: string;
-  add_time?: string | undefined;
-  is_deal_probability_enabled?: boolean | undefined;
-};
-
 export interface ActionInput_close_createcontact {
   /**
    * The ID of the lead to create the contact under. Example: lead_xxx
@@ -36498,13 +36490,918 @@ export interface ActionOutput_figma_updatewebhook {
   description?: string | undefined;
 };
 
+export interface Analytics {
+  id: string;
+  start_time: string;
+  end_time: string;
+  team?: {  [key: string]: unknown | undefined;};
+  users?: ({  [key: string]: unknown | undefined;})[];
+};
+
+export interface Bite {
+  id: string;
+  name?: string | undefined;
+  transcript_id?: string | undefined;
+  start_time?: string | undefined;
+  end_time?: string | undefined;
+  status?: string | undefined;
+  summary?: string | undefined;
+  user_id?: string | undefined;
+  created_at?: string | undefined;
+  media_type?: string | undefined;
+};
+
+export interface Sentence {
+  id: string;
+  transcript_id: string;
+  index: number;
+  speaker_name?: string | undefined;
+  speaker_id?: string | undefined;
+  raw_text?: string | undefined;
+  text?: string | undefined;
+  start_time?: number | undefined;
+  end_time?: number | undefined;
+};
+
+export interface Transcript {
+  id: string;
+  title?: string | undefined;
+  date?: string | undefined;
+  duration?: number | undefined;
+  organizer_email?: string | undefined;
+  host_email?: string | undefined;
+  participants?: string[] | undefined;
+  privacy?: string | undefined;
+  transcript_url?: string | undefined;
+  audio_url?: string | undefined;
+  video_url?: string | undefined;
+  meeting_link?: string | undefined;
+  calendar_id?: string | undefined;
+  is_live?: boolean | undefined;
+};
+
+export interface UserGroup {
+  id: string;
+  name?: string | undefined;
+};
+
 export interface ActionInput_fireflies_addtolive {
-  query: string;
-  variables: {};
+  /**
+   * A valid HTTP URL for the meeting link, e.g. Google Meet, Zoom, etc.
+   */
+  url: string;
+  /**
+   * Title or name of the meeting. Maximum length is 256 characters.
+   */
+  title?: string | undefined;
+  /**
+   * Array of expected meeting participants.
+   */
+  attendees?: ({  /**
+   * Display name of the attendee as it appears in meeting platforms.
+   */
+  displayName?: string | undefined;
+  /**
+   * Email address of the attendee.
+   */
+  email?: string | undefined;
+  /**
+   * Phone number of the attendee.
+   */
+  phoneNumber?: string | undefined;})[];
 };
 
 export interface ActionOutput_fireflies_addtolive {
-  data: {};
+  success: boolean;
+  message?: string | undefined;
+};
+
+export interface ActionInput_fireflies_continueaskfredthread {
+  /**
+   * The ID of the existing AskFred thread to continue. Example: "thread_abc123"
+   */
+  thread_id: string;
+  /**
+   * Follow-up question or query. Maximum 2000 characters.
+   */
+  query: string;
+  /**
+   * Response format: markdown or plaintext
+   */
+  format_mode?: 'markdown' | 'plaintext' | undefined;
+  /**
+   * Language code for the response (e.g., "en" for English).
+   */
+  response_language?: string | undefined;
+};
+
+export interface ActionOutput_fireflies_continueaskfredthread {
+  message: {  id: string;
+  thread_id: string;
+  query: string;
+  answer: string;
+  suggested_queries?: string[] | undefined;
+  status: string;
+  created_at?: string | undefined;};
+};
+
+export interface ActionInput_fireflies_createaskfredthread {
+  /**
+   * Question or query about the meeting(s). Maximum 2000 characters. Example: "What were the main action items?"
+   */
+  query: string;
+  /**
+   * Specific transcript ID to query. If provided, filters are ignored.
+   */
+  transcript_id?: string | undefined;
+  /**
+   * Filters to search across multiple meetings. Only used when transcript_id is not provided.
+   */
+  filters?: {  /**
+   * ISO 8601 datetime. Example: "2024-03-01T00:00:00Z"
+   */
+  start_time?: string | undefined;
+  /**
+   * ISO 8601 datetime. Example: "2024-03-31T23:59:59Z"
+   */
+  end_time?: string | undefined;
+  /**
+   * Channel/integration IDs to filter by
+   */
+  channel_ids?: string[] | undefined;
+  /**
+   * Organizer email addresses to filter by
+   */
+  organizers?: string[] | undefined;
+  /**
+   * Participant email addresses to filter by
+   */
+  participants?: string[] | undefined;
+  /**
+   * Specific transcript IDs to filter by
+   */
+  transcript_ids?: string[] | undefined;};
+  /**
+   * Language code for the response (e.g., "en", "es").
+   */
+  response_language?: string | undefined;
+  /**
+   * Response format: "markdown" or "plaintext".
+   */
+  format_mode?: string | undefined;
+};
+
+export interface ActionOutput_fireflies_createaskfredthread {
+  id: string;
+  thread_id: string;
+  query?: string | undefined;
+  answer?: string | undefined;
+  suggested_queries?: string[] | undefined;
+  status?: string | undefined;
+  created_at?: string | undefined;
+};
+
+export interface ActionInput_fireflies_createbite {
+  /**
+   * ID of the transcript. Example: "abc123"
+   */
+  transcript_id: string;
+  /**
+   * Start time of the bite in seconds. Example: 0
+   */
+  start_time: number;
+  /**
+   * End time of the bite in seconds. Example: 5
+   */
+  end_time: number;
+  /**
+   * Name of the bite. Maximum length is 256 characters.
+   */
+  name?: string | undefined;
+  /**
+   * Type of the bite, either "video" or "audio"
+   */
+  media_type?: 'video' | 'audio' | undefined;
+  /**
+   * Array specifying the visibility of the Soundbite.
+   */
+  privacies?: ({  0: 'public';
+  1: 'team';
+  2: 'participants';})[] | undefined;
+  /**
+   * Summary for the bite. Maximum length is 500 characters.
+   */
+  summary?: string | undefined;
+};
+
+export interface ActionOutput_fireflies_createbite {
+  id?: string | undefined;
+  transcript_id?: string | undefined;
+  start_time?: string | undefined;
+  end_time?: string | undefined;
+  name?: string | undefined;
+  thumbnail?: string | undefined;
+  preview?: string | undefined;
+  status?: string | undefined;
+  summary?: string | undefined;
+  user_id?: string | undefined;
+  summary_status?: string | undefined;
+  media_type?: string | undefined;
+  privacies?: string[] | undefined;
+  created_at?: string | undefined;
+};
+
+export interface ActionInput_fireflies_createliveactionitem {
+  /**
+   * The ID of the live meeting to create the action item for. Example: "abc123"
+   */
+  meeting_id: string;
+  /**
+   * Natural language description of the action item to create. Example: "Follow up with the client about the proposal"
+   */
+  prompt: string;
+};
+
+export interface ActionOutput_fireflies_createliveactionitem {
+  success: boolean;
+};
+
+export interface ActionInput_fireflies_createlivesoundbite {
+  /**
+   * The ID of the live meeting to create the soundbite for. Example: "abc123"
+   */
+  meeting_id: string;
+  /**
+   * Natural language description of the soundbite to create. Min 5, max 255 characters. Example: "Create a soundbite from the last 2 minutes"
+   */
+  prompt: string;
+};
+
+export interface ActionOutput_fireflies_createlivesoundbite {
+  success: boolean;
+};
+
+export interface ActionInput_fireflies_deleteaskfredthread {
+  /**
+   * The unique identifier of the AskFred thread to delete. Example: "thread_abc123"
+   */
+  id: string;
+};
+
+export interface ActionOutput_fireflies_deleteaskfredthread {
+  id: string;
+  title: string;
+  transcript_id?: string | undefined;
+  user_id: string;
+  created_at: string;
+};
+
+export interface ActionInput_fireflies_deletetranscript {
+  /**
+   * Transcript ID to delete. Example: "abc123"
+   */
+  id: string;
+};
+
+export interface ActionOutput_fireflies_deletetranscript {
+  deleted: boolean;
+};
+
+export interface ActionInput_fireflies_getanalytics {
+  /**
+   * Start date in ISO 8601 format. Example: "2024-01-01T00:00:00Z"
+   */
+  start_time: string;
+  /**
+   * End date in ISO 8601 format. Example: "2024-01-31T23:59:59Z"
+   */
+  end_time: string;
+};
+
+export interface ActionOutput_fireflies_getanalytics {
+  team?: {  conversation?: {  average_filler_words?: number | undefined;
+  average_filler_words_diff_pct?: number | undefined;
+  average_monologues_count?: number | undefined;
+  average_monologues_count_diff_pct?: number | undefined;
+  average_questions?: number | undefined;
+  average_questions_diff_pct?: number | undefined;
+  average_sentiments?: {  negative_pct?: number | undefined;
+  neutral_pct?: number | undefined;
+  positive_pct?: number | undefined;};
+  average_silence_duration?: number | undefined;
+  average_silence_duration_diff_pct?: number | undefined;
+  average_talk_listen_ratio?: number | undefined;
+  average_words_per_minute?: number | undefined;
+  longest_monologue_duration_sec?: number | undefined;
+  longest_monologue_duration_diff_pct?: number | undefined;
+  total_filler_words?: number | undefined;
+  total_filler_words_diff_pct?: number | undefined;
+  total_meeting_notes_count?: number | undefined;
+  total_meetings_count?: number | undefined;
+  total_monologues_count?: number | undefined;
+  total_monologues_diff_pct?: number | undefined;
+  teammates_count?: number | undefined;
+  total_questions?: number | undefined;
+  total_questions_diff_pct?: number | undefined;
+  total_silence_duration?: number | undefined;
+  total_silence_duration_diff_pct?: number | undefined;};
+  meeting?: {  count?: number | undefined;
+  count_diff_pct?: number | undefined;
+  duration?: number | undefined;
+  duration_diff_pct?: number | undefined;
+  average_count?: number | undefined;
+  average_count_diff_pct?: number | undefined;
+  average_duration?: number | undefined;
+  average_duration_diff_pct?: number | undefined;};};
+  users?: ({  user_id?: string | undefined;
+  user_name?: string | undefined;
+  user_email?: string | undefined;
+  conversation?: {  talk_listen_pct?: number | undefined;
+  talk_listen_ratio?: number | undefined;
+  total_silence_duration?: number | undefined;
+  total_silence_duration_compare_to?: number | undefined;
+  total_silence_pct?: number | undefined;
+  total_silence_ratio?: number | undefined;
+  total_speak_duration?: number | undefined;
+  total_speak_duration_with_user?: number | undefined;
+  total_word_count?: number | undefined;
+  user_filler_words?: number | undefined;
+  user_filler_words_compare_to?: number | undefined;
+  user_filler_words_diff_pct?: number | undefined;
+  user_longest_monologue_sec?: number | undefined;
+  user_longest_monologue_compare_to?: number | undefined;
+  user_longest_monologue_diff_pct?: number | undefined;
+  user_monologues_count?: number | undefined;
+  user_monologues_count_compare_to?: number | undefined;
+  user_monologues_count_diff_pct?: number | undefined;
+  user_questions?: number | undefined;
+  user_questions_compare_to?: number | undefined;
+  user_questions_diff_pct?: number | undefined;
+  user_speak_duration?: number | undefined;
+  user_word_count?: number | undefined;
+  user_words_per_minute?: number | undefined;
+  user_words_per_minute_compare_to?: number | undefined;
+  user_words_per_minute_diff_pct?: number | undefined;};
+  meeting?: {  count?: number | undefined;
+  count_diff?: number | undefined;
+  count_diff_compared_to?: number | undefined;
+  count_diff_pct?: number | undefined;
+  duration?: number | undefined;
+  duration_diff?: number | undefined;
+  duration_diff_compared_to?: number | undefined;
+  duration_diff_pct?: number | undefined;};})[];
+};
+
+export interface ActionInput_fireflies_getaskfredthread {
+  /**
+   * The unique identifier of the AskFred thread to retrieve. Example: "thread_abc123"
+   */
+  id: string;
+};
+
+export interface ActionOutput_fireflies_getaskfredthread {
+  id?: string | undefined;
+  title?: string | undefined;
+  transcript_id?: string | undefined;
+  user_id?: string | undefined;
+  created_at?: string | undefined;
+  messages?: ({  id?: string | undefined;
+  thread_id?: string | undefined;
+  query?: string | undefined;
+  answer?: string | undefined;
+  suggested_queries?: string[] | undefined;
+  status?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;})[];
+};
+
+export interface ActionInput_fireflies_getbite {
+  /**
+   * Bite ID. Example: "bite_abc123"
+   */
+  id: string;
+};
+
+export interface ActionOutput_fireflies_getbite {
+  id: string;
+  transcript_id?: string | undefined;
+  name?: string | undefined;
+  thumbnail?: string | undefined;
+  preview?: string | undefined;
+  status?: string | undefined;
+  summary?: string | undefined;
+  user_id?: string | undefined;
+  start_time?: number | undefined;
+  end_time?: number | undefined;
+  summary_status?: string | undefined;
+  media_type?: string | undefined;
+  created_at?: string | undefined;
+};
+
+export interface ActionInput_fireflies_getchannel {
+  /**
+   * The unique identifier of the channel to fetch. Example: "channel-id-1"
+   */
+  channel_id: string;
+};
+
+export interface ActionOutput_fireflies_getchannel {
+  id: string;
+  title?: string | undefined;
+  is_private?: boolean | undefined;
+  created_by?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  members?: ({  user_id?: string | undefined;
+  email?: string | undefined;
+  name?: string | undefined;})[];
+};
+
+export interface ActionInput_fireflies_gettranscript {
+  /**
+   * Transcript ID. Example: "abc123"
+   */
+  id: string;
+};
+
+export interface ActionOutput_fireflies_gettranscript {
+  id?: string | undefined;
+  title?: string | undefined;
+  sentences?: ({  index?: number | undefined;
+  speaker_name?: string | undefined;
+  speaker_id?: string | undefined;
+  raw_text?: string | undefined;
+  start_time?: string | undefined;
+  end_time?: string | undefined;
+  text?: string | undefined;})[];
+  summary?: {  overview?: string | undefined;
+  action_items?: string | undefined;
+  keywords?: string | undefined;
+  outline?: string | undefined;
+  shorthand_bullet?: string | undefined;
+  bullet_gist?: string | undefined;
+  notes?: string | undefined;
+  gist?: string | undefined;
+  short_summary?: string | undefined;
+  topics_discussed?: string[] | undefined;
+  transcript_chapters?: string[] | undefined;
+  extended_sections?: ({  title?: string | undefined;
+  content?: string | undefined;})[];};
+  speakers?: ({  id?: string | undefined;
+  name?: string | undefined;})[];
+  meeting_info?: {  fred_joined?: boolean | undefined;
+  silent_meeting?: boolean | undefined;
+  summary_status?: string | undefined;};
+  meeting_attendees?: ({  displayName?: string | undefined;
+  email?: string | undefined;
+  phoneNumber?: string | undefined;
+  name?: string | undefined;
+  location?: string | undefined;})[];
+  analytics?: {  sentiments?: {  negative_pct?: number | undefined;
+  neutral_pct?: number | undefined;
+  positive_pct?: number | undefined;};
+  categories?: {  questions?: number | undefined;
+  date_times?: number | undefined;
+  metrics?: number | undefined;
+  tasks?: number | undefined;};
+  speakers?: ({  speaker_id?: number | undefined;
+  name?: string | undefined;
+  duration?: number | undefined;
+  word_count?: number | undefined;
+  longest_monologue?: number | undefined;
+  monologues_count?: number | undefined;
+  filler_words?: number | undefined;
+  questions?: number | undefined;
+  duration_pct?: number | undefined;
+  words_per_minute?: number | undefined;})[];};
+};
+
+export interface ActionInput_fireflies_getuser {
+  /**
+   * User ID. Omit to return the authenticated user.
+   */
+  id?: string | undefined;
+};
+
+export interface ActionOutput_fireflies_getuser {
+  user_id: string;
+  name?: string | undefined;
+  email?: string | undefined;
+  num_transcripts?: number | undefined;
+  recent_transcript?: string | undefined;
+  recent_meeting?: string | undefined;
+  minutes_consumed?: number | undefined;
+  is_admin?: boolean | undefined;
+  integrations?: string[] | undefined;
+  is_calendar_in_sync?: boolean | undefined;
+  user_groups?: ({  id: string;
+  name?: string | undefined;
+  handle?: string | undefined;
+  members?: ({  user_id: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;})[];})[];
+};
+
+export interface ActionInput_fireflies_listactivemeetings {
+  /**
+   * Filter active meetings by a specific user email address. Example: "user@example.com"
+   */
+  email?: string | undefined;
+  /**
+   * Filter active meetings by their state. Possible values: "active", "paused". If omitted, both states are returned.
+   */
+  states?: ({  0: 'active';
+  1: 'paused';})[] | undefined;
+};
+
+export interface ActionOutput_fireflies_listactivemeetings {
+  /**
+   * List of currently active/live meetings
+   */
+  meetings: ({  /**
+   * Unique identifier for the active meeting. Example: "meeting-id-1"
+   */
+  id: string;
+  /**
+   * Title of the active meeting. Example: "Team Standup"
+   */
+  title: string;
+  /**
+   * Email address of the meeting organizer. Example: "user@example.com"
+   */
+  organizer_email?: string | undefined;
+  /**
+   * The URL link to join the meeting. Example: "https://zoom.us/j/123456789"
+   */
+  meeting_link?: string | undefined;
+  /**
+   * ISO 8601 formatted timestamp indicating when the meeting started. Example: "2024-01-15T10:00:00.000Z"
+   */
+  start_time?: string | undefined;
+  /**
+   * ISO 8601 formatted timestamp indicating when the meeting is scheduled to end. Example: "2024-01-15T11:00:00.000Z"
+   */
+  end_time?: string | undefined;
+  /**
+   * Privacy setting for the meeting. Possible values: "link", "owner", "participants", "teammates_and_participants", "participating_teammates", "teammates"
+   */
+  privacy?: 'link' | 'owner' | 'participants' | 'teammates_and_participants' | 'participating_teammates' | 'teammates' | undefined;
+  /**
+   * Current state of the meeting. Possible values: "active", "paused"
+   */
+  state?: 'active' | 'paused' | undefined;})[];
+};
+
+export interface ActionInput_fireflies_listaskfredthreads {
+  /**
+   * Filter threads to only those associated with a specific transcript ID. Example: "transcript_xyz789"
+   */
+  transcript_id?: string | undefined;
+};
+
+export interface ActionOutput_fireflies_listaskfredthreads {
+  0: {  id: string;
+  title: string;
+  created_at?: string | undefined;
+  transcript_id?: string | undefined;
+  user_id?: string | undefined;};
+};
+
+export interface ActionInput_fireflies_listbites {
+  /**
+   * Fetch bites owned by the API key owner.
+   */
+  mine?: boolean | undefined;
+  /**
+   * Filter bites by a specific transcript ID.
+   */
+  transcript_id?: string | undefined;
+  /**
+   * Fetch bites for the API key owner's team.
+   */
+  my_team?: boolean | undefined;
+  /**
+   * Maximum number of bites to fetch. Max 50.
+   */
+  limit?: number | undefined;
+  /**
+   * Number of records to skip for pagination.
+   */
+  skip?: number | undefined;
+};
+
+export interface ActionOutput_fireflies_listbites {
+  0: {  id: string;
+  name?: string | undefined;
+  transcript_id?: string | undefined;
+  start_time?: string | undefined;
+  end_time?: string | undefined;
+  status?: string | undefined;
+  summary?: string | undefined;
+  user_id?: string | undefined;
+  user?: {  id: string;
+  name: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  picture?: string | undefined;};
+  created_at?: string | undefined;};
+};
+
+export interface ActionInput_fireflies_listchannels {
+};
+
+export interface ActionOutput_fireflies_listchannels {
+  channels: ({  /**
+   * Channel ID. Example: "channel-id-1"
+   */
+  id: string;
+  /**
+   * Channel title. Example: "Engineering"
+   */
+  title: string;
+  /**
+   * Creation timestamp. Example: "2024-01-01T00:00:00Z"
+   */
+  created_at: string;
+  /**
+   * Last update timestamp. Example: "2024-01-01T00:00:00Z"
+   */
+  updated_at: string;
+  /**
+   * User ID of the creator. Example: "user-id-1"
+   */
+  created_by: string;
+  /**
+   * Whether the channel is private
+   */
+  is_private: boolean;
+  members: ({  /**
+   * User ID. Example: "user-id-1"
+   */
+  user_id: string;
+  /**
+   * Email address. Example: "john@example.com"
+   */
+  email: string;
+  /**
+   * User name. Example: "John Doe"
+   */
+  name: string;})[];})[];
+};
+
+export interface ActionInput_fireflies_listcontacts {
+};
+
+export interface ActionOutput_fireflies_listcontacts {
+  contacts: ({  email: string;
+  name?: string | undefined;
+  picture?: string | undefined;
+  last_meeting_date?: string | undefined;})[];
+};
+
+export interface ActionInput_fireflies_listtranscripts {
+  /**
+   * Return all transcripts created after this date. ISO 8601 format. Example: "2024-07-08T22:13:46.660Z"
+   */
+  fromDate?: string | undefined;
+  /**
+   * Return all transcripts created before this date. ISO 8601 format. Example: "2024-07-08T22:13:46.660Z"
+   */
+  toDate?: string | undefined;
+  /**
+   * Number of transcripts to return. Maximum 50 in one query.
+   */
+  limit?: number | undefined;
+  /**
+   * Number of transcripts to skip.
+   */
+  skip?: number | undefined;
+  /**
+   * Deprecated. Use keyword instead. Title of the transcript. Mutually exclusive with keyword.
+   */
+  title?: string | undefined;
+  /**
+   * Allows searching for keywords in meeting title and/or words spoken during the meeting. Mutually exclusive with title.
+   */
+  keyword?: string | undefined;
+  /**
+   * Specify the scope for keyword search. If scope is provided, keyword becomes a required field. Defaults to TITLE if no value is provided.
+   */
+  scope?: 'title' | 'sentences' | 'all' | undefined;
+  /**
+   * User id. Filter all meetings that have this user ID as the organizer or participant.
+   */
+  user_id?: string | undefined;
+  /**
+   * Filter all meetings that have the API key owner as the organizer.
+   */
+  mine?: boolean | undefined;
+  /**
+   * Filter meetings that have any of these emails as organizers. Accepts an array of email addresses.
+   */
+  organizers?: string[] | undefined;
+  /**
+   * Filter meetings that contain any of these emails as attendees. Accepts an array of email addresses.
+   */
+  participants?: string[] | undefined;
+  /**
+   * Filter meetings that belong to a specific channel. Accepts a single channel ID.
+   */
+  channel_id?: string | undefined;
+  /**
+   * Filter all meetings accordingly to meetings that have this email as the host.
+   */
+  host_email?: string | undefined;
+  /**
+   * Deprecated. Use organizers instead. Filter meetings that have this email as the organizer.
+   */
+  organizer_email?: string | undefined;
+  /**
+   * Deprecated. Use participants instead. Filter meetings that contain this email as an attendee.
+   */
+  participant_email?: string | undefined;
+};
+
+export interface ActionOutput_fireflies_listtranscripts {
+  transcripts: ({  id: string;
+  title?: string | undefined;
+  date?: string | undefined;
+  duration?: number | undefined;
+  organizer_email?: string | undefined;
+  host_email?: string | undefined;
+  participants?: string[] | undefined;
+  fireflies_users?: string[] | undefined;
+  transcript_url?: string | undefined;
+  audio_url?: string | undefined;
+  video_url?: string | undefined;
+  meeting_link?: string | undefined;
+  is_live?: boolean | undefined;
+  privacy?: string | undefined;
+  calendar_id?: string | undefined;
+  cal_id?: string | undefined;
+  calendar_type?: string | undefined;
+  channels?: ({  id?: string | undefined;})[];
+  meeting_info?: {  fred_joined?: boolean | undefined;
+  silent_meeting?: boolean | undefined;
+  summary_status?: string | undefined;};
+  summary?: {  keywords?: string[] | undefined;
+  action_items?: string[] | undefined;
+  short_summary?: string | undefined;
+  meeting_type?: string | undefined;};})[];
+  next_skip?: number | undefined;
+};
+
+export interface ActionInput_fireflies_listusergroups {
+  /**
+   * If true, returns only user groups the current user belongs to.
+   */
+  mine?: boolean | undefined;
+};
+
+export interface ActionOutput_fireflies_listusergroups {
+  user_groups: ({  id: string;
+  name: string;
+  handle?: string | undefined;
+  members?: ({  user_id: string;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  email?: string | undefined;})[];})[];
+};
+
+export interface ActionInput_fireflies_listusers {
+};
+
+export interface ActionOutput_fireflies_listusers {
+  users: ({  user_id: string;
+  name?: string | undefined;
+  email?: string | undefined;
+  is_admin?: boolean | undefined;
+  num_transcripts?: number | undefined;
+  recent_meeting?: string | undefined;
+  recent_transcript?: string | undefined;
+  minutes_consumed?: number | undefined;
+  is_calendar_in_sync?: boolean | undefined;})[];
+};
+
+export interface ActionInput_fireflies_revokesharedmeetingaccess {
+  /**
+   * The unique identifier of the meeting / transcript.
+   */
+  meeting_id: string;
+  /**
+   * The email address of the user whose shared access should be revoked.
+   */
+  email: string;
+};
+
+export interface ActionOutput_fireflies_revokesharedmeetingaccess {
+  success: boolean;
+  message: string;
+};
+
+export interface ActionInput_fireflies_sharemeeting {
+  /**
+   * Meeting ID to share. Example: "abc123"
+   */
+  meeting_id: string;
+  /**
+   * Email addresses to share with. Up to 50 emails per request.
+   */
+  emails: string[];
+  /**
+   * Optional expiry period in days. Allowed values: 7, 14, or 30.
+   */
+  expiry_days?: number | undefined;
+};
+
+export interface ActionOutput_fireflies_sharemeeting {
+  success: boolean;
+  message?: string | undefined;
+};
+
+export interface ActionInput_fireflies_updatemeetingchannel {
+  /**
+   * Array of Transcript IDs to update. Must contain 1–5 items. Example: ["transcript_id_1"]
+   */
+  transcript_ids: string[];
+  /**
+   * The target Channel ID. Example: "channel_id"
+   */
+  channel_id: string;
+};
+
+export type ActionOutput_fireflies_updatemeetingchannel = boolean
+
+export interface ActionInput_fireflies_updatemeetingprivacy {
+  /**
+   * Transcript ID. Example: "abc123"
+   */
+  id: string;
+  /**
+   * Privacy setting. Example: "teammates"
+   */
+  privacy: 'link' | 'owner' | 'participants' | 'participatingteammates' | 'teammatesandparticipants' | 'teammates';
+};
+
+export type ActionOutput_fireflies_updatemeetingprivacy = boolean
+
+export interface ActionInput_fireflies_updatemeetingstate {
+  /**
+   * Meeting ID. Example: "abc123"
+   */
+  meeting_id: string;
+  /**
+   * Action to perform. Example: "pause_recording"
+   */
+  action: 'pause_recording' | 'resume_recording';
+};
+
+export interface ActionOutput_fireflies_updatemeetingstate {
+  success: boolean;
+  action: string;
+};
+
+export interface ActionInput_fireflies_updatemeetingtitle {
+  /**
+   * Transcript ID. Example: "abc123"
+   */
+  id: string;
+  /**
+   * New meeting title. Example: "Weekly Sync"
+   */
+  title: string;
+};
+
+export type ActionOutput_fireflies_updatemeetingtitle = boolean
+
+export interface ActionInput_fireflies_uploadaudio {
+  /**
+   * The URL of the media file to be transcribed. Example: "https://example.com/audio.mp3"
+   */
+  url: string;
+  /**
+   * Title or name of the meeting. Example: "Weekly sync"
+   */
+  title?: string | undefined;
+  attendees?: ({  displayName: string;
+  email: string;
+  phoneNumber: string;})[] | undefined;
+  webhook?: string | undefined;
+  custom_language?: string | undefined;
+  client_reference_id?: string | undefined;
+  save_video?: boolean | undefined;
+  bypass_size_check?: boolean | undefined;
+  download_auth?: {  type: 'bearer_token' | 'basic_auth';
+  bearer?: {  token: string;} | undefined;
+  basic?: {  username?: string | undefined;
+  password: string;};};
+};
+
+export interface ActionOutput_fireflies_uploadaudio {
+  success: boolean;
+  title?: string | undefined;
+  message?: string | undefined;
 };
 
 export interface Article {

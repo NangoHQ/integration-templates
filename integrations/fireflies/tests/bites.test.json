@@ -1,0 +1,199 @@
+{
+  "nango": {
+    "batchSave": {
+      "Bite": [
+        {
+          "id": "G7vS8RYTczq",
+          "name": "Test bite",
+          "transcript_id": "01KW0SR1A72DGQ8TEEQTH5RWF6",
+          "start_time": "0",
+          "end_time": "2",
+          "status": "ready",
+          "user_id": "01KW0H2WK4RB0WEB8X3SGX7Q8E",
+          "created_at": "2026-06-26T01:50:13.708Z",
+          "media_type": "audio"
+        },
+        {
+          "id": "7f1HKhL7ozQ",
+          "name": "Test bite",
+          "transcript_id": "01KW0SR1A72DGQ8TEEQTH5RWF6",
+          "start_time": "0",
+          "end_time": "2",
+          "status": "ready",
+          "user_id": "01KW0H2WK4RB0WEB8X3SGX7Q8E",
+          "created_at": "2026-06-26T01:50:06.854Z",
+          "media_type": "audio"
+        },
+        {
+          "id": "nXy98fyXhSh",
+          "name": "Test bite",
+          "transcript_id": "01KW0SR1A72DGQ8TEEQTH5RWF6",
+          "start_time": "0",
+          "end_time": "2",
+          "status": "ready",
+          "user_id": "01KW0H2WK4RB0WEB8X3SGX7Q8E",
+          "created_at": "2026-06-26T01:49:05.297Z",
+          "media_type": "audio"
+        },
+        {
+          "id": "ANEh61S6NkJ",
+          "name": "Test bite",
+          "transcript_id": "01KW0SR1A72DGQ8TEEQTH5RWF6",
+          "start_time": "0",
+          "end_time": "2",
+          "status": "ready",
+          "user_id": "01KW0H2WK4RB0WEB8X3SGX7Q8E",
+          "created_at": "2026-06-26T01:48:56.156Z",
+          "media_type": "audio"
+        },
+        {
+          "id": "bSYoguisOjQ",
+          "name": "Test bite",
+          "transcript_id": "01KW0SR1A72DGQ8TEEQTH5RWF6",
+          "start_time": "0",
+          "end_time": "2",
+          "status": "ready",
+          "user_id": "01KW0H2WK4RB0WEB8X3SGX7Q8E",
+          "created_at": "2026-06-26T01:48:25.187Z",
+          "media_type": "audio"
+        },
+        {
+          "id": "l4gab0ruvEs",
+          "name": "Test Bite",
+          "transcript_id": "01KW0SR1A72DGQ8TEEQTH5RWF6",
+          "start_time": "1",
+          "end_time": "5",
+          "status": "ready",
+          "user_id": "01KW0H2WK4RB0WEB8X3SGX7Q8E",
+          "created_at": "2026-06-26T01:48:10.742Z",
+          "media_type": "audio"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Bite": []
+    }
+  },
+  "api": {
+    "post": {
+      "/graphql": {
+        "response": {
+          "data": {
+            "bites": [
+              {
+                "id": "G7vS8RYTczq",
+                "transcript_id": "01KW0SR1A72DGQ8TEEQTH5RWF6",
+                "name": "Test bite",
+                "start_time": 0,
+                "end_time": 2,
+                "status": "ready",
+                "summary": null,
+                "user_id": "01KW0H2WK4RB0WEB8X3SGX7Q8E",
+                "created_at": "2026-06-26T01:50:13.708Z",
+                "media_type": "audio"
+              },
+              {
+                "id": "7f1HKhL7ozQ",
+                "transcript_id": "01KW0SR1A72DGQ8TEEQTH5RWF6",
+                "name": "Test bite",
+                "start_time": 0,
+                "end_time": 2,
+                "status": "ready",
+                "summary": null,
+                "user_id": "01KW0H2WK4RB0WEB8X3SGX7Q8E",
+                "created_at": "2026-06-26T01:50:06.854Z",
+                "media_type": "audio"
+              },
+              {
+                "id": "nXy98fyXhSh",
+                "transcript_id": "01KW0SR1A72DGQ8TEEQTH5RWF6",
+                "name": "Test bite",
+                "start_time": 0,
+                "end_time": 2,
+                "status": "ready",
+                "summary": null,
+                "user_id": "01KW0H2WK4RB0WEB8X3SGX7Q8E",
+                "created_at": "2026-06-26T01:49:05.297Z",
+                "media_type": "audio"
+              },
+              {
+                "id": "ANEh61S6NkJ",
+                "transcript_id": "01KW0SR1A72DGQ8TEEQTH5RWF6",
+                "name": "Test bite",
+                "start_time": 0,
+                "end_time": 2,
+                "status": "ready",
+                "summary": null,
+                "user_id": "01KW0H2WK4RB0WEB8X3SGX7Q8E",
+                "created_at": "2026-06-26T01:48:56.156Z",
+                "media_type": "audio"
+              },
+              {
+                "id": "bSYoguisOjQ",
+                "transcript_id": "01KW0SR1A72DGQ8TEEQTH5RWF6",
+                "name": "Test bite",
+                "start_time": 0,
+                "end_time": 2,
+                "status": "ready",
+                "summary": null,
+                "user_id": "01KW0H2WK4RB0WEB8X3SGX7Q8E",
+                "created_at": "2026-06-26T01:48:25.187Z",
+                "media_type": "audio"
+              },
+              {
+                "id": "l4gab0ruvEs",
+                "transcript_id": "01KW0SR1A72DGQ8TEEQTH5RWF6",
+                "name": "Test Bite",
+                "start_time": 1,
+                "end_time": 5,
+                "status": "ready",
+                "summary": null,
+                "user_id": "01KW0H2WK4RB0WEB8X3SGX7Q8E",
+                "created_at": "2026-06-26T01:48:10.742Z",
+                "media_type": "audio"
+              }
+            ]
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 26 Jun 2026 01:50:33 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4978",
+          "x-ratelimit-reset": "1782438668",
+          "vary": "Origin",
+          "x-ratelimit-limit-api": "60",
+          "x-ratelimit-remaining-api": "49",
+          "x-ratelimit-reset-api": "41",
+          "cache-control": "no-store",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "cf-ray": "a1188fd10b75dd6a-PDX"
+        },
+        "hash": "3061d24c7858fe414d384f3a28baa5552cbf8589",
+        "request": {
+          "data": {
+            "query": "query Bites($mine: Boolean!, $limit: Int!, $skip: Int!) {\n                    bites(mine: $mine, limit: $limit, skip: $skip) {\n                        id\n                        transcript_id\n                        name\n                        start_time\n                        end_time\n                        status\n                        summary\n                        user_id\n                        created_at\n                        media_type\n                    }\n                }",
+            "variables": {
+              "mine": true,
+              "limit": 50,
+              "skip": 0
+            }
+          }
+        }
+      }
+    }
+  }
+}
