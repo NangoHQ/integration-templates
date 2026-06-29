@@ -26,10 +26,7 @@
       }
     ],
     "costDollars": {
-      "total": 0.001,
-      "contents": {
-        "text": 0.001
-      }
+      "total": 0.001
     }
   },
   "nango": {},
