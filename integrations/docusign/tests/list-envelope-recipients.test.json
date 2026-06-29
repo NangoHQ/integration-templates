@@ -1,0 +1,105 @@
+{
+  "input": {
+    "envelopeId": "4ee72f9d-d6f6-8cfd-81e1-9bdea266189e"
+  },
+  "output": {
+    "signers": [
+      {
+        "recipientId": "1",
+        "recipientIdGuid": "c52623cd-3d36-8ce8-8155-b1c3bd6718a3",
+        "name": "Alice Employee",
+        "email": "employee@example.com",
+        "routingOrder": "1",
+        "status": "sent",
+        "deliveryMethod": "email",
+        "completedCount": "0",
+        "creationReason": "sender",
+        "isBulkRecipient": "false",
+        "recipientSuppliesTabs": "true",
+        "requireUploadSignature": "false",
+        "requireIdLookup": "false",
+        "userId": "49282809-c214-43e3-8135-eeb35da6bfa9",
+        "sentDateTime": "2026-06-24T12:15:53.1330000Z",
+        "recipientType": "signer"
+      }
+    ],
+    "carbonCopies": [],
+    "certifiedDeliveries": [],
+    "inPersonSigners": [],
+    "agents": [],
+    "editors": [],
+    "intermediaries": [],
+    "seals": [],
+    "witnesses": [],
+    "notaries": [],
+    "recipientCount": "1",
+    "currentRoutingOrder": "1"
+  },
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "accountId": "96bfbc88-de80-40a4-9fb7-f047e656eaaf"
+    }
+  },
+  "api": {
+    "get": {
+      "/restapi/v2.1/accounts/96bfbc88-de80-40a4-9fb7-f047e656eaaf/envelopes/4ee72f9d-d6f6-8cfd-81e1-9bdea266189e/recipients": {
+        "response": {
+          "signers": [
+            {
+              "creationReason": "sender",
+              "isBulkRecipient": "false",
+              "recipientSuppliesTabs": "true",
+              "requireUploadSignature": "false",
+              "name": "Alice Employee",
+              "email": "employee@example.com",
+              "recipientId": "1",
+              "recipientIdGuid": "c52623cd-3d36-8ce8-8155-b1c3bd6718a3",
+              "requireIdLookup": "false",
+              "userId": "49282809-c214-43e3-8135-eeb35da6bfa9",
+              "routingOrder": "1",
+              "status": "sent",
+              "completedCount": "0",
+              "sentDateTime": "2026-06-24T12:15:53.1330000Z",
+              "deliveryMethod": "email",
+              "recipientType": "signer"
+            }
+          ],
+          "agents": [],
+          "editors": [],
+          "intermediaries": [],
+          "carbonCopies": [],
+          "certifiedDeliveries": [],
+          "inPersonSigners": [],
+          "seals": [],
+          "witnesses": [],
+          "notaries": [],
+          "recipientCount": "1",
+          "currentRoutingOrder": "1"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 24 Jun 2026 12:32:20 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "683",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4825",
+          "x-ratelimit-reset": "1782304352",
+          "etag": "W/\"2ab-wtpfs+oE3qgvXSyKSD68cVcOqZ8\""
+        },
+        "hash": "ea910970e4e3127a89416876406a9fe3b8f6e22f",
+        "request": {}
+      }
+    }
+  }
+}

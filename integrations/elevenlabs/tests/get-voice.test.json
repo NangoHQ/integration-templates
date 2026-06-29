@@ -1,0 +1,285 @@
+{
+  "input": {
+    "voice_id": "CwhRBWXzGAHq8TQ4Fs17"
+  },
+  "output": {
+    "voice_id": "CwhRBWXzGAHq8TQ4Fs17",
+    "name": "Roger - Laid-Back, Casual, Resonant",
+    "category": "premade",
+    "fine_tuning": {
+      "is_allowed_to_fine_tune": true,
+      "state": {
+        "eleven_turbo_v2": "fine_tuned",
+        "eleven_turbo_v2_5": "failed",
+        "eleven_multilingual_v2": "fine_tuned",
+        "eleven_flash_v2": "fine_tuned",
+        "eleven_v2_5_flash": "fine_tuned",
+        "eleven_v2_flash": "fine_tuned",
+        "eleven_flash_v2_5": "fine_tuned"
+      },
+      "verification_failures": [],
+      "verification_attempts_count": 0,
+      "manual_verification_requested": false,
+      "language": "en",
+      "progress": {
+        "eleven_flash_v2": 1,
+        "eleven_flash_v2_5": 1,
+        "eleven_v2_5_flash": 1,
+        "eleven_v2_flash": 1
+      },
+      "message": {
+        "eleven_flash_v2": "Done!",
+        "eleven_flash_v2_5": "Done!",
+        "eleven_v2_5_flash": "Done!",
+        "eleven_v2_flash": "Done!"
+      },
+      "dataset_duration_seconds": null,
+      "verification_attempts": null,
+      "slice_ids": null,
+      "manual_verification": null,
+      "max_verification_attempts": 5,
+      "next_max_verification_attempts_reset_unix_ms": 1700000000000
+    },
+    "labels": {
+      "gender": "male",
+      "language": "en",
+      "descriptive": "classy",
+      "accent": "american",
+      "use_case": "conversational",
+      "age": "middle_aged"
+    },
+    "description": "Easy going and perfect for casual conversations.",
+    "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/CwhRBWXzGAHq8TQ4Fs17/58ee3ff5-f6f2-4628-93b8-e38eb31806b0.mp3",
+    "available_for_tiers": [],
+    "settings": {
+      "stability": 0.5,
+      "similarity_boost": 0.75,
+      "style": 0,
+      "use_speaker_boost": true,
+      "speed": 1
+    },
+    "high_quality_base_model_ids": [
+      "eleven_v2_flash",
+      "eleven_flash_v2",
+      "eleven_turbo_v2_5",
+      "eleven_multilingual_v2",
+      "eleven_v2_5_flash",
+      "eleven_flash_v2_5",
+      "eleven_turbo_v2"
+    ],
+    "voice_verification": {
+      "requires_verification": false,
+      "is_verified": false,
+      "verification_failures": [],
+      "verification_attempts_count": 0,
+      "language": null,
+      "verification_attempts": null
+    },
+    "is_legacy": false,
+    "is_mixed": false
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1/voices/CwhRBWXzGAHq8TQ4Fs17": {
+        "response": {
+          "voice_id": "CwhRBWXzGAHq8TQ4Fs17",
+          "name": "Roger - Laid-Back, Casual, Resonant",
+          "samples": null,
+          "category": "premade",
+          "fine_tuning": {
+            "is_allowed_to_fine_tune": true,
+            "state": {
+              "eleven_turbo_v2": "fine_tuned",
+              "eleven_turbo_v2_5": "failed",
+              "eleven_multilingual_v2": "fine_tuned",
+              "eleven_flash_v2": "fine_tuned",
+              "eleven_v2_5_flash": "fine_tuned",
+              "eleven_v2_flash": "fine_tuned",
+              "eleven_flash_v2_5": "fine_tuned"
+            },
+            "verification_failures": [],
+            "verification_attempts_count": 0,
+            "manual_verification_requested": false,
+            "language": "en",
+            "progress": {
+              "eleven_flash_v2": 1,
+              "eleven_flash_v2_5": 1,
+              "eleven_v2_5_flash": 1,
+              "eleven_v2_flash": 1
+            },
+            "message": {
+              "eleven_flash_v2": "Done!",
+              "eleven_flash_v2_5": "Done!",
+              "eleven_v2_5_flash": "Done!",
+              "eleven_v2_flash": "Done!"
+            },
+            "dataset_duration_seconds": null,
+            "verification_attempts": null,
+            "slice_ids": null,
+            "manual_verification": null,
+            "max_verification_attempts": 5,
+            "next_max_verification_attempts_reset_unix_ms": 1700000000000
+          },
+          "labels": {
+            "gender": "male",
+            "language": "en",
+            "descriptive": "classy",
+            "accent": "american",
+            "use_case": "conversational",
+            "age": "middle_aged"
+          },
+          "description": "Easy going and perfect for casual conversations.",
+          "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/CwhRBWXzGAHq8TQ4Fs17/58ee3ff5-f6f2-4628-93b8-e38eb31806b0.mp3",
+          "available_for_tiers": [],
+          "settings": {
+            "stability": 0.5,
+            "use_speaker_boost": true,
+            "similarity_boost": 0.75,
+            "style": 0,
+            "speed": 1
+          },
+          "sharing": null,
+          "high_quality_base_model_ids": [
+            "eleven_v2_flash",
+            "eleven_flash_v2",
+            "eleven_turbo_v2_5",
+            "eleven_multilingual_v2",
+            "eleven_v2_5_flash",
+            "eleven_flash_v2_5",
+            "eleven_turbo_v2"
+          ],
+          "verified_languages": [
+            {
+              "language": "en",
+              "model_id": "eleven_v2_flash",
+              "accent": "american",
+              "locale": "en-US",
+              "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/CwhRBWXzGAHq8TQ4Fs17/58ee3ff5-f6f2-4628-93b8-e38eb31806b0.mp3"
+            },
+            {
+              "language": "en",
+              "model_id": "eleven_flash_v2",
+              "accent": "american",
+              "locale": "en-US",
+              "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/CwhRBWXzGAHq8TQ4Fs17/58ee3ff5-f6f2-4628-93b8-e38eb31806b0.mp3"
+            },
+            {
+              "language": "en",
+              "model_id": "eleven_turbo_v2_5",
+              "accent": "american",
+              "locale": "en-US",
+              "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/CwhRBWXzGAHq8TQ4Fs17/58ee3ff5-f6f2-4628-93b8-e38eb31806b0.mp3"
+            },
+            {
+              "language": "en",
+              "model_id": "eleven_multilingual_v2",
+              "accent": "american",
+              "locale": "en-US",
+              "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/CwhRBWXzGAHq8TQ4Fs17/58ee3ff5-f6f2-4628-93b8-e38eb31806b0.mp3"
+            },
+            {
+              "language": "en",
+              "model_id": "eleven_v2_5_flash",
+              "accent": "american",
+              "locale": "en-US",
+              "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/CwhRBWXzGAHq8TQ4Fs17/58ee3ff5-f6f2-4628-93b8-e38eb31806b0.mp3"
+            },
+            {
+              "language": "en",
+              "model_id": "eleven_flash_v2_5",
+              "accent": "american",
+              "locale": "en-US",
+              "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/CwhRBWXzGAHq8TQ4Fs17/58ee3ff5-f6f2-4628-93b8-e38eb31806b0.mp3"
+            },
+            {
+              "language": "en",
+              "model_id": "eleven_turbo_v2",
+              "accent": "american",
+              "locale": "en-US",
+              "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/CwhRBWXzGAHq8TQ4Fs17/58ee3ff5-f6f2-4628-93b8-e38eb31806b0.mp3"
+            },
+            {
+              "language": "fr",
+              "model_id": "eleven_multilingual_v2",
+              "accent": "standard",
+              "locale": "fr-FR",
+              "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/CwhRBWXzGAHq8TQ4Fs17/042d9b70-5927-4630-985e-e95107b74ec2.mp3"
+            },
+            {
+              "language": "de",
+              "model_id": "eleven_multilingual_v2",
+              "accent": "standard",
+              "locale": "de-DE",
+              "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/CwhRBWXzGAHq8TQ4Fs17/fa6a7658-18a9-4634-a96f-95dc3c47629d.mp3"
+            },
+            {
+              "language": "nl",
+              "model_id": "eleven_multilingual_v2",
+              "accent": "standard",
+              "locale": "nl-NL",
+              "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/CwhRBWXzGAHq8TQ4Fs17/12a2ba8b-4fb3-44b6-9bc7-da0afd076fc9.mp3"
+            },
+            {
+              "language": "es",
+              "model_id": "eleven_multilingual_v2",
+              "accent": "standard",
+              "locale": "es-ES",
+              "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/CwhRBWXzGAHq8TQ4Fs17/f172f037-5e23-44ea-a08e-56ddb6447d5b.mp3"
+            }
+          ],
+          "collection_ids": null,
+          "safety_control": null,
+          "voice_verification": {
+            "requires_verification": false,
+            "is_verified": false,
+            "verification_failures": [],
+            "verification_attempts_count": 0,
+            "language": null,
+            "verification_attempts": null
+          },
+          "permission_on_resource": null,
+          "is_owner": null,
+          "is_legacy": false,
+          "is_mixed": false,
+          "favorited_at_unix": null,
+          "created_at_unix": null,
+          "is_bookmarked": null,
+          "recording_quality": null,
+          "labelling_status": null,
+          "recording_quality_reason": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 24 Jun 2026 21:32:18 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=1800;",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4985",
+          "x-ratelimit-reset": "1782336785",
+          "server": "uvicorn",
+          "vary": "Accept-Language, Accept-Encoding",
+          "access-control-allow-headers": "*",
+          "access-control-allow-methods": "POST, PATCH, OPTIONS, DELETE, GET, PUT",
+          "access-control-max-age": "600",
+          "x-trace-id": "38b9eb005835c1977f748e6501e66df9",
+          "x-region": "us-central1",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=2592000"
+        },
+        "hash": "4eaa3cfe24ff7b48b646b03d8dd20444aea069cb",
+        "request": {}
+      }
+    }
+  }
+}

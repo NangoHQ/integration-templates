@@ -1,0 +1,233 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "templateId": "e13866df-36e6-462b-b35b-dcda35982abc",
+        "name": "Nango NDA Template",
+        "shared": "false",
+        "description": "Standard non-disclosure agreement template",
+        "created": "2026-06-24T12:15:58.9400000Z",
+        "lastModified": "2026-06-24T12:15:59.3770000Z",
+        "uri": "/templates/e13866df-36e6-462b-b35b-dcda35982abc",
+        "folderId": "3ad0fd14-232f-4c7c-8025-d3c3394c3cb2",
+        "folderName": "Templates"
+      },
+      {
+        "templateId": "08464650-dbb9-4672-a299-10c075e7edf5",
+        "name": "Nango Service Agreement Template",
+        "shared": "false",
+        "description": "Reusable service agreement for clients",
+        "created": "2026-06-24T12:16:35.0500000Z",
+        "lastModified": "2026-06-24T12:16:35.6300000Z",
+        "uri": "/templates/08464650-dbb9-4672-a299-10c075e7edf5",
+        "folderId": "3ad0fd14-232f-4c7c-8025-d3c3394c3cb2",
+        "folderName": "Templates"
+      },
+      {
+        "templateId": "ffbdfa93-48eb-48eb-82d8-2c3961752ce5",
+        "name": "Nango Test Create Template",
+        "shared": "false",
+        "description": "",
+        "created": "2026-06-24T12:32:25.6230000Z",
+        "lastModified": "2026-06-24T12:32:26.2000000Z",
+        "uri": "/templates/ffbdfa93-48eb-48eb-82d8-2c3961752ce5",
+        "folderId": "3ad0fd14-232f-4c7c-8025-d3c3394c3cb2",
+        "folderName": "Templates"
+      },
+      {
+        "templateId": "0ed5df2a-79e1-4b52-b165-d30367761d5c",
+        "name": "Nango Test Create Template",
+        "shared": "false",
+        "description": "",
+        "created": "2026-06-24T12:31:55.1900000Z",
+        "lastModified": "2026-06-24T12:31:55.5800000Z",
+        "uri": "/templates/0ed5df2a-79e1-4b52-b165-d30367761d5c",
+        "folderId": "3ad0fd14-232f-4c7c-8025-d3c3394c3cb2",
+        "folderName": "Templates"
+      }
+    ]
+  },
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "accountId": "96bfbc88-de80-40a4-9fb7-f047e656eaaf"
+    }
+  },
+  "api": {
+    "get": {
+      "/restapi/v2.1/accounts/96bfbc88-de80-40a4-9fb7-f047e656eaaf/templates": {
+        "response": {
+          "resultSetSize": "4",
+          "startPosition": "0",
+          "endPosition": "3",
+          "totalSetSize": "4",
+          "envelopeTemplates": [
+            {
+              "templateId": "e13866df-36e6-462b-b35b-dcda35982abc",
+              "uri": "/templates/e13866df-36e6-462b-b35b-dcda35982abc",
+              "name": "Nango NDA Template",
+              "shared": "false",
+              "passwordProtected": "false",
+              "description": "Standard non-disclosure agreement template",
+              "created": "2026-06-24T12:15:58.9400000Z",
+              "lastModified": "2026-06-24T12:15:59.3770000Z",
+              "lastUsed": "2026-06-24T12:15:59.0900000Z",
+              "owner": {
+                "userName": "Nango Developer",
+                "userId": "c9a996ed-50d2-4df4-ac91-a45032721bb6",
+                "email": "api@nango.dev"
+              },
+              "pageCount": "1",
+              "folderId": "3ad0fd14-232f-4c7c-8025-d3c3394c3cb2",
+              "folderName": "Templates",
+              "folderIds": [
+                "3ad0fd14-232f-4c7c-8025-d3c3394c3cb2"
+              ],
+              "autoMatch": "true",
+              "autoMatchSpecifiedByUser": "false",
+              "emailSubject": "",
+              "emailBlurb": "",
+              "signingLocation": "Online",
+              "authoritativeCopy": "false",
+              "enforceSignerVisibility": "false",
+              "enableWetSign": "true",
+              "allowMarkup": "false",
+              "allowReassign": "true",
+              "disableResponsiveDocument": "true",
+              "anySigner": null,
+              "envelopeLocation": null
+            },
+            {
+              "templateId": "08464650-dbb9-4672-a299-10c075e7edf5",
+              "uri": "/templates/08464650-dbb9-4672-a299-10c075e7edf5",
+              "name": "Nango Service Agreement Template",
+              "shared": "false",
+              "passwordProtected": "false",
+              "description": "Reusable service agreement for clients",
+              "created": "2026-06-24T12:16:35.0500000Z",
+              "lastModified": "2026-06-24T12:16:35.6300000Z",
+              "lastUsed": "2026-06-24T12:16:35.1830000Z",
+              "owner": {
+                "userName": "Nango Developer",
+                "userId": "c9a996ed-50d2-4df4-ac91-a45032721bb6",
+                "email": "api@nango.dev"
+              },
+              "pageCount": "1",
+              "folderId": "3ad0fd14-232f-4c7c-8025-d3c3394c3cb2",
+              "folderName": "Templates",
+              "folderIds": [
+                "3ad0fd14-232f-4c7c-8025-d3c3394c3cb2"
+              ],
+              "autoMatch": "true",
+              "autoMatchSpecifiedByUser": "false",
+              "emailSubject": "",
+              "emailBlurb": "",
+              "signingLocation": "Online",
+              "authoritativeCopy": "false",
+              "enforceSignerVisibility": "false",
+              "enableWetSign": "true",
+              "allowMarkup": "false",
+              "allowReassign": "true",
+              "disableResponsiveDocument": "true",
+              "anySigner": null,
+              "envelopeLocation": null
+            },
+            {
+              "templateId": "ffbdfa93-48eb-48eb-82d8-2c3961752ce5",
+              "uri": "/templates/ffbdfa93-48eb-48eb-82d8-2c3961752ce5",
+              "name": "Nango Test Create Template",
+              "shared": "false",
+              "passwordProtected": "false",
+              "description": "",
+              "created": "2026-06-24T12:32:25.6230000Z",
+              "lastModified": "2026-06-24T12:32:26.2000000Z",
+              "lastUsed": "2026-06-24T12:32:25.8230000Z",
+              "owner": {
+                "userName": "Nango Developer",
+                "userId": "c9a996ed-50d2-4df4-ac91-a45032721bb6",
+                "email": "api@nango.dev"
+              },
+              "pageCount": "1",
+              "folderId": "3ad0fd14-232f-4c7c-8025-d3c3394c3cb2",
+              "folderName": "Templates",
+              "folderIds": [
+                "3ad0fd14-232f-4c7c-8025-d3c3394c3cb2"
+              ],
+              "autoMatch": "true",
+              "autoMatchSpecifiedByUser": "false",
+              "emailSubject": "Please sign this test document",
+              "emailBlurb": "",
+              "signingLocation": "Online",
+              "authoritativeCopy": "false",
+              "enforceSignerVisibility": "false",
+              "enableWetSign": "true",
+              "allowMarkup": "false",
+              "allowReassign": "true",
+              "disableResponsiveDocument": "true",
+              "anySigner": null,
+              "envelopeLocation": null
+            },
+            {
+              "templateId": "0ed5df2a-79e1-4b52-b165-d30367761d5c",
+              "uri": "/templates/0ed5df2a-79e1-4b52-b165-d30367761d5c",
+              "name": "Nango Test Create Template",
+              "shared": "false",
+              "passwordProtected": "false",
+              "description": "",
+              "created": "2026-06-24T12:31:55.1900000Z",
+              "lastModified": "2026-06-24T12:31:55.5800000Z",
+              "lastUsed": "2026-06-24T12:31:55.3030000Z",
+              "owner": {
+                "userName": "Nango Developer",
+                "userId": "c9a996ed-50d2-4df4-ac91-a45032721bb6",
+                "email": "api@nango.dev"
+              },
+              "pageCount": "1",
+              "folderId": "3ad0fd14-232f-4c7c-8025-d3c3394c3cb2",
+              "folderName": "Templates",
+              "folderIds": [
+                "3ad0fd14-232f-4c7c-8025-d3c3394c3cb2"
+              ],
+              "autoMatch": "true",
+              "autoMatchSpecifiedByUser": "false",
+              "emailSubject": "Please sign this test document",
+              "emailBlurb": "",
+              "signingLocation": "Online",
+              "authoritativeCopy": "false",
+              "enforceSignerVisibility": "false",
+              "enableWetSign": "true",
+              "allowMarkup": "false",
+              "allowReassign": "true",
+              "disableResponsiveDocument": "true",
+              "anySigner": null,
+              "envelopeLocation": null
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 24 Jun 2026 12:33:00 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "3890",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4949",
+          "x-ratelimit-reset": "1782304412",
+          "etag": "W/\"f32-o/Bbfa7yesDqmGUfXJnjUJgtHbI\""
+        },
+        "hash": "c354c47c80ee113d7ed77d141b59312fe5708ae5",
+        "request": {}
+      }
+    }
+  }
+}

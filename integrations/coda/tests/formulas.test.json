@@ -1,0 +1,74 @@
+{
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "docId": "6O6-VWsNpq",
+      "tableId": "grid-tE68GY5gIp"
+    },
+    "batchSave": {
+      "Formula": [
+        {
+          "id": "f-jEuSaKKGdW",
+          "name": "Primary Business",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/formulas/f-jEuSaKKGdW",
+          "parentId": "canvas-bxV94mIdan",
+          "parentName": "Setup",
+          "parentType": "page"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Formula": []
+    }
+  },
+  "api": {
+    "get": {
+      "/docs/6O6-VWsNpq/formulas": {
+        "response": {
+          "items": [
+            {
+              "id": "f-jEuSaKKGdW",
+              "type": "formula",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/formulas/f-jEuSaKKGdW",
+              "name": "Primary Business",
+              "parent": {
+                "id": "canvas-bxV94mIdan",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-bxV94mIdan",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su4mIdan",
+                "name": "Setup"
+              }
+            }
+          ],
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/formulas?pageToken=eyJsaW1pdCI6MTAwLCJvZmZzZXQiOjAsIm9wVmVyc2lvbiI6MzE0NjMsInNjaGVtYVZlcnNpb24iOjE3N30"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 23 Jun 2026 13:47:13 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "494",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4987",
+          "x-ratelimit-reset": "1782222470",
+          "etag": "W/\"1ee-phGSZHdLzS7nArrik7lDHan14jI\""
+        },
+        "hash": "3041d8a01244558322f26619425e9890421829ce",
+        "request": {
+          "params": {
+            "limit": "100"
+          }
+        }
+      }
+    }
+  }
+}
