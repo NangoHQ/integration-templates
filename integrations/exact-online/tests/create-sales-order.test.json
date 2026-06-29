@@ -1,6 +1,7 @@
 {
   "input": {
     "OrderedBy": "a58c29d9-ef92-40f1-b817-31b36990898c",
+    "OrderDate": "2026-06-25",
     "SalesOrderLines": [
       {
         "Item": "61facaed-0389-4183-bf67-ac1c179e1050",
