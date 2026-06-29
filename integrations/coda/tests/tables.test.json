@@ -1,0 +1,2065 @@
+{
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "docId": "6O6-VWsNpq",
+      "tableId": "grid-tE68GY5gIp"
+    },
+    "batchSave": {
+      "Table": [
+        {
+          "id": "grid-tE68GY5gIp",
+          "name": "Staff",
+          "tableType": "table",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-tE68GY5gIp",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-tE68GY5gIp",
+          "parentPageId": "canvas-my7I0GY8lw"
+        },
+        {
+          "id": "grid-nK6wHAMyiL",
+          "name": "Departments",
+          "tableType": "table",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-nK6wHAMyiL",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-nK6wHAMyiL",
+          "parentPageId": "canvas-my7I0GY8lw"
+        },
+        {
+          "id": "grid-xlbap6X_yx",
+          "name": "Teams",
+          "tableType": "table",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-xlbap6X_yx",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-xlbap6X_yx",
+          "parentPageId": "canvas-my7I0GY8lw"
+        },
+        {
+          "id": "grid-xSfJxuIWVf",
+          "name": "Sales Goals",
+          "tableType": "table",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-xSfJxuIWVf",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-xSfJxuIWVf",
+          "parentPageId": "canvas-c_vjyerNV9"
+        },
+        {
+          "id": "grid-nVZvTVPCKh",
+          "name": "Service Categories",
+          "tableType": "table",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-nVZvTVPCKh",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-nVZvTVPCKh",
+          "parentPageId": "canvas-KdB9flBmQb"
+        },
+        {
+          "id": "grid-68g5BopzYZ",
+          "name": "Services",
+          "tableType": "table",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-68g5BopzYZ",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-68g5BopzYZ",
+          "parentPageId": "canvas-KdB9flBmQb"
+        },
+        {
+          "id": "grid-bEzDcS543e",
+          "name": "Work",
+          "tableType": "table",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-bEzDcS543e",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-bEzDcS543e",
+          "parentPageId": "canvas-KdB9flBmQb"
+        },
+        {
+          "id": "grid-Iyhq3rrvd8",
+          "name": "Opportunity Types",
+          "tableType": "table",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-Iyhq3rrvd8",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-Iyhq3rrvd8",
+          "parentPageId": "canvas-c_vjyerNV9"
+        },
+        {
+          "id": "grid-xHXgDhhGlF",
+          "name": "Expense Billing Frequency",
+          "tableType": "table",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-xHXgDhhGlF",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-xHXgDhhGlF",
+          "parentPageId": "canvas-Euu_-adhoI"
+        },
+        {
+          "id": "grid-OTeWVqpndU",
+          "name": "Expense Categories",
+          "tableType": "table",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-OTeWVqpndU",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-OTeWVqpndU",
+          "parentPageId": "canvas-Euu_-adhoI"
+        },
+        {
+          "id": "grid-ccgY-_W_CK",
+          "name": "Expense Provider",
+          "tableType": "table",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-ccgY-_W_CK",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-ccgY-_W_CK",
+          "parentPageId": "canvas-Euu_-adhoI"
+        },
+        {
+          "id": "grid-wNaRU1SWPu",
+          "name": "Sales Tax",
+          "tableType": "table",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-wNaRU1SWPu",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-wNaRU1SWPu",
+          "parentPageId": "canvas-5JBYNeZ0RM"
+        },
+        {
+          "id": "grid-1UptYTSzt-",
+          "name": "Sales Tax Rates",
+          "tableType": "table",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-1UptYTSzt-",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-1UptYTSzt-",
+          "parentPageId": "canvas-5JBYNeZ0RM"
+        },
+        {
+          "id": "grid-c6AxvOos0t",
+          "name": "Assets",
+          "tableType": "table",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-c6AxvOos0t",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-c6AxvOos0t",
+          "parentPageId": "canvas-my7I0GY8lw"
+        },
+        {
+          "id": "grid-3vAC_KWlkO",
+          "name": "Taxes",
+          "tableType": "table",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-3vAC_KWlkO",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-3vAC_KWlkO",
+          "parentPageId": "canvas-5JBYNeZ0RM"
+        },
+        {
+          "id": "grid-jWH9GVueQX",
+          "name": "Client Industries",
+          "tableType": "table",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-jWH9GVueQX",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-jWH9GVueQX",
+          "parentPageId": "canvas-c_vjyerNV9"
+        },
+        {
+          "id": "grid-_cqW1nqrkf",
+          "name": "Opportunity Stages",
+          "tableType": "table",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-_cqW1nqrkf",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-_cqW1nqrkf",
+          "parentPageId": "canvas-c_vjyerNV9"
+        },
+        {
+          "id": "grid-txkrBE9-TR",
+          "name": "Contacts",
+          "tableType": "table",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-txkrBE9-TR",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-txkrBE9-TR",
+          "parentPageId": "canvas-M_BUq-USED"
+        },
+        {
+          "id": "grid-8pB7wBQ2Bz",
+          "name": "Companies",
+          "tableType": "table",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-8pB7wBQ2Bz",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-8pB7wBQ2Bz",
+          "parentPageId": "canvas-vznQxgTt53"
+        },
+        {
+          "id": "grid-BvCv29Jxy4",
+          "name": "Currencies",
+          "tableType": "table",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-BvCv29Jxy4",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-BvCv29Jxy4",
+          "parentPageId": "canvas-14BdE_osiV"
+        },
+        {
+          "id": "grid-jPxqmujNgu",
+          "name": "Opportunities",
+          "tableType": "table",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-jPxqmujNgu",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-jPxqmujNgu",
+          "parentPageId": "canvas-BM5vNDCdhy"
+        },
+        {
+          "id": "grid-o1C8-Zc3oh",
+          "name": "Opportunity Pipelines",
+          "tableType": "table",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-o1C8-Zc3oh",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-o1C8-Zc3oh",
+          "parentPageId": "canvas-c_vjyerNV9"
+        },
+        {
+          "id": "table-M0ox6jJln4",
+          "name": "CRM Opportunities",
+          "tableType": "view",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-M0ox6jJln4",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-M0ox6jJln4",
+          "parentPageId": "canvas-fbzQ3Vsy9r"
+        },
+        {
+          "id": "table-G3llGaNlei",
+          "name": "CRM Contacts",
+          "tableType": "view",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-G3llGaNlei",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-G3llGaNlei",
+          "parentPageId": "canvas-fbzQ3Vsy9r"
+        },
+        {
+          "id": "grid-XhMFD4i8ES",
+          "name": "Social Networks",
+          "tableType": "table",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-XhMFD4i8ES",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-XhMFD4i8ES",
+          "parentPageId": "canvas-PJNOGs6qeC"
+        },
+        {
+          "id": "grid-fgU-EOj_9f",
+          "name": "Company Social",
+          "tableType": "table",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-fgU-EOj_9f",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-fgU-EOj_9f",
+          "parentPageId": "canvas-ekFo-qAqRO"
+        },
+        {
+          "id": "table-4niM6-va9R",
+          "name": "CRM Company Social",
+          "tableType": "view",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-4niM6-va9R",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-4niM6-va9R",
+          "parentPageId": "canvas-fbzQ3Vsy9r"
+        },
+        {
+          "id": "grid-4R38JxK_St",
+          "name": "Invoices",
+          "tableType": "table",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-4R38JxK_St",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-4R38JxK_St",
+          "parentPageId": "canvas-2kFFCFYXk4"
+        },
+        {
+          "id": "table-KxkM8s0vrB",
+          "name": "CRM Invoices",
+          "tableType": "view",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-KxkM8s0vrB",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-KxkM8s0vrB",
+          "parentPageId": "canvas-fbzQ3Vsy9r"
+        },
+        {
+          "id": "table-DdTkW5gi0-",
+          "name": "CRM Bills",
+          "tableType": "view",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-DdTkW5gi0-",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-DdTkW5gi0-",
+          "parentPageId": "canvas-fbzQ3Vsy9r"
+        },
+        {
+          "id": "table-dVzsHxrep8",
+          "name": "Accounts Receivable",
+          "tableType": "view",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-dVzsHxrep8",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-dVzsHxrep8",
+          "parentPageId": "canvas-UveRHSY6co"
+        },
+        {
+          "id": "table-kWyw7BC_5X",
+          "name": "Accounts Payable",
+          "tableType": "view",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-kWyw7BC_5X",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-kWyw7BC_5X",
+          "parentPageId": "canvas-krvvjfjVZs"
+        },
+        {
+          "id": "grid-TYT378yFfg",
+          "name": "Expenses",
+          "tableType": "table",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-TYT378yFfg",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-TYT378yFfg",
+          "parentPageId": "canvas-42hPOMfreC"
+        },
+        {
+          "id": "table-FmsdT3rQdm",
+          "name": "Sales Open Opportunities",
+          "tableType": "view",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-FmsdT3rQdm",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-FmsdT3rQdm",
+          "parentPageId": "canvas-pSYuhEYNJd"
+        },
+        {
+          "id": "grid-_HRcrpsRfM",
+          "name": "Opportunity Pipeline Stage",
+          "tableType": "table",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-_HRcrpsRfM",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-_HRcrpsRfM",
+          "parentPageId": "canvas-c_vjyerNV9"
+        },
+        {
+          "id": "table-oUptD0mOGs",
+          "name": "Open Opportunities by Type",
+          "tableType": "view",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-oUptD0mOGs",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-oUptD0mOGs",
+          "parentPageId": "canvas-pSYuhEYNJd"
+        },
+        {
+          "id": "table-CcyjiP8xvF",
+          "name": "Lost Opportunities by Type",
+          "tableType": "view",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-CcyjiP8xvF",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-CcyjiP8xvF",
+          "parentPageId": "canvas-pSYuhEYNJd"
+        },
+        {
+          "id": "table-N5MnmjoN_A",
+          "name": "Opportunities over the Year",
+          "tableType": "view",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-N5MnmjoN_A",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-N5MnmjoN_A",
+          "parentPageId": "canvas-pSYuhEYNJd"
+        },
+        {
+          "id": "table-eA1oCayxMT",
+          "name": "Abandoned Opportunities by Type",
+          "tableType": "view",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-eA1oCayxMT",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-eA1oCayxMT",
+          "parentPageId": "canvas-pSYuhEYNJd"
+        },
+        {
+          "id": "table-w9HH9-Cq_a",
+          "name": "Won Opportunities by Type",
+          "tableType": "view",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-w9HH9-Cq_a",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-w9HH9-Cq_a",
+          "parentPageId": "canvas-pSYuhEYNJd"
+        },
+        {
+          "id": "grid-9oTeC187o6",
+          "name": "Business Websites",
+          "tableType": "table",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-9oTeC187o6",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-9oTeC187o6",
+          "parentPageId": "canvas-oZhC5CDwr9"
+        },
+        {
+          "id": "table-EhDaX5Zclh",
+          "name": "Business Site Links",
+          "tableType": "view",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-EhDaX5Zclh",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-EhDaX5Zclh",
+          "parentPageId": "canvas-TC_LB4QzDP"
+        },
+        {
+          "id": "grid-Yh1gu5kwKa",
+          "name": "Business",
+          "tableType": "table",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-Yh1gu5kwKa",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-Yh1gu5kwKa",
+          "parentPageId": "canvas-oZhC5CDwr9"
+        },
+        {
+          "id": "grid-gqb_8Nnv8E",
+          "name": "Business Addresses",
+          "tableType": "table",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-gqb_8Nnv8E",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-gqb_8Nnv8E",
+          "parentPageId": "canvas-oZhC5CDwr9"
+        },
+        {
+          "id": "table-9OA5uoSrSX",
+          "name": "Business Info",
+          "tableType": "view",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-9OA5uoSrSX",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-9OA5uoSrSX",
+          "parentPageId": "canvas-TC_LB4QzDP"
+        },
+        {
+          "id": "table-6a3xmp5ZeT",
+          "name": "Business Locations",
+          "tableType": "view",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-6a3xmp5ZeT",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-6a3xmp5ZeT",
+          "parentPageId": "canvas-TC_LB4QzDP"
+        },
+        {
+          "id": "table-6w8ezsOMow",
+          "name": "Department Staff",
+          "tableType": "view",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-6w8ezsOMow",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-6w8ezsOMow",
+          "parentPageId": "canvas-ow9CUzcG7U"
+        },
+        {
+          "id": "table-kHGUiUzOd1",
+          "name": "Department Services",
+          "tableType": "view",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-kHGUiUzOd1",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-kHGUiUzOd1",
+          "parentPageId": "canvas-ow9CUzcG7U"
+        },
+        {
+          "id": "table-VSgUYrP8yC",
+          "name": "Deliverbles",
+          "tableType": "view",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-VSgUYrP8yC",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-VSgUYrP8yC",
+          "parentPageId": "canvas-ow9CUzcG7U"
+        },
+        {
+          "id": "table-RfWbYj8BEi",
+          "name": "Team Directory",
+          "tableType": "view",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-RfWbYj8BEi",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-RfWbYj8BEi",
+          "parentPageId": "canvas-zuGqFcp_LK"
+        },
+        {
+          "id": "grid-1Jfw1dt3gJ",
+          "name": "Financial Summary",
+          "tableType": "table",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-1Jfw1dt3gJ",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-1Jfw1dt3gJ",
+          "parentPageId": "canvas-14BdE_osiV"
+        },
+        {
+          "id": "table-V33NYGn5nd",
+          "name": "Financial Forecast Chart",
+          "tableType": "view",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-V33NYGn5nd",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-V33NYGn5nd",
+          "parentPageId": "canvas-WlPYwrtvJB"
+        },
+        {
+          "id": "table-ewjFUTGxIq",
+          "name": "Financial Forecast",
+          "tableType": "view",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-ewjFUTGxIq",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-ewjFUTGxIq",
+          "parentPageId": "canvas-WlPYwrtvJB"
+        },
+        {
+          "id": "table-SKW8OH2X1u",
+          "name": "Services by Category",
+          "tableType": "view",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-SKW8OH2X1u",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-SKW8OH2X1u",
+          "parentPageId": "canvas-WpqKkcnXbu"
+        },
+        {
+          "id": "table-LhTQu0kGV3",
+          "name": "Active Clients",
+          "tableType": "view",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-LhTQu0kGV3",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-LhTQu0kGV3",
+          "parentPageId": "canvas-SpBMLVKB8k"
+        },
+        {
+          "id": "table-ZPXkDctsBN",
+          "name": "Active Clients by Industry",
+          "tableType": "view",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-ZPXkDctsBN",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-ZPXkDctsBN",
+          "parentPageId": "canvas-SpBMLVKB8k"
+        },
+        {
+          "id": "table-hj7D9z8NQo",
+          "name": "Active Clients by Country",
+          "tableType": "view",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-hj7D9z8NQo",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-hj7D9z8NQo",
+          "parentPageId": "canvas-SpBMLVKB8k"
+        },
+        {
+          "id": "grid-DKEihsDvvr",
+          "name": "Staff Emergency Contacts",
+          "tableType": "table",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-DKEihsDvvr",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-DKEihsDvvr",
+          "parentPageId": "canvas-my7I0GY8lw"
+        },
+        {
+          "id": "table-jI4jgq162w",
+          "name": "Emergency Contacts",
+          "tableType": "view",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-jI4jgq162w",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-jI4jgq162w",
+          "parentPageId": "canvas-XP18aM7opK"
+        },
+        {
+          "id": "table-SH9jDY9xlF",
+          "name": "The Team",
+          "tableType": "view",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-SH9jDY9xlF",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-SH9jDY9xlF",
+          "parentPageId": "canvas-XP18aM7opK"
+        },
+        {
+          "id": "table-avkvnLlEAQ",
+          "name": "Basic Business Setup",
+          "tableType": "view",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-avkvnLlEAQ",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-avkvnLlEAQ",
+          "parentPageId": "canvas-bxV94mIdan"
+        },
+        {
+          "id": "table-tsDX_4tlLQ",
+          "name": "Business Addresses Setup",
+          "tableType": "view",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-tsDX_4tlLQ",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-tsDX_4tlLQ",
+          "parentPageId": "canvas-bxV94mIdan"
+        },
+        {
+          "id": "table-aYcpRd5K2T",
+          "name": "Business Websites Setup",
+          "tableType": "view",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-aYcpRd5K2T",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-aYcpRd5K2T",
+          "parentPageId": "canvas-bxV94mIdan"
+        },
+        {
+          "id": "table-nCeeaDwNC1",
+          "name": "Departments Setup",
+          "tableType": "view",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-nCeeaDwNC1",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-nCeeaDwNC1",
+          "parentPageId": "canvas-ODrtTOlR0U"
+        },
+        {
+          "id": "table-pg_GMMqwSL",
+          "name": "Teams Setup",
+          "tableType": "view",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-pg_GMMqwSL",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-pg_GMMqwSL",
+          "parentPageId": "canvas-ODrtTOlR0U"
+        },
+        {
+          "id": "table-rHMffoVJsn",
+          "name": "Staff Setup",
+          "tableType": "view",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-rHMffoVJsn",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-rHMffoVJsn",
+          "parentPageId": "canvas-ODrtTOlR0U"
+        },
+        {
+          "id": "table-9TIeBcgL89",
+          "name": "Staff Emergency Contacts Setup",
+          "tableType": "view",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-9TIeBcgL89",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-9TIeBcgL89",
+          "parentPageId": "canvas-ODrtTOlR0U"
+        },
+        {
+          "id": "table-TAnyMCSch1",
+          "name": "Currencies Setup",
+          "tableType": "view",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-TAnyMCSch1",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-TAnyMCSch1",
+          "parentPageId": "canvas-WdxkoaBM95"
+        },
+        {
+          "id": "table-xfSyU6mCpt",
+          "name": "Sales Tax Setup",
+          "tableType": "view",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-xfSyU6mCpt",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-xfSyU6mCpt",
+          "parentPageId": "canvas-WdxkoaBM95"
+        },
+        {
+          "id": "table-74o2s0eMid",
+          "name": "Sales Tax Rates Setup",
+          "tableType": "view",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-74o2s0eMid",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-74o2s0eMid",
+          "parentPageId": "canvas-WdxkoaBM95"
+        },
+        {
+          "id": "table-_dHLq9sy0I",
+          "name": "Service Categories Setup",
+          "tableType": "view",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-_dHLq9sy0I",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-_dHLq9sy0I",
+          "parentPageId": "canvas-md35s42UKg"
+        },
+        {
+          "id": "table-wQwP5OXt62",
+          "name": "Services Setup",
+          "tableType": "view",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-wQwP5OXt62",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-wQwP5OXt62",
+          "parentPageId": "canvas-md35s42UKg"
+        },
+        {
+          "id": "table-fcvX_MNkR6",
+          "name": "Service Work Setup",
+          "tableType": "view",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-fcvX_MNkR6",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-fcvX_MNkR6",
+          "parentPageId": "canvas-md35s42UKg"
+        },
+        {
+          "id": "table-baIKNzCjHX",
+          "name": "Opportunity Pipelines Setup",
+          "tableType": "view",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-baIKNzCjHX",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-baIKNzCjHX",
+          "parentPageId": "canvas-IIYxZ3g6xt"
+        },
+        {
+          "id": "table-_9BXbxRncV",
+          "name": "Staff Managers Setup",
+          "tableType": "view",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-_9BXbxRncV",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-_9BXbxRncV",
+          "parentPageId": "canvas-ODrtTOlR0U"
+        },
+        {
+          "id": "table-uhMJTZMi9K",
+          "name": "Expense Billing Frequency Setup",
+          "tableType": "view",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-uhMJTZMi9K",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-uhMJTZMi9K",
+          "parentPageId": "canvas-Tjxh3YTyEZ"
+        },
+        {
+          "id": "table-Sj3JlXr26l",
+          "name": "Expense Provider Setup",
+          "tableType": "view",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-Sj3JlXr26l",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-Sj3JlXr26l",
+          "parentPageId": "canvas-Tjxh3YTyEZ"
+        },
+        {
+          "id": "table--AaV_nz0ZZ",
+          "name": "Expense Categories Setup",
+          "tableType": "view",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table--AaV_nz0ZZ",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable--AaV_nz0ZZ",
+          "parentPageId": "canvas-Tjxh3YTyEZ"
+        },
+        {
+          "id": "table-57AEMZ1HnJ",
+          "name": "Taxes Setup",
+          "tableType": "view",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-57AEMZ1HnJ",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-57AEMZ1HnJ",
+          "parentPageId": "canvas-WdxkoaBM95"
+        },
+        {
+          "id": "table-x4sIp25bmR",
+          "name": "Client Industries Setup",
+          "tableType": "view",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-x4sIp25bmR",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-x4sIp25bmR",
+          "parentPageId": "canvas-c_MUzIVEi0"
+        },
+        {
+          "id": "table-SAlOfVGlao",
+          "name": "Companies Setup",
+          "tableType": "view",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-SAlOfVGlao",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-SAlOfVGlao",
+          "parentPageId": "canvas-c_MUzIVEi0"
+        },
+        {
+          "id": "table-7QRU8KS75H",
+          "name": "Contacts Setup",
+          "tableType": "view",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-7QRU8KS75H",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-7QRU8KS75H",
+          "parentPageId": "canvas-c_MUzIVEi0"
+        },
+        {
+          "id": "table-1WWHdjr1ZF",
+          "name": "Opportunity Pipeline Stage Setup",
+          "tableType": "view",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-1WWHdjr1ZF",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-1WWHdjr1ZF",
+          "parentPageId": "canvas-IIYxZ3g6xt"
+        },
+        {
+          "id": "table-n73VdH7Ski",
+          "name": "Opportunity Types Setup",
+          "tableType": "view",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-n73VdH7Ski",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-n73VdH7Ski",
+          "parentPageId": "canvas-IIYxZ3g6xt"
+        },
+        {
+          "id": "table-z-oXrVhFq0",
+          "name": "Opportunity Stages Setup",
+          "tableType": "view",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-z-oXrVhFq0",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-z-oXrVhFq0",
+          "parentPageId": "canvas-IIYxZ3g6xt"
+        },
+        {
+          "id": "table-V_zQoMClKZ",
+          "name": "Sales Goals Setup",
+          "tableType": "view",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-V_zQoMClKZ",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-V_zQoMClKZ",
+          "parentPageId": "canvas-hBv0n9ttIU"
+        },
+        {
+          "id": "grid-SzBI7U7Ehm",
+          "name": "WunderAgency Setup Steps",
+          "tableType": "table",
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-SzBI7U7Ehm",
+          "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-SzBI7U7Ehm",
+          "parentPageId": "canvas-IhDSkELStw"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Table": []
+    }
+  },
+  "api": {
+    "get": {
+      "/docs/6O6-VWsNpq/tables": {
+        "response": {
+          "items": [
+            {
+              "id": "grid-tE68GY5gIp",
+              "type": "table",
+              "tableType": "table",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-tE68GY5gIp",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-tE68GY5gIp",
+              "name": "Staff",
+              "parent": {
+                "id": "canvas-my7I0GY8lw",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-my7I0GY8lw",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su0GY8lw",
+                "name": "HR Data"
+              }
+            },
+            {
+              "id": "grid-nK6wHAMyiL",
+              "type": "table",
+              "tableType": "table",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-nK6wHAMyiL",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-nK6wHAMyiL",
+              "name": "Departments",
+              "parent": {
+                "id": "canvas-my7I0GY8lw",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-my7I0GY8lw",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su0GY8lw",
+                "name": "HR Data"
+              }
+            },
+            {
+              "id": "grid-xlbap6X_yx",
+              "type": "table",
+              "tableType": "table",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-xlbap6X_yx",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-xlbap6X_yx",
+              "name": "Teams",
+              "parent": {
+                "id": "canvas-my7I0GY8lw",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-my7I0GY8lw",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su0GY8lw",
+                "name": "HR Data"
+              }
+            },
+            {
+              "id": "grid-xSfJxuIWVf",
+              "type": "table",
+              "tableType": "table",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-xSfJxuIWVf",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-xSfJxuIWVf",
+              "name": "Sales Goals",
+              "parent": {
+                "id": "canvas-c_vjyerNV9",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-c_vjyerNV9",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suyerNV9",
+                "name": "Sales Data"
+              }
+            },
+            {
+              "id": "grid-nVZvTVPCKh",
+              "type": "table",
+              "tableType": "table",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-nVZvTVPCKh",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-nVZvTVPCKh",
+              "name": "Service Categories",
+              "parent": {
+                "id": "canvas-KdB9flBmQb",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-KdB9flBmQb",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suflBmQb",
+                "name": "Services Data"
+              }
+            },
+            {
+              "id": "grid-68g5BopzYZ",
+              "type": "table",
+              "tableType": "table",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-68g5BopzYZ",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-68g5BopzYZ",
+              "name": "Services",
+              "parent": {
+                "id": "canvas-KdB9flBmQb",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-KdB9flBmQb",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suflBmQb",
+                "name": "Services Data"
+              }
+            },
+            {
+              "id": "grid-bEzDcS543e",
+              "type": "table",
+              "tableType": "table",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-bEzDcS543e",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-bEzDcS543e",
+              "name": "Work",
+              "parent": {
+                "id": "canvas-KdB9flBmQb",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-KdB9flBmQb",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suflBmQb",
+                "name": "Services Data"
+              }
+            },
+            {
+              "id": "grid-Iyhq3rrvd8",
+              "type": "table",
+              "tableType": "table",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-Iyhq3rrvd8",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-Iyhq3rrvd8",
+              "name": "Opportunity Types",
+              "parent": {
+                "id": "canvas-c_vjyerNV9",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-c_vjyerNV9",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suyerNV9",
+                "name": "Sales Data"
+              }
+            },
+            {
+              "id": "grid-xHXgDhhGlF",
+              "type": "table",
+              "tableType": "table",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-xHXgDhhGlF",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-xHXgDhhGlF",
+              "name": "Expense Billing Frequency",
+              "parent": {
+                "id": "canvas-Euu_-adhoI",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-Euu_-adhoI",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su-adhoI",
+                "name": "Expenses Data"
+              }
+            },
+            {
+              "id": "grid-OTeWVqpndU",
+              "type": "table",
+              "tableType": "table",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-OTeWVqpndU",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-OTeWVqpndU",
+              "name": "Expense Categories",
+              "parent": {
+                "id": "canvas-Euu_-adhoI",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-Euu_-adhoI",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su-adhoI",
+                "name": "Expenses Data"
+              }
+            },
+            {
+              "id": "grid-ccgY-_W_CK",
+              "type": "table",
+              "tableType": "table",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-ccgY-_W_CK",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-ccgY-_W_CK",
+              "name": "Expense Provider",
+              "parent": {
+                "id": "canvas-Euu_-adhoI",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-Euu_-adhoI",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su-adhoI",
+                "name": "Expenses Data"
+              }
+            },
+            {
+              "id": "grid-wNaRU1SWPu",
+              "type": "table",
+              "tableType": "table",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-wNaRU1SWPu",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-wNaRU1SWPu",
+              "name": "Sales Tax",
+              "parent": {
+                "id": "canvas-5JBYNeZ0RM",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-5JBYNeZ0RM",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suNeZ0RM",
+                "name": "Tax Data"
+              }
+            },
+            {
+              "id": "grid-1UptYTSzt-",
+              "type": "table",
+              "tableType": "table",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-1UptYTSzt-",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-1UptYTSzt-",
+              "name": "Sales Tax Rates",
+              "parent": {
+                "id": "canvas-5JBYNeZ0RM",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-5JBYNeZ0RM",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suNeZ0RM",
+                "name": "Tax Data"
+              }
+            },
+            {
+              "id": "grid-c6AxvOos0t",
+              "type": "table",
+              "tableType": "table",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-c6AxvOos0t",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-c6AxvOos0t",
+              "name": "Assets",
+              "parent": {
+                "id": "canvas-my7I0GY8lw",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-my7I0GY8lw",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su0GY8lw",
+                "name": "HR Data"
+              }
+            },
+            {
+              "id": "grid-3vAC_KWlkO",
+              "type": "table",
+              "tableType": "table",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-3vAC_KWlkO",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-3vAC_KWlkO",
+              "name": "Taxes",
+              "parent": {
+                "id": "canvas-5JBYNeZ0RM",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-5JBYNeZ0RM",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suNeZ0RM",
+                "name": "Tax Data"
+              }
+            },
+            {
+              "id": "grid-jWH9GVueQX",
+              "type": "table",
+              "tableType": "table",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-jWH9GVueQX",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-jWH9GVueQX",
+              "name": "Client Industries",
+              "parent": {
+                "id": "canvas-c_vjyerNV9",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-c_vjyerNV9",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suyerNV9",
+                "name": "Sales Data"
+              }
+            },
+            {
+              "id": "grid-_cqW1nqrkf",
+              "type": "table",
+              "tableType": "table",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-_cqW1nqrkf",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-_cqW1nqrkf",
+              "name": "Opportunity Stages",
+              "parent": {
+                "id": "canvas-c_vjyerNV9",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-c_vjyerNV9",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suyerNV9",
+                "name": "Sales Data"
+              }
+            },
+            {
+              "id": "grid-txkrBE9-TR",
+              "type": "table",
+              "tableType": "table",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-txkrBE9-TR",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-txkrBE9-TR",
+              "name": "Contacts",
+              "parent": {
+                "id": "canvas-M_BUq-USED",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-M_BUq-USED",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suq-USED",
+                "name": "Contacts"
+              }
+            },
+            {
+              "id": "grid-8pB7wBQ2Bz",
+              "type": "table",
+              "tableType": "table",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-8pB7wBQ2Bz",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-8pB7wBQ2Bz",
+              "name": "Companies",
+              "parent": {
+                "id": "canvas-vznQxgTt53",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-vznQxgTt53",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suxgTt53",
+                "name": "Clients"
+              }
+            },
+            {
+              "id": "grid-BvCv29Jxy4",
+              "type": "table",
+              "tableType": "table",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-BvCv29Jxy4",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-BvCv29Jxy4",
+              "name": "Currencies",
+              "parent": {
+                "id": "canvas-14BdE_osiV",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-14BdE_osiV",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suE_osiV",
+                "name": "Finance Data"
+              }
+            },
+            {
+              "id": "grid-jPxqmujNgu",
+              "type": "table",
+              "tableType": "table",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-jPxqmujNgu",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-jPxqmujNgu",
+              "name": "Opportunities",
+              "parent": {
+                "id": "canvas-BM5vNDCdhy",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-BM5vNDCdhy",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suNDCdhy",
+                "name": "Opportunities"
+              }
+            },
+            {
+              "id": "grid-o1C8-Zc3oh",
+              "type": "table",
+              "tableType": "table",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-o1C8-Zc3oh",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-o1C8-Zc3oh",
+              "name": "Opportunity Pipelines",
+              "parent": {
+                "id": "canvas-c_vjyerNV9",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-c_vjyerNV9",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suyerNV9",
+                "name": "Sales Data"
+              }
+            },
+            {
+              "id": "table-M0ox6jJln4",
+              "type": "table",
+              "tableType": "view",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-M0ox6jJln4",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-M0ox6jJln4",
+              "name": "CRM Opportunities",
+              "parent": {
+                "id": "canvas-fbzQ3Vsy9r",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-fbzQ3Vsy9r",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su3Vsy9r",
+                "name": "CRM"
+              }
+            },
+            {
+              "id": "table-G3llGaNlei",
+              "type": "table",
+              "tableType": "view",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-G3llGaNlei",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-G3llGaNlei",
+              "name": "CRM Contacts",
+              "parent": {
+                "id": "canvas-fbzQ3Vsy9r",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-fbzQ3Vsy9r",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su3Vsy9r",
+                "name": "CRM"
+              }
+            },
+            {
+              "id": "grid-XhMFD4i8ES",
+              "type": "table",
+              "tableType": "table",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-XhMFD4i8ES",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-XhMFD4i8ES",
+              "name": "Social Networks",
+              "parent": {
+                "id": "canvas-PJNOGs6qeC",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-PJNOGs6qeC",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suGs6qeC",
+                "name": "General Data"
+              }
+            },
+            {
+              "id": "grid-fgU-EOj_9f",
+              "type": "table",
+              "tableType": "table",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-fgU-EOj_9f",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-fgU-EOj_9f",
+              "name": "Company Social",
+              "parent": {
+                "id": "canvas-ekFo-qAqRO",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-ekFo-qAqRO",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su-qAqRO",
+                "name": "Company Social"
+              }
+            },
+            {
+              "id": "table-4niM6-va9R",
+              "type": "table",
+              "tableType": "view",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-4niM6-va9R",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-4niM6-va9R",
+              "name": "CRM Company Social",
+              "parent": {
+                "id": "canvas-fbzQ3Vsy9r",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-fbzQ3Vsy9r",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su3Vsy9r",
+                "name": "CRM"
+              }
+            },
+            {
+              "id": "grid-4R38JxK_St",
+              "type": "table",
+              "tableType": "table",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-4R38JxK_St",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-4R38JxK_St",
+              "name": "Invoices",
+              "parent": {
+                "id": "canvas-2kFFCFYXk4",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-2kFFCFYXk4",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suCFYXk4",
+                "name": "Invoices Data"
+              }
+            },
+            {
+              "id": "table-KxkM8s0vrB",
+              "type": "table",
+              "tableType": "view",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-KxkM8s0vrB",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-KxkM8s0vrB",
+              "name": "CRM Invoices",
+              "parent": {
+                "id": "canvas-fbzQ3Vsy9r",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-fbzQ3Vsy9r",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su3Vsy9r",
+                "name": "CRM"
+              }
+            },
+            {
+              "id": "table-DdTkW5gi0-",
+              "type": "table",
+              "tableType": "view",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-DdTkW5gi0-",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-DdTkW5gi0-",
+              "name": "CRM Bills",
+              "parent": {
+                "id": "canvas-fbzQ3Vsy9r",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-fbzQ3Vsy9r",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su3Vsy9r",
+                "name": "CRM"
+              }
+            },
+            {
+              "id": "table-dVzsHxrep8",
+              "type": "table",
+              "tableType": "view",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-dVzsHxrep8",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-dVzsHxrep8",
+              "name": "Accounts Receivable",
+              "parent": {
+                "id": "canvas-UveRHSY6co",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-UveRHSY6co",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suHSY6co",
+                "name": "Accounts Receivable"
+              }
+            },
+            {
+              "id": "table-kWyw7BC_5X",
+              "type": "table",
+              "tableType": "view",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-kWyw7BC_5X",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-kWyw7BC_5X",
+              "name": "Accounts Payable",
+              "parent": {
+                "id": "canvas-krvvjfjVZs",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-krvvjfjVZs",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_sujfjVZs",
+                "name": "Accounts Payable"
+              }
+            },
+            {
+              "id": "grid-TYT378yFfg",
+              "type": "table",
+              "tableType": "table",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-TYT378yFfg",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-TYT378yFfg",
+              "name": "Expenses",
+              "parent": {
+                "id": "canvas-42hPOMfreC",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-42hPOMfreC",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suOMfreC",
+                "name": "Expenses"
+              }
+            },
+            {
+              "id": "table-FmsdT3rQdm",
+              "type": "table",
+              "tableType": "view",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-FmsdT3rQdm",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-FmsdT3rQdm",
+              "name": "Sales Open Opportunities",
+              "parent": {
+                "id": "canvas-pSYuhEYNJd",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-pSYuhEYNJd",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suhEYNJd",
+                "name": "Sales"
+              }
+            },
+            {
+              "id": "grid-_HRcrpsRfM",
+              "type": "table",
+              "tableType": "table",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-_HRcrpsRfM",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-_HRcrpsRfM",
+              "name": "Opportunity Pipeline Stage",
+              "parent": {
+                "id": "canvas-c_vjyerNV9",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-c_vjyerNV9",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suyerNV9",
+                "name": "Sales Data"
+              }
+            },
+            {
+              "id": "table-oUptD0mOGs",
+              "type": "table",
+              "tableType": "view",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-oUptD0mOGs",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-oUptD0mOGs",
+              "name": "Open Opportunities by Type",
+              "parent": {
+                "id": "canvas-pSYuhEYNJd",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-pSYuhEYNJd",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suhEYNJd",
+                "name": "Sales"
+              }
+            },
+            {
+              "id": "table-CcyjiP8xvF",
+              "type": "table",
+              "tableType": "view",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-CcyjiP8xvF",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-CcyjiP8xvF",
+              "name": "Lost Opportunities by Type",
+              "parent": {
+                "id": "canvas-pSYuhEYNJd",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-pSYuhEYNJd",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suhEYNJd",
+                "name": "Sales"
+              }
+            },
+            {
+              "id": "table-N5MnmjoN_A",
+              "type": "table",
+              "tableType": "view",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-N5MnmjoN_A",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-N5MnmjoN_A",
+              "name": "Opportunities over the Year",
+              "parent": {
+                "id": "canvas-pSYuhEYNJd",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-pSYuhEYNJd",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suhEYNJd",
+                "name": "Sales"
+              }
+            },
+            {
+              "id": "table-eA1oCayxMT",
+              "type": "table",
+              "tableType": "view",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-eA1oCayxMT",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-eA1oCayxMT",
+              "name": "Abandoned Opportunities by Type",
+              "parent": {
+                "id": "canvas-pSYuhEYNJd",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-pSYuhEYNJd",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suhEYNJd",
+                "name": "Sales"
+              }
+            },
+            {
+              "id": "table-w9HH9-Cq_a",
+              "type": "table",
+              "tableType": "view",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-w9HH9-Cq_a",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-w9HH9-Cq_a",
+              "name": "Won Opportunities by Type",
+              "parent": {
+                "id": "canvas-pSYuhEYNJd",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-pSYuhEYNJd",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suhEYNJd",
+                "name": "Sales"
+              }
+            },
+            {
+              "id": "grid-9oTeC187o6",
+              "type": "table",
+              "tableType": "table",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-9oTeC187o6",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-9oTeC187o6",
+              "name": "Business Websites",
+              "parent": {
+                "id": "canvas-oZhC5CDwr9",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-oZhC5CDwr9",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su5CDwr9",
+                "name": "Business Data"
+              }
+            },
+            {
+              "id": "table-EhDaX5Zclh",
+              "type": "table",
+              "tableType": "view",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-EhDaX5Zclh",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-EhDaX5Zclh",
+              "name": "Business Site Links",
+              "parent": {
+                "id": "canvas-TC_LB4QzDP",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-TC_LB4QzDP",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suB4QzDP",
+                "name": "Company"
+              }
+            },
+            {
+              "id": "grid-Yh1gu5kwKa",
+              "type": "table",
+              "tableType": "table",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-Yh1gu5kwKa",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-Yh1gu5kwKa",
+              "name": "Business",
+              "parent": {
+                "id": "canvas-oZhC5CDwr9",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-oZhC5CDwr9",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su5CDwr9",
+                "name": "Business Data"
+              }
+            },
+            {
+              "id": "grid-gqb_8Nnv8E",
+              "type": "table",
+              "tableType": "table",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-gqb_8Nnv8E",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-gqb_8Nnv8E",
+              "name": "Business Addresses",
+              "parent": {
+                "id": "canvas-oZhC5CDwr9",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-oZhC5CDwr9",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su5CDwr9",
+                "name": "Business Data"
+              }
+            },
+            {
+              "id": "table-9OA5uoSrSX",
+              "type": "table",
+              "tableType": "view",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-9OA5uoSrSX",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-9OA5uoSrSX",
+              "name": "Business Info",
+              "parent": {
+                "id": "canvas-TC_LB4QzDP",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-TC_LB4QzDP",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suB4QzDP",
+                "name": "Company"
+              }
+            },
+            {
+              "id": "table-6a3xmp5ZeT",
+              "type": "table",
+              "tableType": "view",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-6a3xmp5ZeT",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-6a3xmp5ZeT",
+              "name": "Business Locations",
+              "parent": {
+                "id": "canvas-TC_LB4QzDP",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-TC_LB4QzDP",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suB4QzDP",
+                "name": "Company"
+              }
+            },
+            {
+              "id": "table-6w8ezsOMow",
+              "type": "table",
+              "tableType": "view",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-6w8ezsOMow",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-6w8ezsOMow",
+              "name": "Department Staff",
+              "parent": {
+                "id": "canvas-ow9CUzcG7U",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-ow9CUzcG7U",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suUzcG7U",
+                "name": "Departments"
+              }
+            },
+            {
+              "id": "table-kHGUiUzOd1",
+              "type": "table",
+              "tableType": "view",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-kHGUiUzOd1",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-kHGUiUzOd1",
+              "name": "Department Services",
+              "parent": {
+                "id": "canvas-ow9CUzcG7U",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-ow9CUzcG7U",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suUzcG7U",
+                "name": "Departments"
+              }
+            },
+            {
+              "id": "table-VSgUYrP8yC",
+              "type": "table",
+              "tableType": "view",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-VSgUYrP8yC",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-VSgUYrP8yC",
+              "name": "Deliverbles",
+              "parent": {
+                "id": "canvas-ow9CUzcG7U",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-ow9CUzcG7U",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suUzcG7U",
+                "name": "Departments"
+              }
+            },
+            {
+              "id": "table-RfWbYj8BEi",
+              "type": "table",
+              "tableType": "view",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-RfWbYj8BEi",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-RfWbYj8BEi",
+              "name": "Team Directory",
+              "parent": {
+                "id": "canvas-zuGqFcp_LK",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-zuGqFcp_LK",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suFcp_LK",
+                "name": "Team Directory"
+              }
+            },
+            {
+              "id": "grid-1Jfw1dt3gJ",
+              "type": "table",
+              "tableType": "table",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-1Jfw1dt3gJ",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-1Jfw1dt3gJ",
+              "name": "Financial Summary",
+              "parent": {
+                "id": "canvas-14BdE_osiV",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-14BdE_osiV",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suE_osiV",
+                "name": "Finance Data"
+              }
+            },
+            {
+              "id": "table-V33NYGn5nd",
+              "type": "table",
+              "tableType": "view",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-V33NYGn5nd",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-V33NYGn5nd",
+              "name": "Financial Forecast Chart",
+              "parent": {
+                "id": "canvas-WlPYwrtvJB",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-WlPYwrtvJB",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suwrtvJB",
+                "name": "Finance"
+              }
+            },
+            {
+              "id": "table-ewjFUTGxIq",
+              "type": "table",
+              "tableType": "view",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-ewjFUTGxIq",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-ewjFUTGxIq",
+              "name": "Financial Forecast",
+              "parent": {
+                "id": "canvas-WlPYwrtvJB",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-WlPYwrtvJB",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suwrtvJB",
+                "name": "Finance"
+              }
+            },
+            {
+              "id": "table-SKW8OH2X1u",
+              "type": "table",
+              "tableType": "view",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-SKW8OH2X1u",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-SKW8OH2X1u",
+              "name": "Services by Category",
+              "parent": {
+                "id": "canvas-WpqKkcnXbu",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-WpqKkcnXbu",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_sukcnXbu",
+                "name": "Services"
+              }
+            },
+            {
+              "id": "table-LhTQu0kGV3",
+              "type": "table",
+              "tableType": "view",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-LhTQu0kGV3",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-LhTQu0kGV3",
+              "name": "Active Clients",
+              "parent": {
+                "id": "canvas-SpBMLVKB8k",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-SpBMLVKB8k",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suLVKB8k",
+                "name": "Clients"
+              }
+            },
+            {
+              "id": "table-ZPXkDctsBN",
+              "type": "table",
+              "tableType": "view",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-ZPXkDctsBN",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-ZPXkDctsBN",
+              "name": "Active Clients by Industry",
+              "parent": {
+                "id": "canvas-SpBMLVKB8k",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-SpBMLVKB8k",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suLVKB8k",
+                "name": "Clients"
+              }
+            },
+            {
+              "id": "table-hj7D9z8NQo",
+              "type": "table",
+              "tableType": "view",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-hj7D9z8NQo",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-hj7D9z8NQo",
+              "name": "Active Clients by Country",
+              "parent": {
+                "id": "canvas-SpBMLVKB8k",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-SpBMLVKB8k",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suLVKB8k",
+                "name": "Clients"
+              }
+            },
+            {
+              "id": "grid-DKEihsDvvr",
+              "type": "table",
+              "tableType": "table",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-DKEihsDvvr",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-DKEihsDvvr",
+              "name": "Staff Emergency Contacts",
+              "parent": {
+                "id": "canvas-my7I0GY8lw",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-my7I0GY8lw",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su0GY8lw",
+                "name": "HR Data"
+              }
+            },
+            {
+              "id": "table-jI4jgq162w",
+              "type": "table",
+              "tableType": "view",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-jI4jgq162w",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-jI4jgq162w",
+              "name": "Emergency Contacts",
+              "parent": {
+                "id": "canvas-XP18aM7opK",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-XP18aM7opK",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suaM7opK",
+                "name": "HR"
+              }
+            },
+            {
+              "id": "table-SH9jDY9xlF",
+              "type": "table",
+              "tableType": "view",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-SH9jDY9xlF",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-SH9jDY9xlF",
+              "name": "The Team",
+              "parent": {
+                "id": "canvas-XP18aM7opK",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-XP18aM7opK",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suaM7opK",
+                "name": "HR"
+              }
+            },
+            {
+              "id": "table-avkvnLlEAQ",
+              "type": "table",
+              "tableType": "view",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-avkvnLlEAQ",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-avkvnLlEAQ",
+              "name": "Basic Business Setup",
+              "parent": {
+                "id": "canvas-bxV94mIdan",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-bxV94mIdan",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su4mIdan",
+                "name": "Setup"
+              }
+            },
+            {
+              "id": "table-tsDX_4tlLQ",
+              "type": "table",
+              "tableType": "view",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-tsDX_4tlLQ",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-tsDX_4tlLQ",
+              "name": "Business Addresses Setup",
+              "parent": {
+                "id": "canvas-bxV94mIdan",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-bxV94mIdan",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su4mIdan",
+                "name": "Setup"
+              }
+            },
+            {
+              "id": "table-aYcpRd5K2T",
+              "type": "table",
+              "tableType": "view",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-aYcpRd5K2T",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-aYcpRd5K2T",
+              "name": "Business Websites Setup",
+              "parent": {
+                "id": "canvas-bxV94mIdan",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-bxV94mIdan",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su4mIdan",
+                "name": "Setup"
+              }
+            },
+            {
+              "id": "table-nCeeaDwNC1",
+              "type": "table",
+              "tableType": "view",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-nCeeaDwNC1",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-nCeeaDwNC1",
+              "name": "Departments Setup",
+              "parent": {
+                "id": "canvas-ODrtTOlR0U",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-ODrtTOlR0U",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suTOlR0U",
+                "name": "Team Setup"
+              }
+            },
+            {
+              "id": "table-pg_GMMqwSL",
+              "type": "table",
+              "tableType": "view",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-pg_GMMqwSL",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-pg_GMMqwSL",
+              "name": "Teams Setup",
+              "parent": {
+                "id": "canvas-ODrtTOlR0U",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-ODrtTOlR0U",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suTOlR0U",
+                "name": "Team Setup"
+              }
+            },
+            {
+              "id": "table-rHMffoVJsn",
+              "type": "table",
+              "tableType": "view",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-rHMffoVJsn",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-rHMffoVJsn",
+              "name": "Staff Setup",
+              "parent": {
+                "id": "canvas-ODrtTOlR0U",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-ODrtTOlR0U",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suTOlR0U",
+                "name": "Team Setup"
+              }
+            },
+            {
+              "id": "table-9TIeBcgL89",
+              "type": "table",
+              "tableType": "view",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-9TIeBcgL89",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-9TIeBcgL89",
+              "name": "Staff Emergency Contacts Setup",
+              "parent": {
+                "id": "canvas-ODrtTOlR0U",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-ODrtTOlR0U",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suTOlR0U",
+                "name": "Team Setup"
+              }
+            },
+            {
+              "id": "table-TAnyMCSch1",
+              "type": "table",
+              "tableType": "view",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-TAnyMCSch1",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-TAnyMCSch1",
+              "name": "Currencies Setup",
+              "parent": {
+                "id": "canvas-WdxkoaBM95",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-WdxkoaBM95",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suoaBM95",
+                "name": "Finance Setup"
+              }
+            },
+            {
+              "id": "table-xfSyU6mCpt",
+              "type": "table",
+              "tableType": "view",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-xfSyU6mCpt",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-xfSyU6mCpt",
+              "name": "Sales Tax Setup",
+              "parent": {
+                "id": "canvas-WdxkoaBM95",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-WdxkoaBM95",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suoaBM95",
+                "name": "Finance Setup"
+              }
+            },
+            {
+              "id": "table-74o2s0eMid",
+              "type": "table",
+              "tableType": "view",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-74o2s0eMid",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-74o2s0eMid",
+              "name": "Sales Tax Rates Setup",
+              "parent": {
+                "id": "canvas-WdxkoaBM95",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-WdxkoaBM95",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suoaBM95",
+                "name": "Finance Setup"
+              }
+            },
+            {
+              "id": "table-_dHLq9sy0I",
+              "type": "table",
+              "tableType": "view",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-_dHLq9sy0I",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-_dHLq9sy0I",
+              "name": "Service Categories Setup",
+              "parent": {
+                "id": "canvas-md35s42UKg",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-md35s42UKg",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_sus42UKg",
+                "name": "Services Setup"
+              }
+            },
+            {
+              "id": "table-wQwP5OXt62",
+              "type": "table",
+              "tableType": "view",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-wQwP5OXt62",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-wQwP5OXt62",
+              "name": "Services Setup",
+              "parent": {
+                "id": "canvas-md35s42UKg",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-md35s42UKg",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_sus42UKg",
+                "name": "Services Setup"
+              }
+            },
+            {
+              "id": "table-fcvX_MNkR6",
+              "type": "table",
+              "tableType": "view",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-fcvX_MNkR6",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-fcvX_MNkR6",
+              "name": "Service Work Setup",
+              "parent": {
+                "id": "canvas-md35s42UKg",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-md35s42UKg",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_sus42UKg",
+                "name": "Services Setup"
+              }
+            },
+            {
+              "id": "table-baIKNzCjHX",
+              "type": "table",
+              "tableType": "view",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-baIKNzCjHX",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-baIKNzCjHX",
+              "name": "Opportunity Pipelines Setup",
+              "parent": {
+                "id": "canvas-IIYxZ3g6xt",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-IIYxZ3g6xt",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suZ3g6xt",
+                "name": "Opportunities Setup"
+              }
+            },
+            {
+              "id": "table-_9BXbxRncV",
+              "type": "table",
+              "tableType": "view",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-_9BXbxRncV",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-_9BXbxRncV",
+              "name": "Staff Managers Setup",
+              "parent": {
+                "id": "canvas-ODrtTOlR0U",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-ODrtTOlR0U",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suTOlR0U",
+                "name": "Team Setup"
+              }
+            },
+            {
+              "id": "table-uhMJTZMi9K",
+              "type": "table",
+              "tableType": "view",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-uhMJTZMi9K",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-uhMJTZMi9K",
+              "name": "Expense Billing Frequency Setup",
+              "parent": {
+                "id": "canvas-Tjxh3YTyEZ",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-Tjxh3YTyEZ",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su3YTyEZ",
+                "name": "Expenses Setup"
+              }
+            },
+            {
+              "id": "table-Sj3JlXr26l",
+              "type": "table",
+              "tableType": "view",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-Sj3JlXr26l",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-Sj3JlXr26l",
+              "name": "Expense Provider Setup",
+              "parent": {
+                "id": "canvas-Tjxh3YTyEZ",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-Tjxh3YTyEZ",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su3YTyEZ",
+                "name": "Expenses Setup"
+              }
+            },
+            {
+              "id": "table--AaV_nz0ZZ",
+              "type": "table",
+              "tableType": "view",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table--AaV_nz0ZZ",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable--AaV_nz0ZZ",
+              "name": "Expense Categories Setup",
+              "parent": {
+                "id": "canvas-Tjxh3YTyEZ",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-Tjxh3YTyEZ",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_su3YTyEZ",
+                "name": "Expenses Setup"
+              }
+            },
+            {
+              "id": "table-57AEMZ1HnJ",
+              "type": "table",
+              "tableType": "view",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-57AEMZ1HnJ",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-57AEMZ1HnJ",
+              "name": "Taxes Setup",
+              "parent": {
+                "id": "canvas-WdxkoaBM95",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-WdxkoaBM95",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suoaBM95",
+                "name": "Finance Setup"
+              }
+            },
+            {
+              "id": "table-x4sIp25bmR",
+              "type": "table",
+              "tableType": "view",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-x4sIp25bmR",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-x4sIp25bmR",
+              "name": "Client Industries Setup",
+              "parent": {
+                "id": "canvas-c_MUzIVEi0",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-c_MUzIVEi0",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suzIVEi0",
+                "name": "Clients Setup"
+              }
+            },
+            {
+              "id": "table-SAlOfVGlao",
+              "type": "table",
+              "tableType": "view",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-SAlOfVGlao",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-SAlOfVGlao",
+              "name": "Companies Setup",
+              "parent": {
+                "id": "canvas-c_MUzIVEi0",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-c_MUzIVEi0",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suzIVEi0",
+                "name": "Clients Setup"
+              }
+            },
+            {
+              "id": "table-7QRU8KS75H",
+              "type": "table",
+              "tableType": "view",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-7QRU8KS75H",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-7QRU8KS75H",
+              "name": "Contacts Setup",
+              "parent": {
+                "id": "canvas-c_MUzIVEi0",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-c_MUzIVEi0",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suzIVEi0",
+                "name": "Clients Setup"
+              }
+            },
+            {
+              "id": "table-1WWHdjr1ZF",
+              "type": "table",
+              "tableType": "view",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-1WWHdjr1ZF",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-1WWHdjr1ZF",
+              "name": "Opportunity Pipeline Stage Setup",
+              "parent": {
+                "id": "canvas-IIYxZ3g6xt",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-IIYxZ3g6xt",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suZ3g6xt",
+                "name": "Opportunities Setup"
+              }
+            },
+            {
+              "id": "table-n73VdH7Ski",
+              "type": "table",
+              "tableType": "view",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-n73VdH7Ski",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-n73VdH7Ski",
+              "name": "Opportunity Types Setup",
+              "parent": {
+                "id": "canvas-IIYxZ3g6xt",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-IIYxZ3g6xt",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suZ3g6xt",
+                "name": "Opportunities Setup"
+              }
+            },
+            {
+              "id": "table-z-oXrVhFq0",
+              "type": "table",
+              "tableType": "view",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-z-oXrVhFq0",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-z-oXrVhFq0",
+              "name": "Opportunity Stages Setup",
+              "parent": {
+                "id": "canvas-IIYxZ3g6xt",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-IIYxZ3g6xt",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_suZ3g6xt",
+                "name": "Opportunities Setup"
+              }
+            },
+            {
+              "id": "table-V_zQoMClKZ",
+              "type": "table",
+              "tableType": "view",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/table-V_zQoMClKZ",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tutable-V_zQoMClKZ",
+              "name": "Sales Goals Setup",
+              "parent": {
+                "id": "canvas-hBv0n9ttIU",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-hBv0n9ttIU",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_sun9ttIU",
+                "name": "Sales Setup"
+              }
+            },
+            {
+              "id": "grid-SzBI7U7Ehm",
+              "type": "table",
+              "tableType": "table",
+              "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables/grid-SzBI7U7Ehm",
+              "browserLink": "https://coda.io/d/_d6O6-VWsNpq#_tugrid-SzBI7U7Ehm",
+              "name": "WunderAgency Setup Steps",
+              "parent": {
+                "id": "canvas-IhDSkELStw",
+                "type": "page",
+                "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/pages/canvas-IhDSkELStw",
+                "browserLink": "https://coda.io/d/_d6O6-VWsNpq/_sukELStw",
+                "name": "The Digital Agency Operating System"
+              }
+            }
+          ],
+          "href": "https://coda.io/apis/v1/docs/6O6-VWsNpq/tables?pageToken=eyJsaW1pdCI6MTAwLCJvZmZzZXQiOjAsIm9wVmVyc2lvbiI6MzE0NjMsInNjaGVtYVZlcnNpb24iOjE3NywidGFibGVUeXBlcyI6W119"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 23 Jun 2026 13:48:06 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4984",
+          "x-ratelimit-reset": "1782222531",
+          "x-coda-pod": "api-doc-8674fd7489-c8wql",
+          "vary": "Origin, Accept-Encoding",
+          "surrogate-control": "no-store",
+          "cache-control": "no-store, no-cache, must-revalidate, proxy-revalidate",
+          "expires": "0",
+          "etag": "W/\"91bc-2uc/DwDXwsu9nD44PN9JHq7HVk8\"",
+          "x-coda-server": "api-doc",
+          "x-cache": "Miss from cloudfront",
+          "via": "1.1 33f44c5d40d98734c5ae4147ce95d00c.cloudfront.net (CloudFront)",
+          "x-amz-cf-pop": "HIO52-P5",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "x-amz-cf-id": "00M0W3aQBaSZMsrfSmC4dAvJW2ZeNHxG3poyNUuGpfmH6TY4iufiaQ=="
+        },
+        "hash": "00b2b36cf15669d698e0936f9d61c56bc8a4ff8b",
+        "request": {
+          "params": {
+            "limit": "100"
+          }
+        }
+      }
+    }
+  }
+}

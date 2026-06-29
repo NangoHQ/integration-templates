@@ -30017,6 +30017,1150 @@ export interface ActionOutput_close_updatetask {
   type: string;
 };
 
+export interface Column {
+  id: string;
+  database_name: string;
+  schema_name: string;
+  table_name: string;
+  column_name: string;
+  ordinal_position?: number | undefined;
+  data_type?: string | undefined;
+  data_type_type?: string | undefined;
+  data_type_precision?: number | undefined;
+  data_type_scale?: number | undefined;
+  data_type_byte_length?: number | undefined;
+  data_type_length?: number | undefined;
+  nullable?: boolean | undefined;
+  default_value?: string | undefined;
+  kind?: string | undefined;
+  expression?: string | undefined;
+  comment?: string | undefined;
+  autoincrement?: string | undefined;
+};
+
+export interface SyncMetadata_coda_columns {
+  docId: string;
+  tableId: string;
+};
+
+export interface Control {
+  /**
+   * e.g. ctrl-xxx
+   */
+  id: string;
+  type?: string | undefined;
+  href?: string | undefined;
+  name?: string | undefined;
+  controlType?: string | undefined;
+  value?: unknown | undefined;
+  parent?: {  id?: string | undefined;
+  type?: string | undefined;
+  href?: string | undefined;
+  browserLink?: string | undefined;
+  name?: string | undefined;};
+};
+
+export interface SyncMetadata_coda_controls {
+  /**
+   * ID of the doc to sync controls from
+   */
+  docId: string;
+};
+
+export interface Doc {
+  id: string;
+  name?: string | undefined;
+  type?: string | undefined;
+  href?: string | undefined;
+  browserLink?: string | undefined;
+  owner?: string | undefined;
+  ownerName?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  workspaceId?: string | undefined;
+  folderId?: string | undefined;
+};
+
+export interface Formula {
+  id: string;
+  name: string;
+  href?: string | undefined;
+  parentId?: string | undefined;
+  parentName?: string | undefined;
+  parentType?: string | undefined;
+};
+
+export interface SyncMetadata_coda_formulas {
+  docId: string;
+};
+
+export interface SyncMetadata_coda_pages {
+  docId: string;
+};
+
+export interface Permission {
+  id: string;
+  itemId: string;
+  permissionId: string;
+  roles?: string[] | undefined;
+  grantedToV2?: {  [key: string]: unknown | undefined;};
+  grantedToIdentitiesV2?: ({  [key: string]: unknown | undefined;})[];
+  link?: {  [key: string]: unknown | undefined;};
+  invitation?: {  [key: string]: unknown | undefined;};
+  shareId?: string | undefined;
+  expirationDateTime?: string | undefined;
+  hasPassword?: boolean | undefined;
+  inheritedFrom?: {  [key: string]: unknown | undefined;};
+};
+
+export interface SyncMetadata_coda_permissions {
+  docId: string;
+};
+
+export interface Row {
+  id: string;
+  rowIndex: number;
+  values: any[];
+};
+
+export interface SyncMetadata_coda_rows {
+  /**
+   * The ID of the Coda doc containing the table
+   */
+  docId: string;
+  /**
+   * The ID of the table to sync rows from
+   */
+  tableId: string;
+};
+
+export interface SyncMetadata_coda_tables {
+  docId: string;
+};
+
+export interface ActionInput_coda_addpermission {
+  /**
+   * ID of the doc to share. Example: "AbCDeFGH"
+   */
+  docId: string;
+  /**
+   * Access level to grant.
+   */
+  access: 'readonly' | 'write' | 'comment';
+  /**
+   * Type of principal to share with.
+   */
+  principalType: 'email' | 'anyone';
+  /**
+   * Email address of the user to share with. Required when principalType is "email".
+   */
+  email?: string | undefined;
+  /**
+   * When true, suppresses the email notification.
+   */
+  suppressEmail?: boolean | undefined;
+};
+
+export interface ActionOutput_coda_addpermission {
+  id?: string | undefined;
+  access?: string | undefined;
+  principal?: {  type?: string | undefined;
+  email?: string | undefined;};
+};
+
+export interface ActionInput_coda_createdoc {
+  /**
+   * Title of the new doc. Defaults to "Untitled".
+   */
+  title?: string | undefined;
+  /**
+   * ID of the folder to create the doc in. Example: "fl-1Ab234".
+   */
+  folderId?: string | undefined;
+  /**
+   * ID of an existing doc to copy from. Example: "AbCDeFGH".
+   */
+  sourceDoc?: string | undefined;
+};
+
+export interface ActionOutput_coda_createdoc {
+  id: string;
+  type: string;
+  href: string;
+  browserLink: string;
+  name: string;
+  owner: string;
+  ownerName: string;
+  createdAt: string;
+  updatedAt: string;
+  workspace?: {  id: string;
+  type: string;
+  organizationId?: string | undefined;
+  browserLink?: string | undefined;
+  name?: string | undefined;};
+  folder?: {  id: string;
+  type: string;
+  browserLink?: string | undefined;
+  name?: string | undefined;};
+  workspaceId?: string | undefined;
+  folderId?: string | undefined;
+  icon?: {  name?: string | undefined;
+  type?: string | undefined;
+  browserLink?: string | undefined;};
+  docSize?: {  totalRowCount?: number | undefined;
+  tableAndViewCount?: number | undefined;
+  pageCount?: number | undefined;
+  overApiSizeLimit?: boolean | undefined;};
+  sourceDoc?: {  id: string;
+  type: string;
+  href?: string | undefined;
+  browserLink?: string | undefined;};
+  published?: {  description?: string | undefined;
+  browserLink?: string | undefined;
+  imageLink?: string | undefined;
+  discoverable?: boolean | undefined;
+  earnCredit?: boolean | undefined;
+  mode?: string | undefined;
+  categories?: string[] | undefined;};
+  requestId?: string | undefined;
+  /**
+   * Whether the async copy (if any) has completed.
+   */
+  copyCompleted?: boolean | undefined;
+  /**
+   * Warning returned by the mutation status endpoint, if any.
+   */
+  copyWarning?: string | undefined;
+};
+
+export interface ActionInput_coda_createpage {
+  /**
+   * Doc ID. Example: "L_hgEASd6n"
+   */
+  docId: string;
+  /**
+   * Name of the page.
+   */
+  name: string;
+  /**
+   * Subtitle of the page.
+   */
+  subtitle?: string | undefined;
+  /**
+   * Name of the icon.
+   */
+  iconName?: string | undefined;
+  /**
+   * URL of the cover image to use.
+   */
+  imageUrl?: string | undefined;
+  /**
+   * The ID of this new page's parent, if creating a subpage.
+   */
+  parentPageId?: string | undefined;
+};
+
+export interface ActionOutput_coda_createpage {
+  id: string;
+  requestId: string;
+  completed: boolean;
+};
+
+export interface ActionInput_coda_deletedoc {
+  /**
+   * The ID of the doc to delete. Example: "a97K6uAljP"
+   */
+  docId: string;
+};
+
+export interface ActionOutput_coda_deletedoc {
+  success: boolean;
+};
+
+export interface ActionInput_coda_deletepage {
+  /**
+   * Doc ID. Example: "L_hgEASd6n"
+   */
+  docId: string;
+  /**
+   * Page ID or name. Example: "canvas-taIuEN56H1"
+   */
+  pageIdOrName: string;
+};
+
+export interface ActionOutput_coda_deletepage {
+  id: string;
+  requestId: string;
+  completed: boolean;
+};
+
+export interface ActionInput_coda_deleterow {
+  /**
+   * The ID of the document containing the table. Example: "L_hgEASd6n"
+   */
+  docId: string;
+  /**
+   * The ID or name of the table containing the row. Example: "grid-123"
+   */
+  tableIdOrName: string;
+  /**
+   * The ID or name of the row to delete. Example: "i-123"
+   */
+  rowIdOrName: string;
+};
+
+export interface ActionOutput_coda_deleterow {
+  /**
+   * The async request ID for tracking the mutation status.
+   */
+  requestId: string;
+};
+
+export interface ActionInput_coda_deleterows {
+  /**
+   * The ID of the doc containing the table. Example: "AbCDeFGH"
+   */
+  docId: string;
+  /**
+   * The ID or name of the table to delete rows from. Example: "grid-tE68GY5gIp"
+   */
+  tableIdOrName: string;
+  /**
+   * The IDs of the rows to delete. Up to 100 row IDs per call.
+   */
+  rowIds: string[];
+};
+
+export interface ActionOutput_coda_deleterows {
+  /**
+   * The mutation request ID for tracking async completion.
+   */
+  requestId: string;
+};
+
+export interface ActionInput_coda_getcolumn {
+  /**
+   * ID of the doc. Example: "AbCDeFGH"
+   */
+  docId: string;
+  /**
+   * ID or name of the table. Example: "grid-pqRst-U"
+   */
+  tableId: string;
+  /**
+   * ID or name of the column. Example: "c-tuVwxYz"
+   */
+  columnId: string;
+};
+
+export interface ActionOutput_coda_getcolumn {
+  id: string;
+  type: string;
+  name: string;
+  href: string;
+  display?: boolean | undefined;
+  calculated?: boolean | undefined;
+  formula?: string | undefined;
+  defaultValue?: string | undefined;
+  format?: {} | undefined;
+  parent?: {  id: string;
+  type: string;
+  tableType: string;
+  href: string;
+  browserLink: string;
+  name: string;
+  parent?: {  id?: string | undefined;
+  type?: string | undefined;
+  href?: string | undefined;
+  name?: string | undefined;};};
+};
+
+export interface ActionInput_coda_getcontrol {
+  /**
+   * ID of the Coda doc. Example: "L_hgEASd6n"
+   */
+  docId: string;
+  /**
+   * ID or name of the control. Example: "ctrl-F38u5bVLOn"
+   */
+  controlIdOrName: string;
+};
+
+export interface ActionOutput_coda_getcontrol {
+  id: string;
+  type: string;
+  href: string;
+  name: string;
+  controlType: string;
+  value?: unknown | undefined;
+  parent?: {  id: string;
+  type: string;
+  name?: string | undefined;};
+};
+
+export interface ActionInput_coda_getdoc {
+  /**
+   * ID of the Coda doc. Example: "AbCDeFGH"
+   */
+  docId: string;
+};
+
+export interface ActionOutput_coda_getdoc {
+  id: string;
+  type: string;
+  href: string;
+  browserLink: string;
+  name: string;
+  owner: string;
+  ownerName: string;
+  createdAt: string;
+  updatedAt: string;
+  workspace?: {  id?: string | undefined;
+  type?: string | undefined;
+  organizationId?: string | undefined;
+  browserLink?: string | undefined;
+  name?: string | undefined;};
+  folder?: {  id?: string | undefined;
+  type?: string | undefined;
+  browserLink?: string | undefined;
+  name?: string | undefined;};
+  workspaceId?: string | undefined;
+  folderId?: string | undefined;
+  icon?: {  name?: string | undefined;
+  type?: string | undefined;
+  browserLink?: string | undefined;};
+  docSize?: {  totalRowCount?: number | undefined;
+  tableAndViewCount?: number | undefined;
+  pageCount?: number | undefined;
+  overApiSizeLimit?: boolean | undefined;};
+  sourceDoc?: {  id?: string | undefined;
+  type?: string | undefined;
+  href?: string | undefined;
+  browserLink?: string | undefined;};
+  published?: {  description?: string | undefined;
+  browserLink?: string | undefined;
+  imageLink?: string | undefined;
+  discoverable?: boolean | undefined;
+  earnCredit?: boolean | undefined;
+  mode?: string | undefined;
+  categories?: string[] | undefined;};
+};
+
+export interface ActionInput_coda_getformula {
+  /**
+   * ID of the Coda doc. Example: "L_hgEASd6n"
+   */
+  docId: string;
+  /**
+   * ID or name of the formula. Example: "f-fgHijkLm"
+   */
+  formulaIdOrName: string;
+};
+
+export interface ActionOutput_coda_getformula {
+  id: string;
+  type: string;
+  href: string;
+  name: string;
+  value: string | number | boolean | ({  0: string;
+  1: number;
+  2: boolean;})[] | ({  0: string;
+  1: number;
+  2: boolean;})[];
+  parent?: {  id: string;
+  type: string;
+  href: string;
+  browserLink: string;
+  name: string;} | undefined;
+};
+
+export interface ActionInput_coda_getmutationstatus {
+  /**
+   * The requestId returned by an async mutation such as page create/update/delete or row upsert. Example: "request-123"
+   */
+  requestId: string;
+};
+
+export interface ActionOutput_coda_getmutationstatus {
+  completed: boolean;
+};
+
+export interface ActionInput_coda_getpage {
+  /**
+   * Doc ID. Example: "L_hgEASd6n"
+   */
+  docId: string;
+  /**
+   * Page ID or page name. Example: "canvas-51lnQjKXyv"
+   */
+  pageIdOrName: string;
+};
+
+export interface ActionOutput_coda_getpage {
+  id: string;
+  type: string;
+  name: string;
+  href?: string | undefined;
+  browserLink?: string | undefined;
+  isHidden?: boolean | undefined;
+  isEffectivelyHidden?: boolean | undefined;
+  contentType?: string | undefined;
+  children?: ({  id: string;
+  type: string;
+  href: string;
+  browserLink: string;
+  name: string;})[] | undefined;
+  subtitle?: string | undefined;
+  icon?: {  name?: string | undefined;
+  type?: string | undefined;
+  browserLink?: string | undefined;};
+  image?: {  browserLink?: string | undefined;
+  type?: string | undefined;
+  width?: number | undefined;
+  height?: number | undefined;};
+  parent?: {  id: string;
+  type: string;
+  href: string;
+  browserLink: string;
+  name: string;} | undefined;
+  authors?: ({  name?: string | undefined;
+  email?: string | undefined;})[];
+  createdAt?: string | undefined;
+  createdBy?: {  name?: string | undefined;
+  email?: string | undefined;};
+  updatedAt?: string | undefined;
+  updatedBy?: {  name?: string | undefined;
+  email?: string | undefined;};
+};
+
+export interface ActionInput_coda_getrow {
+  /**
+   * ID of the doc. Example: "AbCDeFGH"
+   */
+  docId: string;
+  /**
+   * ID or name of the table. Example: "grid-pqRst-U"
+   */
+  tableIdOrName: string;
+  /**
+   * ID or name of the row. Example: "i-tuVwxYz"
+   */
+  rowIdOrName: string;
+  /**
+   * Use column names instead of column IDs in the returned output.
+   */
+  useColumnNames?: boolean | undefined;
+  /**
+   * The format that cell values are returned as.
+   */
+  valueFormat?: 'simple' | 'simpleWithArrays' | 'rich' | undefined;
+};
+
+export interface ActionOutput_coda_getrow {
+  id: string;
+  type: string;
+  href?: string | undefined;
+  name?: string | undefined;
+  index?: number | undefined;
+  browserLink?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  values?: {  [key: string]: unknown | undefined;};
+  parent?: {  id: string;
+  type: string;
+  tableType?: string | undefined;
+  href?: string | undefined;
+  browserLink?: string | undefined;
+  name?: string | undefined;
+  parent?: {  id: string;
+  type: string;
+  href?: string | undefined;
+  browserLink?: string | undefined;
+  name?: string | undefined;};};
+};
+
+export interface ActionInput_coda_getsharingmetadata {
+  /**
+   * Doc ID. Example: "L_hgEASd6n"
+   */
+  docId: string;
+};
+
+export interface ActionOutput_coda_getsharingmetadata {
+  canShare: boolean;
+  canShareWithWorkspace: boolean;
+  canShareWithOrg: boolean;
+  canCopy: boolean;
+};
+
+export interface ActionInput_coda_gettable {
+  /**
+   * ID of the Coda doc. Example: "AbCDeFGH"
+   */
+  docId: string;
+  /**
+   * ID or name of the table. Example: "grid-pqRst-U"
+   */
+  tableIdOrName: string;
+};
+
+export interface ActionOutput_coda_gettable {
+  id: string;
+  type: string;
+  tableType: string;
+  href: string;
+  browserLink: string;
+  name: string;
+  parent: {  id: string;
+  type: string;
+  href: string;
+  browserLink: string;
+  name: string;};
+  displayColumn: {  id: string;
+  type: string;
+  href: string;};
+  rowCount: number;
+  sorts: ({  column: {  id: string;
+  type: string;
+  href: string;};
+  direction: string;})[];
+  layout: string;
+  createdAt: string;
+  updatedAt: string;
+  viewId?: string | undefined;
+  parentTable?: {  id: string;
+  type: string;
+  tableType: string;
+  href: string;
+  browserLink: string;
+  name: string;
+  parent?: {  id: string;
+  type: string;
+  href: string;
+  browserLink: string;
+  name: string;} | undefined;};
+  filter?: {  valid: boolean;
+  isVolatile: boolean;
+  hasUserFormula: boolean;
+  hasTodayFormula: boolean;
+  hasNowFormula: boolean;} | undefined;
+};
+
+export interface ActionInput_coda_getuser {
+};
+
+export interface ActionOutput_coda_getuser {
+  name: string;
+  loginId: string;
+  tokenName: string;
+  scoped: boolean;
+  workspace: {  id: string;
+  type: string;
+  organizationId?: string | undefined;
+  browserLink?: string | undefined;
+  name?: string | undefined;};
+};
+
+export interface ActionInput_coda_listcategories {
+};
+
+export interface ActionOutput_coda_listcategories {
+  items: ({  name: string;})[];
+};
+
+export interface ActionInput_coda_listcolumns {
+  /**
+   * Doc ID. Example: "wGUhBwDpCh"
+   */
+  docId: string;
+  /**
+   * Table ID or name. Example: "table-x21g6d40h7"
+   */
+  tableId: string;
+  /**
+   * If true, only returns visible columns.
+   */
+  visibleOnly?: boolean | undefined;
+  /**
+   * Maximum number of results to return.
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_coda_listcolumns {
+  items: ({  id: string;
+  type: string;
+  name: string;
+  href?: string | undefined;
+  display?: boolean | undefined;
+  calculated?: boolean | undefined;
+  format?: {  [key: string]: unknown | undefined;};})[];
+  nextPageToken?: string | undefined;
+};
+
+export interface ActionInput_coda_listcontrols {
+  /**
+   * ID of the Coda doc. Example: "L_hgEASd6n"
+   */
+  docId: string;
+  /**
+   * Sort order for controls. Example: "name"
+   */
+  sortBy?: 'name' | 'createdAt' | undefined;
+  /**
+   * Maximum number of results to return. Example: 25
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_coda_listcontrols {
+  items: ({  id: string;
+  type: string;
+  href: string;
+  name: string;
+  controlType?: string | undefined;
+  parent?: {  id: string;
+  type: string;
+  href: string;
+  browserLink?: string | undefined;
+  name?: string | undefined;};})[];
+  nextPageToken?: string | undefined;
+  nextPageLink?: string | undefined;
+};
+
+export interface ActionInput_coda_listdocanalytics {
+  /**
+   * ID of a doc to filter analytics. Example: "AbCDeFGH"
+   */
+  docId?: string | undefined;
+  /**
+   * Limit results to only published items.
+   */
+  isPublished?: boolean | undefined;
+  /**
+   * Filter by publish type.
+   */
+  publishType?: string | undefined;
+  /**
+   * Limit results to activity on or after this date (YYYY-MM-DD). Example: "2020-08-01"
+   */
+  sinceDate?: string | undefined;
+  /**
+   * Limit results to activity on or before this date (YYYY-MM-DD). Example: "2020-08-05"
+   */
+  untilDate?: string | undefined;
+  /**
+   * Maximum number of results to return. Example: 10
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  pageToken?: string | undefined;
+};
+
+export interface ActionOutput_coda_listdocanalytics {
+  items: ({  doc?: {  id: string;
+  type?: string | undefined;
+  href?: string | undefined;
+  browserLink?: string | undefined;
+  title?: string | undefined;
+  icon?: {  name?: string | undefined;
+  type?: string | undefined;
+  browserLink?: string | undefined;};
+  createdAt?: string | undefined;
+  publishedAt?: string | undefined;};
+  metrics?: ({  date?: string | undefined;
+  views?: number | undefined;
+  copies?: number | undefined;
+  likes?: number | undefined;
+  sessionsMobile?: number | undefined;
+  sessionsDesktop?: number | undefined;
+  sessionsOther?: number | undefined;
+  totalSessions?: number | undefined;
+  aiCreditsChat?: number | undefined;
+  aiCreditsBlock?: number | undefined;
+  aiCreditsColumn?: number | undefined;
+  aiCreditsAssistant?: number | undefined;
+  aiCreditsReviewer?: number | undefined;
+  aiCredits?: number | undefined;})[];})[];
+  nextPageToken?: string | undefined;
+};
+
+export interface ActionInput_coda_listdocs {
+  /**
+   * Search term used to filter down results. Example: "Project Tracker"
+   */
+  query?: string | undefined;
+  /**
+   * Show only docs owned by the user.
+   */
+  isOwner?: boolean | undefined;
+  /**
+   * Show only published docs.
+   */
+  isPublished?: boolean | undefined;
+  /**
+   * Show only docs belonging to the given workspace. Example: "ws-oZFDiLKJ45"
+   */
+  workspaceId?: string | undefined;
+  /**
+   * Show only docs belonging to the given folder.
+   */
+  folderId?: string | undefined;
+  /**
+   * Maximum number of results to return. Example: 10
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  pageToken?: string | undefined;
+};
+
+export interface ActionOutput_coda_listdocs {
+  items: ({  id: string;
+  type: string;
+  href: string;
+  browserLink: string;
+  name: string;
+  owner: string;
+  ownerName: string;
+  createdAt: string;
+  updatedAt: string;})[];
+  nextPageToken?: string | undefined;
+};
+
+export interface ActionInput_coda_listformulas {
+  /**
+   * Doc ID. Example: "L_hgEASd6n"
+   */
+  docId: string;
+  /**
+   * Sort order: name or createdAt
+   */
+  sortBy?: 'name' | 'createdAt' | undefined;
+  /**
+   * Maximum number of results per page
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Maps to pageToken.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_coda_listformulas {
+  items: ({  id: string;
+  type: string;
+  href: string;
+  name: string;
+  parent?: {  id: string;
+  type: string;
+  href: string;
+  browserLink: string;
+  name: string;} | undefined;})[];
+  nextPageToken?: string | undefined;
+};
+
+export interface ActionInput_coda_listpages {
+  /**
+   * ID of the Coda doc. Example: "L_hgEASd6n"
+   */
+  docId: string;
+  /**
+   * Maximum number of results to return. Example: 10
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_coda_listpages {
+  items: ({  id: string;
+  type: string;
+  href: string;
+  name: string;
+  isHidden: boolean;
+  isEffectivelyHidden: boolean;
+  browserLink: string;
+  children: ({  id: string;
+  type: string;
+  href: string;
+  browserLink: string;
+  name: string;})[];
+  contentType: string;
+  subtitle?: string | undefined;
+  icon?: {  name?: string | undefined;
+  type?: string | undefined;
+  browserLink?: string | undefined;};
+  image?: {  browserLink?: string | undefined;
+  type?: string | undefined;
+  width?: number | undefined;
+  height?: number | undefined;};
+  parent?: {  id: string;
+  type: string;
+  href: string;
+  browserLink: string;
+  name: string;} | undefined;
+  authors?: ({  "@context"?: string | undefined;
+  "@type"?: string | undefined;
+  additionalType?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;})[];
+  createdAt?: string | undefined;
+  createdBy?: {  "@context"?: string | undefined;
+  "@type"?: string | undefined;
+  additionalType?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;};
+  updatedAt?: string | undefined;
+  updatedBy?: {  "@context"?: string | undefined;
+  "@type"?: string | undefined;
+  additionalType?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;};})[];
+  nextPageToken?: string | undefined;
+};
+
+export interface ActionInput_coda_listpermissions {
+  /**
+   * ID of the Coda doc. Example: "AbCDeFGH"
+   */
+  docId: string;
+  /**
+   * Maximum number of results to return. Example: 10
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor (pageToken) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_coda_listpermissions {
+  items: ({  id: string;
+  access: string;
+  principal: {  type: string;
+  email?: string | undefined;};})[];
+  nextPageToken?: string | undefined;
+};
+
+export interface ActionInput_coda_listrows {
+  /**
+   * ID of the doc. Example: AbCDeFGH
+   */
+  docId: string;
+  /**
+   * ID or name of the table. Example: grid-pqRst-U
+   */
+  tableIdOrName: string;
+  /**
+   * Use column names instead of column IDs in the returned output
+   */
+  useColumnNames?: boolean | undefined;
+  /**
+   * The format that cell values are returned as
+   */
+  valueFormat?: 'simple' | 'simpleWithArrays' | 'rich' | undefined;
+  /**
+   * Specifies the sort order of the rows returned
+   */
+  sortBy?: 'natural' | 'id' | 'createdAt' | 'updatedAt' | undefined;
+  /**
+   * If true, returns only visible rows and columns for the table
+   */
+  visibleOnly?: boolean | undefined;
+  /**
+   * Query used to filter returned rows, specified as <column_id_or_name>:<value>
+   */
+  query?: string | undefined;
+  /**
+   * Maximum number of results to return
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Maps to the pageToken parameter.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_coda_listrows {
+  items: ({  id: string;
+  type: string;
+  href: string;
+  name?: string | undefined;
+  index?: number | undefined;
+  browserLink?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  values?: {  [key: string]: unknown | undefined;};})[];
+  nextPageToken?: string | undefined;
+  nextPageLink?: string | undefined;
+  nextSyncToken?: string | undefined;
+  href?: string | undefined;
+};
+
+export interface ActionInput_coda_listtables {
+  /**
+   * ID of the Coda doc. Example: "L_hgEASd6n"
+   */
+  docId: string;
+  /**
+   * Single table type to filter by. Do not use comma-separated values.
+   */
+  tableType?: 'table' | 'view' | 'formula' | 'detail' | undefined;
+  /**
+   * Sort order for results.
+   */
+  sortBy?: 'name' | 'createdAt' | undefined;
+  /**
+   * Maximum number of results to return.
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_coda_listtables {
+  items: ({  id: string;
+  type: string;
+  tableType?: string | undefined;
+  href: string;
+  browserLink: string;
+  name: string;
+  parent?: {  id: string;
+  type: string;
+  href: string;
+  browserLink: string;
+  name: string;} | undefined;})[];
+  nextPageToken?: string | undefined;
+};
+
+export interface ActionInput_coda_updatepage {
+  /**
+   * Doc ID. Example: "L_hgEASd6n"
+   */
+  docId: string;
+  /**
+   * Page ID or name. Example: "canvas-bP8xBdFUGb"
+   */
+  pageIdOrName: string;
+  /**
+   * New page name
+   */
+  name?: string | undefined;
+  /**
+   * New page subtitle
+   */
+  subtitle?: string | undefined;
+  /**
+   * Icon name for the page
+   */
+  iconName?: string | undefined;
+  /**
+   * Custom image URL for the page icon
+   */
+  imageUrl?: string | undefined;
+};
+
+export interface ActionOutput_coda_updatepage {
+  id: string;
+  requestId: string;
+  completed: boolean;
+};
+
+export interface ActionInput_coda_updaterow {
+  /**
+   * Doc ID. Example: "6O6-VWsNpq"
+   */
+  docId: string;
+  /**
+   * Table ID or name. Example: "grid-tE68GY5gIp"
+   */
+  tableIdOrName: string;
+  /**
+   * Row ID or name. Example: "i-qdoCaT1Gba"
+   */
+  rowIdOrName: string;
+  /**
+   * Cells to update.
+   */
+  cells: ({  /**
+   * Column ID or name. Example: "c-i_UwVI012F"
+   */
+  column: string;
+  /**
+   * New value for the cell.
+   */
+  value?: unknown | undefined;})[];
+};
+
+export interface ActionOutput_coda_updaterow {
+  id: string;
+  requestId: string;
+};
+
+export interface ActionInput_coda_upsertrows {
+  /**
+   * ID of the doc. Example: "AbCDeFGH"
+   */
+  docId: string;
+  /**
+   * ID or name of the table. Example: "grid-123"
+   */
+  tableId: string;
+  /**
+   * The rows to insert or upsert.
+   */
+  rows: ({  /**
+   * The cells to set for this row.
+   */
+  cells: ({  /**
+   * Column ID or name. Example: "c-bCdeFgh"
+   */
+  column: string;
+  /**
+   * The cell value.
+   */
+  value?: unknown | undefined;})[];})[];
+  /**
+   * Column IDs or names to use for upsert matching.
+   */
+  keyColumns?: string[] | undefined;
+};
+
+export interface ActionOutput_coda_upsertrows {
+  /**
+   * The request ID for tracking the async mutation.
+   */
+  requestId: string;
+  /**
+   * IDs of newly added rows.
+   */
+  addedRowIds?: string[] | undefined;
+  /**
+   * Whether the mutation has completed.
+   */
+  completed: boolean;
+  /**
+   * Warning if the mutation completed with caveats.
+   */
+  warning?: string | undefined;
+};
+
 export interface Attachment {
   id: string;
   bytes?: string | undefined;
@@ -50391,21 +51535,6 @@ export interface SyncMetadata_google_drive_documents {
   folders?: string[] | undefined;
 };
 
-export interface Permission {
-  id: string;
-  itemId: string;
-  permissionId: string;
-  roles?: string[] | undefined;
-  grantedToV2?: {  [key: string]: unknown | undefined;};
-  grantedToIdentitiesV2?: ({  [key: string]: unknown | undefined;})[];
-  link?: {  [key: string]: unknown | undefined;};
-  invitation?: {  [key: string]: unknown | undefined;};
-  shareId?: string | undefined;
-  expirationDateTime?: string | undefined;
-  hasPassword?: boolean | undefined;
-  inheritedFrom?: {  [key: string]: unknown | undefined;};
-};
-
 export interface SharedDrive {
   id: string;
   name: string;
@@ -52810,12 +53939,6 @@ export interface ActionOutput_google_mail_watchmailbox {
    * The expiration time of the watch as a timestamp in milliseconds.
    */
   expiration: string;
-};
-
-export interface Row {
-  id: string;
-  rowIndex: number;
-  values: any[];
 };
 
 export interface SyncMetadata_google_sheet_rows {
@@ -64925,27 +66048,6 @@ export interface Board {
   idMemberCreator?: string | undefined;
   starred?: boolean | undefined;
   shortLink?: string | undefined;
-};
-
-export interface Column {
-  id: string;
-  database_name: string;
-  schema_name: string;
-  table_name: string;
-  column_name: string;
-  ordinal_position?: number | undefined;
-  data_type?: string | undefined;
-  data_type_type?: string | undefined;
-  data_type_precision?: number | undefined;
-  data_type_scale?: number | undefined;
-  data_type_byte_length?: number | undefined;
-  data_type_length?: number | undefined;
-  nullable?: boolean | undefined;
-  default_value?: string | undefined;
-  kind?: string | undefined;
-  expression?: string | undefined;
-  comment?: string | undefined;
-  autoincrement?: string | undefined;
 };
 
 export interface Subitem {
