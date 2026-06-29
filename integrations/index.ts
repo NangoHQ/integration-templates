@@ -1456,7 +1456,43 @@ import './figma/actions/update-variables.js';
 import './figma/actions/update-webhook.js';
 
 // -- Integration: fireflies
+import './fireflies/syncs/analytics.js';
+import './fireflies/syncs/bites.js';
+import './fireflies/syncs/channels.js';
+import './fireflies/syncs/contacts.js';
+import './fireflies/syncs/transcript-sentences.js';
+import './fireflies/syncs/transcripts.js';
+import './fireflies/syncs/user-groups.js';
+import './fireflies/syncs/users.js';
 import './fireflies/actions/add-to-live.js';
+import './fireflies/actions/continue-askfred-thread.js';
+import './fireflies/actions/create-askfred-thread.js';
+import './fireflies/actions/create-bite.js';
+import './fireflies/actions/create-live-action-item.js';
+import './fireflies/actions/create-live-soundbite.js';
+import './fireflies/actions/delete-askfred-thread.js';
+import './fireflies/actions/delete-transcript.js';
+import './fireflies/actions/get-analytics.js';
+import './fireflies/actions/get-askfred-thread.js';
+import './fireflies/actions/get-bite.js';
+import './fireflies/actions/get-channel.js';
+import './fireflies/actions/get-transcript.js';
+import './fireflies/actions/get-user.js';
+import './fireflies/actions/list-active-meetings.js';
+import './fireflies/actions/list-askfred-threads.js';
+import './fireflies/actions/list-bites.js';
+import './fireflies/actions/list-channels.js';
+import './fireflies/actions/list-contacts.js';
+import './fireflies/actions/list-transcripts.js';
+import './fireflies/actions/list-user-groups.js';
+import './fireflies/actions/list-users.js';
+import './fireflies/actions/revoke-shared-meeting-access.js';
+import './fireflies/actions/share-meeting.js';
+import './fireflies/actions/update-meeting-channel.js';
+import './fireflies/actions/update-meeting-privacy.js';
+import './fireflies/actions/update-meeting-state.js';
+import './fireflies/actions/update-meeting-title.js';
+import './fireflies/actions/upload-audio.js';
 
 // -- Integration: freshdesk
 import './freshdesk/syncs/articles.js';

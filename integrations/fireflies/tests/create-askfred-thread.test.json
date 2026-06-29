@@ -1,0 +1,94 @@
+{
+  "input": {
+    "query": "Summarize my recent meetings",
+    "filters": {
+      "start_time": "2026-06-01T00:00:00Z",
+      "end_time": "2026-06-26T23:59:59Z"
+    },
+    "response_language": "en",
+    "format_mode": "markdown"
+  },
+  "output": {
+    "id": "Hj7RYKYFMbDPOyia",
+    "thread_id": "PcoxHtuyrA5aWHrD",
+    "query": "Summarize my recent meetings",
+    "answer": "Here's an overview of your **2 most recent meetings** in June 2026 (showing 2 of 2 total in your library):\n\n---\n\n### 1. 🎙️ [Test Upload for Get Bite](/view/01KW0SR1A72DGQ8TEEQTH5RWF6)\n📅 **June 26, 2026**\n\nIt appears this meeting has **no transcript content** available yet — it may still be processing, or the audio/content may not have been captured.\n\n---\n\n### 2. 🎙️ [Test audio for bite creation](/view/01KW0SR4ECSRP8W0CVJ45XW0DT)\n📅 **June 26, 2026**\n\nSimilarly, this meeting also has **no transcript content** available at this time — it may be a test upload that is still processing.\n\n---\n\n### 📝 Notes\n- Both meetings appear to be **test uploads** related to something called **\"Get Bite\"** and **\"bite creation\"**, suggesting they may be test recordings rather than full meetings.\n- Neither meeting has any **participants or speakers** listed, which is consistent with test uploads.\n- If these are still processing, try checking back shortly — transcripts typically become available within a few minutes of upload.\n\nWould you like me to check back or look into any specific meeting in more detail? 😊",
+    "suggested_queries": [
+      "Can you alert me when the transcripts are available?",
+      "Would you like to schedule a follow-up meeting on this topic?",
+      "Do you want to explore other meetings or projects?"
+    ],
+    "status": "completed",
+    "created_at": "2026-06-26T01:48:23.669Z"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/graphql": {
+        "response": {
+          "data": {
+            "createAskFredThread": {
+              "message": {
+                "id": "Hj7RYKYFMbDPOyia",
+                "thread_id": "PcoxHtuyrA5aWHrD",
+                "query": "Summarize my recent meetings",
+                "answer": "Here's an overview of your **2 most recent meetings** in June 2026 (showing 2 of 2 total in your library):\n\n---\n\n### 1. 🎙️ [Test Upload for Get Bite](/view/01KW0SR1A72DGQ8TEEQTH5RWF6)\n📅 **June 26, 2026**\n\nIt appears this meeting has **no transcript content** available yet — it may still be processing, or the audio/content may not have been captured.\n\n---\n\n### 2. 🎙️ [Test audio for bite creation](/view/01KW0SR4ECSRP8W0CVJ45XW0DT)\n📅 **June 26, 2026**\n\nSimilarly, this meeting also has **no transcript content** available at this time — it may be a test upload that is still processing.\n\n---\n\n### 📝 Notes\n- Both meetings appear to be **test uploads** related to something called **\"Get Bite\"** and **\"bite creation\"**, suggesting they may be test recordings rather than full meetings.\n- Neither meeting has any **participants or speakers** listed, which is consistent with test uploads.\n- If these are still processing, try checking back shortly — transcripts typically become available within a few minutes of upload.\n\nWould you like me to check back or look into any specific meeting in more detail? 😊",
+                "suggested_queries": [
+                  "Can you alert me when the transcripts are available?",
+                  "Would you like to schedule a follow-up meeting on this topic?",
+                  "Do you want to explore other meetings or projects?"
+                ],
+                "status": "completed",
+                "created_at": "2026-06-26T01:48:23.669Z"
+              }
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 26 Jun 2026 01:48:49 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4974",
+          "x-ratelimit-reset": "1782438544",
+          "vary": "Origin",
+          "x-ratelimit-limit-api": "60",
+          "x-ratelimit-remaining-api": "55",
+          "x-ratelimit-reset-api": "54",
+          "cache-control": "no-store",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "cf-ray": "a1188c7b0a01ff11-PDX"
+        },
+        "hash": "9f2fd21f30022449d865f50c111572a3768f9974",
+        "request": {
+          "data": {
+            "query": "\n            mutation CreateAskFredThread($input: CreateAskFredThreadInput!) {\n                createAskFredThread(input: $input) {\n                    message {\n                        id\n                        thread_id\n                        query\n                        answer\n                        suggested_queries\n                        status\n                        created_at\n                    }\n                }\n            }\n        ",
+            "variables": {
+              "input": {
+                "query": "Summarize my recent meetings",
+                "filters": {
+                  "start_time": "2026-06-01T00:00:00Z",
+                  "end_time": "2026-06-26T23:59:59Z"
+                },
+                "response_language": "en",
+                "format_mode": "markdown"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

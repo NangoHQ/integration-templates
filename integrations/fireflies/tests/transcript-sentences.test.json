@@ -1,0 +1,419 @@
+{
+  "nango": {
+    "batchSave": {
+      "Sentence": [
+        {
+          "id": "01KW0SR1A72DGQ8TEEQTH5RWF6:0",
+          "transcript_id": "01KW0SR1A72DGQ8TEEQTH5RWF6",
+          "index": 0,
+          "speaker_name": "Speaker 1",
+          "speaker_id": "0",
+          "raw_text": "Sam.",
+          "text": "Sam.",
+          "start_time": 0.24,
+          "end_time": 31.91
+        },
+        {
+          "id": "01KW0SR1A72DGQ8TEEQTH5RWF6:1",
+          "transcript_id": "01KW0SR1A72DGQ8TEEQTH5RWF6",
+          "index": 1,
+          "speaker_name": "Speaker 2",
+          "speaker_id": "1",
+          "raw_text": "It's.",
+          "text": "It's.",
+          "start_time": 32.06,
+          "end_time": 63.81
+        },
+        {
+          "id": "01KW0SR1A72DGQ8TEEQTH5RWF6:2",
+          "transcript_id": "01KW0SR1A72DGQ8TEEQTH5RWF6",
+          "index": 2,
+          "speaker_name": "Speaker 2",
+          "speaker_id": "1",
+          "raw_text": "It's.",
+          "text": "It's.",
+          "start_time": 63.96,
+          "end_time": 95.71
+        },
+        {
+          "id": "01KW0SR1A72DGQ8TEEQTH5RWF6:3",
+          "transcript_id": "01KW0SR1A72DGQ8TEEQTH5RWF6",
+          "index": 3,
+          "speaker_name": "Speaker 3",
+          "speaker_id": "2",
+          "raw_text": "It's sam.",
+          "text": "It's sam.",
+          "start_time": 95.86,
+          "end_time": 139.76
+        },
+        {
+          "id": "01KW0SR1A72DGQ8TEEQTH5RWF6:4",
+          "transcript_id": "01KW0SR1A72DGQ8TEEQTH5RWF6",
+          "index": 4,
+          "speaker_name": "Speaker 3",
+          "speaker_id": "2",
+          "raw_text": "It's.",
+          "text": "It's.",
+          "start_time": 159.66,
+          "end_time": 191.41
+        },
+        {
+          "id": "01KW0SR1A72DGQ8TEEQTH5RWF6:5",
+          "transcript_id": "01KW0SR1A72DGQ8TEEQTH5RWF6",
+          "index": 5,
+          "speaker_name": "Speaker 4",
+          "speaker_id": "3",
+          "raw_text": "It's.",
+          "text": "It's.",
+          "start_time": 191.56,
+          "end_time": 207.24
+        },
+        {
+          "id": "01KW0SR1A72DGQ8TEEQTH5RWF6:6",
+          "transcript_id": "01KW0SR1A72DGQ8TEEQTH5RWF6",
+          "index": 6,
+          "speaker_name": "Speaker 5",
+          "speaker_id": "4",
+          "raw_text": "Sam.",
+          "text": "Sam.",
+          "start_time": 223.46,
+          "end_time": 232.66
+        },
+        {
+          "id": "01KW0SR1A72DGQ8TEEQTH5RWF6:7",
+          "transcript_id": "01KW0SR1A72DGQ8TEEQTH5RWF6",
+          "index": 7,
+          "speaker_name": "Speaker 1",
+          "speaker_id": "0",
+          "raw_text": "Ra.",
+          "text": "Ra.",
+          "start_time": 351.06,
+          "end_time": 351.3
+        }
+      ]
+    },
+    "batchDelete": {
+      "Sentence": []
+    }
+  },
+  "api": {
+    "post": {
+      "/graphql": [
+        {
+          "response": {
+            "data": {
+              "transcripts": [
+                {
+                  "id": "01KW0T18TQ0H1NQ3G0BH1PB7VQ"
+                },
+                {
+                  "id": "01KW0T0ZX43S6JJ9D3B7DP8FVB"
+                },
+                {
+                  "id": "01KW0SR4ECSRP8W0CVJ45XW0DT"
+                },
+                {
+                  "id": "01KW0SR1A72DGQ8TEEQTH5RWF6"
+                }
+              ]
+            }
+          },
+          "status": 200,
+          "headers": {
+            "date": "Fri, 26 Jun 2026 11:03:20 GMT",
+            "content-type": "application/json; charset=utf-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=31536000; includeSubDomains",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4986",
+            "x-ratelimit-reset": "1782471836",
+            "vary": "Origin",
+            "x-ratelimit-limit-api": "60",
+            "x-ratelimit-remaining-api": "52",
+            "x-ratelimit-reset-api": "40",
+            "cache-control": "no-store",
+            "cf-cache-status": "DYNAMIC",
+            "server": "cloudflare",
+            "cf-ray": "a11bb98c882aac0d-PDX"
+          },
+          "hash": "d8b878e5c9156f1400483997738f95416a4576b5",
+          "request": {
+            "data": {
+              "query": "query Transcripts($limit: Int!, $skip: Int!) { transcripts(limit: $limit, skip: $skip) { id } }",
+              "variables": {
+                "limit": 50,
+                "skip": 0
+              }
+            }
+          }
+        },
+        {
+          "response": {
+            "data": {
+              "transcript": {
+                "id": "01KW0T18TQ0H1NQ3G0BH1PB7VQ",
+                "sentences": []
+              }
+            }
+          },
+          "status": 200,
+          "headers": {
+            "date": "Fri, 26 Jun 2026 11:03:20 GMT",
+            "content-type": "application/json; charset=utf-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=31536000; includeSubDomains",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4985",
+            "x-ratelimit-reset": "1782471836",
+            "vary": "Origin",
+            "x-ratelimit-limit-api": "60",
+            "x-ratelimit-remaining-api": "51",
+            "x-ratelimit-reset-api": "39",
+            "cache-control": "no-store",
+            "cf-cache-status": "DYNAMIC",
+            "server": "cloudflare",
+            "cf-ray": "a11bb98f2c2d4518-PDX"
+          },
+          "hash": "df1a09de8ffd6c9e08f249a8618b52a6e7f94a84",
+          "request": {
+            "data": {
+              "query": "query Transcript($transcriptId: String!) { transcript(id: $transcriptId) { id sentences { index speaker_name speaker_id text raw_text start_time end_time } } }",
+              "variables": {
+                "transcriptId": "01KW0T18TQ0H1NQ3G0BH1PB7VQ"
+              }
+            }
+          }
+        },
+        {
+          "response": {
+            "data": {
+              "transcript": {
+                "id": "01KW0T0ZX43S6JJ9D3B7DP8FVB",
+                "sentences": []
+              }
+            }
+          },
+          "status": 200,
+          "headers": {
+            "date": "Fri, 26 Jun 2026 11:03:21 GMT",
+            "content-type": "application/json; charset=utf-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=31536000; includeSubDomains",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4984",
+            "x-ratelimit-reset": "1782471836",
+            "vary": "Origin",
+            "x-ratelimit-limit-api": "60",
+            "x-ratelimit-remaining-api": "50",
+            "x-ratelimit-reset-api": "39",
+            "cache-control": "no-store",
+            "cf-cache-status": "DYNAMIC",
+            "server": "cloudflare",
+            "cf-ray": "a11bb991dc1fc153-PDX"
+          },
+          "hash": "89825b711cb5829f020dca17b0a4f7ac92f8468c",
+          "request": {
+            "data": {
+              "query": "query Transcript($transcriptId: String!) { transcript(id: $transcriptId) { id sentences { index speaker_name speaker_id text raw_text start_time end_time } } }",
+              "variables": {
+                "transcriptId": "01KW0T0ZX43S6JJ9D3B7DP8FVB"
+              }
+            }
+          }
+        },
+        {
+          "response": {
+            "data": {
+              "transcript": {
+                "id": "01KW0SR4ECSRP8W0CVJ45XW0DT",
+                "sentences": []
+              }
+            }
+          },
+          "status": 200,
+          "headers": {
+            "date": "Fri, 26 Jun 2026 11:03:21 GMT",
+            "content-type": "application/json; charset=utf-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=31536000; includeSubDomains",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4983",
+            "x-ratelimit-reset": "1782471836",
+            "vary": "Origin",
+            "x-ratelimit-limit-api": "60",
+            "x-ratelimit-remaining-api": "49",
+            "x-ratelimit-reset-api": "38",
+            "cache-control": "no-store",
+            "cf-cache-status": "DYNAMIC",
+            "server": "cloudflare",
+            "cf-ray": "a11bb99529d08bee-PDX"
+          },
+          "hash": "99bc7ffef4df8ff6b614c8204dc54df3f011f9e4",
+          "request": {
+            "data": {
+              "query": "query Transcript($transcriptId: String!) { transcript(id: $transcriptId) { id sentences { index speaker_name speaker_id text raw_text start_time end_time } } }",
+              "variables": {
+                "transcriptId": "01KW0SR4ECSRP8W0CVJ45XW0DT"
+              }
+            }
+          }
+        },
+        {
+          "response": {
+            "data": {
+              "transcript": {
+                "id": "01KW0SR1A72DGQ8TEEQTH5RWF6",
+                "sentences": [
+                  {
+                    "index": 0,
+                    "speaker_name": "Speaker 1",
+                    "speaker_id": 0,
+                    "text": "Sam.",
+                    "raw_text": "Sam.",
+                    "start_time": 0.24,
+                    "end_time": 31.91
+                  },
+                  {
+                    "index": 1,
+                    "speaker_name": "Speaker 2",
+                    "speaker_id": 1,
+                    "text": "It's.",
+                    "raw_text": "It's.",
+                    "start_time": 32.06,
+                    "end_time": 63.81
+                  },
+                  {
+                    "index": 2,
+                    "speaker_name": "Speaker 2",
+                    "speaker_id": 1,
+                    "text": "It's.",
+                    "raw_text": "It's.",
+                    "start_time": 63.96,
+                    "end_time": 95.71
+                  },
+                  {
+                    "index": 3,
+                    "speaker_name": "Speaker 3",
+                    "speaker_id": 2,
+                    "text": "It's sam.",
+                    "raw_text": "It's sam.",
+                    "start_time": 95.86,
+                    "end_time": 139.76
+                  },
+                  {
+                    "index": 4,
+                    "speaker_name": "Speaker 3",
+                    "speaker_id": 2,
+                    "text": "It's.",
+                    "raw_text": "It's.",
+                    "start_time": 159.66,
+                    "end_time": 191.41
+                  },
+                  {
+                    "index": 5,
+                    "speaker_name": "Speaker 4",
+                    "speaker_id": 3,
+                    "text": "It's.",
+                    "raw_text": "It's.",
+                    "start_time": 191.56,
+                    "end_time": 207.24
+                  },
+                  {
+                    "index": 6,
+                    "speaker_name": "Speaker 5",
+                    "speaker_id": 4,
+                    "text": "Sam.",
+                    "raw_text": "Sam.",
+                    "start_time": 223.46,
+                    "end_time": 232.66
+                  },
+                  {
+                    "index": 7,
+                    "speaker_name": "Speaker 1",
+                    "speaker_id": 0,
+                    "text": "Ra.",
+                    "raw_text": "Ra.",
+                    "start_time": 351.06,
+                    "end_time": 351.3
+                  }
+                ]
+              }
+            }
+          },
+          "status": 200,
+          "headers": {
+            "date": "Fri, 26 Jun 2026 11:03:21 GMT",
+            "content-type": "application/json; charset=utf-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=31536000; includeSubDomains",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4982",
+            "x-ratelimit-reset": "1782471836",
+            "vary": "Origin",
+            "x-ratelimit-limit-api": "60",
+            "x-ratelimit-remaining-api": "48",
+            "x-ratelimit-reset-api": "38",
+            "cache-control": "no-store",
+            "cf-cache-status": "DYNAMIC",
+            "server": "cloudflare",
+            "cf-ray": "a11bb997dba4c36d-PDX"
+          },
+          "hash": "10611ae0fb7192b5c17476cf537fac904b081806",
+          "request": {
+            "data": {
+              "query": "query Transcript($transcriptId: String!) { transcript(id: $transcriptId) { id sentences { index speaker_name speaker_id text raw_text start_time end_time } } }",
+              "variables": {
+                "transcriptId": "01KW0SR1A72DGQ8TEEQTH5RWF6"
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}
