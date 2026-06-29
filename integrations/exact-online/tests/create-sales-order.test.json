@@ -1,0 +1,490 @@
+{
+  "input": {
+    "OrderedBy": "a58c29d9-ef92-40f1-b817-31b36990898c",
+    "OrderDate": "2026-06-25",
+    "SalesOrderLines": [
+      {
+        "Item": "61facaed-0389-4183-bf67-ac1c179e1050",
+        "Quantity": 1,
+        "NetPrice": 100
+      }
+    ]
+  },
+  "output": {
+    "OrderID": "3c12c283-56a0-44b0-97bb-ab4849d19ef9",
+    "OrderedBy": "a58c29d9-ef92-40f1-b817-31b36990898c",
+    "OrderDate": "/Date(1782345600000)/",
+    "SalesOrderLines": [
+      {
+        "Item": "61facaed-0389-4183-bf67-ac1c179e1050",
+        "Quantity": 1,
+        "NetPrice": 100,
+        "__metadata": {
+          "uri": "https://start.exactonline.fr/api/v1/124132/salesorder/SalesOrderLines(guid'64b99967-d548-4dfc-a0da-6db9ed880689')",
+          "type": "Exact.Web.Api.Models.SalesOrderLine"
+        },
+        "AmountDC": 100,
+        "AmountFC": 100,
+        "CostCenter": null,
+        "CostCenterDescription": null,
+        "CostPriceFC": null,
+        "CostUnit": null,
+        "CostUnitDescription": null,
+        "CustomerItemCode": null,
+        "DeliveryDate": "/Date(1782345600000)/",
+        "DeliveryStatus": 12,
+        "Description": "Services",
+        "Discount": 0,
+        "Division": 124132,
+        "ID": "64b99967-d548-4dfc-a0da-6db9ed880689",
+        "InvoiceStatus": 12,
+        "ItemDescription": "Services",
+        "ItemCode": "S",
+        "ItemVersion": null,
+        "ItemVersionDescription": null,
+        "LineNumber": 1,
+        "Margin": null,
+        "Notes": null,
+        "OrderID": "3c12c283-56a0-44b0-97bb-ab4849d19ef9",
+        "OrderNumber": 13,
+        "OrderStatus": 12,
+        "Pricelist": null,
+        "PricelistDescription": null,
+        "Project": null,
+        "ProjectDescription": null,
+        "PurchaseOrder": null,
+        "PurchaseOrderLine": null,
+        "PurchaseOrderLineNumber": null,
+        "PurchaseOrderNumber": null,
+        "QuantityDelivered": 0,
+        "QuantityInvoiced": 0,
+        "ShopOrder": null,
+        "TaxSchedule": null,
+        "TaxScheduleCode": null,
+        "TaxScheduleDescription": null,
+        "UnitCode": "day",
+        "UnitDescription": "Day",
+        "UnitPrice": 0,
+        "UseDropShipment": 0,
+        "VATAmount": 0,
+        "VATCode": null,
+        "VATCodeDescription": null,
+        "VATPercentage": null,
+        "CustomField": null
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/v1/current/Me": {
+        "response": {
+          "d": {
+            "results": [
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/current/Me(guid'cc20a11b-c137-48cc-8e55-09d4adbd4ac9')",
+                  "type": "Exact.Web.Api.Models.System.Me"
+                },
+                "CurrentDivision": 124132,
+                "DivisionCustomer": "83b186b4-483d-474a-bebc-85da71e6f1ed",
+                "DivisionCustomerCode": "           1265594",
+                "DivisionCustomerName": "Nango",
+                "DivisionCustomerVatNumber": null,
+                "DivisionCustomerSiretNumber": "",
+                "DossierDivision": null,
+                "AccountingDivision": 124132,
+                "IsEmployeeSelfServiceUser": false,
+                "IsMyFirmLiteUser": false,
+                "IsStarterUser": false,
+                "IsMyFirmPortalUser": false,
+                "IsClientUser": true,
+                "FullName": "Samuel Bodin",
+                "PictureUrl": "https://start.exactonline.fr//docs/images/placeholder_contact_myeol.png",
+                "ThumbnailPicture": null,
+                "ThumbnailPictureFormat": null,
+                "UserID": "cc20a11b-c137-48cc-8e55-09d4adbd4ac9",
+                "UserName": "samuel@nango.dev",
+                "LanguageCode": "en-GB",
+                "Legislation": "128",
+                "Email": "samuel@nango.dev",
+                "Title": "Mr.",
+                "Initials": null,
+                "FirstName": "Samuel",
+                "MiddleName": null,
+                "LastName": "Bodin",
+                "Gender": "O",
+                "Nationality": null,
+                "Language": "EN",
+                "Phone": "0606060606",
+                "PhoneExtension": null,
+                "Mobile": null,
+                "ServerTime": "2026-06-25T16:28:09",
+                "ServerUtcOffset": 7200,
+                "EmployeeID": "00000000-0000-0000-0000-000000000000",
+                "CustomerCode": "           1265594",
+                "PackageCode": "EOLAPPCENTER",
+                "IsOEIMigrationMandatory": true
+              }
+            ]
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 25 Jun 2026 14:28:09 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "1397",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4996",
+          "x-ratelimit-reset": "1782397747",
+          "etag": "W/\"575-IuOBes9HaqClSaNQ5OuPnriRhKY\""
+        },
+        "hash": "3b1fbfe94d69bc315fcd1e7b93bc400e3eea536c",
+        "request": {}
+      },
+      "/api/v1/124132/salesorder/SalesOrders(guid'3c12c283-56a0-44b0-97bb-ab4849d19ef9')": {
+        "response": {
+          "d": {
+            "__metadata": {
+              "uri": "https://start.exactonline.fr/api/v1/124132/salesorder/SalesOrders(guid'3c12c283-56a0-44b0-97bb-ab4849d19ef9')",
+              "type": "Exact.Web.Api.Models.SalesOrder"
+            },
+            "AmountDC": 100,
+            "AmountDiscount": 0,
+            "AmountDiscountExclVat": 0,
+            "AmountFC": 100,
+            "AmountFCExclVat": 100,
+            "ApprovalStatus": 1,
+            "ApprovalStatusDescription": "Automatically",
+            "Approved": "/Date(1782404890057)/",
+            "Approver": null,
+            "ApproverFullName": null,
+            "Created": "/Date(1782404890063)/",
+            "Creator": "cc20a11b-c137-48cc-8e55-09d4adbd4ac9",
+            "CreatorFullName": "Samuel Bodin",
+            "Currency": "EUR",
+            "DeliverTo": "a58c29d9-ef92-40f1-b817-31b36990898c",
+            "DeliverToContactPerson": "1b5bfd55-a2dd-4ffe-87bd-e352800e56a7",
+            "DeliverToContactPersonFullName": "Updated Contact",
+            "DeliverToName": "Foobar2 Updated",
+            "DeliveryDate": "/Date(1782345600000)/",
+            "DeliveryStatus": 12,
+            "DeliveryStatusDescription": "Open",
+            "DeliveryAddress": "1797e083-9f9e-4394-a044-060a91d420bd",
+            "Description": null,
+            "Discount": 0,
+            "Division": 124132,
+            "Document": null,
+            "DocumentNumber": null,
+            "DocumentSubject": null,
+            "IncotermAddress": null,
+            "IncotermCode": null,
+            "IncotermVersion": null,
+            "InvoiceStatus": 12,
+            "InvoiceStatusDescription": "Open",
+            "InvoiceTo": "a58c29d9-ef92-40f1-b817-31b36990898c",
+            "InvoiceToContactPerson": "1b5bfd55-a2dd-4ffe-87bd-e352800e56a7",
+            "InvoiceToContactPersonFullName": "Updated Contact",
+            "InvoiceToName": "Foobar2 Updated",
+            "Modified": "/Date(1782404890110)/",
+            "Modifier": "cc20a11b-c137-48cc-8e55-09d4adbd4ac9",
+            "ModifierFullName": "Samuel Bodin",
+            "OrderDate": "/Date(1782345600000)/",
+            "OrderedBy": "a58c29d9-ef92-40f1-b817-31b36990898c",
+            "OrderedByContactPerson": "1b5bfd55-a2dd-4ffe-87bd-e352800e56a7",
+            "OrderedByContactPersonFullName": "Updated Contact",
+            "OrderedByName": "Foobar2 Updated",
+            "OrderID": "3c12c283-56a0-44b0-97bb-ab4849d19ef9",
+            "OrderNumber": 13,
+            "PaymentCondition": "00",
+            "PaymentConditionDescription": "Comptant",
+            "PaymentReference": null,
+            "Remarks": null,
+            "SalesChannel": null,
+            "SalesChannelCode": null,
+            "SalesChannelDescription": null,
+            "SalesOrderOrderChargeLines": {
+              "__deferred": {
+                "uri": "https://start.exactonline.fr/api/v1/124132/salesorder/SalesOrders(guid'3c12c283-56a0-44b0-97bb-ab4849d19ef9')/SalesOrderOrderChargeLines"
+              }
+            },
+            "Salesperson": null,
+            "SalespersonFullName": null,
+            "SelectionCode": null,
+            "SelectionCodeCode": null,
+            "SelectionCodeDescription": null,
+            "ServicePoint": null,
+            "ShippingMethod": null,
+            "ShippingMethodDescription": null,
+            "Status": 12,
+            "StatusDescription": "Open",
+            "TaxSchedule": null,
+            "TaxScheduleCode": null,
+            "TaxScheduleDescription": null,
+            "WarehouseID": "e4f7592d-dd76-4c75-b957-9fbeaf9dbe55",
+            "WarehouseCode": "1",
+            "WarehouseDescription": "Magasin",
+            "YourRef": null,
+            "SalesOrderLines": {
+              "__deferred": {
+                "uri": "https://start.exactonline.fr/api/v1/124132/salesorder/SalesOrders(guid'3c12c283-56a0-44b0-97bb-ab4849d19ef9')/SalesOrderLines"
+              }
+            },
+            "CustomField": null
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 25 Jun 2026 14:28:10 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "2936",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4994",
+          "x-ratelimit-reset": "1782397747",
+          "etag": "W/\"b78-PQcPjUnzAhM43hfqZL4g3AT012M\""
+        },
+        "hash": "6886d29f074a3e4bb4567c9df438f97583fab458",
+        "request": {}
+      },
+      "/api/v1/124132/salesorder/SalesOrderLines": {
+        "response": {
+          "d": {
+            "results": [
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/salesorder/SalesOrderLines(guid'64b99967-d548-4dfc-a0da-6db9ed880689')",
+                  "type": "Exact.Web.Api.Models.SalesOrderLine"
+                },
+                "AmountDC": 100,
+                "AmountFC": 100,
+                "CostCenter": null,
+                "CostCenterDescription": null,
+                "CostPriceFC": null,
+                "CostUnit": null,
+                "CostUnitDescription": null,
+                "CustomerItemCode": null,
+                "DeliveryDate": "/Date(1782345600000)/",
+                "DeliveryStatus": 12,
+                "Description": "Services",
+                "Discount": 0,
+                "Division": 124132,
+                "ID": "64b99967-d548-4dfc-a0da-6db9ed880689",
+                "InvoiceStatus": 12,
+                "Item": "61facaed-0389-4183-bf67-ac1c179e1050",
+                "ItemDescription": "Services",
+                "ItemCode": "S",
+                "ItemVersion": null,
+                "ItemVersionDescription": null,
+                "LineNumber": 1,
+                "Margin": null,
+                "NetPrice": 100,
+                "Notes": null,
+                "OrderID": "3c12c283-56a0-44b0-97bb-ab4849d19ef9",
+                "OrderNumber": 13,
+                "OrderStatus": 12,
+                "Pricelist": null,
+                "PricelistDescription": null,
+                "Project": null,
+                "ProjectDescription": null,
+                "PurchaseOrder": null,
+                "PurchaseOrderLine": null,
+                "PurchaseOrderLineNumber": null,
+                "PurchaseOrderNumber": null,
+                "Quantity": 1,
+                "QuantityDelivered": 0,
+                "QuantityInvoiced": 0,
+                "ShopOrder": null,
+                "TaxSchedule": null,
+                "TaxScheduleCode": null,
+                "TaxScheduleDescription": null,
+                "UnitCode": "day",
+                "UnitDescription": "Day",
+                "UnitPrice": 0,
+                "UseDropShipment": 0,
+                "VATAmount": 0,
+                "VATCode": null,
+                "VATCodeDescription": null,
+                "VATPercentage": null,
+                "CustomField": null
+              }
+            ]
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 25 Jun 2026 14:28:11 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "1460",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4993",
+          "x-ratelimit-reset": "1782397747",
+          "etag": "W/\"5b4-pU9rp7pzvO3F1e1wyFrqBO//AsM\""
+        },
+        "hash": "d03cca43456af006a61f10f3904d1ad660da5a78",
+        "request": {
+          "params": {
+            "$filter": "OrderID eq guid'3c12c283-56a0-44b0-97bb-ab4849d19ef9'"
+          }
+        }
+      }
+    },
+    "post": {
+      "/api/v1/124132/salesorder/SalesOrders": {
+        "response": {
+          "d": {
+            "__metadata": {
+              "uri": "https://start.exactonline.fr/api/v1/124132/salesorder/SalesOrders(guid'3c12c283-56a0-44b0-97bb-ab4849d19ef9')",
+              "type": "Exact.Web.Api.Models.SalesOrder"
+            },
+            "AmountDC": 100,
+            "AmountDiscount": 0,
+            "AmountDiscountExclVat": 0,
+            "AmountFC": 100,
+            "AmountFCExclVat": 100,
+            "ApprovalStatus": 1,
+            "ApprovalStatusDescription": "Automatically",
+            "Approved": "/Date(1782404890057)/",
+            "Approver": null,
+            "ApproverFullName": null,
+            "Created": "/Date(1782404890063)/",
+            "Creator": "cc20a11b-c137-48cc-8e55-09d4adbd4ac9",
+            "CreatorFullName": "Samuel Bodin",
+            "Currency": "EUR",
+            "DeliverTo": "a58c29d9-ef92-40f1-b817-31b36990898c",
+            "DeliverToContactPerson": "1b5bfd55-a2dd-4ffe-87bd-e352800e56a7",
+            "DeliverToContactPersonFullName": "Updated Contact",
+            "DeliverToName": "Foobar2 Updated",
+            "DeliveryDate": "/Date(1782345600000)/",
+            "DeliveryStatus": 12,
+            "DeliveryStatusDescription": "Open",
+            "DeliveryAddress": "1797e083-9f9e-4394-a044-060a91d420bd",
+            "Description": null,
+            "Discount": 0,
+            "Division": 124132,
+            "Document": null,
+            "DocumentNumber": null,
+            "DocumentSubject": null,
+            "IncotermAddress": null,
+            "IncotermCode": null,
+            "IncotermVersion": null,
+            "InvoiceStatus": 12,
+            "InvoiceStatusDescription": "Open",
+            "InvoiceTo": "a58c29d9-ef92-40f1-b817-31b36990898c",
+            "InvoiceToContactPerson": "1b5bfd55-a2dd-4ffe-87bd-e352800e56a7",
+            "InvoiceToContactPersonFullName": "Updated Contact",
+            "InvoiceToName": "Foobar2 Updated",
+            "Modified": "/Date(1782404890110)/",
+            "Modifier": "cc20a11b-c137-48cc-8e55-09d4adbd4ac9",
+            "ModifierFullName": "Samuel Bodin",
+            "OrderDate": "/Date(1782345600000)/",
+            "OrderedBy": "a58c29d9-ef92-40f1-b817-31b36990898c",
+            "OrderedByContactPerson": "1b5bfd55-a2dd-4ffe-87bd-e352800e56a7",
+            "OrderedByContactPersonFullName": "Updated Contact",
+            "OrderedByName": "Foobar2 Updated",
+            "OrderID": "3c12c283-56a0-44b0-97bb-ab4849d19ef9",
+            "OrderNumber": 13,
+            "PaymentCondition": "00",
+            "PaymentConditionDescription": "Comptant",
+            "PaymentReference": null,
+            "Remarks": null,
+            "SalesChannel": null,
+            "SalesChannelCode": null,
+            "SalesChannelDescription": null,
+            "SalesOrderOrderChargeLines": {
+              "__deferred": {
+                "uri": "https://start.exactonline.fr/api/v1/124132/salesorder/SalesOrders(guid'3c12c283-56a0-44b0-97bb-ab4849d19ef9')/SalesOrderOrderChargeLines"
+              }
+            },
+            "Salesperson": null,
+            "SalespersonFullName": null,
+            "SelectionCode": null,
+            "SelectionCodeCode": null,
+            "SelectionCodeDescription": null,
+            "ServicePoint": null,
+            "ShippingMethod": null,
+            "ShippingMethodDescription": null,
+            "Status": 12,
+            "StatusDescription": "Open",
+            "TaxSchedule": null,
+            "TaxScheduleCode": null,
+            "TaxScheduleDescription": null,
+            "WarehouseID": "e4f7592d-dd76-4c75-b957-9fbeaf9dbe55",
+            "WarehouseCode": "1",
+            "WarehouseDescription": "Magasin",
+            "YourRef": null,
+            "SalesOrderLines": {
+              "__deferred": {
+                "uri": "https://start.exactonline.fr/api/v1/124132/salesorder/SalesOrders(guid'3c12c283-56a0-44b0-97bb-ab4849d19ef9')/SalesOrderLines"
+              }
+            },
+            "CustomField": null
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 25 Jun 2026 14:28:10 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "2936",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4995",
+          "x-ratelimit-reset": "1782397747",
+          "etag": "W/\"b78-PQcPjUnzAhM43hfqZL4g3AT012M\""
+        },
+        "hash": "ee0d7cd539eec91b47b1026bd38ffdedad3e809f",
+        "request": {
+          "data": {
+            "OrderedBy": "a58c29d9-ef92-40f1-b817-31b36990898c",
+            "OrderDate": "2026-06-25",
+            "SalesOrderLines": [
+              {
+                "Item": "61facaed-0389-4183-bf67-ac1c179e1050",
+                "Quantity": 1,
+                "NetPrice": 100
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

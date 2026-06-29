@@ -1,0 +1,232 @@
+{
+  "input": {
+    "subject": "Test attachment",
+    "documentDate": "2026-06-25",
+    "account": "a58c29d9-ef92-40f1-b817-31b36990898c",
+    "type": 10,
+    "fileName": "test.txt",
+    "fileContent": "dGVzdA=="
+  },
+  "output": {
+    "documentId": "9d648f77-9556-48b5-a701-fdcfa88f177f"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/v1/current/Me": {
+        "response": {
+          "d": {
+            "results": [
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/current/Me(guid'cc20a11b-c137-48cc-8e55-09d4adbd4ac9')",
+                  "type": "Exact.Web.Api.Models.System.Me"
+                },
+                "CurrentDivision": 124132,
+                "DivisionCustomer": "83b186b4-483d-474a-bebc-85da71e6f1ed",
+                "DivisionCustomerCode": "           1265594",
+                "DivisionCustomerName": "Nango",
+                "DivisionCustomerVatNumber": null,
+                "DivisionCustomerSiretNumber": "",
+                "DossierDivision": null,
+                "AccountingDivision": 124132,
+                "IsEmployeeSelfServiceUser": false,
+                "IsMyFirmLiteUser": false,
+                "IsStarterUser": false,
+                "IsMyFirmPortalUser": false,
+                "IsClientUser": true,
+                "FullName": "Samuel Bodin",
+                "PictureUrl": "https://start.exactonline.fr//docs/images/placeholder_contact_myeol.png",
+                "ThumbnailPicture": null,
+                "ThumbnailPictureFormat": null,
+                "UserID": "cc20a11b-c137-48cc-8e55-09d4adbd4ac9",
+                "UserName": "samuel@nango.dev",
+                "LanguageCode": "en-GB",
+                "Legislation": "128",
+                "Email": "samuel@nango.dev",
+                "Title": "Mr.",
+                "Initials": null,
+                "FirstName": "Samuel",
+                "MiddleName": null,
+                "LastName": "Bodin",
+                "Gender": "O",
+                "Nationality": null,
+                "Language": "EN",
+                "Phone": "0606060606",
+                "PhoneExtension": null,
+                "Mobile": null,
+                "ServerTime": "2026-06-25T16:16:40",
+                "ServerUtcOffset": 7200,
+                "EmployeeID": "00000000-0000-0000-0000-000000000000",
+                "CustomerCode": "           1265594",
+                "PackageCode": "EOLAPPCENTER",
+                "IsOEIMigrationMandatory": true
+              }
+            ]
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 25 Jun 2026 14:16:40 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "1397",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4975",
+          "x-ratelimit-reset": "1782397042",
+          "etag": "W/\"575-MpR71u8AFx3jEAE2Tt5S74TCz4I\""
+        },
+        "hash": "3b1fbfe94d69bc315fcd1e7b93bc400e3eea536c",
+        "request": {}
+      }
+    },
+    "post": {
+      "/api/v1/124132/documents/Documents": {
+        "response": {
+          "d": {
+            "__metadata": {
+              "uri": "https://start.exactonline.fr/api/v1/124132/documents/Documents(guid'9d648f77-9556-48b5-a701-fdcfa88f177f')",
+              "type": "Exact.Web.Api.Models.Document"
+            },
+            "ID": "9d648f77-9556-48b5-a701-fdcfa88f177f",
+            "Account": "a58c29d9-ef92-40f1-b817-31b36990898c",
+            "AccountCode": "           0000002",
+            "AccountName": "Foobar2 Updated",
+            "AmountFC": null,
+            "Body": null,
+            "Category": "90f98168-38ec-4ef7-876f-1eb5d3ba1863",
+            "CategoryDescription": "Customers",
+            "Contact": null,
+            "ContactFullName": null,
+            "Created": "/Date(1782404200637)/",
+            "Creator": "cc20a11b-c137-48cc-8e55-09d4adbd4ac9",
+            "CreatorFullName": "Samuel Bodin",
+            "Currency": "EUR",
+            "Division": 124132,
+            "DocumentDate": "/Date(1782345600000)/",
+            "DocumentFolder": null,
+            "DocumentFolderCode": null,
+            "DocumentFolderDescription": null,
+            "DocumentViewUrl": "https://start.exactonline.fr/docs/DocViewContent.aspx?ID=9d648f77-9556-48b5-a701-fdcfa88f177f&_Division_=124132&Stamp=FR001",
+            "ExpiryDate": null,
+            "FinancialTransactionEntryID": null,
+            "HasEmptyBody": true,
+            "HID": 21,
+            "Language": null,
+            "Modified": "/Date(1782404200637)/",
+            "Modifier": "cc20a11b-c137-48cc-8e55-09d4adbd4ac9",
+            "ModifierFullName": "Samuel Bodin",
+            "ShopOrderNumber": null,
+            "Subject": "Test attachment",
+            "Type": 10,
+            "TypeDescription": "Sales invoice",
+            "Opportunity": null,
+            "Project": null,
+            "ProjectCode": null,
+            "ProjectDescription": null,
+            "ProposedEntryStatus": null,
+            "SalesInvoiceNumber": null,
+            "SalesOrderNumber": null,
+            "SendMethod": 0,
+            "InheritShare": false,
+            "Item": null,
+            "ItemCode": null,
+            "ItemDescription": null,
+            "TeamsMeetingId": null,
+            "ContractNumber": null,
+            "ContractID": null,
+            "ScanServiceStatus": null,
+            "EntryStatusDescription": null,
+            "ActionRegenerateEntryProposal": null,
+            "CostcenterCode": null,
+            "CostcenterDescription": null,
+            "CostunitCode": null,
+            "CostunitDescription": null
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 25 Jun 2026 14:16:40 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "1840",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4974",
+          "x-ratelimit-reset": "1782397042",
+          "etag": "W/\"730-p87MdG6TS1ZOXvx9Vp72a1J1qL8\""
+        },
+        "hash": "367d0d3eec80a38788adbd6012fc419d029ca62a",
+        "request": {
+          "data": {
+            "Subject": "Test attachment",
+            "DocumentDate": "2026-06-25",
+            "Account": "a58c29d9-ef92-40f1-b817-31b36990898c",
+            "Type": 10
+          }
+        }
+      },
+      "/api/v1/124132/documents/DocumentAttachments": {
+        "response": {
+          "d": {
+            "__metadata": {
+              "uri": "https://start.exactonline.fr/api/v1/124132/documents/DocumentAttachments(guid'37e8f423-7722-4133-acbb-8231cf171264')",
+              "type": "Exact.Web.Api.Models.DocumentAttachment"
+            },
+            "ID": "37e8f423-7722-4133-acbb-8231cf171264",
+            "Attachment": null,
+            "FileName": "test.txt",
+            "FileSize": 4,
+            "Url": "https://start.exactonline.fr/docs/SysAttachment.aspx?ID=37e8f423-7722-4133-acbb-8231cf171264&_Division_=124132&Stamp=FR001",
+            "Document": "9d648f77-9556-48b5-a701-fdcfa88f177f"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 25 Jun 2026 14:16:41 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "504",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4973",
+          "x-ratelimit-reset": "1782397042",
+          "etag": "W/\"1f8-/OTVThj5chGSp++4LY7enzRWGRg\""
+        },
+        "hash": "fc91e6a73fe0c889edcedfb827e5bc9af2adc579",
+        "request": {
+          "data": {
+            "Document": "9d648f77-9556-48b5-a701-fdcfa88f177f",
+            "Attachment": "dGVzdA==",
+            "FileName": "test.txt"
+          }
+        }
+      }
+    }
+  }
+}

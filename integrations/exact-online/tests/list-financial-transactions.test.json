@@ -1,0 +1,980 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "EntryID": "b0f04d84-4910-47b7-bb54-06089ef3cf93",
+        "EntryNumber": 24300002,
+        "Date": "/Date(1725580800000)/",
+        "Modified": "/Date(1725631177363)/",
+        "JournalCode": "30",
+        "JournalDescription": "Caisse",
+        "Status": 50,
+        "Type": 40,
+        "TypeDescription": "Cash flow"
+      },
+      {
+        "EntryID": "20b9ba3a-d743-40f0-bcf8-15929975cff6",
+        "EntryNumber": 24700001,
+        "Date": "/Date(1723420800000)/",
+        "Modified": "/Date(1723472960657)/",
+        "JournalCode": "70",
+        "JournalDescription": "Ventes",
+        "Status": 20,
+        "Type": 20,
+        "TypeDescription": "Sales entry"
+      },
+      {
+        "EntryID": "4a2613cc-1384-45d1-b907-15b185f32e99",
+        "EntryNumber": 24500003,
+        "Date": "/Date(1725580800000)/",
+        "Modified": "/Date(1725883820270)/",
+        "JournalCode": "50",
+        "JournalDescription": "Banque",
+        "Status": 50,
+        "Type": 40,
+        "TypeDescription": "Cash flow"
+      },
+      {
+        "EntryID": "84197b8e-d4f7-4756-aa6d-17f1edea7fd3",
+        "EntryNumber": 24930005,
+        "Date": "/Date(1725840000000)/",
+        "Modified": "/Date(1725885244383)/",
+        "JournalCode": "93",
+        "JournalDescription": "OD des lettrages",
+        "Status": 20,
+        "Type": 90,
+        "TypeDescription": "Other"
+      },
+      {
+        "EntryID": "8d51d1bb-60a3-49b4-9631-2253266b28a1",
+        "EntryNumber": 24700003,
+        "Date": "/Date(1725580800000)/",
+        "Modified": "/Date(1725638465030)/",
+        "JournalCode": "70",
+        "JournalDescription": "Ventes",
+        "Status": 20,
+        "Type": 20,
+        "TypeDescription": "Sales entry"
+      },
+      {
+        "EntryID": "fe91d515-9b46-44a6-b64d-237c9357ecc6",
+        "EntryNumber": 24600002,
+        "Date": "/Date(1723680000000)/",
+        "Modified": "/Date(1782402918647)/",
+        "JournalCode": "60",
+        "JournalDescription": "Achats",
+        "Status": 20,
+        "Type": 30,
+        "TypeDescription": "Purchase entry"
+      },
+      {
+        "EntryID": "d469da0c-7d52-41b3-979c-27a9c2dca606",
+        "EntryNumber": 24700006,
+        "Date": "/Date(1725840000000)/",
+        "Modified": "/Date(1725882549590)/",
+        "JournalCode": "70",
+        "JournalDescription": "Ventes",
+        "Status": 20,
+        "Type": 20,
+        "TypeDescription": "Sales entry"
+      },
+      {
+        "EntryID": "05fde3e2-9b20-4bd5-88fc-363f66d4a6f8",
+        "EntryNumber": 24500002,
+        "Date": "/Date(1725580800000)/",
+        "Modified": "/Date(1725638674687)/",
+        "JournalCode": "50",
+        "JournalDescription": "Banque",
+        "Status": 50,
+        "Type": 40,
+        "TypeDescription": "Cash flow"
+      },
+      {
+        "EntryID": "7ae2791d-6de2-47e1-a8cf-3ad5f69e2e7e",
+        "EntryNumber": 24930003,
+        "Date": "/Date(1725840000000)/",
+        "Modified": "/Date(1725884844577)/",
+        "JournalCode": "93",
+        "JournalDescription": "OD des lettrages",
+        "Status": 20,
+        "Type": 90,
+        "TypeDescription": "Other"
+      },
+      {
+        "EntryID": "43021150-89d6-4ce6-be51-41d243616553",
+        "EntryNumber": 24500004,
+        "Date": "/Date(1725840000000)/",
+        "Modified": "/Date(1725884692777)/",
+        "JournalCode": "50",
+        "JournalDescription": "Banque",
+        "Status": 50,
+        "Type": 40,
+        "TypeDescription": "Cash flow"
+      },
+      {
+        "EntryID": "20808107-baf5-481b-b3a9-4aeff08109c0",
+        "EntryNumber": 24700004,
+        "Date": "/Date(1725580800000)/",
+        "Modified": "/Date(1725639171560)/",
+        "JournalCode": "70",
+        "JournalDescription": "Ventes",
+        "Status": 20,
+        "Type": 20,
+        "TypeDescription": "Sales entry"
+      },
+      {
+        "EntryID": "3b46b33f-f054-4301-94b7-50bded985d24",
+        "EntryNumber": 24940002,
+        "Date": "/Date(1725840000000)/",
+        "Modified": "/Date(1725895491217)/",
+        "JournalCode": "94",
+        "JournalDescription": "Régularisation TVA sur encaissement",
+        "Status": 20,
+        "Type": 90,
+        "TypeDescription": "Other"
+      },
+      {
+        "EntryID": "6d4f9cd0-2474-424a-aa7d-5103a0e6d40c",
+        "EntryNumber": 24600001,
+        "Date": "/Date(1717027200000)/",
+        "Modified": "/Date(1782402892940)/",
+        "JournalCode": "60",
+        "JournalDescription": "Achats",
+        "Status": 20,
+        "Type": 30,
+        "TypeDescription": "Purchase entry"
+      },
+      {
+        "EntryID": "62dfe663-0fb6-4e13-aff1-527fc9ad3ab9",
+        "EntryNumber": 24500007,
+        "Date": "/Date(1725840000000)/",
+        "Modified": "/Date(1725894485773)/",
+        "JournalCode": "50",
+        "JournalDescription": "Banque",
+        "Status": 20,
+        "Type": 40,
+        "TypeDescription": "Cash flow"
+      },
+      {
+        "EntryID": "ed30c262-cb03-46a2-b237-610d76e0475b",
+        "EntryNumber": 24500006,
+        "Date": "/Date(1725840000000)/",
+        "Modified": "/Date(1725885511867)/",
+        "JournalCode": "50",
+        "JournalDescription": "Banque",
+        "Status": 20,
+        "Type": 40,
+        "TypeDescription": "Cash flow"
+      },
+      {
+        "EntryID": "050b9709-98f3-44b1-a242-662e77a29be2",
+        "EntryNumber": 24500009,
+        "Date": "/Date(1725840000000)/",
+        "Modified": "/Date(1725895233523)/",
+        "JournalCode": "50",
+        "JournalDescription": "Banque",
+        "Status": 20,
+        "Type": 40,
+        "TypeDescription": "Cash flow"
+      },
+      {
+        "EntryID": "fed30936-8c99-498f-ae5a-6d7aa94470bc",
+        "EntryNumber": 24700010,
+        "Date": "/Date(1725840000000)/",
+        "Modified": "/Date(1725885629900)/",
+        "JournalCode": "70",
+        "JournalDescription": "Ventes",
+        "Status": 20,
+        "Type": 20,
+        "TypeDescription": "Sales entry"
+      },
+      {
+        "EntryID": "b907804b-5da5-4de4-9b1e-79a99c48b7ed",
+        "EntryNumber": 24700008,
+        "Date": "/Date(1725840000000)/",
+        "Modified": "/Date(1725885170273)/",
+        "JournalCode": "70",
+        "JournalDescription": "Ventes",
+        "Status": 20,
+        "Type": 20,
+        "TypeDescription": "Sales entry"
+      },
+      {
+        "EntryID": "9fe21f39-6e64-4a1f-a2b0-7c4b9a357474",
+        "EntryNumber": 24500005,
+        "Date": "/Date(1725840000000)/",
+        "Modified": "/Date(1725884862440)/",
+        "JournalCode": "50",
+        "JournalDescription": "Banque",
+        "Status": 50,
+        "Type": 40,
+        "TypeDescription": "Cash flow"
+      },
+      {
+        "EntryID": "72271f57-13cc-4a05-aaab-7db2db291b4f",
+        "EntryNumber": 24930004,
+        "Date": "/Date(1725840000000)/",
+        "Modified": "/Date(1725884850990)/",
+        "JournalCode": "93",
+        "JournalDescription": "OD des lettrages",
+        "Status": 20,
+        "Type": 90,
+        "TypeDescription": "Other"
+      },
+      {
+        "EntryID": "7bf5c38a-a10b-473f-ab67-8e7ba47b7a9a",
+        "EntryNumber": 24700002,
+        "Date": "/Date(1723507200000)/",
+        "Modified": "/Date(1723563699910)/",
+        "JournalCode": "70",
+        "JournalDescription": "Ventes",
+        "Status": 20,
+        "Type": 20,
+        "TypeDescription": "Sales entry"
+      },
+      {
+        "EntryID": "17ccd52b-21ad-4969-a49c-b0aa78f5c81d",
+        "EntryNumber": 24500008,
+        "Date": "/Date(1725840000000)/",
+        "Modified": "/Date(1725894530927)/",
+        "JournalCode": "50",
+        "JournalDescription": "Banque",
+        "Status": 20,
+        "Type": 40,
+        "TypeDescription": "Cash flow"
+      },
+      {
+        "EntryID": "b6bc7cf2-94ec-4614-a07b-b0f159abf748",
+        "EntryNumber": 24930006,
+        "Date": "/Date(1725840000000)/",
+        "Modified": "/Date(1725885407677)/",
+        "JournalCode": "93",
+        "JournalDescription": "OD des lettrages",
+        "Status": 20,
+        "Type": 90,
+        "TypeDescription": "Other"
+      },
+      {
+        "EntryID": "414b84b0-8001-4ea0-9571-b571e8acf7b3",
+        "EntryNumber": 24500001,
+        "Date": "/Date(1725580800000)/",
+        "Modified": "/Date(1725883860307)/",
+        "JournalCode": "50",
+        "JournalDescription": "Banque",
+        "Status": 50,
+        "Type": 40,
+        "TypeDescription": "Cash flow"
+      },
+      {
+        "EntryID": "6f003b63-6ab3-485a-ad1c-b79a5f60bd9c",
+        "EntryNumber": 24940001,
+        "Date": "/Date(1725580800000)/",
+        "Modified": "/Date(1725638960487)/",
+        "JournalCode": "94",
+        "JournalDescription": "Régularisation TVA sur encaissement",
+        "Status": 20,
+        "Type": 90,
+        "TypeDescription": "Other"
+      },
+      {
+        "EntryID": "096cf88d-14c1-45f5-943d-b937b5c13ad1",
+        "EntryNumber": 24300001,
+        "Date": "/Date(1725580800000)/",
+        "Modified": "/Date(1725631140803)/",
+        "JournalCode": "30",
+        "JournalDescription": "Caisse",
+        "Status": 50,
+        "Type": 40,
+        "TypeDescription": "Cash flow"
+      },
+      {
+        "EntryID": "749678eb-ca6a-41d2-bb77-bc3970a0d512",
+        "EntryNumber": 24500010,
+        "Date": "/Date(1725840000000)/",
+        "Modified": "/Date(1725895491480)/",
+        "JournalCode": "50",
+        "JournalDescription": "Banque",
+        "Status": 20,
+        "Type": 40,
+        "TypeDescription": "Cash flow"
+      },
+      {
+        "EntryID": "66a5366e-4982-4b62-bf26-bf6817dfe915",
+        "EntryNumber": 24300003,
+        "Date": "/Date(1725580800000)/",
+        "Modified": "/Date(1725638877170)/",
+        "JournalCode": "30",
+        "JournalDescription": "Caisse",
+        "Status": 50,
+        "Type": 40,
+        "TypeDescription": "Cash flow"
+      },
+      {
+        "EntryID": "4fe3d5cb-8284-486b-acdb-c2b695b466fe",
+        "EntryNumber": 24930001,
+        "Date": "/Date(1725580800000)/",
+        "Modified": "/Date(1725637750857)/",
+        "JournalCode": "93",
+        "JournalDescription": "OD des lettrages",
+        "Status": 20,
+        "Type": 83,
+        "TypeDescription": "Payment difference"
+      },
+      {
+        "EntryID": "bcc9eae0-082c-49b9-a7c6-d1496828c030",
+        "EntryNumber": 24700009,
+        "Date": "/Date(1725840000000)/",
+        "Modified": "/Date(1725885374427)/",
+        "JournalCode": "70",
+        "JournalDescription": "Ventes",
+        "Status": 20,
+        "Type": 20,
+        "TypeDescription": "Sales entry"
+      },
+      {
+        "EntryID": "2ab359f3-0042-4e57-b829-d7d7cc84d1ea",
+        "EntryNumber": 24700005,
+        "Date": "/Date(1725580800000)/",
+        "Modified": "/Date(1725644849653)/",
+        "JournalCode": "70",
+        "JournalDescription": "Ventes",
+        "Status": 20,
+        "Type": 20,
+        "TypeDescription": "Sales entry"
+      },
+      {
+        "EntryID": "075a5c5c-756e-4bd8-9adb-f2290d69f0e2",
+        "EntryNumber": 24930002,
+        "Date": "/Date(1725840000000)/",
+        "Modified": "/Date(1725884763613)/",
+        "JournalCode": "93",
+        "JournalDescription": "OD des lettrages",
+        "Status": 20,
+        "Type": 90,
+        "TypeDescription": "Other"
+      },
+      {
+        "EntryID": "37d4f854-7ea9-4a08-8630-fce11944076d",
+        "EntryNumber": 24700007,
+        "Date": "/Date(1725840000000)/",
+        "Modified": "/Date(1725884950213)/",
+        "JournalCode": "70",
+        "JournalDescription": "Ventes",
+        "Status": 20,
+        "Type": 20,
+        "TypeDescription": "Sales entry"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/v1/current/Me": {
+        "response": {
+          "d": {
+            "results": [
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/current/Me(guid'cc20a11b-c137-48cc-8e55-09d4adbd4ac9')",
+                  "type": "Exact.Web.Api.Models.System.Me"
+                },
+                "CurrentDivision": 124132,
+                "DivisionCustomer": "83b186b4-483d-474a-bebc-85da71e6f1ed",
+                "DivisionCustomerCode": "           1265594",
+                "DivisionCustomerName": "Nango",
+                "DivisionCustomerVatNumber": null,
+                "DivisionCustomerSiretNumber": "",
+                "DossierDivision": null,
+                "AccountingDivision": 124132,
+                "IsEmployeeSelfServiceUser": false,
+                "IsMyFirmLiteUser": false,
+                "IsStarterUser": false,
+                "IsMyFirmPortalUser": false,
+                "IsClientUser": true,
+                "FullName": "Samuel Bodin",
+                "PictureUrl": "https://start.exactonline.fr//docs/images/placeholder_contact_myeol.png",
+                "ThumbnailPicture": null,
+                "ThumbnailPictureFormat": null,
+                "UserID": "cc20a11b-c137-48cc-8e55-09d4adbd4ac9",
+                "UserName": "samuel@nango.dev",
+                "LanguageCode": "en-GB",
+                "Legislation": "128",
+                "Email": "samuel@nango.dev",
+                "Title": "Mr.",
+                "Initials": null,
+                "FirstName": "Samuel",
+                "MiddleName": null,
+                "LastName": "Bodin",
+                "Gender": "O",
+                "Nationality": null,
+                "Language": "EN",
+                "Phone": "0606060606",
+                "PhoneExtension": null,
+                "Mobile": null,
+                "ServerTime": "2026-06-25T16:14:39",
+                "ServerUtcOffset": 7200,
+                "EmployeeID": "00000000-0000-0000-0000-000000000000",
+                "CustomerCode": "           1265594",
+                "PackageCode": "EOLAPPCENTER",
+                "IsOEIMigrationMandatory": true
+              }
+            ]
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 25 Jun 2026 14:14:39 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "1397",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4934",
+          "x-ratelimit-reset": "1782396918",
+          "etag": "W/\"575-Lck1pGW0Q/Z74jgMQL0AfeBbrEk\""
+        },
+        "hash": "3b1fbfe94d69bc315fcd1e7b93bc400e3eea536c",
+        "request": {}
+      },
+      "/api/v1/124132/financialtransaction/Transactions": {
+        "response": {
+          "d": {
+            "results": [
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/Transactions(guid'b0f04d84-4910-47b7-bb54-06089ef3cf93')",
+                  "type": "Exact.Web.Api.Models.Financial.Transaction"
+                },
+                "Date": "/Date(1725580800000)/",
+                "EntryID": "b0f04d84-4910-47b7-bb54-06089ef3cf93",
+                "EntryNumber": 24300002,
+                "JournalCode": "30",
+                "JournalDescription": "Caisse",
+                "Modified": "/Date(1725631177363)/",
+                "Status": 50,
+                "Type": 40,
+                "TypeDescription": "Cash flow"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/Transactions(guid'20b9ba3a-d743-40f0-bcf8-15929975cff6')",
+                  "type": "Exact.Web.Api.Models.Financial.Transaction"
+                },
+                "Date": "/Date(1723420800000)/",
+                "EntryID": "20b9ba3a-d743-40f0-bcf8-15929975cff6",
+                "EntryNumber": 24700001,
+                "JournalCode": "70",
+                "JournalDescription": "Ventes",
+                "Modified": "/Date(1723472960657)/",
+                "Status": 20,
+                "Type": 20,
+                "TypeDescription": "Sales entry"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/Transactions(guid'4a2613cc-1384-45d1-b907-15b185f32e99')",
+                  "type": "Exact.Web.Api.Models.Financial.Transaction"
+                },
+                "Date": "/Date(1725580800000)/",
+                "EntryID": "4a2613cc-1384-45d1-b907-15b185f32e99",
+                "EntryNumber": 24500003,
+                "JournalCode": "50",
+                "JournalDescription": "Banque",
+                "Modified": "/Date(1725883820270)/",
+                "Status": 50,
+                "Type": 40,
+                "TypeDescription": "Cash flow"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/Transactions(guid'84197b8e-d4f7-4756-aa6d-17f1edea7fd3')",
+                  "type": "Exact.Web.Api.Models.Financial.Transaction"
+                },
+                "Date": "/Date(1725840000000)/",
+                "EntryID": "84197b8e-d4f7-4756-aa6d-17f1edea7fd3",
+                "EntryNumber": 24930005,
+                "JournalCode": "93",
+                "JournalDescription": "OD des lettrages",
+                "Modified": "/Date(1725885244383)/",
+                "Status": 20,
+                "Type": 90,
+                "TypeDescription": "Other"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/Transactions(guid'8d51d1bb-60a3-49b4-9631-2253266b28a1')",
+                  "type": "Exact.Web.Api.Models.Financial.Transaction"
+                },
+                "Date": "/Date(1725580800000)/",
+                "EntryID": "8d51d1bb-60a3-49b4-9631-2253266b28a1",
+                "EntryNumber": 24700003,
+                "JournalCode": "70",
+                "JournalDescription": "Ventes",
+                "Modified": "/Date(1725638465030)/",
+                "Status": 20,
+                "Type": 20,
+                "TypeDescription": "Sales entry"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/Transactions(guid'fe91d515-9b46-44a6-b64d-237c9357ecc6')",
+                  "type": "Exact.Web.Api.Models.Financial.Transaction"
+                },
+                "Date": "/Date(1723680000000)/",
+                "EntryID": "fe91d515-9b46-44a6-b64d-237c9357ecc6",
+                "EntryNumber": 24600002,
+                "JournalCode": "60",
+                "JournalDescription": "Achats",
+                "Modified": "/Date(1782402918647)/",
+                "Status": 20,
+                "Type": 30,
+                "TypeDescription": "Purchase entry"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/Transactions(guid'd469da0c-7d52-41b3-979c-27a9c2dca606')",
+                  "type": "Exact.Web.Api.Models.Financial.Transaction"
+                },
+                "Date": "/Date(1725840000000)/",
+                "EntryID": "d469da0c-7d52-41b3-979c-27a9c2dca606",
+                "EntryNumber": 24700006,
+                "JournalCode": "70",
+                "JournalDescription": "Ventes",
+                "Modified": "/Date(1725882549590)/",
+                "Status": 20,
+                "Type": 20,
+                "TypeDescription": "Sales entry"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/Transactions(guid'05fde3e2-9b20-4bd5-88fc-363f66d4a6f8')",
+                  "type": "Exact.Web.Api.Models.Financial.Transaction"
+                },
+                "Date": "/Date(1725580800000)/",
+                "EntryID": "05fde3e2-9b20-4bd5-88fc-363f66d4a6f8",
+                "EntryNumber": 24500002,
+                "JournalCode": "50",
+                "JournalDescription": "Banque",
+                "Modified": "/Date(1725638674687)/",
+                "Status": 50,
+                "Type": 40,
+                "TypeDescription": "Cash flow"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/Transactions(guid'7ae2791d-6de2-47e1-a8cf-3ad5f69e2e7e')",
+                  "type": "Exact.Web.Api.Models.Financial.Transaction"
+                },
+                "Date": "/Date(1725840000000)/",
+                "EntryID": "7ae2791d-6de2-47e1-a8cf-3ad5f69e2e7e",
+                "EntryNumber": 24930003,
+                "JournalCode": "93",
+                "JournalDescription": "OD des lettrages",
+                "Modified": "/Date(1725884844577)/",
+                "Status": 20,
+                "Type": 90,
+                "TypeDescription": "Other"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/Transactions(guid'43021150-89d6-4ce6-be51-41d243616553')",
+                  "type": "Exact.Web.Api.Models.Financial.Transaction"
+                },
+                "Date": "/Date(1725840000000)/",
+                "EntryID": "43021150-89d6-4ce6-be51-41d243616553",
+                "EntryNumber": 24500004,
+                "JournalCode": "50",
+                "JournalDescription": "Banque",
+                "Modified": "/Date(1725884692777)/",
+                "Status": 50,
+                "Type": 40,
+                "TypeDescription": "Cash flow"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/Transactions(guid'20808107-baf5-481b-b3a9-4aeff08109c0')",
+                  "type": "Exact.Web.Api.Models.Financial.Transaction"
+                },
+                "Date": "/Date(1725580800000)/",
+                "EntryID": "20808107-baf5-481b-b3a9-4aeff08109c0",
+                "EntryNumber": 24700004,
+                "JournalCode": "70",
+                "JournalDescription": "Ventes",
+                "Modified": "/Date(1725639171560)/",
+                "Status": 20,
+                "Type": 20,
+                "TypeDescription": "Sales entry"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/Transactions(guid'3b46b33f-f054-4301-94b7-50bded985d24')",
+                  "type": "Exact.Web.Api.Models.Financial.Transaction"
+                },
+                "Date": "/Date(1725840000000)/",
+                "EntryID": "3b46b33f-f054-4301-94b7-50bded985d24",
+                "EntryNumber": 24940002,
+                "JournalCode": "94",
+                "JournalDescription": "Régularisation TVA sur encaissement",
+                "Modified": "/Date(1725895491217)/",
+                "Status": 20,
+                "Type": 90,
+                "TypeDescription": "Other"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/Transactions(guid'6d4f9cd0-2474-424a-aa7d-5103a0e6d40c')",
+                  "type": "Exact.Web.Api.Models.Financial.Transaction"
+                },
+                "Date": "/Date(1717027200000)/",
+                "EntryID": "6d4f9cd0-2474-424a-aa7d-5103a0e6d40c",
+                "EntryNumber": 24600001,
+                "JournalCode": "60",
+                "JournalDescription": "Achats",
+                "Modified": "/Date(1782402892940)/",
+                "Status": 20,
+                "Type": 30,
+                "TypeDescription": "Purchase entry"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/Transactions(guid'62dfe663-0fb6-4e13-aff1-527fc9ad3ab9')",
+                  "type": "Exact.Web.Api.Models.Financial.Transaction"
+                },
+                "Date": "/Date(1725840000000)/",
+                "EntryID": "62dfe663-0fb6-4e13-aff1-527fc9ad3ab9",
+                "EntryNumber": 24500007,
+                "JournalCode": "50",
+                "JournalDescription": "Banque",
+                "Modified": "/Date(1725894485773)/",
+                "Status": 20,
+                "Type": 40,
+                "TypeDescription": "Cash flow"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/Transactions(guid'ed30c262-cb03-46a2-b237-610d76e0475b')",
+                  "type": "Exact.Web.Api.Models.Financial.Transaction"
+                },
+                "Date": "/Date(1725840000000)/",
+                "EntryID": "ed30c262-cb03-46a2-b237-610d76e0475b",
+                "EntryNumber": 24500006,
+                "JournalCode": "50",
+                "JournalDescription": "Banque",
+                "Modified": "/Date(1725885511867)/",
+                "Status": 20,
+                "Type": 40,
+                "TypeDescription": "Cash flow"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/Transactions(guid'050b9709-98f3-44b1-a242-662e77a29be2')",
+                  "type": "Exact.Web.Api.Models.Financial.Transaction"
+                },
+                "Date": "/Date(1725840000000)/",
+                "EntryID": "050b9709-98f3-44b1-a242-662e77a29be2",
+                "EntryNumber": 24500009,
+                "JournalCode": "50",
+                "JournalDescription": "Banque",
+                "Modified": "/Date(1725895233523)/",
+                "Status": 20,
+                "Type": 40,
+                "TypeDescription": "Cash flow"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/Transactions(guid'fed30936-8c99-498f-ae5a-6d7aa94470bc')",
+                  "type": "Exact.Web.Api.Models.Financial.Transaction"
+                },
+                "Date": "/Date(1725840000000)/",
+                "EntryID": "fed30936-8c99-498f-ae5a-6d7aa94470bc",
+                "EntryNumber": 24700010,
+                "JournalCode": "70",
+                "JournalDescription": "Ventes",
+                "Modified": "/Date(1725885629900)/",
+                "Status": 20,
+                "Type": 20,
+                "TypeDescription": "Sales entry"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/Transactions(guid'b907804b-5da5-4de4-9b1e-79a99c48b7ed')",
+                  "type": "Exact.Web.Api.Models.Financial.Transaction"
+                },
+                "Date": "/Date(1725840000000)/",
+                "EntryID": "b907804b-5da5-4de4-9b1e-79a99c48b7ed",
+                "EntryNumber": 24700008,
+                "JournalCode": "70",
+                "JournalDescription": "Ventes",
+                "Modified": "/Date(1725885170273)/",
+                "Status": 20,
+                "Type": 20,
+                "TypeDescription": "Sales entry"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/Transactions(guid'9fe21f39-6e64-4a1f-a2b0-7c4b9a357474')",
+                  "type": "Exact.Web.Api.Models.Financial.Transaction"
+                },
+                "Date": "/Date(1725840000000)/",
+                "EntryID": "9fe21f39-6e64-4a1f-a2b0-7c4b9a357474",
+                "EntryNumber": 24500005,
+                "JournalCode": "50",
+                "JournalDescription": "Banque",
+                "Modified": "/Date(1725884862440)/",
+                "Status": 50,
+                "Type": 40,
+                "TypeDescription": "Cash flow"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/Transactions(guid'72271f57-13cc-4a05-aaab-7db2db291b4f')",
+                  "type": "Exact.Web.Api.Models.Financial.Transaction"
+                },
+                "Date": "/Date(1725840000000)/",
+                "EntryID": "72271f57-13cc-4a05-aaab-7db2db291b4f",
+                "EntryNumber": 24930004,
+                "JournalCode": "93",
+                "JournalDescription": "OD des lettrages",
+                "Modified": "/Date(1725884850990)/",
+                "Status": 20,
+                "Type": 90,
+                "TypeDescription": "Other"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/Transactions(guid'7bf5c38a-a10b-473f-ab67-8e7ba47b7a9a')",
+                  "type": "Exact.Web.Api.Models.Financial.Transaction"
+                },
+                "Date": "/Date(1723507200000)/",
+                "EntryID": "7bf5c38a-a10b-473f-ab67-8e7ba47b7a9a",
+                "EntryNumber": 24700002,
+                "JournalCode": "70",
+                "JournalDescription": "Ventes",
+                "Modified": "/Date(1723563699910)/",
+                "Status": 20,
+                "Type": 20,
+                "TypeDescription": "Sales entry"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/Transactions(guid'17ccd52b-21ad-4969-a49c-b0aa78f5c81d')",
+                  "type": "Exact.Web.Api.Models.Financial.Transaction"
+                },
+                "Date": "/Date(1725840000000)/",
+                "EntryID": "17ccd52b-21ad-4969-a49c-b0aa78f5c81d",
+                "EntryNumber": 24500008,
+                "JournalCode": "50",
+                "JournalDescription": "Banque",
+                "Modified": "/Date(1725894530927)/",
+                "Status": 20,
+                "Type": 40,
+                "TypeDescription": "Cash flow"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/Transactions(guid'b6bc7cf2-94ec-4614-a07b-b0f159abf748')",
+                  "type": "Exact.Web.Api.Models.Financial.Transaction"
+                },
+                "Date": "/Date(1725840000000)/",
+                "EntryID": "b6bc7cf2-94ec-4614-a07b-b0f159abf748",
+                "EntryNumber": 24930006,
+                "JournalCode": "93",
+                "JournalDescription": "OD des lettrages",
+                "Modified": "/Date(1725885407677)/",
+                "Status": 20,
+                "Type": 90,
+                "TypeDescription": "Other"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/Transactions(guid'414b84b0-8001-4ea0-9571-b571e8acf7b3')",
+                  "type": "Exact.Web.Api.Models.Financial.Transaction"
+                },
+                "Date": "/Date(1725580800000)/",
+                "EntryID": "414b84b0-8001-4ea0-9571-b571e8acf7b3",
+                "EntryNumber": 24500001,
+                "JournalCode": "50",
+                "JournalDescription": "Banque",
+                "Modified": "/Date(1725883860307)/",
+                "Status": 50,
+                "Type": 40,
+                "TypeDescription": "Cash flow"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/Transactions(guid'6f003b63-6ab3-485a-ad1c-b79a5f60bd9c')",
+                  "type": "Exact.Web.Api.Models.Financial.Transaction"
+                },
+                "Date": "/Date(1725580800000)/",
+                "EntryID": "6f003b63-6ab3-485a-ad1c-b79a5f60bd9c",
+                "EntryNumber": 24940001,
+                "JournalCode": "94",
+                "JournalDescription": "Régularisation TVA sur encaissement",
+                "Modified": "/Date(1725638960487)/",
+                "Status": 20,
+                "Type": 90,
+                "TypeDescription": "Other"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/Transactions(guid'096cf88d-14c1-45f5-943d-b937b5c13ad1')",
+                  "type": "Exact.Web.Api.Models.Financial.Transaction"
+                },
+                "Date": "/Date(1725580800000)/",
+                "EntryID": "096cf88d-14c1-45f5-943d-b937b5c13ad1",
+                "EntryNumber": 24300001,
+                "JournalCode": "30",
+                "JournalDescription": "Caisse",
+                "Modified": "/Date(1725631140803)/",
+                "Status": 50,
+                "Type": 40,
+                "TypeDescription": "Cash flow"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/Transactions(guid'749678eb-ca6a-41d2-bb77-bc3970a0d512')",
+                  "type": "Exact.Web.Api.Models.Financial.Transaction"
+                },
+                "Date": "/Date(1725840000000)/",
+                "EntryID": "749678eb-ca6a-41d2-bb77-bc3970a0d512",
+                "EntryNumber": 24500010,
+                "JournalCode": "50",
+                "JournalDescription": "Banque",
+                "Modified": "/Date(1725895491480)/",
+                "Status": 20,
+                "Type": 40,
+                "TypeDescription": "Cash flow"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/Transactions(guid'66a5366e-4982-4b62-bf26-bf6817dfe915')",
+                  "type": "Exact.Web.Api.Models.Financial.Transaction"
+                },
+                "Date": "/Date(1725580800000)/",
+                "EntryID": "66a5366e-4982-4b62-bf26-bf6817dfe915",
+                "EntryNumber": 24300003,
+                "JournalCode": "30",
+                "JournalDescription": "Caisse",
+                "Modified": "/Date(1725638877170)/",
+                "Status": 50,
+                "Type": 40,
+                "TypeDescription": "Cash flow"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/Transactions(guid'4fe3d5cb-8284-486b-acdb-c2b695b466fe')",
+                  "type": "Exact.Web.Api.Models.Financial.Transaction"
+                },
+                "Date": "/Date(1725580800000)/",
+                "EntryID": "4fe3d5cb-8284-486b-acdb-c2b695b466fe",
+                "EntryNumber": 24930001,
+                "JournalCode": "93",
+                "JournalDescription": "OD des lettrages",
+                "Modified": "/Date(1725637750857)/",
+                "Status": 20,
+                "Type": 83,
+                "TypeDescription": "Payment difference"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/Transactions(guid'bcc9eae0-082c-49b9-a7c6-d1496828c030')",
+                  "type": "Exact.Web.Api.Models.Financial.Transaction"
+                },
+                "Date": "/Date(1725840000000)/",
+                "EntryID": "bcc9eae0-082c-49b9-a7c6-d1496828c030",
+                "EntryNumber": 24700009,
+                "JournalCode": "70",
+                "JournalDescription": "Ventes",
+                "Modified": "/Date(1725885374427)/",
+                "Status": 20,
+                "Type": 20,
+                "TypeDescription": "Sales entry"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/Transactions(guid'2ab359f3-0042-4e57-b829-d7d7cc84d1ea')",
+                  "type": "Exact.Web.Api.Models.Financial.Transaction"
+                },
+                "Date": "/Date(1725580800000)/",
+                "EntryID": "2ab359f3-0042-4e57-b829-d7d7cc84d1ea",
+                "EntryNumber": 24700005,
+                "JournalCode": "70",
+                "JournalDescription": "Ventes",
+                "Modified": "/Date(1725644849653)/",
+                "Status": 20,
+                "Type": 20,
+                "TypeDescription": "Sales entry"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/Transactions(guid'075a5c5c-756e-4bd8-9adb-f2290d69f0e2')",
+                  "type": "Exact.Web.Api.Models.Financial.Transaction"
+                },
+                "Date": "/Date(1725840000000)/",
+                "EntryID": "075a5c5c-756e-4bd8-9adb-f2290d69f0e2",
+                "EntryNumber": 24930002,
+                "JournalCode": "93",
+                "JournalDescription": "OD des lettrages",
+                "Modified": "/Date(1725884763613)/",
+                "Status": 20,
+                "Type": 90,
+                "TypeDescription": "Other"
+              },
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/124132/financialtransaction/Transactions(guid'37d4f854-7ea9-4a08-8630-fce11944076d')",
+                  "type": "Exact.Web.Api.Models.Financial.Transaction"
+                },
+                "Date": "/Date(1725840000000)/",
+                "EntryID": "37d4f854-7ea9-4a08-8630-fce11944076d",
+                "EntryNumber": 24700007,
+                "JournalCode": "70",
+                "JournalDescription": "Ventes",
+                "Modified": "/Date(1725884950213)/",
+                "Status": 20,
+                "Type": 20,
+                "TypeDescription": "Sales entry"
+              }
+            ]
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 25 Jun 2026 14:14:40 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "15748",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4933",
+          "x-ratelimit-reset": "1782396918",
+          "etag": "W/\"3d84-vGNuLsBYuN69VhvmXUaBJj+sonM\""
+        },
+        "hash": "ae7c1df56d01a4838138910e56ab5235d066e9cb",
+        "request": {
+          "params": {
+            "$select": "EntryID,EntryNumber,Date,Modified,JournalCode,JournalDescription,Status,Type,TypeDescription",
+            "$top": "100"
+          }
+        }
+      }
+    }
+  }
+}

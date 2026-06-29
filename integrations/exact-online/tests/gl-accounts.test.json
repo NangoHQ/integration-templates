@@ -1,0 +1,1766 @@
+{
+  "nango": {
+    "batchSave": {
+      "GlAccount": [
+        {
+          "id": "4f3cb13e-8984-4cc5-b69a-5271a9bdd7c9",
+          "code": "101000",
+          "description": "Capital",
+          "modified": "/Date(1537503528653)/"
+        },
+        {
+          "id": "884288af-c920-4c82-912f-2fa334aeafda",
+          "code": "102000",
+          "description": "Fonds fiduciaires",
+          "modified": "/Date(1537503529030)/"
+        },
+        {
+          "id": "de0e5011-4214-4728-82f8-098a8043b773",
+          "code": "104000",
+          "description": "Primes liées au capital social",
+          "modified": "/Date(1537503529140)/"
+        },
+        {
+          "id": "bedc90ba-aadd-43d5-9187-8eff8017f889",
+          "code": "105000",
+          "description": "Écart de réévaluation",
+          "modified": "/Date(1537503529297)/"
+        },
+        {
+          "id": "57db04c9-d047-40b4-8ece-b7204fddb7f9",
+          "code": "106000",
+          "description": "Réserves",
+          "modified": "/Date(1537503529450)/"
+        },
+        {
+          "id": "3f33c238-fd7a-4f6b-8b9a-ef3013a6bb7d",
+          "code": "106100",
+          "description": "Réserve légale",
+          "modified": "/Date(1537503529577)/"
+        },
+        {
+          "id": "c9693e7a-dd1f-4995-ba4e-c0c7629f04ba",
+          "code": "106200",
+          "description": "Réserves indisponibles",
+          "modified": "/Date(1537503529670)/"
+        },
+        {
+          "id": "75f92040-fe76-4a02-99bc-20f8aad00625",
+          "code": "106300",
+          "description": "Réserves statutaires ou contractuelles",
+          "modified": "/Date(1537503529797)/"
+        },
+        {
+          "id": "55d4de1e-2ee9-46e1-b050-0a2ff23d3e71",
+          "code": "106400",
+          "description": "Réserves réglementées",
+          "modified": "/Date(1537503529920)/"
+        },
+        {
+          "id": "8c691c91-5e23-44b1-b441-5d5cbe085ac9",
+          "code": "106800",
+          "description": "Autres réserves",
+          "modified": "/Date(1537503530030)/"
+        },
+        {
+          "id": "207b129e-8a28-4759-ad50-1b95eb90ea68",
+          "code": "107000",
+          "description": "Écart d’équivalence",
+          "modified": "/Date(1537503530123)/"
+        },
+        {
+          "id": "55fbeb35-2c17-4ad4-9115-d78b6d7ec80a",
+          "code": "108000",
+          "description": "Compte de l’exploitant",
+          "modified": "/Date(1537503530233)/"
+        },
+        {
+          "id": "d587aad1-45da-4b5f-82da-8f4195dfe783",
+          "code": "109000",
+          "description": "Actionnaires - Capital souscrit - non appelé",
+          "modified": "/Date(1537503530343)/"
+        },
+        {
+          "id": "8669bc6c-d739-4b1f-b59d-a4b2a8c927b2",
+          "code": "110000",
+          "description": "Report à nouveau (solde créditeur)",
+          "modified": "/Date(1537503530470)/"
+        },
+        {
+          "id": "4d0ed8a5-5b2d-4410-9255-c1fb62347f05",
+          "code": "119000",
+          "description": "Report à nouveau (solde débiteur)",
+          "modified": "/Date(1537503530733)/"
+        },
+        {
+          "id": "d5bfa836-8d79-401c-a261-d90baf6e2794",
+          "code": "120000",
+          "description": "Résultat de l’exercice (bénéfice)",
+          "modified": "/Date(1537503530830)/"
+        },
+        {
+          "id": "3101428d-f5bc-4b01-bd54-cdd84540b953",
+          "code": "129000",
+          "description": "Résultat de l’exercice (perte)",
+          "modified": "/Date(1537503530953)/"
+        },
+        {
+          "id": "2e5e6669-5e97-4fa9-85a2-5857aee3f30a",
+          "code": "131000",
+          "description": "Subventions d’équipement",
+          "modified": "/Date(1537503531050)/"
+        },
+        {
+          "id": "a16064f9-aa8d-44d2-b29a-e7e9d4f96efb",
+          "code": "138000",
+          "description": "Autres subventions d’investissement",
+          "modified": "/Date(1537503531160)/"
+        },
+        {
+          "id": "a257de6e-28a3-4210-96aa-4ad415e43ba8",
+          "code": "139000",
+          "description": "Subv. d’investissement inscrites au compte de résultat",
+          "modified": "/Date(1537503531267)/"
+        },
+        {
+          "id": "e6c3b7d9-7081-4aa3-bb80-30854058bbd7",
+          "code": "139100",
+          "description": "Subventions d’équipement",
+          "modified": "/Date(1537503531377)/"
+        },
+        {
+          "id": "e7952937-cef4-4b6a-bb46-3f9395ddaf8a",
+          "code": "139800",
+          "description": "Autres subventions d’investissement",
+          "modified": "/Date(1537503531470)/"
+        },
+        {
+          "id": "b527312f-2935-401a-b39d-1a2cfacd60ca",
+          "code": "142000",
+          "description": "Provisions réglementées relatives aux immobilisations",
+          "modified": "/Date(1537503531580)/"
+        },
+        {
+          "id": "4fb177dd-4281-455d-8888-0e0dd29c6c96",
+          "code": "143000",
+          "description": "Provisions réglementées relatives aux stocks",
+          "modified": "/Date(1537503531690)/"
+        },
+        {
+          "id": "06b7745f-8c54-472a-9767-7e1c578d4a8c",
+          "code": "144000",
+          "description": "Provisions réglementées relatives aux autres éléments actif",
+          "modified": "/Date(1537503531833)/"
+        },
+        {
+          "id": "e5b428db-9ae0-4f1c-8807-3eef3bfe1179",
+          "code": "145000",
+          "description": "Amortissements dérogatoires",
+          "modified": "/Date(1537503531957)/"
+        },
+        {
+          "id": "bed4c117-89a8-49b2-8cee-08fddc8beeea",
+          "code": "146000",
+          "description": "Provision spéciale de réévaluation",
+          "modified": "/Date(1537503532067)/"
+        },
+        {
+          "id": "be362541-a04c-4420-a806-92a3feb2b141",
+          "code": "147000",
+          "description": "Plus-values réinvesties",
+          "modified": "/Date(1537503532177)/"
+        },
+        {
+          "id": "27ded61a-03e3-46de-94a2-fe4ca1a57d0b",
+          "code": "148000",
+          "description": "Autres provisions réglementées",
+          "modified": "/Date(1537503532287)/"
+        },
+        {
+          "id": "74de7a6c-4e43-4e12-986b-dd534a7589b8",
+          "code": "151000",
+          "description": "Provisions pour litiges",
+          "modified": "/Date(1537503532380)/"
+        },
+        {
+          "id": "78feb2b0-7b89-4f0c-a46f-17c1493fdc14",
+          "code": "153000",
+          "description": "Provisions pour pensions et obligations similaires",
+          "modified": "/Date(1537503532503)/"
+        },
+        {
+          "id": "5527e406-bb2c-4d40-9855-c2fab01b06e6",
+          "code": "154000",
+          "description": "Provisions pour restructurations",
+          "modified": "/Date(1537503532600)/"
+        },
+        {
+          "id": "092a4879-309d-4911-96f9-27c467826820",
+          "code": "155000",
+          "description": "Provisions pour impôts",
+          "modified": "/Date(1537503532707)/"
+        },
+        {
+          "id": "0ac3ed09-5e13-429f-b469-f112bab5e1ee",
+          "code": "156000",
+          "description": "Provisions pour renouvellement des immobilisations",
+          "modified": "/Date(1537503532800)/"
+        },
+        {
+          "id": "a2cb878e-01a0-42c2-bb39-fb96ff9616a7",
+          "code": "157000",
+          "description": "Provisions pour charges à répartir sur plusieurs exercices",
+          "modified": "/Date(1537503532910)/"
+        },
+        {
+          "id": "b5ee32a1-029a-4375-a153-c4f187b22489",
+          "code": "161000",
+          "description": "Emprunts obligataires convertibles",
+          "modified": "/Date(1537503533003)/"
+        },
+        {
+          "id": "e9aec270-ce8c-4c7e-bf57-16a3db1dbf0d",
+          "code": "163000",
+          "description": "Autres emprunts obligataires",
+          "modified": "/Date(1537503533113)/"
+        },
+        {
+          "id": "b5800be2-7cba-411b-a9ae-24378aa1483f",
+          "code": "164000",
+          "description": "Emprunts auprès des établissements de crédit",
+          "modified": "/Date(1537503533210)/"
+        },
+        {
+          "id": "f068e60b-9e4e-408a-b417-88c901da6fd1",
+          "code": "165000",
+          "description": "Dépôts et cautionnements reçus",
+          "modified": "/Date(1537503533350)/"
+        },
+        {
+          "id": "d98ccfeb-58dc-43e7-bcc2-21ef932a1c18",
+          "code": "166000",
+          "description": "Participation des salariés aux résultats",
+          "modified": "/Date(1537503533477)/"
+        },
+        {
+          "id": "094f00f7-45ea-4710-a2ad-2d83c5017d2e",
+          "code": "167000",
+          "description": "Emprunts et dettes assortis de conditions particulières",
+          "modified": "/Date(1537503533570)/"
+        },
+        {
+          "id": "54483bca-56b7-4510-b76d-e6c6a004be35",
+          "code": "167100",
+          "description": "Émissions de titres participatifs",
+          "modified": "/Date(1537503533693)/"
+        },
+        {
+          "id": "24a37005-41ae-4a60-85c5-02e4dce06637",
+          "code": "167400",
+          "description": "Avances conditionnées de l’État",
+          "modified": "/Date(1537503533803)/"
+        },
+        {
+          "id": "e75f690f-9f7a-405e-b225-03034de8c81c",
+          "code": "167500",
+          "description": "Emprunts participatifs",
+          "modified": "/Date(1537503533880)/"
+        },
+        {
+          "id": "5da32c8e-a71e-4012-8c3f-bb23bfe2ade4",
+          "code": "168000",
+          "description": "Autres emprunts et dettes assimilées",
+          "modified": "/Date(1537503533990)/"
+        },
+        {
+          "id": "d9913a2e-4df5-4d51-b372-97ad7c0f7a3a",
+          "code": "169000",
+          "description": "Primes de remboursement des obligations",
+          "modified": "/Date(1537503534117)/"
+        },
+        {
+          "id": "ed19a4f5-8f9f-42ef-9571-fb3195f7ecab",
+          "code": "171000",
+          "description": "Dettes rattachées à des participations (groupe)",
+          "modified": "/Date(1537503534210)/"
+        },
+        {
+          "id": "83d3d8b1-dfe9-43aa-88de-ce7d2d609cf2",
+          "code": "174000",
+          "description": "Dettes rattachées à des participations (hors groupe)",
+          "modified": "/Date(1537503534320)/"
+        },
+        {
+          "id": "80e05f76-91de-4d37-bd42-de92b2164646",
+          "code": "178000",
+          "description": "Dettes rattachées sociétés en participation",
+          "modified": "/Date(1537503534430)/"
+        },
+        {
+          "id": "a340436b-09fe-43a5-9149-c46300678d2d",
+          "code": "181000",
+          "description": "Comptes de liaison des établissements",
+          "modified": "/Date(1537503534523)/"
+        },
+        {
+          "id": "dd63e2f0-6a61-4e5c-893d-6a83a89b625a",
+          "code": "186000",
+          "description": "Biens, services échangés entre établissements (Charges)",
+          "modified": "/Date(1537503534630)/"
+        },
+        {
+          "id": "2a27f0e1-ded4-42a3-8262-6af45067381c",
+          "code": "187000",
+          "description": "Biens, services échangés entre établissements (Produits)",
+          "modified": "/Date(1537503534727)/"
+        },
+        {
+          "id": "5a7e2add-e9d6-4636-9500-86b351b43290",
+          "code": "188000",
+          "description": "Comptes de liaison des sociétés en participation",
+          "modified": "/Date(1537503534833)/"
+        },
+        {
+          "id": "7b47dcdf-b463-48ba-9ead-2e7357b4a43c",
+          "code": "201000",
+          "description": "Frais d’établissement",
+          "modified": "/Date(1537503534943)/"
+        },
+        {
+          "id": "56857931-d4b7-4eb7-95f8-d772a82d4149",
+          "code": "203000",
+          "description": "Frais de recherche et de développement",
+          "modified": "/Date(1537503535070)/"
+        },
+        {
+          "id": "3683902b-3dd6-4593-9346-b29242c65baa",
+          "code": "205000",
+          "description": "Concessions et droits similaires, brevets, licences, …",
+          "modified": "/Date(1537503535180)/"
+        },
+        {
+          "id": "223a2ad8-1702-47b8-9ae0-422eb1a44054",
+          "code": "206000",
+          "description": "Droit au bail",
+          "modified": "/Date(1537503535290)/"
+        },
+        {
+          "id": "e69160b3-ba07-4b2e-a734-dadc2726cf02",
+          "code": "207000",
+          "description": "Fonds commercial",
+          "modified": "/Date(1537503535383)/"
+        },
+        {
+          "id": "42b41b78-713a-4d90-a873-bed1316c2275",
+          "code": "208000",
+          "description": "Autres immobilisations incorporelles",
+          "modified": "/Date(1537503535507)/"
+        },
+        {
+          "id": "cbddbd5c-0068-4385-ae3e-6f96c04b06d6",
+          "code": "211000",
+          "description": "Terrains",
+          "modified": "/Date(1537503535617)/"
+        },
+        {
+          "id": "420156a6-1f25-4d73-b08e-b0e04bfe39ec",
+          "code": "211100",
+          "description": "Terrains nus",
+          "modified": "/Date(1537503535727)/"
+        },
+        {
+          "id": "87b6a494-a53d-4f69-81a1-5035a14132e3",
+          "code": "211200",
+          "description": "Terrains aménagés",
+          "modified": "/Date(1537503535820)/"
+        },
+        {
+          "id": "e6a67737-f5ff-475d-8fdc-2a4968818b70",
+          "code": "211300",
+          "description": "Sous-sols et sur-sols",
+          "modified": "/Date(1537503535900)/"
+        },
+        {
+          "id": "007b3eb6-4c04-451d-a90e-7e11aea616bf",
+          "code": "211400",
+          "description": "Terrains de gisement",
+          "modified": "/Date(1537503535993)/"
+        },
+        {
+          "id": "081fbbed-49d4-4500-937c-d1cee5a555eb",
+          "code": "211500",
+          "description": "Terrains bâtis",
+          "modified": "/Date(1537503536103)/"
+        },
+        {
+          "id": "da116c18-8b7b-4f5f-9cd3-8cb9cbbff121",
+          "code": "211600",
+          "description": "Compte d’ordre sur immobilisations",
+          "modified": "/Date(1537503536337)/"
+        },
+        {
+          "id": "46c1b436-7271-4abf-a931-7a8d90dd5ff7",
+          "code": "212000",
+          "description": "Agencements et aménagements de terrains",
+          "modified": "/Date(1537503536480)/"
+        },
+        {
+          "id": "65096fae-1d92-4394-ad66-a92cd73e4884",
+          "code": "213000",
+          "description": "Constructions",
+          "modified": "/Date(1537503536590)/"
+        },
+        {
+          "id": "8ed254a7-5f21-4abf-80f3-47a1332b8571",
+          "code": "213100",
+          "description": "Bâtiments",
+          "modified": "/Date(1537503536730)/"
+        },
+        {
+          "id": "997cba36-22f7-4ab5-af2f-f704cf604362",
+          "code": "213500",
+          "description": "Instal. générales - agencem. - aménagem. des constructions",
+          "modified": "/Date(1537503536853)/"
+        },
+        {
+          "id": "e89027a7-58ec-423b-8907-59e7f78d734f",
+          "code": "213800",
+          "description": "Ouvrages d’infrastructure",
+          "modified": "/Date(1537503536980)/"
+        },
+        {
+          "id": "910dd994-cdb0-456b-a448-62c8e1018592",
+          "code": "214000",
+          "description": "Constructions sur sol d’autrui",
+          "modified": "/Date(1537503537090)/"
+        },
+        {
+          "id": "10b3bcde-6279-4c66-9ea1-f0024528a1bc",
+          "code": "215000",
+          "description": "Installations techniques, matériel et outillage industriels",
+          "modified": "/Date(1537503537213)/"
+        },
+        {
+          "id": "3973d90d-af9f-4877-bddd-90efc3786242",
+          "code": "215100",
+          "description": "Installations complexes spécialisées",
+          "modified": "/Date(1537503537340)/"
+        },
+        {
+          "id": "7febfebe-1f1d-4e0d-8305-b3c146a09649",
+          "code": "215300",
+          "description": "Installations à caractère spécifique",
+          "modified": "/Date(1537503537463)/"
+        },
+        {
+          "id": "79e37391-2689-4563-92c0-b53b219aca87",
+          "code": "215400",
+          "description": "Matériel industriel",
+          "modified": "/Date(1537503537763)/"
+        },
+        {
+          "id": "177063e9-e27f-4cb1-bead-a0bb1158edd7",
+          "code": "215500",
+          "description": "Outillage industriel",
+          "modified": "/Date(1537503537950)/"
+        },
+        {
+          "id": "ff344e35-eab6-48a6-ae83-63aa7b843a07",
+          "code": "215700",
+          "description": "Agencem. et aménagem. du matériel et outillage industriels",
+          "modified": "/Date(1537503539247)/"
+        },
+        {
+          "id": "adfae125-7544-4e6b-b7e0-c15e08494331",
+          "code": "218000",
+          "description": "Autres immobilisations corporelles",
+          "modified": "/Date(1537503540233)/"
+        },
+        {
+          "id": "a815e50a-49f5-4b11-b1d4-42eac2e76502",
+          "code": "218100",
+          "description": "Installations générales, agencements, aménagements divers",
+          "modified": "/Date(1537503540373)/"
+        },
+        {
+          "id": "af67736c-bf09-447d-8e3e-51325bf5aa8e",
+          "code": "218200",
+          "description": "Matériel de transport",
+          "modified": "/Date(1537503540470)/"
+        },
+        {
+          "id": "2ef46a1d-a725-4af5-be3b-0d35d24d8e37",
+          "code": "218300",
+          "description": "Matériel de bureau et matériel informatique",
+          "modified": "/Date(1537503540563)/"
+        },
+        {
+          "id": "81f1a8cb-3a8f-4da8-a8c2-0e78cf32e7b9",
+          "code": "218400",
+          "description": "Mobilier",
+          "modified": "/Date(1537503540657)/"
+        },
+        {
+          "id": "96b97a71-fdad-4cf9-b135-774674da0b71",
+          "code": "218500",
+          "description": "Cheptel",
+          "modified": "/Date(1537503540767)/"
+        },
+        {
+          "id": "753a05cc-d915-47ff-ac72-2376752ddb73",
+          "code": "218600",
+          "description": "Emballages récupérables",
+          "modified": "/Date(1537503540953)/"
+        },
+        {
+          "id": "e9e90179-3da2-48f2-910c-696b0ebbedd7",
+          "code": "231000",
+          "description": "Immobilisations corporelles en cours",
+          "modified": "/Date(1537503541047)/"
+        },
+        {
+          "id": "c6b96215-c2dc-460b-9770-656fcb34a4a3",
+          "code": "232000",
+          "description": "Immobilisations incorporelles en cours",
+          "modified": "/Date(1537503541157)/"
+        },
+        {
+          "id": "b0a92c5d-7758-49de-86d8-764d42187cbc",
+          "code": "237000",
+          "description": "Avces et acptes versés sur commandes d’immo. incorporelles",
+          "modified": "/Date(1537503541297)/"
+        },
+        {
+          "id": "74504004-c724-4dae-8790-0bf5ef36ebf3",
+          "code": "238000",
+          "description": "Avces et acptes versés sur cdes d’immobilisations corp.",
+          "modified": "/Date(1537503541407)/"
+        },
+        {
+          "id": "d2b56767-53cb-4fd1-9ee1-3858f35da93e",
+          "code": "261000",
+          "description": "Titres de participation",
+          "modified": "/Date(1537503541500)/"
+        },
+        {
+          "id": "e9e62757-d8c5-4993-8912-693b0e44aab6",
+          "code": "266000",
+          "description": "Autres formes de participation",
+          "modified": "/Date(1537503541610)/"
+        },
+        {
+          "id": "da4140b8-51d3-4904-a534-e6687cbc3f70",
+          "code": "267000",
+          "description": "Créances rattachées à des participations",
+          "modified": "/Date(1537503541703)/"
+        },
+        {
+          "id": "d9d83ced-83a6-421e-b6c0-edd57f53845a",
+          "code": "268000",
+          "description": "Créances rattachées à des sociétés en participation",
+          "modified": "/Date(1537503541813)/"
+        },
+        {
+          "id": "0882dc40-2867-4128-a0c2-9a5dbfbce2dd",
+          "code": "269000",
+          "description": "Vers. restant à effectuer sur titres de partici. non libérés",
+          "modified": "/Date(1537503541907)/"
+        },
+        {
+          "id": "272e32b8-5cfa-4a30-8755-966c916b48f8",
+          "code": "271000",
+          "description": "Titres immo. autres que ceux. de l’activité de portefeuille",
+          "modified": "/Date(1537503542033)/"
+        },
+        {
+          "id": "9846b663-1707-434e-8a73-7bc37c13e752",
+          "code": "272000",
+          "description": "Titres immobilisés (droit de créance)",
+          "modified": "/Date(1537503542127)/"
+        },
+        {
+          "id": "72d532d6-dd1d-4fca-877d-c69fc2bf3852",
+          "code": "273000",
+          "description": "Titres immobilisés de l’activité de portefeuille",
+          "modified": "/Date(1537503542220)/"
+        },
+        {
+          "id": "b12dc0c5-17a4-4e86-877b-49b7718d5433",
+          "code": "274000",
+          "description": "Prêts",
+          "modified": "/Date(1537503542317)/"
+        },
+        {
+          "id": "4ddcdbce-7f49-4d57-94c4-ae8c3ebf3108",
+          "code": "275000",
+          "description": "Dépôts et cautionnements versés",
+          "modified": "/Date(1537503542427)/"
+        },
+        {
+          "id": "0be4e395-172a-4986-9816-82a0f6ddd398",
+          "code": "276000",
+          "description": "Autres créances immobilisées",
+          "modified": "/Date(1537503542567)/"
+        }
+      ]
+    },
+    "batchDelete": {
+      "GlAccount": []
+    }
+  },
+  "api": {
+    "get": {
+      "/api/v1/current/Me": {
+        "response": {
+          "d": {
+            "results": [
+              {
+                "__metadata": {
+                  "uri": "https://start.exactonline.fr/api/v1/current/Me(guid'cc20a11b-c137-48cc-8e55-09d4adbd4ac9')",
+                  "type": "Exact.Web.Api.Models.System.Me"
+                },
+                "CurrentDivision": 124132,
+                "DivisionCustomer": "83b186b4-483d-474a-bebc-85da71e6f1ed",
+                "DivisionCustomerCode": "           1265594",
+                "DivisionCustomerName": "Nango",
+                "DivisionCustomerVatNumber": null,
+                "DivisionCustomerSiretNumber": "",
+                "DossierDivision": null,
+                "AccountingDivision": 124132,
+                "IsEmployeeSelfServiceUser": false,
+                "IsMyFirmLiteUser": false,
+                "IsStarterUser": false,
+                "IsMyFirmPortalUser": false,
+                "IsClientUser": true,
+                "FullName": "Samuel Bodin",
+                "PictureUrl": "https://start.exactonline.fr//docs/images/placeholder_contact_myeol.png",
+                "ThumbnailPicture": null,
+                "ThumbnailPictureFormat": null,
+                "UserID": "cc20a11b-c137-48cc-8e55-09d4adbd4ac9",
+                "UserName": "samuel@nango.dev",
+                "LanguageCode": "en-GB",
+                "Legislation": "128",
+                "Email": "samuel@nango.dev",
+                "Title": "Mr.",
+                "Initials": null,
+                "FirstName": "Samuel",
+                "MiddleName": null,
+                "LastName": "Bodin",
+                "Gender": "O",
+                "Nationality": null,
+                "Language": "EN",
+                "Phone": "0606060606",
+                "PhoneExtension": null,
+                "Mobile": null,
+                "ServerTime": "2026-06-25T16:58:27",
+                "ServerUtcOffset": 7200,
+                "EmployeeID": "00000000-0000-0000-0000-000000000000",
+                "CustomerCode": "           1265594",
+                "PackageCode": "EOLAPPCENTER",
+                "IsOEIMigrationMandatory": true
+              }
+            ]
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 25 Jun 2026 14:58:27 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "1397",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4984",
+          "x-ratelimit-reset": "1782399546",
+          "etag": "W/\"575-lOaX8AeNT/Bn/SlG1sCP7L0yfa4\""
+        },
+        "hash": "3b1fbfe94d69bc315fcd1e7b93bc400e3eea536c",
+        "request": {}
+      },
+      "/api/v1/124132/financial/GLAccounts": [
+        {
+          "response": {
+            "d": {
+              "results": [
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'4f3cb13e-8984-4cc5-b69a-5271a9bdd7c9')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "4f3cb13e-8984-4cc5-b69a-5271a9bdd7c9",
+                  "Code": "101000",
+                  "Description": "Capital",
+                  "Modified": "/Date(1537503528653)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'884288af-c920-4c82-912f-2fa334aeafda')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "884288af-c920-4c82-912f-2fa334aeafda",
+                  "Code": "102000",
+                  "Description": "Fonds fiduciaires",
+                  "Modified": "/Date(1537503529030)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'de0e5011-4214-4728-82f8-098a8043b773')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "de0e5011-4214-4728-82f8-098a8043b773",
+                  "Code": "104000",
+                  "Description": "Primes liées au capital social",
+                  "Modified": "/Date(1537503529140)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'bedc90ba-aadd-43d5-9187-8eff8017f889')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "bedc90ba-aadd-43d5-9187-8eff8017f889",
+                  "Code": "105000",
+                  "Description": "Écart de réévaluation",
+                  "Modified": "/Date(1537503529297)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'57db04c9-d047-40b4-8ece-b7204fddb7f9')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "57db04c9-d047-40b4-8ece-b7204fddb7f9",
+                  "Code": "106000",
+                  "Description": "Réserves",
+                  "Modified": "/Date(1537503529450)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'3f33c238-fd7a-4f6b-8b9a-ef3013a6bb7d')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "3f33c238-fd7a-4f6b-8b9a-ef3013a6bb7d",
+                  "Code": "106100",
+                  "Description": "Réserve légale",
+                  "Modified": "/Date(1537503529577)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'c9693e7a-dd1f-4995-ba4e-c0c7629f04ba')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "c9693e7a-dd1f-4995-ba4e-c0c7629f04ba",
+                  "Code": "106200",
+                  "Description": "Réserves indisponibles",
+                  "Modified": "/Date(1537503529670)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'75f92040-fe76-4a02-99bc-20f8aad00625')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "75f92040-fe76-4a02-99bc-20f8aad00625",
+                  "Code": "106300",
+                  "Description": "Réserves statutaires ou contractuelles",
+                  "Modified": "/Date(1537503529797)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'55d4de1e-2ee9-46e1-b050-0a2ff23d3e71')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "55d4de1e-2ee9-46e1-b050-0a2ff23d3e71",
+                  "Code": "106400",
+                  "Description": "Réserves réglementées",
+                  "Modified": "/Date(1537503529920)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'8c691c91-5e23-44b1-b441-5d5cbe085ac9')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "8c691c91-5e23-44b1-b441-5d5cbe085ac9",
+                  "Code": "106800",
+                  "Description": "Autres réserves",
+                  "Modified": "/Date(1537503530030)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'207b129e-8a28-4759-ad50-1b95eb90ea68')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "207b129e-8a28-4759-ad50-1b95eb90ea68",
+                  "Code": "107000",
+                  "Description": "Écart d’équivalence",
+                  "Modified": "/Date(1537503530123)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'55fbeb35-2c17-4ad4-9115-d78b6d7ec80a')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "55fbeb35-2c17-4ad4-9115-d78b6d7ec80a",
+                  "Code": "108000",
+                  "Description": "Compte de l’exploitant",
+                  "Modified": "/Date(1537503530233)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'd587aad1-45da-4b5f-82da-8f4195dfe783')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "d587aad1-45da-4b5f-82da-8f4195dfe783",
+                  "Code": "109000",
+                  "Description": "Actionnaires - Capital souscrit - non appelé",
+                  "Modified": "/Date(1537503530343)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'8669bc6c-d739-4b1f-b59d-a4b2a8c927b2')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "8669bc6c-d739-4b1f-b59d-a4b2a8c927b2",
+                  "Code": "110000",
+                  "Description": "Report à nouveau (solde créditeur)",
+                  "Modified": "/Date(1537503530470)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'4d0ed8a5-5b2d-4410-9255-c1fb62347f05')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "4d0ed8a5-5b2d-4410-9255-c1fb62347f05",
+                  "Code": "119000",
+                  "Description": "Report à nouveau (solde débiteur)",
+                  "Modified": "/Date(1537503530733)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'd5bfa836-8d79-401c-a261-d90baf6e2794')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "d5bfa836-8d79-401c-a261-d90baf6e2794",
+                  "Code": "120000",
+                  "Description": "Résultat de l’exercice (bénéfice)",
+                  "Modified": "/Date(1537503530830)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'3101428d-f5bc-4b01-bd54-cdd84540b953')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "3101428d-f5bc-4b01-bd54-cdd84540b953",
+                  "Code": "129000",
+                  "Description": "Résultat de l’exercice (perte)",
+                  "Modified": "/Date(1537503530953)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'2e5e6669-5e97-4fa9-85a2-5857aee3f30a')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "2e5e6669-5e97-4fa9-85a2-5857aee3f30a",
+                  "Code": "131000",
+                  "Description": "Subventions d’équipement",
+                  "Modified": "/Date(1537503531050)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'a16064f9-aa8d-44d2-b29a-e7e9d4f96efb')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "a16064f9-aa8d-44d2-b29a-e7e9d4f96efb",
+                  "Code": "138000",
+                  "Description": "Autres subventions d’investissement",
+                  "Modified": "/Date(1537503531160)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'a257de6e-28a3-4210-96aa-4ad415e43ba8')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "a257de6e-28a3-4210-96aa-4ad415e43ba8",
+                  "Code": "139000",
+                  "Description": "Subv. d’investissement inscrites au compte de résultat",
+                  "Modified": "/Date(1537503531267)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'e6c3b7d9-7081-4aa3-bb80-30854058bbd7')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "e6c3b7d9-7081-4aa3-bb80-30854058bbd7",
+                  "Code": "139100",
+                  "Description": "Subventions d’équipement",
+                  "Modified": "/Date(1537503531377)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'e7952937-cef4-4b6a-bb46-3f9395ddaf8a')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "e7952937-cef4-4b6a-bb46-3f9395ddaf8a",
+                  "Code": "139800",
+                  "Description": "Autres subventions d’investissement",
+                  "Modified": "/Date(1537503531470)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'b527312f-2935-401a-b39d-1a2cfacd60ca')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "b527312f-2935-401a-b39d-1a2cfacd60ca",
+                  "Code": "142000",
+                  "Description": "Provisions réglementées relatives aux immobilisations",
+                  "Modified": "/Date(1537503531580)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'4fb177dd-4281-455d-8888-0e0dd29c6c96')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "4fb177dd-4281-455d-8888-0e0dd29c6c96",
+                  "Code": "143000",
+                  "Description": "Provisions réglementées relatives aux stocks",
+                  "Modified": "/Date(1537503531690)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'06b7745f-8c54-472a-9767-7e1c578d4a8c')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "06b7745f-8c54-472a-9767-7e1c578d4a8c",
+                  "Code": "144000",
+                  "Description": "Provisions réglementées relatives aux autres éléments actif",
+                  "Modified": "/Date(1537503531833)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'e5b428db-9ae0-4f1c-8807-3eef3bfe1179')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "e5b428db-9ae0-4f1c-8807-3eef3bfe1179",
+                  "Code": "145000",
+                  "Description": "Amortissements dérogatoires",
+                  "Modified": "/Date(1537503531957)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'bed4c117-89a8-49b2-8cee-08fddc8beeea')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "bed4c117-89a8-49b2-8cee-08fddc8beeea",
+                  "Code": "146000",
+                  "Description": "Provision spéciale de réévaluation",
+                  "Modified": "/Date(1537503532067)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'be362541-a04c-4420-a806-92a3feb2b141')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "be362541-a04c-4420-a806-92a3feb2b141",
+                  "Code": "147000",
+                  "Description": "Plus-values réinvesties",
+                  "Modified": "/Date(1537503532177)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'27ded61a-03e3-46de-94a2-fe4ca1a57d0b')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "27ded61a-03e3-46de-94a2-fe4ca1a57d0b",
+                  "Code": "148000",
+                  "Description": "Autres provisions réglementées",
+                  "Modified": "/Date(1537503532287)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'74de7a6c-4e43-4e12-986b-dd534a7589b8')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "74de7a6c-4e43-4e12-986b-dd534a7589b8",
+                  "Code": "151000",
+                  "Description": "Provisions pour litiges",
+                  "Modified": "/Date(1537503532380)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'78feb2b0-7b89-4f0c-a46f-17c1493fdc14')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "78feb2b0-7b89-4f0c-a46f-17c1493fdc14",
+                  "Code": "153000",
+                  "Description": "Provisions pour pensions et obligations similaires",
+                  "Modified": "/Date(1537503532503)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'5527e406-bb2c-4d40-9855-c2fab01b06e6')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "5527e406-bb2c-4d40-9855-c2fab01b06e6",
+                  "Code": "154000",
+                  "Description": "Provisions pour restructurations",
+                  "Modified": "/Date(1537503532600)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'092a4879-309d-4911-96f9-27c467826820')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "092a4879-309d-4911-96f9-27c467826820",
+                  "Code": "155000",
+                  "Description": "Provisions pour impôts",
+                  "Modified": "/Date(1537503532707)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'0ac3ed09-5e13-429f-b469-f112bab5e1ee')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "0ac3ed09-5e13-429f-b469-f112bab5e1ee",
+                  "Code": "156000",
+                  "Description": "Provisions pour renouvellement des immobilisations",
+                  "Modified": "/Date(1537503532800)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'a2cb878e-01a0-42c2-bb39-fb96ff9616a7')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "a2cb878e-01a0-42c2-bb39-fb96ff9616a7",
+                  "Code": "157000",
+                  "Description": "Provisions pour charges à répartir sur plusieurs exercices",
+                  "Modified": "/Date(1537503532910)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'b5ee32a1-029a-4375-a153-c4f187b22489')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "b5ee32a1-029a-4375-a153-c4f187b22489",
+                  "Code": "161000",
+                  "Description": "Emprunts obligataires convertibles",
+                  "Modified": "/Date(1537503533003)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'e9aec270-ce8c-4c7e-bf57-16a3db1dbf0d')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "e9aec270-ce8c-4c7e-bf57-16a3db1dbf0d",
+                  "Code": "163000",
+                  "Description": "Autres emprunts obligataires",
+                  "Modified": "/Date(1537503533113)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'b5800be2-7cba-411b-a9ae-24378aa1483f')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "b5800be2-7cba-411b-a9ae-24378aa1483f",
+                  "Code": "164000",
+                  "Description": "Emprunts auprès des établissements de crédit",
+                  "Modified": "/Date(1537503533210)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'f068e60b-9e4e-408a-b417-88c901da6fd1')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "f068e60b-9e4e-408a-b417-88c901da6fd1",
+                  "Code": "165000",
+                  "Description": "Dépôts et cautionnements reçus",
+                  "Modified": "/Date(1537503533350)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'd98ccfeb-58dc-43e7-bcc2-21ef932a1c18')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "d98ccfeb-58dc-43e7-bcc2-21ef932a1c18",
+                  "Code": "166000",
+                  "Description": "Participation des salariés aux résultats",
+                  "Modified": "/Date(1537503533477)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'094f00f7-45ea-4710-a2ad-2d83c5017d2e')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "094f00f7-45ea-4710-a2ad-2d83c5017d2e",
+                  "Code": "167000",
+                  "Description": "Emprunts et dettes assortis de conditions particulières",
+                  "Modified": "/Date(1537503533570)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'54483bca-56b7-4510-b76d-e6c6a004be35')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "54483bca-56b7-4510-b76d-e6c6a004be35",
+                  "Code": "167100",
+                  "Description": "Émissions de titres participatifs",
+                  "Modified": "/Date(1537503533693)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'24a37005-41ae-4a60-85c5-02e4dce06637')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "24a37005-41ae-4a60-85c5-02e4dce06637",
+                  "Code": "167400",
+                  "Description": "Avances conditionnées de l’État",
+                  "Modified": "/Date(1537503533803)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'e75f690f-9f7a-405e-b225-03034de8c81c')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "e75f690f-9f7a-405e-b225-03034de8c81c",
+                  "Code": "167500",
+                  "Description": "Emprunts participatifs",
+                  "Modified": "/Date(1537503533880)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'5da32c8e-a71e-4012-8c3f-bb23bfe2ade4')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "5da32c8e-a71e-4012-8c3f-bb23bfe2ade4",
+                  "Code": "168000",
+                  "Description": "Autres emprunts et dettes assimilées",
+                  "Modified": "/Date(1537503533990)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'd9913a2e-4df5-4d51-b372-97ad7c0f7a3a')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "d9913a2e-4df5-4d51-b372-97ad7c0f7a3a",
+                  "Code": "169000",
+                  "Description": "Primes de remboursement des obligations",
+                  "Modified": "/Date(1537503534117)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'ed19a4f5-8f9f-42ef-9571-fb3195f7ecab')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "ed19a4f5-8f9f-42ef-9571-fb3195f7ecab",
+                  "Code": "171000",
+                  "Description": "Dettes rattachées à des participations (groupe)",
+                  "Modified": "/Date(1537503534210)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'83d3d8b1-dfe9-43aa-88de-ce7d2d609cf2')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "83d3d8b1-dfe9-43aa-88de-ce7d2d609cf2",
+                  "Code": "174000",
+                  "Description": "Dettes rattachées à des participations (hors groupe)",
+                  "Modified": "/Date(1537503534320)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'80e05f76-91de-4d37-bd42-de92b2164646')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "80e05f76-91de-4d37-bd42-de92b2164646",
+                  "Code": "178000",
+                  "Description": "Dettes rattachées sociétés en participation",
+                  "Modified": "/Date(1537503534430)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'a340436b-09fe-43a5-9149-c46300678d2d')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "a340436b-09fe-43a5-9149-c46300678d2d",
+                  "Code": "181000",
+                  "Description": "Comptes de liaison des établissements",
+                  "Modified": "/Date(1537503534523)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'dd63e2f0-6a61-4e5c-893d-6a83a89b625a')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "dd63e2f0-6a61-4e5c-893d-6a83a89b625a",
+                  "Code": "186000",
+                  "Description": "Biens, services échangés entre établissements (Charges)",
+                  "Modified": "/Date(1537503534630)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'2a27f0e1-ded4-42a3-8262-6af45067381c')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "2a27f0e1-ded4-42a3-8262-6af45067381c",
+                  "Code": "187000",
+                  "Description": "Biens, services échangés entre établissements (Produits)",
+                  "Modified": "/Date(1537503534727)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'5a7e2add-e9d6-4636-9500-86b351b43290')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "5a7e2add-e9d6-4636-9500-86b351b43290",
+                  "Code": "188000",
+                  "Description": "Comptes de liaison des sociétés en participation",
+                  "Modified": "/Date(1537503534833)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'7b47dcdf-b463-48ba-9ead-2e7357b4a43c')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "7b47dcdf-b463-48ba-9ead-2e7357b4a43c",
+                  "Code": "201000",
+                  "Description": "Frais d’établissement",
+                  "Modified": "/Date(1537503534943)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'56857931-d4b7-4eb7-95f8-d772a82d4149')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "56857931-d4b7-4eb7-95f8-d772a82d4149",
+                  "Code": "203000",
+                  "Description": "Frais de recherche et de développement",
+                  "Modified": "/Date(1537503535070)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'3683902b-3dd6-4593-9346-b29242c65baa')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "3683902b-3dd6-4593-9346-b29242c65baa",
+                  "Code": "205000",
+                  "Description": "Concessions et droits similaires, brevets, licences, …",
+                  "Modified": "/Date(1537503535180)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'223a2ad8-1702-47b8-9ae0-422eb1a44054')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "223a2ad8-1702-47b8-9ae0-422eb1a44054",
+                  "Code": "206000",
+                  "Description": "Droit au bail",
+                  "Modified": "/Date(1537503535290)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'e69160b3-ba07-4b2e-a734-dadc2726cf02')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "e69160b3-ba07-4b2e-a734-dadc2726cf02",
+                  "Code": "207000",
+                  "Description": "Fonds commercial",
+                  "Modified": "/Date(1537503535383)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'42b41b78-713a-4d90-a873-bed1316c2275')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "42b41b78-713a-4d90-a873-bed1316c2275",
+                  "Code": "208000",
+                  "Description": "Autres immobilisations incorporelles",
+                  "Modified": "/Date(1537503535507)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'cbddbd5c-0068-4385-ae3e-6f96c04b06d6')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "cbddbd5c-0068-4385-ae3e-6f96c04b06d6",
+                  "Code": "211000",
+                  "Description": "Terrains",
+                  "Modified": "/Date(1537503535617)/"
+                }
+              ],
+              "__next": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts?$orderby=Modified%20asc&$select=ID,Code,Description,Modified&$top=40&$skiptoken=datetime'2018-09-21T04%3A18%3A55.617',guid'cbddbd5c-0068-4385-ae3e-6f96c04b06d6'"
+            }
+          },
+          "status": 200,
+          "headers": {
+            "date": "Thu, 25 Jun 2026 14:58:27 GMT",
+            "content-type": "application/json;charset=utf-8",
+            "content-length": "21192",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=5184000; includeSubDomains",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4983",
+            "x-ratelimit-reset": "1782399546",
+            "etag": "W/\"52c8-CUha9Vaj6pV5fcN1hI3lbzonG94\""
+          },
+          "hash": "53dcebbc66b252f43d931a45266ba2c043b1138c",
+          "request": {
+            "params": {
+              "$orderby": "Modified asc",
+              "$select": "ID,Code,Description,Modified",
+              "$top": "100"
+            }
+          }
+        },
+        {
+          "response": {
+            "d": {
+              "results": [
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'420156a6-1f25-4d73-b08e-b0e04bfe39ec')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "420156a6-1f25-4d73-b08e-b0e04bfe39ec",
+                  "Code": "211100",
+                  "Description": "Terrains nus",
+                  "Modified": "/Date(1537503535727)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'87b6a494-a53d-4f69-81a1-5035a14132e3')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "87b6a494-a53d-4f69-81a1-5035a14132e3",
+                  "Code": "211200",
+                  "Description": "Terrains aménagés",
+                  "Modified": "/Date(1537503535820)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'e6a67737-f5ff-475d-8fdc-2a4968818b70')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "e6a67737-f5ff-475d-8fdc-2a4968818b70",
+                  "Code": "211300",
+                  "Description": "Sous-sols et sur-sols",
+                  "Modified": "/Date(1537503535900)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'007b3eb6-4c04-451d-a90e-7e11aea616bf')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "007b3eb6-4c04-451d-a90e-7e11aea616bf",
+                  "Code": "211400",
+                  "Description": "Terrains de gisement",
+                  "Modified": "/Date(1537503535993)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'081fbbed-49d4-4500-937c-d1cee5a555eb')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "081fbbed-49d4-4500-937c-d1cee5a555eb",
+                  "Code": "211500",
+                  "Description": "Terrains bâtis",
+                  "Modified": "/Date(1537503536103)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'da116c18-8b7b-4f5f-9cd3-8cb9cbbff121')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "da116c18-8b7b-4f5f-9cd3-8cb9cbbff121",
+                  "Code": "211600",
+                  "Description": "Compte d’ordre sur immobilisations",
+                  "Modified": "/Date(1537503536337)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'46c1b436-7271-4abf-a931-7a8d90dd5ff7')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "46c1b436-7271-4abf-a931-7a8d90dd5ff7",
+                  "Code": "212000",
+                  "Description": "Agencements et aménagements de terrains",
+                  "Modified": "/Date(1537503536480)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'65096fae-1d92-4394-ad66-a92cd73e4884')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "65096fae-1d92-4394-ad66-a92cd73e4884",
+                  "Code": "213000",
+                  "Description": "Constructions",
+                  "Modified": "/Date(1537503536590)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'8ed254a7-5f21-4abf-80f3-47a1332b8571')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "8ed254a7-5f21-4abf-80f3-47a1332b8571",
+                  "Code": "213100",
+                  "Description": "Bâtiments",
+                  "Modified": "/Date(1537503536730)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'997cba36-22f7-4ab5-af2f-f704cf604362')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "997cba36-22f7-4ab5-af2f-f704cf604362",
+                  "Code": "213500",
+                  "Description": "Instal. générales - agencem. - aménagem. des constructions",
+                  "Modified": "/Date(1537503536853)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'e89027a7-58ec-423b-8907-59e7f78d734f')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "e89027a7-58ec-423b-8907-59e7f78d734f",
+                  "Code": "213800",
+                  "Description": "Ouvrages d’infrastructure",
+                  "Modified": "/Date(1537503536980)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'910dd994-cdb0-456b-a448-62c8e1018592')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "910dd994-cdb0-456b-a448-62c8e1018592",
+                  "Code": "214000",
+                  "Description": "Constructions sur sol d’autrui",
+                  "Modified": "/Date(1537503537090)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'10b3bcde-6279-4c66-9ea1-f0024528a1bc')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "10b3bcde-6279-4c66-9ea1-f0024528a1bc",
+                  "Code": "215000",
+                  "Description": "Installations techniques, matériel et outillage industriels",
+                  "Modified": "/Date(1537503537213)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'3973d90d-af9f-4877-bddd-90efc3786242')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "3973d90d-af9f-4877-bddd-90efc3786242",
+                  "Code": "215100",
+                  "Description": "Installations complexes spécialisées",
+                  "Modified": "/Date(1537503537340)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'7febfebe-1f1d-4e0d-8305-b3c146a09649')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "7febfebe-1f1d-4e0d-8305-b3c146a09649",
+                  "Code": "215300",
+                  "Description": "Installations à caractère spécifique",
+                  "Modified": "/Date(1537503537463)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'79e37391-2689-4563-92c0-b53b219aca87')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "79e37391-2689-4563-92c0-b53b219aca87",
+                  "Code": "215400",
+                  "Description": "Matériel industriel",
+                  "Modified": "/Date(1537503537763)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'177063e9-e27f-4cb1-bead-a0bb1158edd7')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "177063e9-e27f-4cb1-bead-a0bb1158edd7",
+                  "Code": "215500",
+                  "Description": "Outillage industriel",
+                  "Modified": "/Date(1537503537950)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'ff344e35-eab6-48a6-ae83-63aa7b843a07')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "ff344e35-eab6-48a6-ae83-63aa7b843a07",
+                  "Code": "215700",
+                  "Description": "Agencem. et aménagem. du matériel et outillage industriels",
+                  "Modified": "/Date(1537503539247)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'adfae125-7544-4e6b-b7e0-c15e08494331')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "adfae125-7544-4e6b-b7e0-c15e08494331",
+                  "Code": "218000",
+                  "Description": "Autres immobilisations corporelles",
+                  "Modified": "/Date(1537503540233)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'a815e50a-49f5-4b11-b1d4-42eac2e76502')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "a815e50a-49f5-4b11-b1d4-42eac2e76502",
+                  "Code": "218100",
+                  "Description": "Installations générales, agencements, aménagements divers",
+                  "Modified": "/Date(1537503540373)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'af67736c-bf09-447d-8e3e-51325bf5aa8e')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "af67736c-bf09-447d-8e3e-51325bf5aa8e",
+                  "Code": "218200",
+                  "Description": "Matériel de transport",
+                  "Modified": "/Date(1537503540470)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'2ef46a1d-a725-4af5-be3b-0d35d24d8e37')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "2ef46a1d-a725-4af5-be3b-0d35d24d8e37",
+                  "Code": "218300",
+                  "Description": "Matériel de bureau et matériel informatique",
+                  "Modified": "/Date(1537503540563)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'81f1a8cb-3a8f-4da8-a8c2-0e78cf32e7b9')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "81f1a8cb-3a8f-4da8-a8c2-0e78cf32e7b9",
+                  "Code": "218400",
+                  "Description": "Mobilier",
+                  "Modified": "/Date(1537503540657)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'96b97a71-fdad-4cf9-b135-774674da0b71')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "96b97a71-fdad-4cf9-b135-774674da0b71",
+                  "Code": "218500",
+                  "Description": "Cheptel",
+                  "Modified": "/Date(1537503540767)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'753a05cc-d915-47ff-ac72-2376752ddb73')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "753a05cc-d915-47ff-ac72-2376752ddb73",
+                  "Code": "218600",
+                  "Description": "Emballages récupérables",
+                  "Modified": "/Date(1537503540953)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'e9e90179-3da2-48f2-910c-696b0ebbedd7')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "e9e90179-3da2-48f2-910c-696b0ebbedd7",
+                  "Code": "231000",
+                  "Description": "Immobilisations corporelles en cours",
+                  "Modified": "/Date(1537503541047)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'c6b96215-c2dc-460b-9770-656fcb34a4a3')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "c6b96215-c2dc-460b-9770-656fcb34a4a3",
+                  "Code": "232000",
+                  "Description": "Immobilisations incorporelles en cours",
+                  "Modified": "/Date(1537503541157)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'b0a92c5d-7758-49de-86d8-764d42187cbc')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "b0a92c5d-7758-49de-86d8-764d42187cbc",
+                  "Code": "237000",
+                  "Description": "Avces et acptes versés sur commandes d’immo. incorporelles",
+                  "Modified": "/Date(1537503541297)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'74504004-c724-4dae-8790-0bf5ef36ebf3')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "74504004-c724-4dae-8790-0bf5ef36ebf3",
+                  "Code": "238000",
+                  "Description": "Avces et acptes versés sur cdes d’immobilisations corp.",
+                  "Modified": "/Date(1537503541407)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'd2b56767-53cb-4fd1-9ee1-3858f35da93e')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "d2b56767-53cb-4fd1-9ee1-3858f35da93e",
+                  "Code": "261000",
+                  "Description": "Titres de participation",
+                  "Modified": "/Date(1537503541500)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'e9e62757-d8c5-4993-8912-693b0e44aab6')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "e9e62757-d8c5-4993-8912-693b0e44aab6",
+                  "Code": "266000",
+                  "Description": "Autres formes de participation",
+                  "Modified": "/Date(1537503541610)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'da4140b8-51d3-4904-a534-e6687cbc3f70')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "da4140b8-51d3-4904-a534-e6687cbc3f70",
+                  "Code": "267000",
+                  "Description": "Créances rattachées à des participations",
+                  "Modified": "/Date(1537503541703)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'd9d83ced-83a6-421e-b6c0-edd57f53845a')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "d9d83ced-83a6-421e-b6c0-edd57f53845a",
+                  "Code": "268000",
+                  "Description": "Créances rattachées à des sociétés en participation",
+                  "Modified": "/Date(1537503541813)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'0882dc40-2867-4128-a0c2-9a5dbfbce2dd')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "0882dc40-2867-4128-a0c2-9a5dbfbce2dd",
+                  "Code": "269000",
+                  "Description": "Vers. restant à effectuer sur titres de partici. non libérés",
+                  "Modified": "/Date(1537503541907)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'272e32b8-5cfa-4a30-8755-966c916b48f8')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "272e32b8-5cfa-4a30-8755-966c916b48f8",
+                  "Code": "271000",
+                  "Description": "Titres immo. autres que ceux. de l’activité de portefeuille",
+                  "Modified": "/Date(1537503542033)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'9846b663-1707-434e-8a73-7bc37c13e752')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "9846b663-1707-434e-8a73-7bc37c13e752",
+                  "Code": "272000",
+                  "Description": "Titres immobilisés (droit de créance)",
+                  "Modified": "/Date(1537503542127)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'72d532d6-dd1d-4fca-877d-c69fc2bf3852')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "72d532d6-dd1d-4fca-877d-c69fc2bf3852",
+                  "Code": "273000",
+                  "Description": "Titres immobilisés de l’activité de portefeuille",
+                  "Modified": "/Date(1537503542220)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'b12dc0c5-17a4-4e86-877b-49b7718d5433')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "b12dc0c5-17a4-4e86-877b-49b7718d5433",
+                  "Code": "274000",
+                  "Description": "Prêts",
+                  "Modified": "/Date(1537503542317)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'4ddcdbce-7f49-4d57-94c4-ae8c3ebf3108')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "4ddcdbce-7f49-4d57-94c4-ae8c3ebf3108",
+                  "Code": "275000",
+                  "Description": "Dépôts et cautionnements versés",
+                  "Modified": "/Date(1537503542427)/"
+                },
+                {
+                  "__metadata": {
+                    "uri": "https://start.exactonline.fr/api/v1/124132/financial/GLAccounts(guid'0be4e395-172a-4986-9816-82a0f6ddd398')",
+                    "type": "Exact.Web.Api.Models.GLAccount"
+                  },
+                  "ID": "0be4e395-172a-4986-9816-82a0f6ddd398",
+                  "Code": "276000",
+                  "Description": "Autres créances immobilisées",
+                  "Modified": "/Date(1537503542567)/"
+                }
+              ]
+            }
+          },
+          "status": 200,
+          "headers": {
+            "date": "Thu, 25 Jun 2026 14:58:28 GMT",
+            "content-type": "application/json;charset=utf-8",
+            "content-length": "13945",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=5184000; includeSubDomains",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4982",
+            "x-ratelimit-reset": "1782399546",
+            "etag": "W/\"3679-BqBrkX12mV9mrA9r4ByIvYb/T7A\""
+          },
+          "hash": "a46ebe864e564db7dbe6dd4520390d1e533f9348",
+          "request": {
+            "params": {
+              "$orderby": "Modified asc",
+              "$select": "ID,Code,Description,Modified",
+              "$skiptoken": "datetime'2018-09-21T04:18:55.617',guid'cbddbd5c-0068-4385-ae3e-6f96c04b06d6'",
+              "$top": "40"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

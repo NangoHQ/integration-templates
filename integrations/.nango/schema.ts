@@ -17472,52 +17472,16 @@ export interface ActionOutput_auth0_cc_updateuser {
 };
 
 export interface Transaction {
+  /**
+   * EntryID
+   */
   id: string;
-  customer_id?: string | undefined;
-  subscription_id?: string | undefined;
-  gateway_account_id?: string | undefined;
-  payment_source_id?: string | undefined;
-  payment_method?: string | undefined;
-  reference_number?: string | undefined;
-  gateway?: string | undefined;
-  type: string;
-  date?: number | undefined;
-  settled_at?: number | undefined;
-  exchange_rate?: number | undefined;
-  currency_code: string;
-  amount?: number | undefined;
-  id_at_gateway?: string | undefined;
-  status?: string | undefined;
-  fraud_flag?: string | undefined;
-  initiator_type?: string | undefined;
-  three_d_secure?: boolean | undefined;
-  authorization_reason?: string | undefined;
-  error_code?: string | undefined;
-  error_text?: string | undefined;
-  voided_at?: number | undefined;
-  resource_version?: number | undefined;
-  updated_at?: number | undefined;
-  fraud_reason?: string | undefined;
-  custom_payment_method_id?: string | undefined;
-  amount_unused?: number | undefined;
-  masked_card_number?: string | undefined;
-  reference_transaction_id?: string | undefined;
-  refunded_txn_id?: string | undefined;
-  reference_authorization_id?: string | undefined;
-  amount_capturable?: number | undefined;
-  reversal_transaction_id?: string | undefined;
-  deleted: boolean;
-  iin?: string | undefined;
-  last4?: string | undefined;
-  merchant_reference_id?: string | undefined;
-  business_entity_id?: string | undefined;
-  payment_method_details?: string | undefined;
-  custom_payment_method_name?: string | undefined;
-  linked_invoices?: unknown | undefined;
-  linked_credit_notes?: unknown | undefined;
-  linked_refunds?: unknown | undefined;
-  linked_payments?: unknown | undefined;
-  error_detail?: unknown | undefined;
+  entryNumber?: number | undefined;
+  date?: string | undefined;
+  modified?: string | undefined;
+  journalCode?: string | undefined;
+  status?: number | undefined;
+  type?: number | undefined;
 };
 
 export interface SyncMetadata_avalara_transactions {
@@ -38962,116 +38926,1227 @@ export interface EvaluAgentUser {
 export interface SyncMetadata_evaluagent_users {
 };
 
-export interface ExactCustomer {
+export interface Division {
   id: string;
-  division: number | null;
-  name: string;
-  email: string | null;
-  taxNumber: string | null;
-  addressLine1: string | null;
-  addressLine2: string | null;
-  city: string | null;
-  zip: string | null;
-  country: string | null;
-  state: string | null;
-  phone: string | null;
+  Code: number;
+  Description?: string | undefined;
+  Currency?: string | undefined;
+  Country?: string | undefined;
+  Status?: number | undefined;
+  Email?: string | undefined;
 };
 
-export interface SyncMetadata_exact_online_customers {
-};
-
-export interface ExactPayment {
+export interface DocumentAttachment {
   id: string;
-  description: string | null;
-  division: number | null;
-  customerId: string | null;
-  amount: number | null;
-  createdAt: string | null;
-  currency: string | null;
-  journal: string | null;
-  paymentMethod: string | null;
-  paymentReference: string | null;
-  status: number | null;
-  transactionID: string | null;
+  document?: string | undefined;
+  fileName?: string | undefined;
+  fileSize?: number | undefined;
+  url?: string | undefined;
 };
 
-export interface SyncMetadata_exact_online_payments {
+export interface Document {
+  id: string;
+  Subject?: string | undefined;
+  DocumentDate?: string | undefined;
+  Modified: string;
+};
+
+export interface GlAccount {
+  id: string;
+  code?: string | undefined;
+  description?: string | undefined;
+  modified: string;
+};
+
+export interface ItemGroup {
+  id: string;
+  code?: string | undefined;
+  description?: string | undefined;
+  modified?: string | undefined;
+};
+
+export interface Journal {
+  id: string;
+  entry_number?: string | undefined;
+  reference_number?: string | undefined;
+  notes?: string | undefined;
+  currency_id?: string | undefined;
+  currency_code?: string | undefined;
+  currency_symbol?: string | undefined;
+  exchange_rate?: number | undefined;
+  journal_date?: string | undefined;
+  journal_type?: string | undefined;
+  vat_treatment?: string | undefined;
+  product_type?: string | undefined;
+  include_in_vat_return?: boolean | undefined;
+  is_bas_adjustment?: boolean | undefined;
+  line_items?: ({  line_id?: string | undefined;
+  account_id?: string | undefined;
+  customer_id?: string | undefined;
+  customer_name?: string | undefined;
+  account_name?: string | undefined;
+  description?: string | undefined;
+  debit_or_credit?: string | undefined;
+  tax_exemption_id?: string | undefined;
+  tax_exemption_type?: string | undefined;
+  tax_exemption_code?: string | undefined;
+  tax_authority_id?: string | undefined;
+  tax_authority_name?: string | undefined;
+  tax_id?: string | undefined;
+  tax_name?: string | undefined;
+  tax_type?: string | undefined;
+  tax_percentage?: string | undefined;
+  amount?: number | undefined;
+  bcy_amount?: number | undefined;
+  acquisition_vat_id?: string | undefined;
+  acquisition_vat_name?: string | undefined;
+  acquisition_vat_percentage?: string | undefined;
+  acquisition_vat_amount?: string | undefined;
+  reverse_charge_vat_id?: string | undefined;
+  reverse_charge_vat_name?: string | undefined;
+  reverse_charge_vat_percentage?: string | undefined;
+  reverse_charge_vat_amount?: string | undefined;
+  tags?: ({  tag_id?: string | undefined;
+  tag_name?: string | undefined;
+  tag_option_id?: string | undefined;
+  tag_option_name?: string | undefined;
+  is_tag_mandatory?: boolean | undefined;})[];
+  location_id?: string | undefined;
+  location_name?: string | undefined;
+  project_id?: string | undefined;
+  project_name?: string | undefined;})[];
+  location_id?: string | undefined;
+  location_name?: string | undefined;
+  line_item_total?: number | undefined;
+  total?: number | undefined;
+  bcy_total?: number | undefined;
+  price_precision?: number | undefined;
+  taxes?: ({  tax_name?: string | undefined;
+  tax_amount?: number | undefined;
+  debit_or_credit?: string | undefined;
+  tax_account?: boolean | undefined;})[];
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;
+  status?: string | undefined;
+  custom_fields?: ({  customfield_id?: string | undefined;
+  value?: string | undefined;})[];
+  tags?: ({  tag_id?: string | undefined;
+  tag_name?: string | undefined;
+  tag_option_id?: string | undefined;
+  tag_option_name?: string | undefined;
+  is_tag_mandatory?: boolean | undefined;})[];
+};
+
+export interface Payment {
+  id: string;
+  payment_id?: string | undefined;
+  payment_number?: string | undefined;
+  invoice_numbers?: string | undefined;
+  date?: string | undefined;
+  payment_mode?: string | undefined;
+  amount?: number | undefined;
+  bcy_amount?: number | undefined;
+  unused_amount?: number | undefined;
+  bcy_unused_amount?: number | undefined;
+  account_id?: string | undefined;
+  account_name?: string | undefined;
+  description?: string | undefined;
+  reference_number?: string | undefined;
+  customer_id?: string | undefined;
+  customer_name?: string | undefined;
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;
+  bcy_refunded_amount?: number | undefined;
+  payment_type?: string | undefined;
+  payment_status?: string | undefined;
+  currency_code?: string | undefined;
+  currency_symbol?: string | undefined;
+  location_id?: string | undefined;
+  location_name?: string | undefined;
+};
+
+export interface PurchaseInvoice {
+  /**
+   * EntryID
+   */
+  id: string;
+  EntryID: string;
+  EntryNumber?: number | undefined;
+  Supplier?: string | undefined;
+  AmountDC?: number | undefined;
+  EntryDate?: string | undefined;
+  Status?: number | undefined;
+  Modified: string;
+};
+
+export interface SalesOrder {
+  id: string;
+  OrderNumber?: number | undefined;
+  OrderedBy?: string | undefined;
+  AmountDC?: number | undefined;
+  Status?: number | undefined;
+  Modified?: string | undefined;
+};
+
+export interface TransactionLine {
+  id: string;
+  EntryID?: string | undefined;
+  AmountDC?: number | undefined;
+  GLAccount?: string | undefined;
+  GLAccountCode?: string | undefined;
+  Description?: string | undefined;
+  VATCode?: string | undefined;
+  Modified: string;
+};
+
+export interface VatCode {
+  id: string;
+  code?: string | undefined;
+  description?: string | undefined;
+  modified?: string | undefined;
 };
 
 export interface ActionInput_exact_online_attachfileinvoice {
-  invoiceId: string;
-  customerId: string;
+  /**
+   * Document subject. Example: "Invoice attachment"
+   */
   subject: string;
-  filename: string;
-  content: string;
+  /**
+   * Document date in ISO format. Example: "2024-05-30"
+   */
+  documentDate: string;
+  /**
+   * Customer account GUID. Example: "a58c29d9-ef92-40f1-b817-31b36990898c"
+   */
+  account: string;
+  /**
+   * Document type number. Example: 10
+   */
+  type: number;
+  /**
+   * Name of the file being attached. Example: "invoice.pdf"
+   */
+  fileName: string;
+  /**
+   * Base64-encoded file content. Example: "JVBERi0xLjQKJ..."
+   */
+  fileContent: string;
+  /**
+   * Sales invoice GUID to link this document to. Example: "7b282ae4-d920-46b0-87fd-3da21b818780"
+   */
+  invoiceId?: string | undefined;
 };
 
 export interface ActionOutput_exact_online_attachfileinvoice {
-  success: boolean;
+  /**
+   * Created document ID.
+   */
+  documentId: string;
+};
+
+export interface ActionInput_exact_online_createcontact {
+  /**
+   * Exact Online account GUID. Example: "11acd652-4496-48e0-a189-e0045cc206e3"
+   */
+  account: string;
+  /**
+   * Contact first name
+   */
+  firstName: string;
+  /**
+   * Contact last name
+   */
+  lastName: string;
+  /**
+   * Contact email address
+   */
+  email?: string | undefined;
+  /**
+   * Business phone number
+   */
+  phone?: string | undefined;
+  /**
+   * Business mobile number
+   */
+  businessMobile?: string | undefined;
+};
+
+export interface ActionOutput_exact_online_createcontact {
+  id: string;
+  account?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  businessMobile?: string | undefined;
 };
 
 export interface ActionInput_exact_online_createcustomer {
-  name: string;
-  email?: string | null | undefined;
-  taxNumber?: string | null | undefined;
-  addressLine1?: string | null | undefined;
-  addressLine2?: string | null | undefined;
-  city?: string | null | undefined;
-  zip?: string | null | undefined;
-  country?: string | null | undefined;
-  state?: string | null | undefined;
-  phone?: string | null | undefined;
+  /**
+   * Account name. Example: "Acme Corp"
+   */
+  Name: string;
+  /**
+   * Account status: C=Customer, S=Supplier
+   */
+  Status?: 'C' | 'S' | undefined;
+  /**
+   * Email address
+   */
+  Email?: string | undefined;
+  /**
+   * Phone number
+   */
+  Phone?: string | undefined;
+  /**
+   * City
+   */
+  City?: string | undefined;
+  /**
+   * Country code
+   */
+  Country?: string | undefined;
+  /**
+   * VAT number
+   */
+  VATNumber?: string | undefined;
 };
 
 export interface ActionOutput_exact_online_createcustomer {
   id: string;
+  name?: string | undefined;
+  status?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  city?: string | undefined;
+  country?: string | undefined;
+  vat_number?: string | undefined;
+  is_sales?: boolean | undefined;
+  is_purchase?: boolean | undefined;
 };
 
 export interface ActionInput_exact_online_createinvoice {
-  customerId: string;
-  journal?: number | undefined;
-  currency?: 'EUR' | undefined;
+  /**
+   * Customer account GUID. Example: a58c29d9-ef92-40f1-b817-31b36990898c
+   */
+  ordered_by: string;
+  /**
+   * Invoice date in ISO format. Example: 2024-05-30
+   */
+  invoice_date?: string | undefined;
+  /**
+   * Invoice description
+   */
   description?: string | undefined;
-  createdAt?: Date | undefined;
-  lines: ({  itemId: string;
+  /**
+   * Warehouse GUID. Tenant-specific, omit if not applicable.
+   */
+  warehouse?: string | undefined;
+  sales_invoice_lines: ({  /**
+   * Item GUID
+   */
+  item?: string | undefined;
+  /**
+   * GL Account GUID
+   */
+  gl_account?: string | undefined;
   quantity: number;
-  amountNet: number;
-  vatCode?: string | undefined;
-  description?: string | undefined;})[];
+  net_price: number;
+  description?: string | undefined;
+  /**
+   * VAT code. Example: VN
+   */
+  vat_code?: string | undefined;})[];
 };
 
 export interface ActionOutput_exact_online_createinvoice {
   id: string;
+  invoice_number?: number | undefined;
+  ordered_by?: string | undefined;
+  status?: number | undefined;
+  description?: string | undefined;
+  invoice_date?: string | undefined;
+  sales_invoice_lines?: ({  id?: string | undefined;
+  item?: string | undefined;
+  gl_account?: string | undefined;
+  quantity?: number | undefined;
+  net_price?: number | undefined;
+  description?: string | undefined;})[];
+};
+
+export interface ActionInput_exact_online_createitem {
+  /**
+   * Item code. Example: "NEW-ITEM-001"
+   */
+  code: string;
+  /**
+   * Item description. Example: "New product item"
+   */
+  description: string;
+  /**
+   * Item group GUID. Example: "e54a5a52-21b7-4ce5-80ed-976b2100c02b"
+   */
+  itemGroup: string;
+  /**
+   * Whether this item is a sales item.
+   */
+  isSalesItem?: boolean | undefined;
+  /**
+   * Whether this item is a purchase item.
+   */
+  isPurchaseItem?: boolean | undefined;
+  /**
+   * Standard cost price. Example: 10.5
+   */
+  costPriceStandard?: number | undefined;
+  /**
+   * Sales VAT code. Example: "VN"
+   */
+  salesVatCode?: string | undefined;
+};
+
+export interface ActionOutput_exact_online_createitem {
+  id: string;
+  code?: string | undefined;
+  description?: string | undefined;
+  itemGroup?: string | undefined;
+  isSalesItem?: boolean | undefined;
+  isPurchaseItem?: boolean | undefined;
+  costPriceStandard?: number | undefined;
+  salesVatCode?: string | undefined;
+};
+
+export interface ActionInput_exact_online_createpurchaseinvoice {
+  /**
+   * Journal code for purchase entries. Example: "60"
+   */
+  journalCode: string;
+  /**
+   * Supplier account ID. Example: "454a5d46-ee70-4ed1-9375-9cfedeb138cd"
+   */
+  supplierId: string;
+  /**
+   * Entry date in ISO format YYYY-MM-DD. Example: "2024-05-30"
+   */
+  entryDate: string;
+  /**
+   * Entry description
+   */
+  description?: string | undefined;
+  /**
+   * Payment term ID
+   */
+  paymentTermId?: string | undefined;
+  /**
+   * Purchase entry lines
+   */
+  purchaseEntryLines: ({  /**
+   * GL Account ID. Example: "74752c10-3d31-4725-a66d-001edba8c47f"
+   */
+  glAccountId: string;
+  /**
+   * Amount in default currency. Positive for debit, negative for credit.
+   */
+  amountDc: number;
+  /**
+   * VAT Code string. Example: "AB"
+   */
+  vatCode: string;
+  /**
+   * Line description
+   */
+  description?: string | undefined;})[];
+};
+
+export interface ActionOutput_exact_online_createpurchaseinvoice {
+  /**
+   * The created purchase entry ID
+   */
+  entryId?: string | undefined;
+  /**
+   * The created purchase entry ID (alias)
+   */
+  id?: string | undefined;
+  /**
+   * The assigned entry number
+   */
+  entryNumber?: number | undefined;
+  /**
+   * Journal code
+   */
+  journal?: string | undefined;
+  /**
+   * Supplier account ID
+   */
+  supplier?: string | undefined;
+  /**
+   * Entry date
+   */
+  entryDate?: string | undefined;
+  /**
+   * Entry description
+   */
+  description?: string | undefined;
+  /**
+   * Payment term ID
+   */
+  paymentTerm?: string | undefined;
+  /**
+   * Purchase entry lines
+   */
+  purchaseEntryLines?: ({  /**
+   * Line ID
+   */
+  id?: string | undefined;
+  /**
+   * GL Account ID
+   */
+  glAccount?: string | undefined;
+  /**
+   * Amount in default currency
+   */
+  amountDc?: number | undefined;
+  /**
+   * VAT Code string
+   */
+  vatCode?: string | undefined;
+  /**
+   * Line description
+   */
+  description?: string | undefined;})[];
+};
+
+export interface ActionInput_exact_online_createsalesorder {
+  /**
+   * Customer account GUID. Example: "a58c29d9-ef92-40f1-b817-31b36990898c"
+   */
+  OrderedBy: string;
+  /**
+   * Sales order lines
+   */
+  SalesOrderLines: ({  /**
+   * Item GUID. Example: "61facaed-0389-4183-bf67-ac1c179e1050"
+   */
+  Item: string;
+  /**
+   * Quantity. Example: 1
+   */
+  Quantity: number;
+  /**
+   * Net price. Example: 100.00
+   */
+  NetPrice: number;})[];
+  /**
+   * Order date. Defaults to today if omitted. Example: "2024-05-30"
+   */
+  OrderDate?: string | undefined;
+};
+
+export interface ActionOutput_exact_online_createsalesorder {
+  OrderID?: string | undefined;
+  OrderedBy?: string | undefined;
+  OrderDate?: string | undefined;
+  SalesOrderLines?: ({  Item?: string | undefined;
+  Quantity?: number | undefined;
+  NetPrice?: number | undefined;})[];
+};
+
+export interface ActionInput_exact_online_deletecontact {
+  /**
+   * Contact ID to delete. Example: "eee35efb-2d64-4682-9642-c6ae745bb8ce"
+   */
+  id: string;
+};
+
+export interface ActionOutput_exact_online_deletecontact {
+  id: string;
+  success: boolean;
+};
+
+export interface ActionInput_exact_online_deletecustomer {
+  /**
+   * Exact Online Account ID (GUID). Example: "2a64d87a-5e60-442a-84f0-2dff86e9d706"
+   */
+  id: string;
+};
+
+export interface ActionOutput_exact_online_deletecustomer {
+  id: string;
+  success: boolean;
+};
+
+export interface ActionInput_exact_online_deleteitem {
+  /**
+   * Item ID. Example: "1c0a1580-8e05-4c9d-a898-0148d213d8ec"
+   */
+  id: string;
+};
+
+export interface ActionOutput_exact_online_deleteitem {
+  success: boolean;
+  id: string;
+};
+
+export interface ActionInput_exact_online_getaccount {
+  /**
+   * Account ID. Example: "a58c29d9-ef92-40f1-b817-31b36990898c"
+   */
+  account_id: string;
+};
+
+export interface ActionOutput_exact_online_getaccount {
+  id: string;
+  name?: string | undefined;
+  code?: string | undefined;
+  status?: string | undefined;
+  is_sales?: boolean | undefined;
+  is_purchase?: boolean | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  address_line1?: string | undefined;
+  city?: string | undefined;
+  country?: string | undefined;
+  postcode?: string | undefined;
+  website?: string | undefined;
+  vat_number?: string | undefined;
+  modified?: string | undefined;
+};
+
+export interface ActionInput_exact_online_getcontact {
+  /**
+   * The GUID of the contact to retrieve
+   */
+  id: string;
+};
+
+export interface ActionOutput_exact_online_getcontact {
+};
+
+export interface ActionInput_exact_online_getcurrentuser {
+};
+
+export interface ActionOutput_exact_online_getcurrentuser {
+  current_division: number;
+  user_id: string;
+  full_name?: string | undefined;
+  email?: string | undefined;
+};
+
+export interface ActionInput_exact_online_getsalesinvoice {
+  /**
+   * The InvoiceID of the sales invoice. Example: "7b282ae4-d920-46b0-87fd-3da21b818780"
+   */
+  id: string;
+};
+
+export interface ActionOutput_exact_online_getsalesinvoice {
+  InvoiceID?: string | undefined;
+  InvoiceNumber?: number | undefined;
+  InvoiceDate?: string | undefined;
+  DueDate?: string | undefined;
+  Status?: number | undefined;
+  AmountDC?: number | undefined;
+  AmountFC?: number | undefined;
+  Currency?: string | undefined;
+  Description?: string | undefined;
+  Journal?: string | undefined;
+  OrderNumber?: number | undefined;
+  Type?: number | undefined;
+  Modified?: string | undefined;
+  Created?: string | undefined;
+};
+
+export interface ActionInput_exact_online_listaccounts {
+  /**
+   * Account status filter: C=Customer, S=Supplier, A=Both
+   */
+  status?: 'C' | 'S' | 'A' | undefined;
+  /**
+   * Max records per page (1-1000)
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor (skip value) from previous response
+   */
+  cursor?: string | undefined;
+  /**
+   * ISO 8601 date string for incremental sync filter
+   */
+  modified_after?: string | undefined;
+};
+
+export interface ActionOutput_exact_online_listaccounts {
+  items: ({  id: string;
+  name?: string | undefined;
+  code?: string | undefined;
+  status?: string | undefined;
+  is_sales?: boolean | undefined;
+  is_purchase?: boolean | undefined;
+  address_line1?: string | undefined;
+  city?: string | undefined;
+  country?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  modified?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_exact_online_listcontacts {
+  /**
+   * Pagination cursor. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum number of contacts to return per page. Default: 60.
+   */
+  limit?: number | undefined;
+  /**
+   * ISO 8601 timestamp to filter contacts modified after this date.
+   */
+  modifiedSince?: string | undefined;
+};
+
+export interface ActionOutput_exact_online_listcontacts {
+  items: ({  ID: string;
+  Account?: string | undefined;
+  FullName?: string | undefined;
+  FirstName?: string | undefined;
+  LastName?: string | undefined;
+  Email?: string | undefined;
+  Phone?: string | undefined;
+  Modified?: string | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_exact_online_listdivisions {
+};
+
+export interface ActionOutput_exact_online_listdivisions {
+  divisions: ({  Code: number;
+  Description?: string | undefined;
+  Currency?: string | undefined;
+  Country?: string | undefined;
+  Status?: number | undefined;})[];
+};
+
+export interface ActionInput_exact_online_listdocumentattachments {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_exact_online_listdocumentattachments {
+  items: ({  ID: string;
+  Document?: string | undefined;
+  FileName?: string | undefined;
+  FileSize?: number | undefined;
+  Url?: string | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_exact_online_listdocuments {
+  /**
+   * Pagination cursor from the previous response ($skiptoken). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * ISO 8601 timestamp to filter documents modified after this date. Example: 2024-05-30T00:00:00Z
+   */
+  modified_after?: string | undefined;
+};
+
+export interface ActionOutput_exact_online_listdocuments {
+  items: ({  /**
+   * Document ID. Example: c9a8297e-61a3-4adc-bc17-167e5a7f45c5
+   */
+  ID: string;
+  /**
+   * Document subject
+   */
+  Subject?: string | undefined;
+  /**
+   * Document date. Example: 2024-05-30
+   */
+  DocumentDate?: string | undefined;
+  /**
+   * Last modified timestamp. Example: 2024-05-30T12:00:00Z
+   */
+  Modified?: string | undefined;})[];
+  /**
+   * Cursor for the next page. Pass as cursor on the next call.
+   */
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_exact_online_listfinancialtransactions {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of items to return per page. Default: 100.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_exact_online_listfinancialtransactions {
+  items: ({  /**
+   * Unique entry ID. Example: "2ab359f3-0042-4e57-b829-d7d7cc84d1ea"
+   */
+  EntryID: string;
+  EntryNumber?: number | undefined;
+  Date?: string | undefined;
+  Modified?: string | undefined;
+  JournalCode?: string | undefined;
+  JournalDescription?: string | undefined;
+  Status?: number | undefined;
+  Type?: number | undefined;
+  TypeDescription?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_exact_online_listglaccounts {
+  /**
+   * Pagination cursor (skip value). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum number of items to return. Defaults to 100.
+   */
+  limit?: number | undefined;
+  /**
+   * ISO 8601 datetime to filter accounts modified after this date. Example: '2024-01-01T00:00:00Z'
+   */
+  modified_after?: string | undefined;
+};
+
+export interface ActionOutput_exact_online_listglaccounts {
+  items: ({  ID: string;
+  Code?: string | undefined;
+  Description?: string | undefined;
+  Modified?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_exact_online_listitemgroups {
+  /**
+   * Pagination cursor ($skip value). Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_exact_online_listitemgroups {
+  items: ({  ID: string;
+  Code?: string | undefined;
+  Description?: string | undefined;
+  Modified?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_exact_online_listitems {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_exact_online_listitems {
+  items: ({  ID: string;
+  Code?: string | undefined;
+  Description?: string | undefined;
+  ItemGroup?: string | undefined;
+  IsSalesItem?: boolean | undefined;
+  IsPurchaseItem?: boolean | undefined;
+  Modified?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_exact_online_listjournals {
+  /**
+   * Pagination cursor ($skip value) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_exact_online_listjournals {
+  items: ({  id: string;
+  code: string;
+  description?: string | undefined;
+  modified?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_exact_online_listpayments {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_exact_online_listpayments {
+  Items: ({  ID: string;
+  Account?: string | undefined;
+  AccountName?: string | undefined;
+  AmountDC?: number | undefined;
+  EntryDate?: string | undefined;
+  Description?: string | undefined;
+  PaymentReference?: string | undefined;})[];
+  NextCursor?: string | undefined;
+};
+
+export interface ActionInput_exact_online_listpurchaseinvoices {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_exact_online_listpurchaseinvoices {
+  items: ({  EntryID: string;
+  EntryNumber?: number | undefined;
+  Supplier?: string | undefined;
+  AmountDC?: number | undefined;
+  EntryDate?: string | undefined;
+  Status?: number | undefined;
+  Modified?: string | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_exact_online_listsalesinvoices {
+  /**
+   * Pagination cursor ($skip value) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Filter invoices modified after this ISO 8601 timestamp. Example: 2024-05-30T00:00:00Z
+   */
+  modified_after?: string | undefined;
+};
+
+export interface ActionOutput_exact_online_listsalesinvoices {
+  items: ({  /**
+   * Invoice ID. Example: 7b282ae4-d920-46b0-87fd-3da21b818780
+   */
+  InvoiceID: string;
+  /**
+   * Invoice number. Example: 24700006
+   */
+  InvoiceNumber?: number | undefined;
+  /**
+   * Customer account GUID. Example: a58c29d9-ef92-40f1-b817-31b36990898c
+   */
+  OrderedBy?: string | undefined;
+  /**
+   * Invoice amount in default currency
+   */
+  AmountDC?: number | undefined;
+  /**
+   * Invoice status. 20=Open, 50=Processed/Posted
+   */
+  Status?: number | undefined;
+  /**
+   * Last modified timestamp. Example: 2024-05-30T12:00:00Z
+   */
+  Modified?: string | undefined;})[];
+  /**
+   * Pagination cursor for the next page. Omit if this is the last page.
+   */
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_exact_online_listsalesorders {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Default: 50.
+   */
+  limit?: number | undefined;
+  /**
+   * ISO 8601 timestamp to filter orders modified after this date. Example: "2024-01-01T00:00:00Z"
+   */
+  modifiedAfter?: string | undefined;
+};
+
+export interface ActionOutput_exact_online_listsalesorders {
+  items: ({  OrderID: string;
+  OrderNumber?: number | undefined;
+  OrderedBy?: string | undefined;
+  AmountDC?: number | undefined;
+  Modified?: string | undefined;
+  Status?: number | undefined;})[];
+  NextCursor?: string | undefined;
+};
+
+export interface ActionInput_exact_online_listtransactionlines {
+  /**
+   * Pagination cursor (skip value) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum number of records to return. Defaults to 100.
+   */
+  limit?: number | undefined;
+  /**
+   * Filter transaction lines by a specific EntryID (UUID). Example: "2ab359f3-0042-4e57-b829-d7d7cc84d1ea"
+   */
+  entryId?: string | undefined;
+};
+
+export interface ActionOutput_exact_online_listtransactionlines {
+  items: ({  ID: string;
+  EntryID: string;
+  AmountDC: number;
+  GLAccount?: string | undefined;
+  GLAccountCode?: string | undefined;
+  Description?: string | undefined;
+  VATCode?: string | undefined;
+  Modified?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_exact_online_listvatcodes {
+  /**
+   * Pagination cursor (skip offset). Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_exact_online_listvatcodes {
+  items: ({  id: string;
+  code?: string | undefined;
+  description?: string | undefined;
+  modified?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_exact_online_updatecontact {
+  /**
+   * Contact ID. Example: "da03b498-41d7-481c-b598-4364d09c907c"
+   */
+  id: string;
+  /**
+   * First name of the contact.
+   */
+  firstName?: string | undefined;
+  /**
+   * Last name of the contact.
+   */
+  lastName?: string | undefined;
+  /**
+   * Email address of the contact.
+   */
+  email?: string | undefined;
+  /**
+   * Phone number of the contact.
+   */
+  phone?: string | undefined;
+  /**
+   * Mobile number of the contact.
+   */
+  mobile?: string | undefined;
+  /**
+   * Title of the contact.
+   */
+  title?: string | undefined;
+};
+
+export interface ActionOutput_exact_online_updatecontact {
+  id: string;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  mobile?: string | undefined;
+  title?: string | undefined;
 };
 
 export interface ActionInput_exact_online_updatecustomer {
-  name?: string | null | undefined;
-  email?: string | null | undefined;
-  taxNumber?: string | null | undefined;
-  addressLine1?: string | null | undefined;
-  addressLine2?: string | null | undefined;
-  city?: string | null | undefined;
-  zip?: string | null | undefined;
-  country?: string | null | undefined;
-  state?: string | null | undefined;
-  phone?: string | null | undefined;
+  /**
+   * Account ID (GUID). Example: a58c29d9-ef92-40f1-b817-31b36990898c
+   */
   id: string;
+  /**
+   * Account name
+   */
+  name?: string | undefined;
+  /**
+   * First address line
+   */
+  addressLine1?: string | undefined;
+  /**
+   * Second address line
+   */
+  addressLine2?: string | undefined;
+  /**
+   * City
+   */
+  city?: string | undefined;
+  /**
+   * ISO country code
+   */
+  country?: string | undefined;
+  /**
+   * Postal code
+   */
+  postcode?: string | undefined;
+  /**
+   * Phone number
+   */
+  phone?: string | undefined;
+  /**
+   * Email address
+   */
+  email?: string | undefined;
+  /**
+   * Account status: C=Customer, S=Supplier, A=Active/Both
+   */
+  status?: string | undefined;
+  /**
+   * Is a sales relation
+   */
+  isSales?: boolean | undefined;
+  /**
+   * Is a purchase relation
+   */
+  isPurchase?: boolean | undefined;
+  /**
+   * VAT number
+   */
+  vatNumber?: string | undefined;
 };
 
 export interface ActionOutput_exact_online_updatecustomer {
-  success: boolean;
+  id: string;
+  name?: string | undefined;
+  addressLine1?: string | undefined;
+  addressLine2?: string | undefined;
+  city?: string | undefined;
+  country?: string | undefined;
+  postcode?: string | undefined;
+  phone?: string | undefined;
+  email?: string | undefined;
+  status?: string | undefined;
+  isSales?: boolean | undefined;
+  isPurchase?: boolean | undefined;
+  vatNumber?: string | undefined;
 };
 
 export interface ActionInput_exact_online_updateinvoice {
-  id: string;
-  deliverTo?: string | undefined;
-  currency?: 'EUR' | undefined;
-  description?: string | undefined;
-  createdAt?: Date | undefined;
+  /**
+   * Invoice ID. Example: "610d6972-6490-4947-bf59-6ebbe6237638"
+   */
+  ID: string;
+  /**
+   * Invoice description
+   */
+  Description?: string | undefined;
+  /**
+   * Your reference
+   */
+  YourRef?: string | undefined;
+  /**
+   * Remarks
+   */
+  Remarks?: string | undefined;
+  /**
+   * Invoice date in ISO format. Example: "2024-05-30"
+   */
+  InvoiceDate?: string | undefined;
+  /**
+   * Due date in ISO format. Example: "2024-06-30"
+   */
+  DueDate?: string | undefined;
+  /**
+   * Order date in ISO format. Example: "2024-05-30"
+   */
+  OrderDate?: string | undefined;
 };
 
 export interface ActionOutput_exact_online_updateinvoice {
-  success: boolean;
+  InvoiceID: string;
+  InvoiceNumber?: number | undefined;
+  Description?: string | undefined;
+  YourRef?: string | undefined;
+  Remarks?: string | undefined;
+  InvoiceDate?: string | undefined;
+  DueDate?: string | undefined;
+  OrderDate?: string | undefined;
+  Status?: number | undefined;
+  AmountDC?: number | undefined;
+};
+
+export interface ActionInput_exact_online_updateitem {
+  /**
+   * Item ID. Example: "61facaed-0389-4183-bf67-ac1c179e1050"
+   */
+  id: string;
+  /**
+   * Item code
+   */
+  code?: string | undefined;
+  /**
+   * Item description
+   */
+  description?: string | undefined;
+  /**
+   * Extra description
+   */
+  extraDescription?: string | undefined;
+  /**
+   * Item group ID. Example: "e54a5a52-21b7-4ce5-80ed-976b2100c02b"
+   */
+  itemGroup?: string | undefined;
+  /**
+   * Sales VAT code ID
+   */
+  salesVatCode?: string | undefined;
+  /**
+   * Start date. ISO format: "2024-05-30"
+   */
+  startDate?: string | undefined;
+  /**
+   * Unit of measurement
+   */
+  unit?: string | undefined;
+  /**
+   * Whether this is a sales item
+   */
+  isSalesItem?: boolean | undefined;
+  /**
+   * Whether this is a purchase item
+   */
+  isPurchaseItem?: boolean | undefined;
+  /**
+   * Whether this is a stock item
+   */
+  isStockItem?: boolean | undefined;
+  /**
+   * Standard cost price
+   */
+  costPriceStandard?: number | undefined;
+  /**
+   * Sales price
+   */
+  salesPrice?: number | undefined;
+};
+
+export interface ActionOutput_exact_online_updateitem {
+  id?: string | undefined;
+  code?: string | undefined;
+  description?: string | undefined;
+  extraDescription?: string | undefined;
+  itemGroup?: string | undefined;
+  salesVatCode?: string | undefined;
+  startDate?: string | undefined;
+  unit?: string | undefined;
+  isSalesItem?: boolean | undefined;
+  isPurchaseItem?: boolean | undefined;
+  isStockItem?: boolean | undefined;
+  costPriceStandard?: number | undefined;
+  salesPrice?: number | undefined;
 };
 
 export interface ExpsensifyNullableUser {
@@ -80259,34 +81334,6 @@ export interface JournalEntry {
   adjustment?: boolean | undefined;
 };
 
-export interface Payment {
-  id: string;
-  payment_id?: string | undefined;
-  payment_number?: string | undefined;
-  invoice_numbers?: string | undefined;
-  date?: string | undefined;
-  payment_mode?: string | undefined;
-  amount?: number | undefined;
-  bcy_amount?: number | undefined;
-  unused_amount?: number | undefined;
-  bcy_unused_amount?: number | undefined;
-  account_id?: string | undefined;
-  account_name?: string | undefined;
-  description?: string | undefined;
-  reference_number?: string | undefined;
-  customer_id?: string | undefined;
-  customer_name?: string | undefined;
-  created_time?: string | undefined;
-  last_modified_time?: string | undefined;
-  bcy_refunded_amount?: number | undefined;
-  payment_type?: string | undefined;
-  payment_status?: string | undefined;
-  currency_code?: string | undefined;
-  currency_symbol?: string | undefined;
-  location_id?: string | undefined;
-  location_name?: string | undefined;
-};
-
 export interface Purchase {
   id: string;
   doc_number?: string | undefined;
@@ -115871,78 +116918,6 @@ export interface SyncMetadata_zoho_books_invoices {
 
 export interface SyncMetadata_zoho_books_items {
   organization_id: string;
-};
-
-export interface Journal {
-  id: string;
-  entry_number?: string | undefined;
-  reference_number?: string | undefined;
-  notes?: string | undefined;
-  currency_id?: string | undefined;
-  currency_code?: string | undefined;
-  currency_symbol?: string | undefined;
-  exchange_rate?: number | undefined;
-  journal_date?: string | undefined;
-  journal_type?: string | undefined;
-  vat_treatment?: string | undefined;
-  product_type?: string | undefined;
-  include_in_vat_return?: boolean | undefined;
-  is_bas_adjustment?: boolean | undefined;
-  line_items?: ({  line_id?: string | undefined;
-  account_id?: string | undefined;
-  customer_id?: string | undefined;
-  customer_name?: string | undefined;
-  account_name?: string | undefined;
-  description?: string | undefined;
-  debit_or_credit?: string | undefined;
-  tax_exemption_id?: string | undefined;
-  tax_exemption_type?: string | undefined;
-  tax_exemption_code?: string | undefined;
-  tax_authority_id?: string | undefined;
-  tax_authority_name?: string | undefined;
-  tax_id?: string | undefined;
-  tax_name?: string | undefined;
-  tax_type?: string | undefined;
-  tax_percentage?: string | undefined;
-  amount?: number | undefined;
-  bcy_amount?: number | undefined;
-  acquisition_vat_id?: string | undefined;
-  acquisition_vat_name?: string | undefined;
-  acquisition_vat_percentage?: string | undefined;
-  acquisition_vat_amount?: string | undefined;
-  reverse_charge_vat_id?: string | undefined;
-  reverse_charge_vat_name?: string | undefined;
-  reverse_charge_vat_percentage?: string | undefined;
-  reverse_charge_vat_amount?: string | undefined;
-  tags?: ({  tag_id?: string | undefined;
-  tag_name?: string | undefined;
-  tag_option_id?: string | undefined;
-  tag_option_name?: string | undefined;
-  is_tag_mandatory?: boolean | undefined;})[];
-  location_id?: string | undefined;
-  location_name?: string | undefined;
-  project_id?: string | undefined;
-  project_name?: string | undefined;})[];
-  location_id?: string | undefined;
-  location_name?: string | undefined;
-  line_item_total?: number | undefined;
-  total?: number | undefined;
-  bcy_total?: number | undefined;
-  price_precision?: number | undefined;
-  taxes?: ({  tax_name?: string | undefined;
-  tax_amount?: number | undefined;
-  debit_or_credit?: string | undefined;
-  tax_account?: boolean | undefined;})[];
-  created_time?: string | undefined;
-  last_modified_time?: string | undefined;
-  status?: string | undefined;
-  custom_fields?: ({  customfield_id?: string | undefined;
-  value?: string | undefined;})[];
-  tags?: ({  tag_id?: string | undefined;
-  tag_name?: string | undefined;
-  tag_option_id?: string | undefined;
-  tag_option_name?: string | undefined;
-  is_tag_mandatory?: boolean | undefined;})[];
 };
 
 export interface SyncMetadata_zoho_books_journals {
