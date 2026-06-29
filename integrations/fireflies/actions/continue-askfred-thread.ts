@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     thread_id: z.string().describe('The ID of the existing AskFred thread to continue. Example: "thread_abc123"'),
-    query: z.string().describe('Follow-up question or query. Maximum 2000 characters.'),
+    query: z.string().max(2000).describe('Follow-up question or query. Maximum 2000 characters.'),
     format_mode: z.enum(['markdown', 'plaintext']).optional().describe('Response format: markdown or plaintext'),
     response_language: z.string().optional().describe('Language code for the response (e.g., "en" for English).')
 });
@@ -71,20 +71,19 @@ const action = createAction({
 
         const responseBody = z
             .object({
-                data: z.unknown(),
-                errors: z.array(z.unknown()).optional()
+                data: z.unknown().optional(),
+                errors: z.array(z.object({ message: z.string() })).optional()
             })
             .parse(response.data);
 
         if (responseBody.errors && responseBody.errors.length > 0) {
             throw new nango.ActionError({
                 type: 'graphql_error',
-                message: 'Fireflies GraphQL API returned errors',
-                errors: responseBody.errors
+                message: responseBody.errors[0]!.message
             });
         }
 
-        const parsed = GraphQLResponseSchema.parse(responseBody);
+        const parsed = GraphQLResponseSchema.parse(response.data);
 
         return {
             message: parsed.data.continueAskFredThread.message

@@ -16,9 +16,12 @@ const ProviderUserSchema = z.object({
 });
 
 const ProviderResponseSchema = z.object({
-    data: z.object({
-        users: z.array(ProviderUserSchema)
-    }),
+    data: z
+        .object({
+            users: z.array(ProviderUserSchema)
+        })
+        .nullable()
+        .optional(),
     errors: z.array(z.object({ message: z.string() })).optional()
 });
 
@@ -71,13 +74,17 @@ const action = createAction({
         const providerResponse = ProviderResponseSchema.parse(response.data);
 
         if (providerResponse.errors && providerResponse.errors.length > 0) {
-            const firstError = providerResponse.errors[0];
-            if (firstError) {
-                throw new nango.ActionError({
-                    type: 'graphql_error',
-                    message: firstError.message
-                });
-            }
+            throw new nango.ActionError({
+                type: 'graphql_error',
+                message: providerResponse.errors[0]!.message
+            });
+        }
+
+        if (!providerResponse.data?.users) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Missing users data in Fireflies response'
+            });
         }
 
         const users = providerResponse.data.users.map((user) => ({

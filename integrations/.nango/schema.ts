@@ -37312,7 +37312,7 @@ export interface ActionInput_fireflies_sharemeeting {
   /**
    * Optional expiry period in days. Allowed values: 7, 14, or 30.
    */
-  expiry_days?: number | undefined;
+  expiry_days?: 7 | 14 | 30 | undefined;
 };
 
 export interface ActionOutput_fireflies_sharemeeting {
@@ -37392,9 +37392,9 @@ export interface ActionInput_fireflies_uploadaudio {
   client_reference_id?: string | undefined;
   save_video?: boolean | undefined;
   bypass_size_check?: boolean | undefined;
-  download_auth?: {  type: 'bearer_token' | 'basic_auth';
-  bearer?: {  token: string;} | undefined;
-  basic?: {  username?: string | undefined;
+  download_auth?: {  type: 'bearer_token';
+  bearer: {  token: string;};} | {  type: 'basic_auth';
+  basic: {  username?: string | undefined;
   password: string;};};
 };
 

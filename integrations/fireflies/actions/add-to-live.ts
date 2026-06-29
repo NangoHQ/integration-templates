@@ -8,14 +8,17 @@ const AttendeeInputSchema = z.object({
 });
 
 const InputSchema = z.object({
-    url: z.string().describe('A valid HTTP URL for the meeting link, e.g. Google Meet, Zoom, etc.'),
-    title: z.string().optional().describe('Title or name of the meeting. Maximum length is 256 characters.'),
+    url: z
+        .string()
+        .refine((u) => u.startsWith('http://') || u.startsWith('https://'), { message: 'url must be a valid http or https URL' })
+        .describe('A valid HTTP URL for the meeting link, e.g. Google Meet, Zoom, etc.'),
+    title: z.string().max(256).optional().describe('Title or name of the meeting. Maximum length is 256 characters.'),
     attendees: z.array(AttendeeInputSchema).optional().describe('Array of expected meeting participants.')
 });
 
 const ProviderAddToLiveMeetingSchema = z.object({
     success: z.boolean(),
-    message: z.string().optional()
+    message: z.string().nullable().optional()
 });
 
 const OutputSchema = z.object({

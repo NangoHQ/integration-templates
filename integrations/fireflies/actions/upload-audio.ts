@@ -7,20 +7,16 @@ const AttendeeSchema = z.object({
     phoneNumber: z.string()
 });
 
-const DownloadAuthSchema = z.object({
-    type: z.enum(['bearer_token', 'basic_auth']),
-    bearer: z
-        .object({
-            token: z.string()
-        })
-        .optional(),
-    basic: z
-        .object({
-            username: z.string().optional(),
-            password: z.string()
-        })
-        .optional()
-});
+const DownloadAuthSchema = z.discriminatedUnion('type', [
+    z.object({
+        type: z.literal('bearer_token'),
+        bearer: z.object({ token: z.string() })
+    }),
+    z.object({
+        type: z.literal('basic_auth'),
+        basic: z.object({ username: z.string().optional(), password: z.string() })
+    })
+]);
 
 const InputSchema = z.object({
     url: z.string().describe('The URL of the media file to be transcribed. Example: "https://example.com/audio.mp3"'),
@@ -35,13 +31,15 @@ const InputSchema = z.object({
 });
 
 const ProviderResponseSchema = z.object({
-    data: z.object({
-        uploadAudio: z.object({
-            success: z.boolean(),
-            title: z.string().nullable().optional(),
-            message: z.string().nullable().optional()
+    data: z
+        .object({
+            uploadAudio: z.object({
+                success: z.boolean(),
+                title: z.string().nullable().optional(),
+                message: z.string().nullable().optional()
+            })
         })
-    }),
+        .optional(),
     errors: z
         .array(
             z.object({
@@ -94,13 +92,18 @@ const action = createAction({
         const parsed = ProviderResponseSchema.parse(response.data);
 
         if (parsed.errors && parsed.errors.length > 0) {
-            const firstError = parsed.errors[0];
-            if (firstError) {
-                throw new nango.ActionError({
-                    type: firstError.code || 'graphql_error',
-                    message: firstError.message
-                });
-            }
+            const firstError = parsed.errors[0]!;
+            throw new nango.ActionError({
+                type: firstError.code || 'graphql_error',
+                message: firstError.message
+            });
+        }
+
+        if (!parsed.data?.uploadAudio) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Missing uploadAudio in provider response'
+            });
         }
 
         const result = parsed.data.uploadAudio;

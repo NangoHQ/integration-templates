@@ -43,7 +43,6 @@ const sync = createSync({
 
     exec: async (nango) => {
         // Blocker: the users query has no changed-since filter, pagination, or cursor.
-        await nango.trackDeletesStart('User');
 
         // https://docs.fireflies.ai/graphql-api/query/users
         const response = await nango.post({
@@ -79,6 +78,7 @@ const sync = createSync({
             };
         });
 
+        await nango.trackDeletesStart('User');
         await nango.batchSave(users, 'User');
         await nango.trackDeletesEnd('User');
     }

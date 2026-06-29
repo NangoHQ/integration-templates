@@ -116,8 +116,8 @@ const sync = createSync({
                     ...(sentence.speaker_id != null && { speaker_id: String(sentence.speaker_id) }),
                     ...(sentence.raw_text != null && { raw_text: sentence.raw_text }),
                     ...(sentence.text != null && { text: sentence.text }),
-                    ...(sentence.start_time != null && { start_time: Number(sentence.start_time) }),
-                    ...(sentence.end_time != null && { end_time: Number(sentence.end_time) })
+                    ...(sentence.start_time != null && isFinite(Number(sentence.start_time)) && { start_time: Number(sentence.start_time) }),
+                    ...(sentence.end_time != null && isFinite(Number(sentence.end_time)) && { end_time: Number(sentence.end_time) })
                 }));
 
                 if (records.length > 0) {

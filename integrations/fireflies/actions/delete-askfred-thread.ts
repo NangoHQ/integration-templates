@@ -48,7 +48,7 @@ const action = createAction({
             retries: 3
         });
 
-        if (response.data && response.data.errors) {
+        if (response.data && response.data.errors && response.data.errors.length > 0) {
             throw new nango.ActionError({
                 type: 'graphql_error',
                 message: 'Failed to delete AskFred thread',

@@ -3,8 +3,11 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     meeting_id: z.string().describe('Meeting ID to share. Example: "abc123"'),
-    emails: z.array(z.string().email()).describe('Email addresses to share with. Up to 50 emails per request.'),
-    expiry_days: z.number().optional().describe('Optional expiry period in days. Allowed values: 7, 14, or 30.')
+    emails: z.array(z.string().email()).max(50).describe('Email addresses to share with. Up to 50 emails per request.'),
+    expiry_days: z
+        .union([z.literal(7), z.literal(14), z.literal(30)])
+        .optional()
+        .describe('Optional expiry period in days. Allowed values: 7, 14, or 30.')
 });
 
 const OutputSchema = z.object({

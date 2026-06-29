@@ -1,36 +1,45 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const InputSchema = z.object({
-    fromDate: z.string().optional().describe('Return all transcripts created after this date. ISO 8601 format. Example: "2024-07-08T22:13:46.660Z"'),
-    toDate: z.string().optional().describe('Return all transcripts created before this date. ISO 8601 format. Example: "2024-07-08T22:13:46.660Z"'),
-    limit: z.number().int().min(1).max(50).optional().describe('Number of transcripts to return. Maximum 50 in one query.'),
-    skip: z.number().int().min(0).optional().describe('Number of transcripts to skip.'),
-    title: z.string().max(256).optional().describe('Deprecated. Use keyword instead. Title of the transcript. Mutually exclusive with keyword.'),
-    keyword: z
-        .string()
-        .max(255)
-        .optional()
-        .describe('Allows searching for keywords in meeting title and/or words spoken during the meeting. Mutually exclusive with title.'),
-    scope: z
-        .enum(['title', 'sentences', 'all'])
-        .optional()
-        .describe('Specify the scope for keyword search. If scope is provided, keyword becomes a required field. Defaults to TITLE if no value is provided.'),
-    user_id: z.string().optional().describe('User id. Filter all meetings that have this user ID as the organizer or participant.'),
-    mine: z.boolean().optional().describe('Filter all meetings that have the API key owner as the organizer.'),
-    organizers: z
-        .array(z.string().max(256))
-        .optional()
-        .describe('Filter meetings that have any of these emails as organizers. Accepts an array of email addresses.'),
-    participants: z
-        .array(z.string().max(256))
-        .optional()
-        .describe('Filter meetings that contain any of these emails as attendees. Accepts an array of email addresses.'),
-    channel_id: z.string().max(256).optional().describe('Filter meetings that belong to a specific channel. Accepts a single channel ID.'),
-    host_email: z.string().optional().describe('Filter all meetings accordingly to meetings that have this email as the host.'),
-    organizer_email: z.string().optional().describe('Deprecated. Use organizers instead. Filter meetings that have this email as the organizer.'),
-    participant_email: z.string().optional().describe('Deprecated. Use participants instead. Filter meetings that contain this email as an attendee.')
-});
+const InputSchema = z
+    .object({
+        fromDate: z.string().optional().describe('Return all transcripts created after this date. ISO 8601 format. Example: "2024-07-08T22:13:46.660Z"'),
+        toDate: z.string().optional().describe('Return all transcripts created before this date. ISO 8601 format. Example: "2024-07-08T22:13:46.660Z"'),
+        limit: z.number().int().min(1).max(50).optional().describe('Number of transcripts to return. Maximum 50 in one query.'),
+        skip: z.number().int().min(0).optional().describe('Number of transcripts to skip.'),
+        title: z.string().max(256).optional().describe('Deprecated. Use keyword instead. Title of the transcript. Mutually exclusive with keyword.'),
+        keyword: z
+            .string()
+            .max(255)
+            .optional()
+            .describe('Allows searching for keywords in meeting title and/or words spoken during the meeting. Mutually exclusive with title.'),
+        scope: z
+            .enum(['title', 'sentences', 'all'])
+            .optional()
+            .describe('Specify the scope for keyword search. If scope is provided, keyword becomes a required field. Defaults to TITLE if no value is provided.'),
+        user_id: z.string().optional().describe('User id. Filter all meetings that have this user ID as the organizer or participant.'),
+        mine: z.boolean().optional().describe('Filter all meetings that have the API key owner as the organizer.'),
+        organizers: z
+            .array(z.string().max(256))
+            .optional()
+            .describe('Filter meetings that have any of these emails as organizers. Accepts an array of email addresses.'),
+        participants: z
+            .array(z.string().max(256))
+            .optional()
+            .describe('Filter meetings that contain any of these emails as attendees. Accepts an array of email addresses.'),
+        channel_id: z.string().max(256).optional().describe('Filter meetings that belong to a specific channel. Accepts a single channel ID.'),
+        host_email: z.string().optional().describe('Filter all meetings accordingly to meetings that have this email as the host.'),
+        organizer_email: z.string().optional().describe('Deprecated. Use organizers instead. Filter meetings that have this email as the organizer.'),
+        participant_email: z.string().optional().describe('Deprecated. Use participants instead. Filter meetings that contain this email as an attendee.')
+    })
+    .refine((data) => !(data.title !== undefined && data.keyword !== undefined), {
+        message: 'title and keyword are mutually exclusive',
+        path: ['title']
+    })
+    .refine((data) => !(data.scope !== undefined && data.keyword === undefined), {
+        message: 'keyword is required when scope is provided',
+        path: ['scope']
+    });
 
 const ProviderChannelSchema = z.object({
     id: z.string().nullish()

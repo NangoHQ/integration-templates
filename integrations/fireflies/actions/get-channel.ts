@@ -13,12 +13,12 @@ const ChannelMemberSchema = z.object({
 
 const ProviderChannelSchema = z.object({
     id: z.string(),
-    title: z.string().optional(),
-    is_private: z.boolean().optional(),
-    created_by: z.string().optional(),
-    created_at: z.string().optional(),
-    updated_at: z.string().optional(),
-    members: z.array(ChannelMemberSchema).optional()
+    title: z.string().nullish(),
+    is_private: z.boolean().nullish(),
+    created_by: z.string().nullish(),
+    created_at: z.string().nullish(),
+    updated_at: z.string().nullish(),
+    members: z.array(ChannelMemberSchema).nullish()
 });
 
 const OutputSchema = z.object({
@@ -76,12 +76,12 @@ const action = createAction({
 
         return {
             id: providerChannel.id,
-            ...(providerChannel.title !== undefined && { title: providerChannel.title }),
-            ...(providerChannel.is_private !== undefined && { is_private: providerChannel.is_private }),
-            ...(providerChannel.created_by !== undefined && { created_by: providerChannel.created_by }),
-            ...(providerChannel.created_at !== undefined && { created_at: providerChannel.created_at }),
-            ...(providerChannel.updated_at !== undefined && { updated_at: providerChannel.updated_at }),
-            ...(providerChannel.members !== undefined && { members: providerChannel.members })
+            ...(providerChannel.title != null && { title: providerChannel.title }),
+            ...(providerChannel.is_private != null && { is_private: providerChannel.is_private }),
+            ...(providerChannel.created_by != null && { created_by: providerChannel.created_by }),
+            ...(providerChannel.created_at != null && { created_at: providerChannel.created_at }),
+            ...(providerChannel.updated_at != null && { updated_at: providerChannel.updated_at }),
+            ...(providerChannel.members != null && { members: providerChannel.members })
         };
     }
 });

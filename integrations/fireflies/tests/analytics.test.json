@@ -369,6 +369,98 @@
               }
             }
           ]
+        },
+        {
+          "id": "2026-06-24T00:00:00.000Z_2026-06-26T00:00:00.000Z",
+          "start_time": "2026-06-24T00:00:00.000Z",
+          "end_time": "2026-06-26T00:00:00.000Z",
+          "team": {
+            "conversation": {
+              "average_filler_words": 0,
+              "average_filler_words_diff_pct": null,
+              "average_monologues_count": 0,
+              "average_monologues_count_diff_pct": null,
+              "average_questions": 0,
+              "average_questions_diff_pct": null,
+              "average_sentiments": {
+                "negative_pct": 0,
+                "neutral_pct": 0,
+                "positive_pct": 0
+              },
+              "average_silence_duration": 0,
+              "average_silence_duration_diff_pct": null,
+              "average_talk_listen_ratio": 0,
+              "average_words_per_minute": 0,
+              "longest_monologue_duration_sec": 0,
+              "longest_monologue_duration_diff_pct": null,
+              "total_filler_words": 0,
+              "total_filler_words_diff_pct": null,
+              "total_meeting_notes_count": 0,
+              "total_meetings_count": 0,
+              "total_monologues_count": 0,
+              "total_monologues_diff_pct": null,
+              "teammates_count": 0,
+              "total_questions": 0,
+              "total_questions_diff_pct": null,
+              "total_silence_duration": 0,
+              "total_silence_duration_diff_pct": null
+            },
+            "meeting": {
+              "count": 0,
+              "count_diff_pct": null,
+              "duration": 0,
+              "duration_diff_pct": null,
+              "average_count": 0,
+              "average_count_diff_pct": null,
+              "average_duration": 0,
+              "average_duration_diff_pct": null
+            }
+          },
+          "users": [
+            {
+              "user_id": "01KW0H2WK4RB0WEB8X3SGX7Q8E",
+              "user_name": "Nango Developer",
+              "user_email": "api@nango.dev",
+              "conversation": {
+                "talk_listen_pct": 0,
+                "talk_listen_ratio": 0,
+                "total_silence_duration": 0,
+                "total_silence_duration_compare_to": 0,
+                "total_silence_pct": 0,
+                "total_silence_ratio": 0,
+                "total_speak_duration": 0,
+                "total_speak_duration_with_user": 0,
+                "total_word_count": 0,
+                "user_filler_words": 0,
+                "user_filler_words_compare_to": 0,
+                "user_filler_words_diff_pct": null,
+                "user_longest_monologue_sec": 0,
+                "user_longest_monologue_compare_to": 0,
+                "user_longest_monologue_diff_pct": null,
+                "user_monologues_count": 0,
+                "user_monologues_count_compare_to": 0,
+                "user_monologues_count_diff_pct": null,
+                "user_questions": 0,
+                "user_questions_compare_to": 0,
+                "user_questions_diff_pct": null,
+                "user_speak_duration": 0,
+                "user_word_count": 0,
+                "user_words_per_minute": 0,
+                "user_words_per_minute_compare_to": 0,
+                "user_words_per_minute_diff_pct": null
+              },
+              "meeting": {
+                "count": 0,
+                "count_diff": 0,
+                "count_diff_compared_to": 0,
+                "count_diff_pct": null,
+                "duration": 0,
+                "duration_diff": 0,
+                "duration_diff_compared_to": 0,
+                "duration_diff_pct": null
+              }
+            }
+          ]
         }
       ]
     },
@@ -881,6 +973,122 @@
           "hash": "f006d66bd36bff5d4bad7b4a1811a90ab950265a",
           "request": {
             "data": "sha1:e62326d8579d6226c18d98742f896c7df6f7642c"
+          }
+        },
+        {
+          "response": {
+            "data": {
+              "analytics": {
+                "team": {
+                  "conversation": {
+                    "average_filler_words": 0,
+                    "average_filler_words_diff_pct": null,
+                    "average_monologues_count": 0,
+                    "average_monologues_count_diff_pct": null,
+                    "average_questions": 0,
+                    "average_questions_diff_pct": null,
+                    "average_sentiments": {
+                      "negative_pct": 0,
+                      "neutral_pct": 0,
+                      "positive_pct": 0
+                    },
+                    "average_silence_duration": 0,
+                    "average_silence_duration_diff_pct": null,
+                    "average_talk_listen_ratio": 0,
+                    "average_words_per_minute": 0,
+                    "longest_monologue_duration_sec": 0,
+                    "longest_monologue_duration_diff_pct": null,
+                    "total_filler_words": 0,
+                    "total_filler_words_diff_pct": null,
+                    "total_meeting_notes_count": 0,
+                    "total_meetings_count": 0,
+                    "total_monologues_count": 0,
+                    "total_monologues_diff_pct": null,
+                    "teammates_count": 0,
+                    "total_questions": 0,
+                    "total_questions_diff_pct": null,
+                    "total_silence_duration": 0,
+                    "total_silence_duration_diff_pct": null
+                  },
+                  "meeting": {
+                    "count": 0,
+                    "count_diff_pct": null,
+                    "duration": 0,
+                    "duration_diff_pct": null,
+                    "average_count": 0,
+                    "average_count_diff_pct": null,
+                    "average_duration": 0,
+                    "average_duration_diff_pct": null
+                  }
+                },
+                "users": [
+                  {
+                    "user_id": "01KW0H2WK4RB0WEB8X3SGX7Q8E",
+                    "user_name": "Nango Developer",
+                    "user_email": "api@nango.dev",
+                    "conversation": {
+                      "talk_listen_pct": 0,
+                      "talk_listen_ratio": 0,
+                      "total_silence_duration": 0,
+                      "total_silence_duration_compare_to": 0,
+                      "total_silence_pct": 0,
+                      "total_silence_ratio": 0,
+                      "total_speak_duration": 0,
+                      "total_speak_duration_with_user": 0,
+                      "total_word_count": 0,
+                      "user_filler_words": 0,
+                      "user_filler_words_compare_to": 0,
+                      "user_filler_words_diff_pct": null,
+                      "user_longest_monologue_sec": 0,
+                      "user_longest_monologue_compare_to": 0,
+                      "user_longest_monologue_diff_pct": null,
+                      "user_monologues_count": 0,
+                      "user_monologues_count_compare_to": 0,
+                      "user_monologues_count_diff_pct": null,
+                      "user_questions": 0,
+                      "user_questions_compare_to": 0,
+                      "user_questions_diff_pct": null,
+                      "user_speak_duration": 0,
+                      "user_word_count": 0,
+                      "user_words_per_minute": 0,
+                      "user_words_per_minute_compare_to": 0,
+                      "user_words_per_minute_diff_pct": null
+                    },
+                    "meeting": {
+                      "count": 0,
+                      "count_diff": 0,
+                      "count_diff_compared_to": 0,
+                      "count_diff_pct": null,
+                      "duration": 0,
+                      "duration_diff": 0,
+                      "duration_diff_compared_to": 0,
+                      "duration_diff_pct": null
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "status": 200,
+          "headers": {
+            "date": "Fri, 26 Jun 2026 01:58:09 GMT",
+            "content-type": "application/json; charset=utf-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=31536000; includeSubDomains",
+            "access-control-allow-origin": "*",
+            "cache-control": "no-store",
+            "cf-cache-status": "DYNAMIC",
+            "server": "cloudflare"
+          },
+          "hash": "dea65794ed274657552058569a75e1288ae282e3",
+          "request": {
+            "data": "sha1:934b07c39aaa2549264f7fea07c6ee59044375e2"
           }
         }
       ]

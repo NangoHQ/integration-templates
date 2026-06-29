@@ -46,7 +46,6 @@ const sync = createSync({
 
     exec: async (nango) => {
         // Blocker: the channels query has no arguments, no pagination, and no changed-since filter.
-        await nango.trackDeletesStart('Channel');
 
         // https://docs.fireflies.ai/graphql-api/query/channels
         const response = await nango.post({
@@ -62,7 +61,11 @@ const sync = createSync({
             throw new Error('Failed to parse channels response');
         }
 
-        const channels = parsed.data.data?.channels ?? [];
+        const channels = parsed.data.data?.channels;
+        if (channels === undefined) {
+            throw new Error('Missing channels array in Fireflies API response');
+        }
+
         const records = channels.map((channel) => ({
             id: channel.id,
             ...(channel.title != null && { title: channel.title }),
@@ -71,6 +74,8 @@ const sync = createSync({
             ...(channel.created_by != null && { created_by: channel.created_by }),
             ...(channel.is_private != null && { is_private: channel.is_private })
         }));
+
+        await nango.trackDeletesStart('Channel');
 
         if (records.length > 0) {
             await nango.batchSave(records, 'Channel');

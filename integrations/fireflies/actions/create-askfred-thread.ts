@@ -11,7 +11,7 @@ const AskFredMeetingFiltersInputSchema = z.object({
 });
 
 const InputSchema = z.object({
-    query: z.string().describe('Question or query about the meeting(s). Maximum 2000 characters. Example: "What were the main action items?"'),
+    query: z.string().max(2000).describe('Question or query about the meeting(s). Maximum 2000 characters. Example: "What were the main action items?"'),
     transcript_id: z.string().optional().describe('Specific transcript ID to query. If provided, filters are ignored.'),
     filters: AskFredMeetingFiltersInputSchema.optional().describe('Filters to search across multiple meetings. Only used when transcript_id is not provided.'),
     response_language: z.string().optional().describe('Language code for the response (e.g., "en", "es").'),
@@ -90,9 +90,7 @@ const action = createAction({
 
         if (input.transcript_id !== undefined) {
             variables['transcript_id'] = input.transcript_id;
-        }
-
-        if (input.filters !== undefined) {
+        } else if (input.filters !== undefined) {
             variables['filters'] = input.filters;
         }
 

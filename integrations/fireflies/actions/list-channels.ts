@@ -1,9 +1,21 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-function isRecord(value: unknown): value is Record<string, unknown> {
-    return value !== null && typeof value === 'object';
-}
+const ChannelMemberProviderSchema = z.object({
+    user_id: z.string().nullable().optional(),
+    email: z.string().nullable().optional(),
+    name: z.string().nullable().optional()
+});
+
+const ChannelProviderSchema = z.object({
+    id: z.string(),
+    title: z.string().nullable().optional(),
+    created_at: z.string().nullable().optional(),
+    updated_at: z.string().nullable().optional(),
+    created_by: z.string().nullable().optional(),
+    is_private: z.boolean().nullable().optional(),
+    members: z.array(ChannelMemberProviderSchema).nullable().optional()
+});
 
 const ChannelMemberSchema = z.object({
     user_id: z.string().describe('User ID. Example: "user-id-1"'),
@@ -23,6 +35,16 @@ const ChannelSchema = z.object({
 
 const OutputSchema = z.object({
     channels: z.array(ChannelSchema)
+});
+
+const GraphQLResponseSchema = z.object({
+    data: z
+        .object({
+            channels: z.array(ChannelProviderSchema)
+        })
+        .nullable()
+        .optional(),
+    errors: z.array(z.object({ message: z.string() })).optional()
 });
 
 const action = createAction({
@@ -55,72 +77,59 @@ const action = createAction({
             retries: 3
         });
 
-        const rawData = response.data;
-        if (!rawData || typeof rawData !== 'object' || !('data' in rawData)) {
+        const parsed = GraphQLResponseSchema.safeParse(response.data);
+        if (!parsed.success) {
             throw new nango.ActionError({
                 type: 'invalid_response',
                 message: 'Unexpected response from Fireflies API'
             });
         }
 
-        const channelsArray =
-            rawData &&
-            typeof rawData === 'object' &&
-            'data' in rawData &&
-            rawData['data'] &&
-            typeof rawData['data'] === 'object' &&
-            'channels' in rawData['data'] &&
-            Array.isArray(rawData['data']['channels'])
-                ? rawData['data']['channels']
-                : null;
+        if (parsed.data.errors && parsed.data.errors.length > 0) {
+            throw new nango.ActionError({
+                type: 'graphql_error',
+                message: parsed.data.errors[0]!.message
+            });
+        }
 
-        if (!channelsArray) {
+        const channelsData = parsed.data.data?.channels;
+        if (!channelsData) {
             throw new nango.ActionError({
                 type: 'invalid_response',
                 message: 'Expected channels array in response'
             });
         }
 
-        const channels = channelsArray.map((item: unknown) => {
-            if (!isRecord(item)) {
+        const channels = channelsData.map((channel) => {
+            if (channel.title == null || channel.created_at == null || channel.updated_at == null || channel.created_by == null || channel.is_private == null) {
                 throw new nango.ActionError({
                     type: 'invalid_response',
-                    message: 'Invalid channel item in response'
+                    message: `Channel ${channel.id} is missing required fields`
                 });
             }
 
-            const channel = item;
-            const members = Array.isArray(channel['members'])
-                ? channel['members'].map((member: unknown) => {
-                      if (!isRecord(member)) {
-                          throw new nango.ActionError({
-                              type: 'invalid_response',
-                              message: 'Invalid member item in response'
-                          });
-                      }
-                      const m = member;
-                      return {
-                          user_id: typeof m['user_id'] === 'string' ? m['user_id'] : '',
-                          email: typeof m['email'] === 'string' ? m['email'] : '',
-                          name: typeof m['name'] === 'string' ? m['name'] : ''
-                      };
-                  })
-                : [];
+            const members = (channel.members ?? []).map((member) => {
+                if (member.user_id == null || member.email == null || member.name == null) {
+                    throw new nango.ActionError({
+                        type: 'invalid_response',
+                        message: `Channel ${channel.id} has a member missing required fields`
+                    });
+                }
+                return { user_id: member.user_id, email: member.email, name: member.name };
+            });
 
             return {
-                id: typeof channel['id'] === 'string' ? channel['id'] : '',
-                title: typeof channel['title'] === 'string' ? channel['title'] : '',
-                created_at: typeof channel['created_at'] === 'string' ? channel['created_at'] : '',
-                updated_at: typeof channel['updated_at'] === 'string' ? channel['updated_at'] : '',
-                created_by: typeof channel['created_by'] === 'string' ? channel['created_by'] : '',
-                is_private: typeof channel['is_private'] === 'boolean' ? channel['is_private'] : false,
+                id: channel.id,
+                title: channel.title,
+                created_at: channel.created_at,
+                updated_at: channel.updated_at,
+                created_by: channel.created_by,
+                is_private: channel.is_private,
                 members
             };
         });
 
-        return {
-            channels
-        };
+        return { channels };
     }
 });
 

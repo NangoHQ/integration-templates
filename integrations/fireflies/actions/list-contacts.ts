@@ -46,14 +46,33 @@ const action = createAction({
             });
         }
 
-        const graphqlWrapper = z.object({ data: z.object({ contacts: z.array(z.unknown()) }) }).safeParse(data);
+        const graphqlWrapper = z
+            .object({
+                data: z.object({ contacts: z.array(z.unknown()) }).nullable().optional(),
+                errors: z.array(z.object({ message: z.string() })).optional()
+            })
+            .safeParse(data);
         if (!graphqlWrapper.success) {
             throw new nango.ActionError({
                 type: 'invalid_response',
                 message: 'Expected contacts array in GraphQL response'
             });
         }
-        const contacts = graphqlWrapper.data.data.contacts;
+
+        if (graphqlWrapper.data.errors && graphqlWrapper.data.errors.length > 0) {
+            throw new nango.ActionError({
+                type: 'graphql_error',
+                message: graphqlWrapper.data.errors[0]!.message
+            });
+        }
+
+        const contacts = graphqlWrapper.data.data?.contacts;
+        if (!contacts) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Expected contacts array in GraphQL response'
+            });
+        }
 
         const parsedContacts = contacts.map((contact) => {
             const parsed = ProviderContactSchema.safeParse(contact);

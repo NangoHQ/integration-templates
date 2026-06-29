@@ -65,7 +65,7 @@ const action = createAction({
     output: BiteSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof BiteSchema>> => {
-        const formatString = (value: string): string => `"${value.replace(/"/g, '\\"')}"`;
+        const formatString = (value: string): string => JSON.stringify(value);
         const formatNumber = (value: number): string => String(value);
         const formatStringArray = (value: string[]): string => `[${value.map(formatString).join(',')}]`;
 

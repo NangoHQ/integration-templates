@@ -42,15 +42,15 @@ const ProviderBiteUserSchema = z.object({
 
 const ProviderBiteSchema = z.object({
     id: z.string(),
-    name: z.string().optional(),
-    transcript_id: z.string().optional(),
-    start_time: z.string().optional(),
-    end_time: z.string().optional(),
-    status: z.string().optional(),
-    summary: z.string().optional(),
-    user_id: z.string().optional(),
-    user: ProviderBiteUserSchema.optional(),
-    created_at: z.string().optional()
+    name: z.string().nullable().optional(),
+    transcript_id: z.string().nullable().optional(),
+    start_time: z.union([z.string(), z.number()]).nullable().optional(),
+    end_time: z.union([z.string(), z.number()]).nullable().optional(),
+    status: z.string().nullable().optional(),
+    summary: z.string().nullable().optional(),
+    user_id: z.string().nullable().optional(),
+    user: ProviderBiteUserSchema.nullable().optional(),
+    created_at: z.string().nullable().optional()
 });
 
 const ProviderResponseSchema = z.object({
@@ -141,14 +141,14 @@ const action = createAction({
 
         return providerData.map((bite) => ({
             id: bite.id,
-            ...(bite.name !== undefined && { name: bite.name }),
-            ...(bite.transcript_id !== undefined && { transcript_id: bite.transcript_id }),
-            ...(bite.start_time !== undefined && { start_time: bite.start_time }),
-            ...(bite.end_time !== undefined && { end_time: bite.end_time }),
-            ...(bite.status !== undefined && { status: bite.status }),
-            ...(bite.summary !== undefined && { summary: bite.summary }),
-            ...(bite.user_id !== undefined && { user_id: bite.user_id }),
-            ...(bite.user !== undefined && {
+            ...(bite.name != null && { name: bite.name }),
+            ...(bite.transcript_id != null && { transcript_id: bite.transcript_id }),
+            ...(bite.start_time != null && { start_time: String(bite.start_time) }),
+            ...(bite.end_time != null && { end_time: String(bite.end_time) }),
+            ...(bite.status != null && { status: bite.status }),
+            ...(bite.summary != null && { summary: bite.summary }),
+            ...(bite.user_id != null && { user_id: bite.user_id }),
+            ...(bite.user != null && {
                 user: {
                     id: bite.user.id,
                     name: bite.user.name,
@@ -157,7 +157,7 @@ const action = createAction({
                     ...(bite.user.picture !== undefined && { picture: bite.user.picture })
                 }
             }),
-            ...(bite.created_at !== undefined && { created_at: bite.created_at })
+            ...(bite.created_at != null && { created_at: bite.created_at })
         }));
     }
 });

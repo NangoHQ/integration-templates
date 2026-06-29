@@ -22,7 +22,6 @@ const sync = createSync({
 
     exec: async (nango) => {
         // Blocker: provider contacts query has no filter, pagination, or cursor arguments.
-        await nango.trackDeletesStart('Contact');
 
         // https://docs.fireflies.ai/graphql-api/query/contacts
         const response = await nango.post({
@@ -61,6 +60,8 @@ const sync = createSync({
                 ...(contact.last_meeting_date != null && { last_meeting_date: contact.last_meeting_date })
             };
         });
+
+        await nango.trackDeletesStart('Contact');
 
         if (contacts.length > 0) {
             await nango.batchSave(contacts, 'Contact');

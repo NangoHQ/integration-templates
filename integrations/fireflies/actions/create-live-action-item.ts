@@ -15,6 +15,7 @@ const ProviderResponseSchema = z.object({
                 })
                 .optional()
         })
+        .nullable()
         .optional(),
     errors: z
         .array(

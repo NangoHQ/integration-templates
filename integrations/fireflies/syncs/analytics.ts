@@ -148,9 +148,9 @@ const sync = createSync({
             }
         `;
 
-        while (currentStartTime.getTime() + SEVEN_DAYS_MS <= now.getTime()) {
+        while (currentStartTime.getTime() < now.getTime()) {
             const startTimeIso = currentStartTime.toISOString();
-            const endTime = new Date(currentStartTime.getTime() + SEVEN_DAYS_MS);
+            const endTime = new Date(Math.min(currentStartTime.getTime() + SEVEN_DAYS_MS, now.getTime()));
             const endTimeIso = endTime.toISOString();
 
             const proxyConfig: ProxyConfiguration = {

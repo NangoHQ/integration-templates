@@ -98,13 +98,24 @@ const action = createAction({
 
         const parsed = z
             .object({
-                data: z.object({
-                    user: ProviderUserSchema.nullable()
-                })
+                data: z
+                    .object({
+                        user: ProviderUserSchema.nullable()
+                    })
+                    .nullable()
+                    .optional(),
+                errors: z.array(z.object({ message: z.string() })).optional()
             })
             .parse(response.data);
 
-        if (!parsed.data.user) {
+        if (parsed.errors && parsed.errors.length > 0) {
+            throw new nango.ActionError({
+                type: 'graphql_error',
+                message: parsed.errors[0]!.message
+            });
+        }
+
+        if (!parsed.data?.user) {
             throw new nango.ActionError({
                 type: 'not_found',
                 message: 'User not found'
