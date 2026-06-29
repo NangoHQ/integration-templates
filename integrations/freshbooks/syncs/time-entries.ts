@@ -23,7 +23,7 @@ const CheckpointSchema = z.object({
 });
 
 const MetadataSchema = z.object({
-    business_id: z.string()
+    businessId: z.union([z.string(), z.number()])
 });
 
 const ProviderTimeEntrySchema = z.object({
@@ -61,8 +61,8 @@ const sync = createSync({
 
     exec: async (nango) => {
         const metadata = await nango.getMetadata();
-        if (!metadata?.business_id) {
-            throw new Error('business_id is required in metadata');
+        if (!metadata?.businessId) {
+            throw new Error('businessId is required in metadata');
         }
 
         const checkpoint = await nango.getCheckpoint();
@@ -74,7 +74,7 @@ const sync = createSync({
 
         const proxyConfig: ProxyConfiguration = {
             // https://www.freshbooks.com/api/time_entries
-            endpoint: `/timetracking/business/${encodeURIComponent(metadata.business_id)}/time_entries`,
+            endpoint: `/timetracking/business/${encodeURIComponent(String(metadata.businessId))}/time_entries`,
             params,
             paginate: {
                 type: 'offset',
@@ -87,6 +87,8 @@ const sync = createSync({
             },
             retries: 3
         };
+
+        let hasEntries = false;
 
         for await (const page of nango.paginate(proxyConfig)) {
             const validated = z.array(ProviderTimeEntrySchema).safeParse(page);
@@ -118,6 +120,10 @@ const sync = createSync({
             }
 
             await nango.batchSave(timeEntries, 'TimeEntry');
+            hasEntries = true;
+        }
+
+        if (hasEntries) {
             await nango.saveCheckpoint({
                 updated_after: syncStartTime
             });

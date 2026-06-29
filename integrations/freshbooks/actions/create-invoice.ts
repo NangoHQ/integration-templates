@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const MetadataSchema = z.object({
-    account_id: z.string().describe('FreshBooks account identifier. Example: "ZyQ04o"')
+    accountId: z.string().describe('FreshBooks account identifier. Example: "ZyQ04o"')
 });
 
 const UnitCostInputSchema = z.object({
@@ -98,7 +98,7 @@ const action = createAction({
                 message: 'accountId is required in connection metadata.'
             });
         }
-        const accountId = metadataResult.data.account_id;
+        const accountId = metadataResult.data.accountId;
 
         const invoiceBody: Record<string, unknown> = {
             customerid: input.customerid,

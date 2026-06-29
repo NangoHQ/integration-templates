@@ -1,6 +1,10 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+const MetadataSchema = z.object({
+    businessId: z.union([z.string(), z.number()]).optional()
+});
+
 const InputSchema = z.object({
     cursor: z.string().optional().describe('Pagination cursor (page number). Omit for the first page.'),
     per_page: z.number().int().min(1).max(30).optional().describe('Number of items per page. Max 30.')
@@ -49,25 +53,21 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    metadata: MetadataSchema,
     scopes: ['user:projects:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const MetadataSchema = z
-            .object({
-                business_id: z.union([z.string(), z.number()]).optional()
-            })
-            .passthrough();
+        const rawMetadata = await nango.getMetadata();
+        const parsedMetadata = MetadataSchema.safeParse(rawMetadata);
 
-        const metadata = MetadataSchema.parse(await nango.getMetadata());
-        const businessId = metadata.business_id;
-
-        if (!businessId) {
+        if (!parsedMetadata.success || !parsedMetadata.data.businessId) {
             throw new nango.ActionError({
                 type: 'missing_metadata',
-                message: 'business_id is required in connection metadata. Run get-account-id first.'
+                message: 'businessId is required in connection metadata. Run get-account-id first.'
             });
         }
 
+        const businessId = String(parsedMetadata.data.businessId);
         const page = input.cursor !== undefined ? parseInt(input.cursor, 10) : 1;
         if (Number.isNaN(page) || page < 1) {
             throw new nango.ActionError({
@@ -80,7 +80,7 @@ const action = createAction({
 
         // https://www.freshbooks.com/api/project
         const response = await nango.get({
-            endpoint: `/projects/business/${encodeURIComponent(String(businessId))}/projects`,
+            endpoint: `/projects/business/${encodeURIComponent(businessId)}/projects`,
             params: {
                 page: String(page),
                 per_page: String(perPage)
@@ -88,11 +88,18 @@ const action = createAction({
             retries: 3
         });
 
-        const listData = ListResponseSchema.parse(response.data);
-        const hasNextPage = listData.meta.page < listData.meta.pages;
+        const listData = ListResponseSchema.safeParse(response.data);
+        if (!listData.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Unexpected response format from FreshBooks API.'
+            });
+        }
+
+        const hasNextPage = listData.data.meta.page < listData.data.meta.pages;
 
         return {
-            items: listData.projects,
+            items: listData.data.projects,
             ...(hasNextPage && { next_cursor: String(page + 1) })
         };
     }

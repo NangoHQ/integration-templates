@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const MetadataSchema = z.object({
-    businessId: z.union([z.string(), z.number()]).describe('FreshBooks business ID. Example: 14719708')
+    businessId: z.union([z.string(), z.number()]).optional().describe('FreshBooks business ID. Example: 14719708')
 });
 
 const InputSchema = z.object({

@@ -72,6 +72,8 @@ const sync = createSync({
             params['search[updated_since]'] = checkpoint.updated_after;
         }
 
+        let maxUpdated: string | undefined;
+
         // https://www.freshbooks.com/api
         for await (const pageResults of nango.paginate<z.infer<typeof _FreshBooksExpenseSchema>>({
             endpoint: `/accounting/account/${encodeURIComponent(metadata.accountId)}/expenses/expenses`,
@@ -91,7 +93,6 @@ const sync = createSync({
             retries: 3
         })) {
             const expenses = [];
-            let maxUpdated: string | undefined;
 
             for (const expense of pageResults) {
                 expenses.push({
@@ -117,13 +118,13 @@ const sync = createSync({
 
             if (expenses.length > 0) {
                 await nango.batchSave(expenses, 'Expense');
-
-                if (maxUpdated) {
-                    await nango.saveCheckpoint({
-                        updated_after: maxUpdated
-                    });
-                }
             }
+        }
+
+        if (maxUpdated) {
+            await nango.saveCheckpoint({
+                updated_after: maxUpdated
+            });
         }
     }
 });

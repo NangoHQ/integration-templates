@@ -60,27 +60,27 @@ const ProviderExpenseSchema = z
 
 const OutputSchema = ProviderExpenseSchema;
 
+const MetadataSchema = z.object({
+    accountId: z.string().describe('FreshBooks account ID. Example: "ZyQ04o"')
+});
+
 const action = createAction({
     description: 'Retrieve a single expense.',
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    metadata: MetadataSchema,
     scopes: ['user:expenses:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const metadata = await nango.getMetadata();
-        const metadataResult = z
-            .object({
-                account_id: z.string()
-            })
-            .safeParse(metadata);
-
-        const accountId = metadataResult.data?.account_id;
+        const metadataResult = MetadataSchema.safeParse(metadata);
+        const accountId = metadataResult.data?.accountId;
 
         if (!accountId) {
             throw new nango.ActionError({
                 type: 'invalid_metadata',
-                message: 'account_id is required in connection metadata.'
+                message: 'accountId is required in connection metadata.'
             });
         }
 

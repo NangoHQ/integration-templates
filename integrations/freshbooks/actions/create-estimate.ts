@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const MetadataSchema = z.object({
-    account_id: z.string().describe('FreshBooks account ID. Example: "ZyQ04o"')
+    accountId: z.string().describe('FreshBooks account ID. Example: "ZyQ04o"')
 });
 
 const LineInputSchema = z.object({
@@ -73,11 +73,11 @@ const action = createAction({
         if (!metaResult.success) {
             throw new nango.ActionError({
                 type: 'invalid_metadata',
-                message: 'Missing or invalid account_id in connection metadata.'
+                message: 'Missing or invalid accountId in connection metadata.'
             });
         }
 
-        const accountId = metaResult.data.account_id;
+        const accountId = metaResult.data.accountId;
 
         const response = await nango.post({
             // https://www.freshbooks.com/api
@@ -108,8 +108,14 @@ const action = createAction({
             });
         }
 
-        const parsedResponse = FreshBooksCreateEstimateResponseSchema.parse(response.data);
-        const estimate = parsedResponse.response.result.estimate;
+        const parsedResponseResult = FreshBooksCreateEstimateResponseSchema.safeParse(response.data);
+        if (!parsedResponseResult.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Unexpected response format from FreshBooks API.'
+            });
+        }
+        const estimate = parsedResponseResult.data.response.result.estimate;
 
         return {
             id: estimate.id,

@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const MetadataSchema = z.object({
-    account_id: z.string()
+    accountId: z.string()
 });
 
 const InputSchema = z.object({
@@ -65,7 +65,7 @@ const action = createAction({
             });
         }
 
-        const accountId = metadataResult.data.account_id;
+        const accountId = metadataResult.data.accountId;
         const page = input.cursor ? parseInt(input.cursor, 10) : 1;
         if (Number.isNaN(page) || page < 1) {
             throw new nango.ActionError({

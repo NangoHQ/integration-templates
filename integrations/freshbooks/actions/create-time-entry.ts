@@ -2,21 +2,23 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const MetadataSchema = z.object({
-    business_id: z.union([z.number(), z.string()]).optional(),
-    account_id: z.string().optional()
+    businessId: z.union([z.number(), z.string()]).optional(),
+    accountId: z.string().optional()
 });
 
 const UserMeSchema = z.object({
-    business_memberships: z
-        .array(
-            z.object({
-                business: z.object({
-                    account_id: z.string(),
-                    id: z.union([z.number(), z.string()])
+    response: z.object({
+        business_memberships: z
+            .array(
+                z.object({
+                    business: z.object({
+                        account_id: z.string(),
+                        id: z.union([z.number(), z.string()])
+                    })
                 })
-            })
-        )
-        .optional()
+            )
+            .optional()
+    })
 });
 
 const InputSchema = z.object({
@@ -94,8 +96,8 @@ const action = createAction({
         const metadata = MetadataSchema.safeParse(rawMetadata);
 
         let businessId: string | number | undefined;
-        if (metadata.success && metadata.data.business_id !== undefined) {
-            businessId = metadata.data.business_id;
+        if (metadata.success && metadata.data.businessId !== undefined) {
+            businessId = metadata.data.businessId;
         }
 
         if (!businessId) {
@@ -106,7 +108,7 @@ const action = createAction({
             });
 
             const userData = UserMeSchema.parse(userResponse.data);
-            const fetchedBusinessId = userData.business_memberships?.[0]?.business?.id;
+            const fetchedBusinessId = userData.response.business_memberships?.[0]?.business?.id;
             if (!fetchedBusinessId) {
                 throw new nango.ActionError({
                     type: 'missing_business_id',

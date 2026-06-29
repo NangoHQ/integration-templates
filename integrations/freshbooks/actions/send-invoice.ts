@@ -18,7 +18,7 @@ const ProviderInvoiceSchema = z
 const OutputSchema = ProviderInvoiceSchema;
 
 const MetadataSchema = z.object({
-    account_id: z.string()
+    accountId: z.string()
 });
 
 const FreshBooksResponseSchema = z.object({
@@ -38,12 +38,12 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const metadata = await nango.getMetadata();
-        const accountId = metadata?.account_id;
+        const accountId = metadata?.accountId;
 
         if (!accountId || typeof accountId !== 'string') {
             throw new nango.ActionError({
                 type: 'invalid_metadata',
-                message: 'account_id is required in connection metadata. Run get-account-id first.'
+                message: 'accountId is required in connection metadata. Run get-account-id first.'
             });
         }
 

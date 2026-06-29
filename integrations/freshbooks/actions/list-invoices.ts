@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const MetadataSchema = z.object({
-    account_id: z.string().optional()
+    accountId: z.string().optional()
 });
 
 const InputSchema = z.object({
@@ -44,7 +44,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const metadata = MetadataSchema.parse(await nango.getMetadata());
-        const accountId = metadata.account_id;
+        const accountId = metadata.accountId;
 
         if (!accountId) {
             throw new nango.ActionError({

@@ -6,7 +6,7 @@ const InputSchema = z.object({
 });
 
 const MetadataSchema = z.object({
-    business_id: z.union([z.string(), z.number()]).optional()
+    businessId: z.union([z.string(), z.number()]).optional()
 });
 
 const ProviderGroupMemberSchema = z.object({
@@ -23,7 +23,7 @@ const ProviderGroupMemberSchema = z.object({
 const ProviderGroupSchema = z.object({
     id: z.number(),
     members: z.array(ProviderGroupMemberSchema),
-    pending_invitations: z.union([z.array(z.unknown()), z.null()])
+    pending_invitations: z.array(z.unknown()).nullable()
 });
 
 const ProviderProjectSchema = z.object({
@@ -34,8 +34,6 @@ const ProviderProjectSchema = z.object({
     client_id: z.number().nullable().optional(),
     internal: z.boolean(),
     budget: z.number().nullable().optional(),
-    fixed_price: z.number().nullable().optional(),
-    rate: z.number().nullable().optional(),
     billing_method: z.string(),
     project_type: z.string(),
     project_manager_id: z.number().nullable().optional(),
@@ -51,6 +49,8 @@ const ProviderProjectSchema = z.object({
     retainer_id: z.number().nullable().optional(),
     expense_markup: z.string(),
     service_estimate_type: z.string(),
+    fixed_price: z.string().nullable().optional(),
+    rate: z.string().nullable().optional(),
     group: ProviderGroupSchema.optional()
 });
 
@@ -66,14 +66,14 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const metadataRaw = await nango.getMetadata();
         const metadata = MetadataSchema.safeParse(metadataRaw);
-        if (!metadata.success || !metadata.data.business_id) {
+        if (!metadata.success || !metadata.data.businessId) {
             throw new nango.ActionError({
                 type: 'invalid_metadata',
-                message: 'business_id is required in connection metadata.'
+                message: 'businessId is required in connection metadata.'
             });
         }
 
-        const businessId = String(metadata.data.business_id);
+        const businessId = String(metadata.data.businessId);
         const projectId = String(input.projectId);
 
         const response = await nango.get({

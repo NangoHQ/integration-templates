@@ -11,11 +11,11 @@ const InputSchema = z.object({
     email: z.string().describe('Email address. Example: "alice@example.com"'),
     organization: z.string().optional().describe('Company or organization name. Example: "Builder LLC"'),
     phone: z.string().optional().describe('Phone number.'),
-    pstreet: z.string().optional().describe('Primary address street.'),
-    pcity: z.string().optional().describe('Primary address city.'),
-    pprovince: z.string().optional().describe('Primary address province or state.'),
-    pcountry: z.string().optional().describe('Primary address country.'),
-    pcode: z.string().optional().describe('Primary address postal code.')
+    p_street: z.string().optional().describe('Primary address street.'),
+    p_city: z.string().optional().describe('Primary address city.'),
+    p_province: z.string().optional().describe('Primary address province or state.'),
+    p_country: z.string().optional().describe('Primary address country.'),
+    p_code: z.string().optional().describe('Primary address postal code.')
 });
 
 const ProviderClientSchema = z.object({
@@ -25,11 +25,11 @@ const ProviderClientSchema = z.object({
     email: z.string().optional().nullable(),
     organization: z.string().optional().nullable(),
     phone: z.string().optional().nullable(),
-    pstreet: z.string().optional().nullable(),
-    pcity: z.string().optional().nullable(),
-    pprovince: z.string().optional().nullable(),
-    pcountry: z.string().optional().nullable(),
-    pcode: z.string().optional().nullable()
+    p_street: z.string().optional().nullable(),
+    p_city: z.string().optional().nullable(),
+    p_province: z.string().optional().nullable(),
+    p_country: z.string().optional().nullable(),
+    p_code: z.string().optional().nullable()
 });
 
 const OutputSchema = z.object({
@@ -39,11 +39,11 @@ const OutputSchema = z.object({
     email: z.string().optional(),
     organization: z.string().optional(),
     phone: z.string().optional(),
-    pstreet: z.string().optional(),
-    pcity: z.string().optional(),
-    pprovince: z.string().optional(),
-    pcountry: z.string().optional(),
-    pcode: z.string().optional()
+    p_street: z.string().optional(),
+    p_city: z.string().optional(),
+    p_province: z.string().optional(),
+    p_country: z.string().optional(),
+    p_code: z.string().optional()
 });
 
 const action = createAction({
@@ -75,11 +75,11 @@ const action = createAction({
                     email: input.email,
                     ...(input.organization !== undefined && { organization: input.organization }),
                     ...(input.phone !== undefined && { phone: input.phone }),
-                    ...(input.pstreet !== undefined && { pstreet: input.pstreet }),
-                    ...(input.pcity !== undefined && { pcity: input.pcity }),
-                    ...(input.pprovince !== undefined && { pprovince: input.pprovince }),
-                    ...(input.pcountry !== undefined && { pcountry: input.pcountry }),
-                    ...(input.pcode !== undefined && { pcode: input.pcode })
+                    ...(input.p_street !== undefined && { p_street: input.p_street }),
+                    ...(input.p_city !== undefined && { p_city: input.p_city }),
+                    ...(input.p_province !== undefined && { p_province: input.p_province }),
+                    ...(input.p_country !== undefined && { p_country: input.p_country }),
+                    ...(input.p_code !== undefined && { p_code: input.p_code })
                 }
             },
             retries: 1
@@ -120,11 +120,11 @@ const action = createAction({
             ...(client.email != null && { email: client.email }),
             ...(client.organization != null && { organization: client.organization }),
             ...(client.phone != null && { phone: client.phone }),
-            ...(client.pstreet != null && { pstreet: client.pstreet }),
-            ...(client.pcity != null && { pcity: client.pcity }),
-            ...(client.pprovince != null && { pprovince: client.pprovince }),
-            ...(client.pcountry != null && { pcountry: client.pcountry }),
-            ...(client.pcode != null && { pcode: client.pcode })
+            ...(client.p_street != null && { p_street: client.p_street }),
+            ...(client.p_city != null && { p_city: client.p_city }),
+            ...(client.p_province != null && { p_province: client.p_province }),
+            ...(client.p_country != null && { p_country: client.p_country }),
+            ...(client.p_code != null && { p_code: client.p_code })
         };
     }
 });

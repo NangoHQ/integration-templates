@@ -6,7 +6,7 @@ const InputSchema = z.object({
 });
 
 const MetadataSchema = z.object({
-    business_id: z.string().describe('Business ID from connection metadata. Example: "14719708"')
+    businessId: z.union([z.string(), z.number()]).describe('Business ID from connection metadata. Example: 14719708')
 });
 
 const TimeEntrySchema = z
@@ -54,15 +54,16 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const rawMetadata = await nango.getMetadata();
-        const parsedMetadata = MetadataSchema.parse(rawMetadata);
-        const businessId = parsedMetadata.business_id;
+        const parsedMetadata = MetadataSchema.safeParse(rawMetadata);
 
-        if (!businessId) {
+        if (!parsedMetadata.success || !parsedMetadata.data.businessId) {
             throw new nango.ActionError({
                 type: 'invalid_metadata',
-                message: 'business_id is required in connection metadata.'
+                message: 'businessId is required in connection metadata.'
             });
         }
+
+        const businessId = String(parsedMetadata.data.businessId);
 
         const response = await nango.get({
             // https://www.freshbooks.com/api

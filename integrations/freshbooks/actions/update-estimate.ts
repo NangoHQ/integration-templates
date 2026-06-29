@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const MetadataSchema = z.object({
-    account_id: z.string().describe('FreshBooks account identifier. Example: "ZyQ04o"')
+    accountId: z.string().describe('FreshBooks account identifier. Example: "ZyQ04o"')
 });
 
 const MoneySchema = z.object({
@@ -72,7 +72,7 @@ const ProviderEstimateSchema = z.object({
     ownerid: z.number(),
     vat_number: z.string(),
     id: z.number(),
-    vat_name: z.string(),
+    vat_name: z.string().nullable().optional(),
     ui_status: z.string(),
     invoiced: z.boolean(),
     reply_status: z.string().nullable().optional(),
@@ -147,7 +147,7 @@ const OutputSchema = z.object({
     province: z.string().optional(),
     country: z.string().optional(),
     code: z.string().optional(),
-    vat_name: z.string().optional(),
+    vat_name: z.string().nullable().optional(),
     vat_number: z.string().optional(),
     updated: z.string().optional(),
     created_at: z.string().optional(),
@@ -163,8 +163,8 @@ const action = createAction({
     scopes: ['user:estimates:write'],
 
     exec: async (nango, input) => {
-        const metadata = await nango.getMetadata<{ account_id?: string }>();
-        const accountId = metadata?.account_id;
+        const metadata = await nango.getMetadata<{ accountId?: string }>();
+        const accountId = metadata?.accountId;
 
         if (!accountId) {
             throw new nango.ActionError({
@@ -239,7 +239,7 @@ const action = createAction({
             ...(estimate.province !== '' && { province: estimate.province }),
             ...(estimate.country !== '' && { country: estimate.country }),
             ...(estimate.code !== '' && { code: estimate.code }),
-            ...(estimate.vat_name !== '' && { vat_name: estimate.vat_name }),
+            ...(estimate.vat_name != null && estimate.vat_name !== '' && { vat_name: estimate.vat_name }),
             ...(estimate.vat_number !== '' && { vat_number: estimate.vat_number }),
             updated: estimate.updated,
             created_at: estimate.created_at,

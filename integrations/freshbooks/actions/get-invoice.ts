@@ -99,9 +99,22 @@ const action = createAction({
             retries: 3
         });
 
-        const parsed = ResponseSchema.parse(response.data);
+        if (!response.data) {
+            throw new nango.ActionError({
+                type: 'not_found',
+                message: 'Invoice not found.'
+            });
+        }
 
-        return parsed.response.result.invoice;
+        const parsed = ResponseSchema.safeParse(response.data);
+        if (!parsed.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Unexpected response format from FreshBooks API.'
+            });
+        }
+
+        return parsed.data.response.result.invoice;
     }
 });
 

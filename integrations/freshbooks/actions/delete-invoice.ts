@@ -6,16 +6,29 @@ const MetadataSchema = z.object({
 });
 
 const InputSchema = z.object({
-    invoiceId: z.number().describe('Invoice ID to delete. Example: 453877')
+    invoiceId: z.number().describe('Invoice ID to archive. Example: 453877')
+});
+
+const ProviderInvoiceSchema = z.object({
+    id: z.union([z.string(), z.number()]),
+    vis_state: z.number().optional()
+});
+
+const ProviderResponseSchema = z.object({
+    response: z.object({
+        result: z.object({
+            invoice: ProviderInvoiceSchema
+        })
+    })
 });
 
 const OutputSchema = z.object({
-    success: z.boolean(),
-    invoiceId: z.number()
+    id: z.string(),
+    vis_state: z.number().optional()
 });
 
 const action = createAction({
-    description: 'Delete (soft-delete) an invoice.',
+    description: 'Archive (soft-delete) an invoice.',
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
@@ -35,15 +48,30 @@ const action = createAction({
 
         const { accountId } = parsedMetadata.data;
 
-        // https://www.freshbooks.com/api
-        await nango.delete({
+        // https://www.freshbooks.com/api/invoices
+        const response = await nango.put({
             endpoint: `/accounting/account/${encodeURIComponent(accountId)}/invoices/invoices/${encodeURIComponent(String(input.invoiceId))}`,
+            data: {
+                invoice: {
+                    vis_state: 1
+                }
+            },
             retries: 3
         });
 
+        const parsedResponse = ProviderResponseSchema.safeParse(response.data);
+        if (!parsedResponse.success) {
+            throw new nango.ActionError({
+                type: 'unexpected_response',
+                message: 'Unexpected response format from FreshBooks API.'
+            });
+        }
+
+        const invoice = parsedResponse.data.response.result.invoice;
+
         return {
-            success: true,
-            invoiceId: input.invoiceId
+            id: String(invoice.id),
+            ...(invoice.vis_state !== undefined && { vis_state: invoice.vis_state })
         };
     }
 });

@@ -2,12 +2,17 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const MetadataSchema = z.object({
-    account_id: z.string().describe('FreshBooks account ID. Example: "ZyQ04o"')
+    accountId: z.string().describe('FreshBooks account ID. Example: "ZyQ04o"')
+});
+
+const AmountSchema = z.object({
+    amount: z.string(),
+    code: z.string()
 });
 
 const InputSchema = z.object({
     expenseId: z.number().describe('Expense ID. Example: 123'),
-    amount: z.number().optional().describe('Expense amount'),
+    amount: AmountSchema.optional().describe('Expense amount object with amount string and currency code. Example: {"amount": "25.00", "code": "USD"}'),
     date: z.string().optional().describe('Expense date. Example: "2024-01-15"'),
     vendor: z.string().optional().describe('Vendor name'),
     notes: z.string().optional().describe('Expense notes'),
@@ -15,15 +20,10 @@ const InputSchema = z.object({
     categoryid: z.number().optional().describe('Expense category ID'),
     clientid: z.number().optional().describe('Client ID'),
     projectid: z.number().optional().describe('Project ID'),
-    taxPercent1: z.number().optional().describe('First tax percentage'),
-    taxPercent2: z.number().optional().describe('Second tax percentage'),
+    taxPercent1: z.string().optional().describe('First tax percentage'),
+    taxPercent2: z.string().optional().describe('Second tax percentage'),
     status: z.number().optional().describe('Expense status'),
     vis_state: z.number().optional().describe('Visibility state: 0 for active, 1 for deleted')
-});
-
-const AmountSchema = z.object({
-    amount: z.string(),
-    code: z.string()
 });
 
 const OutputSchema = z
@@ -37,8 +37,8 @@ const OutputSchema = z
         categoryid: z.number().optional(),
         clientid: z.number().optional(),
         projectid: z.number().optional(),
-        taxPercent1: z.number().nullable().optional(),
-        taxPercent2: z.number().nullable().optional(),
+        taxPercent1: z.string().nullable().optional(),
+        taxPercent2: z.string().nullable().optional(),
         status: z.number().optional(),
         vis_state: z.number().optional()
     })
@@ -58,10 +58,10 @@ const action = createAction({
         if (!metadataResult.success) {
             throw new nango.ActionError({
                 type: 'invalid_metadata',
-                message: 'account_id is required in connection metadata.'
+                message: 'accountId is required in connection metadata.'
             });
         }
-        const accountId = metadataResult.data.account_id;
+        const accountId = metadataResult.data.accountId;
 
         const expenseBody: Record<string, unknown> = {
             ...(input.amount !== undefined && { amount: input.amount }),

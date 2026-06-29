@@ -73,12 +73,7 @@ const sync = createSync({
         const accountId = parsedMetadata.data.accountId;
 
         const checkpoint = await nango.getCheckpoint();
-        const parsedCheckpoint = CheckpointSchema.safeParse(checkpoint ?? { updated_after: '' });
-        if (!parsedCheckpoint.success) {
-            throw new Error(`Invalid checkpoint: ${parsedCheckpoint.error.message}`);
-        }
-
-        const updatedAfter = parsedCheckpoint.data.updated_after || undefined;
+        const updatedAfter = checkpoint?.updated_after || undefined;
 
         const proxyConfig: ProxyConfiguration = {
             // https://www.freshbooks.com/api/estimates

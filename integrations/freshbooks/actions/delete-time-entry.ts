@@ -7,7 +7,7 @@ const InputSchema = z.object({
 
 const MetadataSchema = z.object({
     accountId: z.string().describe('The FreshBooks account ID. Example: "ZyQ04o"'),
-    businessId: z.string().describe('The FreshBooks business ID. Example: "14719708"')
+    businessId: z.union([z.string(), z.number()]).describe('The FreshBooks business ID. Example: 14719708')
 });
 
 const OutputSchema = z.object({
@@ -39,7 +39,7 @@ const action = createAction({
 
         await nango.delete({
             // https://www.freshbooks.com/api
-            endpoint: `/timetracking/business/${encodeURIComponent(metadata.businessId)}/time_entries/${encodeURIComponent(timeEntryId)}`,
+            endpoint: `/timetracking/business/${encodeURIComponent(String(metadata.businessId))}/time_entries/${encodeURIComponent(timeEntryId)}`,
             retries: 3
         });
 

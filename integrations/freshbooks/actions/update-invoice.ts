@@ -15,11 +15,11 @@ const InputSchema = z.object({
     deposit_amount: z.union([z.string(), z.number()]).optional().describe('Deposit amount.'),
     deposit_percent: z.union([z.string(), z.number()]).optional().describe('Deposit percentage.'),
     deposit_type: z.string().optional().describe('Deposit type.'),
-    invoice_lines: z.array(z.object({}).passthrough()).optional().describe('Line items for the invoice.')
+    lines: z.array(z.object({}).passthrough()).optional().describe('Line items for the invoice.')
 });
 
 const MetadataSchema = z.object({
-    account_id: z.string().describe('FreshBooks account ID. Example: "ZyQ04o"')
+    accountId: z.string().describe('FreshBooks account ID. Example: "ZyQ04o"')
 });
 
 const ProviderInvoiceSchema = z
@@ -39,7 +39,7 @@ const ProviderInvoiceSchema = z
         deposit_type: z.string().nullable().optional(),
         vis_state: z.number().nullable().optional(),
         status: z.number().nullable().optional(),
-        invoice_lines: z.array(z.object({}).passthrough()).nullable().optional(),
+        lines: z.array(z.object({}).passthrough()).nullable().optional(),
         current_organization: z.string().nullable().optional()
     })
     .passthrough();
@@ -63,7 +63,7 @@ const action = createAction({
                 message: 'account_id is required in connection metadata.'
             });
         }
-        const accountId = parsedMetadata.data.account_id;
+        const accountId = parsedMetadata.data.accountId;
 
         const invoiceUpdate: Record<string, unknown> = {};
         if (input.customerid !== undefined) {
@@ -102,8 +102,8 @@ const action = createAction({
         if (input.deposit_type !== undefined) {
             invoiceUpdate['deposit_type'] = input.deposit_type;
         }
-        if (input.invoice_lines !== undefined) {
-            invoiceUpdate['invoice_lines'] = input.invoice_lines;
+        if (input.lines !== undefined) {
+            invoiceUpdate['lines'] = input.lines;
         }
 
         const response = await nango.put({

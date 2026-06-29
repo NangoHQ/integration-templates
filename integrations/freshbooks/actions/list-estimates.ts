@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const MetadataSchema = z.object({
-    account_id: z.string().describe('FreshBooks account ID. Example: "ZyQ04o"')
+    accountId: z.string().describe('FreshBooks account ID. Example: "ZyQ04o"')
 });
 
 const InputSchema = z.object({
@@ -53,7 +53,7 @@ const action = createAction({
             });
         }
 
-        const accountId = parsedMetadata.data.account_id;
+        const accountId = parsedMetadata.data.accountId;
         const page = input.cursor ? parseInt(input.cursor, 10) : 1;
 
         if (Number.isNaN(page) || page < 1) {

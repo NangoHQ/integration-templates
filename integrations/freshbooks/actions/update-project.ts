@@ -2,11 +2,11 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const MetadataSchema = z.object({
-    business_id: z
+    businessId: z
         .union([z.number(), z.string()])
         .transform((v) => (typeof v === 'string' ? parseInt(v, 10) : v))
         .describe('FreshBooks business ID. Example: 14719708'),
-    account_id: z.string().optional().describe('FreshBooks account ID. Example: ZyQ04o')
+    accountId: z.string().optional().describe('FreshBooks account ID. Example: ZyQ04o')
 });
 
 const InputSchema = z.object({
@@ -94,10 +94,10 @@ const action = createAction({
         if (!parsedMetadata.success) {
             throw new nango.ActionError({
                 type: 'invalid_metadata',
-                message: 'business_id is required in connection metadata.'
+                message: 'businessId is required in connection metadata.'
             });
         }
-        const businessId = parsedMetadata.data.business_id;
+        const businessId = parsedMetadata.data.businessId;
 
         const payload: {
             title?: string;

@@ -50,7 +50,7 @@ const ProviderPaymentSchema = z.object({
     clientid: z.number().optional(),
     vis_state: z.number().optional(),
     updated: z.string().optional(),
-    notes: z.string().optional().nullable()
+    note: z.string().optional().nullable()
 });
 
 const OutputSchema = z.object({
@@ -67,7 +67,7 @@ const OutputSchema = z.object({
     clientid: z.number().optional(),
     vis_state: z.number().optional(),
     updated: z.string().optional(),
-    notes: z.string().optional()
+    note: z.string().optional()
 });
 
 const action = createAction({
@@ -142,7 +142,7 @@ const action = createAction({
             ...(payment.clientid !== undefined && { clientid: payment.clientid }),
             ...(payment.vis_state !== undefined && { vis_state: payment.vis_state }),
             ...(payment.updated !== undefined && { updated: payment.updated }),
-            ...(payment.notes != null && { notes: payment.notes })
+            ...(payment.note != null && { note: payment.note })
         };
     }
 });
