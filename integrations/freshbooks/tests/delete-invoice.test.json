@@ -1,0 +1,43 @@
+{
+  "input": {
+    "invoiceId": 453877
+  },
+  "output": {
+    "id": "453877",
+    "vis_state": 1
+  },
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "accountId": "ZyQ04o"
+    }
+  },
+  "api": {
+    "put": {
+      "/accounting/account/ZyQ04o/invoices/invoices/453877": {
+        "response": {
+          "response": {
+            "result": {
+              "invoice": {
+                "id": 453877,
+                "vis_state": 1
+              }
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "content-type": "application/json"
+        },
+        "hash": "b7b91efce44c72a372c09a0b3bca2e55b17430b7",
+        "request": {
+          "data": {
+            "invoice": {
+              "vis_state": 1
+            }
+          }
+        }
+      }
+    }
+  }
+}
