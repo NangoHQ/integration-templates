@@ -10,9 +10,16 @@ const ProviderFileSchema = z.object({
     displayName: z.string().optional().nullable(),
     mimeType: z.string().optional().nullable(),
     sizeBytes: z.string().optional().nullable(),
-    state: z.string().optional().nullable(),
+    createTime: z.string().optional().nullable(),
+    updateTime: z.string().optional().nullable(),
+    expirationTime: z.string().optional().nullable(),
+    sha256Hash: z.string().optional().nullable(),
     uri: z.string().optional().nullable(),
-    expirationTime: z.string().optional().nullable()
+    downloadUri: z.string().optional().nullable(),
+    state: z.string().optional().nullable(),
+    source: z.string().optional().nullable(),
+    error: z.object({}).passthrough().optional().nullable(),
+    videoMetadata: z.object({}).passthrough().optional().nullable()
 });
 
 const OutputSchema = z.object({
@@ -20,9 +27,16 @@ const OutputSchema = z.object({
     displayName: z.string().optional(),
     mimeType: z.string().optional(),
     sizeBytes: z.string().optional(),
-    state: z.string().optional(),
+    createTime: z.string().optional(),
+    updateTime: z.string().optional(),
+    expirationTime: z.string().optional(),
+    sha256Hash: z.string().optional(),
     uri: z.string().optional(),
-    expirationTime: z.string().optional()
+    downloadUri: z.string().optional(),
+    state: z.string().optional(),
+    source: z.string().optional(),
+    error: z.object({}).passthrough().optional(),
+    videoMetadata: z.object({}).passthrough().optional()
 });
 
 const action = createAction({
@@ -60,9 +74,16 @@ const action = createAction({
             ...(file.displayName != null && { displayName: file.displayName }),
             ...(file.mimeType != null && { mimeType: file.mimeType }),
             ...(file.sizeBytes != null && { sizeBytes: file.sizeBytes }),
-            ...(file.state != null && { state: file.state }),
+            ...(file.createTime != null && { createTime: file.createTime }),
+            ...(file.updateTime != null && { updateTime: file.updateTime }),
+            ...(file.expirationTime != null && { expirationTime: file.expirationTime }),
+            ...(file.sha256Hash != null && { sha256Hash: file.sha256Hash }),
             ...(file.uri != null && { uri: file.uri }),
-            ...(file.expirationTime != null && { expirationTime: file.expirationTime })
+            ...(file.downloadUri != null && { downloadUri: file.downloadUri }),
+            ...(file.state != null && { state: file.state }),
+            ...(file.source != null && { source: file.source }),
+            ...(file.error != null && { error: file.error }),
+            ...(file.videoMetadata != null && { videoMetadata: file.videoMetadata })
         };
     }
 });

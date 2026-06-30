@@ -51,17 +51,21 @@ const action = createAction({
         const model = input.model ?? 'gemini-2.5-flash';
         const modelId = model.startsWith('models/') ? model.slice('models/'.length) : model;
 
-        const requestBody: Record<string, unknown> = {
-            contents: input.contents
-        };
+        // The countTokens API accepts systemInstruction only inside generateContentRequest,
+        // not at the top level. Sending it at the top level causes divergence from
+        // generateContent or a rejected request.
+        const requestBody: Record<string, unknown> =
+            input.systemInstruction !== undefined
+                ? { generateContentRequest: { contents: input.contents, systemInstruction: input.systemInstruction } }
+                : { contents: input.contents };
 
-        if (input.systemInstruction !== undefined) {
-            requestBody['systemInstruction'] = input.systemInstruction;
-        }
-
+        const encodedModelPath = modelId
+            .split('/')
+            .map((seg) => encodeURIComponent(seg))
+            .join('/');
         const response = await nango.post({
             // https://ai.google.dev/api/tokens
-            endpoint: `/v1beta/models/${encodeURIComponent(modelId)}:countTokens`,
+            endpoint: `/v1beta/models/${encodedModelPath}:countTokens`,
             data: requestBody,
             retries: 3
         });

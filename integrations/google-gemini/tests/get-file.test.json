@@ -7,9 +7,13 @@
     "displayName": "test-file",
     "mimeType": "text/plain",
     "sizeBytes": "36",
-    "state": "ACTIVE",
+    "createTime": "2026-06-30T14:58:56.697285Z",
+    "updateTime": "2026-06-30T14:58:56.697285Z",
+    "expirationTime": "2026-07-02T14:58:56.573600163Z",
+    "sha256Hash": "ZWQ4NGEyMTMxZjRkYmFjN2M1ZDVlMDA4MzA5MmYyMTlmZmU0ZDFiNmNiOTliMWRjZjRlNDFjNDlkMjc5OGE4MA==",
     "uri": "https://generativelanguage.googleapis.com/v1beta/files/ji9fmk2h96k1",
-    "expirationTime": "2026-07-02T14:58:56.573600163Z"
+    "state": "ACTIVE",
+    "source": "UPLOADED"
   },
   "nango": {},
   "api": {

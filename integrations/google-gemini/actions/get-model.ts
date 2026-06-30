@@ -8,6 +8,7 @@ const InputSchema = z.object({
 const ProviderModelSchema = z
     .object({
         name: z.string(),
+        baseModelId: z.string().optional(),
         version: z.string().optional(),
         displayName: z.string().optional(),
         description: z.string().optional(),
@@ -23,6 +24,7 @@ const ProviderModelSchema = z
 
 const OutputSchema = z.object({
     name: z.string(),
+    baseModelId: z.string().optional(),
     version: z.string().optional(),
     displayName: z.string().optional(),
     description: z.string().optional(),
@@ -44,10 +46,14 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const modelName = input.model.startsWith('models/') ? input.model.slice(7) : input.model;
+        const encodedModelPath = modelName
+            .split('/')
+            .map((seg) => encodeURIComponent(seg))
+            .join('/');
 
         const config = {
             // https://ai.google.dev/api/models#getv1betamodels
-            endpoint: `/v1beta/models/${encodeURIComponent(modelName)}`,
+            endpoint: `/v1beta/models/${encodedModelPath}`,
             retries: 3
         };
 
@@ -64,6 +70,7 @@ const action = createAction({
 
         return {
             name: providerModel.name,
+            ...(providerModel.baseModelId !== undefined && { baseModelId: providerModel.baseModelId }),
             ...(providerModel.version !== undefined && { version: providerModel.version }),
             ...(providerModel.displayName !== undefined && { displayName: providerModel.displayName }),
             ...(providerModel.description !== undefined && { description: providerModel.description }),

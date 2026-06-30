@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    pageSize: z.number().int().min(1).max(1000).optional().describe('The maximum number of cached contents to return. Values above 1000 are coerced to 1000.'),
+    pageSize: z.number().int().min(1).max(1000).optional().describe('The maximum number of cached contents to return. Maximum is 1000.'),
     pageToken: z.string().optional().describe('A page token from a previous cachedContents.list call to retrieve the subsequent page.')
 });
 

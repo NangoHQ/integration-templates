@@ -59,10 +59,11 @@ const sync = createSync({
         // We checkpoint the page token so a full refresh can resume if interrupted.
         // Delete tracking only runs on fresh (non-resumed) runs: a resumed run starts
         // mid-enumeration and would false-delete records from skipped earlier pages.
+        // trackDeletesStart is deferred until after the first page succeeds so that
+        // a provider failure on the very first request does not leave an orphaned
+        // delete-tracking run that would never reach trackDeletesEnd.
         const startingFresh = !checkpoint?.page_token;
-        if (startingFresh) {
-            await nango.trackDeletesStart('CachedContent');
-        }
+        let deleteTrackingStarted = false;
 
         let pageToken: string | undefined = checkpoint?.page_token ?? undefined;
 
@@ -91,6 +92,11 @@ const sync = createSync({
         };
 
         for await (const page of nango.paginate(proxyConfig)) {
+            if (startingFresh && !deleteTrackingStarted) {
+                await nango.trackDeletesStart('CachedContent');
+                deleteTrackingStarted = true;
+            }
+
             const items: unknown[] = page;
 
             const records = items.map((item) => {
@@ -123,7 +129,7 @@ const sync = createSync({
         }
 
         await nango.clearCheckpoint();
-        if (startingFresh) {
+        if (deleteTrackingStarted) {
             await nango.trackDeletesEnd('CachedContent');
         }
     }

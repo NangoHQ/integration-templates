@@ -30,7 +30,7 @@ const ProviderListResponseSchema = z.object({
 
 const OutputSchema = z.object({
     items: z.array(ProviderFileSchema),
-    nextPageToken: z.string().optional().describe('Token to retrieve the next page of results.')
+    next_page_token: z.string().optional().describe('Token to retrieve the next page of results.')
 });
 
 const action = createAction({
@@ -56,7 +56,7 @@ const action = createAction({
 
         return {
             items,
-            ...(parsed.nextPageToken !== undefined && { nextPageToken: parsed.nextPageToken })
+            ...(parsed.nextPageToken !== undefined && { next_page_token: parsed.nextPageToken })
         };
     }
 });

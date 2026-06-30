@@ -65,8 +65,17 @@ const UsageMetadataSchema = z
     })
     .passthrough();
 
+const PromptFeedbackSchema = z
+    .object({
+        blockReason: z.string().optional(),
+        safetyRatings: z.array(z.record(z.string(), z.unknown())).optional()
+    })
+    .passthrough();
+
+// Safety-blocked responses return promptFeedback with no candidates.
 const OutputSchema = z.object({
-    candidates: z.array(CandidateSchema),
+    candidates: z.array(CandidateSchema).optional(),
+    promptFeedback: PromptFeedbackSchema.optional(),
     usageMetadata: UsageMetadataSchema.optional()
 });
 
@@ -78,9 +87,15 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const model = input.model ?? 'gemini-2.5-flash';
         const modelId = model.startsWith('models/') ? model.slice('models/'.length) : model;
+        // Encode each path segment separately so resource paths like tunedModels/{id}
+        // keep their slash rather than becoming tunedModels%2F{id}.
+        const encodedModelPath = modelId
+            .split('/')
+            .map((seg) => encodeURIComponent(seg))
+            .join('/');
         // https://ai.google.dev/api/generate-content
         const response = await nango.post({
-            endpoint: `/v1beta/models/${encodeURIComponent(modelId)}:generateContent`,
+            endpoint: `/v1beta/models/${encodedModelPath}:generateContent`,
             data: {
                 contents: input.contents,
                 ...(input.systemInstruction !== undefined && { systemInstruction: input.systemInstruction }),

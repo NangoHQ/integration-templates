@@ -5,7 +5,7 @@ const InputSchema = z.object({
     content: z.string().min(1).describe('The text content to embed.'),
     model: z.string().optional().describe('The embedding model name. Defaults to gemini-embedding-001.'),
     taskType: z
-        .enum(['RETRIEVAL_DOCUMENT', 'RETRIEVAL_QUERY', 'SEMANTIC_SIMILARITY', 'CLASSIFICATION', 'CLUSTERING'])
+        .enum(['RETRIEVAL_DOCUMENT', 'RETRIEVAL_QUERY', 'SEMANTIC_SIMILARITY', 'CLASSIFICATION', 'CLUSTERING', 'CODE_RETRIEVAL_QUERY'])
         .optional()
         .describe('The task type for which the embeddings will be used.'),
     title: z.string().optional().describe('An optional title for the text. Only applicable when taskType is RETRIEVAL_DOCUMENT.'),
@@ -81,9 +81,13 @@ const action = createAction({
         }
 
         const modelId = model.startsWith('models/') ? model.slice('models/'.length) : model;
+        const encodedModelPath = modelId
+            .split('/')
+            .map((seg) => encodeURIComponent(seg))
+            .join('/');
         const response = await nango.post({
             // https://ai.google.dev/api/embeddings#method:-models.embedcontent
-            endpoint: `/v1beta/models/${encodeURIComponent(modelId)}:embedContent`,
+            endpoint: `/v1beta/models/${encodedModelPath}:embedContent`,
             data: requestBody,
             retries: 3
         });

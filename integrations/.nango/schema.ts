@@ -58070,9 +58070,9 @@ export interface ActionInput_google_gemini_batchembedcontents {
    */
   content: string;
   /**
-   * Optional task type for the embedding. Example: "RETRIEVAL_DOCUMENT"
+   * Optional task type for the embedding.
    */
-  taskType?: string | undefined;})[];
+  taskType?: 'RETRIEVAL_DOCUMENT' | 'RETRIEVAL_QUERY' | 'SEMANTIC_SIMILARITY' | 'CLASSIFICATION' | 'CLUSTERING' | 'CODE_RETRIEVAL_QUERY' | undefined;})[];
 };
 
 export interface ActionOutput_google_gemini_batchembedcontents {
@@ -58138,7 +58138,7 @@ export interface ActionInput_google_gemini_embedcontent {
   /**
    * The task type for which the embeddings will be used.
    */
-  taskType?: 'RETRIEVAL_DOCUMENT' | 'RETRIEVAL_QUERY' | 'SEMANTIC_SIMILARITY' | 'CLASSIFICATION' | 'CLUSTERING' | undefined;
+  taskType?: 'RETRIEVAL_DOCUMENT' | 'RETRIEVAL_QUERY' | 'SEMANTIC_SIMILARITY' | 'CLASSIFICATION' | 'CLUSTERING' | 'CODE_RETRIEVAL_QUERY' | undefined;
   /**
    * An optional title for the text. Only applicable when taskType is RETRIEVAL_DOCUMENT.
    */
@@ -58175,13 +58175,15 @@ export interface ActionInput_google_gemini_generatecontent {
 };
 
 export interface ActionOutput_google_gemini_generatecontent {
-  candidates: ({  content?: {  role?: string | undefined;
+  candidates?: ({  content?: {  role?: string | undefined;
   parts?: ({  text?: string | undefined;})[];};
   finishReason?: string | undefined;
   index?: number | undefined;
   safetyRatings?: ({  [key: string]: unknown | undefined;})[];
   citationMetadata?: {  [key: string]: unknown | undefined;};
   groundingMetadata?: {  [key: string]: unknown | undefined;};})[];
+  promptFeedback?: {  blockReason?: string | undefined;
+  safetyRatings?: ({  [key: string]: unknown | undefined;})[];};
   usageMetadata?: {  promptTokenCount?: number | undefined;
   cachedContentTokenCount?: number | undefined;
   candidatesTokenCount?: number | undefined;
@@ -58200,9 +58202,16 @@ export interface ActionOutput_google_gemini_getfile {
   displayName?: string | undefined;
   mimeType?: string | undefined;
   sizeBytes?: string | undefined;
-  state?: string | undefined;
-  uri?: string | undefined;
+  createTime?: string | undefined;
+  updateTime?: string | undefined;
   expirationTime?: string | undefined;
+  sha256Hash?: string | undefined;
+  uri?: string | undefined;
+  downloadUri?: string | undefined;
+  state?: string | undefined;
+  source?: string | undefined;
+  error?: {} | undefined;
+  videoMetadata?: {} | undefined;
 };
 
 export interface ActionInput_google_gemini_getmodel {
@@ -58214,6 +58223,7 @@ export interface ActionInput_google_gemini_getmodel {
 
 export interface ActionOutput_google_gemini_getmodel {
   name: string;
+  baseModelId?: string | undefined;
   version?: string | undefined;
   displayName?: string | undefined;
   description?: string | undefined;
@@ -58228,7 +58238,7 @@ export interface ActionOutput_google_gemini_getmodel {
 
 export interface ActionInput_google_gemini_listcachedcontents {
   /**
-   * The maximum number of cached contents to return. Values above 1000 are coerced to 1000.
+   * The maximum number of cached contents to return. Maximum is 1000.
    */
   pageSize?: number | undefined;
   /**
@@ -58277,7 +58287,7 @@ export interface ActionOutput_google_gemini_listfiles {
   /**
    * Token to retrieve the next page of results.
    */
-  nextPageToken?: string | undefined;
+  next_page_token?: string | undefined;
 };
 
 export interface ActionInput_google_gemini_listmodels {

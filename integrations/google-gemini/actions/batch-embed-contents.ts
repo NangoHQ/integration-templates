@@ -4,7 +4,10 @@ import { createAction, ProxyConfiguration } from 'nango';
 const BatchRequestSchema = z.object({
     model: z.string().optional().describe('Model name. Must match the outer model. Defaults to the outer model.'),
     content: z.string().describe('Text content to embed.'),
-    taskType: z.string().optional().describe('Optional task type for the embedding. Example: "RETRIEVAL_DOCUMENT"')
+    taskType: z
+        .enum(['RETRIEVAL_DOCUMENT', 'RETRIEVAL_QUERY', 'SEMANTIC_SIMILARITY', 'CLASSIFICATION', 'CLUSTERING', 'CODE_RETRIEVAL_QUERY'])
+        .optional()
+        .describe('Optional task type for the embedding.')
 });
 
 const InputSchema = z.object({
@@ -59,9 +62,13 @@ const action = createAction({
         });
 
         const modelId = model.startsWith('models/') ? model.slice('models/'.length) : model;
+        const encodedModelPath = modelId
+            .split('/')
+            .map((seg) => encodeURIComponent(seg))
+            .join('/');
         const config: ProxyConfiguration = {
             // https://ai.google.dev/api/embeddings#method:-models.batchembedcontents
-            endpoint: `/v1beta/models/${encodeURIComponent(modelId)}:batchEmbedContents`,
+            endpoint: `/v1beta/models/${encodedModelPath}:batchEmbedContents`,
             data: {
                 requests: providerRequests
             },
