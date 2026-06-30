@@ -20706,14 +20706,15 @@ export interface ActionOutput_basecamp_fetchtodolists {
 
 export interface Brand {
   id: string;
-  name?: string | undefined;
-  page_title?: string | undefined;
-  meta_keywords?: string[] | undefined;
-  meta_description?: string | undefined;
-  image_url?: string | undefined;
-  search_keywords?: string | undefined;
-  custom_url?: {  url?: string | undefined;
-  is_customized?: boolean | undefined;};
+  brandId: string;
+  brandName?: string | undefined;
+  brandCompany?: string | undefined;
+  defaultBrandLanguage?: string | undefined;
+  brandLanguages?: string[] | undefined;
+  isSendingDefault?: boolean | undefined;
+  isSigningDefault?: boolean | undefined;
+  isOrganizationBrand?: string | undefined;
+  isOverridingCompanyName?: boolean | undefined;
 };
 
 export interface Category {
@@ -20841,105 +20842,6 @@ export interface Customer {
   meta_data?: ({  id?: number | undefined;
   key?: string | undefined;
   value?: unknown | undefined;})[];
-};
-
-export interface Order {
-  id: string;
-  parent_id?: string | undefined;
-  number?: string | undefined;
-  order_key?: string | undefined;
-  created_via?: string | undefined;
-  version?: string | undefined;
-  status?: string | undefined;
-  currency?: string | undefined;
-  date_created?: string | undefined;
-  date_created_gmt?: string | undefined;
-  date_modified?: string | undefined;
-  date_modified_gmt?: string | undefined;
-  discount_total?: string | undefined;
-  discount_tax?: string | undefined;
-  shipping_total?: string | undefined;
-  shipping_tax?: string | undefined;
-  cart_tax?: string | undefined;
-  total?: string | undefined;
-  total_tax?: string | undefined;
-  prices_include_tax?: boolean | undefined;
-  customer_id?: string | undefined;
-  customer_ip_address?: string | undefined;
-  customer_user_agent?: string | undefined;
-  customer_note?: string | undefined;
-  billing?: {  first_name?: string | undefined;
-  last_name?: string | undefined;
-  company?: string | undefined;
-  address_1?: string | undefined;
-  address_2?: string | undefined;
-  city?: string | undefined;
-  state?: string | undefined;
-  postcode?: string | undefined;
-  country?: string | undefined;
-  email?: string | undefined;
-  phone?: string | undefined;};
-  shipping?: {  first_name?: string | undefined;
-  last_name?: string | undefined;
-  company?: string | undefined;
-  address_1?: string | undefined;
-  address_2?: string | undefined;
-  city?: string | undefined;
-  state?: string | undefined;
-  postcode?: string | undefined;
-  country?: string | undefined;};
-  payment_method?: string | undefined;
-  payment_method_title?: string | undefined;
-  transaction_id?: string | undefined;
-  date_paid?: string | undefined;
-  date_paid_gmt?: string | undefined;
-  date_completed?: string | undefined;
-  date_completed_gmt?: string | undefined;
-  cart_hash?: string | undefined;
-  meta_data?: unknown[] | undefined;
-  line_items?: unknown[] | undefined;
-  tax_lines?: unknown[] | undefined;
-  shipping_lines?: unknown[] | undefined;
-  fee_lines?: unknown[] | undefined;
-  coupon_lines?: unknown[] | undefined;
-  refunds?: unknown[] | undefined;
-};
-
-export interface Product {
-  id: string;
-  Product_Name?: string | undefined;
-  Product_Code?: string | undefined;
-  Product_Category?: string | undefined;
-  Unit_Price?: number | undefined;
-  Taxable?: boolean | undefined;
-  Description?: string | undefined;
-  Manufacturer?: string | undefined;
-  Usage_Unit?: string | undefined;
-  Qty_in_Stock?: number | undefined;
-  Qty_Ordered?: number | undefined;
-  Qty_in_Demand?: number | undefined;
-  Reorder_Level?: number | undefined;
-  Commission_Rate?: number | undefined;
-  Sales_Start_Date?: string | undefined;
-  Sales_End_Date?: string | undefined;
-  Support_Start_Date?: string | undefined;
-  Support_Expiry_Date?: string | undefined;
-  Handler?: {  name?: string | undefined;
-  id?: string | undefined;
-  email?: string | undefined;};
-  Owner?: {  name?: string | undefined;
-  id?: string | undefined;
-  email?: string | undefined;};
-  Created_By?: {  name?: string | undefined;
-  id?: string | undefined;
-  email?: string | undefined;};
-  Modified_By?: {  name?: string | undefined;
-  id?: string | undefined;
-  email?: string | undefined;};
-  Created_Time?: string | undefined;
-  Modified_Time?: string | undefined;
-  "$approved"?: boolean | undefined;
-  "$editable"?: boolean | undefined;
 };
 
 export interface Subscriber {
@@ -27995,44 +27897,6 @@ export interface CreditNote {
   currency_code?: string | undefined;
   created_time?: string | undefined;
   last_modified_time?: string | undefined;
-};
-
-export interface Customer {
-  id: string;
-  email: string;
-  first_name?: string | undefined;
-  last_name?: string | undefined;
-  role?: string | undefined;
-  username?: string | undefined;
-  date_created?: string | undefined;
-  date_created_gmt?: string | undefined;
-  date_modified?: string | undefined;
-  date_modified_gmt?: string | undefined;
-  billing?: {  first_name?: string | undefined;
-  last_name?: string | undefined;
-  company?: string | undefined;
-  address_1?: string | undefined;
-  address_2?: string | undefined;
-  city?: string | undefined;
-  state?: string | undefined;
-  postcode?: string | undefined;
-  country?: string | undefined;
-  email?: string | undefined;
-  phone?: string | undefined;};
-  shipping?: {  first_name?: string | undefined;
-  last_name?: string | undefined;
-  company?: string | undefined;
-  address_1?: string | undefined;
-  address_2?: string | undefined;
-  city?: string | undefined;
-  state?: string | undefined;
-  postcode?: string | undefined;
-  country?: string | undefined;};
-  is_paying_customer?: boolean | undefined;
-  avatar_url?: string | undefined;
-  meta_data?: ({  id?: number | undefined;
-  key?: string | undefined;
-  value?: unknown | undefined;})[];
 };
 
 export interface Invoice {
@@ -37017,19 +36881,6 @@ export interface ActionInput_discourse_updatetopicstatus {
 export interface ActionOutput_discourse_updatetopicstatus {
   success: string;
   result: string;
-};
-
-export interface Brand {
-  id: string;
-  brandId: string;
-  brandName?: string | undefined;
-  brandCompany?: string | undefined;
-  defaultBrandLanguage?: string | undefined;
-  brandLanguages?: string[] | undefined;
-  isSendingDefault?: boolean | undefined;
-  isSigningDefault?: boolean | undefined;
-  isOrganizationBrand?: string | undefined;
-  isOverridingCompanyName?: boolean | undefined;
 };
 
 export interface ConnectConfiguration {
@@ -58186,6 +58037,273 @@ export interface ActionOutput_google_drive_uploaddocument {
    * A link for downloading the content of the file in a browser
    */
   webContentLink?: string | undefined;
+};
+
+export interface CachedContent {
+  id: string;
+  name: string;
+  displayName?: string | undefined;
+  model?: string | undefined;
+  createTime?: string | undefined;
+  updateTime?: string | undefined;
+  expireTime?: string | undefined;
+  usageMetadata?: {  totalTokenCount?: number | undefined;
+  textCount?: number | undefined;
+  imageCount?: number | undefined;
+  videoDurationSeconds?: number | undefined;};
+};
+
+export interface ActionInput_google_gemini_batchembedcontents {
+  /**
+   * The embedding model to use. Defaults to "gemini-embedding-001".
+   */
+  model?: string | undefined;
+  /**
+   * Array of embed requests.
+   */
+  requests: ({  /**
+   * Model name. Must match the outer model. Defaults to the outer model.
+   */
+  model?: string | undefined;
+  /**
+   * Text content to embed.
+   */
+  content: string;
+  /**
+   * Optional task type for the embedding. Example: "RETRIEVAL_DOCUMENT"
+   */
+  taskType?: string | undefined;})[];
+};
+
+export interface ActionOutput_google_gemini_batchembedcontents {
+  /**
+   * The embeddings for each request, in the same order as provided in the batch request.
+   */
+  embeddings: ({  values?: number[] | undefined;})[];
+};
+
+export interface ActionInput_google_gemini_counttokens {
+  /**
+   * Model name. Example: "gemini-2.5-flash"
+   */
+  model?: string | undefined;
+  /**
+   * Input contents to tokenize.
+   */
+  contents: ({  role?: string | undefined;
+  parts: ({  text?: string | undefined;
+  inlineData?: {  mimeType: string;
+  data: string;} | undefined;
+  fileData?: {  mimeType: string;
+  fileUri: string;} | undefined;})[];})[];
+  /**
+   * Optional system instruction content.
+   */
+  systemInstruction?: {  role?: string | undefined;
+  parts: ({  text?: string | undefined;
+  inlineData?: {  mimeType: string;
+  data: string;} | undefined;
+  fileData?: {  mimeType: string;
+  fileUri: string;} | undefined;})[];};
+};
+
+export interface ActionOutput_google_gemini_counttokens {
+  /**
+   * Total number of tokens in the input.
+   */
+  totalTokens: number;
+  promptTokensDetails?: ({  modality?: string | undefined;
+  tokenCount?: number | undefined;})[];
+};
+
+export interface ActionInput_google_gemini_deletefile {
+  /**
+   * File name. Example: "files/abc123"
+   */
+  name: string;
+};
+
+export interface ActionOutput_google_gemini_deletefile {
+};
+
+export interface ActionInput_google_gemini_embedcontent {
+  /**
+   * The text content to embed.
+   */
+  content: string;
+  /**
+   * The embedding model name. Defaults to gemini-embedding-001.
+   */
+  model?: string | undefined;
+  /**
+   * The task type for which the embeddings will be used.
+   */
+  taskType?: 'RETRIEVAL_DOCUMENT' | 'RETRIEVAL_QUERY' | 'SEMANTIC_SIMILARITY' | 'CLASSIFICATION' | 'CLUSTERING' | undefined;
+  /**
+   * An optional title for the text. Only applicable when taskType is RETRIEVAL_DOCUMENT.
+   */
+  title?: string | undefined;
+  /**
+   * Reduced dimension for the output embedding. If set, excessive values are truncated from the end.
+   */
+  outputDimensionality?: number | undefined;
+};
+
+export interface ActionOutput_google_gemini_embedcontent {
+  /**
+   * The embedding vector values.
+   */
+  values: number[];
+  truncated?: boolean | undefined;
+  promptTokenCount?: number | undefined;
+  totalTokenCount?: number | undefined;
+};
+
+export interface ActionInput_google_gemini_generatecontent {
+  model?: string | undefined;
+  contents: ({  role?: string | undefined;
+  parts: ({  text?: string | undefined;})[];})[];
+  systemInstruction?: {  role?: string | undefined;
+  parts: ({  text?: string | undefined;})[];};
+  generationConfig?: {  maxOutputTokens?: number | undefined;
+  temperature?: number | undefined;
+  topP?: number | undefined;
+  topK?: number | undefined;
+  stopSequences?: string[] | undefined;
+  responseMimeType?: string | undefined;};
+  tools?: ({  [key: string]: unknown | undefined;})[];
+};
+
+export interface ActionOutput_google_gemini_generatecontent {
+  candidates: ({  content?: {  role?: string | undefined;
+  parts?: ({  text?: string | undefined;})[];};
+  finishReason?: string | undefined;
+  index?: number | undefined;
+  safetyRatings?: ({  [key: string]: unknown | undefined;})[];
+  citationMetadata?: {  [key: string]: unknown | undefined;};
+  groundingMetadata?: {  [key: string]: unknown | undefined;};})[];
+  usageMetadata?: {  promptTokenCount?: number | undefined;
+  cachedContentTokenCount?: number | undefined;
+  candidatesTokenCount?: number | undefined;
+  totalTokenCount?: number | undefined;};
+};
+
+export interface ActionInput_google_gemini_getfile {
+  /**
+   * The name of the file to retrieve. Example: "files/abc123"
+   */
+  name: string;
+};
+
+export interface ActionOutput_google_gemini_getfile {
+  name: string;
+  displayName?: string | undefined;
+  mimeType?: string | undefined;
+  sizeBytes?: string | undefined;
+  state?: string | undefined;
+  uri?: string | undefined;
+  expirationTime?: string | undefined;
+};
+
+export interface ActionInput_google_gemini_getmodel {
+  /**
+   * Model name. Example: "gemini-2.5-flash" or "models/gemini-2.5-flash"
+   */
+  model: string;
+};
+
+export interface ActionOutput_google_gemini_getmodel {
+  name: string;
+  version?: string | undefined;
+  displayName?: string | undefined;
+  description?: string | undefined;
+  inputTokenLimit?: number | undefined;
+  outputTokenLimit?: number | undefined;
+  supportedGenerationMethods?: string[] | undefined;
+  temperature?: number | undefined;
+  maxTemperature?: number | undefined;
+  topP?: number | undefined;
+  topK?: number | undefined;
+};
+
+export interface ActionInput_google_gemini_listcachedcontents {
+  /**
+   * The maximum number of cached contents to return. Values above 1000 are coerced to 1000.
+   */
+  pageSize?: number | undefined;
+  /**
+   * A page token from a previous cachedContents.list call to retrieve the subsequent page.
+   */
+  pageToken?: string | undefined;
+};
+
+export interface ActionOutput_google_gemini_listcachedcontents {
+  items: ({  name: string;
+  displayName?: string | undefined;
+  model?: string | undefined;
+  createTime?: string | undefined;
+  updateTime?: string | undefined;
+  expireTime?: string | undefined;
+  ttl?: string | undefined;})[];
+  next_page_token?: string | undefined;
+};
+
+export interface ActionInput_google_gemini_listfiles {
+  /**
+   * Maximum number of files to return per page. Defaults to 10, maximum is 100.
+   */
+  pageSize?: number | undefined;
+  /**
+   * Pagination token from a previous list-files call. Omit for the first page.
+   */
+  pageToken?: string | undefined;
+};
+
+export interface ActionOutput_google_gemini_listfiles {
+  items: ({  name: string;
+  displayName?: string | undefined;
+  mimeType?: string | undefined;
+  sizeBytes?: string | undefined;
+  createTime?: string | undefined;
+  updateTime?: string | undefined;
+  expirationTime?: string | undefined;
+  sha256Hash?: string | undefined;
+  uri?: string | undefined;
+  downloadUri?: string | undefined;
+  state?: string | undefined;
+  source?: string | undefined;
+  error?: {} | undefined;
+  videoMetadata?: {} | undefined;})[];
+  /**
+   * Token to retrieve the next page of results.
+   */
+  nextPageToken?: string | undefined;
+};
+
+export interface ActionInput_google_gemini_listmodels {
+  /**
+   * Maximum number of models to return per page. Example: 10
+   */
+  pageSize?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  pageToken?: string | undefined;
+};
+
+export interface ActionOutput_google_gemini_listmodels {
+  items: ({  name: string;
+  version?: string | undefined;
+  displayName?: string | undefined;
+  description?: string | undefined;
+  inputTokenLimit?: number | undefined;
+  outputTokenLimit?: number | undefined;
+  supportedGenerationMethods?: string[] | undefined;
+  temperature?: number | undefined;
+  topP?: number | undefined;
+  topK?: number | undefined;
+  maxTemperature?: number | undefined;})[];
+  next_page_token?: string | undefined;
 };
 
 export interface Filter {
