@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     label: z.string().describe('Display label for the custom tag. Example: "Important"'),
-    color: z.string().optional().describe('Optional hex color string. Example: "#FF6B6B"')
+    description: z.string().optional().describe('Optional description for the custom tag. Example: "Tag for high priority items"')
 });
 
 const ProviderCustomTagSchema = z.object({
@@ -40,7 +40,7 @@ const action = createAction({
             endpoint: '/v2/custom-tags',
             data: {
                 label: input.label,
-                ...(input.color !== undefined && { color: input.color })
+                ...(input.description !== undefined && { description: input.description })
             },
             retries: 3
         });

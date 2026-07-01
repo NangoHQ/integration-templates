@@ -39,7 +39,7 @@ const action = createAction({
     },
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['webhook:write'],
+    scopes: ['webhooks:write', 'webhooks:all', 'all:write', 'all:all'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.patch({

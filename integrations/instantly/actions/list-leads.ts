@@ -40,7 +40,7 @@ const action = createAction({
         const body: {
             limit?: number;
             starting_after?: string;
-            filter?: z.infer<typeof FilterSchema>;
+            filter?: string;
         } = {};
         if (input.limit !== undefined) {
             body.limit = input.limit;
@@ -49,7 +49,7 @@ const action = createAction({
             body.starting_after = input.starting_after;
         }
         if (input.filter !== undefined) {
-            body.filter = input.filter;
+            body.filter = JSON.stringify(input.filter);
         }
 
         const response = await nango.post({

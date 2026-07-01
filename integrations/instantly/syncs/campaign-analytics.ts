@@ -248,7 +248,7 @@ const sync = createSync({
         for await (const page of nango.paginate(campaignsProxyConfig)) {
             const pageParse = z.array(CampaignListItemSchema).safeParse(page);
             if (!pageParse.success) {
-                continue;
+                throw new Error(`Failed to parse campaigns page: ${pageParse.error.message}`);
             }
             for (const campaign of pageParse.data) {
                 campaignIds.push(campaign.id);
@@ -327,42 +327,45 @@ const sync = createSync({
             });
 
             const overviewParse = OverviewSchema.safeParse(overviewResponse.data);
-            if (overviewParse.success) {
-                const data = overviewParse.data;
-                const record = {
-                    id: `${campaignId}_${startDate}_${endDate}`,
-                    campaign_id: campaignId,
-                    ...(data.open_count !== undefined && { open_count: data.open_count }),
-                    ...(data.open_count_unique !== undefined && { open_count_unique: data.open_count_unique }),
-                    ...(data.open_count_unique_by_step !== undefined && { open_count_unique_by_step: data.open_count_unique_by_step }),
-                    ...(data.link_click_count !== undefined && { link_click_count: data.link_click_count }),
-                    ...(data.link_click_count_unique !== undefined && { link_click_count_unique: data.link_click_count_unique }),
-                    ...(data.link_click_count_unique_by_step !== undefined && { link_click_count_unique_by_step: data.link_click_count_unique_by_step }),
-                    ...(data.reply_count !== undefined && { reply_count: data.reply_count }),
-                    ...(data.reply_count_unique !== undefined && { reply_count_unique: data.reply_count_unique }),
-                    ...(data.reply_count_unique_by_step !== undefined && { reply_count_unique_by_step: data.reply_count_unique_by_step }),
-                    ...(data.reply_count_automatic !== undefined && { reply_count_automatic: data.reply_count_automatic }),
-                    ...(data.reply_count_automatic_unique !== undefined && { reply_count_automatic_unique: data.reply_count_automatic_unique }),
-                    ...(data.reply_count_automatic_unique_by_step !== undefined && {
-                        reply_count_automatic_unique_by_step: data.reply_count_automatic_unique_by_step
-                    }),
-                    ...(data.bounced_count !== undefined && { bounced_count: data.bounced_count }),
-                    ...(data.unsubscribed_count !== undefined && { unsubscribed_count: data.unsubscribed_count }),
-                    ...(data.completed_count !== undefined && { completed_count: data.completed_count }),
-                    ...(data.emails_sent_count !== undefined && { emails_sent_count: data.emails_sent_count }),
-                    ...(data.contacted_count !== undefined && { contacted_count: data.contacted_count }),
-                    ...(data.new_leads_contacted_count !== undefined && { new_leads_contacted_count: data.new_leads_contacted_count }),
-                    ...(data.total_opportunities !== undefined && { total_opportunities: data.total_opportunities }),
-                    ...(data.total_opportunity_value !== undefined && { total_opportunity_value: data.total_opportunity_value }),
-                    ...(data.total_interested !== undefined && { total_interested: data.total_interested }),
-                    ...(data.total_meeting_booked !== undefined && { total_meeting_booked: data.total_meeting_booked }),
-                    ...(data.total_meeting_completed !== undefined && { total_meeting_completed: data.total_meeting_completed }),
-                    ...(data.total_closed !== undefined && { total_closed: data.total_closed }),
-                    start_date: startDate,
-                    end_date: endDate
-                };
-                await nango.batchSave([record], 'CampaignAnalyticsOverview');
+            if (!overviewParse.success) {
+                throw new Error(`Failed to parse campaign overview for ${campaignId}: ${overviewParse.error.message}`);
             }
+            const overviewData = overviewParse.data;
+            const overviewRecord = {
+                id: `${campaignId}_${startDate}_${endDate}`,
+                campaign_id: campaignId,
+                ...(overviewData.open_count !== undefined && { open_count: overviewData.open_count }),
+                ...(overviewData.open_count_unique !== undefined && { open_count_unique: overviewData.open_count_unique }),
+                ...(overviewData.open_count_unique_by_step !== undefined && { open_count_unique_by_step: overviewData.open_count_unique_by_step }),
+                ...(overviewData.link_click_count !== undefined && { link_click_count: overviewData.link_click_count }),
+                ...(overviewData.link_click_count_unique !== undefined && { link_click_count_unique: overviewData.link_click_count_unique }),
+                ...(overviewData.link_click_count_unique_by_step !== undefined && {
+                    link_click_count_unique_by_step: overviewData.link_click_count_unique_by_step
+                }),
+                ...(overviewData.reply_count !== undefined && { reply_count: overviewData.reply_count }),
+                ...(overviewData.reply_count_unique !== undefined && { reply_count_unique: overviewData.reply_count_unique }),
+                ...(overviewData.reply_count_unique_by_step !== undefined && { reply_count_unique_by_step: overviewData.reply_count_unique_by_step }),
+                ...(overviewData.reply_count_automatic !== undefined && { reply_count_automatic: overviewData.reply_count_automatic }),
+                ...(overviewData.reply_count_automatic_unique !== undefined && { reply_count_automatic_unique: overviewData.reply_count_automatic_unique }),
+                ...(overviewData.reply_count_automatic_unique_by_step !== undefined && {
+                    reply_count_automatic_unique_by_step: overviewData.reply_count_automatic_unique_by_step
+                }),
+                ...(overviewData.bounced_count !== undefined && { bounced_count: overviewData.bounced_count }),
+                ...(overviewData.unsubscribed_count !== undefined && { unsubscribed_count: overviewData.unsubscribed_count }),
+                ...(overviewData.completed_count !== undefined && { completed_count: overviewData.completed_count }),
+                ...(overviewData.emails_sent_count !== undefined && { emails_sent_count: overviewData.emails_sent_count }),
+                ...(overviewData.contacted_count !== undefined && { contacted_count: overviewData.contacted_count }),
+                ...(overviewData.new_leads_contacted_count !== undefined && { new_leads_contacted_count: overviewData.new_leads_contacted_count }),
+                ...(overviewData.total_opportunities !== undefined && { total_opportunities: overviewData.total_opportunities }),
+                ...(overviewData.total_opportunity_value !== undefined && { total_opportunity_value: overviewData.total_opportunity_value }),
+                ...(overviewData.total_interested !== undefined && { total_interested: overviewData.total_interested }),
+                ...(overviewData.total_meeting_booked !== undefined && { total_meeting_booked: overviewData.total_meeting_booked }),
+                ...(overviewData.total_meeting_completed !== undefined && { total_meeting_completed: overviewData.total_meeting_completed }),
+                ...(overviewData.total_closed !== undefined && { total_closed: overviewData.total_closed }),
+                start_date: startDate,
+                end_date: endDate
+            };
+            await nango.batchSave([overviewRecord], 'CampaignAnalyticsOverview');
 
             const dailyResponse = await nango.get({
                 // https://developer.instantly.ai/api-reference/campaign/get-daily-campaign-analytics
@@ -376,7 +379,10 @@ const sync = createSync({
             });
 
             const dailyParse = z.array(DailyItemSchema).safeParse(dailyResponse.data);
-            if (dailyParse.success) {
+            if (!dailyParse.success) {
+                throw new Error(`Failed to parse daily analytics for campaign ${campaignId}: ${dailyParse.error.message}`);
+            }
+            {
                 const records = dailyParse.data.map((item) => {
                     const date = item.date;
                     return {
@@ -416,7 +422,10 @@ const sync = createSync({
             });
 
             const stepsParse = z.array(StepsItemSchema).safeParse(stepsResponse.data);
-            if (stepsParse.success) {
+            if (!stepsParse.success) {
+                throw new Error(`Failed to parse step analytics for campaign ${campaignId}: ${stepsParse.error.message}`);
+            }
+            {
                 const records = stepsParse.data.map((item) => {
                     const stepValue = item.step === null || item.step === undefined ? 'null' : item.step;
                     const variantValue = item.variant === null || item.variant === undefined ? 'null' : item.variant;

@@ -16,8 +16,8 @@ const CustomTagMappingSchema = z.object({
     organization_id: z.string()
 });
 
-const ListCustomTagMappingResponseSchema = z.object({
-    items: z.array(CustomTagMappingSchema),
+const CustomTagMappingPageSchema = z.object({
+    items: z.array(z.unknown()),
     next_starting_after: z.string().optional()
 });
 
@@ -39,16 +39,31 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developer.instantly.ai/api-reference/customtagmapping/list-custom-tag-mapping
-        const mappingsResponse = await nango.get({
-            endpoint: '/v2/custom-tag-mappings',
-            params: {
-                resource_ids: input.resource_id
-            },
-            retries: 3
-        });
+        let isAssigned = false;
+        let startingAfter: string | undefined;
 
-        const mappingsData = ListCustomTagMappingResponseSchema.parse(mappingsResponse.data);
-        const isAssigned = mappingsData.items.some((mapping) => mapping.tag_id === input.tag_id && mapping.resource_type === input.resource_type);
+        do {
+            const mappingsResponse = await nango.get({
+                endpoint: '/v2/custom-tag-mappings',
+                params: {
+                    resource_ids: input.resource_id,
+                    limit: 100,
+                    ...(startingAfter && { starting_after: startingAfter })
+                },
+                retries: 3
+            });
+
+            const page = CustomTagMappingPageSchema.parse(mappingsResponse.data);
+            for (const rawItem of page.items) {
+                const mapping = CustomTagMappingSchema.safeParse(rawItem);
+                if (mapping.success && mapping.data.tag_id === input.tag_id && mapping.data.resource_type === input.resource_type) {
+                    isAssigned = true;
+                    break;
+                }
+            }
+
+            startingAfter = page.next_starting_after;
+        } while (startingAfter && !isAssigned);
 
         const assign = !isAssigned;
 

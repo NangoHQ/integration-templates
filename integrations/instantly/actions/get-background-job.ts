@@ -22,6 +22,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: ProviderBackgroundJobSchema,
+    scopes: ['background-jobs:read', 'all:read'],
     endpoint: {
         path: '/actions/get-background-job',
         method: 'GET'

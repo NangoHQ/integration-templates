@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    accounts: z.array(z.string()).optional().describe('List of sending account emails to test. Example: ["user@example.com"]')
+    accounts: z.array(z.string()).min(1).describe('List of sending account emails to test. Example: ["user@example.com"]')
 });
 
 const VitalResultSchema = z.object({
@@ -31,13 +31,6 @@ const action = createAction({
     },
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        if (!input.accounts || input.accounts.length === 0) {
-            throw new nango.ActionError({
-                type: 'invalid_input',
-                message: 'At least one account email is required.'
-            });
-        }
-
         const response = await nango.post({
             // https://developer.instantly.ai/api-reference/account/test-account-vitals
             endpoint: '/v2/accounts/test/vitals',
@@ -47,13 +40,7 @@ const action = createAction({
             retries: 3
         });
 
-        const data = z
-            .object({
-                status: z.string().optional(),
-                success_list: z.array(VitalResultSchema).optional(),
-                failure_list: z.array(VitalResultSchema).optional()
-            })
-            .parse(response.data);
+        const data = OutputSchema.parse(response.data);
 
         return {
             ...(data.status !== undefined && { status: data.status }),

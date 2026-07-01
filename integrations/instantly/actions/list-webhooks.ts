@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.')
+    starting_after: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.')
 });
 
 const WebhookSchema = z.object({
@@ -15,12 +15,12 @@ const WebhookSchema = z.object({
 
 const OutputSchema = z.object({
     items: z.array(WebhookSchema),
-    next_cursor: z.string().optional()
+    next_starting_after: z.string().optional()
 });
 
 const ListWebhooksResponseSchema = z.object({
     items: z.array(z.unknown()),
-    next_cursor: z.string().optional()
+    next_starting_after: z.string().optional()
 });
 
 const action = createAction({
@@ -34,7 +34,7 @@ const action = createAction({
             // https://developer.instantly.ai/api-reference/groups/webhook
             endpoint: '/v2/webhooks',
             params: {
-                ...(input.cursor !== undefined && { cursor: input.cursor })
+                ...(input.starting_after !== undefined && { starting_after: input.starting_after })
             },
             retries: 3
         });
@@ -54,7 +54,7 @@ const action = createAction({
 
         return {
             items,
-            ...(rawResponse.next_cursor !== undefined && { next_cursor: rawResponse.next_cursor })
+            ...(rawResponse.next_starting_after !== undefined && { next_starting_after: rawResponse.next_starting_after })
         };
     }
 });

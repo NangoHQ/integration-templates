@@ -40,6 +40,7 @@ const OutputSchema = z.array(CampaignAnalyticsSchema);
 
 const action = createAction({
     description: 'Get campaign analytics',
+    version: '1.0.0',
     endpoint: { method: 'GET', path: '/actions/get-campaign-analytics' },
     input: InputSchema,
     output: OutputSchema,

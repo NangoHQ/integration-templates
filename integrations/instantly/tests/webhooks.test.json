@@ -1,0 +1,84 @@
+{
+  "nango": {
+    "batchSave": {
+      "Webhook": [
+        {
+          "id": "019f1a0f-8edd-7d8e-b8b0-d350b0d8cf95",
+          "organization": "bffdcc34-56cd-403e-a325-def96cc9d027",
+          "name": "Nango Seed Webhook B",
+          "target_hook_url": "https://webhook.site/nango-seed-b",
+          "event_type": "reply_received",
+          "timestamp_created": "2026-06-30T19:44:15.070Z",
+          "status": 1
+        },
+        {
+          "id": "019f1a0f-1a3c-7828-801d-069c4b11cf00",
+          "organization": "bffdcc34-56cd-403e-a325-def96cc9d027",
+          "name": "Nango Seed Webhook A Updated",
+          "target_hook_url": "https://webhook.site/nango-seed-a",
+          "event_type": "email_sent",
+          "timestamp_created": "2026-06-30T19:43:45.213Z",
+          "status": 1
+        }
+      ]
+    },
+    "batchDelete": {
+      "Webhook": []
+    }
+  },
+  "api": {
+    "get": {
+      "/v2/webhooks": {
+        "response": {
+          "items": [
+            {
+              "id": "019f1a0f-8edd-7d8e-b8b0-d350b0d8cf95",
+              "organization": "bffdcc34-56cd-403e-a325-def96cc9d027",
+              "target_hook_url": "https://webhook.site/nango-seed-b",
+              "timestamp_created": "2026-06-30T19:44:15.070Z",
+              "name": "Nango Seed Webhook B",
+              "event_type": "reply_received",
+              "status": 1
+            },
+            {
+              "id": "019f1a0f-1a3c-7828-801d-069c4b11cf00",
+              "organization": "bffdcc34-56cd-403e-a325-def96cc9d027",
+              "target_hook_url": "https://webhook.site/nango-seed-a",
+              "timestamp_created": "2026-06-30T19:43:45.213Z",
+              "name": "Nango Seed Webhook A Updated",
+              "event_type": "email_sent",
+              "status": 1
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 30 Jun 2026 21:16:18 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "559",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4934",
+          "x-ratelimit-reset": "1782854207",
+          "x-request-id": "1604615575340861895",
+          "etag": "W/\"22f-MTGx2p/48+IreRF8ez1dn+gK+Pg\""
+        },
+        "hash": "0221a7479e60ade82f2041c307a552d505ccb364",
+        "request": {
+          "params": {
+            "limit": "100"
+          }
+        }
+      }
+    }
+  }
+}

@@ -57,7 +57,7 @@ const action = createAction({
         let currentJob = job;
         let attempts = 0;
 
-        while (currentJob.status !== 'success' && currentJob.status !== 'failed' && attempts < MAX_POLL_ATTEMPTS) {
+        while (currentJob.status !== 'success' && currentJob.status !== 'failed' && currentJob.status !== 'cancelled' && attempts < MAX_POLL_ATTEMPTS) {
             await new Promise((resolve) => {
                 setTimeout(resolve, POLL_INTERVAL_MS);
             });
@@ -72,12 +72,21 @@ const action = createAction({
             attempts = attempts + 1;
         }
 
-        if (currentJob.status !== 'success' && currentJob.status !== 'failed') {
+        if (currentJob.status !== 'success' && currentJob.status !== 'failed' && currentJob.status !== 'cancelled') {
             throw new nango.ActionError({
                 type: 'timeout',
                 message: 'Background job did not complete within the expected polling window.',
                 job_id: currentJob.id,
                 status: currentJob.status,
+                progress: currentJob.progress
+            });
+        }
+
+        if (currentJob.status === 'cancelled') {
+            throw new nango.ActionError({
+                type: 'job_cancelled',
+                message: 'Background job to enable warmup was cancelled.',
+                job_id: currentJob.id,
                 progress: currentJob.progress
             });
         }

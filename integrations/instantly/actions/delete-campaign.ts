@@ -15,7 +15,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: [],
+    scopes: ['campaigns:delete', 'campaigns:all', 'all:delete', 'all:all'],
     endpoint: {
         path: '/actions/delete-campaign',
         method: 'POST'

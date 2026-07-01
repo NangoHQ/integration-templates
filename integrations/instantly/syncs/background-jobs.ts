@@ -16,7 +16,7 @@ const BackgroundJobSchema = z.object({
 });
 
 const CheckpointSchema = z.object({
-    created_after: z.string()
+    starting_after: z.string()
 });
 
 const sync = createSync({
@@ -37,13 +37,13 @@ const sync = createSync({
 
     exec: async (nango) => {
         const rawCheckpoint = await nango.getCheckpoint();
-        let createdAfter: string | undefined;
+        let startingAfter: string | undefined;
         if (rawCheckpoint != null) {
             const checkpointResult = CheckpointSchema.safeParse(rawCheckpoint);
             if (!checkpointResult.success) {
                 throw new Error(`Invalid checkpoint: ${checkpointResult.error.message}`);
             }
-            createdAfter = checkpointResult.data.created_after;
+            startingAfter = checkpointResult.data.starting_after;
         }
 
         const proxyConfig: ProxyConfiguration = {
@@ -53,7 +53,7 @@ const sync = createSync({
                 sort_column: 'created_at',
                 sort_order: 'asc',
                 limit: 100,
-                ...(createdAfter && { starting_after: createdAfter })
+                ...(startingAfter && { starting_after: startingAfter })
             },
             paginate: {
                 type: 'cursor',
@@ -86,7 +86,7 @@ const sync = createSync({
                 continue;
             }
             await nango.saveCheckpoint({
-                created_after: lastJob.created_at
+                starting_after: lastJob.id
             });
         }
     }
